@@ -1,0 +1,49 @@
+schema_version: 2
+id: materialtwin_web
+name: MaterialTwin Web
+version: 0.1.0
+owner: cae-automation
+status: draft
+app_type: web_app
+execution_target: linux_runner
+
+description: |
+  쯔윅(Zwick/Roell testXpert) 시험기의 원본 시험 데이터를 업로드받아 DB를 구축하고,
+  재료 물성(material properties)을 구축·관리하는 풀스택 플랫폼. 인장시험부터 시작한다.
+  fastapi_react 스택 기반 — TypeScript Vite+React 프론트엔드 + FastAPI 백엔드를
+  하나의 SIF로 묶고, 서브경로(/apps/<slug>/)에서 자산·API가 깨지지 않도록
+  "상대경로" 전략을 코드로 박아 둔다:
+    - Vite base: "./"   → 번들 자산 URL 이 전부 상대경로 (서브경로 무관)
+    - fetch("api/...")  → 현재 페이지 기준 상대경로 → 자동으로 /apps/<slug>/api/...
+    - FastAPI 가 frontend/dist 를 StaticFiles 로 "/" 에 마운트 (/api/* 가 먼저 선언)
+
+tags:
+  - materials
+  - tensile-test
+  - zwick
+  - fullstack
+  - react
+  - fastapi
+
+build:
+  stack: fastapi_react
+
+launch:
+  mode: service
+  # fastapi_react 스택의 기본 entrypoint(uvicorn ... --root-path $ROOT_PATH)를 쓴다.
+  # 커스텀이 필요할 때만 command 를 지정.
+
+health_check:
+  path: /api/health
+
+restart_policy:
+  policy: on_failure
+  max_retries: 3
+
+permissions:
+  visibility: team
+
+resources:
+  cpu: 1
+  memory_gb: 1
+  gpu: false
