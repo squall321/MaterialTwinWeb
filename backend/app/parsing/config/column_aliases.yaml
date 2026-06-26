@@ -1,0 +1,27 @@
+# 헤더 별칭 → ColumnRole. 독일어 정확 문자열은 D2 샘플 후 확정(현재는 명백한 보편값만).
+# 구조: roles.<role> = [별칭...] (소문자/부분일치, 단위표기는 매핑 시 분리됨).
+roles:
+  time:
+    - time
+    - zeit
+  force:
+    - force
+    - load
+    - kraft  # 명백(독일어 '힘')
+  displacement:        # crosshead 변위
+    - displacement
+    - crosshead
+    - stroke
+    - standardweg      # 명백(testXpert crosshead) — D2 샘플 후 확정
+    - weg
+  extension:           # 신율계(extensometer)
+    - extension
+    - elongation
+    - verlängerung     # 명백(독일어 '신장') — D2 샘플 후 확정
+  strain:
+    - strain
+    - dehnung          # 명백(독일어 '변형률')
+  stress:
+    - stress
+    - spannung         # 명백(독일어 '응력')
+# 비고: testXpert export의 정확한 헤더 문자열/단위행 위치는 # D2 샘플 후 확정.
