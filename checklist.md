@@ -12,44 +12,44 @@
 - [ ] **D2** testXpert 샘플 파일 2~3개 확보 — ZwickText는 그 전까지 GenericCsv+독일별칭 wrapper(★C12)
 
 ## Phase 1 — 백엔드 골격
-- [ ] `app/config.py` pydantic-settings (DATABASE_URL, DATA_DIR=`./var/data`, MAX_UPLOAD_MB) + **DATA_DIR 미주입 시 폴백 WARNING 로그**(★C7)
-- [ ] `app/db.py` engine/SessionLocal/Base/get_db + **PRAGMA foreign_keys=ON** + **journal_mode=WAL + busy_timeout=5000**(★C2 치명)
-- [ ] `app/models.py` 5테이블 (material/specimen/test/raw_curve_ref/processed_result) + CHECK 제약. material에 nullable `owner_id` 슬롯만 예약(★C15 D8)
-- [ ] `app/schemas.py` Pydantic v2 DTO
-- [ ] `app/units.py` SI 정규화/표시변환 단일 모듈
-- [ ] `app/main.py` 얇은 create_app() 으로 교체 (인메모리 `_tasks` 스캐폴드 삭제, StaticFiles 마운트 유지)
-- [ ] `app/routers/` (health, materials, specimens, uploads, properties) + `api_router`
-- [ ] pyproject 의존성 추가 (sqlalchemy, numpy, pandas, pyarrow, pydantic-settings, python-multipart, charset-normalizer, pyyaml)
-- [ ] `init_db()` create_all() 동작 확인
+- [x] `app/config.py` pydantic-settings (DATABASE_URL, DATA_DIR=`./var/data`, MAX_UPLOAD_MB) + **DATA_DIR 미주입 시 폴백 WARNING 로그**(★C7)
+- [x] `app/db.py` engine/SessionLocal/Base/get_db + **PRAGMA foreign_keys=ON** + **journal_mode=WAL + busy_timeout=5000**(★C2 치명)
+- [x] `app/models.py` 5테이블 (material/specimen/test/raw_curve_ref/processed_result) + CHECK 제약. material에 nullable `owner_id` 슬롯만 예약(★C15 D8)
+- [x] `app/schemas.py` Pydantic v2 DTO
+- [x] `app/units.py` SI 정규화/표시변환 단일 모듈
+- [x] `app/main.py` 얇은 create_app() 으로 교체 (인메모리 `_tasks` 스캐폴드 삭제, StaticFiles 마운트 유지)
+- [x] `app/routers/` (health, materials, specimens, uploads, properties) + `api_router`
+- [x] pyproject 의존성 추가 (sqlalchemy, numpy, pandas, pyarrow, pydantic-settings, python-multipart, charset-normalizer, pyyaml)
+- [x] `init_db()` create_all() 동작 확인
 
 ## Phase 1 — 파서 서브시스템
-- [ ] `app/parsing/base.py` dataclass(ParseResult+**confidence**/ParsedSpecimen/ColumnSpec/ParseIssue) + ParserBase. **parse 성공 ≠ 계산 허가**(★C5): confidence 낮거나 미해결 INFO면 "확인 필요" 상태
-- [ ] `app/parsing/registry.py` sniff — **절대 임계(0.3) 대신 상대 규칙**(1등이 2등과 유의분리/필수 시그니처 충족, ★C5). 상수 쓰면 config화+placeholder 주석
-- [ ] `app/parsing/column_map.py` ColumnRole + resolve_columns()
-- [ ] `app/parsing/validate.py` 물리 검증 + **오매핑 가드**(단조성·채널 상관·자릿수, ★C5)
-- [ ] `app/parsing/parsers/generic_csv.py`
-- [ ] `app/parsing/parsers/zwick_textxpert.py` — **GenericCsv+독일별칭 프리셋 wrapper로 축소**(★C12). 다중시편 분기 P1 제거(파일분리만), 5.3b 헤더/단위행은 `# ASSUMPTION, needs D2` 스텁
-- [ ] `app/parsing/config/column_aliases.yaml` (형식만 + 엔트리 비움, D2 후 채움)
-- [ ] 합성 픽스처 단위테스트 (독일식 소수점/`;`/움라우트/단위행, parse 예외 0건)
+- [x] `app/parsing/base.py` dataclass(ParseResult+**confidence**/ParsedSpecimen/ColumnSpec/ParseIssue) + ParserBase. **parse 성공 ≠ 계산 허가**(★C5): confidence 낮거나 미해결 INFO면 "확인 필요" 상태
+- [x] `app/parsing/registry.py` sniff — **절대 임계(0.3) 대신 상대 규칙**(1등이 2등과 유의분리/필수 시그니처 충족, ★C5). 상수 쓰면 config화+placeholder 주석
+- [x] `app/parsing/column_map.py` ColumnRole + resolve_columns()
+- [x] `app/parsing/validate.py` 물리 검증 + **오매핑 가드**(단조성·채널 상관·자릿수, ★C5)
+- [x] `app/parsing/parsers/generic_csv.py`
+- [x] `app/parsing/parsers/zwick_textxpert.py` — **GenericCsv+독일별칭 프리셋 wrapper로 축소**(★C12). 다중시편 분기 P1 제거(파일분리만), 5.3b 헤더/단위행은 `# ASSUMPTION, needs D2` 스텁
+- [x] `app/parsing/config/column_aliases.yaml` (형식만 + 엔트리 비움, D2 후 채움)
+- [x] 합성 픽스처 단위테스트 (독일식 소수점/`;`/움라우트/단위행, parse 예외 0건)
 
 ## Phase 1 — 적재 & 곡선 저장
-- [ ] `app/curve_store.py` Parquet(zstd) I/O + LTTB 다운샘플
-- [ ] `app/ingest.py` 업로드→파서→units 정규화→검증→DB적재→Parquet 저장. **Parquet 쓰기는 DB 트랜잭션 밖**(★C2)
-- [ ] 곡선 경로 **`DATA_DIR/curves/{test_id}.parquet`**(불변 키만, ★C4), DB엔 상대경로만
-- [ ] 쓰기 프로토콜 `.tmp.{uuid}` → fsync → **atomic rename** → INSERT 커밋(★C4)
-- [ ] **부팅 reaper** — `init_db()` 직후 고아 `.parquet/.tmp` 삭제, 파일 없는 포인터 `storage='missing'` 마킹(★C4)
-- [ ] 삭제 시 파일 앱레이어 정리 (CASCADE는 파일 못 지움)
-- [ ] **양 DB FK CASCADE 테스트** (SQLite)
+- [x] `app/curve_store.py` Parquet(zstd) I/O + LTTB 다운샘플
+- [x] `app/ingest.py` 업로드→파서→units 정규화→검증→DB적재→Parquet 저장. **Parquet 쓰기는 DB 트랜잭션 밖**(★C2)
+- [x] 곡선 경로 **`DATA_DIR/curves/{test_id}.parquet`**(불변 키만, ★C4), DB엔 상대경로만
+- [x] 쓰기 프로토콜 `.tmp.{uuid}` → fsync → **atomic rename** → INSERT 커밋(★C4)
+- [x] **부팅 reaper** — `init_db()` 직후 고아 `.parquet/.tmp` 삭제, 파일 없는 포인터 `storage='missing'` 마킹(★C4)
+- [x] 삭제 시 파일 앱레이어 정리 (CASCADE는 파일 못 지움)
+- [x] **양 DB FK CASCADE 테스트** (SQLite)
 
 ## Phase 1 — 물성 계산 (analysis.py, numpy만)
-- [ ] **σ-ε 골든 픽스처 1개**(선형+멱법칙) 작성 — 정확도 게이트의 기준(★C3)
-- [ ] 영률 E (toe보정 ON, 절편포함 회귀, **R² confidence 등급 high/ok/low — 거부 아님**, 고정구간+수동조정, params에 구간·R²·confidence 반환)(★C1)
-- [ ] **폴리머 분기**: `category='polymer'`는 secant modulus(0.05~0.25%) 또는 1% offset(★C1)
-- [ ] 0.2% offset Rp0.2 (offset 직선 교점, 취성 null+플래그)
-- [ ] UTS(Rm), 균일연신율 Ag, 파단연신율 A, 단면감소율 Z(Af 있을 때)
-- [ ] Hollomon n/K (log-log 회귀)
-- [ ] strain_source 결정 (extensometer 우선 / crosshead 플래그)
-- [ ] `ProcessingParams` Pydantic 모델 + `schema_version:int`(raw dict 금지, ★C10)
+- [x] **σ-ε 골든 픽스처 1개**(선형+멱법칙) 작성 — 정확도 게이트의 기준(★C3)
+- [x] 영률 E (toe보정 ON, 절편포함 회귀, **R² confidence 등급 high/ok/low — 거부 아님**, 고정구간+수동조정, params에 구간·R²·confidence 반환)(★C1)
+- [x] **폴리머 분기**: `category='polymer'`는 secant modulus(0.05~0.25%) 또는 1% offset(★C1)
+- [x] 0.2% offset Rp0.2 (offset 직선 교점, 취성 null+플래그)
+- [x] UTS(Rm), 균일연신율 Ag, 파단연신율 A, 단면감소율 Z(Af 있을 때)
+- [x] Hollomon n/K (log-log 회귀)
+- [x] strain_source 결정 (extensometer 우선 / crosshead 플래그)
+- [x] `ProcessingParams` Pydantic 모델 + `schema_version:int`(raw dict 금지, ★C10)
 
 ## Phase 1 — 프론트엔드 (디자인 시스템은 §14 SSOT 준수)
 - [ ] 의존성 설치 (echarts, TanStack Router/Query, react-hook-form+zod, sonner, shadcn 핵심, tailwind, @fontsource/inter)
@@ -66,9 +66,10 @@
 - [ ] self-host 폰트 (CDN 금지)
 
 ## Phase 1 — 통합 검증 (완료기준, ★C3 게이트)
-- [ ] [정확도] 골든 픽스처 → E ±2%, Rp0.2 ±2MPa, UTS ±0.5% (pytest assert)
-- [ ] [brush] 구간 POST = numpy polyfit 일치, low-confidence는 거부 아닌 플래그
-- [ ] [graceful] 깨진 인코딩/콤마소수점/움라우트 → parse 예외 0건 + ParseIssue 수집
-- [ ] [서브경로] 자산 전부 `./assets/`(절대경로 grep 0), `/apps/test-slug/` 새로고침 200 + **슬래시 없는 진입 1개**(★C6)
-- [ ] [reaper] 부팅 스윕 고아 파일 삭제
-- [ ] `/api/health` 200, WCAG AA 대비 스폿체크(§14.7)
+- [x] [정확도] 골든 픽스처 → E ±2%, Rp0.2 ±2MPa, UTS ±0.5% (pytest assert) — test_analysis_accuracy 통과
+- [x] [brush] 구간 POST = numpy polyfit 일치, low-confidence는 거부 아닌 플래그 — test_api 통과
+- [x] [graceful] 깨진 인코딩/콤마소수점/움라우트 → parse 예외 0건 + ParseIssue 수집 — test_parsing 통과
+- [ ] [서브경로] 자산 전부 `./assets/`(절대경로 grep 0), `/apps/test-slug/` 새로고침 200 + **슬래시 없는 진입 1개**(★C6) — 프론트 빌드 후
+- [x] [reaper] 부팅 스윕 고아 파일 삭제 — test_ingest 통과
+- [x] `/api/health` 200 (test_api) | [ ] WCAG AA 대비 스폿체크(§14.7) — 프론트 후
+- [x] **pytest 22개 전부 통과 (python3.10)**
