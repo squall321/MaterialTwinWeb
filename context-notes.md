@@ -34,3 +34,29 @@
 - `main.py`는 아직 템플릿 원본(인메모리 Task CRUD) 그대로다. Phase 1 백엔드 골격 착수 시 교체 예정 — 계획 확정 전 미리 짜면 어긋나서 의도적으로 보류함.
 - git push 보류 (gh 미인증). 사람이 `gh auth login` 후 `git push -u origin main`.
 - D5(FE 카드 타깃 MAT: *MAT_024 우선/*MAT_098)는 Phase 3 착수 전 확정.
+
+## 2026-06-26 — 적대적 보증(§13) + 프리미엄 UX/UI(§14) 보강
+
+### 방법
+Workflow로 **적대적 공격(5) + 디자인 토너먼트(3) → 중립 심판(2) → 부록 종합(2)**, 12 에이전트 ~663k 토큰. 공격자가 실제로 합성 σ-ε 곡선을 측정(`scratchpad/verify.py`)하고 Starlette 0.50 소스·HEAXHub 런처 코드(`integration_launcher.py`, `stacks.yaml`)를 **직접 열람**해 검증 → 기존 계획의 "실측" 라벨이 사실은 LLM 추론이었음을 폭로하고, 일부는 합성측정으로 재확인.
+
+### 본문에 반영한 치명/높음 (C-id, §13 부록이 SSOT)
+- **C1【치명 최우선】** R²<0.99 **하드거부 폐기** → confidence 등급(high/ok/low)으로 강등, 값 항상 반환. 폴리머는 secant modulus 분기. (안 고치면 노이즈·폴리머에서 사용자가 물성을 영영 못 받음 = 제품 파괴.) §6.1·§9·§12 수정.
+- **C2【치명】** SQLite 동시성 — 런처 단일 워커 내 동시 업로드가 `SQLITE_BUSY→500`. `journal_mode=WAL`+`busy_timeout=5000` 신설, Parquet 쓰기는 트랜잭션 밖. §4.5 수정.
+- **C3【치명】** P1 완료기준에 **골든 픽스처 + 수치 정확도 게이트**(E ±2%, Rp0.2 ±2MPa, UTS ±0.5%). 기존엔 "동작함"뿐이라 E 틀려도 통과했음. §9 수정.
+- **C4【높음】** 곡선 경로에서 가변 `material_id` 제거 → 불변 `test_id`만. atomic rename + 부팅 reaper. §4.4 수정.
+- **C5【높음】** graceful 재정의: 파싱 성공 ≠ 계산 허가. 오매핑(단조성·채널상관·자릿수) 가드. sniff 절대임계 0.3 → 상대규칙.
+- **C6【치명】** 런처는 `/apps/slug/`(trailing slash) 서빙 필수 — 없으면 첫 fetch가 `/apps/api/...`로 깨짐(RFC 3986). §3.1 계약 추가.
+- **C7** D1 재기술: 런처가 추가 바인드 미지원(`cleanenv=True`) → "manifest만 고치면 됨"이 아니라 플랫폼 선결 과제.
+
+### 생존(공격에도 안 무너져 유지) — 재확신
+§6 "scipy 불필요(numpy만)", §4.4 Parquet+포인터 전략, LTTB 2000점. 합성측정 통과.
+
+### 디자인 확정(§14)
+- **다크 우선**, primary=calibration blue `#3B82F6`, accent=signal green `#34D399`, 딱 두 강조색.
+- 토큰 SSOT = `index.css` CSS 변수(`:root`+`.light`), Okabe-Ito 색맹안전 8색, ECharts는 `getComputedStyle` 브리지로 색 주입(canvas는 CSS변수 못 읽음).
+- 방향 A(정밀계측) 기반 + B(에디토리얼 서사·상태) + C(모션·접근성) 이식. framer-motion 없이 CSS/WAAPI.
+- 무드: "어두운 계측 패널 위 데이터 발광, 발견의 서사, 바늘이 값에 꽂히듯 절제된 반응."
+
+### 다음
+사용자 지시로 **백엔드 전체를 백그라운드로 구현** 진행(범위=백엔드 전체, D1=./var/data 폴백, D2=합성 픽스처, ZwickText=wrapper 스텁).
