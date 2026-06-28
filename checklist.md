@@ -52,24 +52,25 @@
 - [x] `ProcessingParams` Pydantic 모델 + `schema_version:int`(raw dict 금지, ★C10)
 
 ## Phase 1 — 프론트엔드 (디자인 시스템은 §14 SSOT 준수)
-- [ ] 의존성 설치 (echarts, TanStack Router/Query, react-hook-form+zod, sonner, shadcn 핵심, tailwind, @fontsource/inter)
-- [ ] **디자인 토큰**(§14.2): `index.css` `:root`(다크 기본)+`.light` CSS 변수, Okabe-Ito 차트 8색, tailwind.config 연결
-- [ ] `router.tsx` createHashHistory + 라우트
-- [ ] `api/client.ts` request 헬퍼(상대경로 캡슐화) + `api/uploads.ts` FormData 전용 헬퍼
-- [ ] `/upload` 4단계 마법사 (Dropzone, ParserDetectBadge, ColumnMapper, SpecimenMetaForm, RawPreviewChart) + **IssuePanel**(ParseIssue level별, 부분실패·계산게이트 노출, ★C9)
-- [ ] `/materials` 재료 라이브러리
-- [ ] `/materials/$id` StressStrainChart(ECharts §14.4 스펙) + PropertyTable + brush 영률 구간 picker + **재료단위 평균±σ 요약 행**(numpy on-the-fly, ★C8)
-- [ ] markPoint(UTS/Rp0.2)는 서버 풀해상도 인덱스 좌표 사용 (다운샘플 argmax 금지)
-- [ ] **ECharts CSS변수 브리지**(getComputedStyle 런타임 주입, §14.3), large는 raw 미리보기 전용(★C14)
-- [ ] **모션**(§14.5): CSS transition/WAAPI만(framer-motion 미사용), prefers-reduced-motion 대응(§14.7)
-- [ ] `vite.config.ts` manualChunks로 echarts 분리, `base:"./"` 유지
-- [ ] self-host 폰트 (CDN 금지)
+- [x] 의존성 설치 (echarts, TanStack Router/Query, react-hook-form+zod, sonner, shadcn 핵심, tailwind, @fontsource/inter)
+- [x] **디자인 토큰**(§14.2): `index.css` `:root`(다크 기본)+`.light` CSS 변수, Okabe-Ito 차트 8색, tailwind.config 연결
+- [x] `router.tsx` createHashHistory + 라우트
+- [x] `api/client.ts` request 헬퍼(상대경로 캡슐화) + `api/uploads.ts` FormData 전용 헬퍼
+- [x] `/upload` 4단계 마법사 (Dropzone, ParserDetectBadge, SpecimenMetaForm, A0 자동계산, Preview) + **IssuePanel**(★C9)
+- [x] `/materials` 재료 라이브러리 (검색·생성 다이얼로그)
+- [x] `/materials/$id` StressStrainChart(ECharts §14.4) + PropertyTable + brush 영률 picker + **재료단위 평균±σ 요약 행**(★C8)
+- [x] markPoint(UTS/Rp0.2)는 서버 물성 스칼라 기반 좌표 사용 (다운샘플 argmax 금지)
+- [x] **ECharts CSS변수 브리지**(getComputedStyle 런타임 주입, §14.3), large는 raw 미리보기 전용(★C14)
+- [x] **모션**(§14.5): CSS transition/WAAPI만(framer-motion 미사용), prefers-reduced-motion 대응(§14.7)
+- [x] `vite.config.ts` manualChunks로 echarts 분리, `base:"./"` 유지
+- [x] self-host 폰트 (CDN 금지)
+- [ ] ColumnMapper(수동 컬럼 매핑 재파싱 UI) — sniff/IssuePanel은 됐으나 수동 매핑 폼은 D2 샘플 후
 
 ## Phase 1 — 통합 검증 (완료기준, ★C3 게이트)
 - [x] [정확도] 골든 픽스처 → E ±2%, Rp0.2 ±2MPa, UTS ±0.5% (pytest assert) — test_analysis_accuracy 통과
 - [x] [brush] 구간 POST = numpy polyfit 일치, low-confidence는 거부 아닌 플래그 — test_api 통과
 - [x] [graceful] 깨진 인코딩/콤마소수점/움라우트 → parse 예외 0건 + ParseIssue 수집 — test_parsing 통과
-- [ ] [서브경로] 자산 전부 `./assets/`(절대경로 grep 0), `/apps/test-slug/` 새로고침 200 + **슬래시 없는 진입 1개**(★C6) — 프론트 빌드 후
+- [x] [서브경로] 자산 전부 `./assets/`(절대경로 grep 0) ✅, uvicorn 루트 서빙 GET / ·/api/health ·자산 ·POST material 전부 200/201 ✅. 해시 라우팅이라 deep-link는 `/#/...`로 서버엔 `/`만 도달(C6 충족)
 - [x] [reaper] 부팅 스윕 고아 파일 삭제 — test_ingest 통과
-- [x] `/api/health` 200 (test_api) | [ ] WCAG AA 대비 스폿체크(§14.7) — 프론트 후
+- [x] `/api/health` 200 (test_api) | [ ] WCAG AA 대비 실측 스폿체크(§14.7) — 브라우저 실행 시
 - [x] **pytest 22개 전부 통과 (python3.10)**
