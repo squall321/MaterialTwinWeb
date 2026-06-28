@@ -1,0 +1,217 @@
+// 재료 라이브러리(/materials, §14.3.2) — 검색·재료 카드 그리드·새 재료 생성 다이얼로그.
+import * as React from "react";
+import { Link, useNavigate } from "@tanstack/react-router";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { Library, Plus, Search, ArrowRight } from "lucide-react";
+import { toast } from "sonner";
+import {
+  listMaterials,
+  createMaterial,
+  type Material,
+  type MaterialIn,
+} from "../api/materials";
+import { Button } from "../components/ui/button";
+import { Input } from "../components/ui/input";
+import { Card } from "../components/ui/card";
+import { Badge } from "../components/ui/badge";
+import { Label } from "../components/ui/label";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogFooter,
+  DialogClose,
+} from "../components/ui/dialog";
+import { EmptyState } from "../components/states/EmptyState";
+import { ErrorState } from "../components/states/ErrorState";
+import { TableSkeleton } from "../components/states/Skeletons";
+
+export function MaterialsScreen() {
+  const [q, setQ] = React.useState("");
+  const [debouncedQ, setDebouncedQ] = React.useState("");
+
+  // 검색어 디바운스(250ms) — 타이핑마다 요청 방지.
+  React.useEffect(() => {
+    const t = setTimeout(() => setDebouncedQ(q), 250);
+    return () => clearTimeout(t);
+  }, [q]);
+
+  const query = useQuery({
+    queryKey: ["materials", debouncedQ],
+    queryFn: () => listMaterials({ q: debouncedQ || undefined, size: 100 }),
+  });
+
+  return (
+    <div className="flex flex-col gap-6">
+      <header className="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p className="text-overline">재료 라이브러리</p>
+          <h1 className="mt-1 text-2xl font-semibold tracking-[-0.01em] text-text-primary">
+            재료
+          </h1>
+        </div>
+        <NewMaterialDialog />
+      </header>
+
+      <div className="relative max-w-sm">
+        <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-text-tertiary" />
+        <Input
+          value={q}
+          onChange={(e) => setQ(e.target.value)}
+          placeholder="재료명·코드 검색"
+          className="pl-9"
+          aria-label="재료 검색"
+        />
+      </div>
+
+      {query.isPending ? (
+        <TableSkeleton rows={4} cols={4} />
+      ) : query.isError ? (
+        <ErrorState onRetry={() => query.refetch()} />
+      ) : query.data.items.length === 0 ? (
+        <EmptyState
+          icon={<Library className="size-6" />}
+          title={debouncedQ ? "검색 결과 없음" : "아직 재료가 없습니다"}
+          description={
+            debouncedQ
+              ? "다른 검색어를 시도하거나 새 재료를 추가하세요."
+              : "첫 재료를 추가하고 시험 데이터를 업로드하세요."
+          }
+          action={<NewMaterialDialog />}
+        />
+      ) : (
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {query.data.items.map((m) => (
+            <MaterialCard key={m.id} material={m} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function MaterialCard({ material }: { material: Material }) {
+  return (
+    <Link to="/materials/$id" params={{ id: String(material.id) }}>
+      <Card className="group h-full cursor-pointer p-4 transition-colors duration-[160ms] hover:border-border-strong">
+        <div className="flex items-start justify-between gap-2">
+          <div className="min-w-0">
+            <p className="truncate font-medium text-text-primary">{material.name}</p>
+            {material.material_code && (
+              <p className="tnum mt-0.5 truncate text-xs text-text-tertiary">
+                {material.material_code}
+              </p>
+            )}
+          </div>
+          <ArrowRight className="size-4 shrink-0 text-text-tertiary transition-transform duration-[160ms] group-hover:translate-x-0.5 group-hover:text-text-secondary" />
+        </div>
+        {material.category && (
+          <div className="mt-3">
+            <Badge>{material.category}</Badge>
+          </div>
+        )}
+      </Card>
+    </Link>
+  );
+}
+
+function NewMaterialDialog() {
+  const qc = useQueryClient();
+  const navigate = useNavigate();
+  const [open, setOpen] = React.useState(false);
+  const [form, setForm] = React.useState<MaterialIn>({ name: "" });
+
+  const mut = useMutation({
+    mutationFn: () => createMaterial(form),
+    onSuccess: (m) => {
+      qc.invalidateQueries({ queryKey: ["materials"] });
+      toast.success(`재료 "${m.name}" 생성됨`);
+      setOpen(false);
+      setForm({ name: "" });
+      navigate({ to: "/materials/$id", params: { id: String(m.id) } });
+    },
+    onError: (e) => toast.error(e instanceof Error ? e.message : "생성 실패"),
+  });
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button>
+          <Plus className="size-4" />
+          새 재료
+        </Button>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>새 재료 추가</DialogTitle>
+        </DialogHeader>
+        <form
+          className="flex flex-col gap-4"
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (form.name.trim()) mut.mutate();
+          }}
+        >
+          <Field label="재료명" required>
+            <Input
+              value={form.name}
+              onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
+              placeholder="예: AL6061-T6"
+              autoFocus
+            />
+          </Field>
+          <Field label="재료 코드">
+            <Input
+              value={form.material_code ?? ""}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, material_code: e.target.value || null }))
+              }
+              placeholder="선택"
+            />
+          </Field>
+          <Field label="분류">
+            <Input
+              value={form.category ?? ""}
+              onChange={(e) =>
+                setForm((f) => ({ ...f, category: e.target.value || null }))
+              }
+              placeholder="metal / polymer / composite"
+            />
+          </Field>
+          <DialogFooter>
+            <DialogClose asChild>
+              <Button type="button" variant="ghost">
+                취소
+              </Button>
+            </DialogClose>
+            <Button type="submit" disabled={!form.name.trim() || mut.isPending}>
+              {mut.isPending ? "생성 중…" : "생성"}
+            </Button>
+          </DialogFooter>
+        </form>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+function Field({
+  label,
+  required,
+  children,
+}: {
+  label: string;
+  required?: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="flex flex-col gap-1.5">
+      <Label>
+        {label}
+        {required && <span className="ml-0.5 text-danger">*</span>}
+      </Label>
+      {children}
+    </div>
+  );
+}

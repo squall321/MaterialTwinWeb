@@ -1,116 +1,321 @@
+/* PLAN §14.2 디자인 토큰(SSOT) + Tailwind 레이어. 다크 기본, .light 오버라이드. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", sans-serif;
-  color: #1f2937;
-  background: #f8fafc;
+  /* §14.2.1 표면·경계·텍스트 (다크 기본) */
+  --bg-base: #0a0e14;
+  --bg-surface: #0f141b;
+  --bg-surface-2: #161d27;
+  --bg-inset: #070a0f;
+  --border-subtle: #1c2530;
+  --border-default: #26303d;
+  --border-strong: #37424f;
+  --text-primary: #e6ebf2;
+  --text-secondary: #9aa7b8;
+  --text-tertiary: #5e6b7d;
+  --text-disabled: #3a4452;
+
+  /* §14.2.2 primary / accent / semantic (다크) */
+  --primary: #3b82f6;
+  --primary-hover: #5c9aff;
+  --primary-muted: #1a2b45;
+  --primary-fg: #0a0e14;
+  --accent: #34d399;
+  --accent-hover: #5eeab0;
+  --accent-muted: #0f2b22;
+  --success: #22c55e;
+  --warning: #f0a92c;
+  --danger: #ef4444;
+  --info: #38bdf8;
+  --focus-ring: #3b82f6;
+
+  /* §14.2.4 차트 색맹안전 8색 (다크) */
+  --chart-1: #56b4e9;
+  --chart-2: #e69f00;
+  --chart-3: #009e73;
+  --chart-4: #ff6b57;
+  --chart-5: #b07aff;
+  --chart-6: #f0e442;
+  --chart-7: #e37bb0;
+  --chart-8: #7d93a8;
+
+  /* §14.2.5 차트 구조 토큰 (다크) */
+  --chart-grid: #18212c;
+  --chart-grid-minor: #10171f;
+  --chart-axis: #3a4654;
+  --chart-crosshair: #5c9aff;
+  --chart-regression: #3b82f6;
+  --chart-marker-uts: #34d399;
+  --chart-marker-yield: #f0a92c;
+  --chart-brush-fill: rgba(59, 130, 246, 0.1);
+  --chart-brush-stroke: rgba(92, 154, 255, 0.45);
+  --chart-toe-ghost: rgba(154, 167, 184, 0.25);
+
+  /* §14.2.6 타이포그래피 폰트 스택 */
+  --font-ui: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "Inter", ui-monospace, "SF Mono", "Cascadia Mono", Menlo, monospace;
+
+  /* §14.2.7 spacing scale (4px 기반, 8px 리듬) */
+  --sp-0: 0;
+  --sp-1: 2px;
+  --sp-2: 4px;
+  --sp-3: 6px;
+  --sp-4: 8px;
+  --sp-5: 12px;
+  --sp-6: 16px;
+  --sp-7: 20px;
+  --sp-8: 24px;
+  --sp-9: 32px;
+  --sp-10: 40px;
+  --sp-11: 48px;
+  --sp-12: 64px;
+  --sp-14: 96px;
+
+  /* §14.2.7 radius */
+  --radius-xs: 3px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-full: 9999px;
+
+  /* §14.2.7 elevation */
+  --elev-0: none;
+  --elev-1: 0 0 0 1px var(--border-default), 0 1px 2px rgba(0, 0, 0, 0.4);
+  --elev-2: 0 0 0 1px var(--border-default), 0 4px 12px -2px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  --elev-3: 0 0 0 1px var(--border-strong), 0 12px 32px -8px rgba(0, 0, 0, 0.7);
+  --inset-well: inset 0 1px 2px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px var(--border-subtle);
+
+  /* §14.2.8 모션 토큰 */
+  --mo-dur-instant: 90ms;
+  --mo-dur-fast: 130ms;
+  --mo-dur-base: 220ms;
+  --mo-dur-slow: 360ms;
+  --mo-dur-deliberate: 560ms;
+  --mo-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --mo-ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+  --mo-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --mo-ease-snap: cubic-bezier(0.5, 0, 0, 1);
+  --mo-ease-emphasis: cubic-bezier(0.34, 1.2, 0.64, 1);
 }
 
-* {
-  box-sizing: border-box;
+/* §14.2.3 라이트 토큰 (보고서/주광용, WCAG AA 튜닝) */
+.light {
+  --bg-base: #f4f6f9;
+  --bg-surface: #ffffff;
+  --bg-surface-2: #fbfcfe;
+  --bg-inset: #f0f3f7;
+  --border-subtle: #e6eaf0;
+  --border-default: #d4dae3;
+  --border-strong: #b4bdca;
+  --text-primary: #16202c;
+  --text-secondary: #46566a;
+  --text-tertiary: #697789;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --accent: #0f9d6b;
+  --warning: #b7791f;
+  --danger: #dc2626;
+
+  /* §14.2.4 차트 8색 (라이트) */
+  --chart-1: #1b7fc4;
+  --chart-2: #c77f00;
+  --chart-3: #00805c;
+  --chart-4: #d94a36;
+  --chart-5: #7c4dd6;
+  --chart-6: #9a8e00;
+  --chart-7: #c13c82;
+  --chart-8: #5a6f84;
+
+  /* §14.2.5 차트 구조 토큰 (라이트) */
+  --chart-grid: #e9edf3;
+  --chart-grid-minor: #f1f4f8;
+  --chart-axis: #aeb8c6;
+  --chart-crosshair: #2563eb;
+  --chart-regression: #2563eb;
+  --chart-marker-uts: #0f9d6b;
+  --chart-marker-yield: #b7791f;
+  --chart-brush-fill: rgba(37, 99, 235, 0.08);
+  --chart-brush-stroke: rgba(37, 99, 235, 0.4);
+  --chart-toe-ghost: rgba(70, 86, 106, 0.22);
 }
 
-body {
-  margin: 0;
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-ui);
+    background: var(--bg-base);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* §14.7 focus 링 — :focus-visible 한정, 즉시, 대비 3:1 */
+  :where(button, a, [role="button"], input, select, [tabindex]):focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+    border-radius: inherit;
+  }
+
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
 }
 
-.container {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 2.5rem 1.25rem;
+@layer utilities {
+  /* §14.2.6 계측기 표시판 — 모든 숫자 셀에 강제 */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1, "cv01" 1, "cv02" 1, "ss01" 1;
+    letter-spacing: 0.01em;
+  }
+
+  /* §14.1 헌법2 — 섹션을 여는 overline 에이브라우 라벨 */
+  .text-overline {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-tertiary);
+  }
 }
 
-header h1 {
-  margin: 0 0 0.5rem;
-  font-size: 1.5rem;
+/* §14.5 오버레이/팝오버 모션 — tailwindcss-animate 미사용, 순수 CSS 키프레임. */
+@keyframes mt-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes mt-overlay-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes mt-content-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes mt-content-out {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.96);
+  }
+}
+@keyframes mt-pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-.subtitle {
-  margin: 0 0 1.5rem;
-  color: #475569;
-  font-size: 0.95rem;
-  line-height: 1.5;
+.mt-overlay[data-state="open"] {
+  animation: mt-overlay-in var(--mo-dur-fast) var(--mo-ease-out);
+}
+.mt-overlay[data-state="closed"] {
+  animation: mt-overlay-out var(--mo-dur-fast) var(--mo-ease-in);
+}
+.mt-content[data-state="open"] {
+  animation: mt-content-in var(--mo-dur-base) var(--mo-ease-out);
+}
+.mt-content[data-state="closed"] {
+  animation: mt-content-out var(--mo-dur-fast) var(--mo-ease-in);
+}
+.mt-pop[data-state="open"] {
+  animation: mt-pop-in var(--mo-dur-fast) var(--mo-ease-out);
 }
 
-code {
-  background: #e2e8f0;
-  padding: 0.05rem 0.3rem;
-  border-radius: 3px;
-  font-size: 0.9em;
+/* §14.6.2 로딩 스켈레톤 — 레이아웃 보존 + 절제된 시머(합성 전용: background-position). */
+.skeleton {
+  background: linear-gradient(
+    100deg,
+    var(--bg-surface) 30%,
+    var(--border-default) 50%,
+    var(--bg-surface) 70%
+  );
+  background-size: 200% 100%;
+  border-radius: var(--radius-sm);
+  animation: shimmer 1.4s var(--mo-ease-inout) infinite;
+}
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
 }
 
-.add-form {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1.25rem;
+/* §14.5.2 드롭존 dragover 글로우 — box-shadow 는 ::after opacity 로(합성 60fps). */
+.dropzone {
+  position: relative;
+  border: 1.5px dashed var(--border-default);
+  transition:
+    border-color var(--mo-dur-fast) var(--mo-ease-out),
+    background var(--mo-dur-fast) var(--mo-ease-out),
+    transform var(--mo-dur-base) var(--mo-ease-snap);
+}
+.dropzone[data-state="dragover"] {
+  border-color: var(--primary);
+  background: var(--primary-muted);
+  transform: scale(1.008);
+}
+.dropzone::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  box-shadow:
+    0 0 0 1px var(--primary),
+    0 0 24px -4px var(--primary);
+  opacity: 0;
+  transition: opacity var(--mo-dur-fast) var(--mo-ease-out);
+  pointer-events: none;
+}
+.dropzone[data-state="dragover"]::after {
+  opacity: 1;
 }
 
-.add-form input {
-  flex: 1;
-  padding: 0.55rem 0.7rem;
-  border: 1px solid #cbd5e1;
-  border-radius: 6px;
-  font: inherit;
+/* §14.6.2 reduced-motion 시 시머 정지(상수 표면). */
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+    background: var(--bg-surface);
+  }
 }
 
-.add-form button {
-  padding: 0.55rem 1rem;
-  border: 0;
-  border-radius: 6px;
-  background: #2563eb;
-  color: white;
-  font: inherit;
-  cursor: pointer;
-}
-
-.add-form button:disabled {
-  background: #94a3b8;
-  cursor: not-allowed;
-}
-
-.error {
-  background: #fee2e2;
-  color: #991b1b;
-  padding: 0.6rem 0.8rem;
-  border-radius: 6px;
-}
-
-.empty {
-  color: #64748b;
-  font-style: italic;
-}
-
-.tasks {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.tasks li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.65rem 0.8rem;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
-  background: white;
-}
-
-.tasks li.done span {
-  text-decoration: line-through;
-  color: #94a3b8;
-}
-
-.tasks label {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  cursor: pointer;
-  flex: 1;
-}
-
-.tasks small {
-  color: #94a3b8;
+/* §14.7 prefers-reduced-motion 전역 차단 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
