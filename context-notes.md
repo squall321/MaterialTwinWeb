@@ -60,3 +60,10 @@ Workflow로 **적대적 공격(5) + 디자인 토너먼트(3) → 중립 심판(
 
 ### 다음
 사용자 지시로 **백엔드 전체를 백그라운드로 구현** 진행(범위=백엔드 전체, D1=./var/data 폴백, D2=합성 픽스처, ZwickText=wrapper 스텁).
+
+## 2026-06-28 — 풀스택 Phase 1 완료 + Python 3.12 확정
+
+- **프론트엔드 Phase 1 구현 완료**: §14 디자인시스템(다크 우선, calibration blue/signal green, Okabe-Ito), 3화면(/materials·/materials/$id·/upload 4단계 마법사), ECharts 곡선뷰어(brush 영률 재계산). 세션 2회 재시작으로 워크플로우 중단 → Screens 3개는 직접 작성. tsc 0·build 성공·서브경로 스모크 200 전부 통과. 커밋·push 완료.
+- **서브경로 테스트 교훈**: `--root-path`만으로 테스트하면 404가 정상이다 — 실제론 Caddy가 prefix를 벗겨 `/`로 전달하므로 **루트(`/`) 서빙으로 검증**해야 한다. 해시 라우팅이라 deep-link는 `/#/...`로 서버엔 `/`만 도달(C6).
+- **Python 3.12 확정**(유지보수성, 사용자 지시): 의존성이 시스템 python3(3.10)에만 있던 문제를 **`backend/.venv`(python3.12) 생성 + `pip install -e ".[test]"`로 해결**. `requires-python=">=3.12"`. **항상 `.venv/bin/python`으로 실행**(시스템 3.10엔 의존성 없음). test extra에 httpx 추가(starlette TestClient용). 3.12 venv에서 pytest 22개 전부 통과 확인.
+- `.venv/`는 .gitignore 처리(커밋 안 함).

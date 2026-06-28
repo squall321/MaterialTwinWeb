@@ -476,7 +476,7 @@ DB 내부는 ISO 기호(Rp0.2, Rm, A, Z, So/L0)를 정규명으로, ASTM명은 a
 ```
 **Phase 3+**: scipy(피팅), alembic(마이그레이션), psycopg[binary](Postgres), kaitai-struct(바이너리). manylinux 휠 제공 → SIF 컴파일 불필요. lockfile/해시 고정 권장.
 
-> **실제 구현 환경(★정정)**: 로컬·테스트 인터프리터는 **Python 3.10**(의존성 설치 위치)이라 `pyproject.toml requires-python`을 `>=3.10`으로 맞춤(기존 계획의 ">=3.12"는 추정이었음). SIF 빌드가 3.12를 쓰면 다시 올린다. 위 의존성은 numpy/pandas/pyarrow/sqlalchemy/pydantic v2/pydantic-settings/python-multipart/charset-normalizer/pyyaml로 Phase 1에 실제 사용됨, pytest는 dev extra.
+> **실제 구현 환경**: **Python 3.12** 고정(유지보수성). `backend/.venv`(python3.12 -m venv)에 `pip install -e ".[test]"`로 의존성 설치 → pytest 22개 전부 통과 확인. `requires-python = ">=3.12"`. 런타임 의존성은 numpy/pandas/pyarrow/sqlalchemy/pydantic v2/pydantic-settings/python-multipart/charset-normalizer/pyyaml, **test extra는 pytest + httpx**(starlette TestClient용). 시스템 기본 `python3`(3.10)에는 의존성이 없으니 항상 `.venv/bin/python`으로 실행한다.
 
 ### 프론트엔드 (Phase 1)
 ```
