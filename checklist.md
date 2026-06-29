@@ -73,4 +73,9 @@
 - [x] [서브경로] 자산 전부 `./assets/`(절대경로 grep 0) ✅, uvicorn 루트 서빙 GET / ·/api/health ·자산 ·POST material 전부 200/201 ✅. 해시 라우팅이라 deep-link는 `/#/...`로 서버엔 `/`만 도달(C6 충족)
 - [x] [reaper] 부팅 스윕 고아 파일 삭제 — test_ingest 통과
 - [x] `/api/health` 200 (test_api) | [ ] WCAG AA 대비 실측 스폿체크(§14.7) — 브라우저 실행 시
-- [x] **pytest 22개 전부 통과 (python3.10)**
+- [x] **pytest 22개 전부 통과 (python3.12 .venv)**
+- [x] **브라우저 E2E 실측**(Playwright): 3화면 렌더·업로드 4단계 마법사 끝까지·곡선 차트·confidence 배지 동작 확인
+
+## Phase 1 — 발견 버그 (브라우저 E2E에서, context-notes 상세)
+- [ ] **BUG-1【치명】** 단위행 미파싱 → 물성 1000배 오차. 파서가 CSV 단위행("s,kN,mm")을 ColumnSpec.unit으로 흡수 못 함 → ingest 단위변환 무력화. kN·mm·% raw CSV E2E 회귀 픽스처 추가 + 파서 단위행 처리 수정
+- [ ] **BUG-2【낮음】** upload.tsx 신규 재료 커밋 후 "재료 보기" 버튼 영구 disabled(meta.materialId가 null 유지). 생성된 재료 id를 state에 저장

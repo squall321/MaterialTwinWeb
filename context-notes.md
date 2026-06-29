@@ -67,3 +67,20 @@ Workflow로 **적대적 공격(5) + 디자인 토너먼트(3) → 중립 심판(
 - **서브경로 테스트 교훈**: `--root-path`만으로 테스트하면 404가 정상이다 — 실제론 Caddy가 prefix를 벗겨 `/`로 전달하므로 **루트(`/`) 서빙으로 검증**해야 한다. 해시 라우팅이라 deep-link는 `/#/...`로 서버엔 `/`만 도달(C6).
 - **Python 3.12 확정**(유지보수성, 사용자 지시): 의존성이 시스템 python3(3.10)에만 있던 문제를 **`backend/.venv`(python3.12) 생성 + `pip install -e ".[test]"`로 해결**. `requires-python=">=3.12"`. **항상 `.venv/bin/python`으로 실행**(시스템 3.10엔 의존성 없음). test extra에 httpx 추가(starlette TestClient용). 3.12 venv에서 pytest 22개 전부 통과 확인.
 - `.venv/`는 .gitignore 처리(커밋 안 함).
+
+## 2026-06-28 — 브라우저 E2E 검증("띄워봐") + 실제 버그 2건 발견
+
+uvicorn으로 띄우고 Playwright로 전 화면 + 업로드 E2E를 실측했다. **UI는 §14대로 완벽**(다크 테마·스텝퍼·드롭존·곡선 차트·confidence 배지·회귀 패널 전부 동작). 단, 합성 골든 CSV(kN·mm 단위)를 실제로 흘려보내며 **pytest가 못 잡은 진짜 버그 2건**을 잡았다.
+
+### 🐞 BUG-1 【치명】 단위행 미파싱 → 물성 1000배 오차
+- 증상: kN·mm CSV 업로드 시 E=0.00 GPa(정답 200), RM=1 MPa(정답 540), A%=18000(정답 18%). 정확히 1000배씩 어긋남.
+- 근본 원인: 파서(zwick_textxpert/generic_csv)가 CSV **2행 단위행("s, kN, mm")을 ColumnSpec.unit으로 연결 못 함** → 모든 컬럼 `unit=None` 반환. ingest의 `_FORCE_FACTOR`(kN→1e3)·`_LEN_FACTOR`(mm→1e-3)가 None→1.0으로 처리되어 변환 안 됨.
+- 왜 pytest 통과했나: 골든 픽스처 단위테스트는 이미 **SI(N·m)** 로 ingest를 직접 호출 → 단위행 파싱 경로를 안 탐. **단위 있는 raw CSV E2E 픽스처가 없었음**.
+- 수정 방향: ① 파서 structure 단계에서 헤더 다음 행이 단위행이면 각 컬럼 unit으로 흡수(generic_csv·zwick 공통). ② 회귀 테스트: kN·mm·%·독일식 단위행 CSV → ingest → E/UTS가 SI로 정확. ③ 단위 추정 실패 시 ParseIssue(INFO)로 노출(§5.3 "FORCE 단위 자동변환 금지 → 사용자 확인"과 정합).
+
+### 🐞 BUG-2 【낮음】 신규 재료 커밋 후 "재료 보기" 버튼 비활성
+- 위치: `frontend/src/routes/upload.tsx` 결과 화면. `disabled={!meta.materialId}`인데 신규 재료 경로는 커밋 중 생성한 새 재료 id를 `meta.materialId`에 반영 안 해 항상 null → 버튼 영구 disabled.
+- 수정 방향: commitMut에서 생성된 재료 id를 state(예: `committedMaterialId`)에 저장하고 그걸로 네비게이트·버튼 활성. (IngestResult엔 material_id가 없으니 createMaterial 반환 id를 따로 보관.)
+
+### 검증된 것(정상)
+업로드 4단계 마법사 전 단계, 파서 자동감지(zwick_textxpert 100%)+컬럼 역할 매핑(time/force/displacement), IssuePanel(WARN ambiguous_dispatch 노출), 재료 생성·시편 생성·곡선 Parquet 저장·곡선 차트 렌더·confidence='low' 배지·ISO 용어 테이블. 곡선 **형태**는 정확(탄성+멱법칙).
