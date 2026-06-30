@@ -54,6 +54,8 @@ export function UploadScreen() {
     materialId: search.material ?? null,
   });
   const [result, setResult] = React.useState<IngestResult | null>(null);
+  // 커밋으로 확정된 재료 id(신규 생성 포함) — "재료 보기" 네비게이션용(★BUG-2).
+  const [committedMaterialId, setCommittedMaterialId] = React.useState<number | null>(null);
 
   const materialsQ = useQuery({ queryKey: ["materials", ""], queryFn: () => listMaterials({ size: 100 }) });
 
@@ -83,13 +85,15 @@ export function UploadScreen() {
         thickness_m: meta.geometry === "flat" ? mm(meta.t0_mm) : null,
         diameter_m: meta.geometry === "round" ? mm(meta.d0_mm) : null,
       });
-      // 3) 업로드 → 파싱 → 적재.
-      return uploadToSpecimen(sp.id, file!);
+      // 3) 업로드 → 파싱 → 적재. 재료 id를 함께 반환(★BUG-2).
+      const ingest = await uploadToSpecimen(sp.id, file!);
+      return { materialId: mid, ingest };
     },
-    onSuccess: (r) => {
-      setResult(r);
+    onSuccess: ({ materialId, ingest }) => {
+      setResult(ingest);
+      setCommittedMaterialId(materialId);
       setStep(3);
-      if (r.computed) toast.success("업로드·물성 계산 완료");
+      if (ingest.computed) toast.success("업로드·물성 계산 완료");
       else toast.warning("업로드됨 — 확인이 필요합니다");
     },
     onError: (e) => toast.error(e instanceof Error ? e.message : "커밋 실패"),
@@ -300,7 +304,13 @@ export function UploadScreen() {
                 <Button variant="ghost" onClick={resetWizard}>
                   새 업로드
                 </Button>
-                <Button onClick={() => navigate({ to: "/materials/$id", params: { id: String(meta.materialId ?? "") } })} disabled={!meta.materialId}>
+                <Button
+                  onClick={() =>
+                    committedMaterialId != null &&
+                    navigate({ to: "/materials/$id", params: { id: String(committedMaterialId) } })
+                  }
+                  disabled={committedMaterialId == null}
+                >
                   재료 보기
                 </Button>
               </div>
@@ -316,6 +326,7 @@ export function UploadScreen() {
     setFile(null);
     setSniffResult(null);
     setResult(null);
+    setCommittedMaterialId(null);
   }
 }
 

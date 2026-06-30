@@ -218,7 +218,17 @@ class GenericCsvParser(ParserBase):
         else:
             headers = [h.strip() for h in lines[header_idx].split(delim)]
 
-        # 단위행 탐지는 # ASSUMPTION, needs D2 sample — 헤더 바로 아래 비수치행을 스킵만 함.
+        # 단위행 흡수(★BUG-1): 헤더와 데이터 사이의 비수치행을 단위행으로 보고 셀 단위를
+        # 각 컬럼에 매핑한다(헤더 인라인 단위가 없을 때만 채워짐). 여러 비수치행이면
+        # 데이터에 가장 가까운(마지막) 행을 단위행으로 본다(서브헤더 위, 단위 아래 패턴).
+        unit_row: list[str] | None = None
+        if header_idx >= 0:
+            for j in range(data_start - 1, header_idx, -1):
+                cells = lines[j].split(delim)
+                if not _looks_numeric_row(cells):
+                    unit_row = [c.strip() for c in cells]
+                    break
+
         data_lines = lines[data_start:]
 
         # 수치 파싱.
@@ -238,7 +248,20 @@ class GenericCsvParser(ParserBase):
             return result
 
         data = np.asarray(rows, dtype=float)
-        columns = resolve_columns(headers, self._aliases)
+        columns = resolve_columns(headers, self._aliases, units=unit_row)
+
+        # 단위행에서 흡수한 단위를 INFO로 노출(자동변환 전 사용자 확인 — §5.3).
+        absorbed = [
+            f"{c.header}={c.unit}"
+            for c in columns
+            if c.unit and unit_row is not None
+        ]
+        if absorbed:
+            result.add(
+                INFO,
+                "units_from_unit_row",
+                f"단위행에서 단위 흡수: {', '.join(absorbed)}.",
+            )
 
         # 매핑 신뢰도 종합.
         mapped = [c for c in columns if c.role is not ColumnRole.UNKNOWN]

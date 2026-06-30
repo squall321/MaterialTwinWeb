@@ -104,6 +104,58 @@ def test_ingest_golden_youngs_within_2pct(app_env):
         assert ref.storage == "parquet_fs"
 
 
+def _golden_force_disp_csv_units() -> tuple[bytes, "make_golden", float, float]:
+    """골든 곡선을 force(kN)·disp(mm) raw CSV로 직렬화(단위행 포함).
+
+    ★BUG-1 회귀: 단위행(kN·mm)이 컬럼 unit으로 흡수돼 ingest가 SI로 변환해야
+    σ=F/A0, ε=Δ/L0 로 정답 E를 복원한다. 단위 누락이면 1000배씩 어긋난다.
+    """
+    g = make_golden()
+    w0, t0, L0 = 12.5e-3, 2e-3, 50e-3
+    a0 = w0 * t0
+    lines = ["Time,Force,Displacement", "s,kN,mm"]
+    for i, (e, s) in enumerate(zip(g.strain, g.stress)):
+        force_kN = (s * a0) / 1e3  # σ·A0 [N] → kN
+        disp_mm = e * L0 * 1e3  # ε·L0 [m] → mm
+        lines.append(f"{i * 0.01:.4f},{force_kN:.6f},{disp_mm:.6f}")
+    return ("\n".join(lines)).encode("utf-8"), g, w0, t0
+
+
+def test_ingest_force_disp_units_si_normalized(app_env):
+    # ★BUG-1 회귀: kN·mm raw CSV → SI 변환 → 정답 E/UTS 복원(1000배 오차 없음).
+    db = app_env["db"]
+    models = app_env["models"]
+    ingest = app_env["ingest"]
+
+    csv_bytes, g, w0, t0 = _golden_force_disp_csv_units()
+    with db.SessionLocal() as session:
+        mat = models.Material(name="UnitSteel", category="metal", attributes={})
+        session.add(mat)
+        session.commit()
+        spec = models.Specimen(
+            material_id=mat.id,
+            label="S1",
+            geometry_type="flat",
+            gauge_length_m=0.050,
+            width_m=w0,
+            thickness_m=t0,
+            area0_m2=w0 * t0,
+        )
+        session.add(spec)
+        session.commit()
+        specimen = session.get(models.Specimen, spec.id)
+        res = ingest.ingest_upload(session, specimen, csv_bytes, "kn_mm.csv")
+
+        assert res.computed, [i.code for i in res.issues]
+        pr = res.processed_result
+        E = pr.youngs_modulus_pa
+        U = pr.uts_pa
+        # 단위가 제대로 SI 변환됐다면 E·UTS가 정답 자릿수(GPa·MPa)와 일치.
+        assert E is not None and U is not None
+        assert abs(E - g.E_true_pa) / g.E_true_pa <= 0.02, f"E={E:.3e} 정답={g.E_true_pa:.3e}"
+        assert abs(U - g.uts_true_pa) / g.uts_true_pa <= 0.02, f"UTS={U:.3e} 정답={g.uts_true_pa:.3e}"
+
+
 def test_ingest_writes_parquet_with_schema(app_env):
     db = app_env["db"]
     models = app_env["models"]

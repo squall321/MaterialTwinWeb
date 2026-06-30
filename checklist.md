@@ -77,5 +77,5 @@
 - [x] **브라우저 E2E 실측**(Playwright): 3화면 렌더·업로드 4단계 마법사 끝까지·곡선 차트·confidence 배지 동작 확인
 
 ## Phase 1 — 발견 버그 (브라우저 E2E에서, context-notes 상세)
-- [ ] **BUG-1【치명】** 단위행 미파싱 → 물성 1000배 오차. 파서가 CSV 단위행("s,kN,mm")을 ColumnSpec.unit으로 흡수 못 함 → ingest 단위변환 무력화. kN·mm·% raw CSV E2E 회귀 픽스처 추가 + 파서 단위행 처리 수정
-- [ ] **BUG-2【낮음】** upload.tsx 신규 재료 커밋 후 "재료 보기" 버튼 영구 disabled(meta.materialId가 null 유지). 생성된 재료 id를 state에 저장
+- [x] **BUG-1【치명】** 단위행 미파싱 → 물성 1000배 오차. **수정**: resolve_columns에 units 인자 추가, generic_csv가 헤더-데이터 사이 비수치행을 단위행으로 흡수(인라인 단위 우선·폴백), INFO `units_from_unit_row` 노출. 회귀 테스트 2개 추가. 브라우저 재검증: E=200GPa·Rp0.2=276MPa·UTS=540MPa·confidence=high ✅
+- [x] **BUG-2【낮음】** upload.tsx 신규 재료 "재료 보기" disabled. **수정**: commitMut가 {materialId,ingest} 반환→committedMaterialId state 저장, 버튼이 그걸로 활성/네비게이트. 브라우저 재검증: 신규재료 커밋→버튼 활성→/materials/3 이동 ✅

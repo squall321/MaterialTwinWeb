@@ -53,6 +53,9 @@ def load_aliases() -> dict[ColumnRole, list[str]]:
 
 _UNIT_RE = re.compile(r"[\[\(]\s*([^\]\)]+?)\s*[\]\)]")
 
+# 순수 수치 토큰(단위행 셀이 숫자면 단위가 아님).
+_NUM_TOKEN = re.compile(r"^[+\-]?[\d.,]+(?:[eE][+\-]?\d+)?$")
+
 
 def _split_unit(header: str) -> tuple[str, str | None]:
     """헤더에서 '[mm]'/'(kN)' 형태 단위를 분리. 반환 (정리된 헤더, 단위 or None)."""
@@ -66,14 +69,35 @@ def _norm(s: str) -> str:
     return re.sub(r"\s+", " ", s.strip().lower())
 
 
+def _clean_unit(token: str | None) -> str | None:
+    """단위행 셀을 정리. 빈 값/순수 숫자/너무 긴 토큰은 단위로 보지 않음."""
+    if token is None:
+        return None
+    t = token.strip()
+    if not t or _NUM_TOKEN.match(t):
+        return None
+    # 단위는 보통 짧다(N, kN, mm, MPa, %, s, °C). 긴 문구는 서브헤더로 간주해 무시.
+    if len(t) > 8:
+        return None
+    return t
+
+
 def resolve_columns(
-    headers: list[str], aliases: dict[ColumnRole, list[str]] | None = None
+    headers: list[str],
+    aliases: dict[ColumnRole, list[str]] | None = None,
+    units: list[str] | None = None,
 ) -> list[ColumnSpec]:
-    """헤더 리스트 → ColumnSpec 리스트. 별칭 부분일치 휴리스틱."""
+    """헤더 리스트 → ColumnSpec 리스트. 별칭 부분일치 휴리스틱.
+
+    units가 주어지면(헤더 아래 단위행) 헤더 인라인 단위가 없는 컬럼의 단위로 흡수한다.
+    헤더 인라인 단위('Force [kN]')가 우선이며, 단위행은 보조 폴백이다(★BUG-1).
+    """
     aliases = aliases or load_aliases()
     specs: list[ColumnSpec] = []
     for idx, raw_header in enumerate(headers):
         name, unit = _split_unit(raw_header)
+        if unit is None and units is not None and idx < len(units):
+            unit = _clean_unit(units[idx])
         key = _norm(name)
         role = ColumnRole.UNKNOWN
         conf = 0.0

@@ -105,6 +105,16 @@ def test_unit_row_skipped_values_correct():
     assert abs(col[1] - 0.5) < 1e-9
 
 
+def test_unit_row_absorbed_into_columns():
+    # ★BUG-1 회귀: 헤더 아래 단위행("mm;kN;mm")이 각 컬럼 unit으로 흡수돼야 한다.
+    _p, result = dispatch(_german_semicolon_comma())
+    spec = result.specimens[0]
+    by_role = {c.role: c for c in spec.columns}
+    assert by_role[ColumnRole.FORCE].unit == "kN"
+    assert by_role[ColumnRole.DISPLACEMENT].unit == "mm"
+    assert by_role[ColumnRole.EXTENSION].unit == "mm"
+
+
 # ── 깨진 인코딩 graceful ─────────────────────────────────────────────────────
 def test_broken_encoding_graceful():
     _p, result = dispatch(_broken_encoding())

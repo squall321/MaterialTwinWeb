@@ -84,3 +84,20 @@ uvicorn으로 띄우고 Playwright로 전 화면 + 업로드 E2E를 실측했다
 
 ### 검증된 것(정상)
 업로드 4단계 마법사 전 단계, 파서 자동감지(zwick_textxpert 100%)+컬럼 역할 매핑(time/force/displacement), IssuePanel(WARN ambiguous_dispatch 노출), 재료 생성·시편 생성·곡선 Parquet 저장·곡선 차트 렌더·confidence='low' 배지·ISO 용어 테이블. 곡선 **형태**는 정확(탄성+멱법칙).
+
+## 2026-06-30 — 버그 2건 수정 완료 + 브라우저 재검증
+
+### ✅ BUG-1 해결
+- `column_map.resolve_columns(headers, aliases, units=None)`에 **units 인자 추가** — 헤더 인라인 단위(`Force [kN]`)가 우선, 없으면 단위행 셀로 폴백. `_clean_unit`이 빈/숫자/8자 초과 토큰은 단위로 안 봄.
+- `generic_csv.parse`가 header_idx~data_start 사이 **비수치행을 단위행으로 감지**(데이터에 가장 가까운 행) → resolve_columns에 전달. 흡수 시 INFO `units_from_unit_row`로 노출(§5.3 정합). zwick은 generic wrapper라 자동 수혜(C12).
+- 회귀 테스트 2개: `test_unit_row_absorbed_into_columns`(파서 단위 흡수), `test_ingest_force_disp_units_si_normalized`(kN·mm raw → ingest → E/UTS SI 정확). 처음엔 둘 다 실패(E=1052 vs 2e11) → 수정 후 통과.
+- 브라우저 재검증: E=200.0GPa, Rp0.2=275.6MPa, UTS=540.0MPa, A=18.0%, **confidence=high**. 1000배 오차 사라짐.
+
+### ✅ BUG-2 해결
+- `upload.tsx`: `commitMut.mutationFn`이 `{materialId, ingest}` 반환 → `onSuccess`에서 `committedMaterialId` state 저장. "재료 보기" 버튼이 `committedMaterialId`로 활성/네비게이트(신규 재료 포함). `resetWizard`도 초기화.
+- 브라우저 재검증: 신규 재료 커밋 → 버튼 활성 → /materials/3 정확 이동.
+
+### 함정 메모
+브라우저가 같은 해시 번들을 **캐싱**해 수정 후에도 옛 동작이 보일 수 있다. 재검증 시 쿼리스트링(`?nocache=1`) 등으로 강제 리로드할 것. (번들 디컴파일로 `disabled:f==null` 로직 존재를 먼저 확인하면 캐시/코드 문제를 빨리 구분.)
+
+전체 pytest **24개 통과**(3.12 .venv). UI는 framer-motion 없이 CSS 모션만으로 §14 충실 구현.
