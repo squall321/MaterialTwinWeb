@@ -1,4 +1,4 @@
-# 5개 ORM 테이블(material/specimen/test/raw_curve_ref/processed_result) — PLAN §4.3 정본 스키마.
+# ORM 테이블(material/specimen/test/raw_curve_ref/processed_result/constitutive_fit) — PLAN §4.3·§6.3.
 from __future__ import annotations
 
 from datetime import datetime
@@ -126,6 +126,11 @@ class Test(Base):
         passive_deletes=True,
         uselist=False,
     )
+    constitutive_fits: Mapped[list["ConstitutiveFit"]] = relationship(
+        back_populates="test",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
+    )
 
 
 class RawCurveRef(Base):
@@ -174,3 +179,24 @@ class ProcessedResult(Base):
     )
 
     test: Mapped["Test"] = relationship(back_populates="processed_result")
+
+
+class ConstitutiveFit(Base):
+    __tablename__ = "constitutive_fit"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    test_id: Mapped[int] = mapped_column(
+        ForeignKey("test.id", ondelete="CASCADE"), nullable=False
+    )
+    # hollomon / swift / voce / johnson_cook.
+    model: Mapped[str] = mapped_column(String(30), nullable=False)
+    # 모델 파라미터 dict(K_pa,n 등). SI. 검색 대상 아니라 JSON.
+    params: Mapped[dict] = mapped_column(JSON, nullable=False)
+    r2: Mapped[float | None] = mapped_column(Float, nullable=True)
+    rmse_pa: Mapped[float | None] = mapped_column(Float, nullable=True)
+    n_points: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    fitted_at: Mapped[datetime] = mapped_column(
+        UTCDateTime, nullable=False, server_default=func.now()
+    )
+
+    test: Mapped["Test"] = relationship(back_populates="constitutive_fits")

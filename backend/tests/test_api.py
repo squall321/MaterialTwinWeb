@@ -180,6 +180,85 @@ def test_parsers_and_sniff(client):
     assert r.json()["specimen"]["n_rows"] > 1000
 
 
+def _make_material_specimen_test(client, mat_name="P2Steel", label="S1"):
+    """재료+시편+골든 업로드 후 (mid, sid, tid) 반환. Phase2/3 엔드포인트 셋업용."""
+    r = client.post("/api/materials", json={"name": mat_name, "category": "metal", "attributes": {}})
+    mid = r.json()["id"]
+    r = client.post(
+        f"/api/materials/{mid}/specimens",
+        json={"label": label, "geometry_type": "flat", "gauge_length_m": 0.05,
+              "width_m": 0.0125, "thickness_m": 0.003},
+    )
+    sid = r.json()["id"]
+    csv_bytes, _g = _golden_csv_bytes()
+    r = client.post(
+        f"/api/specimens/{sid}/uploads",
+        files={"file": ("golden.csv", io.BytesIO(csv_bytes), "text/csv")},
+    )
+    return mid, sid, r.json()["test_id"]
+
+
+def test_true_stress_curve_endpoint(client):
+    _mid, _sid, tid = _make_material_specimen_test(client)
+    r = client.get(f"/api/tests/{tid}/curve", params={"kind": "true", "max_points": 300})
+    assert r.status_code == 200, r.text
+    body = r.json()
+    assert body["kind"] == "true"
+    assert body["x_label"] == "true_strain"
+    assert body["n_returned"] <= 300
+    # 진응력 > 공칭응력(넥킹 전) 성질: 마지막 진응력 y가 양수.
+    assert body["y"][-1] > 0
+    assert "necking" in body
+
+
+def test_fits_and_card_endpoints(client):
+    _mid, _sid, tid = _make_material_specimen_test(client)
+    # 물성 먼저 계산(카드 export 전제).
+    client.post(f"/api/tests/{tid}/properties:compute", json={})
+
+    # 피팅 계산.
+    r = client.post(f"/api/tests/{tid}/fits:compute")
+    assert r.status_code == 200, r.text
+    fits = r.json()["fits"]
+    models = {f["model"] for f in fits}
+    assert {"hollomon", "swift", "voce", "johnson_cook"} == models
+
+    # 조회.
+    r = client.get(f"/api/tests/{tid}/fits")
+    assert r.status_code == 200
+    assert len(r.json()["fits"]) >= 1
+
+    # LS-DYNA 카드 다운로드.
+    r = client.get(f"/api/tests/{tid}/card.k")
+    assert r.status_code == 200, r.text
+    assert "*MAT_PIECEWISE_LINEAR_PLASTICITY" in r.text
+    assert "filename*=UTF-8''" in r.headers["content-disposition"]
+
+
+def test_material_stats_mean_std(client):
+    # 같은 재료에 시편 2개 업로드 → 통계 n=2.
+    mid, _sid1, _t1 = _make_material_specimen_test(client, mat_name="StatSteel", label="S1")
+    # 두 번째 시편.
+    r = client.post(
+        f"/api/materials/{mid}/specimens",
+        json={"label": "S2", "geometry_type": "flat", "gauge_length_m": 0.05,
+              "width_m": 0.0125, "thickness_m": 0.003},
+    )
+    sid2 = r.json()["id"]
+    csv_bytes, _g = _golden_csv_bytes()
+    client.post(f"/api/specimens/{sid2}/uploads",
+                files={"file": ("g2.csv", io.BytesIO(csv_bytes), "text/csv")})
+
+    r = client.get(f"/api/materials/{mid}/stats")
+    assert r.status_code == 200, r.text
+    body = r.json()
+    assert body["n_specimens"] == 2
+    ym = body["stats"]["youngs_modulus_pa"]
+    assert ym["n"] == 2 and ym["mean"] is not None
+    # 동일 곡선 2개 → std ≈ 0.
+    assert ym["std"] is not None and ym["std"] < ym["mean"] * 0.01
+
+
 def test_fk_cascade_material_delete(client):
     import app.curve_store as cs
 

@@ -9,9 +9,10 @@ from fastapi import APIRouter, Body, Depends, HTTPException, Query, status
 from fastapi.responses import StreamingResponse
 from sqlalchemy.orm import Session
 
-from app import analysis, curve_store
+from app import analysis, curve_store, fitting, true_stress
+from app.cards import lsdyna_mat024_card
 from app.db import get_db
-from app.models import ProcessedResult, RawCurveRef, Test
+from app.models import ConstitutiveFit, ProcessedResult, RawCurveRef, Test
 from app.schemas import PropertiesOut, TestOut, TestPatch
 
 router = APIRouter(prefix="/api", tags=["tests"])
@@ -79,14 +80,38 @@ def get_curve(
     max_points: int = Query(default=2000, ge=3, le=100000),
     db: Session = Depends(get_db),
 ) -> dict:
-    """곡선 포인트(LTTB 다운샘플). 곡선 소유자는 test([gaps] A3)."""
+    """곡선 포인트(LTTB 다운샘플). 곡선 소유자는 test([gaps] A3).
+
+    kind=true(진응력)는 넥킹 개시까지만 물리 유효 → necking 마커 좌표 동봉(§6.2).
+    """
     _get_test(db, tid)
+    df = _load_curve(db, tid)
+
+    if kind == "true":
+        en = np.asarray(df["eng_strain"], dtype=float)
+        es = np.asarray(df["eng_stress_Pa"], dtype=float)
+        finite = np.isfinite(en) & np.isfinite(es)
+        conv = true_stress.true_curve_with_necking(en[finite], es[finite])
+        x = np.asarray(conv["true_strain"], dtype=float)
+        y = np.asarray(conv["true_stress"], dtype=float)
+        xs, ys = curve_store.lttb_downsample(x, y, n_out=max_points)
+        return {
+            "kind": "true",
+            "x_label": "true_strain",
+            "y_label": "true_stress_Pa",
+            "n_total": int(x.size),
+            "n_returned": int(xs.size),
+            "x": [float(v) for v in xs],
+            "y": [float(v) for v in ys],
+            "necking": conv["necking"],
+        }
+
     if kind not in _KIND_COLUMNS:
         raise HTTPException(status_code=422, detail=f"unknown kind: {kind}")
-    df = _load_curve(db, tid)
+    df_ = df
     xcol, ycol = _KIND_COLUMNS[kind]
-    x = np.asarray(df[xcol], dtype=float)
-    y = np.asarray(df[ycol], dtype=float)
+    x = np.asarray(df_[xcol], dtype=float)
+    y = np.asarray(df_[ycol], dtype=float)
     finite = np.isfinite(x) & np.isfinite(y)
     x, y = x[finite], y[finite]
     xs, ys = curve_store.lttb_downsample(x, y, n_out=max_points)
@@ -98,6 +123,7 @@ def get_curve(
         "n_returned": int(xs.size),
         "x": [float(v) for v in xs],
         "y": [float(v) for v in ys],
+        "necking": None,
     }
 
 
@@ -176,3 +202,103 @@ def get_properties(tid: int, db: Session = Depends(get_db)) -> PropertiesOut:
     if pr is None:
         raise HTTPException(status_code=404, detail="properties not computed")
     return PropertiesOut.model_validate(pr)
+
+
+def _plastic_true(df, E: float | None) -> tuple[np.ndarray, np.ndarray]:
+    """진응력·소성진변형률 (넥킹 개시까지 유효구간). E로 탄성분 제거."""
+    en = np.asarray(df["eng_strain"], dtype=float)
+    es = np.asarray(df["eng_stress_Pa"], dtype=float)
+    finite = np.isfinite(en) & np.isfinite(es)
+    conv = true_stress.true_curve_with_necking(en[finite], es[finite])
+    et = np.asarray(conv["true_strain"], dtype=float)
+    st = np.asarray(conv["true_stress"], dtype=float)
+    upto = conv["valid_upto_index"]
+    if upto is not None and upto > 2:
+        et, st = et[:upto], st[:upto]
+    # 소성진변형률 εp = ε_true − σ_true/E.
+    ep = et - st / E if (E and np.isfinite(E) and E > 0) else et
+    return ep, st
+
+
+@router.post("/tests/{tid}/fits:compute")
+def compute_fits(tid: int, db: Session = Depends(get_db)) -> dict:
+    """구성방정식 피팅(Hollomon/Swift/Voce/JC) 산출·영속(교체). PLAN §6.3."""
+    _get_test(db, tid)
+    pr = (
+        db.query(ProcessedResult)
+        .filter(ProcessedResult.test_id == tid)
+        .one_or_none()
+    )
+    E = pr.youngs_modulus_pa if pr else None
+    df = _load_curve(db, tid)
+    ep, st = _plastic_true(df, E)
+    results = fitting.fit_all(ep, st)
+
+    # 기존 피팅 교체(재계산 = 덮어쓰기).
+    db.query(ConstitutiveFit).filter(ConstitutiveFit.test_id == tid).delete()
+    for r in results:
+        if r.get("params") is None:
+            continue
+        db.add(
+            ConstitutiveFit(
+                test_id=tid,
+                model=r["model"],
+                params=r["params"],
+                r2=r.get("r2"),
+                rmse_pa=r.get("rmse_pa"),
+                n_points=r.get("n_points"),
+            )
+        )
+    db.commit()
+    return {"test_id": tid, "fits": results}
+
+
+@router.get("/tests/{tid}/fits")
+def get_fits(tid: int, db: Session = Depends(get_db)) -> dict:
+    _get_test(db, tid)
+    rows = (
+        db.query(ConstitutiveFit)
+        .filter(ConstitutiveFit.test_id == tid)
+        .all()
+    )
+    fits = [
+        {
+            "model": r.model,
+            "params": r.params,
+            "r2": r.r2,
+            "rmse_pa": r.rmse_pa,
+            "n_points": r.n_points,
+        }
+        for r in rows
+    ]
+    return {"test_id": tid, "fits": fits}
+
+
+@router.get("/tests/{tid}/card.k")
+def get_card(tid: int, db: Session = Depends(get_db)) -> StreamingResponse:
+    """LS-DYNA *MAT_024(piecewise) 카드 다운로드. 진응력-소성진변형률 테이블 기반(§6.3)."""
+    test = _get_test(db, tid)
+    pr = (
+        db.query(ProcessedResult)
+        .filter(ProcessedResult.test_id == tid)
+        .one_or_none()
+    )
+    if pr is None or pr.youngs_modulus_pa is None:
+        raise HTTPException(status_code=422, detail="properties required before card export")
+    df = _load_curve(db, tid)
+    ep, st = _plastic_true(df, pr.youngs_modulus_pa)
+    label = test.specimen.material.name if test.specimen and test.specimen.material else f"test{tid}"
+    text = lsdyna_mat024_card(
+        title=label,
+        E_pa=pr.youngs_modulus_pa,
+        yield_pa=pr.yield_strength_pa,
+        plastic_strain=ep,
+        true_stress=st,
+    )
+    fname = f"test_{tid}_MAT024.k"
+    disposition = f"attachment; filename=\"{fname}\"; filename*=UTF-8''{quote(fname)}"
+    return StreamingResponse(
+        iter([text]),
+        media_type="text/plain",
+        headers={"Content-Disposition": disposition},
+    )

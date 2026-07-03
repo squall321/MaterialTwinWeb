@@ -6,8 +6,10 @@ from sqlalchemy import func, or_, select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
+import numpy as np
+
 from app.db import get_db
-from app.models import Material, Specimen
+from app.models import Material, ProcessedResult, Specimen, Test
 from app.schemas import (
     MaterialIn,
     MaterialOut,
@@ -160,3 +162,50 @@ def create_specimen(
         raise HTTPException(status_code=422, detail=f"specimen constraint: {exc.orig}")
     db.refresh(spec)
     return SpecimenOut.model_validate(spec)
+
+
+def _mean_std(values: list[float]) -> dict:
+    """유효값의 평균·표준편차·n. 값 없으면 None."""
+    arr = np.asarray([v for v in values if v is not None and np.isfinite(v)], dtype=float)
+    if arr.size == 0:
+        return {"mean": None, "std": None, "n": 0}
+    return {
+        "mean": float(np.mean(arr)),
+        "std": float(np.std(arr, ddof=1)) if arr.size > 1 else 0.0,
+        "n": int(arr.size),
+    }
+
+
+@router.get("/materials/{mid}/stats")
+def material_stats(mid: int, db: Session = Depends(get_db)) -> dict:
+    """재료 단위 물성 평균±σ 요약(유효 test들의 processed_result 집계, ★C8).
+
+    새 테이블 없이 on-the-fly numpy 집계. 시편별 값과 통계를 함께 반환.
+    """
+    _get_material(db, mid)
+    rows = (
+        db.query(Specimen.label, ProcessedResult)
+        .join(Test, Test.specimen_id == Specimen.id)
+        .join(ProcessedResult, ProcessedResult.test_id == Test.id)
+        .filter(Specimen.material_id == mid, Test.valid == True)  # noqa: E712
+        .all()
+    )
+    fields = [
+        "youngs_modulus_pa",
+        "yield_strength_pa",
+        "uts_pa",
+        "uniform_elongation",
+        "fracture_elongation",
+        "strain_hardening_n",
+    ]
+    per_specimen = []
+    collected: dict[str, list] = {f: [] for f in fields}
+    for label, pr in rows:
+        entry = {"specimen": label}
+        for f in fields:
+            v = getattr(pr, f)
+            entry[f] = v
+            collected[f].append(v)
+        per_specimen.append(entry)
+    stats = {f: _mean_std(collected[f]) for f in fields}
+    return {"material_id": mid, "n_specimens": len(per_specimen), "per_specimen": per_specimen, "stats": stats}
