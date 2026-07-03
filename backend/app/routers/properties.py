@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import io
+import math
 from urllib.parse import quote
 
 import numpy as np
@@ -283,8 +284,14 @@ def get_card(tid: int, db: Session = Depends(get_db)) -> StreamingResponse:
         .filter(ProcessedResult.test_id == tid)
         .one_or_none()
     )
-    if pr is None or pr.youngs_modulus_pa is None:
-        raise HTTPException(status_code=422, detail="properties required before card export")
+    E = pr.youngs_modulus_pa if pr else None
+    # 유효한 양의 유한 E가 없으면 카드 생성 거부(음수·NaN E는 물리적으로 무효한
+    # 솔버 카드를 만들므로 422로 재계산 유도). 탄성구간 없는 곡선 방어.
+    if pr is None or E is None or not math.isfinite(E) or E <= 0:
+        raise HTTPException(
+            status_code=422,
+            detail="valid Young's modulus required before card export (recompute properties)",
+        )
     df = _load_curve(db, tid)
     ep, st = _plastic_true(df, pr.youngs_modulus_pa)
     label = test.specimen.material.name if test.specimen and test.specimen.material else f"test{tid}"

@@ -235,6 +235,22 @@ def test_fits_and_card_endpoints(client):
     assert "filename*=UTF-8''" in r.headers["content-disposition"]
 
 
+def test_card_rejects_invalid_youngs_modulus(client):
+    # E가 유효하지 않으면(음수/NaN) 카드 export가 422로 거부(무효 솔버카드 방지).
+    _mid, _sid, tid = _make_material_specimen_test(client)
+    client.post(f"/api/tests/{tid}/properties:compute", json={})
+    # processed_result.youngs_modulus_pa를 음수로 오염시켜 방어 확인.
+    db = client._db
+    with db.SessionLocal() as session:
+        from app.models import ProcessedResult
+
+        pr = session.query(ProcessedResult).filter_by(test_id=tid).one()
+        pr.youngs_modulus_pa = -1.0e7
+        session.commit()
+    r = client.get(f"/api/tests/{tid}/card.k")
+    assert r.status_code == 422, r.text
+
+
 def test_material_stats_mean_std(client):
     # 같은 재료에 시편 2개 업로드 → 통계 n=2.
     mid, _sid1, _t1 = _make_material_specimen_test(client, mat_name="StatSteel", label="S1")
