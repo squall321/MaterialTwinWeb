@@ -20,6 +20,7 @@ export type ChartSeries = {
 export type ChartMarkers = {
   uts?: { strain: number; stressPa: number } | null; // Rm 좌표
   yield?: { strain: number; stressPa: number } | null; // Rp0.2 좌표
+  necking?: { strain: number; stressPa: number } | null; // Considère 넥킹점(진곡선)
   regression?: { e1: number; e2: number; ePa: number; intercept: number; r2: number } | null;
   toeIntercept?: number | null; // toe 보정 전 절편(고스트 외삽 표시용, strain)
 };
@@ -81,7 +82,7 @@ function buildOption(series: ChartSeries[], T: ChartTheme, anim: boolean): echar
         };
       }
 
-      if (m?.uts || m?.yield) {
+      if (m?.uts || m?.yield || m?.necking) {
         const pts: Record<string, unknown>[] = [];
         if (m.uts) {
           pts.push({
@@ -101,6 +102,16 @@ function buildOption(series: ChartSeries[], T: ChartTheme, anim: boolean): echar
             symbolSize: 7,
             itemStyle: { color: T.markYield, borderColor: T.inset, borderWidth: 1.5 },
             label: { formatter: `Rp0.2 ${paToMPa(m.yield.stressPa).toFixed(0)} MPa` },
+          });
+        }
+        if (m.necking) {
+          pts.push({
+            name: "Necking",
+            coord: [m.necking.strain, paToMPa(m.necking.stressPa)],
+            symbol: "triangle",
+            symbolSize: 9,
+            itemStyle: { color: "transparent", borderColor: T.markUts, borderWidth: 1.75 },
+            label: { formatter: `넥킹 ${paToMPa(m.necking.stressPa).toFixed(0)} MPa` },
           });
         }
         base.markPoint = {

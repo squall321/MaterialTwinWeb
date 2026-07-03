@@ -6,9 +6,17 @@ import { Check, ChevronRight, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { listMaterials, createMaterial } from "../api/materials";
 import { createSpecimen, type GeometryType } from "../api/specimens";
-import { sniff, uploadToSpecimen, type SniffResult, type IngestResult } from "../api/uploads";
+import {
+  sniff,
+  uploadToSpecimen,
+  remapUpload,
+  getParsers,
+  type SniffResult,
+  type IngestResult,
+} from "../api/uploads";
 import { UploadDropzone } from "../components/UploadDropzone";
 import { IssuePanel } from "../components/IssuePanel";
+import { ColumnMapper } from "../components/ColumnMapper";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
@@ -56,13 +64,20 @@ export function UploadScreen() {
   const [result, setResult] = React.useState<IngestResult | null>(null);
   // 커밋으로 확정된 재료 id(신규 생성 포함) — "재료 보기" 네비게이션용(★BUG-2).
   const [committedMaterialId, setCommittedMaterialId] = React.useState<number | null>(null);
+  // 수동 컬럼 매핑 {header: role}. 비어있으면 자동감지. 열림 여부 별도(★C5·수동매핑).
+  const [mapping, setMapping] = React.useState<Record<string, string>>({});
+  const [showMapper, setShowMapper] = React.useState(false);
 
   const materialsQ = useQuery({ queryKey: ["materials", ""], queryFn: () => listMaterials({ size: 100 }) });
+  const parsersQ = useQuery({ queryKey: ["parsers"], queryFn: getParsers });
 
   const sniffMut = useMutation({
     mutationFn: (f: File) => sniff(f),
     onSuccess: (r) => {
       setSniffResult(r);
+      setMapping({});
+      // 미인식(수동매핑 필요)이면 매퍼를 자동으로 펼친다(★C5).
+      setShowMapper(r.needs_manual_mapping);
       setStep(1);
     },
     onError: (e) => toast.error(e instanceof Error ? e.message : "감지 실패"),
@@ -86,7 +101,14 @@ export function UploadScreen() {
         diameter_m: meta.geometry === "round" ? mm(meta.d0_mm) : null,
       });
       // 3) 업로드 → 파싱 → 적재. 재료 id를 함께 반환(★BUG-2).
-      const ingest = await uploadToSpecimen(sp.id, file!);
+      let ingest = await uploadToSpecimen(sp.id, file!);
+      // 3b) 수동 매핑이 있으면 재파싱(4·5단계만 재실행, ★C5).
+      const effectiveMapping = Object.fromEntries(
+        Object.entries(mapping).filter(([, role]) => role && role !== "unknown"),
+      );
+      if (Object.keys(effectiveMapping).length > 0) {
+        ingest = await remapUpload(ingest.test_id, file!, effectiveMapping);
+      }
       return { materialId: mid, ingest };
     },
     onSuccess: ({ materialId, ingest }) => {
@@ -151,7 +173,7 @@ export function UploadScreen() {
                 <span className="tnum">{(sniffResult.confidence * 100).toFixed(0)}%</span>
               </span>
             </div>
-            {sniffResult.specimen.columns && (
+            {sniffResult.specimen.columns && !showMapper && (
               <div className="mt-3 flex flex-col gap-1.5">
                 {sniffResult.specimen.columns.map((c) => (
                   <div key={c.index} className="flex items-center gap-2 text-sm">
@@ -161,6 +183,23 @@ export function UploadScreen() {
                     {c.unit && <span className="text-xs text-text-tertiary">{c.unit}</span>}
                   </div>
                 ))}
+                <button
+                  type="button"
+                  onClick={() => setShowMapper(true)}
+                  className="mt-1 self-start text-sm text-[var(--primary-hover)] hover:underline"
+                >
+                  직접 매핑하기
+                </button>
+              </div>
+            )}
+            {sniffResult.specimen.columns && showMapper && (
+              <div className="mt-3">
+                <ColumnMapper
+                  columns={sniffResult.specimen.columns}
+                  roles={parsersQ.data?.roles ?? []}
+                  value={mapping}
+                  onChange={setMapping}
+                />
               </div>
             )}
           </Card>
@@ -327,6 +366,8 @@ export function UploadScreen() {
     setSniffResult(null);
     setResult(null);
     setCommittedMaterialId(null);
+    setMapping({});
+    setShowMapper(false);
   }
 }
 

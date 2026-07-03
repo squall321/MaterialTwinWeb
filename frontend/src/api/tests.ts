@@ -21,7 +21,15 @@ export type TestPatch = {
   invalid_reason?: string | null;
 };
 
-export type CurveKind = "nominal" | "force_disp";
+export type CurveKind = "nominal" | "force_disp" | "true";
+
+/** Considère 넥킹점(진응력 곡선에만). 값 없으면 strain=null. */
+export type Necking = {
+  strain: number | null;
+  stress: number | null;
+  index: number | null;
+  reason: string | null;
+};
 
 export type Curve = {
   kind: string;
@@ -31,6 +39,17 @@ export type Curve = {
   n_returned: number;
   x: number[];
   y: number[];
+  necking?: Necking | null;
+};
+
+/** 구성방정식 피팅 1건. params는 모델별 파라미터 dict(SI). */
+export type Fit = {
+  model: "hollomon" | "swift" | "voce" | "johnson_cook" | string;
+  params: Record<string, number> | null;
+  r2?: number | null;
+  rmse_pa?: number | null;
+  n_points?: number | null;
+  reason?: string | null;
 };
 
 export type Confidence = "high" | "ok" | "low";
@@ -113,4 +132,20 @@ export function computeProperties(
     method: "POST",
     body: JSON.stringify(args ?? {}),
   });
+}
+
+/** 구성방정식 피팅 계산(교체). Hollomon/Swift/Voce/JC. */
+export function computeFits(tid: number): Promise<{ test_id: number; fits: Fit[] }> {
+  return request<{ test_id: number; fits: Fit[] }>(`api/tests/${tid}/fits:compute`, {
+    method: "POST",
+  });
+}
+
+export function getFits(tid: number): Promise<{ test_id: number; fits: Fit[] }> {
+  return request<{ test_id: number; fits: Fit[] }>(`api/tests/${tid}/fits`);
+}
+
+/** LS-DYNA *MAT_024 카드 다운로드 URL(상대경로). */
+export function cardUrl(tid: number): string {
+  return `api/tests/${tid}/card.k`;
 }

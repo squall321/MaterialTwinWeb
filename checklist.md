@@ -64,7 +64,16 @@
 - [x] **모션**(§14.5): CSS transition/WAAPI만(framer-motion 미사용), prefers-reduced-motion 대응(§14.7)
 - [x] `vite.config.ts` manualChunks로 echarts 분리, `base:"./"` 유지
 - [x] self-host 폰트 (CDN 금지)
-- [ ] ColumnMapper(수동 컬럼 매핑 재파싱 UI) — sniff/IssuePanel은 됐으나 수동 매핑 폼은 D2 샘플 후
+- [x] ColumnMapper(수동 컬럼 매핑 재파싱 UI) — sniff 컬럼별 역할 재지정 → 커밋 시 remapUpload로 재파싱. 브라우저 검증
+
+## Phase 2/3 — 진응력·구성방정식·통계·카드 (완료)
+- [x] **진응력 변환**: `true_stress.py` ε_true=ln(1+ε)·σ_true=σ(1+ε), Considère 넥킹(dσ_true/dε_true=σ_true). `kind=true` 곡선 API. 브라우저: 넥킹 마커 ε_true=0.15(=n) 검증
+- [x] **구성방정식 피팅**: `fitting.py` Hollomon/Swift/Voce/JC(scipy curve_fit, graceful). constitutive_fit 테이블. Hollomon K=700MPa·n=0.15 R²=1.0 복원
+- [x] **재료 통계**: `/materials/{mid}/stats` 평균±σ(numpy on-the-fly, 새 테이블 0, C8)
+- [x] **LS-DYNA 카드**: `cards.py` *MAT_024 + *DEFINE_CURVE, `card.k` export(RFC 5987)
+- [x] 프론트: 공칭↔진 토글, 넥킹 마커, FitPanel(피팅 계산·모델별 R²·카드 다운로드)
+- [x] pytest 34개 통과(진응력·넥킹·Hollomon 복원·카드·통계·API), tsc/build 통과
+- [ ] auto E구간선택 — Phase 4로 미룸 / crosshead 컴플라이언스 보정 — 신뢰도 플래그만(P2 슬롯)
 
 ## Phase 1 — 통합 검증 (완료기준, ★C3 게이트)
 - [x] [정확도] 골든 픽스처 → E ±2%, Rp0.2 ±2MPa, UTS ±0.5% (pytest assert) — test_analysis_accuracy 통과

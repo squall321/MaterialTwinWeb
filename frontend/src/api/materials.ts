@@ -66,3 +66,18 @@ export function patchMaterial(
 export function deleteMaterial(mid: number): Promise<void> {
   return request<void>(`api/materials/${mid}`, { method: "DELETE" });
 }
+
+/** 물성 필드별 평균±σ. n은 유효 시편 수. */
+export type StatCell = { mean: number | null; std: number | null; n: number };
+
+export type MaterialStats = {
+  material_id: number;
+  n_specimens: number;
+  per_specimen: Array<Record<string, unknown>>;
+  stats: Record<string, StatCell>;
+};
+
+/** 재료 단위 물성 평균±σ 집계(★C8). */
+export function getMaterialStats(mid: number): Promise<MaterialStats> {
+  return request<MaterialStats>(`api/materials/${mid}/stats`);
+}

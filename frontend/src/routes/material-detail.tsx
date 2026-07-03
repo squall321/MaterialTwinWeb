@@ -23,6 +23,7 @@ import {
 } from "../components/StressStrainChart";
 import { PropertyTable, type PropertyRow } from "../components/PropertyTable";
 import { RegressionRangePicker } from "../components/RegressionRangePicker";
+import { FitPanel } from "../components/FitPanel";
 import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
 import { EmptyState } from "../components/states/EmptyState";
@@ -62,11 +63,14 @@ export function MaterialDetailScreen() {
     return { specimen: s, test: tests.find((t) => t.valid) ?? tests[0] ?? null };
   });
 
+  // 공칭↔진 응력 토글(§6.2). 진곡선은 넥킹 마커, 공칭은 UTS/Rp0.2 마커.
+  const [curveKind, setCurveKind] = React.useState<"nominal" | "true">("nominal");
+
   // 대표 test 들의 곡선·물성 병렬 쿼리.
   const curveQueries = useQueries({
     queries: reps.map((r) => ({
-      queryKey: ["curve", r.test?.id],
-      queryFn: () => getCurve(r.test!.id, { kind: "nominal", max_points: 2000 }),
+      queryKey: ["curve", r.test?.id, curveKind],
+      queryFn: () => getCurve(r.test!.id, { kind: curveKind, max_points: 2000 }),
       enabled: !!r.test,
     })),
   });
@@ -118,7 +122,13 @@ export function MaterialDetailScreen() {
       x: v.curve!.x,
       y: v.curve!.y,
       active: v.specimen.id === activeId,
-      markers: v.specimen.id === activeId ? markersFrom(v.props) : undefined,
+      // 진곡선이면 넥킹 마커, 공칭이면 UTS/Rp0.2/회귀 마커.
+      markers:
+        v.specimen.id === activeId
+          ? curveKind === "true"
+            ? neckingMarker(v.curve)
+            : markersFrom(v.props)
+          : undefined,
     }));
 
   const rows: PropertyRow[] = views.map((v) => ({
@@ -216,17 +226,37 @@ export function MaterialDetailScreen() {
 
           <div className="flex min-w-0 flex-col gap-6">
             <Card className="p-4">
+              <div className="mb-3 flex items-center justify-between">
+                <p className="text-overline">응력-변형률</p>
+                <div className="flex rounded-md border border-border-default p-0.5">
+                  {(["nominal", "true"] as const).map((k) => (
+                    <button
+                      key={k}
+                      onClick={() => setCurveKind(k)}
+                      className={cn(
+                        "rounded px-2.5 py-1 text-xs font-medium transition-colors",
+                        curveKind === k
+                          ? "bg-primary-muted text-[var(--primary-hover)]"
+                          : "text-text-tertiary hover:text-text-secondary",
+                      )}
+                    >
+                      {k === "nominal" ? "공칭" : "진응력"}
+                    </button>
+                  ))}
+                </div>
+              </div>
               {series.length === 0 ? (
                 <EmptyState title="곡선 없음" description="대표 시험의 곡선을 불러올 수 없습니다." />
               ) : (
                 <StressStrainChart
                   series={series}
-                  onRangeSelect={(r) => setRange(r)}
+                  onRangeSelect={curveKind === "nominal" ? (r) => setRange(r) : undefined}
                 />
               )}
             </Card>
 
-            {active?.curve && active.test && (
+            {/* 영률 회귀는 공칭-탄성 개념 → 진응력 뷰에서는 숨김. */}
+            {curveKind === "nominal" && active?.curve && active.test && (
               <RegressionRangePicker
                 x={active.curve.x}
                 y={active.curve.y}
@@ -251,6 +281,11 @@ export function MaterialDetailScreen() {
               </div>
               <PropertyTable rows={rows} />
             </Card>
+
+            {/* 구성방정식 피팅 + LS-DYNA 카드(활성 시편 기준, §6.3). */}
+            {active?.test && (
+              <FitPanel testId={active.test.id} hasProperties={active.props != null} />
+            )}
           </div>
         </div>
       )}
@@ -283,4 +318,11 @@ function markersFrom(p: Properties | null): ChartMarkers | undefined {
     };
   }
   return m;
+}
+
+// 진곡선 넥킹점(Considère) → 차트 마커. 곡선 응답의 necking 좌표 사용(§6.2).
+function neckingMarker(curve: Curve | null): ChartMarkers | undefined {
+  const n = curve?.necking;
+  if (!n || n.strain == null || n.stress == null) return undefined;
+  return { necking: { strain: n.strain, stressPa: n.stress } };
 }
