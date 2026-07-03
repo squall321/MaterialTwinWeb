@@ -88,3 +88,12 @@
 ## Phase 1 — 발견 버그 (브라우저 E2E에서, context-notes 상세)
 - [x] **BUG-1【치명】** 단위행 미파싱 → 물성 1000배 오차. **수정**: resolve_columns에 units 인자 추가, generic_csv가 헤더-데이터 사이 비수치행을 단위행으로 흡수(인라인 단위 우선·폴백), INFO `units_from_unit_row` 노출. 회귀 테스트 2개 추가. 브라우저 재검증: E=200GPa·Rp0.2=276MPa·UTS=540MPa·confidence=high ✅
 - [x] **BUG-2【낮음】** upload.tsx 신규 재료 "재료 보기" disabled. **수정**: commitMut가 {materialId,ingest} 반환→committedMaterialId state 저장, 버튼이 그걸로 활성/네비게이트. 브라우저 재검증: 신규재료 커밋→버튼 활성→/materials/3 이동 ✅
+
+## Phase 4 — 운영화 (부분 완료)
+- [x] **Alembic 마이그레이션**: `migrations/`(env.py는 Base+settings 단일소스), 초기 마이그레이션(6테이블 autogenerate). SQLite·Postgres 양쪽 upgrade/downgrade 검증
+- [x] **모델↔마이그레이션 드리프트 가드**: `alembic check`를 pytest로(`test_migrations.py`). 컬럼 추가 후 마이그레이션 누락 시 실패
+- [x] **Postgres 실구동 호환성**: `psycopg` 옵셔널 의존성, 실 PG16에 전체 플로우(JSON 왕복·DateTime tz·ingest E±2%·FK CASCADE) 통과(`test_postgres_compat.py`, MTW_TEST_POSTGRES_URL 게이트)
+- [x] 개발=create_all(빠름) / 운영=`alembic upgrade head`. `migrations/README.md`에 전환 절차
+- [x] pytest 38개+1스킵(SQLite), PG 포함 시 39개 통과
+- [ ] **zse/zsx 바이너리 파서** — D2 실샘플 없이 불가(보류)
+- [ ] 별칭 학습루프 / 인증(owner_id 슬롯만 존재) — 후순위
