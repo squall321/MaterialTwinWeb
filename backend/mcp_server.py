@@ -22,7 +22,7 @@ from mcp.server.fastmcp import FastMCP
 from mcp.server.fastmcp.utilities.types import Image
 from sqlalchemy import func
 
-from app import curve_store, viscoelastic
+from app import curve_store, insights, viscoelastic
 from app.cards import lsdyna_mat024_card
 from app.db import SessionLocal
 from app.models import ConstitutiveFit, Material, ProcessedResult, Specimen, Test
@@ -246,6 +246,74 @@ def database_summary() -> dict:
         return {"materials": s.query(func.count(Material.id)).scalar(),
                 "by_category": dict(cats), "tests_by_type": dict(ttypes),
                 "constitutive_fits": s.query(func.count(ConstitutiveFit.id)).scalar()}
+
+
+@mcp.tool()
+def material_taxonomy() -> dict:
+    """재료 클래스 분류 개요 — 클래스별(스테인리스·알루미늄·티탄…)·계열별·시험유형별 분포."""
+    with SessionLocal() as s:
+        return insights.overview(s)
+
+
+@mcp.tool()
+def property_distribution() -> dict:
+    """물성 분포 통계 — E·UTS·yield·연신율의 범위·평균·중앙·히스토그램."""
+    with SessionLocal() as s:
+        return insights.property_stats(s)
+
+
+@mcp.tool()
+def coverage_gaps() -> list[dict]:
+    """커버리지 갭 — 재료과학 표준 계열 대비 보유/부족/없음(rich/sparse/missing)."""
+    with SessionLocal() as s:
+        return insights.coverage_gaps(s)["coverage"]
+
+
+@mcp.tool()
+def find_materials_in_property_range(
+    E_min_gpa: float = 0, E_max_gpa: float = 1e9,
+    uts_min_mpa: float = 0, uts_max_mpa: float = 1e9, limit: int = 30,
+) -> list[dict]:
+    """Ashby 물성 박스로 재료 검색(AX). E(GPa)·UTS(MPa) 범위에 드는 재료를 반환."""
+    with SessionLocal() as s:
+        pts = insights.property_space(s)["points"]
+    out = [p for p in pts if E_min_gpa <= p["E_gpa"] <= E_max_gpa
+           and uts_min_mpa <= p["uts_mpa"] <= uts_max_mpa]
+    out.sort(key=lambda p: -p["uts_mpa"])
+    return [{"name": p["name"], "id": p["id"], "cls": p["cls"],
+             "E_gpa": p["E_gpa"], "uts_mpa": p["uts_mpa"], "test_id": p["test_id"]}
+            for p in out[:limit]]
+
+
+@mcp.tool()
+def plot_ashby() -> Image:
+    """전체 재료의 Ashby 물성공간(E–UTS 로그-로그, 계열별 색)을 그래프 이미지로 렌더."""
+    with SessionLocal() as s:
+        pts = insights.property_space(s)["points"]
+    fam_color = {"steel": "#56B4E9", "aluminum": "#E69F00", "titanium": "#CC79A7",
+                 "magnesium": "#009E73", "nickel": "#F0A92C", "copper": "#D55E00",
+                 "refractory": "#8FA1B3", "metal": "#9AA7B8"}
+    plt.style.use("dark_background")
+    fig, ax = plt.subplots(figsize=(7.6, 5.2), dpi=120)
+    fig.patch.set_facecolor("#0A0E14"); ax.set_facecolor("#070A0F")
+    fams = sorted({p["family"] for p in pts})
+    for fam in fams:
+        fp = [p for p in pts if p["family"] == fam]
+        ax.scatter([p["E_gpa"] for p in fp], [p["uts_mpa"] for p in fp],
+                   s=[30 + 12 * (p.get("density") or 3) for p in fp],
+                   c=fam_color.get(fam, "#9AA7B8"), alpha=0.8, edgecolors="black",
+                   linewidths=0.4, label=fam)
+    ax.set_xscale("log"); ax.set_yscale("log")
+    ax.set_xlabel("Young's modulus  E (GPa)"); ax.set_ylabel("UTS  (MPa)")
+    ax.set_title("Ashby material property space  (E–UTS)", color="#E6EBF2")
+    ax.legend(loc="lower right", framealpha=0.2, fontsize=8, ncol=2)
+    ax.grid(True, which="both", color="#1C2530", lw=0.5)
+    for sp in ax.spines.values():
+        sp.set_color("#26303D")
+    fig.tight_layout()
+    buf = io.BytesIO(); fig.savefig(buf, format="png", facecolor=fig.get_facecolor())
+    plt.close(fig)
+    return Image(data=buf.getvalue(), format="png")
 
 
 if __name__ == "__main__":
