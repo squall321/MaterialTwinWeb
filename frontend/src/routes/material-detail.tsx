@@ -141,8 +141,13 @@ export function MaterialDetailScreen() {
   }));
 
   const loading = materialQ.isPending || specimensQ.isPending;
-  // 점탄성 재료(완화시험)면 전용 뷰로 분기. 대표 test의 test_type로 판별.
-  const isViscoelastic = reps.some((r) => r.test?.test_type === "relaxation");
+  // 점탄성 재료면 전용 뷰로 분기. test_type이 우선, 로딩 중엔 카테고리를 폴백 신호로
+  // 써서 인장 뷰로 깜빡이는 레이스를 방지(클라 네비 시).
+  const repTestType = reps.find((r) => r.test)?.test?.test_type;
+  const cat = materialQ.data?.category;
+  const isViscoelastic =
+    repTestType === "relaxation" ||
+    (repTestType == null && (cat === "polymer" || cat === "rubber"));
 
   return (
     <div className="flex flex-col gap-6">
