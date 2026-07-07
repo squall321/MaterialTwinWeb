@@ -1,9 +1,11 @@
 // 재료 인사이트 대시보드(/insights) — Ashby 물성공간·클래스 분포·물성 통계·커버리지 갭·지식그래프.
+import * as React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Boxes, Sigma, Layers, TriangleAlert } from "lucide-react";
-import { insightsApi, type StatCell } from "../api/insights";
+import { Boxes, Sigma, Layers, TriangleAlert, Feather, Dumbbell, Gauge, Zap, Weight } from "lucide-react";
+import { insightsApi, type StatCell, type AutoInsight } from "../api/insights";
 import { AshbyChart } from "../components/AshbyChart";
 import { TaxonomyGraph } from "../components/TaxonomyGraph";
+import { FamilyBoxPlot } from "../components/FamilyBoxPlot";
 import { Card } from "../components/ui/card";
 import { ChartSkeleton } from "../components/states/Skeletons";
 import { cn } from "../lib/utils";
@@ -13,8 +15,11 @@ export function InsightsScreen() {
   const spaceQ = useQuery({ queryKey: ["insights", "space"], queryFn: insightsApi.propertySpace });
   const statsQ = useQuery({ queryKey: ["insights", "stats"], queryFn: insightsApi.propertyStats });
   const coverageQ = useQuery({ queryKey: ["insights", "coverage"], queryFn: insightsApi.coverage });
+  const familyQ = useQuery({ queryKey: ["insights", "family"], queryFn: insightsApi.familyStats });
 
   const ov = overviewQ.data;
+  const [boxMetric, setBoxMetric] = React.useState("E_gpa");
+  const activeMetric = familyQ.data?.metrics.find((m) => m.key === boxMetric) ?? familyQ.data?.metrics[0];
 
   return (
     <div className="flex flex-col gap-8">
@@ -54,6 +59,51 @@ export function InsightsScreen() {
           <AshbyChart points={spaceQ.data.points} families={spaceQ.data.families} />
         ) : (
           <p className="py-16 text-center text-sm text-text-tertiary">물성공간 데이터가 없습니다.</p>
+        )}
+      </Card>
+
+      {/* 자동 인사이트 — 재료군 비교의 핵심 결론 */}
+      {familyQ.data && familyQ.data.insights.length > 0 && (
+        <div>
+          <p className="text-overline mb-3">핵심 인사이트 · 재료군 비교</p>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {familyQ.data.insights.map((ins) => (
+              <InsightCard key={ins.metric} ins={ins} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* 재료군별 물성 분포(박스플롯) — E는 log축, 그룹 차이가 직접 보임 */}
+      <Card className="p-4">
+        <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <p className="text-overline">재료군별 물성 분포</p>
+            <p className="mt-0.5 text-xs text-text-tertiary">
+              계열별 5수치 박스 · 흰 점 = 평균 {activeMetric?.log_scale && "· 로그축(범위 큼)"}
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-1">
+            {familyQ.data?.metrics.map((m) => (
+              <button
+                key={m.key}
+                onClick={() => setBoxMetric(m.key)}
+                className={cn(
+                  "rounded-md px-2.5 py-1 text-xs font-medium transition-colors",
+                  boxMetric === m.key
+                    ? "bg-primary-muted text-[var(--primary-hover)]"
+                    : "text-text-tertiary hover:text-text-secondary",
+                )}
+              >
+                {m.label}
+              </button>
+            ))}
+          </div>
+        </div>
+        {activeMetric ? (
+          <FamilyBoxPlot boxes={activeMetric.boxes} unit={activeMetric.unit} log={activeMetric.log_scale} height={300} />
+        ) : (
+          <ChartSkeleton height={300} />
         )}
       </Card>
 
@@ -101,6 +151,33 @@ export function InsightsScreen() {
         </Card>
       </div>
     </div>
+  );
+}
+
+// 자동 인사이트 카드 — 지표별 선두 재료군을 결론으로.
+const INSIGHT_ICON: Record<string, React.ReactNode> = {
+  "비강도(경량 대비 강도)": <Feather className="size-4" />,
+  "비강성(경량 대비 강성)": <Gauge className="size-4" />,
+  "절대 인장강도": <Dumbbell className="size-4" />,
+  "밀도(가벼움)": <Weight className="size-4" />,
+  "탄성계수(강성)": <Zap className="size-4" />,
+};
+
+function InsightCard({ ins }: { ins: AutoInsight }) {
+  return (
+    <Card className="p-4">
+      <div className="flex items-center gap-2 text-primary">
+        {INSIGHT_ICON[ins.metric] ?? <Sigma className="size-4" />}
+        <span className="text-xs font-medium text-text-secondary">{ins.metric}</span>
+      </div>
+      <p className="mt-2 text-lg font-semibold text-text-primary">
+        {ins.leader} <span className="tnum text-sm font-normal text-accent">1위</span>
+      </p>
+      <p className="tnum text-sm text-text-secondary">
+        {ins.value} <span className="text-xs text-text-tertiary">{ins.unit}</span>
+      </p>
+      <p className="mt-1.5 text-xs text-text-tertiary">{ins.why} · 2위 {ins.runner_up}</p>
+    </Card>
   );
 }
 

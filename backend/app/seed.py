@@ -135,9 +135,37 @@ def seed_elastoplastic(session: Session, m: dict) -> int | None:
     res = ingest_upload(session, spec, _tensile_csv(strain, stress), f"{m['name']}.csv")
     if not res.test:
         return None
+    # 연질 저항복 재료(εy < 회귀창 하한)는 고정창이 소성구간에 빠져 E가 틀림 →
+    # 알려진 E/SIGY로 탄성창을 계산해 재산출(재구성 시드에서만 가능한 정밀 보정).
+    _fix_modulus(session, res.test.id, mech["E"], mech.get("SIGY") or mech.get("yield_stress_SIGY"))
     # 구성방정식 피팅도 계산·저장(mat 카드 도출 준비).
     _compute_fits(session, res.test.id)
     return res.test.id
+
+
+def _fix_modulus(session: Session, tid: int, E_mpa: float, sigy_mpa: float | None) -> None:
+    """항복변형률 εy=SIGY/E 기준으로 탄성창을 잡아 E·물성을 재산출·갱신."""
+    if not E_mpa or not sigy_mpa:
+        return
+    from app import analysis
+    ey = sigy_mpa / E_mpa
+    # 탄성창: [0.15εy, 0.7εy]. εy가 충분히 크면(>0.0036) 기본창 유지.
+    if ey >= 0.0036:
+        return
+    lo, hi = max(1e-4, 0.15 * ey), max(2e-4, 0.7 * ey)
+    pr = session.query(ProcessedResult).filter_by(test_id=tid).one_or_none()
+    if pr is None:
+        return
+    df = curve_store.read_curve(tid)
+    strain = np.asarray(df["eng_strain"], dtype=float)
+    stress = np.asarray(df["eng_stress_Pa"], dtype=float)
+    metrics = analysis.compute_all(strain, stress, A0=None, e_range=(lo, hi))
+    pr.youngs_modulus_pa = metrics["youngs_modulus_pa"]
+    pr.yield_strength_pa = metrics["yield_strength_pa"]
+    pr.strain_hardening_n = metrics["strain_hardening_n"]
+    pr.strength_coeff_k_pa = metrics["strength_coeff_k_pa"]
+    pr.params = metrics["params"].model_dump()
+    session.commit()
 
 
 def _compute_fits(session: Session, tid: int) -> None:

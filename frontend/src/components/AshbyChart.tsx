@@ -2,13 +2,33 @@
 import * as React from "react";
 import { useNavigate } from "@tanstack/react-router";
 import * as echarts from "echarts/core";
-import { ScatterChart } from "echarts/charts";
+import { ScatterChart, CustomChart } from "echarts/charts";
 import { GridComponent, TooltipComponent, LegendComponent } from "echarts/components";
 import { CanvasRenderer } from "echarts/renderers";
 import { readChartTheme } from "../lib/echarts";
 import type { AshbyPoint } from "../api/insights";
 
-echarts.use([ScatterChart, GridComponent, TooltipComponent, LegendComponent, CanvasRenderer]);
+echarts.use([ScatterChart, CustomChart, GridComponent, TooltipComponent, LegendComponent, CanvasRenderer]);
+
+// Andrew monotone-chain 볼록껍질(로그 공간에서 계산해야 화면상 자연스러움).
+function convexHull(pts: [number, number][]): [number, number][] {
+  if (pts.length < 3) return pts;
+  const p = [...pts].sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  const cross = (o: number[], a: number[], b: number[]) =>
+    (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+  const lower: [number, number][] = [];
+  for (const q of p) {
+    while (lower.length >= 2 && cross(lower[lower.length - 2], lower[lower.length - 1], q) <= 0) lower.pop();
+    lower.push(q);
+  }
+  const upper: [number, number][] = [];
+  for (let i = p.length - 1; i >= 0; i--) {
+    const q = p[i];
+    while (upper.length >= 2 && cross(upper[upper.length - 2], upper[upper.length - 1], q) <= 0) upper.pop();
+    upper.push(q);
+  }
+  return lower.slice(0, -1).concat(upper.slice(0, -1));
+}
 
 // 계열별 색(Okabe-Ito 계열 재사용). 재료과학 관례 색감.
 const FAMILY_COLOR: Record<string, string> = {
@@ -65,9 +85,39 @@ export function AshbyChart({ points, families }: { points: AshbyPoint[]; familie
       return 8 + 22 * Math.sqrt((v - dMin) / (dMax - dMin + 1e-6));
     };
 
-    const series = families.map((fam) => ({
+    // 계열 영역(convex hull) — 로그 공간에서 껍질 계산 후 custom 폴리곤으로 채운다.
+    const hullSeries = families
+      .map((fam) => {
+        const fp = points.filter((p) => p.family === fam && p.E_gpa > 0 && p.uts_mpa > 0);
+        if (fp.length < 3) return null;
+        const logPts = fp.map((p) => [Math.log10(p.E_gpa), Math.log10(p.uts_mpa)] as [number, number]);
+        const hullLog = convexHull(logPts);
+        const hull = hullLog.map(([lx, ly]) => [Math.pow(10, lx), Math.pow(10, ly)]);
+        const color = FAMILY_COLOR[fam] ?? "#9AA7B8";
+        return {
+          name: FAMILY_LABEL[fam] ?? fam,
+          type: "custom" as const,
+          silent: true,
+          data: [0],
+          renderItem: (_params: unknown, api: { coord: (v: number[]) => number[] }) => {
+            const poly = hull.map((pt) => api.coord(pt));
+            return {
+              type: "polygon",
+              shape: { points: poly },
+              style: { fill: color, opacity: 0.1, stroke: color, lineWidth: 1, strokeOpacity: 0.4 },
+            };
+          },
+          z: 1,
+          tooltip: { show: false },
+          legendHoverLink: false,
+        };
+      })
+      .filter(Boolean);
+
+    const scatterSeries = families.map((fam) => ({
       name: FAMILY_LABEL[fam] ?? fam,
       type: "scatter" as const,
+      z: 3,
       data: points
         .filter((p) => p.family === fam)
         .map((p) => ({
@@ -79,12 +129,13 @@ export function AshbyChart({ points, families }: { points: AshbyPoint[]; familie
         })),
       itemStyle: {
         color: FAMILY_COLOR[fam] ?? "#9AA7B8",
-        opacity: 0.82,
+        opacity: 0.85,
         borderColor: "rgba(0,0,0,0.35)",
         borderWidth: 0.5,
       },
       emphasis: { itemStyle: { opacity: 1, borderColor: T.text2, borderWidth: 1 } },
     }));
+    const series = [...hullSeries, ...scatterSeries];
 
     inst.current.setOption(
       {

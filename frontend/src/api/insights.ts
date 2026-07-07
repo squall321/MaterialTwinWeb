@@ -44,6 +44,18 @@ export type PropertyStats = {
   viscoelastic_count: number;
 };
 
+export type FamilyBoxData = {
+  family: string; label: string;
+  min: number; q1: number; median: number; q3: number; max: number; mean: number; n: number;
+};
+export type MetricBoxes = { key: string; label: string; unit: string; log_scale: boolean; boxes: FamilyBoxData[] };
+export type AutoInsight = { metric: string; unit: string; leader: string; value: number; why: string; runner_up: string };
+export type FamilyStats = {
+  families: { key: string; label: string; n: number }[];
+  metrics: MetricBoxes[];
+  insights: AutoInsight[];
+};
+
 export type CoverageRow = { group: string; family: string; count: number; status: "rich" | "sparse" | "missing" };
 export type GraphNode = { id: string; label: string; type: string; value: number };
 export type GraphEdge = { source: string; target: string };
@@ -54,4 +66,5 @@ export const insightsApi = {
   propertySpace: () => request<PropertySpace>("api/insights/property-space"),
   propertyStats: () => request<PropertyStats>("api/insights/property-stats"),
   coverage: () => request<Coverage>("api/insights/coverage"),
+  familyStats: () => request<FamilyStats>("api/insights/family-stats"),
 };

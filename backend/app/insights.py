@@ -99,15 +99,122 @@ def overview(session: Session) -> dict:
 
 
 def property_space(session: Session) -> dict:
-    """Ashby 물성공간 산점: 재료별 (E, UTS, 밀도, 클래스). 탄소성만(강도 정의)."""
+    """Ashby 물성공간 산점: 재료별 (E, UTS, 밀도, 비물성, 클래스). 탄소성만(강도 정의)."""
     pts = []
     for r in _material_rows(session):
         if r.get("kind") == "elastoplastic" and r.get("E_gpa") and r.get("uts_mpa"):
+            rho = r.get("density_g_cm3")
             pts.append({"name": r["name"], "id": r["id"], "cls": r["cls"], "family": r["family"],
                         "E_gpa": r["E_gpa"], "uts_mpa": r["uts_mpa"], "yield_mpa": r.get("yield_mpa"),
-                        "density": r.get("density_g_cm3"), "elong_pct": r.get("elong_pct"),
+                        "density": rho, "elong_pct": r.get("elong_pct"),
+                        # 비강도 σ/ρ [kN·m/kg], 비강성 E/ρ [MN·m/kg]. ρ 없으면 None.
+                        "spec_strength": round(r["uts_mpa"] / rho, 1) if rho else None,
+                        "spec_stiffness": round(r["E_gpa"] / rho, 2) if rho else None,
                         "test_id": r["test_id"]})
     return {"points": pts, "families": sorted({p["family"] for p in pts})}
+
+
+def _box(vals: np.ndarray) -> dict | None:
+    """박스플롯 5수치 + 평균·n. 빈 배열이면 None."""
+    v = vals[np.isfinite(vals)]
+    if v.size == 0:
+        return None
+    q1, med, q3 = (float(x) for x in np.percentile(v, [25, 50, 75]))
+    return {"min": round(float(v.min()), 2), "q1": round(q1, 2), "median": round(med, 2),
+            "q3": round(q3, 2), "max": round(float(v.max()), 2),
+            "mean": round(float(v.mean()), 2), "n": int(v.size)}
+
+
+# 계열 표시명·정렬(금속 먼저, 강성 큰 순 경향).
+_FAMILY_ORDER = ["steel", "nickel", "titanium", "copper", "aluminum", "magnesium",
+                 "refractory", "metal"]
+_FAMILY_LABEL = {"steel": "강", "nickel": "니켈합금", "titanium": "티탄", "copper": "동합금",
+                 "aluminum": "알루미늄", "magnesium": "마그네슘", "refractory": "내화금속",
+                 "metal": "기타 금속"}
+
+
+def family_stats(session: Session) -> dict:
+    """재료 계열별 물성 분포(박스플롯) + 비강도·비강성 + 자동 인사이트.
+
+    이것이 '그룹 간 차이'의 핵심: E(log 권장)·UTS·밀도·비강도·비강성을 계열마다 5수치로.
+    """
+    rows = [r for r in _material_rows(session)
+            if r.get("kind") == "elastoplastic" and r.get("E_gpa") and r.get("uts_mpa")]
+    by_fam: dict[str, list] = defaultdict(list)
+    for r in rows:
+        by_fam[r["family"]].append(r)
+
+    metrics = [
+        ("E_gpa", "탄성계수 E", "GPa"),
+        ("uts_mpa", "인장강도 UTS", "MPa"),
+        ("density_g_cm3", "밀도 ρ", "g/cm³"),
+        ("spec_strength", "비강도 σ/ρ", "kN·m/kg"),
+        ("spec_stiffness", "비강성 E/ρ", "MN·m/kg"),
+    ]
+
+    def spec_str(r):
+        rho = r.get("density_g_cm3")
+        return r["uts_mpa"] / rho if rho else np.nan
+
+    def spec_stf(r):
+        rho = r.get("density_g_cm3")
+        return r["E_gpa"] / rho if rho else np.nan
+
+    getter = {"E_gpa": lambda r: r.get("E_gpa"), "uts_mpa": lambda r: r.get("uts_mpa"),
+              "density_g_cm3": lambda r: r.get("density_g_cm3"),
+              "spec_strength": spec_str, "spec_stiffness": spec_stf}
+
+    fams = [f for f in _FAMILY_ORDER if f in by_fam] + \
+           [f for f in by_fam if f not in _FAMILY_ORDER]
+    out_metrics = []
+    for key, label, unit in metrics:
+        boxes = []
+        for fam in fams:
+            vals = np.array([getter[key](r) for r in by_fam[fam]], dtype=float)
+            b = _box(vals)
+            if b:
+                boxes.append({"family": fam, "label": _FAMILY_LABEL.get(fam, fam), **b})
+        # E는 범위가 크므로 log축 권장 플래그(최대/최소 비 > 20).
+        allv = np.array([getter[key](r) for r in rows], dtype=float)
+        allv = allv[np.isfinite(allv) & (allv > 0)]
+        log_scale = bool(allv.size and allv.max() / allv.min() > 20)
+        out_metrics.append({"key": key, "label": label, "unit": unit,
+                            "log_scale": log_scale, "boxes": boxes})
+
+    # 자동 인사이트: 각 비물성/강도의 선두 계열.
+    insights_txt = _auto_insights(by_fam, getter)
+    return {"families": [{"key": f, "label": _FAMILY_LABEL.get(f, f), "n": len(by_fam[f])} for f in fams],
+            "metrics": out_metrics, "insights": insights_txt}
+
+
+def _auto_insights(by_fam, getter) -> list[dict]:
+    """계열별 중앙값 비교로 '가장 ~한 재료군' 문장을 생성."""
+    def median_of(fam, key):
+        vals = np.array([getter[key](r) for r in by_fam[fam]], dtype=float)
+        vals = vals[np.isfinite(vals)]
+        return float(np.median(vals)) if vals.size else None
+
+    txt = []
+    checks = [
+        ("spec_strength", "비강도(경량 대비 강도)", "kN·m/kg", True, "경량 고강도 설계에 유리"),
+        ("spec_stiffness", "비강성(경량 대비 강성)", "MN·m/kg", True, "강성-경량 설계에 유리"),
+        ("uts_mpa", "절대 인장강도", "MPa", True, "고하중 구조에 유리"),
+        ("density_g_cm3", "밀도(가벼움)", "g/cm³", False, "경량화에 유리"),
+        ("E_gpa", "탄성계수(강성)", "GPa", True, "변형 저항이 큼"),
+    ]
+    for key, metric_ko, unit, want_max, why in checks:
+        # 그룹 인사이트는 n>=2 계열만 비교(단일 재료의 왜곡·grab-bag 제외).
+        ranked = [(fam, median_of(fam, key)) for fam in by_fam
+                  if len(by_fam[fam]) >= 2 and fam != "metal"]
+        ranked = [(f, v) for f, v in ranked if v is not None]
+        if len(ranked) < 2:
+            continue
+        ranked.sort(key=lambda x: x[1], reverse=want_max)
+        lead_fam, lead_val = ranked[0]
+        txt.append({"metric": metric_ko, "unit": unit, "leader": _FAMILY_LABEL.get(lead_fam, lead_fam),
+                    "value": round(lead_val, 2), "why": why,
+                    "runner_up": _FAMILY_LABEL.get(ranked[1][0], ranked[1][0])})
+    return txt
 
 
 def property_stats(session: Session) -> dict:

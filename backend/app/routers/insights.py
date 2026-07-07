@@ -32,3 +32,9 @@ def get_property_stats(db: Session = Depends(get_db)) -> dict:
 def get_coverage(db: Session = Depends(get_db)) -> dict:
     """커버리지 갭 + taxonomy 지식그래프(노드·엣지)."""
     return insights.coverage_gaps(db)
+
+
+@router.get("/family-stats")
+def get_family_stats(db: Session = Depends(get_db)) -> dict:
+    """재료 계열별 물성 분포(박스플롯)·비강도/비강성 + 자동 인사이트."""
+    return insights.family_stats(db)
