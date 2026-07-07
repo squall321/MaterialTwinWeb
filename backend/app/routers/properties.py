@@ -10,7 +10,7 @@ from fastapi import APIRouter, Body, Depends, HTTPException, Query, status
 from fastapi.responses import StreamingResponse
 from sqlalchemy.orm import Session
 
-from app import analysis, curve_store, fitting, true_stress
+from app import analysis, curve_store, fitting, true_stress, viscoelastic
 from app.cards import lsdyna_mat024_card
 from app.db import get_db
 from app.models import ConstitutiveFit, ProcessedResult, RawCurveRef, Test
@@ -67,10 +67,11 @@ def _load_curve(db: Session, tid: int):
     return curve_store.read_curve(tid)
 
 
-# kind → (x컬럼, y컬럼). nominal=공칭 σ-ε, force_disp=하중-변위.
+# kind → (x컬럼, y컬럼). nominal=공칭 σ-ε, force_disp=하중-변위, relaxation=점탄성 완화 E(t).
 _KIND_COLUMNS = {
     "nominal": ("eng_strain", "eng_stress_Pa"),
     "force_disp": ("disp_m", "force_N"),
+    "relaxation": ("time_s", "relax_modulus_Pa"),
 }
 
 
@@ -216,8 +217,13 @@ def _plastic_true(df, E: float | None) -> tuple[np.ndarray, np.ndarray]:
     upto = conv["valid_upto_index"]
     if upto is not None and upto > 2:
         et, st = et[:upto], st[:upto]
-    # 소성진변형률 εp = ε_true − σ_true/E.
-    ep = et - st / E if (E and np.isfinite(E) and E > 0) else et
+    # 소성진변형률 εp = ε_true − σ_true/E. E는 실제 고체 수준(>1 GPa)일 때만 탄성분 제거.
+    # (탄성구간 없는 곡선에서 E 회귀가 비물리적으로 작게 나오면 εp가 음수 폭주 →
+    #  진변형률을 소성분으로 근사. 대변형에선 탄성분이 무시할 수준이라 타당.)
+    if E and np.isfinite(E) and E > 1e9:
+        ep = et - st / E
+    else:
+        ep = et.copy()
     return ep, st
 
 
@@ -307,5 +313,33 @@ def get_card(tid: int, db: Session = Depends(get_db)) -> StreamingResponse:
     return StreamingResponse(
         iter([text]),
         media_type="text/plain",
+        headers={"Content-Disposition": disposition},
+    )
+
+
+@router.get("/tests/{tid}/viscocard.k")
+def get_viscocard(tid: int, db: Session = Depends(get_db)) -> StreamingResponse:
+    """LS-DYNA *MAT_VISCOELASTIC 카드 다운로드(점탄성 완화 Prony 1항, §점탄성)."""
+    test = _get_test(db, tid)
+    pr = (
+        db.query(ProcessedResult).filter(ProcessedResult.test_id == tid).one_or_none()
+    )
+    if pr is None or not pr.extra_metrics or pr.extra_metrics.get("kind") != "viscoelastic":
+        raise HTTPException(status_code=422, detail="viscoelastic relaxation result required")
+    p = pr.extra_metrics.get("lsdyna_prony", {})
+    mat = test.specimen.material if test.specimen else None
+    rho = (mat.attributes or {}).get("prony_lsdyna", {}).get("RHO") if mat else None
+    text = viscoelastic.mat_viscoelastic_card(
+        title=mat.name if mat else f"test{tid}",
+        rho=rho or 1.1e-9,
+        bulk_mpa=p.get("BULK") or 2000.0,
+        G0_mpa=p.get("G0") or 1.0,
+        Ginf_mpa=p.get("GI") or 0.1,
+        beta=p.get("BETA") or 1.0,
+    )
+    fname = f"test_{tid}_MAT_VISCOELASTIC.k"
+    disposition = f"attachment; filename=\"{fname}\"; filename*=UTF-8''{quote(fname)}"
+    return StreamingResponse(
+        iter([text]), media_type="text/plain",
         headers={"Content-Disposition": disposition},
     )

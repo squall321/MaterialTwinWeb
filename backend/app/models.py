@@ -89,7 +89,7 @@ class Test(Base):
     __tablename__ = "test"
     __table_args__ = (
         CheckConstraint(
-            "strain_source IN ('extensometer','crosshead')",
+            "strain_source IS NULL OR strain_source IN ('extensometer','crosshead','relaxation')",
             name="ck_test_strain_source",
         ),
     )
@@ -104,7 +104,8 @@ class Test(Base):
     machine: Mapped[str | None] = mapped_column(String(100), nullable=True)
     software: Mapped[str | None] = mapped_column(String(100), nullable=True)
     source_format: Mapped[str | None] = mapped_column(String(20), nullable=True)
-    strain_source: Mapped[str] = mapped_column(String(20), nullable=False)
+    # tensile는 extensometer/crosshead, 점탄성 완화시험은 relaxation 또는 NULL.
+    strain_source: Mapped[str | None] = mapped_column(String(20), nullable=True)
     test_speed_m_s: Mapped[float | None] = mapped_column(Float, nullable=True)
     temperature_k: Mapped[float | None] = mapped_column(Float, nullable=True)
     tested_at: Mapped[datetime | None] = mapped_column(
