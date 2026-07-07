@@ -24,6 +24,7 @@ import {
 import { PropertyTable, type PropertyRow } from "../components/PropertyTable";
 import { RegressionRangePicker } from "../components/RegressionRangePicker";
 import { FitPanel } from "../components/FitPanel";
+import { ViscoelasticView } from "../components/ViscoelasticView";
 import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
 import { EmptyState } from "../components/states/EmptyState";
@@ -140,6 +141,8 @@ export function MaterialDetailScreen() {
   }));
 
   const loading = materialQ.isPending || specimensQ.isPending;
+  // 점탄성 재료(완화시험)면 전용 뷰로 분기. 대표 test의 test_type로 판별.
+  const isViscoelastic = reps.some((r) => r.test?.test_type === "relaxation");
 
   return (
     <div className="flex flex-col gap-6">
@@ -196,6 +199,8 @@ export function MaterialDetailScreen() {
             </Link>
           }
         />
+      ) : isViscoelastic && active?.test ? (
+        <ViscoelasticView testId={active.test.id} />
       ) : (
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-[200px_minmax(0,1fr)]">
           {/* 시편 레전드 — 활성 선택 */}

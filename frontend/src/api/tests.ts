@@ -21,7 +21,7 @@ export type TestPatch = {
   invalid_reason?: string | null;
 };
 
-export type CurveKind = "nominal" | "force_disp" | "true";
+export type CurveKind = "nominal" | "force_disp" | "true" | "relaxation";
 
 /** Considère 넥킹점(진응력 곡선에만). 값 없으면 strain=null. */
 export type Necking = {
@@ -148,4 +148,9 @@ export function getFits(tid: number): Promise<{ test_id: number; fits: Fit[] }> 
 /** LS-DYNA *MAT_024 카드 다운로드 URL(상대경로). */
 export function cardUrl(tid: number): string {
   return `api/tests/${tid}/card.k`;
+}
+
+/** LS-DYNA *MAT_VISCOELASTIC 카드 다운로드 URL(점탄성). */
+export function viscoCardUrl(tid: number): string {
+  return `api/tests/${tid}/viscocard.k`;
 }
