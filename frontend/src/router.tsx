@@ -9,8 +9,9 @@ import {
   Outlet,
 } from "@tanstack/react-router";
 import type { ReactNode } from "react";
-import { FlaskConical, Library, Upload } from "lucide-react";
+import { FlaskConical, Library, Upload, LayoutDashboard } from "lucide-react";
 import { cn } from "./lib/utils";
+import { InsightsScreen } from "./routes/insights";
 import { MaterialsScreen } from "./routes/materials";
 import { MaterialDetailScreen } from "./routes/material-detail";
 import { UploadScreen } from "./routes/upload";
@@ -25,6 +26,7 @@ function AppShell() {
           <span className="text-md font-medium tracking-[-0.005em]">MaterialTwin</span>
         </div>
         <nav className="flex flex-col gap-1 px-3 py-2">
+          <NavItem to="/insights" icon={<LayoutDashboard className="size-4" />} label="인사이트" />
           <NavItem to="/materials" icon={<Library className="size-4" />} label="재료 라이브러리" />
           <NavItem to="/upload" icon={<Upload className="size-4" />} label="업로드" />
         </nav>
@@ -66,13 +68,19 @@ function NavItem({
 
 const rootRoute = createRootRoute({ component: AppShell });
 
-// 루트("/")는 /materials 로 리다이렉트한다.
+// 루트("/")는 인사이트 대시보드로 리다이렉트한다.
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/",
   beforeLoad: () => {
-    throw redirect({ to: "/materials" });
+    throw redirect({ to: "/insights" });
   },
+});
+
+const insightsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/insights",
+  component: InsightsScreen,
 });
 
 const materialsRoute = createRoute({
@@ -100,6 +108,7 @@ const uploadRoute = createRoute({
 
 const routeTree = rootRoute.addChildren([
   indexRoute,
+  insightsRoute,
   materialsRoute,
   materialDetailRoute,
   uploadRoute,
