@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MaterialTwin — AI-ready 물성 데이터 플랫폼</title>
+<style>
+  /* MaterialTwin 비전 소개 — 계측 패널 정체성(§14 디자인 시스템 계승) */
+  :root {
+    --bg-base: #0A0E14; --bg-surface: #0F141B; --bg-surface-2: #161D27; --bg-inset: #070A0F;
+    --border-subtle: #1C2530; --border-default: #26303D; --border-strong: #37424F;
+    --text-1: #E6EBF2; --text-2: #9AA7B8; --text-3: #5E6B7D;
+    --primary: #3B82F6; --primary-hover: #5C9AFF; --primary-muted: #16233b;
+    --accent: #34D399; --accent-muted: #0F2B22; --warning: #F0A92C; --danger: #EF4444;
+    --sky: #56B4E9; --amber: #E69F00; --violet: #CC79A7;
+    --shadow: 0 1px 0 rgba(255,255,255,.02), 0 12px 40px -16px rgba(0,0,0,.7);
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace;
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(59,130,246,.10), transparent 60%),
+      radial-gradient(900px 500px at 0% 10%, rgba(52,211,153,.06), transparent 55%),
+      var(--bg-base);
+    color: var(--text-1); font-family: var(--sans); line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: clamp(1.25rem, 4vw, 3rem); }
+  .mono { font-family: var(--mono); }
+  .tnum { font-variant-numeric: tabular-nums; }
+  .eyebrow { font-family: var(--mono); font-size: .68rem; font-weight: 600; text-transform: uppercase; letter-spacing: .16em; color: var(--text-3); }
+
+  /* ── masthead ── */
+  header.top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-bottom: 2.2rem; border-bottom: 1px solid var(--border-default); }
+  .brand { display: flex; align-items: center; gap: .6rem; font-weight: 600; font-size: 1.05rem; letter-spacing: -.01em; }
+  .brand .logo { width: 26px; height: 26px; display: grid; place-items: center; color: var(--primary); }
+  .navchips { display: flex; gap: .4rem; flex-wrap: wrap; }
+  .navchips a { font-family: var(--mono); font-size: .7rem; color: var(--text-2); text-decoration: none; border: 1px solid var(--border-default); padding: .3rem .6rem; border-radius: 999px; transition: .15s; }
+  .navchips a:hover { color: var(--text-1); border-color: var(--border-strong); }
+
+  /* ── hero ── */
+  .hero { padding: clamp(2.5rem,7vw,4.5rem) 0 2.5rem; }
+  .hero .tag { display: inline-flex; align-items: center; gap: .5rem; font-family: var(--mono); font-size: .72rem; color: var(--accent); background: var(--accent-muted); border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); padding: .25rem .7rem; border-radius: 999px; }
+  .hero h1 { margin: 1.1rem 0 0; font-size: clamp(2.1rem, 6vw, 3.7rem); font-weight: 700; letter-spacing: -.03em; line-height: 1.05; text-wrap: balance; }
+  .hero h1 .grad { background: linear-gradient(100deg, var(--sky), var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero p.lead { margin: 1.3rem 0 0; max-width: 62ch; color: var(--text-2); font-size: 1.08rem; }
+  .hero .metrics { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2.2rem; }
+  .hero .metrics .m .v { font-family: var(--mono); font-size: 1.7rem; font-weight: 600; letter-spacing: -.02em; }
+  .hero .metrics .m .v.accent { color: var(--accent); }
+  .hero .metrics .m .k { font-size: .78rem; color: var(--text-3); font-family: var(--mono); }
+
+  section { padding: 3.2rem 0; border-top: 1px solid var(--border-subtle); }
+  .sec-eyebrow { display: flex; align-items: baseline; gap: .7rem; margin-bottom: 1.4rem; }
+  .sec-eyebrow .n { font-family: var(--mono); font-size: .85rem; color: var(--primary); font-weight: 600; }
+  .sec-eyebrow h2 { margin: 0; font-size: clamp(1.4rem, 3.5vw, 1.9rem); font-weight: 650; letter-spacing: -.02em; }
+  .sec-lead { color: var(--text-2); max-width: 70ch; margin: -.6rem 0 1.8rem; }
+
+  /* ── shift: consortium → in-house AI ── */
+  .shift { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.2rem; align-items: stretch; }
+  .shift .arrow { display: grid; place-items: center; color: var(--primary); font-size: 1.6rem; }
+  .panel { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 14px; padding: 1.5rem 1.6rem; box-shadow: var(--shadow); }
+  .panel.old { border-style: dashed; opacity: .82; }
+  .panel .lab { font-family: var(--mono); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; }
+  .panel.old .lab { color: var(--text-3); }
+  .panel.new .lab { color: var(--accent); }
+  .panel h3 { margin: .5rem 0 .8rem; font-size: 1.12rem; font-weight: 650; }
+  .panel ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+  .panel li { display: grid; grid-template-columns: 1.1rem 1fr; gap: .5rem; color: var(--text-2); font-size: .92rem; }
+  .panel.old li .i { color: var(--danger); }
+  .panel.new li .i { color: var(--accent); }
+
+  /* ── AI-ready DB layers ── */
+  .layers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .layer { position: relative; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 14px; padding: 1.4rem 1.4rem 1.5rem; box-shadow: var(--shadow); overflow: hidden; }
+  .layer::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px; }
+  .layer.l1::before { background: var(--sky); } .layer.l2::before { background: var(--amber); } .layer.l3::before { background: var(--accent); }
+  .layer .idx { font-family: var(--mono); font-size: .7rem; color: var(--text-3); }
+  .layer h3 { margin: .45rem 0 .3rem; font-size: 1.08rem; font-weight: 650; }
+  .layer .sub { font-size: .82rem; color: var(--text-3); margin: 0 0 .8rem; }
+  .layer p { margin: 0; color: var(--text-2); font-size: .9rem; }
+  .layer .tags { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .9rem; }
+  .layer .tags span { font-family: var(--mono); font-size: .66rem; color: var(--text-2); background: var(--bg-inset); border: 1px solid var(--border-subtle); padding: .16rem .45rem; border-radius: 6px; }
+  .insight-goal { margin-top: 1.4rem; background: linear-gradient(100deg, var(--primary-muted), transparent); border: 1px solid color-mix(in srgb, var(--primary) 25%, var(--border-default)); border-radius: 14px; padding: 1.3rem 1.5rem; }
+  .insight-goal .lab { font-family: var(--mono); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--primary-hover); }
+  .insight-goal p { margin: .5rem 0 0; font-size: 1.02rem; color: var(--text-1); }
+  .insight-goal b { color: var(--accent); }
+
+  /* ── demo video ── */
+  .videocard { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); }
+  .videocard .bar { display: flex; align-items: center; gap: .5rem; padding: .7rem 1rem; border-bottom: 1px solid var(--border-subtle); }
+  .videocard .bar .dot { width: 10px; height: 10px; border-radius: 999px; }
+  .videocard .bar .t { margin-left: .6rem; font-family: var(--mono); font-size: .72rem; color: var(--text-3); }
+  video { display: block; width: 100%; height: auto; background: #000; }
+  .videocard .cap { padding: .8rem 1rem; font-family: var(--mono); font-size: .72rem; color: var(--text-3); }
+  .chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.3rem; }
+  .chips .c { display: inline-flex; align-items: center; gap: .4rem; font-size: .82rem; color: var(--text-2); background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: .4rem .7rem; border-radius: 999px; }
+  .chips .c .k { color: var(--accent); font-family: var(--mono); font-size: .7rem; }
+
+  /* ── roadmap ── */
+  .road { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .step { position: relative; padding: 1.2rem 1.1rem; border: 1px solid var(--border-subtle); background: var(--bg-surface); }
+  .step:not(:last-child) { border-right: none; }
+  .step:first-child { border-radius: 14px 0 0 14px; }
+  .step:last-child { border-radius: 0 14px 14px 0; }
+  .step .ph { font-family: var(--mono); font-size: .68rem; color: var(--text-3); }
+  .step .st { display: inline-block; font-family: var(--mono); font-size: .62rem; padding: .12rem .45rem; border-radius: 5px; margin-top: .5rem; }
+  .step.done .st { color: var(--accent); background: var(--accent-muted); }
+  .step.next .st { color: var(--warning); background: color-mix(in srgb, var(--warning) 14%, transparent); }
+  .step.future .st { color: var(--text-3); background: var(--bg-inset); }
+  .step h3 { margin: .5rem 0 .4rem; font-size: 1rem; font-weight: 620; letter-spacing: -.01em; }
+  .step p { margin: 0; font-size: .84rem; color: var(--text-2); }
+
+  /* ── equipment table ── */
+  .eqwrap { overflow-x: auto; border: 1px solid var(--border-subtle); border-radius: 14px; }
+  table.eq { width: 100%; border-collapse: collapse; min-width: 640px; }
+  table.eq th { text-align: left; font-family: var(--mono); font-size: .64rem; letter-spacing: .06em; text-transform: uppercase; color: var(--text-3); padding: .8rem 1rem; border-bottom: 1px solid var(--border-default); background: var(--bg-surface-2); }
+  table.eq td { padding: .85rem 1rem; border-bottom: 1px solid var(--border-subtle); font-size: .9rem; color: var(--text-2); vertical-align: top; }
+  table.eq tr:last-child td { border-bottom: none; }
+  table.eq tr.first td { background: color-mix(in srgb, var(--primary) 6%, transparent); }
+  table.eq .name { color: var(--text-1); font-weight: 600; }
+  table.eq .name .badge { font-family: var(--mono); font-size: .58rem; color: var(--primary-hover); background: var(--primary-muted); border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent); padding: .1rem .4rem; border-radius: 5px; margin-left: .5rem; vertical-align: middle; }
+  .pri { font-family: var(--mono); font-size: .66rem; padding: .2rem .5rem; border-radius: 6px; white-space: nowrap; }
+  .pri.p0 { color: var(--accent); background: var(--accent-muted); }
+  .pri.p1 { color: var(--warning); background: color-mix(in srgb, var(--warning) 14%, transparent); }
+  .pri.p2 { color: var(--text-3); background: var(--bg-inset); }
+
+  footer { padding: 2.5rem 0 1rem; border-top: 1px solid var(--border-default); margin-top: 2rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; font-family: var(--mono); font-size: .74rem; color: var(--text-3); }
+  footer a { color: var(--primary); text-decoration: none; }
+
+  @media (max-width: 780px) {
+    .shift { grid-template-columns: 1fr; } .shift .arrow { transform: rotate(90deg); }
+    .layers { grid-template-columns: 1fr; }
+    .road { grid-template-columns: 1fr; }
+    .step { border-right: 1px solid var(--border-subtle) !important; border-radius: 0 !important; }
+    .step:first-child { border-radius: 14px 14px 0 0 !important; } .step:last-child { border-radius: 0 0 14px 14px !important; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="brand">
+      <span class="logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6M10 3v6.5L5 18a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-8.5V3"/></svg>
+      </span>
+      MaterialTwin
+    </div>
+    <nav class="navchips">
+      <a href="#vision">비전</a>
+      <a href="#db">AI-ready DB</a>
+      <a href="#now">현재</a>
+      <a href="#road">로드맵</a>
+      <a href="#eq">장비 연동</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero" id="vision">
+    <span class="tag">● 측정 데이터 → AI-ready 물성 자산</span>
+    <h1>측정된 모든 것이<br/><span class="grad">추론 가능한 물성 자산</span>이 된다</h1>
+    <p class="lead">
+      전사 물성 협의체가 값비싼 외부 관리 플랫폼에 의존하던 구조를, AI 기반 내작(in-house)
+      관리 프로그램으로 전환한다. 정제된 측정값뿐 아니라 <b>raw 데이터</b>와 <b>측정 맥락</b>
+      (소재 모델 메타데이터·시험 장비 셋업)까지 하나로 잇는 <b>AI-ready 물성 DB</b>를 구축한다.
+    </p>
+    <div class="metrics tnum">
+      <div class="m"><div class="v accent">70</div><div class="k">재료 (실측 기반)</div></div>
+      <div class="m"><div class="v">41 / 29</div><div class="k">탄소성 / 점탄성</div></div>
+      <div class="m"><div class="v">13</div><div class="k">MCP 도구 (LLM 연동)</div></div>
+      <div class="m"><div class="v">✔</div><div class="k">DB · MCP 구현 완료</div></div>
+    </div>
+  </div>
+
+  <!-- SHIFT -->
+  <section>
+    <div class="sec-eyebrow"><span class="n">01</span><h2>왜 바꾸는가 — 협의체 비용에서 내작 AI로</h2></div>
+    <p class="sec-lead">외부 물성 관리 플랫폼에 대한 투자·구독 비용을 절감하고, 대신 우리 데이터에 최적화된
+      AI 관리 프로그램을 직접 만든다. 데이터 주권과 맥락을 우리가 쥔다.</p>
+    <div class="shift">
+      <div class="panel old">
+        <div class="lab">AS-IS · 외부 협의체 플랫폼</div>
+        <h3>정제값만, 맥락은 사라진다</h3>
+        <ul>
+          <li><span class="i">✕</span>고가의 라이선스·구독 비용 지속 지출</li>
+          <li><span class="i">✕</span>정제된 대표값만 저장 — raw·맥락 유실</li>
+          <li><span class="i">✕</span>측정자·장비 편차를 사후에 추적 불가</li>
+          <li><span class="i">✕</span>LLM·AI 워크플로와 단절된 폐쇄 포맷</li>
+        </ul>
+      </div>
+      <div class="arrow">→</div>
+      <div class="panel new">
+        <div class="lab">TO-BE · 내작 AI 물성 플랫폼</div>
+        <h3>raw + 맥락까지, AI가 읽는다</h3>
+        <ul>
+          <li><span class="i">✓</span>비용 절감 — 우리 인프라·우리 데이터</li>
+          <li><span class="i">✓</span>정제값·raw·측정 맥락을 한 레코드로 연결</li>
+          <li><span class="i">✓</span>맥락 기반 측정 편차·문제 사후 추론</li>
+          <li><span class="i">✓</span>MCP로 LLM이 직접 조회·분석·카드 생성</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI-READY DB -->
+  <section id="db">
+    <div class="sec-eyebrow"><span class="n">02</span><h2>AI-ready 물성 DB — 세 겹의 데이터</h2></div>
+    <p class="sec-lead">측정 결과를 "숫자 하나"로 남기지 않는다. 정제값·원시신호·맥락을 함께 저장해야
+      비로소 데이터가 검증 가능하고, AI가 추론할 수 있는 자산이 된다.</p>
+    <div class="layers">
+      <div class="layer l1">
+        <div class="idx">LAYER 1</div>
+        <h3>정제 측정값</h3>
+        <p class="sub">Refined properties</p>
+        <p>표준 절차로 도출한 대표 물성. 탄성계수·항복·인장강도·연신율, 진응력·구성방정식·완화 Prony까지.</p>
+        <div class="tags"><span>E · Rp0.2 · UTS</span><span>Hollomon/Swift/Voce/JC</span><span>Prony E(t)</span></div>
+      </div>
+      <div class="layer l2">
+        <div class="idx">LAYER 2</div>
+        <h3>Raw 측정 데이터</h3>
+        <p class="sub">Raw signals</p>
+        <p>시간-하중-변위 원시 곡선 전체를 손실 없이 보존. 언제든 재해석·재계산이 가능한 검증의 근거.</p>
+        <div class="tags"><span>force–disp 곡선</span><span>Parquet 원본</span><span>재파싱 가능</span></div>
+      </div>
+      <div class="layer l3">
+        <div class="idx">LAYER 3</div>
+        <h3>측정 맥락 (Context)</h3>
+        <p class="sub">Material metadata + rig setup</p>
+        <p>소재 모델 메타데이터와 시험 장비 셋업을 함께 기록. 누가·어떤 장비·어떤 조건으로 측정했는지.</p>
+        <div class="tags"><span>소재 모델 메타</span><span>장비 셋업</span><span>측정자·환경</span></div>
+      </div>
+    </div>
+    <div class="insight-goal">
+      <div class="lab">핵심 목표 · 맥락으로 편차를 추론한다</div>
+      <p>실제 측정 데이터의 신뢰성을 판별하는 곳이 바로 <b>맥락</b>이다. raw + context를 잇는 DB는
+        측정하는 <b>사람의 편차와 문제점을 사후 추론(post-hoc inference)</b>할 수 있게 한다 —
+        어떤 장비 셋업이, 어떤 조건이, 어떤 측정자가 산포를 만들었는지를 데이터로 되짚는다.</p>
+    </div>
+  </section>
+
+  <!-- NOW: demo -->
+  <section id="now">
+    <div class="sec-eyebrow"><span class="n">03</span><h2>지금 동작하는 것 — 물성 DB와 LLM 연동</h2></div>
+    <p class="sec-lead">아래 두 축은 이미 구현·검증되었다. ① 실측 기반 물성 DB와 인사이트 대시보드,
+      ② LLM이 물성을 직접 가져오는 MCP. 아래 영상은 실제 웹 시연이다.</p>
+    <div class="videocard">
+      <div class="bar">
+        <span class="dot" style="background:#EF4444"></span>
+        <span class="dot" style="background:#F0A92C"></span>
+        <span class="dot" style="background:#34D399"></span>
+        <span class="t">materialtwin — live walkthrough</span>
+      </div>
+      <video src="./demo.mp4" autoplay muted loop playsinline controls preload="metadata"></video>
+      <div class="cap">인사이트 대시보드(Ashby 물성공간·재료군 비교) → 고강도강 응력-변형률·진응력·넥킹·구성방정식 피팅 → 점탄성 완화곡선·Prony</div>
+    </div>
+    <div class="chips">
+      <div class="c"><span class="k">DB</span> 70 재료 · 탄소성 + 점탄성</div>
+      <div class="c"><span class="k">분석</span> E·Rp0.2·UTS·진응력·넥킹·4종 경화모델</div>
+      <div class="c"><span class="k">점탄성</span> 완화 E(t)·Prony 급수</div>
+      <div class="c"><span class="k">카드</span> LS-DYNA *MAT_024 · *MAT_VISCOELASTIC</div>
+      <div class="c"><span class="k">인사이트</span> Ashby·재료군 비교·커버리지 갭</div>
+      <div class="c"><span class="k">MCP</span> 13 도구 — 조회·물성검색·그래프·카드</div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section id="road">
+    <div class="sec-eyebrow"><span class="n">04</span><h2>앞으로 — 측정에서 인사이트까지, 업무 loss 0</h2></div>
+    <p class="sec-lead">시험 장비를 연동하고, 측정을 완전 자동화한 뒤, 측정과 인사이트 피드백 사이의
+      업무 손실을 없애는 Agent로 진화한다.</p>
+    <div class="road">
+      <div class="step done">
+        <div class="ph">PHASE 1</div><div class="st">구현 완료</div>
+        <h3>물성 DB + LLM MCP</h3>
+        <p>실측 기반 DB, 인사이트 대시보드, LLM이 물성을 가져오는 MCP까지 동작.</p>
+      </div>
+      <div class="step next">
+        <div class="ph">PHASE 2</div><div class="st">다음 단계</div>
+        <h3>시험 장비 연동</h3>
+        <p>장비의 raw·셋업·소재 메타를 자동 수집해 AI-ready DB에 적재. ABYSS부터.</p>
+      </div>
+      <div class="step future">
+        <div class="ph">PHASE 3</div><div class="st">계획</div>
+        <h3>측정 완전 자동화</h3>
+        <p>장비 제어·측정·적재·물성 도출까지 사람 개입 없이 파이프라인화.</p>
+      </div>
+      <div class="step future">
+        <div class="ph">PHASE 4</div><div class="st">계획</div>
+        <h3>측정 Agent화</h3>
+        <p>측정과 인사이트 피드백 사이의 업무 loss 최소화 — Agent가 편차를 감지·피드백.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPMENT -->
+  <section id="eq">
+    <div class="sec-eyebrow"><span class="n">05</span><h2>연동 대상 시험 장비 — ABYSS 최우선</h2></div>
+    <p class="sec-lead">가장 먼저 연동·자동화할 장비는 <b>ABYSS</b>다. 캡떨림(cap-vibration) 문제의
+      측정 편차를 줄이는 장비로, 자동화·Agent화의 첫 검증 대상이다.</p>
+    <div class="eqwrap">
+      <table class="eq">
+        <thead>
+          <tr><th>장비</th><th>측정 대상</th><th>AI-ready DB 기여(맥락)</th><th>우선순위</th></tr>
+        </thead>
+        <tbody>
+          <tr class="first">
+            <td><span class="name">ABYSS<span class="badge">FIRST</span></span></td>
+            <td>캡떨림(cap-vibration) 편차 측정</td>
+            <td>장비 셋업·측정 조건을 맥락으로 저장 → 측정 편차의 사후 추론·자동 피드백 검증</td>
+            <td><span class="pri p0">P0 · 최우선</span></td>
+          </tr>
+          <tr>
+            <td><span class="name">만능재료시험기 (UTM)</span></td>
+            <td>인장·압축 응력-변형률</td>
+            <td>force–disp raw + 시편 치수·시험속도·신율계 셋업</td>
+            <td><span class="pri p1">P1</span></td>
+          </tr>
+          <tr>
+            <td><span class="name">DMA (동적기계분석)</span></td>
+            <td>점탄성 저장·손실계수·tan δ</td>
+            <td>주파수·온도 스윕 조건 + 완화/Prony 원시 응답</td>
+            <td><span class="pri p1">P1</span></td>
+          </tr>
+          <tr>
+            <td><span class="name">레오미터 (Rheometer)</span></td>
+            <td>점탄성 유변·완화·크리프</td>
+            <td>전단속도·온도 프로파일 + 완화 곡선 raw</td>
+            <td><span class="pri p2">P2</span></td>
+          </tr>
+          <tr>
+            <td><span class="name">나노인덴터</span></td>
+            <td>박막·국소 경도·탄성계수</td>
+            <td>하중-침투깊이 곡선 + 팁·하중 셋업</td>
+            <td><span class="pri p2">P2</span></td>
+          </tr>
+          <tr>
+            <td><span class="name">낙하·충격 시험기</span></td>
+            <td>충격 하중·에너지 흡수</td>
+            <td>낙하 높이·질량·센서 셋업 + 가속도 raw</td>
+            <td><span class="pri p2">P2</span></td>
+          </tr>
+          <tr>
+            <td><span class="name">TMA (열기계분석)</span></td>
+            <td>열팽창·연화점</td>
+            <td>승온 프로파일 + 치수변화 raw</td>
+            <td><span class="pri p2">P2</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    <span>MaterialTwin — AI-ready 물성 데이터 플랫폼</span>
+    <span>github.com/squall321/<a href="https://github.com/squall321/MaterialTwinWeb">MaterialTwinWeb</a></span>
+  </footer>
+
+</div>
+</body>
+</html>
