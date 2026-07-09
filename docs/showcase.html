@@ -325,40 +325,40 @@
           </table></div>
           <div class="say pre"><span class="hlb">Voce · Johnson-Cook</span>가 R² &gt; 0.99로 이 강재를 가장 잘 설명합니다. 다만 카드는 피팅에 의존하지 않고 <b>실측 곡선을 그대로</b> 소성 테이블로 넣습니다.</div>
           <div class="card-block">
-            <div class="card-head"><span>📇</span> <span class="kw">*MAT_PIECEWISE_LINEAR_PLASTICITY</span> <span class="badge">SI · kg·m·s·Pa</span></div>
+            <div class="card-head"><span>📇</span> <span class="kw">*MAT_PIECEWISE_LINEAR_PLASTICITY</span> <span class="badge">ton · mm · s</span></div>
             <pre class="card" data-card="steel">$ MaterialTwinWeb — LS-DYNA *MAT_024 자동 생성 카드
 $ material: SUS_17-4PH_H900 Bilinear
-$ 단위계: SI(kg, m, s, Pa). 해석 단위계에 맞춰 확인 필요.
+$ 단위계: ton, mm, s → 응력 MPa, 밀도 tonne/mm^3
 *MAT_PIECEWISE_LINEAR_PLASTICITY
 $#     mid        ro         e        pr      sigy      etan      fail      tdel
-         1      7850  1.96e+11       0.3 1.168e+09         0     1e+21         0
+         1  7.85e-09  1.96e+05       0.3      1168         0     1e+21         0
 $#       c         p      lcss      lcsr        vp
          0         0       100         0         0
 *DEFINE_CURVE
 $#    lcid      sidr       sfa       sfo      offa      offo    dattyp
        100         0         1         1         0         0         0
 $#                a1                  o1
-        0.000000e+00        1.176943e+09
-        5.880888e-03        1.176943e+09
-        1.215128e-02        1.300788e+09
-        1.842168e-02        1.424618e+09
-        2.469208e-02        1.548432e+09
-        3.096247e-02        1.596386e+09
-        3.723287e-02        1.629086e+09
-        4.350327e-02        1.661783e+09
-        4.977366e-02        1.694476e+09
-        5.604406e-02        1.727167e+09
-        6.231446e-02        1.759853e+09
-        6.858485e-02        1.784215e+09
-        7.485525e-02        1.799949e+09
-        8.112565e-02        1.815682e+09
-        8.739604e-02        1.831414e+09
-        9.366644e-02        1.847144e+09
-        9.993684e-02        1.862873e+09
-        1.062072e-01        1.878601e+09
-        1.124776e-01        1.894328e+09
-        1.187480e-01        1.910054e+09
-        1.250184e-01        1.925778e+09
+        0.000000e+00        1.176943e+03
+        5.880888e-03        1.176943e+03
+        1.215128e-02        1.300788e+03
+        1.842168e-02        1.424618e+03
+        2.469208e-02        1.548432e+03
+        3.096247e-02        1.596386e+03
+        3.723287e-02        1.629086e+03
+        4.350327e-02        1.661783e+03
+        4.977366e-02        1.694476e+03
+        5.604406e-02        1.727167e+03
+        6.231446e-02        1.759853e+03
+        6.858485e-02        1.784215e+03
+        7.485525e-02        1.799949e+03
+        8.112565e-02        1.815682e+03
+        8.739604e-02        1.831414e+03
+        9.366644e-02        1.847144e+03
+        9.993684e-02        1.862873e+03
+        1.062072e-01        1.878601e+03
+        1.124776e-01        1.894328e+03
+        1.187480e-01        1.910054e+03
+        1.250184e-01        1.925778e+03
 *END</pre>
           </div>
           <div class="callout"><b>이 카드는 그대로 해석에 투입됩니다.</b> mid·ro·e·pr·sigy 헤더와 실측 응력-변형률 테이블(21점)이 *DEFINE_CURVE로 연결됩니다.</div>
@@ -406,7 +406,7 @@ $#                a1                  o1
             <div class="card-head"><span>📇</span> <span class="kw">*MAT_VISCOELASTIC</span> <span class="badge">t · mm · s · K</span></div>
             <pre class="card" data-card="visc">$ MaterialTwinWeb — LS-DYNA *MAT_VISCOELASTIC 자동 생성
 $ material: OCA Rigid Standard (3M 8171)
-$ 단위계: t / mm / s / K → MPa. G(t)=Ginf+(G0-Ginf)·exp(-beta·t)
+$ 단위계: ton, mm, s → 응력 MPa, 밀도 tonne/mm^3. G(t)=Ginf+(G0-Ginf)·exp(-beta·t)
 *MAT_VISCOELASTIC
 $#     mid       rho      bulk        g0        gi      beta
          1   1.1e-09       2.5      0.15     0.015        50
