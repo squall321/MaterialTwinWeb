@@ -145,12 +145,27 @@ export function getFits(tid: number): Promise<{ test_id: number; fits: Fit[] }> 
   return request<{ test_id: number; fits: Fit[] }>(`api/tests/${tid}/fits`);
 }
 
-/** LS-DYNA *MAT_024 카드 다운로드 URL(상대경로). */
-export function cardUrl(tid: number): string {
-  return `api/tests/${tid}/card.k`;
+/** LS-DYNA 카드 단위계(백엔드 unit_systems.SYSTEMS와 일치, ton_mm_s 기본). */
+export const UNIT_SYSTEMS = [
+  { key: "ton_mm_s", label: "ton · mm · s (MPa)" },
+  { key: "kg_m_s", label: "kg · m · s (SI, Pa)" },
+  { key: "g_mm_ms", label: "g · mm · ms (MPa)" },
+  { key: "kg_mm_ms", label: "kg · mm · ms (GPa)" },
+] as const;
+
+export type UnitSystemKey = (typeof UNIT_SYSTEMS)[number]["key"];
+export const DEFAULT_UNITS: UnitSystemKey = "ton_mm_s";
+
+/** 탄소성 카드 다운로드 URL. model=piecewise(*MAT_024)·johnson_cook(*MAT_098). */
+export function cardUrl(
+  tid: number,
+  units: UnitSystemKey = DEFAULT_UNITS,
+  model: "piecewise" | "johnson_cook" = "piecewise",
+): string {
+  return `api/tests/${tid}/card.k?units=${units}&model=${model}`;
 }
 
 /** LS-DYNA *MAT_VISCOELASTIC 카드 다운로드 URL(점탄성). */
-export function viscoCardUrl(tid: number): string {
-  return `api/tests/${tid}/viscocard.k`;
+export function viscoCardUrl(tid: number, units: UnitSystemKey = DEFAULT_UNITS): string {
+  return `api/tests/${tid}/viscocard.k?units=${units}`;
 }

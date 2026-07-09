@@ -1,11 +1,16 @@
 // 구성방정식 피팅 패널(§6.3) — Hollomon/Swift/Voce/JC 피팅 계산·표시 + LS-DYNA 카드 export.
+import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Sigma, Download, Loader2 } from "lucide-react";
 import { toast } from "sonner";
-import { computeFits, getFits, cardUrl, type Fit } from "../api/tests";
+import {
+  computeFits, getFits, cardUrl,
+  UNIT_SYSTEMS, DEFAULT_UNITS, type UnitSystemKey, type Fit,
+} from "../api/tests";
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 
 // 모델 표시명.
 const MODEL_LABEL: Record<string, string> = {
@@ -29,6 +34,7 @@ type Props = {
 
 export function FitPanel({ testId, hasProperties }: Props) {
   const qc = useQueryClient();
+  const [units, setUnits] = useState<UnitSystemKey>(DEFAULT_UNITS);
   const fitsQ = useQuery({
     queryKey: ["fits", testId],
     queryFn: () => getFits(testId),
@@ -51,9 +57,9 @@ export function FitPanel({ testId, hasProperties }: Props) {
 
   return (
     <Card className="overflow-hidden">
-      <div className="flex items-center justify-between border-b border-border-subtle px-4 py-3">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border-subtle px-4 py-3">
         <p className="text-overline">구성방정식 피팅</p>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <Button
             variant="outline"
             size="sm"
@@ -67,10 +73,28 @@ export function FitPanel({ testId, hasProperties }: Props) {
             )}
             피팅 계산
           </Button>
-          <a href={hasProperties ? cardUrl(testId) : undefined} download>
+          <Select value={units} onValueChange={(v) => setUnits(v as UnitSystemKey)}>
+            <SelectTrigger className="h-8 w-auto gap-1.5 text-xs" aria-label="단위계">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {UNIT_SYSTEMS.map((u) => (
+                <SelectItem key={u.key} value={u.key} className="text-xs">
+                  {u.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          <a href={hasProperties ? cardUrl(testId, units, "piecewise") : undefined} download>
             <Button variant="ghost" size="sm" disabled={!hasProperties}>
               <Download className="size-4" />
-              LS-DYNA 카드
+              *MAT_024
+            </Button>
+          </a>
+          <a href={hasProperties ? cardUrl(testId, units, "johnson_cook") : undefined} download>
+            <Button variant="ghost" size="sm" disabled={!hasProperties}>
+              <Download className="size-4" />
+              Johnson-Cook
             </Button>
           </a>
         </div>

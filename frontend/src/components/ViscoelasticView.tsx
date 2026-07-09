@@ -5,10 +5,14 @@ import { LineChart } from "echarts/charts";
 import { GridComponent, TooltipComponent, MarkLineComponent } from "echarts/components";
 import { CanvasRenderer } from "echarts/renderers";
 import { Download } from "lucide-react";
-import { getCurve, getProperties, viscoCardUrl, type Properties } from "../api/tests";
+import {
+  getCurve, getProperties, viscoCardUrl,
+  UNIT_SYSTEMS, DEFAULT_UNITS, type UnitSystemKey, type Properties,
+} from "../api/tests";
 import { useQuery } from "@tanstack/react-query";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import { ChartSkeleton } from "./states/Skeletons";
 import { readChartTheme, cssVar } from "../lib/echarts";
 
@@ -17,6 +21,7 @@ echarts.use([LineChart, GridComponent, TooltipComponent, MarkLineComponent, Canv
 type Props = { testId: number };
 
 export function ViscoelasticView({ testId }: Props) {
+  const [units, setUnits] = React.useState<UnitSystemKey>(DEFAULT_UNITS);
   const curveQ = useQuery({
     queryKey: ["curve", testId, "relaxation"],
     queryFn: () => getCurve(testId, { kind: "relaxation", max_points: 300 }),
@@ -53,14 +58,28 @@ export function ViscoelasticView({ testId }: Props) {
       </div>
 
       <Card className="overflow-hidden">
-        <div className="flex items-center justify-between border-b border-border-subtle px-4 py-3">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border-subtle px-4 py-3">
           <p className="text-overline">Prony 급수 · 일반화 Maxwell</p>
-          <a href={viscoCardUrl(testId)} download>
-            <Button variant="ghost" size="sm">
-              <Download className="size-4" />
-              MAT_VISCOELASTIC 카드
-            </Button>
-          </a>
+          <div className="flex flex-wrap items-center gap-2">
+            <Select value={units} onValueChange={(v) => setUnits(v as UnitSystemKey)}>
+              <SelectTrigger className="h-8 w-auto gap-1.5 text-xs" aria-label="단위계">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {UNIT_SYSTEMS.map((u) => (
+                  <SelectItem key={u.key} value={u.key} className="text-xs">
+                    {u.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <a href={viscoCardUrl(testId, units)} download>
+              <Button variant="ghost" size="sm">
+                <Download className="size-4" />
+                MAT_VISCOELASTIC 카드
+              </Button>
+            </a>
+          </div>
         </div>
         {vm && vm.terms.length > 0 ? (
           <div className="flex flex-col divide-y divide-border-subtle">
