@@ -87,16 +87,26 @@ def fit_prony(time_s: np.ndarray, E_pa: np.ndarray, n_terms: int = 3) -> dict:
 
 
 def mat_viscoelastic_card(
-    title: str, rho: float, bulk_mpa: float, G0_mpa: float, Ginf_mpa: float, beta: float, mid: int = 1,
+    title: str, rho_si: float, bulk_pa: float, G0_pa: float, Ginf_pa: float, beta: float,
+    mid: int = 1, units: "UnitSystem | str | None" = None,
 ) -> str:
-    """LS-DYNA *MAT_VISCOELASTIC 카드(1항 Prony). 단위계 t/mm/s → MPa."""
+    """LS-DYNA *MAT_VISCOELASTIC 카드(1항 Prony). 입력 SI(Pa·kg/m³·1/s), units로 변환.
+
+    기본 단위계 ton, mm, s → MPa. G(t)=Ginf+(G0-Ginf)·exp(-beta·t).
+    """
+    from app.unit_systems import UnitSystem, get_system
+
+    u = units if isinstance(units, UnitSystem) else get_system(units)
+    fs = u.f_stress
     lines = [
         "$ MaterialTwinWeb — LS-DYNA *MAT_VISCOELASTIC 자동 생성",
         f"$ material: {title}",
-        "$ 단위계: t / mm / s / K → MPa. G(t)=Ginf+(G0-Ginf)·exp(-beta·t)",
+        f"$ 단위계: {u.label} → 응력 {u.stress_unit}, 밀도 {u.density_unit}. "
+        "G(t)=Ginf+(G0-Ginf)·exp(-beta·t)",
         "*MAT_VISCOELASTIC",
         "$#     mid       rho      bulk        g0        gi      beta",
-        f"{mid:>10}{rho:>10.4g}{bulk_mpa:>10.4g}{G0_mpa:>10.4g}{Ginf_mpa:>10.4g}{beta:>10.4g}",
+        f"{mid:>10}{rho_si * u.f_density:>10.4g}{bulk_pa * fs:>10.4g}"
+        f"{G0_pa * fs:>10.4g}{Ginf_pa * fs:>10.4g}{beta * u.f_rate:>10.4g}",
         "*END",
     ]
     return "\n".join(lines) + "\n"

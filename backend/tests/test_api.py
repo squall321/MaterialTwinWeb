@@ -235,6 +235,33 @@ def test_fits_and_card_endpoints(client):
     assert "filename*=UTF-8''" in r.headers["content-disposition"]
 
 
+def test_card_units_and_johnson_cook(client):
+    _mid, _sid, tid = _make_material_specimen_test(client)
+    client.post(f"/api/tests/{tid}/properties:compute", json={})
+
+    # 기본(ton_mm_s) 카드 파일명·단위계 확인.
+    r = client.get(f"/api/tests/{tid}/card.k")
+    assert r.status_code == 200, r.text
+    assert "ton, mm, s" in r.text
+    assert "ton_mm_s" in r.headers["content-disposition"]
+
+    # SI 단위계 전환.
+    r = client.get(f"/api/tests/{tid}/card.k?units=kg_m_s")
+    assert r.status_code == 200
+    assert "kg, m, s" in r.text
+    assert "kg_m_s" in r.headers["content-disposition"]
+
+    # Johnson-Cook(*MAT_098) 모델.
+    r = client.get(f"/api/tests/{tid}/card.k?model=johnson_cook")
+    assert r.status_code == 200, r.text
+    assert "*MAT_SIMPLIFIED_JOHNSON_COOK" in r.text
+    assert "MAT098_JC" in r.headers["content-disposition"]
+
+    # 미지원 단위계·모델 → 422.
+    assert client.get(f"/api/tests/{tid}/card.k?units=bogus").status_code == 422
+    assert client.get(f"/api/tests/{tid}/card.k?model=bogus").status_code == 422
+
+
 def test_card_rejects_invalid_youngs_modulus(client):
     # E가 유효하지 않으면(음수/NaN) 카드 export가 422로 거부(무효 솔버카드 방지).
     _mid, _sid, tid = _make_material_specimen_test(client)

@@ -11,8 +11,9 @@ from fastapi.responses import StreamingResponse
 from sqlalchemy.orm import Session
 
 from app import analysis, curve_store, fitting, true_stress, viscoelastic
-from app.cards import lsdyna_mat024_card
+from app.cards import lsdyna_mat024_card, lsdyna_mat098_card
 from app.db import get_db
+from app.unit_systems import SYSTEMS, get_system
 from app.models import ConstitutiveFit, ProcessedResult, RawCurveRef, Test
 from app.schemas import PropertiesOut, TestOut, TestPatch
 
@@ -281,9 +282,25 @@ def get_fits(tid: int, db: Session = Depends(get_db)) -> dict:
     return {"test_id": tid, "fits": fits}
 
 
+def _resolve_units(units: str | None):
+    """단위계 키 검증. 미지원이면 422."""
+    try:
+        return get_system(units)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+
 @router.get("/tests/{tid}/card.k")
-def get_card(tid: int, db: Session = Depends(get_db)) -> StreamingResponse:
-    """LS-DYNA *MAT_024(piecewise) 카드 다운로드. 진응력-소성진변형률 테이블 기반(§6.3)."""
+def get_card(
+    tid: int,
+    units: str | None = Query(None, description=f"단위계: {', '.join(SYSTEMS)}"),
+    model: str = Query("piecewise", description="piecewise(*MAT_024) | johnson_cook(*MAT_098)"),
+    db: Session = Depends(get_db),
+) -> StreamingResponse:
+    """LS-DYNA 탄소성 카드 다운로드. model=piecewise(*MAT_024, 기본)·johnson_cook(*MAT_098)."""
+    u = _resolve_units(units)
+    if model not in ("piecewise", "johnson_cook"):
+        raise HTTPException(status_code=422, detail=f"unknown model: {model!r}")
     test = _get_test(db, tid)
     pr = (
         db.query(ProcessedResult)
@@ -301,14 +318,17 @@ def get_card(tid: int, db: Session = Depends(get_db)) -> StreamingResponse:
     df = _load_curve(db, tid)
     ep, st = _plastic_true(df, pr.youngs_modulus_pa)
     label = test.specimen.material.name if test.specimen and test.specimen.material else f"test{tid}"
-    text = lsdyna_mat024_card(
+    gen = lsdyna_mat098_card if model == "johnson_cook" else lsdyna_mat024_card
+    text = gen(
         title=label,
         E_pa=pr.youngs_modulus_pa,
         yield_pa=pr.yield_strength_pa,
         plastic_strain=ep,
         true_stress=st,
+        units=u,
     )
-    fname = f"test_{tid}_MAT024.k"
+    tag = "MAT098_JC" if model == "johnson_cook" else "MAT024"
+    fname = f"test_{tid}_{tag}_{u.key}.k"
     disposition = f"attachment; filename=\"{fname}\"; filename*=UTF-8''{quote(fname)}"
     return StreamingResponse(
         iter([text]),
@@ -318,8 +338,13 @@ def get_card(tid: int, db: Session = Depends(get_db)) -> StreamingResponse:
 
 
 @router.get("/tests/{tid}/viscocard.k")
-def get_viscocard(tid: int, db: Session = Depends(get_db)) -> StreamingResponse:
+def get_viscocard(
+    tid: int,
+    units: str | None = Query(None, description=f"단위계: {', '.join(SYSTEMS)}"),
+    db: Session = Depends(get_db),
+) -> StreamingResponse:
     """LS-DYNA *MAT_VISCOELASTIC 카드 다운로드(점탄성 완화 Prony 1항, §점탄성)."""
+    u = _resolve_units(units)
     test = _get_test(db, tid)
     pr = (
         db.query(ProcessedResult).filter(ProcessedResult.test_id == tid).one_or_none()
@@ -328,16 +353,18 @@ def get_viscocard(tid: int, db: Session = Depends(get_db)) -> StreamingResponse:
         raise HTTPException(status_code=422, detail="viscoelastic relaxation result required")
     p = pr.extra_metrics.get("lsdyna_prony", {})
     mat = test.specimen.material if test.specimen else None
-    rho = (mat.attributes or {}).get("prony_lsdyna", {}).get("RHO") if mat else None
+    rho_t = (mat.attributes or {}).get("prony_lsdyna", {}).get("RHO") if mat else None
+    # 저장값은 ton/mm/s(MPa·tonne/mm³·1/s). 카드 함수는 SI 입력 → 여기서 SI로 환산.
     text = viscoelastic.mat_viscoelastic_card(
         title=mat.name if mat else f"test{tid}",
-        rho=rho or 1.1e-9,
-        bulk_mpa=p.get("BULK") or 2000.0,
-        G0_mpa=p.get("G0") or 1.0,
-        Ginf_mpa=p.get("GI") or 0.1,
+        rho_si=(rho_t or 1.1e-9) * 1.0e12,
+        bulk_pa=(p.get("BULK") or 2000.0) * 1.0e6,
+        G0_pa=(p.get("G0") or 1.0) * 1.0e6,
+        Ginf_pa=(p.get("GI") or 0.1) * 1.0e6,
         beta=p.get("BETA") or 1.0,
+        units=u,
     )
-    fname = f"test_{tid}_MAT_VISCOELASTIC.k"
+    fname = f"test_{tid}_MAT_VISCOELASTIC_{u.key}.k"
     disposition = f"attachment; filename=\"{fname}\"; filename*=UTF-8''{quote(fname)}"
     return StreamingResponse(
         iter([text]), media_type="text/plain",

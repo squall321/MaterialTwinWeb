@@ -101,3 +101,22 @@ uvicorn으로 띄우고 Playwright로 전 화면 + 업로드 E2E를 실측했다
 브라우저가 같은 해시 번들을 **캐싱**해 수정 후에도 옛 동작이 보일 수 있다. 재검증 시 쿼리스트링(`?nocache=1`) 등으로 강제 리로드할 것. (번들 디컴파일로 `disabled:f==null` 로직 존재를 먼저 확인하면 캐시/코드 문제를 빨리 구분.)
 
 전체 pytest **24개 통과**(3.12 .venv). UI는 framer-motion 없이 CSS 모션만으로 §14 충실 구현.
+
+## 2026-07-09 — LS-DYNA 카드 단위계 전환 + Johnson-Cook 카드
+
+### 왜
+카드 2종의 단위계가 서로 달랐다(MAT_024=SI Pa, VISCOELASTIC=t/mm/s MPa) — 한 모델에 섞으면 단위 불일치. **ton·mm·s 기본**으로 통일해 둘 다 MPa 정합, 사용자 전환도 지원.
+
+### 결정
+- `app/unit_systems.py`(신규): 질량·길이·시간 기본단위 배율로 파생배율(f_stress=λτ²/α, f_density=λ³/α, f_rate=τ) 유도. 4계열 — **ton_mm_s(기본)**·kg_m_s(SI)·g_mm_ms·kg_mm_ms. 검증: steel E 2.07e11Pa→ton_mm_s 2.07e5MPa, ρ 7850→7.85e-9.
+- **내부는 전부 SI 정규화**, 카드 생성 시점에만 단위계 변환. 점탄성 저장값은 t/mm/s라 호출부(properties·mcp)에서 ×1e6/×1e12로 SI 승격 후 카드함수(SI 입력)에 전달 → 두 카드가 동일 변환경로.
+- **Johnson-Cook 카드는 *MAT_098(Simplified J-C)** 선택 — *MAT_015는 EOS 필요라 부적합. 자유 3파라미터 J-C 피팅은 A·B 상호식별 불가로 A가 음수 발산(비물리) → 카드용은 **A=측정 항복응력 고정**, B·n만 소성경화 적합(`fitting.johnson_cook_card_params`). 17-4PH 실측: A=1168, B=2319, n=0.514, R²=0.941(물리적).
+- API: `card.k?units=&model=piecewise|johnson_cook`, `viscocard.k?units=`. 미지원 키 422. 파일명에 units·모델 태그(`test_10_MAT098_JC_ton_mm_s.k`).
+- MCP `get_mat_card(test_id, units, model)`.
+- 프런트: `UNIT_SYSTEMS`+`cardUrl(tid,units,model)`, FitPanel에 단위 Select+[*MAT_024][Johnson-Cook] 버튼, ViscoelasticView에 단위 Select.
+
+### 안 한 것(정직)
+**초탄성(고무) 카드 미지원** — 폴리머 데이터가 전부 완화시험(점탄성)이라 Ogden/Mooney용 응력-신장 데이터가 DB에 없음. 데이터 확보 후 과제.
+
+### 검증
+백엔드 pytest **70 passed, 1 skipped**(test_units.py 신규 12개 포함). 프런트 빌드 exit 0. 라이브: 4계열 단위 전환·JC·점탄성·422 모두 정합(β 50/s→g_mm_ms 0.05/ms, ρ 1100→0.0011g/mm³ 확인). showcase.html 카드도 ton·mm·s 반영.

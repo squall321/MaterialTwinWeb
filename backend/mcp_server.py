@@ -23,10 +23,11 @@ from mcp.server.fastmcp.utilities.types import Image
 from sqlalchemy import func
 
 from app import curve_store, insights, viscoelastic
-from app.cards import lsdyna_mat024_card
+from app.cards import lsdyna_mat024_card, lsdyna_mat098_card
 from app.db import SessionLocal
 from app.models import ConstitutiveFit, Material, ProcessedResult, Specimen, Test
 from app.routers.properties import _plastic_true
+from app.unit_systems import get_system
 
 mcp = FastMCP("materialtwin")
 
@@ -136,8 +137,15 @@ def get_fits(test_id: int) -> list[dict]:
 
 
 @mcp.tool()
-def get_mat_card(test_id: int) -> str:
-    """LS-DYNA 재료카드 텍스트. 탄소성→*MAT_024, 점탄성→*MAT_VISCOELASTIC."""
+def get_mat_card(test_id: int, units: str = "ton_mm_s", model: str = "piecewise") -> str:
+    """LS-DYNA 재료카드 텍스트. 탄소성→*MAT_024(기본)·johnson_cook(*MAT_098), 점탄성→*MAT_VISCOELASTIC.
+
+    units: ton_mm_s(기본)·kg_m_s·g_mm_ms·kg_mm_ms. model: piecewise·johnson_cook(탄소성만).
+    """
+    try:
+        u = get_system(units)
+    except ValueError as exc:
+        return f"error: {exc}"
     with SessionLocal() as s:
         test = s.get(Test, test_id)
         if not test:
@@ -148,15 +156,18 @@ def get_mat_card(test_id: int) -> str:
         mat = test.specimen.material
         if (pr.extra_metrics or {}).get("kind") == "viscoelastic":
             p = pr.extra_metrics.get("lsdyna_prony", {})
+            rho_t = (mat.attributes or {}).get("prony_lsdyna", {}).get("RHO") or 1.1e-9
             return viscoelastic.mat_viscoelastic_card(
-                title=mat.name, rho=1.1e-9, bulk_mpa=p.get("BULK") or 2000.0,
-                G0_mpa=p.get("G0") or 1.0, Ginf_mpa=p.get("GI") or 0.1, beta=p.get("BETA") or 1.0)
+                title=mat.name, rho_si=rho_t * 1.0e12,
+                bulk_pa=(p.get("BULK") or 2000.0) * 1.0e6, G0_pa=(p.get("G0") or 1.0) * 1.0e6,
+                Ginf_pa=(p.get("GI") or 0.1) * 1.0e6, beta=p.get("BETA") or 1.0, units=u)
         if not pr.youngs_modulus_pa or pr.youngs_modulus_pa <= 0:
             return "error: invalid E for card"
         df = curve_store.read_curve(test_id)
         ep, st = _plastic_true(df, pr.youngs_modulus_pa)
-        return lsdyna_mat024_card(title=mat.name, E_pa=pr.youngs_modulus_pa,
-                                  yield_pa=pr.yield_strength_pa, plastic_strain=ep, true_stress=st)
+        gen = lsdyna_mat098_card if model == "johnson_cook" else lsdyna_mat024_card
+        return gen(title=mat.name, E_pa=pr.youngs_modulus_pa,
+                   yield_pa=pr.yield_strength_pa, plastic_strain=ep, true_stress=st, units=u)
 
 
 @mcp.tool()

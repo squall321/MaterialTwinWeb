@@ -89,3 +89,37 @@ def fit_all(strain_plastic: np.ndarray, stress: np.ndarray) -> list[dict]:
     out = [fit_model(m, strain_plastic, stress) for m in MODEL_NAMES]
     out.sort(key=lambda r: (r.get("r2") is not None, r.get("r2") or -1), reverse=True)
     return out
+
+
+def johnson_cook_card_params(
+    strain_plastic: np.ndarray, true_stress: np.ndarray, yield_pa: float
+) -> dict:
+    """*MAT_098 Simplified J-C 카드용 물리 파라미터(A=항복 고정, B·n 피팅).
+
+    자유 3파라미터 J-C 피팅은 A·B가 상호식별 불가라 A가 음수로 발산하곤 한다.
+    카드에는 A=σy(항복)로 고정하고 소성경화 σ-A=B·εp^n 만 적합해 물리값을 낸다.
+    반환: {A_pa, B_pa, n, r2} 또는 실패 시 params 대신 reason.
+    """
+    ep = np.asarray(strain_plastic, dtype=float)
+    sg = np.asarray(true_stress, dtype=float)
+    A = float(yield_pa)
+    m = np.isfinite(ep) & np.isfinite(sg) & (ep > 1e-9) & (sg > A)
+    ep, sg = ep[m], sg[m]
+    if ep.size < 3:
+        return {"reason": "too_few_hardening_points", "n_points": int(ep.size)}
+    # log(σ-A) = log B + n·log εp → 선형회귀로 초기값, 이후 비선형 정밀화.
+    lx, ly = np.log(ep), np.log(sg - A)
+    n0, logB0 = np.polyfit(lx, ly, 1)
+    try:
+        (B, n), _ = curve_fit(
+            lambda e, B, n: A + B * np.power(e, n),
+            ep, sg, p0=[float(np.exp(logB0)), float(n0)],
+            bounds=([1.0, 0.0], [np.inf, 1.0]), maxfev=10000,
+        )
+    except Exception as exc:
+        return {"reason": f"fit_failed:{type(exc).__name__}", "n_points": int(ep.size)}
+    y_hat = A + B * np.power(ep, n)
+    ss_res = float(np.sum((sg - y_hat) ** 2))
+    ss_tot = float(np.sum((sg - np.mean(sg)) ** 2))
+    r2 = 1.0 - ss_res / ss_tot if ss_tot > 0 else 0.0
+    return {"A_pa": A, "B_pa": float(B), "n": float(n), "r2": r2, "n_points": int(ep.size)}
