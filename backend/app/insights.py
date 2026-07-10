@@ -43,15 +43,29 @@ def classify(name: str, category: str | None) -> tuple[str, str]:
 
 # ── 재료별 대표 물성 추출(대표 test) ──────────────────────────────────────────
 def _material_rows(session: Session) -> list[dict]:
-    """재료마다 클래스 + 대표 물성(E/UTS/yield/density/kind)을 모은다."""
+    """재료마다 클래스 + 대표 물성(E/UTS/yield/density/kind)을 모은다.
+
+    단일 outerjoin 쿼리 후 재료별 최소 test.id를 선택(대표 test = 유효 시험 중 id 최소,
+    웹 상세와 동일 규칙). 재료당 2쿼리 N+1을 제거 — 대시보드 5엔드포인트 선형 악화 방지.
+    """
+    from sqlalchemy import and_
+
+    q = (
+        session.query(Material, Test, ProcessedResult)
+        .outerjoin(Specimen, Specimen.material_id == Material.id)
+        .outerjoin(Test, and_(Test.specimen_id == Specimen.id, Test.valid == True))  # noqa: E712
+        .outerjoin(ProcessedResult, ProcessedResult.test_id == Test.id)
+        .order_by(Material.id, Test.id)
+    )
+    # 재료별 첫 유효 test 행(정렬 덕에 처음 만나는 non-null t가 최소 id).
+    picked: dict[int, tuple] = {}
+    for mat, t, pr in q.all():
+        cur = picked.get(mat.id)
+        if cur is None or (cur[1] is None and t is not None):
+            picked[mat.id] = (mat, t, pr)
+
     rows = []
-    for mat in session.query(Material).all():
-        # 대표 test: 유효 시험 우선·id 순(웹 상세와 동일 규칙).
-        t = (session.query(Test).join(Specimen)
-             .filter(Specimen.material_id == mat.id, Test.valid == True)  # noqa: E712
-             .order_by(Test.id).first())
-        pr = (session.query(ProcessedResult).filter_by(test_id=t.id).one_or_none()
-              if t else None)
+    for mat, t, pr in picked.values():
         cls, family = classify(mat.name, mat.category)
         attrs = mat.attributes or {}
         row = {"id": mat.id, "name": mat.name, "category": mat.category,
@@ -65,6 +79,7 @@ def _material_rows(session: Session) -> list[dict]:
                        uts_mpa=_m(pr.uts_pa), yield_mpa=_m(pr.yield_strength_pa),
                        elong_pct=round((pr.fracture_elongation or 0) * 100, 1) if pr.fracture_elongation else None)
         rows.append(row)
+    rows.sort(key=lambda r: r["id"])
     return rows
 
 
@@ -222,7 +237,8 @@ def _auto_insights(by_fam, getter) -> list[dict]:
 
 def property_stats(session: Session) -> dict:
     """물성 분포 통계: E·UTS·yield·연신율의 평균/중앙/범위 + 히스토그램 빈."""
-    rows = [r for r in _material_rows(session) if r.get("kind") == "elastoplastic"]
+    all_rows = _material_rows(session)  # 1회만 조회해 탄소성·점탄성 필터 재사용.
+    rows = [r for r in all_rows if r.get("kind") == "elastoplastic"]
     out = {}
     for key, unit in [("E_gpa", "GPa"), ("uts_mpa", "MPa"), ("yield_mpa", "MPa"), ("elong_pct", "%")]:
         vals = np.array([r[key] for r in rows if r.get(key) is not None], dtype=float)
@@ -236,7 +252,7 @@ def property_stats(session: Session) -> dict:
                     "hist": [int(h) for h in hist],
                     "edges": [round(float(e), 1) for e in edges]}
     # 점탄성 E0 분포도 별도.
-    v = [r for r in _material_rows(session) if r.get("kind") == "viscoelastic" and r.get("E_gpa")]
+    v = [r for r in all_rows if r.get("kind") == "viscoelastic" and r.get("E_gpa")]
     out["viscoelastic_count"] = len(v)
     return out
 
