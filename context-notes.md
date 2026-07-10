@@ -160,3 +160,10 @@ pytest **87 passed 1 skipped**(test_mcp_write 17개 포함), vite build 클린. 
 - **사이클2**: 코드 스플리팅 — vendor(react/tanstack/ui) 분리로 앱 번들 578→151KB, echarts는 의도적 단일 청크(주석 명시). 브라우저 기동 검증. 03f61b4.
 - **사이클3**: 업로드 마법사 E2E 실검증 — 골든 CSV 브라우저 실업로드 → zwick 감지 100% → 등록 → E=200.0GPa 정답 일치 → UI 삭제 다이얼로그로 정리(Parquet 정리 실전 확인). 5d2fb80.
 - 남은 백로그: showcase 갱신, MCP prompts/resources, Postgres 실검증, SIF 패키징, 초탄성(데이터 대기).
+
+## 2026-07-10 — 사이클 4: Postgres 실검증이 잡아낸 결함 2건
+
+PG16 실인스턴스에 마이그레이션 체인→시드→서버→MCP 쓰기 전체 리허설. **PG에서만 드러난 실버그 2건 수정.**
+- **CHECK 제약 미갱신**: c7b6cca38dc2가 nullable만 바꾸고 ck_test_strain_source에 'relaxation'을 안 넣음 — PG에서 점탄성 등록 전멸(SQLite는 개발 DB가 create_all 출신이라 가려짐. alembic check는 CHECK 드리프트 미감지). f4c2a91d55e0로 드롭·재생성. 함정: SQLite batch 재생성은 리플렉션이 AUTOINCREMENT를 못 잡아 e1a9d40b77c1 효과를 지움 → table_kwargs로 명시 유지 + 체인 끝 DDL 단언 테스트.
+- **성긴 곡선 탄성회귀 붕괴**: 500점 곡선에서 기본창(0.0005~0.0025) 5점 중 2점이 소성 → E=1.04GPa(r²=0.81). register_tensile_test에 r²≥0.995 재시도 사다리(기본→0.0002~0.0015→0.0001~0.001) + 저항복 보정에 창 내 점수≥5·비율 0.5~2배 가드.
+- 검증: PG에서 마이그레이션 4단계 클린 적용, 시드 5+3, MCP 등록(E=200.0)·GI=0 카드·recompute·delete 왕복, 웹서버 4엔드포인트 200. 라이브 SQLite도 헤드 동기화(70행 무결). pytest 89 passed.

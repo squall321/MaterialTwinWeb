@@ -61,6 +61,31 @@ def test_upgrade_downgrade_roundtrip(db_url):
     command.downgrade(cfg, "base")  # 예외 없이 역방향 완료.
 
 
+def test_migrated_db_accepts_relaxation_strain_source(db_url):
+    # 마이그레이션 체인으로 만든 DB가 완화시험을 수용해야(f4c2a91d55e0 회귀).
+    # c7b6cca38dc2가 CHECK를 안 고쳐 PG에서 CheckViolation이 났던 결함 —
+    # alembic check는 CHECK 제약 드리프트를 감지하지 못하므로 INSERT로 직접 검증.
+    import sqlite3
+
+    cfg = _alembic_cfg(db_url)
+    command.upgrade(cfg, "head")
+    path = db_url.replace("sqlite:///", "")
+    con = sqlite3.connect(path)
+    con.execute("PRAGMA foreign_keys=ON")
+    con.execute("INSERT INTO material (name, attributes, created_at, updated_at) "
+                "VALUES ('m', '{}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)")
+    con.execute("INSERT INTO specimen (material_id, label, geometry_type, gauge_length_m, "
+                "width_m, thickness_m, area0_m2) VALUES (1,'S1','flat',0.05,0.0125,0.002,2.5e-5)")
+    for src in ("extensometer", "crosshead", "relaxation"):
+        con.execute("INSERT INTO test (specimen_id, test_type, strain_source, valid) "
+                    "VALUES (1, 'relaxation', ?, 1)", (src,))
+    con.commit()  # CheckViolation 없이 통과해야 함.
+
+    # 체인 끝까지 AUTOINCREMENT 유지(f4c2a91d55e0의 batch 재생성이 지우면 안 됨).
+    ddl = con.execute("SELECT sql FROM sqlite_master WHERE name='test'").fetchone()[0]
+    assert "AUTOINCREMENT" in ddl
+
+
 def test_no_model_migration_drift(db_url):
     # 모델과 마이그레이션이 어긋나면(컬럼 추가 후 마이그레이션 누락 등) CommandError.
     cfg = _alembic_cfg(db_url)

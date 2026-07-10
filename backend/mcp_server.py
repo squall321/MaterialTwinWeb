@@ -452,7 +452,20 @@ def register_tensile_test(material_id: int, strain: list[float], stress_mpa: lis
         s.add(RawCurveRef(test_id=test.id, storage="parquet_fs", file_path=rel_path,
                           n_points=int(n), channels=["force", "displacement", "strain", "stress"]))
 
-        metrics = analysis.compute_all(en, stress_pa, A0=A0, category=mat.category)
+        # 탄성 회귀: 기본창이 성긴 곡선에서 소성점을 물면 r²가 무너진다 —
+        # 점차 좁은 창으로 재시도해 r²≥0.995인 첫 결과를 채택(전부 미달이면 최고 r²).
+        metrics = None
+        best = None
+        for e_range in ((0.0005, 0.0025), (0.0002, 0.0015), (0.0001, 0.001)):
+            m = analysis.compute_all(en, stress_pa, A0=A0, e_range=e_range, category=mat.category)
+            r2 = getattr(m["params"], "r2", None)
+            if best is None or ((r2 or 0) > (getattr(best["params"], "r2", None) or 0)):
+                best = m
+            if m["youngs_modulus_pa"] and r2 is not None and r2 >= 0.995:
+                metrics = m
+                break
+        if metrics is None:
+            metrics = best
         pr = ProcessedResult(
             test_id=test.id,
             youngs_modulus_pa=metrics["youngs_modulus_pa"],
@@ -474,9 +487,15 @@ def register_tensile_test(material_id: int, strain: list[float], stress_mpa: lis
             ey = sy / E
             if ey < 0.0036:
                 lo, hi = max(1e-4, 0.15 * ey), max(2e-4, 0.7 * ey)
-                m2 = analysis.compute_all(en, stress_pa, A0=A0, e_range=(lo, hi), category=mat.category)
+                # 좁은 창에 점이 부족하면(성긴 곡선) 회귀가 무의미 — 보정 생략.
+                # 2점 회귀는 R²=1이라 R²로는 못 거르고 점 수로 가드한다.
+                n_win = int(np.sum((en >= lo) & (en <= hi)))
+                m2 = (analysis.compute_all(en, stress_pa, A0=A0, e_range=(lo, hi), category=mat.category)
+                      if n_win >= 5 else {"youngs_modulus_pa": None})
                 E2 = m2["youngs_modulus_pa"]
-                if E2 and np.isfinite(E2) and abs(E2 - E) / E > 0.005:
+                # 정당한 보정은 1차 추정과 같은 자릿수(0.5~2배) — 벗어나면 성긴 데이터 아티팩트.
+                if (E2 and np.isfinite(E2) and abs(E2 - E) / E > 0.005
+                        and 0.5 <= E2 / E <= 2.0):
                     pr.youngs_modulus_pa = E2
                     pr.yield_strength_pa = m2["yield_strength_pa"]
                     pr.strain_hardening_n = m2["strain_hardening_n"]

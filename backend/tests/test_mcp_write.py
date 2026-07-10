@@ -202,6 +202,16 @@ def test_recompute_half_window_rejected(mcp_env):
     assert "error" in r and "함께" in r["error"]
 
 
+def test_tensile_sparse_curve_correction_guarded(mcp_env):
+    # 성긴 곡선(500점)에서 저항복 자동보정이 좁은 창 2점 회귀로 E를 망치면 안 됨(PG 검증 회귀).
+    M = mcp_env
+    g = make_golden(n_points=500)
+    mid = M.register_material("성긴곡선", category="metal")["material_id"]
+    r = M.register_tensile_test(mid, g.strain.tolist(), (g.stress / 1e6).tolist())
+    assert r["properties"]["E_GPa"] == pytest.approx(200.0, rel=0.01), r
+    assert len(r["fits"]) >= 3
+
+
 def test_write_curve_failure_rolls_back_specimen(mcp_env, monkeypatch):
     # 곡선 저장 실패 시 자동 생성 시편이 고아로 남으면 안 됨.
     M = mcp_env
