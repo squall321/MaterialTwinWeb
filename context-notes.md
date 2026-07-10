@@ -167,3 +167,8 @@ PG16 실인스턴스에 마이그레이션 체인→시드→서버→MCP 쓰기
 - **CHECK 제약 미갱신**: c7b6cca38dc2가 nullable만 바꾸고 ck_test_strain_source에 'relaxation'을 안 넣음 — PG에서 점탄성 등록 전멸(SQLite는 개발 DB가 create_all 출신이라 가려짐. alembic check는 CHECK 드리프트 미감지). f4c2a91d55e0로 드롭·재생성. 함정: SQLite batch 재생성은 리플렉션이 AUTOINCREMENT를 못 잡아 e1a9d40b77c1 효과를 지움 → table_kwargs로 명시 유지 + 체인 끝 DDL 단언 테스트.
 - **성긴 곡선 탄성회귀 붕괴**: 500점 곡선에서 기본창(0.0005~0.0025) 5점 중 2점이 소성 → E=1.04GPa(r²=0.81). register_tensile_test에 r²≥0.995 재시도 사다리(기본→0.0002~0.0015→0.0001~0.001) + 저항복 보정에 창 내 점수≥5·비율 0.5~2배 가드.
 - 검증: PG에서 마이그레이션 4단계 클린 적용, 시드 5+3, MCP 등록(E=200.0)·GI=0 카드·recompute·delete 왕복, 웹서버 4엔드포인트 200. 라이브 SQLite도 헤드 동기화(70행 무결). pytest 89 passed.
+
+## 2026-07-10 — 사이클 5·6
+
+- **사이클5**: MCP 리소스 2종(guide: 단위규약·워크플로 / taxonomy: 라이브 분포) + 프롬프트 2종(find_material·register_test_data). 인메모리 프로토콜 왕복 테스트. 함정: conftest가 app.insights를 리로드 안 하면 taxonomy 리소스가 stale 모델 클래스로 매퍼 에러 — 리로드 체인에 추가. 6a63bc7.
+- **사이클6**: 시연 영상 재녹화(48.8s — 카테고리 칩·brush 드래그·신뢰도 가드·편집·점탄성) + showcase에 MCP 등록 실출력 턴(DP980, E=207.0, JC R²=0.9986) 추가. 20도구 양방향 카피. 937382c.
