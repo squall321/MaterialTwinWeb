@@ -112,3 +112,8 @@
 - [ ] 초탄성(Ogden/Mooney) 카드 — 고무 단축인장 데이터 확보 후
 
 규칙: 한 사이클 = 항목 1개 구현 → 검증(pytest·build·필요시 브라우저) → 시맨틱 커밋·푸시 → 체크 표시 → context-notes 기록. 검증 실패 상태로 커밋 금지.
+
+### 적대적 리뷰 라운드 2 발견 (2026-07-10 — 3에이전트, 전부 해결)
+- [x] config.py 빈 문자열 MATERIALTWIN_DATA_DIR=""가 CWD로 새어 HEAX 폴백 우회 (MEDIUM) — falsy 가드 + test_config.py 5건
+- [x] 마이그레이션 f4c2a91d55e0 PG downgrade _CK_OLD 텍스트 비대칭 (LOW) — 초기 스키마와 문자 일치, PG 실검증
+- [x] material-detail 점탄성 클라 네비 activeId-null 1프레임 플리커 (LOW) — effectiveActiveId 파생 폴백

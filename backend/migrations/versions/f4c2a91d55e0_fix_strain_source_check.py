@@ -22,7 +22,9 @@ branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 
 _CK = "strain_source IS NULL OR strain_source IN ('extensometer','crosshead','relaxation')"
-_CK_OLD = "strain_source IS NULL OR strain_source IN ('extensometer','crosshead')"
+# downgrade는 초기 스키마(c0fac20ef805)가 만든 원본 CHECK와 문자 그대로 일치시킨다
+# (IS NULL OR 접두 없음 — NULL IN(...)=UNKNOWN이라 기능은 동일하나 DDL 드리프트 방지).
+_CK_OLD = "strain_source IN ('extensometer','crosshead')"
 
 
 def upgrade() -> None:

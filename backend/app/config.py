@@ -32,8 +32,10 @@ class Settings(BaseSettings):
     @model_validator(mode="after")
     def _resolve_paths(self) -> "Settings":
         # DATA_DIR 우선순위: MATERIALTWIN_DATA_DIR > HEAX_DATA_DIR(런처 영속 볼륨, D1) > 개발 폴백.
-        if self.data_dir is None:
-            heax = os.environ.get("HEAX_DATA_DIR")
+        # 빈 문자열(MATERIALTWIN_DATA_DIR="")은 pydantic이 Path('.')(=CWD)로 강제하므로
+        # None과 동일하게 '미설정'으로 취급해 폴백을 태운다(빈 env 오설정이 CWD로 새는 것 방지).
+        if self.data_dir is None or str(self.data_dir) in ("", "."):
+            heax = (os.environ.get("HEAX_DATA_DIR") or "").strip()
             if heax:
                 logger.info("HEAX_DATA_DIR 사용(런처 영속 볼륨): %s", heax)
                 self.data_dir = Path(heax)
@@ -46,8 +48,8 @@ class Settings(BaseSettings):
                 self.data_dir = _DEV_FALLBACK_DATA_DIR
         self.data_dir = self.data_dir.resolve()
 
-        # DATABASE_URL 미설정 시 DATA_DIR 하위 SQLite 파일로 기본 구성.
-        if self.database_url is None:
+        # DATABASE_URL 미설정/빈 문자열 시 DATA_DIR 하위 SQLite 파일로 기본 구성.
+        if not self.database_url:
             db_path = self.data_dir / "materialtwin.db"
             self.database_url = f"sqlite:///{db_path}"
         return self

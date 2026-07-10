@@ -150,12 +150,18 @@ export function MaterialDetailScreen() {
   }));
 
   // 활성 시편(차트 마커·회귀 picker 대상). 기본 첫 시편.
+  // 파생 effect는 paint 후 실행돼 activeId=null 창이 생기므로, 유효 activeId를
+  // 첫 시편으로 즉시 폴백해 렌더한다(점탄성 클라 네비 시 1프레임 빈 화면 방지).
   const [activeId, setActiveId] = React.useState<number | null>(null);
+  const effectiveActiveId =
+    activeId != null && views.some((v) => v.specimen.id === activeId)
+      ? activeId
+      : specimens[0]?.id ?? null;
   React.useEffect(() => {
     if (activeId == null && specimens.length > 0) setActiveId(specimens[0].id);
   }, [specimens, activeId]);
 
-  const active = views.find((v) => v.specimen.id === activeId) ?? null;
+  const active = views.find((v) => v.specimen.id === effectiveActiveId) ?? null;
   const [range, setRange] = React.useState<[number, number] | null>(null);
 
   // 클라 네비로 다른 재료에 오면(같은 컴포넌트 재사용) 시편·토글 상태 초기화.
@@ -235,11 +241,11 @@ export function MaterialDetailScreen() {
       name: v.specimen.label,
       x: v.curve!.x,
       y: v.curve!.y,
-      active: v.specimen.id === activeId,
+      active: v.specimen.id === effectiveActiveId,
       color: seriesColor[i],
       // 진곡선이면 넥킹 마커, 공칭이면 UTS/Rp0.2/회귀 마커.
       markers:
-        v.specimen.id === activeId
+        v.specimen.id === effectiveActiveId
           ? curveKind === "true"
             ? neckingMarker(v.curve)
             : markersFrom(v.props)
@@ -372,10 +378,10 @@ export function MaterialDetailScreen() {
                   setActiveId(v.specimen.id);
                   setRange(null);
                 }}
-                aria-pressed={v.specimen.id === activeId}
+                aria-pressed={v.specimen.id === effectiveActiveId}
                 className={cn(
                   "flex items-center gap-2 rounded-md px-2.5 py-1.5 text-left text-sm transition-colors",
-                  v.specimen.id === activeId
+                  v.specimen.id === effectiveActiveId
                     ? "bg-primary-muted text-text-primary"
                     : "text-text-secondary hover:bg-surface-2",
                 )}

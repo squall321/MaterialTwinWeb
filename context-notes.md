@@ -177,3 +177,11 @@ PG16 실인스턴스에 마이그레이션 체인→시드→서버→MCP 쓰기
 
 fastapi_react 스택 레시피 그대로 재현: git archive 작업본 → pnpm install --frozen-lockfile(락파일 정합 ✓) → pnpm build(자산 상대경로 6/절대 0, C6 ✓) → 새 venv pip install -e backend → 런처 env만으로(PORT/ROOT_PATH/HEAX_DATA_DIR, MATERIALTWIN_* 없음) uvicorn 기동 → health·index 200 + 재료 생성 → **SQLite가 HEAX_DATA_DIR에 안착(D1 실증 해소)**. config.py에 HEAX_DATA_DIR 폴백 추가(MATERIALTWIN_DATA_DIR > HEAX_DATA_DIR > 개발 폴백). .portal/manifest.yaml v1.0.0으로 갱신(draft 해제·source git·MCP 서술). pytest 91 passed.
 남은 백로그: 초탄성 카드(고무 단축인장 데이터 확보 대기)만 남음 — 전 항목 완료.
+
+## 2026-07-10 — 사이클 8: 적대적 리뷰 라운드 2 (3에이전트)
+
+백로그 소진 후 최근 변경(N+1·MCP 리소스·config 폴백·strain-source 마이그레이션·sparse 사다리)을 3개 병렬 리뷰어로 재검증. 확정 결함 3건(전부 수정):
+- **MEDIUM** config.py: 빈 문자열 `MATERIALTWIN_DATA_DIR=""`가 pydantic에서 `PosixPath('.')`→CWD로 강제돼 방금 만든 HEAX_DATA_DIR 폴백을 조용히 우회. `str(data_dir) in ("",".")` + `not database_url` falsy 가드. test_config.py 5건 신규.
+- **LOW** f4c2a91d55e0 PG downgrade의 `_CK_OLD`가 초기 스키마(IS NULL OR 접두 없음)와 텍스트 불일치 — 기능 등가지만 DDL 드리프트. 초기 스키마와 문자 일치시키고 PG에서 upgrade→downgrade 단계별 CHECK 텍스트 실대조.
+- **LOW** material-detail: activeId 설정 effect가 paint 후 실행돼 점탄성 클라 네비 시 1프레임 빈 화면 — effectiveActiveId(첫 시편 즉시 폴백) 파생값 도입, 렌더 비교 5곳 교체.
+리뷰어가 확인한 무결함: insights outerjoin(NULL 정렬 견고)·r² 사다리 가드·MCP 리소스·청크 분리·비물성 툴팁 단위·훅 규칙. pytest 96 passed.
