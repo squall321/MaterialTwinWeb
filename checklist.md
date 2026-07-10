@@ -105,7 +105,7 @@
 - [x] 인사이트 elong_pct 히스토그램 렌더 (데이터 수신만 하고 미표시)
 - [x] 프런트 코드 스플리팅 — echarts 청크 분리로 500kB 경고 해소 (manualChunks)
 - [x] 업로드 마법사 E2E 회귀: 골든 CSV로 브라우저 실업로드 → 물성 확인 (Playwright)
-- [ ] showcase.html·demo.mp4 갱신 — 새 기능(편집·삭제·카테고리 필터·brush·MCP 등록) 반영
+- [x] showcase.html·demo.mp4 갱신 — 새 기능(편집·삭제·카테고리 필터·brush·MCP 등록) 반영
 - [x] MCP prompts/resources 노출 검토 — LLM이 도구 사용법을 스스로 발견하게
 - [x] Postgres 실인스턴스 검증 (mtw_test 계정 존재 — test_postgres_compat 참고)
 - [ ] 단일 SIF 패키징 + /apps/<slug>/ 서브패스 배포 리허설
