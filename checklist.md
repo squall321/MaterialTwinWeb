@@ -104,7 +104,7 @@
 - [x] Ashby 차트 비강도(σ/ρ)·비강성(E/ρ) 툴팁 노출 + AshbyPoint 타입 선언 (백엔드는 이미 반환)
 - [x] 인사이트 elong_pct 히스토그램 렌더 (데이터 수신만 하고 미표시)
 - [x] 프런트 코드 스플리팅 — echarts 청크 분리로 500kB 경고 해소 (manualChunks)
-- [ ] 업로드 마법사 E2E 회귀: 골든 CSV로 브라우저 실업로드 → 물성 확인 (Playwright)
+- [x] 업로드 마법사 E2E 회귀: 골든 CSV로 브라우저 실업로드 → 물성 확인 (Playwright)
 - [ ] showcase.html·demo.mp4 갱신 — 새 기능(편집·삭제·카테고리 필터·brush·MCP 등록) 반영
 - [ ] MCP prompts/resources 노출 검토 — LLM이 도구 사용법을 스스로 발견하게
 - [ ] Postgres 실인스턴스 검증 (mtw_test 계정 존재 — test_postgres_compat 참고)
