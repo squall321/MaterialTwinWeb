@@ -4,7 +4,8 @@ import * as echarts from "echarts/core";
 import { LineChart } from "echarts/charts";
 import { GridComponent, TooltipComponent, MarkLineComponent } from "echarts/components";
 import { CanvasRenderer } from "echarts/renderers";
-import { Download } from "lucide-react";
+import { Download, RefreshCw } from "lucide-react";
+import { toast } from "sonner";
 import {
   getCurve, getProperties, viscoCardUrl,
   UNIT_SYSTEMS, DEFAULT_UNITS, type UnitSystemKey, type Properties,
@@ -14,6 +15,7 @@ import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import { ChartSkeleton } from "./states/Skeletons";
+import { downloadFile, errorMessage } from "../lib/download";
 import { readChartTheme, cssVar } from "../lib/echarts";
 
 echarts.use([LineChart, GridComponent, TooltipComponent, MarkLineComponent, CanvasRenderer]);
@@ -22,6 +24,7 @@ type Props = { testId: number };
 
 export function ViscoelasticView({ testId }: Props) {
   const [units, setUnits] = React.useState<UnitSystemKey>(DEFAULT_UNITS);
+  const [downloading, setDownloading] = React.useState(false);
   const curveQ = useQuery({
     queryKey: ["curve", testId, "relaxation"],
     queryFn: () => getCurve(testId, { kind: "relaxation", max_points: 300 }),
@@ -33,6 +36,18 @@ export function ViscoelasticView({ testId }: Props) {
   });
 
   const vm = viscoMetrics(propsQ.data);
+  const cardReady = vm != null;
+
+  const download = async () => {
+    setDownloading(true);
+    try {
+      await downloadFile(viscoCardUrl(testId, units), `test_${testId}_visco.k`);
+    } catch (e) {
+      toast.error(errorMessage(e));
+    } finally {
+      setDownloading(false);
+    }
+  };
 
   return (
     <div className="flex flex-col gap-6">
@@ -44,11 +59,28 @@ export function ViscoelasticView({ testId }: Props) {
         {curveQ.isPending ? (
           <ChartSkeleton />
         ) : curveQ.isError ? (
-          <p className="py-8 text-center text-sm text-danger">완화곡선을 불러오지 못했습니다.</p>
+          <div className="flex flex-col items-center gap-3 py-8">
+            <p className="text-sm text-danger">완화곡선을 불러오지 못했습니다.</p>
+            <Button variant="ghost" size="sm" onClick={() => curveQ.refetch()}>
+              <RefreshCw className="size-3.5" />
+              다시 시도
+            </Button>
+          </div>
         ) : (
           <RelaxationChart x={curveQ.data.x} y={curveQ.data.y} einf={vm?.einfPa ?? null} e0={vm?.e0Pa ?? null} />
         )}
       </Card>
+
+      {/* 물성 미계산/조회 실패 시 dead-end 방지 안내. */}
+      {propsQ.isError && (
+        <p className="rounded-md border border-border-subtle bg-surface-2/50 px-4 py-2.5 text-xs text-text-tertiary">
+          점탄성 물성 정보를 불러오지 못했습니다 — 등록 시 Prony 피팅이 저장되지 않았을 수
+          있습니다. 데이터를 다시 업로드하거나 관리자에게 문의하세요.
+          <Button variant="ghost" size="sm" className="ml-2" onClick={() => propsQ.refetch()}>
+            다시 시도
+          </Button>
+        </p>
+      )}
 
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         <Metric label="순간 탄성률 E₀" value={vm ? mpa(vm.e0Pa) : "—"} unit="MPa" />
@@ -73,12 +105,16 @@ export function ViscoelasticView({ testId }: Props) {
                 ))}
               </SelectContent>
             </Select>
-            <a href={viscoCardUrl(testId, units)} download>
-              <Button variant="ghost" size="sm">
-                <Download className="size-4" />
-                MAT_VISCOELASTIC 카드
-              </Button>
-            </a>
+            <Button
+              variant="ghost"
+              size="sm"
+              disabled={!cardReady || downloading}
+              title={cardReady ? undefined : "Prony 피팅 결과가 있어야 카드를 만들 수 있습니다"}
+              onClick={download}
+            >
+              <Download className="size-4" />
+              MAT_VISCOELASTIC 카드
+            </Button>
           </div>
         </div>
         {vm && vm.terms.length > 0 ? (

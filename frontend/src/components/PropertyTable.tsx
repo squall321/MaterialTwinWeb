@@ -1,9 +1,9 @@
 // 물성 테이블(§14.3.3 TEST RECORDS). 시편별 행 + 재료단위 평균±σ 요약 행(클라 계산, ★C8). low-confidence 경고 배지(★C1).
-import { AlertTriangle } from "lucide-react";
+import { AlertTriangle, EyeOff, Eye } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { cn } from "../lib/utils";
 import { paToGPa, paToMPa, ratioToPercent } from "../lib/units";
-import type { Properties } from "../api/tests";
+import type { Properties, Test } from "../api/tests";
 
 /** 한 시편(대표 test)의 물성 행. */
 export type PropertyRow = {
@@ -12,12 +12,16 @@ export type PropertyRow = {
   strainSource?: string;
   valid?: boolean;
   props: Properties | null; // 미계산이면 null
+  /** 액션(valid 토글)용 원본 test — 없으면 액션 미표시. */
+  test?: Test | null;
 };
 
 type Props = {
   rows: PropertyRow[];
   /** ISO(Rp0.2/Rm) ↔ ASTM(YS/UTS) 라벨 토글. 기본 ISO. */
   standard?: "iso" | "astm";
+  /** 시험 유효/제외 토글(이상치 수동 제외). 전달 시 액션 컬럼 표시. */
+  onToggleValid?: (test: Test) => void;
 };
 
 /** params.confidence 안전 추출(params 가 raw dict 일 수 있음). */
@@ -65,9 +69,10 @@ function summaryCell(
   return `${num(ms.mean, digits)} ± ${num(ms.std, digits)}`;
 }
 
-export function PropertyTable({ rows, standard = "iso" }: Props) {
+export function PropertyTable({ rows, standard = "iso", onToggleValid }: Props) {
   const yieldLabel = standard === "astm" ? "YS" : "Rp0.2";
   const utsLabel = standard === "astm" ? "UTS" : "Rm";
+  const hasActions = onToggleValid != null && rows.some((r) => r.test);
 
   const headCell = "px-3 py-2 text-left text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-text-tertiary";
   const numHead = cn(headCell, "text-right");
@@ -90,6 +95,7 @@ export function PropertyTable({ rows, standard = "iso" }: Props) {
             <th className={numHead}>R²</th>
             <th className={headCell}>strain</th>
             <th className={headCell}>valid</th>
+            {hasActions && <th className={headCell} aria-label="액션" />}
           </tr>
         </thead>
         <tbody>
@@ -122,6 +128,20 @@ export function PropertyTable({ rows, standard = "iso" }: Props) {
                     <span className="text-text-tertiary">미계산</span>
                   )}
                 </td>
+                {hasActions && (
+                  <td className={cn(cell, "text-right")}>
+                    {r.test && (
+                      <button
+                        onClick={() => onToggleValid!(r.test!)}
+                        title={r.test.valid ? "이상치로 제외" : "복원"}
+                        aria-label={r.test.valid ? "시험 제외" : "시험 복원"}
+                        className="rounded p-1 text-text-tertiary transition-colors hover:bg-surface-2 hover:text-text-primary"
+                      >
+                        {r.test.valid ? <EyeOff className="size-3.5" /> : <Eye className="size-3.5" />}
+                      </button>
+                    )}
+                  </td>
+                )}
               </tr>
             );
           })}
@@ -136,7 +156,7 @@ export function PropertyTable({ rows, standard = "iso" }: Props) {
               <td className={numCell}>{summaryCell(rows, (p) => p.uts_pa, paToMPa, 0)}</td>
               <td className={numCell}>{summaryCell(rows, (p) => p.fracture_elongation, ratioToPercent, 1)}</td>
               <td className={numCell}>—</td>
-              <td className={cell} colSpan={2} />
+              <td className={cell} colSpan={hasActions ? 3 : 2} />
             </tr>
           )}
         </tbody>

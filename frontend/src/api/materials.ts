@@ -31,11 +31,13 @@ export type MaterialList = {
 
 export function listMaterials(params?: {
   q?: string;
+  category?: string;
   page?: number;
   size?: number;
 }): Promise<MaterialList> {
   const sp = new URLSearchParams();
   if (params?.q) sp.set("q", params.q);
+  if (params?.category) sp.set("category", params.category);
   if (params?.page) sp.set("page", String(params.page));
   if (params?.size) sp.set("size", String(params.size));
   const qs = sp.toString();

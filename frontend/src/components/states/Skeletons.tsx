@@ -23,15 +23,18 @@ export function ChartSkeleton({ height = 380 }: { height?: number }) {
   );
 }
 
-/** 통계 띠 스켈레톤(overline 짧은 바 + hero 큰 바 + 마이크로) ×4. */
+/** KPI 밴드 스켈레톤 — 인사이트 KPI 카드(라벨 + 큰 값) 레이아웃 보존 ×4. */
 export function StatBandSkeleton() {
   return (
-    <div className="grid grid-cols-2 gap-px overflow-hidden rounded-lg bg-border-subtle md:grid-cols-4">
+    <div
+      className="grid grid-cols-2 gap-3 sm:grid-cols-4"
+      role="status"
+      aria-label="통계 로딩 중"
+    >
       {Array.from({ length: 4 }).map((_, i) => (
-        <div key={i} className="flex flex-col gap-2 bg-surface p-4">
+        <div key={i} className="flex flex-col gap-2.5 rounded-lg bg-surface p-3.5 shadow-[var(--elev-1)]">
           <Bar className="w-16" />
-          <Bar className="h-6 w-20" />
-          <Bar className="w-12 opacity-70" />
+          <Bar className="h-7 w-20" />
         </div>
       ))}
     </div>

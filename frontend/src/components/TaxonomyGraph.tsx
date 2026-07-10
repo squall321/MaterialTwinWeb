@@ -4,20 +4,15 @@ import * as echarts from "echarts/core";
 import { GraphChart } from "echarts/charts";
 import { TooltipComponent } from "echarts/components";
 import { CanvasRenderer } from "echarts/renderers";
-import { readChartTheme, cssVar } from "../lib/echarts";
+import { useChartTheme } from "../lib/echarts";
 import type { GraphNode, GraphEdge } from "../api/insights";
 
 echarts.use([GraphChart, TooltipComponent, CanvasRenderer]);
 
-const TYPE_COLOR: Record<string, string> = {
-  root: "#E6EBF2",
-  category: "#3B82F6",
-  family: "#34D399",
-};
-
 export function TaxonomyGraph({ nodes, edges }: { nodes: GraphNode[]; edges: GraphEdge[] }) {
   const ref = React.useRef<HTMLDivElement | null>(null);
   const inst = React.useRef<echarts.ECharts | null>(null);
+  const T = useChartTheme(); // 테마 토글 시 재렌더(§14.4)
 
   React.useEffect(() => {
     if (!ref.current) return;
@@ -33,15 +28,19 @@ export function TaxonomyGraph({ nodes, edges }: { nodes: GraphNode[]; edges: Gra
 
   React.useEffect(() => {
     if (!inst.current) return;
-    const T = readChartTheme();
-    const primary = cssVar("--primary");
+    // 노드 타입별 색 — 테마 토큰에서 파생(root=본문색, category=프라이머리, family=녹색 마커).
+    const typeColor: Record<string, string> = {
+      root: T.text1,
+      category: T.primary,
+      family: T.markUts,
+    };
     const maxVal = Math.max(...nodes.map((n) => n.value), 1);
     inst.current.setOption(
       {
         backgroundColor: "transparent",
         tooltip: {
           backgroundColor: T.surface2, borderColor: T.border,
-          textStyle: { color: "#E6EBF2", fontSize: 11 },
+          textStyle: { color: T.text1, fontSize: 11 },
           formatter: (p: unknown) => {
             const d = p as { dataType?: string; data: { label?: string; value?: number } };
             return d.dataType === "node" ? `${d.data.label}: ${d.data.value}개` : "";
@@ -59,11 +58,11 @@ export function TaxonomyGraph({ nodes, edges }: { nodes: GraphNode[]; edges: Gra
               formatter: (p: unknown) => (p as { data: { label: string } }).data.label,
             },
             lineStyle: { color: T.grid, width: 1, curveness: 0.08 },
-            emphasis: { focus: "adjacency", lineStyle: { color: primary, width: 2 } },
+            emphasis: { focus: "adjacency", lineStyle: { color: T.primary, width: 2 } },
             data: nodes.map((n) => ({
               id: n.id, label: n.label, value: n.value,
               symbolSize: 12 + 34 * Math.sqrt(n.value / maxVal),
-              itemStyle: { color: TYPE_COLOR[n.type] ?? "#9AA7B8" },
+              itemStyle: { color: typeColor[n.type] ?? T.text2 },
               category: n.type,
             })),
             links: edges.map((e) => ({ source: e.source, target: e.target })),
@@ -72,7 +71,7 @@ export function TaxonomyGraph({ nodes, edges }: { nodes: GraphNode[]; edges: Gra
       },
       true,
     );
-  }, [nodes, edges]);
+  }, [nodes, edges, T]);
 
-  return <div ref={ref} style={{ width: "100%", height: 360 }} />;
+  return <div ref={ref} style={{ width: "100%", height: 360 }} role="img" aria-label="재료 분류 지식그래프" />;
 }

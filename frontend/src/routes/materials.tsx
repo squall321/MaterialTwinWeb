@@ -1,8 +1,13 @@
 // 재료 라이브러리(/materials, §14.3.2) — 검색·재료 카드 그리드·새 재료 생성 다이얼로그.
 import * as React from "react";
-import { Link, useNavigate } from "@tanstack/react-router";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { Library, Plus, Search, ArrowRight } from "lucide-react";
+import { Link, useNavigate, useSearch } from "@tanstack/react-router";
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  keepPreviousData,
+} from "@tanstack/react-query";
+import { Library, Plus, Search, ArrowRight, X } from "lucide-react";
 import { toast } from "sonner";
 import {
   listMaterials,
@@ -10,10 +15,12 @@ import {
   type Material,
   type MaterialIn,
 } from "../api/materials";
+import { errorMessage } from "../lib/download";
+import { cn } from "../lib/utils";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Card } from "../components/ui/card";
-import { Badge } from "../components/ui/badge";
+import { Badge, badgeVariants } from "../components/ui/badge";
 import { Label } from "../components/ui/label";
 import {
   Dialog,
@@ -28,20 +35,60 @@ import { EmptyState } from "../components/states/EmptyState";
 import { ErrorState } from "../components/states/ErrorState";
 import { TableSkeleton } from "../components/states/Skeletons";
 
-export function MaterialsScreen() {
-  const [q, setQ] = React.useState("");
-  const [debouncedQ, setDebouncedQ] = React.useState("");
+// 카테고리 필터 칩 목록(백엔드 category 동등 필터).
+const CATEGORIES = ["metal", "polymer", "rubber", "composite"];
+// 목록 페이지 크기 — "더 보기"로 증가(백엔드 size 상한 200).
+const PAGE_SIZE = 24;
+const MAX_SIZE = 200;
 
-  // 검색어 디바운스(250ms) — 타이핑마다 요청 방지.
+export function MaterialsScreen() {
+  // URL(?q=&cat=)이 필터의 단일 진실 — 목록→상세→뒤로가기에서 검색 상태 유지.
+  const search = useSearch({ from: "/materials" }) as { q?: string; cat?: string };
+  const navigate = useNavigate();
+  const urlQ = search.q ?? "";
+  const cat = search.cat ?? "";
+
+  // 입력값은 로컬 상태, 디바운스(250ms) 후 URL에 반영.
+  const [q, setQ] = React.useState(urlQ);
+  const [size, setSize] = React.useState(PAGE_SIZE);
+
+  const pushSearch = React.useCallback(
+    (nextQ: string, nextCat: string) =>
+      navigate({
+        to: "/materials",
+        search: {
+          ...(nextQ ? { q: nextQ } : {}),
+          ...(nextCat ? { cat: nextCat } : {}),
+        },
+        replace: true,
+      }),
+    [navigate],
+  );
+
   React.useEffect(() => {
-    const t = setTimeout(() => setDebouncedQ(q), 250);
+    if (q === urlQ) return;
+    const t = setTimeout(() => pushSearch(q, cat), 250);
     return () => clearTimeout(t);
-  }, [q]);
+  }, [q, urlQ, cat, pushSearch]);
+
+  // 외부 URL 변경(뒤로가기·네비 링크) → 입력값 역동기화.
+  React.useEffect(() => {
+    setQ(urlQ);
+  }, [urlQ]);
+
+  // 필터가 바뀌면 페이지 크기 초기화.
+  React.useEffect(() => {
+    setSize(PAGE_SIZE);
+  }, [urlQ, cat]);
 
   const query = useQuery({
-    queryKey: ["materials", debouncedQ],
-    queryFn: () => listMaterials({ q: debouncedQ || undefined, size: 100 }),
+    queryKey: ["materials", urlQ, cat, size],
+    queryFn: () =>
+      listMaterials({ q: urlQ || undefined, category: cat || undefined, size }),
+    placeholderData: keepPreviousData,
   });
+
+  const filtered = Boolean(urlQ || cat);
 
   return (
     <div className="flex flex-col gap-6">
@@ -55,15 +102,51 @@ export function MaterialsScreen() {
         <NewMaterialDialog />
       </header>
 
-      <div className="relative max-w-sm">
-        <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-text-tertiary" />
-        <Input
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          placeholder="재료명·코드 검색"
-          className="pl-9"
-          aria-label="재료 검색"
+      <div className="flex flex-wrap items-center gap-3">
+        <div className="relative w-full max-w-sm">
+          <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-text-tertiary" />
+          <Input
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            placeholder="재료명·코드 검색"
+            className="pl-9 pr-8"
+            aria-label="재료 검색"
+          />
+          {q && (
+            <button
+              type="button"
+              onClick={() => {
+                setQ("");
+                pushSearch("", cat);
+              }}
+              aria-label="검색어 지우기"
+              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-sm p-0.5 text-text-tertiary transition-colors duration-[130ms] hover:text-text-primary"
+            >
+              <X className="size-4" />
+            </button>
+          )}
+        </div>
+        {query.data && (
+          <p className="text-sm text-text-tertiary">
+            <span className="tnum">{query.data.total}</span>건
+          </p>
+        )}
+      </div>
+
+      <div className="flex flex-wrap gap-1.5" role="group" aria-label="분류 필터">
+        <CategoryChip
+          label="전체"
+          pressed={!cat}
+          onClick={() => pushSearch(q, "")}
         />
+        {CATEGORIES.map((c) => (
+          <CategoryChip
+            key={c}
+            label={c}
+            pressed={cat === c}
+            onClick={() => pushSearch(q, cat === c ? "" : c)}
+          />
+        ))}
       </div>
 
       {query.isPending ? (
@@ -73,22 +156,61 @@ export function MaterialsScreen() {
       ) : query.data.items.length === 0 ? (
         <EmptyState
           icon={<Library className="size-6" />}
-          title={debouncedQ ? "검색 결과 없음" : "아직 재료가 없습니다"}
+          title={filtered ? "검색 결과 없음" : "아직 재료가 없습니다"}
           description={
-            debouncedQ
-              ? "다른 검색어를 시도하거나 새 재료를 추가하세요."
+            filtered
+              ? "다른 검색어나 분류를 시도하거나 새 재료를 추가하세요."
               : "첫 재료를 추가하고 시험 데이터를 업로드하세요."
           }
           action={<NewMaterialDialog />}
         />
       ) : (
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {query.data.items.map((m) => (
-            <MaterialCard key={m.id} material={m} />
-          ))}
-        </div>
+        <>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {query.data.items.map((m) => (
+              <MaterialCard key={m.id} material={m} />
+            ))}
+          </div>
+          {query.data.total > query.data.items.length && size < MAX_SIZE && (
+            <div className="flex justify-center">
+              <Button
+                variant="ghost"
+                onClick={() => setSize((s) => Math.min(s + PAGE_SIZE, MAX_SIZE))}
+                disabled={query.isFetching}
+              >
+                {query.isFetching ? "불러오는 중…" : "더 보기"}
+              </Button>
+            </div>
+          )}
+        </>
       )}
     </div>
+  );
+}
+
+// 카테고리 필터 칩 — Badge 스타일 재사용, aria-pressed로 선택 상태 표시.
+function CategoryChip({
+  label,
+  pressed,
+  onClick,
+}: {
+  label: string;
+  pressed: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      aria-pressed={pressed}
+      onClick={onClick}
+      className={cn(
+        badgeVariants({ variant: pressed ? "default" : "outline" }),
+        "cursor-pointer transition-colors duration-[130ms]",
+        !pressed && "hover:bg-surface-2 hover:text-text-primary",
+      )}
+    >
+      {label}
+    </button>
   );
 }
 
@@ -132,7 +254,7 @@ function NewMaterialDialog() {
       setForm({ name: "" });
       navigate({ to: "/materials/$id", params: { id: String(m.id) } });
     },
-    onError: (e) => toast.error(e instanceof Error ? e.message : "생성 실패"),
+    onError: (e) => toast.error(errorMessage(e)),
   });
 
   return (

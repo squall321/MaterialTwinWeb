@@ -52,7 +52,7 @@ export function RegressionRangePicker({
   const setHi = (v: number) => onRangeChange([lo, v]);
 
   const inputCls =
-    "tnum w-24 rounded-sm border border-border-default bg-inset px-2 py-1 text-[0.8125rem] text-text-primary focus-visible:outline-none";
+    "tnum w-24 rounded-sm border border-border-default bg-inset px-2 py-1 text-[0.8125rem] text-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]";
 
   return (
     <div className={cn("rounded-lg border border-border-default bg-surface p-3", className)}>
@@ -94,7 +94,6 @@ export function RegressionRangePicker({
             onChange={(e) => setLo(Number(e.target.value))}
             className={inputCls}
             aria-label="회귀 시작 변형률"
-            aria-valuenow={lo}
           />
         </label>
         <label className="flex flex-col gap-1">
@@ -107,7 +106,6 @@ export function RegressionRangePicker({
             onChange={(e) => setHi(Number(e.target.value))}
             className={inputCls}
             aria-label="회귀 종료 변형률"
-            aria-valuenow={hi}
           />
         </label>
         <button

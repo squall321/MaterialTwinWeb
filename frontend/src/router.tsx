@@ -9,8 +9,10 @@ import {
   Outlet,
 } from "@tanstack/react-router";
 import type { ReactNode } from "react";
-import { FlaskConical, Library, Upload, LayoutDashboard } from "lucide-react";
+import { FlaskConical, Library, Upload, LayoutDashboard, SearchX } from "lucide-react";
 import { cn } from "./lib/utils";
+import { Button } from "./components/ui/button";
+import { EmptyState } from "./components/states/EmptyState";
 import { InsightsScreen } from "./routes/insights";
 import { MaterialsScreen } from "./routes/materials";
 import { MaterialDetailScreen } from "./routes/material-detail";
@@ -66,6 +68,22 @@ function NavItem({
   );
 }
 
+// 404 화면 — 잘못된 URL 진입 시 인사이트로 안내.
+function NotFoundScreen() {
+  return (
+    <EmptyState
+      icon={<SearchX className="size-6" />}
+      title="페이지를 찾을 수 없습니다"
+      description="주소가 잘못되었거나 삭제된 페이지입니다."
+      action={
+        <Link to="/insights">
+          <Button>인사이트로 이동</Button>
+        </Link>
+      }
+    />
+  );
+}
+
 const rootRoute = createRootRoute({ component: AppShell });
 
 // 루트("/")는 인사이트 대시보드로 리다이렉트한다.
@@ -86,6 +104,13 @@ const insightsRoute = createRoute({
 const materialsRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/materials",
+  // /materials?q=…&cat=… — 검색어·카테고리 필터를 URL과 동기화(뒤로가기 시 유지).
+  validateSearch: (s: Record<string, unknown>): { q?: string; cat?: string } => {
+    const out: { q?: string; cat?: string } = {};
+    if (typeof s.q === "string" && s.q) out.q = s.q;
+    if (typeof s.cat === "string" && s.cat) out.cat = s.cat;
+    return out;
+  },
   component: MaterialsScreen,
 });
 
@@ -117,6 +142,8 @@ const routeTree = rootRoute.addChildren([
 export const router = createRouter({
   routeTree,
   history: createHashHistory(),
+  defaultNotFoundComponent: NotFoundScreen,
+  scrollRestoration: true,
 });
 
 declare module "@tanstack/react-router" {

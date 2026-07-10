@@ -4,7 +4,7 @@ import * as echarts from "echarts/core";
 import { BoxplotChart, ScatterChart } from "echarts/charts";
 import { GridComponent, TooltipComponent } from "echarts/components";
 import { CanvasRenderer } from "echarts/renderers";
-import { readChartTheme, cssVar } from "../lib/echarts";
+import { useChartTheme } from "../lib/echarts";
 
 echarts.use([BoxplotChart, ScatterChart, GridComponent, TooltipComponent, CanvasRenderer]);
 
@@ -39,6 +39,7 @@ export function FamilyBoxPlot({
 }) {
   const ref = React.useRef<HTMLDivElement | null>(null);
   const inst = React.useRef<echarts.ECharts | null>(null);
+  const T = useChartTheme(); // 테마 토글 시 재렌더(§14.4)
 
   React.useEffect(() => {
     if (!ref.current) return;
@@ -54,7 +55,6 @@ export function FamilyBoxPlot({
 
   React.useEffect(() => {
     if (!inst.current) return;
-    const T = readChartTheme();
     const cats = boxes.map((b) => `${b.label}·${b.n}`);
     // boxplot data: [min, q1, median, q3, max]
     const bdata = boxes.map((b) => [b.min, b.q1, b.median, b.q3, b.max]);
@@ -68,7 +68,7 @@ export function FamilyBoxPlot({
         tooltip: {
           trigger: "item",
           backgroundColor: T.surface2, borderColor: T.border,
-          textStyle: { color: "#E6EBF2", fontSize: 11 },
+          textStyle: { color: T.text1, fontSize: 11 },
           formatter: (p: unknown) => {
             const d = p as { seriesType: string; value: number[]; dataIndex: number };
             if (d.seriesType === "boxplot") {
@@ -106,14 +106,14 @@ export function FamilyBoxPlot({
           },
           {
             type: "scatter", data: meanPts, symbolSize: 6,
-            itemStyle: { color: cssVar("--text-primary"), opacity: 0.9 },
+            itemStyle: { color: T.text1, opacity: 0.9 },
             tooltip: { show: false },
           },
         ],
       },
       true,
     );
-  }, [boxes, unit, log]);
+  }, [boxes, unit, log, T]);
 
-  return <div ref={ref} style={{ width: "100%", height }} />;
+  return <div ref={ref} style={{ width: "100%", height }} role="img" aria-label="계열별 물성 분포 박스플롯" />;
 }

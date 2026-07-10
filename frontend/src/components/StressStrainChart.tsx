@@ -1,6 +1,6 @@
 // 응력-변형률 차트(ECharts core+line, §14.4). 다중 시편 오버레이·markPoint(UTS/Rp0.2)·markLine(회귀선)·brush 영률 구간 선택.
 import * as React from "react";
-import { echarts, readChartTheme, reducedMotion, type ChartTheme } from "../lib/echarts";
+import { echarts, useChartTheme, reducedMotion, type ChartTheme } from "../lib/echarts";
 import { paToMPa } from "../lib/units";
 
 /** 한 시편 곡선 + (활성 시편이면) 서버 확정 마커/회귀선 좌표(SI). */
@@ -14,6 +14,7 @@ export type ChartSeries = {
   active?: boolean; // 활성 시편에만 markPoint/markLine 표시(레전드 토글)
   visible?: boolean; // false 면 곡선 숨김
   markers?: ChartMarkers; // 활성 시편의 서버 확정 물성 좌표
+  color?: string; // 시리즈 색 지정(없으면 테마 팔레트 폴백)
 };
 
 /** 서버 확정 물성에서 파생한 마커/회귀 좌표(argmax 금지 — 서버 스칼라 기반). */
@@ -45,7 +46,7 @@ function buildOption(series: ChartSeries[], T: ChartTheme, anim: boolean): echar
   const lineSeries = series
     .filter((s) => s.visible !== false)
     .map((s, idx) => {
-      const color = T.series[idx % 8];
+      const color = s.color ?? T.series[idx % 8];
       const dash = idx >= 8 ? ([6, 4] as number[]) : undefined; // 8개 초과 시 dash 2차 분리
       const m = s.active ? s.markers : undefined;
 
@@ -120,7 +121,7 @@ function buildOption(series: ChartSeries[], T: ChartTheme, anim: boolean): echar
             show: true,
             position: "top",
             distance: 8,
-            color: "#E6EBF2",
+            color: T.text1,
             fontSize: 11,
             fontWeight: 500,
             backgroundColor: T.surface2,
@@ -178,7 +179,7 @@ function buildOption(series: ChartSeries[], T: ChartTheme, anim: boolean): echar
         backgroundColor: T.surface2,
         borderColor: T.border,
         borderWidth: 1,
-        color: "#E6EBF2",
+        color: T.text1,
         fontSize: 11,
         padding: [3, 6],
         borderRadius: 4,
@@ -193,7 +194,7 @@ function buildOption(series: ChartSeries[], T: ChartTheme, anim: boolean): echar
       borderWidth: 1,
       padding: [8, 10],
       extraCssText: "border-radius:6px;box-shadow:0 4px 12px -2px rgba(0,0,0,.55);",
-      textStyle: { color: "#E6EBF2", fontSize: 12 },
+      textStyle: { color: T.text1, fontSize: 12 },
       formatter: (p: unknown) => {
         const a = (Array.isArray(p) ? p[0] : p) as { data: [number, number]; seriesName: string; color: string };
         const [eps, sig] = a.data;
@@ -239,11 +240,13 @@ function buildOption(series: ChartSeries[], T: ChartTheme, anim: boolean): echar
 export function StressStrainChart({ series, onRangeSelect, height = 380 }: Props) {
   const elRef = React.useRef<HTMLDivElement | null>(null);
   const chartRef = React.useRef<echarts.ECharts | null>(null);
+  const T = useChartTheme(); // 테마 토글 시 새 객체 → setOption effect 재실행(§14.4)
   // 콜백 ref — 차트 이벤트 핸들러를 1회만 묶고 최신 콜백 참조.
   const onRangeRef = React.useRef(onRangeSelect);
   onRangeRef.current = onRangeSelect;
+  const hasRangeSelect = !!onRangeSelect;
 
-  // 차트 인스턴스 1회 생성 + ResizeObserver + 테마 MutationObserver.
+  // 차트 인스턴스 1회 생성 + ResizeObserver.
   React.useEffect(() => {
     if (!elRef.current) return;
     const chart = echarts.init(elRef.current, undefined, { renderer: "canvas" });
@@ -261,32 +264,38 @@ export function StressStrainChart({ series, onRangeSelect, height = 380 }: Props
       }
     });
 
-    // data-theme 변경 시 색 재주입(§14.4).
-    const mo = new MutationObserver(() => {
-      const T = readChartTheme();
-      chart.setOption(buildOption(seriesRef.current, T, !reducedMotion()));
-    });
-    mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme", "class"] });
-
     return () => {
       ro.disconnect();
-      mo.disconnect();
       chart.dispose();
       chartRef.current = null;
     };
   }, []);
 
-  // series 최신값을 MutationObserver 콜백에서 참조하기 위한 ref.
-  const seriesRef = React.useRef(series);
-  seriesRef.current = series;
-
-  // series 변경 시 옵션 재계산(notMerge 로 잔여 markPoint 제거).
+  // series/테마 변경 시 옵션 재계산(notMerge 로 잔여 markPoint 제거) + brush 커서 재획득.
   React.useEffect(() => {
     const chart = chartRef.current;
     if (!chart) return;
-    const T = readChartTheme();
     chart.setOption(buildOption(series, T, !reducedMotion()), { notMerge: true });
-  }, [series]);
+    // setOption 후 글로벌 커서가 풀릴 수 있어 매번 다시 지정해야 드래그가 실제로 동작한다.
+    if (hasRangeSelect) {
+      chart.dispatchAction({
+        type: "takeGlobalCursor",
+        key: "brush",
+        brushOption: { brushType: "lineX", brushMode: "single" },
+      });
+    } else {
+      chart.dispatchAction({ type: "takeGlobalCursor" }); // releaseGlobalCursor
+    }
+  }, [series, T, hasRangeSelect]);
 
-  return <div ref={elRef} style={{ width: "100%", height }} role="img" aria-label="응력-변형률 곡선" />;
+  return (
+    <div>
+      {hasRangeSelect && (
+        <div style={{ fontSize: 11, color: "var(--text-tertiary)", textAlign: "right", marginBottom: 4 }}>
+          드래그로 영률 회귀 구간 선택
+        </div>
+      )}
+      <div ref={elRef} style={{ width: "100%", height }} role="img" aria-label="응력-변형률 곡선" />
+    </div>
+  );
 }

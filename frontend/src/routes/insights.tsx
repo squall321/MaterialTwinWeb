@@ -7,7 +7,8 @@ import { AshbyChart } from "../components/AshbyChart";
 import { TaxonomyGraph } from "../components/TaxonomyGraph";
 import { FamilyBoxPlot } from "../components/FamilyBoxPlot";
 import { Card } from "../components/ui/card";
-import { ChartSkeleton } from "../components/states/Skeletons";
+import { ChartSkeleton, StatBandSkeleton } from "../components/states/Skeletons";
+import { ErrorState } from "../components/states/ErrorState";
 import { cn } from "../lib/utils";
 
 export function InsightsScreen() {
@@ -35,13 +36,21 @@ export function InsightsScreen() {
       </header>
 
       {/* KPI 리드아웃 */}
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <Kpi icon={<Boxes className="size-4" />} label="총 재료" value={ov?.total_materials ?? "—"} />
-        <Kpi icon={<Layers className="size-4" />} label="재료 클래스" value={ov ? Object.keys(ov.by_class).length : "—"} />
-        <Kpi icon={<Sigma className="size-4" />} label="탄소성 / 점탄성"
-          value={ov ? `${ov.by_kind.elastoplastic ?? 0} / ${ov.by_kind.viscoelastic ?? 0}` : "—"} />
-        <Kpi icon={<Boxes className="size-4" />} label="분석 완료" value={ov?.total_analyzed ?? "—"} accent />
-      </div>
+      {overviewQ.isPending ? (
+        <StatBandSkeleton />
+      ) : overviewQ.isError ? (
+        <Card>
+          <ErrorState className="py-8" onRetry={() => overviewQ.refetch()} />
+        </Card>
+      ) : (
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <Kpi icon={<Boxes className="size-4" />} label="총 재료" value={ov?.total_materials ?? "—"} />
+          <Kpi icon={<Layers className="size-4" />} label="재료 클래스" value={ov ? Object.keys(ov.by_class).length : "—"} />
+          <Kpi icon={<Sigma className="size-4" />} label="탄소성 / 점탄성"
+            value={ov ? `${ov.by_kind.elastoplastic ?? 0} / ${ov.by_kind.viscoelastic ?? 0}` : "—"} />
+          <Kpi icon={<Boxes className="size-4" />} label="분석 완료" value={ov?.total_analyzed ?? "—"} accent />
+        </div>
+      )}
 
       {/* Ashby 물성공간 — 히어로 */}
       <Card className="p-4">
@@ -55,6 +64,8 @@ export function InsightsScreen() {
         </div>
         {spaceQ.isPending ? (
           <ChartSkeleton height={460} />
+        ) : spaceQ.isError ? (
+          <ErrorState className="py-8" onRetry={() => spaceQ.refetch()} />
         ) : spaceQ.data && spaceQ.data.points.length > 0 ? (
           <AshbyChart points={spaceQ.data.points} families={spaceQ.data.families} />
         ) : (
@@ -88,6 +99,7 @@ export function InsightsScreen() {
               <button
                 key={m.key}
                 onClick={() => setBoxMetric(m.key)}
+                aria-pressed={boxMetric === m.key}
                 className={cn(
                   "rounded-md px-2.5 py-1 text-xs font-medium transition-colors",
                   boxMetric === m.key
@@ -100,10 +112,14 @@ export function InsightsScreen() {
             ))}
           </div>
         </div>
-        {activeMetric ? (
+        {familyQ.isPending ? (
+          <ChartSkeleton height={300} />
+        ) : familyQ.isError ? (
+          <ErrorState className="py-8" onRetry={() => familyQ.refetch()} />
+        ) : activeMetric ? (
           <FamilyBoxPlot boxes={activeMetric.boxes} unit={activeMetric.unit} log={activeMetric.log_scale} height={300} />
         ) : (
-          <ChartSkeleton height={300} />
+          <p className="py-16 text-center text-sm text-text-tertiary">표시할 물성 지표가 없습니다.</p>
         )}
       </Card>
 
@@ -111,13 +127,21 @@ export function InsightsScreen() {
         {/* 클래스 분포 */}
         <Card className="p-4">
           <p className="text-overline mb-3">재료 클래스 분포</p>
-          {ov ? <ClassBars data={ov.by_class} /> : <ChartSkeleton height={280} />}
+          {overviewQ.isError ? (
+            <ErrorState className="py-8" onRetry={() => overviewQ.refetch()} />
+          ) : ov ? (
+            <ClassBars data={ov.by_class} />
+          ) : (
+            <ChartSkeleton height={280} />
+          )}
         </Card>
 
         {/* 물성 통계 */}
         <Card className="p-4">
           <p className="text-overline mb-3">물성 분포 통계</p>
-          {statsQ.data ? (
+          {statsQ.isError ? (
+            <ErrorState className="py-8" onRetry={() => statsQ.refetch()} />
+          ) : statsQ.data ? (
             <div className="flex flex-col gap-4">
               <StatHistogram title="탄성계수 E" cell={statsQ.data.E_gpa} color="var(--chart-1)" />
               <StatHistogram title="인장강도 UTS" cell={statsQ.data.uts_mpa} color="var(--chart-2)" />
@@ -134,7 +158,9 @@ export function InsightsScreen() {
         <Card className="p-4">
           <p className="text-overline mb-1">Taxonomy 지식그래프</p>
           <p className="mb-2 text-xs text-text-tertiary">root → 카테고리 → 계열 (드래그·확대 가능)</p>
-          {coverageQ.data ? (
+          {coverageQ.isError ? (
+            <ErrorState className="py-8" onRetry={() => coverageQ.refetch()} />
+          ) : coverageQ.data ? (
             <TaxonomyGraph nodes={coverageQ.data.graph.nodes} edges={coverageQ.data.graph.edges} />
           ) : (
             <ChartSkeleton height={360} />
@@ -147,7 +173,13 @@ export function InsightsScreen() {
             <TriangleAlert className="size-4 text-warning" />
             <p className="text-overline">커버리지 갭 분석</p>
           </div>
-          {coverageQ.data ? <CoverageMatrix rows={coverageQ.data.coverage} /> : <ChartSkeleton height={280} />}
+          {coverageQ.isError ? (
+            <ErrorState className="py-8" onRetry={() => coverageQ.refetch()} />
+          ) : coverageQ.data ? (
+            <CoverageMatrix rows={coverageQ.data.coverage} />
+          ) : (
+            <ChartSkeleton height={280} />
+          )}
         </Card>
       </div>
     </div>

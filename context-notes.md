@@ -120,3 +120,36 @@ uvicorn으로 띄우고 Playwright로 전 화면 + 업로드 E2E를 실측했다
 
 ### 검증
 백엔드 pytest **70 passed, 1 skipped**(test_units.py 신규 12개 포함). 프런트 빌드 exit 0. 라이브: 4계열 단위 전환·JC·점탄성·422 모두 정합(β 50/s→g_mm_ms 0.05/ms, ρ 1100→0.0011g/mm³ 확인). showcase.html 카드도 ton·mm·s 반영.
+
+## 2026-07-10 — UX 완성 + MCP 물성 등록(쓰기) 도구
+
+### 진행 방식(ultracode)
+정찰 4에이전트(UX 갭 20건·MCP 쓰기 경로·API 대조·테스트 관행) → 구현(백엔드 직접 + 프런트 4에이전트 병렬·파일 분리) → 적대적 리뷰 워크플로(3렌즈 리뷰 → 발견 13건 전부 반박 검증 → 13건 확정) → 전부 수정.
+
+### MCP 쓰기 도구 7종 (mcp_server.py, 총 20도구)
+- register_material / register_tensile_test(strain[]·stress_mpa[] → 시편 자동생성·곡선 Parquet·물성·4모델 피팅까지) / register_relaxation_test(모드A: G0·Ginf·beta Prony, 모드B: 실측 E(t) 곡선 → 3항 Prony 피팅 + 1항 등가 유도로 카드 경로 유지) / update_material / delete_material·delete_test(confirm=False면 미리보기 — 파괴적 액션 2단계) / recompute_properties(e_range 지정).
+- 검증: 배열 길이·최소 20점·NaN·% 착오(카테고리별 strain 상한: rubber/foam 10, polymer 5, 금속 2), 저항복 자동 탄성창 보정(εy<0.0036 → [0.15εy,0.7εy], E 변화 0.5% 초과 시만 채택).
+- 에러는 전부 한국어 {"error": ...} dict. IntegrityError rollback. write_curve 실패 시 시편까지 롤백(delete-orphan cascade).
+
+### 적대적 리뷰가 잡은 실버그(전부 수정)
+- **GI=0 카드 왜곡**: `p.get("GI") or 0.1`이 완전 완화(Ginf=0)를 0.1 MPa로 둔갑 — mcp+웹 viscocard 둘 다 None 검사로 교체. 회귀테스트 추가.
+- **test_id 재사용 경합**: SQLite rowid 재사용으로 삭제 직후 타 프로세스가 같은 id에 곡선 쓰면 unlink가 산 파일 삭제 → Test에 sqlite_autoincrement + 마이그레이션 e1a9d40b77c1(라이브 DB는 stamp c7b6cca38dc2 후 upgrade — create_all DB엔 스탬프 필요).
+- 비감쇠 곡선 ZeroDivision → error dict, 반쪽 e_range 조용한 무시 → 거부+e_range_used 반환, prony attributes 커밋을 곡선 저장 성공 뒤로 이동.
+- 업로드 마법사: Stepper 뒤로가기 시 stale result 클리어(재등록 dead-end), 재시도 시 testId 재사용(remap 경로로 중복 test 방지 — remap은 기존 test 대체라 멱등), effectiveMapping이 '무시'(unknown)를 걸러내던 버그(백엔드는 unknown을 유효 role로 수용).
+- EditForm category null → '미분류' 센티널(이름만 고쳐도 metal로 굳는 것 방지).
+
+### UX 완성(정찰 20건 중 high/medium 전부)
+- 차트 brush 실동작(takeGlobalCursor — 죽어 있던 드래그 회귀구간 선택) + 힌트 문구. 라이브 드래그로 ε 입력 갱신 확인.
+- <a download> 3곳 → downloadFile 헬퍼(fetch+Blob, 422 시 한국어 토스트). errorMessage()로 영어 detail 한국어 변환.
+- 404 전용 화면(비숫자 id 포함), specimensQ 에러≠빈 상태 분리, insights 5쿼리 에러+재시도, 점탄성 dead-end 안내, FitPanel 로딩/에러.
+- 재료 편집/삭제 다이얼로그(삭제는 시편 수 고지+확인), 시험 valid 토글(이상치 제외/복원), 검색 URL 동기화+카테고리 칩+카운트+더보기, 라이트 테마 차트 대응, aria-pressed 일괄.
+- **클라 네비 상태 유출 버그**(라이브 검증에서 발견): activeId/curveKind가 재료 간 유출 → 점탄성 빈 화면 + 완화시험에 kind=true 500. mid 변경 리셋 이펙트 + relaxation 시험 곡선쿼리 제외 + 백엔드 422 가드.
+- classify(category=None) AttributeError(인사이트 5엔드포인트 500 유발) 수정 — MCP가 category 없이 등록해도 대시보드 생존.
+- 재료/시편 삭제 시 Parquet 정리(웹+MCP), ?category= 서버 필터.
+
+### 검증
+pytest **87 passed 1 skipped**(test_mcp_write 17개 포함), vite build 클린. 라이브: MCP 등록(실DB) → 웹 상세에서 곡선·마커·회귀선 확인 → MCP 프로토콜(인메모리 클라이언트, 도구 20개) delete confirm 왕복 → DB 70종 원복. 편집 다이얼로그·valid 토글·brush 드래그·404·카테고리 필터 모두 브라우저 실조작 검증.
+
+### 함정 메모
+- mcp_server는 임포트 시점 env 고정 — 테스트는 tests/conftest.py mcp_env(env → cache_clear → app.db/models/curve_store reload → mcp_server reload) 순서 필수.
+- 세션에 붙어 있는 MCP 서버 프로세스는 재시작해야 새 쓰기 도구가 보인다.

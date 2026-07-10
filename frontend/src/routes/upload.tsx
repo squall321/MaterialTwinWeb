@@ -16,16 +16,17 @@ import {
 } from "../api/uploads";
 import { UploadDropzone } from "../components/UploadDropzone";
 import { IssuePanel } from "../components/IssuePanel";
-import { ColumnMapper } from "../components/ColumnMapper";
+import { ColumnMapper, hasAxisPair } from "../components/ColumnMapper";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
 import { Card } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
+import { errorMessage } from "../lib/download";
 import { cn } from "../lib/utils";
 
 type Step = 0 | 1 | 2 | 3;
-const STEP_LABELS = ["파일 선택", "감지·매핑", "시편 정보", "미리보기·커밋"];
+const STEP_LABELS = ["파일 선택", "감지·매핑", "시편 정보", "미리보기·등록"];
 
 // 시편 메타 폼 상태(SI 변환은 커밋 시).
 type MetaForm = {
@@ -67,6 +68,19 @@ export function UploadScreen() {
   // 수동 컬럼 매핑 {header: role}. 비어있으면 자동감지. 열림 여부 별도(★C5·수동매핑).
   const [mapping, setMapping] = React.useState<Record<string, string>>({});
   const [showMapper, setShowMapper] = React.useState(false);
+  // 등록 중 생성된 재료/시편/시험 id — 중간 단계 실패 후 재시도 시 재사용해 중복 생성을 막는다.
+  const [createdIds, setCreatedIds] = React.useState<{
+    materialId: number | null;
+    specimenId: number | null;
+    testId: number | null;
+  }>({ materialId: null, specimenId: null, testId: null });
+  // 결과 화면(computed=false)에서 매핑 수정 패널 열림 여부.
+  const [showResultMapper, setShowResultMapper] = React.useState(false);
+
+  // 시편 메타나 파일이 바뀌면 앞서 생성해둔 재료/시편/시험은 더 이상 맞지 않으므로 재사용 취소.
+  React.useEffect(() => {
+    setCreatedIds({ materialId: null, specimenId: null, testId: null });
+  }, [meta, file]);
 
   const materialsQ = useQuery({ queryKey: ["materials", ""], queryFn: () => listMaterials({ size: 100 }) });
   const parsersQ = useQuery({ queryKey: ["parsers"], queryFn: getParsers });
@@ -85,43 +99,78 @@ export function UploadScreen() {
 
   const commitMut = useMutation({
     mutationFn: async () => {
-      // 1) 재료 결정(기존 선택 or 새로 생성).
-      let mid = meta.materialId;
+      // 1) 재료 결정(기존 선택 or 새로 생성). 재시도 시 이전 생성분 재사용.
+      let mid = meta.materialId ?? createdIds.materialId;
       if (!mid) {
-        const m = await createMaterial({ name: meta.newMaterialName.trim() });
+        const m = await stage("재료 생성", () =>
+          createMaterial({ name: meta.newMaterialName.trim() }),
+        );
         mid = m.id;
+        setCreatedIds((s) => ({ ...s, materialId: m.id }));
       }
-      // 2) 시편 생성(mm → m SI 변환).
-      const sp = await createSpecimen(mid, {
-        label: meta.label.trim(),
-        geometry_type: meta.geometry,
-        gauge_length_m: mm(meta.L0_mm),
-        width_m: meta.geometry === "flat" ? mm(meta.w0_mm) : null,
-        thickness_m: meta.geometry === "flat" ? mm(meta.t0_mm) : null,
-        diameter_m: meta.geometry === "round" ? mm(meta.d0_mm) : null,
-      });
-      // 3) 업로드 → 파싱 → 적재. 재료 id를 함께 반환(★BUG-2).
-      let ingest = await uploadToSpecimen(sp.id, file!);
-      // 3b) 수동 매핑이 있으면 재파싱(4·5단계만 재실행, ★C5).
-      const effectiveMapping = Object.fromEntries(
-        Object.entries(mapping).filter(([, role]) => role && role !== "unknown"),
-      );
-      if (Object.keys(effectiveMapping).length > 0) {
-        ingest = await remapUpload(ingest.test_id, file!, effectiveMapping);
+      const materialId = mid;
+      // 2) 시편 생성(mm → m SI 변환). 재시도 시 이전 생성분 재사용.
+      let sid = createdIds.specimenId;
+      if (!sid) {
+        const sp = await stage("시편 생성", () =>
+          createSpecimen(materialId, {
+            label: meta.label.trim(),
+            geometry_type: meta.geometry,
+            gauge_length_m: mm(meta.L0_mm),
+            width_m: meta.geometry === "flat" ? mm(meta.w0_mm) : null,
+            thickness_m: meta.geometry === "flat" ? mm(meta.t0_mm) : null,
+            diameter_m: meta.geometry === "round" ? mm(meta.d0_mm) : null,
+          }),
+        );
+        sid = sp.id;
+        setCreatedIds((c) => ({ ...c, materialId, specimenId: sp.id }));
       }
-      return { materialId: mid, ingest };
+      const specimenId = sid;
+      // 3) 업로드 → 파싱 → 적재. 이미 만든 test가 있으면(재시도·매핑 수정 재등록)
+      //    remap 경로로 기존 test를 대체해 같은 시편에 중복 test가 쌓이지 않게 한다.
+      const manual = effectiveMapping(mapping);
+      let ingest: IngestResult;
+      if (createdIds.testId != null) {
+        ingest = await stage("재적재", () => remapUpload(createdIds.testId!, file!, manual));
+      } else {
+        ingest = await stage("업로드", () => uploadToSpecimen(specimenId, file!));
+        setCreatedIds((c) => ({ ...c, testId: ingest.test_id }));
+        // 3b) 수동 매핑이 있으면 재파싱(4·5단계만 재실행, ★C5).
+        if (Object.keys(manual).length > 0) {
+          const tid = ingest.test_id;
+          ingest = await stage("매핑 재적재", () => remapUpload(tid, file!, manual));
+        }
+      }
+      return { materialId, ingest };
     },
     onSuccess: ({ materialId, ingest }) => {
       setResult(ingest);
       setCommittedMaterialId(materialId);
+      setCreatedIds((c) => ({ ...c, testId: ingest.test_id })); // remap 후 최종 test id로 갱신.
       setStep(3);
-      if (ingest.computed) toast.success("업로드·물성 계산 완료");
-      else toast.warning("업로드됨 — 확인이 필요합니다");
+      if (ingest.computed) toast.success("등록·물성 계산 완료");
+      else toast.warning("등록됨 — 확인이 필요합니다");
     },
-    onError: (e) => toast.error(e instanceof Error ? e.message : "커밋 실패"),
+    onError: (e) => toast.error(e instanceof Error ? e.message : "등록 실패"),
+  });
+
+  // 결과 화면에서 매핑을 고쳐 같은 test에 재적재(computed=false 복구 경로).
+  const remapMut = useMutation({
+    mutationFn: (m: Record<string, string>) => remapUpload(result!.test_id, file!, m),
+    onSuccess: (r) => {
+      setResult(r);
+      setCreatedIds((c) => ({ ...c, testId: r.test_id })); // 대체된 test id 추적.
+      setShowResultMapper(false);
+      if (r.computed) toast.success("재적재 완료 — 물성 계산됨");
+      else toast.warning("재적재됨 — 여전히 확인이 필요합니다");
+    },
+    onError: (e) => toast.error(errorMessage(e)),
   });
 
   const a0 = computeA0(meta);
+  // 1단계 게이트 — ERROR 이슈(하드 파싱 실패)는 매핑으로 못 고치므로 진행을 막는다.
+  const sniffHasError = (sniffResult?.issues ?? []).some((i) => i.level === "ERROR");
+  const metaReason = metaInvalidReason(meta);
 
   return (
     <div className="mx-auto flex max-w-3xl flex-col gap-6">
@@ -132,7 +181,19 @@ export function UploadScreen() {
         </h1>
       </header>
 
-      <Stepper step={step} />
+      {/* 결과 화면에서 되돌아가면 stale 결과를 비워 재등록 dead-end를 막는다(createdIds는
+          유지 — 재등록 시 remap 경로로 기존 test를 대체). */}
+      <Stepper
+        step={step}
+        onStepClick={(s) => {
+          if (result) {
+            setResult(null);
+            setCommittedMaterialId(null);
+            setShowResultMapper(false);
+          }
+          setStep(s);
+        }}
+      />
 
       {/* 단계 0 — 파일 선택 */}
       {step === 0 && (
@@ -199,12 +260,25 @@ export function UploadScreen() {
                   roles={parsersQ.data?.roles ?? []}
                   value={mapping}
                   onChange={setMapping}
+                  onRetryRoles={() => parsersQ.refetch()}
                 />
               </div>
             )}
           </Card>
-          {sniffResult.issues.length > 0 && <IssuePanel issues={sniffResult.issues} filename={file?.name} />}
-          <StepNav onBack={() => setStep(0)} onNext={() => setStep(2)} nextLabel="시편 정보" />
+          {sniffResult.issues.length > 0 && (
+            <IssuePanel
+              issues={sniffResult.issues}
+              filename={file?.name}
+              onResolveError={() => setShowMapper(true)}
+            />
+          )}
+          <StepNav
+            onBack={() => setStep(0)}
+            onNext={() => setStep(2)}
+            nextLabel="시편 정보"
+            nextDisabled={sniffHasError}
+            nextReason={sniffHasError ? "오류 이슈를 해결해야 진행할 수 있습니다" : undefined}
+          />
         </div>
       )}
 
@@ -230,6 +304,18 @@ export function UploadScreen() {
                   </option>
                 ))}
               </select>
+              {materialsQ.isError && (
+                <p className="flex items-center gap-2 text-xs text-danger" role="alert">
+                  재료 목록을 불러오지 못했습니다.
+                  <button
+                    type="button"
+                    onClick={() => materialsQ.refetch()}
+                    className="underline underline-offset-2 hover:text-text-primary"
+                  >
+                    다시 시도
+                  </button>
+                </p>
+              )}
             </Field>
             {meta.materialId == null && (
               <Field label="새 재료명" required>
@@ -250,6 +336,7 @@ export function UploadScreen() {
                   <button
                     key={g}
                     type="button"
+                    aria-pressed={meta.geometry === g}
                     onClick={() => setMeta((m) => ({ ...m, geometry: g }))}
                     className={cn(
                       "rounded-md border px-3 py-1.5 text-sm transition-colors",
@@ -265,21 +352,21 @@ export function UploadScreen() {
             </Field>
 
             <div className="grid grid-cols-2 gap-3">
-              <Field label="게이지 길이 L₀ (mm)" required>
-                <Input value={meta.L0_mm} onChange={(e) => setMeta((m) => ({ ...m, L0_mm: e.target.value }))} className="tnum" />
+              <Field label="게이지 길이 L₀ (mm)" required error={dimError(meta.L0_mm)}>
+                <Input type="number" min={0} step="any" aria-invalid={dimError(meta.L0_mm) ? true : undefined} value={meta.L0_mm} onChange={(e) => setMeta((m) => ({ ...m, L0_mm: e.target.value }))} className="tnum" />
               </Field>
               {meta.geometry === "flat" ? (
                 <>
-                  <Field label="폭 w₀ (mm)" required>
-                    <Input value={meta.w0_mm} onChange={(e) => setMeta((m) => ({ ...m, w0_mm: e.target.value }))} className="tnum" />
+                  <Field label="폭 w₀ (mm)" required error={dimError(meta.w0_mm)}>
+                    <Input type="number" min={0} step="any" aria-invalid={dimError(meta.w0_mm) ? true : undefined} value={meta.w0_mm} onChange={(e) => setMeta((m) => ({ ...m, w0_mm: e.target.value }))} className="tnum" />
                   </Field>
-                  <Field label="두께 t₀ (mm)" required>
-                    <Input value={meta.t0_mm} onChange={(e) => setMeta((m) => ({ ...m, t0_mm: e.target.value }))} className="tnum" />
+                  <Field label="두께 t₀ (mm)" required error={dimError(meta.t0_mm)}>
+                    <Input type="number" min={0} step="any" aria-invalid={dimError(meta.t0_mm) ? true : undefined} value={meta.t0_mm} onChange={(e) => setMeta((m) => ({ ...m, t0_mm: e.target.value }))} className="tnum" />
                   </Field>
                 </>
               ) : (
-                <Field label="지름 d₀ (mm)" required>
-                  <Input value={meta.d0_mm} onChange={(e) => setMeta((m) => ({ ...m, d0_mm: e.target.value }))} className="tnum" />
+                <Field label="지름 d₀ (mm)" required error={dimError(meta.d0_mm)}>
+                  <Input type="number" min={0} step="any" aria-invalid={dimError(meta.d0_mm) ? true : undefined} value={meta.d0_mm} onChange={(e) => setMeta((m) => ({ ...m, d0_mm: e.target.value }))} className="tnum" />
                 </Field>
               )}
             </div>
@@ -293,12 +380,13 @@ export function UploadScreen() {
             onBack={() => setStep(1)}
             onNext={() => setStep(3)}
             nextLabel="미리보기"
-            nextDisabled={!metaValid(meta)}
+            nextDisabled={metaReason != null}
+            nextReason={metaReason ?? undefined}
           />
         </div>
       )}
 
-      {/* 단계 3 — 미리보기·커밋 / 결과 */}
+      {/* 단계 3 — 미리보기·등록 / 결과 */}
       {step === 3 && (
         <div className="flex flex-col gap-4">
           {!result ? (
@@ -313,7 +401,7 @@ export function UploadScreen() {
               <StepNav
                 onBack={() => setStep(2)}
                 onNext={() => commitMut.mutate()}
-                nextLabel={commitMut.isPending ? "커밋 중…" : "커밋"}
+                nextLabel={commitMut.isPending ? "등록 중…" : "등록"}
                 nextDisabled={commitMut.isPending}
                 nextLoading={commitMut.isPending}
               />
@@ -338,6 +426,51 @@ export function UploadScreen() {
               </Card>
               {result.issues.length > 0 && (
                 <IssuePanel issues={result.issues} filename={file?.name} computed={result.computed} />
+              )}
+              {/* 물성 미산출이면 매핑을 고쳐 같은 test에 재적재할 수 있다. */}
+              {!result.computed && file && sniffResult?.specimen.columns && (
+                <Card className="flex flex-col gap-3 p-4">
+                  {!showResultMapper ? (
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <span className="text-sm text-text-secondary">
+                        컬럼 매핑을 고쳐 다시 적재하면 물성이 계산될 수 있습니다.
+                      </span>
+                      <Button variant="outline" onClick={() => setShowResultMapper(true)}>
+                        매핑 수정
+                      </Button>
+                    </div>
+                  ) : (
+                    <>
+                      <ColumnMapper
+                        columns={sniffResult.specimen.columns}
+                        roles={parsersQ.data?.roles ?? []}
+                        value={mapping}
+                        onChange={setMapping}
+                        onRetryRoles={() => parsersQ.refetch()}
+                      />
+                      <div className="flex flex-wrap items-center justify-end gap-3">
+                        {!hasAxisPair(sniffResult.specimen.columns, mapping) && (
+                          <span className="text-xs text-text-tertiary">
+                            응력·변형률(또는 힘·변위) 축 쌍이 있어야 재적재할 수 있습니다
+                          </span>
+                        )}
+                        <Button variant="ghost" onClick={() => setShowResultMapper(false)}>
+                          취소
+                        </Button>
+                        <Button
+                          onClick={() => remapMut.mutate(effectiveMapping(mapping))}
+                          disabled={
+                            remapMut.isPending ||
+                            !hasAxisPair(sniffResult.specimen.columns, mapping)
+                          }
+                        >
+                          {remapMut.isPending && <Loader2 className="size-4 animate-spin" />}
+                          재적재
+                        </Button>
+                      </div>
+                    </>
+                  )}
+                </Card>
               )}
               <div className="flex justify-end gap-2">
                 <Button variant="ghost" onClick={resetWizard}>
@@ -368,35 +501,51 @@ export function UploadScreen() {
     setCommittedMaterialId(null);
     setMapping({});
     setShowMapper(false);
+    setCreatedIds({ materialId: null, specimenId: null, testId: null });
+    setShowResultMapper(false);
   }
 }
 
 // ── 보조 컴포넌트 ──────────────────────────────────────────────────────
-function Stepper({ step }: { step: Step }) {
+function Stepper({ step, onStepClick }: { step: Step; onStepClick: (s: Step) => void }) {
   return (
     <div className="flex items-center gap-2">
-      {STEP_LABELS.map((label, i) => (
-        <React.Fragment key={i}>
-          <div className="flex items-center gap-2">
-            <span
+      {STEP_LABELS.map((label, i) => {
+        const done = i < step;
+        return (
+          <React.Fragment key={i}>
+            {/* 완료된 단계는 클릭해 되돌아갈 수 있다. 진행 중/미래 단계는 비활성. */}
+            <button
+              type="button"
+              disabled={!done}
+              onClick={() => onStepClick(i as Step)}
+              aria-current={i === step ? "step" : undefined}
+              aria-label={done ? `${label} 단계로 돌아가기` : label}
               className={cn(
-                "tnum flex size-6 items-center justify-center rounded-full text-xs font-medium transition-colors duration-200",
-                i < step
-                  ? "bg-accent text-[var(--primary-fg)]"
-                  : i === step
-                    ? "bg-primary text-[var(--primary-fg)]"
-                    : "bg-surface-2 text-text-tertiary",
+                "flex items-center gap-2",
+                done ? "cursor-pointer transition-opacity hover:opacity-75" : "cursor-default",
               )}
             >
-              {i < step ? <Check className="size-3.5" /> : i + 1}
-            </span>
-            <span className={cn("text-sm", i === step ? "text-text-primary" : "text-text-tertiary")}>
-              {label}
-            </span>
-          </div>
-          {i < STEP_LABELS.length - 1 && <div className="h-px w-4 bg-border-default" />}
-        </React.Fragment>
-      ))}
+              <span
+                className={cn(
+                  "tnum flex size-6 items-center justify-center rounded-full text-xs font-medium transition-colors duration-200",
+                  done
+                    ? "bg-accent text-[var(--primary-fg)]"
+                    : i === step
+                      ? "bg-primary text-[var(--primary-fg)]"
+                      : "bg-surface-2 text-text-tertiary",
+                )}
+              >
+                {done ? <Check className="size-3.5" /> : i + 1}
+              </span>
+              <span className={cn("text-sm", i === step ? "text-text-primary" : "text-text-tertiary")}>
+                {label}
+              </span>
+            </button>
+            {i < STEP_LABELS.length - 1 && <div className="h-px w-4 bg-border-default" />}
+          </React.Fragment>
+        );
+      })}
     </div>
   );
 }
@@ -407,22 +556,32 @@ function StepNav({
   nextLabel,
   nextDisabled,
   nextLoading,
+  nextReason,
 }: {
   onBack: () => void;
   onNext: () => void;
   nextLabel: string;
   nextDisabled?: boolean;
   nextLoading?: boolean;
+  /** 다음 버튼이 비활성인 이유 — 버튼 옆에 표시. */
+  nextReason?: string;
 }) {
   return (
-    <div className="flex justify-between">
+    <div className="flex items-center justify-between gap-3">
       <Button variant="ghost" onClick={onBack}>
         뒤로
       </Button>
-      <Button onClick={onNext} disabled={nextDisabled}>
-        {nextLoading ? <Loader2 className="size-4 animate-spin" /> : <ChevronRight className="size-4" />}
-        {nextLabel}
-      </Button>
+      <div className="flex items-center gap-3">
+        {nextDisabled && nextReason && (
+          <span className="text-xs text-text-tertiary" role="status">
+            {nextReason}
+          </span>
+        )}
+        <Button onClick={onNext} disabled={nextDisabled}>
+          {nextLoading ? <Loader2 className="size-4 animate-spin" /> : <ChevronRight className="size-4" />}
+          {nextLabel}
+        </Button>
+      </div>
     </div>
   );
 }
@@ -430,10 +589,13 @@ function StepNav({
 function Field({
   label,
   required,
+  error,
   children,
 }: {
   label: string;
   required?: boolean;
+  /** 필드별 인라인 에러 문구(입력 아래 표시). */
+  error?: string;
   children: React.ReactNode;
 }) {
   return (
@@ -443,6 +605,11 @@ function Field({
         {required && <span className="ml-0.5 text-danger">*</span>}
       </Label>
       {children}
+      {error && (
+        <p className="text-xs text-danger" role="alert">
+          {error}
+        </p>
+      )}
     </div>
   );
 }
@@ -461,6 +628,27 @@ function mm(s: string): number {
   return Number(s) / 1000;
 }
 
+/** 등록 단계 실행 래퍼 — 실패 시 어느 단계에서 실패했는지 메시지에 명시한다. */
+async function stage<T>(label: string, fn: () => Promise<T>): Promise<T> {
+  try {
+    return await fn();
+  } catch (e) {
+    throw new Error(`${label} 실패 — ${errorMessage(e)}`);
+  }
+}
+
+/** 수동 매핑에서 미지정(unknown)·빈 값을 제거한 실제 오버라이드만 남긴다. */
+function effectiveMapping(mapping: Record<string, string>): Record<string, string> {
+  // '무시'(unknown)도 유효한 오버라이드 — 백엔드 _apply_mapping이 해당 컬럼을 배제한다.
+  // 이를 걸러내면 오검출 컬럼을 무시로 지정해도 서버에 반영되지 않는다.
+  return Object.fromEntries(Object.entries(mapping).filter(([, role]) => role));
+}
+
+/** 치수 문자열 검증 — 0보다 큰 숫자가 아니면 인라인 에러 문구 반환. */
+function dimError(s: string): string | undefined {
+  return Number(s) > 0 ? undefined : "0보다 큰 숫자여야 합니다";
+}
+
 function computeA0(m: MetaForm): number | null {
   if (m.geometry === "flat") {
     const w = Number(m.w0_mm);
@@ -471,11 +659,12 @@ function computeA0(m: MetaForm): number | null {
   return d > 0 ? (Math.PI * d * d) / 4 : null;
 }
 
-function metaValid(m: MetaForm): boolean {
-  if (!m.label.trim()) return false;
-  if (m.materialId == null && !m.newMaterialName.trim()) return false;
-  if (Number(m.L0_mm) <= 0) return false;
-  return computeA0(m) != null;
+/** 시편 메타 검증 — 유효하면 null, 아니면 미리보기 버튼 옆에 보여줄 사유. */
+function metaInvalidReason(m: MetaForm): string | null {
+  if (m.materialId == null && !m.newMaterialName.trim()) return "새 재료명을 입력해야 진행할 수 있습니다";
+  if (!m.label.trim()) return "시편 라벨을 입력해야 진행할 수 있습니다";
+  if (Number(m.L0_mm) <= 0 || computeA0(m) == null) return "치수는 0보다 큰 숫자여야 합니다";
+  return null;
 }
 
 function materialName(

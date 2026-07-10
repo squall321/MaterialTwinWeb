@@ -1,4 +1,5 @@
 // ECharts core+line 전용 모듈 등록 + CSS변수 테마 브리지(§14.4). 필요한 컴포넌트만 import.
+import * as React from "react";
 import * as echarts from "echarts/core";
 import { LineChart } from "echarts/charts";
 import {
@@ -38,6 +39,7 @@ export function readChartTheme() {
     grid: cssVar("--chart-grid"),
     gridMinor: cssVar("--chart-grid-minor"),
     axis: cssVar("--chart-axis"),
+    text1: cssVar("--text-primary"),
     text2: cssVar("--text-secondary"),
     text3: cssVar("--text-tertiary"),
     primary: cssVar("--primary"),
@@ -56,6 +58,17 @@ export function readChartTheme() {
 }
 
 export type ChartTheme = ReturnType<typeof readChartTheme>;
+
+/** 문서 루트 data-theme/클래스 변경을 감지해 최신 차트 테마를 돌려주는 공용 훅(§14.4). setOption effect 의존성에 넣으면 토글 시 재렌더된다. */
+export function useChartTheme(): ChartTheme {
+  const [theme, setTheme] = React.useState<ChartTheme>(readChartTheme);
+  React.useEffect(() => {
+    const mo = new MutationObserver(() => setTheme(readChartTheme()));
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme", "class"] });
+    return () => mo.disconnect();
+  }, []);
+  return theme;
+}
 
 /** prefers-reduced-motion 가드 — ECharts animation 비활성 판단용(§14.7). */
 export function reducedMotion(): boolean {

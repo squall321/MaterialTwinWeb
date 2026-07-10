@@ -5,7 +5,7 @@ import * as echarts from "echarts/core";
 import { ScatterChart, CustomChart } from "echarts/charts";
 import { GridComponent, TooltipComponent, LegendComponent } from "echarts/components";
 import { CanvasRenderer } from "echarts/renderers";
-import { readChartTheme } from "../lib/echarts";
+import { useChartTheme } from "../lib/echarts";
 import type { AshbyPoint } from "../api/insights";
 
 echarts.use([ScatterChart, CustomChart, GridComponent, TooltipComponent, LegendComponent, CanvasRenderer]);
@@ -57,6 +57,7 @@ export function AshbyChart({ points, families }: { points: AshbyPoint[]; familie
   const ref = React.useRef<HTMLDivElement | null>(null);
   const inst = React.useRef<echarts.ECharts | null>(null);
   const navigate = useNavigate();
+  const T = useChartTheme(); // 테마 토글 시 재렌더(§14.4)
 
   React.useEffect(() => {
     if (!ref.current) return;
@@ -76,7 +77,6 @@ export function AshbyChart({ points, families }: { points: AshbyPoint[]; familie
 
   React.useEffect(() => {
     if (!inst.current) return;
-    const T = readChartTheme();
     const densities = points.map((p) => p.density ?? 3).filter(Boolean);
     const dMin = Math.min(...densities, 1);
     const dMax = Math.max(...densities, 20);
@@ -148,14 +148,14 @@ export function AshbyChart({ points, families }: { points: AshbyPoint[]; familie
         grid: { left: 62, right: 24, top: 44, bottom: 52 },
         tooltip: {
           backgroundColor: T.surface2, borderColor: T.border,
-          textStyle: { color: "#E6EBF2", fontSize: 11 },
+          textStyle: { color: T.text1, fontSize: 11 },
           formatter: (p: unknown) => {
             const e = (p as { data: { extra: AshbyPoint } }).data.extra;
             return `<b>${e.name}</b><br/>class: ${e.cls}<br/>` +
               `E = ${e.E_gpa} GPa<br/>UTS = ${e.uts_mpa} MPa<br/>` +
               (e.yield_mpa ? `yield = ${e.yield_mpa} MPa<br/>` : "") +
               (e.density ? `ρ = ${e.density} g/cm³<br/>` : "") +
-              `<span style="color:#5E6B7D">클릭 → 상세</span>`;
+              `<span style="color:${T.text3}">클릭 → 상세</span>`;
           },
         },
         xAxis: {
@@ -179,7 +179,7 @@ export function AshbyChart({ points, families }: { points: AshbyPoint[]; familie
       },
       true,
     );
-  }, [points, families]);
+  }, [points, families, T]);
 
-  return <div ref={ref} style={{ width: "100%", height: 460 }} />;
+  return <div ref={ref} style={{ width: "100%", height: 460 }} role="img" aria-label="Ashby 물성공간 산점도" />;
 }
