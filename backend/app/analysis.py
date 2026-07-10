@@ -198,6 +198,19 @@ def compute_all(
     strain = np.asarray(strain, dtype=float)
     stress = np.asarray(stress, dtype=float)
 
+    # 빈 입력 방어(public 함수 — argmax 등이 ValueError를 던지지 않게 graceful 반환).
+    if strain.size == 0 or stress.size == 0:
+        return {
+            "youngs_modulus_pa": None, "yield_strength_pa": None, "uts_pa": None,
+            "uniform_elongation": None, "fracture_elongation": None,
+            "strain_hardening_n": None, "strength_coeff_k_pa": None,
+            "params": ProcessingParams(
+                e_range=e_range, offset=offset, toe=toe_correct,
+                r2=0.0, confidence="low", n_points=0),
+            "extra_metrics": {"yield_reason": "no_data", "ym_method": None,
+                              "fracture_detected": False},
+        }
+
     ym = youngs_modulus(strain, stress, e_range=e_range, toe_correct=toe_correct, category=category)
     E = ym["E_pa"]
 

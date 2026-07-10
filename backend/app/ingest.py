@@ -28,28 +28,61 @@ class IngestResult:
 
 
 # ── 단위 → SI 배율(원본 표기 소문자 기준) ──────────────────────────────────────
-_FORCE_FACTOR = {"n": 1.0, "kn": 1e3, "": 1.0, None: 1.0}
-_LEN_FACTOR = {"m": 1.0, "mm": 1e-3, "µm": 1e-6, "um": 1e-6, "": 1.0, None: 1.0}
-_STRESS_FACTOR = {"pa": 1.0, "mpa": 1e6, "gpa": 1e9, "kpa": 1e3, "": 1.0, None: 1.0}
+# μ는 MICRO SIGN(U+00B5)과 GREEK SMALL MU(U+03BC)를 모두 등록(장비·키보드별 상이).
+_FORCE_FACTOR = {"n": 1.0, "kn": 1e3, "mn": 1e6, "": 1.0, None: 1.0}
+_LEN_FACTOR = {
+    "m": 1.0, "cm": 1e-2, "mm": 1e-3,
+    "µm": 1e-6, "μm": 1e-6, "um": 1e-6,  # U+00B5 / U+03BC / ASCII
+    "": 1.0, None: 1.0,
+}
+# N/mm² = MPa (독일 DIN·Zwick testXpert 표준 응력 단위). 표기 변형 다수 등록.
+_STRESS_FACTOR = {
+    "pa": 1.0, "kpa": 1e3, "mpa": 1e6, "gpa": 1e9,
+    "n/mm²": 1e6, "n/mm2": 1e6, "n/mm^2": 1e6, "nmm-2": 1e6,
+    "kn/mm²": 1e9, "kn/mm2": 1e9,
+    "": 1.0, None: 1.0,
+}
 
 
 def _unit_key(unit: str | None) -> str | None:
     return unit.strip().lower() if isinstance(unit, str) else unit
 
 
-def _col_si(spec: ParsedSpecimen, role: ColumnRole, factor_map: dict) -> np.ndarray | None:
-    """역할 컬럼을 SI로 변환해 반환. 컬럼 없으면 None. 미지 단위는 배율 1.0(가정 보고는 호출부)."""
+def _col_si(
+    spec: ParsedSpecimen, role: ColumnRole, factor_map: dict,
+    issues: list[ParseIssue] | None = None,
+) -> np.ndarray | None:
+    """역할 컬럼을 SI로 변환해 반환. 컬럼 없으면 None.
+
+    단위가 존재하는데 미등록이면 배율 1.0으로 두되 WARN을 수집한다(무음 자릿수
+    오류 방지 — docstring 계약 이행). 무단위('')는 정상으로 간주.
+    """
     idx = spec.role_index(role)
     if idx is None:
         return None
     raw = np.asarray(spec.data[:, idx], dtype=float)
     unit = _unit_key(spec.columns[idx].unit)
-    factor = factor_map.get(unit, 1.0)
-    return raw * factor
+    if unit not in factor_map:
+        if issues is not None and unit not in ("", None):
+            issues.append(ParseIssue(
+                "WARN", "unknown_unit",
+                f"'{role.value}' 컬럼의 단위 '{spec.columns[idx].unit}'를 인식하지 못해 "
+                "무변환(배율 1.0) 처리 — SI 자릿수를 확인하세요.",
+            ))
+        return raw
+    return raw * factor_map[unit]
 
 
-def _strain_si(spec: ParsedSpecimen) -> np.ndarray | None:
-    """STRAIN 컬럼을 무차원으로. 단위 '%'면 /100, 무단위인데 최대>1.5면 %로 추정."""
+def _strain_si(
+    spec: ParsedSpecimen, large_strain: bool = False,
+    issues: list[ParseIssue] | None = None,
+) -> np.ndarray | None:
+    """STRAIN 컬럼을 무차원으로. 단위 '%'면 /100(명시). 무단위 %추정은 카테고리별 임계.
+
+    무단위인데 최대값이 임계를 넘으면 %로 추정해 /100 하고 INFO를 남긴다(무음 금지).
+    임계는 대변형 재료(고무·폼·폴리머)에서 높인다 — 파단연신 200%(=비 2.0)를 % 오인해
+    100배 축소하던 결함 방지. 명시 단위 '%'는 언제나 신뢰한다.
+    """
     idx = spec.role_index(ColumnRole.STRAIN)
     if idx is None:
         return None
@@ -58,8 +91,17 @@ def _strain_si(spec: ParsedSpecimen) -> np.ndarray | None:
     if unit in ("%", "percent"):
         return raw / 100.0
     finite = raw[np.isfinite(raw)]
-    if finite.size and float(np.nanmax(np.abs(finite))) > 1.5:
-        return raw / 100.0  # 무단위지만 % 스케일로 추정.
+    # 소변형 재료(금속 등) 변형률 비는 ~0.5 미만 → 1.5 초과는 %가 확실.
+    # 대변형 재료는 비 2~10이 정상이므로 임계를 크게(15) 잡아 오변환을 막는다.
+    threshold = 15.0 if large_strain else 1.5
+    if finite.size and float(np.nanmax(np.abs(finite))) > threshold:
+        if issues is not None:
+            issues.append(ParseIssue(
+                "INFO", "strain_autoscaled_percent",
+                f"무단위 변형률 최대 {float(np.nanmax(np.abs(finite))):.3g} > {threshold} — "
+                "%로 추정해 /100 변환했습니다.",
+            ))
+        return raw / 100.0
     return raw
 
 
@@ -112,14 +154,17 @@ def ingest_upload(
 
     spec = parsed.specimens[0]
     strain_source = spec.meta.get("strain_source", "crosshead")
+    # 대변형 재료(고무·폼·폴리머)는 무단위 변형률 % 추정 임계를 높인다(오변환 방지).
+    _cat = specimen.material.category if specimen.material else None
+    large_strain = _cat in ("rubber", "foam", "polymer")
 
-    # ── SI 정규화 ──
+    # ── SI 정규화(미지 단위·% 추정은 issues로 보고) ──
     n = spec.data.shape[0]
-    time = _col_si(spec, ColumnRole.TIME, {"s": 1.0, "": 1.0, None: 1.0})
-    force_n = _col_si(spec, ColumnRole.FORCE, _FORCE_FACTOR)
-    disp_m = _col_si(spec, ColumnRole.DISPLACEMENT, _LEN_FACTOR)
-    ext_m = _col_si(spec, ColumnRole.EXTENSION, _LEN_FACTOR)
-    extenso_strain = _strain_si(spec)
+    time = _col_si(spec, ColumnRole.TIME, {"s": 1.0, "": 1.0, None: 1.0}, issues)
+    force_n = _col_si(spec, ColumnRole.FORCE, _FORCE_FACTOR, issues)
+    disp_m = _col_si(spec, ColumnRole.DISPLACEMENT, _LEN_FACTOR, issues)
+    ext_m = _col_si(spec, ColumnRole.EXTENSION, _LEN_FACTOR, issues)
+    extenso_strain = _strain_si(spec, large_strain=large_strain, issues=issues)
 
     # 신율계 변형률: STRAIN 우선, 없으면 EXTENSION/gauge_length.
     if extenso_strain is None and ext_m is not None:
@@ -131,7 +176,7 @@ def ingest_upload(
         eng_stress_pa = force_n / specimen.area0_m2
     else:
         # STRESS 컬럼이 직접 있으면 사용(force 미존재 폴백).
-        eng_stress_pa = _col_si(spec, ColumnRole.STRESS, _STRESS_FACTOR)
+        eng_stress_pa = _col_si(spec, ColumnRole.STRESS, _STRESS_FACTOR, issues)
 
     if extenso_strain is not None:
         eng_strain = extenso_strain

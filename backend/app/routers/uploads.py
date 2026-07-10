@@ -141,12 +141,25 @@ async def remap_upload(
 
     content = _read_within_limit(await file.read())
 
-    # 기존 test와 곡선 정리(불변키 경로) 후 재적재.
+    # 새 데이터를 먼저 적재하고, 성공(valid)일 때만 원본을 교체한다.
+    # (기존엔 원본을 먼저 삭제·커밋해 재적재가 실패하면 원본이 비가역 소실됐음.)
+    res = ingest_upload(db, specimen, content, file.filename or "upload", mapping=mapping_dict)
+    new_tid = res.test.id
+
+    if not res.test.valid:
+        # 재적재 실패 — 새 실패 스텁을 정리하고 원본을 보존한다.
+        db.delete(res.test)
+        db.commit()
+        curve_store.curve_path(new_tid).unlink(missing_ok=True)
+        raise HTTPException(
+            status_code=422,
+            detail="재적재에 실패해 원본 시험 데이터를 유지했습니다. 매핑을 확인하세요.",
+        )
+
+    # 성공 — 원본 test(cascade)와 곡선 파일을 정리한다(새 곡선 경로와 다를 때만 unlink).
     old_curve = curve_store.curve_path(tid)
     db.delete(old)
     db.commit()
-    if old_curve.exists():
+    if old_curve.exists() and old_curve != curve_store.curve_path(new_tid):
         old_curve.unlink()
-
-    res = ingest_upload(db, specimen, content, file.filename or "upload", mapping=mapping_dict)
     return _ingest_result_payload(res)

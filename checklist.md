@@ -117,3 +117,9 @@
 - [x] config.py 빈 문자열 MATERIALTWIN_DATA_DIR=""가 CWD로 새어 HEAX 폴백 우회 (MEDIUM) — falsy 가드 + test_config.py 5건
 - [x] 마이그레이션 f4c2a91d55e0 PG downgrade _CK_OLD 텍스트 비대칭 (LOW) — 초기 스키마와 문자 일치, PG 실검증
 - [x] material-detail 점탄성 클라 네비 activeId-null 1프레임 플리커 (LOW) — effectiveActiveId 파생 폴백
+
+### 적대적 리뷰 라운드 3 — 파서·인제스트 (2026-07-10, 재현 검증, 전부 해결)
+- [x] remap_upload 재적재 전 커밋삭제로 비가역 데이터 소실 (HIGH) — 새 적재 성공(valid) 후에만 원본 교체, 실패 시 원본 보존+422
+- [x] N/mm²(=MPa, Zwick/DIN 표준) 등 미지 단위 1e6배 무음 오변환 (MEDIUM~HIGH) — 단위맵 확장(N/mm²·μm U+03BC·cm·MN) + 미지단위 WARN 보고
+- [x] 무단위 대변형(고무 비 2.0)을 %로 오변환해 100배 축소 (HIGH~MED) — 카테고리별 임계(대변형 15) + INFO 보고
+- [x] compute_all 빈 배열 ValueError (LOW) — 진입부 graceful 가드
