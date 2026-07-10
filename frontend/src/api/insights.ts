@@ -20,6 +20,8 @@ export type AshbyPoint = {
   yield_mpa: number | null;
   density: number | null;
   elong_pct: number | null;
+  spec_strength: number | null;
+  spec_stiffness: number | null;
   test_id: number;
 };
 

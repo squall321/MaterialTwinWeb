@@ -100,9 +100,9 @@
 
 ## 자율 진화 백로그 (2026-07-10 — 우선순위순, 루프가 위에서부터 소비)
 
-- [ ] insights.py N+1 제거 — _material_rows를 outerjoin 1쿼리로, property_stats 내부 재사용 (재료 70개에 엔드포인트당 ~140쿼리)
-- [ ] Ashby 차트 비강도(σ/ρ)·비강성(E/ρ) 툴팁 노출 + AshbyPoint 타입 선언 (백엔드는 이미 반환)
-- [ ] 인사이트 elong_pct 히스토그램 렌더 (데이터 수신만 하고 미표시)
+- [x] insights.py N+1 제거 — _material_rows를 outerjoin 1쿼리로, property_stats 내부 재사용 (재료 70개에 엔드포인트당 ~140쿼리)
+- [x] Ashby 차트 비강도(σ/ρ)·비강성(E/ρ) 툴팁 노출 + AshbyPoint 타입 선언 (백엔드는 이미 반환)
+- [x] 인사이트 elong_pct 히스토그램 렌더 (데이터 수신만 하고 미표시)
 - [ ] 프런트 코드 스플리팅 — echarts 청크 분리로 500kB 경고 해소 (manualChunks)
 - [ ] 업로드 마법사 E2E 회귀: 골든 CSV로 브라우저 실업로드 → 물성 확인 (Playwright)
 - [ ] showcase.html·demo.mp4 갱신 — 새 기능(편집·삭제·카테고리 필터·brush·MCP 등록) 반영

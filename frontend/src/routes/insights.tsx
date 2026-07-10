@@ -146,6 +146,7 @@ export function InsightsScreen() {
               <StatHistogram title="탄성계수 E" cell={statsQ.data.E_gpa} color="var(--chart-1)" />
               <StatHistogram title="인장강도 UTS" cell={statsQ.data.uts_mpa} color="var(--chart-2)" />
               <StatHistogram title="항복강도 Rp0.2" cell={statsQ.data.yield_mpa} color="var(--accent)" />
+              <StatHistogram title="파단연신 A" cell={statsQ.data.elong_pct} color="var(--chart-4)" />
             </div>
           ) : (
             <ChartSkeleton height={280} />

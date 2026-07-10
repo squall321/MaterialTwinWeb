@@ -155,6 +155,8 @@ export function AshbyChart({ points, families }: { points: AshbyPoint[]; familie
               `E = ${e.E_gpa} GPa<br/>UTS = ${e.uts_mpa} MPa<br/>` +
               (e.yield_mpa ? `yield = ${e.yield_mpa} MPa<br/>` : "") +
               (e.density ? `ρ = ${e.density} g/cm³<br/>` : "") +
+              (e.spec_strength ? `비강도 σ/ρ = ${e.spec_strength} kN·m/kg<br/>` : "") +
+              (e.spec_stiffness ? `비강성 E/ρ = ${e.spec_stiffness} MN·m/kg<br/>` : "") +
               `<span style="color:${T.text3}">클릭 → 상세</span>`;
           },
         },
