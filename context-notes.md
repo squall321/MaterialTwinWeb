@@ -153,3 +153,10 @@ pytest **87 passed 1 skipped**(test_mcp_write 17개 포함), vite build 클린. 
 ### 함정 메모
 - mcp_server는 임포트 시점 env 고정 — 테스트는 tests/conftest.py mcp_env(env → cache_clear → app.db/models/curve_store reload → mcp_server reload) 순서 필수.
 - 세션에 붙어 있는 MCP 서버 프로세스는 재시작해야 새 쓰기 도구가 보인다.
+
+## 2026-07-10 — 자율 진화 루프 사이클 1~3
+
+- **사이클1**: insights N+1 제거(141→1쿼리, 출력 70행 동등성 실측) + 파단연신 히스토그램 + Ashby 비강도·비강성 툴팁. c421469·3b8dac6.
+- **사이클2**: 코드 스플리팅 — vendor(react/tanstack/ui) 분리로 앱 번들 578→151KB, echarts는 의도적 단일 청크(주석 명시). 브라우저 기동 검증. 03f61b4.
+- **사이클3**: 업로드 마법사 E2E 실검증 — 골든 CSV 브라우저 실업로드 → zwick 감지 100% → 등록 → E=200.0GPa 정답 일치 → UI 삭제 다이얼로그로 정리(Parquet 정리 실전 확인). 5d2fb80.
+- 남은 백로그: showcase 갱신, MCP prompts/resources, Postgres 실검증, SIF 패키징, 초탄성(데이터 대기).
