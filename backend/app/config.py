@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import logging
+import os
 from functools import lru_cache
 from pathlib import Path
 
@@ -30,14 +31,19 @@ class Settings(BaseSettings):
 
     @model_validator(mode="after")
     def _resolve_paths(self) -> "Settings":
-        # DATA_DIR 폴백 + 기동 시 WARNING(C7).
+        # DATA_DIR 우선순위: MATERIALTWIN_DATA_DIR > HEAX_DATA_DIR(런처 영속 볼륨, D1) > 개발 폴백.
         if self.data_dir is None:
-            logger.warning(
-                "MATERIALTWIN_DATA_DIR 미설정 — 개발 전용 폴백 경로(%s) 사용. "
-                "배포 시 절대경로 주입 필수.",
-                _DEV_FALLBACK_DATA_DIR,
-            )
-            self.data_dir = _DEV_FALLBACK_DATA_DIR
+            heax = os.environ.get("HEAX_DATA_DIR")
+            if heax:
+                logger.info("HEAX_DATA_DIR 사용(런처 영속 볼륨): %s", heax)
+                self.data_dir = Path(heax)
+            else:
+                logger.warning(
+                    "MATERIALTWIN_DATA_DIR 미설정 — 개발 전용 폴백 경로(%s) 사용. "
+                    "배포 시 절대경로 주입 필수.",
+                    _DEV_FALLBACK_DATA_DIR,
+                )
+                self.data_dir = _DEV_FALLBACK_DATA_DIR
         self.data_dir = self.data_dir.resolve()
 
         # DATABASE_URL 미설정 시 DATA_DIR 하위 SQLite 파일로 기본 구성.

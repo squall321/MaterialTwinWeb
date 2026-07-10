@@ -1,21 +1,23 @@
 schema_version: 2
 id: materialtwin_web
 name: MaterialTwin Web
-version: 0.1.0
+version: 1.0.0
 owner: cae-automation
-status: draft
 app_type: web_app
 execution_target: linux_runner
 
 description: |
-  쯔윅(Zwick/Roell testXpert) 시험기의 원본 시험 데이터를 업로드받아 DB를 구축하고,
-  재료 물성(material properties)을 구축·관리하는 풀스택 플랫폼. 인장시험부터 시작한다.
-  fastapi_react 스택 기반 — TypeScript Vite+React 프론트엔드 + FastAPI 백엔드를
-  하나의 SIF로 묶고, 서브경로(/apps/<slug>/)에서 자산·API가 깨지지 않도록
-  "상대경로" 전략을 코드로 박아 둔다:
+  쯔윅(Zwick/Roell testXpert) 인장·완화 시험 데이터를 업로드받아 물성(E·Rp0.2·
+  UTS·연신)과 구성방정식 피팅(Hollomon/Swift/Voce/J-C), 점탄성 Prony,
+  LS-DYNA 카드(*MAT_024/*MAT_098/*MAT_VISCOELASTIC, 4개 단위계)까지 도출하는
+  물성 플랫폼. LLM용 MCP 서버(조회 13·등록 7 도구) 동봉.
+  fastapi_react 스택 — 서브경로(/apps/<slug>/)에서 자산·API가 깨지지 않도록
+  상대경로 전략을 코드로 박아 둔다:
     - Vite base: "./"   → 번들 자산 URL 이 전부 상대경로 (서브경로 무관)
     - fetch("api/...")  → 현재 페이지 기준 상대경로 → 자동으로 /apps/<slug>/api/...
     - FastAPI 가 frontend/dist 를 StaticFiles 로 "/" 에 마운트 (/api/* 가 먼저 선언)
+  데이터(SQLite·곡선 Parquet)는 런처가 주입하는 HEAX_DATA_DIR 영속 볼륨을
+  자동 발견해 저장한다(config.py 폴백, D1 해소).
 
 tags:
   - materials
@@ -47,3 +49,8 @@ resources:
   cpu: 1
   memory_gb: 1
   gpu: false
+
+source:
+  type: git
+  url: https://github.com/squall321/MaterialTwinWeb.git
+  ref: main

@@ -172,3 +172,8 @@ PG16 실인스턴스에 마이그레이션 체인→시드→서버→MCP 쓰기
 
 - **사이클5**: MCP 리소스 2종(guide: 단위규약·워크플로 / taxonomy: 라이브 분포) + 프롬프트 2종(find_material·register_test_data). 인메모리 프로토콜 왕복 테스트. 함정: conftest가 app.insights를 리로드 안 하면 taxonomy 리소스가 stale 모델 클래스로 매퍼 에러 — 리로드 체인에 추가. 6a63bc7.
 - **사이클6**: 시연 영상 재녹화(48.8s — 카테고리 칩·brush 드래그·신뢰도 가드·편집·점탄성) + showcase에 MCP 등록 실출력 턴(DP980, E=207.0, JC R²=0.9986) 추가. 20도구 양방향 카피. 937382c.
+
+## 2026-07-10 — 사이클 7: SIF 패키징 리허설(D1 해소)
+
+fastapi_react 스택 레시피 그대로 재현: git archive 작업본 → pnpm install --frozen-lockfile(락파일 정합 ✓) → pnpm build(자산 상대경로 6/절대 0, C6 ✓) → 새 venv pip install -e backend → 런처 env만으로(PORT/ROOT_PATH/HEAX_DATA_DIR, MATERIALTWIN_* 없음) uvicorn 기동 → health·index 200 + 재료 생성 → **SQLite가 HEAX_DATA_DIR에 안착(D1 실증 해소)**. config.py에 HEAX_DATA_DIR 폴백 추가(MATERIALTWIN_DATA_DIR > HEAX_DATA_DIR > 개발 폴백). .portal/manifest.yaml v1.0.0으로 갱신(draft 해제·source git·MCP 서술). pytest 91 passed.
+남은 백로그: 초탄성 카드(고무 단축인장 데이터 확보 대기)만 남음 — 전 항목 완료.

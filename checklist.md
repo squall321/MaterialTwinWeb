@@ -108,7 +108,7 @@
 - [x] showcase.html·demo.mp4 갱신 — 새 기능(편집·삭제·카테고리 필터·brush·MCP 등록) 반영
 - [x] MCP prompts/resources 노출 검토 — LLM이 도구 사용법을 스스로 발견하게
 - [x] Postgres 실인스턴스 검증 (mtw_test 계정 존재 — test_postgres_compat 참고)
-- [ ] 단일 SIF 패키징 + /apps/<slug>/ 서브패스 배포 리허설
+- [x] 단일 SIF 패키징 + /apps/<slug>/ 서브패스 배포 리허설
 - [ ] 초탄성(Ogden/Mooney) 카드 — 고무 단축인장 데이터 확보 후
 
 규칙: 한 사이클 = 항목 1개 구현 → 검증(pytest·build·필요시 브라우저) → 시맨틱 커밋·푸시 → 체크 표시 → context-notes 기록. 검증 실패 상태로 커밋 금지.
