@@ -776,5 +776,91 @@ def recompute_properties(test_id: int, e_min: float | None = None, e_max: float 
                 "fits": fit_summary, "message": "재계산 완료."}
 
 
+# ════════════════════════════════════════════════════════════════════════════
+# 리소스·프롬프트 — LLM 클라이언트가 서버 사용법·데이터 규약을 스스로 발견하게.
+# ════════════════════════════════════════════════════════════════════════════
+
+
+@mcp.resource("materialtwin://guide")
+def guide() -> str:
+    """MaterialTwin MCP 사용 가이드 — 도구 지도·단위 규약·전형적 워크플로."""
+    return """# MaterialTwin MCP 가이드
+
+쯔윅 인장/완화 시험 기반 물성 DB. 조회 13종 + 등록/수정/삭제 7종 도구.
+
+## 단위 규약
+- 입력 곡선: strain 무차원(% 아님), stress MPa. 완화시험은 time_s[s]·modulus MPa.
+- Prony 파라미터: G0/Ginf MPa, beta 1/s (LS-DYNA ton·mm·s 관례).
+- LS-DYNA 카드 단위계: ton_mm_s(기본, MPa)·kg_m_s(SI)·g_mm_ms·kg_mm_ms.
+
+## 전형적 워크플로
+1) 탐색: database_summary → list_materials / search_by_property /
+   find_materials_in_property_range(E·UTS 범위) → get_material(상세)
+2) 시각화: plot_curve(test_id) · plot_ashby()
+3) 카드 도출: get_mat_card(test_id, units=, model=piecewise|johnson_cook)
+   — 탄소성은 *MAT_024(실측 테이블)/*MAT_098(J-C), 점탄성은 *MAT_VISCOELASTIC.
+4) 등록: register_material → register_tensile_test(strain[], stress_mpa[])
+   또는 register_relaxation_test(Prony 파라미터 or 실측 E(t) 곡선).
+   물성·구성방정식 피팅까지 자동 계산됨.
+5) 정정: recompute_properties(test_id, e_min, e_max) — 탄성창 지정 재계산.
+6) 삭제: delete_material/delete_test — confirm=False면 미리보기, True로 확정.
+
+## 주의
+- 등록 시 곡선 최소 20점, NaN 금지. strain 상한: 금속 2.0 / polymer 5 / rubber·foam 10.
+- 모든 오류는 {"error": "한국어 사유"}로 반환된다.
+"""
+
+
+@mcp.resource("materialtwin://taxonomy")
+def taxonomy_resource() -> str:
+    """재료 분류 체계(카테고리·계열)와 현재 DB 분포."""
+    with SessionLocal() as s:
+        rows = insights._material_rows(s)
+    from collections import Counter
+    by_cls = Counter(r["cls"] for r in rows)
+    lines = ["# 재료 분류 체계",
+             "",
+             "카테고리: metal / polymer / rubber / composite / ceramic / foam",
+             "",
+             "## 현재 DB 분포(클래스별)"]
+    for cls, n in by_cls.most_common():
+        lines.append(f"- {cls}: {n}종")
+    return "\n".join(lines)
+
+
+@mcp.prompt()
+def find_material(requirements: str) -> str:
+    """요구조건(용도·강성·강도·경량화 등)에 맞는 재료를 찾아 카드까지 도출하는 절차."""
+    return f"""다음 요구조건에 맞는 재료를 MaterialTwin DB에서 찾아주세요.
+
+요구조건: {requirements}
+
+절차:
+1. database_summary와 material_taxonomy로 DB 범위를 파악한다.
+2. 요구조건을 E(GPa)·UTS(MPa) 범위로 번역해 find_materials_in_property_range로 후보를 뽑는다.
+   경량화가 언급되면 밀도·비강도(plot_ashby의 계열 분리)도 함께 고려한다.
+3. 상위 후보 2~3종을 get_material·get_fits로 비교하고 plot_curve로 곡선을 보여준다.
+4. 최종 추천 재료의 LS-DYNA 카드를 get_mat_card로 도출한다(해석 단위계 확인).
+5. 후보·트레이드오프·추천 근거를 표로 정리한다."""
+
+
+@mcp.prompt()
+def register_test_data(description: str) -> str:
+    """시험 데이터를 DB에 등록하는 절차(인장/완화 자동 판별 포함)."""
+    return f"""다음 시험 데이터를 MaterialTwin DB에 등록해주세요.
+
+데이터 설명: {description}
+
+절차:
+1. 재료가 이미 있는지 list_materials(query=)로 확인한다. 없으면 register_material
+   (category: metal/polymer/rubber/composite/ceramic/foam)으로 생성한다.
+2. 데이터 종류를 판별한다 — 응력-변형률이면 register_tensile_test
+   (strain 무차원·stress MPa), 시간-모듈러스면 register_relaxation_test
+   (time_s·modulus_mpa 또는 G0/Ginf/beta Prony 파라미터).
+3. 반환된 물성(E·항복·UTS·연신)과 피팅 R²를 검토하고, 영률이 이상하면
+   recompute_properties로 탄성창을 지정해 재계산한다.
+4. get_mat_card로 카드를 뽑아 결과를 요약한다."""
+
+
 if __name__ == "__main__":
     mcp.run()

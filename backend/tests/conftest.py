@@ -26,12 +26,14 @@ def mcp_env(tmp_path, monkeypatch):
     import app.models as models_mod
     import app.curve_store as curve_mod
     import app.ingest as ingest_mod
+    import app.insights as insights_mod
     import app.routers.properties as r_properties
 
     importlib.reload(db_mod)
     importlib.reload(models_mod)
     importlib.reload(curve_mod)
     importlib.reload(ingest_mod)
+    importlib.reload(insights_mod)  # 모델 클래스 재바인딩(taxonomy 리소스가 사용).
     importlib.reload(r_properties)
 
     import mcp_server as mcp_mod
