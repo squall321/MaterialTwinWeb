@@ -92,6 +92,9 @@ class Test(Base):
             "strain_source IS NULL OR strain_source IN ('extensometer','crosshead','relaxation')",
             name="ck_test_strain_source",
         ),
+        # SQLite rowid 재사용 금지 — 삭제 직후 다른 프로세스가 같은 test_id를 재사용하면
+        # {id}.parquet 곡선 파일이 오삭제되는 경합이 생긴다(Postgres 시퀀스는 원래 안전).
+        {"sqlite_autoincrement": True},
     )
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)

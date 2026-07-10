@@ -8,6 +8,7 @@ from sqlalchemy.orm import Session
 
 import numpy as np
 
+from app import curve_store
 from app.db import get_db
 from app.models import Material, ProcessedResult, Specimen, Test
 from app.schemas import (
@@ -32,11 +33,12 @@ def _get_material(db: Session, mid: int) -> Material:
 @router.get("/materials")
 def list_materials(
     q: str | None = Query(default=None),
+    category: str | None = Query(default=None),
     page: int = Query(default=1, ge=1),
     size: int = Query(default=20, ge=1, le=200),
     db: Session = Depends(get_db),
 ) -> dict:
-    """재료 목록. q는 name/material_code(인덱스 컬럼)만 LIKE 검색(JSON 검색 금지)."""
+    """재료 목록. q는 name/material_code(인덱스 컬럼)만 LIKE 검색(JSON 검색 금지). category는 동등 필터."""
     stmt = select(Material)
     count_stmt = select(func.count()).select_from(Material)
     if q:
@@ -44,6 +46,9 @@ def list_materials(
         cond = or_(Material.name.ilike(like), Material.material_code.ilike(like))
         stmt = stmt.where(cond)
         count_stmt = count_stmt.where(cond)
+    if category:
+        stmt = stmt.where(Material.category == category)
+        count_stmt = count_stmt.where(Material.category == category)
     total = db.execute(count_stmt).scalar_one()
     rows = (
         db.execute(
@@ -104,8 +109,12 @@ def patch_material(
 @router.delete("/materials/{mid}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_material(mid: int, db: Session = Depends(get_db)) -> None:
     mat = _get_material(db, mid)
+    # cascade는 DB 행만 지움 — 하위 시험의 Parquet 곡선 파일도 함께 정리(C4).
+    tids = [t.id for t in db.query(Test).join(Specimen).filter(Specimen.material_id == mid).all()]
     db.delete(mat)  # cascade: specimen→test→raw_curve_ref/processed_result.
     db.commit()
+    for tid in tids:
+        curve_store.curve_path(tid).unlink(missing_ok=True)
 
 
 @router.get("/materials/{mid}/specimens", response_model=list[SpecimenOut])
@@ -157,9 +166,9 @@ def create_specimen(
     db.add(spec)
     try:
         db.commit()
-    except IntegrityError as exc:
+    except IntegrityError:
         db.rollback()
-        raise HTTPException(status_code=422, detail=f"specimen constraint: {exc.orig}")
+        raise HTTPException(status_code=422, detail="specimen constraint violation")
     db.refresh(spec)
     return SpecimenOut.model_validate(spec)
 

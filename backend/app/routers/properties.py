@@ -91,6 +91,11 @@ def get_curve(
     df = _load_curve(db, tid)
 
     if kind == "true":
+        if "eng_strain" not in df.columns:
+            raise HTTPException(
+                status_code=422,
+                detail="이 시험은 인장 곡선이 없습니다(완화시험은 kind=relaxation).",
+            )
         en = np.asarray(df["eng_strain"], dtype=float)
         es = np.asarray(df["eng_stress_Pa"], dtype=float)
         finite = np.isfinite(en) & np.isfinite(es)
@@ -113,6 +118,12 @@ def get_curve(
         raise HTTPException(status_code=422, detail=f"unknown kind: {kind}")
     df_ = df
     xcol, ycol = _KIND_COLUMNS[kind]
+    if xcol not in df_.columns or ycol not in df_.columns:
+        have = "relaxation" if "time_s" in df_.columns else "nominal/true/force_disp"
+        raise HTTPException(
+            status_code=422,
+            detail=f"kind={kind} 곡선이 없습니다 — 이 시험은 {have} 곡선만 있습니다.",
+        )
     x = np.asarray(df_[xcol], dtype=float)
     y = np.asarray(df_[ycol], dtype=float)
     finite = np.isfinite(x) & np.isfinite(y)
@@ -355,12 +366,14 @@ def get_viscocard(
     mat = test.specimen.material if test.specimen else None
     rho_t = (mat.attributes or {}).get("prony_lsdyna", {}).get("RHO") if mat else None
     # 저장값은 ton/mm/s(MPa·tonne/mm³·1/s). 카드 함수는 SI 입력 → 여기서 SI로 환산.
+    # GI는 0(완전 완화)이 유효값 — falsy 폴백 금지(None일 때만 기본값).
+    gi = p.get("GI")
     text = viscoelastic.mat_viscoelastic_card(
         title=mat.name if mat else f"test{tid}",
         rho_si=(rho_t or 1.1e-9) * 1.0e12,
         bulk_pa=(p.get("BULK") or 2000.0) * 1.0e6,
         G0_pa=(p.get("G0") or 1.0) * 1.0e6,
-        Ginf_pa=(p.get("GI") or 0.1) * 1.0e6,
+        Ginf_pa=(0.1 if gi is None else gi) * 1.0e6,
         beta=p.get("BETA") or 1.0,
         units=u,
     )

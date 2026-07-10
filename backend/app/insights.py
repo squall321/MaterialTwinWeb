@@ -30,14 +30,15 @@ _POLYMER_CLASSES: list[tuple[str, str, re.Pattern]] = [
 ]
 
 
-def classify(name: str, category: str) -> tuple[str, str]:
-    """(클래스 표시명, 계열) 반환. 미분류는 (기타-카테고리, category)."""
+def classify(name: str, category: str | None) -> tuple[str, str]:
+    """(클래스 표시명, 계열) 반환. 미분류는 (기타-카테고리, category). category=None 안전."""
     nm = name or ""
-    table = _METAL_CLASSES if category == "metal" else _POLYMER_CLASSES
+    cat = category or "unclassified"
+    table = _METAL_CLASSES if cat == "metal" else _POLYMER_CLASSES
     for label, family, pat in table:
         if pat.search(nm):
             return label, family
-    return (f"Other {category.title()}", category)
+    return (f"Other {cat.title()}", cat)
 
 
 # ── 재료별 대표 물성 추출(대표 test) ──────────────────────────────────────────
@@ -45,8 +46,10 @@ def _material_rows(session: Session) -> list[dict]:
     """재료마다 클래스 + 대표 물성(E/UTS/yield/density/kind)을 모은다."""
     rows = []
     for mat in session.query(Material).all():
+        # 대표 test: 유효 시험 우선·id 순(웹 상세와 동일 규칙).
         t = (session.query(Test).join(Specimen)
-             .filter(Specimen.material_id == mat.id).first())
+             .filter(Specimen.material_id == mat.id, Test.valid == True)  # noqa: E712
+             .order_by(Test.id).first())
         pr = (session.query(ProcessedResult).filter_by(test_id=t.id).one_or_none()
               if t else None)
         cls, family = classify(mat.name, mat.category)

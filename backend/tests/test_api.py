@@ -324,10 +324,12 @@ def test_fk_cascade_material_delete(client):
         files={"file": ("g.csv", io.BytesIO(csv_bytes), "text/csv")},
     )
     tid = r.json()["test_id"]
+    assert cs.curve_path(tid).exists()
 
     # 재료 삭제(cascade).
     r = client.delete(f"/api/materials/{mid}")
     assert r.status_code == 204
+    assert not cs.curve_path(tid).exists()  # Parquet 곡선 파일도 정리(C4).
 
     # 하위 전부 사라짐.
     assert client.get(f"/api/materials/{mid}").status_code == 404

@@ -6,6 +6,7 @@ from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
+from app import curve_store
 from app.db import get_db
 from app.models import Specimen, Test
 from app.schemas import SpecimenIn, SpecimenOut, TestOut
@@ -54,9 +55,9 @@ def patch_specimen(
     spec.standard = payload.standard
     try:
         db.commit()
-    except IntegrityError as exc:
+    except IntegrityError:
         db.rollback()
-        raise HTTPException(status_code=422, detail=f"specimen constraint: {exc.orig}")
+        raise HTTPException(status_code=422, detail="specimen constraint violation")
     db.refresh(spec)
     return SpecimenOut.model_validate(spec)
 
@@ -64,8 +65,12 @@ def patch_specimen(
 @router.delete("/specimens/{sid}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_specimen(sid: int, db: Session = Depends(get_db)) -> None:
     spec = _get_specimen(db, sid)
+    # cascade는 DB 행만 지움 — 하위 시험의 Parquet 곡선 파일도 함께 정리(C4).
+    tids = [t.id for t in db.query(Test).filter(Test.specimen_id == sid).all()]
     db.delete(spec)  # cascade: test→raw_curve_ref/processed_result.
     db.commit()
+    for tid in tids:
+        curve_store.curve_path(tid).unlink(missing_ok=True)
 
 
 @router.get("/specimens/{sid}/tests", response_model=list[TestOut])
