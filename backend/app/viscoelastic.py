@@ -56,19 +56,24 @@ def fit_prony(time_s: np.ndarray, E_pa: np.ndarray, n_terms: int = 3) -> dict:
     if t.size < n_terms + 2:
         return {"E_inf_pa": None, "terms": [], "reason": "too_few_points"}
 
-    # 고정 τ 그리드(로그 등분).
+    # 평형 모듈러스 E_inf를 꼬리 plateau에서 선추정한다(단조감소 완화곡선의 최솟값≈평형).
+    # 상수열로 E_inf를 함께 NNLS 적합하면, τ 그리드가 t.max에 닿아 가장 느린 지수항
+    # exp(-t.max/τ_max)=exp(-1)이 plateau를 흉내내 E_inf가 0으로 접히는 결함이 있었다.
+    # 초과분 (E − E_inf)만 지수항으로 적합해 이를 방지한다.
+    E_inf = float(np.min(E))
+    excess = E - E_inf
+    # 고정 τ 그리드(로그 등분). E_inf가 선고정이라 상수열이 없어 느린 항이 plateau를
+    # 흉내낼 수 없으므로 전 구간 커버리지를 위해 [t.min, t.max]를 그대로 쓴다.
     taus = np.logspace(np.log10(t.min()), np.log10(t.max()), n_terms)
-    # 설계행렬 A[:,0]=1(E_inf), A[:,j]=exp(-t/τ_j).
-    A = np.column_stack([np.ones_like(t)] + [np.exp(-t / tau) for tau in taus])
+    A = np.column_stack([np.exp(-t / tau) for tau in taus])
     # 비음수 최소제곱(모듈러스는 양수).
     try:
         from scipy.optimize import nnls
-        coef, _ = nnls(A, E)
+        coef, _ = nnls(A, excess)
     except Exception:
-        coef, *_ = np.linalg.lstsq(A, E, rcond=None)
+        coef, *_ = np.linalg.lstsq(A, excess, rcond=None)
         coef = np.clip(coef, 0, None)
-    E_inf = float(coef[0])
-    terms = [(float(coef[j + 1]), float(taus[j])) for j in range(n_terms) if coef[j + 1] > 0]
+    terms = [(float(coef[j]), float(taus[j])) for j in range(n_terms) if coef[j] > 0]
 
     E_hat = prony_series(t, E_inf, terms)
     ss_res = float(np.sum((E - E_hat) ** 2))

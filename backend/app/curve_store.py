@@ -109,14 +109,21 @@ def lttb_downsample(
     return x[sampled_idx], y[sampled_idx]
 
 
-def reaper(session: Session) -> dict[str, int]:
+def reaper(session: Session, grace_seconds: float = 600.0) -> dict[str, int]:
     """curves 디렉터리를 DB 포인터와 대조해 고아/누락을 정리한다(C4).
 
     - DB raw_curve_ref가 가리키지 않는 .parquet/.tmp.* 파일 삭제(고아).
     - file_path가 가리키는 파일이 실제로 없으면 storage='missing' 마킹.
     반환: {"deleted_files": n, "marked_missing": n}.
+
+    grace_seconds: 최근 수정된 파일은 삭제하지 않는다. 웹·MCP가 같은 디렉터리를
+    공유하므로, 다른 프로세스에서 진행 중인 적재가 write_curve로 곡선을 먼저 쓰고
+    RawCurveRef를 아직 커밋하지 않은 창에서 그 산 파일을 오삭제하는 경합을 막는다.
     """
+    import time
+
     curves_dir = settings.curves_dir
+    now = time.time()
     deleted = 0
     marked = 0
 
@@ -138,6 +145,12 @@ def reaper(session: Session) -> dict[str, int]:
             is_tmp = ".tmp." in name
             is_parquet = name.endswith(".parquet")
             if not (is_tmp or is_parquet):
+                continue
+            # 유예기간 내 최근 파일은 in-flight 적재일 수 있어 건드리지 않는다.
+            try:
+                if now - f.stat().st_mtime < grace_seconds:
+                    continue
+            except OSError:
                 continue
             # .tmp.* 는 항상 고아(완료된 쓰기는 final 이름). parquet은 미참조 시 고아.
             if is_tmp or f.resolve() not in referenced:

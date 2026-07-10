@@ -185,3 +185,10 @@ fastapi_react 스택 레시피 그대로 재현: git archive 작업본 → pnpm 
 - **LOW** f4c2a91d55e0 PG downgrade의 `_CK_OLD`가 초기 스키마(IS NULL OR 접두 없음)와 텍스트 불일치 — 기능 등가지만 DDL 드리프트. 초기 스키마와 문자 일치시키고 PG에서 upgrade→downgrade 단계별 CHECK 텍스트 실대조.
 - **LOW** material-detail: activeId 설정 effect가 paint 후 실행돼 점탄성 클라 네비 시 1프레임 빈 화면 — effectiveActiveId(첫 시편 즉시 폴백) 파생값 도입, 렌더 비교 5곳 교체.
 리뷰어가 확인한 무결함: insights outerjoin(NULL 정렬 견고)·r² 사다리 가드·MCP 리소스·청크 분리·비물성 툴팁 단위·훅 규칙. pytest 96 passed.
+
+## 2026-07-10 — 사이클 9: 적대적 리뷰 라운드 3 (파서·인제스트 + 수식·저장·프런트)
+
+파서·인제스트 단독 에이전트 + 수식·저장·프런트 워크플로(find→verify)로 미검토 영역 전수. 확정 결함 8건 전부 수정.
+파서·인제스트(4): remap 데이터 소실(HIGH)·N/mm² 등 미지단위 무음 오변환(MED~H)·고무 대변형 %오변환(HIGH~M)·compute_all 빈배열(LOW).
+수식·저장·프런트(4): reaper cross-process 경합(HIGH, mtime 유예)·fit_prony E_inf=0 접힘(MED, 꼬리 선추정)·JC 초기값 미클램프(MED)·upload createdIds 중복재료(MED).
+검증: pytest 108 passed, N/mm² 라이브 E=200GPa, 업로드 마법사 브라우저 렌더.

@@ -123,3 +123,9 @@
 - [x] N/mm²(=MPa, Zwick/DIN 표준) 등 미지 단위 1e6배 무음 오변환 (MEDIUM~HIGH) — 단위맵 확장(N/mm²·μm U+03BC·cm·MN) + 미지단위 WARN 보고
 - [x] 무단위 대변형(고무 비 2.0)을 %로 오변환해 100배 축소 (HIGH~MED) — 카테고리별 임계(대변형 15) + INFO 보고
 - [x] compute_all 빈 배열 ValueError (LOW) — 진입부 graceful 가드
+
+### 적대적 리뷰 라운드 3 — 수식·저장·프런트 (2026-07-10, 재현 검증, 전부 해결)
+- [x] reaper가 in-flight 적재의 미커밋 곡선을 오삭제(cross-process 경합, HIGH) — mtime 유예기간(기본 600s) 가드
+- [x] fit_prony n_terms=3 고정 τ가 t.max에 닿아 E_inf=0으로 접힘(모든 시드 점탄성, MED) — E_inf 꼬리 선추정+초과분 적합, E_inf 오차 0%
+- [x] johnson_cook_card_params 초기값 미클램프로 비멱법칙 경화 시 curve_fit 실패→완전소성 카드(MED) — p0 경계 클램프
+- [x] upload.tsx createdIds reset[meta,file]이 materialId까지 초기화→중복 재료(MED) — 재료 정체성/시편 이펙트 분리

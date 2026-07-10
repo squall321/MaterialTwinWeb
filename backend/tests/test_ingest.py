@@ -206,14 +206,28 @@ def test_reaper_deletes_orphan_tmp(app_env):
 
     assert orphan_tmp.exists() and orphan_parquet.exists()
 
+    # grace_seconds=0으로 유예 없이 고아 삭제 로직을 검증.
     with db.SessionLocal() as session:
-        stats = curve_store.reaper(session)
+        stats = curve_store.reaper(session, grace_seconds=0)
 
     # 고아 둘 다 삭제, 정상 파일은 보존.
     assert not orphan_tmp.exists()
     assert not orphan_parquet.exists()
     assert good_path.exists()
     assert stats["deleted_files"] >= 2
+
+
+def test_reaper_grace_protects_recent_file(app_env):
+    # 유예기간 내 최근 미참조 파일은 삭제하지 않는다(in-flight 적재 경합 방지).
+    db = app_env["db"]
+    curve_store = app_env["curve_store"]
+    curves_dir = db.settings.curves_dir
+    curves_dir.mkdir(parents=True, exist_ok=True)
+    fresh = curves_dir / "88888.parquet"
+    fresh.write_bytes(b"in-flight")
+    with db.SessionLocal() as session:
+        curve_store.reaper(session, grace_seconds=600)
+    assert fresh.exists()  # 방금 쓴 파일이라 보호됨.
 
 
 def test_reaper_marks_missing_when_file_deleted(app_env):

@@ -29,6 +29,19 @@ def test_relaxation_curve_and_prony_fit():
     assert fit["E_inf_pa"] is not None
     assert fit["r2"] > 0.9  # 완화곡선을 잘 적합.
     assert len(fit["terms"]) >= 1
+    # 적합된 평형 모듈러스가 해석 참값과 일치해야 한다(E_inf=0 접힘 결함 회귀).
+    # 이전엔 n_terms=3 고정 τ가 t.max에 닿아 E_inf가 0으로 접혔고, E_inf is not None·
+    # r2>0.9만 검사해 통과했다.
+    assert abs(fit["E_inf_pa"] - rc["Einf_pa"]) / rc["Einf_pa"] < 0.05
+
+
+@pytest.mark.parametrize("G0,GI,BETA", [(10, 1, 100), (2, 0.2, 50), (50, 5, 5)])
+def test_prony_equilibrium_not_collapsed(G0, GI, BETA):
+    # 다양한 파라미터에서 E_inf가 참값과 일치(0으로 접히지 않음).
+    rc = viscoelastic.relaxation_curve_from_lsdyna(G0, GI, BETA, 0.45)
+    fit = viscoelastic.fit_prony(rc["time_s"], rc["E_pa"], n_terms=3)
+    assert fit["E_inf_pa"] > 0
+    assert abs(fit["E_inf_pa"] - rc["Einf_pa"]) / rc["Einf_pa"] < 0.05
 
 
 def test_mat_viscoelastic_card():

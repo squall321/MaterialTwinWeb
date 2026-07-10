@@ -110,10 +110,15 @@ def johnson_cook_card_params(
     # log(σ-A) = log B + n·log εp → 선형회귀로 초기값, 이후 비선형 정밀화.
     lx, ly = np.log(ep), np.log(sg - A)
     n0, logB0 = np.polyfit(lx, ly, 1)
+    # 초기값을 경계 [B≥1, 0≤n≤1] 안으로 클램프 — 감소·가속 경화나 노이즈로 log-log
+    # 기울기가 경계를 벗어나면 curve_fit이 'infeasible'로 즉시 실패해 카드가 조용히
+    # 완전소성(B=0)으로 떨어지던 문제 방지.
+    B0 = min(max(float(np.exp(logB0)), 1.0), 1e30)
+    n0c = min(max(float(n0), 0.0), 1.0)
     try:
         (B, n), _ = curve_fit(
             lambda e, B, n: A + B * np.power(e, n),
-            ep, sg, p0=[float(np.exp(logB0)), float(n0)],
+            ep, sg, p0=[B0, n0c],
             bounds=([1.0, 0.0], [np.inf, 1.0]), maxfev=10000,
         )
     except Exception as exc:

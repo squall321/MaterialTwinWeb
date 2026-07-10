@@ -80,6 +80,22 @@ def test_mat098_card_structure_and_units():
     assert "*END" in text
 
 
+@pytest.mark.parametrize("kind", ["accelerating", "noisy_weak"])
+def test_jc_card_params_non_power_law_hardening(kind):
+    # 비멱법칙(가속) 경화·약경화+노이즈에서 초기값 미클램프로 curve_fit이 즉시 실패해
+    # 카드가 완전소성(B=0)으로 조용히 떨어지던 결함 회귀.
+    A = 300e6
+    ep = np.linspace(0.001, 0.15, 80)
+    if kind == "accelerating":
+        st = A + 5e9 * ep ** 2  # log-log 기울기 ≈ 2 (경계 밖)
+    else:
+        rng = np.random.default_rng(0)
+        st = A + 2e8 * np.power(ep, 0.05) * (1 + 0.01 * rng.standard_normal(ep.size))
+    jc = johnson_cook_card_params(ep, st, yield_pa=A)
+    assert "reason" not in jc or jc.get("B_pa") is not None  # fit_failed 아님.
+    assert jc["B_pa"] > 0  # 경화가 카드에 반영(완전소성 아님).
+
+
 # ── 점탄성 SI 입력 → 단위계 변환 ─────────────────────────────────────────────
 def test_viscoelastic_si_roundtrip_ton_mm_s():
     # SI로 준 값이 ton_mm_s(MPa)에서 원 MPa 값과 일치해야(왕복).

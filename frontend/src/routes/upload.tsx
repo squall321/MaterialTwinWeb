@@ -77,10 +77,18 @@ export function UploadScreen() {
   // 결과 화면(computed=false)에서 매핑 수정 패널 열림 여부.
   const [showResultMapper, setShowResultMapper] = React.useState(false);
 
-  // 시편 메타나 파일이 바뀌면 앞서 생성해둔 재료/시편/시험은 더 이상 맞지 않으므로 재사용 취소.
+  // 재료 정체성(기존 선택 or 새 이름)이 바뀌면 생성해둔 재료 재사용을 취소한다.
+  // 시편/시험은 재료 하위이므로 함께 무효화.
   React.useEffect(() => {
     setCreatedIds({ materialId: null, specimenId: null, testId: null });
-  }, [meta, file]);
+  }, [meta.materialId, meta.newMaterialName]);
+
+  // 시편 메타(치수·라벨·형상)나 파일이 바뀌면 시편·시험만 재생성 대상(재료 id는 유지).
+  // 이전엔 재료 id까지 초기화해, 새 재료로 커밋 중간 실패 후 시편 정보만 고쳐 재시도하면
+  // createMaterial이 재실행돼 중복 재료 + 고아 시편이 생겼다.
+  React.useEffect(() => {
+    setCreatedIds((c) => ({ ...c, specimenId: null, testId: null }));
+  }, [meta.label, meta.geometry, meta.L0_mm, meta.w0_mm, meta.t0_mm, meta.d0_mm, file]);
 
   const materialsQ = useQuery({ queryKey: ["materials", ""], queryFn: () => listMaterials({ size: 100 }) });
   const parsersQ = useQuery({ queryKey: ["parsers"], queryFn: getParsers });

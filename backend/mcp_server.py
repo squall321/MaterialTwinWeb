@@ -567,6 +567,11 @@ def register_relaxation_test(material_id: int,
             return {"error": "time_s는 0 이상, modulus_mpa는 양수여야 합니다."}
         order = np.argsort(t)
         t, E_t = t[order], E_t[order]
+        # 완화곡선은 시간에 따라 감소해야 한다 — 초기 대비 뚜렷이 감소하지 않으면 무효 입력.
+        head = float(np.mean(E_t[: max(1, E_t.size // 5)]))
+        tail = float(np.mean(E_t[-max(1, E_t.size // 5):]))
+        if tail >= 0.98 * head:
+            return {"error": "완화 거동이 감지되지 않습니다 — 시간에 따라 감소하는 modulus 곡선이 필요합니다."}
         E0_pa = float(np.max(E_t))
         Einf_pa = float(np.min(E_t))
 
