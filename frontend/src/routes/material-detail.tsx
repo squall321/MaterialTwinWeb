@@ -149,17 +149,22 @@ export function MaterialDetailScreen() {
     curveError: curveQueries[i]?.isError ?? false,
   }));
 
-  // 활성 시편(차트 마커·회귀 picker 대상). 기본 첫 시편.
+  // 활성 시편(차트 마커·회귀 picker 대상). 기본은 유효 시험을 가진 첫 시편.
   // 파생 effect는 paint 후 실행돼 activeId=null 창이 생기므로, 유효 activeId를
-  // 첫 시편으로 즉시 폴백해 렌더한다(점탄성 클라 네비 시 1프레임 빈 화면 방지).
+  // 즉시 폴백해 렌더한다(점탄성 클라 네비 시 1프레임 빈 화면 방지).
+  // 대표 시편은 valid 시험 우선 — 백엔드(insights·mcp list_materials)가 유효 시험
+  // 최소 id를 대표로 쓰므로, 첫 시편의 대표 시험이 invalid이면 유효 시험이 있는 다음
+  // 시편으로 맞춰 웹 화면과 LLM 답이 갈리지 않게 한다.
   const [activeId, setActiveId] = React.useState<number | null>(null);
+  const defaultActiveId =
+    (reps.find((r) => r.test?.valid)?.specimen.id ?? specimens[0]?.id) ?? null;
   const effectiveActiveId =
     activeId != null && views.some((v) => v.specimen.id === activeId)
       ? activeId
-      : specimens[0]?.id ?? null;
+      : defaultActiveId;
   React.useEffect(() => {
-    if (activeId == null && specimens.length > 0) setActiveId(specimens[0].id);
-  }, [specimens, activeId]);
+    if (activeId == null && defaultActiveId != null) setActiveId(defaultActiveId);
+  }, [defaultActiveId, activeId]);
 
   const active = views.find((v) => v.specimen.id === effectiveActiveId) ?? null;
   const [range, setRange] = React.useState<[number, number] | null>(null);

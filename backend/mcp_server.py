@@ -82,13 +82,16 @@ def get_material(material_id: int) -> dict:
     with SessionLocal() as s:
         mat = s.get(Material, material_id)
         if not mat:
-            return {"error": "not found"}
+            return {"error": "재료를 찾을 수 없습니다."}
         specs = []
         for sp in s.query(Specimen).filter_by(material_id=material_id).all():
             tests = []
             for t in s.query(Test).filter_by(specimen_id=sp.id).all():
                 pr = s.query(ProcessedResult).filter_by(test_id=t.id).one_or_none()
-                info = {"test_id": t.id, "test_type": t.test_type}
+                # valid 플래그를 노출 — 웹에서 이상치로 제외(invalid)한 시험을 LLM이
+                # 유효 물성으로 오인하지 않도록(list_materials·웹 상세와 정합).
+                info = {"test_id": t.id, "test_type": t.test_type,
+                        "valid": t.valid, "invalid_reason": t.invalid_reason}
                 if pr and (pr.extra_metrics or {}).get("kind") == "viscoelastic":
                     info.update(kind="viscoelastic", E0_MPa=_mpa(pr.extra_metrics.get("E0_pa")),
                                 Einf_MPa=_mpa(pr.extra_metrics.get("Einf_pa")),
@@ -108,8 +111,11 @@ def get_curve(test_id: int, kind: str = "nominal", max_points: int = 200) -> dic
     """시험 곡선 포인트(다운샘플). kind: nominal(공칭 σ-ε)·true(진응력)·relaxation(점탄성 E(t))."""
     with SessionLocal() as s:
         if not s.get(Test, test_id):
-            return {"error": "test not found"}
-    df = curve_store.read_curve(test_id)
+            return {"error": "시험을 찾을 수 없습니다."}
+    try:
+        df = curve_store.read_curve(test_id)
+    except FileNotFoundError:
+        return {"error": "곡선 파일이 없습니다(정리되었거나 미저장)."}
     if kind == "true":
         if "eng_strain" not in df.columns:
             return {"error": "이 시험은 인장 곡선이 없습니다(점탄성은 kind='relaxation' 사용)."}
@@ -155,10 +161,10 @@ def get_mat_card(test_id: int, units: str = "ton_mm_s", model: str = "piecewise"
     with SessionLocal() as s:
         test = s.get(Test, test_id)
         if not test:
-            return "error: test not found"
+            return "error: 시험을 찾을 수 없습니다."
         pr = s.query(ProcessedResult).filter_by(test_id=test_id).one_or_none()
         if pr is None:
-            return "error: no properties"
+            return "error: 물성이 아직 계산되지 않았습니다."
         mat = test.specimen.material
         if (pr.extra_metrics or {}).get("kind") == "viscoelastic":
             p = pr.extra_metrics.get("lsdyna_prony", {})
@@ -170,8 +176,11 @@ def get_mat_card(test_id: int, units: str = "ton_mm_s", model: str = "piecewise"
                 bulk_pa=(p.get("BULK") or 2000.0) * 1.0e6, G0_pa=(p.get("G0") or 1.0) * 1.0e6,
                 Ginf_pa=(0.1 if gi is None else gi) * 1.0e6, beta=p.get("BETA") or 1.0, units=u)
         if not pr.youngs_modulus_pa or pr.youngs_modulus_pa <= 0:
-            return "error: invalid E for card"
-        df = curve_store.read_curve(test_id)
+            return "error: 유효한 영률이 없어 카드를 만들 수 없습니다(물성 재계산 필요)."
+        try:
+            df = curve_store.read_curve(test_id)
+        except FileNotFoundError:
+            return "error: 곡선 파일이 없습니다."
         ep, st = _plastic_true(df, pr.youngs_modulus_pa)
         gen = lsdyna_mat098_card if model == "johnson_cook" else lsdyna_mat024_card
         return gen(title=mat.name, E_pa=pr.youngs_modulus_pa,
@@ -185,14 +194,16 @@ def search_by_property(prop: str = "UTS_MPa", min_value: float = 0, max_value: f
     field = {"UTS_MPa": ProcessedResult.uts_pa, "yield_MPa": ProcessedResult.yield_strength_pa,
              "E_GPa": ProcessedResult.youngs_modulus_pa}.get(prop)
     if field is None:
-        return [{"error": f"unknown prop {prop}"}]
+        return [{"error": f"지원하지 않는 물성 '{prop}' — UTS_MPa·yield_MPa·E_GPa 중 하나."}]
     scale = 1e6 if "MPa" in prop else 1e9
     with SessionLocal() as s:
+        # 유효 시험만 검색(웹·list_materials와 정합 — 제외된 이상치는 배제).
         rows = (s.query(Material.name, ProcessedResult)
                 .join(Test, Test.id == ProcessedResult.test_id)
                 .join(Specimen, Specimen.id == Test.specimen_id)
                 .join(Material, Material.id == Specimen.material_id)
-                .filter(field.isnot(None), field >= min_value * scale, field <= max_value * scale)
+                .filter(Test.valid == True,  # noqa: E712
+                        field.isnot(None), field >= min_value * scale, field <= max_value * scale)
                 .order_by(field.desc()).limit(limit).all())
         return [{"name": nm, "test_id": pr.test_id, prop: round(getattr(pr, field.key) / scale, 2)}
                 for nm, pr in rows]
@@ -208,12 +219,21 @@ def plot_curve(test_id: int, kind: str = "auto") -> Image:
     with SessionLocal() as s:
         test = s.get(Test, test_id)
         if not test:
-            raise ValueError("test not found")
+            raise ValueError("시험을 찾을 수 없습니다.")
         pr = s.query(ProcessedResult).filter_by(test_id=test_id).one_or_none()
         mat = test.specimen.material
         is_visco = bool(pr and (pr.extra_metrics or {}).get("kind") == "viscoelastic")
         name = mat.name
-    df = curve_store.read_curve(test_id)
+    try:
+        df = curve_store.read_curve(test_id)
+    except FileNotFoundError:
+        raise ValueError("곡선 파일이 없습니다(정리되었거나 미저장).")
+    # 곡선 종류와 실제 컬럼 불일치 방어(점탄성에 인장 요청 등).
+    want_relax = is_visco or kind == "relaxation"
+    if want_relax and "relax_modulus_Pa" not in df.columns:
+        raise ValueError("완화 곡선이 없습니다(이 시험은 인장 곡선).")
+    if not want_relax and "eng_strain" not in df.columns:
+        raise ValueError("인장 곡선이 없습니다(이 시험은 완화 곡선 — kind='relaxation').")
 
     plt.style.use("dark_background")
     fig, ax = plt.subplots(figsize=(7.2, 4.4), dpi=120)
@@ -812,7 +832,10 @@ def guide() -> str:
 
 ## 주의
 - 등록 시 곡선 최소 20점, NaN 금지. strain 상한: 금속 2.0 / polymer 5 / rubber·foam 10.
-- 모든 오류는 {"error": "한국어 사유"}로 반환된다.
+- get_material의 시험 목록은 valid 플래그를 포함한다 — valid=false는 웹에서 제외한
+  이상치이므로 대표 물성으로 쓰지 말 것(list_materials·search_by_property는 유효 시험만 반환).
+- 오류 표기: dict 반환 도구는 {"error": "한국어 사유"}, 카드 텍스트 도구(get_mat_card)는
+  "error: 한국어 사유" 문자열, 이미지 도구(plot_*)는 한국어 예외로 알린다.
 """
 
 

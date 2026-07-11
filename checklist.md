@@ -129,3 +129,9 @@
 - [x] fit_prony n_terms=3 고정 τ가 t.max에 닿아 E_inf=0으로 접힘(모든 시드 점탄성, MED) — E_inf 꼬리 선추정+초과분 적합, E_inf 오차 0%
 - [x] johnson_cook_card_params 초기값 미클램프로 비멱법칙 경화 시 curve_fit 실패→완전소성 카드(MED) — p0 경계 클램프
 - [x] upload.tsx createdIds reset[meta,file]이 materialId까지 초기화→중복 재료(MED) — 재료 정체성/시편 이펙트 분리
+
+### 적대적 리뷰 라운드 4 — 횡단 정합성 (2026-07-11, 재현 검증, 전부 해결)
+- [x] mcp get_material이 valid 미필터·미노출 → LLM이 제외 이상치를 유효물성으로 오인(HIGH) — valid/invalid_reason 노출, guide 명시
+- [x] 웹 기본 대표 시편이 invalid 시험일 수 있어 insights·mcp와 갈림(MED) — valid 우선 defaultActiveId
+- [x] upload sniffMut.onError가 영어 원문 토스트(MED) — errorMessage(e)
+- [x] mcp 읽기·카드·검색·plot 에러가 영어·모양 불일치(MED~LOW) — 한국어 통일 + get_curve/plot_curve read_curve 가드 + search_by_property valid 필터

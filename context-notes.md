@@ -192,3 +192,13 @@ fastapi_react 스택 레시피 그대로 재현: git archive 작업본 → pnpm 
 파서·인제스트(4): remap 데이터 소실(HIGH)·N/mm² 등 미지단위 무음 오변환(MED~H)·고무 대변형 %오변환(HIGH~M)·compute_all 빈배열(LOW).
 수식·저장·프런트(4): reaper cross-process 경합(HIGH, mtime 유예)·fit_prony E_inf=0 접힘(MED, 꼬리 선추정)·JC 초기값 미클램프(MED)·upload createdIds 중복재료(MED).
 검증: pytest 108 passed, N/mm² 라이브 E=200GPa, 업로드 마법사 브라우저 렌더.
+
+## 2026-07-11 — 사이클 10: 적대적 리뷰 라운드 4 (횡단 정합성)
+
+웹↔MCP·단위 파이프라인·에러 일관성 3렌즈 워크플로. 확정 6건 전부 수정:
+- **HIGH** mcp get_material이 Test.valid 미필터·valid 필드 미노출 → 웹에서 제외한 이상치를 LLM이 유효 물성으로 제시(웹·list_materials와 모순). valid/invalid_reason 노출 + guide 명시.
+- **MED** 웹 material-detail 기본 활성 시편이 첫 시편의 invalid 대표시험일 수 있어 insights/mcp(유효 최소 test.id)와 갈림 — reps.find(valid) 우선 defaultActiveId.
+- **MED** upload sniffMut.onError가 ApiError.message(영어) 토스트 — errorMessage(e)로 통일.
+- **MED~LOW** mcp 에러 표기 혼재(영어·dict/list/str) — 읽기도구·get_mat_card·search·plot 전부 한국어화, get_curve/plot_curve read_curve FileNotFoundError 가드, search_by_property에 Test.valid 필터(웹 정합).
+검증: pytest 110 passed(정합성 테스트 2건 추가), 프런트 빌드, 웹 상세(탄소성·점탄성) 브라우저 렌더 정상.
+누적: 자율 루프 4라운드 적대적 리뷰로 실결함 30건 발견·수정(라운드1:13, 2:3, 3:8, 4:6).

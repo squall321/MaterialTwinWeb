@@ -102,7 +102,7 @@ export function UploadScreen() {
       setShowMapper(r.needs_manual_mapping);
       setStep(1);
     },
-    onError: (e) => toast.error(e instanceof Error ? e.message : "감지 실패"),
+    onError: (e) => toast.error(errorMessage(e)),
   });
 
   const commitMut = useMutation({
