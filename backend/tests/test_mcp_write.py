@@ -225,6 +225,48 @@ def test_write_curve_failure_rolls_back_specimen(mcp_env, monkeypatch):
     assert got["specimens"] == []  # 시편·시험 모두 롤백.
 
 
+# ── 동시성 회귀 (라운드5) ────────────────────────────────────────────────────
+def test_specimen_label_unique_and_retry(mcp_env):
+    # (material_id,label) UNIQUE + _add_specimen 재시도로 라벨이 항상 유일해야 한다.
+    M = mcp_env
+    g = make_golden(n_points=200)
+    mid = M.register_material("라벨경합", category="metal")["material_id"]
+    for _ in range(4):
+        r = M.register_tensile_test(mid, g.strain.tolist(), (g.stress / 1e6).tolist())
+        assert "error" not in r
+    got = M.get_material(mid)
+    labels = [sp["label"] for sp in got["specimens"]]
+    assert len(labels) == len(set(labels)) == 4  # 중복 없음.
+
+    # 직접 UNIQUE 위반 시도 → IntegrityError(조용한 중복 아님).
+    from sqlalchemy.exc import IntegrityError
+    from app.models import Specimen
+    with M._test_db.SessionLocal() as s:
+        s.add(Specimen(material_id=mid, label=labels[0], geometry_type="flat",
+                       gauge_length_m=0.05, width_m=0.0125, thickness_m=0.002, area0_m2=2.5e-5))
+        raised = False
+        try:
+            s.commit()
+        except IntegrityError:
+            raised = True
+        assert raised
+
+
+def test_recompute_upsert_no_pr_idempotent(mcp_env):
+    # 곡선은 있으나 pr이 없는 test에 recompute — INSERT 경로가 UNIQUE 경합에도 안전.
+    M = mcp_env
+    g = make_golden(n_points=300)
+    mid = M.register_material("업서트", category="metal")["material_id"]
+    tid = M.register_tensile_test(mid, g.strain.tolist(), (g.stress / 1e6).tolist())["test_id"]
+    # pr 삭제해 INSERT 경로 강제.
+    from app.models import ProcessedResult
+    with M._test_db.SessionLocal() as s:
+        s.query(ProcessedResult).filter_by(test_id=tid).delete()
+        s.commit()
+    r = M.recompute_properties(tid)
+    assert "error" not in r and r["properties"]["E_GPa"] is not None
+
+
 def test_recompute_properties_window(mcp_env):
     M = mcp_env
     g = make_golden(n_points=500)

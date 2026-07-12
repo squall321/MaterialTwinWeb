@@ -45,24 +45,32 @@ def list_materials(category: str | None = None, query: str | None = None, limit:
     """재료 목록을 조회한다. category(metal/polymer/rubber…)와 query(이름·코드 부분일치)로 필터.
 
     각 항목: id, name, category, mat_type, 대표 E(GPa)·UTS(MPa) 또는 점탄성 E0(MPa).
+    limit는 최대 200으로 제한된다.
     """
+    from sqlalchemy import and_
+
+    limit = max(1, min(int(limit), 200))
     with SessionLocal() as s:
-        q = s.query(Material)
+        # 재료당 대표 test·pr을 단일 outerjoin으로 수집(N+1 제거). 유효 시험 최소 id 선택.
+        q = (s.query(Material, Test, ProcessedResult)
+             .outerjoin(Specimen, Specimen.material_id == Material.id)
+             .outerjoin(Test, and_(Test.specimen_id == Specimen.id, Test.valid == True))  # noqa: E712
+             .outerjoin(ProcessedResult, ProcessedResult.test_id == Test.id))
         if category:
             q = q.filter(Material.category == category)
         if query:
-            like = f"%{query}%"
-            q = q.filter(Material.name.ilike(like))
+            q = q.filter(Material.name.ilike(f"%{query}%"))
+        picked: dict[int, tuple] = {}
+        for mat, t, pr in q.order_by(Material.id, Test.id).all():
+            cur = picked.get(mat.id)
+            if cur is None or (cur[1] is None and t is not None):
+                picked[mat.id] = (mat, t, pr)
+
         out = []
-        for mat in q.order_by(Material.id).limit(limit).all():
+        for mat, t, pr in sorted(picked.values(), key=lambda x: x[0].id)[:limit]:
             row = {"id": mat.id, "name": mat.name, "category": mat.category,
                    "mat_type": (mat.attributes or {}).get("mat_type")}
-            # 대표 test의 물성(유효 시험 우선, 웹과 동일 규칙).
-            t = (s.query(Test).join(Specimen).filter(Specimen.material_id == mat.id,
-                                                     Test.valid == True)  # noqa: E712
-                 .order_by(Test.id).first())
             if t:
-                pr = s.query(ProcessedResult).filter_by(test_id=t.id).one_or_none()
                 if pr and (pr.extra_metrics or {}).get("kind") == "viscoelastic":
                     row["kind"] = "viscoelastic"
                     row["E0_MPa"] = _mpa(pr.extra_metrics.get("E0_pa"))
@@ -370,6 +378,28 @@ def _next_label(s, material_id: int) -> str:
     return f"S{n + 1}"
 
 
+def _add_specimen(s, material_id: int, label: str | None = None, **kwargs) -> "Specimen":
+    """시편을 생성·커밋한다. (material_id,label) UNIQUE 경합 시 라벨을 재계산해 재시도.
+
+    동시 등록이 COUNT 기반 라벨을 경합해도 조용한 중복 대신 유일 라벨을 보장한다.
+    label 명시 시 충돌하면 접미사(-2, -3…)를 붙인다.
+    """
+    from sqlalchemy.exc import IntegrityError
+
+    base = label
+    for attempt in range(8):
+        lbl = (label or _next_label(s, material_id)) if attempt == 0 else \
+            (f"{base}-{attempt + 1}" if base else _next_label(s, material_id))
+        spec = Specimen(material_id=material_id, label=lbl, **kwargs)
+        s.add(spec)
+        try:
+            s.commit()
+            return spec
+        except IntegrityError:
+            s.rollback()
+    raise RuntimeError("시편 라벨 생성 재시도 초과")
+
+
 def _validate_arrays(x: list[float], y: list[float], xname: str, yname: str,
                      min_points: int = 20) -> str | None:
     """배열 쌍 공통 검증. 문제 있으면 한국어 사유, 없으면 None."""
@@ -449,10 +479,9 @@ def register_tensile_test(material_id: int, strain: list[float], stress_mpa: lis
         if float(np.nanmax(en)) > strain_cap:
             return {"error": f"strain 최대값 {np.nanmax(en):.3g} > {strain_cap}"
                              f"({mat.category or 'metal'} 상한) — 무차원 변형률이어야 합니다(% 아님)."}
-        spec = Specimen(material_id=material_id, label=specimen_label or _next_label(s, material_id),
-                        geometry_type="flat", gauge_length_m=L0, width_m=W0, thickness_m=T0,
-                        area0_m2=A0, standard="mcp")
-        s.add(spec); s.commit()
+        spec = _add_specimen(s, material_id, label=specimen_label,
+                             geometry_type="flat", gauge_length_m=L0, width_m=W0, thickness_m=T0,
+                             area0_m2=A0, standard="mcp")
         test = Test(specimen_id=spec.id, test_type="tensile", strain_source=strain_source,
                     source_format="mcp", valid=True)
         s.add(test); s.commit()  # test.id 확정(C2).
@@ -622,11 +651,10 @@ def register_relaxation_test(material_id: int,
         if rho_t_mm3:
             pl["RHO"] = rho_t_mm3
 
-        spec = Specimen(material_id=material_id, label=_next_label(s, material_id),
-                        geometry_type="flat", gauge_length_m=_DEF_GAUGE_MM * 1e-3,
-                        width_m=_DEF_WIDTH_MM * 1e-3, thickness_m=_DEF_THICK_MM * 1e-3,
-                        area0_m2=_DEF_WIDTH_MM * _DEF_THICK_MM * 1e-6, standard="relaxation")
-        s.add(spec); s.commit()
+        spec = _add_specimen(s, material_id,
+                             geometry_type="flat", gauge_length_m=_DEF_GAUGE_MM * 1e-3,
+                             width_m=_DEF_WIDTH_MM * 1e-3, thickness_m=_DEF_THICK_MM * 1e-3,
+                             area0_m2=_DEF_WIDTH_MM * _DEF_THICK_MM * 1e-6, standard="relaxation")
         test = Test(specimen_id=spec.id, test_type="relaxation", strain_source="relaxation",
                     source_format="mcp", valid=True)
         s.add(test); s.commit()
@@ -767,19 +795,34 @@ def recompute_properties(test_id: int, e_min: float | None = None, e_max: float 
                 return {"error": "0 ≤ e_min < e_max 이어야 합니다."}
             kwargs["e_range"] = (e_min, e_max)
         metrics = analysis.compute_all(en, st_pa, A0=A0, category=cat, **kwargs)
+
+        def _fill(p):
+            p.youngs_modulus_pa = metrics["youngs_modulus_pa"]
+            p.yield_strength_pa = metrics["yield_strength_pa"]
+            p.uts_pa = metrics["uts_pa"]
+            p.uniform_elongation = metrics["uniform_elongation"]
+            p.fracture_elongation = metrics["fracture_elongation"]
+            p.strain_hardening_n = metrics["strain_hardening_n"]
+            p.strength_coeff_k_pa = metrics["strength_coeff_k_pa"]
+            p.params = metrics["params"].model_dump()
+            p.extra_metrics = metrics["extra_metrics"]
+
+        from sqlalchemy.exc import IntegrityError
         if pr is None:
+            # 동시 재계산 경합: test_id UNIQUE 위반 시 rollback→재조회→UPDATE.
             pr = ProcessedResult(test_id=test_id)
+            _fill(pr)
             s.add(pr)
-        pr.youngs_modulus_pa = metrics["youngs_modulus_pa"]
-        pr.yield_strength_pa = metrics["yield_strength_pa"]
-        pr.uts_pa = metrics["uts_pa"]
-        pr.uniform_elongation = metrics["uniform_elongation"]
-        pr.fracture_elongation = metrics["fracture_elongation"]
-        pr.strain_hardening_n = metrics["strain_hardening_n"]
-        pr.strength_coeff_k_pa = metrics["strength_coeff_k_pa"]
-        pr.params = metrics["params"].model_dump()
-        pr.extra_metrics = metrics["extra_metrics"]
-        s.commit()
+            try:
+                s.commit()
+            except IntegrityError:
+                s.rollback()
+                pr = s.query(ProcessedResult).filter_by(test_id=test_id).one()
+                _fill(pr)
+                s.commit()
+        else:
+            _fill(pr)
+            s.commit()
 
         # 피팅 교체(기존 삭제 후 재계산 — 웹 fits:compute와 동일).
         s.query(ConstitutiveFit).filter_by(test_id=test_id).delete()

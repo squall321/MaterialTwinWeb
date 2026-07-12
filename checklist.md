@@ -135,3 +135,11 @@
 - [x] 웹 기본 대표 시편이 invalid 시험일 수 있어 insights·mcp와 갈림(MED) — valid 우선 defaultActiveId
 - [x] upload sniffMut.onError가 영어 원문 토스트(MED) — errorMessage(e)
 - [x] mcp 읽기·카드·검색·plot 에러가 영어·모양 불일치(MED~LOW) — 한국어 통일 + get_curve/plot_curve read_curve 가드 + search_by_property valid 필터
+
+### 적대적 리뷰 라운드 5 — 동시성·스케일 (2026-07-12, 멀티프로세스 재현, 전부 해결)
+- [x] 웹 _load_curve TOCTOU: 동시 delete↔read에서 FileNotFoundError→HTTP 500(MED) — read 가드로 404
+- [x] 시편 라벨 경합: 동시 등록이 같은 S1 조용히 중복(MED) — UNIQUE(material_id,label)+_add_specimen 재시도, 8-way 재현 검증
+- [x] ProcessedResult 업서트 경합: pr 없는 test 동시 재계산 IntegrityError 크래시(MED) — commit try/except rollback→UPDATE (웹+MCP)
+- [x] 저모듈러스(E<10MPa) truthiness 필터 누락으로 대시보드 수치 불일치(MED) — is-not-None 필터 + _g 정밀도
+- [x] MCP list_materials N+1 + limit 상한 없음(MED) — 단일 outerjoin + limit≤200
+- [~] 인사이트 5엔드포인트 각자 _material_rows 풀스캔(MED, 성능) — N+1 이미 제거로 각 1쿼리, 대규모(수천)에서만 유의미. 결합 엔드포인트는 API+프런트 변경 필요라 보류.

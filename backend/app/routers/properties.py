@@ -8,6 +8,7 @@ from urllib.parse import quote
 import numpy as np
 from fastapi import APIRouter, Body, Depends, HTTPException, Query, status
 from fastapi.responses import StreamingResponse
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from app import analysis, curve_store, fitting, true_stress, viscoelastic
@@ -62,10 +63,12 @@ def _load_curve(db: Session, tid: int):
     ref = db.query(RawCurveRef).filter(RawCurveRef.test_id == tid).one_or_none()
     if ref is None or ref.storage != "parquet_fs":
         raise HTTPException(status_code=404, detail="curve not available")
-    path = curve_store.curve_path(tid)
-    if not path.exists():
+    # exists() 통과 후 read 사이에 다른 프로세스가 파일을 삭제하는 TOCTOU 창이 있어
+    # read를 직접 가드한다(동시 delete↔read 경합에서 500 대신 graceful 404).
+    try:
+        return curve_store.read_curve(tid)
+    except (FileNotFoundError, OSError):
         raise HTTPException(status_code=404, detail="curve file missing")
-    return curve_store.read_curve(tid)
 
 
 # kind → (x컬럼, y컬럼). nominal=공칭 σ-ε, force_disp=하중-변위, relaxation=점탄성 완화 E(t).
@@ -183,24 +186,34 @@ def compute_properties(
         kwargs["e_range"] = tuple(e_range)
     metrics = analysis.compute_all(strain, stress, A0=None, **kwargs)
 
-    pr = (
-        db.query(ProcessedResult)
-        .filter(ProcessedResult.test_id == tid)
-        .one_or_none()
-    )
+    def _fill(pr: ProcessedResult) -> None:
+        pr.youngs_modulus_pa = metrics["youngs_modulus_pa"]
+        pr.yield_strength_pa = metrics["yield_strength_pa"]
+        pr.uts_pa = metrics["uts_pa"]
+        pr.uniform_elongation = metrics["uniform_elongation"]
+        pr.fracture_elongation = metrics["fracture_elongation"]
+        pr.strain_hardening_n = metrics["strain_hardening_n"]
+        pr.strength_coeff_k_pa = metrics["strength_coeff_k_pa"]
+        pr.params = metrics["params"].model_dump()
+        pr.extra_metrics = metrics["extra_metrics"]
+
+    pr = db.query(ProcessedResult).filter(ProcessedResult.test_id == tid).one_or_none()
     if pr is None:
+        # 동시 재계산 경합: 둘 다 pr=None을 읽고 INSERT하면 test_id UNIQUE 위반 →
+        # IntegrityError를 잡아 rollback 후 기존 행을 재조회해 UPDATE로 전환.
         pr = ProcessedResult(test_id=tid, params={})
+        _fill(pr)
         db.add(pr)
-    pr.youngs_modulus_pa = metrics["youngs_modulus_pa"]
-    pr.yield_strength_pa = metrics["yield_strength_pa"]
-    pr.uts_pa = metrics["uts_pa"]
-    pr.uniform_elongation = metrics["uniform_elongation"]
-    pr.fracture_elongation = metrics["fracture_elongation"]
-    pr.strain_hardening_n = metrics["strain_hardening_n"]
-    pr.strength_coeff_k_pa = metrics["strength_coeff_k_pa"]
-    pr.params = metrics["params"].model_dump()
-    pr.extra_metrics = metrics["extra_metrics"]
-    db.commit()
+        try:
+            db.commit()
+        except IntegrityError:
+            db.rollback()
+            pr = db.query(ProcessedResult).filter(ProcessedResult.test_id == tid).one()
+            _fill(pr)
+            db.commit()
+    else:
+        _fill(pr)
+        db.commit()
     db.refresh(pr)
     return PropertiesOut.model_validate(pr)
 

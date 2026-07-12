@@ -202,3 +202,15 @@ fastapi_react 스택 레시피 그대로 재현: git archive 작업본 → pnpm 
 - **MED~LOW** mcp 에러 표기 혼재(영어·dict/list/str) — 읽기도구·get_mat_card·search·plot 전부 한국어화, get_curve/plot_curve read_curve FileNotFoundError 가드, search_by_property에 Test.valid 필터(웹 정합).
 검증: pytest 110 passed(정합성 테스트 2건 추가), 프런트 빌드, 웹 상세(탄소성·점탄성) 브라우저 렌더 정상.
 누적: 자율 루프 4라운드 적대적 리뷰로 실결함 30건 발견·수정(라운드1:13, 2:3, 3:8, 4:6).
+
+## 2026-07-12 — 사이클 11: 적대적 리뷰 라운드 5 (동시성·스케일, 멀티프로세스 재현)
+
+웹↔MCP 공유 SQLite에서 실제 멀티프로세스/스레드로 재현한 확정 6건 중 5건 수정(1건 성능은 보류).
+- **MED** 웹 _load_curve TOCTOU(exists 후 read 사이 삭제)→500 — read를 FileNotFoundError/OSError 가드로 404(MCP는 이미 가드였음).
+- **MED** 시편 라벨 경합: _next_label COUNT+1이 동시 등록에서 같은 S1 조용히 중복(UNIQUE 부재) — Specimen UNIQUE(material_id,label) + 마이그레이션 a72e1f3c8b90 + _add_specimen 재시도 헬퍼. **8-way 동시 등록 재현으로 S1~S8 유일 확인**(이전 S1×8).
+- **MED** ProcessedResult 업서트(SELECT→INSERT) 경합: pr 없는 test 동시 재계산 시 test_id UNIQUE 위반 크래시 — commit을 try/except IntegrityError→rollback→재조회 UPDATE로(웹 compute_properties + MCP recompute_properties 양쪽).
+- **MED** 저모듈러스(E<0.1GPa) _g 2자리 반올림 0.0→truthiness 필터 누락으로 property_space/family_stats vs property_stats 불일치 — is-not-None 필터 + _g 작은값 정밀도.
+- **MED** MCP list_materials N+1(재료당 2쿼리)+limit 상한 없음 — 단일 outerjoin(insights와 동일 패턴)+limit≤200.
+- 보류: 인사이트 5엔드포인트 각자 _material_rows(각 1쿼리로 이미 최적, 수천 재료 전엔 무의미, 결합은 프런트 변경 필요).
+검증: pytest 112 passed, 마이그레이션 SQLite/PG 양쪽 클린+downgrade 왕복, 8-way 동시등록 재현.
+누적: 5라운드 적대적 리뷰로 실결함 36건 발견(1:13,2:3,3:8,4:6,5:6), 35건 수정.

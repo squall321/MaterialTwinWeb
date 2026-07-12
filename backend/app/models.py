@@ -12,6 +12,7 @@ from sqlalchemy import (
     Integer,
     String,
     Text,
+    UniqueConstraint,
     func,
 )
 from sqlalchemy.orm import Mapped, mapped_column, relationship
@@ -61,6 +62,9 @@ class Specimen(Base):
             " OR (geometry_type = 'round' AND diameter_m IS NOT NULL)",
             name="ck_specimen_geometry_dims",
         ),
+        # 재료 내 시편 라벨은 유일 — 동시 등록이 COUNT 기반 라벨을 경합해 같은 'S1'을
+        # 조용히 중복 생성하던 것을 IntegrityError로 표면화(등록 도구가 재시도).
+        UniqueConstraint("material_id", "label", name="uq_specimen_material_label"),
     )
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)

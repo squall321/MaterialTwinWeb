@@ -84,7 +84,12 @@ def _material_rows(session: Session) -> list[dict]:
 
 
 def _g(pa):
-    return round(pa / 1e9, 2) if isinstance(pa, (int, float)) else None
+    # GPa. 저모듈러스(폼·겔 등 E<10MPa=0.01GPa)가 2자리 반올림으로 0.0이 되면
+    # truthiness 필터에서 누락되므로, 작은 값은 유효숫자를 더 남긴다.
+    if not isinstance(pa, (int, float)):
+        return None
+    g = pa / 1e9
+    return round(g, 2) if g >= 0.1 else round(g, 6)
 
 
 def _m(pa):
@@ -120,7 +125,7 @@ def property_space(session: Session) -> dict:
     """Ashby 물성공간 산점: 재료별 (E, UTS, 밀도, 비물성, 클래스). 탄소성만(강도 정의)."""
     pts = []
     for r in _material_rows(session):
-        if r.get("kind") == "elastoplastic" and r.get("E_gpa") and r.get("uts_mpa"):
+        if r.get("kind") == "elastoplastic" and r.get("E_gpa") is not None and r.get("uts_mpa") is not None:
             rho = r.get("density_g_cm3")
             pts.append({"name": r["name"], "id": r["id"], "cls": r["cls"], "family": r["family"],
                         "E_gpa": r["E_gpa"], "uts_mpa": r["uts_mpa"], "yield_mpa": r.get("yield_mpa"),
@@ -157,7 +162,7 @@ def family_stats(session: Session) -> dict:
     이것이 '그룹 간 차이'의 핵심: E(log 권장)·UTS·밀도·비강도·비강성을 계열마다 5수치로.
     """
     rows = [r for r in _material_rows(session)
-            if r.get("kind") == "elastoplastic" and r.get("E_gpa") and r.get("uts_mpa")]
+            if r.get("kind") == "elastoplastic" and r.get("E_gpa") is not None and r.get("uts_mpa") is not None]
     by_fam: dict[str, list] = defaultdict(list)
     for r in rows:
         by_fam[r["family"]].append(r)
