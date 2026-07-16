@@ -1,15 +1,19 @@
 # SQLAlchemy 엔진/세션/Base + SQLite PRAGMA(FK ON/WAL/busy_timeout) 리스너와 init_db.
 from __future__ import annotations
 
+import logging
 from collections.abc import Generator
 from datetime import timezone
+from pathlib import Path
 
-from sqlalchemy import DateTime, create_engine, event
+from sqlalchemy import DateTime, create_engine, event, inspect
 from sqlalchemy.engine import Engine
 from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
 from sqlalchemy.types import TypeDecorator
 
 from app.config import get_settings
+
+logger = logging.getLogger("materialtwin.db")
 
 settings = get_settings()
 
@@ -83,11 +87,50 @@ def get_db() -> Generator[Session, None, None]:
         db.close()
 
 
+def _alembic_config():
+    """backend/alembic.ini 기반 Config. script_location=%(here)s/migrations 자동 해석."""
+    from alembic.config import Config
+
+    ini = Path(__file__).resolve().parent.parent / "alembic.ini"
+    cfg = Config(str(ini))
+    cfg.set_main_option("sqlalchemy.url", settings.database_url)
+    cfg.attributes["configure_logger"] = False  # 앱 로깅 유지.
+    return cfg
+
+
+def _apply_schema() -> None:
+    """스키마를 alembic로 관리해 볼륨 지속 시 스키마 드리프트를 없앤다.
+
+    - 빈 DB: create_all + stamp head(현재 모델로 생성 후 버전 고정 — 빠르고 정확).
+    - 버전 DB: upgrade head(누적 마이그레이션 적용 — 구 배포 볼륨을 최신화).
+    - 레거시(테이블 有·버전 無): create_all(누락 보완) + stamp head + 경고.
+    create_all이 기존 테이블을 ALTER하지 않아 발생하던 배포 볼륨 스키마 드리프트 해소.
+    """
+    from alembic import command
+
+    insp = inspect(engine)
+    tables = set(insp.get_table_names())
+    cfg = _alembic_config()
+
+    if "alembic_version" in tables:
+        command.upgrade(cfg, "head")
+    elif "material" not in tables:
+        Base.metadata.create_all(bind=engine)
+        command.stamp(cfg, "head")
+    else:
+        logger.warning(
+            "create_all 출신 DB(버전 없음) 감지 — head로 stamp(스키마가 head와 일치 가정). "
+            "구 스키마라면 재생성 필요."
+        )
+        Base.metadata.create_all(bind=engine)
+        command.stamp(cfg, "head")
+
+
 def init_db() -> None:
-    """테이블 생성 + DATA_DIR/curves 디렉터리 보장."""
+    """스키마 적용(alembic 관리) + DATA_DIR/curves 디렉터리 보장."""
     # 모델 등록을 위해 import(순환 회피용 지연 import).
     from app import models  # noqa: F401
 
     settings.data_dir.mkdir(parents=True, exist_ok=True)
     settings.curves_dir.mkdir(parents=True, exist_ok=True)
-    Base.metadata.create_all(bind=engine)
+    _apply_schema()

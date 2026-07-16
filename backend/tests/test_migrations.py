@@ -86,6 +86,49 @@ def test_migrated_db_accepts_relaxation_strain_source(db_url):
     assert "AUTOINCREMENT" in ddl
 
 
+def _boot_init_db(db_url: str, data_dir: str) -> None:
+    """깨끗한 서브프로세스에서 init_db 실행(모듈 리로드 오염 회피 — engine은 모듈 레벨)."""
+    import os
+    import subprocess
+    import sys
+
+    env = {**os.environ, "MATERIALTWIN_DATABASE_URL": db_url, "MATERIALTWIN_DATA_DIR": data_dir}
+    subprocess.run([sys.executable, "-c", "from app.db import init_db; init_db()"],
+                   env=env, check=True, cwd=str(_BACKEND))
+
+
+def test_boot_migrates_old_versioned_db(db_url, tmp_path):
+    # 부팅(init_db)이 구 버전 볼륨 DB를 head까지 마이그레이션해야 한다.
+    # (배포 볼륨 스키마 드리프트 근절 — create_all은 기존 테이블을 ALTER 안 함.)
+    import sqlite3
+
+    command.upgrade(_alembic_cfg(db_url), "c7b6cca38dc2")  # relaxation CHECK 이전.
+    path = db_url.replace("sqlite:///", "")
+    old = sqlite3.connect(path).execute("SELECT sql FROM sqlite_master WHERE name='test'").fetchone()[0]
+    assert "relaxation" not in old  # 구 스키마 확인.
+
+    _boot_init_db(db_url, str(tmp_path))  # 부팅 → head까지 자동 마이그레이션.
+
+    con = sqlite3.connect(path)
+    test_sql = con.execute("SELECT sql FROM sqlite_master WHERE name='test'").fetchone()[0]
+    spec_sql = con.execute("SELECT sql FROM sqlite_master WHERE name='specimen'").fetchone()[0]
+    ver = con.execute("SELECT version_num FROM alembic_version").fetchone()[0]
+    assert "relaxation" in test_sql and "AUTOINCREMENT" in test_sql
+    assert "uq_specimen_material_label" in spec_sql
+    assert ver == "a72e1f3c8b90"  # head.
+
+
+def test_boot_fresh_db_is_versioned_at_head(db_url, tmp_path):
+    # 빈 DB 부팅 → 현재 스키마 + head로 스탬프(버전화 — 이후 마이그레이션 적용 가능).
+    import sqlite3
+
+    _boot_init_db(db_url, str(tmp_path))
+    con = sqlite3.connect(db_url.replace("sqlite:///", ""))
+    ver = con.execute("SELECT version_num FROM alembic_version").fetchone()[0]
+    sql = con.execute("SELECT sql FROM sqlite_master WHERE name='test'").fetchone()[0]
+    assert ver == "a72e1f3c8b90" and "relaxation" in sql
+
+
 def test_no_model_migration_drift(db_url):
     # 모델과 마이그레이션이 어긋나면(컬럼 추가 후 마이그레이션 누락 등) CommandError.
     cfg = _alembic_cfg(db_url)

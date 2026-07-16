@@ -155,4 +155,4 @@
 - [x] 근본원인: port_allocator가 OS 점유 미확인으로 9100(node_exporter) 배정 → socket bind 검사로 점유 포트 스킵 (HEAXHub 커밋 59c666e)
 - [x] 구 스키마 볼륨 DB 재생성 + 포트 9118 재배정 + caddy 등록 (백엔드 재시작 없이 launcher 재호출)
 - [x] Drive 병합으로 70종 시드 → 포털에서 조회·인사이트·곡선 전부 렌더 검증
-- [ ] (후속) 앱 부팅 create_all→alembic upgrade head (볼륨 스키마 드리프트 근절)
+- [x] (후속) 앱 부팅 create_all→alembic 관리(빈DB create_all+stamp head, 버전DB upgrade head) — 구버전 볼륨 자동 마이그레이션, 배포 볼륨 stamp head
