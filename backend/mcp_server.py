@@ -20,6 +20,7 @@ matplotlib.use("Agg")  # 헤드리스 렌더.
 import matplotlib.pyplot as plt
 from mcp.server.fastmcp import FastMCP
 from mcp.server.fastmcp.utilities.types import Image
+from mcp.server.transport_security import TransportSecuritySettings
 from sqlalchemy import func
 
 from app import analysis, curve_store, fitting, insights, viscoelastic
@@ -29,7 +30,27 @@ from app.models import ConstitutiveFit, Material, ProcessedResult, RawCurveRef, 
 from app.routers.properties import _plastic_true
 from app.unit_systems import get_system
 
-mcp = FastMCP("materialtwin")
+# HTTP 모드(웹앱 /mcp 마운트)는 loopback 바인드 + 앞단 프록시(HEAXHub Caddy)가 신뢰 경계다.
+# 프록시 체인이 Host를 포털 도메인으로 전달하므로 Host 검증(DNS rebinding 보호)은 끄고,
+# 외부 노출 차단은 127.0.0.1 바인드가 담당한다 (laminate_analyzer_mcp와 동일 결정).
+# stdio 모드에는 영향 없는 설정이다.
+mcp = FastMCP(
+    "materialtwin",
+    transport_security=TransportSecuritySettings(enable_dns_rebinding_protection=False),
+)
+
+# HTTP(streamable) 서브앱을 부모 FastAPI의 /mcp에 그대로 마운트하기 위해 내부 경로를 "/"로 둔다.
+# 기본값 "/mcp"면 /mcp에 마운트할 때 최종 경로가 /mcp/mcp가 된다. stdio 실행에는 무영향.
+mcp.settings.streamable_http_path = "/"
+
+# 파괴적 삭제 툴 노출 정책. 기본은 노출(개인 stdio = 전체 신뢰).
+# 페더레이션 HTTP 진입점(app.main)이 이 값을 "0"으로 기본 설정 → 중앙 게이트웨이에는 삭제 툴 미노출.
+_ALLOW_DELETE = os.environ.get("MATERIALTWIN_MCP_ALLOW_DELETE", "1") == "1"
+
+
+def _destructive_tool(fn):
+    """MATERIALTWIN_MCP_ALLOW_DELETE=0이면 등록하지 않아 툴 목록에서 숨긴다(페더레이션 안전)."""
+    return mcp.tool()(fn) if _ALLOW_DELETE else fn
 
 
 def _mpa(v):
@@ -109,7 +130,8 @@ def get_material(material_id: int) -> dict:
                                 yield_MPa=_mpa(pr.yield_strength_pa), UTS_MPa=_mpa(pr.uts_pa),
                                 elong_pct=round((pr.fracture_elongation or 0) * 100, 1))
                 tests.append(info)
-            specs.append({"specimen_id": sp.id, "label": sp.label, "tests": tests})
+            specs.append({"specimen_id": sp.id, "label": sp.label,
+                          "orientation": sp.orientation, "standard": sp.standard, "tests": tests})
         return {"id": mat.id, "name": mat.name, "category": mat.category,
                 "description": mat.description, "attributes": mat.attributes, "specimens": specs}
 
@@ -417,22 +439,26 @@ def _validate_arrays(x: list[float], y: list[float], xname: str, yname: str,
 
 @mcp.tool()
 def register_material(name: str, category: str = "metal", material_code: str | None = None,
-                      description: str | None = None) -> dict:
+                      description: str | None = None, attributes: dict | None = None) -> dict:
     """새 재료를 등록한다. category: metal/polymer/rubber/composite/ceramic/foam.
 
-    material_code는 전사 고유코드(중복 시 에러). 등록 후 register_tensile_test 또는
-    register_relaxation_test로 시험 데이터를 붙인다.
+    material_code는 전사 고유코드(중복 시 에러). attributes로 자유형 JSON(포아송비 nu,
+    전단탄성계수 G_MPa 등 수동 상수)을 함께 저장할 수 있다. 등록 후 register_tensile_test
+    또는 register_relaxation_test로 시험 데이터를 붙인다.
     """
     name = (name or "").strip()
     if not name or len(name) > 200:
         return {"error": "name은 1~200자 필수입니다."}
     if category not in _VALID_CATEGORIES:
         return {"error": f"category는 {'/'.join(_VALID_CATEGORIES)} 중 하나여야 합니다."}
+    if attributes is not None and not isinstance(attributes, dict):
+        return {"error": "attributes는 객체(dict)여야 합니다."}
+    attrs = {"source": "mcp", **(attributes or {})}
     from sqlalchemy.exc import IntegrityError
     with SessionLocal() as s:
         mat = Material(name=name, material_code=material_code or None, category=category,
                        description=(description or None),
-                       attributes={"source": "mcp"})
+                       attributes=attrs)
         s.add(mat)
         try:
             s.commit()
@@ -449,11 +475,13 @@ def register_tensile_test(material_id: int, strain: list[float], stress_mpa: lis
                           gauge_length_mm: float = _DEF_GAUGE_MM,
                           width_mm: float = _DEF_WIDTH_MM,
                           thickness_mm: float = _DEF_THICK_MM,
-                          strain_source: str = "extensometer") -> dict:
+                          strain_source: str = "extensometer",
+                          orientation: str | None = None) -> dict:
     """인장시험 곡선(공칭 변형률[무차원]·공칭 응력[MPa])을 등록하고 물성·피팅까지 자동 계산.
 
     시편을 자동 생성(치수 mm)하고 곡선 저장 → E·항복·UTS·연신 계산 →
     Hollomon/Swift/Voce/Johnson-Cook 피팅까지 수행한다. 저항복 재료는 탄성창을 자동 보정.
+    orientation: 시편 방위(예: "0"/"90"/"45", "RD"/"TD") — 이방성·적층 해석용, 선택.
     """
     err = _validate_arrays(strain, stress_mpa, "strain", "stress_mpa")
     if err:
@@ -481,7 +509,7 @@ def register_tensile_test(material_id: int, strain: list[float], stress_mpa: lis
                              f"({mat.category or 'metal'} 상한) — 무차원 변형률이어야 합니다(% 아님)."}
         spec = _add_specimen(s, material_id, label=specimen_label,
                              geometry_type="flat", gauge_length_m=L0, width_m=W0, thickness_m=T0,
-                             area0_m2=A0, standard="mcp")
+                             area0_m2=A0, standard="mcp", orientation=orientation)
         test = Test(specimen_id=spec.id, test_type="tensile", strain_source=strain_source,
                     source_format="mcp", valid=True)
         s.add(test); s.commit()  # test.id 확정(C2).
@@ -695,10 +723,17 @@ def register_relaxation_test(material_id: int,
 
 @mcp.tool()
 def update_material(material_id: int, name: str | None = None, category: str | None = None,
-                    description: str | None = None, material_code: str | None = None) -> dict:
-    """재료 메타데이터를 부분 수정한다(전달한 필드만 갱신)."""
+                    description: str | None = None, material_code: str | None = None,
+                    attributes: dict | None = None) -> dict:
+    """재료 메타데이터를 부분 수정한다(전달한 필드만 갱신).
+
+    attributes: 자유형 JSON을 기존 값에 얕은 병합(키 단위 덮어쓰기). 단축인장에서
+    나오지 않는 상수(포아송비 nu, 전단탄성계수 G_MPa 등)나 방위·출처 메모를 저장한다.
+    """
     if category is not None and category not in _VALID_CATEGORIES:
         return {"error": f"category는 {'/'.join(_VALID_CATEGORIES)} 중 하나여야 합니다."}
+    if attributes is not None and not isinstance(attributes, dict):
+        return {"error": "attributes는 객체(dict)여야 합니다."}
     from sqlalchemy.exc import IntegrityError
     with SessionLocal() as s:
         mat = s.get(Material, material_id)
@@ -714,16 +749,20 @@ def update_material(material_id: int, name: str | None = None, category: str | N
             mat.description = description or None
         if material_code is not None:
             mat.material_code = material_code or None
+        if attributes is not None:
+            # JSON 컬럼은 새 dict 재대입으로 변경을 감지시킨다(in-place 변경은 누락 위험).
+            mat.attributes = {**(mat.attributes or {}), **attributes}
         try:
             s.commit()
         except IntegrityError:
             s.rollback()
             return {"error": f"material_code '{material_code}'가 이미 존재합니다."}
         return {"material_id": mat.id, "name": mat.name, "category": mat.category,
-                "material_code": mat.material_code, "message": "수정 완료."}
+                "material_code": mat.material_code, "attributes": mat.attributes,
+                "message": "수정 완료."}
 
 
-@mcp.tool()
+@_destructive_tool
 def delete_material(material_id: int, confirm: bool = False) -> dict:
     """재료와 하위 시편·시험·곡선을 삭제한다(파괴적 — confirm=True 필요).
 
@@ -747,7 +786,7 @@ def delete_material(material_id: int, confirm: bool = False) -> dict:
     return {"deleted": name, "tests_removed": len(tids), "message": "삭제 완료."}
 
 
-@mcp.tool()
+@_destructive_tool
 def delete_test(test_id: int, confirm: bool = False) -> dict:
     """시험 1건과 곡선·물성·피팅을 삭제한다(파괴적 — confirm=True 필요)."""
     with SessionLocal() as s:

@@ -17,6 +17,9 @@ dependencies = [
     "charset-normalizer>=3",
     "pyyaml>=6",
     "alembic>=1.13",
+    # MCP 서버(stdio + 웹앱 /mcp 마운트)와 곡선 PNG 도구(plot_*) 의존성 — SIF 빌드에 포함되어야 함.
+    "mcp>=1.10",
+    "matplotlib>=3.8",
 ]
 
 [project.optional-dependencies]

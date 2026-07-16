@@ -1,7 +1,7 @@
 schema_version: 2
 id: materialtwin_web
 name: MaterialTwin Web
-version: 1.0.0
+version: 1.1.0
 owner: cae-automation
 app_type: web_app
 execution_target: linux_runner
@@ -54,3 +54,11 @@ source:
   type: git
   url: https://github.com/squall321/MaterialTwinWeb.git
   ref: main
+
+# HWAX MCP Gateway 자동탐지 opt-in — HEAXHub /api/v1/mcp/servers 레지스트리에 노출되어
+# 중앙 게이트웨이가 이 앱의 MCP(/mcp, 웹앱 마운트)를 자동 흡수한다.
+# HTTP 표면은 삭제 툴 비노출(MATERIALTWIN_MCP_ALLOW_DELETE=0 기본, app/main.py).
+mcp:
+  expose: true
+  path: /mcp
+  transport: streamable_http
