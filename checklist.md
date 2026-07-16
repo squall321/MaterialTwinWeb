@@ -150,3 +150,9 @@
 - [x] scripts/drive-sync/ — sync-to-drive(번들+SIF·retain·sha256)·sync-from-drive(pull→병합)·PROJECT.conf·_common.sh
 - [x] SIF: sha256+버전명+LATEST+retain, 덮어쓰기 없이 .bak 보존
 - [x] 실 Drive 라운드트립: 운영DB(1종)→Drive pull 병합→71종(70추가+운영전용강 보존 True)
+
+### HEAXHub 포털 배포 복구 (2026-07-16)
+- [x] 근본원인: port_allocator가 OS 점유 미확인으로 9100(node_exporter) 배정 → socket bind 검사로 점유 포트 스킵 (HEAXHub 커밋 59c666e)
+- [x] 구 스키마 볼륨 DB 재생성 + 포트 9118 재배정 + caddy 등록 (백엔드 재시작 없이 launcher 재호출)
+- [x] Drive 병합으로 70종 시드 → 포털에서 조회·인사이트·곡선 전부 렌더 검증
+- [ ] (후속) 앱 부팅 create_all→alembic upgrade head (볼륨 스키마 드리프트 근절)
