@@ -44,6 +44,17 @@ python -m app.sync export out.tar.gz    # DB → 번들
 python -m app.sync import bundle.tar.gz  # 번들 → DB (병합, 삭제 없음)
 ```
 
+## 자동 백업 (cron)
+포털 배포 데이터를 주기적으로 Drive에 백업한다(SignalForge와 동일 패턴). 등록 예:
+```cron
+# 배포 볼륨 데이터 → Drive, 30분마다 (retain 5)
+*/30 * * * * HEAX_DATA_DIR=/…/HEAXHub/var/app_data/materialtwin_web /bin/bash /…/scripts/drive-sync/sync-to-drive.sh --no-sif >> ~/mtw-sync.log 2>&1
+# SIF 이미지 → Drive, 매일 (동일 sha면 skip)
+25 5 * * * /bin/bash /…/scripts/drive-sync/sync-to-drive.sh --no-data >> ~/mtw-sync.log 2>&1
+```
+`HEAX_DATA_DIR`를 배포 볼륨으로 줘야 개발 DB가 아닌 **포털 실데이터**를 백업한다.
+복원은 `sync-from-drive.sh`(병합 — 운영 추가분 보존). 데이터 수명주기: 자동 백업(↑) + 병합 복원(↓).
+
 ## 사전 준비
 - `rclone` + `ApptainerImages:` Google Drive 리모트 설정(SignalForge와 공유).
 - 백엔드 `.venv`(Python 3.12).
