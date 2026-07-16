@@ -143,3 +143,10 @@
 - [x] 저모듈러스(E<10MPa) truthiness 필터 누락으로 대시보드 수치 불일치(MED) — is-not-None 필터 + _g 정밀도
 - [x] MCP list_materials N+1 + limit 상한 없음(MED) — 단일 outerjoin + limit≤200
 - [~] 인사이트 5엔드포인트 각자 _material_rows 풀스캔(MED, 성능) — N+1 이미 제거로 각 1쿼리, 대규모(수천)에서만 유의미. 결합 엔드포인트는 API+프런트 변경 필요라 보류.
+
+### Google Drive 데이터·SIF 동기화 (2026-07-16, 손실 없는 병합, 실 Drive 검증)
+- [x] app/sync.py — 이식가능 번들 export(안정키 material_code/name·test content-hash) + 병합 import(union, 삭제 없음)
+- [x] python -m app.sync CLI + pytest 4(멱등·운영추가보존·신규추가·시험복원)
+- [x] scripts/drive-sync/ — sync-to-drive(번들+SIF·retain·sha256)·sync-from-drive(pull→병합)·PROJECT.conf·_common.sh
+- [x] SIF: sha256+버전명+LATEST+retain, 덮어쓰기 없이 .bak 보존
+- [x] 실 Drive 라운드트립: 운영DB(1종)→Drive pull 병합→71종(70추가+운영전용강 보존 True)

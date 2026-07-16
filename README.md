@@ -7,6 +7,7 @@
 - **backend/** — FastAPI + SQLAlchemy(SQLite↔Postgres) + Alembic. 단일 SIF로 프런트(`frontend/dist`)를 StaticFiles 서빙.
 - **frontend/** — Vite + React + TypeScript, 상대경로·해시 라우팅(`/apps/<slug>/` 서브패스 대응), ECharts.
 - **backend/mcp_server.py** — MCP(stdio) 서버. → [docs/MCP.md](docs/MCP.md)
+- **scripts/drive-sync/** — Google Drive 데이터·SIF 동기화(손실 없는 병합). → [scripts/drive-sync/README.md](scripts/drive-sync/README.md)
 - **docs/** — [intro.html](docs/intro.html)(비전) · [showcase.html](docs/showcase.html)(시연) · [MCP.md](docs/MCP.md)
 
 ## 기능 현황 (2026-07 기준)

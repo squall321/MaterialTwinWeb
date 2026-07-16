@@ -214,3 +214,12 @@ fastapi_react 스택 레시피 그대로 재현: git archive 작업본 → pnpm 
 - 보류: 인사이트 5엔드포인트 각자 _material_rows(각 1쿼리로 이미 최적, 수천 재료 전엔 무의미, 결합은 프런트 변경 필요).
 검증: pytest 112 passed, 마이그레이션 SQLite/PG 양쪽 클린+downgrade 왕복, 8-way 동시등록 재현.
 누적: 5라운드 적대적 리뷰로 실결함 36건 발견(1:13,2:3,3:8,4:6,5:6), 35건 수정.
+
+## 2026-07-16 — Google Drive 데이터·SIF 동기화 (손실 없는 병합)
+
+SignalForge drive-sync 패턴 재사용하되 MaterialTwin(SQLite+Parquet)에 맞게 재설계. 핵심 차이: raw restore(덮어쓰기)가 아니라 **union 병합**.
+- **app/sync.py**: build_bundle/export_bundle(DB→tar.gz: manifest.json + content-addressed curves/<hash>.parquet) + import_bundle(merge=True). 재료 안정키=material_code 우선/없으면 name(소문자), 시험 식별=content_hash(test_type+strain_source+곡선내용 sha). 병합은 기존 재료·시험 삭제 없음, content_hash 중복 skip, 라벨 충돌 접미사. import에서 write_curve로 새 test.id 경로에 곡선 재저장.
+- **scripts/drive-sync/**: PROJECT.conf(rclone ApptainerImages 리모트·MaterialTwin 폴더·retain5)·_common.sh(prune·sha256)·sync-to-drive.sh(번들+SIF push, 동일 sha SIF skip, LATEST.json)·sync-from-drive.sh(최신 번들 병합 import + SIF latest, 기존 SIF는 .bak 보존).
+- **SIF도 손실 없음**: 버전명 mtw-<TS>-<sha12>.sif, latest 포인터, retain N, 받을 때 기존은 .bak. 306MB라 dry-run 검증(데이터 경로와 동일 메커니즘).
+- 검증: pytest 116 passed(sync 4). **실 Google Drive 라운드트립** — 개발DB 70종 실업로드→운영DB(운영전용강 1종)에 pull 병합→71종, 운영전용강 보존 True, sha256 OK, 재임포트 멱등(0 추가).
+배포 시 HEAX_DATA_DIR 볼륨 DB에 병합 — 운영 업로드 데이터를 지우지 않고 시연/기준 데이터를 추가할 수 있다.
