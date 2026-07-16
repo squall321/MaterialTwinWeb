@@ -276,3 +276,34 @@ def test_recompute_properties_window(mcp_env):
     assert "error" not in r
     assert r["properties"]["E_GPa"] == pytest.approx(200.0, rel=0.01)
     assert "error" in M.recompute_properties(tid, e_min=0.5, e_max=0.1)  # 역전 범위.
+
+
+# ── attributes 병합: 단축인장에서 안 나오는 상수(nu·G) 저장처(페더레이션 갭 해소) ──────
+def test_register_and_update_material_attributes_merge(mcp_env):
+    M = mcp_env
+    # 등록 시 attributes로 포아송비를 함께 저장.
+    mid = M.register_material("적층용재", category="metal",
+                              attributes={"nu": 0.33})["material_id"]
+    got = M.get_material(mid)
+    assert got["attributes"]["nu"] == 0.33
+    assert got["attributes"]["source"] == "mcp"  # 기본값 보존.
+
+    # update_material로 전단탄성계수 병합 — 기존 키 보존, 신규 키 추가.
+    r = M.update_material(mid, attributes={"G_MPa": 75000})
+    assert "error" not in r
+    got2 = M.get_material(mid)
+    assert got2["attributes"]["nu"] == 0.33 and got2["attributes"]["G_MPa"] == 75000
+    # dict 아닌 attributes는 거부.
+    assert "error" in M.update_material(mid, attributes="nope")
+
+
+# ── orientation 입출력: 시편 방위(이방성·적층 해석용) 노출(페더레이션 갭 해소) ────────
+def test_register_tensile_orientation_exposed(mcp_env):
+    M = mcp_env
+    g = make_golden(n_points=300)
+    mid = M.register_material("압연판", category="metal")["material_id"]
+    r = M.register_tensile_test(mid, g.strain.tolist(), (g.stress / 1e6).tolist(),
+                                orientation="RD")
+    assert "error" not in r
+    specs = M.get_material(mid)["specimens"]
+    assert specs and specs[0]["orientation"] == "RD"

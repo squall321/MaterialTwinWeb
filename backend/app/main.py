@@ -49,26 +49,16 @@ def create_app() -> FastAPI:
     # MCP streamable HTTP — 웹과 동일 DB·계산 경로를 공유하는 도구(stdio와 동일 인스턴스).
     # session_manager는 인스턴스에 캐시되고 run()은 1회용이라, create_app 호출마다 리셋해
     # 이 앱 전용 매니저를 새로 만든다(테스트가 create_app을 반복 호출해도 lifespan이 안전).
+    #
+    # streamable_http_app()의 실체는 Route("/mcp", endpoint=StreamableHTTPASGIApp) 하나뿐
+    # (auth 미사용 → 미들웨어 없음). 이 Route를 메인 라우터에 그대로 이식하면 리다이렉트 없이
+    # exact "/mcp"로 매칭된다. app.mount("/mcp", ...)는 Mount 특성상 no-slash "/mcp"를 매칭
+    # 못해(307 리다이렉트/404) 프록시 체인(게이트웨이)에서 Location 재작성 문제를 유발하므로,
+    # 이식이 더 견고하다(laminate처럼 리다이렉트 없는 exact 엔드포인트). "/" 마운트보다 먼저 등록.
     # HWAXMcpGateway가 HEAXHub 레지스트리(manifest mcp.expose)로 /apps/<slug>/mcp를 흡수한다.
     materialtwin_mcp._session_manager = None
-    app.mount("/mcp", materialtwin_mcp.streamable_http_app(), name="mcp")
-
-    # Starlette Mount는 슬래시 없는 정확일치("/mcp")를 매칭하지 않아 요청이 마지막
-    # StaticFiles로 떨어져 405가 난다. 게이트웨이·클라이언트는 슬래시 없는 URL을 쓰므로
-    # 앞단에서 "/mcp" → "/mcp/"로 정규화한다. (순수 ASGI — SSE 스트리밍 안전,
-    # BaseHTTPMiddleware는 스트리밍을 버퍼링하므로 금지)
-    class _McpBarePathFix:
-        def __init__(self, app):  # add_middleware가 (next_app)으로 인스턴스화
-            self._next = app
-
-        async def __call__(self, scope, receive, send):
-            if scope["type"] == "http":
-                rp = scope.get("root_path", "")
-                if scope.get("path") in ("/mcp", f"{rp}/mcp"):
-                    scope = {**scope, "path": scope["path"] + "/"}
-            await self._next(scope, receive, send)
-
-    app.add_middleware(_McpBarePathFix)
+    for _route in materialtwin_mcp.streamable_http_app().routes:
+        app.router.routes.append(_route)
 
     # 정적 프런트엔드는 항상 마지막에 "/"로 마운트(있을 때만).
     dist = Path(__file__).resolve().parent.parent.parent / "frontend" / "dist"

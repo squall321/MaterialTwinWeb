@@ -56,6 +56,17 @@ source:
   ref: main
 
 # HWAX MCP Gateway 자동탐지 opt-in — HEAXHub /api/v1/mcp/servers 레지스트리에 노출되어
+# 중앙 게이트웨이가 이 앱의 MCP를 자동 흡수한다(웹앱과 동일 포트의 /mcp에 마운트, HEAX 서비스 PAT 중앙 주입).
+#   MCP 엔드포인트: /apps/materialtwin_web/mcp (streamable HTTP, 리다이렉트 없는 exact 경로)
+#   에이전트 등록 예) claude mcp add --transport http materialtwin <포털베이스>/apps/materialtwin_web/mcp
+# 안전장치: HTTP(페더레이션) 기본은 파괴적 삭제 툴(delete_material/delete_test)을 미노출한다
+# (app.main이 MATERIALTWIN_MCP_ALLOW_DELETE=0 기본 주입). 개인 stdio는 전체 툴 노출.
+mcp:
+  expose: true
+  path: /mcp
+  transport: streamable_http
+
+# HWAX MCP Gateway 자동탐지 opt-in — HEAXHub /api/v1/mcp/servers 레지스트리에 노출되어
 # 중앙 게이트웨이가 이 앱의 MCP(/mcp, 웹앱 마운트)를 자동 흡수한다.
 # HTTP 표면은 삭제 툴 비노출(MATERIALTWIN_MCP_ALLOW_DELETE=0 기본, app/main.py).
 mcp:

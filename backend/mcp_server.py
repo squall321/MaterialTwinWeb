@@ -39,10 +39,6 @@ mcp = FastMCP(
     transport_security=TransportSecuritySettings(enable_dns_rebinding_protection=False),
 )
 
-# HTTP(streamable) 서브앱을 부모 FastAPI의 /mcp에 그대로 마운트하기 위해 내부 경로를 "/"로 둔다.
-# 기본값 "/mcp"면 /mcp에 마운트할 때 최종 경로가 /mcp/mcp가 된다. stdio 실행에는 무영향.
-mcp.settings.streamable_http_path = "/"
-
 # 파괴적 삭제 툴 노출 정책. 기본은 노출(개인 stdio = 전체 신뢰).
 # 페더레이션 HTTP 진입점(app.main)이 이 값을 "0"으로 기본 설정 → 중앙 게이트웨이에는 삭제 툴 미노출.
 _ALLOW_DELETE = os.environ.get("MATERIALTWIN_MCP_ALLOW_DELETE", "1") == "1"
