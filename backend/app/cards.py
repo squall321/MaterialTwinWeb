@@ -7,6 +7,17 @@ from app.fitting import johnson_cook_card_params
 from app.unit_systems import UnitSystem, get_system
 
 
+def poisson_from_attributes(attributes: dict | None, default: float = 0.3) -> float:
+    """재료 attributes.nu가 물리적으로 유효한 등방 포아송비(0<nu<0.5)면 그 값, 아니면 기본값.
+
+    단축 인장은 포아송비를 산출하지 못하므로 사용자가 attributes에 수동 저장한 값을
+    카드의 PR 필드에 반영한다(미저장/무효 시 0.3 폴백).
+    """
+    nu = (attributes or {}).get("nu")
+    return float(nu) if isinstance(nu, (int, float)) and not isinstance(nu, bool) \
+        and 0 < float(nu) < 0.5 else default
+
+
 def _resample_curve(
     ep: np.ndarray, sig: np.ndarray, n: int = 20
 ) -> tuple[np.ndarray, np.ndarray]:

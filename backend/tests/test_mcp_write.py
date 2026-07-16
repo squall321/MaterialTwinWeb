@@ -307,3 +307,15 @@ def test_register_tensile_orientation_exposed(mcp_env):
     assert "error" not in r
     specs = M.get_material(mid)["specimens"]
     assert specs and specs[0]["orientation"] == "RD"
+
+
+# ── 저장된 포아송비가 LS-DYNA 카드 PR 필드에 반영(ν 갭의 카드측 마감) ──────────────
+def test_mat_card_uses_stored_poisson(mcp_env):
+    M = mcp_env
+    g = make_golden(n_points=400)
+    mid = M.register_material("포아송강", category="metal",
+                              attributes={"nu": 0.33})["material_id"]
+    tid = M.register_tensile_test(mid, g.strain.tolist(), (g.stress / 1e6).tolist())["test_id"]
+    card = M.get_mat_card(tid)
+    assert "error" not in card.lower()[:20]
+    assert "0.33" in card  # PR 필드가 기본 0.3이 아닌 저장값을 반영.

@@ -12,7 +12,7 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from app import analysis, curve_store, fitting, true_stress, viscoelastic
-from app.cards import lsdyna_mat024_card, lsdyna_mat098_card
+from app.cards import lsdyna_mat024_card, lsdyna_mat098_card, poisson_from_attributes
 from app.db import get_db
 from app.unit_systems import SYSTEMS, get_system
 from app.models import ConstitutiveFit, ProcessedResult, RawCurveRef, Test
@@ -341,7 +341,8 @@ def get_card(
         )
     df = _load_curve(db, tid)
     ep, st = _plastic_true(df, pr.youngs_modulus_pa)
-    label = test.specimen.material.name if test.specimen and test.specimen.material else f"test{tid}"
+    mat = test.specimen.material if test.specimen else None
+    label = mat.name if mat else f"test{tid}"
     gen = lsdyna_mat098_card if model == "johnson_cook" else lsdyna_mat024_card
     text = gen(
         title=label,
@@ -350,6 +351,7 @@ def get_card(
         plastic_strain=ep,
         true_stress=st,
         units=u,
+        nu=poisson_from_attributes(mat.attributes if mat else None),
     )
     tag = "MAT098_JC" if model == "johnson_cook" else "MAT024"
     fname = f"test_{tid}_{tag}_{u.key}.k"

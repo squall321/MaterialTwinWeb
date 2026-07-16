@@ -24,7 +24,7 @@ from mcp.server.transport_security import TransportSecuritySettings
 from sqlalchemy import func
 
 from app import analysis, curve_store, fitting, insights, viscoelastic
-from app.cards import lsdyna_mat024_card, lsdyna_mat098_card
+from app.cards import lsdyna_mat024_card, lsdyna_mat098_card, poisson_from_attributes
 from app.db import SessionLocal
 from app.models import ConstitutiveFit, Material, ProcessedResult, RawCurveRef, Specimen, Test
 from app.routers.properties import _plastic_true
@@ -210,7 +210,8 @@ def get_mat_card(test_id: int, units: str = "ton_mm_s", model: str = "piecewise"
         ep, st = _plastic_true(df, pr.youngs_modulus_pa)
         gen = lsdyna_mat098_card if model == "johnson_cook" else lsdyna_mat024_card
         return gen(title=mat.name, E_pa=pr.youngs_modulus_pa,
-                   yield_pa=pr.yield_strength_pa, plastic_strain=ep, true_stress=st, units=u)
+                   yield_pa=pr.yield_strength_pa, plastic_strain=ep, true_stress=st, units=u,
+                   nu=poisson_from_attributes(mat.attributes))
 
 
 @mcp.tool()
