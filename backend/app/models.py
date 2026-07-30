@@ -9,6 +9,7 @@ from sqlalchemy import (
     CheckConstraint,
     Float,
     ForeignKey,
+    Index,
     Integer,
     String,
     Text,
@@ -45,6 +46,11 @@ class Material(Base):
     )
 
     specimens: Mapped[list["Specimen"]] = relationship(
+        back_populates="material",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
+    )
+    property_values: Mapped[list["PropertyValue"]] = relationship(
         back_populates="material",
         cascade="all, delete-orphan",
         passive_deletes=True,
@@ -208,3 +214,118 @@ class ConstitutiveFit(Base):
     )
 
     test: Mapped["Test"] = relationship(back_populates="constitutive_fits")
+
+
+class PropertyDefinition(Base):
+    """물성 사전 — 채워야 할 화·물리 물성의 정규 레지스트리(도메인 taxonomy가 이 테이블).
+
+    key는 `domain.name` 형식의 안정 식별자(예: thermal.conductivity). si_unit은 정규 SI
+    단위(무차원·범주형은 NULL). condition_axes는 이 물성이 의존하는 조건 축 힌트.
+    """
+
+    __tablename__ = "property_definition"
+    __table_args__ = (
+        CheckConstraint(
+            "value_type IN ('numeric','vector','categorical','boolean')",
+            name="ck_propdef_value_type",
+        ),
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    key: Mapped[str] = mapped_column(String(80), unique=True, nullable=False)
+    domain: Mapped[str] = mapped_column(String(30), nullable=False)
+    name: Mapped[str] = mapped_column(String(120), nullable=False)
+    symbol: Mapped[str | None] = mapped_column(String(30), nullable=True)
+    si_unit: Mapped[str | None] = mapped_column(String(40), nullable=True)
+    value_type: Mapped[str] = mapped_column(String(20), nullable=False, default="numeric")
+    description: Mapped[str | None] = mapped_column(Text, nullable=True)
+    test_standard: Mapped[str | None] = mapped_column(String(120), nullable=True)
+    # 이 물성이 정의되는 조건 축(예: ["temperature_k","humidity_rh"]).
+    condition_axes: Mapped[list | None] = mapped_column(JSON, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(
+        UTCDateTime, nullable=False, server_default=func.now()
+    )
+
+    values: Mapped[list["PropertyValue"]] = relationship(back_populates="definition")
+
+
+class Source(Base):
+    """인용 레지스트리 — 값의 근거(문헌 DOI·서적 ISBN·DB·데이터시트·계산). DOI/해시로 dedup.
+
+    local_path는 corpus 저장소(DATA_DIR 기준) 상대경로(있으면). license로 재배포 가부 추적.
+    """
+
+    __tablename__ = "source"
+    __table_args__ = (
+        CheckConstraint(
+            "kind IN ('journal','book','database','datasheet','computed','standard','web','other')",
+            name="ck_source_kind",
+        ),
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    kind: Mapped[str] = mapped_column(String(20), nullable=False, default="journal")
+    doi: Mapped[str | None] = mapped_column(String(200), unique=True, nullable=True)
+    isbn: Mapped[str | None] = mapped_column(String(30), nullable=True)
+    url: Mapped[str | None] = mapped_column(String(500), nullable=True)
+    title: Mapped[str | None] = mapped_column(Text, nullable=True)
+    authors: Mapped[str | None] = mapped_column(Text, nullable=True)
+    year: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    publisher: Mapped[str | None] = mapped_column(String(200), nullable=True)
+    license: Mapped[str | None] = mapped_column(String(80), nullable=True)
+    # corpus 상대경로(정당 확보 PDF/데이터). 없으면 값만 인용(전문 미보관).
+    local_path: Mapped[str | None] = mapped_column(String(500), nullable=True)
+    content_hash: Mapped[str | None] = mapped_column(String(64), unique=True, nullable=True)
+    retrieved_at: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(
+        UTCDateTime, nullable=False, server_default=func.now()
+    )
+
+    values: Mapped[list["PropertyValue"]] = relationship(back_populates="source")
+
+
+class PropertyValue(Base):
+    """재료의 물성값 1건 — 값+단위+조건+불확실도+출처+신뢰등급. 근거 없는 값은 저장 안 함.
+
+    quality_tier: 1 측정(1차문헌)·2 핸드북/권위DB·3 데이터시트·4 계산·5 추정.
+    value_num은 정규 SI(si_unit) 저장, 범주형은 value_text.
+    """
+
+    __tablename__ = "property_value"
+    __table_args__ = (
+        CheckConstraint(
+            "method IN ('measured','handbook','datasheet','computed','estimated')",
+            name="ck_propval_method",
+        ),
+        CheckConstraint("quality_tier BETWEEN 1 AND 5", name="ck_propval_tier"),
+        Index("ix_property_value_material_prop", "material_id", "property_key"),
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    material_id: Mapped[int] = mapped_column(
+        ForeignKey("material.id", ondelete="CASCADE"), nullable=False
+    )
+    property_key: Mapped[str] = mapped_column(
+        ForeignKey("property_definition.key", ondelete="RESTRICT"), nullable=False
+    )
+    value_num: Mapped[float | None] = mapped_column(Float, nullable=True)
+    value_text: Mapped[str | None] = mapped_column(String(200), nullable=True)
+    unit: Mapped[str | None] = mapped_column(String(40), nullable=True)
+    uncertainty: Mapped[float | None] = mapped_column(Float, nullable=True)
+    # 측정조건(온도·습도·주파수·파장·방위·환경 등). 비기계 물성은 조건 필수적.
+    conditions: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    method: Mapped[str] = mapped_column(String(20), nullable=False, default="measured")
+    quality_tier: Mapped[int] = mapped_column(Integer, nullable=False, default=3)
+    source_id: Mapped[int | None] = mapped_column(
+        ForeignKey("source.id", ondelete="SET NULL"), nullable=True
+    )
+    # 출처 내 위치(페이지·표·그림) — 추적성.
+    source_detail: Mapped[str | None] = mapped_column(String(200), nullable=True)
+    notes: Mapped[str | None] = mapped_column(Text, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(
+        UTCDateTime, nullable=False, server_default=func.now()
+    )
+
+    material: Mapped["Material"] = relationship(back_populates="property_values")
+    definition: Mapped["PropertyDefinition"] = relationship(back_populates="values")
+    source: Mapped["Source | None"] = relationship(back_populates="values")

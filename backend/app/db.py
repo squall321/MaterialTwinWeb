@@ -127,10 +127,22 @@ def _apply_schema() -> None:
 
 
 def init_db() -> None:
-    """스키마 적용(alembic 관리) + DATA_DIR/curves 디렉터리 보장."""
+    """스키마 적용(alembic 관리) + DATA_DIR/curves 디렉터리 보장 + 참조데이터 시드."""
     # 모델 등록을 위해 import(순환 회피용 지연 import).
     from app import models  # noqa: F401
 
     settings.data_dir.mkdir(parents=True, exist_ok=True)
     settings.curves_dir.mkdir(parents=True, exist_ok=True)
     _apply_schema()
+    _seed_reference_data()
+
+
+def _seed_reference_data() -> None:
+    """부팅 시 물성 taxonomy(property_definition)를 멱등 시드. 스키마 적용 이후 호출."""
+    from app.property_taxonomy import seed_property_definitions
+
+    try:
+        with SessionLocal() as s:
+            seed_property_definitions(s)
+    except Exception as exc:  # 시드 실패가 앱 기동을 막지 않도록(테이블 부재 등).
+        logger.warning("property_definition 시드 스킵: %s", exc)

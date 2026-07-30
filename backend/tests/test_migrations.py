@@ -115,7 +115,7 @@ def test_boot_migrates_old_versioned_db(db_url, tmp_path):
     ver = con.execute("SELECT version_num FROM alembic_version").fetchone()[0]
     assert "relaxation" in test_sql and "AUTOINCREMENT" in test_sql
     assert "uq_specimen_material_label" in spec_sql
-    assert ver == "a72e1f3c8b90"  # head.
+    assert ver == "888056f1c5b8"  # head.
 
 
 def test_boot_fresh_db_is_versioned_at_head(db_url, tmp_path):
@@ -126,7 +126,7 @@ def test_boot_fresh_db_is_versioned_at_head(db_url, tmp_path):
     con = sqlite3.connect(db_url.replace("sqlite:///", ""))
     ver = con.execute("SELECT version_num FROM alembic_version").fetchone()[0]
     sql = con.execute("SELECT sql FROM sqlite_master WHERE name='test'").fetchone()[0]
-    assert ver == "a72e1f3c8b90" and "relaxation" in sql
+    assert ver == "888056f1c5b8" and "relaxation" in sql
 
 
 def test_no_model_migration_drift(db_url):

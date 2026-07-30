@@ -26,7 +26,17 @@ from sqlalchemy import func
 from app import analysis, curve_store, fitting, insights, viscoelastic
 from app.cards import lsdyna_mat024_card, lsdyna_mat098_card, poisson_from_attributes
 from app.db import SessionLocal
-from app.models import ConstitutiveFit, Material, ProcessedResult, RawCurveRef, Specimen, Test
+from app.models import (
+    ConstitutiveFit,
+    Material,
+    ProcessedResult,
+    PropertyDefinition,
+    PropertyValue,
+    RawCurveRef,
+    Source,
+    Specimen,
+    Test,
+)
 from app.routers.properties import _plastic_true
 from app.unit_systems import get_system
 
@@ -130,6 +140,93 @@ def get_material(material_id: int) -> dict:
                           "orientation": sp.orientation, "standard": sp.standard, "tests": tests})
         return {"id": mat.id, "name": mat.name, "category": mat.category,
                 "description": mat.description, "attributes": mat.attributes, "specimens": specs}
+
+
+@mcp.tool()
+def list_property_definitions(domain: str | None = None) -> list[dict]:
+    """채울 수 있는 화·물리 물성 taxonomy(정의 레지스트리). domain으로 필터.
+
+    도메인: thermal·electrical·optical·chemical·physical·acoustic·magnetic·rheological·
+    structure·mechanical. 각 항목의 key를 register_property/get_material_properties에 사용.
+    """
+    with SessionLocal() as s:
+        q = s.query(PropertyDefinition)
+        if domain:
+            q = q.filter(PropertyDefinition.domain == domain)
+        rows = q.order_by(PropertyDefinition.domain, PropertyDefinition.key).all()
+        return [{"key": d.key, "domain": d.domain, "name": d.name, "symbol": d.symbol,
+                 "unit": d.si_unit, "value_type": d.value_type, "standard": d.test_standard,
+                 "conditions": d.condition_axes} for d in rows]
+
+
+@mcp.tool()
+def get_material_properties(material_id: int, domain: str | None = None) -> dict:
+    """재료의 수집된 화·물리 물성값 — 값·단위·조건·신뢰등급·출처(프로비넌스)까지.
+
+    한 물성에 출처·조건이 다른 값이 여러 개 공존할 수 있다(모두 반환, 등급 내림차순).
+    """
+    with SessionLocal() as s:
+        if not s.get(Material, material_id):
+            return {"error": "재료를 찾을 수 없습니다."}
+        q = (s.query(PropertyValue, PropertyDefinition)
+             .join(PropertyDefinition, PropertyDefinition.key == PropertyValue.property_key)
+             .filter(PropertyValue.material_id == material_id))
+        if domain:
+            q = q.filter(PropertyDefinition.domain == domain)
+        out: dict[str, list] = {}
+        for pv, d in q.order_by(PropertyDefinition.domain, PropertyValue.quality_tier).all():
+            src = pv.source
+            out.setdefault(d.domain, []).append({
+                "key": pv.property_key, "name": d.name,
+                "value": pv.value_num if pv.value_num is not None else pv.value_text,
+                "unit": pv.unit, "uncertainty": pv.uncertainty, "conditions": pv.conditions,
+                "method": pv.method, "quality_tier": pv.quality_tier,
+                "source": ({"title": src.title, "url": src.url, "doi": src.doi,
+                            "detail": pv.source_detail} if src else None)})
+        return {"material_id": material_id, "domains": out,
+                "n_values": sum(len(v) for v in out.values())}
+
+
+@mcp.tool()
+def register_property(material_id: int, property_key: str, value: float | None = None,
+                      value_text: str | None = None, unit: str | None = None,
+                      conditions: dict | None = None, uncertainty: float | None = None,
+                      method: str = "measured", quality_tier: int = 3,
+                      source_doi: str | None = None, source_url: str | None = None,
+                      source_title: str | None = None, source_kind: str = "journal",
+                      notes: str | None = None) -> dict:
+    """재료에 화·물리 물성값 1건을 근거(출처)와 함께 등록.
+
+    property_key는 list_property_definitions의 key. 근거 없는 값은 저장하지 않으므로
+    source_doi/source_url/source_title 중 하나는 필수. method: measured/handbook/datasheet/
+    computed/estimated. quality_tier 1(측정)~5(추정). 온도·습도 등은 conditions에.
+    """
+    from app.acquire.store import upsert_property_value, upsert_source
+
+    if value is None and value_text is None:
+        return {"error": "value 또는 value_text 중 하나는 필요합니다."}
+    if not (source_doi or source_url or source_title):
+        return {"error": "출처(source_doi·source_url·source_title 중 하나)가 필요합니다(근거 필수)."}
+    if method not in ("measured", "handbook", "datasheet", "computed", "estimated"):
+        return {"error": "method는 measured/handbook/datasheet/computed/estimated 중 하나."}
+    if not (1 <= quality_tier <= 5):
+        return {"error": "quality_tier는 1~5."}
+    with SessionLocal() as s:
+        if not s.get(Material, material_id):
+            return {"error": "재료를 찾을 수 없습니다."}
+        src = upsert_source(s, kind=source_kind, doi=source_doi, url=source_url,
+                            title=source_title)
+        try:
+            pv, created = upsert_property_value(
+                s, material_id=material_id, property_key=property_key, value_num=value,
+                value_text=value_text, unit=unit, uncertainty=uncertainty, conditions=conditions,
+                method=method, quality_tier=quality_tier, source=src, notes=notes)
+        except ValueError as exc:
+            return {"error": str(exc)}
+        s.commit()
+        return {"property_value_id": pv.id, "material_id": material_id,
+                "property_key": property_key, "created": created,
+                "message": "등록 완료." if created else "기존 값 갱신(동일 출처·조건)."}
 
 
 @mcp.tool()
