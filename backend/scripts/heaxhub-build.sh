@@ -12,8 +12,12 @@ set -eux
 export PYTHONNOUSERSITE=1  # 빌드 pip이 호스트 ~/.local을 무시 → 누락 의존성을 /usr/local에 설치.
 cd /app/backend
 
-# user-site를 배제한 상태로 재설치 → mcp의 httpx 등 누락분이 system python에 들어간다.
+# user-site를 배제한 상태로 재설치 → 누락 런타임 의존성이 system python에 들어간다.
 pip install --no-cache-dir -e .
+
+# 정품 httpx 명시 설치 — mcp 코드는 `import httpx`(정품)를 쓰는데, 빌드 미러가 mcp 의존성을
+# httpx2(리패키지)로 매핑해 정품 httpx가 누락된다. 이름으로 직접 설치해 보정한다.
+pip install --no-cache-dir "httpx>=0.27"
 
 # 빌드 시점에 hermetic 클로저를 검증(user-site 무시). 누락되면 빌드를 실패시켜 조기 발견.
 python - <<'PY'

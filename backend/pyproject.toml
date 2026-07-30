@@ -18,7 +18,9 @@ dependencies = [
     "pyyaml>=6",
     "alembic>=1.13",
     # MCP 서버(stdio + 웹앱 /mcp 마운트)와 곡선 PNG 도구(plot_*) 의존성 — SIF 빌드에 포함되어야 함.
-    "mcp>=1.10",
+    # mcp<2 핀: 2.0.0은 FastMCP를 제거하고 httpx→httpx2로 바꿔 이 코드(mcp.server.fastmcp)와 비호환.
+    "mcp>=1.10,<2",
+    "httpx>=0.27",  # mcp streamable HTTP 트랜스포트가 쓰는 정품 httpx(런타임 필수 — 명시 고정).
     "matplotlib>=3.8",
 ]
 
