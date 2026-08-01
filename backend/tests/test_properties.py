@@ -243,6 +243,25 @@ def test_export_dyna_cards_cte_with_part_ids(mcp_env):
     assert any(s["card"] == "thermal_expansion" for s in r3["skipped"])
 
 
+def test_dyna_build_endpoint_passes_pids(mcp_env):
+    """웹 /dyna/build가 pids를 코어에 넘겨 CTE 카드를 만든다(누락 시 CTE가 통째로 사라짐)."""
+    M = mcp_env
+    from app.routers.catalog import DynaBuildIn, dyna_build
+    from app.db import SessionLocal
+
+    a = M.register_material("빌드재", category="metal")["material_id"]
+    src = dict(source_title="ASM Handbook", source_kind="book", quality_tier=2, method="handbook")
+    M.register_property(a, "physical.density", value=7850, unit="kg/m^3", **src)
+    M.register_property(a, "mechanical.youngs_modulus", value=2.0e11, unit="Pa", **src)
+    M.register_property(a, "thermal.expansion_linear", value=1.2e-5, unit="1/K", **src)
+
+    with SessionLocal() as db:
+        out = dyna_build(DynaBuildIn(picks=[{"mid": 7, "material_id": a, "pids": [3, 4]}],
+                                     card="mechanical", units="ton_mm_s"), db=db)
+    assert [p["pid"] for p in out["parts"]] == [3, 4]
+    assert out["keyword"].count("*MAT_ADD_THERMAL_EXPANSION") == 2
+
+
 def test_export_dyna_cards_fuzzy_name_and_mid_start(mcp_env):
     """이름만 줘도 유사검색으로 찾고, mid_start부터 번호를 매긴다."""
     M = mcp_env

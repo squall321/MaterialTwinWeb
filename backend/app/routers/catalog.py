@@ -259,7 +259,8 @@ def dyna_build(body: DynaBuildIn, db: Session = Depends(get_db)) -> dict:
         mid, mat = p.get("mid"), p.get("material_id")
         if mid is None or mat is None:
             continue
-        items.append({"mid": int(mid), "material": int(mat)})
+        # pids를 함께 넘겨야 CTE(*MAT_ADD_THERMAL_EXPANSION)가 생성된다.
+        items.append({"mid": int(mid), "material": int(mat), "pids": p.get("pids") or []})
     if not items:
         raise HTTPException(status_code=400, detail="선택된 재료가 없습니다")
     return build_cards(db, items, card=body.card, units=body.units)
