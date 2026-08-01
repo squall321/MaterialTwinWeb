@@ -63,3 +63,17 @@
 - **Phase B ⬜ (구조화 확대)** — PubChem·Materials Project·NIST 커넥터 + 큐레이션 material→entity 매핑.
 - **Phase C ⬜ (문헌 추출)** — OpenAlex/Crossref 탐색 + `corpus/` + LLM 추출 + 검증 게이트.
 - **Phase D ⬜ (운영)** — 커버리지 매트릭스 UI·웹 물성 탭·갭 기반 탐색 루프.
+
+## 카탈로그 메타데이터 규약 (그레이드 단위 정합성)
+
+재료를 "단단하게" — 실제 쓰는 재질과 1:1로 맞추고 추론이 되게 하려면 **그레이드 단위 + 업체
+식별 + 구조화 메타데이터**가 필요하다.
+
+- **그레이드 단위 등록** — 제품이 특정 그레이드를 쓰면(예: APEL 5014CL) 그 그레이드를 **별도 재료**로
+  등록하고 그 제조사 데이터시트를 붙인다. 일반 클래스값은 그레이드 데이터시트가 없을 때만 폴백(tier4).
+- **재료 메타데이터**(`Material.attributes` 표준 키, `app/material_metadata.py`): `manufacturer`·`grade`·
+  `trade_name`·`material_class`·`process`·`application`·`subsystem`·`standard`·`composition`.
+- **값 프로비넌스의 업체** — `Source.publisher`(= manufacturer)에 남긴다. `register_property`의
+  `source_manufacturer`, 추출 시 `source_manufacturer`로 채운다.
+- **추론 검색** — MCP `find_materials_by_metadata(manufacturer·material_class·subsystem·grade·process)` —
+  "Mitsui 재료", "모든 COC 그레이드", "배터리 재료" 등 카탈로그 추론 지원.

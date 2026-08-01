@@ -182,9 +182,41 @@ def get_material_properties(material_id: int, domain: str | None = None) -> dict
                 "unit": pv.unit, "uncertainty": pv.uncertainty, "conditions": pv.conditions,
                 "method": pv.method, "quality_tier": pv.quality_tier,
                 "source": ({"title": src.title, "url": src.url, "doi": src.doi,
+                            "manufacturer": src.publisher, "kind": src.kind,
                             "detail": pv.source_detail} if src else None)})
         return {"material_id": material_id, "domains": out,
                 "n_values": sum(len(v) for v in out.values())}
+
+
+@mcp.tool()
+def find_materials_by_metadata(manufacturer: str | None = None, material_class: str | None = None,
+                               subsystem: str | None = None, grade: str | None = None,
+                               process: str | None = None, application: str | None = None,
+                               category: str | None = None, limit: int = 100) -> list[dict]:
+    """재료 메타데이터로 검색(부분일치) — 제조사·재료계열·서브시스템·그레이드·공정·용도.
+
+    카탈로그 추론 지원: 예) manufacturer='Mitsui'(그 업체 재료), material_class='COC'(모든 COC
+    그레이드), subsystem='battery'(배터리 재료), process='injection molding'. attributes에 저장된
+    구조화 메타데이터를 조회한다. 결과에 물성 개수(n_properties)도 포함.
+    """
+    want = {k: v for k, v in {
+        "manufacturer": manufacturer, "material_class": material_class, "subsystem": subsystem,
+        "grade": grade, "process": process, "application": application}.items() if v}
+    with SessionLocal() as s:
+        q = s.query(Material)
+        if category:
+            q = q.filter(Material.category == category)
+        out = []
+        for m in q.order_by(Material.id).all():
+            a = m.attributes or {}
+            if all(str(v).lower() in str(a.get(k, "") or "").lower() for k, v in want.items()):
+                n = s.query(func.count(PropertyValue.id)).filter_by(material_id=m.id).scalar()
+                out.append({"id": m.id, "name": m.name, "code": m.material_code,
+                            "category": m.category, "manufacturer": a.get("manufacturer"),
+                            "grade": a.get("grade"), "material_class": a.get("material_class"),
+                            "trade_name": a.get("trade_name"), "subsystem": a.get("subsystem"),
+                            "n_properties": n})
+        return out[:limit]
 
 
 @mcp.tool()
@@ -194,12 +226,15 @@ def register_property(material_id: int, property_key: str, value: float | None =
                       method: str = "measured", quality_tier: int = 3,
                       source_doi: str | None = None, source_url: str | None = None,
                       source_title: str | None = None, source_kind: str = "journal",
+                      source_manufacturer: str | None = None,
                       notes: str | None = None) -> dict:
     """재료에 화·물리 물성값 1건을 근거(출처)와 함께 등록.
 
     property_key는 list_property_definitions의 key. 근거 없는 값은 저장하지 않으므로
     source_doi/source_url/source_title 중 하나는 필수. method: measured/handbook/datasheet/
     computed/estimated. quality_tier 1(측정)~5(추정). 온도·습도 등은 conditions에.
+    source_manufacturer: 데이터시트면 업체명(예: "Mitsui Chemicals"·"3M") — 프로비넌스에
+    업체를 1급으로 남겨 "어느 업체 값인지" 추론 가능하게 한다.
     """
     from app.acquire.store import upsert_property_value, upsert_source
 
@@ -215,7 +250,7 @@ def register_property(material_id: int, property_key: str, value: float | None =
         if not s.get(Material, material_id):
             return {"error": "재료를 찾을 수 없습니다."}
         src = upsert_source(s, kind=source_kind, doi=source_doi, url=source_url,
-                            title=source_title)
+                            title=source_title, publisher=source_manufacturer)
         try:
             pv, created = upsert_property_value(
                 s, material_id=material_id, property_key=property_key, value_num=value,
