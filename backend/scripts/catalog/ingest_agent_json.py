@@ -42,6 +42,20 @@ RANGE = {
     "chemical.water_absorption_24h": (0.0, 1.0),
     "chemical.water_absorption_saturation": (0.0, 1.0),
 }
+# Source.kind는 DB 제약(ck_source_kind)이 있는 고정 어휘 — 에이전트 표기를 매핑한다.
+KIND_OK = {"journal", "book", "database", "datasheet", "computed", "standard", "web", "other"}
+KIND_MAP = {"paper": "journal", "article": "journal", "publication": "journal",
+            "handbook": "book", "textbook": "book", "spec": "standard",
+            "specification": "standard", "brochure": "datasheet",
+            "technical_data": "datasheet", "tds": "datasheet", "catalog": "datasheet",
+            "website": "web", "webpage": "web", "patent": "other", "report": "other"}
+
+
+def norm_kind(k: str | None) -> str:
+    k = (k or "datasheet").strip().lower()
+    return k if k in KIND_OK else KIND_MAP.get(k, "other")
+
+
 # 비율 물성인데 1을 넘으면 퍼센트 오입력 의심(엘라스토머 연신율은 예외로 20까지 허용).
 PCT_SUSPECT = {"chemical.water_absorption_24h", "chemical.water_absorption_saturation",
                "optical.transmittance", "optical.haze", "optical.emissivity_total"}
@@ -134,7 +148,7 @@ def main() -> int:
                             conditions=pr.get("conditions"), notes=pr.get("note"),
                             source_title=src.get("title"), source_url=src.get("url"),
                             source_doi=src.get("doi"),
-                            source_kind=src.get("kind", "datasheet"),
+                            source_kind=norm_kind(src.get("kind")),
                             source_manufacturer=src.get("manufacturer"))
                         if "error" in r:
                             print(f"    ✗ {key}: {r['error']}")
@@ -164,7 +178,7 @@ def main() -> int:
                         conditions=pr.get("conditions"), notes=pr.get("note"),
                         source_title=src.get("title"), source_url=src.get("url"),
                         source_doi=src.get("doi"),
-                        source_kind=src.get("kind", "datasheet"),
+                        source_kind=norm_kind(src.get("kind")),
                         source_manufacturer=src.get("manufacturer"))
                     if "error" in r:
                         print(f"    ✗ {key}: {r['error']}")
