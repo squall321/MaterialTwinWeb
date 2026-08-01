@@ -205,3 +205,59 @@ export function getAxes() {
 export function getAshby(x: string, y: string) {
   return request<AshbyData>(`api/catalog/ashby?x=${encodeURIComponent(x)}&y=${encodeURIComponent(y)}`);
 }
+
+// ── LS-DYNA 카드 내보내기(붙여넣기 → 매칭 선택 → 덱 생성) ──
+export type DynaCandidate = {
+  material_id: number;
+  name: string;
+  score: number;
+  matched_by: string;
+  manufacturer: string | null;
+  grade: string | null;
+  category: string | null;
+  n_properties: number;
+  has_mechanical: boolean;
+  has_thermal: boolean;
+};
+
+export type DynaRow = {
+  mid: number;
+  mid_source: string;
+  query: string;
+  candidates: DynaCandidate[];
+  unmatched: boolean;
+};
+
+export type DynaMatch = { rows: DynaRow[]; errors: string[]; mid_warnings: string[] };
+
+export type DynaDeck = {
+  keyword: string;
+  units: { key: string; label: string; stress: string; density: string };
+  card: string;
+  materials: { mid: number; material_id: number; name: string; matched_by: string;
+               query: string; mid_source?: string; cards: string[] }[];
+  n_materials: number;
+  skipped: { material: string; card: string; reason: string }[];
+  resolution_errors: string[];
+  mid_warnings?: string[];
+};
+
+export function matchDynaRows(rows: string, mid_start = 1) {
+  return request<DynaMatch>("api/catalog/dyna/match", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ rows, mid_start }),
+  });
+}
+
+export function buildDynaDeck(
+  picks: { mid: number; material_id: number }[],
+  card: string,
+  units: string,
+) {
+  return request<DynaDeck>("api/catalog/dyna/build", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ picks, card, units }),
+  });
+}

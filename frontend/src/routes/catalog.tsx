@@ -2,7 +2,7 @@
 import * as React from "react";
 import { Link, useNavigate, useSearch } from "@tanstack/react-router";
 import { useQuery, keepPreviousData } from "@tanstack/react-query";
-import { Search, X, Factory, Layers, Boxes, Database, FlaskConical, ChevronRight, GitCompare, ScatterChart } from "lucide-react";
+import { Search, X, Factory, Layers, Boxes, Database, FlaskConical, ChevronRight, GitCompare, ScatterChart, FileCode2 } from "lucide-react";
 import {
   getCatalogSummary,
   listCatalogMaterials,
@@ -95,6 +95,11 @@ export function CatalogScreen() {
           <Link to="/catalog/compare">
             <Button variant="outline">
               <GitCompare className="size-4" /> 재료 비교
+            </Button>
+          </Link>
+          <Link to="/catalog/dyna">
+            <Button variant="outline">
+              <FileCode2 className="size-4" /> DYNA 카드
             </Button>
           </Link>
         </div>

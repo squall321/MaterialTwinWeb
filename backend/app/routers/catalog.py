@@ -4,11 +4,12 @@ from __future__ import annotations
 from collections import Counter, defaultdict
 
 from fastapi import APIRouter, Depends, HTTPException, Query
+from pydantic import BaseModel
 from sqlalchemy import func, or_, select
 from sqlalchemy.orm import Session
 
 from app.catalog_compare import build_comparison, numeric_property_options, scatter_dataset
-from app.dyna_export import build_cards
+from app.dyna_export import build_cards, match_rows
 from app.db import get_db
 from app.models import Material, PropertyDefinition, PropertyValue, Source
 
@@ -225,6 +226,43 @@ def ashby(
     if data is None:
         raise HTTPException(status_code=400, detail="알 수 없는 물성 key(x 또는 y)")
     return data
+
+
+class DynaMatchIn(BaseModel):
+    """붙여넣은 행 텍스트('101, SUS304' 여러 줄) + MID 시작번호."""
+    rows: str
+    mid_start: int = 1
+
+
+@router.post("/dyna/match")
+def dyna_match(body: DynaMatchIn, db: Session = Depends(get_db)) -> dict:
+    """행 붙여넣기 → 행마다 후보 재료(매칭도·물성보유). 사용자가 고르는 프리뷰 단계."""
+    if not (body.rows or "").strip():
+        raise HTTPException(status_code=400, detail="rows가 비었습니다")
+    return match_rows(db, [body.rows], mid_start=body.mid_start)
+
+
+class DynaBuildIn(BaseModel):
+    """확정된 (MID, material_id) 쌍으로 덱 생성."""
+    picks: list[dict]            # [{"mid":101,"material_id":73}, ...]
+    card: str = "mechanical"
+    units: str = "ton_mm_s"
+
+
+@router.post("/dyna/build")
+def dyna_build(body: DynaBuildIn, db: Session = Depends(get_db)) -> dict:
+    """사용자가 확인한 매칭으로 LS-DYNA 덱을 일괄 생성."""
+    if body.card not in ("mechanical", "thermal", "both"):
+        raise HTTPException(status_code=400, detail="card는 mechanical|thermal|both")
+    items = []
+    for p in body.picks:
+        mid, mat = p.get("mid"), p.get("material_id")
+        if mid is None or mat is None:
+            continue
+        items.append({"mid": int(mid), "material": int(mat)})
+    if not items:
+        raise HTTPException(status_code=400, detail="선택된 재료가 없습니다")
+    return build_cards(db, items, card=body.card, units=body.units)
 
 
 @router.get("/dyna")

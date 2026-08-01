@@ -20,6 +20,7 @@ import { CatalogScreen } from "./routes/catalog";
 import { CatalogMaterialScreen } from "./routes/catalog-material";
 import { CatalogCompareScreen } from "./routes/catalog-compare";
 import { CatalogAshbyScreen } from "./routes/catalog-ashby";
+import { CatalogDynaScreen } from "./routes/catalog-dyna";
 import { UploadScreen } from "./routes/upload";
 
 // ── 공통 셸: 좌측 256px 고정 사이드 + 우측 콘텐츠(max-width 1180px, §14.3) ──
@@ -167,6 +168,12 @@ const catalogAshbyRoute = createRoute({
   component: CatalogAshbyScreen,
 });
 
+const catalogDynaRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/catalog/dyna",
+  component: CatalogDynaScreen,
+});
+
 const catalogMaterialRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/catalog/$mid",
@@ -192,6 +199,7 @@ const routeTree = rootRoute.addChildren([
   catalogRoute,
   catalogCompareRoute,
   catalogAshbyRoute,
+  catalogDynaRoute,
   catalogMaterialRoute,
   uploadRoute,
 ]);
