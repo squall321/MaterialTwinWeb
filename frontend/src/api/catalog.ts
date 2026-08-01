@@ -1,0 +1,111 @@
+// 물성 카탈로그 API 타입·함수 — catalog.py(summary/materials/detail/coverage) 정합.
+import { request } from "./client";
+
+export type Facet = { value: string; count: number; materials?: number };
+
+export type CatalogSummary = {
+  totals: {
+    materials: number;
+    values: number;
+    sources: number;
+    definitions: number;
+    covered: number;
+    domains: number;
+  };
+  facets: {
+    subsystem: Facet[];
+    category: Facet[];
+    manufacturer: Facet[];
+    material_class: Facet[];
+    domain: Facet[];
+  };
+};
+
+export type CatalogMaterial = {
+  id: number;
+  name: string;
+  material_code: string | null;
+  category: string | null;
+  n_properties: number;
+  domains: string[];
+  manufacturer?: string | null;
+  grade?: string | null;
+  trade_name?: string | null;
+  material_class?: string | null;
+  process?: string | null;
+  subsystem?: string | null;
+};
+
+export type PropertySource = {
+  title: string | null;
+  url: string | null;
+  doi: string | null;
+  manufacturer: string | null;
+  kind: string | null;
+  detail: string | null;
+};
+
+export type PropertyValueRow = {
+  key: string;
+  name: string;
+  symbol: string | null;
+  value: number | null;
+  value_text: string | null;
+  unit: string | null;
+  uncertainty: number | null;
+  conditions: Record<string, unknown> | null;
+  method: string;
+  tier: number;
+  standard: string | null;
+  notes: string | null;
+  source: PropertySource | null;
+};
+
+export type CatalogMaterialDetail = {
+  id: number;
+  name: string;
+  material_code: string | null;
+  category: string | null;
+  description: string | null;
+  metadata: Record<string, string | null>;
+  attributes: Record<string, unknown>;
+  n_values: number;
+  domains: Record<string, PropertyValueRow[]>;
+};
+
+export type CatalogFilters = {
+  q?: string;
+  subsystem?: string;
+  category?: string;
+  manufacturer?: string;
+  material_class?: string;
+  domain?: string;
+  sort?: string;
+};
+
+export function getCatalogSummary() {
+  return request<CatalogSummary>("api/catalog/summary");
+}
+
+export function listCatalogMaterials(f: CatalogFilters = {}) {
+  const qs = new URLSearchParams();
+  for (const [k, v] of Object.entries(f)) if (v) qs.set(k, String(v));
+  const s = qs.toString();
+  return request<{ items: CatalogMaterial[]; total: number }>(
+    `api/catalog/materials${s ? `?${s}` : ""}`,
+  );
+}
+
+export function getCatalogMaterial(id: number) {
+  return request<CatalogMaterialDetail>(`api/catalog/materials/${id}`);
+}
+
+export type Coverage = {
+  subsystems: string[];
+  domains: string[];
+  matrix: { subsystem: string; cells: { domain: string; count: number }[] }[];
+};
+
+export function getCoverage() {
+  return request<Coverage>("api/catalog/coverage");
+}

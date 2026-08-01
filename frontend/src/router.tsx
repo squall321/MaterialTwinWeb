@@ -9,13 +9,15 @@ import {
   Outlet,
 } from "@tanstack/react-router";
 import type { ReactNode } from "react";
-import { FlaskConical, Library, Upload, LayoutDashboard, SearchX } from "lucide-react";
+import { FlaskConical, Library, Upload, LayoutDashboard, SearchX, Boxes } from "lucide-react";
 import { cn } from "./lib/utils";
 import { Button } from "./components/ui/button";
 import { EmptyState } from "./components/states/EmptyState";
 import { InsightsScreen } from "./routes/insights";
 import { MaterialsScreen } from "./routes/materials";
 import { MaterialDetailScreen } from "./routes/material-detail";
+import { CatalogScreen } from "./routes/catalog";
+import { CatalogMaterialScreen } from "./routes/catalog-material";
 import { UploadScreen } from "./routes/upload";
 
 // ── 공통 셸: 좌측 256px 고정 사이드 + 우측 콘텐츠(max-width 1180px, §14.3) ──
@@ -29,6 +31,7 @@ function AppShell() {
         </div>
         <nav className="flex flex-col gap-1 px-3 py-2">
           <NavItem to="/insights" icon={<LayoutDashboard className="size-4" />} label="인사이트" />
+          <NavItem to="/catalog" icon={<Boxes className="size-4" />} label="물성 카탈로그" />
           <NavItem to="/materials" icon={<Library className="size-4" />} label="재료 라이브러리" />
           <NavItem to="/upload" icon={<Upload className="size-4" />} label="업로드" />
         </nav>
@@ -120,6 +123,28 @@ const materialDetailRoute = createRoute({
   component: MaterialDetailScreen,
 });
 
+const catalogRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/catalog",
+  // /catalog?subsystem=…&domain=…&manufacturer=… — 패싯 필터를 URL과 동기화.
+  validateSearch: (s: Record<string, unknown>) => {
+    const out: {
+      q?: string; subsystem?: string; category?: string;
+      manufacturer?: string; class?: string; domain?: string; sort?: string;
+    } = {};
+    const keys = ["q", "subsystem", "category", "manufacturer", "class", "domain", "sort"] as const;
+    for (const k of keys) if (typeof s[k] === "string" && s[k]) out[k] = s[k] as string;
+    return out;
+  },
+  component: CatalogScreen,
+});
+
+const catalogMaterialRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/catalog/$mid",
+  component: CatalogMaterialScreen,
+});
+
 const uploadRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/upload",
@@ -136,6 +161,8 @@ const routeTree = rootRoute.addChildren([
   insightsRoute,
   materialsRoute,
   materialDetailRoute,
+  catalogRoute,
+  catalogMaterialRoute,
   uploadRoute,
 ]);
 
