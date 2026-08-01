@@ -211,6 +211,48 @@ def test_export_dyna_cards_bulk_and_units(mcp_env):
     assert "2.0000e+11" in si["keyword"]
 
 
+def test_synth_curve_marks_kind_and_provenance(mcp_env):
+    """실측 곡선이 없는 재료는 스칼라로 곡선을 합성하고, 실측과 반드시 구분한다."""
+    import numpy as np
+
+    from app.curve_synth import KIND_SYNTHETIC, synthesize
+
+    # 연성: 탄성 + 가공경화. UTS·파단연신율을 지난다.
+    d = synthesize(E=2.0e11, sigy=2.5e8, uts=4.0e8, elong=0.30)
+    assert d["kind"] == KIND_SYNTHETIC and "Hollomon" in d["model"]
+    assert np.isclose(d["strain"][0], 0.0) and d["strain"][-1] <= 0.30 + 1e-6
+    assert d["stress_pa"].max() <= 4.0e8 * 1.02          # UTS를 크게 넘지 않는다.
+    i_y = int(np.argmin(np.abs(d["strain"] - 2.5e8 / 2.0e11)))
+    assert abs(d["stress_pa"][i_y] - 2.5e8) / 2.5e8 < 0.15   # 항복점 근처 일치.
+
+    # 취성(항복 없음): 파단까지 선형.
+    b = synthesize(E=7.0e10, sigy=None, uts=8.0e8, elong=0.001)
+    assert "brittle" in b["model"] and b["stress_pa"].max() <= 8.0e8 * 1.01
+
+    # 입력 부족 → None(억지 생성 금지).
+    assert synthesize(E=None, sigy=1, uts=2, elong=0.1) is None
+    assert synthesize(E=1e11, sigy=None, uts=None, elong=None) is None
+
+
+def test_synth_curve_from_material_has_sources(mcp_env):
+    """합성 곡선은 스칼라의 출처를 함께 돌려준다(그래프 표기용)."""
+    from app.curve_synth import synth_for_material
+    from app.db import SessionLocal
+
+    M = mcp_env
+    a = M.register_material("합성곡선재", category="metal")["material_id"]
+    src = dict(source_title="ASM Handbook", source_kind="book",
+               source_manufacturer="ASM", quality_tier=2, method="handbook")
+    M.register_property(a, "mechanical.youngs_modulus", value=2.0e11, unit="Pa", **src)
+    M.register_property(a, "mechanical.yield_strength", value=2.5e8, unit="Pa", **src)
+    M.register_property(a, "mechanical.tensile_strength", value=4.0e8, unit="Pa", **src)
+    M.register_property(a, "mechanical.elongation_at_break", value=0.3, unit="1", **src)
+    with SessionLocal() as db:
+        c = synth_for_material(db, a)
+    assert c is not None and c["provenance"] and "ASM" in c["provenance"]
+    assert c["inputs"]["E_pa"] == 2.0e11
+
+
 def test_export_dyna_cards_cte_with_part_ids(mcp_env):
     """PID를 주면 CTE 카드(*MAT_ADD_THERMAL_EXPANSION + *DEFINE_CURVE)를 만든다."""
     M = mcp_env
@@ -280,12 +322,26 @@ def test_export_dyna_cards_fuzzy_name_and_mid_start(mcp_env):
 
 
 def test_plot_curves_errors_clearly_without_curves(mcp_env):
-    """카탈로그 물성만 있는(곡선 없는) 재료는 멈추지 않고 명확히 알린다."""
+    """곡선도 스칼라도 없으면 멈추지 않고 명확히 알린다(합성조차 불가한 경우)."""
     M = mcp_env
     a = M.register_material("곡선없는재A", category="metal")["material_id"]
     M.register_material("곡선없는재B", category="metal")
+    # 밀도만 있고 E가 없으면 σ-ε 합성도 불가능하다.
     M.register_property(a, "physical.density", value=8900, unit="kg/m^3",
                         source_title="handbook", source_kind="book")
     with pytest.raises(ValueError) as e:
         M.plot_curves(materials=["곡선없는재A", "곡선없는재B"])
-    assert "인장 곡선 없음" in str(e.value)
+    assert "스칼라" in str(e.value)
+
+
+def test_plot_curves_falls_back_to_synthesis(mcp_env):
+    """실측 곡선이 없어도 스칼라가 있으면 합성해서 그린다(그냥 제외하지 않는다)."""
+    M = mcp_env
+    a = M.register_material("합성폴백재", category="metal")["material_id"]
+    src = dict(source_title="ASM Handbook", source_kind="book", quality_tier=2, method="handbook")
+    M.register_property(a, "mechanical.youngs_modulus", value=2.0e11, unit="Pa", **src)
+    M.register_property(a, "mechanical.yield_strength", value=2.5e8, unit="Pa", **src)
+    M.register_property(a, "mechanical.tensile_strength", value=4.0e8, unit="Pa", **src)
+    M.register_property(a, "mechanical.elongation_at_break", value=0.3, unit="1", **src)
+    img = M.plot_curves(materials=["합성폴백재"])      # 예외 없이 렌더되면 성공.
+    assert img.data and len(img.data) > 1000

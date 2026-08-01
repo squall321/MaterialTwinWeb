@@ -18,6 +18,21 @@ import numpy as np
 import matplotlib
 matplotlib.use("Agg")  # 헤드리스 렌더.
 import matplotlib.pyplot as plt
+
+
+def _use_korean_font() -> None:
+    """그래프 한글이 □로 깨지지 않도록 설치된 CJK 폰트를 지정한다(없으면 무시)."""
+    import matplotlib.font_manager as _fm
+    avail = {f.name for f in _fm.fontManager.ttflist}
+    for cand in ("NanumGothic", "NanumBarunGothic", "Noto Sans CJK KR",
+                 "Noto Sans CJK HK", "NanumSquare", "Malgun Gothic"):
+        if cand in avail:
+            matplotlib.rcParams["font.family"] = cand
+            matplotlib.rcParams["axes.unicode_minus"] = False  # 한글 폰트의 마이너스 깨짐 방지
+            return
+
+
+_use_korean_font()
 from mcp.server.fastmcp import FastMCP
 from mcp.server.fastmcp.utilities.types import Image
 from mcp.server.transport_security import TransportSecuritySettings
@@ -32,6 +47,7 @@ from app.catalog_compare import (
     resolve_material_ids,
     scatter_dataset,
 )
+from app.curve_synth import KIND_MEASURED, KIND_SYNTHETIC, synth_for_material
 from app.dyna_export import build_cards as build_dyna_cards
 from app.db import SessionLocal
 from app.models import (
@@ -529,10 +545,12 @@ def plot_curves(materials: list | None = None, test_ids: list | None = None,
     relaxation(점탄성 E(t)). 각 곡선은 다운샘플(기본 300점)로 로드해 대용량이어도 빠르다(최대 12개).
     카탈로그 물성만 있고 인장 곡선이 없는 재료는 명확히 알린다(멈추지 않음).
     """
-    curves = []   # (label, x, y)
+    curves = []   # (label, x, y, kind, provenance)
     missing = []
+    synth_targets = []   # 실측 곡선이 없어 합성으로 대체할 재료
     with SessionLocal() as s:
         pairs = []  # (label, test_id)
+        pair_mid = {}   # test_id → material_id (합성 폴백용)
         if test_ids:
             for tid in list(test_ids)[:12]:
                 t = s.get(Test, int(tid))
@@ -540,6 +558,7 @@ def plot_curves(materials: list | None = None, test_ids: list | None = None,
                     missing.append(f"test {tid}")
                 else:
                     pairs.append((f"{t.specimen.material.name} · {t.specimen.label}", t.id))
+                    pair_mid[t.id] = t.specimen.material_id
         else:
             ids, errs = resolve_material_ids(s, list(materials or [])[:12])
             missing.extend(errs)
@@ -547,16 +566,25 @@ def plot_curves(materials: list | None = None, test_ids: list | None = None,
                 t = _rep_test_for_material(s, mid)
                 nm = s.get(Material, mid).name
                 if t is None:
-                    missing.append(f"{nm}(인장 곡선 없음)")
+                    synth_targets.append((nm, mid))     # 실측 없음 → 합성 시도
                 else:
                     pairs.append((nm, t.id))
+                    pair_mid[t.id] = mid
 
     want_relax = kind == "relaxation"
+    # 시험 레코드는 있으나 곡선 파일이 없거나 종류가 다른 경우 → 합성 후보로 넘긴다.
+    def _fallback(label, tid, why):
+        mid = pair_mid.get(tid)
+        if mid is not None and not want_relax:
+            synth_targets.append((label, mid))
+        else:
+            missing.append(f"{label}({why})")
+
     for label, tid in pairs:
         try:
             df = curve_store.read_curve(tid)
         except FileNotFoundError:
-            missing.append(f"{label}(곡선 파일 없음)")
+            _fallback(label, tid, "곡선 파일 없음")
             continue
         if want_relax:
             if "relax_modulus_Pa" not in df.columns:
@@ -564,28 +592,47 @@ def plot_curves(materials: list | None = None, test_ids: list | None = None,
             x = np.asarray(df["time_s"], dtype=float); y = np.asarray(df["relax_modulus_Pa"], dtype=float) / 1e6
         elif kind == "true":
             if "eng_strain" not in df.columns:
-                missing.append(f"{label}(인장 곡선 아님)"); continue
+                _fallback(label, tid, "인장 곡선 아님"); continue
             from app import true_stress
             c = true_stress.true_curve_with_necking(np.asarray(df["eng_strain"]), np.asarray(df["eng_stress_Pa"]))
             x = np.asarray(c["true_strain"], dtype=float); y = np.asarray(c["true_stress"], dtype=float) / 1e6
         else:
             if "eng_strain" not in df.columns:
-                missing.append(f"{label}(인장 곡선 아님)"); continue
+                _fallback(label, tid, "인장 곡선 아님"); continue
             x = np.asarray(df["eng_strain"], dtype=float); y = np.asarray(df["eng_stress_Pa"], dtype=float) / 1e6
         m = np.isfinite(x) & np.isfinite(y)
         xs, ys = curve_store.lttb_downsample(x[m], y[m], n_out=max(50, min(int(max_points), 2000)))
-        curves.append((label, xs, ys))
+        curves.append((label, xs, ys, KIND_MEASURED, f"실측 인장시험(test {tid})"))
+
+    # 실측이 없는 재료는 스칼라 물성에서 곡선을 합성한다(그래프에 '합성'으로 명시).
+    if synth_targets and not want_relax:
+        with SessionLocal() as s2:
+            for nm, mid in synth_targets:
+                c = synth_for_material(s2, mid)
+                if c is None:
+                    missing.append(f"{nm}(곡선·스칼라 모두 없음)")
+                else:
+                    curves.append((nm, np.asarray(c["strain"]),
+                                   np.asarray(c["stress_pa"]) / 1e6, KIND_SYNTHETIC,
+                                   c.get("provenance", "출처 미상")))
+    elif synth_targets:
+        missing.extend(f"{nm}(완화 곡선 없음)" for nm, _ in synth_targets)
 
     if not curves:
         raise ValueError("겹쳐 그릴 곡선이 없습니다 — " + (", ".join(missing) or "대상 없음")
                          + ". (카탈로그 물성만 있는 재료는 σ-ε 곡선이 없음. 인장 시험이 있는 재료를 지정하세요.)")
 
     plt.style.use("dark_background")
-    fig, ax = plt.subplots(figsize=(7.6, 5.0), dpi=120)
+    fig, ax = plt.subplots(figsize=(7.8, 5.0 + 0.18 * min(len(curves), 6)), dpi=120)
     fig.patch.set_facecolor("#0A0E14"); ax.set_facecolor("#070A0F")
-    for i, (label, xs, ys) in enumerate(curves):
+    n_syn = sum(1 for c in curves if c[3] == KIND_SYNTHETIC)
+    for i, (label, xs, ys, kind, prov) in enumerate(curves):
         col = _CURVE_PALETTE[i % len(_CURVE_PALETTE)]
-        (ax.semilogx if want_relax else ax.plot)(xs, ys, color=col, lw=1.8, label=label)
+        syn = kind == KIND_SYNTHETIC
+        # 실측=실선, 합성=점선 + 라벨에 [합성] 명시(혼동 방지).
+        (ax.semilogx if want_relax else ax.plot)(
+            xs, ys, color=col, lw=1.8, ls=":" if syn else "-", alpha=0.9 if syn else 1.0,
+            label=f"{label}  [합성]" if syn else f"{label}  [실측]")
     if want_relax:
         ax.set_xlabel("time  t (s)"); ax.set_ylabel("relaxation modulus  E(t) (MPa)")
         ax.set_title("재료 완화 곡선 비교", color="#E6EBF2")
@@ -596,10 +643,22 @@ def plot_curves(materials: list | None = None, test_ids: list | None = None,
     ax.grid(True, color="#1C2530", lw=0.6)
     for sp in ax.spines.values():
         sp.set_color("#26303D")
+    if n_syn:
+        ax.text(0.01, 0.99,
+                f"점선 = 스칼라 물성에서 합성한 근사 곡선({n_syn}건, 실측 아님)",
+                transform=ax.transAxes, ha="left", va="top", fontsize=7, color="#F0A92C")
+    # 출처(프로비넌스) 푸터 — 곡선마다 한 줄.
+    prov_lines = [f"· {lb[:30]}: {pv}" for lb, _, _, _, pv in curves[:6]]
     if missing:
         ax.text(0.99, 0.01, "제외: " + ", ".join(missing[:4]) + ("…" if len(missing) > 4 else ""),
                 transform=ax.transAxes, ha="right", va="bottom", fontsize=6.5, color="#8FA1B3")
     fig.tight_layout()
+    if prov_lines:
+        # tight_layout 이후에 하단 여백을 확보해야 축 라벨과 겹치지 않는다.
+        pad = 0.030 * (len(prov_lines) + 1)
+        fig.subplots_adjust(bottom=fig.subplotpars.bottom + pad)
+        fig.text(0.012, 0.010, "출처(프로비넌스)\n" + "\n".join(prov_lines),
+                 fontsize=6.0, color="#8FA1B3", va="bottom", ha="left", linespacing=1.5)
     buf = io.BytesIO(); fig.savefig(buf, format="png", facecolor=fig.get_facecolor())
     plt.close(fig)
     return Image(data=buf.getvalue(), format="png")
