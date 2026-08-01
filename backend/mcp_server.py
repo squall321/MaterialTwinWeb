@@ -95,8 +95,10 @@ def _gpa(v):
 def list_materials(category: str | None = None, query: str | None = None, limit: int = 50) -> list[dict]:
     """재료 목록을 조회한다. category(metal/polymer/rubber…)와 query(이름·코드 부분일치)로 필터.
 
-    각 항목: id, name, category, mat_type, 대표 E(GPa)·UTS(MPa) 또는 점탄성 E0(MPa).
-    limit는 최대 200으로 제한된다.
+    각 항목: id, name, category, mat_type, 대표 E(GPa)·UTS(MPa) 또는 점탄성 E0(MPa),
+    그리고 n_properties·property_domains(보유한 화·물리 물성 수와 도메인 —
+    thermal/electrical/optical/chemical/physical 등). 상세 값은 get_material 또는
+    get_material_properties로 조회한다. limit는 최대 200으로 제한된다.
     """
     from sqlalchemy import and_
 
@@ -117,10 +119,20 @@ def list_materials(category: str | None = None, query: str | None = None, limit:
             if cur is None or (cur[1] is None and t is not None):
                 picked[mat.id] = (mat, t, pr)
 
+        # 재료별 카탈로그 물성 수·도메인(1회 집계) — 기계 물성만 보이던 문제 해결.
+        dom_by_key = dict(s.query(PropertyDefinition.key, PropertyDefinition.domain).all())
+        n_props: dict[int, int] = {}
+        doms: dict[int, set] = {}
+        for m_id, p_key in s.query(PropertyValue.material_id, PropertyValue.property_key).all():
+            n_props[m_id] = n_props.get(m_id, 0) + 1
+            doms.setdefault(m_id, set()).add(dom_by_key.get(p_key))
+
         out = []
         for mat, t, pr in sorted(picked.values(), key=lambda x: x[0].id)[:limit]:
             row = {"id": mat.id, "name": mat.name, "category": mat.category,
-                   "mat_type": (mat.attributes or {}).get("mat_type")}
+                   "mat_type": (mat.attributes or {}).get("mat_type"),
+                   "n_properties": n_props.get(mat.id, 0),
+                   "property_domains": sorted(d for d in doms.get(mat.id, set()) if d)}
             if t:
                 if pr and (pr.extra_metrics or {}).get("kind") == "viscoelastic":
                     row["kind"] = "viscoelastic"
@@ -137,7 +149,12 @@ def list_materials(category: str | None = None, query: str | None = None, limit:
 
 @mcp.tool()
 def get_material(material_id: int) -> dict:
-    """재료 상세: 메타데이터 + 시편·시험 목록 + 각 시험 물성 요약."""
+    """재료 상세: 메타데이터 + 시편·시험 물성 + 화·물리 물성 전체(도메인별).
+
+    properties에 thermal·electrical·optical·chemical·physical·mechanical 등 모든 도메인의
+    값(단위·조건·신뢰등급·출처·DOI)이 들어간다. 인장 시험이 없는 카탈로그 재료도
+    이 필드로 물성을 볼 수 있다.
+    """
     with SessionLocal() as s:
         mat = s.get(Material, material_id)
         if not mat:
@@ -162,8 +179,26 @@ def get_material(material_id: int) -> dict:
                 tests.append(info)
             specs.append({"specimen_id": sp.id, "label": sp.label,
                           "orientation": sp.orientation, "standard": sp.standard, "tests": tests})
+        # 화·물리 물성(카탈로그)도 함께 — 기계 물성만 보이던 문제 해결.
+        pv_rows = (s.query(PropertyValue, PropertyDefinition)
+                   .join(PropertyDefinition, PropertyDefinition.key == PropertyValue.property_key)
+                   .filter(PropertyValue.material_id == material_id)
+                   .order_by(PropertyDefinition.domain, PropertyValue.quality_tier).all())
+        props: dict[str, list] = {}
+        for pv, d in pv_rows:
+            src = pv.source
+            props.setdefault(d.domain, []).append({
+                "key": pv.property_key, "name": d.name,
+                "value": pv.value_num if pv.value_num is not None else pv.value_text,
+                "unit": pv.unit, "conditions": pv.conditions, "quality_tier": pv.quality_tier,
+                "source": (src.publisher or src.title) if src else None,
+                "doi": src.doi if src else None})
         return {"id": mat.id, "name": mat.name, "category": mat.category,
-                "description": mat.description, "attributes": mat.attributes, "specimens": specs}
+                "description": mat.description, "attributes": mat.attributes,
+                "specimens": specs,
+                "properties": props,                      # 도메인별 화·물리 물성
+                "n_properties": len(pv_rows),
+                "property_domains": sorted(props.keys())}
 
 
 @mcp.tool()

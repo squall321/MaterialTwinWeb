@@ -60,6 +60,33 @@ def test_register_property_idempotent(mcp_env):
     assert got["n_values"] == 1 and got["domains"]["thermal"][0]["value"] == 16.0
 
 
+def test_lookup_tools_expose_all_domains(mcp_env):
+    """get_material·list_materials가 기계뿐 아니라 전 도메인 물성을 노출한다.
+
+    이전엔 인장시험 기반 E/UTS만 나와서, 카탈로그 물성(열·전기·화학)이 있어도
+    에이전트가 별도 툴을 알아야만 볼 수 있었다.
+    """
+    M = mcp_env
+    mid = M.register_material("전도메인재", category="polymer")["material_id"]
+    src = dict(source_title="Vendor datasheet", source_kind="datasheet",
+               source_manufacturer="VendorX", quality_tier=3)
+    M.register_property(mid, "thermal.conductivity", value=0.29, unit="W/(m*K)", **src)
+    M.register_property(mid, "chemical.water_absorption_24h", value=0.014, unit="1", **src)
+    M.register_property(mid, "electrical.dielectric_constant", value=3.5, unit="1", **src)
+
+    got = M.get_material(mid)
+    assert got["n_properties"] == 3
+    assert set(got["property_domains"]) == {"thermal", "chemical", "electrical"}
+    th = got["properties"]["thermal"][0]
+    assert th["value"] == 0.29 and th["unit"] == "W/(m*K)" and th["source"] == "VendorX"
+    # 흡습률도 반드시 보인다(기계 물성만 나오던 회귀 방지).
+    assert got["properties"]["chemical"][0]["key"] == "chemical.water_absorption_24h"
+
+    lst = [m for m in M.list_materials(query="전도메인재")]
+    assert lst and lst[0]["n_properties"] == 3
+    assert "chemical" in lst[0]["property_domains"]
+
+
 def test_compare_materials_aligns_and_ranks(mcp_env):
     M = mcp_env
     a = M.register_material("비교재A", category="metal")["material_id"]
