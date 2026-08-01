@@ -19,6 +19,7 @@ import { MaterialDetailScreen } from "./routes/material-detail";
 import { CatalogScreen } from "./routes/catalog";
 import { CatalogMaterialScreen } from "./routes/catalog-material";
 import { CatalogCompareScreen } from "./routes/catalog-compare";
+import { CatalogAshbyScreen } from "./routes/catalog-ashby";
 import { UploadScreen } from "./routes/upload";
 
 // ── 공통 셸: 좌측 256px 고정 사이드 + 우측 콘텐츠(max-width 1180px, §14.3) ──
@@ -153,6 +154,19 @@ const catalogCompareRoute = createRoute({
   component: CatalogCompareScreen,
 });
 
+const catalogAshbyRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/catalog/ashby",
+  // /catalog/ashby?x=…&y=…&color=…&logx=0 — 축·색상·로그 상태를 URL과 동기화(공유 링크).
+  validateSearch: (s: Record<string, unknown>): { x?: string; y?: string; color?: string; logx?: string; logy?: string } => {
+    const out: { x?: string; y?: string; color?: string; logx?: string; logy?: string } = {};
+    for (const k of ["x", "y", "color", "logx", "logy"] as const)
+      if (typeof s[k] === "string" && s[k]) out[k] = s[k] as string;
+    return out;
+  },
+  component: CatalogAshbyScreen,
+});
+
 const catalogMaterialRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/catalog/$mid",
@@ -177,6 +191,7 @@ const routeTree = rootRoute.addChildren([
   materialDetailRoute,
   catalogRoute,
   catalogCompareRoute,
+  catalogAshbyRoute,
   catalogMaterialRoute,
   uploadRoute,
 ]);

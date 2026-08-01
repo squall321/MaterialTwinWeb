@@ -2,7 +2,7 @@
 import * as React from "react";
 import { Link, useNavigate, useSearch } from "@tanstack/react-router";
 import { useQuery, keepPreviousData } from "@tanstack/react-query";
-import { Search, X, Factory, Layers, Boxes, Database, FlaskConical, ChevronRight, GitCompare } from "lucide-react";
+import { Search, X, Factory, Layers, Boxes, Database, FlaskConical, ChevronRight, GitCompare, ScatterChart } from "lucide-react";
 import {
   getCatalogSummary,
   listCatalogMaterials,
@@ -86,11 +86,18 @@ export function CatalogScreen() {
             스마트폰 내부 재질의 화·물리 물성을 근거(출처·조건·신뢰등급)와 함께 조회합니다.
           </p>
         </div>
-        <Link to="/catalog/compare">
-          <Button variant="outline">
-            <GitCompare className="size-4" /> 재료 비교
-          </Button>
-        </Link>
+        <div className="flex items-center gap-2">
+          <Link to="/catalog/ashby">
+            <Button variant="outline">
+              <ScatterChart className="size-4" /> Ashby 차트
+            </Button>
+          </Link>
+          <Link to="/catalog/compare">
+            <Button variant="outline">
+              <GitCompare className="size-4" /> 재료 비교
+            </Button>
+          </Link>
+        </div>
       </header>
 
       {/* 요약 스탯 타일 */}

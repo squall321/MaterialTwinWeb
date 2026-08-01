@@ -1,7 +1,7 @@
 // ECharts core+line 전용 모듈 등록 + CSS변수 테마 브리지(§14.4). 필요한 컴포넌트만 import.
 import * as React from "react";
 import * as echarts from "echarts/core";
-import { LineChart } from "echarts/charts";
+import { LineChart, ScatterChart } from "echarts/charts";
 import {
   GridComponent,
   TooltipComponent,
@@ -10,11 +10,13 @@ import {
   MarkPointComponent,
   DataZoomComponent,
   BrushComponent,
+  LegendComponent,
 } from "echarts/components";
 import { CanvasRenderer } from "echarts/renderers";
 
 echarts.use([
   LineChart,
+  ScatterChart,
   GridComponent,
   TooltipComponent,
   AxisPointerComponent,
@@ -22,6 +24,7 @@ echarts.use([
   MarkPointComponent,
   DataZoomComponent,
   BrushComponent,
+  LegendComponent,
   CanvasRenderer,
 ]);
 

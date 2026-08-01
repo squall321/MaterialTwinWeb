@@ -161,3 +161,47 @@ export type CatalogComparison = {
 export function compareMaterials(ids: number[]) {
   return request<CatalogComparison>(`api/catalog/compare?ids=${ids.join(",")}`);
 }
+
+// ── Ashby 물성공간 산점도 ──
+export type AxisOption = {
+  key: string;
+  name: string;
+  symbol: string | null;
+  unit: string | null;
+  domain: string;
+  n_materials: number;
+};
+
+export type AshbyAxis = {
+  key: string;
+  name: string;
+  symbol: string | null;
+  unit: string | null;
+  domain: string;
+};
+
+export type AshbyPoint = {
+  material_id: number;
+  name: string;
+  category: string | null;
+  subsystem: string | null;
+  manufacturer: string | null;
+  material_class: string | null;
+  x: number;
+  y: number;
+};
+
+export type AshbyData = {
+  x: AshbyAxis;
+  y: AshbyAxis;
+  points: AshbyPoint[];
+  rule: string;
+};
+
+export function getAxes() {
+  return request<{ options: AxisOption[] }>("api/catalog/axes");
+}
+
+export function getAshby(x: string, y: string) {
+  return request<AshbyData>(`api/catalog/ashby?x=${encodeURIComponent(x)}&y=${encodeURIComponent(y)}`);
+}
