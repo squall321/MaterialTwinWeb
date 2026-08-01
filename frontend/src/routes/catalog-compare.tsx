@@ -23,9 +23,12 @@ import {
   domainMeta, tierMeta, formatValue, formatConditions, subsystemLabel,
 } from "../lib/catalog-ui";
 
-const MAX_COLS = 4;
-// 재료 컬럼 색(막대·헤더 액센트).
-const COL_COLORS = ["var(--chart-1)", "var(--chart-2)", "var(--chart-4)", "var(--chart-6)"];
+const MAX_COLS = 8;
+// 재료 컬럼 색(막대·헤더 액센트) — 컬럼 수만큼 구분되는 8색.
+const COL_COLORS = [
+  "var(--chart-1)", "var(--chart-2)", "var(--chart-4)", "var(--chart-6)",
+  "var(--chart-3)", "var(--chart-5)", "var(--chart-7)", "var(--chart-8)",
+];
 
 type CompareSearch = { ids?: string; shared?: string };
 
@@ -215,7 +218,11 @@ function CompareTable({
 
       {/* 비교표(가로 스크롤, 라벨 컬럼 sticky) */}
       <div className="overflow-x-auto rounded-lg border border-border-subtle">
-        <table className="w-full min-w-[640px] border-collapse">
+        {/* 컬럼이 많아도 각 셀이 찌그러지지 않도록 최소폭을 컬럼 수에 맞춘다(가로 스크롤). */}
+        <table
+          className="w-full border-collapse"
+          style={{ minWidth: `${208 + cols.length * 150}px` }}
+        >
           <thead>
             <tr className="border-b border-border-default bg-surface">
               <th className="sticky left-0 z-10 w-52 min-w-[13rem] bg-surface px-4 py-3 text-left text-xs font-semibold uppercase tracking-[0.04em] text-text-tertiary">

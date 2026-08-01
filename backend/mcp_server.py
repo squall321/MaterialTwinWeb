@@ -228,15 +228,16 @@ def find_materials_by_metadata(manufacturer: str | None = None, material_class: 
 
 @mcp.tool()
 def compare_materials(materials: list[str]) -> dict:
-    """두 개 이상(최대 4)의 재료를 물성별로 나란히 비교한다 — CPU 스펙 비교처럼.
+    """두 개 이상(최대 12)의 재료를 물성별로 나란히 비교한다 — CPU 스펙 비교처럼.
 
     materials: 재료 이름 또는 id 리스트(예: ["APEL 5014CL", "Kapton PI Adhesive Tape"] 또는 [73, 68]).
+    한 계열 전체(예: 동박 3종 + PI필름 3종)를 한 번에 넘겨 표로 훑을 수 있다.
     각 재료·물성은 신뢰등급 최상의 대표값 1개로 정렬되어, 웹 UI와 동일한 일관된 비교표를 반환한다.
     반환: materials(순서=컬럼), comparison(공통 물성 우선, 도메인·물성별 각 재료 값·신뢰등급·출처),
     highest/lowest(그 물성의 최대·최소 재료 — '우열'이 아니라 값의 크기), n_shared.
     """
     with SessionLocal() as s:
-        ids, errors = resolve_material_ids(s, materials[:4])
+        ids, errors = resolve_material_ids(s, materials[:12])
         if len(ids) < 2:
             return {"error": "비교하려면 유효한 재료 2개 이상 필요", "resolution_errors": errors}
         data = build_comparison(s, ids)
@@ -524,7 +525,7 @@ def plot_curves(materials: list | None = None, test_ids: list | None = None,
 
     materials: 재료 이름/ID 리스트 — 각 재료의 대표 유효 시험 곡선을 겹쳐 그린다.
     test_ids: 시험 ID로 직접 지정(materials 대신). kind: nominal(공칭 σ-ε)·true(진응력)·
-    relaxation(점탄성 E(t)). 각 곡선은 다운샘플(기본 300점)로 로드해 대용량이어도 빠르다(최대 8개).
+    relaxation(점탄성 E(t)). 각 곡선은 다운샘플(기본 300점)로 로드해 대용량이어도 빠르다(최대 12개).
     카탈로그 물성만 있고 인장 곡선이 없는 재료는 명확히 알린다(멈추지 않음).
     """
     curves = []   # (label, x, y)
@@ -532,14 +533,14 @@ def plot_curves(materials: list | None = None, test_ids: list | None = None,
     with SessionLocal() as s:
         pairs = []  # (label, test_id)
         if test_ids:
-            for tid in list(test_ids)[:8]:
+            for tid in list(test_ids)[:12]:
                 t = s.get(Test, int(tid))
                 if t is None:
                     missing.append(f"test {tid}")
                 else:
                     pairs.append((f"{t.specimen.material.name} · {t.specimen.label}", t.id))
         else:
-            ids, errs = resolve_material_ids(s, list(materials or [])[:8])
+            ids, errs = resolve_material_ids(s, list(materials or [])[:12])
             missing.extend(errs)
             for mid in ids:
                 t = _rep_test_for_material(s, mid)

@@ -191,12 +191,12 @@ def catalog_material_detail(mid: int, db: Session = Depends(get_db)) -> dict:
 
 @router.get("/compare")
 def compare(
-    ids: str = Query(..., description="비교할 material_id CSV(2~4개)"),
+    ids: str = Query(..., description="비교할 material_id CSV(2~12개)"),
     db: Session = Depends(get_db),
 ) -> dict:
     """재료 비교 — 물성별 대표값 정렬 매트릭스(도메인·조건·신뢰등급·출처). 웹/MCP 공용 코어."""
     try:
-        mids = [int(x) for x in ids.split(",") if x.strip()][:4]
+        mids = [int(x) for x in ids.split(",") if x.strip()][:12]
     except ValueError:
         raise HTTPException(status_code=400, detail="ids는 정수 CSV여야 합니다")
     if len(mids) < 2:
