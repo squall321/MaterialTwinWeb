@@ -113,12 +113,33 @@ def main() -> int:
 
             for pr in entry.get("properties", []):
                 key, val, unit = pr.get("key"), pr.get("value"), pr.get("unit")
+                # 에이전트가 value_text 필드를 따로 쓰는 경우도 받는다.
+                if pr.get("value_text") and (val is None or str(val).lower() in ("none", "null", "")):
+                    val = pr["value_text"]
+                if isinstance(unit, str) and unit.lower() in ("none", "null", ""):
+                    unit = None
                 d = defs.get(key)
                 if d is None:
                     stats["bad_key"] += 1
                     print(f"    ✗ 미정의 key {key}")
                     continue
                 if val is None:
+                    continue
+                # UL94 등급처럼 문자 값은 value_text로 저장(숫자 검증 건너뜀).
+                is_text = isinstance(val, str)
+                if is_text:
+                    if a.apply:
+                        r = M.register_property(
+                            mid, key, value_text=val, method="measured", quality_tier=1,
+                            conditions=pr.get("conditions"), notes=pr.get("note"),
+                            source_title=src.get("title"), source_url=src.get("url"),
+                            source_doi=src.get("doi"),
+                            source_kind=src.get("kind", "datasheet"),
+                            source_manufacturer=src.get("manufacturer"))
+                        if "error" in r:
+                            print(f"    ✗ {key}: {r['error']}")
+                            continue
+                    stats["ok"] += 1
                     continue
                 if d.si_unit and unit and unit != d.si_unit:
                     stats["bad_unit"] += 1
