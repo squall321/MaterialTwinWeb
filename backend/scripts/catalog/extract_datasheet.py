@@ -13,6 +13,7 @@ import re
 import subprocess
 import sys
 import tempfile
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -24,12 +25,24 @@ DEFAULT_KEYS = (r"tensile|modulus|elongation|absorption|dielectric|dissipation|C
 
 
 def fetch(src: str) -> Path:
+    """URL이면 내려받아 임시 파일로. 실패 시 트레이스백 대신 원인을 한 줄로 알린다."""
     if not re.match(r"^https?://", src):
         return Path(src)
     dst = Path(tempfile.mkdtemp()) / "datasheet.pdf"
-    req = urllib.request.Request(src, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=60) as r, open(dst, "wb") as f:
-        f.write(r.read())
+    # 일부 업체 사이트는 브라우저 UA·Accept 헤더가 없으면 403을 준다.
+    req = urllib.request.Request(src, headers={
+        "User-Agent": ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                       "(KHTML, like Gecko) Chrome/120.0 Safari/537.36"),
+        "Accept": "application/pdf,*/*"})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r, open(dst, "wb") as f:
+            f.write(r.read())
+    except urllib.error.HTTPError as e:
+        raise SystemExit(f"✗ HTTP {e.code} {e.reason} — {src}")
+    except Exception as e:
+        raise SystemExit(f"✗ 다운로드 실패({type(e).__name__}: {e}) — {src}")
+    if dst.stat().st_size < 1024:
+        raise SystemExit(f"✗ 받은 파일이 너무 작음({dst.stat().st_size}B) — URL이 PDF가 아닐 수 있음")
     return dst
 
 
