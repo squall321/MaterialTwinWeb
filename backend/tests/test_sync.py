@@ -126,3 +126,50 @@ def test_merge_adds_new_test_to_existing_material(env):
         st = sync.import_bundle(s, tmp / "two.tar.gz")
     assert st["tests_added"] == 1 and st["tests_skipped"] == 1
     assert _counts(db) == (1, 2)
+
+
+def test_property_values_roundtrip_and_idempotent(env):
+    """물성값(v2)이 번들 export/import에 포함되고, 재임포트는 멱등(중복 없음)."""
+    M, sync, db, tmp = env["mcp"], env["sync"], env["db"], env["tmp"]
+    mid, _ = _register(M, "물성강", code="P1")
+    r = M.register_property(mid, "thermal.conductivity", value=16.2, unit="W/(m*K)",
+                            conditions={"temperature_k": 373}, method="handbook",
+                            quality_tier=2, source_doi="10.1000/azom304",
+                            source_title="AZoM: SS 304")
+    assert r.get("created") is True
+
+    from app.models import PropertyValue
+    with db.SessionLocal() as s:
+        summ = sync.export_bundle(s, tmp / "p.tar.gz")
+    assert summ["property_values"] == 1 and summ["sources"] >= 1
+    assert summ["property_definitions"] >= 85  # taxonomy 동봉.
+
+    # 같은 DB 재임포트 → 동일 (material,key,source,conditions) 갱신, 중복 생성 없음.
+    with db.SessionLocal() as s:
+        st = sync.import_bundle(s, tmp / "p.tar.gz")
+        assert st["property_values_added"] == 0 and st["property_values_updated"] == 1
+        assert st["sources_added"] == 0  # DOI로 dedup.
+        assert s.query(PropertyValue).count() == 1
+
+
+def test_merge_preserves_operational_property_additions(env, tmp_path, monkeypatch):
+    """A 번들(물성 포함)을 B에 병합해도 B의 운영 추가 물성값이 보존된다(union)."""
+    M, sync = env["mcp"], env["sync"]
+    mid, _ = _register(M, "합금X", code="X1")
+    M.register_property(mid, "physical.density", value=8000, unit="kg/m^3",
+                        method="handbook", quality_tier=2, source_title="AZoM X")
+    with env["db"].SessionLocal() as s:
+        sync.export_bundle(s, env["tmp"] / "a.tar.gz")
+
+    # B: 같은 재료(안정키 동일)에 운영이 다른 물성을 추가한 상태로 병합.
+    M.register_property(mid, "thermal.conductivity", value=16.2, unit="W/(m*K)",
+                        method="handbook", quality_tier=2, source_title="운영추가")
+    from app.models import PropertyValue
+    with env["db"].SessionLocal() as s:
+        before = s.query(PropertyValue).count()
+        sync.import_bundle(s, env["tmp"] / "a.tar.gz")
+        after = s.query(PropertyValue).count()
+        keys = {pv.property_key for pv in s.query(PropertyValue).filter_by(material_id=mid).all()}
+    # 번들의 density(재갱신) + 운영추가 conductivity 둘 다 존재(손실 없음).
+    assert "physical.density" in keys and "thermal.conductivity" in keys
+    assert after >= before  # 운영 추가분 절대 삭제 안 됨.

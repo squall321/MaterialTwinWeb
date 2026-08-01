@@ -15,12 +15,17 @@ from app.models import (
     ConstitutiveFit,
     Material,
     ProcessedResult,
+    PropertyDefinition,
+    PropertyValue,
     RawCurveRef,
+    Source,
     Specimen,
     Test,
 )
 
-SCHEMA_VERSION = 1
+# v2: 화·물리 물성(property_definition/source/property_value)을 번들에 포함.
+# v1 번들(물성 없음)도 import 가능(관련 키 부재 시 skip).
+SCHEMA_VERSION = 2
 
 # ProcessedResult에서 옮길 스칼라 필드(계산 산출물). id/test_id/computed_at 제외.
 _PR_FIELDS = [
@@ -35,6 +40,14 @@ _SPEC_FIELDS = [
 _TEST_FIELDS = ["test_type", "strain_source", "source_format", "valid", "invalid_reason"]
 _FIT_FIELDS = ["model", "params", "r2", "rmse_pa", "n_points"]
 
+# 물성 확장(v2) 필드.
+_PROPDEF_FIELDS = ["key", "domain", "name", "symbol", "si_unit", "value_type",
+                   "description", "test_standard", "condition_axes"]
+_SOURCE_FIELDS = ["kind", "doi", "isbn", "url", "title", "authors", "year",
+                  "publisher", "license", "content_hash"]
+_PROPVAL_FIELDS = ["property_key", "value_num", "value_text", "unit", "uncertainty",
+                   "conditions", "method", "quality_tier", "source_detail", "notes"]
+
 
 # ── 안정 식별키 ───────────────────────────────────────────────────────────────
 def material_key(mat: Material) -> str:
@@ -42,6 +55,17 @@ def material_key(mat: Material) -> str:
     if mat.material_code:
         return f"code:{mat.material_code}"
     return f"name:{(mat.name or '').strip().lower()}"
+
+
+def source_key(src: Source) -> str:
+    """출처의 안정 식별키. DOI > content_hash > URL > 제목(정규화). id 비의존(DB 간 이식)."""
+    if src.doi:
+        return f"doi:{src.doi}"
+    if src.content_hash:
+        return f"hash:{src.content_hash}"
+    if src.url:
+        return f"url:{src.url}"
+    return f"title:{(src.title or '').strip().lower()[:120]}"
 
 
 def _curve_bytes_hash(df: pd.DataFrame | None) -> str:
@@ -94,14 +118,35 @@ def build_bundle(session: Session) -> tuple[dict, dict[str, bytes]]:
             specs_out.append({"label": sp.label,
                               **{f: getattr(sp, f) for f in _SPEC_FIELDS},
                               "tests": tests_out})
+        # 재료의 화·물리 물성값(v2). 출처는 안정키로 참조(id 비의존).
+        props_out = []
+        for pv in session.query(PropertyValue).filter_by(material_id=mat.id).order_by(PropertyValue.id).all():
+            props_out.append({
+                **{f: getattr(pv, f) for f in _PROPVAL_FIELDS},
+                "source_key": (source_key(pv.source) if pv.source else None),
+            })
         materials.append({
             "key": material_key(mat),
             "name": mat.name, "material_code": mat.material_code,
             "category": mat.category, "description": mat.description,
             "attributes": mat.attributes, "specimens": specs_out,
+            "properties": props_out,
         })
+
+    # 물성 정의(taxonomy) + 출처(안정키) 최상위 수록.
+    property_definitions = [{f: getattr(d, f) for f in _PROPDEF_FIELDS}
+                            for d in session.query(PropertyDefinition).all()]
+    sources_out, seen_src = [], set()
+    for sc in session.query(Source).all():
+        k = source_key(sc)
+        if k in seen_src:
+            continue
+        seen_src.add(k)
+        sources_out.append({"key": k, **{f: getattr(sc, f) for f in _SOURCE_FIELDS}})
+
     manifest = {"schema_version": SCHEMA_VERSION, "n_materials": len(materials),
-                "materials": materials}
+                "materials": materials,
+                "property_definitions": property_definitions, "sources": sources_out}
     return manifest, curves
 
 
@@ -118,8 +163,11 @@ def export_bundle(session: Session, out_path: str | Path) -> dict:
         for name, data in curves.items():
             info = tarfile.TarInfo(name); info.size = len(data)
             tar.addfile(info, io.BytesIO(data))
+    n_props = sum(len(m.get("properties") or []) for m in manifest["materials"])
     return {"path": str(out_path), "materials": manifest["n_materials"],
-            "tests": n_tests, "curves": len(curves)}
+            "tests": n_tests, "curves": len(curves),
+            "property_values": n_props, "sources": len(manifest.get("sources") or []),
+            "property_definitions": len(manifest.get("property_definitions") or [])}
 
 
 # ── IMPORT (병합) ─────────────────────────────────────────────────────────────
@@ -234,7 +282,87 @@ def import_bundle(session: Session, bundle_path: str | Path, merge: bool = True)
                 _write_test(session, spec, tb, curves)
                 existing_hashes.add(tb.get("content_hash"))
                 stats["tests_added"] += 1
+
+    # 물성(v2) 병합 — 정의·출처·값. 기존 물성값은 삭제하지 않고 union upsert.
+    stats.update(_merge_property_data(session, manifest, by_key))
     return stats
+
+
+def _merge_property_data(session: Session, manifest: dict, by_key: dict) -> dict:
+    """번들의 property_definition/source/property_value를 손실 없이 병합.
+
+    - 정의: key 부재 시 삽입(taxonomy는 부팅 시드로 대개 존재).
+    - 출처: doi>hash>url>title로 dedup, 없으면 생성 → 안정키→Source 매핑.
+    - 값: (material, key, source, conditions) 동일 시 갱신, 아니면 삽입(store 멱등 재사용).
+    운영에서 추가된 물성값은 번들에 없어도 보존된다(union merge).
+    """
+    from app.acquire.store import upsert_property_value
+
+    st = {"property_defs_added": 0, "sources_added": 0,
+          "property_values_added": 0, "property_values_updated": 0}
+
+    # 1) 정의 upsert(key).
+    known = {d.key for d in session.query(PropertyDefinition).all()}
+    for pd in manifest.get("property_definitions", []):
+        if pd.get("key") and pd["key"] not in known:
+            session.add(PropertyDefinition(**{f: pd.get(f) for f in _PROPDEF_FIELDS}))
+            known.add(pd["key"])
+            st["property_defs_added"] += 1
+    session.commit()
+
+    # 2) 출처 resolve/create → 안정키→Source.
+    def _resolve_source(sb: dict) -> tuple[Source, bool]:
+        q = None
+        if sb.get("doi"):
+            q = session.query(Source).filter_by(doi=sb["doi"]).first()
+        if q is None and sb.get("content_hash"):
+            q = session.query(Source).filter_by(content_hash=sb["content_hash"]).first()
+        if q is None and sb.get("url"):
+            q = session.query(Source).filter_by(url=sb["url"]).first()
+        if q is None and sb.get("title") and not sb.get("doi") and not sb.get("url"):
+            q = (session.query(Source)
+                 .filter(Source.title == sb["title"], Source.doi.is_(None), Source.url.is_(None))
+                 .first())
+        if q is not None:
+            return q, False
+        s = Source(**{f: sb.get(f) for f in _SOURCE_FIELDS})
+        session.add(s)
+        session.flush()
+        return s, True
+
+    src_by_key: dict[str, Source] = {}
+    for sb in manifest.get("sources", []):
+        s, created = _resolve_source(sb)
+        if sb.get("key"):
+            src_by_key[sb["key"]] = s
+        if created:
+            st["sources_added"] += 1
+    session.commit()
+
+    # 3) 재료별 물성값 upsert.
+    for mb in manifest.get("materials", []):
+        props = mb.get("properties") or []
+        if not props:
+            continue
+        key = mb.get("key") or f"name:{(mb.get('name') or '').strip().lower()}"
+        mat = by_key.get(key)
+        if mat is None:
+            continue
+        for pvb in props:
+            pk = pvb.get("property_key")
+            if pk not in known:  # 정의 없으면 FK 위반 — skip.
+                continue
+            _, created = upsert_property_value(
+                session, material_id=mat.id, property_key=pk,
+                value_num=pvb.get("value_num"), value_text=pvb.get("value_text"),
+                unit=pvb.get("unit"), uncertainty=pvb.get("uncertainty"),
+                conditions=pvb.get("conditions"), method=pvb.get("method") or "measured",
+                quality_tier=pvb.get("quality_tier") or 3,
+                source=src_by_key.get(pvb.get("source_key")),
+                source_detail=pvb.get("source_detail"), notes=pvb.get("notes"))
+            st["property_values_added" if created else "property_values_updated"] += 1
+        session.commit()
+    return st
 
 
 def _add_specimen_merge(session: Session, material_id: int, sb: dict) -> Specimen:
