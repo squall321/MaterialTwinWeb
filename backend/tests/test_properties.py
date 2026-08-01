@@ -154,6 +154,23 @@ def test_catalog_property_distribution_stats(mcp_env):
     assert "error" in M.catalog_property_distribution("bogus.key")
 
 
+def test_ratio_properties_stay_dimensionless(mcp_env):
+    """무차원(1) 물성은 비율로 저장 — 퍼센트 오입력(예: 72 대신 0.72) 방지 가드.
+
+    실제로 파단연신율에 %값이 섞여 비교표·Ashby가 100배 왜곡된 사고가 있었다.
+    금속·플라스틱 연신율이 1.5(=150%)를 넘으면 단위 오입력을 의심해야 한다.
+    """
+    M = mcp_env
+    mid = M.register_material("연신율재", category="metal")["material_id"]
+    M.register_property(mid, "mechanical.elongation_at_break", value=0.39, unit="1",
+                        source_title="ASM Handbook", source_kind="book", quality_tier=2)
+    got = M.search_catalog_property("mechanical.elongation_at_break")
+    v = got["results"][0]["value"]
+    assert 0 < v <= 1.5, f"금속 연신율이 비율 범위를 벗어남(퍼센트 오입력 의심): {v}"
+    # 정의 단위가 무차원인지도 함께 확인.
+    assert got["property"]["unit"] == "1"
+
+
 def test_plot_curves_errors_clearly_without_curves(mcp_env):
     """카탈로그 물성만 있는(곡선 없는) 재료는 멈추지 않고 명확히 알린다."""
     M = mcp_env
