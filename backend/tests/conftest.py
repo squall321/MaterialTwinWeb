@@ -29,6 +29,7 @@ def mcp_env(tmp_path, monkeypatch):
     import app.insights as insights_mod
     import app.routers.properties as r_properties
     import app.catalog_compare as catalog_compare_mod
+    import app.dyna_export as dyna_export_mod
 
     importlib.reload(db_mod)
     importlib.reload(models_mod)
@@ -37,6 +38,7 @@ def mcp_env(tmp_path, monkeypatch):
     importlib.reload(insights_mod)  # 모델 클래스 재바인딩(taxonomy 리소스가 사용).
     importlib.reload(r_properties)
     importlib.reload(catalog_compare_mod)  # 모델 클래스 재바인딩(compare_materials가 사용).
+    importlib.reload(dyna_export_mod)      # 모델 클래스 재바인딩(export_dyna_cards가 사용).
 
     import mcp_server as mcp_mod
 

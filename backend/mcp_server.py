@@ -32,6 +32,7 @@ from app.catalog_compare import (
     resolve_material_ids,
     scatter_dataset,
 )
+from app.dyna_export import build_cards as build_dyna_cards
 from app.db import SessionLocal
 from app.models import (
     ConstitutiveFit,
@@ -651,6 +652,28 @@ def find_materials_in_property_range(
     return [{"name": p["name"], "id": p["id"], "cls": p["cls"],
              "E_gpa": p["E_gpa"], "uts_mpa": p["uts_mpa"], "test_id": p["test_id"]}
             for p in out[:limit]]
+
+
+@mcp.tool()
+def export_dyna_cards(materials: list, card: str = "mechanical",
+                      units: str = "ton_mm_s", mid_start: int = 1) -> dict:
+    """재료 리스트를 LS-DYNA 재료카드 덱으로 대량 출력한다 — 이름만 줘도 유사검색+MID 자동배정.
+
+    materials: 재료 이름 또는 ID 리스트(수십 개 한 번에 가능). 이름은 정확→부분→유사(오타)
+      순으로 매칭하며, 매칭 근거를 matched_by로 돌려준다.
+    card: 'mechanical'(*MAT_ELASTIC 또는 항복 보유 시 *MAT_PIECEWISE_LINEAR_PLASTICITY) ·
+      'thermal'(*MAT_THERMAL_ISOTROPIC — 밀도·비열·열전도율) · 'both'.
+    units: ton_mm_s(기본, MPa) · kg_m_s(SI) · g_mm_ms · kg_mm_ms.
+    mid_start: MID/TMID 시작번호(1,2,3… 순차 자동 배정).
+
+    반환: keyword(붙여넣기 가능한 전체 덱), materials(MID↔재료 매핑표), skipped(물성 부족으로
+    생성 못한 것과 사유), resolution_errors. 각 물성 값 옆에 출처를 $ 주석으로 남긴다.
+    """
+    if card not in ("mechanical", "thermal", "both"):
+        return {"error": "card는 mechanical|thermal|both 중 하나"}
+    with SessionLocal() as s:
+        return build_dyna_cards(s, list(materials or []), card=card,
+                                units=units, mid_start=int(mid_start))
 
 
 @mcp.tool()

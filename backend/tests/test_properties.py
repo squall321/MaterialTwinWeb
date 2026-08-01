@@ -171,6 +171,63 @@ def test_ratio_properties_stay_dimensionless(mcp_env):
     assert got["property"]["unit"] == "1"
 
 
+def test_export_dyna_cards_bulk_and_units(mcp_env):
+    """재료 리스트 → LS-DYNA 덱: MID 자동배정·유사매칭·단위변환·고정폭 불변식."""
+    M = mcp_env
+    a = M.register_material("덱강재", category="metal")["material_id"]
+    src = dict(source_title="ASM Handbook", source_kind="book", quality_tier=2, method="handbook")
+    M.register_property(a, "physical.density", value=7850, unit="kg/m^3", **src)
+    M.register_property(a, "mechanical.youngs_modulus", value=2.0e11, unit="Pa", **src)
+    M.register_property(a, "mechanical.poisson_ratio", value=0.3, unit="1", **src)
+    M.register_property(a, "mechanical.yield_strength", value=2.5e8, unit="Pa", **src)
+    M.register_property(a, "thermal.specific_heat", value=460, unit="J/(kg*K)", **src)
+    M.register_property(a, "thermal.conductivity", value=45, unit="W/(m*K)", **src)
+    b = M.register_material("덱폴리머", category="polymer")["material_id"]
+    M.register_property(b, "physical.density", value=1200, unit="kg/m^3", **src)
+    M.register_property(b, "mechanical.youngs_modulus", value=3.0e9, unit="Pa", **src)
+
+    r = M.export_dyna_cards(["덱강재", "덱폴리머"], card="both", units="ton_mm_s")
+    assert [t["mid"] for t in r["materials"]] == [1, 2]          # MID 순차 자동배정.
+    kw = r["keyword"]
+    assert "*MAT_PIECEWISE_LINEAR_PLASTICITY_TITLE" in kw        # 항복 있음 → 024.
+    assert "*MAT_ELASTIC_TITLE" in kw                            # 항복 없음 → 001.
+    assert "*MAT_THERMAL_ISOTROPIC_TITLE" in kw
+    assert "ASM Handbook" in kw                                  # 출처 주석.
+    # 단위변환: ton_mm_s에서 밀도 7850 kg/m^3 → 7.85e-9, E 200 GPa → 2.0e5 MPa.
+    assert "7.8500e-9" in kw and "2.0000e+5" in kw
+    # 열: 비열 460 J/(kg*K) → 4.6e8 (mm^2/s^2/K), 열전도 45 → 45 유지.
+    assert "4.6000e+8" in kw
+
+    # 물성 부족은 조용히 기본값으로 채우지 않고 보고한다.
+    assert any(s["material"] == "덱폴리머" and s["card"] == "thermal" for s in r["skipped"])
+
+    # 고정폭 불변식 — 데이터 행의 모든 필드는 정확히 10칸.
+    for line in kw.splitlines():
+        if line and not line.startswith(("$", "*")) and line.startswith(" "):
+            assert len(line) % 10 == 0, f"10칸 배수 아님: {line!r}"
+
+    # SI 단위계로 바꾸면 E가 Pa 원값으로 나온다.
+    si = M.export_dyna_cards(["덱강재"], card="mechanical", units="kg_m_s")
+    assert "2.0000e+11" in si["keyword"]
+
+
+def test_export_dyna_cards_fuzzy_name_and_mid_start(mcp_env):
+    """이름만 줘도 유사검색으로 찾고, mid_start부터 번호를 매긴다."""
+    M = mcp_env
+    mid = M.register_material("SUS304_annealed Bilinear", category="metal")["material_id"]
+    src = dict(source_title="handbook", source_kind="book", quality_tier=2, method="handbook")
+    M.register_property(mid, "physical.density", value=8000, unit="kg/m^3", **src)
+    M.register_property(mid, "mechanical.youngs_modulus", value=1.93e11, unit="Pa", **src)
+
+    r = M.export_dyna_cards(["SUS304"], card="mechanical", mid_start=101)
+    assert r["materials"][0]["mid"] == 101
+    assert r["materials"][0]["name"] == "SUS304_annealed Bilinear"
+    assert r["materials"][0]["matched_by"].startswith(("substring", "fuzzy"))
+    # 없는 이름은 정직하게 보고.
+    r2 = M.export_dyna_cards(["존재하지않는재료XYZ"], card="mechanical")
+    assert "error" in r2 or r2["resolution_errors"]
+
+
 def test_plot_curves_errors_clearly_without_curves(mcp_env):
     """카탈로그 물성만 있는(곡선 없는) 재료는 멈추지 않고 명확히 알린다."""
     M = mcp_env

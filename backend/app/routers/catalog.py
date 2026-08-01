@@ -8,6 +8,7 @@ from sqlalchemy import func, or_, select
 from sqlalchemy.orm import Session
 
 from app.catalog_compare import build_comparison, numeric_property_options, scatter_dataset
+from app.dyna_export import build_cards
 from app.db import get_db
 from app.models import Material, PropertyDefinition, PropertyValue, Source
 
@@ -224,6 +225,23 @@ def ashby(
     if data is None:
         raise HTTPException(status_code=400, detail="알 수 없는 물성 key(x 또는 y)")
     return data
+
+
+@router.get("/dyna")
+def dyna_cards(
+    materials: str = Query(..., description="재료 이름 또는 ID를 콤마로 구분(대량 가능)"),
+    card: str = Query(default="mechanical", description="mechanical|thermal|both"),
+    units: str = Query(default="ton_mm_s"),
+    mid_start: int = Query(default=1),
+    db: Session = Depends(get_db),
+) -> dict:
+    """재료 리스트 → LS-DYNA 재료카드 덱(MID 자동배정·출처 주석). 웹/MCP 공용 코어."""
+    if card not in ("mechanical", "thermal", "both"):
+        raise HTTPException(status_code=400, detail="card는 mechanical|thermal|both")
+    toks = [t.strip() for t in materials.split(",") if t.strip()]
+    if not toks:
+        raise HTTPException(status_code=400, detail="materials가 비었습니다")
+    return build_cards(db, toks, card=card, units=units, mid_start=mid_start)
 
 
 @router.get("/coverage")
