@@ -109,3 +109,55 @@ export type Coverage = {
 export function getCoverage() {
   return request<Coverage>("api/catalog/coverage");
 }
+
+// ── 재료 비교(/compare) — 물성별 대표값 정렬 매트릭스 ──
+export type CompareCell = {
+  material_id: number;
+  value: number | null;
+  value_text: string | null;
+  unit: string | null;
+  tier: number;
+  method: string;
+  conditions: Record<string, unknown> | null;
+  source: PropertySource | null;
+  rel?: number;
+};
+
+export type CompareProperty = {
+  key: string;
+  name: string;
+  symbol: string | null;
+  unit: string | null;
+  standard: string | null;
+  domain: string;
+  present: number;
+  numeric: boolean;
+  min_material_id: number | null;
+  max_material_id: number | null;
+  cells: (CompareCell | null)[];
+};
+
+export type CompareMaterialMeta = {
+  id: number;
+  name: string;
+  material_code: string | null;
+  category: string | null;
+  manufacturer?: string | null;
+  grade?: string | null;
+  trade_name?: string | null;
+  material_class?: string | null;
+  process?: string | null;
+  subsystem?: string | null;
+};
+
+export type CatalogComparison = {
+  materials: CompareMaterialMeta[];
+  domains: { domain: string; properties: CompareProperty[] }[];
+  n_properties: number;
+  n_shared: number;
+  rule: string;
+};
+
+export function compareMaterials(ids: number[]) {
+  return request<CatalogComparison>(`api/catalog/compare?ids=${ids.join(",")}`);
+}

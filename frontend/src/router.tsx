@@ -18,6 +18,7 @@ import { MaterialsScreen } from "./routes/materials";
 import { MaterialDetailScreen } from "./routes/material-detail";
 import { CatalogScreen } from "./routes/catalog";
 import { CatalogMaterialScreen } from "./routes/catalog-material";
+import { CatalogCompareScreen } from "./routes/catalog-compare";
 import { UploadScreen } from "./routes/upload";
 
 // ── 공통 셸: 좌측 256px 고정 사이드 + 우측 콘텐츠(max-width 1180px, §14.3) ──
@@ -139,6 +140,19 @@ const catalogRoute = createRoute({
   component: CatalogScreen,
 });
 
+const catalogCompareRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/catalog/compare",
+  // /catalog/compare?ids=73,68&shared=1 — 비교 대상·공통필터를 URL과 동기화(공유 링크).
+  validateSearch: (s: Record<string, unknown>): { ids?: string; shared?: string } => {
+    const out: { ids?: string; shared?: string } = {};
+    if (typeof s.ids === "string" && s.ids) out.ids = s.ids;
+    if (s.shared === "1" || s.shared === 1) out.shared = "1";
+    return out;
+  },
+  component: CatalogCompareScreen,
+});
+
 const catalogMaterialRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/catalog/$mid",
@@ -162,6 +176,7 @@ const routeTree = rootRoute.addChildren([
   materialsRoute,
   materialDetailRoute,
   catalogRoute,
+  catalogCompareRoute,
   catalogMaterialRoute,
   uploadRoute,
 ]);

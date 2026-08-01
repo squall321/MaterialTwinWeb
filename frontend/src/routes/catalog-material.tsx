@@ -2,7 +2,7 @@
 import { Link, useParams } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import {
-  ChevronLeft, ExternalLink, Factory, FileText, Beaker, SearchX, Info,
+  ChevronLeft, ExternalLink, Factory, FileText, Beaker, SearchX, Info, GitCompare,
 } from "lucide-react";
 import { getCatalogMaterial, type PropertyValueRow, type PropertySource } from "../api/catalog";
 import { ApiError } from "../api/client";
@@ -93,12 +93,19 @@ export function CatalogMaterialScreen() {
                 </div>
               </div>
               {!q.isPending && (
-                <div className="flex shrink-0 items-center gap-4 rounded-md border border-border-subtle bg-surface px-4 py-2">
-                  <Stat label="물성값" value={d?.n_values} />
-                  <div className="h-8 w-px bg-border-subtle" />
-                  <Stat label="도메인" value={domainKeys.length} />
-                  <div className="h-8 w-px bg-border-subtle" />
-                  <Stat label="출처" value={nSources} />
+                <div className="flex shrink-0 flex-col items-end gap-3">
+                  <Link to="/catalog/compare" search={{ ids: String(id) }}>
+                    <Button variant="outline" size="sm">
+                      <GitCompare className="size-4" /> 비교에 추가
+                    </Button>
+                  </Link>
+                  <div className="flex items-center gap-4 rounded-md border border-border-subtle bg-surface px-4 py-2">
+                    <Stat label="물성값" value={d?.n_values} />
+                    <div className="h-8 w-px bg-border-subtle" />
+                    <Stat label="도메인" value={domainKeys.length} />
+                    <div className="h-8 w-px bg-border-subtle" />
+                    <Stat label="출처" value={nSources} />
+                  </div>
                 </div>
               )}
             </div>

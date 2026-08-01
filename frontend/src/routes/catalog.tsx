@@ -2,7 +2,7 @@
 import * as React from "react";
 import { Link, useNavigate, useSearch } from "@tanstack/react-router";
 import { useQuery, keepPreviousData } from "@tanstack/react-query";
-import { Search, X, Factory, Layers, Boxes, Database, FlaskConical, ChevronRight } from "lucide-react";
+import { Search, X, Factory, Layers, Boxes, Database, FlaskConical, ChevronRight, GitCompare } from "lucide-react";
 import {
   getCatalogSummary,
   listCatalogMaterials,
@@ -13,6 +13,7 @@ import { cn } from "../lib/utils";
 import { Input } from "../components/ui/input";
 import { Card } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
+import { Button } from "../components/ui/button";
 import { EmptyState } from "../components/states/EmptyState";
 import { ErrorState } from "../components/states/ErrorState";
 import { TableSkeleton } from "../components/states/Skeletons";
@@ -75,14 +76,21 @@ export function CatalogScreen() {
 
   return (
     <div className="flex flex-col gap-6">
-      <header className="flex flex-col gap-1">
-        <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.08em] text-text-tertiary">
-          <FlaskConical className="size-3.5 text-primary" /> Material Property Catalog
+      <header className="flex flex-wrap items-start justify-between gap-4">
+        <div className="flex flex-col gap-1">
+          <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.08em] text-text-tertiary">
+            <FlaskConical className="size-3.5 text-primary" /> Material Property Catalog
+          </div>
+          <h1 className="text-2xl font-semibold tracking-[-0.01em] text-text-primary">물성 카탈로그</h1>
+          <p className="text-sm text-text-secondary">
+            스마트폰 내부 재질의 화·물리 물성을 근거(출처·조건·신뢰등급)와 함께 조회합니다.
+          </p>
         </div>
-        <h1 className="text-2xl font-semibold tracking-[-0.01em] text-text-primary">물성 카탈로그</h1>
-        <p className="text-sm text-text-secondary">
-          스마트폰 내부 재질의 화·물리 물성을 근거(출처·조건·신뢰등급)와 함께 조회합니다.
-        </p>
+        <Link to="/catalog/compare">
+          <Button variant="outline">
+            <GitCompare className="size-4" /> 재료 비교
+          </Button>
+        </Link>
       </header>
 
       {/* 요약 스탯 타일 */}
