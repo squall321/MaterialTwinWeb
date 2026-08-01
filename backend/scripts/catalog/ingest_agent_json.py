@@ -42,6 +42,19 @@ RANGE = {
     "chemical.water_absorption_24h": (0.0, 1.0),
     "chemical.water_absorption_saturation": (0.0, 1.0),
 }
+# Material.category도 고정 어휘 — 에이전트 표기를 매핑한다.
+CAT_OK = {"metal", "polymer", "rubber", "composite", "ceramic", "foam"}
+CAT_MAP = {"ceramics": "ceramic", "glass": "ceramic", "semiconductor": "ceramic",
+           "organic": "polymer", "plastic": "polymer", "resin": "polymer",
+           "elastomer": "rubber", "alloy": "metal", "adhesive": "polymer",
+           "film": "polymer", "laminate": "composite", "liquid": "polymer"}
+
+
+def norm_cat(c: str | None) -> str:
+    c = (c or "composite").strip().lower()
+    return c if c in CAT_OK else CAT_MAP.get(c, "composite")
+
+
 # Source.kind는 DB 제약(ck_source_kind)이 있는 고정 어휘 — 에이전트 표기를 매핑한다.
 KIND_OK = {"journal", "book", "database", "datasheet", "computed", "standard", "web", "other"}
 KIND_MAP = {"paper": "journal", "article": "journal", "publication": "journal",
@@ -104,14 +117,16 @@ def main() -> int:
             mid = by_name.get(name) if name else None
             if mid is None:
                 nm = entry.get("new_material")
-                if not nm:
+                if isinstance(nm, str):        # 이름만 문자열로 준 경우도 수용
+                    nm = {"name": nm}
+                if not nm or not nm.get("name"):
                     stats["no_mat"] += 1
                     print(f"  ✗ 재료 미지정: {name}")
                     continue
                 if nm["name"] in by_name:
                     mid = by_name[nm["name"]]
                 elif a.apply:
-                    r = M.register_material(name=nm["name"], category=nm.get("category", "polymer"),
+                    r = M.register_material(name=nm["name"], category=norm_cat(nm.get("category")),
                                             attributes=nm.get("attributes"))
                     if "error" in r:
                         print(f"  ✗ 재료 등록 실패 {nm['name']}: {r['error']}")
