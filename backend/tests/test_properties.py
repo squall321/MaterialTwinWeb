@@ -56,3 +56,41 @@ def test_register_property_idempotent(mcp_env):
     assert a["created"] is True and b["created"] is False  # 동일 출처·조건 → 갱신.
     got = M.get_material_properties(mid, domain="thermal")
     assert got["n_values"] == 1 and got["domains"]["thermal"][0]["value"] == 16.0
+
+
+def test_compare_materials_aligns_and_ranks(mcp_env):
+    M = mcp_env
+    a = M.register_material("비교재A", category="metal")["material_id"]
+    b = M.register_material("비교재B", category="metal")["material_id"]
+    # 공통 물성(값 다름) + A 전용 물성.
+    M.register_property(a, "thermal.conductivity", value=15.0, unit="W/(m*K)", source_title="srcA")
+    M.register_property(b, "thermal.conductivity", value=45.0, unit="W/(m*K)", source_title="srcB")
+    M.register_property(a, "physical.density", value=7800, unit="kg/m^3", source_title="srcA")
+
+    r = M.compare_materials(["비교재A", "비교재B"])
+    assert [m["name"] for m in r["materials"]] == ["비교재A", "비교재B"]  # 요청 순서 유지.
+    assert r["n_properties"] == 2 and r["n_shared"] == 1 and r["rule"]
+
+    shared = [row for row in r["comparison"] if set(row["values"]) == {"비교재A", "비교재B"}]
+    assert len(shared) == 1
+    row = shared[0]
+    assert row["highest"] == "비교재B" and row["lowest"] == "비교재A"  # 값 크기(우열 아님).
+    assert row["values"]["비교재A"]["value"] == 15.0 and row["values"]["비교재B"]["value"] == 45.0
+    # A 전용 행 — B는 values에 없다.
+    a_only = [row for row in r["comparison"] if set(row["values"]) == {"비교재A"}]
+    assert any(row["values"]["비교재A"]["value"] == 7800 for row in a_only)
+
+
+def test_compare_materials_resolves_names_and_requires_two(mcp_env):
+    M = mcp_env
+    a = M.register_material("단독재", category="metal")["material_id"]
+    M.register_property(a, "thermal.conductivity", value=10.0, unit="W/(m*K)", source_title="s")
+    # 1개만 → 에러.
+    assert "error" in M.compare_materials(["단독재"])
+    # 없는 이름 → 해석 실패도 에러.
+    assert "error" in M.compare_materials(["단독재", "존재하지않는재료XYZ"])
+    # id 정수로도 해석.
+    b = M.register_material("상대재", category="metal")["material_id"]
+    M.register_property(b, "thermal.conductivity", value=20.0, unit="W/(m*K)", source_title="s")
+    r = M.compare_materials([a, b])
+    assert len(r["materials"]) == 2 and r["n_shared"] == 1

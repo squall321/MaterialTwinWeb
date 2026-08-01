@@ -25,6 +25,7 @@ from sqlalchemy import func
 
 from app import analysis, curve_store, fitting, insights, viscoelastic
 from app.cards import lsdyna_mat024_card, lsdyna_mat098_card, poisson_from_attributes
+from app.catalog_compare import build_comparison, resolve_material_ids
 from app.db import SessionLocal
 from app.models import (
     ConstitutiveFit,
@@ -217,6 +218,51 @@ def find_materials_by_metadata(manufacturer: str | None = None, material_class: 
                             "trade_name": a.get("trade_name"), "subsystem": a.get("subsystem"),
                             "n_properties": n})
         return out[:limit]
+
+
+@mcp.tool()
+def compare_materials(materials: list[str]) -> dict:
+    """두 개 이상(최대 4)의 재료를 물성별로 나란히 비교한다 — CPU 스펙 비교처럼.
+
+    materials: 재료 이름 또는 id 리스트(예: ["APEL 5014CL", "Kapton PI Adhesive Tape"] 또는 [73, 68]).
+    각 재료·물성은 신뢰등급 최상의 대표값 1개로 정렬되어, 웹 UI와 동일한 일관된 비교표를 반환한다.
+    반환: materials(순서=컬럼), comparison(공통 물성 우선, 도메인·물성별 각 재료 값·신뢰등급·출처),
+    highest/lowest(그 물성의 최대·최소 재료 — '우열'이 아니라 값의 크기), n_shared.
+    """
+    with SessionLocal() as s:
+        ids, errors = resolve_material_ids(s, materials[:4])
+        if len(ids) < 2:
+            return {"error": "비교하려면 유효한 재료 2개 이상 필요", "resolution_errors": errors}
+        data = build_comparison(s, ids)
+        name_by_id = {m["id"]: m["name"] for m in data["materials"]}
+        rows = []
+        for dom in data["domains"]:
+            for p in dom["properties"]:
+                values = {}
+                for c in p["cells"]:
+                    if c is None:
+                        continue
+                    nm = name_by_id[c["material_id"]]
+                    values[nm] = {
+                        "value": c["value"] if c["value"] is not None else c["value_text"],
+                        "unit": c["unit"], "tier": c["tier"], "method": c["method"],
+                        "conditions": c["conditions"],
+                        "source": (c["source"] or {}).get("manufacturer") or (c["source"] or {}).get("title"),
+                    }
+                rows.append({
+                    "domain": p["domain"], "property": p["name"], "symbol": p["symbol"],
+                    "unit": p["unit"], "standard": p["standard"], "values": values,
+                    "highest": name_by_id.get(p["max_material_id"]),
+                    "lowest": name_by_id.get(p["min_material_id"]),
+                })
+        return {
+            "materials": [{"name": m["name"], "manufacturer": m.get("manufacturer"),
+                           "grade": m.get("grade"), "material_class": m.get("material_class"),
+                           "category": m["category"]} for m in data["materials"]],
+            "n_properties": data["n_properties"], "n_shared": data["n_shared"],
+            "rule": data["rule"], "comparison": rows,
+            **({"resolution_errors": errors} if errors else {}),
+        }
 
 
 @mcp.tool()

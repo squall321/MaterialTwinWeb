@@ -7,6 +7,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy import func, or_, select
 from sqlalchemy.orm import Session
 
+from app.catalog_compare import build_comparison
 from app.db import get_db
 from app.models import Material, PropertyDefinition, PropertyValue, Source
 
@@ -186,6 +187,24 @@ def catalog_material_detail(mid: int, db: Session = Depends(get_db)) -> dict:
         "metadata": _meta(mat), "attributes": mat.attributes or {},
         "n_values": len(rows), "domains": domains,
     }
+
+
+@router.get("/compare")
+def compare(
+    ids: str = Query(..., description="비교할 material_id CSV(2~4개)"),
+    db: Session = Depends(get_db),
+) -> dict:
+    """재료 비교 — 물성별 대표값 정렬 매트릭스(도메인·조건·신뢰등급·출처). 웹/MCP 공용 코어."""
+    try:
+        mids = [int(x) for x in ids.split(",") if x.strip()][:4]
+    except ValueError:
+        raise HTTPException(status_code=400, detail="ids는 정수 CSV여야 합니다")
+    if len(mids) < 2:
+        raise HTTPException(status_code=400, detail="비교하려면 재료 2개 이상 필요")
+    data = build_comparison(db, mids)
+    if len(data["materials"]) < 2:
+        raise HTTPException(status_code=404, detail="유효한 재료가 2개 미만입니다")
+    return data
 
 
 @router.get("/coverage")
