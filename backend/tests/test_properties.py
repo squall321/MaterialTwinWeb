@@ -211,6 +211,38 @@ def test_export_dyna_cards_bulk_and_units(mcp_env):
     assert "2.0000e+11" in si["keyword"]
 
 
+def test_export_dyna_cards_cte_with_part_ids(mcp_env):
+    """PID를 주면 CTE 카드(*MAT_ADD_THERMAL_EXPANSION + *DEFINE_CURVE)를 만든다."""
+    M = mcp_env
+    a = M.register_material("팽창재", category="metal")["material_id"]
+    src = dict(source_title="ASM Handbook", source_kind="book", quality_tier=2, method="handbook")
+    M.register_property(a, "physical.density", value=7850, unit="kg/m^3", **src)
+    M.register_property(a, "mechanical.youngs_modulus", value=2.0e11, unit="Pa", **src)
+    M.register_property(a, "thermal.expansion_linear", value=1.2e-5, unit="1/K", **src)
+
+    # MID 101, PART 5·6·7이 같은 재료를 쓰는 경우.
+    r = M.export_dyna_cards(["101, 5;6;7, 팽창재"], card="mechanical")
+    kw = r["keyword"]
+    assert kw.count("*MAT_ADD_THERMAL_EXPANSION") == 3      # PART마다 1장.
+    assert kw.count("*DEFINE_CURVE_TITLE") == 1             # 곡선은 재료당 1개 공유.
+    assert [p["pid"] for p in r["parts"]] == [5, 6, 7]
+    assert len({p["lcid"] for p in r["parts"]}) == 1        # 동일 LCID 공유.
+    assert all(p["cte"] == 1.2e-5 for p in r["parts"])
+    assert "1.2000e-5" in kw                                # CTE는 1/K이라 단위변환 없음.
+
+    # PID 없으면 CTE 카드도 없다(PART 단위 카드이므로).
+    r2 = M.export_dyna_cards(["101, 팽창재"], card="mechanical")
+    assert "*MAT_ADD_THERMAL_EXPANSION" not in r2["keyword"]
+    assert r2["parts"] == []
+
+    # CTE 물성이 없는 재료에 PID를 주면 조용히 넘기지 않고 보고한다.
+    b = M.register_material("팽창미상재", category="metal")["material_id"]
+    M.register_property(b, "physical.density", value=1000, unit="kg/m^3", **src)
+    M.register_property(b, "mechanical.youngs_modulus", value=1.0e9, unit="Pa", **src)
+    r3 = M.export_dyna_cards(["102, 9, 팽창미상재"], card="mechanical")
+    assert any(s["card"] == "thermal_expansion" for s in r3["skipped"])
+
+
 def test_export_dyna_cards_fuzzy_name_and_mid_start(mcp_env):
     """이름만 줘도 유사검색으로 찾고, mid_start부터 번호를 매긴다."""
     M = mcp_env

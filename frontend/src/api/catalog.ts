@@ -223,6 +223,7 @@ export type DynaCandidate = {
 export type DynaRow = {
   mid: number;
   mid_source: string;
+  pids: number[];
   query: string;
   candidates: DynaCandidate[];
   unmatched: boolean;
@@ -235,7 +236,8 @@ export type DynaDeck = {
   units: { key: string; label: string; stress: string; density: string };
   card: string;
   materials: { mid: number; material_id: number; name: string; matched_by: string;
-               query: string; mid_source?: string; cards: string[] }[];
+               query: string; mid_source?: string; pids?: number[]; cards: string[] }[];
+  parts: { pid: number; mid: number; lcid: number; material: string; cte: number }[];
   n_materials: number;
   skipped: { material: string; card: string; reason: string }[];
   resolution_errors: string[];
@@ -251,7 +253,7 @@ export function matchDynaRows(rows: string, mid_start = 1) {
 }
 
 export function buildDynaDeck(
-  picks: { mid: number; material_id: number }[],
+  picks: { mid: number; material_id: number; pids?: number[] }[],
   card: string,
   units: string,
 ) {

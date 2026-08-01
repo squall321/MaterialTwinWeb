@@ -19,6 +19,11 @@ const SAMPLE = `101, SUS304
 103, Kapton
 104, Al6061`;
 
+// MID, PID, 재료명 3열 예시 — PID를 주면 CTE 카드까지 생성된다.
+const SAMPLE_PID = `101, 5, SUS304
+102, 11;12, 전해동박
+103, 7, Kapton`;
+
 const UNITS = [
   { key: "ton_mm_s", label: "ton, mm, s (MPa)" },
   { key: "kg_m_s", label: "kg, m, s (Pa, SI)" },
@@ -52,7 +57,7 @@ export function CatalogDynaScreen() {
   const buildMut = useMutation({
     mutationFn: () => {
       const picks = (match?.rows ?? [])
-        .map((r, i) => ({ mid: r.mid, material_id: picked[i] as number }))
+        .map((r, i) => ({ mid: r.mid, material_id: picked[i] as number, pids: r.pids }))
         .filter((p) => p.material_id != null);
       return buildDynaDeck(picks, card, units);
     },
@@ -110,6 +115,17 @@ export function CatalogDynaScreen() {
           className="w-full resize-y rounded-md border border-border-default bg-inset p-3 font-mono text-xs text-text-primary focus:outline-none focus:ring-1 focus:ring-[color:var(--focus-ring)]"
           placeholder={"101, SUS304\n102, 전해동박\n(MID 생략 시 자동 배정)"}
         />
+        <div className="flex flex-wrap items-center gap-2 text-[0.6875rem] text-text-tertiary">
+          <span>형식:</span>
+          <code className="rounded-sm bg-surface-2 px-1.5 py-0.5 font-mono">MID, 재료명</code>
+          <span>또는</span>
+          <code className="rounded-sm bg-surface-2 px-1.5 py-0.5 font-mono">MID, PID, 재료명</code>
+          <span>— PID를 주면 CTE(*MAT_ADD_THERMAL_EXPANSION)까지 생성. 여러 PART는 <code className="font-mono">5;6;7</code></span>
+          <button onClick={() => setRows(SAMPLE_PID)}
+                  className="ml-auto text-text-secondary underline-offset-2 hover:text-text-primary hover:underline">
+            PID 예시 넣기
+          </button>
+        </div>
         <div className="flex flex-wrap items-end gap-3">
           <label className="flex flex-col gap-1">
             <span className="text-xs font-medium text-text-tertiary">MID 시작(자동 배정분)</span>
@@ -245,6 +261,11 @@ function RowPicker({
             {row.mid_source}
           </Badge>
         </div>
+        {row.pids?.length > 0 && (
+          <span className="font-mono text-[0.625rem] text-accent" title="PART 지정 — CTE 카드 생성">
+            PID {row.pids.join(", ")} · CTE
+          </span>
+        )}
         <span className="truncate font-mono text-[0.6875rem] text-text-tertiary" title={row.query}>
           "{row.query}"
         </span>

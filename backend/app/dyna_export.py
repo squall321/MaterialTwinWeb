@@ -26,6 +26,10 @@ MECH_KEYS = (K_RHO, K_E, K_NU, K_SIGY, K_UTS, K_ELONG)
 THERM_KEYS = (K_RHO, K_HC, K_TC, K_CTE)
 
 _DEFAULT_NU = 0.3
+# CTE 상수 곡선의 온도 범위(K) — 상온 해석 범위를 넉넉히 덮는다.
+CTE_CURVE_T_MIN, CTE_CURVE_T_MAX = 173.15, 673.15
+# *DEFINE_CURVE LCID 시작번호(기존 모델 곡선과 충돌 피하려 큰 번호 사용).
+CTE_LCID_BASE = 990001
 
 
 def f_specific_heat(u: UnitSystem) -> float:
@@ -124,6 +128,23 @@ def _card_field(*vals) -> str:
 
 # "101, 재료이름" / "101:이름" / "101=이름" 한 행. 앞이 정수면 MID 지정으로 본다.
 _ROW_RE = re.compile(r"^(\d+)\s*[,:=]\s*(.+)$")
+# "101, 5, 재료이름" / "101, 5;6;7, 이름" — MID, PID(들), 이름 3열. PID는 CTE 카드에 쓰인다.
+_ROW3_RE = re.compile(r"^(\d+)\s*[,:=]\s*([\d;\s]+?)\s*[,:=]\s*(.+)$")
+
+
+def _parse_pids(s) -> list[int]:
+    """PID 표기('5' / '5;6;7' / [5,6])를 정수 리스트로."""
+    if s is None:
+        return []
+    if isinstance(s, (list, tuple)):
+        out = []
+        for x in s:
+            try:
+                out.append(int(x))
+            except (TypeError, ValueError):
+                pass
+        return out
+    return [int(p) for p in re.split(r"[;\s,]+", str(s).strip()) if p.isdigit()]
 
 
 def _rows(items) -> list:
@@ -152,15 +173,17 @@ def _rows(items) -> list:
     return out
 
 
-def parse_items(items: list) -> tuple[list, list[int | None], list[str]]:
-    """입력 항목에서 (재료토큰, 지정 MID) 쌍을 뽑는다. MID 미지정은 None.
+def parse_items(items: list) -> tuple[list, list[int | None], list[list[int]], list[str]]:
+    """입력 항목에서 (재료토큰, 지정 MID, PID 목록)을 뽑는다. 미지정은 None/빈 리스트.
 
     지원 형식 — "이름" / 12(카탈로그 id) / "101, 이름" / "101:이름" / "101=이름" /
-    {"mid":101,"material":"이름"} / 여러 줄 문자열(표 붙여넣기).
-    지정한 MID는 그대로 카드에 쓰인다.
+    "101, 5, 이름"(MID·PID·이름) / "101, 5;6;7, 이름"(여러 PID) /
+    {"mid":101,"pid":5,"material":"이름"} / 여러 줄 문자열(표 붙여넣기).
+    지정한 MID는 그대로 카드에 쓰이고, PID가 있으면 CTE(*MAT_ADD_THERMAL_EXPANSION)를 만든다.
     """
     toks: list = []
     mids: list[int | None] = []
+    pids: list[list[int]] = []
     errs: list[str] = []
     for it in _rows(items):
         if isinstance(it, dict):
@@ -174,20 +197,30 @@ def parse_items(items: list) -> tuple[list, list[int | None], list[str]]:
             except (TypeError, ValueError):
                 errs.append(f"{it}: mid가 정수가 아님")
                 continue
+            pids.append(_parse_pids(it.get("pids", it.get("pid", it.get("PID")))))
             toks.append(t)
             continue
         s = str(it).strip()
         if not s:
             continue
+        # "101, 5, 이름" — MID·PID·이름 3열 우선 검사.
+        m3 = _ROW3_RE.match(s)
+        if m3:
+            mids.append(int(m3.group(1)))
+            pids.append(_parse_pids(m3.group(2)))
+            toks.append(m3.group(3).strip())
+            continue
         # "101, 이름" / "101:이름" / "101=이름" — 앞이 정수면 MID 지정으로 해석.
         m = _ROW_RE.match(s)
         if m:
             mids.append(int(m.group(1)))
+            pids.append([])
             toks.append(m.group(2).strip())
         else:
             mids.append(None)
+            pids.append([])
             toks.append(s)
-    return toks, mids, errs
+    return toks, mids, pids, errs
 
 
 def assign_mids(explicit: list[int | None], mid_start: int) -> tuple[list[int], list[str]]:
@@ -220,7 +253,7 @@ def match_rows(db: Session, tokens: list, mid_start: int = 1, limit: int = 6) ->
     반환: {rows:[{mid, mid_source, query, candidates:[{material_id,name,score,matched_by,
     manufacturer,n_properties,has_mechanical,has_thermal}]}], errors}
     """
-    toks, explicit, errs = parse_items(list(tokens or []))
+    toks, explicit, pid_lists, errs = parse_items(list(tokens or []))
     mid_list, warns = assign_mids(explicit, mid_start)
     all_mats = db.execute(select(Material)).scalars().all()
 
@@ -241,7 +274,7 @@ def match_rows(db: Session, tokens: list, mid_start: int = 1, limit: int = 6) ->
                 "has_mechanical": has_mech, "has_thermal": has_th}
 
     rows = []
-    for tok, mid, exp in zip(toks, mid_list, explicit):
+    for tok, mid, exp, pl in zip(toks, mid_list, explicit, pid_lists):
         s = str(tok).strip()
         cands: list[dict] = []
         if s.isdigit():
@@ -267,30 +300,33 @@ def match_rows(db: Session, tokens: list, mid_start: int = 1, limit: int = 6) ->
             scored.sort(key=lambda x: (-x[0], x[2].name))
             cands = [_info(m, sc, how) for sc, how, m in scored[:limit]]
         rows.append({"mid": mid, "mid_source": "지정" if exp is not None else "자동",
-                     "query": s, "candidates": cands,
+                     "pids": pl, "query": s, "candidates": cands,
                      "unmatched": len(cands) == 0})
     return {"rows": rows, "errors": errs, "mid_warnings": warns}
 
 
 def build_cards(db: Session, tokens: list, card: str = "mechanical",
-                units: str = "ton_mm_s", mid_start: int = 1) -> dict:
+                units: str = "ton_mm_s", mid_start: int = 1,
+                lcid_start: int = CTE_LCID_BASE) -> dict:
     """재료 리스트 → LS-DYNA 키워드 덱. card: mechanical|thermal|both.
 
     MID는 mid_start부터 순차 자동 배정. 각 카드에 출처(프로비넌스)를 $ 주석으로 남긴다.
     필수 물성이 없어 카드를 만들 수 없으면 조용히 기본값으로 채우지 않고 skipped에 보고한다.
     """
     u = get_system(units)
-    toks, explicit, parse_errs = parse_items(list(tokens or []))
+    toks, explicit, pid_lists, parse_errs = parse_items(list(tokens or []))
     # 토큰별 개별 해석 — 같은 재료를 다른 MID로 중복 지정하는 경우를 허용(순서·중복 보존).
     mats: list[dict] = []
     keep_mid: list[int | None] = []
+    keep_pids: list[list[int]] = []
     errors: list[str] = list(parse_errs)
-    for t, em in zip(toks, explicit):
+    for t, em, pl in zip(toks, explicit, pid_lists):
         got, errs = resolve_materials_fuzzy(db, [t])
         errors.extend(errs)
         if got:
             mats.append(got[0])
             keep_mid.append(em)
+            keep_pids.append(pl)
     if not mats:
         return {"error": "해석할 재료가 없습니다", "resolution_errors": errors,
                 "keyword": "", "materials": [], "skipped": []}
@@ -327,7 +363,10 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
                         "$" + "=" * 78]
     table: list[dict] = []
     skipped: list[dict] = []
-    for m, mid in zip(mats, mid_list):
+    parts: list[dict] = []
+    lcid_next = [int(lcid_start)]
+    lcid_by_mat: dict[int, int] = {}
+    for m, mid, pids in zip(mats, mid_list, keep_pids):
         i = m["id"]
         rho, E, nu = val(i, K_RHO), val(i, K_E), val(i, K_NU)
         sigy, uts, elong = val(i, K_SIGY), val(i, K_UTS), val(i, K_ELONG)
@@ -402,11 +441,43 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
                 lines.append(_card_field(_fmt(hc * f_specific_heat(u)), _fmt(tc * f_conductivity(u))))
                 made.append("*MAT_THERMAL_ISOTROPIC (T01)")
 
+        # ── CTE(열팽창) — PART 단위 카드라 PID가 있어야 만들 수 있다 ──
+        if pids:
+            if cte is None:
+                skipped.append({"material": m["name"], "card": "thermal_expansion",
+                                "reason": "선팽창계수(CTE) 없음(카드 생성 불가)"})
+            else:
+                # 곡선은 재료당 1개만 정의하고 여러 PART가 공유한다(중복 곡선 방지).
+                lcid = lcid_by_mat.get(i)
+                if lcid is None:
+                    lcid = lcid_next[0]
+                    lcid_next[0] += 1
+                    lcid_by_mat[i] = lcid
+                    lines.append("$")
+                    lines.append(f"$ --- CTE 곡선 (LCID {lcid}): {title} ---")
+                    lines.append(f"$   CTE {_fmt(cte)} 1/K   <- {prov.get((i, K_CTE), '출처미상')}")
+                    lines.append("$   (온도 무관 상수 — 2점 곡선. 온도의존 CTE는 이 곡선을 교체하세요)")
+                    lines.append("*DEFINE_CURVE_TITLE")
+                    lines.append(f"CTE {title}"[:70])
+                    lines.append("$#    lcid      sidr       sfa       sfo      offa      offo    dattyp")
+                    lines.append(_card_field(lcid, 0, "1.0", "1.0", "0.0", "0.0", 0))
+                    lines.append("$#                a1                  o1")
+                    for t_k in (CTE_CURVE_T_MIN, CTE_CURVE_T_MAX):
+                        lines.append(f"{_fit10(_fmt(t_k)):>20s}{_fit10(_fmt(cte)):>20s}")
+                for pid in pids:
+                    lines.append(f"$ PID {pid} ← {title} 열팽창(LCID {lcid})")
+                    lines.append("*MAT_ADD_THERMAL_EXPANSION")
+                    lines.append("$#     pid      lcid      mult")
+                    lines.append(_card_field(pid, lcid, "1.0"))
+                    made.append(f"*MAT_ADD_THERMAL_EXPANSION (PID {pid})")
+                    parts.append({"pid": pid, "mid": mid, "lcid": lcid,
+                                  "material": m["name"], "cte": cte})
+
         if made:
             table.append({"mid": mid, "material_id": i, "name": m["name"],
                           "matched_by": m["matched_by"], "query": m["query"],
                           "mid_source": "지정" if mid in explicit_set else "자동",
-                          "cards": made})
+                          "pids": pids, "cards": made})
 
     lines.append("*END")
     return {
@@ -416,6 +487,7 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
         "card": card,
         "materials": table,
         "n_materials": len(table),
+        "parts": parts,
         "skipped": skipped,
         "resolution_errors": errors,
         "mid_warnings": mid_warns,

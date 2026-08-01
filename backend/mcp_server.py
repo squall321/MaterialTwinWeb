@@ -656,24 +656,31 @@ def find_materials_in_property_range(
 
 @mcp.tool()
 def export_dyna_cards(materials: list, card: str = "mechanical",
-                      units: str = "ton_mm_s", mid_start: int = 1) -> dict:
+                      units: str = "ton_mm_s", mid_start: int = 1,
+                      lcid_start: int = 990001) -> dict:
     """재료 리스트를 LS-DYNA 재료카드 덱으로 대량 출력한다 — 이름만 줘도 유사검색+MID 자동배정.
 
     materials: 재료 이름 또는 ID 리스트(수십 개 한 번에 가능). 이름은 정확→부분→유사(오타)
       순으로 매칭하며, 매칭 근거를 matched_by로 돌려준다.
+      MID 지정: "101, 이름" / "101:이름" / {"mid":101,"material":"이름"} — 지정하면 그대로 쓴다.
+      PART 지정: "101, 5, 이름"(MID·PID·이름) 또는 "101, 5;6;7, 이름"(여러 PART) —
+      PID를 주면 CTE(*MAT_ADD_THERMAL_EXPANSION + *DEFINE_CURVE)까지 만든다.
+      여러 줄 문자열(표 붙여넣기)도 그대로 받는다.
     card: 'mechanical'(*MAT_ELASTIC 또는 항복 보유 시 *MAT_PIECEWISE_LINEAR_PLASTICITY) ·
       'thermal'(*MAT_THERMAL_ISOTROPIC — 밀도·비열·열전도율) · 'both'.
     units: ton_mm_s(기본, MPa) · kg_m_s(SI) · g_mm_ms · kg_mm_ms.
     mid_start: MID/TMID 시작번호(1,2,3… 순차 자동 배정).
 
-    반환: keyword(붙여넣기 가능한 전체 덱), materials(MID↔재료 매핑표), skipped(물성 부족으로
-    생성 못한 것과 사유), resolution_errors. 각 물성 값 옆에 출처를 $ 주석으로 남긴다.
+    lcid_start: CTE 곡선 LCID 시작번호(기존 모델 곡선과 충돌 피하려 큰 번호 기본).
+    반환: keyword(붙여넣기 가능한 전체 덱), materials(MID↔재료 매핑표), parts(PID↔MID↔LCID↔CTE),
+    skipped(물성 부족으로 생성 못한 것과 사유), resolution_errors.
+    각 물성 값 옆에 출처를 $ 주석으로 남긴다.
     """
     if card not in ("mechanical", "thermal", "both"):
         return {"error": "card는 mechanical|thermal|both 중 하나"}
     with SessionLocal() as s:
-        return build_dyna_cards(s, list(materials or []), card=card,
-                                units=units, mid_start=int(mid_start))
+        return build_dyna_cards(s, list(materials or []), card=card, units=units,
+                                mid_start=int(mid_start), lcid_start=int(lcid_start))
 
 
 @mcp.tool()
