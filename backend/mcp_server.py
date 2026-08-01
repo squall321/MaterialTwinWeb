@@ -25,7 +25,13 @@ from sqlalchemy import func
 
 from app import analysis, curve_store, fitting, insights, viscoelastic
 from app.cards import lsdyna_mat024_card, lsdyna_mat098_card, poisson_from_attributes
-from app.catalog_compare import build_comparison, resolve_material_ids, scatter_dataset
+from app.catalog_compare import (
+    build_comparison,
+    property_ranking,
+    property_stats,
+    resolve_material_ids,
+    scatter_dataset,
+)
 from app.db import SessionLocal
 from app.models import (
     ConstitutiveFit,
@@ -499,6 +505,104 @@ def plot_curve(test_id: int, kind: str = "auto") -> Image:
     return Image(data=buf.getvalue(), format="png")
 
 
+_CURVE_PALETTE = ["#56B4E9", "#E69F00", "#34D399", "#CC79A7", "#F0A92C", "#8FA1B3", "#D55E00", "#9AA7B8"]
+
+
+def _rep_test_for_material(s, material_id: int):
+    """재료의 대표 시험 — 유효 시험 우선, id 오름차순 첫 건(없으면 None)."""
+    return (s.query(Test)
+            .join(Specimen, Specimen.id == Test.specimen_id)
+            .filter(Specimen.material_id == material_id)
+            .order_by(Test.valid.desc(), Test.id)
+            .first())
+
+
+@mcp.tool()
+def plot_curves(materials: list | None = None, test_ids: list | None = None,
+                kind: str = "nominal", max_points: int = 300) -> Image:
+    """여러 재료(또는 시험)의 응력-변형률 곡선을 한 그래프에 겹쳐 비교한다(PNG). 두 개 이상 재질 비교용.
+
+    materials: 재료 이름/ID 리스트 — 각 재료의 대표 유효 시험 곡선을 겹쳐 그린다.
+    test_ids: 시험 ID로 직접 지정(materials 대신). kind: nominal(공칭 σ-ε)·true(진응력)·
+    relaxation(점탄성 E(t)). 각 곡선은 다운샘플(기본 300점)로 로드해 대용량이어도 빠르다(최대 8개).
+    카탈로그 물성만 있고 인장 곡선이 없는 재료는 명확히 알린다(멈추지 않음).
+    """
+    curves = []   # (label, x, y)
+    missing = []
+    with SessionLocal() as s:
+        pairs = []  # (label, test_id)
+        if test_ids:
+            for tid in list(test_ids)[:8]:
+                t = s.get(Test, int(tid))
+                if t is None:
+                    missing.append(f"test {tid}")
+                else:
+                    pairs.append((f"{t.specimen.material.name} · {t.specimen.label}", t.id))
+        else:
+            ids, errs = resolve_material_ids(s, list(materials or [])[:8])
+            missing.extend(errs)
+            for mid in ids:
+                t = _rep_test_for_material(s, mid)
+                nm = s.get(Material, mid).name
+                if t is None:
+                    missing.append(f"{nm}(인장 곡선 없음)")
+                else:
+                    pairs.append((nm, t.id))
+
+    want_relax = kind == "relaxation"
+    for label, tid in pairs:
+        try:
+            df = curve_store.read_curve(tid)
+        except FileNotFoundError:
+            missing.append(f"{label}(곡선 파일 없음)")
+            continue
+        if want_relax:
+            if "relax_modulus_Pa" not in df.columns:
+                missing.append(f"{label}(완화 곡선 아님)"); continue
+            x = np.asarray(df["time_s"], dtype=float); y = np.asarray(df["relax_modulus_Pa"], dtype=float) / 1e6
+        elif kind == "true":
+            if "eng_strain" not in df.columns:
+                missing.append(f"{label}(인장 곡선 아님)"); continue
+            from app import true_stress
+            c = true_stress.true_curve_with_necking(np.asarray(df["eng_strain"]), np.asarray(df["eng_stress_Pa"]))
+            x = np.asarray(c["true_strain"], dtype=float); y = np.asarray(c["true_stress"], dtype=float) / 1e6
+        else:
+            if "eng_strain" not in df.columns:
+                missing.append(f"{label}(인장 곡선 아님)"); continue
+            x = np.asarray(df["eng_strain"], dtype=float); y = np.asarray(df["eng_stress_Pa"], dtype=float) / 1e6
+        m = np.isfinite(x) & np.isfinite(y)
+        xs, ys = curve_store.lttb_downsample(x[m], y[m], n_out=max(50, min(int(max_points), 2000)))
+        curves.append((label, xs, ys))
+
+    if not curves:
+        raise ValueError("겹쳐 그릴 곡선이 없습니다 — " + (", ".join(missing) or "대상 없음")
+                         + ". (카탈로그 물성만 있는 재료는 σ-ε 곡선이 없음. 인장 시험이 있는 재료를 지정하세요.)")
+
+    plt.style.use("dark_background")
+    fig, ax = plt.subplots(figsize=(7.6, 5.0), dpi=120)
+    fig.patch.set_facecolor("#0A0E14"); ax.set_facecolor("#070A0F")
+    for i, (label, xs, ys) in enumerate(curves):
+        col = _CURVE_PALETTE[i % len(_CURVE_PALETTE)]
+        (ax.semilogx if want_relax else ax.plot)(xs, ys, color=col, lw=1.8, label=label)
+    if want_relax:
+        ax.set_xlabel("time  t (s)"); ax.set_ylabel("relaxation modulus  E(t) (MPa)")
+        ax.set_title("재료 완화 곡선 비교", color="#E6EBF2")
+    else:
+        ax.set_xlabel("strain  ε"); ax.set_ylabel("stress  σ (MPa)")
+        ax.set_title(f"재료 응력-변형률 비교 ({'true' if kind == 'true' else 'nominal'})", color="#E6EBF2")
+    ax.legend(loc="best", framealpha=0.2, fontsize=8)
+    ax.grid(True, color="#1C2530", lw=0.6)
+    for sp in ax.spines.values():
+        sp.set_color("#26303D")
+    if missing:
+        ax.text(0.99, 0.01, "제외: " + ", ".join(missing[:4]) + ("…" if len(missing) > 4 else ""),
+                transform=ax.transAxes, ha="right", va="bottom", fontsize=6.5, color="#8FA1B3")
+    fig.tight_layout()
+    buf = io.BytesIO(); fig.savefig(buf, format="png", facecolor=fig.get_facecolor())
+    plt.close(fig)
+    return Image(data=buf.getvalue(), format="png")
+
+
 @mcp.tool()
 def database_summary() -> dict:
     """DB 요약: 총 재료 수·카테고리별·시험유형별·피팅 레코드 수."""
@@ -546,6 +650,41 @@ def find_materials_in_property_range(
     return [{"name": p["name"], "id": p["id"], "cls": p["cls"],
              "E_gpa": p["E_gpa"], "uts_mpa": p["uts_mpa"], "test_id": p["test_id"]}
             for p in out[:limit]]
+
+
+@mcp.tool()
+def search_catalog_property(property_key: str, min_value: float | None = None,
+                            max_value: float | None = None, order: str = "desc",
+                            limit: int = 30) -> dict:
+    """화·물리 물성(카탈로그 91개 key)으로 재료 검색·랭킹 — 흡습률·CTE·유전율·방사율·열전도 등 전부.
+
+    property_key: list_property_definitions의 key(예: chemical.water_absorption_24h,
+    thermal.expansion_linear, electrical.dielectric_constant). min_value/max_value로 범위 필터,
+    order='desc'|'asc'. 각 재료의 대표값(신뢰등급 최상)과 단위·신뢰등급·업체·출처(프로비넌스)를 반환.
+    (인장 E/UTS 전용 search_by_property와 달리 전 도메인 물성 조회 가능.)
+    """
+    with SessionLocal() as s:
+        rk = property_ranking(s, property_key, min_value=min_value, max_value=max_value,
+                              order=order, limit=max(1, min(int(limit), 200)))
+        if rk is None:
+            return {"error": f"알 수 없는 property_key '{property_key}'. "
+                             "list_property_definitions로 key 확인."}
+        return rk
+
+
+@mcp.tool()
+def catalog_property_distribution(property_key: str) -> dict:
+    """한 화·물리 물성의 재료 간 분포 통계 — n·min·max·평균·중앙 + 상·하위 재료(전 도메인 물성).
+
+    property_key: list_property_definitions의 key. 인장 전용 property_distribution과 달리
+    흡습률·CTE·유전율 등 카탈로그 전 물성의 분포를 본다.
+    """
+    with SessionLocal() as s:
+        st = property_stats(s, property_key)
+        if st is None:
+            return {"error": f"알 수 없는 property_key '{property_key}'. "
+                             "list_property_definitions로 key 확인."}
+        return st
 
 
 @mcp.tool()

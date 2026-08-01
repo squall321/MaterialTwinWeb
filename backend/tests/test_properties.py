@@ -1,6 +1,8 @@
 # 화·물리 물성 확장 회귀 — taxonomy 시드·property_value 프로비넌스·MCP 조회/등록.
 from __future__ import annotations
 
+import pytest
+
 
 def test_taxonomy_seeded_on_init(mcp_env):
     M = mcp_env
@@ -111,3 +113,54 @@ def test_ashby_data_pairs_and_filters(mcp_env):
     assert pa["x"] == 7800 and pa["y"] == 2.0e11 and pa["category"] == "metal"
     # 잘못된 key → 에러.
     assert "error" in M.ashby_data("physical.density", "bogus.key")
+
+
+def test_search_catalog_property_ranks_all_domains(mcp_env):
+    """흡습률 등 전 도메인 물성으로 검색·랭킹 + 출처(프로비넌스) 노출."""
+    M = mcp_env
+    a = M.register_material("저흡습재", category="polymer")["material_id"]
+    b = M.register_material("고흡습재", category="polymer")["material_id"]
+    M.register_property(a, "chemical.water_absorption_24h", value=0.0002, unit="1",
+                        source_title="Vendor A datasheet", source_kind="datasheet",
+                        source_manufacturer="VendorA", quality_tier=3)
+    M.register_property(b, "chemical.water_absorption_24h", value=0.018, unit="1",
+                        source_title="Vendor B datasheet", source_kind="datasheet",
+                        source_manufacturer="VendorB", quality_tier=3)
+
+    desc = M.search_catalog_property("chemical.water_absorption_24h")
+    assert desc["property"]["domain"] == "chemical" and desc["count"] == 2
+    assert [r["name"] for r in desc["results"]] == ["고흡습재", "저흡습재"]  # 기본 내림차순.
+    assert desc["results"][0]["source"]["manufacturer"] == "VendorB"  # 프로비넌스 노출.
+
+    asc = M.search_catalog_property("chemical.water_absorption_24h", order="asc")
+    assert asc["results"][0]["name"] == "저흡습재"
+    # 범위 필터.
+    only_low = M.search_catalog_property("chemical.water_absorption_24h", max_value=0.001)
+    assert [r["name"] for r in only_low["results"]] == ["저흡습재"]
+    assert "error" in M.search_catalog_property("bogus.key")
+
+
+def test_catalog_property_distribution_stats(mcp_env):
+    """CTE 등 전 도메인 물성의 재료 간 분포 통계."""
+    M = mcp_env
+    for name, cte in (("저CTE재", 5e-6), ("중CTE재", 1.7e-5), ("고CTE재", 1.2e-4)):
+        mid = M.register_material(name, category="polymer")["material_id"]
+        M.register_property(mid, "thermal.expansion_linear", value=cte, unit="1/K",
+                            source_title="CTE 기술자료", source_kind="datasheet")
+    d = M.catalog_property_distribution("thermal.expansion_linear")
+    assert d["n"] == 3 and d["min"] == 5e-6 and d["max"] == 1.2e-4
+    assert d["median"] == 1.7e-5
+    assert d["highest"][0]["name"] == "고CTE재" and d["lowest"][-1]["name"] == "저CTE재"
+    assert "error" in M.catalog_property_distribution("bogus.key")
+
+
+def test_plot_curves_errors_clearly_without_curves(mcp_env):
+    """카탈로그 물성만 있는(곡선 없는) 재료는 멈추지 않고 명확히 알린다."""
+    M = mcp_env
+    a = M.register_material("곡선없는재A", category="metal")["material_id"]
+    M.register_material("곡선없는재B", category="metal")
+    M.register_property(a, "physical.density", value=8900, unit="kg/m^3",
+                        source_title="handbook", source_kind="book")
+    with pytest.raises(ValueError) as e:
+        M.plot_curves(materials=["곡선없는재A", "곡선없는재B"])
+    assert "인장 곡선 없음" in str(e.value)

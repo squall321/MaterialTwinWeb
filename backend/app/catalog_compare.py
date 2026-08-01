@@ -138,6 +138,73 @@ def scatter_dataset(db: Session, x_key: str, y_key: str) -> dict | None:
     return {"x": _axis(x_key), "y": _axis(y_key), "points": points, "rule": REPRESENTATIVE_RULE}
 
 
+def property_ranking(db: Session, key: str, min_value: float | None = None,
+                     max_value: float | None = None, order: str = "desc",
+                     limit: int | None = 30) -> dict | None:
+    """한 물성(key)으로 재료를 대표값 랭킹 — 흡습률·CTE·유전율 등 카탈로그 전 물성 공용.
+
+    반환: {property:{key,name,symbol,unit,domain}, count, results:[{material_id,name,
+    category,manufacturer,value,unit,tier,method,conditions,source}]}. key 미정의면 None.
+    """
+    d = db.execute(select(PropertyDefinition).where(PropertyDefinition.key == key)).scalar_one_or_none()
+    if d is None:
+        return None
+    best: dict[int, PropertyValue] = {}
+    for pv in db.execute(
+        select(PropertyValue).where(PropertyValue.property_key == key,
+                                    PropertyValue.value_num.isnot(None))
+    ).scalars().all():
+        if pv.material_id not in best or _rep_rank(pv) < _rep_rank(best[pv.material_id]):
+            best[pv.material_id] = pv
+    mats = {m.id: m for m in db.execute(
+        select(Material).where(Material.id.in_(best.keys()))).scalars().all()} if best else {}
+    rows = []
+    for mid, pv in best.items():
+        v = pv.value_num
+        if min_value is not None and v < min_value:
+            continue
+        if max_value is not None and v > max_value:
+            continue
+        m = mats.get(mid)
+        if m is None:
+            continue
+        a = m.attributes or {}
+        src = pv.source
+        rows.append({
+            "material_id": mid, "name": m.name, "category": m.category,
+            "manufacturer": a.get("manufacturer"), "grade": a.get("grade"),
+            "value": v, "unit": pv.unit, "tier": pv.quality_tier, "method": pv.method,
+            "conditions": pv.conditions,
+            "source": ({"title": src.title, "url": src.url, "doi": src.doi,
+                        "manufacturer": src.publisher, "kind": src.kind} if src else None),
+        })
+    rows.sort(key=lambda r: r["value"], reverse=(order != "asc"))
+    return {
+        "property": {"key": d.key, "name": d.name, "symbol": d.symbol,
+                     "unit": d.si_unit, "domain": d.domain},
+        "count": len(rows), "results": rows if limit is None else rows[:limit],
+    }
+
+
+def property_stats(db: Session, key: str) -> dict | None:
+    """한 물성(key)의 재료 간 분포 통계 — n·min·max·mean·median + 상·하위 재료."""
+    import statistics
+    rk = property_ranking(db, key, order="desc", limit=None)
+    if rk is None:
+        return None
+    rows = rk["results"]
+    vals = [r["value"] for r in rows]
+    if not vals:
+        return {"property": rk["property"], "n": 0}
+    return {
+        "property": rk["property"], "n": len(vals),
+        "min": min(vals), "max": max(vals),
+        "mean": statistics.fmean(vals), "median": statistics.median(vals),
+        "highest": [{"name": r["name"], "value": r["value"]} for r in rows[:3]],
+        "lowest": [{"name": r["name"], "value": r["value"]} for r in rows[-3:]],
+    }
+
+
 def build_comparison(db: Session, material_ids: list[int]) -> dict:
     """재료들을 물성별로 정렬 비교. 요청 순서를 컬럼 순서로 유지.
 
