@@ -66,6 +66,78 @@ def resolve_material_ids(db: Session, tokens: list) -> tuple[list[int], list[str
     return uniq, errors
 
 
+def representative_numeric(db: Session, keys: list[str]) -> dict[str, dict[int, float]]:
+    """주어진 property_key들에 대해 재료별 대표 수치값 → {key: {material_id: value_num}}."""
+    best: dict[tuple, PropertyValue] = {}
+    for pv in db.execute(
+        select(PropertyValue).where(
+            PropertyValue.property_key.in_(keys), PropertyValue.value_num.isnot(None))
+    ).scalars().all():
+        k = (pv.material_id, pv.property_key)
+        if k not in best or _rep_rank(pv) < _rep_rank(best[k]):
+            best[k] = pv
+    out: dict[str, dict[int, float]] = {k: {} for k in keys}
+    for (mid, key), pv in best.items():
+        out[key][mid] = pv.value_num
+    return out
+
+
+def numeric_property_options(db: Session) -> list[dict]:
+    """Ashby 축 후보 — 수치값을 가진 물성 목록(재료 수 내림차순). {key,name,unit,domain,symbol,n_materials}."""
+    defs = {d.key: d for d in db.execute(select(PropertyDefinition)).scalars().all()}
+    n_mat: dict[str, set] = defaultdict(set)
+    for mid, key in db.execute(
+        select(PropertyValue.material_id, PropertyValue.property_key)
+        .where(PropertyValue.value_num.isnot(None))
+    ).all():
+        n_mat[key].add(mid)
+    opts = []
+    for key, mids in n_mat.items():
+        d = defs.get(key)
+        if d is None:
+            continue
+        opts.append({"key": key, "name": d.name, "symbol": d.symbol, "unit": d.si_unit,
+                     "domain": d.domain, "n_materials": len(mids)})
+    opts.sort(key=lambda o: (-o["n_materials"], o["name"]))
+    return opts
+
+
+def scatter_dataset(db: Session, x_key: str, y_key: str) -> dict | None:
+    """Ashby 산점도 데이터 — x·y 물성을 모두 가진 재료의 (대표값) 좌표 + 메타(색상 facet용).
+
+    반환: {x:{axis}, y:{axis}, points:[{material_id,name,category,subsystem,manufacturer,
+    material_class,x,y}], rule}. x_key/y_key가 정의에 없으면 None.
+    """
+    defs = {d.key: d for d in db.execute(
+        select(PropertyDefinition).where(PropertyDefinition.key.in_([x_key, y_key]))
+    ).scalars().all()}
+    if x_key not in defs or y_key not in defs:
+        return None
+    reps = representative_numeric(db, list({x_key, y_key}))
+    xv, yv = reps.get(x_key, {}), reps.get(y_key, {})
+    common = set(xv) & set(yv)
+    mats = {m.id: m for m in db.execute(
+        select(Material).where(Material.id.in_(common))).scalars().all()} if common else {}
+    points = []
+    for mid in common:
+        m = mats.get(mid)
+        if m is None:
+            continue
+        a = m.attributes or {}
+        points.append({
+            "material_id": mid, "name": m.name, "category": m.category,
+            "subsystem": a.get("subsystem"), "manufacturer": a.get("manufacturer"),
+            "material_class": a.get("material_class"), "x": xv[mid], "y": yv[mid],
+        })
+    points.sort(key=lambda p: p["name"])
+
+    def _axis(k: str) -> dict:
+        d = defs[k]
+        return {"key": k, "name": d.name, "symbol": d.symbol, "unit": d.si_unit, "domain": d.domain}
+
+    return {"x": _axis(x_key), "y": _axis(y_key), "points": points, "rule": REPRESENTATIVE_RULE}
+
+
 def build_comparison(db: Session, material_ids: list[int]) -> dict:
     """재료들을 물성별로 정렬 비교. 요청 순서를 컬럼 순서로 유지.
 

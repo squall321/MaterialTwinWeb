@@ -7,7 +7,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy import func, or_, select
 from sqlalchemy.orm import Session
 
-from app.catalog_compare import build_comparison
+from app.catalog_compare import build_comparison, numeric_property_options, scatter_dataset
 from app.db import get_db
 from app.models import Material, PropertyDefinition, PropertyValue, Source
 
@@ -204,6 +204,25 @@ def compare(
     data = build_comparison(db, mids)
     if len(data["materials"]) < 2:
         raise HTTPException(status_code=404, detail="유효한 재료가 2개 미만입니다")
+    return data
+
+
+@router.get("/axes")
+def axes(db: Session = Depends(get_db)) -> dict:
+    """Ashby 축 후보 — 수치 물성 목록(재료 수 내림차순)."""
+    return {"options": numeric_property_options(db)}
+
+
+@router.get("/ashby")
+def ashby(
+    x: str = Query(default="physical.density"),
+    y: str = Query(default="mechanical.youngs_modulus"),
+    db: Session = Depends(get_db),
+) -> dict:
+    """Ashby 물성공간 산점도 — x·y 물성을 모두 가진 재료의 대표값 좌표 + 색상 facet."""
+    data = scatter_dataset(db, x, y)
+    if data is None:
+        raise HTTPException(status_code=400, detail="알 수 없는 물성 key(x 또는 y)")
     return data
 
 

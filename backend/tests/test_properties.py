@@ -94,3 +94,20 @@ def test_compare_materials_resolves_names_and_requires_two(mcp_env):
     M.register_property(b, "thermal.conductivity", value=20.0, unit="W/(m*K)", source_title="s")
     r = M.compare_materials([a, b])
     assert len(r["materials"]) == 2 and r["n_shared"] == 1
+
+
+def test_ashby_data_pairs_and_filters(mcp_env):
+    M = mcp_env
+    a = M.register_material("애쉬비A", category="metal")["material_id"]
+    b = M.register_material("애쉬비B", category="polymer")["material_id"]
+    M.register_property(a, "physical.density", value=7800, unit="kg/m^3", source_title="s")
+    M.register_property(a, "mechanical.youngs_modulus", value=2.0e11, unit="Pa", source_title="s")
+    M.register_property(b, "physical.density", value=1200, unit="kg/m^3", source_title="s")  # b: y 없음.
+
+    r = M.ashby_data("physical.density", "mechanical.youngs_modulus")
+    names = {p["name"] for p in r["points"]}
+    assert "애쉬비A" in names and "애쉬비B" not in names  # 두 축 모두 있는 재료만.
+    pa = next(p for p in r["points"] if p["name"] == "애쉬비A")
+    assert pa["x"] == 7800 and pa["y"] == 2.0e11 and pa["category"] == "metal"
+    # 잘못된 key → 에러.
+    assert "error" in M.ashby_data("physical.density", "bogus.key")

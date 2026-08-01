@@ -25,7 +25,7 @@ from sqlalchemy import func
 
 from app import analysis, curve_store, fitting, insights, viscoelastic
 from app.cards import lsdyna_mat024_card, lsdyna_mat098_card, poisson_from_attributes
-from app.catalog_compare import build_comparison, resolve_material_ids
+from app.catalog_compare import build_comparison, resolve_material_ids, scatter_dataset
 from app.db import SessionLocal
 from app.models import (
     ConstitutiveFit,
@@ -263,6 +263,25 @@ def compare_materials(materials: list[str]) -> dict:
             "rule": data["rule"], "comparison": rows,
             **({"resolution_errors": errors} if errors else {}),
         }
+
+
+@mcp.tool()
+def ashby_data(x_property: str = "physical.density",
+               y_property: str = "mechanical.youngs_modulus") -> dict:
+    """Ashby 물성공간 산점도 '데이터'(좌표+메타) — plot_ashby(이미지)의 데이터판, 웹과 동일 코어.
+
+    x_property·y_property: property_key(예: 'physical.density', 'mechanical.youngs_modulus').
+    후보 key는 list_property_definitions로 확인. x·y를 모두 가진 재료만, 각 재료의 대표값
+    (신뢰등급 최상)으로 좌표를 만든다. 반환: x/y 축(이름·단위), points[{name,x,y,category,
+    subsystem,manufacturer,material_class}], n_points. 재료 선택·아웃라이어 판단에 사용.
+    """
+    with SessionLocal() as s:
+        data = scatter_dataset(s, x_property, y_property)
+        if data is None:
+            return {"error": f"알 수 없는 물성 key(x={x_property!r}, y={y_property!r}). "
+                             "list_property_definitions로 key 확인."}
+        return {"x": data["x"], "y": data["y"], "rule": data["rule"],
+                "n_points": len(data["points"]), "points": data["points"]}
 
 
 @mcp.tool()
