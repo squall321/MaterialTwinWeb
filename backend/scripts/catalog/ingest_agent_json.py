@@ -133,7 +133,10 @@ def main() -> int:
             existing_cond.setdefault((mid, k), set()).add(cond_sig(cond))
 
     stats = {"ok": 0, "no_source": 0, "bad_key": 0, "bad_unit": 0, "out_of_range": 0,
-             "pct_suspect": 0, "kept_better": 0, "new_mat": 0, "no_mat": 0}
+             "pct_suspect": 0, "kept_better": 0, "new_mat": 0, "no_mat": 0, "cond_clash": 0}
+    # 적재는 (재료·물성·출처·조건)에 멱등이다. 조건이 같은데 값이 다르면 나중 것이
+    # 앞의 것을 조용히 덮어 측정 하나가 사라진다(3M 112P02/112P05가 그렇게 사라졌다).
+    seen_cond: dict[tuple, float] = {}
     for fname, doc in load(a.paths):
         print(f"\n=== {fname} ===")
         for entry in doc.get("materials", []):
@@ -213,6 +216,15 @@ def main() -> int:
                     stats["pct_suspect"] += 1
                     print(f"    ✗ 퍼센트 오입력 의심 {key}={val} (비율이어야 함)")
                     continue
+                sig = (mid, key, src.get("doi") or src.get("url") or src.get("title"),
+                       cond_sig(pr.get("conditions")))
+                prev = seen_cond.get(sig)
+                if prev is not None and abs(prev - float(val)) > 1e-12:
+                    stats["cond_clash"] += 1
+                    print(f"    ✗ 조건 충돌 {key}: {prev} vs {val} — 조건이 같아 뒤엣것이 앞엣것을 "
+                          f"덮는다. 그레이드·방향 등 구분 조건을 conditions에 넣을 것")
+                    continue
+                seen_cond[sig] = float(val)
                 # 기존 tier1 실측 보존 — 단 조건이 다르면 별개 측정이므로 통과시킨다.
                 if (mid > 0 and existing.get((mid, key), 9) <= 1
                         and cond_sig(pr.get("conditions")) in existing_cond.get((mid, key), set())):
