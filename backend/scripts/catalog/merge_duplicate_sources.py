@@ -28,7 +28,14 @@ rows = c.execute("""select id, title, doi, url, publisher, kind, isbn, authors, 
                     from source""").fetchall()
 groups = defaultdict(list)
 for r in rows:
-    if r[1]:
+    # DOI·URL이 같으면 제목 표기가 달라도 같은 문서다 — 식별자를 우선 키로 쓴다.
+    doi = (r[2] or "").strip().lower().replace("https://doi.org/", "")
+    url = (r[3] or "").strip().lower().rstrip("/")
+    if doi:
+        groups[("doi", doi)].append(r)
+    elif url:
+        groups[("url", url)].append(r)
+    elif r[1]:
         groups[(norm(r[1]), (r[4] or "").strip().lower())].append(r)
 
 merged = removed = repointed = 0

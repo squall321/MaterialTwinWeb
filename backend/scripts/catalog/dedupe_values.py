@@ -1,5 +1,6 @@
 # 완전 중복 물성값 병합 — 값·출처 동일, 조건 키 표기만 다른 쌍을 정보량 많은 쪽으로 통합.
 import json
+import re
 import sqlite3
 import sys
 
@@ -28,6 +29,10 @@ def _canon_axis(v):
     return AXIS_CANON.get(s, v)
 
 
+# 두께로 등급을 나누는 제품(PGS 등)은 grade="25 um"과 thickness_um=25가 섞여 들어온다.
+_GRADE_UM = re.compile(r"^\s*(\d+(?:\.\d+)?)\s*(?:um|µm|μm)\s*$", re.I)
+
+
 def norm_cond(raw):
     if not raw:
         return {}
@@ -50,6 +55,10 @@ def norm_cond(raw):
             v = v * FREQ_SCALE[k]
         if nk == "axis":
             v = _canon_axis(v)
+        # grade="25 um" 을 thickness_um=25 로 흡수(같은 등급을 다르게 적은 것뿐이다).
+        if nk == "grade" and isinstance(v, str) and _GRADE_UM.match(v):
+            out["thickness_um"] = float(_GRADE_UM.match(v).group(1))
+            continue
         out[nk] = v
     return out
 
