@@ -19,7 +19,7 @@ import { cn } from "../lib/utils";
 
 // 도메인 표시 순서(기계→열→전기→물리→광학→…). 정의 외 도메인은 뒤에 알파벳순.
 const DOMAIN_ORDER = [
-  "mechanical", "thermal", "electrical", "physical", "optical",
+  "mechanical", "interface", "thermal", "electrical", "physical", "optical",
   "magnetic", "chemical", "acoustic", "rheological", "structure",
 ];
 

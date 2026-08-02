@@ -114,6 +114,9 @@ _DEFS: list[tuple] = [
     ("structure.molecular_weight", "structure", "분자량(Mw)", "Mw", "kg/mol", "numeric", None, None),
     ("structure.crystallinity", "structure", "결정화도", None, "1", "numeric", None, None),
     ("structure.filler_content", "structure", "충전제 함량", None, "1", "numeric", None, None),
+    # 도전입자·필러 입경. 결정립(grain_size)과 의미가 달라 별도 키로 둔다.
+    ("structure.particle_diameter", "structure", "입자 직경", "d_p", "m", "numeric",
+     ["particle_type"], None),
     # ── 접합·계면 (커버레이·테이프·CCL 선정의 핵심 지표. 기존엔 전용 키가 없어
     #    벤더 데이터시트 값이 notes 문자열에만 갇혀 있었다) ──────────────────────
     ("interface.peel_strength", "interface", "박리강도", None, "N/m", "numeric",

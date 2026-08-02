@@ -2,6 +2,7 @@
 
 export const DOMAIN_META: Record<string, { label: string; color: string; abbr: string }> = {
   mechanical: { label: "기계", color: "var(--chart-1)", abbr: "MECH" },
+  interface: { label: "접착·계면", color: "var(--warning)", abbr: "INTF" },
   thermal: { label: "열", color: "var(--chart-2)", abbr: "THRM" },
   electrical: { label: "전기", color: "var(--chart-5)", abbr: "ELEC" },
   physical: { label: "물리", color: "var(--chart-3)", abbr: "PHYS" },

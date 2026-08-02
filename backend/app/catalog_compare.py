@@ -9,7 +9,7 @@ from sqlalchemy.orm import Session
 from app.models import Material, PropertyDefinition, PropertyValue
 
 # 도메인 표시 순서(기계→열→전기→물리→…). 정의 외 도메인은 뒤로.
-_DOMAIN_ORDER = ["mechanical", "thermal", "electrical", "physical", "optical",
+_DOMAIN_ORDER = ["mechanical", "interface", "thermal", "electrical", "physical", "optical",
                  "magnetic", "chemical", "acoustic", "rheological", "structure"]
 _META_KEYS = ("manufacturer", "grade", "trade_name", "material_class", "process",
               "subsystem", "standard", "composition")
