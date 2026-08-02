@@ -159,7 +159,8 @@ def main() -> int:
                 if is_text:
                     if a.apply:
                         r = M.register_property(
-                            mid, key, value_text=val, method="measured", quality_tier=1,
+                            mid, key, value_text=val, method=pr.get("method", "measured"),
+                            quality_tier=int(pr.get("tier", 1)),
                             conditions=pr.get("conditions"), notes=pr.get("note"),
                             source_title=src.get("title"), source_url=src.get("url"),
                             source_doi=src.get("doi"),
@@ -189,7 +190,8 @@ def main() -> int:
                 if a.apply:
                     r = M.register_property(
                         mid, key, value=float(val), unit=unit or d.si_unit,
-                        method="measured", quality_tier=1,
+                        method=pr.get("method", "measured"),
+                        quality_tier=int(pr.get("tier", 1)),
                         conditions=pr.get("conditions"), notes=pr.get("note"),
                         source_title=src.get("title"), source_url=src.get("url"),
                         source_doi=src.get("doi"),
