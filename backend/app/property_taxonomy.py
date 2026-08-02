@@ -114,6 +114,34 @@ _DEFS: list[tuple] = [
     ("structure.molecular_weight", "structure", "분자량(Mw)", "Mw", "kg/mol", "numeric", None, None),
     ("structure.crystallinity", "structure", "결정화도", None, "1", "numeric", None, None),
     ("structure.filler_content", "structure", "충전제 함량", None, "1", "numeric", None, None),
+    # ── 접합·계면 (커버레이·테이프·CCL 선정의 핵심 지표. 기존엔 전용 키가 없어
+    #    벤더 데이터시트 값이 notes 문자열에만 갇혀 있었다) ──────────────────────
+    ("interface.peel_strength", "interface", "박리강도", None, "N/m", "numeric",
+     ["temperature_k", "substrate", "angle_deg", "rate_mm/min"], "IPC-TM-650 2.4.9"),
+    ("interface.lap_shear_strength", "interface", "중첩전단강도", None, "Pa", "numeric",
+     ["temperature_k", "substrate"], "ASTM D1002"),
+    ("interface.die_shear_strength", "interface", "다이쉬어 강도", None, "Pa", "numeric",
+     ["temperature_k"], "MIL-STD-883 2019"),
+    ("interface.surface_energy", "interface", "표면장력(젖음성)", None, "J/m^2", "numeric",
+     ["temperature_k"], "ASTM D2578"),
+    # ── 전자기 차폐·열저항 ────────────────────────────────────────────────────
+    ("electrical.shielding_effectiveness", "electrical", "전자파 차폐효과", "SE", "dB", "numeric",
+     ["frequency_hz", "thickness_m"], "ASTM D4935"),
+    ("electrical.temperature_coefficient_resistance", "electrical", "저항온도계수(TCR)", "TCR",
+     "1/K", "numeric", ["temperature_range_C"], "MIL-STD-202 Method 304"),
+    ("thermal.thermal_resistance", "thermal", "열저항", "Rth", "K*m^2/W", "numeric",
+     ["pressure_kPa", "thickness_m"], "ASTM D5470"),
+    ("thermal.decomposition_time_t260", "thermal", "내열시간 T260", None, "s", "numeric",
+     None, "IPC-TM-650 2.4.24.1"),
+    # ── 광학 보강 ──────────────────────────────────────────────────────────────
+    ("optical.abbe_number", "optical", "아베수", "nu_d", "1", "numeric", None, None),
+    ("optical.birefringence", "optical", "복굴절", "dn", "1", "numeric",
+     ["wavelength_nm"], None),
+    # ── 화학강화 유리 (커버윈도우 강도 설계의 지배 인자) ──────────────────────
+    ("mechanical.surface_compressive_stress", "mechanical", "표면압축응력(CS)", "CS", "Pa",
+     "numeric", ["depth_um"], "ASTM C1422"),
+    ("mechanical.depth_of_layer", "mechanical", "이온교환 깊이(DOL)", "DOL", "m", "numeric",
+     None, "ASTM C1422"),
 ]
 # fmt: on
 

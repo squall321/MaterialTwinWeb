@@ -41,6 +41,19 @@ RANGE = {
     "optical.emissivity_total": (0.0, 1.0),
     "chemical.water_absorption_24h": (0.0, 1.0),
     "chemical.water_absorption_saturation": (0.0, 1.0),
+    # 아래는 단위 오입력이 잦은 신규 키 — 범위 자체가 단위 검산 역할을 한다.
+    "interface.peel_strength": (0.5, 5e5),              # N/m (N/mm로 넣으면 1000배 작아짐)
+    "interface.lap_shear_strength": (1e4, 1e9),
+    "interface.die_shear_strength": (1e4, 1e9),
+    "interface.surface_energy": (1e-3, 5.0),
+    "electrical.shielding_effectiveness": (0.0, 150.0),
+    "electrical.temperature_coefficient_resistance": (-1e-2, 1e-2),  # ppm/K 원값이면 걸린다
+    "thermal.thermal_resistance": (1e-6, 1.0),
+    "thermal.decomposition_time_t260": (1.0, 1e5),      # s (분 단위면 걸린다)
+    "optical.abbe_number": (10.0, 120.0),
+    "optical.birefringence": (-1.0, 1.0),   # 음의 1축 결정(사파이어 등)은 Δn<0
+    "mechanical.surface_compressive_stress": (1e6, 5e9),  # Pa (MPa 원값이면 걸린다)
+    "mechanical.depth_of_layer": (1e-9, 1e-3),            # m (µm 원값이면 걸린다)
 }
 # Material.category도 고정 어휘 — 에이전트 표기를 매핑한다.
 CAT_OK = {"metal", "polymer", "rubber", "composite", "ceramic", "foam"}
@@ -74,6 +87,18 @@ PCT_SUSPECT = {"chemical.water_absorption_24h", "chemical.water_absorption_satur
                "optical.transmittance", "optical.haze", "optical.emissivity_total"}
 
 
+def cond_sig(cond) -> str:
+    """조건 딕셔너리를 비교 가능한 서명으로. 표기 순서·타입 차이를 흡수한다."""
+    if isinstance(cond, str):
+        try:
+            cond = json.loads(cond)
+        except Exception:
+            cond = None
+    if not isinstance(cond, dict) or not cond:
+        return ""
+    return json.dumps({k: str(v) for k, v in sorted(cond.items())}, ensure_ascii=False)
+
+
 def load(paths: list[str]) -> list[tuple[str, dict]]:
     out = []
     for p in paths:
@@ -99,9 +124,13 @@ def main() -> int:
         defs = {d.key: d for d in s.query(PropertyDefinition).all()}
         by_name = {m.name: m.id for m in s.query(Material).all()}
         existing = {}
-        for mid, k, t in s.query(PropertyValue.material_id, PropertyValue.property_key,
-                                 PropertyValue.quality_tier).all():
+        # 같은 (재료, 물성)이라도 조건이 다르면 별개 측정이므로, 조건 집합도 함께 들고 있는다.
+        existing_cond: dict[tuple[int, str], set[str]] = {}
+        for mid, k, t, cond in s.query(PropertyValue.material_id, PropertyValue.property_key,
+                                       PropertyValue.quality_tier,
+                                       PropertyValue.conditions).all():
             existing[(mid, k)] = min(existing.get((mid, k), 9), t)
+            existing_cond.setdefault((mid, k), set()).add(cond_sig(cond))
 
     stats = {"ok": 0, "no_source": 0, "bad_key": 0, "bad_unit": 0, "out_of_range": 0,
              "pct_suspect": 0, "kept_better": 0, "new_mat": 0, "no_mat": 0}
@@ -184,7 +213,9 @@ def main() -> int:
                     stats["pct_suspect"] += 1
                     print(f"    ✗ 퍼센트 오입력 의심 {key}={val} (비율이어야 함)")
                     continue
-                if mid > 0 and existing.get((mid, key), 9) <= 1:  # 기존 tier1 실측 보존
+                # 기존 tier1 실측 보존 — 단 조건이 다르면 별개 측정이므로 통과시킨다.
+                if (mid > 0 and existing.get((mid, key), 9) <= 1
+                        and cond_sig(pr.get("conditions")) in existing_cond.get((mid, key), set())):
                     stats["kept_better"] += 1
                     continue
                 if a.apply:
