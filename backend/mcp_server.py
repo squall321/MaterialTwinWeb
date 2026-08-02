@@ -205,8 +205,9 @@ def get_material(material_id: int) -> dict:
 def list_property_definitions(domain: str | None = None) -> list[dict]:
     """채울 수 있는 화·물리 물성 taxonomy(정의 레지스트리). domain으로 필터.
 
-    도메인: thermal·electrical·optical·chemical·physical·acoustic·magnetic·rheological·
-    structure·mechanical. 각 항목의 key를 register_property/get_material_properties에 사용.
+    도메인: mechanical·interface(접착·박리)·thermal·electrical·optical·chemical·physical·
+    acoustic·magnetic·rheological·structure.
+    각 항목의 key를 register_property/get_material_properties에 사용.
     """
     with SessionLocal() as s:
         q = s.query(PropertyDefinition)

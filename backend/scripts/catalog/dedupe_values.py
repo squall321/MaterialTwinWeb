@@ -8,7 +8,24 @@ DRY = "--apply" not in sys.argv
 
 # 조건 키 정규화(표기 흔들림 흡수) — 어느 쪽이 더 정보량 많은지 비교하기 위함.
 ALIAS = {"test": "standard", "test_method": "standard", "temp_C": "temperature_C",
-         "freq_Hz": "frequency_Hz", "frequency_kHz": "frequency_Hz"}
+         "freq_Hz": "frequency_Hz", "frequency_kHz": "frequency_Hz",
+         "frequency_hz": "frequency_Hz", "frequency_MHz": "frequency_Hz",
+         "frequency_GHz": "frequency_Hz", "temp_range_C": "temperature_range_C",
+         "load_gf": "load_g", "line": "spectral_line",
+         # 이방성 물성의 방향 표기는 수집자마다 axis/direction으로 갈린다.
+         "direction": "axis", "orientation": "axis"}
+# 단위가 다른 주파수 표기를 Hz로 환산해 같은 조건인지 정확히 비교한다.
+FREQ_SCALE = {"frequency_kHz": 1e3, "frequency_MHz": 1e6, "frequency_GHz": 1e9}
+# 방향 값 표기 흔들림("in-plane (X,Y)" ↔ "in-plane") 흡수. 같은 물리 방향만 묶는다.
+AXIS_CANON = {"in-plane": "in-plane", "in plane": "in-plane", "x-y": "in-plane",
+              "xy": "in-plane", "x,y": "in-plane", "through-plane": "through-plane",
+              "through plane": "through-plane", "z": "through-plane",
+              "thickness": "through-plane", "normal": "through-plane"}
+
+
+def _canon_axis(v):
+    s = str(v).lower().split("(")[0].strip().strip(",")
+    return AXIS_CANON.get(s, v)
 
 
 def norm_cond(raw):
@@ -18,11 +35,21 @@ def norm_cond(raw):
         d = json.loads(raw)
     except Exception:
         return {}
+    # 이중 인코딩된 조건("{...}"이 문자열로 한 번 더 감싸인 경우)을 한 번 더 푼다.
+    if isinstance(d, str):
+        try:
+            d = json.loads(d)
+        except Exception:
+            return {}
+    if not isinstance(d, dict):
+        return {}
     out = {}
     for k, v in (d or {}).items():
         nk = ALIAS.get(k, k)
-        if k == "frequency_kHz" and isinstance(v, (int, float)):
-            v = v * 1000  # kHz → Hz
+        if k in FREQ_SCALE and isinstance(v, (int, float)):
+            v = v * FREQ_SCALE[k]
+        if nk == "axis":
+            v = _canon_axis(v)
         out[nk] = v
     return out
 
@@ -41,30 +68,34 @@ merged = deleted = 0
 for mid, key, val, sid, ids in groups:
     rows = c.execute(
         "select id, conditions, notes from property_value where id in (%s)" % ids).fetchall()
-    cand = []
+    # 정규화 조건이 동일한 것끼리만 묶어서 병합 — 조건이 다르면 별개 측정이다.
+    # (Isola Dk 3.92 @5GHz와 @10GHz는 값·출처가 같아도 서로 다른 측정이다.)
+    # 조건별로 버킷을 나눠야 A/A/B가 섞여 있어도 A 두 건을 놓치지 않는다.
+    buckets: dict[str, list] = {}
     for rid, raw, notes in rows:
         cond = norm_cond(raw)
-        cand.append((score(cond, notes), rid, cond, notes))
-    cand.sort(reverse=True)
-    keep = cand[0]
-    drop = cand[1:]
-    # 버리는 쪽의 조건·노트 중 keeper에 없는 정보는 흡수(정보 손실 방지).
-    kcond, knotes = dict(keep[2]), keep[3]
-    for _, _, cond, notes in drop:
-        for k, v in cond.items():
-            kcond.setdefault(k, v)
-        if notes and (not knotes or notes not in knotes):
-            knotes = f"{knotes} {notes}".strip() if knotes else notes
-    name = c.execute("select name from material where id=?", (mid,)).fetchone()[0]
-    print(f"  keep#{keep[1]} drop={[d[1] for d in drop]}  {name[:24]:24s} {key[:30]:30s}")
-    print(f"      조건 통합 → {json.dumps(kcond, ensure_ascii=False)[:70]}")
-    if not DRY:
-        c.execute("update property_value set conditions=?, notes=? where id=?",
-                  (json.dumps(kcond, ensure_ascii=False) if kcond else None, knotes, keep[1]))
-        for _, rid, _, _ in drop:
-            c.execute("delete from property_value where id=?", (rid,))
-            deleted += 1
-    merged += 1
+        sig = json.dumps({k: str(v) for k, v in sorted(cond.items())}, ensure_ascii=False)
+        buckets.setdefault(sig, []).append((score(cond, notes), rid, cond, notes))
+    for sig, cand in buckets.items():
+        if len(cand) < 2:
+            continue
+        cand.sort(reverse=True)
+        keep, drop = cand[0], cand[1:]
+        # 버리는 쪽의 노트 중 keeper에 없는 정보는 흡수(정보 손실 방지).
+        kcond, knotes = dict(keep[2]), keep[3]
+        for _, _, _, notes in drop:
+            if notes and (not knotes or notes not in knotes):
+                knotes = f"{knotes} {notes}".strip() if knotes else notes
+        name = c.execute("select name from material where id=?", (mid,)).fetchone()[0]
+        print(f"  keep#{keep[1]} drop={[d[1] for d in drop]}  {name[:24]:24s} {key[:30]:30s}")
+        print(f"      조건 → {sig[:70]}")
+        if not DRY:
+            c.execute("update property_value set conditions=?, notes=? where id=?",
+                      (json.dumps(kcond, ensure_ascii=False) if kcond else None, knotes, keep[1]))
+            for _, rid, _, _ in drop:
+                c.execute("delete from property_value where id=?", (rid,))
+                deleted += 1
+        merged += 1
 
 if not DRY:
     c.commit()
