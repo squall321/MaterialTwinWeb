@@ -358,9 +358,7 @@ export function MaterialDetailScreen() {
           title="시편 목록을 불러오지 못했습니다"
           onRetry={() => specimensQ.refetch()}
         />
-      ) : specimens.length === 0 ? (
-        <NoTestsPanel mid={mid} />
-      ) : isViscoelastic && active?.test ? (
+      ) : specimens.length === 0 ? null : isViscoelastic && active?.test ? (
         <ViscoelasticView testId={active.test.id} />
       ) : (
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-[200px_minmax(0,1fr)]">
@@ -482,6 +480,12 @@ export function MaterialDetailScreen() {
             )}
           </div>
         </div>
+      )}
+
+      {/* 문헌·데이터시트 물성 — 시험 유무와 무관하게 항상 보여준다.
+          재료의 75%가 시험 없이 물성만 가진 카탈로그 수집분이기 때문. */}
+      {!loading && !materialQ.isError && (
+        <CatalogPropertiesSection mid={mid} hasTests={specimens.length > 0} />
       )}
 
       {/* ── 편집 다이얼로그 ── */}
@@ -648,24 +652,29 @@ function neckingMarker(curve: Curve | null): ChartMarkers | undefined {
 }
 
 
-// 인장시험이 없는 재료(카탈로그 수집분)는 물성이 대신 있다. 빈 화면 대신 그 물성을 보여준다.
-function NoTestsPanel({ mid }: { mid: number }) {
+// 문헌·데이터시트에서 수집한 물성. 시험이 있든 없든 항상 이 섹션을 보여준다 —
+// 재료의 대부분이 시험 없이 물성만 가진 카탈로그 수집분이라, 없으면 화면이 비어 보인다.
+function CatalogPropertiesSection({ mid, hasTests }: { mid: number; hasTests: boolean }) {
   const catQ = useQuery({
     queryKey: ["catalog-material", mid],
     queryFn: () => getCatalogMaterial(mid),
     retry: false,
   });
+  const [open, setOpen] = React.useState(true);
 
   if (catQ.isPending) return <TableSkeleton rows={5} cols={4} />;
 
   const domains = catQ.data?.domains ?? {};
   const total = catQ.data?.n_values ?? 0;
+
+  // 시험도 물성도 없을 때만 업로드 안내.
   if (catQ.isError || total === 0) {
+    if (hasTests) return null;
     return (
       <EmptyState
         icon={<FlaskConical className="size-6" />}
-        title="시험 데이터가 없습니다"
-        description="이 재료에 인장 시험 파일을 업로드하면 곡선과 물성이 표시됩니다."
+        title="데이터가 없습니다"
+        description="인장 시험 파일을 업로드하면 곡선과 물성이 표시됩니다."
         action={
           <Link to="/upload" search={{ material: mid }}>
             <Button>
@@ -678,88 +687,91 @@ function NoTestsPanel({ mid }: { mid: number }) {
     );
   }
 
-  return (
-    <div className="flex flex-col gap-4">
-      <Card className="flex flex-wrap items-center justify-between gap-3 p-4">
-        <div>
-          <p className="text-sm text-text-secondary">
-            인장시험은 없지만 <span className="tnum font-medium text-text-primary">{total}</span>개의
-            물성이 문헌·데이터시트에서 수집되어 있습니다.
-          </p>
-          <p className="mt-1 text-xs text-text-tertiary">
-            시험 곡선이 필요하면 파일을 업로드하세요.
-          </p>
-        </div>
-        <div className="flex gap-2">
-          <Link to="/catalog/$mid" params={{ mid: String(mid) }}>
-            <Button variant="outline">물성 전체 보기</Button>
-          </Link>
-          <Link to="/upload" search={{ material: mid }}>
-            <Button>
-              <Upload className="size-4" />
-              업로드
-            </Button>
-          </Link>
-        </div>
-      </Card>
+  const domainKeys = Object.keys(domains);
 
-      {Object.entries(domains).map(([dom, rows]) => {
-        const meta = domainMeta(dom);
-        return (
-          <Card key={dom} className="overflow-hidden">
-            <div className="flex items-center gap-2 border-b border-border-subtle px-4 py-2.5">
-              <span
-                aria-hidden
-                className="size-2 rounded-full"
-                style={{ background: meta.color }}
-              />
-              <p className="text-sm font-medium text-text-primary">{meta.label}</p>
-              <span className="tnum text-xs text-text-tertiary">{rows.length}</span>
-            </div>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <tbody>
-                  {rows.map((r, i) => {
-                    const tm = tierMeta(r.tier);
-                    return (
-                      <tr key={`${r.key}-${i}`} className="border-b border-border-subtle last:border-0">
-                        <td className="px-4 py-2 align-top text-text-secondary">
-                          {r.name}
-                          {r.conditions ? (
-                            <span className="ml-2 text-xs text-text-tertiary">
-                              {formatConditions(r.conditions)}
-                            </span>
-                          ) : null}
-                        </td>
-                        <td className="tnum whitespace-nowrap px-4 py-2 text-right align-top font-medium text-text-primary">
-                          {r.value !== null ? formatValue(r.value, r.unit) : (r.value_text ?? "—")}
-                        </td>
-                        <td className="whitespace-nowrap px-4 py-2 text-right align-top">
-                          <Badge className={tm.cls}>{tm.label}</Badge>
-                        </td>
-                        <td className="max-w-[22rem] truncate px-4 py-2 align-top text-xs text-text-tertiary">
-                          {r.source?.url ? (
-                            <a
-                              href={r.source.url}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="hover:text-text-secondary hover:underline"
-                            >
-                              {r.source.title ?? r.source.url}
-                            </a>
-                          ) : (
-                            (r.source?.title ?? "—")
-                          )}
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-          </Card>
-        );
-      })}
-    </div>
+  return (
+    <section className="flex flex-col gap-3">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="flex items-baseline gap-2">
+          <h2 className="text-base font-semibold text-text-primary">문헌·데이터시트 물성</h2>
+          <span className="tnum text-sm text-text-tertiary">{total}</span>
+        </div>
+        <div className="flex items-center gap-2">
+          {!hasTests && (
+            <Link to="/upload" search={{ material: mid }}>
+              <Button variant="ghost" size="sm">
+                <Upload className="size-4" />
+                시험 업로드
+              </Button>
+            </Link>
+          )}
+          <Button variant="ghost" size="sm" onClick={() => setOpen((v) => !v)}>
+            {open ? "접기" : "펼치기"}
+          </Button>
+        </div>
+      </div>
+
+      {!hasTests && (
+        <p className="text-sm text-text-tertiary">
+          이 재료는 인장시험 곡선은 없고, 문헌·데이터시트에서 수집한 물성만 있습니다.
+        </p>
+      )}
+
+      {open &&
+        domainKeys.map((dom) => {
+          const rows = domains[dom];
+          const meta = domainMeta(dom);
+          return (
+            <Card key={dom} className="overflow-hidden">
+              <div className="flex items-center gap-2 border-b border-border-subtle px-4 py-2.5">
+                <span aria-hidden className="size-2 rounded-full" style={{ background: meta.color }} />
+                <p className="text-sm font-medium text-text-primary">{meta.label}</p>
+                <span className="tnum text-xs text-text-tertiary">{rows.length}</span>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <tbody>
+                    {rows.map((r, i) => {
+                      const tm = tierMeta(r.tier);
+                      return (
+                        <tr key={`${r.key}-${i}`} className="border-b border-border-subtle last:border-0">
+                          <td className="px-4 py-2 align-top text-text-secondary">
+                            {r.name}
+                            {r.conditions ? (
+                              <span className="ml-2 text-xs text-text-tertiary">
+                                {formatConditions(r.conditions)}
+                              </span>
+                            ) : null}
+                          </td>
+                          <td className="tnum whitespace-nowrap px-4 py-2 text-right align-top font-medium text-text-primary">
+                            {r.value !== null ? formatValue(r.value, r.unit) : (r.value_text ?? "—")}
+                          </td>
+                          <td className="whitespace-nowrap px-4 py-2 text-right align-top">
+                            <Badge className={tm.cls}>{tm.label}</Badge>
+                          </td>
+                          <td className="max-w-[22rem] truncate px-4 py-2 align-top text-xs text-text-tertiary">
+                            {r.source?.url ? (
+                              <a
+                                href={r.source.url}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="hover:text-text-secondary hover:underline"
+                              >
+                                {r.source.title ?? r.source.url}
+                              </a>
+                            ) : (
+                              (r.source?.title ?? "—")
+                            )}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </Card>
+          );
+        })}
+    </section>
   );
 }
