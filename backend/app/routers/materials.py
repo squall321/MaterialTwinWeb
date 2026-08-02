@@ -10,7 +10,7 @@ import numpy as np
 
 from app import curve_store
 from app.db import get_db
-from app.models import Material, ProcessedResult, Specimen, Test
+from app.models import Material, ProcessedResult, PropertyValue, Specimen, Test
 from app.schemas import (
     MaterialIn,
     MaterialOut,
@@ -34,6 +34,7 @@ def _get_material(db: Session, mid: int) -> Material:
 def list_materials(
     q: str | None = Query(default=None),
     category: str | None = Query(default=None),
+    has_tests: bool | None = Query(default=None, description="true면 인장시험이 있는 재료만"),
     page: int = Query(default=1, ge=1),
     size: int = Query(default=20, ge=1, le=200),
     db: Session = Depends(get_db),
@@ -49,6 +50,11 @@ def list_materials(
     if category:
         stmt = stmt.where(Material.category == category)
         count_stmt = count_stmt.where(Material.category == category)
+    if has_tests is not None:
+        tested = select(Specimen.material_id).join(Test, Test.specimen_id == Specimen.id)
+        cond2 = Material.id.in_(tested) if has_tests else ~Material.id.in_(tested)
+        stmt = stmt.where(cond2)
+        count_stmt = count_stmt.where(cond2)
     total = db.execute(count_stmt).scalar_one()
     rows = (
         db.execute(
@@ -57,12 +63,32 @@ def list_materials(
         .scalars()
         .all()
     )
-    return {
-        "items": [MaterialOut.model_validate(r) for r in rows],
-        "total": total,
-        "page": page,
-        "size": size,
-    }
+    # 카탈로그 재료(물성만 있고 인장시험은 없는 것)가 목록 대부분이라, 들어가 보기 전에
+    # 무엇을 가진 재료인지 알 수 있어야 한다. 페이지 내 재료만 집계(N+1 회피).
+    ids = [r.id for r in rows]
+    n_tests: dict[int, int] = {}
+    n_props: dict[int, int] = {}
+    if ids:
+        for mid_, n in db.execute(
+            select(Specimen.material_id, func.count(Test.id))
+            .join(Test, Test.specimen_id == Specimen.id)
+            .where(Specimen.material_id.in_(ids))
+            .group_by(Specimen.material_id)
+        ).all():
+            n_tests[mid_] = n
+        for mid_, n in db.execute(
+            select(PropertyValue.material_id, func.count(PropertyValue.id))
+            .where(PropertyValue.material_id.in_(ids))
+            .group_by(PropertyValue.material_id)
+        ).all():
+            n_props[mid_] = n
+    items = []
+    for r in rows:
+        d = MaterialOut.model_validate(r).model_dump()
+        d["n_tests"] = n_tests.get(r.id, 0)
+        d["n_properties"] = n_props.get(r.id, 0)
+        items.append(d)
+    return {"items": items, "total": total, "page": page, "size": size}
 
 
 @router.post("/materials", response_model=MaterialOut, status_code=status.HTTP_201_CREATED)

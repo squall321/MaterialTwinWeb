@@ -10,6 +10,9 @@ export type Material = {
   attributes: Record<string, unknown>;
   created_at: string;
   updated_at: string;
+  // 목록 응답에만 실린다 — 들어가 보기 전에 시험/물성 보유를 구분하기 위함.
+  n_tests?: number;
+  n_properties?: number;
 };
 
 export type MaterialIn = {
@@ -32,12 +35,14 @@ export type MaterialList = {
 export function listMaterials(params?: {
   q?: string;
   category?: string;
+  hasTests?: boolean;
   page?: number;
   size?: number;
 }): Promise<MaterialList> {
   const sp = new URLSearchParams();
   if (params?.q) sp.set("q", params.q);
   if (params?.category) sp.set("category", params.category);
+  if (params?.hasTests !== undefined) sp.set("has_tests", String(params.hasTests));
   if (params?.page) sp.set("page", String(params.page));
   if (params?.size) sp.set("size", String(params.size));
   const qs = sp.toString();

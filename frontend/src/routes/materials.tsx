@@ -76,19 +76,27 @@ export function MaterialsScreen() {
     setQ(urlQ);
   }, [urlQ]);
 
+  // 카탈로그 재료(물성만)가 대부분이라 시험 보유 여부로 좁힐 수 있어야 한다.
+  const [dataKind, setDataKind] = React.useState<"all" | "tests" | "props">("all");
+
   // 필터가 바뀌면 페이지 크기 초기화.
   React.useEffect(() => {
     setSize(PAGE_SIZE);
-  }, [urlQ, cat]);
+  }, [urlQ, cat, dataKind]);
 
   const query = useQuery({
-    queryKey: ["materials", urlQ, cat, size],
+    queryKey: ["materials", urlQ, cat, dataKind, size],
     queryFn: () =>
-      listMaterials({ q: urlQ || undefined, category: cat || undefined, size }),
+      listMaterials({
+        q: urlQ || undefined,
+        category: cat || undefined,
+        hasTests: dataKind === "all" ? undefined : dataKind === "tests",
+        size,
+      }),
     placeholderData: keepPreviousData,
   });
 
-  const filtered = Boolean(urlQ || cat);
+  const filtered = Boolean(urlQ || cat || dataKind !== "all");
 
   return (
     <div className="flex flex-col gap-6">
@@ -147,6 +155,20 @@ export function MaterialsScreen() {
             onClick={() => pushSearch(q, cat === c ? "" : c)}
           />
         ))}
+      </div>
+
+      <div className="flex flex-wrap gap-1.5" role="group" aria-label="보유 데이터 필터">
+        <CategoryChip label="전체" pressed={dataKind === "all"} onClick={() => setDataKind("all")} />
+        <CategoryChip
+          label="시험 데이터 보유"
+          pressed={dataKind === "tests"}
+          onClick={() => setDataKind(dataKind === "tests" ? "all" : "tests")}
+        />
+        <CategoryChip
+          label="물성만"
+          pressed={dataKind === "props"}
+          onClick={() => setDataKind(dataKind === "props" ? "all" : "props")}
+        />
       </div>
 
       {query.isPending ? (
@@ -229,11 +251,15 @@ function MaterialCard({ material }: { material: Material }) {
           </div>
           <ArrowRight className="size-4 shrink-0 text-text-tertiary transition-transform duration-[160ms] group-hover:translate-x-0.5 group-hover:text-text-secondary" />
         </div>
-        {material.category && (
-          <div className="mt-3">
-            <Badge>{material.category}</Badge>
-          </div>
-        )}
+        <div className="mt-3 flex flex-wrap items-center gap-1.5">
+          {material.category && <Badge>{material.category}</Badge>}
+          {material.n_tests ? (
+            <Badge variant="accent">시험 {material.n_tests}</Badge>
+          ) : null}
+          {material.n_properties ? (
+            <Badge variant="outline">물성 {material.n_properties}</Badge>
+          ) : null}
+        </div>
       </Card>
     </Link>
   );
