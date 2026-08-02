@@ -129,9 +129,6 @@ _DEFS: list[tuple] = [
      ["temperature_k", "substrate"], "ASTM D1002"),
     ("interface.die_shear_strength", "interface", "다이쉬어 강도", None, "Pa", "numeric",
      ["temperature_k"], "MIL-STD-883 2019"),
-    ("interface.surface_energy", "interface", "표면장력(젖음성)", None, "J/m^2", "numeric",
-     ["temperature_k"], "ASTM D2578"),
-    # ── 전자기 차폐·열저항 ────────────────────────────────────────────────────
     ("electrical.shielding_effectiveness", "electrical", "전자파 차폐효과", "SE", "dB", "numeric",
      ["frequency_hz", "thickness_m"], "ASTM D4935"),
     ("electrical.temperature_coefficient_resistance", "electrical", "저항온도계수(TCR)", "TCR",

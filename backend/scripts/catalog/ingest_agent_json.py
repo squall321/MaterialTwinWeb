@@ -46,7 +46,7 @@ RANGE = {
     "interface.peel_strength": (0.5, 5e5),              # N/m (N/mm로 넣으면 1000배 작아짐)
     "interface.lap_shear_strength": (1e4, 1e9),
     "interface.die_shear_strength": (1e4, 1e9),
-    "interface.surface_energy": (1e-3, 5.0),
+    "physical.surface_energy": (1e-3, 1.0),   # J/m^2. mN/m 원값(15 등)이면 걸린다
     "electrical.shielding_effectiveness": (0.0, 150.0),
     "electrical.temperature_coefficient_resistance": (-1e-2, 1e-2),  # ppm/K 원값이면 걸린다
     "thermal.thermal_resistance": (1e-6, 1.0),
