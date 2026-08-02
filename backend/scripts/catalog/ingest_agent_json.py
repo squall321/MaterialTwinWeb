@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -35,7 +36,7 @@ RANGE = {
     "thermal.specific_heat": (10.0, 5000.0),
     "thermal.expansion_linear": (-1e-4, 5e-3),
     "electrical.dielectric_constant": (1.0, 1e5),
-    "optical.refractive_index": (1.0, 5.0),
+    "optical.refractive_index": (0.8, 5.0),   # EUV·X선은 n=1-delta<1 이 정상
     "optical.transmittance": (0.0, 1.0),
     "optical.haze": (0.0, 1.0),
     "optical.emissivity_total": (0.0, 1.0),
@@ -87,13 +88,62 @@ PCT_SUSPECT = {"chemical.water_absorption_24h", "chemical.water_absorption_satur
                "optical.transmittance", "optical.haze", "optical.emissivity_total"}
 
 
-def cond_sig(cond) -> str:
-    """조건 딕셔너리를 비교 가능한 서명으로. 표기 순서·타입 차이를 흡수한다."""
-    if isinstance(cond, str):
+# method는 고정 어휘다. 에이전트가 시험법 서술("wire tensile test")을 넣는 일이 잦은데,
+# 그 서술은 버리기 아까우므로 conditions.test_method로 옮기고 method는 어휘로 정규화한다.
+METHOD_OK = {"measured", "handbook", "computed", "estimated"}
+METHOD_MAP = {"datasheet": "measured", "experiment": "measured", "experimental": "measured",
+              "test": "measured", "derived": "computed", "calculated": "computed",
+              "simulated": "computed", "simulation": "computed", "estimate": "estimated",
+              "typical": "measured", "spec": "measured", "book": "handbook",
+              "literature": "handbook", "database": "handbook"}
+
+
+def norm_method(raw) -> tuple[str, str | None]:
+    """(정규화된 method, 원문 서술 또는 None)."""
+    s = (str(raw) if raw is not None else "").strip()
+    if not s:
+        return "measured", None
+    low = s.lower()
+    if low in METHOD_OK:
+        return low, None
+    if low in METHOD_MAP:
+        return METHOD_MAP[low], None
+    # 자유 서술 — 계산임을 밝히면 computed, 아니면 측정으로 보고 서술은 보존한다.
+    m = "computed" if re.search(r"comput|calcul|simulat|derived|추정|계산", low) else "measured"
+    return m, s
+
+
+def norm_tier(raw) -> int:
+    """'tier3' · '3' · 3 을 모두 받는다. 범위 밖은 3(데이터시트급)으로."""
+    m = re.search(r"[1-5]", str(raw if raw is not None else 3))
+    return int(m.group(0)) if m else 3
+
+
+def as_cond(raw) -> dict:
+    """조건을 dict로. 서술 문자열이면 detail 필드에 담는다."""
+    if isinstance(raw, dict):
+        return dict(raw)
+    if isinstance(raw, str) and raw.strip():
         try:
-            cond = json.loads(cond)
+            d = json.loads(raw)
+            return dict(d) if isinstance(d, dict) else {"detail": raw.strip()}
         except Exception:
-            cond = None
+            return {"detail": raw.strip()}
+    return {}
+
+
+def cond_sig(cond) -> str:
+    """조건을 비교 가능한 서명으로. 표기 순서·타입 차이를 흡수한다.
+
+    조건이 서술 문자열로 오는 경우가 잦은데(에이전트가 dict 대신 문장을 넣는다),
+    이때 빈 서명으로 뭉개면 서로 다른 측정이 같은 조건으로 판정돼 덮어쓰기가 난다.
+    """
+    if isinstance(cond, str):
+        s = cond.strip()
+        try:
+            cond = json.loads(s)
+        except Exception:
+            return s          # 서술 문자열 자체를 서명으로 쓴다
     if not isinstance(cond, dict) or not cond:
         return ""
     return json.dumps({k: str(v) for k, v in sorted(cond.items())}, ensure_ascii=False)
@@ -190,10 +240,14 @@ def main() -> int:
                 is_text = isinstance(val, str)
                 if is_text:
                     if a.apply:
+                        meth, detail = norm_method(pr.get("method"))
+                        cond = as_cond(pr.get("conditions"))
+                        if detail:
+                            cond["test_method"] = detail
                         r = M.register_property(
-                            mid, key, value_text=val, method=pr.get("method", "measured"),
-                            quality_tier=int(pr.get("tier", 1)),
-                            conditions=pr.get("conditions"), notes=pr.get("note"),
+                            mid, key, value_text=val, method=meth,
+                            quality_tier=norm_tier(pr.get("tier")),
+                            conditions=cond or None, notes=pr.get("note"),
                             source_title=src.get("title"), source_url=src.get("url"),
                             source_doi=src.get("doi"),
                             source_kind=norm_kind(src.get("kind")),
@@ -231,11 +285,14 @@ def main() -> int:
                     stats["kept_better"] += 1
                     continue
                 if a.apply:
+                    meth, detail = norm_method(pr.get("method"))
+                    cond = as_cond(pr.get("conditions"))
+                    if detail:
+                        cond["test_method"] = detail
                     r = M.register_property(
                         mid, key, value=float(val), unit=unit or d.si_unit,
-                        method=pr.get("method", "measured"),
-                        quality_tier=int(pr.get("tier", 1)),
-                        conditions=pr.get("conditions"), notes=pr.get("note"),
+                        method=meth, quality_tier=norm_tier(pr.get("tier")),
+                        conditions=cond or None, notes=pr.get("note"),
                         source_title=src.get("title"), source_url=src.get("url"),
                         source_doi=src.get("doi"),
                         source_kind=norm_kind(src.get("kind")),

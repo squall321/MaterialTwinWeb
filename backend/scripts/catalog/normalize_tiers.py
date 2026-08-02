@@ -115,8 +115,9 @@ def main() -> int:
             c.execute("update property_value set method=? where id=?", (method, rid))
         if value is not None:
             c.execute("update property_value set value_num=? where id=?", (value, rid))
-        c.execute("update property_value set notes=trim(coalesce(notes,'')||' '||?) where id=?",
-                  (why, rid))
+        # 재실행해도 같은 사유가 중복으로 붙지 않게 한다.
+        c.execute("""update property_value set notes=trim(coalesce(notes,'')||' '||?)
+            where id=? and coalesce(notes,'') not like ?""", (why, rid, f"%{why}%"))
     # 2차 패스 — method='datasheet'는 방법이 아니라 출처 종류다. 값의 성격으로 다시 매긴다.
     # (measured/handbook/computed/estimated 만 방법 어휘로 쓴다)
     ds = c.execute("""select pv.id, coalesce(pv.notes,''), coalesce(pv.conditions,''), s.kind
