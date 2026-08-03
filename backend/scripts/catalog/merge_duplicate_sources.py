@@ -38,6 +38,34 @@ for r in rows:
     elif r[1]:
         groups[(norm(r[1]), (r[4] or "").strip().lower())].append(r)
 
+# 같은 문서를 제목만 달리 적은 행이 쌓인다("DuPont Kapton HN" vs "DuPont Kapton HN
+# Polyimide Film Technical Data Sheet"). **접두 일치**만 묶는다 — 단순 부분포함으로 묶으면
+# "Silver (Ag) Properties"와 "Magnesium (Mg) Properties and Silver (Ag)"처럼 다른 문서가 엮인다.
+def _prefix_merge(groups):
+    keys = list(groups)
+    for i, a in enumerate(keys):
+        if not isinstance(a, tuple) or len(a) != 2 or a[0] in ("doi", "url"):
+            continue
+        ta, pa = a
+        for b in keys[i + 1:]:
+            if not isinstance(b, tuple) or len(b) != 2 or b[0] in ("doi", "url"):
+                continue
+            tb, pb = b
+            if pa != pb or not ta or not tb or ta == tb:
+                continue
+            if not (tb.startswith(ta + " ") or ta.startswith(tb + " ")):
+                continue
+            dois = {r[2] for r in groups[a] + groups[b] if r[2]}
+            if len(dois) > 1:            # DOI가 서로 다르면 별개 문서다
+                continue
+            longer, shorter = (a, b) if len(ta) > len(tb) else (b, a)
+            if groups.get(shorter) and groups.get(longer):
+                groups[longer] = groups[longer] + groups.pop(shorter)
+    return groups
+
+
+groups = _prefix_merge(groups)
+
 merged = removed = repointed = 0
 print(f"출처 {len(rows)}행 / 그룹 {len(groups)}개\n")
 for key, members in sorted(groups.items(), key=lambda kv: -len(kv[1])):

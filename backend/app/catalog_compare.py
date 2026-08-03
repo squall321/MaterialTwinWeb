@@ -82,6 +82,25 @@ def representative_numeric(db: Session, keys: list[str]) -> dict[str, dict[int, 
     return out
 
 
+def representative_rows(db: Session, keys: list[str],
+                        material_ids: list[int] | None = None) -> dict[tuple, PropertyValue]:
+    """대표값으로 뽑힌 **행 자체**를 돌려준다 — 값과 출처를 반드시 같은 행에서 가져오려면 필요하다.
+
+    representative_numeric()이 값만 주다 보니, 호출부가 출처를 따로 조회하면서
+    값은 대표값인데 출처는 다른 행을 다는 사고가 났다(DYNA 카드 주석).
+    """
+    stmt = select(PropertyValue).where(
+        PropertyValue.property_key.in_(keys), PropertyValue.value_num.isnot(None))
+    if material_ids is not None:
+        stmt = stmt.where(PropertyValue.material_id.in_(material_ids))
+    best: dict[tuple, PropertyValue] = {}
+    for pv in db.execute(stmt).scalars().all():
+        k = (pv.material_id, pv.property_key)
+        if k not in best or _rep_rank(pv) < _rep_rank(best[k]):
+            best[k] = pv
+    return best
+
+
 def numeric_property_options(db: Session) -> list[dict]:
     """Ashby 축 후보 — 수치값을 가진 물성 목록(재료 수 내림차순). {key,name,unit,domain,symbol,n_materials}."""
     defs = {d.key: d for d in db.execute(select(PropertyDefinition)).scalars().all()}

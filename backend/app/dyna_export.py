@@ -7,7 +7,7 @@ import re
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from app.catalog_compare import representative_numeric
+from app.catalog_compare import representative_numeric, representative_rows
 from app.models import Material, PropertyValue
 from app.unit_systems import UnitSystem, get_system
 
@@ -35,6 +35,26 @@ CTE_LCID_BASE = 990001
 def f_specific_heat(u: UnitSystem) -> float:
     """J/(kg*K) → 목표 단위. [비열]=length²/(time²·K)."""
     return u.time_s ** 2 / u.length_m ** 2
+
+
+def _base_symbols(u: UnitSystem) -> tuple[str, str, str]:
+    """(질량, 길이, 시간) 기호. density_unit("tonne/mm^3")과 key에서 뽑는다."""
+    mass, _, rest = u.density_unit.partition("/")
+    length = rest.split("^")[0]
+    time = u.key.rsplit("_", 1)[-1]
+    return mass, length, time
+
+
+def hc_unit(u: UnitSystem) -> str:
+    """비열의 목표 단위 표기. [비열]=length²/(time²·K)."""
+    _, L, T = _base_symbols(u)
+    return f"{L}^2/({T}^2*K)"
+
+
+def tc_unit(u: UnitSystem) -> str:
+    """열전도율의 목표 단위 표기. [열전도]=mass·length/(time³·K)."""
+    M, L, T = _base_symbols(u)
+    return f"{M}*{L}/({T}^3*K)"
 
 
 def f_conductivity(u: UnitSystem) -> float:
@@ -101,6 +121,16 @@ def _fmt(v: float) -> str:
     if a >= 1e5 or a < 1e-3:
         return f"{v:.4e}".replace("e-0", "e-").replace("e+0", "e+")
     return f"{v:.6g}"
+
+
+def _clip(s: str, n: int) -> str:
+    """n자로 자르되 단어 중간에서 끊지 않는다. 잘렸으면 …를 붙여 잘림을 드러낸다."""
+    s = " ".join((s or "").split())
+    if len(s) <= n:
+        return s
+    cut = s[:n]
+    sp = cut.rfind(" ")
+    return (cut[:sp] if sp > n * 0.6 else cut).rstrip(" ,;-") + "…"
 
 
 def _fit10(s: str) -> str:
@@ -336,17 +366,24 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
     ids = [m["id"] for m in mats]
     keys = sorted(set(MECH_KEYS + THERM_KEYS))
     reps = representative_numeric(db, list(keys))
-    # 출처(프로비넌스) 조회 — 카드 주석용.
-    prov: dict[tuple, str] = {}
-    for pv in db.execute(select(PropertyValue).where(
-            PropertyValue.material_id.in_(ids), PropertyValue.property_key.in_(keys))).scalars().all():
+    # 출처(프로비넌스) — 반드시 **대표값으로 뽑힌 그 행**의 출처를 쓴다.
+    # (예전엔 아무 행이나 먼저 걸린 것을 달아, 값과 출처가 어긋날 수 있었다.)
+    rep_rows = representative_rows(db, list(keys), material_ids=ids)
+    refs: list[dict] = []              # 덱 끝에 붙일 번호 매긴 참고문헌
+    ref_no: dict[int, int] = {}        # source.id → 번호
+    prov: dict[tuple, str] = {}        # (mid, key) → "[n] 업체" 짧은 태그
+    for (mid_, key_), pv in rep_rows.items():
         src = pv.source
         if src is None:
+            prov[(mid_, key_)] = "출처미상"
             continue
-        tag = src.publisher or src.title or ""
-        if src.doi:
-            tag = f"{tag} (DOI {src.doi})" if tag else f"DOI {src.doi}"
-        prov.setdefault((pv.material_id, pv.property_key), tag[:70])
+        if src.id not in ref_no:
+            ref_no[src.id] = len(refs) + 1
+            refs.append({"n": len(refs) + 1, "publisher": src.publisher,
+                         "title": src.title, "doi": src.doi, "url": src.url,
+                         "kind": src.kind})
+        short = (src.publisher or src.title or "").strip()
+        prov[(mid_, key_)] = f"[{ref_no[src.id]}] {_clip(short, 44)}" if short else f"[{ref_no[src.id]}]"
 
     def val(mid: int, key: str):
         return reps.get(key, {}).get(mid)
@@ -372,7 +409,7 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
         sigy, uts, elong = val(i, K_SIGY), val(i, K_UTS), val(i, K_ELONG)
         hc, tc, cte = val(i, K_HC), val(i, K_TC), val(i, K_CTE)
         made: list[str] = []
-        title = re.sub(r"[^\x20-\x7E가-힣]", "", m["name"])[:70]
+        title = " ".join(re.sub(r"[^\x20-\x7E가-힣]", " ", m["name"]).split())[:70]
 
         # ── 기계 카드 ──
         if want_mech:
@@ -428,9 +465,12 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
             else:
                 lines.append("$")
                 lines.append(f"$ --- TMID {mid}: {title} (thermal) ---")
-                lines.append(f"$   TRO {_fmt(rho)} kg/m^3   <- {prov.get((i, K_RHO), '출처미상')}")
-                lines.append(f"$   HC  {_fmt(hc)} J/(kg*K)   <- {prov.get((i, K_HC), '출처미상')}")
-                lines.append(f"$   TC  {_fmt(tc)} W/(m*K)   <- {prov.get((i, K_TC), '출처미상')}")
+                lines.append(f"$   TRO {_fmt(rho * u.f_density)} {u.density_unit}"
+                             f" (= {_fmt(rho)} kg/m^3)   <- {prov.get((i, K_RHO), '출처미상')}")
+                lines.append(f"$   HC  {_fmt(hc * f_specific_heat(u))} {hc_unit(u)}"
+                             f" (= {_fmt(hc)} J/(kg*K))   <- {prov.get((i, K_HC), '출처미상')}")
+                lines.append(f"$   TC  {_fmt(tc * f_conductivity(u))} {tc_unit(u)}"
+                             f" (= {_fmt(tc)} W/(m*K))   <- {prov.get((i, K_TC), '출처미상')}")
                 if cte is not None:
                     lines.append(f"$   (참고) CTE {_fmt(cte)} 1/K   <- {prov.get((i, K_CTE), '출처미상')}")
                 lines.append("*MAT_THERMAL_ISOTROPIC_TITLE")
@@ -479,6 +519,17 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
                           "mid_source": "지정" if mid in explicit_set else "자동",
                           "pids": pids, "cards": made})
 
+    if refs:
+        lines += ["$", "$" + "=" * 78,
+                  "$ 참고문헌 — 위 주석의 [n]이 이 목록을 가리킵니다.",
+                  "$" + "=" * 78]
+        for r in refs:
+            head = f"$ [{r['n']}] "
+            pub = (r["publisher"] or "").strip()
+            lines.append(head + _clip(f"{pub} — {r['title']}" if pub else (r["title"] or "제목없음"), 74))
+            loc = f"DOI {r['doi']}" if r["doi"] else (r["url"] or "")
+            if loc:
+                lines.append("$      " + loc)        # URL·DOI는 자르지 않는다(복사해 열어야 한다)
     lines.append("*END")
     return {
         "keyword": "\n".join(lines),
