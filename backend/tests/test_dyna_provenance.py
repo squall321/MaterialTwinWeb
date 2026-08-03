@@ -93,3 +93,45 @@ def test_fixed_width_fields_keep_a_separator(mcp_env):
     assert len(DX._fit10("1.23456789e-10")) <= 9
     line = DX._card_field("201", "5.9000e-10", "0.4", "0.08")
     assert len(line.split()) == 4, f"필드가 붙었다: {line!r}"
+
+
+def test_representative_conditions_appear_in_card(mcp_env):
+    """율속·온도별 값이 여럿이면 어느 조건의 값이 실렸는지 카드에 보여야 한다."""
+    M = mcp_env
+    mid = M.register_material(name="RateFoam", category="foam")["material_id"]
+    M.register_property(mid, "physical.density", value=405.0, unit="kg/m^3",
+                        quality_tier=1, source_title="Ref", source_kind="journal", source_doi="10.1/x")
+    for rate, E in ((0.001, 6.2e5), (1.0, 4.37e6), (4307.0, 9.2e7)):
+        M.register_property(mid, "mechanical.youngs_modulus", value=E, unit="Pa",
+                            quality_tier=1, conditions={"strain_rate_1/s": rate},
+                            source_title="Ref", source_kind="journal", source_doi="10.1/x")
+    from app.db import SessionLocal
+    from app import dyna_export as DX
+    with SessionLocal() as s:
+        deck = DX.build_cards(s, ["1, RateFoam"], card="mechanical", units="ton_mm_s")
+    e_line = [l for l in deck["keyword"].splitlines() if l.startswith("$   E ")][0]
+    assert "ε̇" in e_line, f"어느 변형률속도의 값인지 안 나온다: {e_line}"
+
+
+def test_viscoelastic_card_flags_unused_rate_data(mcp_env):
+    """MAT_006에는 율속 항이 없다 — 데이터가 있으면 반영 안 된다고 알려야 한다."""
+    import numpy as np
+    M = mcp_env
+    mid = M.register_material(name="RateTape", category="polymer")["material_id"]
+    M.register_property(mid, "physical.density", value=590.0, unit="kg/m^3",
+                        quality_tier=1, source_title="Ref", source_kind="datasheet")
+    M.register_property(mid, "mechanical.cowper_symonds_c", value=0.0154, unit="1/s",
+                        quality_tier=3, source_title="Ref", source_kind="journal", source_doi="10.1/y")
+    M.register_property(mid, "mechanical.cowper_symonds_p", value=2.886, unit="1",
+                        quality_tier=3, source_title="Ref", source_kind="journal", source_doi="10.1/y")
+    t = np.logspace(-3, 1, 30)
+    M.register_relaxation_test(material_id=mid, time_s=t.tolist(),
+                               modulus_mpa=(0.24 * (0.1 + 0.9 * np.exp(-t / 0.04))).tolist())
+    from app.db import SessionLocal
+    from app import dyna_export as DX
+    with SessionLocal() as s:
+        deck = DX.build_cards(s, ["1, RateTape"], card="mechanical", units="ton_mm_s")
+    txt = deck["keyword"]
+    assert "*MAT_VISCOELASTIC" in txt
+    assert "율속 경화 항이 없어" in txt, "율속 데이터가 무시된다는 경고가 없다"
+    assert "LOW_DENSITY_FOAM" in txt, "대안 카드를 안내해야 한다"

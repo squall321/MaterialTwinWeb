@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import difflib
+import json
 import re
 
 from sqlalchemy import select
@@ -28,6 +29,8 @@ MECH_KEYS = (K_RHO, K_E, K_NU, K_SIGY, K_UTS, K_ELONG, K_CS_C, K_CS_P)
 THERM_KEYS = (K_RHO, K_HC, K_TC, K_CTE)
 
 _DEFAULT_NU = 0.3
+# 점탄성 카드에서 포아송비도 저장 BULK도 없을 때. 엘라스토머 기준(폼이면 더 낮다).
+_DEFAULT_NU_VISCO = 0.45
 # CTE 상수 곡선의 온도 범위(K) — 상온 해석 범위를 넉넉히 덮는다.
 CTE_CURVE_T_MIN, CTE_CURVE_T_MAX = 173.15, 673.15
 # *DEFINE_CURVE LCID 시작번호(기존 모델 곡선과 충돌 피하려 큰 번호 사용).
@@ -123,6 +126,31 @@ def _fmt(v: float) -> str:
     if a >= 1e5 or a < 1e-3:
         return f"{v:.4e}".replace("e-0", "e-").replace("e+0", "e+")
     return f"{v:.6g}"
+
+
+# 해석 결과를 좌우하는 조건만 골라 짧게 붙인다(전부 붙이면 주석이 못 읽게 길어진다).
+_COND_SHOW = (("strain_rate_1/s", "ε̇", "/s"), ("temperature_C", "T", "°C"),
+              ("temperature_K", "T", "K"), ("temperature_k", "T", "K"),
+              ("axis", "", ""), ("regime", "", ""), ("grade", "", ""))
+
+
+def _cond_tag(cond) -> str:
+    """대표값의 핵심 조건을 " (ε̇ 0.001/s, T 23°C)" 형태로."""
+    if isinstance(cond, str):
+        try:
+            cond = json.loads(cond)
+        except Exception:
+            return ""
+    if not isinstance(cond, dict):
+        return ""
+    bits = []
+    for k, label, unit in _COND_SHOW:
+        if k in cond and cond[k] is not None:
+            v = cond[k]
+            bits.append(f"{label} {v}{unit}".strip() if label else _clip(str(v), 24))
+        if len(bits) >= 3:
+            break
+    return f"  ({', '.join(bits)})" if bits else ""
 
 
 def _clip(s: str, n: int) -> str:
@@ -397,7 +425,9 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
                          "title": src.title, "doi": src.doi, "url": src.url,
                          "kind": src.kind})
         short = (src.publisher or src.title or "").strip()
-        prov[(mid_, key_)] = f"[{ref_no[src.id]}] {_clip(short, 44)}" if short else f"[{ref_no[src.id]}]"
+        tag = f"[{ref_no[src.id]}] {_clip(short, 40)}" if short else f"[{ref_no[src.id]}]"
+        cond_tag = _cond_tag(pv.conditions)
+        prov[(mid_, key_)] = f"{tag}{cond_tag}"
 
     def val(mid: int, key: str):
         return reps.get(key, {}).get(mid)
@@ -433,11 +463,15 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
             # 체적탄성률은 저장값을 믿지 않고 **카탈로그의 포아송비로 매번 산출**한다.
             # 저장된 BULK가 폼·써멀패드까지 비압축(nu≈0.5)으로 잡고 있어, 압축으로 쓰는
             # 가스켓의 접촉압력이 통째로 틀린다. nu=0.5는 체적잠김도 일으킨다.
-            bulk_note = "저장값"
-            if nu is not None:
-                nu_k = min(float(nu), 0.499)   # 0.5는 특이점 — 체적잠김 방지
+            nu_k = min(float(nu), 0.499) if nu is not None else None   # 0.5는 특이점(체적잠김)
+            if nu_k is None and si.get("BULK") is None:
+                nu_k = _DEFAULT_NU_VISCO       # 저장값도 포아송비도 없으면 기본값으로 산출
+            if nu_k is not None:
                 si["BULK"] = 2.0 * si["G0"] * (1.0 + nu_k) / (3.0 * (1.0 - 2.0 * nu_k))
-                bulk_note = f"nu={nu_k:g}에서 산출 K=2G(1+nu)/(3(1-2nu))"
+                bulk_note = (f"nu={nu_k:g}에서 산출 K=2G(1+nu)/(3(1-2nu))" if nu is not None
+                             else f"포아송비·저장 BULK 모두 없어 기본 nu={nu_k:g}로 산출 — 폼이면 낮춰야 한다")
+            else:
+                bulk_note = "저장값"
             lines.append("$")
             lines.append(f"$ --- MID {mid}: {title} (점탄성) ---")
             lines.append("$   완화시험 Prony 피팅 — G(t)=GI+(G0-GI)·exp(-BETA·t)")
@@ -449,6 +483,14 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
             lines.append(f"$   G0   {_fmt(si['G0'] * u.f_stress)} {u.stress_unit}"
                          f"   GI {_fmt(si['GI'] * u.f_stress)} {u.stress_unit}"
                          f"   BETA {_fmt(si['BETA'] * u.f_rate)} 1/{u.key.rsplit('_', 1)[-1]}")
+            cs_c, cs_p = val(i, K_CS_C), val(i, K_CS_P)
+            if cs_c and cs_p:
+                lines.append(f"$   ※ 변형률속도 데이터 보유: C {_fmt(cs_c / u.f_rate)} 1/"
+                             f"{u.key.rsplit('_', 1)[-1]}  p {_fmt(cs_p)}"
+                             f"   <- {prov.get((i, K_CS_C), '출처미상')}")
+                lines.append("$     *MAT_VISCOELASTIC(006)에는 율속 경화 항이 없어 반영되지 않는다. "
+                             "충격·낙하 해석이면 *MAT_LOW_DENSITY_FOAM(057)이나 "
+                             "*MAT_024+C/p로 바꿔 쓰세요.")
             r2 = (em.get("prony_fit") or {}).get("r2")
             if r2 is not None:
                 lines.append(f"$   Prony 피팅 R² {r2:.4f} — 완화곡선 실측에서 유도")
