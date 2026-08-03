@@ -83,7 +83,7 @@ _KIND_COLUMNS = {
 def get_curve(
     tid: int,
     kind: str = Query(default="nominal"),
-    max_points: int = Query(default=2000, ge=3, le=100000),
+    max_points: int = Query(default=400, ge=3, le=100000),
     db: Session = Depends(get_db),
 ) -> dict:
     """곡선 포인트(LTTB 다운샘플). 곡선 소유자는 test([gaps] A3).

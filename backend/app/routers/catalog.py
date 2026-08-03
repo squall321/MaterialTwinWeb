@@ -11,7 +11,9 @@ from sqlalchemy.orm import Session
 from app.catalog_compare import build_comparison, numeric_property_options, scatter_dataset
 from app.dyna_export import build_cards, match_rows
 from app.db import get_db
-from app.models import Material, PropertyDefinition, PropertyValue, Source
+from app.models import (Material, ProcessedResult, PropertyDefinition, PropertyValue,
+                        Source, Specimen, Test)
+from app import curve_store, curve_synth
 
 router = APIRouter(prefix="/api/catalog", tags=["catalog"])
 
@@ -299,3 +301,48 @@ def coverage(db: Session = Depends(get_db)) -> dict:
     matrix = [{"subsystem": s, "cells": [{"domain": d, "count": cell.get((s, d), 0)} for d in doms]}
               for s in subs]
     return {"subsystems": subs, "domains": doms, "matrix": matrix}
+
+
+@router.get("/materials/{mid}/curve")
+def material_curve(mid: int, n_points: int = Query(default=80, ge=20, le=400),
+                   db: Session = Depends(get_db)) -> dict:
+    """재료의 σ-ε 곡선. 인장시험이 있으면 실측을, 없으면 스칼라에서 합성한 곡선을 준다.
+
+    동박·솔더처럼 시험은 없지만 스칼라 물성은 갖춘 재료가 대부분이라, 합성이라도 보여줘야
+    한다. 실측/합성은 kind로 구분하고, 합성이면 입력 스칼라의 출처를 함께 반환한다.
+    """
+    mat = db.get(Material, mid)
+    if mat is None:
+        raise HTTPException(status_code=404, detail="material not found")
+
+    # 실측 곡선이 있으면 그쪽이 우선.
+    tid = db.execute(
+        select(Test.id).join(Specimen, Specimen.id == Test.specimen_id)
+        .where(Specimen.material_id == mid, Test.valid.is_(True),
+               Test.test_type == "tensile").order_by(Test.id)
+    ).scalars().first()
+    if tid is not None:
+        pr = db.execute(select(ProcessedResult).where(ProcessedResult.test_id == tid)).scalars().first()
+        if pr is not None:
+            df = curve_store.read_curve(tid)
+            xcol = next((c for c in ("eng_strain", "strain_nominal", "extenso_strain", "strain") if c in df.columns), None)
+            ycol = next((c for c in ("eng_stress_Pa", "stress_nominal_pa", "stress_pa") if c in df.columns), None)
+            if xcol and ycol and len(df) > 2:
+                xs, ys = curve_store.lttb_downsample(df[xcol].to_numpy(), df[ycol].to_numpy(), n_out=n_points)
+                xs, ys = [float(v) for v in xs], [float(v) for v in ys]
+                return {"material_id": mid, "name": mat.name, "kind": curve_synth.KIND_MEASURED,
+                        "test_id": tid, "strain": xs, "stress_pa": ys,
+                        "model": "measured tensile test", "note": None, "sources": None}
+
+    out = curve_synth.synth_for_material(db, mid, n_points=n_points)
+    if out is None:
+        raise HTTPException(status_code=404,
+                            detail="곡선을 만들 스칼라 물성이 부족합니다(영률 필수, 항복 또는 인장강도 필요)")
+    return {"material_id": mid, "name": mat.name, "kind": out["kind"],
+            "test_id": None,
+            "strain": [float(v) for v in out["strain"]],
+            "stress_pa": [float(v) for v in out["stress_pa"]],
+            "model": out["model"], "note": out.get("note"),
+            "inconsistent": out.get("inconsistent", False),
+            "inputs": out.get("inputs"), "sources": out.get("sources"),
+            "provenance": out.get("provenance")}

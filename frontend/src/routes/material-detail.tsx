@@ -60,7 +60,7 @@ import { EmptyState } from "../components/states/EmptyState";
 import { ErrorState } from "../components/states/ErrorState";
 import { ChartSkeleton, TableSkeleton } from "../components/states/Skeletons";
 import { downloadFile, errorMessage } from "../lib/download";
-import { getCatalogMaterial } from "../api/catalog";
+import { getCatalogMaterial, getMaterialCurve } from "../api/catalog";
 import { Badge } from "../components/ui/badge";
 import { domainMeta, tierMeta, formatValue, formatConditions } from "../lib/catalog-ui";
 import { cssVar } from "../lib/echarts";
@@ -131,7 +131,7 @@ export function MaterialDetailScreen() {
   const curveQueries = useQueries({
     queries: reps.map((r) => ({
       queryKey: ["curve", r.test?.id, curveKind],
-      queryFn: () => getCurve(r.test!.id, { kind: curveKind, max_points: 2000 }),
+      queryFn: () => getCurve(r.test!.id, { kind: curveKind, max_points: 400 }),
       enabled: !!r.test && r.test.test_type !== "relaxation",
     })),
   });
@@ -482,6 +482,12 @@ export function MaterialDetailScreen() {
         </div>
       )}
 
+      {/* 시험 곡선이 없는 재료는 스칼라 물성으로 합성한 σ-ε 곡선을 보여준다.
+          동박·솔더처럼 시험은 없지만 스칼라는 갖춘 재료가 대부분이다. */}
+      {!loading && !materialQ.isError && specimens.length === 0 && (
+        <SynthCurveSection mid={mid} />
+      )}
+
       {/* 문헌·데이터시트 물성 — 시험 유무와 무관하게 항상 보여준다.
           재료의 75%가 시험 없이 물성만 가진 카탈로그 수집분이기 때문. */}
       {!loading && !materialQ.isError && (
@@ -772,6 +778,67 @@ function CatalogPropertiesSection({ mid, hasTests }: { mid: number; hasTests: bo
             </Card>
           );
         })}
+    </section>
+  );
+}
+
+
+// 인장시험 곡선이 없는 재료의 σ-ε — 스칼라 물성에서 합성한다.
+// 실측이 아니므로 [합성]과 모델·입력 스칼라·출처를 반드시 함께 보여준다.
+function SynthCurveSection({ mid }: { mid: number }) {
+  const q = useQuery({
+    queryKey: ["material-curve", mid],
+    queryFn: () => getMaterialCurve(mid, 80),
+    retry: false,
+  });
+
+  if (q.isPending) return <ChartSkeleton />;
+  if (q.isError || !q.data) return null;   // 스칼라 부족 — 조용히 생략
+
+  const d = q.data;
+  const inp = d.inputs ?? {};
+  const fmtMPa = (v?: number | null) => (v == null ? "—" : `${(v / 1e6).toFixed(v / 1e6 < 10 ? 1 : 0)} MPa`);
+
+  return (
+    <section className="flex flex-col gap-3">
+      <div className="flex flex-wrap items-center gap-2">
+        <h2 className="text-base font-semibold text-text-primary">응력-변형률 곡선</h2>
+        <Badge variant="warning">합성</Badge>
+        <span className="text-xs text-text-tertiary">{d.model}</span>
+      </div>
+
+      <Card className="p-4">
+        <StressStrainChart
+          series={[{ testId: -mid, name: d.name, x: d.strain, y: d.stress_pa, active: true }]}
+          height={320}
+        />
+        <dl className="mt-3 grid grid-cols-2 gap-x-6 gap-y-1 text-xs sm:grid-cols-4">
+          <div><dt className="text-text-tertiary">영률</dt>
+            <dd className="tnum text-text-primary">
+              {inp.E_pa == null ? "—" : `${(inp.E_pa / 1e9).toFixed(1)} GPa`}</dd></div>
+          <div><dt className="text-text-tertiary">항복</dt>
+            <dd className="tnum text-text-primary">{fmtMPa(inp.yield_pa)}</dd></div>
+          <div><dt className="text-text-tertiary">인장</dt>
+            <dd className="tnum text-text-primary">{fmtMPa(inp.uts_pa)}</dd></div>
+          <div><dt className="text-text-tertiary">파단연신</dt>
+            <dd className="tnum text-text-primary">
+              {inp.elongation == null ? "—" : `${(inp.elongation * 100).toFixed(1)} %`}</dd></div>
+        </dl>
+        {d.provenance && (
+          <p className="mt-2 text-xs text-text-tertiary">입력 출처 — {d.provenance}</p>
+        )}
+        {d.note && (
+          <p
+            className={
+              d.inconsistent
+                ? "mt-2 rounded-md border border-[color:var(--warning)] px-3 py-2 text-xs text-warning"
+                : "mt-2 text-xs text-text-tertiary"
+            }
+          >
+            {d.note}
+          </p>
+        )}
+      </Card>
     </section>
   );
 }

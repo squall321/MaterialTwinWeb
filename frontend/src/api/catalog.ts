@@ -263,3 +263,23 @@ export function buildDynaDeck(
     body: JSON.stringify({ picks, card, units }),
   });
 }
+
+// 재료의 σ-ε 곡선 — 인장시험이 있으면 실측, 없으면 스칼라에서 합성한 곡선.
+export type MaterialCurve = {
+  material_id: number;
+  name: string;
+  kind: "measured" | "synthetic";
+  test_id: number | null;
+  strain: number[];
+  stress_pa: number[];
+  model: string;
+  note: string | null;
+  inconsistent?: boolean;
+  inputs?: Record<string, number | null> | null;
+  sources?: Record<string, string> | null;
+  provenance?: string | null;
+};
+
+export function getMaterialCurve(id: number, nPoints = 80) {
+  return request<MaterialCurve>(`api/catalog/materials/${id}/curve?n_points=${nPoints}`);
+}
