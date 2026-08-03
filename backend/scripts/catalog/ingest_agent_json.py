@@ -56,7 +56,7 @@ RANGE = {
     "mechanical.surface_compressive_stress": (1e6, 5e9),  # Pa (MPa 원값이면 걸린다)
     "mechanical.depth_of_layer": (1e-9, 1e-3),            # m (µm 원값이면 걸린다)
     "interface.tack": (1e-3, 1e3),                        # N (gf 원값이면 걸린다)
-    "interface.static_shear_holding": (1.0, 4e6),         # s (시간 단위면 걸린다)
+    "interface.static_shear_holding": (1.0, 1e8),         # s. 폼 양면테이프는 5,000 h(1.8e7 s)도 나온다
     "interface.wire_pull_strength": (1e-4, 1e2),          # N (gf 원값이면 걸린다)
     "mechanical.cure_shrinkage": (0.0, 0.5),              # 비율 (% 원값이면 걸린다)
     "rheological.pot_life": (1.0, 1e7),                   # s (분 단위면 걸린다)
