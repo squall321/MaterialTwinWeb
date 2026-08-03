@@ -51,3 +51,45 @@ def test_card_cites_references_and_lists_them(mcp_env):
     listed = set(int(x) for x in re.findall(r"^\$ \[(\d+)\]", txt, re.M))
     assert cited, "출처 인용이 하나도 없다"
     assert cited <= listed, f"참고문헌에 없는 번호를 인용한다: {cited - listed}"
+
+
+def test_bulk_modulus_from_poisson_not_hardcoded(mcp_env):
+    """점탄성 카드의 체적탄성률은 카탈로그 포아송비에서 산출해야 한다.
+
+    저장된 BULK를 그대로 쓰면 폼·써멀패드가 비압축(nu≈0.5)으로 잡혀
+    압축으로 쓰는 가스켓의 접촉압력이 통째로 틀리고, nu=0.5는 체적잠김도 일으킨다.
+    """
+    import numpy as np
+    M = mcp_env
+    mid = M.register_material(name="TestFoam", category="foam")["material_id"]
+    M.register_property(mid, "physical.density", value=240.0, unit="kg/m^3",
+                        quality_tier=1, source_title="Ref", source_kind="datasheet")
+    M.register_property(mid, "mechanical.poisson_ratio", value=0.30, unit="1",
+                        quality_tier=1, source_title="Ref", source_kind="datasheet")
+    t = np.logspace(-3, 1, 40)
+    E_mpa = 0.45 * (0.1 + 0.9 * np.exp(-t / 0.05))
+    # 등록 시 nu를 0.49(비압축에 가깝게)로 줘도, 카드는 카탈로그의 0.30을 써야 한다.
+    M.register_relaxation_test(material_id=mid, time_s=t.tolist(),
+                               modulus_mpa=E_mpa.tolist(), nu=0.49)
+    from app.db import SessionLocal
+    from app import dyna_export as DX
+    with SessionLocal() as s:
+        deck = DX.build_cards(s, ["1, TestFoam"], card="mechanical", units="ton_mm_s")
+    txt = deck["keyword"]
+    assert "*MAT_VISCOELASTIC" in txt, "완화시험이 있으면 점탄성 카드여야 한다"
+    assert "nu=0.3" in txt, "포아송비에서 산출했다는 근거가 카드에 남아야 한다"
+    # K = 2G(1+nu)/(3(1-2nu)); nu=0.3이면 K/G = 2*1.3/(3*0.4) ≈ 2.167 — 비압축(수백 배)이 아니다.
+    body = txt.splitlines()
+    hdr = next(i for i, l in enumerate(body) if l.startswith("$#     mid       rho      bulk"))
+    row = body[hdr + 1].split()
+    bulk, g0 = float(row[2]), float(row[3])
+    assert 1.5 < bulk / g0 < 3.0, f"압축성 폼인데 K/G={bulk/g0:.1f} — 비압축으로 잡혔다"
+
+
+def test_fixed_width_fields_keep_a_separator(mcp_env):
+    """필드가 10칸을 꽉 채우면 옆 값과 붙어 읽을 수 없고 자유형식에서 깨진다."""
+    from app import dyna_export as DX
+    assert len(DX._fit10("5.9000e-10")) <= 9
+    assert len(DX._fit10("1.23456789e-10")) <= 9
+    line = DX._card_field("201", "5.9000e-10", "0.4", "0.08")
+    assert len(line.split()) == 4, f"필드가 붙었다: {line!r}"

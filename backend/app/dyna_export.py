@@ -8,7 +8,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.catalog_compare import representative_numeric, representative_rows
-from app.models import Material, PropertyValue
+from app.models import Material, ProcessedResult, PropertyValue, Specimen, Test
 from app.unit_systems import UnitSystem, get_system
 
 # 카드에 쓰는 물성 키.
@@ -21,8 +21,10 @@ K_ELONG = "mechanical.elongation_at_break"
 K_HC = "thermal.specific_heat"
 K_TC = "thermal.conductivity"
 K_CTE = "thermal.expansion_linear"
+K_CS_C = "mechanical.cowper_symonds_c"
+K_CS_P = "mechanical.cowper_symonds_p"
 
-MECH_KEYS = (K_RHO, K_E, K_NU, K_SIGY, K_UTS, K_ELONG)
+MECH_KEYS = (K_RHO, K_E, K_NU, K_SIGY, K_UTS, K_ELONG, K_CS_C, K_CS_P)
 THERM_KEYS = (K_RHO, K_HC, K_TC, K_CTE)
 
 _DEFAULT_NU = 0.3
@@ -134,21 +136,22 @@ def _clip(s: str, n: int) -> str:
 
 
 def _fit10(s: str) -> str:
-    """LS-DYNA 고정폭(10칸)을 넘지 않게 보정 — 넘치면 유효자리를 줄여 재포맷.
+    """LS-DYNA 고정폭(10칸)에 맞추되 **9자 이하**로 줄여 항상 구분 공백을 남긴다.
 
-    10칸 초과 시 덱 파싱이 깨지므로(필드 밀림) 반드시 통과시켜야 한다.
+    10칸 초과는 필드가 밀려 덱 파싱이 깨진다. 딱 10자면 파싱은 되지만 옆 필드와 붙어
+    ("       2015.9000e-10") 사람이 읽을 수 없고, 자유형식으로 옮기면 실제로 깨진다.
     """
-    if len(s) <= 10:
+    if len(s) <= 9:
         return s
     try:
         v = float(s)
     except ValueError:
-        return s[:10]
+        return s[:9]
     for p in (4, 3, 2, 1):
         t = f"{v:.{p}e}".replace("e-0", "e-").replace("e+0", "e+")
-        if len(t) <= 10:
+        if len(t) <= 9:
             return t
-    return f"{v:.0e}"[:10]
+    return f"{v:.0e}"[:9]
 
 
 def _card_field(*vals) -> str:
@@ -369,6 +372,17 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
     # 출처(프로비넌스) — 반드시 **대표값으로 뽑힌 그 행**의 출처를 쓴다.
     # (예전엔 아무 행이나 먼저 걸린 것을 달아, 값과 출처가 어긋날 수 있었다.)
     rep_rows = representative_rows(db, list(keys), material_ids=ids)
+    # 완화시험이 있는 재료는 *MAT_VISCOELASTIC이 맞다 — 테이프·접착제를 탄성으로 내보내면
+    # 하중률 의존이 통째로 빠진다. Prony 피팅 결과(lsdyna_prony)를 그대로 쓴다.
+    visco: dict[int, dict] = {}
+    for sp_mid, extra in db.execute(
+            select(Specimen.material_id, ProcessedResult.extra_metrics)
+            .join(Test, Test.specimen_id == Specimen.id)
+            .join(ProcessedResult, ProcessedResult.test_id == Test.id)
+            .where(Specimen.material_id.in_(ids))).all():
+        em = extra or {}
+        if em.get("kind") == "viscoelastic" and em.get("lsdyna_prony"):
+            visco.setdefault(sp_mid, em)
     refs: list[dict] = []              # 덱 끝에 붙일 번호 매긴 참고문헌
     ref_no: dict[int, int] = {}        # source.id → 번호
     prov: dict[tuple, str] = {}        # (mid, key) → "[n] 업체" 짧은 태그
@@ -412,7 +426,40 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
         title = " ".join(re.sub(r"[^\x20-\x7E가-힣]", " ", m["name"]).split())[:70]
 
         # ── 기계 카드 ──
-        if want_mech:
+        if want_mech and i in visco and rho is not None:
+            em = visco[i]
+            pr_ = em["lsdyna_prony"]          # 이미 MPa·1/s 기준(ton_mm_s)으로 저장돼 있다
+            si = {k: (pr_[k] * 1e6 if k in ("G0", "GI", "BULK") else pr_[k]) for k in pr_}
+            # 체적탄성률은 저장값을 믿지 않고 **카탈로그의 포아송비로 매번 산출**한다.
+            # 저장된 BULK가 폼·써멀패드까지 비압축(nu≈0.5)으로 잡고 있어, 압축으로 쓰는
+            # 가스켓의 접촉압력이 통째로 틀린다. nu=0.5는 체적잠김도 일으킨다.
+            bulk_note = "저장값"
+            if nu is not None:
+                nu_k = min(float(nu), 0.499)   # 0.5는 특이점 — 체적잠김 방지
+                si["BULK"] = 2.0 * si["G0"] * (1.0 + nu_k) / (3.0 * (1.0 - 2.0 * nu_k))
+                bulk_note = f"nu={nu_k:g}에서 산출 K=2G(1+nu)/(3(1-2nu))"
+            lines.append("$")
+            lines.append(f"$ --- MID {mid}: {title} (점탄성) ---")
+            lines.append("$   완화시험 Prony 피팅 — G(t)=GI+(G0-GI)·exp(-BETA·t)")
+            lines.append(f"$   BULK {_fmt(si['BULK'] * u.f_stress)} {u.stress_unit} — {bulk_note}"
+                         + (f"   <- {prov.get((i, K_NU), '출처미상')}" if nu is not None else
+                            " (포아송비 미보유 — 저장값 그대로. 폼·패드면 비압축으로 과대평가될 수 있다)"))
+            lines.append(f"$   RO   {_fmt(rho * u.f_density)} {u.density_unit}"
+                         f" (= {_fmt(rho)} kg/m^3)   <- {prov.get((i, K_RHO), '출처미상')}")
+            lines.append(f"$   G0   {_fmt(si['G0'] * u.f_stress)} {u.stress_unit}"
+                         f"   GI {_fmt(si['GI'] * u.f_stress)} {u.stress_unit}"
+                         f"   BETA {_fmt(si['BETA'] * u.f_rate)} 1/{u.key.rsplit('_', 1)[-1]}")
+            r2 = (em.get("prony_fit") or {}).get("r2")
+            if r2 is not None:
+                lines.append(f"$   Prony 피팅 R² {r2:.4f} — 완화곡선 실측에서 유도")
+            lines.append("*MAT_VISCOELASTIC_TITLE")
+            lines.append(title)
+            lines.append("$#     mid       rho      bulk        g0        gi      beta")
+            lines.append(_card_field(str(mid), _fmt(rho * u.f_density),
+                                     _fmt(si["BULK"] * u.f_stress), _fmt(si["G0"] * u.f_stress),
+                                     _fmt(si["GI"] * u.f_stress), _fmt(si["BETA"] * u.f_rate)))
+            made.append("*MAT_VISCOELASTIC (006)")
+        elif want_mech:
             if rho is None or E is None:
                 skipped.append({"material": m["name"], "card": "mechanical",
                                 "reason": "밀도 또는 영률 없음(카드 생성 불가)"})
@@ -445,8 +492,19 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
                                              _fmt(nu_v), _fmt(sigy * u.f_stress),
                                              _fmt(etan * u.f_stress),
                                              _fmt(elong) if elong else "0.0", "0.0"))
+                    # Cowper-Symonds 변형률속도 항 — 있으면 채운다. 테이프·접착제·폼은
+                    # 이 항이 없으면 충격 해석에서 강성을 크게 과소평가한다.
+                    cs_c, cs_p = val(i, K_CS_C), val(i, K_CS_P)
+                    if cs_c and cs_p:
+                        lines.append(f"$   C {_fmt(cs_c / u.f_rate)} 1/{u.key.rsplit('_', 1)[-1]}"
+                                     f"   p {_fmt(cs_p)} — Cowper-Symonds 변형률속도 경화"
+                                     f"   <- {prov.get((i, K_CS_C), '출처미상')}")
+                    else:
+                        lines.append("$   (변형률속도 항 없음 — C·p 미보유. 충격·낙하 해석이면 "
+                                     "율속 데이터를 넣어야 강성을 과소평가하지 않는다)")
                     lines.append("$#       c         p      lcss      lcsr        vp")
-                    lines.append(_card_field("0.0", "0.0", 0, 0, "0.0"))
+                    lines.append(_card_field(_fmt(cs_c / u.f_rate) if (cs_c and cs_p) else "0.0",
+                                             _fmt(cs_p) if (cs_c and cs_p) else "0.0", 0, 0, "0.0"))
                     made.append("*MAT_PIECEWISE_LINEAR_PLASTICITY (024)")
                 else:
                     lines.append("*MAT_ELASTIC_TITLE")

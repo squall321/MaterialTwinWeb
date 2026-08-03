@@ -31,6 +31,14 @@ _DEFS: list[tuple] = [
     ("mechanical.flexural_strength", "mechanical", "굽힘강도", None, "Pa", "numeric", None, "ISO 178"),
     ("mechanical.impact_strength_izod", "mechanical", "아이조드 충격강도", None, "J/m", "numeric", ["temperature_k"], "ASTM D256"),
     ("mechanical.creep_rate", "mechanical", "정상상태 크리프율", None, "1/s", "numeric", ["stress_pa", "temperature_k"], None),
+    # 변형률속도 의존 — LS-DYNA *MAT_024/*MAT_098이 그대로 받는 형식.
+    # 테이프·접착제·폼은 충격 해석에서 이 항이 없으면 강성을 크게 과소평가한다.
+    ("mechanical.cowper_symonds_c", "mechanical", "Cowper-Symonds C", "C", "1/s", "numeric",
+     ["temperature_k"], None),
+    ("mechanical.cowper_symonds_p", "mechanical", "Cowper-Symonds p", "p", "1", "numeric",
+     ["temperature_k"], None),
+    ("mechanical.dynamic_increase_factor", "mechanical", "동적증가계수(DIF)", "DIF", "1", "numeric",
+     ["strain_rate_1/s", "temperature_k"], None),
     # ── 열 ────────────────────────────────────────────────────────────────────
     ("thermal.conductivity", "thermal", "열전도율", "k", "W/(m*K)", "numeric", ["temperature_k"], "ASTM E1461"),
     ("thermal.specific_heat", "thermal", "비열", "cp", "J/(kg*K)", "numeric", ["temperature_k"], "ASTM E1269"),
