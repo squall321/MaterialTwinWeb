@@ -27,7 +27,7 @@ type CatSearch = {
 };
 
 // 값으로 자주 찾게 되는 물성 프리셋. (키, 라벨, 입력 단위, SI 배수)
-const PROP_PRESETS: { key: string; label: string; unit: string; mul: number }[] = [
+const PROP_PRESETS: { key: string; label: string; unit: string; mul: number; offset?: number }[] = [
   { key: "structure.filler_content", label: "필러 함량", unit: "%", mul: 0.01 },
   { key: "mechanical.youngs_modulus", label: "영률", unit: "GPa", mul: 1e9 },
   { key: "mechanical.tensile_strength", label: "인장강도", unit: "MPa", mul: 1e6 },
@@ -35,6 +35,10 @@ const PROP_PRESETS: { key: string; label: string; unit: string; mul: number }[] 
   { key: "thermal.conductivity", label: "열전도율", unit: "W/(m·K)", mul: 1 },
   { key: "thermal.expansion_linear", label: "CTE", unit: "ppm/K", mul: 1e-6 },
   { key: "electrical.dielectric_constant", label: "유전율", unit: "—", mul: 1 },
+  { key: "interface.peel_strength", label: "박리강도", unit: "N/m", mul: 1 },
+  { key: "interface.lap_shear_strength", label: "중첩전단강도", unit: "MPa", mul: 1e6 },
+  { key: "interface.tack", label: "택(초기점착력)", unit: "N", mul: 1 },
+  { key: "thermal.glass_transition", label: "유리전이온도", unit: "°C", mul: 1, offset: 273.15 },
 ];
 
 export function CatalogScreen() {
@@ -68,7 +72,7 @@ export function CatalogScreen() {
   const toSI = (v?: string) => {
     if (!v || !preset) return undefined;
     const n = Number(v);
-    return Number.isFinite(n) ? n * preset.mul : undefined;
+    return Number.isFinite(n) ? n * preset.mul + (preset.offset ?? 0) : undefined;
   };
   const filters = {
     q: search.q, subsystem: search.subsystem, category: search.category,

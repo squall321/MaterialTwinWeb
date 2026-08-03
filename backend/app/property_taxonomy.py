@@ -129,6 +129,18 @@ _DEFS: list[tuple] = [
      ["temperature_k", "substrate"], "ASTM D1002"),
     ("interface.die_shear_strength", "interface", "다이쉬어 강도", None, "Pa", "numeric",
      ["temperature_k"], "MIL-STD-883 2019"),
+    # PSA·테이프 선정은 박리력만으로 안 된다 — 초기 밀착(택)과 지속 하중(정적전단)이 함께 있어야
+    # "잘 붙는데 흘러내리는" 조합을 걸러낼 수 있다.
+    ("interface.tack", "interface", "택(초기점착력)", None, "N", "numeric",
+     ["substrate", "rate_mm/min", "temperature_k"], "ASTM D6195 (loop) / D2979 (probe)"),
+    ("interface.static_shear_holding", "interface", "정적전단 유지시간", None, "s", "numeric",
+     ["load_kg", "area_mm2", "substrate", "temperature_k"], "ASTM D3654"),
+    ("interface.wire_pull_strength", "interface", "와이어 풀 강도", None, "N", "numeric",
+     ["wire_diameter_um", "loop_height_um"], "MIL-STD-883 2011"),
+    ("mechanical.cure_shrinkage", "mechanical", "경화수축률", None, "1", "numeric",
+     ["cure_schedule"], "ASTM D2566"),
+    ("rheological.pot_life", "rheological", "가사시간(pot life)", None, "s", "numeric",
+     ["temperature_k", "mix_ratio"], None),
     ("electrical.shielding_effectiveness", "electrical", "전자파 차폐효과", "SE", "dB", "numeric",
      ["frequency_hz", "thickness_m"], "ASTM D4935"),
     ("electrical.temperature_coefficient_resistance", "electrical", "저항온도계수(TCR)", "TCR",
