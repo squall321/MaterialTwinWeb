@@ -39,6 +39,20 @@ _DEFS: list[tuple] = [
      ["temperature_k"], None),
     ("mechanical.dynamic_increase_factor", "mechanical", "동적증가계수(DIF)", "DIF", "1", "numeric",
      ["strain_rate_1/s", "temperature_k"], None),
+    # 초탄성 상수 — VHB·폼테이프·OCA는 대변형에서 stiffening이 나므로 선형탄성으로는 못 푼다.
+    # LS-DYNA *MAT_027(Mooney-Rivlin)·*MAT_077(Ogden/Yeoh)이 직접 받는 계수.
+    # 모델별로 항 수가 달라 conditions.model과 term으로 구분한다(예: model="mooney_rivlin_5", term="C10").
+    ("mechanical.hyperelastic_coefficient", "mechanical", "초탄성 계수", None, "Pa", "numeric",
+     ["model", "term", "strain_rate_1/s", "temperature_k"], None),
+    ("mechanical.hyperelastic_exponent", "mechanical", "초탄성 지수", None, "1", "numeric",
+     ["model", "term", "temperature_k"], None),
+    ("mechanical.incompressibility_d", "mechanical", "비압축 파라미터 D", "D", "1/Pa", "numeric",
+     ["model", "term"], None),
+    # Prony 급수 항 — 완화시험이 없어도 논문이 계수만 주는 경우가 많다.
+    ("mechanical.prony_shear_modulus", "mechanical", "Prony 전단탄성률 항", "g_i", "Pa", "numeric",
+     ["term", "temperature_k"], None),
+    ("mechanical.prony_relaxation_time", "mechanical", "Prony 완화시간", "tau_i", "s", "numeric",
+     ["term", "temperature_k"], None),
     # ── 열 ────────────────────────────────────────────────────────────────────
     ("thermal.conductivity", "thermal", "열전도율", "k", "W/(m*K)", "numeric", ["temperature_k"], "ASTM E1461"),
     ("thermal.specific_heat", "thermal", "비열", "cp", "J/(kg*K)", "numeric", ["temperature_k"], "ASTM E1269"),

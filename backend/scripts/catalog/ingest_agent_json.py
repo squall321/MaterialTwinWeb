@@ -60,6 +60,11 @@ RANGE = {
     "interface.wire_pull_strength": (1e-4, 1e2),          # N (gf 원값이면 걸린다)
     "mechanical.cure_shrinkage": (0.0, 0.5),              # 비율 (% 원값이면 걸린다)
     "rheological.pot_life": (1.0, 1e7),                   # s (분 단위면 걸린다)
+    # 초탄성 계수는 음수도 정상이다(Mooney-Rivlin C10<0). 자릿수만 본다.
+    "mechanical.hyperelastic_coefficient": (-1e9, 1e9),
+    "mechanical.hyperelastic_exponent": (-20.0, 20.0),
+    "mechanical.prony_shear_modulus": (1.0, 1e11),
+    "mechanical.prony_relaxation_time": (1e-9, 1e9),
 }
 # Material.category도 고정 어휘 — 에이전트 표기를 매핑한다.
 CAT_OK = {"metal", "polymer", "rubber", "composite", "ceramic", "foam"}
