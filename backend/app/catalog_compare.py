@@ -23,10 +23,27 @@ def _meta(mat: Material) -> dict:
     return {k: a.get(k) for k in _META_KEYS}
 
 
+# 상온 기준. 온도 스윕이 있는 재료에서 극단 온도값이 대표로 뽑히면 안 된다 —
+# 소프트 OCA의 영률이 -40 °C 유리상 값 1,666 MPa로 대표되던 사고가 있었다.
+_ROOM_TEMP_C = 23.0
+
+
+def _temp_distance(cond) -> float:
+    """조건의 온도가 상온에서 얼마나 먼지(°C). 온도 조건이 없으면 상온으로 본다."""
+    if not isinstance(cond, dict):
+        return 0
+    for key, to_c in (("temperature_C", lambda v: v), ("temperature_c", lambda v: v),
+                      ("temperature_K", lambda v: v - 273.15), ("temperature_k", lambda v: v - 273.15)):
+        v = cond.get(key)
+        if isinstance(v, (int, float)):
+            return abs(to_c(float(v)) - _ROOM_TEMP_C)
+    return 0.0
+
+
 def _rep_rank(pv: PropertyValue) -> tuple:
-    """대표값 우선순위: 신뢰등급↑(tier 작을수록) → 수치 보유 → 조건 적음 → id 작음."""
+    """대표값 우선순위: 신뢰등급↑ → 수치 보유 → **상온에 가까움** → 조건 적음 → id 작음."""
     return (pv.quality_tier or 9, 0 if pv.value_num is not None else 1,
-            len(pv.conditions or {}), pv.id)
+            _temp_distance(pv.conditions), len(pv.conditions or {}), pv.id)
 
 
 def resolve_material_ids(db: Session, tokens: list) -> tuple[list[int], list[str]]:

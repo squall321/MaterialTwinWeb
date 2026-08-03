@@ -135,3 +135,38 @@ def test_viscoelastic_card_flags_unused_rate_data(mcp_env):
     assert "*MAT_VISCOELASTIC" in txt
     assert "율속 경화 항이 없어" in txt, "율속 데이터가 무시된다는 경고가 없다"
     assert "LOW_DENSITY_FOAM" in txt, "대안 카드를 안내해야 한다"
+
+
+def test_representative_prefers_room_temperature(mcp_env):
+    """온도 스윕이 있으면 극단 온도값이 대표가 되면 안 된다.
+
+    소프트 OCA의 영률이 -40 °C 유리상 값 1,666 MPa로 대표되던 사고가 있었다 —
+    실제 상온 값은 0.065 MPa로 2만 배 차이난다.
+    """
+    M = mcp_env
+    mid = M.register_material(name="SweepPoly", category="polymer")["material_id"]
+    for tc, E in ((-40.0, 1.666e9), (125.0, 6.6e5), (85.0, 6.5e4), (25.0, 8.0e4)):
+        M.register_property(mid, "mechanical.youngs_modulus", value=E, unit="Pa",
+                            quality_tier=1, conditions={"temperature_C": tc},
+                            source_title="DMA sweep", source_kind="journal", source_doi="10.1/z")
+    from app.db import SessionLocal
+    from app.catalog_compare import representative_numeric
+    with SessionLocal() as s:
+        rep = representative_numeric(s, ["mechanical.youngs_modulus"])["mechanical.youngs_modulus"][mid]
+    assert rep == 8.0e4, f"상온(25 °C) 값이 아니라 {rep}가 뽑혔다"
+
+
+def test_representative_ignores_temperature_when_absent(mcp_env):
+    """온도 조건이 없는 값은 상온으로 보고 불이익을 주지 않는다."""
+    M = mcp_env
+    mid = M.register_material(name="PlainPoly", category="polymer")["material_id"]
+    M.register_property(mid, "physical.density", value=1200.0, unit="kg/m^3", quality_tier=1,
+                        source_title="TDS", source_kind="datasheet")
+    M.register_property(mid, "physical.density", value=1190.0, unit="kg/m^3", quality_tier=1,
+                        conditions={"temperature_C": 200.0},
+                        source_title="TDS", source_kind="datasheet")
+    from app.db import SessionLocal
+    from app.catalog_compare import representative_numeric
+    with SessionLocal() as s:
+        rep = representative_numeric(s, ["physical.density"])["physical.density"][mid]
+    assert rep == 1200.0, "온도 무표기 값이 200 °C 값에 밀렸다"
