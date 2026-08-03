@@ -134,8 +134,10 @@ const catalogRoute = createRoute({
     const out: {
       q?: string; subsystem?: string; category?: string;
       manufacturer?: string; class?: string; domain?: string; sort?: string;
+      prop?: string; pmin?: string; pmax?: string;
     } = {};
-    const keys = ["q", "subsystem", "category", "manufacturer", "class", "domain", "sort"] as const;
+    const keys = ["q", "subsystem", "category", "manufacturer", "class", "domain", "sort",
+                  "prop", "pmin", "pmax"] as const;
     for (const k of keys) if (typeof s[k] === "string" && s[k]) out[k] = s[k] as string;
     return out;
   },

@@ -22,7 +22,20 @@ import { domainMeta, subsystemLabel } from "../lib/catalog-ui";
 type CatSearch = {
   q?: string; subsystem?: string; category?: string;
   manufacturer?: string; class?: string; domain?: string; sort?: string;
+  // 물성 값 범위 — 이름에 안 들어 있는 조건(유리섬유 함량 등)으로 좁힐 때 쓴다.
+  prop?: string; pmin?: string; pmax?: string;
 };
+
+// 값으로 자주 찾게 되는 물성 프리셋. (키, 라벨, 입력 단위, SI 배수)
+const PROP_PRESETS: { key: string; label: string; unit: string; mul: number }[] = [
+  { key: "structure.filler_content", label: "필러 함량", unit: "%", mul: 0.01 },
+  { key: "mechanical.youngs_modulus", label: "영률", unit: "GPa", mul: 1e9 },
+  { key: "mechanical.tensile_strength", label: "인장강도", unit: "MPa", mul: 1e6 },
+  { key: "physical.density", label: "밀도", unit: "kg/m³", mul: 1 },
+  { key: "thermal.conductivity", label: "열전도율", unit: "W/(m·K)", mul: 1 },
+  { key: "thermal.expansion_linear", label: "CTE", unit: "ppm/K", mul: 1e-6 },
+  { key: "electrical.dielectric_constant", label: "유전율", unit: "—", mul: 1 },
+];
 
 export function CatalogScreen() {
   const search = useSearch({ from: "/catalog" }) as CatSearch;
@@ -51,10 +64,17 @@ export function CatalogScreen() {
   }, [q, search.q, setFilter]);
 
   const summaryQ = useQuery({ queryKey: ["catalog", "summary"], queryFn: getCatalogSummary });
+  const preset = PROP_PRESETS.find((p) => p.key === search.prop);
+  const toSI = (v?: string) => {
+    if (!v || !preset) return undefined;
+    const n = Number(v);
+    return Number.isFinite(n) ? n * preset.mul : undefined;
+  };
   const filters = {
     q: search.q, subsystem: search.subsystem, category: search.category,
     manufacturer: search.manufacturer, material_class: search.class,
     domain: search.domain, sort: search.sort,
+    prop: search.prop, prop_min: toSI(search.pmin), prop_max: toSI(search.pmax),
   };
   const matsQ = useQuery({
     queryKey: ["catalog", "materials", filters],
@@ -195,8 +215,48 @@ export function CatalogScreen() {
                 <option value="properties">물성 많은 순</option>
                 <option value="name">이름순</option>
                 <option value="id">등록순</option>
+                {search.prop && <option value="prop">물성 값 큰 순</option>}
               </select>
             </div>
+          </div>
+
+          {/* 물성 값으로 찾기 — "GF 45% 사출재"처럼 이름에 없는 조건은 이걸로만 찾을 수 있다. */}
+          <div className="flex flex-wrap items-center gap-2 rounded-md border border-border-subtle bg-surface-2/40 px-3 py-2">
+            <span className="text-xs text-text-tertiary">물성 값으로 찾기</span>
+            <select
+              value={search.prop ?? ""}
+              onChange={(e) =>
+                setFilter({ prop: e.target.value || undefined, pmin: undefined, pmax: undefined })
+              }
+              className="rounded-sm border border-border-default bg-surface px-2 py-1 text-xs text-text-secondary focus:outline-none focus:ring-1 focus:ring-[color:var(--focus-ring)]"
+            >
+              <option value="">선택 안 함</option>
+              {PROP_PRESETS.map((p) => (
+                <option key={p.key} value={p.key}>{p.label}</option>
+              ))}
+            </select>
+            {preset && (
+              <>
+                <input
+                  type="number"
+                  inputMode="decimal"
+                  placeholder="최소"
+                  defaultValue={search.pmin ?? ""}
+                  onBlur={(e) => setFilter({ pmin: e.target.value || undefined })}
+                  className="tnum w-24 rounded-sm border border-border-default bg-surface px-2 py-1 text-xs text-text-primary focus:outline-none focus:ring-1 focus:ring-[color:var(--focus-ring)]"
+                />
+                <span className="text-xs text-text-tertiary">~</span>
+                <input
+                  type="number"
+                  inputMode="decimal"
+                  placeholder="최대"
+                  defaultValue={search.pmax ?? ""}
+                  onBlur={(e) => setFilter({ pmax: e.target.value || undefined })}
+                  className="tnum w-24 rounded-sm border border-border-default bg-surface px-2 py-1 text-xs text-text-primary focus:outline-none focus:ring-1 focus:ring-[color:var(--focus-ring)]"
+                />
+                <span className="text-xs text-text-tertiary">{preset.unit}</span>
+              </>
+            )}
           </div>
 
           {matsQ.isError ? (

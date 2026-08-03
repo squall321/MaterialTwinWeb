@@ -8,7 +8,8 @@ from pydantic import BaseModel
 from sqlalchemy import func, or_, select
 from sqlalchemy.orm import Session
 
-from app.catalog_compare import build_comparison, numeric_property_options, scatter_dataset
+from app.catalog_compare import (build_comparison, numeric_property_options,
+                                 representative_numeric, scatter_dataset)
 from app.dyna_export import build_cards, match_rows
 from app.db import get_db
 from app.models import (Material, ProcessedResult, PropertyDefinition, PropertyValue,
@@ -97,10 +98,17 @@ def catalog_materials(
     manufacturer: str | None = Query(default=None),
     material_class: str | None = Query(default=None),
     domain: str | None = Query(default=None),
-    sort: str = Query(default="properties"),  # properties | name | id
+    prop: str | None = Query(default=None, description="물성 키로 거르기(예: structure.filler_content)"),
+    prop_min: float | None = Query(default=None, description="prop의 대표값 하한(SI 단위)"),
+    prop_max: float | None = Query(default=None, description="prop의 대표값 상한(SI 단위)"),
+    sort: str = Query(default="properties"),  # properties | name | id | prop
     db: Session = Depends(get_db),
 ) -> dict:
-    """재료 목록 + 메타데이터 + 물성 수·도메인. 패싯 필터·검색·정렬."""
+    """재료 목록 + 메타데이터 + 물성 수·도메인. 패싯 필터·검색·정렬.
+
+    prop/prop_min/prop_max로 **물성 값 범위** 검색을 지원한다. 이름 검색만으로는
+    "GF 45% 사출재" 같은 질문에 답할 수 없다 — 함량은 이름이 아니라 물성에 들어 있다.
+    """
     key_domain = _domains_for(db)
     # 재료별 물성 수·도메인 집계.
     val_rows = db.execute(select(PropertyValue.material_id, PropertyValue.property_key)).all()
@@ -119,8 +127,23 @@ def catalog_materials(
         stmt = stmt.where(Material.category == category)
     mats = db.execute(stmt).scalars().all()
 
+    # 물성 값 범위 필터 — 대표값(신뢰등급 최상) 기준.
+    prop_vals: dict[int, float] = {}
+    if prop:
+        if prop not in key_domain:
+            raise HTTPException(status_code=400, detail=f"알 수 없는 물성 키: {prop}")
+        prop_vals = representative_numeric(db, [prop]).get(prop, {})
+
     out = []
     for m in mats:
+        if prop:
+            pv = prop_vals.get(m.id)
+            if pv is None:
+                continue
+            if prop_min is not None and pv < prop_min:
+                continue
+            if prop_max is not None and pv > prop_max:
+                continue
         a = m.attributes or {}
         if subsystem and (a.get("subsystem") or "기타") != subsystem:
             continue
@@ -131,15 +154,20 @@ def catalog_materials(
         mat_doms = sorted(d for d in doms_by_mat.get(m.id, set()) if d)
         if domain and domain not in mat_doms:
             continue
-        out.append({
+        row = {
             "id": m.id, "name": m.name, "material_code": m.material_code,
             "category": m.category, "n_properties": n_props.get(m.id, 0),
             "domains": mat_doms, **_meta(m),
-        })
+        }
+        if prop:
+            row["prop_value"] = prop_vals.get(m.id)
+        out.append(row)
     if sort == "name":
         out.sort(key=lambda x: (x["name"] or "").lower())
     elif sort == "id":
         out.sort(key=lambda x: x["id"])
+    elif sort == "prop" and prop:
+        out.sort(key=lambda x: (x.get("prop_value") is None, -(x.get("prop_value") or 0)))
     else:
         out.sort(key=lambda x: (-x["n_properties"], (x["name"] or "").lower()))
     return {"items": out, "total": len(out)}

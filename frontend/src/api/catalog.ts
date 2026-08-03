@@ -23,6 +23,8 @@ export type CatalogSummary = {
 
 export type CatalogMaterial = {
   id: number;
+  /** prop 필터를 걸었을 때만 실린다 — 그 물성의 대표값. */
+  prop_value?: number | null;
   name: string;
   material_code: string | null;
   category: string | null;
@@ -80,6 +82,10 @@ export type CatalogFilters = {
   manufacturer?: string;
   material_class?: string;
   domain?: string;
+  /** 물성 값 범위 검색 — 이름에 없는 조건(유리섬유 함량 등)을 거를 때 쓴다. */
+  prop?: string;
+  prop_min?: number;
+  prop_max?: number;
   sort?: string;
 };
 
@@ -89,7 +95,8 @@ export function getCatalogSummary() {
 
 export function listCatalogMaterials(f: CatalogFilters = {}) {
   const qs = new URLSearchParams();
-  for (const [k, v] of Object.entries(f)) if (v) qs.set(k, String(v));
+  for (const [k, v] of Object.entries(f))
+    if (v !== undefined && v !== null && v !== "") qs.set(k, String(v));
   const s = qs.toString();
   return request<{ items: CatalogMaterial[]; total: number }>(
     `api/catalog/materials${s ? `?${s}` : ""}`,

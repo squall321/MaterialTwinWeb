@@ -782,7 +782,7 @@ def export_dyna_cards(materials: list, card: str = "mechanical",
 def search_catalog_property(property_key: str, min_value: float | None = None,
                             max_value: float | None = None, order: str = "desc",
                             limit: int = 30) -> dict:
-    """화·물리 물성(카탈로그 91개 key)으로 재료 검색·랭킹 — 흡습률·CTE·유전율·방사율·열전도 등 전부.
+    """화·물리 물성(카탈로그 104개 key)으로 재료 검색·랭킹 — 흡습률·CTE·유전율·방사율·열전도 등 전부.
 
     property_key: list_property_definitions의 key(예: chemical.water_absorption_24h,
     thermal.expansion_linear, electrical.dielectric_constant). min_value/max_value로 범위 필터,
