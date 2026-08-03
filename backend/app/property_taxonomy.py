@@ -53,6 +53,13 @@ _DEFS: list[tuple] = [
      ["term", "temperature_k"], None),
     ("mechanical.prony_relaxation_time", "mechanical", "Prony 완화시간", "tau_i", "s", "numeric",
      ["term", "temperature_k"], None),
+    # Prony 인장항은 영률이 아니다. youngs_modulus에 넣으면 대표값 선택이 완화항 하나를
+    # 재료의 E로 집어 DYNA 카드가 통째로 틀어진다(실제로 53건이 그렇게 들어올 뻔했다).
+    ("mechanical.prony_tensile_modulus", "mechanical", "Prony 인장완화 항", "E_i", "Pa", "numeric",
+     ["term", "temperature_k"], None),
+    # 상대완화계수 g_i는 무차원이라 Pa 키에 넣으면 단위가 거짓말이 된다.
+    ("mechanical.prony_relative_modulus", "mechanical", "Prony 상대완화계수", "g_i", "1", "numeric",
+     ["term", "temperature_k"], None),
     # ── 열 ────────────────────────────────────────────────────────────────────
     ("thermal.conductivity", "thermal", "열전도율", "k", "W/(m*K)", "numeric", ["temperature_k"], "ASTM E1461"),
     ("thermal.specific_heat", "thermal", "비열", "cp", "J/(kg*K)", "numeric", ["temperature_k"], "ASTM E1269"),

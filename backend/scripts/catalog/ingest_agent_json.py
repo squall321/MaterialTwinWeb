@@ -62,9 +62,11 @@ RANGE = {
     "rheological.pot_life": (1.0, 1e7),                   # s (분 단위면 걸린다)
     # 초탄성 계수는 음수도 정상이다(Mooney-Rivlin C10<0). 자릿수만 본다.
     "mechanical.hyperelastic_coefficient": (-1e9, 1e9),
-    "mechanical.hyperelastic_exponent": (-20.0, 20.0),
+    # 모델마다 의미가 달라(Ogden alpha 1~80, 8-chain N은 10^2~10^5) 좁은 범위 가드는 무의미하다.
+    # 무차원이라 단위 오입력도 못 잡는다 — 자릿수 사고만 막는다.
+    "mechanical.hyperelastic_exponent": (-1e6, 1e6),
     "mechanical.prony_shear_modulus": (1.0, 1e11),
-    "mechanical.prony_relaxation_time": (1e-9, 1e9),
+    "mechanical.prony_relaxation_time": (1e-20, 1e12),   # 마스터커브는 WLF 시프트로 1e-16 s까지 간다
 }
 # Material.category도 고정 어휘 — 에이전트 표기를 매핑한다.
 CAT_OK = {"metal", "polymer", "rubber", "composite", "ceramic", "foam"}
@@ -230,7 +232,9 @@ def main() -> int:
                 else:
                     stats["new_mat"] += 1
                     print(f"  + (dry) 신규 재료 {nm['name']}")
-                    mid = -1          # dry-run: 가상 id로 물성 검증은 계속 수행
+                    # dry-run 가상 id. 이름마다 다른 값이어야 서로 다른 재료가
+                    # 같은 것으로 판정돼 조건 충돌이 거짓으로 뜨지 않는다.
+                    mid = -(abs(hash(nm["name"])) % 10**9 + 1)
 
             for pr in entry.get("properties", []):
                 key, val, unit = pr.get("key"), pr.get("value"), pr.get("unit")
