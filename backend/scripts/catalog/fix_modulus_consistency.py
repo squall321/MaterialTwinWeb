@@ -31,6 +31,24 @@ MISMATCH_MARK = "[주의] 이 슬롯의"
 OVERWRITABLE = ("estimated", "computed")
 
 
+def _temp_of(c, rid):
+    """행의 측정 온도(°C). 없으면 None."""
+    import json
+    raw = c.execute("select conditions from property_value where id=?", (rid,)).fetchone()[0]
+    try:
+        d = json.loads(raw) if raw else {}
+    except Exception:
+        return None
+    if not isinstance(d, dict):
+        return None
+    for k, conv in (("temperature_C", lambda v: v), ("temperature_c", lambda v: v),
+                    ("temperature_K", lambda v: v - 273.15), ("temperature_k", lambda v: v - 273.15)):
+        v = d.get(k)
+        if isinstance(v, (int, float)):
+            return float(conv(v))
+    return None
+
+
 def load_reps():
     """앱과 **같은 대표값 규칙**을 쓴다 — 자체 SQL로 고르면 상온 우선 규칙이 빠져
     -40 °C 유리상 값 같은 극단값을 집는다."""
@@ -52,6 +70,11 @@ def main() -> int:
     for mid, name in c.execute("select id, name from material").fetchall():
         e, g = reps.get((mid, K_E)), reps.get((mid, K_G))
         if not (e and g):
+            continue
+        te, tg = _temp_of(c, e[0]), _temp_of(c, g[0])
+        if te is not None and tg is not None and abs(te - tg) > 20.0:
+            print(f"  건너뜀(측정 온도 다름) {name[:34]:34s} E@{te:g}°C vs G@{tg:g}°C")
+            skipped += 1
             continue
         if MISMATCH_MARK in e[3] or MISMATCH_MARK in g[3]:
             print(f"  건너뜀(제품 혼재 표시됨) {name[:36]:36s} E/G {e[1]/g[1]:.2f}")

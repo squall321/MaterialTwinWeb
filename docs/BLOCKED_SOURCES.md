@@ -89,6 +89,13 @@
 |---|---|
 | PORON `10.1016/j.ijimpeng.2021.104100` | PDF는 확보했으나 Table 2가 Avalle 상수가 아니라 **율속 스케일링 계수(C, α, M₁, M₂)** 다. 상수를 얻으려면 `P(ε̇)=C·ε̇^α`와 `m=M₁·log(ε̇)+M₂`를 계산해야 하는데 **m 식의 log 밑(10 vs 자연로그)이 원문에 없다.** 밑이 정해지면 PORON XRD LD/HD는 DB에 이미 있으므로 바로 산출 가능 |
 
+## H2. 벤더가 싣지 않아 산출도 불가
+
+| 대상 | 없는 물성 | 확인 방법 |
+|---|---|---|
+| 테이프 31종(Avery 14·Lohmann 9·Nitto 3·3M 3·tesa 1·Intertape 1) | `physical.density` | **면중량 ÷ 두께 기법이 통하지 않는다.** TDS의 `g/m²`는 전부 **이형지(release liner) 평량**이다(tesa 4965 "PV0 red MOPP 72 g/m²", Nitto "Si paper 90 g/m²"). 테이프 자체 도포량이 아니라 두께로 나누면 지어낸 숫자가 된다. Lohmann은 평량을 아예 싣지 않는다. 14개 PDF 전문 grep으로 확인 |
+| PCB 라미네이트 12종 | `physical.density` | 12종 TDS를 전부 열었으나 **밀도 행 자체가 없다.** 라미네이트 TDS는 Dk/Df·Tg·CTE·Td·박리력만 싣는다. AGC RF-35 현행 TDS는 호스팅 중단(302), MatWeb·everythingRF는 봇 차단 |
+
 ## H. 오픈액세스에 아예 없음
 
 - **부틸고무(IIR) 초탄성 상수** — OA 문헌 172편 전수 스크리닝 결과 IIR은 감쇠·투과도에
