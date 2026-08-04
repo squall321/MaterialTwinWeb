@@ -31,6 +31,15 @@ export function tierMeta(t: number) {
   return TIER_META[t] ?? { label: `T${t}`, cls: "border-border-default bg-transparent text-text-secondary" };
 }
 
+// 가정값은 tier4 안에서도 성격이 다르다 — 계산으로 유도한 값이 아니라 클래스 대표를 빌려 온 값이라
+// "계산/등가" 대신 "가정"으로 보여야 오해가 없다. conditions.assumption 이 표지다.
+export function tierBadge(t: number, conditions?: Record<string, unknown> | null) {
+  if (conditions && conditions.assumption === true) {
+    return { label: "가정", cls: "border-[color:var(--danger)] bg-transparent text-danger" };
+  }
+  return tierMeta(t);
+}
+
 export const METHOD_LABEL: Record<string, string> = {
   measured: "측정", handbook: "핸드북", datasheet: "데이터시트",
   computed: "계산", estimated: "추정",

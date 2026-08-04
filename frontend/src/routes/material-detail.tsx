@@ -62,7 +62,7 @@ import { ChartSkeleton, TableSkeleton } from "../components/states/Skeletons";
 import { downloadFile, errorMessage } from "../lib/download";
 import { getCatalogMaterial, getMaterialCurve } from "../api/catalog";
 import { Badge } from "../components/ui/badge";
-import { domainMeta, tierMeta, formatValue, formatConditions } from "../lib/catalog-ui";
+import { domainMeta, tierBadge, formatValue, formatConditions } from "../lib/catalog-ui";
 import { cssVar } from "../lib/echarts";
 import { cn } from "../lib/utils";
 
@@ -738,7 +738,7 @@ function CatalogPropertiesSection({ mid, hasTests }: { mid: number; hasTests: bo
                 <table className="w-full text-sm">
                   <tbody>
                     {rows.map((r, i) => {
-                      const tm = tierMeta(r.tier);
+                      const tm = tierBadge(r.tier, r.conditions);
                       return (
                         <tr key={`${r.key}-${i}`} className="border-b border-border-subtle last:border-0">
                           <td className="px-4 py-2 align-top text-text-secondary">

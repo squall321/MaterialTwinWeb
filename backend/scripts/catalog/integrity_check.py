@@ -41,6 +41,13 @@ CHECKS = [
     ("온도가 값인데 온도 조건", f"select count(*) from property_value where property_key in {TEMP_VALUED} and conditions like '%temperature_C%'"),
     ("Prony 항에 항번호 없음", """select count(*) from property_value where property_key like 'mechanical.prony_%'
         and (conditions is null or conditions not like '%term%')"""),
+    # 가정값은 반드시 tier4·estimated여야 한다. 그래야 대표값 선택에서 실측에 밀리고,
+    # 나중에 실측이 들어오면 자동으로 대체된다(fill_assumed_poisson.py 참조).
+    ("가정값인데 tier4·estimated 아님", """select count(*) from property_value
+        where instr(coalesce(conditions,''),'assumption')>0
+        and (quality_tier<>4 or method<>'estimated')"""),
+    ("가정값인데 근거 출처 없음", """select count(*) from property_value
+        where instr(coalesce(conditions,''),'assumption')>0 and source_id is null"""),
     # 비금속 고체의 비열은 대개 400~2500 J/(kg*K)다. 그보다 낮으면 금속(Ag 235, Pb 130)의
     # 값이 잘못 옮겨왔을 가능성이 크다 — 실제로 EMC 236 J/(kg*K)가 이 방식으로 걸렸다.
     ("비금속인데 비열이 금속급으로 낮음", """select count(*) from property_value pv

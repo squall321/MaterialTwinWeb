@@ -13,7 +13,7 @@ import { Skeleton } from "../components/ui/skeleton";
 import { EmptyState } from "../components/states/EmptyState";
 import { ErrorState } from "../components/states/ErrorState";
 import {
-  domainMeta, tierMeta, METHOD_LABEL, formatValue, formatConditions, subsystemLabel,
+  domainMeta, tierMeta, tierBadge, METHOD_LABEL, formatValue, formatConditions, subsystemLabel,
 } from "../lib/catalog-ui";
 import { cn } from "../lib/utils";
 
@@ -261,7 +261,7 @@ function DomainSection({ domain, rows }: { domain: string; rows: PropertyValueRo
 }
 
 function PropRow({ r }: { r: PropertyValueRow }) {
-  const tm = tierMeta(r.tier);
+  const tm = tierBadge(r.tier, r.conditions);
   const cond = formatConditions(r.conditions);
   const valueText =
     r.value !== null ? formatValue(r.value, r.unit) : (r.value_text ?? "—");
