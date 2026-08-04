@@ -518,3 +518,25 @@ AgNW는 값의 근거가 `basis: bulk silver (wire material)`로 조건에 명�
 
 **교훈.** 물리 타당성 검사는 값을 검증하려고 넣었는데 **메타데이터 오류를 먼저 드러냈다.**
 검사가 오탐을 내면 검사를 느슨하게 만들기 전에 오탐의 원인부터 볼 것.
+
+## 32. 티어 자동 정규화가 오분류한 사례 — 논문 제목의 "Simulation" (2026-08-04)
+
+Cowper-Symonds C/p 6건이 `normalize_tiers.py` 재실행에서 **computed/tier4로 오강등**됐다.
+원인은 출처 제목이 "Numerical Simulation Study on Factors Influencing…"이라 COMPUTATIONAL
+정규식에 걸린 것이다. 하지만 이 값들은 그 논문이 **계산해 낸 값이 아니라** Cowper&Symonds ·
+Bodner&Symonds · Forrestal&Sagartz의 고전값을 표로 옮긴 것이다.
+
+반대 방향 오류도 같이 나왔다 — Al6061-T6는 `tier1/measured`로 **과승격**돼 있었다.
+출처(Khan et al.) Table 3이 "selected values are taken from [8]"이라 밝힌 2차 인용인데,
+자동 규칙이 "논문 + measured"만 보고 tier1을 줬다.
+
+넷 다 **tier3 · handbook**이 맞다. 값의 성격은 "고전 문헌값의 2차 인용"이고,
+그건 출처가 데이터시트든 논문이든, 그 논문이 시뮬레이션 논문이든 바뀌지 않는다.
+
+`FROZEN_IDS`를 만들어 `MANUAL_IDS`에 합집합으로 넣고 자동 재분류에서 제외했다.
+(처음엔 집합 컴프리헨션 `{row[0] for row in MANUAL}` 안에 리터럴을 끼워 넣어 SyntaxError를
+냈다. 스크립트가 실행 실패해 DB는 무사했지만, 편집 후에는 `ast.parse`로 문법부터 확인할 것.)
+
+**교훈.** 자동 티어 규칙은 "문서 종류"를 보지만 tier가 뜻하는 건 "값의 성격"이다.
+둘이 어긋나는 경우가 반드시 생기므로 예외 목록이 필요하고, 예외를 넣은 뒤에는
+**재실행해서 실제로 보호되는지 확인**해야 한다.

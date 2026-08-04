@@ -60,7 +60,11 @@ MANUAL = [
     (1411, 3, None, None,
      "[정규화] 나노인덴테이션과 마이크로역학 시뮬레이션을 병행한 논문 — 치밀 입자 기준값이라 tier3 유지."),
 ]
-MANUAL_IDS = {row[0] for row in MANUAL}
+# Cowper-Symonds C/p — 고전 문헌값(Cowper&Symonds, Bodner&Symonds, Forrestal&Sagartz,
+# Symonds&Chon)을 2차 표로 옮긴 값이다. 논문 제목의 'Numerical Simulation'에 정규식이 걸려
+# computed/tier4로 오강등된 적이 있어, 자동 재분류에서 제외한다. tier3·handbook이 맞다.
+FROZEN_IDS = {11084, 11085, 11086, 11087, 11088, 11089, 11090, 11091}
+MANUAL_IDS = {row[0] for row in MANUAL} | FROZEN_IDS
 
 
 def main() -> int:
