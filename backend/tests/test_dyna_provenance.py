@@ -170,3 +170,26 @@ def test_representative_ignores_temperature_when_absent(mcp_env):
     with SessionLocal() as s:
         rep = representative_numeric(s, ["physical.density"])["physical.density"][mid]
     assert rep == 1200.0, "온도 무표기 값이 200 °C 값에 밀렸다"
+
+
+def test_conditions_none_stored_as_sql_null(tmp_path):
+    """conditions=None이 문자열 'null'이 아니라 SQL NULL로 저장돼야 한다.
+
+    SQLAlchemy JSON 타입은 기본적으로 파이썬 None을 JSON 'null'로 직렬화한다.
+    그러면 정합성 검사의 '조건이 dict 아님'에 걸리고 조건 조회가 전부 빗나간다.
+    """
+    from sqlalchemy import create_engine, text
+    from sqlalchemy.orm import sessionmaker
+    from app.models import Base, Material, PropertyValue
+
+    eng = create_engine(f"sqlite:///{tmp_path}/t.db")
+    Base.metadata.create_all(eng)
+    with sessionmaker(bind=eng)() as s:
+        m = Material(name="X", category="metal")
+        s.add(m)
+        s.flush()
+        s.add(PropertyValue(material_id=m.id, property_key="physical.density",
+                            value_num=1.0, unit="kg/m^3", conditions=None))
+        s.commit()
+        raw = s.execute(text("select conditions from property_value")).scalar()
+    assert raw is None, f"conditions가 SQL NULL이 아니라 {raw!r}로 저장됨"

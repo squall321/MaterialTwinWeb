@@ -406,3 +406,47 @@ tier1으로 두면 조건 없는 값이 대표로 뽑혀 조건 붙은 값을 �
 점탄성 PSA의 G는 율속·주파수가 **정의 조건**이다. 파장 없는 굴절률과 같은 취급을 해야 한다 —
 조건을 "미상"으로 명시하고 tier3으로 내렸다. 느린 하중(벤딩·크리프)에는 평형값이,
 충격에는 순간값이 맞다는 것을 note에 적었다.
+
+## 25. 노트에만 있던 Prony 상대계수를 행으로 복원 (2026-08-04)
+
+3M CEF3501에 완화시간 15개가 있는데 상대계수 g_i가 한 건도 없어 **Prony 세트가 성립하지 않았다.**
+원인은 노트에 적혀 있었다 — "무차원 g 는 Pa 키에 담을 수 없어 note 로만 기록". 등록 당시
+`mechanical.prony_relative_modulus` 키가 아직 없었던 것이다. 키를 만든 뒤에도 기존 행은
+그대로 남아 있었다.
+
+노트에서 `g1=k1=0.09987` 형태를 파싱해 15건을 행으로 분리했다. 조건별 검증 결과 5개 세트
+(−25/25/55/85 °C × RH 0%, 55 °C × RH 90%) 전부 **g와 tau의 개수가 맞고 Σg < 1** 이다.
+
+**교훈은 파장·온도 때와 같다.** 스키마에 자리가 없어 노트로 우회한 값은 반드시 남는다.
+키를 신설하면 과거 노트를 되짚어 회수해야 한다. 정합성 검사에 "Prony 항에 항번호 없음"을
+넣어 둔 덕에 이런 깨진 세트가 드러난다.
+
+## 26. Isola는 라미네이트 포아송비를 공개한다 (2026-08-04)
+
+"PCB 라미네이트 벤더는 밀도조차 안 적는다"는 관찰이 **Isola에는 해당하지 않는다.**
+Astra MT77과 I-Tera MT40 데이터시트에 포아송비가 **방향별로 ASTM D3039 기준으로** 실려 있다.
+
+    Poisson's Ratio | A. Length direction 0.183 | B. Cross direction 0.182 | ASTM D3039  (Astra MT77)
+    Poisson's Ratio | A. Length direction 0.234 | B. Cross direction 0.222 | ASTM D3039  (I-Tera MT40)
+
+같은 표에서 인장강도·굴곡탄성률·열전도율도 나왔다(총 12건). Taconic도 RF-35TC(열전도 등급)에는
+ν MD 0.18 / CD 0.23을 싣는다(단 RF-35 일반 등급에는 없어 등급 불일치로 미사용).
+
+**PDF 표가 어긋나게 추출되는 것을 조심할 것.** pdftotext -layout 결과가
+`A값 → 레이블 → B값` 순으로 나온다. 포아송비(A=0.234/B=0.222)로 패턴을 먼저 확정한 뒤
+나머지를 읽었다. 패턴 확인 없이 인접 숫자를 집으면 인장강도와 굴곡탄성률이 뒤바뀐다.
+
+**규격 표기와 물성 키가 다를 수 있다.** I-Tera는 `Young's Modulus ... ASTM D790-15e2`로 적었는데
+D790은 굴곡시험이다. 표기를 그대로 믿지 않고 `mechanical.flexural_modulus`에 넣고 사유를 note에 남겼다.
+
+## 27. SQLAlchemy JSON 컬럼의 None이 문자열 'null'이 된다 (2026-08-04)
+
+정합성 검사의 "조건이 dict 아님"에 7건이 걸렸는데 값이 전부 문자열 `'null'` 이었다.
+원인은 스키마다 — `mapped_column(JSON)` 은 파이썬 `None` 을 SQL NULL이 아니라 **JSON 'null'**로
+직렬화한다. `ingest_agent_json.py` 의 `conditions=cond or None` 이 그대로 걸렸고,
+MCP `register_property` 경로도 같은 버그를 공유했다.
+
+    conditions: Mapped[dict | None] = mapped_column(JSON(none_as_null=True), nullable=True)
+
+`none_as_null=True` 하나로 두 경로가 동시에 고쳐진다. 회귀 테스트를 붙였다
+(`test_conditions_none_stored_as_sql_null`).

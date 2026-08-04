@@ -313,7 +313,9 @@ class PropertyValue(Base):
     unit: Mapped[str | None] = mapped_column(String(40), nullable=True)
     uncertainty: Mapped[float | None] = mapped_column(Float, nullable=True)
     # 측정조건(온도·습도·주파수·파장·방위·환경 등). 비기계 물성은 조건 필수적.
-    conditions: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    # none_as_null=True가 없으면 파이썬 None이 SQL NULL이 아니라 문자열 'null'로 저장된다
+    # — 정합성 검사의 "조건이 dict 아님"에 걸리고 조건 조회가 전부 빗나간다.
+    conditions: Mapped[dict | None] = mapped_column(JSON(none_as_null=True), nullable=True)
     method: Mapped[str] = mapped_column(String(20), nullable=False, default="measured")
     quality_tier: Mapped[int] = mapped_column(Integer, nullable=False, default=3)
     source_id: Mapped[int | None] = mapped_column(
