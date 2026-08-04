@@ -28,22 +28,57 @@ def _meta(mat: Material) -> dict:
 _ROOM_TEMP_C = 23.0
 
 
+# 온도를 밝히지 않은 값에 매기는 거리. 상온 명시값(|ΔT| 몇 도)보다는 뒤,
+# 고온·저온값보다는 앞이 되도록 잡는다.
+#
+# 이게 0이면 무표기 값이 "상온 거리 0"으로 계산돼 **25 °C라고 명시한 측정값을 이긴다.**
+# 실제로 SAC305 영률이 이 때문에 뒤집혔다 — 시험법 미기재 제품시트의 6.9 GPa가
+# 상온 인장 측정 27.83 GPa를 밀어내고 DYNA 카드에 실렸다.
+_UNSPECIFIED_TEMP_PENALTY = 5.0
+
+
 def _temp_distance(cond) -> float:
-    """조건의 온도가 상온에서 얼마나 먼지(°C). 온도 조건이 없으면 상온으로 본다."""
+    """조건의 온도가 상온에서 얼마나 먼지(°C). 온도 조건이 없으면 약간의 불이익."""
     if not isinstance(cond, dict):
-        return 0
+        return _UNSPECIFIED_TEMP_PENALTY
     for key, to_c in (("temperature_C", lambda v: v), ("temperature_c", lambda v: v),
                       ("temperature_K", lambda v: v - 273.15), ("temperature_k", lambda v: v - 273.15)):
         v = cond.get(key)
         if isinstance(v, (int, float)):
             return abs(to_c(float(v)) - _ROOM_TEMP_C)
-    return 0.0
+    return _UNSPECIFIED_TEMP_PENALTY
+
+
+# 광학 물성의 지배 조건은 온도가 아니라 파장이다. 기준은 나트륨 D선 589.3 nm —
+# 굴절률 n_d와 아베수의 정의 파장이고 가시광 중심에 가깝다.
+#
+# 이게 없으면 실리콘 소광계수가 400 nm(0.387)와 652 nm(0.016) 사이에서 임의로 뽑힌다.
+# 파장에 따라 800배까지 벌어지므로 온도 기준으로 고르면 아무 의미가 없다.
+_REF_WAVELENGTH_NM = 589.3
+_UNSPECIFIED_WL_PENALTY = 1e4
+
+
+def _wavelength_distance(cond) -> float:
+    """조건의 파장이 기준(589.3 nm)에서 얼마나 먼지(nm). 없으면 큰 불이익."""
+    if not isinstance(cond, dict):
+        return _UNSPECIFIED_WL_PENALTY
+    for key, to_nm in (("wavelength_nm", lambda v: v), ("wavelength_um", lambda v: v * 1000.0)):
+        v = cond.get(key)
+        if isinstance(v, (int, float)):
+            return abs(to_nm(float(v)) - _REF_WAVELENGTH_NM)
+    return _UNSPECIFIED_WL_PENALTY
 
 
 def _rep_rank(pv: PropertyValue) -> tuple:
-    """대표값 우선순위: 신뢰등급↑ → 수치 보유 → **상온에 가까움** → 조건 적음 → id 작음."""
+    """대표값 우선순위: 신뢰등급↑ → 수치 보유 → **지배 조건에 가까움** → 조건 적음 → id 작음.
+
+    지배 조건은 물성마다 다르다. 광학은 파장, 그 외는 온도(상온)를 본다.
+    """
+    key = pv.property_key or ""
+    primary = (_wavelength_distance(pv.conditions) if key.startswith("optical.")
+               else _temp_distance(pv.conditions))
     return (pv.quality_tier or 9, 0 if pv.value_num is not None else 1,
-            _temp_distance(pv.conditions), len(pv.conditions or {}), pv.id)
+            primary, len(pv.conditions or {}), pv.id)
 
 
 def resolve_material_ids(db: Session, tokens: list) -> tuple[list[int], list[str]]:

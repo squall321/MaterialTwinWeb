@@ -60,6 +60,35 @@ _DEFS: list[tuple] = [
     # 상대완화계수 g_i는 무차원이라 Pa 키에 넣으면 단위가 거짓말이 된다.
     ("mechanical.prony_relative_modulus", "mechanical", "Prony 상대완화계수", "g_i", "1", "numeric",
      ["term", "temperature_k"], None),
+    # ── 점소성 (율속·온도 의존 소성) ─────────────────────────────────────────────
+    # 솔더·저융점 합금은 상온이 이미 T/Tm≈0.6이라 항상 크리프 영역에 있다. 정적 항복강도만으로
+    # 고속 충격을 풀면 소성변형이 폭주해 요소가 뒤집힌다(negative volume). 아래 상수들이
+    # *MAT_098/015(Johnson-Cook) · *MAT_224(표형) · Anand 점소성 카드의 입력이다.
+    #
+    # 계수는 모델·항마다 의미가 달라 conditions.model과 conditions.term이 반드시 있어야
+    # 세트로 복원된다 — Prony·초탄성과 같은 규율이다.
+    ("mechanical.johnson_cook_a", "mechanical", "Johnson-Cook A (초기항복)", "A", "Pa", "numeric",
+     ["model", "temperature_k"], None),
+    ("mechanical.johnson_cook_b", "mechanical", "Johnson-Cook B (경화계수)", "B", "Pa", "numeric",
+     ["model", "temperature_k"], None),
+    ("mechanical.johnson_cook_n", "mechanical", "Johnson-Cook n (경화지수)", "n", "1", "numeric",
+     ["model"], None),
+    # C가 율속항이다. 이게 없으면 Johnson-Cook을 써도 변형률속도 의존이 없는 것과 같다.
+    ("mechanical.johnson_cook_c", "mechanical", "Johnson-Cook C (율속감도)", "C", "1", "numeric",
+     ["model", "reference_strain_rate_s"], None),
+    ("mechanical.johnson_cook_m", "mechanical", "Johnson-Cook m (온도연화지수)", "m", "1", "numeric",
+     ["model", "reference_temperature_k", "melting_temperature_k"], None),
+    # Anand 통합 점소성 — 솔더 표준 모델. 9상수가 한 세트라 term 없이는 못 쓴다.
+    ("mechanical.anand_constant", "mechanical", "Anand 점소성 상수", None, "1", "numeric",
+     ["model", "term", "temperature_k"], None),
+    # Norton 정상상태 크리프 eps_dot = A * sigma^n. 지금은 노트 텍스트에만 있어 카드로 못 나간다.
+    ("mechanical.norton_coefficient", "mechanical", "Norton 크리프 계수 A", "A", "1", "numeric",
+     ["stress_unit", "temperature_k"], None),
+    ("mechanical.norton_exponent", "mechanical", "Norton 크리프 지수 n", "n", "1", "numeric",
+     ["temperature_k"], None),
+    # 율속별 항복강도 — LS-DYNA LCSR(변형률속도 스케일 곡선)의 원자료.
+    ("mechanical.yield_strength_at_rate", "mechanical", "변형률속도별 항복강도", None, "Pa", "numeric",
+     ["strain_rate_s", "temperature_k"], None),
     # ── 열 ────────────────────────────────────────────────────────────────────
     ("thermal.conductivity", "thermal", "열전도율", "k", "W/(m*K)", "numeric", ["temperature_k"], "ASTM E1461"),
     ("thermal.specific_heat", "thermal", "비열", "cp", "J/(kg*K)", "numeric", ["temperature_k"], "ASTM E1269"),

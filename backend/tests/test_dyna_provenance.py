@@ -193,3 +193,43 @@ def test_conditions_none_stored_as_sql_null(tmp_path):
         s.commit()
         raw = s.execute(text("select conditions from property_value")).scalar()
     assert raw is None, f"conditions가 SQL NULL이 아니라 {raw!r}로 저장됨"
+
+
+def test_representative_prefers_explicit_room_temp_over_unspecified(mcp_env):
+    """온도를 '25 °C'라고 밝힌 측정값이, 온도 무표기 값보다 우선해야 한다.
+
+    실제 사고: SAC305 영률이 시험법 미기재 제품시트의 6.9 GPa로 뽑혀 DYNA 카드에 실렸다.
+    상온 인장 측정 27.83 GPa(conditions에 temperature_C=25)가 있었는데도, 무표기 값이
+    '상온 거리 0'으로 계산돼 이겨 버렸다.
+    """
+    M = mcp_env
+    mid = M.register_material(name="SolderLike", category="metal")["material_id"]
+    M.register_property(mid, "mechanical.youngs_modulus", value=6.9e9, unit="Pa", quality_tier=1,
+                        source_title="Preform product sheet", source_kind="datasheet")
+    M.register_property(mid, "mechanical.youngs_modulus", value=27.83e9, unit="Pa", quality_tier=1,
+                        conditions={"temperature_C": 25.0},
+                        source_title="Mechanical characterization paper", source_kind="journal")
+    from app.db import SessionLocal
+    from app.catalog_compare import representative_numeric
+    with SessionLocal() as s:
+        rep = representative_numeric(s, ["mechanical.youngs_modulus"])["mechanical.youngs_modulus"][mid]
+    assert rep == 27.83e9, "온도 명시 상온 측정값이 무표기 값에 밀렸다"
+
+
+def test_optical_representative_uses_wavelength_not_temperature(mcp_env):
+    """광학 물성의 대표값은 기준 파장(589.3 nm)에 가까운 것이어야 한다.
+
+    실리콘 소광계수는 400 nm에서 0.387, 1000 nm에서 0.0005로 800배 벌어진다.
+    온도 기준으로 고르면 어느 파장이 뽑힐지 알 수 없다.
+    """
+    M = mcp_env
+    mid = M.register_material(name="SiLike", category="ceramic")["material_id"]
+    for wl, k in ((400.0, 0.387), (589.0, 0.0304), (1000.0, 0.0005)):
+        M.register_property(mid, "optical.extinction_coefficient", value=k, unit="1",
+                            quality_tier=1, conditions={"wavelength_nm": wl, "temperature_C": 25.0},
+                            source_title="n,k table", source_kind="journal")
+    from app.db import SessionLocal
+    from app.catalog_compare import representative_numeric
+    with SessionLocal() as s:
+        rep = representative_numeric(s, ["optical.extinction_coefficient"])["optical.extinction_coefficient"][mid]
+    assert rep == 0.0304, f"기준 파장에 가장 가까운 값이 아니라 {rep}이 뽑혔다"
