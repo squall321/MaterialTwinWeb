@@ -450,3 +450,47 @@ MCP `register_property` 경로도 같은 버그를 공유했다.
 
 `none_as_null=True` 하나로 두 경로가 동시에 고쳐진다. 회귀 테스트를 붙였다
 (`test_conditions_none_stored_as_sql_null`).
+
+## 28. 검색엔진 요약이 표의 옆 칸을 읽는다 (2026-08-04)
+
+열물성 수집에서 에이전트가 잡아낸 오귀속 4건이다. 전부 **웹 검색 요약에는 나오지만
+원문 표에서는 다른 것**이었다.
+
+- **Alnico 5 Cast(LNG40) "10–200 W/(m·K), 350–500 J/(kg·K)"** — Alliance LLC 표의 문자
+  위치를 계산해 보니 그 값은 **Sintered Alnico 열(x≈37)**이고 **Cast Alnico 열(x≈28)은 공란**이다.
+- **Kapton EN "0.25 W/mK"** — DuPont 시트의 **그래프 축 눈금 라벨**이지 물성값이 아니다.
+- **Chukoh CGN-500/CGS-500A "0.23 / 0.19"** — CCL 표가 아니라 ~960행 떨어진
+  **불소수지 원료 비교표**(PTFE/PFA/FEP)의 행이다.
+- **TUC TU-933 "2 W/mK"** — 실제 라벨은 **TU-322/362/351 Insulated Metal Substrate**.
+
+또 **Stanyl TE250F6 / TW341**은 Envalior가 "Thermal conductivity **of melt**",
+"Spec. heat capacity **melt**"만 준다. 용융상태 값이라 열전달·열응력·결로 해석에 쓰면 틀린다.
+ITEQ IT-968의 "Thermal Resistance"는 IPC-TM-650 2.4.24.1 **분 단위 박리시간**이다.
+
+**교훈.** 값을 옮기기 전에 그 값이 표의 어느 열·어느 표에 속하는지부터 확인해야 한다.
+검색 요약은 이 구분을 자주 놓친다. ABLESTIK 2025D도 검색 요약은 0.3인데 PDF 인쇄값은 0.4였다.
+
+## 29. 시험법이 측정 방향을 규정한다 (2026-08-04)
+
+라미네이트 TDS는 열전도율 방향을 글자로 찍지 않는다. 그렇다고 전부 버리면 남는 게 없다.
+
+**ASTM C177 · C518 · D5470 · E1461 · E1952 · F433은 전부 두께방향 측정법**이다.
+시험법은 TDS에 인쇄돼 있으므로, 방향은 추측이 아니라 **규격이 규정하는 측정 기하**다.
+이 경우에만 `direction: through-plane`을 넣고 `direction_basis`에 근거를 남긴다.
+
+처음엔 Isola 2건을 `direction: unspecified`로 넣었다가, 같은 기준을 쓰는 다른 46건과
+어긋나서 통일했다. 규칙은 하나여야 한다 — 시험법이 확정적이면 방향을 쓰고, 아니면 비운다.
+
+교차검증도 했다. Taconic 자료집 표의 TLY-5(0.22)·RF-35(0.24)가 각 단독 TDS 값과 정확히
+일치해 컬럼 매핑이 맞음을 확인했고, UBE는 카탈로그에 "Thickness direction"을 직접 찍어 둔다.
+
+## 30. 출처 인용이 틀려 있었다 — Ma et al. → Íñiguez-Macedo et al. (2026-08-04)
+
+에이전트가 부수적으로 발견한 것을 Crossref로 확인했다. DOI `10.3390/ma12071019`의 저자는
+**Íñiguez-Macedo S., Lostado-Lorza R., Escribano-García R., Martínez-Calvo M.** 이고 Ma라는
+저자는 없다. 게다가 우리가 저장한 제목 "Determination of Hyperelastic Properties of Elastomers
+by Inverse Analysis"도 실제 제목("Finite Element Model Updating Combined with Multi-Response
+Optimization for Hyper-Elastic Materials Characterization")과 다르다.
+
+출처 행과 **재료명 4종**(NBR/PUR/EVA/SBR)에 박혀 있던 표기를 함께 고쳤다.
+재료명에 저자를 넣으면 이렇게 인용 오류가 이름으로 굳는다 — 넣을 거면 DOI로 검증하고 넣을 것.
