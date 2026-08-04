@@ -157,6 +157,12 @@
 tier3 클래스 대표값은 클래스가 균질할 때만 성립한다.
 
 **NAMICS CHIPCOAT die attach (DA series) 열전도율 1.2 W/(m·K) — 거절.**
+*(2026-08-04 후속: 재조사에서 진짜 DA 등급값이 나와 거절 판단이 수치로 확인됐다 —
+**DA8465-12(Transparent, 무충전) 0.2** vs **DA8472-1(White, 충전) 2.4**, 같은 클래스 안에서 12배 차이.
+XS8488-1의 1.2를 클래스 대표로 썼다면 무충전 등급에 6배 과대, 충전 등급에 2배 과소가 됐다.
+두 값을 각각 `conditions.grade`를 달아 등록했다. 컬럼 귀속은 브로슈어 p.32를 `pdftoppm`으로
+이미지 렌더링해 육안 재확인했고, 좌열 Transparent/"No Bleeding"↔0.2, 우열 White/"High Thermal
+Conductivity"↔2.4로 물리적 정합까지 교차검증했다.)*
 값의 출처 제품이 XS8488-1(알루미나 충전 비전도성)로 아예 다른 제품군이다. 게다가 대상 클래스가
 균질하지 않다 — NAMICS Product Guides 2015의 DA 시리즈는 DA8483(printable B-stage) ·
 DA8481-8(dispensing) · **DA8465(Transparent, LED용)** 로, transparent 등급은 무충전이라
