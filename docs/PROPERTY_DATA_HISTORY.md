@@ -348,3 +348,61 @@ E·G가 둘 다 있어 ν=E/(2G)-1로 회수되는 건 2종뿐이고 170종(폴�
 **수집 시 주의(이번에 버린 것).** Škrlec & Klemenc 2016(sv-jme, DOI 10.5545/sv-jme.2015.3266)의
 C-S 계수는 시편이 "mild-steel sheet metal"로 등급 미상이고 C 단위가 `ms⁻¹`로 모호해 기록하지 않았다.
 DB 재료명(SPCC/S45C/SCM440)과 매칭되지 않는 값은 넣지 않는다.
+
+## 22. 낙하 해금 — 주요 구조금속 율속 확보 (2026-08-04)
+
+Cowper-Symonds C·p를 4종에 넣었다. DYNA 덱의 "변형률속도 항 없음" 경고가 사라지고 c/p 필드가 찬다.
+
+| 재료 | C (1/s) | p | 원출처 |
+|---|---|---|---|
+| SPCC 연강 | 40.4 | 5 | Cowper and Symonds |
+| Al6061-T6 | 6500 | 4 | Bodner and Symonds |
+| SUS304 어닐 | 100 | 10 | Forrestal and Sagartz |
+| Ti Grade 2 | 120 | 9 | Symonds and Chon |
+
+**단위를 표에서 확정한 뒤에 넣었다.** MDPI 직접 접근이 403이라 Europe PMC 미러
+(`https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9181996/fullTextXML`)로 Wang et al.
+Materials 2022, 15, 3880 Table 6을 열었다. 헤더가 `Material | C/s−1 | P | literature`로
+**단위가 표에 인쇄돼 있다.** 이게 없으면 넣지 않는다 — C가 `ms⁻¹`인 논문이 실제로 있다.
+
+**Ti는 등가 확인 후 추가했다.** 표기가 "α-titanium (Ti50A)"인데 DB 재료는 Ti_Grade2다.
+Ti-50A = TIMETAL 50A = ASTM Grade 2 = UNS R50400 등가를 MatWeb 데이터시트 제목
+"TIMET TIMETAL 50A CP Titanium (ASTM Grade 2)"과 AZoM "Grade 2 Unalloyed Ti (Pure) 50A
+(UNS R50400)"로 교차 확인했다.
+
+**모델이 부적합해 버린 것.** Al5083-H116은 1e-4~1 s⁻¹에서 동적변형시효로 **음의 변형률속도
+민감도**를 보인다. Cowper-Symonds는 음의 민감도를 표현할 수 없으므로 C/p 자체가 성립하지 않는다.
+
+**DIF 0건인 이유.** 숫자로 인쇄된 DIF는 거의 전부 콘크리트·철근이다. 금속 논문은 속도별
+항복강도를 표로 주지만 σd/σs는 인쇄하지 않아, 채우려면 나눗셈이 필요하다 — 역산 금지 규칙에 걸린다.
+
+## 23. IPC-4412C 페이월 우회 — 유리직물 면적중량 (2026-08-04)
+
+라미네이트 밀도 역산이 IPC-4412C 유료 때문에 막혀 있었는데 **Taiwan Glass(TGI) 유리직물
+카탈로그가 스타일별 기본중량을 공개**하고 있어 뚫렸다. IPC 공칭과 대조해 정합성을 먼저 확인했다.
+
+    스타일 3313: TGI 81 g/m² vs IPC 2.39 oz/yd² = 81.0 g/m²  (차 0.04%)
+    스타일 2116: TGI 104 g/m² vs IPC 3.06 oz/yd² = 103.8 g/m²  (차 0.24%)
+
+    ρ = n × w_glass / (1 − RC) / t
+
+MEGTRON 7 R-5785 1770 · MEGTRON 6 R-5775 1809 · Isola I-Tera MT40 1770 kg/m³ (전부 tier4 computed,
+대입값·verbatim 표행·동박 제외 사실을 note에 명기). 재검산 오차 0.03% 이내.
+
+**유리 종류가 불명이면 못 쓴다.** Isola Astra MT77은 구성표를 확보했으나 Isola가 유리 종류를
+어디에도 적지 않는다. Dk 3.00은 E-glass로 설명되지 않아 저Dk 유리로 보이는데, TGI 저Dk(TD)
+계열은 면적중량이 표준 대비 약 11% 낮아(TD3313 72 vs 3313 81) 그대로 계산하면 10% 틀린다.
+ITEQ IT-968은 두께공차가 ±10%로 명기돼 밀도에 그대로 실려 버렸다.
+
+**PCB 라미네이트 벤더 중 밀도를 TDS에 적는 곳은 한 곳도 없었다** (Isola·ITEQ·TUC·Taconic·Panasonic
+전수 확인). 테이프 TDS 30종도 밀도 0건 — 두께·접착력·온도범위만 싣는다.
+
+## 24. 조건 없는 벤더값이 조건 있는 문헌값을 이기면 안 된다 (2026-08-04)
+
+3M VHB 4910 TDS가 "Shear Modulus 6 × 10^5 Pa"를 **시험규격·변형률속도 없이** 싣는다.
+같은 재료의 율속 분해 문헌값(평형 1.726e4 / 순간 4.876e4 Pa)보다 12~35배 크다.
+tier1으로 두면 조건 없는 값이 대표로 뽑혀 조건 붙은 값을 밀어낸다.
+
+점탄성 PSA의 G는 율속·주파수가 **정의 조건**이다. 파장 없는 굴절률과 같은 취급을 해야 한다 —
+조건을 "미상"으로 명시하고 tier3으로 내렸다. 느린 하중(벤딩·크리프)에는 평형값이,
+충격에는 순간값이 맞다는 것을 note에 적었다.

@@ -120,3 +120,33 @@
   `scripts/catalog/extract_datasheet.py`의 300dpi OCR 폴백.
 - **JS 렌더링 사이트** → 아직 못 뚫었다. 대리점이 재배포한 PDF를 찾는 게 빨랐다
   (Envalior CAMPUS 출력물을 이탈리아 대리점 PDF로 확보).
+
+## I. 규격 자체에 항목이 없어 벤더가 생산하지 않는 물성 (2026-08-04)
+
+포아송비를 폴리머 99종에서 수집한 결과 **3종만** 확보됐다. 개별 검색 실패가 아니라 구조적 이유가 있다.
+
+**엔지니어링 열가소성 수지 TDS는 ISO 10350-1 / CAMPUS 항목 체계를 따르는데 그 체계에 포아송비가 없다.**
+그래서 아래가 한꺼번에 막힌다 — 개별 조회로는 뚫리지 않으니 재시도하지 말 것.
+
+- BASF Ultramid 11종 · Ultradur 3종, SABIC LEXAN 3412R, DSM Stanyl 2종, EMS Grivory 2종
+- Victrex PEEK 450GL30, Rogers ULTRALAM 3850HT/3908, UBE Upilex(카탈로그+RN), Kaneka Apical
+- SCS Parylene(독립 2부), Henkel ABLESTIK 2025D, DOWSIL 993
+
+**PSA 테이프 TDS도 같은 이유로 막힌다.** 박리력·유지력·두께만 싣고 탄성상수는 싣지 않는다.
+3M VHB 4910만 구조접착 FEA 용도로 예외적으로 공표했고(그마저 2025-10 개정판 V-6에서 삭제됨),
+같은 판 VHB 4905 TDS가 "Poisson's Ratio — See 3M VHB Tape 4910"이라 적어 교차 확인됐다.
+
+**결론.** 남은 90여 종은 수집으로 풀리지 않는다. 자체 측정이나 명시적 가정값(그렇게 표기한 채)
+둘 중 하나를 택해야 하는 항목이다. 빈칸이 틀린 값보다 낫다는 원칙에 따라 비워 둔다.
+
+### 등급 불일치로 버린 것
+- Kapton ν=0.34 — DuPont이 HN·FPC TDS에 실제로 인쇄했으나 대상은 140EN-Z/150EN-A/150EN-C/150MT+.
+  EN 시리즈 TDS를 직접 받아 grep한 결과 ν 항목 없음. 다른 등급 값을 옮겨 붙이지 않는다.
+- Bauer 1989 PMDA-ODA ν=0.34(1% 변형)/0.48(5%) — Kapton 화학계이나 상용 등급 특정 없음.
+- Micromachines 2022 OCA · Sci Rep 2024 PSA — 대상이 지목한 바로 그 논문 2편을 전문 확인했으나
+  **ν 수치를 인쇄하지 않았다.** 비압축성 전제로 초탄성 모델만 세웠다.
+
+### 값이 서로 어긋나 확정 못 한 것
+- **Sylgard 184 ν** — 0.45±0.03(인장 직접측정, bioRxiv 2023/ACS 2024)과 0.495±0.001(Soft Matter 2019,
+  열팽창+광학 프로파일로미터)이 어긋난다. 비압축성 근처에서 0.05 차이는 체적거동을 크게 바꾼다.
+  원문을 verbatim 확인할 수 있었던 0.45를 등록했으나 확정값이 아니다. RSC는 Cloudflare 403.
