@@ -144,6 +144,19 @@ def as_cond(raw) -> dict:
     return {}
 
 
+def unit_key(u: str) -> tuple:
+    """단위를 비교 가능한 형태로. 곱 순서만 다른 표기를 같게 본다.
+
+    `m^2*K/W`와 `K*m^2/W`는 같은 단위인데 문자열 비교로는 다르다고 나온다.
+    분자·분모를 각각 정렬한 다중집합으로 비교하므로 기호가 다르면(mN/m vs J/m^2)
+    여전히 걸린다 — 실제 단위 오입력을 잡는 기능은 그대로 남는다.
+    """
+    s = (u or "").replace(" ", "")
+    num, _, den = s.partition("/")
+    split = lambda p: tuple(sorted(t for t in p.replace("(", "").replace(")", "").split("*") if t))
+    return (split(num), split(den))
+
+
 def cond_sig(cond) -> str:
     """조건을 비교 가능한 서명으로. 표기 순서·타입 차이를 흡수한다.
 
@@ -271,7 +284,7 @@ def main() -> int:
                             continue
                     stats["ok"] += 1
                     continue
-                if d.si_unit and unit and unit != d.si_unit:
+                if d.si_unit and unit and unit_key(unit) != unit_key(d.si_unit):
                     stats["bad_unit"] += 1
                     print(f"    ✗ 단위 불일치 {key}: {unit} ≠ {d.si_unit}")
                     continue

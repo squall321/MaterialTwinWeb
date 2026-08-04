@@ -17,8 +17,11 @@ CHECKS = [
         left join property_definition pd on pd.key=pv.property_key where pd.key is null"""),
     ("고아 시편", "select count(*) from specimen sp left join material m on m.id=sp.material_id where m.id is null"),
     ("값·텍스트 모두 없음", "select count(*) from property_value where value_num is null and coalesce(value_text,'')=''"),
+    # 곱 순서만 다른 표기(m^2*K/W vs K*m^2/W)는 같은 단위다 — 문자·숫자만 뽑아 정렬해 비교한다.
     ("단위가 정의와 다름", """select count(*) from property_value pv join property_definition pd on pd.key=pv.property_key
-        where pv.value_num is not null and pd.si_unit is not null and coalesce(pv.unit,'')<>pd.si_unit"""),
+        where pv.value_num is not null and pd.si_unit is not null
+        and replace(replace(replace(coalesce(pv.unit,''),'(',''),')',''),' ','')
+         <> replace(replace(replace(pd.si_unit,'(',''),')',''),' ','')"""),
     ("tier 범위 밖", "select count(*) from property_value where quality_tier not between 1 and 5"),
     ("method 어휘 밖", "select count(*) from property_value where method not in ('measured','handbook','computed','estimated')"),
     ("출처 kind 어휘 밖", """select count(*) from source where kind not in

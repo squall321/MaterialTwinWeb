@@ -150,3 +150,31 @@
 - **Sylgard 184 ν** — 0.45±0.03(인장 직접측정, bioRxiv 2023/ACS 2024)과 0.495±0.001(Soft Matter 2019,
   열팽창+광학 프로파일로미터)이 어긋난다. 비압축성 근처에서 0.05 차이는 체적거동을 크게 바꾼다.
   원문을 verbatim 확인할 수 있었던 0.45를 등록했으나 확정값이 아니다. RSC는 Cloudflare 403.
+
+## J. 클래스 대표값을 거절한 사례 — 클래스가 균질하지 않으면 대표값이 없다 (2026-08-04)
+
+수집 에이전트가 "class representative"로 제안했으나 **내가 거절한** 건들이다.
+tier3 클래스 대표값은 클래스가 균질할 때만 성립한다.
+
+**NAMICS CHIPCOAT die attach (DA series) 열전도율 1.2 W/(m·K) — 거절.**
+값의 출처 제품이 XS8488-1(알루미나 충전 비전도성)로 아예 다른 제품군이다. 게다가 대상 클래스가
+균질하지 않다 — NAMICS Product Guides 2015의 DA 시리즈는 DA8483(printable B-stage) ·
+DA8481-8(dispensing) · **DA8465(Transparent, LED용)** 로, transparent 등급은 무충전이라
+알루미나 충전값 1.2를 대표로 쓰면 크게 틀린다. 진짜 DA 시리즈 표에는 열전도율 컬럼 자체가 없다
+(Viscosity / Curing condition / Tg만 있음). DB의 이 재료는 모든 값이 `conditions.grade`에
+DA 등급을 달고 있어, 다른 제품군 값을 섞으면 그 규율도 깨진다.
+
+**2K Polyurethane Coating 열전도율 0.19 / 비열 1700 — 거절.**
+출처가 BASF Elastollan **TPU(열가소성 선형 엘라스토머, 벌크)** 인데 대상은 **2액형 가교
+열경화 도막**이다. 화학·경화 방식이 다르고 벌크 대 박막 도막이라는 형태 차이도 있다.
+실제 2K PU 도막 TDS 4종(AkzoNobel 58 Series, Jotun Hardtop XP, Polytek Ultimate Top Coat,
+Awlgrip Topcoat)을 받아 grep한 결과 열전도율이 인쇄돼 있지 않음을 확인했다.
+
+**추적할 가치가 있는 유료 단서.** "conventional polyurethane coating, hot disk 0.2093 W/(m·K)"가
+ScienceDirect `S0167577X21006340`에 있는 것으로 보이나 페이월이라 원문을 못 읽었다.
+대상에 정확히 맞는 값이므로 기관 접근이 생기면 이것부터 확인할 것.
+
+**대안으로 검토했으나 쓰지 않은 것.** PMC12171350(Angew. Chem., 불소화 폴리우레탄)에
+`we set Λa to the thermal conductivity of 16H-IPDI (0.16 W m−1K−1)`이 실제로 인쇄돼 있으나,
+16H-IPDI는 불소화 연구용 실험실 합성 비정질 PU이고 0.16은 명시적으로 **비정질 하한값**이다.
+안료 충전 2K 도막의 대표값으로는 BASF 벌크 PU보다 더 나쁘다.
