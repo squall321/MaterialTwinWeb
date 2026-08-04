@@ -41,6 +41,15 @@ CHECKS = [
     ("온도가 값인데 온도 조건", f"select count(*) from property_value where property_key in {TEMP_VALUED} and conditions like '%temperature_C%'"),
     ("Prony 항에 항번호 없음", """select count(*) from property_value where property_key like 'mechanical.prony_%'
         and (conditions is null or conditions not like '%term%')"""),
+    # 비금속 고체의 비열은 대개 400~2500 J/(kg*K)다. 그보다 낮으면 금속(Ag 235, Pb 130)의
+    # 값이 잘못 옮겨왔을 가능성이 크다 — 실제로 EMC 236 J/(kg*K)가 이 방식으로 걸렸다.
+    ("비금속인데 비열이 금속급으로 낮음", """select count(*) from property_value pv
+        join material m on m.id=pv.material_id
+        where pv.property_key='thermal.specific_heat' and pv.value_num < 380
+        and m.category in ('polymer','rubber','foam','composite')
+        -- 값의 근거가 금속임을 조건에 밝힌 경우(예: AgNW의 'bulk silver')는 정상이다
+        and coalesce(pv.conditions,'') not like '%silver%'
+        and coalesce(pv.conditions,'') not like '%metal%'"""),
     ("파장 조건이 가시광 밖(오타 의심)", f"""select count(*) from property_value where property_key in {OPT}
         and conditions like '%wavelength_nm%' and (
             cast(replace(substr(conditions, instr(conditions,'wavelength_nm')+15), '}}', '') as real) <= 0)"""),

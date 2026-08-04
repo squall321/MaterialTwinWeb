@@ -494,3 +494,27 @@ Optimization for Hyper-Elastic Materials Characterization")과 다르다.
 
 출처 행과 **재료명 4종**(NBR/PUR/EVA/SBR)에 박혀 있던 표기를 함께 고쳤다.
 재료명에 저자를 넣으면 이렇게 인용 오류가 이름으로 굳는다 — 넣을 거면 DOI로 검증하고 넣을 것.
+
+## 31. 물리 타당성 검사를 정합성 항목에 넣다 (21항목) — 부수 효과로 분류 오류 7건 발견
+
+EMC 비열 236 J/(kg·K)를 거절하면서(BLOCKED_SOURCES K장) 같은 유형을 상시로 잡도록
+검사 항목을 추가했다.
+
+    비금속 고체의 비열은 대개 400~2500 J/(kg*K)다. 그보다 낮으면
+    금속(Ag 235, Pb 130)의 값이 잘못 옮겨왔을 가능성이 크다.
+
+**넣자마자 기존 데이터에서 3건이 걸렸는데 전부 오탐이었고, 오탐의 원인이 진짜 결함이었다.**
+Recoma SmCo 자석(370/350)과 AgNW(235)가 걸렸는데 값은 맞고 `category`가 틀려 있었다.
+확인해 보니 자석류 분류가 통째로 뒤섞여 있었다 — NdFeB는 `metal`인데 같은 소결 희토류인
+SmCo는 `composite`, Alnico·VACOFLUX·MUMETALL 같은 합금도 `composite`였다.
+
+    Recoma 20/28 (SmCo5, Sm2Co17)  composite → metal   금속간화합물
+    Alnico 5 (LNG40)               composite → metal   Al-Ni-Co-Fe 합금
+    VACOFLUX 50, MUMETALL          composite → metal   Co-Fe, Ni-Fe 합금
+    Hard Ferrite Y30/Y35           composite → ceramic SrFe12O19 산화물
+
+AgNW는 값의 근거가 `basis: bulk silver (wire material)`로 조건에 명시돼 있어 정상이다 —
+검사에서 이런 명시적 금속 근거는 제외하도록 했다.
+
+**교훈.** 물리 타당성 검사는 값을 검증하려고 넣었는데 **메타데이터 오류를 먼저 드러냈다.**
+검사가 오탐을 내면 검사를 느슨하게 만들기 전에 오탐의 원인부터 볼 것.
