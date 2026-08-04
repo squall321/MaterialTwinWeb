@@ -233,3 +233,34 @@ def test_optical_representative_uses_wavelength_not_temperature(mcp_env):
     with SessionLocal() as s:
         rep = representative_numeric(s, ["optical.extinction_coefficient"])["optical.extinction_coefficient"][mid]
     assert rep == 0.0304, f"기준 파장에 가장 가까운 값이 아니라 {rep}이 뽑혔다"
+
+
+def test_lcsr_curve_and_sigy_consistency(mcp_env):
+    """율속별 항복강도가 있으면 LCSR 곡선이 나오고, SIGY가 그 기준값으로 맞춰져야 한다.
+
+    LCSR은 '배율' 곡선이라 기준(1.0배)이 율속 시험의 준정적 항복강도다.
+    다른 출처의 SIGY를 그대로 두면 고율속 응력이 통째로 어긋난다
+    (SAC305에서 실제로 22 MPa × 2.29 = 50 MPa가 나왔다 — 실측은 87 MPa).
+    """
+    M = mcp_env
+    mid = M.register_material(name="RateSolder", category="metal")["material_id"]
+    for k, v, u_ in (("physical.density", 7370.0, "kg/m^3"),
+                     ("mechanical.youngs_modulus", 27.83e9, "Pa"),
+                     ("mechanical.poisson_ratio", 0.35, "1"),
+                     ("mechanical.yield_strength", 22e6, "Pa"),
+                     ("mechanical.tensile_strength", 42e6, "Pa"),
+                     ("mechanical.elongation_at_break", 0.49, "1")):
+        M.register_property(mid, k, value=v, unit=u_, quality_tier=1,
+                            source_title="base", source_kind="datasheet")
+    for rate, sy in ((0.001, 38e6), (600.0, 73e6), (1800.0, 87e6)):
+        M.register_property(mid, "mechanical.yield_strength_at_rate", value=sy, unit="Pa",
+                            quality_tier=1, conditions={"strain_rate_s": rate},
+                            source_title="SHPB paper", source_kind="journal")
+    from app.db import SessionLocal
+    from app.dyna_export import build_cards
+    with SessionLocal() as s:
+        deck = build_cards(s, [mid], card="mechanical")["keyword"]
+    assert "*DEFINE_CURVE" in deck, "LCSR 곡선이 나오지 않았다"
+    assert "2.28947" in deck, "87/38 = 2.289 배율 점이 없다"
+    body = [ln for ln in deck.splitlines() if ln.strip().startswith(str(1))]
+    assert any("38" in ln for ln in body), "SIGY가 LCSR 기준값 38 MPa로 맞춰지지 않았다"

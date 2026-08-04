@@ -25,7 +25,14 @@ K_CTE = "thermal.expansion_linear"
 K_CS_C = "mechanical.cowper_symonds_c"
 K_CS_P = "mechanical.cowper_symonds_p"
 
-MECH_KEYS = (K_RHO, K_E, K_NU, K_SIGY, K_UTS, K_ELONG, K_CS_C, K_CS_P)
+K_JC_A = "mechanical.johnson_cook_a"
+K_JC_B = "mechanical.johnson_cook_b"
+K_JC_N = "mechanical.johnson_cook_n"
+K_JC_C = "mechanical.johnson_cook_c"
+K_SIGY_RATE = "mechanical.yield_strength_at_rate"
+
+MECH_KEYS = (K_RHO, K_E, K_NU, K_SIGY, K_UTS, K_ELONG, K_CS_C, K_CS_P,
+             K_JC_A, K_JC_B, K_JC_N, K_JC_C)
 THERM_KEYS = (K_RHO, K_HC, K_TC, K_CTE)
 
 _DEFAULT_NU = 0.3
@@ -366,6 +373,44 @@ def match_rows(db: Session, tokens: list, mid_start: int = 1, limit: int = 6) ->
     return {"rows": rows, "errors": errs, "mid_warnings": warns}
 
 
+
+def rate_scale_points(db: Session, mid: int) -> tuple[list[tuple[float, float]], float, object]:
+    """율속별 항복강도 → LS-DYNA LCSR용 (변형률속도, 응력배율) 점 목록.
+
+    LCSR은 변형률속도에 대한 **항복응력 배율** 곡선이다. 가장 느린 속도의 값을 1.0으로 잡고
+    나머지를 그에 대한 비로 만든다. 온도가 섞이면 율속 효과와 온도 효과가 뒤엉키므로
+    **온도가 같은(또는 둘 다 미표기인) 점들만** 쓴다 — 상온 계열을 우선한다.
+
+    솔더처럼 T/Tm이 높은 재료는 이 곡선이 없으면 정적 항복만으로 충격을 풀게 되고,
+    소성변형이 폭주해 요소가 뒤집힌다.
+    """
+    rows = db.execute(select(PropertyValue).where(
+        PropertyValue.material_id == mid,
+        PropertyValue.property_key == K_SIGY_RATE,
+        PropertyValue.value_num.isnot(None))).scalars().all()
+    if not rows:
+        return [], 0.0, None
+    buckets: dict[object, list[tuple[float, float, object]]] = {}
+    for pv in rows:
+        cond = pv.conditions if isinstance(pv.conditions, dict) else {}
+        rate = cond.get("strain_rate_s")
+        if not isinstance(rate, (int, float)) or rate <= 0:
+            continue
+        buckets.setdefault(cond.get("temperature_k"), []).append(
+            (float(rate), float(pv.value_num), pv))
+    if not buckets:
+        return [], 0.0, None
+    # 온도 미표기(상온 시험) 계열을 우선, 없으면 점이 가장 많은 계열.
+    key = None if None in buckets else max(buckets, key=lambda k: len(buckets[k]))
+    pts = sorted(buckets[key], key=lambda x: x[0])
+    if len(pts) < 2:
+        return [], 0.0, None
+    base = pts[0][1]
+    if base <= 0:
+        return [], 0.0, None
+    # 기준 응력과 그 행을 함께 돌려준다 — 카드의 SIGY를 이 값으로 맞춰야 배율이 성립한다.
+    return [(r, s / base) for r, s, _ in pts], base, pts[0][2]
+
 def build_cards(db: Session, tokens: list, card: str = "mechanical",
                 units: str = "ton_mm_s", mid_start: int = 1,
                 lcid_start: int = CTE_LCID_BASE) -> dict:
@@ -525,6 +570,14 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
                     lines.append(f"$   SIGY {_fmt(sigy * u.f_stress)} {u.stress_unit}   <- {prov.get((i, K_SIGY), '출처미상')}")
                     if etan:
                         lines.append(f"$   ETAN {_fmt(etan * u.f_stress)} {u.stress_unit} (UTS·연신율로 근사)")
+                    _pts_pre, _base_pre, _row_pre = rate_scale_points(db, i)
+                    if len(_pts_pre) >= 2 and _base_pre > 0 and abs(_base_pre - sigy) / max(sigy, 1e-30) > 0.05:
+                        lines.append(f"$   ※ SIGY를 {_fmt(sigy * u.f_stress)} → {_fmt(_base_pre * u.f_stress)} "
+                                     f"{u.stress_unit}로 바꿔 씁니다 — LCSR 배율의 기준(1.0배)이 "
+                                     f"율속 시험의 준정적 항복강도라, 다른 출처의 SIGY를 그대로 두면 "
+                                     f"고율속 응력이 어긋납니다.")
+                        sigy = _base_pre
+                        etan = max((uts - sigy) / max(elong, 1e-6), 0.0) if (uts and elong) else etan
                     lines.append("*MAT_PIECEWISE_LINEAR_PLASTICITY_TITLE")
                     lines.append(title)
                     if elong:
@@ -537,17 +590,40 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
                     # Cowper-Symonds 변형률속도 항 — 있으면 채운다. 테이프·접착제·폼은
                     # 이 항이 없으면 충격 해석에서 강성을 크게 과소평가한다.
                     cs_c, cs_p = val(i, K_CS_C), val(i, K_CS_P)
+                    # 율속별 항복강도가 있으면 LCSR(응력배율 곡선)이 Cowper-Symonds보다 낫다 —
+                    # 실측 점을 그대로 쓰므로 2상수 근사에 끼워 맞출 필요가 없다.
+                    rate_pts, rate_base, rate_row = rate_scale_points(db, i)
+                    lcsr_id = 0
+                    if len(rate_pts) >= 2:
+                        lcsr_id = lcid_next[0]
+                        lcid_next[0] += 1
+                        rate_src = "출처미상"
+                        if rate_row is not None and rate_row.source_id in ref_no:
+                            rate_src = f"[{ref_no[rate_row.source_id]}]"
+                        lines.append(f"$   LCSR {lcsr_id} — 변형률속도별 항복응력 배율 "
+                                     f"({len(rate_pts)}점, {_fmt(rate_pts[0][0])}~{_fmt(rate_pts[-1][0])} 1/s)"
+                                     f"   <- {rate_src}")
                     if cs_c and cs_p:
                         lines.append(f"$   C {_fmt(cs_c / u.f_rate)} 1/{u.key.rsplit('_', 1)[-1]}"
                                      f"   p {_fmt(cs_p)} — Cowper-Symonds 변형률속도 경화"
                                      f"   <- {prov.get((i, K_CS_C), '출처미상')}")
-                    else:
+                    elif not lcsr_id:
                         lines.append("$   (변형률속도 항 없음 — C·p 미보유. 충격·낙하 해석이면 "
                                      "율속 데이터를 넣어야 강성을 과소평가하지 않는다)")
                     lines.append("$#       c         p      lcss      lcsr        vp")
                     lines.append(_card_field(_fmt(cs_c / u.f_rate) if (cs_c and cs_p) else "0.0",
-                                             _fmt(cs_p) if (cs_c and cs_p) else "0.0", 0, 0, "0.0"))
+                                             _fmt(cs_p) if (cs_c and cs_p) else "0.0", 0, lcsr_id, "0.0"))
                     made.append("*MAT_PIECEWISE_LINEAR_PLASTICITY (024)")
+                    if lcsr_id:
+                        # LCSR 곡선 본체. 배율이므로 단위계와 무관하지만 가로축(변형률속도)은 환산한다.
+                        lines.append("*DEFINE_CURVE_TITLE")
+                        lines.append(f"{title} — LCSR (변형률속도 → 항복응력 배율)")
+                        lines.append("$#    lcid      sidr       sfa       sfo      offa      offo    dattyp")
+                        lines.append(_card_field(lcsr_id, 0, "1.0", "1.0", "0.0", "0.0", 0))
+                        lines.append("$#                a1                  o1")
+                        for r_, s_ in rate_pts:
+                            lines.append(f"{_fmt(r_ / u.f_rate):>20s}{_fmt(s_):>20s}")
+                        made.append("*DEFINE_CURVE (LCSR)")
                 else:
                     lines.append("*MAT_ELASTIC_TITLE")
                     lines.append(title)
