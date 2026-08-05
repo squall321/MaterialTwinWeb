@@ -440,7 +440,8 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
     explicit_set = {m for m in keep_mid if m is not None}
 
     ids = [m["id"] for m in mats]
-    keys = sorted(set(MECH_KEYS + THERM_KEYS))
+    # LCSR 곡선의 원자료도 프로비넌스에 넣어야 한다 — 빠지면 곡선 출처가 '출처미상'으로 나온다.
+    keys = sorted(set(MECH_KEYS + THERM_KEYS + (K_SIGY_RATE,)))
     reps = representative_numeric(db, list(keys))
     # 출처(프로비넌스) — 반드시 **대표값으로 뽑힌 그 행**의 출처를 쓴다.
     # (예전엔 아무 행이나 먼저 걸린 것을 달아, 값과 출처가 어긋날 수 있었다.)

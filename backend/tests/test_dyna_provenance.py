@@ -264,3 +264,34 @@ def test_lcsr_curve_and_sigy_consistency(mcp_env):
     assert "2.28947" in deck, "87/38 = 2.289 배율 점이 없다"
     body = [ln for ln in deck.splitlines() if ln.strip().startswith(str(1))]
     assert any("38" in ln for ln in body), "SIGY가 LCSR 기준값 38 MPa로 맞춰지지 않았다"
+
+
+def test_lcsr_source_appears_in_references(mcp_env):
+    """LCSR 곡선의 출처가 참고문헌 목록에 실려야 한다.
+
+    프로비넌스 수집 키에 yield_strength_at_rate가 빠져 있으면 곡선 주석이 '출처미상'이 된다.
+    카드의 모든 숫자가 출처로 되짚어져야 한다는 원칙이 깨지는 지점이다.
+    """
+    M = mcp_env
+    mid = M.register_material(name="RateProv", category="polymer")["material_id"]
+    for k, v, u_ in (("physical.density", 1360.0, "kg/m^3"),
+                     ("mechanical.youngs_modulus", 9.5e9, "Pa"),
+                     ("mechanical.poisson_ratio", 0.35, "1"),
+                     ("mechanical.yield_strength", 160e6, "Pa"),
+                     ("mechanical.tensile_strength", 180e6, "Pa"),
+                     ("mechanical.elongation_at_break", 0.035, "1")):
+        M.register_property(mid, k, value=v, unit=u_, quality_tier=1,
+                            source_title="base sheet", source_kind="datasheet")
+    for rate, sy in ((0.0125, 131.08e6), (12.5, 174.26e6)):
+        M.register_property(mid, "mechanical.yield_strength_at_rate", value=sy, unit="Pa",
+                            quality_tier=1, conditions={"strain_rate_s": rate},
+                            source_title="Strain rate study on PA6-GF30", source_kind="journal",
+                            source_doi="10.3390/app152111454")
+    from app.db import SessionLocal
+    from app.dyna_export import build_cards
+    with SessionLocal() as s:
+        deck = build_cards(s, [mid], card="mechanical")["keyword"]
+    assert "*DEFINE_CURVE" in deck, "LCSR 곡선이 없다"
+    lcsr_line = [ln for ln in deck.splitlines() if "LCSR" in ln and ln.startswith("$")][0]
+    assert "출처미상" not in lcsr_line, f"LCSR 출처가 미상으로 나왔다: {lcsr_line}"
+    assert "Strain rate study" in deck, "율속 출처가 참고문헌에 없다"
