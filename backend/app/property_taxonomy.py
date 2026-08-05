@@ -116,8 +116,10 @@ _DEFS: list[tuple] = [
     # ⚠ measure 축이 필수다 — 문헌이 "volume expansion"이라 쓰면서 실제로는 1D 딜라토미터로
     # 두께만 재는 경우가 흔하다. 체적변형률과 두께변형률을 섞으면 3배 틀린다.
     # 부호 규약: 팽창이 양수. 층상산화물 양극은 고SOC에서 수축하므로 음수가 정상이다.
+    # scale 축은 수집 중에 필요성이 드러나 추가했다 — 흑연 격자 c축 14%와 전극층 10.5%가
+    # 같은 measure="thickness"인데 1.3배 다르다. measure만으로는 구분이 안 된다.
     ("mechanical.swelling_strain", "mechanical", "충방전 팽창변형률", None, "1", "numeric",
-     ["soc", "cycle", "reversibility", "measure", "temperature_k"], None),
+     ["soc", "cycle", "reversibility", "measure", "scale", "temperature_k"], None),
     # 화학-기계 연성 구성식의 원형 — eps_swell = Omega * c / 3.
     # 흑연 Ω가 문헌 간 4배 차이(1.47e-6 vs 6.5e-6)라 논쟁 중이니 tier·출처를 반드시 남길 것.
     ("chemical.partial_molar_volume", "chemical", "부분몰부피", "Omega", "m^3/mol", "numeric",
