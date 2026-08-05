@@ -736,6 +736,14 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
             if bulk is None and g0c and nuc is not None and nuc < 0.5:
                 bulk = 2.0 * g0c * (1.0 + nuc) / (3.0 * (1.0 - 2.0 * nuc))
                 bulk_why = f"K=2G0(1+ν)/(3(1-2ν)), ν={nuc:g}"
+            # 전단항을 E_i/2(1+ν)로 만드는 경로가 이미 있는데 체적 쪽만 없었다. 같은 등방관계이므로
+            # 순간 영률이 있으면 K=E/(3(1-2ν))도 같은 근거로 쓴다. 이 한 줄이 MEMS 다이어태치
+            # 에폭시(E0 2.7448 GPa · ν 0.37 → K0 3.52 GPa)의 카드를 연다.
+            if bulk is None and nuc is not None and nuc < 0.5:
+                e_inst = representative_numeric(db, [K_E]).get(K_E, {}).get(i)
+                if e_inst:
+                    bulk = e_inst / (3.0 * (1.0 - 2.0 * nuc))
+                    bulk_why = f"K=E/(3(1-2ν)), E={_fmt(e_inst / 1e9)} GPa, ν={nuc:g}"
             if bulk is None:
                 skipped.append({"material": m["name"], "card": "mechanical",
                                 "reason": f"Prony {len(ts)}항은 있으나 체적탄성률(K0)도 "
@@ -830,6 +838,12 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
                 nu_v = nu if nu is not None else _DEFAULT_NU
                 lines.append("$")
                 lines.append(f"$ --- MID {mid}: {title} ---")
+                # 탄성·소성 카드로 빠지면서 Prony를 못 쓰는 경우가 있다. 카드가 만들어졌으니
+                # skipped에도 안 잡혀 공백이 통째로 안 보인다 — 여기서 드러낸다.
+                if cat_prony and "reason" in cat_prony:
+                    lines.append(f"$   ※ 이 재료는 카탈로그에 점탄성 Prony 계수가 있으나 쓰지 못했다 — "
+                                 f"{_clip(cat_prony['reason'], 96)}")
+                    lines.append("$     하중률 의존이 중요한 해석이면 *MAT_GENERAL_VISCOELASTIC(076)이 맞다.")
                 lines.append(f"$   RO  {_fmt(rho * u.f_density)} {u.density_unit}"
                              f" (= {_fmt(rho)} kg/m^3)   <- {prov.get((i, K_RHO), '출처미상')}")
                 lines.append(f"$   E   {_fmt(E * u.f_stress)} {u.stress_unit}   <- {prov.get((i, K_E), '출처미상')}")
