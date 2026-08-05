@@ -107,6 +107,21 @@ _DEFS: list[tuple] = [
     # Anand로 계산한 ΔW가 이미 있어도 이 상수가 없으면 수명이 안 나온다.
     ("mechanical.darveaux_constant", "mechanical", "Darveaux 균열 상수", None, "1", "numeric",
      ["model", "term", "unit_of_term", "temperature_k"], None),
+    # ── 배터리 스웰링 (전기화학-기계 연성) ──────────────────────────────────────
+    # 인쇄 형태가 넷으로 갈려 키 하나로는 못 담는다(수집 에이전트 보고).
+    #   A 사이클별 % 팽창 · B SOH별 절대두께 · C 부분몰부피 Ω · D 메커니즘 분류
+    # B는 기존 layer_thickness + state_of_health 조건으로 충분하고, D는 셀 레벨이라 카탈로그 밖.
+    # A와 C만 키를 만든다.
+    #
+    # ⚠ measure 축이 필수다 — 문헌이 "volume expansion"이라 쓰면서 실제로는 1D 딜라토미터로
+    # 두께만 재는 경우가 흔하다. 체적변형률과 두께변형률을 섞으면 3배 틀린다.
+    # 부호 규약: 팽창이 양수. 층상산화물 양극은 고SOC에서 수축하므로 음수가 정상이다.
+    ("mechanical.swelling_strain", "mechanical", "충방전 팽창변형률", None, "1", "numeric",
+     ["soc", "cycle", "reversibility", "measure", "temperature_k"], None),
+    # 화학-기계 연성 구성식의 원형 — eps_swell = Omega * c / 3.
+    # 흑연 Ω가 문헌 간 4배 차이(1.47e-6 vs 6.5e-6)라 논쟁 중이니 tier·출처를 반드시 남길 것.
+    ("chemical.partial_molar_volume", "chemical", "부분몰부피", "Omega", "m^3/mol", "numeric",
+     ["species", "soc", "form"], None),
     # Morrow 에너지 모델 N = (W/C)^(-1/m) — ΔW를 사이클로 환산하는 또 다른 경로.
     # Darveaux보다 데이터가 두껍고 요소 크기 의존성 논란이 적다. 계수·지수가 한 쌍이다.
     ("mechanical.morrow_energy_coefficient", "mechanical", "Morrow 에너지 계수", "C", "1", "numeric",
