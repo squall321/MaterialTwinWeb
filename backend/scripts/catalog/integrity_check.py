@@ -1,4 +1,4 @@
-# 카탈로그 정합성 20항목 일괄 점검 — 0이 아니면 결함이다. 배포 전 반드시 통과시킬 것.
+# 카탈로그 정합성 32항목 일괄 점검 — 0이 아니면 결함이다. 배포 전 반드시 통과시킬 것.
 import sqlite3
 import sys
 
@@ -108,6 +108,30 @@ CHECKS = [
             cast(replace(substr(conditions, instr(conditions,'wavelength_nm')+15), '}}', '') as real) <= 0)"""),
 ]
 
+def bad_lcsr_curves() -> int:
+    """LCSR 곡선의 가로축이 단조증가하지 않는 재료 수.
+
+    SQL로는 못 잡는다 — 계열을 어떻게 묶느냐가 곡선을 정하기 때문에, 실제 생성기를 돌려
+    결과를 봐야 한다. 온도 표기(C/K)가 섞이거나 방향·열처리를 안 보면 가로축이 중복되고
+    배율이 거꾸로 가는 *DEFINE_CURVE가 나간다(문서 59장, Kapton HN에서 실제로 발생).
+    """
+    import os
+    os.environ.setdefault("MATERIALTWIN_DATABASE_URL", f"sqlite:///{DB}")
+    sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parents[2]))
+    from app.db import SessionLocal
+    from app.dyna_export import K_SIGY_RATE, rate_scale_points
+    from app.models import PropertyValue
+    n = 0
+    with SessionLocal() as s:
+        ids = {m for (m,) in s.query(PropertyValue.material_id)
+               .filter(PropertyValue.property_key == K_SIGY_RATE).distinct()}
+        for mid in ids:
+            xs = [r for r, _ in rate_scale_points(s, mid)[0]]
+            if xs and any(b <= a for a, b in zip(xs, xs[1:])):
+                n += 1
+    return n
+
+
 c = sqlite3.connect(DB)
 bad = 0
 for label, sql in CHECKS:
@@ -115,6 +139,9 @@ for label, sql in CHECKS:
     if v:
         bad += 1
     print(f"  {label:28s} {v}{'  ←' if v else ''}")
+_v = bad_lcsr_curves()
+bad += 1 if _v else 0
+print(f"  {'LCSR 가로축 비단조':28s} {_v}{'  ←' if _v else ''}")
 q = lambda s: c.execute(s).fetchone()[0]
 print(f"\n재료 {q('select count(*) from material')} · 물성값 {q('select count(*) from property_value')}"
       f" · 출처 {q('select count(*) from source')}"
