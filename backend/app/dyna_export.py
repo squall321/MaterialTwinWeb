@@ -8,7 +8,7 @@ import re
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
-from app.catalog_compare import representative_numeric, representative_rows
+from app.catalog_compare import is_non_solid, representative_numeric, representative_rows
 from app.models import Material, ProcessedResult, PropertyValue, Specimen, Test
 from app.unit_systems import UnitSystem, get_system
 
@@ -557,6 +557,18 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
         rho, E, nu = val(i, K_RHO), val(i, K_E), val(i, K_NU)
         sigy, uts, elong = val(i, K_SIGY), val(i, K_UTS), val(i, K_ELONG)
         hc, tc, cte = val(i, K_HC), val(i, K_TC), val(i, K_CTE)
+        # 용융 상태 값은 열해석 카드에 쓸 수 없다. 벤더가 사출 충전 해석용으로 싣는 값이라
+        # 수치대가 고체와 비슷해(Stanyl TE250F6 용융 k=0.344) 그대로 나가면 조용히 틀린다.
+        # 대표값 순위에서 이미 뒤로 보내지만, 고체값이 아예 없으면 그래도 뽑히므로 여기서 끊는다.
+        melt_dropped: list[str] = []
+        for _k, _name in ((K_HC, "비열"), (K_TC, "열전도율")):
+            _row = rep_rows.get((i, _k))
+            if _row is not None and is_non_solid(_row.conditions):
+                melt_dropped.append(_name)
+                if _k == K_HC:
+                    hc = None
+                else:
+                    tc = None
         made: list[str] = []
         title = " ".join(re.sub(r"[^\x20-\x7E가-힣]", " ", m["name"]).split())[:70]
 
@@ -714,8 +726,11 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
         if want_therm:
             if rho is None or hc is None or tc is None:
                 miss = [n for n, v in (("밀도", rho), ("비열", hc), ("열전도율", tc)) if v is None]
-                skipped.append({"material": m["name"], "card": "thermal",
-                                "reason": f"{'·'.join(miss)} 없음(카드 생성 불가)"})
+                reason = f"{'·'.join(miss)} 없음(카드 생성 불가)"
+                if melt_dropped:
+                    reason += (f" · {'·'.join(melt_dropped)}은 **용융 상태 값뿐**이라 쓰지 않았다"
+                               " — 사출 충전 해석용이고 고체 열해석 입력이 아니다")
+                skipped.append({"material": m["name"], "card": "thermal", "reason": reason})
             else:
                 lines.append("$")
                 lines.append(f"$ --- TMID {mid}: {title} (thermal) ---")

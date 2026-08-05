@@ -388,3 +388,52 @@ def test_lcsr_notes_mixed_test_modes(mcp_env):
         deck = build_cards(s, [mid], card="mechanical")["keyword"]
     assert len(curve) == 3 and base == 38e6, "시험 방법 차이로 정적 앵커가 끊겼다"
     assert "시험 방법이 섞여" in deck, "혼합 사실이 카드에 적히지 않았다"
+
+
+def test_melt_state_never_becomes_representative(mcp_env):
+    """용융 상태 값이 고체 대표값을 밀어내면 안 된다.
+
+    벤더 시트는 사출 충전 해석용으로 `Thermal conductivity of melt` 같은 행을 싣는다.
+    수치대가 고체와 비슷해(Stanyl TE250F6 용융 k = 0.344 W/(m·K)) 구분이 안 되고,
+    tier가 높으면 열전달 카드에 그대로 실린다. 값은 버리지 않되 대표에서만 뒤로 보낸다.
+    """
+    M = mcp_env
+    mid = M.register_material(name="MeltVsSolid", category="polymer")["material_id"]
+    # 용융값을 더 유리하게 준다 — tier가 높고 조건도 적다.
+    M.register_property(mid, "thermal.conductivity", value=0.344, unit="W/(m*K)",
+                        quality_tier=1, conditions={"state": "melt"},
+                        source_title="Envalior rheological calculation properties",
+                        source_kind="datasheet")
+    M.register_property(mid, "thermal.conductivity", value=0.21, unit="W/(m*K)",
+                        quality_tier=2, conditions={"temperature_C": 23, "state": "solid"},
+                        source_title="solid measurement", source_kind="journal")
+    from app.catalog_compare import representative_numeric
+    from app.db import SessionLocal
+    with SessionLocal() as s:
+        rep = representative_numeric(s, ["thermal.conductivity"])["thermal.conductivity"][mid]
+    assert rep == 0.21, f"용융값이 대표로 뽑혔다: {rep}"
+
+
+def test_thermal_card_refuses_melt_only_material(mcp_env):
+    """용융값밖에 없으면 열 카드를 만들지 않는다.
+
+    대표값 순위에서 뒤로 보내도, 고체값이 아예 없으면 결국 용융값이 뽑힌다.
+    그대로 *MAT_THERMAL_ISOTROPIC에 실리면 사출 충전용 숫자가 열전달 해석에 들어간다.
+    """
+    M = mcp_env
+    mid = M.register_material(name="MeltOnly", category="polymer")["material_id"]
+    M.register_property(mid, "physical.density", value=1180.0, unit="kg/m^3",
+                        quality_tier=1, source_title="tds", source_kind="datasheet")
+    for k, v, u_ in (("thermal.specific_heat", 1480.0, "J/(kg*K)"),
+                     ("thermal.conductivity", 0.344, "W/(m*K)")):
+        M.register_property(mid, k, value=v, unit=u_, quality_tier=1,
+                            conditions={"state": "melt"},
+                            source_title="Envalior rheological calculation properties",
+                            source_kind="datasheet")
+    from app.db import SessionLocal
+    from app.dyna_export import build_cards
+    with SessionLocal() as s:
+        r = build_cards(s, [mid], card="thermal")
+    assert not (r.get("made") or []), "용융값으로 열 카드가 만들어졌다"
+    reasons = " ".join(x["reason"] for x in r.get("skipped", []))
+    assert "용융" in reasons, f"용융 때문이라는 사유가 없다: {reasons}"

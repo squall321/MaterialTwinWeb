@@ -69,15 +69,31 @@ def _wavelength_distance(cond) -> float:
     return _UNSPECIFIED_WL_PENALTY
 
 
+# 고체가 아닌 상태(용융·액체)의 값은 구조·열해석의 대표값이 될 수 없다.
+# 벤더 시트가 사출 충전 해석용으로 `Thermal conductivity of melt` · `Spec. heat capacity melt`를
+# 싣는데, 수치대가 고체와 비슷해 그냥 넣으면 열전달 카드를 조용히 오염시킨다.
+# 실제로 Stanyl TE250F6의 용융 k = 0.344 W/(m·K)는 고체값과 구분이 안 된다.
+# 값을 버리지는 않는다 — 사출 워피지에는 그 값이 맞다. 대표값 선택에서만 뒤로 보낸다.
+_NON_SOLID_STATES = ("melt", "molten", "liquid", "용융", "액체")
+
+
+def is_non_solid(cond) -> bool:
+    if not isinstance(cond, dict):
+        return False
+    s = str(cond.get("state") or cond.get("phase") or "").lower()
+    return any(w in s for w in _NON_SOLID_STATES)
+
+
 def _rep_rank(pv: PropertyValue) -> tuple:
-    """대표값 우선순위: 신뢰등급↑ → 수치 보유 → **지배 조건에 가까움** → 조건 적음 → id 작음.
+    """대표값 우선순위: 고체 우선 → 신뢰등급↑ → 수치 보유 → **지배 조건에 가까움** → 조건 적음 → id.
 
     지배 조건은 물성마다 다르다. 광학은 파장, 그 외는 온도(상온)를 본다.
     """
     key = pv.property_key or ""
     primary = (_wavelength_distance(pv.conditions) if key.startswith("optical.")
                else _temp_distance(pv.conditions))
-    return (pv.quality_tier or 9, 0 if pv.value_num is not None else 1,
+    return (1 if is_non_solid(pv.conditions) else 0,
+            pv.quality_tier or 9, 0 if pv.value_num is not None else 1,
             primary, len(pv.conditions or {}), pv.id)
 
 
