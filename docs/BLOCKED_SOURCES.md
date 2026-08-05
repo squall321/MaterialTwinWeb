@@ -411,3 +411,48 @@ specific heat 350–500 J/kg°C, Young's Modulus 100–200 GPa"*.
   thyssenkrupp만 **AlNiCo 전 계열 한 행**으로 셋을 싣는다 — 주조·소결·전 등급을 묶은 값이다.
   비열 `~400 J/kg K`만 tier3 클래스값으로 등록했고, 영률 `100–200 kN/mm²`와
   열전도율 `10–100 W/m K`는 **범위라 스칼라화가 불가능해** 넣지 않았다(열전도율은 10배 범위다).
+
+## R. 점탄성(Prony) — 어디에 있고 어디에 없는지 (2026-08-05)
+
+두 배치가 각각 다른 방향으로 훑어 경계가 분명해졌다.
+
+### 새로 뚫린 경로
+
+**NSF PAR — `https://par.nsf.gov/servlets/purl/{ID}`.** ASME·IEEE **게재승인원고**를 공개한다.
+공개 검색 엔드포인트는 없지만 purl 직링크는 PDF를 바로 준다. 패키징 분야에서 아직 안 판
+광맥이고, FR-4 PCB의 10항 Prony(155·165 °C 두 마스터커브)를 여기서 건졌다.
+다만 "Accepted Manuscript Not Copyedited" 워터마크가 셀을 가로지르는 경우가 있으니
+가려진 값은 쓰지 말 것.
+
+**J-Stage 검색 API** — `service=3&text=…&count=N`(Atom XML). JIEP·ejisso·jsms PDF가 전부
+무료다. **다만 2010년 이전 PDF는 텍스트층 없는 스캔이라** `pdftoppm -r 220`으로 렌더해
+눈으로 읽어야 한다(Nitto Denko EMC 3종의 G·K 18항 표가 이 경우였다).
+
+### 한국 오픈액세스는 닫혔다
+
+**마이크로전자및패키징학회지 109개 호 1,146편을 전수 내려받아 grep했다.**
+Prony를 언급한 논문이 **4편**, 수치표를 인쇄한 것은 **2편**뿐이고 둘 다 EMC이며
+**둘 다 비한국 문헌을 인용한 것**이다(Microelectronics Reliability 2011 / Lin & Lee).
+KSME·KSAE·Composites Research·접착및계면·반도체디스플레이기술학회지까지 167편을 더 훑었으나
+폴리이미드 필름·OCA/PSA·PET/PEN·커버윈도 하드코트·솔더레지스트·ABF·ACF·다이어태치·TIM·
+LCP·PEEK·PC/PMMA·TPU·VHB·배터리 세퍼레이터·PVDF 바인더·언더필 **어느 것도 없었다.**
+
+**한국 패키징 해석 문헌은 EMC·기판 Prony를 측정하지 않고 인용한다.** 이 경로는 더 파지 않는다.
+(kpubs.org는 현재 접속 불가, koreascience.kr에 미러돼 있다. scienceon.kisti.re.kr은 JS 껍데기다.)
+
+### 구조적 결론 — 오픈액세스에 있는 것과 없는 것
+
+| 있다 | 없다 |
+|---|---|
+| EMC · FR-4/프리프레그 · 언더필 | OCA/PSA · 무색 PI · 커버윈도 하드코트 · ACF · ABF · 솔더마스크 · PET 필름 |
+
+없는 쪽은 **IEEE ECTC/EPTC/ICEPT와 SID Digest에 실리고 전부 유료다.**
+PV(태양광) 폴리머 논문이 PET-폴리에스터·PC 필름의 가장 좋은 대용 자료다.
+
+### 접근 실패 기록
+
+OpenAlex는 이제 HTTP 429 "Insufficient budget"(유료 전환) · Semantic Scholar는 키 필요 ·
+scholar.archive.org는 JS 봇월(Playwright로도 막힘) · MDPI 사이트 검색은 curl 403 ·
+**IOPscience는 Radware 캡차**라 curl·헤드리스 크롬 둘 다 막힌다.
+Crossref `query.bibliographic`은 이 분야에서 포화된다 — "Prony"가 응용 패키징 논문의
+제목에 거의 안 나오기 때문에 같은 3~4건만 반복된다.
