@@ -137,3 +137,35 @@ def test_no_model_migration_drift(db_url):
         command.check(cfg)
     except CommandError as exc:
         pytest.fail(f"모델-마이그레이션 드리프트 감지: {exc}")
+
+
+def test_mcp_stdio_entrypoint_migrates_schema(db_url, tmp_path, monkeypatch):
+    """stdio MCP도 뜨기 전에 스키마를 맞춰야 한다.
+
+    HTTP 앱만 init_db()를 부르고 mcp_server.py는 부르지 않아서, DATA_DIR 미설정 시 붙는
+    개발 폴백 DB가 구 스키마에 멈춰 있었다. 그 상태로 list_materials를 부르면
+    "no such table: property_definition"으로 죽는다.
+    """
+    import sqlite3
+
+    command.upgrade(_alembic_cfg(db_url), "a72e1f3c8b90")   # property_definition 이전
+    path = db_url.replace("sqlite:///", "")
+    tables = {r[0] for r in sqlite3.connect(path).execute(
+        "SELECT name FROM sqlite_master WHERE type='table'")}
+    assert "property_definition" not in tables, "구 스키마 전제가 깨졌다"
+
+    monkeypatch.setenv("MATERIALTWIN_DATABASE_URL", db_url)
+    monkeypatch.setenv("MATERIALTWIN_DATA_DIR", str(tmp_path))
+    import importlib
+
+    import app.db as db_mod
+    importlib.reload(db_mod)
+    ran = []
+    import mcp_server
+    monkeypatch.setattr(mcp_server.mcp, "run", lambda *a, **k: ran.append(True))
+    monkeypatch.setattr(mcp_server, "__name__", "__main__", raising=False)
+    mcp_server.main()
+
+    assert ran, "mcp.run이 호출되지 않았다"
+    ver = sqlite3.connect(path).execute("SELECT version_num FROM alembic_version").fetchone()[0]
+    assert ver == "888056f1c5b8", f"부팅이 스키마를 head로 올리지 않았다: {ver}"

@@ -1431,5 +1431,18 @@ def register_test_data(description: str) -> str:
 4. get_mat_card로 카드를 뽑아 결과를 요약한다."""
 
 
-if __name__ == "__main__":
+def main() -> None:
+    """stdio MCP 진입점. **스키마를 맞춘 뒤에 뜬다.**
+
+    HTTP 앱(app/main.py)은 init_db()로 alembic 스키마를 맞추는데 이 진입점은 그러지 않아,
+    DATA_DIR 미설정 시 붙는 개발 폴백 DB가 구 스키마(a72e1f3c8b90)에 멈춰 있었다.
+    실제로 list_materials가 "no such table: property_definition"으로 죽었다.
+    두 진입점이 같은 부팅을 거치게 한다.
+    """
+    from app.db import init_db
+    init_db()
     mcp.run()
+
+
+if __name__ == "__main__":
+    main()
