@@ -140,6 +140,19 @@ def norm_tier(raw) -> int:
     return int(m.group(0)) if m else 3
 
 
+def pick_tier(pr: dict) -> int:
+    """신뢰등급을 읽는다 — `tier`와 `quality_tier`를 **둘 다** 받는다.
+
+    예전엔 `tier`만 봤다. DB 컬럼명이 quality_tier라 산출 형식 예시도 그쪽을 쓰고 있었고,
+    그래서 tier1로 적어 보낸 값이 조용히 tier3으로 떨어졌다 — 실측이 데이터시트급으로
+    강등되면 대표값 선택이 뒤집히고, tier4로 적은 가정값은 정합성 검사를 위반한다.
+    """
+    for k in ("tier", "quality_tier"):
+        if pr.get(k) is not None:
+            return norm_tier(pr[k])
+    return 3
+
+
 def as_cond(raw) -> dict:
     """조건을 dict로. 서술 문자열이면 detail 필드에 담는다."""
     if isinstance(raw, dict):
@@ -282,7 +295,7 @@ def main() -> int:
                             cond["test_method"] = detail
                         r = M.register_property(
                             mid, key, value_text=val, method=meth,
-                            quality_tier=norm_tier(pr.get("tier")),
+                            quality_tier=pick_tier(pr),
                             conditions=cond or None, notes=pr.get("note"),
                             source_title=src.get("title"), source_url=src.get("url"),
                             source_doi=src.get("doi"),
@@ -327,7 +340,7 @@ def main() -> int:
                         cond["test_method"] = detail
                     r = M.register_property(
                         mid, key, value=float(val), unit=unit or d.si_unit,
-                        method=meth, quality_tier=norm_tier(pr.get("tier")),
+                        method=meth, quality_tier=pick_tier(pr),
                         conditions=cond or None, notes=pr.get("note"),
                         source_title=src.get("title"), source_url=src.get("url"),
                         source_doi=src.get("doi"),

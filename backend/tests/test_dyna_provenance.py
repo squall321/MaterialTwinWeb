@@ -1,6 +1,7 @@
 # DYNA 카드의 출처 표기 회귀 — 값과 출처가 같은 행에서 와야 하고, 참고문헌으로 추적 가능해야 한다.
 from __future__ import annotations
 
+import os
 import re
 
 from app import dyna_export as D
@@ -523,3 +524,41 @@ def test_shear_yield_never_becomes_lcsr_sigy(mcp_env):
         deck = build_cards(s, [mid], card="mechanical")["keyword"]
     assert not curve, f"전단 항복으로 LCSR이 만들어졌다: {curve}"
     assert "74.1" not in deck, "전단값이 카드에 실렸다"
+
+
+def test_ingest_reads_quality_tier_field(tmp_path, mcp_env):
+    """로더는 `tier`와 `quality_tier`를 둘 다 받아야 한다.
+
+    예전엔 `tier`만 봤다. DB 컬럼명이 quality_tier라 산출 형식 예시도 그쪽을 쓰고 있었고,
+    그래서 tier1로 적어 보낸 실측이 조용히 tier3으로 떨어졌다 — 377건이 그렇게 들어왔다.
+    실측이 데이터시트급으로 강등되면 대표값이 뒤집히고, tier4로 적은 가정값은
+    "가정값인데 tier4·estimated 아님" 정합성 검사를 위반한다.
+    """
+    import json
+    import subprocess
+    import sys as _sys
+    from pathlib import Path as _P
+
+    M = mcp_env
+    M.register_material(name="TierProbe", category="metal")
+    payload = {"materials": [{
+        "match_name": "TierProbe",
+        "source": {"title": "vendor sheet", "kind": "datasheet", "url": "https://example.invalid/x"},
+        "properties": [{"key": "physical.density", "value": 7850.0, "unit": "kg/m^3",
+                        "quality_tier": 1, "method": "measured", "note": "printed"}]}]}
+    f = tmp_path / "tier_probe.json"
+    f.write_text(json.dumps(payload, ensure_ascii=False))
+    backend = _P(__file__).resolve().parents[1]
+    out = subprocess.run(
+        [_sys.executable, str(backend / "scripts" / "catalog" / "ingest_agent_json.py"),
+         str(f), "--apply"],
+        cwd=str(backend), env={**os.environ}, capture_output=True, text=True, timeout=300)
+    assert out.returncode == 0, out.stderr[-800:]
+    from app.db import SessionLocal
+    from app.models import Material, PropertyValue
+    with SessionLocal() as s:
+        mid = s.query(Material).filter(Material.name == "TierProbe").one().id
+        pv = s.query(PropertyValue).filter(
+            PropertyValue.material_id == mid,
+            PropertyValue.property_key == "physical.density").one()
+        assert pv.quality_tier == 1, f"quality_tier=1로 보냈는데 tier{pv.quality_tier}로 들어갔다"
