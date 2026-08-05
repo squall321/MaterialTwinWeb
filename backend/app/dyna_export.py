@@ -427,6 +427,140 @@ def rate_series_modes(rows: list) -> list[str]:
     return sorted(modes)
 
 
+# ── 카탈로그 Prony → *MAT_GENERAL_VISCOELASTIC (076) ────────────────────────────────
+# 076은 Prony 급수를 **최대 18항**까지 직접 받는다(LS-DYNA Keyword Manual Vol II, MAT_076:
+# "a general viscoelastic Maxwell model having up to 18 terms in the prony series expansion").
+# 카드는 GI(전단 완화계수 Pa) · BETAI(전단 감쇠상수 1/s) · KI(체적 완화계수 Pa) · BETAKI 네 열이고,
+# "The number of terms for the shear behavior may differ from that for the bulk behavior:
+#  simply insert zero if a term is not included."
+#
+# 단일항 *MAT_VISCOELASTIC(006)은 업로드된 완화시험만 소비한다. 문헌에서 모은 11~25항 세트는
+# 여기로 나가야 한다.
+K_PR_TAU = "mechanical.prony_relaxation_time"
+K_PR_G = "mechanical.prony_shear_modulus"
+K_PR_GREL = "mechanical.prony_relative_modulus"
+K_PR_E = "mechanical.prony_tensile_modulus"
+K_PR_K = "mechanical.prony_bulk_modulus"
+K_PR_KREL = "mechanical.prony_relative_bulk_modulus"
+K_G0 = "mechanical.shear_modulus"
+K_K0 = "mechanical.bulk_modulus"
+PRONY_MAX_TERMS = 18
+
+_TERM_NUM = re.compile(r"(\d+)$")
+
+
+def _term_index(cond: dict):
+    """항 번호. term_index가 우선이고, 없으면 term 문자열 끝의 숫자('tau3' → 3)를 쓴다."""
+    if isinstance(cond.get("term_index"), int):
+        return cond["term_index"]
+    m = _TERM_NUM.search(str(cond.get("term") or ""))
+    return int(m.group(1)) if m else None
+
+
+def _prony_set_key(cond: dict) -> str:
+    """어느 세트에 속하는가. set_id가 있으면 그것, 없으면 항 표기를 뺀 조건 전체.
+
+    VHB 4910은 한 재료에 **서로 경쟁하는 구성모델이 7개** 들어 있다(generalized Maxwell M1/M2,
+    Kelvin-Voigt M1/M2, eight-chain 계열 …). 이걸 한 카드에 섞으면 물리적으로 무의미하다.
+    """
+    if cond.get("set_id"):
+        return str(cond["set_id"])
+    rest = {k: v for k, v in cond.items() if k not in ("term", "term_index")}
+    return json.dumps(rest, sort_keys=True, ensure_ascii=False)
+
+
+def prony_series(db: Session, mid: int) -> dict | None:
+    """카탈로그 Prony → 076용 항 목록. 만들 수 없으면 사유를 담은 dict를 돌려준다.
+
+    반환 {"terms": [(GI, BETAI, KI, BETAKI)], "note": [...], "set": str, "n_src": int}
+    또는 {"reason": "..."} — 카드를 못 만드는 이유.
+    """
+    keys = (K_PR_TAU, K_PR_G, K_PR_GREL, K_PR_E, K_PR_K, K_PR_KREL)
+    rows = db.execute(select(PropertyValue).where(
+        PropertyValue.material_id == mid,
+        PropertyValue.property_key.in_(keys),
+        PropertyValue.value_num.isnot(None))).scalars().all()
+    if not rows:
+        return None
+    sets: dict[str, dict[str, dict[int, float]]] = {}
+    for pv in rows:
+        cond = pv.conditions if isinstance(pv.conditions, dict) else {}
+        i = _term_index(cond)
+        if i is None:
+            continue
+        sets.setdefault(_prony_set_key(cond), {}).setdefault(
+            pv.property_key, {})[i] = float(pv.value_num)
+
+    rep = representative_numeric(db, [K_G0, K_K0, K_NU])
+    g0 = rep.get(K_G0, {}).get(mid)
+    k0 = rep.get(K_K0, {}).get(mid)
+    nu = rep.get(K_NU, {}).get(mid)
+
+    # 전단항을 만드는 경로 — 절대값이 있으면 그대로, 없으면 정의식으로 환산한다.
+    # 환산은 그 모델의 정의(G_i = g_i·G0, G_i = E_i/2(1+ν))를 적용하는 것이지 역산이 아니다.
+    # 다만 어느 경로를 썼는지 카드 주석에 반드시 남긴다.
+    best = None
+    for skey, d in sets.items():
+        tau = d.get(K_PR_TAU) or {}
+        if not tau:
+            continue
+        for src, conv, why in (
+                (K_PR_G, (lambda v: v), "G_i 직접"),
+                (K_PR_GREL, (lambda v: v * g0) if g0 else None, "g_i × G0"),
+                (K_PR_E, (lambda v: v / (2.0 * (1.0 + nu))) if nu is not None else None,
+                 "E_i / 2(1+ν)")):
+            if conv is None or src not in d:
+                continue
+            shared = sorted(set(tau) & set(d[src]))
+            if len(shared) < 2:
+                continue
+            cand = (len(shared), skey, src, conv, why, shared, d, tau)
+            if best is None or cand[0] > best[0]:
+                best = cand
+            break                      # 한 세트에서는 우선순위가 높은 경로 하나만 쓴다
+    if best is None:
+        # 왜 못 만드는지 정확히 말한다. "Prony가 없다"와 "G0 하나가 없다"는 전혀 다른 문제고,
+        # 후자는 숫자 하나만 채우면 카드가 열린다.
+        have = {k for d in sets.values() for k in d}
+        if K_PR_GREL in have and not g0:
+            why = "상대계수 g_i는 있는데 **G0(shear_modulus)가 없어** 절대 전단항을 못 만든다"
+        elif K_PR_E in have and nu is None:
+            why = "인장항 E_i는 있는데 **포아송비가 없어** G_i로 환산할 수 없다"
+        elif not any(k in have for k in (K_PR_G, K_PR_GREL, K_PR_E)):
+            why = "완화시간 τ만 있고 대응하는 완화계수 항이 없다"
+        else:
+            why = "τ와 짝이 맞는 완화계수 항이 2개 미만이다(항번호 기준)"
+        return {"reason": why}
+
+    _, skey, src, conv, why, shared, d, tau = best
+    notes = [f"전단항 경로: {why}"]
+    if len(shared) > PRONY_MAX_TERMS:
+        return {"reason": f"{len(shared)}항인데 *MAT_076의 상한은 {PRONY_MAX_TERMS}항이다 — "
+                          "항을 버리면 완화 스펙트럼이 달라지므로 자동 절삭하지 않는다. "
+                          "LCID(완화곡선) 경로로 내보내려면 별도 구현이 필요하다."}
+
+    kabs, krel = d.get(K_PR_K) or {}, d.get(K_PR_KREL) or {}
+    terms = []
+    for i in shared:
+        gi = conv(d[src][i])
+        beta = 1.0 / tau[i] if tau[i] > 0 else 0.0
+        if i in kabs:
+            ki = kabs[i]
+        elif i in krel and k0:
+            ki = krel[i] * k0
+        else:
+            ki = 0.0                   # 매뉴얼: "simply insert zero if a term is not included"
+        terms.append((gi, beta, ki, beta if ki else 0.0))
+    if kabs:
+        notes.append("체적항 K_i 직접")
+    elif krel and k0:
+        notes.append("체적항 k_i × K0")
+    else:
+        notes.append("체적항 없음 — KI·BETAKI를 0으로 둔다(매뉴얼 지시)")
+    return {"terms": terms, "note": notes, "set": skey, "n_src": len(shared),
+            "g0": g0, "k0": k0, "nu": nu}
+
+
 def rate_scale_points(db: Session, mid: int) -> tuple[list[tuple[float, float]], float, object, list]:
     """율속별 항복강도 → LS-DYNA LCSR용 (변형률속도, 응력배율) 점 목록.
 
@@ -500,7 +634,8 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
 
     ids = [m["id"] for m in mats]
     # LCSR 곡선의 원자료도 프로비넌스에 넣어야 한다 — 빠지면 곡선 출처가 '출처미상'으로 나온다.
-    keys = sorted(set(MECH_KEYS + THERM_KEYS + (K_SIGY_RATE,)))
+    keys = sorted(set(MECH_KEYS + THERM_KEYS + (K_SIGY_RATE, K_PR_TAU, K_PR_G,
+                                                 K_PR_GREL, K_PR_E, K_PR_K, K_PR_KREL)))
     reps = representative_numeric(db, list(keys))
     # 출처(프로비넌스) — 반드시 **대표값으로 뽑힌 그 행**의 출처를 쓴다.
     # (예전엔 아무 행이나 먼저 걸린 것을 달아, 값과 출처가 어긋날 수 있었다.)
@@ -573,7 +708,46 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
         title = " ".join(re.sub(r"[^\x20-\x7E가-힣]", " ", m["name"]).split())[:70]
 
         # ── 기계 카드 ──
-        if want_mech and i in visco and rho is not None:
+        # 카탈로그 Prony(문헌에서 모은 다항 세트)가 먼저다. 업로드된 완화시험은 단일항이라
+        # *MAT_VISCOELASTIC(006)으로밖에 못 나가지만, 11~18항 세트는 076으로 온전히 담긴다.
+        cat_prony = prony_series(db, i) if want_mech else None
+        if want_mech and cat_prony and "terms" in cat_prony and rho is not None:
+            ts = cat_prony["terms"]
+            g0c, k0c, nuc = cat_prony["g0"], cat_prony["k0"], cat_prony["nu"]
+            bulk = k0c
+            bulk_why = "K0 실측"
+            if bulk is None and g0c and nuc is not None and nuc < 0.5:
+                bulk = 2.0 * g0c * (1.0 + nuc) / (3.0 * (1.0 - 2.0 * nuc))
+                bulk_why = f"K=2G0(1+ν)/(3(1-2ν)), ν={nuc:g}"
+            if bulk is None:
+                skipped.append({"material": m["name"], "card": "mechanical",
+                                "reason": f"Prony {len(ts)}항은 있으나 체적탄성률(K0)도 "
+                                          "포아송비도 없어 *MAT_076의 BULK를 채울 수 없다"})
+            else:
+                lines.append("$")
+                lines.append(f"$ --- MID {mid}: {title} (점탄성 다항) ---")
+                lines.append(f"$   카탈로그 Prony {len(ts)}항 — g(t)=Σ G_i·exp(-BETA_i·t)")
+                lines.append(f"$   세트: {_clip(str(cat_prony['set']), 84)}")
+                for nt in cat_prony["note"]:
+                    lines.append(f"$   {nt}")
+                lines.append(f"$   BULK {_fmt(bulk * u.f_stress)} {u.stress_unit} — {bulk_why}")
+                lines.append(f"$   RO   {_fmt(rho * u.f_density)} {u.density_unit}"
+                             f" (= {_fmt(rho)} kg/m^3)   <- {prov.get((i, K_RHO), '출처미상')}")
+                lines.append(f"$   출처 {prov.get((i, K_PR_TAU), '출처미상')}")
+                lines.append("*MAT_GENERAL_VISCOELASTIC_TITLE")
+                lines.append(title)
+                lines.append("$#     mid       rho      bulk       pcf        ef      tref         a         b")
+                lines.append(_card_field(str(mid), _fmt(rho * u.f_density),
+                                         _fmt(bulk * u.f_stress), "0.0", "0.0", "0.0", "0.0", "0.0"))
+                # 매뉴얼: "Insert a blank card here if constants are defined on cards 3,4,... below."
+                lines.append("$ (blank card 2 — 계수를 아래 카드로 직접 준다)")
+                lines.append("")
+                lines.append("$#      gi     betai        ki    betaki")
+                for gi, beta, ki, betak in ts:
+                    lines.append(_card_field(_fmt(gi * u.f_stress), _fmt(beta * u.f_rate),
+                                             _fmt(ki * u.f_stress), _fmt(betak * u.f_rate)))
+                made.append(f"*MAT_GENERAL_VISCOELASTIC (076, {len(ts)}항)")
+        elif want_mech and i in visco and rho is not None:
             em = visco[i]
             pr_ = em["lsdyna_prony"]          # 이미 MPa·1/s 기준(ton_mm_s)으로 저장돼 있다
             si = {k: (pr_[k] * 1e6 if k in ("G0", "GI", "BULK") else pr_[k]) for k in pr_}
@@ -618,19 +792,22 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
                                      _fmt(si["BULK"] * u.f_stress), _fmt(si["G0"] * u.f_stress),
                                      _fmt(si["GI"] * u.f_stress), _fmt(si["BETA"] * u.f_rate)))
             made.append("*MAT_VISCOELASTIC (006)")
-        elif want_mech:
+        elif want_mech:  # 탄성·소성 경로
             if rho is None or E is None:
                 # 카탈로그에 Prony 계수가 있는데 못 쓰고 있으면 그 사실을 드러낸다.
                 # 지금 점탄성 카드는 업로드된 완화시험(단일항 *MAT_VISCOELASTIC 006)만 낸다.
                 # 문헌에서 모은 11~14항 세트는 *MAT_GENERAL_VISCOELASTIC(076)이라야 담기는데
                 # 아직 구현이 없다. 조용히 "밀도 없음"으로만 보고하면 이 공백이 안 보인다.
-                n_prony = db.execute(select(func.count()).select_from(PropertyValue).where(
-                    PropertyValue.material_id == i,
-                    PropertyValue.property_key.like("mechanical.prony_%"))).scalar() or 0
-                reason = "밀도 또는 영률 없음(카드 생성 불가)"
-                if n_prony:
-                    reason += (f" · 카탈로그에 Prony {n_prony}항이 있으나 내보내지 못한다"
-                               " — 다항 세트는 *MAT_GENERAL_VISCOELASTIC(076)이 필요하고 아직 미구현")
+                miss = [n for n, v in (("밀도", rho), ("영률", E)) if v is None]
+                reason = f"{'·'.join(miss)} 없음(카드 생성 불가)"
+                # Prony가 있는데 못 쓰는 경우, 무엇 하나가 막고 있는지 정확히 말한다.
+                # "밀도 없음"으로만 보고하면 11~18항 세트가 놀고 있다는 사실이 안 보인다.
+                if cat_prony:
+                    if "terms" in cat_prony:
+                        reason += (f" · **Prony {len(cat_prony['terms'])}항이 준비돼 있다** —"
+                                   f" {'·'.join(miss)}만 채우면 *MAT_076이 바로 나온다")
+                    else:
+                        reason += f" · Prony는 있으나 {cat_prony.get('reason', '')}"
                 skipped.append({"material": m["name"], "card": "mechanical", "reason": reason})
             else:
                 nu_v = nu if nu is not None else _DEFAULT_NU

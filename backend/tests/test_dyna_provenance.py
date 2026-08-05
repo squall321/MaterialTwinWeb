@@ -437,3 +437,59 @@ def test_thermal_card_refuses_melt_only_material(mcp_env):
     assert not (r.get("made") or []), "용융값으로 열 카드가 만들어졌다"
     reasons = " ".join(x["reason"] for x in r.get("skipped", []))
     assert "용융" in reasons, f"용융 때문이라는 사유가 없다: {reasons}"
+
+
+def test_multi_term_prony_exports_mat076(mcp_env):
+    """카탈로그 Prony 다항 세트는 *MAT_GENERAL_VISCOELASTIC(076)으로 나가야 한다.
+
+    단일항 *MAT_VISCOELASTIC(006)은 업로드된 완화시험만 소비한다. 문헌에서 모은 11~18항
+    세트는 076이라야 담긴다(매뉴얼: "up to 18 terms in the prony series expansion").
+    카드는 GI(Pa) · BETAI(1/s = 1/tau) · KI · BETAKI 네 열이다.
+    """
+    M = mcp_env
+    mid = M.register_material(name="PronyMulti", category="polymer")["material_id"]
+    M.register_property(mid, "physical.density", value=1050.0, unit="kg/m^3",
+                        quality_tier=1, source_title="tds", source_kind="datasheet")
+    M.register_property(mid, "mechanical.shear_modulus", value=1.0e6, unit="Pa",
+                        quality_tier=1, conditions={"model": "generalized_maxwell_N3"},
+                        source_title="paper", source_kind="journal")
+    M.register_property(mid, "mechanical.poisson_ratio", value=0.49, unit="1",
+                        quality_tier=1, source_title="paper", source_kind="journal")
+    for i, (g, tau) in enumerate(((0.30, 1.0e-2), (0.20, 1.0e0), (0.10, 1.0e2)), start=1):
+        for key, val_, unit in (("mechanical.prony_relative_modulus", g, "1"),
+                                ("mechanical.prony_relaxation_time", tau, "s")):
+            M.register_property(mid, key, value=val_, unit=unit, quality_tier=1,
+                                conditions={"term_index": i, "model": "generalized_maxwell_N3"},
+                                source_title="paper", source_kind="journal")
+    from app.db import SessionLocal
+    from app.dyna_export import build_cards, prony_series
+    with SessionLocal() as s:
+        ps = prony_series(s, mid)
+        deck = build_cards(s, [mid], card="mechanical")["keyword"]
+    assert ps and "terms" in ps, f"Prony 세트를 못 만들었다: {ps}"
+    assert len(ps["terms"]) == 3
+    # GI = g_i x G0, BETAI = 1/tau
+    assert abs(ps["terms"][0][0] - 0.30 * 1.0e6) < 1.0, ps["terms"][0]
+    assert abs(ps["terms"][0][1] - 100.0) < 1e-6, "BETAI가 1/tau가 아니다"
+    assert "*MAT_GENERAL_VISCOELASTIC" in deck, "076 카드가 안 나왔다"
+    assert "*MAT_VISCOELASTIC_TITLE" not in deck, "단일항 006으로 나갔다"
+
+
+def test_prony_over_18_terms_is_refused_not_truncated(mcp_env):
+    """18항을 넘으면 조용히 자르지 않는다 — 항을 버리면 완화 스펙트럼이 달라진다."""
+    M = mcp_env
+    mid = M.register_material(name="PronyTooMany", category="composite")["material_id"]
+    M.register_property(mid, "mechanical.shear_modulus", value=1.0e9, unit="Pa",
+                        quality_tier=1, source_title="paper", source_kind="journal")
+    for i in range(1, 26):
+        for key, val_, unit in (("mechanical.prony_relative_modulus", 0.01, "1"),
+                                ("mechanical.prony_relaxation_time", 10.0 ** (i - 12), "s")):
+            M.register_property(mid, key, value=val_, unit=unit, quality_tier=1,
+                                conditions={"term_index": i, "model": "generalized_maxwell_N25"},
+                                source_title="paper", source_kind="journal")
+    from app.db import SessionLocal
+    from app.dyna_export import prony_series
+    with SessionLocal() as s:
+        ps = prony_series(s, mid)
+    assert ps and "terms" not in ps, "25항이 그대로 카드로 나갔다"
+    assert "18" in ps["reason"], ps["reason"]
