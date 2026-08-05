@@ -829,8 +829,10 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
                 # "밀도 없음"으로만 보고하면 11~18항 세트가 놀고 있다는 사실이 안 보인다.
                 if cat_prony:
                     if "terms" in cat_prony:
+                        # 076은 영률을 쓰지 않는다(BULK와 Prony 항만 필요). 막는 건 밀도뿐이므로
+                        # "밀도·영률만 채우면"이라고 적으면 필요한 일을 두 배로 알려주는 셈이다.
                         reason += (f" · **Prony {len(cat_prony['terms'])}항이 준비돼 있다** —"
-                                   f" {'·'.join(miss)}만 채우면 *MAT_076이 바로 나온다")
+                                   " *MAT_076은 영률을 쓰지 않으니 **밀도만** 채우면 바로 나온다")
                     else:
                         reason += f" · Prony는 있으나 {cat_prony.get('reason', '')}"
                 skipped.append({"material": m["name"], "card": "mechanical", "reason": reason})
