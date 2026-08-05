@@ -493,3 +493,33 @@ def test_prony_over_18_terms_is_refused_not_truncated(mcp_env):
         ps = prony_series(s, mid)
     assert ps and "terms" not in ps, "25항이 그대로 카드로 나갔다"
     assert "18" in ps["reason"], ps["reason"]
+
+
+def test_shear_yield_never_becomes_lcsr_sigy(mcp_env):
+    """비틀림 시험의 전단 항복은 LCSR 기준값(SIGY)이 되면 안 된다.
+
+    LCSR은 배율 곡선이라 비만 쓰면 될 것 같지만, 코드가 SIGY를 곡선 기준값으로 다시 맞추므로
+    전단값이 인장 SIGY 자리에 그대로 들어간다. PMMA는 tau 74.1 MPa인데 von Mises로
+    sigma ~ 128 MPa라 숫자가 그럴듯해 보여 더 위험하다.
+    """
+    M = mcp_env
+    mid = M.register_material(name="ShearRate", category="polymer")["material_id"]
+    for k, v, u_ in (("physical.density", 1180.0, "kg/m^3"),
+                     ("mechanical.youngs_modulus", 3.0e9, "Pa"),
+                     ("mechanical.poisson_ratio", 0.37, "1"),
+                     ("mechanical.yield_strength", 70e6, "Pa")):
+        M.register_property(mid, k, value=v, unit=u_, quality_tier=1,
+                            source_title="tds", source_kind="datasheet")
+    for rate, tau in ((0.00393, 74.1e6), (0.0471, 87.8e6), (0.196, 100.8e6)):
+        M.register_property(mid, "mechanical.yield_strength_at_rate", value=tau, unit="Pa",
+                            quality_tier=3,
+                            conditions={"strain_rate_s": rate, "temperature_C": 23,
+                                        "test": "torsion, shear yield stress tau_0max (NOT uniaxial)"},
+                            source_title="torsion paper", source_kind="journal")
+    from app.db import SessionLocal
+    from app.dyna_export import build_cards, rate_scale_points
+    with SessionLocal() as s:
+        curve, base, _row, _rows = rate_scale_points(s, mid)
+        deck = build_cards(s, [mid], card="mechanical")["keyword"]
+    assert not curve, f"전단 항복으로 LCSR이 만들어졌다: {curve}"
+    assert "74.1" not in deck, "전단값이 카드에 실렸다"

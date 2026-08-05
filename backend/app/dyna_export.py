@@ -419,6 +419,21 @@ def _series_key(cond: dict) -> tuple:
     return (_cond_temp_c(cond), rest)
 
 
+# 전단 항복(비틀림 시험 τ_0max)은 *MAT_024의 SIGY가 아니다. LCSR은 배율 곡선이라 비만 쓰면
+# 될 것 같지만, 코드가 SIGY를 곡선 기준값으로 **다시 맞추기** 때문에 전단값이 인장 SIGY 자리에
+# 그대로 들어간다. PMMA는 τ 74.1 MPa인데 von Mises로 σ ≈ 128 MPa라 그럴듯해 보여 더 위험하다.
+# 값은 카탈로그에 남기되 LCSR 계열에서는 뺀다.
+_SHEAR_WORDS = ("torsion", "shear", "비틀림", "전단")
+
+
+def _is_shear_yield(cond: dict) -> bool:
+    if not isinstance(cond, dict):
+        return False
+    s = " ".join(str(cond.get(k) or "") for k in
+                 ("test", "loading", "stress_definition", "definition")).lower()
+    return any(w in s for w in _SHEAR_WORDS)
+
+
 def rate_series_modes(rows: list) -> list[str]:
     """고른 계열이 몇 가지 시험 방법을 섞고 있는지 — 카드 주석에 적기 위한 것."""
     modes = {str(r.conditions.get(k)) for r in rows
@@ -582,6 +597,8 @@ def rate_scale_points(db: Session, mid: int) -> tuple[list[tuple[float, float]],
         cond = pv.conditions if isinstance(pv.conditions, dict) else {}
         rate = cond.get(_RATE_COND)
         if not isinstance(rate, (int, float)) or rate <= 0:
+            continue
+        if _is_shear_yield(cond):
             continue
         buckets.setdefault(_series_key(cond), []).append(
             (float(rate), float(pv.value_num), pv))

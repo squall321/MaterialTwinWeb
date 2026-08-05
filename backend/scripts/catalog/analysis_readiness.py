@@ -99,6 +99,33 @@ def main():
                 print(f"     택일군 전무 {len(miss):3d}종  ({' | '.join(g.split('.', 1)[1] for g in grp)})")
                 print(f"        카테고리 {dict(Counter(mat[m][1] for m in miss))}")
 
+    # 벤딩은 물성 **보유**와 카드 **생성**이 다르다. Prony 항이 아무리 많아도 τ와 항번호가
+    # 짝을 이루지 않으면 곡선이 안 되고, VHB 4910처럼 한 재료에 경쟁 모델이 7개 섞여 있기도 하다.
+    # 실제 생성기를 돌려 세지 않으면 지표가 준비도를 부풀린다(낙하 지표에서 같은 일이 있었다).
+    if not only or only == "벤딩":
+        try:
+            import os
+            os.environ.setdefault("MATERIALTWIN_DATABASE_URL", f"sqlite:///{DB}")
+            sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parents[2]))
+            from app.db import SessionLocal
+            from app.dyna_export import K_PR_TAU, prony_series
+            from app.models import PropertyValue
+            with SessionLocal() as s:
+                ids = {m for (m,) in s.query(PropertyValue.material_id)
+                       .filter(PropertyValue.property_key == K_PR_TAU).distinct()}
+                usable = [m for m in ids
+                          if (prony_series(s, m) or {}).get("terms")]
+                blocked = Counter()
+                for m in ids - set(usable):
+                    r = prony_series(s, m) or {}
+                    blocked[(r.get("reason") or "Prony 없음")[:46]] += 1
+            print("\n══ 벤딩 — 물성 보유 vs 카드 생성")
+            print(f"   Prony 보유 {len(ids)}종 → **실제 *MAT_076이 나오는 것 {len(usable)}종**")
+            for why, n_ in blocked.most_common():
+                print(f"     {n_:2d}종  {why}")
+        except Exception as e:                       # 앱 임포트가 안 되는 환경에서도 나머지는 돌아야 한다
+            print(f"\n══ 벤딩 카드 생성 점검 건너뜀 ({type(e).__name__})")
+
     # 포아송비는 4개 해석을 동시에 막는다 — 계산으로 회수되는 양을 따로 본다.
     no_nu = [m for m in mat if NU not in own[m]]
     calc = [m for m in no_nu if (E in own[m] and G in own[m]) or (E in own[m] and K in own[m])]
