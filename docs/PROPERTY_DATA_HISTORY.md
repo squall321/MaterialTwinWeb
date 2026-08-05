@@ -1131,3 +1131,65 @@ pdftotext는 마이너스를 삼킨다(`\x02 0.036`). 스캔본은 200 dpi PNG�
 배터리 에이전트가 **흑연 격자 c축 14%와 전극층 10.5%가 같은 `measure="thickness"`인데
 1.3배 다르다**는 걸 발견하고 `scale`("composite_electrode_layer"/"crystal_lattice_c_axis")을
 제안했다. `measure` 축과 같은 종류의 함정이라 정식 축으로 승격했다.
+
+## 49. 금속 율속 확대 — 10기 배치 마감 (2026-08-05)
+
+Cowper-Symonds 완성 쌍 4개(Mg AZ31B-H24, 독립 2출처)와 `yield_strength_at_rate` 26건.
+**Ti Grade1이 10⁻⁶~10⁰ /s 6 decade**로 들어와 LCSR 곡선 재료가 하나 늘었다.
+
+**검산 2건이 좋았다.** ① Ti Grade2 표에서 항복응력 열 기호가 pdftotext로 날아가 열 지정이
+애매했는데, 같은 표의 항복변형률 0.29% × E 115 GPa = 333 MPa로 330 MPa와 일치시켜 확정했다.
+② AZ31B-H24 두 출처의 C·p를 1000 /s에 대입하니 DIF 1.16~1.36으로 Mg 합금 문헌대역과 정합.
+
+**함정 1(C 단위)의 실제 사례를 또 확인했다** — sv-jme 2016이 `C = 10 ms⁻¹ to …`로 인쇄한다.
+**함정 2(조질)** — AA5052-O를 5052-H32에, Al5083-O를 H116에 붙일 뻔한 걸 둘 다 걸렀다.
+**검색 요약 오염** — "6063-T5 D=128800, n=4"가 지목한 arXiv 논문을 받아보니 실제로는
+**알루미늄 폼**의 d=2319, n=1.285였다. 원문 확인이 아니었으면 그대로 들어갔다.
+
+### 사냥터 상태가 바뀌었다
+
+- **IOP Conference Series가 막혔다** — Radware Bot Manager 캡차. 앞 배치에서는 유일한
+  tier1 금속 피로 데이터를 여기서 얻었는데 이제 안 된다.
+- **`res.mdpi.com`이 새로 뚫렸다** — `www.mdpi.com`은 여전히 403이지만
+  `https://res.mdpi.com/d_attachment/{slug}/{slug}-{vol}-{art:05d}/article_deploy/...pdf`
+  패턴으로 MDPI 전 저널 PDF를 직접 받는다. **Metals는 PMC 미수록이라 이 경로가 유일하다.**
+- 확인된 가용처: OSTI · NTRS · NIST nvlpubs · DiVA · arXiv · SciELO · Frontiers · WIT Press ·
+  Europe PMC · 대학 리포지터리 대부분(uwspace·UCL·White Rose·QUT 등)
+- 차단: ScienceDirect · Springer · Wiley · T&F · Hindawi · DTIC · CORE · Zenodo API ·
+  ResearchGate · EDP Sciences
+
+## 50. 10기 배치 총결산 (2026-08-05)
+
+**11,401 → 12,207건 · 정의 128 → 147종 · 정합성 30항목 0 · 테스트 163 통과**
+
+이번 세션에 신설한 19개 키의 확보 현황.
+
+| 키 | 건수/재료 | 여는 것 |
+|---|---|---|
+| johnson_cook_damage | 40 / 6 | **삼축도 의존 파단 — 완성 세트 8** |
+| morrow_energy_× | 60 / 1 | **ΔW→수명, 온도 6점** |
+| cohesive_energy_mode1/2 | 27 / 2 | 박리 전파 (**모드 II 10건**) |
+| fatigue_ductility_× | 18 / 1 | Coffin-Manson 9쌍 |
+| friction_coefficient | 11 / 7 | 낙하 슬립 |
+| compression_set | 9 / 8 | 가스켓 장기 실링 |
+| darveaux_constant | 8 / 1 | 균열 개시·전파 |
+| moisture_saturation | 7 / 4 | 습기 확산 경계조건 |
+| partial_molar_volume | 6 / 2 | 화학-기계 연성 |
+| swelling_strain | 5 / 1 | 배터리 팽창 |
+| fatigue_strength_× | 8 / 2 | Basquin S-N |
+| hygroscopic_expansion | 1 / 1 | 흡습 팽윤 |
+| activation_energy | 1 / 1 | 가속시험 환산 |
+| **property_retention** | **0 / 0** | 노화 후 물성 — 유일한 미착수 |
+
+`property_retention`만 0건이다. 조건 넷(property·시간·T·RH)을 다 갖춘 인쇄값이 공개 문헌에
+없고 핵심 1차 문헌이 전부 유료다. **다만 EMC 계면 파괴에너지의 85/85 열화 계열
+(196.31 → 100.43 J/m², 6주)이 같은 정보를 다른 키로 담고 있다.**
+
+### 이번 배치가 드러낸 것 — 데이터보다 규율
+
+10기 중 **결함을 신고해 온 에이전트가 5기**다. 그중 4건이 우리 DB의 기존 오류였고
+(TDK 페라이트 열 오귀속, NRC 오분류, 3M 4411N 귀속, PEN 두께 불일치),
+2건은 문헌 자체의 오식이었다(4340 D3 부호 유실, Mg AZ31B 삼축도 역전 인용).
+
+**수집보다 검증이 값졌다.** 그리고 "내가 주는 대역은 판정 기준이 아니다"라는 한 줄이
+에이전트의 자기 정정을 두 번 끌어냈다(Csat 대역, Coffin-Manson 폐기 사유).
