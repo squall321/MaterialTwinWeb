@@ -373,3 +373,41 @@ Johnson & Cook 1983(7th Int. Symp. Ballistics)과 Johnson & Holmquist LA-11463-M
 둘 다 OSTI·NTRS·Crossref에 색인이 없다. 접근 가능한 사본은 전부 재인쇄본이라
 "원출처를 따라가라"는 규칙에 걸려 구리·황동 계열이 통째로 비었다. 규칙을 어길 이유는 없지만,
 이 대가가 어디서 발생하는지는 적어 둔다.
+
+## Q. 열을 좌표로 검증해야 하는 경우가 있다 (2026-08-05)
+
+자성재 배치가 검색엔진이 반복 보고하는 값을 **x좌표로 열 귀속을 검증해 기각**했다.
+이 프로젝트에서 나온 오독 방어 중 가장 엄밀했으므로 방법을 남긴다.
+
+**Alliance LLC "Physical Properties of Permanent Magnet Materials"** 를 두고 검색엔진들이
+일관되게 이렇게 말한다 — *"Cast Alnico: thermal conductivity 10–200 W/(m·K),
+specific heat 350–500 J/kg°C, Young's Modulus 100–200 GPa"*.
+
+**틀렸다.** 단어별 x좌표를 뽑아 보면,
+
+    "Cast Alnico" 헤더      x ≈ 175–202
+    "Sintered Alnico" 헤더  x ≈ 222–259
+    Young's Modulus 100-200 x = 219–261   → Sintered 열
+    Thermal Conductivity 10-200 x = 222–259 → Sintered 열
+    Specific Heat 350-500   x = 219–261   → Sintered 열
+
+**Cast Alnico의 세 칸은 비어 있다.** 표를 텍스트로만 평탄화하면 빈 칸이 사라지면서
+옆 열 값이 붙어 보인다. `pdftotext -layout`도 이 경우엔 안전하지 않다.
+
+같은 배치가 Deutsche Techna 카탈로그에서도 함정을 하나 더 걸렀다 —
+`Spezifische Wärme ~440 J/(kg·K)` · `E-Modul 150 kN/mm²` 블록이 **NdFeB 절**에 있었다
+(Curie ~330 °C가 단서). Alnico 값이 아니다.
+
+### 자성재는 이 물성들을 아예 공표하지 않는다
+
+- **MUMETALL(VAC)** — 데이터시트 7종(2024 strip/solid, PHT-001 영·독, PHT-002, CoFe, Cutting)을
+  전부 받아 확인. 물리물성 블록이 밀도·열전도율·열팽창·비저항·퀴리·영률로 고정돼 있고
+  **비열 열 자체가 없다.**
+- **METGLAS 2605SA1** — 기술회보 전 개정판(2001·2009·2011·2016·2021)과 SDS, NETL 코어
+  데이터시트까지 확인. 밀도·경도·인장·탄성계수·적층률·열팽창·결정화온도·연속사용온도로
+  고정이고 **비열·열전도율이 없다.**
+- **Alnico** — Arnold·Eclipse·MMPA 0100-00·ChenYang·IBS·Maurer 어디에도 없다. MMPA의 유일한
+  modulus 열은 `Transverse Modulus of Rupture`(굽힘강도)다.
+  thyssenkrupp만 **AlNiCo 전 계열 한 행**으로 셋을 싣는다 — 주조·소결·전 등급을 묶은 값이다.
+  비열 `~400 J/kg K`만 tier3 클래스값으로 등록했고, 영률 `100–200 kN/mm²`와
+  열전도율 `10–100 W/m K`는 **범위라 스칼라화가 불가능해** 넣지 않았다(열전도율은 10배 범위다).
