@@ -41,6 +41,37 @@ CHECKS = [
     ("온도가 값인데 온도 조건", f"select count(*) from property_value where property_key in {TEMP_VALUED} and conditions like '%temperature_C%'"),
     ("Prony 항에 항번호 없음", """select count(*) from property_value where property_key like 'mechanical.prony_%'
         and (conditions is null or conditions not like '%term%')"""),
+    # 계수·지수는 쌍이 맞아야 곡선이 성립한다. 하나만 있으면 수명 계산이 안 된다.
+    ("Basquin 계수·지수 쌍 불일치", """select count(*) from (
+        select material_id from property_value
+        where property_key in ('mechanical.fatigue_strength_coefficient','mechanical.fatigue_strength_exponent')
+        group by material_id
+        having count(distinct property_key)=1)"""),
+    ("Coffin-Manson 계수·지수 쌍 불일치", """select count(*) from (
+        select material_id from property_value
+        where property_key in ('mechanical.fatigue_ductility_coefficient','mechanical.fatigue_ductility_exponent')
+        group by material_id
+        having count(distinct property_key)=1)"""),
+    # Darveaux는 K1~K4 넷이 한 세트다. 일부만 있으면 수명 환산이 안 된다.
+    ("Darveaux 세트 불완전(4개 아님)", """select count(*) from (
+        select material_id from property_value where property_key='mechanical.darveaux_constant'
+        group by material_id having count(*) % 4 <> 0)"""),
+    # 항번호 없는 상수는 세트로 복원되지 않는다 — Prony와 같은 규율.
+    ("항번호 없는 다항 상수", """select count(*) from property_value
+        where property_key in ('mechanical.darveaux_constant','mechanical.anand_constant',
+                               'mechanical.johnson_cook_damage')
+        and (conditions is null or conditions not like '%term%')"""),
+    # 노화 유지율은 조건 넷이 다 있어야 해석 입력이 된다.
+    ("노화 유지율 조건 불완전", """select count(*) from property_value
+        where property_key='mechanical.property_retention'
+        and (conditions is null or conditions not like '%aging_hours%'
+             or conditions not like '%temperature%' or conditions not like '%property%')"""),
+    # 확산계수는 온도에 지수적으로 의존한다. 85 C와 상온이 10배 넘게 다르다.
+    # 조건에 '미상'이라고 밝힌 경우는 통과 — 값을 지우기보다 한계를 드러내는 편이 낫다.
+    ("확산계수에 온도 조건 없음", """select count(*) from property_value
+        where property_key='physical.diffusion_coefficient'
+        and (conditions is null or conditions not like '%temperature%')
+        and coalesce(conditions,'') not like '%미상%'"""),
     # 가정값은 반드시 tier4·estimated여야 한다. 그래야 대표값 선택에서 실측에 밀리고,
     # 나중에 실측이 들어오면 자동으로 대체된다(fill_assumed_poisson.py 참조).
     ("가정값인데 tier4·estimated 아님", """select count(*) from property_value

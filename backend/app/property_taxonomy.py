@@ -89,6 +89,53 @@ _DEFS: list[tuple] = [
     # 율속별 항복강도 — LS-DYNA LCSR(변형률속도 스케일 곡선)의 원자료.
     ("mechanical.yield_strength_at_rate", "mechanical", "변형률속도별 항복강도", None, "Pa", "numeric",
      ["strain_rate_s", "temperature_k"], None),
+    # ── 피로·손상 ─────────────────────────────────────────────────────────────
+    # 지금까지 fatigue_strength(단일 피로한도)만 있어 "무한수명 판정"밖에 못 했다.
+    # 아래 계수쌍이 있어야 "몇 사이클에 깨지는가"를 답한다.
+    #
+    # Basquin σa = σf'(2Nf)^b — 고주기(응력 지배). 반복 낙하·진동 수명.
+    ("mechanical.fatigue_strength_coefficient", "mechanical", "피로강도계수 σf'", "sigma_f", "Pa", "numeric",
+     ["model", "stress_ratio_R", "temperature_k"], "ASTM E466"),
+    ("mechanical.fatigue_strength_exponent", "mechanical", "피로강도지수 b", "b", "1", "numeric",
+     ["model", "stress_ratio_R"], "ASTM E466"),
+    # Coffin-Manson Δεp/2 = εf'(2Nf)^c — 저주기(변형률 지배). 온도사이클 솔더 균열.
+    ("mechanical.fatigue_ductility_coefficient", "mechanical", "피로연성계수 εf'", "eps_f", "1", "numeric",
+     ["model", "temperature_k"], "ASTM E606"),
+    ("mechanical.fatigue_ductility_exponent", "mechanical", "피로연성지수 c", "c", "1", "numeric",
+     ["model", "temperature_k"], "ASTM E606"),
+    # Darveaux K1~K4 — 사이클당 비탄성 소성일 ΔW를 균열 개시·전파 사이클로 환산한다.
+    # Anand로 계산한 ΔW가 이미 있어도 이 상수가 없으면 수명이 안 나온다.
+    ("mechanical.darveaux_constant", "mechanical", "Darveaux 균열 상수", None, "1", "numeric",
+     ["model", "term", "unit_of_term", "temperature_k"], None),
+    # Johnson-Cook 파괴 D1~D5 — 삼축도·율속·온도 의존 파단변형률.
+    # 지금은 총 파단연신율을 파괴 유효소성변형률로 근사하고 있다.
+    ("mechanical.johnson_cook_damage", "mechanical", "Johnson-Cook 파괴상수", None, "1", "numeric",
+     ["model", "term", "reference_strain_rate_s"], None),
+    # ── 계면 파괴(응집영역) ────────────────────────────────────────────────────
+    # 박리강도(peel)는 개시 판정만 된다. 전파를 보려면 파괴에너지가 필요하다.
+    ("interface.cohesive_energy_mode1", "interface", "응집영역 파괴에너지 GIC", "G_IC", "J/m^2", "numeric",
+     ["model", "temperature_k", "rate_mm_min"], "ASTM D5528"),
+    ("interface.cohesive_energy_mode2", "interface", "응집영역 파괴에너지 GIIC", "G_IIC", "J/m^2", "numeric",
+     ["model", "temperature_k", "rate_mm_min"], "ASTM D7905"),
+    ("interface.cohesive_strength", "interface", "응집영역 최대 트랙션", "T_max", "Pa", "numeric",
+     ["model", "mode", "temperature_k"], None),
+    # ── 습기 ─────────────────────────────────────────────────────────────────
+    # 85/85 후 낙하 같은 복합 시나리오의 끊어진 고리들.
+    ("physical.hygroscopic_expansion", "physical", "흡습팽창계수 CHE", "beta", "m^3/kg", "numeric",
+     ["temperature_k", "humidity_pct"], None),
+    ("physical.moisture_saturation", "physical", "포화 수분농도 Csat", "C_sat", "mol/m^3", "numeric",
+     ["temperature_k", "humidity_pct"], None),
+    # 노화 후 유지율 — 조건(시간·온도·습도)이 없으면 아무 의미가 없다.
+    ("mechanical.property_retention", "mechanical", "노화 후 물성 유지율", None, "1", "numeric",
+     ["property", "aging_hours", "temperature_k", "humidity_pct"], None),
+    # 가속시험 ↔ 실사용 환산.
+    ("chemical.activation_energy", "chemical", "Arrhenius 활성화에너지", "Ea", "J/mol", "numeric",
+     ["mechanism", "temperature_range_k"], None),
+    # ── 접촉·실링 ────────────────────────────────────────────────────────────
+    ("mechanical.friction_coefficient", "mechanical", "마찰계수", "mu", "1", "numeric",
+     ["mode", "counterface", "load_n", "temperature_k"], "ASTM D1894"),
+    ("mechanical.compression_set", "mechanical", "압축영구변형", None, "1", "numeric",
+     ["temperature_k", "duration_h", "compression_pct"], "ASTM D395"),
     # ── 열 ────────────────────────────────────────────────────────────────────
     ("thermal.conductivity", "thermal", "열전도율", "k", "W/(m*K)", "numeric", ["temperature_k"], "ASTM E1461"),
     ("thermal.specific_heat", "thermal", "비열", "cp", "J/(kg*K)", "numeric", ["temperature_k"], "ASTM E1269"),

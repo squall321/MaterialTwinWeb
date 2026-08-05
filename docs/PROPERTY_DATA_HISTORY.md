@@ -714,3 +714,38 @@ DB에서 직접 뽑으므로 재실행하면 항상 현재 상태를 반영한�
 - 포아송비 보유율이 99.5%인데 이 중 상당수가 가정값(2,039건이 tier4)이다.
   커버리지 숫자만 보면 안 되고 등급을 같이 봐야 한다 — 그래서 시트마다 tier를 함께 실었다.
 - 낙하의 `yield_strength_at_rate` 보유 재료는 **1종**(SAC305)뿐이다.
+
+## 39. 피로·손상·계면·습기 키 15종 신설 (정의 128 → 143) (2026-08-05)
+
+로드맵(FULL_DB_ROADMAP.md)이 특정한 "담을 자리가 없는 물성"을 만들었다.
+값을 채우기 전에 **자리부터 만들고 규율을 거는** 순서다 — Prony·초탄성에서 배운 방식이다.
+
+| 신설 키 | 여는 것 |
+|---|---|
+| `fatigue_strength_coefficient` / `_exponent` | Basquin σf'·b — 반복 낙하·진동 수명 |
+| `fatigue_ductility_coefficient` / `_exponent` | Coffin-Manson εf'·c — 온도사이클 솔더 균열 |
+| `darveaux_constant` | K1~K4 — ΔW를 사이클 수로 환산 |
+| `johnson_cook_damage` | D1~D5 — 삼축도 의존 파단 |
+| `cohesive_energy_mode1/2` · `cohesive_strength` | GIC·GIIC — 박리 **전파** |
+| `hygroscopic_expansion` · `moisture_saturation` | CHE·Csat — 흡습 팽윤 |
+| `property_retention` · `activation_energy` | 노화 유지율 · Arrhenius Ea |
+| `friction_coefficient` · `compression_set` | 낙하 슬립 · 가스켓 장기 실링 |
+
+### 자리와 함께 규율도 걸었다 (정합성 23 → 29항목)
+
+키만 만들면 반쪽 데이터가 들어온다. 그래서 검사를 먼저 넣었다.
+
+- **Basquin·Coffin-Manson 계수·지수 쌍 불일치** — 하나만 있으면 곡선이 안 된다
+- **Darveaux 세트 불완전(4의 배수 아님)** — K1~K4가 한 세트다
+- **항번호 없는 다항 상수** — Darveaux·Anand·JC 파괴는 `term` 없이 복원 불가
+- **노화 유지율 조건 불완전** — property·aging_hours·temperature 넷이 다 있어야 입력이 된다
+- **확산계수에 온도 조건 없음** — D는 Arrhenius로 온도에 지수 의존한다(85 °C와 상온이 10배 이상)
+
+**넣자마자 기존 데이터에서 1건이 걸렸다.** Al2O3 박막봉지의 수증기 확산계수(2.5e-21 m²/s)가
+Ca-test 측정 온도·습도 없이 들어 있었다. 원문(IOP, doi 10.1149/1.2779064)을 확인했으나
+초록에만 값이 있고 조건은 본문에 있으며 유료였다.
+
+**지우지 않고 한계를 명시했다** — `conditions.temperature = "미상"`, tier3으로 강등,
+"온도 없는 D는 해석 입력으로 그대로 쓰면 안 된다"를 note에. 파장 없는 광학값을 tier4로
+내리되 지우지 않은 것과 같은 처리다. 검사도 "미상이라고 밝힌 경우는 통과"로 맞췄다 —
+**값을 지우기보다 한계를 드러내는 편이 낫다.**
