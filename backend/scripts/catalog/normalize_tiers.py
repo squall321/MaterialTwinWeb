@@ -17,6 +17,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sqlite3
 from collections import Counter
@@ -28,8 +29,27 @@ DB = "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web/materialtwin.db
 NOT_A_DIRECT_MEASUREMENT = re.compile(
     r"계열|클래스|등가근사|대표값|추정|유사|proxy|representative|inferred|"
     r"미표기|미기재|not stated|not labelled|가정|assum|유도|derived|디지타이즈|digitiz|"
-    r"상당재|equivalent|midpoint|중앙값|대체값|not available|매핑|근사",
+    r"상당재|equivalent|midpoint|중앙값|대체값|not available|매핑|근사|"
+    r"class value|family value|grade_scope",
     re.I)
+# grade_scope는 두 방향으로 쓰인다. "class value"처럼 **이 등급 값이 아님**을 밝히기도 하고,
+# "grade-specific" · "3M VHB 4910 자체 TDS에 직접 인쇄된 값"처럼 **맞음**을 확인하기도 한다.
+# 존재만 보고 일괄 강등하면 후자를 잘못 깎는다(실제로 9건이 그렇게 깎일 뻔했다).
+_SCOPE_NOT_THIS_GRADE = re.compile(
+    r"class value|family value|계열|클래스|전용|대용|not grade-specific|generic|"
+    r"cross-reference|타 등급|다른 등급", re.I)
+
+
+def _has_grade_scope(cond_raw) -> bool:
+    """conditions의 grade_scope가 '이 등급 실측이 아니다'라고 말하고 있는가."""
+    try:
+        d = json.loads(cond_raw) if isinstance(cond_raw, str) and cond_raw.strip() else {}
+    except Exception:
+        return False
+    g = d.get("grade_scope") if isinstance(d, dict) else None
+    return bool(g) and bool(_SCOPE_NOT_THIS_GRADE.search(str(g)))
+
+
 # 논문 자체가 계산·시뮬레이션인 경우 — measured 표기 자체가 틀렸다.
 COMPUTATIONAL = re.compile(
     r"simulat|modeling|modelling|first-principles|ab initio|\bDFT\b", re.I)
@@ -84,7 +104,13 @@ def main() -> int:
         if rid in MANUAL_IDS:      # 개별 판정 대상은 자동 분류에서 제외
             continue
         blob = notes + " " + cond
-        if COMPUTATIONAL.search(title) and not MEASURED_HINT.search(notes):
+        # 조건에 grade_scope가 붙어 있으면 그 자체가 "이 등급의 실측이 아니다"라는 선언이다.
+        # 산문 정규식보다 이 구조적 표지를 먼저 본다 — 수집 브리프가 전부 이 키를 쓰도록
+        # 지시하는데, 예전엔 한글 "클래스"만 잡아서 `grade_scope: "class value"`가 통과했다.
+        # 그 결과 밀도·공정이 다른 대용값이 tier1로 승격됐다(EPE CTE가 실제로 그랬다).
+        if _has_grade_scope(cond):
+            keep.append((rid, mat, key, "grade_scope 표지(등급 불일치 선언)"))
+        elif COMPUTATIONAL.search(title) and not MEASURED_HINT.search(notes):
             to_computed.append((rid, mat, key, title))
         elif NOT_A_DIRECT_MEASUREMENT.search(blob):
             keep.append((rid, mat, key, "클래스·대표·추정 표지"))
