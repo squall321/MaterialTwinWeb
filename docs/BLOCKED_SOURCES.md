@@ -235,3 +235,64 @@ Nanomaterials 리뷰(PMC12734434)에 "~300–400% volume expansion"과 "approxim
 
 **공통 원칙.** 값이 있어도 **그 값을 해석하는 규약이 인쇄돼 있지 않으면** 넣지 않는다.
 부호·기준·정의를 내가 고르는 순간 그건 측정값이 아니라 내 가정이 된다.
+
+## M. 접근 가능/차단 목록 — 2026-08-05 재확인
+
+**내가 브리핑에 적어 온 차단 목록에 오류가 있었다.** 에이전트가 신고해 직접 확인했다.
+
+### 차단이 아니었던 곳 (내 오류)
+- **rogerscorp.com — 정상이다.** RO4000/RT-duroid/CLTE-AT 데이터시트가 HTTP 200 · `%PDF`로
+  내려온다(직접 확인: 872 KB, Tensile Modulus/Strength 행 판독됨). `rogerscorp.cn`도 동작한다.
+  세션 초반 한 번 403이 났던 것을 계속 차단으로 전파했다 — **여러 배치에 잘못된 정보를 줬다.**
+
+### 이관된 곳
+- **DuPont Kapton → `qnityelectronics.com`.** `dupont.com/.../electronics/...`는 404이고
+  동일 경로가 qnityelectronics.com에 살아 있다.
+
+### 새로 뚫린 경로
+- **`res.mdpi.com`** — `www.mdpi.com`은 403이지만
+  `https://res.mdpi.com/d_attachment/{slug}/{slug}-{vol}-{art:05d}/article_deploy/{slug}-{vol}-{art:05d}.pdf`
+  로 전 저널 PDF 직접 수신. **Metals·Polymers는 PMC 미수록이라 이 경로가 유일하다.**
+- **Georgia Tech SMARTech REST API** — 검색 + 본문 직접 다운로드. 앞 배치가 "Elsevier 유료라
+  불가"로 포기한 Ferguson & Qu 원문이 여기 학위논문으로 통째로 있었다.
+  TU Delft·TU Berlin DepositOnce·Loughborough·NEU도 같은 방식이 가능할 것이다.
+- **`download.basf.com`** — `p1/<hash>/en/ULTRAMID®_<GRADE>` 패턴, `/de/`→`/en/` 치환 통함.
+- OSTI purl · NTRS · NIST nvlpubs · DiVA · arXiv · SciELO · Frontiers · WIT Press ·
+  Europe PMC · J-Stage · OpenAlex API · 대학 리포지터리 대부분.
+
+### 실제 차단 (재확인)
+ScienceDirect · Springer · Wiley · T&F · Hindawi · **IOP(Radware 봇매니저 — 세션 중간에
+막혔다, 앞 배치에서는 되던 곳이다)** · EDP Sciences(DataDome) · IEEE · DTIC · CORE ·
+Zenodo API · ResearchGate · nitto.com · corning.com(Akamai) · norlandprod.com(연결 거부)
+
+### JS 렌더링이라 curl로 못 읽는 곳
+campusplastics.com · my.basf.com · plasticsfinder.envalior.com · industrial.panasonic.com(타임아웃)
+
+**교훈.** 차단 목록은 시간에 따라 변한다(IOP은 세션 중에 막혔고 rogerscorp는 애초에 안 막혀
+있었다). **한 번 403이 났다고 영구 차단으로 전파하지 말 것** — 재확인 비용이 잘못된 정보를
+여러 배치에 퍼뜨리는 비용보다 훨씬 싸다.
+
+## N. 항복강도 212종 결측은 검색 실패가 아니라 구조적이다 (2026-08-05)
+
+폴리머·복합재 157종을 훑어 `yield_strength`가 **단 1건**(Parylene HT) 나왔다.
+이유가 명확하다 — **유리섬유 강화 등급은 항복점이 없다.**
+
+BASF 제품군 총괄표가 ISO 527 행을 이렇게 적는다.
+
+    Yield stress (v=50 mm/min), (Stress at break (v=5 mm/min)*
+
+그리고 **GF 등급 값에 `*`를 붙여** 5 mm/min 파단응력임을 명시한다. 제조사가
+"이 등급에는 항복을 재지 않는다"고 문서로 선언한 것이다.
+Amodel·Grivory·Stanyl·Victrex PEEK·Vectra도 전부 `Tensile stress at break`뿐이고,
+Kapton EN/MT+·Apical·Upilex-25RN도 항복 항목이 없다. 적층판은 `ultimate stress`만 인쇄한다.
+
+**따라서 낙하 해석의 "항복강도 결측"은 채워서 해결할 문제가 아니다.**
+이 재료들은 항복 없이 파단하므로 `*MAT_024`의 SIGY를 억지로 만들면 안 되고,
+파단응력·파단연신율로 취성 파괴를 모델링하거나(`*MAT_ELASTIC` + 파괴 기준),
+GF 등급이면 이방성 카드를 써야 한다. **해석 준비도 지표에서 이 구분을 반영해야 한다.**
+
+### 함정 3건
+- **Kaneka Apical의 `Yield, ft²/lb`는 항복강도가 아니라 단위질량당 면적**(area yield)이다.
+- **Amodel의 `Flexural Stress — Yield 363 MPa`는 굽힘 항복**이지 인장 항복이 아니다.
+- **Parylene HT 검색 요약이 두 번 틀렸다** — 인장 "7,000–11,000 psi"는 **옆 칸 Acrylic 열**,
+  항복 "5,000–9,000 psi"는 Parylene N~D 열 범위를 뭉갠 것. HT 단일 셀은 인장 7,500 · 항복 5,000 psi다.
