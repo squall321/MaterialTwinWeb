@@ -60,6 +60,13 @@ _DEFS: list[tuple] = [
     # 상대완화계수 g_i는 무차원이라 Pa 키에 넣으면 단위가 거짓말이 된다.
     ("mechanical.prony_relative_modulus", "mechanical", "Prony 상대완화계수", "g_i", "1", "numeric",
      ["term", "temperature_k"], None),
+    # 체적완화 항. 워피지·흡습 팽윤처럼 정수압 성분이 지배하는 문제에서 전단항만으로는 못 푼다.
+    ("mechanical.prony_bulk_modulus", "mechanical", "Prony 체적탄성률 항", "K_i", "Pa", "numeric",
+     ["term", "temperature_k"], None),
+    # 완전완화 후의 평형계수 E∞. **youngs_modulus에 넣으면 안 된다** — DynaVia의 E∞는 7.55 MPa,
+    # 순간계수는 GPa급이다. 대표값으로 뽑히면 DYNA 카드의 E가 두 자릿수 틀어진다.
+    ("mechanical.prony_long_term_modulus", "mechanical", "Prony 장기 평형계수", "E_inf", "Pa", "numeric",
+     ["term", "temperature_k"], None),
     # ── 점소성 (율속·온도 의존 소성) ─────────────────────────────────────────────
     # 솔더·저융점 합금은 상온이 이미 T/Tm≈0.6이라 항상 크리프 영역에 있다. 정적 항복강도만으로
     # 고속 충격을 풀면 소성변형이 폭주해 요소가 뒤집힌다(negative volume). 아래 상수들이
