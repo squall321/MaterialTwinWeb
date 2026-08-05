@@ -108,19 +108,23 @@ def main():
             os.environ.setdefault("MATERIALTWIN_DATABASE_URL", f"sqlite:///{DB}")
             sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parents[2]))
             from app.db import SessionLocal
-            from app.dyna_export import K_PR_TAU, prony_series
+            from app.dyna_export import K_PR_TAU, build_cards, prony_series
             from app.models import PropertyValue
             with SessionLocal() as s:
-                ids = {m for (m,) in s.query(PropertyValue.material_id)
-                       .filter(PropertyValue.property_key == K_PR_TAU).distinct()}
-                usable = [m for m in ids
-                          if (prony_series(s, m) or {}).get("terms")]
+                ids = sorted({m for (m,) in s.query(PropertyValue.material_id)
+                              .filter(PropertyValue.property_key == K_PR_TAU).distinct()})
+                # 세트가 일관된 것과 **카드가 실제로 나오는 것**은 다르다.
+                # 076은 Prony 항 외에 밀도와 BULK도 요구하므로, 세트만 세면 준비도가 부풀려진다.
+                coherent = [m for m in ids if (prony_series(s, m) or {}).get("terms")]
+                res = build_cards(s, ids, card="mechanical")
+                made = [x for x in res.get("materials", [])
+                        if any("076" in c for c in x.get("cards", []))]
                 blocked = Counter()
-                for m in ids - set(usable):
-                    r = prony_series(s, m) or {}
-                    blocked[(r.get("reason") or "Prony 없음")[:46]] += 1
+                for x in res.get("skipped", []):
+                    blocked[(x.get("reason") or "")[:52]] += 1
             print("\n══ 벤딩 — 물성 보유 vs 카드 생성")
-            print(f"   Prony 보유 {len(ids)}종 → **실제 *MAT_076이 나오는 것 {len(usable)}종**")
+            print(f"   Prony 보유 {len(ids)}종 → 세트가 일관된 것 {len(coherent)}종"
+                  f" → **실제 *MAT_076 덱이 나오는 것 {len(made)}종**")
             for why, n_ in blocked.most_common():
                 print(f"     {n_:2d}종  {why}")
         except Exception as e:                       # 앱 임포트가 안 되는 환경에서도 나머지는 돌아야 한다
