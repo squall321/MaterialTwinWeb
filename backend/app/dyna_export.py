@@ -374,12 +374,65 @@ def match_rows(db: Session, tokens: list, mid_start: int = 1, limit: int = 6) ->
 
 
 
-def rate_scale_points(db: Session, mid: int) -> tuple[list[tuple[float, float]], float, object]:
+_RATE_COND = "strain_rate_s"
+_TEMP_COND = ("temperature_C", "temperature_c", "temperature_K", "temperature_k")
+_ROOM_C = 25.0
+_NO_TEMP_PENALTY = 5.0      # 무표기가 상온 명시값을 이기면 안 된다(catalog_compare와 같은 규칙)
+
+
+def _cond_temp_c(cond: dict):
+    """조건의 온도를 °C 하나로 모은다. C/K 표기가 섞여 들어오기 때문이다."""
+    for key, to_c in (("temperature_C", lambda v: v), ("temperature_c", lambda v: v),
+                      ("temperature_K", lambda v: v - 273.15),
+                      ("temperature_k", lambda v: v - 273.15)):
+        v = cond.get(key)
+        if isinstance(v, (int, float)):
+            return round(float(to_c(float(v))), 1)
+    return None
+
+
+# 계열을 가르지 **않는** 조건 — 재료의 상태가 아니라 측정을 서술하는 것들.
+#   crosshead_speed_mm_min: 율속을 다른 단위로 다시 쓴 것뿐이다(PA6-GF30 6점이 이것 때문에 갈렸다).
+#   test / loading: 시험 방법. 율속 곡선은 준정적 인장 + SHPB를 잇는 것이 표준 구성이라
+#     여기서 끊으면 SAC305가 정적 앵커(38 MPa)를 잃고 압축 구간만 남는다.
+#     다만 인장·압축이 섞이면 카드 주석에 그 사실을 적는다 — 폼·폴리머는 비대칭이 크다.
+#
+# **반복시험(replicate)·시편묶음(specimen_group)은 여기 넣지 않는다.** 넣으면 같은 율속에
+# 점이 둘씩 생겨 가로축이 중복되고 곡선이 지그재그가 된다(Ti Grade1 Test-1/Test-2 8점).
+# 평균을 내면 원문에 인쇄되지 않은 숫자가 되므로, 한 계열만 골라 쓴다.
+_DESCRIPTIVE_COND = frozenset((
+    "crosshead_speed_mm_min", "apparatus", "test", "loading", "temperature_stated"))
+_MODE_COND = ("test", "loading")
+
+
+def _series_key(cond: dict) -> tuple:
+    """율속과 측정 서술을 뺀 **나머지 조건 전부**가 하나의 곡선을 정한다.
+
+    온도만 볼 수는 없다. Kapton HN은 같은 298 K에서 ID·TD 두 방향을 재고, 금속은 같은 온도에서
+    열처리·결정립이 갈린다. 이것들을 한 곡선에 섞으면 가로축이 중복되고 배율이 1.0 → 0.94로
+    거꾸로 가는 *DEFINE_CURVE가 나온다. 축을 열거하는 대신 나머지를 통째로 비교한다.
+    """
+    rest = tuple(sorted(
+        (k, json.dumps(v, sort_keys=True, ensure_ascii=False))
+        for k, v in cond.items()
+        if k != _RATE_COND and k not in _TEMP_COND and k not in _DESCRIPTIVE_COND))
+    return (_cond_temp_c(cond), rest)
+
+
+def rate_series_modes(rows: list) -> list[str]:
+    """고른 계열이 몇 가지 시험 방법을 섞고 있는지 — 카드 주석에 적기 위한 것."""
+    modes = {str(r.conditions.get(k)) for r in rows
+             for k in _MODE_COND
+             if isinstance(r.conditions, dict) and r.conditions.get(k)}
+    return sorted(modes)
+
+
+def rate_scale_points(db: Session, mid: int) -> tuple[list[tuple[float, float]], float, object, list]:
     """율속별 항복강도 → LS-DYNA LCSR용 (변형률속도, 응력배율) 점 목록.
 
     LCSR은 변형률속도에 대한 **항복응력 배율** 곡선이다. 가장 느린 속도의 값을 1.0으로 잡고
-    나머지를 그에 대한 비로 만든다. 온도가 섞이면 율속 효과와 온도 효과가 뒤엉키므로
-    **온도가 같은(또는 둘 다 미표기인) 점들만** 쓴다 — 상온 계열을 우선한다.
+    나머지를 그에 대한 비로 만든다. 온도·방향 등이 섞이면 율속 효과와 뒤엉키므로
+    **조건이 완전히 같은 계열 하나만** 쓴다 — 상온에 가장 가까운 계열을 고른다.
 
     솔더처럼 T/Tm이 높은 재료는 이 곡선이 없으면 정적 항복만으로 충격을 풀게 되고,
     소성변형이 폭주해 요소가 뒤집힌다.
@@ -389,27 +442,33 @@ def rate_scale_points(db: Session, mid: int) -> tuple[list[tuple[float, float]],
         PropertyValue.property_key == K_SIGY_RATE,
         PropertyValue.value_num.isnot(None))).scalars().all()
     if not rows:
-        return [], 0.0, None
-    buckets: dict[object, list[tuple[float, float, object]]] = {}
+        return [], 0.0, None, []
+    buckets: dict[tuple, list[tuple[float, float, object]]] = {}
     for pv in rows:
         cond = pv.conditions if isinstance(pv.conditions, dict) else {}
-        rate = cond.get("strain_rate_s")
+        rate = cond.get(_RATE_COND)
         if not isinstance(rate, (int, float)) or rate <= 0:
             continue
-        buckets.setdefault(cond.get("temperature_k"), []).append(
+        buckets.setdefault(_series_key(cond), []).append(
             (float(rate), float(pv.value_num), pv))
-    if not buckets:
-        return [], 0.0, None
-    # 온도 미표기(상온 시험) 계열을 우선, 없으면 점이 가장 많은 계열.
-    key = None if None in buckets else max(buckets, key=lambda k: len(buckets[k]))
-    pts = sorted(buckets[key], key=lambda x: x[0])
-    if len(pts) < 2:
-        return [], 0.0, None
+    # 곡선이 되려면 서로 다른 율속이 둘 이상이어야 한다.
+    usable = {k: v for k, v in buckets.items() if len({p[0] for p in v}) >= 2}
+    if not usable:
+        return [], 0.0, None, []
+
+    def _pick(k: tuple) -> tuple:
+        t = k[0]
+        return (_NO_TEMP_PENALTY if t is None else abs(t - _ROOM_C), -len(usable[k]))
+
+    pts = sorted(usable[min(usable, key=_pick)], key=lambda x: x[0])
     base = pts[0][1]
     if base <= 0:
-        return [], 0.0, None
+        return [], 0.0, None, []
+    # 배율이 감소해도 곡선을 버리지 않는다 — Al2024-T3·Al5083-H116은 동적변형시효로
+    # **음의 율속민감도(NSRS)** 를 실제로 보인다. 버리면 참값을 버리는 것이다.
+    # 대신 카드 주석에 감소 사실을 적어 시편 산포와 구분해 판단하게 한다.
     # 기준 응력과 그 행을 함께 돌려준다 — 카드의 SIGY를 이 값으로 맞춰야 배율이 성립한다.
-    return [(r, s / base) for r, s, _ in pts], base, pts[0][2]
+    return [(r, s / base) for r, s, _ in pts], base, pts[0][2], [p[2] for p in pts]
 
 def build_cards(db: Session, tokens: list, card: str = "mechanical",
                 units: str = "ton_mm_s", mid_start: int = 1,
@@ -571,7 +630,7 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
                     lines.append(f"$   SIGY {_fmt(sigy * u.f_stress)} {u.stress_unit}   <- {prov.get((i, K_SIGY), '출처미상')}")
                     if etan:
                         lines.append(f"$   ETAN {_fmt(etan * u.f_stress)} {u.stress_unit} (UTS·연신율로 근사)")
-                    _pts_pre, _base_pre, _row_pre = rate_scale_points(db, i)
+                    _pts_pre, _base_pre, _row_pre, _ = rate_scale_points(db, i)
                     if len(_pts_pre) >= 2 and _base_pre > 0 and abs(_base_pre - sigy) / max(sigy, 1e-30) > 0.05:
                         lines.append(f"$   ※ SIGY를 {_fmt(sigy * u.f_stress)} → {_fmt(_base_pre * u.f_stress)} "
                                      f"{u.stress_unit}로 바꿔 씁니다 — LCSR 배율의 기준(1.0배)이 "
@@ -593,7 +652,7 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
                     cs_c, cs_p = val(i, K_CS_C), val(i, K_CS_P)
                     # 율속별 항복강도가 있으면 LCSR(응력배율 곡선)이 Cowper-Symonds보다 낫다 —
                     # 실측 점을 그대로 쓰므로 2상수 근사에 끼워 맞출 필요가 없다.
-                    rate_pts, rate_base, rate_row = rate_scale_points(db, i)
+                    rate_pts, rate_base, rate_row, rate_rows = rate_scale_points(db, i)
                     lcsr_id = 0
                     if len(rate_pts) >= 2:
                         lcsr_id = lcid_next[0]
@@ -604,6 +663,14 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
                         lines.append(f"$   LCSR {lcsr_id} — 변형률속도별 항복응력 배율 "
                                      f"({len(rate_pts)}점, {_fmt(rate_pts[0][0])}~{_fmt(rate_pts[-1][0])} 1/s)"
                                      f"   <- {rate_src}")
+                        if rate_pts[-1][1] < 1.0:
+                            lines.append("$     주의: 배율이 감소한다 — 음의 율속민감도(NSRS)이거나 "
+                                         "시편 산포다. 원문을 확인하고 쓸 것.")
+                        modes = rate_series_modes(rate_rows)
+                        if len(modes) > 1:
+                            lines.append("$     주의: 이 곡선은 시험 방법이 섞여 있다 — "
+                                         + " / ".join(_clip(m, 34) for m in modes))
+                            lines.append("$     인장·압축 비대칭이 큰 폼·폴리머라면 그대로 쓰지 말 것.")
                     if cs_c and cs_p:
                         lines.append(f"$   C {_fmt(cs_c / u.f_rate)} 1/{u.key.rsplit('_', 1)[-1]}"
                                      f"   p {_fmt(cs_p)} — Cowper-Symonds 변형률속도 경화"

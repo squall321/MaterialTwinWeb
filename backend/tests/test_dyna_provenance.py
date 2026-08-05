@@ -295,3 +295,96 @@ def test_lcsr_source_appears_in_references(mcp_env):
     lcsr_line = [ln for ln in deck.splitlines() if "LCSR" in ln and ln.startswith("$")][0]
     assert "출처미상" not in lcsr_line, f"LCSR 출처가 미상으로 나왔다: {lcsr_line}"
     assert "Strain rate study" in deck, "율속 출처가 참고문헌에 없다"
+
+
+def test_lcsr_splits_series_by_direction(mcp_env):
+    """같은 온도라도 방향이 다르면 다른 곡선이다.
+
+    Kapton HN은 298 K에서 ID·TD 두 방향을 각각 3율속으로 잰다. 온도만 보고 계열을 나누면
+    가로축이 (1e-4, 1e-4, 1e-3, 1e-3, ...)로 중복되고 배율이 1.000 → 0.944로 거꾸로 가는
+    *DEFINE_CURVE가 나온다. LS-DYNA가 받으면 안 되는 곡선이다.
+    """
+    M = mcp_env
+    mid = M.register_material(name="RateFilm", category="polymer")["material_id"]
+    for k, v, u_ in (("physical.density", 1420.0, "kg/m^3"),
+                     ("mechanical.youngs_modulus", 2.5e9, "Pa"),
+                     ("mechanical.poisson_ratio", 0.34, "1"),
+                     ("mechanical.yield_strength", 46.6e6, "Pa")):
+        M.register_property(mid, k, value=v, unit=u_, quality_tier=1,
+                            source_title="base", source_kind="datasheet")
+    pts = ((1e-4, 46.6e6, "ID"), (1e-3, 50.9e6, "ID"), (1e-2, 61.3e6, "ID"),
+           (1e-4, 44.0e6, "TD"), (1e-3, 50.8e6, "TD"), (1e-2, 61.5e6, "TD"))
+    for rate, sy, d in pts:
+        M.register_property(mid, "mechanical.yield_strength_at_rate", value=sy, unit="Pa",
+                            quality_tier=1,
+                            conditions={"strain_rate_s": rate, "temperature_k": 298,
+                                        "orientation": d},
+                            source_title="Kapton rate study", source_kind="journal")
+    from app.db import SessionLocal
+    from app.dyna_export import rate_scale_points
+    with SessionLocal() as s:
+        curve, base, _row, _rows = rate_scale_points(s, mid)
+    rates = [r for r, _ in curve]
+    assert len(rates) == 3, f"방향이 섞여 {len(rates)}점이 됐다 — 계열은 3점이어야 한다"
+    assert rates == sorted(set(rates)), f"가로축이 중복·역순이다: {rates}"
+    assert all(b >= a for a, b in zip([m for _, m in curve], [m for _, m in curve][1:])), \
+        "배율이 감소한다 — 두 방향이 섞였다는 뜻이다"
+    assert base in (46.6e6, 44.0e6), f"기준이 한 방향의 최저율속 값이 아니다: {base}"
+
+
+def test_lcsr_ignores_restated_rate_condition(mcp_env):
+    """크로스헤드 속도는 율속을 다시 쓴 것뿐이라 계열을 갈라선 안 된다.
+
+    PA6-GF30은 6율속을 crosshead_speed_mm_min 1~1000으로도 함께 인쇄한다. 이걸 계열 축으로
+    보면 점마다 계열이 하나씩 생겨 곡선이 통째로 사라진다.
+    """
+    M = mcp_env
+    mid = M.register_material(name="RateGF", category="composite")["material_id"]
+    for k, v, u_ in (("physical.density", 1360.0, "kg/m^3"),
+                     ("mechanical.youngs_modulus", 9.5e9, "Pa"),
+                     ("mechanical.poisson_ratio", 0.35, "1"),
+                     ("mechanical.yield_strength", 160e6, "Pa")):
+        M.register_property(mid, k, value=v, unit=u_, quality_tier=1,
+                            source_title="base", source_kind="datasheet")
+    for rate, sy, ch in ((0.0125, 131.08e6, 1), (0.125, 144.81e6, 10), (12.5, 174.26e6, 1000)):
+        M.register_property(mid, "mechanical.yield_strength_at_rate", value=sy, unit="Pa",
+                            quality_tier=1,
+                            conditions={"strain_rate_s": rate, "temperature_c": "23 +/- 2",
+                                        "crosshead_speed_mm_min": ch},
+                            source_title="GF30 rate study", source_kind="journal")
+    from app.db import SessionLocal
+    from app.dyna_export import rate_scale_points
+    with SessionLocal() as s:
+        curve, base, _row, _rows = rate_scale_points(s, mid)
+    assert len(curve) == 3, f"크로스헤드 속도가 계열을 갈랐다 — {len(curve)}점"
+    assert base == 131.08e6
+
+
+def test_lcsr_notes_mixed_test_modes(mcp_env):
+    """준정적 인장 + SHPB 압축을 이어 붙였으면 카드가 그 사실을 말해야 한다.
+
+    솔더 율속 곡선의 표준 구성이지만, 폼·폴리머는 인장·압축 비대칭이 커서 그대로 쓰면 틀린다.
+    시험 방법이 섞였다는 사실이 카드에 남아야 판단할 수 있다.
+    """
+    M = mcp_env
+    mid = M.register_material(name="RateMixed", category="metal")["material_id"]
+    for k, v, u_ in (("physical.density", 7370.0, "kg/m^3"),
+                     ("mechanical.youngs_modulus", 27.83e9, "Pa"),
+                     ("mechanical.poisson_ratio", 0.35, "1"),
+                     ("mechanical.yield_strength", 22e6, "Pa")):
+        M.register_property(mid, k, value=v, unit=u_, quality_tier=1,
+                            source_title="base", source_kind="datasheet")
+    for rate, sy, mode in ((0.001, 38e6, "quasi-static tension"),
+                           (600.0, 73e6, "SHPB compression"),
+                           (1800.0, 87e6, "SHPB compression")):
+        M.register_property(mid, "mechanical.yield_strength_at_rate", value=sy, unit="Pa",
+                            quality_tier=1,
+                            conditions={"strain_rate_s": rate, "test": mode},
+                            source_title="solder rate paper", source_kind="journal")
+    from app.db import SessionLocal
+    from app.dyna_export import build_cards, rate_scale_points
+    with SessionLocal() as s:
+        curve, base, _row, _rows = rate_scale_points(s, mid)
+        deck = build_cards(s, [mid], card="mechanical")["keyword"]
+    assert len(curve) == 3 and base == 38e6, "시험 방법 차이로 정적 앵커가 끊겼다"
+    assert "시험 방법이 섞여" in deck, "혼합 사실이 카드에 적히지 않았다"
