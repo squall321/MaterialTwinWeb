@@ -330,3 +330,46 @@ FR-4 ≈ 1100, PTFE-glass ≈ 1000 J/(kg·K)를 tier3로 넣을 수 있었지만
 PET Felt Acoustic Panel · PSA Rubber Hot-Melt(SIS/C5) · Silicone OCA(Momentive).
 벤더 사이트 접근 실패로 미검증인 비열 6종도 같다 — Doosan DS-7402, ITEQ IT-180A,
 ITEQ IT-968, Nan Ya NP-155FR, Shengyi S1000-2, TUC TU-872 SLK.
+
+## P. 접근 경로 — 이번 파동에서 확인된 것 (2026-08-05)
+
+**뚫린 것.**
+
+| 경로 | 상태 | 비고 |
+|---|---|---|
+| OSTI | **가장 잘 된다** | `/servlets/purl/{id}`, `/api/v1/records?q=`. Sandia SAND 보고서가 여기 있다 |
+| bzycj.cn (爆炸与冲击) | **엔드포인트 확보** | 아래 참조. 로그인·봇월 없음 |
+| Europe PMC | 정상 | `/{PMCID}/fullTextXML`이 표를 구조화해 준다 |
+| res.mdpi.com | 정상 | `.../{journal}-{vol:02d}-{art:05d}.pdf` — **볼륨 2자리 제로패딩 필수** |
+| Crossref · DOAJ · J-Stage | 정상 | |
+| Georgia Tech SMARTech DSpace | 정상 | 학위논문 bitstream은 항목별 200/401 갈림 |
+
+**bzycj.cn 검색 엔드포인트** — 앞 배치가 못 찾았던 것을 확보했다.
+
+    검색  POST https://www.bzycj.cn/search
+          form: q=<검색어>&searchField=<""|titleCn|keywordCn|abstractinfoCn|doi>&pageType=cn
+    본문  https://www.bzycj.cn/cn/article/doi/{DOI}
+    PDF   https://www.bzycj.cn/cn/article/pdf/preview/{DOI}.pdf
+
+`preview` 경로인데 **전문이 나온다**(10.11883/bzycj-2016-0266에서 10쪽 전체 확인).
+다만 이 저널의 금속 내용은 방호탄도 중심이라(장갑강, W-Ni-Fe 관통자, 폭발용접 복합재,
+콘크리트, 우라늄 합금) 스마트폰 재료 66종과는 겹치지 않았다. **수확 0건.**
+중국계 합금·장갑강 작업에는 쓸모가 있으므로 경로만 남긴다.
+
+**막힌 것.**
+
+- **OpenAlex · Semantic Scholar** — 세션 내내 HTTP 429. "Anonymous search is temporarily
+  rate-limited… use a free API key". **다음 배치 수확량을 가장 크게 좌우할 병목이다.**
+  무료 API 키를 발급받으면 해소된다.
+- **NTRS** — `/api/citations/search`가 이번 세션엔 모든 질의에 `total: 0`을 돌려줬다
+  (GET·POST 모두). 앞 배치에서는 동작했으므로 일시적일 수 있다.
+- **DYMAT proceedings** (10.1051/dymat/*) — DataDome이 curl을 403으로 막는다.
+  **명목상 오픈액세스인 1차 SHPB 데이터가 대량으로 여기 있다.** Playwright로는 뚫릴 수 있다.
+- DuckDuckGo · Searx · Brave · Mojeek · Startpage · Ecosia — 이 환경에서 전부 차단.
+- `www.mdpi.com/article/{doi}/pdf` — 403. res.mdpi.com 직링크를 써야 한다.
+
+**참고 — 재인쇄본을 못 쓰는 대가.** 황동·구리의 정전 Johnson-Cook 상수는 원출처가
+Johnson & Cook 1983(7th Int. Symp. Ballistics)과 Johnson & Holmquist LA-11463-MS인데
+둘 다 OSTI·NTRS·Crossref에 색인이 없다. 접근 가능한 사본은 전부 재인쇄본이라
+"원출처를 따라가라"는 규칙에 걸려 구리·황동 계열이 통째로 비었다. 규칙을 어길 이유는 없지만,
+이 대가가 어디서 발생하는지는 적어 둔다.
