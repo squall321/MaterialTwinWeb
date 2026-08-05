@@ -36,7 +36,10 @@ RANGE = {
     "thermal.specific_heat": (10.0, 5000.0),
     "thermal.expansion_linear": (-1e-4, 5e-3),
     "electrical.dielectric_constant": (1.0, 1e5),
-    "optical.refractive_index": (0.8, 5.0),   # EUV·X선은 n=1-delta<1 이 정상
+    # 굴절률은 대역이 넓다. 금속·금속성 질화물(TiN 0.79 @633nm)은 가시광에서 n<1이고,
+    # 실리콘은 400 nm에서 5.6까지 오른다. EUV·X선은 n=1−δ<1이다.
+    # 좁게 잡으면 정상값을 버린다 — 실제로 c-Si와 TiN이 걸렸다.
+    "optical.refractive_index": (0.01, 10.0),
     "optical.transmittance": (0.0, 1.0),
     "optical.haze": (0.0, 1.0),
     "optical.emissivity_total": (0.0, 1.0),
