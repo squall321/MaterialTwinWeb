@@ -63,6 +63,10 @@ _DEFS: list[tuple] = [
     # 체적완화 항. 워피지·흡습 팽윤처럼 정수압 성분이 지배하는 문제에서 전단항만으로는 못 푼다.
     ("mechanical.prony_bulk_modulus", "mechanical", "Prony 체적탄성률 항", "K_i", "Pa", "numeric",
      ["term", "temperature_k"], None),
+    # 논문마다 체적항을 절대값(K_i, Pa)으로 주기도 하고 비(k_i = K_i/K_0, 무차원)로 주기도 한다.
+    # 비를 Pa 키에 넣으면 K_1 = 0.037 Pa가 된다. K_0을 곱해 절대값으로 바꾸는 것은 역산이다.
+    ("mechanical.prony_relative_bulk_modulus", "mechanical", "Prony 상대 체적계수", "k_i", "1", "numeric",
+     ["term", "temperature_k"], None),
     # 완전완화 후의 평형계수 E∞. **youngs_modulus에 넣으면 안 된다** — DynaVia의 E∞는 7.55 MPa,
     # 순간계수는 GPa급이다. 대표값으로 뽑히면 DYNA 카드의 E가 두 자릿수 틀어진다.
     ("mechanical.prony_long_term_modulus", "mechanical", "Prony 장기 평형계수", "E_inf", "Pa", "numeric",
