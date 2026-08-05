@@ -66,7 +66,9 @@ RANGE = {
     # 무차원이라 단위 오입력도 못 잡는다 — 자릿수 사고만 막는다.
     "mechanical.hyperelastic_exponent": (-1e6, 1e6),
     "mechanical.prony_shear_modulus": (1.0, 1e11),
-    "mechanical.prony_relaxation_time": (1e-20, 1e12),   # 마스터커브는 WLF 시프트로 1e-16 s까지 간다
+    # 마스터커브는 WLF 시프트로 아래로 1e-16 s, 위로 1e14 s(≈3백만 년)까지 간다.
+    # 물리적 완화시간이 아니라 시간·온도 등가로 확장한 피팅 파라미터라 양쪽을 넓게 둔다.
+    "mechanical.prony_relaxation_time": (1e-20, 1e16),
 }
 # Material.category도 고정 어휘 — 에이전트 표기를 매핑한다.
 CAT_OK = {"metal", "polymer", "rubber", "composite", "ceramic", "foam"}
