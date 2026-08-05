@@ -52,6 +52,16 @@ CHECKS = [
         where property_key in ('mechanical.fatigue_ductility_coefficient','mechanical.fatigue_ductility_exponent')
         group by material_id
         having count(distinct property_key)=1)"""),
+    # Mooney-Rivlin 2항의 초기 전단탄성률 G0 = 2(C10+C01)이 음수면 Drucker 안정조건 위반이라
+    # 해석이 발산한다. 수집 중 실제로 2건이 들어왔다(변형률 0~10.4·0~16.4 전구간 피팅).
+    ("Mooney-Rivlin G0 음수(Drucker 불안정)", """select count(*) from (
+        select pv.material_id, json_extract(pv.conditions,'$.fit_strain_range') r,
+               sum(pv.value_num) s, count(*) n
+        from property_value pv
+        where pv.property_key='mechanical.hyperelastic_coefficient'
+          and pv.conditions like '%mooney_rivlin_2%'
+          and json_extract(pv.conditions,'$.term') in ('C10','C01')
+        group by pv.material_id, r having n=2 and s<=0)"""),
     ("Morrow 계수·지수 쌍 불일치", """select count(*) from (
         select material_id from property_value
         where property_key in ('mechanical.morrow_energy_coefficient','mechanical.morrow_energy_exponent')
