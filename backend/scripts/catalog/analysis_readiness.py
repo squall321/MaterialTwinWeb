@@ -10,8 +10,11 @@ E, NU, G, K = ('mechanical.youngs_modulus', 'mechanical.poisson_ratio',
                'mechanical.shear_modulus', 'mechanical.bulk_modulus')
 RHO = 'physical.density'
 PLAS = ('mechanical.yield_strength', 'mechanical.tensile_strength', 'mechanical.elongation_at_break')
+# 율속 의존을 표현하는 경로는 넷이다 — 어느 하나만 있어도 카드가 만들어진다.
+#   Cowper-Symonds 2상수 · DIF · 율속별 항복강도(LCSR 곡선 원자료) · Johnson-Cook C
 RATE = ('mechanical.cowper_symonds_c', 'mechanical.cowper_symonds_p',
-        'mechanical.dynamic_increase_factor')
+        'mechanical.dynamic_increase_factor', 'mechanical.yield_strength_at_rate',
+        'mechanical.johnson_cook_c')
 PRONY = ('mechanical.prony_relaxation_time', 'mechanical.prony_tensile_modulus',
          'mechanical.prony_shear_modulus', 'mechanical.prony_relative_modulus')
 MOIST = ('physical.water_vapor_transmission', 'physical.gas_permeability_h2o',
@@ -22,13 +25,28 @@ WET = ('physical.contact_angle_water', 'physical.surface_energy')
 FILMISH = ('film', 'tape', 'oca', 'ocr', 'psa', 'adhesive', 'coating',
            'laminate', 'foil', 'sheet', 'pi base', 'foam', '폼')
 
+# 소성·파괴 입력은 두 경로 중 하나면 된다.
+#   (a) 항복강도 — 연성 금속·무충전 폴리머
+#   (b) 인장강도 + 파단연신율 — 항복점이 없는 재료(GF 강화 등급·취성 필름·세라믹)
+# **(b)를 결측으로 세면 안 된다.** 유리섬유 강화 등급은 항복을 재지 않는 것이 정상이고
+# BASF 등 제조사가 ISO 527 행에 "Stress at break (v=5 mm/min)*"로 그렇게 명시한다.
+# 실제로 이 구분 없이 세면 146종이 부당하게 결측으로 잡혔다.
+PLAS_YIELD = ("mechanical.yield_strength",)
+PLAS_BRITTLE = ("mechanical.tensile_strength", "mechanical.elongation_at_break")
+
+
+def has_plasticity(ks: set) -> bool:
+    """소성·파괴 카드를 만들 수 있는가 — 항복강도 또는 (인장강도+연신율)."""
+    return PLAS_YIELD[0] in ks or all(k in ks for k in PLAS_BRITTLE)
+
+
 # (이름, 전체필수, [택일군], 대상필터)
 # 결로의 습기 물성은 흡습·투습하는 재료에만 요구한다. 금속·세라믹은 표면 결로만 보면 되므로
 # 여기에 투습도를 요구하면 없는 결함을 만들어낸다.
 ANALYSES = {
     "구조":   ([E, NU, RHO], [PLAS], None),
     "벤딩":   ([E, NU, RHO], [PRONY + (G,)], "film"),
-    "낙하":   ([E, NU, RHO] + list(PLAS), [RATE], None),
+    "낙하":   ([E, NU, RHO], [PLAS_YIELD + PLAS_BRITTLE, RATE], None),
     "열전달": (['thermal.conductivity', 'thermal.specific_heat', RHO], [], None),
     "열응력": (['thermal.expansion_linear', E, NU, RHO], [], None),
     "결로(표면)":  (['thermal.conductivity', 'thermal.specific_heat', RHO], [WET], None),
@@ -61,7 +79,12 @@ def main():
             continue
         tgt = scope(mat, filt)
         full = [m for m in tgt if all(k in own[m] for k in must)]
-        ready = [m for m in full if all(any(k in own[m] for k in grp) for grp in anyof)]
+        # 낙하의 소성군은 '항복 OR (인장 AND 연신)'이라 단순 any()로는 못 센다.
+        def _grp_ok(ks, grp):
+            if set(grp) == set(PLAS_YIELD + PLAS_BRITTLE):
+                return has_plasticity(ks)
+            return any(k in ks for k in grp)
+        ready = [m for m in full if all(_grp_ok(own[m], grp) for grp in anyof)]
         n = len(tgt)
         print(f"\n══ {name}  대상 {n}종")
         print(f"   필수 완비 {len(full):3d} ({len(full)*100//n:2d}%)"
@@ -71,7 +94,7 @@ def main():
             if miss:
                 print(f"     없음 {miss:3d}종  {k}")
         for grp in anyof:
-            miss = [m for m in full if not any(k in own[m] for k in grp)]
+            miss = [m for m in full if not _grp_ok(own[m], grp)]
             if miss:
                 print(f"     택일군 전무 {len(miss):3d}종  ({' | '.join(g.split('.', 1)[1] for g in grp)})")
                 print(f"        카테고리 {dict(Counter(mat[m][1] for m in miss))}")
