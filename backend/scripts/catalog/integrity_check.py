@@ -52,6 +52,11 @@ CHECKS = [
         where property_key in ('mechanical.fatigue_ductility_coefficient','mechanical.fatigue_ductility_exponent')
         group by material_id
         having count(distinct property_key)=1)"""),
+    ("Morrow 계수·지수 쌍 불일치", """select count(*) from (
+        select material_id from property_value
+        where property_key in ('mechanical.morrow_energy_coefficient','mechanical.morrow_energy_exponent')
+        group by material_id
+        having count(distinct property_key)=1)"""),
     # Darveaux는 K1~K4 넷이 한 세트다. 일부만 있으면 수명 환산이 안 된다.
     ("Darveaux 세트 불완전(4개 아님)", """select count(*) from (
         select material_id from property_value where property_key='mechanical.darveaux_constant'

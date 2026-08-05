@@ -852,3 +852,59 @@ Mooney-Rivlin C10 등 음수가 정상인 값이 여럿 있다).
 
 핵심 1차 문헌(Wong & Rajoo 2003, Ardebili 2003, Tee 2003, Jansen 2020)이 전부
 Elsevier·IEEE·Springer 유료다. **이 고리는 기관 구독이 없으면 공개 경로로 뚫기 어렵다.**
+
+## 42. 솔더 열피로 — 로드맵 1순위 확보 (2026-08-05)
+
+Anand로 사이클당 소성일 ΔW까지 가고 **사이클 수로 환산을 못 하던** 고리가 채워졌다.
+
+**Coffin-Manson 완성 쌍 9개** (전부 SAC305 직접 시험, tier1, 상온)
+Wei 2022(Auburn 박사) 4쌍 — 표면처리 OSP/ENIG × 제어방식.
+Abueed 2020(Auburn 박사) 5쌍 — dwell 0/10/60/180 s + global.
+계수 0.108~0.815, 지수 −0.396~−0.745.
+
+**Darveaux 완성 세트 1개** (Motalab 2013, Auburn 박사, 무시효 행)
+K1 = 37.97 `Cycles/MPa^K2` · K2 = −2.80 (tier1 measured)
+K3 = 3.99e−6 `m/Cycles-MPa^K4` · K4 = 2.05 — **원문이 "K4를 가정하고 K3를 계산했다"고
+밝혀 tier4·estimated로 내렸다.**
+
+에이전트가 수치 검산까지 했다 — ΔW≈0.25 MPa에서 Ni≈1.8e3, da/dN≈2.4e−7 m/cycle
+(원문 실측 1.94e−7과 동차수), Nf≈4.2e3으로 원문 Fig.5.9 무시효 특성수명(4~5천)과 일치.
+
+### 표준형이 아니라는 표기가 결정적이었다
+
+등록된 9쌍은 **교과서 Coffin-Manson(Δεp/2 = εf'(2Nf)^c)이 아니다.**
+
+    Wei    : dEps_p   = delta * N^(-alpha)     (전범위 소성변형률 vs 특성수명)
+    Abueed : dGamma_p = C * N63^(-m)           (전범위 소성**전단**변형률 vs Weibull N63)
+
+반진폭이 아니라 전범위, 2Nf가 아니라 N이다. **표준 구현에 그대로 넣으면 변형률과 사이클
+양쪽에서 2배씩 틀린다.** 게다가 Wei는 수직변형률, Abueed는 전단변형률이라 서로 섞어도 안 된다.
+`conditions.model_form`에 원문 식을 verbatim으로 박아 두 형태를 구분했다.
+
+원문이 지수를 양수 α로 인쇄하고 식이 `N^(-alpha)`이므로 부호를 붙여 `c = -α`로 등록했고
+그 사실도 note에 적었다.
+
+### 에이전트가 버린 것 — 등급 위장이 두 건
+
+- **εf' = 0.325** — 본문이 "the fatigue ductility coefficient εf = 0.325 was used for
+  **a eutectic tin-lead solder**"라고 자백한다. SAC305 열에 실려 있었지만 SnPb 값이다.
+- **Darveaux K1=71000/56300/48300 계열** (Micromachines 15(4):428) — 본문이 "eutectic
+  solder"라 설명하고 동일 논문의 Anand 상수가 62Sn36Pb2Ag다. 게다가 **K3의 지수부(×10⁻⁷)가
+  XML 원문에서 누락**돼 있었다(단위 역산으로 확인). 2차 인용이기도 하다.
+- **Abueed Table 7.5 / Sci Rep Table 5**(온도별) — **같은 학위논문 Table 6.2와 동일
+  명목조건에서 0.108/0.565 vs 2.528/0.859로 20배 불일치.** 폐기.
+
+### 못 채운 것
+**온도 의존성이 비어 있다.** 등록된 9쌍이 전부 상온이다. 솔더는 T/Tm이 높아 εf'·c의 온도
+의존이 큰데, 접근 가능한 온도별 피팅이 위 사유로 전부 걸렸다.
+구리박·언더필은 0건 — DB의 특정 제품명과 등급이 맞는 인쇄본을 못 찾았다(유력 후보 전부 유료).
+
+### Morrow 키를 신설했다 (정의 143 → 145)
+
+에이전트가 "**Morrow 에너지 모델이 Darveaux보다 데이터가 두껍다**"고 제안했고 타당하다.
+`morrow_energy_coefficient`/`_exponent` 2종을 만들고 쌍 검사도 걸었다(정합성 30항목).
+같은 SAC305 출처들에 이미 인쇄된 값이 있어(Wei Table 6-1, Abueed Table 7.4,
+Sci Rep Table 4, Mustafa) 같은 에이전트에게 이어서 맡겼다.
+
+Darveaux는 요소 크기 의존성 논란이 있고 지금 세트도 K3/K4가 가정값이라, Morrow가 있으면
+**가정 없이 ΔW→수명**이 열린다.

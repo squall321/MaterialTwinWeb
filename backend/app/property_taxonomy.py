@@ -107,6 +107,12 @@ _DEFS: list[tuple] = [
     # Anand로 계산한 ΔW가 이미 있어도 이 상수가 없으면 수명이 안 나온다.
     ("mechanical.darveaux_constant", "mechanical", "Darveaux 균열 상수", None, "1", "numeric",
      ["model", "term", "unit_of_term", "temperature_k"], None),
+    # Morrow 에너지 모델 N = (W/C)^(-1/m) — ΔW를 사이클로 환산하는 또 다른 경로.
+    # Darveaux보다 데이터가 두껍고 요소 크기 의존성 논란이 적다. 계수·지수가 한 쌍이다.
+    ("mechanical.morrow_energy_coefficient", "mechanical", "Morrow 에너지 계수", "C", "1", "numeric",
+     ["model", "model_form", "unit_of_term", "temperature_k"], None),
+    ("mechanical.morrow_energy_exponent", "mechanical", "Morrow 에너지 지수", "m", "1", "numeric",
+     ["model", "model_form", "temperature_k"], None),
     # Johnson-Cook 파괴 D1~D5 — 삼축도·율속·온도 의존 파단변형률.
     # 지금은 총 파단연신율을 파괴 유효소성변형률로 근사하고 있다.
     ("mechanical.johnson_cook_damage", "mechanical", "Johnson-Cook 파괴상수", None, "1", "numeric",
