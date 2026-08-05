@@ -296,3 +296,37 @@ GF 등급이면 이방성 카드를 써야 한다. **해석 준비도 지표에�
 - **Amodel의 `Flexural Stress — Yield 363 MPa`는 굽힘 항복**이지 인장 항복이 아니다.
 - **Parylene HT 검색 요약이 두 번 틀렸다** — 인장 "7,000–11,000 psi"는 **옆 칸 Acrylic 열**,
   항복 "5,000–9,000 psi"는 Parylene N~D 열 범위를 뭉갠 것. HT 단일 셀은 인장 7,500 · 항복 5,000 psi다.
+
+## O. 비열 — 벤더가 아예 인쇄하지 않는 물성이다 (2026-08-05)
+
+무기·복합재 비열 31종 전수를 훑어 **0건**이었다. 검색 실패가 아니라 문서에 없다.
+
+**CCL·프리프레그 — 벤더 6곳이 일관된다.** Rogers · Isola · AGC/Taconic · 중흥화성 ·
+Panasonic · TUC 전부 TDS에 열전도율·CTE·Td/Tg만 싣고 비열은 없다. 원문을 직접 열어
+확인한 것만 18종이다(TSM-DS3, CGN-500, CGS-500A, Isola 370HR·IS400·Astra MT77·I-Tera MT40,
+Ryton R-4, MEGTRON 6·7, CLTE-AT, RO4003C·RO4350B·RO4835, RF-35, TLX-8, TLY-5, TU-933).
+수지 함량별 비열 구분은 애초에 인쇄된 사례가 없어 `resin_content_pct` 조건을 쓸 일도 없었다.
+
+**연자성·영구자석 합금도 같다.** METGLAS 2605SA1(Technical Bulletin), MUMETALL(VAC),
+VACOFLUX 50(VAC), Alnico 5(MMPA 0100-00 Table II-4·II-5, Eclipse, Dura, Arnold TN 0205)
+전부 밀도·열전도율·CTE·저항률까지만 싣고 비열 행이 없다.
+
+**커버글래스도 없다.** Corning Gorilla Glass Victus·Victus 2의 PI Sheet를 전문 확인했다.
+밀도·영률·포아송·전단·Vickers·K1c·CTE·점도점·화학내구성·Dk·굴절률까지 있는데 비열만 없다.
+
+### 에이전트가 클래스 대표값 투입을 스스로 중단했다
+
+FR-4 ≈ 1100, PTFE-glass ≈ 1000 J/(kg·K)를 tier3로 넣을 수 있었지만 그러지 않았다.
+사유가 정확하다 — **그 숫자를 인쇄한 실제 접근 가능한 문서를 확보하지 못했고,
+기억에서 적으면 지어내기다.**
+
+이 물성은 벤더 경로가 막혔으므로 핸드북(CRC, ASM, NIST)이나 측정 논문으로 가야 한다.
+
+### 운영 제약 — WebSearch 세션 한도
+
+이 파동에서 WebSearch가 200회 한도에 도달했다. 이후 에이전트들은 URL 직접 추정과
+프록시 경유 fetch로 진행했고 그 방식으로도 원문 20여 개를 열었지만, 탐색형 작업은
+품질이 떨어진다. 아래 3종은 "부재 확인"이 아니라 **"덜 찾아봤다"** 로 분류해야 한다.
+PET Felt Acoustic Panel · PSA Rubber Hot-Melt(SIS/C5) · Silicone OCA(Momentive).
+벤더 사이트 접근 실패로 미검증인 비열 6종도 같다 — Doosan DS-7402, ITEQ IT-180A,
+ITEQ IT-968, Nan Ya NP-155FR, Shengyi S1000-2, TUC TU-872 SLK.
