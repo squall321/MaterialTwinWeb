@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import os
 import pytest
 from alembic import command
 from alembic.config import Config
@@ -169,3 +170,26 @@ def test_mcp_stdio_entrypoint_migrates_schema(db_url, tmp_path, monkeypatch):
     assert ran, "mcp.run이 호출되지 않았다"
     ver = sqlite3.connect(path).execute("SELECT version_num FROM alembic_version").fetchone()[0]
     assert ver == "888056f1c5b8", f"부팅이 스키마를 head로 올리지 않았다: {ver}"
+
+
+def test_database_url_follows_data_dir(tmp_path, monkeypatch):
+    """DATA_DIR만 지정해도 DB가 거기를 가리켜야 한다.
+
+    예전엔 mcp_server가 DATA_DIR과 DATABASE_URL을 각각 backend/var/data로 고정 setdefault해서,
+    DATA_DIR만 라이브로 준 경우 URL이 개발 경로로 먼저 박혀 DATA_DIR이 조용히 무시됐다.
+    이 모듈을 import만 해도 그렇게 되므로, import하는 스크립트가 전부 개발 DB를 보게 된다 —
+    실제로 수집 배치가 라이브 재료를 '재료 미지정'으로 오판했다.
+    """
+    import subprocess
+    import sys as _sys
+    from pathlib import Path as _P
+
+    backend = _P(__file__).resolve().parents[1]
+    env = {"PATH": os.environ.get("PATH", ""), "HOME": os.environ.get("HOME", ""),
+           "MATERIALTWIN_DATA_DIR": str(tmp_path)}
+    out = subprocess.run(
+        [_sys.executable, "-c", "import mcp_server, os; print(os.environ['MATERIALTWIN_DATABASE_URL'])"],
+        cwd=str(backend), env=env, capture_output=True, text=True, timeout=180)
+    assert out.returncode == 0, out.stderr[-800:]
+    url = out.stdout.strip().splitlines()[-1]
+    assert str(tmp_path) in url, f"DATA_DIR를 따르지 않는다: {url}"

@@ -10,8 +10,15 @@ _BACKEND = Path(__file__).resolve().parent
 if str(_BACKEND) not in sys.path:
     sys.path.insert(0, str(_BACKEND))
 # DB/DATA_DIR 기본값(미주입 시 backend/var/data). .mcp.json env가 우선.
+#
+# **DATABASE_URL은 DATA_DIR에서 유도한다.** 예전엔 둘 다 backend/var/data로 고정 setdefault해서,
+# DATA_DIR만 라이브로 지정하면 URL이 개발 경로로 먼저 박혀 DATA_DIR이 조용히 무시됐다.
+# 이 모듈을 import만 해도 그렇게 되므로, 이걸 import하는 스크립트(ingest_agent_json 등)가
+# 전부 개발 DB(70종)를 보게 된다 — 실제로 수집 배치가 "재료 미지정"으로 오판했다.
 os.environ.setdefault("MATERIALTWIN_DATA_DIR", str(_BACKEND / "var" / "data"))
-os.environ.setdefault("MATERIALTWIN_DATABASE_URL", f"sqlite:///{_BACKEND / 'var' / 'data' / 'materialtwin.db'}")
+os.environ.setdefault(
+    "MATERIALTWIN_DATABASE_URL",
+    f"sqlite:///{Path(os.environ['MATERIALTWIN_DATA_DIR']).resolve() / 'materialtwin.db'}")
 
 import io
 import numpy as np
