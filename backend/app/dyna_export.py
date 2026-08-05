@@ -5,7 +5,7 @@ import difflib
 import json
 import re
 
-from sqlalchemy import select
+from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from app.catalog_compare import representative_numeric, representative_rows
@@ -608,8 +608,18 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
             made.append("*MAT_VISCOELASTIC (006)")
         elif want_mech:
             if rho is None or E is None:
-                skipped.append({"material": m["name"], "card": "mechanical",
-                                "reason": "밀도 또는 영률 없음(카드 생성 불가)"})
+                # 카탈로그에 Prony 계수가 있는데 못 쓰고 있으면 그 사실을 드러낸다.
+                # 지금 점탄성 카드는 업로드된 완화시험(단일항 *MAT_VISCOELASTIC 006)만 낸다.
+                # 문헌에서 모은 11~14항 세트는 *MAT_GENERAL_VISCOELASTIC(076)이라야 담기는데
+                # 아직 구현이 없다. 조용히 "밀도 없음"으로만 보고하면 이 공백이 안 보인다.
+                n_prony = db.execute(select(func.count()).select_from(PropertyValue).where(
+                    PropertyValue.material_id == i,
+                    PropertyValue.property_key.like("mechanical.prony_%"))).scalar() or 0
+                reason = "밀도 또는 영률 없음(카드 생성 불가)"
+                if n_prony:
+                    reason += (f" · 카탈로그에 Prony {n_prony}항이 있으나 내보내지 못한다"
+                               " — 다항 세트는 *MAT_GENERAL_VISCOELASTIC(076)이 필요하고 아직 미구현")
+                skipped.append({"material": m["name"], "card": "mechanical", "reason": reason})
             else:
                 nu_v = nu if nu is not None else _DEFAULT_NU
                 lines.append("$")
