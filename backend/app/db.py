@@ -1,6 +1,7 @@
 # SQLAlchemy 엔진/세션/Base + SQLite PRAGMA(FK ON/WAL/busy_timeout) 리스너와 init_db.
 from __future__ import annotations
 
+import json
 import logging
 from collections.abc import Generator
 from datetime import timezone
@@ -24,9 +25,21 @@ _connect_args = {"timeout": 5} if _is_sqlite else {}
 if _is_sqlite:
     _connect_args["check_same_thread"] = False
 
+def _json_dumps(obj) -> str:
+    """JSON 컬럼은 한글을 **그대로** 저장한다.
+
+    기본 json.dumps는 ensure_ascii=True라 conditions의 한글이 \\uXXXX로 escape된다.
+    그러면 조건 텍스트를 한글로 검색하는 코드가 반쪽만 본다 — normalize_tiers의
+    승격 차단 정규식('계열'·'추정'·'미상')과 정합성 검사가 실제로 그렇게 뚫렸다
+    ('추정'은 19행 중 0행만 매칭됐다). 저장을 한 형태로 통일해 검색이 성립하게 한다.
+    """
+    return json.dumps(obj, ensure_ascii=False)
+
+
 engine: Engine = create_engine(
     settings.database_url,
     connect_args=_connect_args,
+    json_serializer=_json_dumps,
     future=True,
 )
 

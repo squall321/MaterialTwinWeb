@@ -562,3 +562,27 @@ def test_ingest_reads_quality_tier_field(tmp_path, mcp_env):
             PropertyValue.material_id == mid,
             PropertyValue.property_key == "physical.density").one()
         assert pv.quality_tier == 1, f"quality_tier=1로 보냈는데 tier{pv.quality_tier}로 들어갔다"
+
+
+def test_conditions_store_korean_unescaped(mcp_env):
+    """conditions의 한글은 \\uXXXX로 escape되면 안 된다.
+
+    SQLAlchemy JSON 컬럼의 기본 직렬화는 ensure_ascii=True다. 그러면 조건 텍스트를
+    한글로 검색하는 코드가 반쪽만 본다 — normalize_tiers의 승격 차단 정규식과
+    정합성 검사가 실제로 그렇게 뚫렸다('추정'이 19행 중 0행만 매칭됐다).
+    저장을 한 형태로 통일해야 검색이 성립한다.
+    """
+    import sqlite3
+
+    M = mcp_env
+    mid = M.register_material(name="KoCond", category="metal")["material_id"]
+    M.register_property(mid, "physical.density", value=7850.0, unit="kg/m^3", quality_tier=3,
+                        conditions={"note_ko": "계열 대표값 — 온도 미기재"},
+                        source_title="probe", source_kind="datasheet")
+    from app.config import get_settings
+    path = get_settings().database_url.replace("sqlite:///", "")
+    row = sqlite3.connect(path).execute(
+        "select conditions from property_value where material_id=? "
+        "and property_key='physical.density'", (mid,)).fetchone()
+    assert row and "계열" in row[0], f"한글이 escape돼 저장됐다: {row[0][:120]}"
+    assert "\\u" not in row[0], f"\\uXXXX escape가 남아 있다: {row[0][:120]}"
