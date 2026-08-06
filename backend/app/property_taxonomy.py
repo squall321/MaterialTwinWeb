@@ -231,6 +231,29 @@ _DEFS: list[tuple] = [
     ("physical.contact_angle_water", "physical", "물 접촉각", None, "deg", "numeric", None, None),
     ("physical.surface_energy", "physical", "표면에너지", None, "J/m^2", "numeric", None, None),
     ("physical.diffusion_coefficient", "physical", "확산계수", "D", "m^2/s", "numeric", ["species", "temperature_k"], None),
+    # 투과도 P = D·S 이므로 확산계수만으로는 반응-확산 해석의 경계조건을 못 세운다.
+    # 헨리 법칙 용해도(용존농도 = S·p)가 있어야 분압에서 막 내부 농도가 정해진다.
+    ("physical.gas_solubility", "physical", "기체 용해도(헨리)", "S", "mol/(m^3*Pa)", "numeric",
+     ["species", "temperature_k"], None),
+    # ── 광물리(발광·소광) ─────────────────────────────────────────────────────
+    # OLED 산소 소광 해석의 핵심. Stern-Volmer I0/I = 1 + k_q·tau0·[Q] 에서
+    # tau0(무소광 여기수명)가 R/G/B 선택성을 결정한다 — 인광 us급 vs 형광 ns급.
+    ("optical.excited_state_lifetime", "optical", "여기상태 수명", "tau_0", "s", "numeric",
+     ["temperature_k", "matrix", "atmosphere"], None),
+    # K_SV = k_q·tau0. 논문이 둘 중 어느 쪽을 인쇄하는지가 갈리므로 키를 나눈다.
+    ("optical.stern_volmer_constant", "optical", "Stern-Volmer 소광상수", "K_SV", "1/Pa", "numeric",
+     ["quencher", "temperature_k", "matrix"], None),
+    ("optical.bimolecular_quenching_rate", "optical", "이분자 소광 속도상수", "k_q", "m^3/(mol*s)", "numeric",
+     ["quencher", "temperature_k", "matrix"], None),
+    ("optical.photoluminescence_quantum_yield", "optical", "광발광 양자수율", "PLQY", "1", "numeric",
+     ["matrix", "atmosphere", "wavelength_nm"], None),
+    # 소광 에너지가 3O2 -> 1O2 로 넘어가면 가역 소광이 비가역 광산화로 전이한다.
+    # 가역 구간의 시한을 정하는 항이라 별도로 둔다.
+    ("optical.singlet_oxygen_quantum_yield", "optical", "일중항 산소 양자수율", "Phi_Delta", "1", "numeric",
+     ["matrix", "wavelength_nm"], None),
+    # 광개시제 흡수대(365~405 nm)와 UV 리셋 액션 스펙트럼을 대조하는 데 쓴다.
+    ("optical.molar_absorptivity", "optical", "몰흡광계수", "epsilon", "m^2/mol", "numeric",
+     ["wavelength_nm", "solvent"], None),
     # ── 음향/제진 ──────────────────────────────────────────────────────────────
     ("acoustic.speed_of_sound", "acoustic", "음속", "c", "m/s", "numeric", ["temperature_k"], None),
     ("acoustic.impedance", "acoustic", "음향임피던스", "Z", "Pa*s/m", "numeric", None, None),
