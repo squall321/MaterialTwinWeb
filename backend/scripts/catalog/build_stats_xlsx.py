@@ -11,6 +11,7 @@
 #   06 해석준비도      해석 7종별 완비율과 병목
 #   07 재료물성매트릭스 카테고리 × 주요 물성 커버리지
 #   08 데이터품질      가정값·조건 보유·이상치 점검 결과
+import pathlib
 import sqlite3
 import statistics as st
 import sys
@@ -362,6 +363,40 @@ def main():
     body(ws, 5, [(a, b, k.split(".", 1)[1], units.get(k, ""), why,
                   q1("select count(distinct material_id) from property_value where property_key=?", k))
                  for a, b, k, why in NEED], [18, 7, 34, 14, 52, 14])
+
+    # ── 11 해석 커버리지 — docx와 같은 숫자를 보게 한다 ────────────────────
+    import sys as _sys
+    _sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+    from coverage_report import ANALYSES as _AN
+    from coverage_report import compute as _cov
+    _c, _mat, _own, cov = _cov()
+    ws = sheet(wb, "11_해석커버리지",
+               "해석별 물성 커버리지 — 셀 채움률과 재료 준비율",
+               "셀 채움률 = 채워진 (재료 x 필수물성) 칸 / 전체 칸 (수집 진척도). "
+               "재료 준비율 = 그 해석을 실제로 돌릴 수 있는 재료 / 대상 재료 (해석 가능성). "
+               "둘은 다른 것을 잰다 — 재료마다 비어 있는 칸이 다르면 셀은 높고 준비는 낮다.")
+    head(ws, 4, ["해석", "설명", "대상 재료", "전체 칸", "채워진 칸", "셀 채움률",
+                 "준비 재료", "재료 준비율", "가장 큰 공백", "미보유 재료"])
+    rows = []
+    for x in cov:
+        desc = next(a[4] for a in _AN if a[0] == x["name"])
+        top = x["missing"][0] if x["missing"] else ("-", 0)
+        rows.append((x["name"], desc, x["n_target"], x["cells"], x["filled"],
+                     x["cell_pct"] / 100, x["n_ready"], x["ready_pct"] / 100,
+                     top[0].replace("택일군: ", "").split(".", 1)[-1], top[1]))
+    body(ws, 5, rows, [20, 46, 11, 10, 11, 12, 11, 13, 44, 12])
+    for r in range(5, 5 + len(rows)):
+        for col in ("F", "H"):
+            ws[f"{col}{r}"].number_format = "0.0%"
+    tot_c = sum(x["cells"] for x in cov)
+    tot_f = sum(x["filled"] for x in cov)
+    n = 5 + len(rows) + 1
+    ws[f"A{n}"] = "전체"
+    ws[f"A{n}"].font = Font(bold=True)
+    ws[f"D{n}"], ws[f"E{n}"] = tot_c, tot_f
+    ws[f"F{n}"] = tot_f / tot_c
+    ws[f"F{n}"].number_format = "0.0%"
+    ws[f"F{n}"].font = Font(bold=True)
 
     wb.save(OUT)
     print(f"저장: {OUT}")
