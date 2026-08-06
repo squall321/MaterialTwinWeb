@@ -83,10 +83,17 @@ CHECKS = [
              or conditions not like '%temperature%' or conditions not like '%property%')"""),
     # 확산계수는 온도에 지수적으로 의존한다. 85 C와 상온이 10배 넘게 다르다.
     # 조건에 '미상'이라고 밝힌 경우는 통과 — 값을 지우기보다 한계를 드러내는 편이 낫다.
+    # 온도를 모른다고 **밝힌** 경우는 통과시킨다. 한계를 드러낸 값을 지우는 것보다 낫다.
+    # 다만 '미상' 한 단어만 보면 같은 뜻의 다른 표기('미기재', 'not stated')가 걸린다 —
+    # 검사는 선언의 존재를 봐야지 특정 어휘를 봐선 안 된다.
     ("확산계수에 온도 조건 없음", """select count(*) from property_value
         where property_key='physical.diffusion_coefficient'
         and (conditions is null or conditions not like '%temperature%')
-        and coalesce(conditions,'') not like '%미상%'"""),
+        and coalesce(conditions,'') not like '%미상%'
+        and coalesce(conditions,'') not like '%미기재%'
+        and coalesce(conditions,'') not like '%미표기%'
+        and lower(coalesce(conditions,'')) not like '%not stated%'
+        and lower(coalesce(conditions,'')) not like '%unknown%'"""),
     # 가정값은 반드시 tier4·estimated여야 한다. 그래야 대표값 선택에서 실측에 밀리고,
     # 나중에 실측이 들어오면 자동으로 대체된다(fill_assumed_poisson.py 참조).
     ("가정값인데 tier4·estimated 아님", """select count(*) from property_value
