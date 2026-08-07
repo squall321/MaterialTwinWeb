@@ -671,3 +671,31 @@ PDF로, 나에게는 HTML로 왔다. 그래서 `file`로 실제 형식을 확인
   예외는 기능성 등급뿐이다(열전도 8800 라인, 도전성 Lohmann EC, 디스플레이용 OCA 817X).
 - **OCA/PSA의 산소 투과도.** 벤더가 발표하지 않는다. 봉지재는 업계가 "WVTR이 만족스러우면
   OTR도 만족한다"고 보고 WVTR만 측정한다.
+
+
+## X. bepress / Digital Commons 403 우회 — 뚫렸다 (2026-08-07)
+
+**원인은 `viewcontent.cgi`가 아니라 그 앞의 AWS WAF JS 챌린지였다.** 응답이
+`x-amzn-waf-action: challenge` 헤더와 함께 202 + 빈 본문으로 온다. curl은 UA를 아무리 바꿔도
+못 지난다. 절차는 이렇다.
+
+1. Playwright로 논문 랜딩페이지(`https://<site>/<series>/<n>/`)를 연다 → 챌린지가 자동
+   해결되고 `aws-waf-token` 쿠키가 생긴다.
+2. **페이지 컨텍스트 안에서** `fetch('viewcontent.cgi?article=N&context=SERIES',
+   {credentials:'include'})` → Blob → `<a download>` 클릭.
+3. Playwright `download` 이벤트를 잡아 `saveAs()`.
+
+`open.clemson.edu` · `mavmatrix.uta.edu` · `stars.library.ucf.edu` · `docs.lib.purdue.edu`
+넷에서 동일하게 작동했다. 4차 파동이 못 뚫었던 Clemson 논문(all_theses/4672, article=5700,
+22 MB)이 이 방법으로 열렸다.
+
+**전문검색 JSON API는 plain curl로 그냥 된다** —
+`https://<site>/do/search/results/json?q=<q>&start=0&facet=`. 웹페이지는 JS 렌더라 비어
+보이지만 이 엔드포인트는 `num_found`와 `docs[].url`을 준다. 26개 리포지터리를 병렬로 훑었다.
+
+**arrow.tudublin.ie는 WAF가 아니라 헤더 검사다.** UA만으로는 403이고, Chrome 헤더 전체
+세트(UA + Accept + Accept-Language + Referer(랜딩) + Sec-Fetch-*)를 주면 200이다.
+
+이 경로 하나로 학위논문 리포지터리가 통째로 열렸다. **워피지 논문이 마스터커브를 그림으로만
+싣고 계수표를 사내자산으로 남기는 관행 때문에, 같은 연구의 학위논문 부록이 유일한 출처인
+경우가 많다.** 5차 파동 벤딩 수확 118건의 대부분이 여기서 나왔다.
