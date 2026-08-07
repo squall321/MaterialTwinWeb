@@ -620,3 +620,40 @@ def test_replicate_meaning_is_decided_by_data(mcp_env):
     assert abs(base - 119.4e6) < 1.0
     i = rates.index(0.1)
     assert abs(curve[i][1] - 115.5e6 / 119.4e6) < 1e-6, "중복 율속에서 최솟값을 안 골랐다"
+
+
+def test_g0_falls_back_to_isotropic_definition(mcp_env):
+    """G0가 인쇄돼 있지 않아도 E와 ν가 있으면 g_i×G0 경로가 열려야 한다.
+
+    문헌은 상대계수 g_i를 주면서 G0는 안 주고 E와 ν만 주는 일이 흔하다.
+    (Versalink 폴리우레아가 그랬다 — E 1.084 GPa, ν 0.486, K0 4.54 GPa가 다 실측인데
+    G0 하나가 없어 14항 세트가 통째로 막혀 있었다.)
+
+    G=E/2(1+ν)는 등방 정의식이지 역산이 아니다. 같은 파일이 이미 E_i/2(1+ν)와
+    K=E/(3(1-2ν))를 같은 근거로 쓴다. 다만 DB에는 저장하지 않고 카드 주석에만 남긴다.
+    """
+    M = mcp_env
+    mid = M.register_material(name="PronyNoG0", category="polymer")["material_id"]
+    M.register_property(mid, "physical.density", value=1071.0, unit="kg/m^3",
+                        quality_tier=1, source_title="paper", source_kind="journal")
+    M.register_property(mid, "mechanical.youngs_modulus", value=1.084e9, unit="Pa",
+                        quality_tier=1, source_title="paper", source_kind="journal")
+    M.register_property(mid, "mechanical.poisson_ratio", value=0.486, unit="1",
+                        quality_tier=1, source_title="paper", source_kind="journal")
+    for i, (g, tau) in enumerate(((0.40, 1.0e-3), (0.25, 1.0e-1), (0.15, 1.0e1)), start=1):
+        for key, val_, unit in (("mechanical.prony_relative_modulus", g, "1"),
+                                ("mechanical.prony_relaxation_time", tau, "s")):
+            M.register_property(mid, key, value=val_, unit=unit, quality_tier=1,
+                                conditions={"term_index": i, "model": "gm_N3"},
+                                source_title="paper", source_kind="journal")
+    from app.db import SessionLocal
+    from app.dyna_export import build_cards, prony_series
+    with SessionLocal() as s:
+        ps = prony_series(s, mid)
+        deck = build_cards(s, [mid], card="mechanical")["keyword"]
+    assert ps and "terms" in ps, f"G0 폴백이 안 걸렸다: {ps}"
+    g0 = 1.084e9 / (2.0 * (1.0 + 0.486))
+    assert abs(ps["terms"][0][0] - 0.40 * g0) / (0.40 * g0) < 1e-9, ps["terms"][0]
+    # 어느 경로로 G0를 얻었는지 카드가 밝혀야 한다 — 안 밝히면 실측 G0와 구분이 안 된다.
+    assert any("G0=E/(2(1+" in n for n in ps["note"]), ps["note"]
+    assert "G0=E/(2(1+" in deck, "카드 주석에 환산 근거가 없다"

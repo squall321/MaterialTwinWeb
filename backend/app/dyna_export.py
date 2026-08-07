@@ -507,10 +507,20 @@ def prony_series(db: Session, mid: int) -> dict | None:
         sets.setdefault(_prony_set_key(cond), {}).setdefault(
             pv.property_key, {})[i] = float(pv.value_num)
 
-    rep = representative_numeric(db, [K_G0, K_K0, K_NU])
+    rep = representative_numeric(db, [K_G0, K_K0, K_NU, K_E])
     g0 = rep.get(K_G0, {}).get(mid)
     k0 = rep.get(K_K0, {}).get(mid)
     nu = rep.get(K_NU, {}).get(mid)
+
+    # G0가 인쇄돼 있지 않은 재료가 많다. 등방 정의식 G=E/2(1+ν)로 채운다 —
+    # 아래 E_i/2(1+ν) 경로, BULK의 K=E/(3(1-2ν)) 경로와 같은 근거다.
+    # DB에는 이렇게 만든 값을 저장하지 않는다(역산 금지). 카드에서만 쓰고 주석에 남긴다.
+    g0_why = "G0 실측"
+    if g0 is None and nu is not None and nu < 0.5:
+        e_inst = rep.get(K_E, {}).get(mid)
+        if e_inst:
+            g0 = e_inst / (2.0 * (1.0 + nu))
+            g0_why = f"G0=E/(2(1+ν)), E={_fmt(e_inst / 1e9)} GPa, ν={nu:g}"
 
     # 전단항을 만드는 경로 — 절대값이 있으면 그대로, 없으면 정의식으로 환산한다.
     # 환산은 그 모델의 정의(G_i = g_i·G0, G_i = E_i/2(1+ν))를 적용하는 것이지 역산이 아니다.
@@ -522,7 +532,8 @@ def prony_series(db: Session, mid: int) -> dict | None:
             continue
         for src, conv, why in (
                 (K_PR_G, (lambda v: v), "G_i 직접"),
-                (K_PR_GREL, (lambda v: v * g0) if g0 else None, "g_i × G0"),
+                (K_PR_GREL, (lambda v: v * g0) if g0 else None,
+                 "g_i × G0" if g0_why == "G0 실측" else f"g_i × G0 ({g0_why})"),
                 (K_PR_E, (lambda v: v / (2.0 * (1.0 + nu))) if nu is not None else None,
                  "E_i / 2(1+ν)")):
             if conv is None or src not in d:
