@@ -33,8 +33,15 @@ RATE = ("mechanical.cowper_symonds_c", "mechanical.cowper_symonds_p",
 PRONY = ("mechanical.prony_relaxation_time", "mechanical.prony_tensile_modulus",
          "mechanical.prony_shear_modulus", "mechanical.prony_relative_modulus", G)
 WET = ("physical.contact_angle_water", "physical.surface_energy")
+# 흡습 세 키를 다 넣는다. 24h만 세던 것은 자의적이었다 — 셋 다 "이 재료가 물을 얼마나
+# 머금는가"라는 같은 양이고, 어느 것이 인쇄되는지는 시험규격 관행이 정한다.
+# 유럽식 ISO 62 시트(BASF·Covestro·Victrex·Celanese·EMS)는 포화와 23 °C/50 %RH 평형만 싣고
+# 24h 침지값을 아예 발표하지 않는다. 18종을 벤더 문서까지 가서 확인했고 24h가 있는 건
+# Envalior 2종뿐이었다. 24h만 요구하면 이 계열은 자료가 있어도 영원히 빈 칸이다.
+# 오히려 흡습 팽윤은 사용 조건인 23 °C/50 %RH 평형이 가장 적합하다.
 MOIST = ("physical.water_vapor_transmission", "physical.gas_permeability_h2o",
-         "physical.diffusion_coefficient", "chemical.water_absorption_24h")
+         "physical.diffusion_coefficient", "chemical.water_absorption_24h",
+         "chemical.water_absorption_saturation", "chemical.moisture_absorption_equilibrium")
 HYPER = ("mechanical.hyperelastic_coefficient", "mechanical.hyperelastic_exponent")
 ADH = ("interface.peel_strength", "interface.lap_shear_strength", "interface.die_shear_strength")
 # taxonomy 실명이다. volume_resistivity·loss_tangent로 쓰면 존재하지 않는 키를 세게 돼

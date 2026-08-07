@@ -67,10 +67,13 @@ CHECKS = [
         where property_key in ('mechanical.morrow_energy_coefficient','mechanical.morrow_energy_exponent')
         group by material_id
         having count(distinct property_key)=1)"""),
-    # Darveaux는 K1~K4 넷이 한 세트다. 일부만 있으면 수명 환산이 안 된다.
-    ("Darveaux 세트 불완전(4개 아님)", """select count(*) from (
+    # Darveaux는 두 쌍으로 갈린다 — (K1,K2)는 균열 개시, (K3,K4)는 균열 성장 dA/dN이다.
+    # 넷을 다 요구하면 성장만 발표한 문헌을 결함으로 잡는다(NREL 소결은이 실제로 그랬다:
+    # dA/dN = 0.76·ΔW^0.431 로 K3·K4만 인쇄). 쌍이 깨진 것만 잡는다 —
+    # 지수 없는 계수, 계수 없는 지수는 어느 쪽도 쓸 수 없다.
+    ("Darveaux 쌍 깨짐(홀수 개)", """select count(*) from (
         select material_id from property_value where property_key='mechanical.darveaux_constant'
-        group by material_id having count(*) % 4 <> 0)"""),
+        group by material_id having count(*) % 2 <> 0)"""),
     # 항번호 없는 상수는 세트로 복원되지 않는다 — Prony와 같은 규율.
     ("항번호 없는 다항 상수", """select count(*) from property_value
         where property_key in ('mechanical.darveaux_constant','mechanical.anand_constant',
