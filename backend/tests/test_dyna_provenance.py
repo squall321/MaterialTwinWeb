@@ -586,3 +586,37 @@ def test_conditions_store_korean_unescaped(mcp_env):
         "and property_key='physical.density'", (mid,)).fetchone()
     assert row and "계열" in row[0], f"한글이 escape돼 저장됐다: {row[0][:120]}"
     assert "\\u" not in row[0], f"\\uXXXX escape가 남아 있다: {row[0][:120]}"
+
+
+def test_replicate_meaning_is_decided_by_data(mcp_env):
+    """replicate가 스윕 식별자인지 시편 ID인지는 데이터가 정한다.
+
+    Ti Grade1의 'Test-1'/'Test-2'는 각각 전 율속을 도는 스윕이라 계열을 갈라야 한다.
+    Nickel 200의 'HO 4790'~'HO 4797'은 시편 ID로 각각 한 율속뿐이라, 계열을 가르면
+    1점짜리 조각만 남아 5데케이드 스윕이 통째로 사라진다.
+    판별 기준은 하나 — 한 replicate 라벨이 여러 율속을 덮으면 스윕, 아니면 시편 ID.
+    """
+    M = mcp_env
+    mid = M.register_material(name="SpecimenIds", category="metal")["material_id"]
+    M.register_property(mid, "physical.density", value=8900.0, unit="kg/m^3",
+                        quality_tier=1, source_title="tds", source_kind="datasheet")
+    # 시편 ID — 라벨마다 율속 하나씩. 같은 율속에 두 시편.
+    pts = ((3e-4, 119.4e6, "HO 4790"), (0.1, 135.6e6, "HO 4791a"), (0.1, 115.5e6, "HO 4791"),
+           (1.0, 130.0e6, "HO 4792"), (10.0, 128.9e6, "HO 4794"), (100.0, 145.8e6, "HO 4796"))
+    for rate, sy, rep in pts:
+        M.register_property(mid, "mechanical.yield_strength_at_rate", value=sy, unit="Pa",
+                            quality_tier=3,
+                            conditions={"strain_rate_s": rate, "temperature_C": 20,
+                                        "replicate": rep},
+                            source_title="AEC report", source_kind="other")
+    from app.db import SessionLocal
+    from app.dyna_export import rate_scale_points
+    with SessionLocal() as s:
+        curve, base, _row, _rows = rate_scale_points(s, mid)
+    rates = [r for r, _ in curve]
+    assert len(rates) == 5, f"시편 ID가 계열을 갈라 스윕이 사라졌다: {rates}"
+    assert rates == sorted(set(rates)), f"가로축이 중복·역순이다: {rates}"
+    # 같은 율속에 둘이면 인쇄된 값 중 최솟값을 고른다(평균은 원문에 없는 숫자다).
+    assert abs(base - 119.4e6) < 1.0
+    i = rates.index(0.1)
+    assert abs(curve[i][1] - 115.5e6 / 119.4e6) < 1e-6, "중복 율속에서 최솟값을 안 골랐다"

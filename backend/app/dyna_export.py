@@ -405,17 +405,18 @@ _DESCRIPTIVE_COND = frozenset((
 _MODE_COND = ("test", "loading")
 
 
-def _series_key(cond: dict) -> tuple:
+def _series_key(cond: dict, drop_replicate: bool = False) -> tuple:
     """율속과 측정 서술을 뺀 **나머지 조건 전부**가 하나의 곡선을 정한다.
 
     온도만 볼 수는 없다. Kapton HN은 같은 298 K에서 ID·TD 두 방향을 재고, 금속은 같은 온도에서
     열처리·결정립이 갈린다. 이것들을 한 곡선에 섞으면 가로축이 중복되고 배율이 1.0 → 0.94로
     거꾸로 가는 *DEFINE_CURVE가 나온다. 축을 열거하는 대신 나머지를 통째로 비교한다.
     """
+    skip = set(_DESCRIPTIVE_COND) | ({"replicate"} if drop_replicate else set())
     rest = tuple(sorted(
         (k, json.dumps(v, sort_keys=True, ensure_ascii=False))
         for k, v in cond.items()
-        if k != _RATE_COND and k not in _TEMP_COND and k not in _DESCRIPTIVE_COND))
+        if k != _RATE_COND and k not in _TEMP_COND and k not in skip))
     return (_cond_temp_c(cond), rest)
 
 
@@ -592,6 +593,19 @@ def rate_scale_points(db: Session, mid: int) -> tuple[list[tuple[float, float]],
         PropertyValue.value_num.isnot(None))).scalars().all()
     if not rows:
         return [], 0.0, None, []
+    # replicate가 무엇을 뜻하는지는 데이터가 정한다.
+    #   Ti Grade1의 'Test-1'/'Test-2'는 **각각 전 율속을 도는 스윕**이라 계열을 갈라야 한다.
+    #   Nickel 200의 'HO 4790'~'HO 4797'은 **시편 ID**로 각각 한 율속뿐이라, 계열을 가르면
+    #   1점짜리 조각 9개가 되어 5데케이드짜리 스윕이 통째로 사라진다.
+    # 판별 기준은 하나다 — **한 replicate 라벨이 여러 율속을 덮으면 스윕, 아니면 시편 ID.**
+    _reps: dict[str, set] = {}
+    for pv in rows:
+        cond = pv.conditions if isinstance(pv.conditions, dict) else {}
+        r, rate = cond.get("replicate"), cond.get(_RATE_COND)
+        if r is not None and isinstance(rate, (int, float)):
+            _reps.setdefault(str(r), set()).add(float(rate))
+    rep_is_sweep = any(len(v) >= 2 for v in _reps.values())
+
     buckets: dict[tuple, list[tuple[float, float, object]]] = {}
     for pv in rows:
         cond = pv.conditions if isinstance(pv.conditions, dict) else {}
@@ -600,8 +614,8 @@ def rate_scale_points(db: Session, mid: int) -> tuple[list[tuple[float, float]],
             continue
         if _is_shear_yield(cond):
             continue
-        buckets.setdefault(_series_key(cond), []).append(
-            (float(rate), float(pv.value_num), pv))
+        key = _series_key(cond, drop_replicate=not rep_is_sweep)
+        buckets.setdefault(key, []).append((float(rate), float(pv.value_num), pv))
     # 곡선이 되려면 서로 다른 율속이 둘 이상이어야 한다.
     usable = {k: v for k, v in buckets.items() if len({p[0] for p in v}) >= 2}
     if not usable:
@@ -612,6 +626,16 @@ def rate_scale_points(db: Session, mid: int) -> tuple[list[tuple[float, float]],
         return (_NO_TEMP_PENALTY if t is None else abs(t - _ROOM_C), -len(usable[k]))
 
     pts = sorted(usable[min(usable, key=_pick)], key=lambda x: x[0])
+    # 같은 율속에 점이 둘 이상이면 *DEFINE_CURVE의 가로축이 중복돼 성립하지 않는다.
+    # 평균을 내면 원문에 없는 숫자가 되므로, **인쇄된 값 중 최솟값 하나를 고른다.**
+    # 모든 율속에 같은 규칙을 적용하므로 곡선 내부는 일관되고, 선택 사실은 카드에 적는다.
+    dup = len(pts) != len({p[0] for p in pts})
+    if dup:
+        picked: dict[float, tuple] = {}
+        for t in pts:
+            if t[0] not in picked or t[1] < picked[t[0]][1]:
+                picked[t[0]] = t
+        pts = [picked[r] for r in sorted(picked)]
     base = pts[0][1]
     if base <= 0:
         return [], 0.0, None, []
