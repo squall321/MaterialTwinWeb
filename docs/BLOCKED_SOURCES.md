@@ -456,3 +456,38 @@ scholar.archive.org는 JS 봇월(Playwright로도 막힘) · MDPI 사이트 검�
 **IOPscience는 Radware 캡차**라 curl·헤드리스 크롬 둘 다 막힌다.
 Crossref `query.bibliographic`은 이 분야에서 포화된다 — "Prony"가 응용 패키징 논문의
 제목에 거의 안 나오기 때문에 같은 3~4건만 반복된다.
+
+## S. 다이어태치 접착제 — 제품 라인이 다르면 값이 옮겨붙는다 (2026-08-07)
+
+**DELO MONOPOX AC 시리즈(이방도전 다이어태치) 6등급 전수 확인 — 열전도율 0건.**
+AC265 · AC268 · AC2457 · AC6530 · AC6545 · AC6568의 TDS를 전부 받아 읽었다
+(DELO 공식 사이트는 등급별 자료를 안 내리므로 Wayback CDX로 inseto.co.uk의 PDF를 열거해 확보).
+구판 장문 TDS(AC265 Revision 29)까지 확인했는데 밀도·점도·인장·다이전단·E·Tg·CTE·흡수율·이온함량은
+있어도 **열전도율 행이 없다.**
+
+TDS에서 `conductivit`가 나오는 곳은 제품 설명 줄뿐이다 —
+`anisotropic electrically conductive, filled, thixotropic`. **전기적 서술이고 수치가 아니다.**
+
+### 옮겨붙을 뻔한 값
+
+검색하면 "DELO MONOPOX 1.7 W/(m·K)"가 나온다. 그건 **MONOPOX TC2270**(열전도 등급)의 값으로
+**완전히 다른 제품 라인**이다. AC 등급에 붙이면 안 된다.
+
+같은 배치가 앞서 DELO TC2270에서 `Spezifische Wärmeleitfähigkeit`(열전도율)를 비열로 읽을 뻔한
+것도 잡았다. **이 벤더는 한 이름 아래 성격이 다른 라인을 두므로 등급 접미사를 반드시 확인해야 한다.**
+
+### 이방성이라 단일값으로 넣으면 안 된다
+
+AC 시리즈는 Ni 코어 / Au 도금 Ni 입자 ACA다(AC265는 `gold-plated nickel`, d50 2.5 µm,
+나머지는 `nickel core`, d50 5 µm). 값이 생기더라도 **z축과 xy면이 크게 다르므로
+등방 단일값으로 등록하면 안 된다.**
+
+### MEMS 다이어태치 에폭시 — 제품명 자체가 없다
+
+Prony 출처인 Materials 2017, 10(9)(PMC5615731)를 전문 확인했다. 접착제를 끝까지
+`die attach adhesive` · `epoxy-based adhesive`로만 부르고 **제조사·등급이 어디에도 없다.**
+Table 2 제목이 `Prony pairs of the die attach adhesive.`다. 열전도율도 없다(`conductivity`가
+문서에 한 번도 안 나온다). Table 1은 영률·포아송·CTE뿐이다.
+
+**값을 넣으려면 제품과 값을 둘 다 지어내야 하는 경우**라, 이 항목은 카탈로그 명명을 고치지 않는 한
+채울 수 없다.
