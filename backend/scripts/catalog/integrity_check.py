@@ -1,4 +1,4 @@
-# 카탈로그 정합성 32항목 일괄 점검 — 0이 아니면 결함이다. 배포 전 반드시 통과시킬 것.
+# 카탈로그 정합성 32항목 + 주의 1항목 일괄 점검 — 0이 아니면 결함이다. 배포 전 반드시 통과시킬 것.
 import sqlite3
 import sys
 
@@ -115,6 +115,51 @@ CHECKS = [
             cast(replace(substr(conditions, instr(conditions,'wavelength_nm')+15), '}}', '') as real) <= 0)"""),
 ]
 
+def k_missing_direction() -> int:
+    """열적 이방성이 입증됐는데 열전도율에 방향이 없는 값의 수.
+
+    같은 재료의 CTE가 두 방향 이상으로 갈려 있으면 그 재료는 열적으로 이방성이다.
+    그런데 열전도율만 스칼라 하나면 **서식 문제가 아니라 실제 공백이다** — CCL 배치가
+    "같은 표가 CTE는 방향을 갈라 놓고 열전도율은 안 갈랐다"고 짚은 그대로다.
+    FR-4는 면내가 두께방향의 약 3배라(0.81~1.06 vs 0.29~0.34) 등방으로 쓰면 크게 틀린다.
+
+    금속은 제외한다. 압연재는 인장에 방향이 있어도 열전도는 등방이다 —
+    처음엔 "어떤 물성이든 방향이 붙은 재료"로 셌더니 텅스텐·SUS304까지 걸렸다.
+    """
+    import json as _json
+    con = sqlite3.connect(DB)
+
+    def _dir(cond):
+        if not cond:
+            return None
+        try:
+            d = _json.loads(cond)
+        except Exception:
+            return None
+        x = d.get("direction") or d.get("orientation")
+        if not x or "not stated" in str(x).lower() or "unspecified" in str(x).lower():
+            return None
+        return str(x)
+
+    aniso: dict = {}
+    for mid, cond in con.execute(
+            "select p.material_id,p.conditions from property_value p "
+            "join material m on m.id=p.material_id "
+            "where p.property_key='thermal.expansion_linear' "
+            "and m.category in ('composite','polymer','ceramic')"):
+        d = _dir(cond)
+        if d:
+            aniso.setdefault(mid, set()).add(d)
+    proven = {m for m, s in aniso.items() if len(s) >= 2}
+    n = 0
+    for mid, cond in con.execute(
+            "select material_id,conditions from property_value "
+            "where property_key='thermal.conductivity'"):
+        if mid in proven and not _dir(cond):
+            n += 1
+    return n
+
+
 def bad_lcsr_curves() -> int:
     """LCSR 곡선의 가로축이 단조증가하지 않는 재료 수.
 
@@ -149,6 +194,15 @@ for label, sql in CHECKS:
 _v = bad_lcsr_curves()
 bad += 1 if _v else 0
 print(f"  {'LCSR 가로축 비단조':28s} {_v}{'  ←' if _v else ''}")
+
+# 주의 항목 — 결함은 아니지만 쓰는 사람이 알아야 하는 것. bad에 세지 않는다.
+# 방향을 지어내서 검사를 통과시키는 것도, 아는 위험을 안 알리는 것도 안 된다.
+_w = k_missing_direction()
+if _w:
+    print(f"\n  [주의] 열적 이방성이 입증된 재료인데 열전도율에 방향이 없는 값: {_w}건")
+    print("         CTE가 두 방향 이상으로 갈린 재료다. FR-4는 면내가 두께방향의 약 3배라")
+    print("         (0.81~1.06 vs 0.29~0.34 W/mK) 등방으로 쓰면 크게 틀린다.")
+    print("         원문에 방향이 없으면 지어내지 말고, 해석에서 이 값을 등방으로 쓰지 말 것.")
 q = lambda s: c.execute(s).fetchone()[0]
 print(f"\n재료 {q('select count(*) from material')} · 물성값 {q('select count(*) from property_value')}"
       f" · 출처 {q('select count(*) from source')}"
