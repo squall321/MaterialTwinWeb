@@ -400,9 +400,15 @@ def _cond_temp_c(cond: dict):
 # **반복시험(replicate)·시편묶음(specimen_group)은 여기 넣지 않는다.** 넣으면 같은 율속에
 # 점이 둘씩 생겨 가로축이 중복되고 곡선이 지그재그가 된다(Ti Grade1 Test-1/Test-2 8점).
 # 평균을 내면 원문에 인쇄되지 않은 숫자가 되므로, 한 계열만 골라 쓴다.
+# `test_method`·`instrument`·`procedure`도 여기다. 율속 스윕은 원래 **장비를 갈아타며** 만든다 —
+# 준정적은 만능시험기, 동적은 SHPB다. 장비가 계열을 가르면 5데케이드짜리 스윕이 두 토막 난다.
+# (E-44 에폭시가 실제로 그랬다. 같은 Φ5x5 시편·같은 25 °C·같은 논문인데 3점+3점으로 갈렸다.)
+# 계열을 정하는 것은 **하중 모드**(인장/압축/전단)이지 장비가 아니다. 모드가 섞이면
+# rate_series_modes()가 카드 주석에 그 사실을 적는다 — 막지 않고 드러낸다.
 _DESCRIPTIVE_COND = frozenset((
-    "crosshead_speed_mm_min", "apparatus", "test", "loading", "temperature_stated"))
-_MODE_COND = ("test", "loading")
+    "crosshead_speed_mm_min", "apparatus", "test", "loading", "temperature_stated",
+    "test_method", "instrument", "procedure", "test_standard"))
+_MODE_COND = ("test", "loading", "test_method")
 
 
 def _series_key(cond: dict, drop_replicate: bool = False) -> tuple:

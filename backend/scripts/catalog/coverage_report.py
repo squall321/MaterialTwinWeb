@@ -37,7 +37,10 @@ MOIST = ("physical.water_vapor_transmission", "physical.gas_permeability_h2o",
          "physical.diffusion_coefficient", "chemical.water_absorption_24h")
 HYPER = ("mechanical.hyperelastic_coefficient", "mechanical.hyperelastic_exponent")
 ADH = ("interface.peel_strength", "interface.lap_shear_strength", "interface.die_shear_strength")
-ELEC = ("electrical.dielectric_constant", "electrical.volume_resistivity", "electrical.loss_tangent")
+# taxonomy 실명이다. volume_resistivity·loss_tangent로 쓰면 존재하지 않는 키를 세게 돼
+# 전기·EMI가 실제보다 낮게 나온다(실제로 그랬다 — 유전율 하나만 세고 있었다).
+ELEC = ("electrical.dielectric_constant", "electrical.resistivity_volume",
+        "electrical.dissipation_factor")
 FATIG = ("mechanical.fatigue_strength_coefficient", "mechanical.fatigue_ductility_coefficient",
          "mechanical.darveaux_constant", "mechanical.morrow_energy_coefficient")
 O2 = ("physical.gas_permeability_o2", "physical.gas_solubility")
@@ -47,10 +50,18 @@ PHOTO = ("optical.excited_state_lifetime", "optical.stern_volmer_constant",
 # 대상 필터 — 전 재료가 대상이 아닌 해석이 있다. 벌크 금속에 층두께를 요구하면 척도가 왜곡된다.
 FILMISH = ("film", "tape", "oca", "ocr", "psa", "adhesive", "coating", "laminate",
            "foil", "sheet", "pi base", "foam", "폼")
-# 산소 소광은 발광 스택과 그 위 유기 벌크에만 해당한다. 전 재료에 걸면 척도가 왜곡된다.
-EMISSIVE = ("oled", "emitter", "phosphor", "fluorescent", "dopant", "tadf", "iridium", "ir(",
-            "ptoep", "pdoep", "porphyrin", "coumarin", "oca", "psa", "color filter", "encapsulation",
-            "photoinitiator", "irgacure", "quantum dot", "polyimide")
+# 산소 소광은 두 역할로 갈라야 한다. 한 묶음으로 재면 분모가 거짓이 된다.
+#   발광체 — 고립 분자다. 투과계수·용해도는 벌크 수송 물성이라 정의 자체가 없다.
+#   매트릭스 — 벌크 필름이다. 여기수명·Stern-Volmer는 발광체가 아니면 없다.
+# 이전 정의는 둘을 한 스코프에 넣고 양쪽을 다 요구해서, 92종 중 71종이
+# "원리적으로 못 채우는 칸"을 세고 있었다. 0.0%는 수집 실패가 아니라 척도 오류였다.
+EMITTER = ("emitter", "dopant", "tadf", "iridium", "ir(", "ir-", "pt(", "pd(",
+           "ptoep", "pdoep", "porphyrin", "coumarin", "photoinitiator", "irgacure",
+           "thioxanthone", "benzophenone", "quantum dot", "phosphorescent", "phosphor dye",
+           "red phosphor", "blue emitter", "o2 sensor")
+# 매트릭스는 산소가 실제로 확산해 지나가는 벌크 층이다.
+MATRIX_O2 = ("oca", "psa", "optically clear", "color filter", "encapsulation", "barrier",
+             "polyimide", "acrylate", "coverlay", "adhesive film")
 # 피로는 반복하중을 받는 구조·솔더 계열이 대상이다.
 FATIGUE_CAT = ("metal", "composite", "ceramic")
 ELASTOMER = ("rubber", "foam")
@@ -80,8 +91,10 @@ ANALYSES = [
      "고속 신호 무결성, 안테나, 차폐"),
     ("피로·수명", [E, RHO], [FATIG], "fatigue",
      "솔더 열피로, 장기 반복하중"),
-    ("산소 소광(적색발광)", [], [O2, PHOTO], "emissive",
-     "산소 확산 × Stern-Volmer 소광. 신규 개통 영역"),
+    ("산소소광-발광체", [], [PHOTO], "emitter",
+     "여기수명·Stern-Volmer. 소광 자체를 푸는 쪽"),
+    ("산소확산-매트릭스", [], [O2], "matrix_o2",
+     "산소가 지나가는 벌크 층의 투과·용해"),
 ]
 
 
@@ -101,8 +114,10 @@ def scope(mat, filt):
         return [m for m in mat if mat[m][1] in ELASTOMER]
     if filt == "absorbent":
         return [m for m in mat if mat[m][1] in ABSORBENT]
-    if filt == "emissive":
-        return [m for m in mat if any(w in mat[m][0].lower() for w in EMISSIVE)]
+    if filt == "emitter":
+        return [m for m in mat if any(w in mat[m][0].lower() for w in EMITTER)]
+    if filt == "matrix_o2":
+        return [m for m in mat if any(w in mat[m][0].lower() for w in MATRIX_O2)]
     if filt == "fatigue":
         return [m for m in mat if mat[m][1] in FATIGUE_CAT]
     return list(mat)

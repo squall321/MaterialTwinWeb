@@ -35,7 +35,9 @@ RANGE = {
     "thermal.conductivity": (0.0, 3000.0),
     "thermal.specific_heat": (10.0, 5000.0),
     "thermal.expansion_linear": (-1e-4, 5e-3),
-    "electrical.dielectric_constant": (1.0, 1e5),
+    # MnZn 페라이트는 저주파에서 입계 효과로 겉보기 유전율이 1e5대까지 간다(TDK N48 = 140e3 @10 kHz).
+    # CCTO·릴랙서 강유전체는 1e6도 나온다. 1e5로 막으면 정상값을 버린다 — 실제로 버렸다.
+    "electrical.dielectric_constant": (1.0, 1e7),
     # 굴절률은 대역이 넓다. 금속·금속성 질화물(TiN 0.79 @633nm)은 가시광에서 n<1이고,
     # 실리콘은 400 nm에서 5.6까지 오른다. EUV·X선은 n=1−δ<1이다.
     # 좁게 잡으면 정상값을 버린다 — 실제로 c-Si와 TiN이 걸렸다.

@@ -657,3 +657,37 @@ def test_g0_falls_back_to_isotropic_definition(mcp_env):
     # 어느 경로로 G0를 얻었는지 카드가 밝혀야 한다 — 안 밝히면 실측 G0와 구분이 안 된다.
     assert any("G0=E/(2(1+" in n for n in ps["note"]), ps["note"]
     assert "G0=E/(2(1+" in deck, "카드 주석에 환산 근거가 없다"
+
+
+def test_apparatus_does_not_split_a_rate_sweep(mcp_env):
+    """장비가 바뀌어도 한 율속 스윕이다 — 준정적 시험기와 SHPB는 스윕의 양쪽 절반이다.
+
+    율속 스윕은 원래 장비를 갈아타며 만든다. 준정적은 만능시험기(1e-3~1e-1 /s),
+    동적은 SHPB(1e3~1e4 /s)다. `test_method`가 계열을 가르면 5데케이드짜리 스윕이
+    두 토막 나고, 각 토막은 2~3점이라 LCSR이 좁아진다.
+    (E-44 에폭시가 실제로 그랬다 — 같은 Φ5x5 시편·같은 25 C·같은 논문인데 3점+3점.)
+
+    계열을 정하는 것은 하중 모드이지 장비가 아니다.
+    """
+    M = mcp_env
+    mid = M.register_material(name="RateSweepTwoRigs", category="polymer")["material_id"]
+    pts = [(1e-3, 45.7, "준정적 단축 압축 (만능시험기)"),
+           (1e-2, 50.2, "준정적 단축 압축 (만능시험기)"),
+           (1e-1, 53.8, "준정적 단축 압축 (만능시험기)"),
+           (2.5e3, 84.1, "SHPB 단축 압축"),
+           (3.5e3, 103.5, "SHPB 단축 압축"),
+           (4.8e3, 119.9, "SHPB 단축 압축")]
+    for rate, mpa, rig in pts:
+        M.register_property(mid, "mechanical.yield_strength_at_rate", value=mpa * 1e6,
+                            unit="Pa", quality_tier=2,
+                            conditions={"strain_rate_s": rate, "temperature_c": 25,
+                                        "test_method": rig},
+                            source_title="paper", source_kind="journal")
+    from app.db import SessionLocal
+    from app.dyna_export import rate_scale_points
+    with SessionLocal() as s:
+        curve, base, _skey, _notes = rate_scale_points(s, mid)
+    assert len(curve) == 6, f"장비가 계열을 갈랐다: {curve}"
+    assert curve[0][0] == 1e-3 and curve[-1][0] == 4.8e3, curve
+    assert all(curve[i][0] < curve[i + 1][0] for i in range(5)), "가로축이 단조가 아니다"
+    assert abs(curve[-1][1] - 119.9 / 45.7) < 1e-6, "배율이 최저 율속 기준이 아니다"
