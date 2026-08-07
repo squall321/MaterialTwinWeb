@@ -602,3 +602,72 @@ OSTI 4700948 Appendix B)이 여기서 나왔다. OCR을 믿지 않고 `pdftoppm 
 
 **다만 내가 원문에 접근하지 못했다.** cradpdf.drdc-rddc.gc.ca가 응답하지 않고 Europe PMC에도
 없다. 값을 옮겨 적지 않고 단서로만 남긴다. 접근이 되면 신규 재료로 등록할 것.
+
+## W. 5차 파동에서 뒤집힌 것과 새로 열린 것 (2026-08-07)
+
+### 뒤집힌 것 — 막혔다고 적어둔 것이 사실이 아니었다
+
+**IOPscience는 완전히 막힌 게 아니라 간헐적이다.** `iopscience.iop.org/article/{DOI}/pdf`에
+UA를 붙이면 2.1 MB짜리 정상 PDF가 오는 경우가 있다. 다만 막힐 때는 **200을 주면서 PDF가
+아니라 HTML(캡차/인터스티셜)을 돌려준다.** 같은 DOI(10.1149/1945-7111/ac8504)가 한 에이전트에게는
+PDF로, 나에게는 HTML로 왔다. 그래서 `file`로 실제 형식을 확인해야 한다 — HTTP 200을 믿으면 안 된다.
+
+### 도메인이 통째로 옮겨간 것
+
+**DuPont 전자재료가 `qnityelectronics.com`으로 분사·이전했다.** 구
+`(www.|www.beta.)dupont.com/content/dam/electronics/...` 경로는 전부 404이고, 도메인만
+바꾸면 같은 경로가 200이다. 카탈로그에 있던 Kapton FPC·Kapton HN·Pyralux HP 커버레이
+데이터시트 URL 3건을 실제로 받아 PDF임을 확인하고 교체했다.
+
+**이건 일회성 사건이 아니다.** 벤더 문서 URL은 조용히 죽는다. 출처 URL이 죽으면 값 자체는
+남아도 재확인이 불가능해진다. 주기적으로 데이터시트 URL의 생존을 확인할 필요가 있다.
+
+### 벤더 문서 자체가 함정인 경우
+
+**Rogers 선정가이드는 제품 TDS와 계통적으로 다른 값을 싣는다.** RO3003 박리강도가 선정가이드
+17.6 lbs/in 대 제품 TDS 12.7 lbs/in, RT/duroid 5880이 22.8 대 31.2 pli다. CLTE-XT는 판본
+간에도 다르다(2020년 단독 TDS 1.1 N/mm, 2023년 통합 TDS 1.7 N/mm). **선정가이드를 쓰지 마라.**
+
+**3M 8800 시리즈 TDS의 8820 열은 `** Estimated value based on Tape 8815 test data`다.**
+벤더가 자기 시트에 추정치라고 각주로 밝혀 놨는데 tier 1로 들어가 있었다. 각주를 읽어야 한다.
+
+**AGC는 최신 TDS에서 Peel 행을 지웠는데 배포처 사본이 보존하고 있다**(`hemeixinpcb.com`).
+같은 문서의 영률·포아송비·열전도율이 AGC 공식판과 완전히 일치해 원문성을 대조 확인했다.
+
+**Avery Dennison은 TDS 트리가 둘이다** — 현행 `tapes.averydennison.com/content/dam/...`과
+단종품 `.../Literature/Product%20Information/...`. **현행 트리의 404가 TDS 부재의 증거가 아니다.**
+
+### 새로 열린 경로
+
+- **accudynetest.com/polymer_surface_data/{슬러그}.pdf** — 폴리머별 표면에너지 시트 54종.
+  각 행이 1차 출처와 측정 방식(임계표면장력/접촉각/용융체/계산)을 함께 인쇄한다.
+  5차 파동 젖음 수확 91건 중 78건이 여기서 나왔다.
+- **res.mdpi.com은 `article_deploy/` 세그먼트가 필수다.** 없으면 404다.
+- **www-origin.nitto.com** — `www.nitto.com`이 HTTP/2 INTERNAL_ERROR로 죽을 때 우회로.
+- **Wayback `id_` 직행이 CDX API가 503일 때도 된다** — `web.archive.org/web/{year}id_/{원본URL}`.
+  corning.com이 직접 fetch에 403을 주는 PDF를 이걸로 복구했다.
+- **KoreaScience** `koreascience.kr/article/{JAKO id}.pdf` (UA 필요) — 한국 전자패키징·표면처리.
+- **ventec-group.com/media/{id}/{file}.pdf** — 동박·라미네이트 TDS가 인증 없이 열린다.
+- **EMS-GRIVORY Comparative Table** — 전 등급 전기물성을 한 장에 싣는다. 등급별 TDS 불필요.
+- **Panasonic** industrial.panasonic.com은 fetch 거부, **RS Online CDN(`docs.rs-online.com`)**에
+  같은 문서가 있다.
+- **arXiv API는 https + `-L`이어야 한다.** http는 301만 주고 조용히 빈 결과가 된다.
+- **Accuratus는 `curl --compressed` 없이는 gzip 바이너리가 떨어진다.**
+- **Smooth-On** `smooth-on.com/tb/files/{PRODUCT}_TB.pdf` — 실패하면 정확히 25,889바이트짜리
+  HTML 404가 온다. 크기로 걸러라.
+
+### 확정된 부재 (더 찾아도 안 나온다)
+
+- **커버글래스 4종(Victus/Victus 2/알루미노실리케이트/UTG)의 물 접촉각.** Corning PI 시트에
+  항목이 없고, 자사 백서는 bare 값을 오직 `< 10°` **상한**으로만 인쇄한다. Gorilla Glass를
+  기판으로 쓴 논문·특허는 전부 코팅 후 값만 싣는다.
+- **테이프 19종의 밀도.** 벤더가 두께로만 발표한다. Avery Dennison은 `Density` 행이 있는데
+  값이 `Medium`/`Low`라는 **단어**다. 완제품 테이프는 OSHA article 면제라 SDS 9절도
+  `Density: Not Applicable`이다. 라이너 평량은 테이프 질량이 아니다.
+- **GF 열가소성 18종의 율속 데이터.** 페이월이 아니라 **아예 발표하지 않는다.** BASF·Syensqo·EMS는
+  CAMPUS ISO 데이터시트를 1~5 mm/min 고정으로만 내고, 율속별 데이터는 Ultrasim·Digimat
+  상용 DB 안에 있다.
+- **PSA·OCA 테이프 ~50종의 전기물성.** TDS를 실제로 받아 grep한 결과 전기 섹션 자체가 없다.
+  예외는 기능성 등급뿐이다(열전도 8800 라인, 도전성 Lohmann EC, 디스플레이용 OCA 817X).
+- **OCA/PSA의 산소 투과도.** 벤더가 발표하지 않는다. 봉지재는 업계가 "WVTR이 만족스러우면
+  OTR도 만족한다"고 보고 WVTR만 측정한다.
