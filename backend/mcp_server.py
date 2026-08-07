@@ -100,7 +100,7 @@ def _gpa(v):
 
 @mcp.tool()
 def list_materials(category: str | None = None, query: str | None = None, limit: int = 50) -> list[dict]:
-    """재료 목록을 조회한다. category(metal/polymer/rubber…)와 query(이름·코드 부분일치)로 필터.
+    """재료 목록을 조회한다 — query 는 이름만 부분일치하며 material_code 는 검색되지 않는다('_'·'%' 는 SQL 와일드카드로 동작). 기본 50건·최대 200건을 id 오름차순으로 잘라 반환하고 총 건수·절단 여부를 알려주지 않는다(현재 재료 544건). 전체 건수는 database_summary, 200건을 넘는 열거는 find_materials_by_metadata(limit=1000), 코드로 찾을 때는 find_materials_by_metadata 를 쓴다.
 
     각 항목: id, name, category, mat_type, 대표 E(GPa)·UTS(MPa) 또는 점탄성 E0(MPa),
     그리고 n_properties·property_domains(보유한 화·물리 물성 수와 도메인 —
@@ -210,7 +210,7 @@ def get_material(material_id: int) -> dict:
 
 @mcp.tool()
 def list_property_definitions(domain: str | None = None) -> list[dict]:
-    """채울 수 있는 화·물리 물성 taxonomy(정의 레지스트리). domain으로 필터.
+    """채울 수 있는 화·물리 물성 taxonomy(정의 레지스트리) 157종을 11개 도메인으로 반환한다 — 정의 목록일 뿐 각 key 에 값이 들어 있는지는 알려주지 않는다. 여기서 얻은 key 는 search_catalog_property·catalog_property_distribution·ashby_data·register_property 에 넣는다(get_material_properties 는 key 가 아니라 domain 만 받는다).
 
     도메인: mechanical·interface(접착·박리)·thermal·electrical·optical·chemical·physical·
     acoustic·magnetic·rheological·structure.
@@ -228,7 +228,7 @@ def list_property_definitions(domain: str | None = None) -> list[dict]:
 
 @mcp.tool()
 def get_material_properties(material_id: int, domain: str | None = None) -> dict:
-    """재료의 수집된 화·물리 물성값 — 값·단위·조건·신뢰등급·출처(프로비넌스)까지.
+    """재료의 화·물리 물성값을 도메인별로 상한 없이 전부 반환한다(값·단위·조건·불확도·신뢰등급·출처). 정렬은 도메인 → quality_tier(1=측정 최상 … 5=추정) 순이라 같은 물성의 값 여러 건이 서로 떨어져 나온다. 상온·고체 우선 같은 대표값 선정 규칙은 적용하지 않으니 물성당 대표값 1개가 필요하면 compare_materials·search_catalog_property 를 쓴다. 물성이 많은 재료(최대 512건, 40만 자)는 반드시 domain 인자로 좁혀 호출한다 — property_key 인자는 없으며 넣어도 무시된다.
 
     한 물성에 출처·조건이 다른 값이 여러 개 공존할 수 있다(모두 반환, 등급 내림차순).
     """
@@ -260,7 +260,7 @@ def find_materials_by_metadata(manufacturer: str | None = None, material_class: 
                                subsystem: str | None = None, grade: str | None = None,
                                process: str | None = None, application: str | None = None,
                                category: str | None = None, limit: int = 100) -> list[dict]:
-    """재료 메타데이터로 검색(부분일치) — 제조사·재료계열·서브시스템·그레이드·공정·용도.
+    """재료 attributes 메타데이터(제조사·재료계열·서브시스템·그레이드·공정·용도)로만 부분일치 검색한다 — 물성값으로는 검색하지 못한다(그건 search_catalog_property). 인자를 하나도 주지 않으면 전 재료를 돌려주고, 기본 limit 100 에서 총계 없이 조용히 잘린다. limit 에 상한이 없어 limit=1000 으로 전 재료 열거가 가능하다(list_materials 의 200건 상한을 넘는 유일한 경로).
 
     카탈로그 추론 지원: 예) manufacturer='Mitsui'(그 업체 재료), material_class='COC'(모든 COC
     그레이드), subsystem='battery'(배터리 재료), process='injection molding'. attributes에 저장된
@@ -288,7 +288,7 @@ def find_materials_by_metadata(manufacturer: str | None = None, material_class: 
 
 @mcp.tool()
 def compare_materials(materials: list[str]) -> dict:
-    """두 개 이상(최대 12)의 재료를 물성별로 나란히 비교한다 — CPU 스펙 비교처럼.
+    """재료 2~12종을 카탈로그 물성값으로 나란히 비교한다 — materials 는 문자열 배열만 받으므로 id 도 ["73","68"] 처럼 문자열로 넘겨야 한다([73, 68] 은 스키마 검증 오류). 비교표는 카탈로그 물성(PropertyValue)만으로 만들고 인장·완화 시험 결과(E·UTS·항복·연신율)는 포함하지 않는다 — 시험값까지 보려면 get_material. 13개 이상 넘기면 앞 12개만 쓰고 나머지는 경고 없이 버린다.
 
     materials: 재료 이름 또는 id 리스트(예: ["APEL 5014CL", "Kapton PI Adhesive Tape"] 또는 [73, 68]).
     한 계열 전체(예: 동박 3종 + PI필름 3종)를 한 번에 넘겨 표로 훑을 수 있다.
@@ -335,7 +335,7 @@ def compare_materials(materials: list[str]) -> dict:
 @mcp.tool()
 def ashby_data(x_property: str = "physical.density",
                y_property: str = "mechanical.youngs_modulus") -> dict:
-    """Ashby 물성공간 산점도 '데이터'(좌표+메타) — plot_ashby(이미지)의 데이터판, 웹과 동일 코어.
+    """카탈로그 물성 임의 2축 Ashby 산점 좌표 데이터 — 157종 key 전 도메인 조합 가능(기본 밀도×영률 332점). 값은 신뢰등급 대표값의 SI 원단위 생값이고 point 수 제한이 없다(기본 조합 약 88KB). plot_ashby(인장 E–UTS 44건 이미지)와는 데이터원·축·단위가 다르며 그 데이터판이 아니다.
 
     x_property·y_property: property_key(예: 'physical.density', 'mechanical.youngs_modulus').
     후보 key는 list_property_definitions로 확인. x·y를 모두 가진 재료만, 각 재료의 대표값
@@ -360,7 +360,7 @@ def register_property(material_id: int, property_key: str, value: float | None =
                       source_title: str | None = None, source_kind: str = "journal",
                       source_manufacturer: str | None = None,
                       notes: str | None = None) -> dict:
-    """재료에 화·물리 물성값 1건을 근거(출처)와 함께 등록.
+    """재료에 물성값 1건을 근거(출처)와 함께 등록 — list_property_definitions 의 157개 key 전 도메인이 대상이다(mechanical 54·optical 18·thermal 16·chemical 15·physical 13·electrical 11·interface 9·structure 7·magnetic 5·rheological 5·acoustic 4). 시험 데이터 없이 카탈로그 물성을 채우는 표준 경로다.
 
     property_key는 list_property_definitions의 key. 근거 없는 값은 저장하지 않으므로
     source_doi/source_url/source_title 중 하나는 필수. method: measured/handbook/datasheet/
@@ -398,7 +398,7 @@ def register_property(material_id: int, property_key: str, value: float | None =
 
 @mcp.tool()
 def get_curve(test_id: int, kind: str = "nominal", max_points: int = 200) -> dict:
-    """시험 곡선 포인트(다운샘플). kind: nominal(공칭 σ-ε)·true(진응력)·relaxation(점탄성 E(t))."""
+    """한 시험(test_id)의 곡선 포인트를 LTTB 다운샘플로 반환. kind: nominal(공칭 σ-ε)·true(진응력, necking 포함)·relaxation(점탄성 E(t)) — 이 3개 외의 값은 경고 없이 nominal 로 폴백하니 반드시 셋 중 하나를 써라. max_points(기본 200)는 목표 점수이며 원본보다 크게 줘도 원본 점수까지만 나온다."""
     with SessionLocal() as s:
         if not s.get(Test, test_id):
             return {"error": "시험을 찾을 수 없습니다."}
@@ -431,7 +431,7 @@ def get_curve(test_id: int, kind: str = "nominal", max_points: int = 200) -> dic
 
 @mcp.tool()
 def get_fits(test_id: int) -> list[dict]:
-    """구성방정식 피팅 결과(Hollomon/Swift/Voce/Johnson-Cook)와 R²·파라미터."""
+    """인장 시험의 소성경화 구성방정식 피팅(Hollomon/Swift/Voce/Johnson-Cook)과 R²·파라미터 — 시험 73건 중 43건만 보유하며, 점탄성 시험과 존재하지 않는 test_id 는 구분 없이 빈 리스트를 돌려준다(점탄성 Prony 계수는 get_mat_card·get_material 참조)."""
     with SessionLocal() as s:
         rows = s.query(ConstitutiveFit).filter_by(test_id=test_id).order_by(ConstitutiveFit.r2.desc()).all()
         return [{"model": r.model, "r2": round(r.r2, 4) if r.r2 else None,
@@ -440,7 +440,7 @@ def get_fits(test_id: int) -> list[dict]:
 
 @mcp.tool()
 def get_mat_card(test_id: int, units: str = "ton_mm_s", model: str = "piecewise") -> str:
-    """LS-DYNA 재료카드 텍스트. 탄소성→*MAT_024(기본)·johnson_cook(*MAT_098), 점탄성→*MAT_VISCOELASTIC.
+    """시험 1건(test_id)의 LS-DYNA 재료카드 텍스트 — 시험 보유 73건 한정이며, 카드 값은 그 시험의 물성만 쓴다(RO 7850 kg/m^3·PR 0.3 은 고정 기본값이라 카탈로그 밀도·포아송비를 반영하지 않음). 탄소성→*MAT_024(하강곡선 20점 재샘플)·johnson_cook(*MAT_098), 점탄성→*MAT_VISCOELASTIC. 재료 544건 전체를 카탈로그 밀도·PR·열물성·CTE·출처까지 넣어 덱으로 뽑으려면 export_dyna_cards 를 써라.
 
     units: ton_mm_s(기본)·kg_m_s·g_mm_ms·kg_mm_ms. model: piecewise·johnson_cook(탄소성만).
     """
@@ -481,7 +481,7 @@ def get_mat_card(test_id: int, units: str = "ton_mm_s", model: str = "piecewise"
 @mcp.tool()
 def search_by_property(prop: str = "UTS_MPa", min_value: float = 0, max_value: float = 1e9,
                        limit: int = 30) -> list[dict]:
-    """물성값으로 재료 검색. prop: UTS_MPa·yield_MPa·E_GPa. 범위 내 재료를 값 내림차순 반환."""
+    """인장 시험 처리결과(ProcessedResult) 전용 검색 — prop 은 UTS_MPa·yield_MPa·E_GPa 3종뿐이고 모집단은 유효 인장시험 44건이다(재료 카탈로그 544건이 아님). 흡습률·CTE·유전율·열전도 등 전 도메인 물성과 카탈로그 기준 UTS/E(각 312·339건)는 search_catalog_property 를 써라. 기본 limit=30."""
     field = {"UTS_MPa": ProcessedResult.uts_pa, "yield_MPa": ProcessedResult.yield_strength_pa,
              "E_GPa": ProcessedResult.youngs_modulus_pa}.get(prop)
     if field is None:
@@ -502,7 +502,7 @@ def search_by_property(prop: str = "UTS_MPa", min_value: float = 0, max_value: f
 
 @mcp.tool()
 def plot_curve(test_id: int, kind: str = "auto") -> Image:
-    """시험 곡선을 그래프 이미지(PNG)로 렌더한다.
+    """시험 1건(test_id)의 곡선을 PNG 로 렌더한다 — 시험 보유 73건 한정. kind='auto' 면 탄소성은 공칭+진응력 σ-ε(넥킹 마커), 점탄성은 완화 E(t) 로그곡선. 탄소성 시험만 'nominal'/'true' 강제가 유효하고 점탄성 시험은 kind 와 무관하게 항상 완화 곡선을 그린다. 여러 재료를 겹쳐 비교하려면 plot_curves.
 
     kind='auto'면 탄소성은 공칭+진응력 σ-ε(넥킹 마커), 점탄성은 완화 E(t) 로그곡선.
     'nominal'/'true'/'relaxation'으로 강제 지정도 가능.
@@ -581,7 +581,7 @@ def _rep_test_for_material(s, material_id: int):
 @mcp.tool()
 def plot_curves(materials: list | None = None, test_ids: list | None = None,
                 kind: str = "nominal", max_points: int = 300) -> Image:
-    """여러 재료(또는 시험)의 응력-변형률 곡선을 한 그래프에 겹쳐 비교한다(PNG). 두 개 이상 재질 비교용.
+    """여러 재료·시험의 σ-ε 곡선을 한 그래프에 겹쳐 비교한다(PNG, 최대 12개이며 초과분은 그림에 표시 없이 잘림) — 인장 시험이 없는 재료는 제외하지 않고 카탈로그 스칼라(E·항복·UTS·연신율)에서 곡선을 합성해 점선으로 함께 그린다. 실선=실측, 점선=합성 근사이므로 반드시 구분해 해석하고, 실측 곡선만 필요하면 test_ids 로 시험을 직접 지정하라.
 
     materials: 재료 이름/ID 리스트 — 각 재료의 대표 유효 시험 곡선을 겹쳐 그린다.
     test_ids: 시험 ID로 직접 지정(materials 대신). kind: nominal(공칭 σ-ε)·true(진응력)·
@@ -709,7 +709,7 @@ def plot_curves(materials: list | None = None, test_ids: list | None = None,
 
 @mcp.tool()
 def database_summary() -> dict:
-    """DB 요약: 총 재료 수·카테고리별·시험유형별·피팅 레코드 수."""
+    """DB 요약 — 재료 수·카테고리 분포와 인장/완화 시험·구성방정식 피팅 레코드 수만 반환한다. 화·물리 물성 카탈로그(11개 도메인·정의 157종, 재료당 수십~수백 건의 물성값)의 규모는 이 요약에 포함되지 않으므로, 여기 tests_by_type 만 보고 'DB 에 인장 물성뿐'이라 판단하면 안 된다. 물성 쪽 규모는 list_property_definitions(정의 157종)·list_materials 의 n_properties·catalog_property_distribution 으로 확인한다."""
     with SessionLocal() as s:
         from collections import Counter
         cats = Counter(x[0] for x in s.query(Material.category).all())
@@ -721,21 +721,21 @@ def database_summary() -> dict:
 
 @mcp.tool()
 def material_taxonomy() -> dict:
-    """재료 클래스 분류 개요 — 클래스별(스테인리스·알루미늄·티탄…)·계열별·시험유형별 분포."""
+    """재료 '이름 정규식' 기반 클래스·계열 분포(544건 전체, 그중 344건은 'Other *' 미분류) + 구성모델 종류(탄소성 44·점탄성 29) — 시험유형 분포는 database_summary, 물성 taxonomy는 list_property_definitions."""
     with SessionLocal() as s:
         return insights.overview(s)
 
 
 @mcp.tool()
 def property_distribution() -> dict:
-    """물성 분포 통계 — E·UTS·yield·연신율의 범위·평균·중앙·히스토그램."""
+    """인장시험 피팅 물성 4종(E·UTS·항복·연신율)만의 분포 — 인장 해석 완료 재료 44건 한정(전체 544건 아님). 카탈로그 전 물성(157종·11도메인) 분포는 catalog_property_distribution(property_key)."""
     with SessionLocal() as s:
         return insights.property_stats(s)
 
 
 @mcp.tool()
 def coverage_gaps() -> list[dict]:
-    """커버리지 갭 — 재료과학 표준 계열 대비 보유/부족/없음(rich/sparse/missing)."""
+    """재료 '계열' 보유량 갭 — 하드코딩된 기대 계열 15종 대비 재료 개수(>=5 rich·1~4 sparse·0 missing). 물성 커버리지가 아니고 계열은 이름 정규식 분류라 근사값이며, 지식그래프(nodes/edges)는 반환하지 않는다."""
     with SessionLocal() as s:
         return insights.coverage_gaps(s)["coverage"]
 
@@ -745,7 +745,7 @@ def find_materials_in_property_range(
     E_min_gpa: float = 0, E_max_gpa: float = 1e9,
     uts_min_mpa: float = 0, uts_max_mpa: float = 1e9, limit: int = 30,
 ) -> list[dict]:
-    """Ashby 물성 박스로 재료 검색(AX). E(GPa)·UTS(MPa) 범위에 드는 재료를 반환."""
+    """E(GPa)–UTS(MPa) 2축 고정 Ashby 박스 검색 — 축 변경 불가이며 모집단은 인장시험이 있는 44건뿐이다(전체 재료 544건이 아님). 다른 물성 축이나 전 도메인 범위 검색은 search_catalog_property(단일 key + min/max)를 써라. 기본 limit=30."""
     with SessionLocal() as s:
         pts = insights.property_space(s)["points"]
     out = [p for p in pts if E_min_gpa <= p["E_gpa"] <= E_max_gpa
@@ -760,7 +760,7 @@ def find_materials_in_property_range(
 def export_dyna_cards(materials: list, card: str = "mechanical",
                       units: str = "ton_mm_s", mid_start: int = 1,
                       lcid_start: int = 990001) -> dict:
-    """재료 리스트를 LS-DYNA 재료카드 덱으로 대량 출력한다 — 이름만 줘도 유사검색+MID 자동배정.
+    """재료 리스트를 LS-DYNA 재료카드 덱으로 대량 출력한다 — 이름만 줘도 유사검색+MID 자동배정, 시험이 없고 카탈로그 물성만 있는 재료까지 포함해 재료 544건 전체가 대상이다. card='mechanical' 은 보유 물성에 따라 *MAT_ELASTIC(001)·*MAT_PIECEWISE_LINEAR_PLASTICITY(024, SIGY+ETAN 이선형 근사로 측정 곡선 LCSS 는 넣지 않음)·*MAT_VISCOELASTIC(006)·*MAT_GENERAL_VISCOELASTIC(076)을 자동 선택한다. 측정 σ-ε 곡선을 그대로 담은 단일 카드는 get_mat_card.
 
     materials: 재료 이름 또는 ID 리스트(수십 개 한 번에 가능). 이름은 정확→부분→유사(오타)
       순으로 매칭하며, 매칭 근거를 matched_by로 돌려준다.
@@ -789,7 +789,7 @@ def export_dyna_cards(materials: list, card: str = "mechanical",
 def search_catalog_property(property_key: str, min_value: float | None = None,
                             max_value: float | None = None, order: str = "desc",
                             limit: int = 30) -> dict:
-    """화·물리 물성(카탈로그 104개 key)으로 재료 검색·랭킹 — 흡습률·CTE·유전율·방사율·열전도 등 전부.
+    """화·물리 전 도메인 카탈로그 물성(정의 157 key·데이터 보유 148 key, 11개 도메인)으로 재료 544건을 검색·랭킹 — 흡습률·CTE·유전율·열전도·광학·자성·접착 등. 인장 3종 전용 search_by_property 와 달리 카탈로그 기준 UTS/E/연신율도 여기서 조회한다. limit 기본 30·상한 200(총 매칭 수는 count).
 
     property_key: list_property_definitions의 key(예: chemical.water_absorption_24h,
     thermal.expansion_linear, electrical.dielectric_constant). min_value/max_value로 범위 필터,
@@ -807,7 +807,7 @@ def search_catalog_property(property_key: str, min_value: float | None = None,
 
 @mcp.tool()
 def catalog_property_distribution(property_key: str) -> dict:
-    """한 화·물리 물성의 재료 간 분포 통계 — n·min·max·평균·중앙 + 상·하위 재료(전 도메인 물성).
+    """카탈로그 물성 1종의 재료 간 분포 — property_key 필수, 11개 도메인 157종 전부 지원(역학·전기·광학·음향 포함). n·min·max·평균·중앙 + 상위 3·하위 3 재료를 SI 원단위 생값으로 반환(히스토그램 없음). 인장 4종 전용판은 property_distribution.
 
     property_key: list_property_definitions의 key. 인장 전용 property_distribution과 달리
     흡습률·CTE·유전율 등 카탈로그 전 물성의 분포를 본다.
@@ -822,7 +822,7 @@ def catalog_property_distribution(property_key: str) -> dict:
 
 @mcp.tool()
 def plot_ashby() -> Image:
-    """전체 재료의 Ashby 물성공간(E–UTS 로그-로그, 계열별 색)을 그래프 이미지로 렌더."""
+    """인장시험 피팅 완료 재료 44건(사실상 금속 전용, 전체 544건 아님)의 E–UTS 로그-로그 Ashby 산점도 이미지 — 축 고정·인자 없음. 임의 물성 2축과 폴리머·세라믹·복합재까지 보려면 ashby_data(x_property, y_property)."""
     with SessionLocal() as s:
         pts = insights.property_space(s)["points"]
     fam_color = {"steel": "#56B4E9", "aluminum": "#E69F00", "titanium": "#CC79A7",
@@ -906,7 +906,7 @@ def _validate_arrays(x: list[float], y: list[float], xname: str, yname: str,
 @mcp.tool()
 def register_material(name: str, category: str = "metal", material_code: str | None = None,
                       description: str | None = None, attributes: dict | None = None) -> dict:
-    """새 재료를 등록한다. category: metal/polymer/rubber/composite/ceramic/foam.
+    """새 재료를 등록한다. category: metal/polymer/rubber/composite/ceramic/foam. material_code 는 전사 고유코드(중복 시 에러), attributes 로 자유형 JSON(포아송비 nu 등)을 함께 저장한다. 등록 후 카탈로그 물성은 register_property 로 붙이고(시험 없이도 가능), 곡선 시험이 있으면 register_tensile_test/register_relaxation_test 를 쓴다.
 
     material_code는 전사 고유코드(중복 시 에러). attributes로 자유형 JSON(포아송비 nu,
     전단탄성계수 G_MPa 등 수동 상수)을 함께 저장할 수 있다. 등록 후 register_tensile_test
@@ -1271,7 +1271,7 @@ def delete_test(test_id: int, confirm: bool = False) -> dict:
 
 @mcp.tool()
 def recompute_properties(test_id: int, e_min: float | None = None, e_max: float | None = None) -> dict:
-    """인장시험 물성을 재계산한다(탄성 회귀창 e_min~e_max 지정 가능). 피팅도 함께 갱신.
+    """인장시험 1건의 처리결과(E·항복·UTS·균일연신율·파단연신율·n·K)를 재계산하고 구성방정식 피팅을 교체한다(탄성 회귀창 e_min~e_max 무차원 지정 가능) — 카탈로그 물성(property_value)은 건드리지 않으며 반환값에는 E·항복·UTS 만 표시된다. 점탄성 시험은 대상이 아니다.
 
     영률이 이상하게 나온 경우 탄성 구간을 좁혀 재계산할 때 사용한다(변형률 무차원).
     """
