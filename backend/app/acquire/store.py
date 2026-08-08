@@ -26,6 +26,13 @@ def upsert_source(
     content_hash: str | None = None,
 ) -> Source:
     """출처를 dedup 후 반환. 우선순위 doi > content_hash > url."""
+    # 빈 문자열은 값이 아니라 "없음"이다. 그대로 두면 doi=''가 저장되고, DOI UNIQUE 제약이
+    # 걸려 **두 번째 무DOI 출처부터 인제스트가 통째로 죽는다**(실제로 76행짜리 배치가 중간에
+    # 끊겼다). 파이썬에선 ''가 falsy라 dedup 조회도 건너뛰어 아무도 못 잡는다.
+    doi = (doi or "").strip() or None
+    isbn = (isbn or "").strip() or None
+    url = (url or "").strip() or None
+    content_hash = (content_hash or "").strip() or None
     found = None
     if doi:
         found = session.execute(select(Source).where(Source.doi == doi)).scalar_one_or_none()

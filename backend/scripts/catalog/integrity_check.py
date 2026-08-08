@@ -99,11 +99,19 @@ CHECKS = [
         and lower(coalesce(conditions,'')) not like '%unknown%'"""),
     # 가정값은 반드시 tier4·estimated여야 한다. 그래야 대표값 선택에서 실측에 밀리고,
     # 나중에 실측이 들어오면 자동으로 대체된다(fill_assumed_poisson.py 참조).
+    # 표지는 **구조화된 키** `"assumption": true`다. 부분문자열 'assumption'을 찾으면
+    # 방법 서술 안의 낱말에 걸린다 — `direction: "bulk effective (isotropic assumption)"`는
+    # 초음파 실측의 등방 근사 서술이지 값이 가정이라는 뜻이 아니다(SmCo 3건이 실제로 걸렸다).
+    # 근거 문구를 복원하고 conditions가 풍부해지자 이 오탐이 나타났다 —
+    # **검사는 산문이 아니라 구조를 봐야 한다.**
     ("가정값인데 tier4·estimated 아님", """select count(*) from property_value
-        where instr(coalesce(conditions,''),'assumption')>0
+        where (instr(replace(coalesce(conditions,''),' ',''),'"assumption":true')>0
+               or instr(replace(coalesce(conditions,''),' ',''),'"assumption":True')>0)
         and (quality_tier<>4 or method<>'estimated')"""),
     ("가정값인데 근거 출처 없음", """select count(*) from property_value
-        where instr(coalesce(conditions,''),'assumption')>0 and source_id is null"""),
+        where (instr(replace(coalesce(conditions,''),' ',''),'"assumption":true')>0
+               or instr(replace(coalesce(conditions,''),' ',''),'"assumption":True')>0)
+        and source_id is null"""),
     # 비금속 고체의 비열은 대개 400~2500 J/(kg*K)다. 그보다 낮으면 금속(Ag 235, Pb 130)의
     # 값이 잘못 옮겨왔을 가능성이 크다 — 실제로 EMC 236 J/(kg*K)가 이 방식으로 걸렸다.
     ("비금속인데 비열이 금속급으로 낮음", """select count(*) from property_value pv
