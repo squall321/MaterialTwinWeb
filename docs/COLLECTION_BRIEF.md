@@ -1,0 +1,161 @@
+# MaterialTwin 물성 수집 공통 브리프
+
+수집 에이전트에게 주는 공통 지시다. **파동마다 실제로 걸린 함정을 여기 누적한다** —
+이 문서의 값어치는 규칙이 아니라 6절의 함정 지도에 있다. 각 항목은 전부 실제 사고 기록이다.
+
+작업본은 `.agent_work/BRIEF_COMMON.md`(gitignore)에 두지만, **정본은 이 파일이다.**
+파동을 시작할 때 여기서 복사해 쓰고, 새 함정이 나오면 여기에 먼저 적어라.
+
+너는 MaterialTwin 카탈로그의 수집 에이전트다. **네게 배정된 타깃 파일의 재료만** 본다.
+목표는 하나다 — **해석에 쓸 수 있는 빈칸을 실제 근거와 함께 메우는 것.**
+
+## 0. 원칙 — 어기면 그 값은 없느니만 못하다
+
+1. **지어내지 않는다.** 문서에 실제로 인쇄된 숫자만 넣는다. **빈 칸이 틀린 값보다 낫다.**
+2. **역산 금지.** 다른 물성에서 계산해 만든 값을 저장하지 않는다.
+   (단위 검산 목적의 계산은 해도 되지만 그 결과를 값으로 넣지 않는다.)
+3. **그래프에서 값을 읽지 마라.** 표와 본문 숫자만 쓴다. 그림에만 있으면 "그림뿐"이라고 보고하라.
+4. **재인쇄본·2차 인용을 믿지 마라.** "[12]에 따르면"으로 시작하는 표는 1차 출처까지 따라가라.
+   못 가면 tier 3으로 낮추고 `notes`에 그 사실을 적어라.
+5. **등급이 다르면 그대로 붙이지 마라.** 대체값으로 쓸 만하면
+   tier 3 + `conditions.grade_scope: "class value — <무엇이 다른가>"`로 명시한다.
+6. **그 재료의 상위 tier 값과 자릿수가 어긋나면 넣지 마라.** 등급 불일치는 tier를 낮춰 쓸 수
+   있지만, 같은 재료의 tier1 실측과 모순되는 값은 카드를 물리적으로 앞뒤 안 맞게 만든다.
+   판단이 서면 DB에서 그 재료의 기존 값을 먼저 확인하라.
+7. **인접 열 오독을 조심하라.** 값을 뽑을 때 **그 값이 있는 열 머리글을 다시 읽어라.**
+   지금까지 이 유형 사고가 20건 넘게 잡혔다. 실제 사례 —
+   `Spezifische Wärmeleitfähigkeit`(열전도율)를 비열로, (BH)max를 굽힘강도로,
+   `Specific Gravity 1.07`을 비열로, 소결자석 표의 Cast/Sintered 열을 뒤바꿔.
+   **PDF 열이 섞여 보이면 `pdftotext -bbox`로 토큰 x좌표를 직접 확인하라.**
+8. **자기 검산을 하라.** 얻은 값으로 그 논문이 인쇄한 다른 값을 예측해봐라. 어긋나면 버려라.
+   (Ti-6Al-4V Johnson-Cook 세트를 이 방법으로 걸러냈다 — 예측 2725 MPa 대 같은 논문 실측 1680 MPa.
+   PC 비열 표는 그 논문의 PC 밀도가 1.44 g/cm3라서 버렸다. 실제 PC는 1.20이다.)
+9. **조건 없는 값은 값이 아니다.** 온도·주파수·방향·습도·하중비 등 인쇄된 조건을 전부
+   `conditions`에 넣어라. 특히 아래는 필수다.
+   - 열전도율·CTE·유전율: **온도**, 복합재·박막은 **방향**(in-plane / through-thickness / warp / fill)
+   - 유전율·손실계수: **주파수**
+   - 투습도(WVTR): **온도와 상대습도, 시편 두께**
+   - 접촉각: **액체 종류**(물인지 확인), 전진/후퇴/정적
+   - 박리강도: **박리각도(90/180도), 피착재, 박리속도**
+
+## 1. tier 기준
+
+- **1** — 그 제품 자체의 문서(제조사 TDS·그 재료를 시험한 논문)에 인쇄된 값
+- **2** — 핸드북·표준·공인 DB (MMPDS, ASM, NIST, CDA, ISO/ASTM 등)
+- **3** — 2차 인용 / 계열 대표값 / 등급 불일치 대체값
+- **4** — 계산·추정·가정. **이번 수집에서는 쓰지 마라.**
+
+## 2. 접근 경로
+
+**작동 확인됨**
+- OSTI `https://www.osti.gov/servlets/purl/{id}` · OSTI API `https://www.osti.gov/api/v1/records/{id}`
+- NSF PAR `https://par.nsf.gov/servlets/purl/{ID}` — **ASME/IEEE accepted manuscript가 여기 많다**
+- Europe PMC `https://www.ebi.ac.uk/europepmc/webservices/rest/{PMCID}/fullTextXML`
+  — 섹션 한정 검색(`TABLE:"..."`, `RESULTS:"..."`)이 가장 수율이 높다
+- **res.mdpi.com** — `article_deploy/` 세그먼트가 **필수**다. 없으면 404:
+  `res.mdpi.com/d_attachment/{j}/{j}-{vol:02d}-{art:05d}/article_deploy/{j}-{vol:02d}-{art:05d}.pdf`
+- **accudynetest.com/polymer_surface_data/{슬러그}.pdf** — 폴리머별 표면에너지 시트 54종.
+  각 행이 1차 출처와 측정 방식을 함께 인쇄한다. `Calculated` 행은 tier4이니 쓰지 마라.
+  색인은 `polytable_01.html` ~ `polytable_04.html`
+- **www-origin.nitto.com** — `www.nitto.com`이 HTTP/2 INTERNAL_ERROR로 죽을 때 우회로
+- **qnityelectronics.com** — DuPont 전자재료 도메인이 여기로 옮겨졌다.
+  구 `dupont.com/content/dam/electronics/...` 경로는 전부 404이고 도메인만 바꾸면 200이다
+- **KoreaScience** `koreascience.kr/article/{JAKO id}.pdf` (UA 필요) — 한국 전자패키징·표면처리
+- Europe PMC 페이월 논문도 `EXT_ID:{PMID}&resultType=core`로 초록 전문을 받을 수 있다
+- J-Stage `_pdf` · DOAJ **API**(웹페이지는 403) · Crossref API · Unpaywall API · arXiv · NTRS(NASA)
+- 대학 DSpace — GaTech SMARTech REST, UT Austin, EPFL Infoscience, HAL, Brunel BURA
+- Wayback CDX (벤더가 지운 TDS 복구) · bzycj.cn (`POST /search`)
+- **University of Waterloo FD&E** `fde.uwaterloo.ca/Fde/Materials/dindex.html`
+  — SAE 표준 포맷 `*_fitted.html`이 피로계수를 평문으로 인쇄한다. 디렉터리 순회 가능
+- `curl` + `pdftotext -layout` 이 WebFetch보다 PDF에서 항상 낫다
+
+**막힘 — 시간 쓰지 마라**
+`www.mdpi.com/article/{doi}/pdf`(403) · DuckDuckGo·Brave·Searx ·
+**IOPscience는 간헐적이다** — `iopscience.iop.org/article/{DOI}/pdf` + UA가 통할 때가 있고,
+막힐 때는 200을 주면서 PDF가 아니라 HTML을 돌려준다. `file`로 실제 형식을 확인하라 ·
+OpenAlex(429) · Semantic Scholar(키 필요) · ScienceDirect(OA 논문도 403) · Wiley pdfdirect ·
+Elsevier·IEEE·Springer 페이월 · apps.dtic.mil · DYMAT(DataDome)
+
+**WebSearch 예산은 세션당 200회이고 금방 마른다.** 처음부터 Europe PMC REST / OSTI API /
+Crossref / DOAJ API / 벤더 사이트 직접 fetch로 가라. 웹검색은 방법론 논문만 반복해서 돌려준다.
+
+## 3. 출력 형식
+
+**한 파일**로 쓴다. 경로는 프롬프트에 지정된다. 다 쓴 뒤 반드시
+`python3 -c "import json;json.load(open('경로'))"`로 파싱을 검증하라.
+
+```json
+{"materials": [
+  {"match_name": "<타깃 파일에 적힌 이름 그대로, 글자 단위 일치>",
+   "source": {"title": "...", "kind": "journal|datasheet|book|standard|database|web",
+              "url": "...", "year": 2021, "doi": "..."},
+   "properties": [
+     {"key": "thermal.conductivity", "value": 0.35, "unit": "W/(m*K)", "tier": 1,
+      "method": "ASTM E1461 laser flash",
+      "conditions": {"temperature_c": 25, "direction": "through-thickness"},
+      "notes": "Table 2, 'Thermal conductivity' 열. 인접 'Thermal diffusivity'와 구분 확인"}
+   ]}
+]}
+```
+
+- `value`는 **SI 기본단위 숫자**로 변환해 넣는다(MPa→Pa ×1e6, g/cm3→kg/m3 ×1000,
+  cal/(cm·s·°C)→W/(m·K) ×418.4, cal/(g·°C)→J/(kg·K) ×4184, Ω·cm→Ω·m ×0.01,
+  **1 Barrer = 3.3464e-16 mol·m/(m²·s·Pa)**).
+- **taxonomy에 없는 키는 절대 만들지 마라.** 인제스트가 거부한다. 확인 방법:
+  ```
+  sqlite3 /home/koopark/claude/HEAXHub/var/app_data/materialtwin_web/materialtwin.db \
+    "select key,si_unit from property_definition where key like '%<검색어>%'"
+  ```
+  담을 키가 없는 값은 **저장하지 말고 보고서에만 적어라.**
+- 기존 값을 확인하려면 같은 DB의 `property_value`를 material_id로 조회하라.
+
+## 4. 보고
+
+1. 키별 건수, 재료별 건수와 tier
+2. **찾았지만 버린 것과 그 이유** — 이게 다음 파동의 함정 지도가 된다
+3. **못 찾은 것과 구조적 이유** — "더 찾아도 안 나온다"를 확정하는 것도 성과다.
+   벤더가 그 항목을 애초에 발표하지 않는지, 페이월인지, 그림뿐인지를 구분해서 적어라
+4. 새로 뚫은 접근 경로가 있으면 URL 패턴까지 적어라
+
+## 5. 두 가지 작업 습관 (앞선 파동에서 값을 구한 것들)
+
+**(가) 값이 그 논문에 실제로 있는지 자동 대조하라.** 수집을 마친 뒤, 각 행의 값이 인용
+출처 원문에 문자열로 존재하는지 검사하는 스크립트를 돌려라. 앞선 파동에서 이 방법이
+**출처 오귀속 1건**을 잡았다 — 값은 맞는데 엉뚱한 논문에 붙어 있었다.
+
+**(나) 이미 가진 출처부터 grep하라.** 타깃 재료들이 이미 갖고 있는 `source` 테이블에서
+PMC ID를 뽑아 일괄로 받아 키워드를 grep하면, "어느 논문을 읽을까"가 grep 문제로 바뀐다.
+앞선 파동은 386종의 출처에서 PMC 52편을 뽑아 1분 만에 훑었다. **새로 검색하기 전에 이걸 먼저 하라.**
+
+**(다) 개인 하위 디렉터리에서 작업하라.** 스크래치패드를 공유하면 에이전트끼리 헬퍼
+스크립트와 다운로드를 덮어쓴다. `scratchpad/<네 영역>/`을 만들어 써라.
+
+**(라) `pmc.ncbi.nlm.nih.gov/articles/PMCxxxxx/`는 curl에 reCAPTCHA를 돌려준다.**
+20 KB짜리 정상 응답처럼 보여서 **조용히 실패한다.** 6차 파동에서 한 배치의 1차 스윕 14편이
+이렇게 새고 있었다. **받은 뒤 본문에 `recaptcha`가 있는지 반드시 검사하라.**
+정상 경로는 `https://www.ebi.ac.uk/europepmc/webservices/rest/{PMCID}/fullTextXML`이다.
+같은 이유로 `www.mdpi.com/{doi}`와 `doi.org/10.3390/...`는 400바이트 스텁을 준다.
+
+**(마) PMC XML은 표의 단위 머리글과 각주를 통째로 날린다.** Nature/Sci Rep에서 특히 심하다.
+단위가 사라지면 옆 행 값을 읽게 된다. 단위·각주가 결정적인 표는 publisher PDF와 대조하라.
+
+## 6. 자주 나오는 함정 (파동마다 반복해서 걸린 것들)
+
+- **표 하나가 통째로 틀릴 수 있다.** 값을 뽑기 전에 **그 표에 있는 알려진 재료로 검산하라.**
+  6차 파동에서 FR-4 세 물성을 한 번에 채울 표를 찾았는데, 같은 표의 Sn63Pb37 밀도가
+  1,890 kg/m3(실제 ≈8,400)이라 표 전체를 버렸다.
+- **열 머리글이 값에서 20줄 이상 떨어져 있을 수 있다.** tesa ACXplus 열전도율 3열이
+  7055/7063/7074인데 7072로 잘못 짝지어질 뻔했다.
+- **한 PDF에 여러 제품 표가 붙어 있다.** `file`은 2쪽인데 `pdfinfo`는 6쪽인 경우가 있다
+  (TAIFLEX). grep으로 잡힌 값이 **다른 제품 표**의 것일 수 있으니 쪽·좌표를 확인하라.
+- **`< 10°`·`≦1%`·"about 0.27"은 값이 아니라 상한/근사다.** 넣지 마라.
+- **부피기준과 질량기준을 섞지 마라.** EPE 발포체의 `<5.0 % (vol)`는 36 kg/m3 폼에서
+  질량기준 ~139 %가 된다. 세 자릿수 틀린다.
+- **물리 한계로 단위를 확정할 수 있다.** PORON 시트가 `g/ft2/24hrs (g/m2/24hrs)` 두 단위를
+  병기하고 값은 하나였는데, g/ft2 해석(36,600 g/m2·day)이 37 °C에서 3 mm 공기층의
+  순수확산 한계 ~32,800을 넘어 물리적으로 불가능하므로 g/m2로 확정했다.
+- **저자가 가정이라고 밝힌 값을 실측으로 옮기지 마라.** "ポアソン比は0.3で一定とした",
+  "input parameters … Poisson's ratio ν = 0.30"은 FE 입력 가정이다.
+- **표 캡션이 2차 인용임을 스스로 밝히는 경우가 있다.** "in comparison with those … from
+  references [22,24]"라고 적힌 표의 값은 tier 1이 아니다.
+- **Tg 위에서 CTE가 작아지면 오식이다.** 6차 파동에서 α1=11인데 α2=6으로 인쇄된 행을 버렸다.
