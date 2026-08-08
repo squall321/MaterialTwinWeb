@@ -6,6 +6,7 @@ from fastapi import APIRouter
 from app.routers import (
     catalog,
     health,
+    hub_export,
     insights,
     materials,
     properties,
@@ -21,3 +22,4 @@ api_router.include_router(uploads.router)
 api_router.include_router(properties.router)
 api_router.include_router(insights.router)
 api_router.include_router(catalog.router)
+api_router.include_router(hub_export.router)

@@ -41,6 +41,9 @@ def mcp_env(tmp_path, monkeypatch):
     importlib.reload(catalog_compare_mod)  # 모델 클래스 재바인딩(compare_materials가 사용).
     importlib.reload(dyna_export_mod)      # 모델 클래스 재바인딩(export_dyna_cards가 사용).
     importlib.reload(curve_synth_mod)      # 모델 클래스 재바인딩(곡선 합성이 사용).
+    import app.routers.hub_export as r_hub_export
+
+    importlib.reload(r_hub_export)         # 모델 클래스 재바인딩(허브 내보내기가 사용).
 
     import mcp_server as mcp_mod
 
