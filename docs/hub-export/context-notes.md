@@ -38,3 +38,31 @@ tier와 출처 URL도 같이 보낸다 — **허브에서도 근거를 되짚을
 
 한 재료가 같은 물성을 조건별로 여럿 갖는다(예: Al6061-T6가 접촉각 두 개 — 무처리 68.6°,
 에탄올 세정 88.4°). 대표값 하나만 보내면 그 산포가 사라진다. 산포 자체가 정보다.
+
+## 완료 후 기록 (2026-08-08)
+
+### 실측 결과
+
+`sync_runs.fetched_count`가 100(고정) → 544로 바뀐 것이 `next_cursor` 가설의 직접 증거다.
+imported 26 / updated 518 — 기존 523건은 갱신되고 21건이 새로 들어왔다.
+허브 안 물성값 합계가 15,295로 MaterialTwin DB와 정확히 일치한다.
+
+### 잔재 5건 — 허브에 tombstone이 없다
+
+물성이 안 붙은 레코드가 5건 남았다. 조회해보니 MaterialTwin에서 **삭제된** 재료였다
+(id 223·242·243·249·404 — 앞선 파동의 중복 정리로 사라진 것들). 이름도 옛것이다
+("Rogers RO4003C Hydrocarbon-Ceramic Laminate" vs 현재 "…High-Frequency Laminate").
+
+`sync_runs.tombstoned_count` 컬럼은 있는데 `sync_svc`에 그걸 쓰는 코드가 없다. 모듈 docstring이
+"tombstone 부재: 주기적 full ID set 비교 (옵션)"이라고 적어 놨는데 그 옵션이 구현돼 있지 않다.
+**상류에서 삭제된 것이 허브에 영원히 남는다.**
+
+이번에는 `records.deleted_at`으로 소프트 삭제했다 — 하드 삭제가 아니라 되돌릴 수 있고,
+허브의 조회 경로가 `deleted_at is null`을 이미 거르므로 실효가 있다.
+근본 해결은 허브 쪽 코드이고 이 작업 범위가 아니라 손대지 않았다.
+
+### 남은 위험 하나
+
+우리 export는 **삭제를 알리지 않는다**. 앞으로도 MaterialTwin에서 재료를 지우면 허브에
+잔재가 쌓인다. 카탈로그 정리가 잦다면 (a) export에 `deleted` 목록을 싣거나
+(b) 허브에 full ID set 비교를 구현하는 것 중 하나가 필요하다.

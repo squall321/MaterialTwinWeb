@@ -29,15 +29,37 @@
       → 검증: 100종 응답이 2초 이내
 - [x] 5. 회귀 테스트 추가
       → 검증: `pytest` 통과
-- [ ] 6. `AIDataHub/config/sync_sources.yml` 갱신
+- [x] 6. `AIDataHub/config/sync_sources.yml` 갱신
       (`list_endpoint`, `body_field: body`, `content_extra_fields: [properties, sources]`)
       → 검증: yaml 파싱 + 허브 재기동
-- [ ] 7. MaterialTwin 재배포
+- [x] 7. MaterialTwin 재배포
       → 검증: `/api/materials/export?page=1&size=2`가 라이브에서 200
-- [ ] 8. 동기화 트리거 후 확인
+- [x] 8. 동기화 트리거 후 확인
       → 검증: `records` 544건, `content::text ilike '%youngs_modulus%'` > 0
 
 ## 성공 기준
 
 허브의 `records` 테이블에서 아무 재료 하나를 열었을 때
 **물성값·단위·측정조건·tier·출처 URL이 다 보인다.** 근거를 허브에서 되짚을 수 있어야 한다.
+
+## 결과 (2026-08-08 완료)
+
+| 항목 | 전 | 후 |
+|---|---|---|
+| `sync_runs.fetched_count` | 100 (고정) | **544** |
+| 허브 레코드 | 523 | **544** (+ 잔재 5건 소프트 삭제) |
+| 허브 물성값 | **0** | **15,295** |
+| 문서 본문 | 빈 문자열 | 물성 목록 텍스트 |
+
+전문검색 실측 — '열전도율' 319건, 'tier1' 496건, '열전도율 + through-thickness' 조합 검색도 걸린다.
+MaterialTwin DB(544종 15,295건)와 허브가 정확히 일치한다.
+
+### 덤으로 발견한 것 — 허브에 tombstone 구현이 없다
+
+`sync_runs.tombstoned_count` 컬럼은 있는데 `sync_svc`에 쓰는 코드가 없다. 상류에서 삭제된
+재료가 허브에 영원히 남는다. 실제로 5건이 남아 있었다 — MaterialTwin의 중복 정리(앞선 파동에서
+Ti_Grade2 중복, FR-4 계열 정리 등)로 삭제된 재료 id 223·242·243·249·404이다.
+
+이번에는 `records.deleted_at`으로 소프트 삭제했다(허브 조회가 `deleted_at is null`을 거르므로
+유효하다). 근본 해결은 허브 쪽 작업이라 여기서는 손대지 않았다 —
+**주기적 full ID set 비교**가 sync_svc 문서에 옵션으로 적혀 있으나 미구현이다.
