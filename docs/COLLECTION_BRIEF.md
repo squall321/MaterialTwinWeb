@@ -187,8 +187,9 @@ DB에 등록돼 있던 구형 "product information" PDF에는 그 섹션이 **�
   · `hdl.handle.net/{handle}`이 862바이트 스텁을 준다(DSpace REST 체인을 써야 한다).
     7차 파동이 **이 스텁을 근거로 "그 논문에 값이 없다"고 결론낼 뻔했다.**
   · `rogerscorp.com`이 404 대신 200 + 72 KB짜리 제품 인덱스 HTML을 준다
-  · `smooth-on.com/tb/files/...`가 정확히 25,889바이트짜리 HTML 404를 준다
+  · `smooth-on.com/tb/files/...`가 2만 5천 바이트대 HTML 404를 준다(크기는 바뀐다 — **바이트 수를 외우지 말고 `file`과 본문 내용으로 판정하라**). `agc-multimaterial.com`도 없는 경로에 200 + 1만 6천 바이트대 HTML을 준다
   · IOPscience가 막힐 때 200 + HTML을 준다
+  · **`res.mdpi.com`이 `mdpi-res.com`으로 301 리다이렉트한다 — `curl -L`이 없으면 301 + 0바이트라 '없다'로 오판한다**
   **받은 뒤 `file`로 형식을 확인하고, 본문에 찾는 제품명·키워드가 실제로 있는지 검사하라.**
 - **표에 인쇄된 범위(`10-100 W/mK`, `0.15-0.6`)와 근사(`~400`, `about 0.27`)는 값이 아니다.**
   자릿수가 갈리는 범위는 특히 그렇다.

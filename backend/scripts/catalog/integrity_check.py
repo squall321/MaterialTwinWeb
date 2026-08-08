@@ -42,9 +42,14 @@ CHECKS = [
     ("Prony 항에 항번호 없음", """select count(*) from property_value where property_key like 'mechanical.prony_%'
         and (conditions is null or conditions not like '%term%')"""),
     # 계수·지수는 쌍이 맞아야 곡선이 성립한다. 하나만 있으면 수명 계산이 안 된다.
+    #
+    # 다만 **의도한 반쪽**이 있다. 원문이 sigma_f'를 sigma_f'/E(무차원)로만 인쇄하면 E를 곱하는
+    # 순간 역산이라, 지수만 넣는 것이 옳다(VACOFLUX 50이 그랬다). 그런 행은
+    # conditions.pair_incomplete 에 사유를 적어 두고 검사에서 뺀다 — 사유 없는 반쪽만 잡는다.
     ("Basquin 계수·지수 쌍 불일치", """select count(*) from (
         select material_id from property_value
         where property_key in ('mechanical.fatigue_strength_coefficient','mechanical.fatigue_strength_exponent')
+        and instr(coalesce(conditions,''),'pair_incomplete')=0
         group by material_id
         having count(distinct property_key)=1)"""),
     ("Coffin-Manson 계수·지수 쌍 불일치", """select count(*) from (
