@@ -169,3 +169,14 @@ DB에 등록돼 있던 구형 "product information" PDF에는 그 섹션이 **�
 - **표 캡션이 2차 인용임을 스스로 밝히는 경우가 있다.** "in comparison with those … from
   references [22,24]"라고 적힌 표의 값은 tier 1이 아니다.
 - **Tg 위에서 CTE가 작아지면 오식이다.** 6차 파동에서 α1=11인데 α2=6으로 인쇄된 행을 버렸다.
+- **성공처럼 보이는 실패를 조심하라.** HTTP 200과 그럴듯한 크기가 성공의 증거가 아니다.
+  실제로 걸린 것들 —
+  · `pmc.ncbi.nlm.nih.gov/articles/PMCxxxxx/`가 20 KB짜리 reCAPTCHA를 준다
+  · `hdl.handle.net/{handle}`이 862바이트 스텁을 준다(DSpace REST 체인을 써야 한다).
+    7차 파동이 **이 스텁을 근거로 "그 논문에 값이 없다"고 결론낼 뻔했다.**
+  · `rogerscorp.com`이 404 대신 200 + 72 KB짜리 제품 인덱스 HTML을 준다
+  · `smooth-on.com/tb/files/...`가 정확히 25,889바이트짜리 HTML 404를 준다
+  · IOPscience가 막힐 때 200 + HTML을 준다
+  **받은 뒤 `file`로 형식을 확인하고, 본문에 찾는 제품명·키워드가 실제로 있는지 검사하라.**
+- **표에 인쇄된 범위(`10-100 W/mK`, `0.15-0.6`)와 근사(`~400`, `about 0.27`)는 값이 아니다.**
+  자릿수가 갈리는 범위는 특히 그렇다.
