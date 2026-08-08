@@ -109,9 +109,16 @@ def load():
     c = sqlite3.connect(DB)
     mat = {i: (n, cat) for i, n, cat in c.execute("select id,name,category from material")}
     own = defaultdict(set)
-    for mid, k in c.execute("select material_id, property_key from property_value"):
+    # tier4는 **가정·계산값**이다. 칸은 채우지만 근거가 아니다.
+    # 두 집합을 따로 들고 다니며 "가정 포함"과 "실측 기반"을 나란히 낸다 —
+    # 하나만 내면 2,628칸(18.1%p)이 실제 확보인 것처럼 보인다.
+    meas = defaultdict(set)
+    for mid, k, t in c.execute(
+            "select material_id, property_key, quality_tier from property_value"):
         own[mid].add(k)
-    return c, mat, own
+        if t <= 3:
+            meas[mid].add(k)
+    return c, mat, own, meas
 
 
 def scope(mat, filt):
@@ -137,26 +144,157 @@ def grp_ok(ks, grp):
     return any(k in ks for k in grp)
 
 
+# ── 구조적 부재 ────────────────────────────────────────────────────────────────
+# **그 물성이 그 재료군에서 애초에 발표되지 않는다**고 여러 파동이 각자 확인한 칸이다.
+# 분모에 남겨 두면 100%를 향해 가는 것처럼 보이지만 실제로는 도달할 수 없다.
+#
+# 규율 셋.
+#  1. **재료 단위가 아니라 (재료군 × 물성) 단위다.** 저분자 도판트도 광물리 물성은 있고,
+#     점착테이프도 박리강도는 있다. 없는 것만 뺀다.
+#  2. **증거 있는 것만.** 파동을 넘어 반복 확인되고 BLOCKED_SOURCES·PROPERTY_DATA_HISTORY에
+#     기록된 것만 넣는다. 한 번 못 찾은 것은 부재가 아니다.
+#  3. **페이월은 부재가 아니다.** 접근 문제는 언제든 열릴 수 있으므로 분모에 남긴다.
+#     (FR-4 방향별 열전도율, EMC 포아송비 등이 그 예다.)
+_DOPANT = ("emitter", "dopant", "tadf", "iridium", "ir(", "ir-", "pt(", "porphyrin",
+           "coumarin", "photoinitiator", "irgacure", "thioxanthone", "benzophenone",
+           "phosphor dye", "phosphorescent", "ptoep", "pdoep")
+_TAPE = ("tape", "psa", "oca ", "ocr", "adhesive transfer", "vhb", "acxplus",
+         "duplocoll", "arclear", "optically clear adhesive")
+_LAMINATE = ("laminate", "prepreg", "ccl", "coverlay", "megtron", "duroid", "i-tera",
+             "astra mt", "tu-", "it-1", "it-9", "np-155", "s1000", "rf-35", "tly-",
+             "tlx-", "clte", "ro40", "ro30", "ultralam", "tsm-ds3", "chukoh")
+
+# (재료 매처, 못 채우는 물성 키 집합, 사유)
+UNFILLABLE = [
+    # 광물리 논문은 λ·Φ_PL·τ·HOMO/LUMO만 인쇄한다. 벤더 TDS 자체가 없다.
+    # 4·5·6·7차 파동이 각각 독립으로 확인(PubChem에 Heat Capacity 항목 없음,
+    # NIST WebBook CAS 조회 전무, 젖음·CTE·기계물성 문자열 0건).
+    (_DOPANT, {
+        "physical.density", "thermal.conductivity", "thermal.specific_heat",
+        "thermal.expansion_linear", "mechanical.youngs_modulus", "mechanical.poisson_ratio",
+        "physical.contact_angle_water", "physical.surface_energy",
+        "electrical.dielectric_constant", "electrical.resistivity_volume",
+        "electrical.dissipation_factor",
+    }, "저분자 도판트 — 광물리 물성만 발표된다"),
+
+    # 벤더가 두께·박리력·유지력·내열만 찍는 문서 형식이다. 전 벤더 카탈로그 grep 0건.
+    # CTE는 "피착재 팽창 차이를 흡수한다"는 판매 문구만 나온다.
+    # 아크릴 PSA·VHB에는 **항복점 자체가 없다**(초탄성-점탄성으로 모델링한다).
+    (_TAPE, {
+        "thermal.expansion_linear", "thermal.specific_heat",
+        "mechanical.youngs_modulus", "mechanical.yield_strength",
+        "mechanical.prony_relaxation_time",
+    }, "점착테이프 — 벤더가 발표하지 않는다(항복점은 물리적으로도 정의되지 않는다)"),
+
+    # 11개 벤더 전수 확인. 유일한 예외가 AGC RF-35TC다. 밀도도 안 낸다(수지 함량·두께로 대신).
+    # 피로는 IPC-4101 보고 항목이 아니다.
+    (_LAMINATE, {
+        "thermal.specific_heat",
+        "mechanical.fatigue_strength_coefficient", "mechanical.fatigue_strength_exponent",
+        "mechanical.fatigue_ductility_coefficient", "mechanical.fatigue_ductility_exponent",
+    }, "PCB·RF 라미네이트 — 비열·피로를 어느 벤더도 발표하지 않는다"),
+
+    # Corning PI 시트에 항목 자체가 없고 자사 백서는 접촉각을 상한(`< 10°`)으로만 인쇄한다.
+    (("gorilla", "victus", "ultra-thin glass", "utg"), {
+        "physical.contact_angle_water", "physical.surface_energy",
+        "thermal.conductivity", "thermal.specific_heat",
+    }, "커버글래스 — 젖음·열물성 발표 자체가 없다"),
+]
+
+
+# 선언은 **주장이 아니라 반례로 검증되는 것**이다.
+#
+# 처음엔 UNFILLABLE을 그대로 믿었더니 102칸이 "부재인데 값이 있음"으로 걸렸다 —
+# 벤조페논은 상용 화학물질이라 CRC에 밀도가 있고, `laminate`·`coverlay` 매처가 비열을 가진
+# 재료까지 잡았다. **한 건의 반례가 선언을 무너뜨린다.**
+#
+# 그래서 (재료군 × 물성) 쌍은 두 조건을 **다** 만족할 때만 부재로 친다.
+#   (1) 문서에 기록된 사유가 있다(UNFILLABLE에 적혀 있다) — "아직 못 찾았다"와 구분한다.
+#   (2) 그 군의 어느 재료도 그 물성을 갖고 있지 않다 — 반례가 0이다.
+# 나중에 값이 하나라도 들어오면 그 쌍은 **자동으로 부재에서 빠진다.**
+_ACTIVE: dict | None = None
+
+
+def _build_active(mat: dict, own: dict) -> dict:
+    """반례가 없는 (매처, 키) 쌍만 남긴다. 반례가 있으면 그 쌍은 부재가 아니다."""
+    global _ACTIVE
+    active, retired = {}, []
+    for idx, (matcher, keys, why) in enumerate(UNFILLABLE):
+        members = [m for m in mat if any(w in mat[m][0].lower() for w in matcher)]
+        alive = set()
+        for k in keys:
+            counter = [mat[m][0] for m in members if k in own[m]]
+            if counter:
+                retired.append((why, k, len(counter), counter[0]))
+            else:
+                alive.add(k)
+        active[idx] = (matcher, alive)
+    _ACTIVE = {"active": active, "retired": retired}
+    return _ACTIVE
+
+
+def unfillable_keys(name: str) -> set:
+    """그 재료에서 구조적으로 못 채우는 물성 키 집합(반례 검증 통과분만)."""
+    low = name.lower()
+    out = set()
+    src = (_ACTIVE["active"].items() if _ACTIVE
+           else ((i, (m, k)) for i, (m, k, _) in enumerate(UNFILLABLE)))
+    for _idx, (matcher, keys) in src:
+        if any(w in low for w in matcher):
+            out |= keys
+    return out
+
+
+def _cell_unfillable(mat_name: str, keys) -> bool:
+    """칸 하나가 구조적 부재인가. 택일군은 **후보가 전부** 부재여야 부재다 —
+    하나라도 채울 길이 있으면 그 칸은 채울 수 있는 칸이다."""
+    bad = unfillable_keys(mat_name)
+    if not bad:
+        return False
+    flat = []
+    for k in keys:
+        flat.extend(k if isinstance(k, tuple) else (k,))
+    return bool(flat) and all(k in bad for k in flat)
+
+
 def compute():
-    c, mat, own = load()
+    c, mat, own, meas = load()
+    _build_active(mat, own)   # 반례 검증 — 값이 하나라도 있는 쌍은 부재에서 뺀다
     out = []
     for name, must, anyof, filt, desc in ANALYSES:
         tgt = scope(mat, filt)
         n = len(tgt)
         # (a) 셀 채움률 — 필수물성은 칸 1개, 택일군은 통째로 칸 1개.
+        #     구조적 부재 칸은 따로 센다. 분모에 남겨 두면 도달할 수 없는 100%를 좇게 된다.
         cells = filled = 0
+        unfill = 0          # 구조적으로 못 채우는 칸
+        wrong_unfill = []   # 부재로 선언했는데 실제로 값이 있는 칸 — 선언이 틀렸다는 뜻
         miss_by_key = Counter()
+        m_filled = 0   # tier4 가정을 뺀 채움
         for m in tgt:
             ks = own[m]
+            ms = meas[m]
             for k in must:
                 cells += 1
-                if k in ks:
+                m_filled += (k in ms)
+                has = k in ks
+                if _cell_unfillable(mat[m][0], (k,)):
+                    unfill += 1
+                    if has:
+                        wrong_unfill.append((mat[m][0], k))
+                if has:
                     filled += 1
                 else:
                     miss_by_key[k] += 1
             for grp in anyof:
                 cells += 1
-                if grp_ok(ks, grp):
+                m_filled += grp_ok(ms, grp)
+                has = grp_ok(ks, grp)
+                if _cell_unfillable(mat[m][0], grp):
+                    unfill += 1
+                    if has:
+                        wrong_unfill.append((mat[m][0], "택일군"))
+                if has:
                     filled += 1
                 else:
                     label = " | ".join(
@@ -166,12 +304,24 @@ def compute():
         # (b) 재료 준비율
         ready = [m for m in tgt
                  if all(k in own[m] for k in must) and all(grp_ok(own[m], g) for g in anyof)]
+        ready_m = [m for m in tgt
+                   if all(k in meas[m] for k in must) and all(grp_ok(meas[m], g) for g in anyof)]
+        eff = cells - unfill      # 채울 수 있는 칸
         out.append({
             "name": name, "desc": desc, "n_target": n,
             "cells": cells, "filled": filled,
             "cell_pct": round(filled * 100 / cells, 1) if cells else 0.0,
+            # 구조적 부재를 뺀 분모. **이 상승은 수집 성과가 아니라 분모 정의다.**
+            "unfillable": unfill,
+            "eff_cells": eff,
+            "eff_pct": round(filled * 100 / eff, 1) if eff else 0.0,
+            "wrong_unfillable": wrong_unfill,
+            "meas_filled": m_filled,
+            "meas_pct": round(m_filled * 100 / cells, 1) if cells else 0.0,
             "n_ready": len(ready),
             "ready_pct": round(len(ready) * 100 / n, 1) if n else 0.0,
+            "n_ready_meas": len(ready_m),
+            "ready_meas_pct": round(len(ready_m) * 100 / n, 1) if n else 0.0,
             "missing": miss_by_key.most_common(6),
         })
     return c, mat, own, out
@@ -199,17 +349,37 @@ def main():
 
     tot_cells = sum(x["cells"] for x in cov)
     tot_filled = sum(x["filled"] for x in cov)
-    print(f"\n{'해석':20s} {'대상':>5s} {'셀채움':>8s} {'재료준비':>9s}   가장 큰 공백")
-    print("  " + "─" * 96)
+    tot_unfill = sum(x["unfillable"] for x in cov)
+    tot_eff = tot_cells - tot_unfill
+    tot_meas = sum(x["meas_filled"] for x in cov)
+    print(f"\n{'해석':18s} {'대상':>5s}  {'셀채움':>7s} {'실측기반':>7s}  "
+          f"{'재료준비':>7s} {'실측':>6s}   가장 큰 공백")
+    print("  " + "─" * 104)
     for x in cov:
         top = x["missing"][0][0].replace("택일군: ", "") if x["missing"] else "—"
-        top = top.split(".", 1)[-1][:34]
-        print(f"  {x['name']:20s} {x['n_target']:5d} "
-              f"{x['filled']:5d}/{x['cells']:<5d} {x['cell_pct']:5.1f}% "
-              f"{x['n_ready']:4d} {x['ready_pct']:5.1f}%   {top}")
-    print("  " + "─" * 96)
-    print(f"  {'전체':20s} {'':5s} {tot_filled:5d}/{tot_cells:<5d} "
-          f"{tot_filled*100/tot_cells:5.1f}%")
+        top = top.split(".", 1)[-1][:26]
+        print(f"  {x['name']:18s} {x['n_target']:5d}  "
+              f"{x['cell_pct']:6.1f}% {x['meas_pct']:6.1f}%  "
+              f"{x['ready_pct']:6.1f}% {x['ready_meas_pct']:5.1f}%   {top}")
+    print("  " + "─" * 104)
+    print(f"  {'전체':18s} {'':5s}  {tot_filled*100/tot_cells:6.1f}% "
+          f"{tot_meas*100/tot_cells:6.1f}%")
+    print(f"\n  **실측기반**은 tier4(가정·계산)를 뺀 값이다. 차이 "
+          f"{(tot_filled-tot_meas)*100/tot_cells:.1f}%p({tot_filled-tot_meas}칸)가 "
+          f"가정값이 만든 착시다.")
+    print(f"  구조적 부재는 {tot_unfill}칸({tot_unfill*100/tot_cells:.1f}%)뿐이다 — "
+          f"**천장은 100%에 가깝고, 남은 일은 실측 기준 {tot_cells-tot_meas}칸이다.**")
+    print(f"\n  구조적 부재 {tot_unfill}칸을 뺀 분모가 '유효채움'이다 — "
+          f"**그 물성이 그 재료군에서 애초에 발표되지 않는 칸**이다.")
+    print(f"  남은 일은 {tot_cells - tot_filled}칸이 아니라 "
+          f"**{tot_eff - tot_filled}칸**이다.")
+    # 부재로 선언했는데 값이 있으면 선언이 틀린 것이다 — 반드시 드러낸다.
+    wrong = [w for x in cov for w in x["wrong_unfillable"]]
+    if wrong:
+        uniq = sorted({w for w in wrong})
+        print(f"\n  [경고] 구조적 부재로 선언했는데 값이 있는 칸 {len(uniq)}종 — 선언이 틀렸다:")
+        for nm, k in uniq[:12]:
+            print(f"        {nm[:52]:52s} {k}")
 
     print(f"\n\n  물성 보유율 상위/하위 (재료 {len(mat)}종 기준)")
     ordered = sorted(props, key=lambda p: -p["n_mat"])
