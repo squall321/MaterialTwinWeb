@@ -753,3 +753,24 @@ PDF로, 나에게는 HTML로 왔다. 그래서 `file`로 실제 형식을 확인
 - **Shin-Etsu RTV 카탈로그는 "실리콘 2-4×10⁻⁴/°C"라는 계열 범위만** 인쇄한다(2배 폭이라 못 씀).
 - **Amodel PPA 비열은 그림뿐**이고 Ryton PPS Design Guide에는 비열 항목이 없다.
 - **Kapton EN 실측 열전도율은 존재하지 않는다**(EN-A·EN-C·EN-Z 시트 QE-10172 전수 확인).
+
+### 테이프 밀도 — SDS 경로도 막혔다 (2026-08-08 확인)
+
+앞선 파동이 "벤더 TDS에 테이프 밀도가 없다"를 확정했고, 이번에 **SDS 우회로까지 확인해
+닫았다.**
+
+**3M은 테이프 SDS 9절의 밀도를 계통적으로 `Not Applicable`로 적는다.** 9415PC/9425HT를
+함께 다루는 SDS의 **US판(2013)과 말레이시아판(2016) 두 판본**을 각각 받아 확인했고 둘 다
+같다. 완제품 테이프가 OSHA article 면제라 물성 기재 의무가 없기 때문이다.
+**앞으로 3M 테이프 SDS를 더 확보해도 결과는 같을 공산이 크다.**
+
+Intertape는 SDS 대신 **ARTICLE INFORMATION SHEET**를 내고 문서 서두에 article 면제를
+명시한다. `Density: Not applicable`.
+
+접근 자체가 막힌 것 — **Nitto No.500/5015E/5050S**는 이 제품군 SDS를 공개하지 않는다
+(`/others/products/file/{sds,msds}/`·`/others/sds/`·`/support/sds/` 전부 404, EU 제품 페이지
+HTML을 파싱해도 문서 링크가 TDS 하나뿐). **Lohmann**은 lohmann-tapes.com이 HubSpot으로
+이전하며 다운로드 섹션이 사라졌고, lohmann-tapes.us는 `files_db/{타임스탬프ID}__6.pdf`
+형태라 ID 열거가 불가능하다. **3M 8402**는 공개 SDS가 없고 유통사 미러도 없다.
+
+**라이너 평량(gr/sqm)은 테이프 질량이 아니다.** 역산하지 마라.
