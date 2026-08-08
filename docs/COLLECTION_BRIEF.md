@@ -142,7 +142,10 @@ DB에 등록돼 있던 구형 "product information" PDF에는 그 섹션이 **�
 
 **(라) `pmc.ncbi.nlm.nih.gov/articles/PMCxxxxx/`는 curl에 reCAPTCHA를 돌려준다.**
 20 KB짜리 정상 응답처럼 보여서 **조용히 실패한다.** 6차 파동에서 한 배치의 1차 스윕 14편이
-이렇게 새고 있었다. **받은 뒤 본문에 `recaptcha`가 있는지 반드시 검사하라.**
+이렇게 새고 있었다. **받은 뒤 실패인지 검사하라.**
+  **다만 `recaptcha` 문자열 존재로 판정하면 위양성이 난다** — 정상 페이지의 폼 스크립트에도
+  그 문자열이 있다(7차 파동이 caplinq 물성표 6건을 이렇게 잘못 버렸다).
+  **판정은 "찾는 제품명·키워드가 본문에 실제로 있는가"로 하라.**
 정상 경로는 `https://www.ebi.ac.uk/europepmc/webservices/rest/{PMCID}/fullTextXML`이다.
 같은 이유로 `www.mdpi.com/{doi}`와 `doi.org/10.3390/...`는 400바이트 스텁을 준다.
 
@@ -193,6 +196,15 @@ DB에 등록돼 있던 구형 "product information" PDF에는 그 섹션이 **�
   하나도 안 따라오면 그렇다. **`pdftoppm -f N -l N -r 200 -png` 후 이미지로 읽어라** —
   그래프가 아니라 표이므로 규칙 3에 걸리지 않는다. 7차 파동이 이 단계를 안 밟았으면
   표 전체를 "없다"고 결론지을 뻔했다.
+- **애그리게이터의 `Shear Modulus`를 믿지 마라 — 대개 역산값이다.**
+  7차 파동이 AZoM/Granta에서 5개 폴리머 계열의 G가 `E/(2(1+ν))`와 **유효숫자까지 일치**함을
+  확인했다(PU·PET·PP·PI·에폭시). 게다가 전부 범위라 값도 아니다.
+  **MakeItFrom의 폴리머 G는 자기모순이다** — LDPE가 E=0.30 GPa, G=0.21 GPa를 동시에 인쇄하는데
+  이러면 ν=−0.29로 음의 포아송비가 된다. (같은 사이트의 **금속** 값은 정합한다 — 폴리머만 오염됐다.)
+- **학위논문의 구성모델 파라미터가 실측인지 산출인지 부록을 확인하라.** Brown 박사논문의
+  PORON XRD `G0`는 Table 2.1에 깔끔하게 인쇄돼 있지만, Appendix A가 *"Young's modulus and
+  Poisson's ratio are extracted ... via a linear least squares regression ... used to calculate
+  G0 and B"*라고 밝힌다. **표만 보면 실측처럼 보인다.**
 - **본문 서술과 표 행 이름이 다르면 표를 믿어라.** 7차 파동이 만난 사례 — 본문이
   "water contact angle of the ZK60 substrate"라고 쓰는데 **Table 1의 행 이름은 `ZnMg1.2 wt%`**이고
   초록도 ZnMg1.2 연구다. 저자가 다른 논문에서 문장을 복사한 것이다.
