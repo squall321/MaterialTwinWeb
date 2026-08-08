@@ -199,6 +199,22 @@ UNFILLABLE = [
         "physical.contact_angle_water", "physical.surface_energy",
         "thermal.conductivity", "thermal.specific_heat",
     }, "커버글래스 — 젖음·열물성 발표 자체가 없다"),
+
+    # ── 아래 셋은 "벤더가 안 낸다"가 아니라 **물리적으로 정의되지 않는다**이다.
+    # 8차 파동 항복강도 배치가 258종을 훑어 171종을 이 사유로 분류했고,
+    # 각 군에 실측(tier<=3) 반례가 0이다.
+
+    # 세라믹·유리는 항복 없이 파괴한다 — 소성 유동 구간이 없어 Rp0.2가 성립하지 않는다.
+    (("cat:ceramic",), {"mechanical.yield_strength"},
+     "세라믹·유리 — 취성 파괴라 항복점이 물리적으로 없다"),
+
+    # 가황 고무·엘라스토머는 초탄성으로 모델링한다. 입력은 항복점이 아니라 응력-변형 곡선이다.
+    (("cat:rubber",), {"mechanical.yield_strength"},
+     "고무·엘라스토머 — 초탄성이라 항복점이 정의되지 않는다"),
+
+    # 증착 박막·분산체로 쓰이는 저분자 유기 고체다. 벌크 소성 시험 자체가 성립하지 않는다.
+    (_DOPANT, {"mechanical.yield_strength"},
+     "저분자 유기 고체 — 벌크 항복 시험이 성립하지 않는다"),
 ]
 
 
@@ -215,15 +231,39 @@ UNFILLABLE = [
 _ACTIVE: dict | None = None
 
 
-def _build_active(mat: dict, own: dict) -> dict:
-    """반례가 없는 (매처, 키) 쌍만 남긴다. 반례가 있으면 그 쌍은 부재가 아니다."""
+def _match(entry: tuple, matcher: tuple) -> bool:
+    """이름 부분일치, 또는 `cat:<카테고리>`로 카테고리 일치.
+
+    취성·엘라스토머처럼 **부재의 근거가 이름이 아니라 재료 부류**인 경우가 있다
+    (세라믹은 항복 없이 파괴한다). 이름 매처로는 44종을 다 잡을 수 없어 카테고리를 연다.
+    """
+    name, cat = entry[0].lower(), (entry[1] or "").lower()
+    for w in matcher:
+        if w.startswith("cat:"):
+            if cat == w[4:]:
+                return True
+        elif w in name:
+            return True
+    return False
+
+
+def _build_active(mat: dict, own: dict, meas: dict | None = None) -> dict:
+    """반례가 없는 (매처, 키) 쌍만 남긴다. 반례가 있으면 그 쌍은 부재가 아니다.
+
+    **반례는 실측(tier<=3)만 인정한다.** 8차 파동에서 우리가 넣은 tier4 가정값이
+    "이 물성은 물리적으로 정의되지 않는다"는 선언을 무효화하는 일이 실제로 났다 —
+    아크릴 폼 테이프 11종에 항복강도 가정값을 넣자 점착테이프 항복점 부재 선언이
+    자동 은퇴했다. **우리가 만든 가정이 우리의 부재 선언을 지우면 안 된다.**
+    반례는 바깥에서 온 근거여야 하고, 가정값은 근거가 아니다.
+    """
     global _ACTIVE
+    src = meas if meas is not None else own
     active, retired = {}, []
     for idx, (matcher, keys, why) in enumerate(UNFILLABLE):
-        members = [m for m in mat if any(w in mat[m][0].lower() for w in matcher)]
+        members = [m for m in mat if _match(mat[m], matcher)]
         alive = set()
         for k in keys:
-            counter = [mat[m][0] for m in members if k in own[m]]
+            counter = [mat[m][0] for m in members if k in src[m]]
             if counter:
                 retired.append((why, k, len(counter), counter[0]))
             else:
@@ -233,22 +273,26 @@ def _build_active(mat: dict, own: dict) -> dict:
     return _ACTIVE
 
 
-def unfillable_keys(name: str) -> set:
-    """그 재료에서 구조적으로 못 채우는 물성 키 집합(반례 검증 통과분만)."""
-    low = name.lower()
+def unfillable_keys(name: str, cat: str = "") -> set:
+    """그 재료에서 구조적으로 못 채우는 물성 키 집합(반례 검증 통과분만).
+
+    `cat`은 `cat:<카테고리>` 매처용이다 — 취성·초탄성처럼 부재의 근거가 이름이
+    아니라 재료 부류인 선언이 있다. 넘기지 않으면 이름 매처만 동작한다.
+    """
+    entry = (name, cat)
     out = set()
     src = (_ACTIVE["active"].items() if _ACTIVE
            else ((i, (m, k)) for i, (m, k, _) in enumerate(UNFILLABLE)))
     for _idx, (matcher, keys) in src:
-        if any(w in low for w in matcher):
+        if _match(entry, matcher):
             out |= keys
     return out
 
 
-def _cell_unfillable(mat_name: str, keys) -> bool:
+def _cell_unfillable(mat_name: str, keys, cat: str = "") -> bool:
     """칸 하나가 구조적 부재인가. 택일군은 **후보가 전부** 부재여야 부재다 —
     하나라도 채울 길이 있으면 그 칸은 채울 수 있는 칸이다."""
-    bad = unfillable_keys(mat_name)
+    bad = unfillable_keys(mat_name, cat)
     if not bad:
         return False
     flat = []
@@ -259,7 +303,9 @@ def _cell_unfillable(mat_name: str, keys) -> bool:
 
 def compute():
     c, mat, own, meas = load()
-    _build_active(mat, own)   # 반례 검증 — 값이 하나라도 있는 쌍은 부재에서 뺀다
+    # 반례 검증 — 실측(tier<=3)이 하나라도 있는 쌍은 부재에서 뺀다.
+    # own이 아니라 meas를 넘긴다: 우리가 만든 tier4 가정값은 반례가 아니다.
+    _build_active(mat, own, meas)
     out = []
     for name, must, anyof, filt, desc in ANALYSES:
         tgt = scope(mat, filt)
@@ -278,9 +324,11 @@ def compute():
                 cells += 1
                 m_filled += (k in ms)
                 has = k in ks
-                if _cell_unfillable(mat[m][0], (k,)):
+                if _cell_unfillable(mat[m][0], (k,), mat[m][1]):
                     unfill += 1
-                    if has:
+                    # 반례는 **실측(tier<=3)**만 인정한다. 8차 파동 방침대로 넣은 tier4
+                    # 가정값이 부재 칸에 앉는 것은 정상이다 — 선언이 틀렸다는 뜻이 아니다.
+                    if k in ms:
                         wrong_unfill.append((mat[m][0], k))
                 if has:
                     filled += 1
@@ -290,9 +338,9 @@ def compute():
                 cells += 1
                 m_filled += grp_ok(ms, grp)
                 has = grp_ok(ks, grp)
-                if _cell_unfillable(mat[m][0], grp):
+                if _cell_unfillable(mat[m][0], grp, mat[m][1]):
                     unfill += 1
-                    if has:
+                    if grp_ok(ms, grp):
                         wrong_unfill.append((mat[m][0], "택일군"))
                 if has:
                     filled += 1
