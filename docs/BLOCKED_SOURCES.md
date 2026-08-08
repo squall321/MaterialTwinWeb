@@ -699,3 +699,57 @@ PDF로, 나에게는 HTML로 왔다. 그래서 `file`로 실제 형식을 확인
 이 경로 하나로 학위논문 리포지터리가 통째로 열렸다. **워피지 논문이 마스터커브를 그림으로만
 싣고 계수표를 사내자산으로 남기는 관행 때문에, 같은 연구의 학위논문 부록이 유일한 출처인
 경우가 많다.** 5차 파동 벤딩 수확 118건의 대부분이 여기서 나왔다.
+
+## Y. 6차 파동 — 새 경로와 확정된 부재 (2026-08-08)
+
+### 새로 뚫은 경로
+
+- **Isola TDS = 포아송비 광맥.** `isola-group.com/wp-content/uploads/data-sheets/{슬러그}.pdf`
+  (`370hr` `i-speed` `fr408hr` `i-tera-mt40` `astra-mt77`). **전 라미네이트에 Poisson's Ratio를
+  length/cross로 ASTM D3039 실측으로 인쇄한다.** 실측 스펙트럼이 0.137~0.234로,
+  "직물유리 적층판 ν=0.183"이라는 클래스 가정의 실제 불확도가 이만큼이다.
+- **SABIC 필름 기술매뉴얼**이 PC·PBT·PEI 필름 ν의 유일한 출처다(Lexan 0.38, Ultem 0.42,
+  ASTM D132-61). 개별 제품 TDS에는 없다.
+  `static1.squarespace.com/static/61ef1f195f3d93384f20d7f3/t/621516b217df0c4e71222dc9/...`
+- **GaTech SMARTech 3단 체인** — `repository.gatech.edu/server/api/discover/search/objects?query=handle:%221853/{id}%22`
+  → UUID → `/server/api/core/items/{UUID}/bundles` → ORIGINAL → `_links.content.href`.
+  **IEEE 페이월 논문의 저자 원고가 여기 올라와 있는 사례가 확인됐다**(Dunne 2001 IEEE CPMT).
+  `hdl.handle.net`는 HTML 862 B만 준다.
+- **FD&E Waterloo는 IP 차단됐지만 Wayback으로 우회된다.**
+  목록 `web.archive.org/cdx/search/cdx?url=fde.uwaterloo.ca/Fde/Materials&matchType=prefix&limit=50000&collapse=urlkey&fl=timestamp,original`,
+  본문 `web.archive.org/web/{ts}id_/{original}`(`id_` 필수). 간격 3초 + 3회 재시도로 거의 회수된다.
+  계수 파일은 `grep -l "STRG COEF"`로 걸러진다. **26개 고유 계수 세트를 회수해 뒀다.**
+  다만 아카이브 커버리지는 부분적이다 — 라이브 605쪽 대비 343 URL, `_fitted` 57개.
+- **MIL-HDBK-5G Vol.2** `archive.org/download/DTIC_ADA322636/DTIC_ADA322636_djvu.txt`(1.4 MB OCR).
+  5~9장(Ti·내열·기타). **알루미늄 3장·강 2장은 Vol.1이고 archive.org에서 못 찾았다.**
+  OCR이 `Log Nf`를 이중공백으로 뱉으므로 `grep -iE "Log +N *f? *="`로 찾아야 한다.
+- **SciELO는 완전 개방이다.** `?format=pdf`는 xref가 깨져 pdftotext가 실패하지만
+  HTML(`scielo.br/j/{j}/a/{hash}/?lang=en`)에 표가 평문으로 들어 있다.
+- **3M 개별 제품 TDS는 `multimedia.3m.com/mws/media/{ID}O/아무이름.pdf`로 ID만 맞으면 열린다.**
+  VHB ID 확인분 — 2369649(4910, k=0.16) · 2369651(4950, k=0.09) · 2369604(5952, k=0.05) 등.
+- **Europe PMC 보충자료** `…/{PMCID}/supplementaryFiles`가 publisher SI를 ZIP으로 준다.
+  **본문이 "Table S1 참조"라고 하면 여기로 가라.**
+- **WebFetch가 curl 우회로로 쓸 수 있다.** inseto.com은 curl에 HTML을 주지만 WebFetch는
+  실제 PDF를 저장한다. 그 파일을 `pdftotext -layout`으로 다시 읽으면 된다.
+- `apicalfilm.com/wp-content/uploads/{제품명}.pdf` — Kaneka Apical 등급별 TDS 21종.
+- `agc-multimaterial.com/agc-downloads/AGC_{PRODUCT}_TDS.pdf` — **AGC 현행 포맷은
+  `Specific Heat`(IPC-650 2.4.50)와 `Density`를 인쇄한다. 단 방열 지향 등급만.**
+- `arplankdirect.com/.../PhysicalPropertyInformation_EPEproducts_ARPLANK_AUG2024.pdf` —
+  EPE 20~74 g/l 밀도별 ASTM C177 열전도율 표.
+- **PubChem PUG-View** `?heading=Density`가 1차 출처(CRC 판·페이지, OECD 시험번호)를 함께 준다.
+
+### 확정된 부재
+
+- **PCB 라미네이트 비열은 어느 벤더도 발표하지 않는다.** Rogers·Isola·ITEQ·TUC·Nan Ya·
+  Panasonic·Shengyi·Doosan·AGC·Taconic·Chukoh 전수 확인. **유일한 예외가 AGC RF-35TC다.**
+- **PCB 라미네이트는 밀도도 발표하지 않는다.** 수지 함량과 두께를 대신 인쇄한다(Chukoh만 예외).
+- **Rogers·VAC·Arnold는 포아송비를 발표하지 않는다.**
+- **Darveaux 상수는 솔더 조인트 전용**이고 피로 타깃 174종에 솔더가 하나도 없다.
+  검색 실패가 아니라 정의상 없다.
+- **저분자 도판트(발광체·인광체·광개시제) ~55종은 밀도·열전도율·비열·CTE가 없다.**
+  광물리 논문은 λ·Φ_PL·τ·HOMO/LUMO만 인쇄한다.
+- **PSA 테이프 ~51종의 CTE·열물성·기계물성** — 벤더가 애초에 발표하지 않는다.
+  "expansion coefficient"라는 문구는 나오지만 "피착재 팽창 차이를 흡수한다"는 판매 문구다.
+- **Shin-Etsu RTV 카탈로그는 "실리콘 2-4×10⁻⁴/°C"라는 계열 범위만** 인쇄한다(2배 폭이라 못 씀).
+- **Amodel PPA 비열은 그림뿐**이고 Ryton PPS Design Guide에는 비열 항목이 없다.
+- **Kapton EN 실측 열전도율은 존재하지 않는다**(EN-A·EN-C·EN-Z 시트 QE-10172 전수 확인).
