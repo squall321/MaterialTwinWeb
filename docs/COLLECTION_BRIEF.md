@@ -64,7 +64,11 @@
 - Europe PMC 페이월 논문도 `EXT_ID:{PMID}&resultType=core`로 초록 전문을 받을 수 있다
 - J-Stage `_pdf` · DOAJ **API**(웹페이지는 403) · Crossref API · Unpaywall API · arXiv · NTRS(NASA)
 - 대학 DSpace — GaTech SMARTech REST, UT Austin, EPFL Infoscience, HAL, Brunel BURA
-- Wayback CDX (벤더가 지운 TDS 복구) · bzycj.cn (`POST /search`)
+- Wayback CDX (벤더가 지운 TDS 복구)
+- **bzycj.cn은 살아 있다**(닫혔다는 보고가 두 번 있었으나 오판이다).
+  `POST https://www.bzycj.cn/search`에 `q` + `searchType=0` + `showNum` + `pageType=cn`.
+  **결과 링크가 `http://www.bzycj.cn:80/cn/article/doi/{DOI}`처럼 포트가 붙은 절대경로**라
+  상대경로 정규식은 전부 놓친다
 - **University of Waterloo FD&E** `fde.uwaterloo.ca/Fde/Materials/dindex.html`
   — SAE 표준 포맷 `*_fitted.html`이 피로계수를 평문으로 인쇄한다. 디렉터리 순회 가능
 - `curl` + `pdftotext -layout` 이 WebFetch보다 PDF에서 항상 낫다
@@ -73,7 +77,7 @@
 `www.mdpi.com/article/{doi}/pdf`(403) · DuckDuckGo·Brave·Searx ·
 **IOPscience는 간헐적이다** — `iopscience.iop.org/article/{DOI}/pdf` + UA가 통할 때가 있고,
 막힐 때는 200을 주면서 PDF가 아니라 HTML을 돌려준다. `file`로 실제 형식을 확인하라 ·
-OpenAlex(429) · Semantic Scholar(키 필요) · ScienceDirect(OA 논문도 403) · Wiley pdfdirect ·
+**OpenAlex는 429가 아니라 과금 벽이다**(`Insufficient budget… $0 remaining`) — 재시도해도 소용없다. 대체재는 **DOAJ API**(`doaj.org/api/search/articles/{q}?pageSize=40`, boolean 지원)가 가장 낫고 MDPI *Metals*처럼 PMC에 없는 것까지 잡는다 · Semantic Scholar(키 필요) · ScienceDirect(OA 논문도 403) · Wiley pdfdirect ·
 Elsevier·IEEE·Springer 페이월 · apps.dtic.mil · DYMAT(DataDome)
 
 **WebSearch 예산은 세션당 200회이고 금방 마른다.** 처음부터 Europe PMC REST / OSTI API /

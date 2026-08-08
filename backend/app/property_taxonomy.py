@@ -100,6 +100,11 @@ _DEFS: list[tuple] = [
     # 율속별 항복강도 — LS-DYNA LCSR(변형률속도 스케일 곡선)의 원자료.
     ("mechanical.yield_strength_at_rate", "mechanical", "변형률속도별 항복강도", None, "Pa", "numeric",
      ["strain_rate_s", "temperature_k"], None),
+    # 율속 시험이 항복만 인쇄하는 건 아니다. 인장강도만 율속별로 준 문헌이 실제로 있었고
+    # (Hiperco 50A Sandia 보고서의 UTS x 율속 20점), 담을 키가 없어 통째로 버렸다.
+    # 항복이 그림뿐이고 UTS만 표로 인쇄되는 경우가 드물지 않다.
+    ("mechanical.tensile_strength_at_rate", "mechanical", "변형률속도별 인장강도", None, "Pa", "numeric",
+     ["strain_rate_s", "temperature_k"], None),
     # ── 피로·손상 ─────────────────────────────────────────────────────────────
     # 지금까지 fatigue_strength(단일 피로한도)만 있어 "무한수명 판정"밖에 못 했다.
     # 아래 계수쌍이 있어야 "몇 사이클에 깨지는가"를 답한다.
