@@ -1,0 +1,166 @@
+251 Chukoh CHUKOH FLO CGN-500 PTFE Copper-Clad Laminate | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.183 1 t4 |cond {"assumption": true, "class": "직물유리 적층판", "basis": "catalog", "direction": "in-plane (nu12) — 두께방향 nu13은 값이 다르다"} | estimated |  | MaterialTwinWeb 클래스 가정 
+    - physical.density = 2200.0 kg/m^3 t1 |cond {"condition": "A"} | measured |  | CHUKOH FLO 銅張積層板 製品カタログ (catalog05_lami_ja) | https://www.chukoh.co.jp/wp-content/uploads/catalog05_lami_ja-1.pdf | None
+    - physical.density = 2200.0 kg/m^3 t1 |cond {"temperature_C": 23, "test_condition": "A (as received)", "grade": "CGN-500"} | measured |  | Chukoh Chemical 제품 페이지 'CGN-500' 특성표 (Copper-clad laminates) 
+252 Chukoh CHUKOH FLO CGS-500A PTFE Copper-Clad Laminate | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.183 1 t4 |cond {"assumption": true, "class": "직물유리 적층판", "basis": "catalog", "direction": "in-plane (nu12) — 두께방향 nu13은 값이 다르다"} | estimated |  | MaterialTwinWeb 클래스 가정 
+    - physical.density = 2200.0 kg/m^3 t1 |cond {"condition": "A"} | measured |  | CHUKOH FLO 銅張積層板 製品カタログ (catalog05_lami_ja) | https://www.chukoh.co.jp/wp-content/uploads/catalog05_lami_ja-1.pdf | None
+    - physical.density = 2200.0 kg/m^3 t1 |cond {"temperature_C": 23, "test_condition": "A (as received)", "grade": "CGS-500A"} | measured |  | Chukoh Chemical 제품 페이지 'CGS-500A' 특성표 (Copper-clad laminates
+434 Epoxy molding compound CEL-9240HF (Hitachi Chemical, 3D-stacked memory package encapsulant) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.3 1 t2 |cond None | handbook |  | Viscoelastic Simulation of Stress and Warpage for Memory Chip 3D-Stacked Package | https://www.mdpi.com/2079-6412/12/12/1976 | 10.3390/
+    - physical.density = 2015.0 kg/m^3 t4 |cond {"temperature_C": 25, "form": "product (gray tablet or powder, as supplied)", "test_method": "manufacturer MSDS section 9 relative density", "assumption": t
+443 Epoxy molding compound EMC1 (Tg 115 C, Nitto Denko, BGA warpage study) | WANT: youngs_modulus, poisson_ratio, density
+444 Epoxy molding compound EMC2 (Tg 135 C, Nitto Denko, BGA warpage study) | WANT: youngs_modulus, poisson_ratio, density
+445 Epoxy molding compound EMC3 (Tg 170 C, Nitto Denko, BGA warpage study) | WANT: youngs_modulus, poisson_ratio, density
+446 FR-4 PCB laminate, 1 mm thick (wafer level package board level test vehicle) | WANT: poisson_ratio, density
+    - mechanical.youngs_modulus = 24000000000.0 Pa t3 |cond {"direction": "in-plane", "temperature_c": 25, "grade_scope": "class value — 이 학위논문 4장의 DMA 시편(0.93 mm WLP 보드)이 DB에 이미 들어 있는 Misrak 2022 ASME 논문
+224 ITEQ IT-180A High-Tg Low-CTE Laminate | WANT: density
+    - mechanical.poisson_ratio = 0.183 1 t4 |cond {"assumption": true, "class": "직물유리 적층판", "basis": "catalog", "direction": "in-plane (nu12) — 두께방향 nu13은 값이 다르다"} | estimated |  | MaterialTwinWeb 클래스 가정 
+    - mechanical.youngs_modulus = 19000000000.0 Pa t1 |cond {"temperature_C": 23, "method_detail": "ASTM D3039 인장, 경화 라미네이트 warp(경사) 방향", "axis": "warp"} | measured |  | IT-180A High Tg / Lead Free / High
+    - mechanical.youngs_modulus = 18000000000.0 Pa t1 |cond {"temperature_C": 23, "method_detail": "ASTM D3039 인장, 경화 라미네이트 fill(위사) 방향", "direction": "fill"} | measured |  | IT-180A High Tg / Lead Free /
+225 ITEQ IT-968 Ultra-Low-Loss Laminate | WANT: density
+    - mechanical.poisson_ratio = 0.183 1 t4 |cond {"assumption": true, "class": "직물유리 적층판", "basis": "catalog", "direction": "in-plane (nu12) — 두께방향 nu13은 값이 다르다"} | estimated |  | MaterialTwinWeb 클래스 가정 
+    - mechanical.youngs_modulus = 18000000000.0 Pa t1 |cond {"temperature_C": 23, "method_detail": "ASTM D3039 인장, 경화 라미네이트 warp/fill 동일값", "orientation": "warp=fill"} | measured |  | IT-968 High Tg / Lea
+    - mechanical.youngs_modulus = 18000000000.0 Pa t1 |cond {"temperature_C": 23, "method_detail": "ASTM D3039 인장, 경화 라미네이트 warp/fill 동일값", "direction": "warp=fill (동일값)"} | measured |  | IT-968 High Tg /
+254 Isola Astra MT77 Very Low Loss RF/MW Laminate | WANT: density
+    - mechanical.poisson_ratio = 0.183 1 t1 |cond {"direction": "length (LW)", "standard": "ASTM D3039"} | measured |  | Astra MT77 Laminate and Prepreg (Rev D, 2021-04-20) | https://www.isola-group.com/w
+    - mechanical.poisson_ratio = 0.182 1 t1 |cond {"direction": "cross (CW)", "standard": "ASTM D3039"} | measured |  | Astra MT77 Laminate and Prepreg (Rev D, 2021-04-20) | https://www.isola-group.com/wp
+    - mechanical.poisson_ratio = 0.183 1 t1 |cond {"direction": "length", "standard": "ASTM D3039"} | measured |  | Astra MT77 Laminate and Prepreg (Rev D, 2021-04-20) | https://www.isola-group.com/wp-con
+    - mechanical.poisson_ratio = 0.182 1 t1 |cond {"direction": "cross", "standard": "ASTM D3039"} | measured |  | Astra MT77 Laminate and Prepreg (Rev D, 2021-04-20) | https://www.isola-group.com/wp-cont
+    - mechanical.poisson_ratio = 0.183 1 t1 |cond {"direction": "length"} | measured |  | Astra MT77 Laminate and Prepreg (Rev D, 2021-04-20) | https://www.isola-group.com/wp-content/uploads/data-sheets/a
+    - mechanical.poisson_ratio = 0.182 1 t1 |cond {"direction": "cross"} | measured |  | Astra MT77 Laminate and Prepreg (Rev D, 2021-04-20) | https://www.isola-group.com/wp-content/uploads/data-sheets/as
+    - mechanical.poisson_ratio = 0.183 1 t1 |cond {"axis": "length (warp)", "standard": "ASTM D3039"} | measured |  | Astra MT77 Laminate and Prepreg (Rev D, 2021-04-20) | https://www.isola-group.com/wp-c
+    - mechanical.poisson_ratio = 0.182 1 t1 |cond {"axis": "cross (fill)", "standard": "ASTM D3039"} | measured |  | Astra MT77 Laminate and Prepreg (Rev D, 2021-04-20) | https://www.isola-group.com/wp-co
+    - mechanical.poisson_ratio = 0.183 1 t1 |cond {"direction": "Lengthwise direction", "standard": "ASTM D3039-095a", "datasheet_revision": "03/17 DSAstraMT77Q (Isola, 2017)"} | measured |  | Astra® MT77
+    - mechanical.poisson_ratio = 0.182 1 t1 |cond {"direction": "Crosswise direction", "standard": "ASTM D3039-095a", "datasheet_revision": "03/17 DSAstraMT77Q (Isola, 2017)"} | measured |  | Astra® MT77 
+    - mechanical.youngs_modulus = 19195000000.0 Pa t1 |cond {"temperature_C": 23, "method_detail": "인장 탄성률 (ASTM D3039-095a)", "direction": "lengthwise (warp)"} | measured |  | Astra MT77 Very Low-loss La
+    - mechanical.youngs_modulus = 17416100000.0 Pa t1 |cond {"temperature_C": 23, "method_detail": "인장 탄성률 (ASTM D3039-095a)", "direction": "crosswise (fill)"} | measured |  | Astra MT77 Very Low-loss Lam
+    - mechanical.youngs_modulus = 19195000000.0 Pa t1 |cond {"direction": "Lengthwise direction", "mode": "tensile", "standard": "ASTM D3039-095a", "datasheet_revision": "03/17 DSAstraMT77Q (Isola, 2017)"
+    - mechanical.youngs_modulus = 17416200000.0 Pa t1 |cond {"direction": "Crosswise direction", "mode": "tensile", "standard": "ASTM D3039-095a", "datasheet_revision": "03/17 DSAstraMT77Q (Isola, 2017)"}
+287 Kaneka Multilayer Graphite Sheet Thermal Strap (space) | WANT: youngs_modulus, poisson_ratio
+    - physical.density = 1800.0 kg/m^3 t1 |cond None | measured |  | Thermal Strap for Space Applications (Multi Layer insulation (MLI)/Heat-dissipating Materi | https://www.elecdiv.kaneka.co.jp/en/produc
+226 Nan Ya NP-155FR Mid-Tg Laminate | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.183 1 t4 |cond {"assumption": true, "class": "직물유리 적층판", "basis": "catalog", "direction": "in-plane (nu12) — 두께방향 nu13은 값이 다르다"} | estimated |  | MaterialTwinWeb 클래스 가정 
+    - physical.density = 1850.0 kg/m^3 t1 |cond None | measured |  | Nan Ya Plastics Corporation — NP-155F 物質安全資料表 (Safety Data Sheet), 銅箔基板 Copper Clad Lamina | https://www.npc.com.tw/j2npc/zhtw/proddoc/
+436 Organic flip-chip package substrate laminate, core + build-up layers (Liu 2013 Georgia Tech TSV dissertation, DMA Prony characterization) | WANT: youngs_modulus, poisson_ratio, density
+468 PECVD SiOx barrier film, 150 nm SiOx on 45 um PE (HMDSO/O2 capacitively coupled plasma) | WANT: youngs_modulus, poisson_ratio, density
+277 PGS Graphite Sheet 100 um (Panasonic) | WANT: youngs_modulus, poisson_ratio
+    - physical.density = 850.0 kg/m^3 t1 |cond {"thickness_um": 100} | measured |  | Basic Properties and Application Examples of PGS Graphite Sheet (Material Characteristics  | https://docs.rs-online.com
+    - physical.density = 1000.0 kg/m^3 t1 |cond None | measured |  | "PGS" Graphite Sheets (EYGS091310), Rev. Feb 2002 | https://media.digikey.com/pdf/Data%20Sheets/Panasonic%20Electronic%20Components/PGS
+234 Shengyi S1000-2 High-Tg Low-CTE Laminate | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.183 1 t4 |cond {"assumption": true, "class": "직물유리 적층판", "basis": "catalog", "direction": "in-plane (nu12) — 두께방향 nu13은 값이 다르다"} | estimated |  | MaterialTwinWeb 클래스 가정 
+    - physical.density = 1500.0 kg/m^3 t1 |cond None | measured |  | SHENGYI TECHNOLOGY - Material Safety Sheet, Copper Clad Laminate (S1000-2) | https://www.shengyi-usa.com/wp-content/uploads/dlm_uploads
+227 TUC TU-872 SLK Low-Loss Laminate | WANT: density
+    - mechanical.poisson_ratio = 0.183 1 t4 |cond {"assumption": true, "class": "직물유리 적층판", "basis": "catalog", "direction": "in-plane (nu12) — 두께방향 nu13은 값이 다르다"} | estimated |  | MaterialTwinWeb 클래스 가정 
+    - mechanical.youngs_modulus = 26000000000.0 Pa t1 |cond {"direction": "warp", "conditioning": "A"} | measured |  | TU-872 SLK Low Dk/Df and High Thermal Reliability Laminate and Prepreg (DS1801013A) |
+    - mechanical.youngs_modulus = 24000000000.0 Pa t1 |cond {"direction": "fill", "conditioning": "A"} | measured |  | TU-872 SLK Low Dk/Df and High Thermal Reliability Laminate and Prepreg (DS1801013A) |
+    - mechanical.youngs_modulus = 26000000000.0 Pa t1 |cond {"direction": "warp"} | measured |  | TU-872 SLK Low Dk/Df and High Thermal Reliability Laminate and Prepreg (DS1801013A) | https://www.hemeixin
+    - mechanical.youngs_modulus = 24000000000.0 Pa t1 |cond {"direction": "fill"} | measured |  | TU-872 SLK Low Dk/Df and High Thermal Reliability Laminate and Prepreg (DS1801013A) | https://www.hemeixin
+    - mechanical.youngs_modulus = 26000000000.0 Pa t1 |cond {"direction": "Warp Direction", "mode": "tensile"} | measured |  | TU-872 SLK Low Dk/Df and High Thermal Reliability Laminate and Prepreg (DS180
+    - mechanical.youngs_modulus = 24000000000.0 Pa t1 |cond {"direction": "Fill Direction", "mode": "tensile"} | measured |  | TU-872 SLK Low Dk/Df and High Thermal Reliability Laminate and Prepreg (DS180
+228 TUC TU-933 (ThunderClad 3) Super-Low-Loss Laminate | WANT: density
+    - mechanical.poisson_ratio = 0.183 1 t4 |cond {"assumption": true, "class": "직물유리 적층판", "basis": "catalog", "direction": "in-plane (nu12) — 두께방향 nu13은 값이 다르다"} | estimated |  | MaterialTwinWeb 클래스 가정 
+    - mechanical.youngs_modulus = 23000000000.0 Pa t4 |cond {"axis": "in-plane", "direction": "warp", "grade": "TU-933+ (ThunderClad 3+)", "assumption": true} | estimated |  | Taiwan Union Technology - Th
+    - mechanical.youngs_modulus = 21000000000.0 Pa t4 |cond {"axis": "in-plane", "direction": "fill", "grade": "TU-933+ (ThunderClad 3+)", "assumption": true} | estimated |  | Taiwan Union Technology - Th
+272 Taconic RF-35 (ceramic-filled PTFE/woven glass) | WANT: youngs_modulus, density
+    - mechanical.poisson_ratio = 0.183 1 t4 |cond {"assumption": true, "class": "직물유리 적층판", "basis": "catalog", "direction": "in-plane (nu12) — 두께방향 nu13은 값이 다르다"} | estimated |  | MaterialTwinWeb 클래스 가정 
+466 Toppan GL-AE transparent barrier film (AlOx-coated PET, 12 um) | WANT: youngs_modulus, poisson_ratio, density
+464 Toppan GL-AEC-F transparent barrier film (AlOx-coated PET, 12 um) | WANT: youngs_modulus, poisson_ratio, density
+465 Toppan GL-ARH transparent barrier film (AlOx-coated PET, 12 um) | WANT: youngs_modulus, poisson_ratio, density
+467 Toppan GL-BP-F transparent barrier film (SiOx-coated PP, 18 um) | WANT: youngs_modulus, poisson_ratio, density
+463 Toppan GL-RD transparent barrier film (SiOx-coated PET, 12 um) | WANT: youngs_modulus, poisson_ratio, density
+462 Toppan GX-P-F transparent barrier film (AlOx-coated PET, 12 um) | WANT: youngs_modulus, poisson_ratio, density
+341 Avery Dennison AFT Clear 1000 (1mm acrylic foam adhesive) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.3 1 t4 |cond {"assumption": true, "class": "폼", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 1000.0 kg/m^3 t4 |cond {"grade": "AFT Clear 1000", "basis": "manufacturer family analogue: Avery Dennison AFB 66-C clear acrylic foam core", "assumption": true} | estimated |  | A
+369 Avery Dennison FM M1711 (1.7mm PE foam double-sided) | WANT: youngs_modulus, density
+    - mechanical.poisson_ratio = 0.3 1 t4 |cond {"assumption": true, "class": "폼", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+348 Avery Dennison FM M1712 (2.1mm PE foam double-sided) | WANT: youngs_modulus, density
+    - mechanical.poisson_ratio = 0.3 1 t4 |cond {"assumption": true, "class": "폼", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+347 Avery Dennison FM M2750 (1.1mm PE foam double-sided) | WANT: youngs_modulus, density
+    - mechanical.poisson_ratio = 0.3 1 t4 |cond {"assumption": true, "class": "폼", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+390 Flexible polyurethane seat foam (65 kg/m3, open cell) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.3 1 t4 |cond {"assumption": true, "class": "폼", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 65.0 kg/m^3 t1 |cond {"cell_type": "open", "application": "passenger car seat cushion"} | measured |  | Characterization and Finite Element Modelling of Flexible Polyurethane Foam
+391 Polyurethane microcellular elastomer PUME (600 kg/m3) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.2 1 t4 |cond {"grade": "PUME 600", "model": "visco-hyperelasticity-air constitutive model"} | computed |  | Compressive Response and Constitutive Model of Polyurethane M
+    - physical.density = 600.0 kg/m^3 t1 |cond {"grade": "PUME 600"} | measured |  | Compressive Response and Constitutive Model of Polyurethane Microcellular Elastomer | https://pmc.ncbi.nlm.nih.gov/arti
+237 Silicone Foam Gasket (Saint-Gobain Norseal F-12) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.3 1 t4 |cond {"assumption": true, "class": "폼", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 192.0 kg/m^3 t1 |cond {"test_standard": "ASTM D3574"} | measured |  | Saint-Gobain Norseal F-12 Silicone Foam Rubber Technical Data Sheet | https://www.stockwell.com/data-sheets/f
+    - physical.density = 192.2 kg/m^3 t1 |cond {"grade": "Norseal F-12", "form": "closed-cell silicone foam rubber, no PSA", "test_method": "ASTM D3574"} | measured |  | Saint-Gobain Norseal F-12 Silicone
+    - physical.density = 192.0 kg/m^3 t1 |cond {"grade": "SNS 512AF (F-12 foam backing + PET-reinforced acrylic PSA)", "component": "foam backing (F12)", "test_method": "ASTM D3574"} | measured |  | Norse
+324 VHB Black 0.4mm (3M 5915) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.3 1 t4 |cond {"assumption": true, "class": "폼", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 690.0 kg/m^3 t1 |cond {"grade": "5915"} | measured |  | 3M VHB Tapes Technical Data (October 2018) | https://multimedia.3m.com/mws/media/67100O/3m-vhb-tapes.pdf | None
+327 VHB Black 0.6mm (3M 5925) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.3 1 t4 |cond {"assumption": true, "class": "폼", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 590.0 kg/m^3 t1 |cond {"grade": "5925"} | measured |  | 3M VHB Tapes Technical Data (October 2018) | https://multimedia.3m.com/mws/media/67100O/3m-vhb-tapes.pdf | None
+329 VHB Black 1.0mm FR (3M 5958FR) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.3 1 t4 |cond {"assumption": true, "class": "폼", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 800.0 kg/m^3 t1 |cond {"grade": "5958FR"} | measured |  | 3M VHB Tapes Technical Data (October 2018) | https://multimedia.3m.com/mws/media/67100O/3m-vhb-tapes.pdf | None
+323 VHB Gray 1.1mm (3M 4941) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.3 1 t4 |cond {"assumption": true, "class": "폼", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 720.0 kg/m^3 t1 |cond {"grade": "4941"} | measured |  | 3M VHB Tapes Technical Data (October 2018) | https://multimedia.3m.com/mws/media/67100O/3m-vhb-tapes.pdf | None
+326 VHB Gray 1.1mm (3M RP45) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.3 1 t4 |cond {"assumption": true, "class": "폼", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 720.0 kg/m^3 t1 |cond {"grade": "RP45"} | measured |  | 3M VHB Tapes Technical Data (October 2018) | https://multimedia.3m.com/mws/media/67100O/3m-vhb-tapes.pdf | None
+325 VHB Gray 1.6mm (3M 4956) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.3 1 t4 |cond {"assumption": true, "class": "폼", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 720.0 kg/m^3 t1 |cond {"grade": "4956"} | measured |  | 3M VHB Tapes Technical Data (October 2018) | https://multimedia.3m.com/mws/media/67100O/3m-vhb-tapes.pdf | None
+328 VHB Gray 2.3mm (3M 4991) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.3 1 t4 |cond {"assumption": true, "class": "폼", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 720.0 kg/m^3 t1 |cond {"grade": "4991"} | measured |  | 3M VHB Tapes Technical Data (October 2018) | https://multimedia.3m.com/mws/media/67100O/3m-vhb-tapes.pdf | None
+333 tesa ACXplus 7063 (0.8mm black tackified) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.3 1 t4 |cond {"assumption": true, "class": "폼", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 825.0 kg/m^3 t1 |cond {"grade": "7063"} | measured |  | tesa ACXplus Technical Information Sheet | https://www.tesa.com/en/files/download/9806599,14,tesa-acxplus-technical-informa
+334 tesa ACXplus 7072 (0.5mm black foamed) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.3 1 t4 |cond {"assumption": true, "class": "폼", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 710.0 kg/m^3 t1 |cond {"grade": "7072"} | measured |  | tesa ACXplus Technical Information Sheet | https://www.tesa.com/en/files/download/9806599,14,tesa-acxplus-technical-informa
+331 tesa ACXplus 7074 (1.0mm black foamed) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.3 1 t4 |cond {"assumption": true, "class": "폼", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 710.0 kg/m^3 t1 |cond {"grade": "7074"} | measured |  | tesa ACXplus Technical Information Sheet | https://www.tesa.com/en/files/download/9806599,14,tesa-acxplus-technical-informa
+382 Avery Dennison FT Series Rubber Adhesive Transfer Tape | WANT: youngs_modulus, density
+    - mechanical.poisson_ratio = 0.49 1 t4 |cond {"assumption": true, "class": "고무·엘라스토머", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+413 Body Double SILK (Smooth-On silicone) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.49 1 t4 |cond {"assumption": true, "class": "고무·엘라스토머", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 910.0 kg/m^3 t1 |cond None | measured |  | Body Double SILK - Self-Releasing Lifecasting Silicone Rubber, Technical Bulletin | https://www.smooth-on.com/tb/files/BODY_DOUBLE_SILK_
+399 Carbon-black-filled natural rubber NR50 (50 Shore A) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.49 1 t4 |cond {"assumption": true, "class": "고무·엘라스토머", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 1080.0 kg/m^3 t4 |cond {"grade": "NR50", "assumption": true} | estimated |  | Hyperelastic and Viscoelastic Characterization of Carbon-Black-Filled Natural Rubber | https://pmc.nc
+400 Carbon-black-filled natural rubber NR60 (60 Shore A) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.49 1 t4 |cond {"assumption": true, "class": "고무·엘라스토머", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 1160.0 kg/m^3 t4 |cond {"grade": "NR60", "assumption": true} | estimated |  | Hyperelastic and Viscoelastic Characterization of Carbon-Black-Filled Natural Rubber | https://pmc.nc
+416 Dragon Skin 10 MEDIUM (Smooth-On silicone) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.49 1 t4 |cond {"assumption": true, "class": "고무·엘라스토머", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 1070.0 kg/m^3 t1 |cond {"grade": "MEDIUM"} | measured |  | Dragon Skin 10 MEDIUM product page - Technical Data | https://www.smooth-on.com/products/dragon-skin-10-medium/ | None
+415 Dragon Skin FX-Pro (Smooth-On silicone) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.49 1 t4 |cond {"assumption": true, "class": "고무·엘라스토머", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 1062.0 kg/m^3 t1 |cond None | measured |  | Dragon Skin FX-Pro product page - Technical Data | https://www.smooth-on.com/products/dragon-skin-fx-pro/ | None
+410 Ecoflex 00-50 (Smooth-On silicone) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.49 1 t4 |cond {"assumption": true, "class": "고무·엘라스토머", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 1070.0 kg/m^3 t1 |cond {"grade": "00-50"} | measured |  | Ecoflex 00-50 product page - Technical Data | https://www.smooth-on.com/products/ecoflex-00-50/ | None
+394 NR/SBR blend rubber bumper (77 Shore A) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.49 1 t4 |cond {"assumption": true, "class": "고무·엘라스토머", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 1200.0 kg/m^3 t4 |cond {"assumption": true} | estimated |  | Identification of Hyperelastic Material Parameters of a Rubber Bumper | https://pmc.ncbi.nlm.nih.gov/articles/PMC11398
+448 PDMS crosslinked membrane (TEOS 가교제 0-30 wt% 시리즈, Rao et al. 2007) | WANT: youngs_modulus, poisson_ratio, density
+447 PDMS dense membrane (polydimethylsiloxane, gas transport reference — Firpo et al. 2019) | WANT: youngs_modulus, poisson_ratio, density
+411 PlatSil Gel-10 (Polytek silicone) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.49 1 t4 |cond {"assumption": true, "class": "고무·엘라스토머", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 1100.0 kg/m^3 t1 |cond {"grade": "Gel-10"} | measured |  | PlatSil Silicone Gels - Technical Bulletin (Physical Properties table) | https://polytek.com/content/pdf/TDS/PlatSilGels
+412 RTV615 (Momentive silicone) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.49 1 t4 |cond {"assumption": true, "class": "고무·엘라스토머", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 1020.0 kg/m^3 t1 |cond {"component": "RTV615A base, uncured"} | measured |  | Technical Data Sheet RTV615 (Momentive, HCD-RTV615 Rev. 2021-05-05) | https://mgchemicals.com/downloa
+414 Rebound 25 (Smooth-On silicone) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.49 1 t4 |cond {"assumption": true, "class": "고무·엘라스토머", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 1140.0 kg/m^3 t1 |cond None | measured |  | Rebound 25 product page - Technical Data | https://www.smooth-on.com/products/rebound-25/ | None
+383 Shin-Etsu KE-45 RTV Silicone Adhesive Sealant | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.49 1 t4 |cond {"assumption": true, "class": "고무·엘라스토머", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 1050.0 kg/m^3 t1 |cond {"grade": "KE-45", "temperature_C": 23, "state": "cured"} | measured |  | Shin-Etsu KE-45 RTV product data sheet | https://www.shinetsusilicones.com/rtv.asp
+417 Smooth-Sil 950 (Smooth-On silicone, 50 Shore A) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.49 1 t4 |cond {"assumption": true, "class": "고무·엘라스토머", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 1240.0 kg/m^3 t1 |cond {"grade": "950"} | measured |  | Smooth-Sil 950 product page - Technical Data | https://www.smooth-on.com/products/smooth-sil-950/ | None
+    - physical.density = 1250.0 kg/m^3 t1 |cond {"grade_scope": "grade-specific", "specimen": "cast block used for the indentation tests (Figure 2 geometry)", "test_method": "gravimetric — sample block we
+407 Sorta-Clear 40 (Smooth-On silicone) | WANT: youngs_modulus
+    - mechanical.poisson_ratio = 0.49 1 t4 |cond {"assumption": true, "class": "고무·엘라스토머", "basis": "literature"} | estimated |  | Rubber Technology Handbook (Hofmann) |  | None
+    - physical.density = 1080.0 kg/m^3 t1 |cond {"grade": "40"} | measured |  | SORTA-Clear 40 product page - Technical Data | https://www.smooth-on.com/products/sorta-clear-40/ | None

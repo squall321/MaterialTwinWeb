@@ -1,0 +1,79 @@
+
+#<html><title>SAE Standard Fatigue Data File format</title><body>
+#<FORM METHOD="POST" ACTION="http://mme.uwaterloo.ca/cgi-bin/catgnume">
+#<DL compact> Pick one:
+#<input type="radio" name="#saeinput" value="FDE_plot" >FDE_plot
+#<input type="radio" name="#saeinput" value="FDE_fit"  checked >FDE_fit
+#<input type="submit" value="Send for processing">
+#<br><pre><textarea rows=50 cols=90 name="SAE_Standard_File" >
+#
+#Copyright (C) 2013  Fatigue Design+Evaluation Committee of the SAE
+#This data file is free software; you can redistribute it and/or
+#modify it under the terms of the GNU General Public License as
+#published by the Free Software Foundation; either version 2 of the
+#license, or (at your option) any later version.
+#This data file is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY; without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General PUblic License for more details.
+#You should have received a copy of the GNU General PUblic License
+#along with this program; if not, write to the Free Software
+#Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+#Try also their web site: http://www.gnu.org/copyleft/gpl.html
+#-
+# NOTE!!:  This is a fitted curve data file.
+# Merged file from Refs:
+# 1. SMITH ET AL, NASA D-1574, 1963, BHN 371/381
+# 2. NACHTIGALL,  NASA TN-D7532, 1974
+# 3. Bergmann, TH Darmstadt, Heft 37 1983
+# 4. P.Kurath, PhD Thesis UoIllinois 1984
+
+#saedigcurve_v2.2.f starts.
+#FileType= strain_life
+#DataType= fitted
+#NAME= TI6AL4V
+#NAME= mergedFile
+#NAME= Titanium
+#Stress_units= ksi
+#Strain_units= strain
+#Su=      179. Average of 179 146 122 150
+#Sy=      172. Average of 172 138 116 146
+#E=     17000. average of 17000 15800 17600 17460
+#%RA=   41.01  from Smith et al.
+#BHN= 376.01
+#_
+#_         Monotonic Props.       Cyclic Props.
+#ELAS. MOD.= 17000. KSI,  117. GPA     K'        = 263.5 KSI,  1817.MPA
+#YIELD,0.2%=   172. KSI, 1186. MPA     N'        = 0.1318
+#ULT. STRG.=   179. KSI, 1234. MPA     F. STRG COEF=  290.8 KSI, 2005.MPA
+#K       =      0.0 KSI,      0. MPA   F.STRG EXP, b=-0.1157
+#N            = 0.0000                 FAT DUCT COEF=   2.1110
+#RED. IN AREA = 41.0                   F.DUCT EXP, c=-0.8774
+#T. FRAC. STG.=   0.0 KSI,    0. MPA   Exp Cyc Yld  =  116. Ksi, 801.MPA
+#T. FRAC. STR.= 0.000                  Fit Cyc Yld  =  115. Ksi, 796.MPA
+#No. fatigue data points=   54
+#
+#NOTE!! The Following Points are <b>FITTED DATA:</b>#NOTE!! Fitted Stress computed using Experm. K' and n'
+#Total Strain   2Nf  Stress  Mean   Plastic Strain   Initial
+#_   Amp               Amp   Stress      Amp        Elastic Mod.
+   0.7              1   289        0     .683       17000  #Fitted_point Manually
+   0.07907         50   180.9      0.   0.06843     17000. #Fitted_point
+   0.04716        100   167.5      0.   0.03731     17000. #Fitted_point
+   0.02947        200   155.0      0.   0.02035     17000. #Fitted_point
+   0.01738        500   140.0      0.   0.00914     17000. #Fitted_point
+   0.01261       1000   129.6      0.   0.00499     17000. #Fitted_point
+   0.00978       2000   120.0      0.   0.00272     17000. #Fitted_point
+   0.00758       5000   108.3      0.   0.00121     17000. #Fitted_point
+   0.00655      10000   100.1      0.   0.00066     17000. #Fitted_point
+   0.00579      20000    92.5      0.   0.00035     17000. #Fitted_point
+   0.00505      50000    83.2      0.   0.00015     17000. #Fitted_point
+   0.00460     100000    76.8      0.   0.00008     17000. #Fitted_point
+   0.00421     200000    70.9      0.   0.00004     17000. #Fitted_point
+   0.00377     500000    63.8      0.   0.00002     17000. #Fitted_point
+   0.00347    1000000    58.8      0.   0.00001     17000. #Fitted_point
+   0.00320    2000000    54.3      0.   0.00001     17000. #Fitted_point
+   0.00287    5000000    48.8      0.   0.00000     17000. #Fitted_point
+   0.00287   10000000    48.8      0.   0.00000     17000. #Fitted_point Manually
+#</textarea>
+#</pre></DL></FORM></body></html>
+

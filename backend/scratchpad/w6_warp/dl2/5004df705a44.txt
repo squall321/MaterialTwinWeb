@@ -1,0 +1,503 @@
+                                                                                                                                  「エ レ ク ト ロ ニ ク ス 実 装 学 会 誌 」7〔1〕54〜61(2004)
+●研 究論文
+
+
+                BGAパ               ッケ ー ジ の硬 化 収 縮 を考 慮 した反 り熱 粘 弾性 解 析
+
+                                                                                    三宅           清*
+
+
+                       Thermo-Viscoelastic               Analysis       for Warpage              of Ball Grid        Array       Packages       Taking     into
+                       Consideration           of Chemical          Shrinkage          of Molding          Compound
+
+
+                                                                              Kiyoshi      MIYAKE*
+
+     *日 東 電 工 株 式 会 社 信 頼 性 技 術 開発 セ ン ター(〒441‑3194愛                    知 県 豊 橋 市 中原 町字 平 山18)
+      *Reliability Technology Development Center, NITTO DENKO Corporation (18 Hirayama, Nakahara-cho , Toyohashi-shi, Aichi 441-3194)
+
+
+                    概要      表 面 実 装 パ ッ ケ ー ジの反 りの 抑 制 は,パ                    ッケ ー ジの 切 断 や 基 板 と の実 装 を 確 実 に 行 い,は                        ん だ接 合 部 の 機 械 的 強 度
+                  信 頼 性 を確 保 す る 上 で 重 要 な課 題 で あ る 。 本 研 究 で は,熱 粘 弾 性 解 析 技 術 に硬 化 収 縮 率 を 導 入 し たBGAパ                                           ッケ ー ジの 反 り解
+                  析 方 法 を提 案 した。 そ の結 果,硬                化 収 縮 に対 応 す る反 りを正 確 に計 算,低                     温 か ら リフ ロ ー温 度 ま で の反 りを お お む ね予 測 で き
+                   る こ とが わ か った 。 材 料 物 性 パ ラメ ー タの解 析 に よ って,BGAパ                              ッケ ー ジ反 りの 発 生 メ カ ニ ズ ム が 明確 に な り,反                     り量 を抑 制
+                  す る に は,1)封 止 樹 脂 のTgを           上 げ る,2)高 温 で の 弾 性 率 の 低 減 が 有 効 で あ っ た。
+
+
+
+                                                                                      Abstract
+
+                             A control to reduce the warpage            of LSI package       is a critical issue to ensure good singulation,              sol-
+                           der joint and its mechanical        reliability    in surface mount packaging.              In this study, predicting       meth-
+                           ods of the ball grid array       (BGA) warpage         were investigated       using a viscoelastic       technology     with in-
+                           troducing    chemical   shrinkage       of mold compound.        As a result, the package warpage             was found to be
+                           well predictable    in cooling process       from molding temperature            and heating      process of reflow temper-
+                           ature   under a precise       warpage    calculation     corresponded       to chemical     shrinkage     of mold compound.
+                           Thus, the warpage       mechanism       became clear through            the parameter      analysis    of material    properties.
+                           In order to obtain a minimum             warpage       for a material      designing     of mold compound,        the following
+                           suggestion    is supported;    1) To increase      Tg, 2) To reduce modulus            at high temperature.
+                             Key Words:        Viscoelastic Analysis,        Warpage, Chemical Shrinkage,             Ball Grid Array, Molding Com-
+                                               pound, Finite Element Method
+
+
+                                                                                                  の 反 りを 制 御 して い る1)〜3)。
+                                                                                                                        こ れ ら設 計 パ ラ メ ー タ の 決 定
+1.は        じめ に
+                                                                                                  に お い て,有 限 要 素 法(FEM)解                         析 が 広 く用 い られ て い るが,
+     電 子 部 品 の 急 速 な 高 密 度 実 装 化 は,半                       導 体 デバ イ ス の 小                         封 止 樹 脂 を 弾 性 体 と仮 定 して い る場 合 が 多 い。 実 際 の 封 止
+型 薄 形 化 とパ ッ ケ ー ジ構 造 に 大 き な 変 化 を も た ら し た 。                                                   樹 脂 は温 度 依 存 性 と応 力 緩 和 性 が あ る こ とか ら,最 近,こ
+BGA(Ball       Grid Array),CSP(Chip            Scale Package)な             どの 片 面                 れ ら を考 慮 した熱 粘 弾 性 解 析 に よ って,高 精 度 な 反 り予 測
+モ ー ル ドパ ッ ケー ジ で は,厚                     み 方 向 に非 対 称 構 造 で あ る た                                の 研 究 が行 わ れ て い る4)〜7)。
+
+め,QFP(Quad              Flat Package),TSOP(Thin                    Small      Outline                 しか しな が ら,封 止 樹 脂 の硬 化 反 応 収 縮(硬 化 収 縮)を
+Package)な       ど の 両 面 モ ー ル ドパ ッ ケ ー ジ と 比 較 し て,さ                                  ら           FEM解      析 に 導 入 した 解 析 は 少 な い よ う で あ る。 本 研 究 で
+に 反 りの抑 制 が 困 難 で あ る。                                                                            は,封 止 樹 脂 の粘 弾 性 を考 慮 す る と共 に,硬 化 収 縮 を容 易
+     特 に,複      数 の チ ッ プ を 一 括 モ ー ル ド して 後 で 切 断 す る                                            にFEM解           析 に導 入 す る方 法 を検 討 した 。 先 のTSOPの                              反り
+
+MAP(Molded         Array   Package)タ          イ プBGAで          は,パ           ッケ ー ジ               解 析 で は,成 形 温 度 か ら冷 却 過 程 の反 り を熱 粘 弾 性 解 析 し
+寸 法 の 増 大 に よ っ て 必 然 的 に 反 り量 は 増 大 す る 。 大 き な 反                                                た8)〜10)。
+                                                                                                         本 文 で は,BGAを                        対 象 に成 形 温 度 か らの 冷 却 過 程
+
+り が あ る と パ ッ ケ ー ジ の 切 断 が 不 可 能 で あ っ た り,リ                                         フ           の 反 りに 加 え,リ               フ ロ ー温 度 まで の加 熱 過 程 の反 りを解 析
+ロ ー は ん だ 接 合 不 良 に よ り,機                     械的強度 信頼性 に悪影響 を                                     した11)。
+
+及 ぼ す 。 こ れ ら の こ と か ら,高                     温 か ら低 温 ま で の パ ッ ケ ー
+                                                                                                  2.成      形 過 程 にお ける 封 止樹 脂 の寸 法 変 化 の評 価
+ジ 反 り の 予 測 と 抑 制 は,重                   要 な 課 題 と な っ て い る。
+
+     半 導 体 パ ッ ケ ー ジ の 反 り に 影 響 す る 要 因 と し て,チ                                   ップ                成 形 収 縮 過 程 に お け る封 止 樹 脂 の収 縮 量 と温 度 の 関 係 の
+と 封 止 樹 脂 や リ ー ド フ レ ー ム と の 熱 膨 張 係 数 ミス マ ッ チ が                                                代 表 例 をFig.1に 示 した。 熱 硬 化 性 樹 脂 で は,ま                                ず,熱 溶
+よ く知 ら れ て い る 。 一 般 的 に は,封                         止 樹 脂 の 物 性 や 厚 み,                           融 硬 化 時 に硬 化 収 縮 が 起 き て,室 温 ま で の冷 却 過 程 で 熱 収
+リー ドフ レー ム や基 板 の物 性 や デ ザ イ ンな ど で パ ッケ ー ジ                                                      縮 が起 き る。 熱 収 縮 過 程 で は,ガ                              ラ ス転 移 温 度Tgを          境に
+
+
+
+54         エ レ ク ト ロ ニ ク ス 実 装 学 会 誌Vol.7No.1(2004)
+           Fig.   1    Shrinkage   diagram    of mold   compound
+                                                                             Fig.   2     Coefficient      of   thermal        expansion ƒ¿1, ƒ¿2           and ƒ¿3
+
+                                                                                          for    cooling    and      heating       process          from   molding
+勾 配 が 異 な る こ と が よ く 知 ら れ て い る 。 成 形 収 縮 量 は,半
+                                                                                          temperature
+導 体 パ ッケ ー ジ の 一 般 的 な 成 形 条 件 で,直                       径90mmの     デス
+
+ク 形 状 の サ ン プ ル を トラ ン ス フ ァ ー 成 形 し て 評 価 し た 。 成
+                                                                           3.封      止 樹 脂 の 熱 粘 弾性 解 析 技 術
+形 温 度 か ら室 温 に 冷 却 さ れ る ま で の 全 成 形 収 縮 率 は,次                        式
+
+で算 出 で き る。                                                                  3.1熱         粘弾性構成式
+  εt=(D1‑1)2)/D1(1)                                                          本 研 究 で は,封 止 樹 脂 は 線 形 粘 弾 性 体 で 時 間 一温 度 換 算
+  D1は      硬 化 収 縮 前 の 試 験 片 の 外 径 で あ り,D2は175℃                       で   則 が 成 立 す る と仮 定 して い る。 今,現                                      在 の 時刻tに お け る
+120sec成       形 後,さ          ら に175℃      で5h硬      化(PMC:Post      Mold   粘 弾 性 体 の 応 力 σ(t)に対 す る,緩 和 時 間 τだ け 以 前 に 受 け
+Cure)し     て,室        温 に 冷 却 し た 試 験 片 の 外 径 で あ る 。 こ こ で,               た歪 み εの影 響 を考 え る。 時 刻 τと τ+dτの 間 に 発 生 した歪
+Dlは175℃           に お け る 金 型 の 内 径 で も あ る こ と か ら,本               文 で    み ε(τ)に
+                                                                                 対 応 す る応 力dσ は 式(6)で 表 現 で き る。
+は 金 型 の 熱 膨 張 係 数 αm(12.3ppm/℃)を                    用 い て 式(2)で 算 出
+
+した。
+                                                                                                                                                                      〓(6)
+  D1=D0{1+αm(175‑25)}(2)
+
+  封 止 樹 脂 の 硬 化 収 縮 率 は,全                      成 形 収 縮 率 か らTMA            こ れ に,重 ね合 わ せ の原 理(い                               くつ か の 原 因 が 作 用 した と
+
+(Thermal     Mechanical      Analysis)で      測 定 され た熱 収 縮 率 を 減 算         き の結 果 は,こ れ らの原 因 が 同時 に 作 用 した場 合 の結 果 と
+し た 式(3)よ         り算 出 で き る 。                                             見 な せ る)を 適 用 す る と,応 力 σ(t)は,式(7)で 示 す よ うな
+  ε3=εt‑(α1△T1+α2△T2)(3)                                                   dσ の履 歴 積 分 で表 現 で き る12)‑14)。
+   こ こ で,α1,α2は              封 止 樹 脂 のTg前         後 の 熱 膨 張 係 数 で,
+
+△Tl,△T2は          α1,α2に 対 応 す る 温 度 範 囲 で あ る。                                                                                                                       〓(7)
+   さ て,硬          化 収 縮 は 化 学 反 応 収 縮 で 熱 収 縮 と は 異 な る が,
+
+便 宜 的 に 熱 膨 張 係 数 と 同 様 に 温 度 の 係 数 と して,FEM解                         析    こ こで,G(t)は              せ ん 断 緩 和 弾 性 率 で,単 位 歪 み に対 す る応
+に 導 入 す る 1こと に し た 。 ま ず,成                   形 温 度 か ら冷 却 過 程 の 解         力 の応 答 を 表 す 。
+析 で は,硬           化 係 数 α31を 式(4)で 定 義 し た 。 α31は 正 値 で あ                   時 間 と温 度 が 同 時 に変 化 す る熱 粘 弾 性 構 成 式 は,式(15)
+る こ と か ら,冷             却 過 程(△T<0)の          解 析 で 樹 脂 収 縮 と な り,         の 時 間‑温 度 換 算 則atを 用 い た 緩 和 弾 性 率G(e,T0)を 用 い
+硬 化 収 縮 を 表 現 で き る 。 し か し な が ら,成                     形 温 度 か ら加 熱       て,次 式 で 表 現 で き る12),13)。
+過 程(△T>0)の            解 析 で α31を 使 用 す る と 樹 脂 膨 張 と な り,硬
+
+化 収 縮 を 表 現 す る こ と は で き な い 。 そ こ で,加                      熱 過 程 の解                                                                                                 〓(8)
+析 で 用 い る 硬 化 収 縮 係 数 α32は,負                   値 と な る 式(5)で 定 義 し
+
+た 。 た だ し,汎            用 のFEMプ         ロ グ ラ ム で は,熱         膨 張係 数 を        こ こ で,T0は              時 間‑温 度 換 算 則atで 定 義 され る基 準 温 度
+負 値 か ら 設 定 す る と エ ラ ー と な る の で,ダ                      ミ ー と して 正 値      Tsで,eは         次 式 で 示 す 擬 似 時 間 で あ る。
+の 熱 膨 張 係 数 α1か ら,α32,α2と                    設 定 し た 。Fig.2に       冷却過
+
+程 と 加 熱 過 程 の 解 析 で 設 定 し た 熱 膨 張 係 数 と 硬 化 係 数 を,                                                                                                                    〓(9)
+そ れ ぞ れ 実 線 と破 線 で 表 示 した 。
+
+                                                                            3.2一         般 化Maxwellモ              デ ル定数の算 出
+  α31=ε3/(175‑174)(4)
+                                                                            封 止 樹 脂 を 粘 弾 性 体 モ デ ル の1つ で あ る一 般 化Maxwell
+  α32=ε3/(175‑176)(5)
+                                                                           モ デ ル で 近 似 して,緩                     和 時 間 と緩 和 弾 性 率 を 算 出 した 。
+
+
+
+                                                                                        エ レ ク ト ロ ニ ク ス 実 装 学 会 誌Vol                     .7No.1(2004)                 55
+                                                                             Fig.    4      Conversion       of dynamic       modulus      from   tempera-
+                                                                                            ture   dispersion    to frequency      dispersion
+
+                 Fig.   3   Generalized     Maxwell   model
+                                                                           次 に,最         小 二 乗 法 を 適 用 し て 式(16)を                       最 小 に す るGk,2k
+
+    Fig.3に   一 般 化Maxwellモ        デ ル を 示 す 。 そ の 応 カ ー歪 み の 関             (k=1,2,...,m)を          算 出 し た 。 な お,封              止 樹脂 の引張試験 よ り
+
+    係 方 程 式 は,次         式 で 表 現 で き る15)。                                  ボ ア ソ ン 比vを              測 定 し,Gkに         加 え て 体 積 緩 和 弾 性 率Kkを
+
+                                                                           式(17)で        計 算 した 。
+
+
+
+                                                                                                                                                             〓(16)
+                                                                   〓(10)
+
+
+         この 方 程 式 を 解 く と,
+                                                                                                                                                              (17)
+
+
+
+
+                                                                   〓(11)   4.反       り測 定
+
+
+    し た が っ て,緩         和 弾 性 率G(t)は,無           限緩 和時 間の緩和 弾性               供 試 し た 封 止 樹 脂(EMC)は                    エ ポ キ シ 系EMC1〜EMC3で,
+
+    率G∞ を 用 い て 式(12)で,ま             た,瞬        時 の 弾 性 率G0は    式(13)で     そ れ ぞ れ のTgは,115℃,135℃,170℃                             で あ る 。BGAに               よ く
+
+    表 され る。                                                                用 い ら れ る プ リ ン ト配 線 板BT(0.3t)に,各                                 封 止 樹 脂(0.7t)
+
+                                                                           を トラ ン ス フ ァ ー 成 形 し た2層                       積 層 体 を 試 験 に供 した 。 成
+                                                                   〓(12)
+                                                                           形 条 件 は,温               度 時 間175℃         ×120sec,ク             ラ ン プ 圧 力770
+
+                                                                    〓
+                                                                    (13)   MN/m2,樹           脂 注 入 圧 力550MN/m2で,PMCは175℃                                 ×5hで
+
+    た だ し,Gk,2kは        一 般 化Maxwellモ           デ ル各 要 素 のせ ん 断 緩 和        あ る 。 反 り は 温 度 可 変 レ ー ザ 変 位 測 定 装 置(テ                                ィー テ ッ ク
+
+    弾 性 率 と緩 和 時 間 τk(=η 々/Gk)で あ る 。 一 般 的 にGk,τkの                  算     製)を       用 い て,パ             ッケ ー ジ上 面 の 対 角 線 方 向 を測 定 した 。
+
+    出 の た め に 応 力 緩 和 試 験 を 行 う 必 要 が あ る 。 本 文 で は,こ                      反 り測 定 例 をFig.5に,反                      り と温 度 の 関 係 に 整 理 した 結 果
+
+    れ よ り 労 力 を 必 要 と し な い 動 的 せ ん 断 弾 性 率(温                   度 分 散)     をFig.6に          示 し た 。 本 文 で は,凹                 型 形 状 を+反           り,凸        型形
+
+    を 測 定 し た 。 す な わ ち,動            的 歪 み を 複 素 数 表 示 して 得 ら れ            状 を 一 反 り(逆              反 り)と       定 義 して い る 。 応 力 フ リ ー と見 な
+
+    る,次      式 の プ ロニ ー 級 数 表 示 の せ ん 断 緩 和 弾 性 率 を 用 い                    せ る 成 形 温 度 で 観 測 さ れ る 反 り は,樹                          脂 の 硬 化 収 縮 の影 響
+
+    た4),14),15)。                                                           と 考 え ら れ る 。 ま た,反                   り が ピ ー ク に な る 温 度 は,EMC1,
+
+
+
+                                                                    〓
+                                                                    (14)
+
+
+
+
+    Gk,τkを 算 出 す る た め に,ま                ず,動    的温 度分散 弾性 率 を式
+
+    15で 示 すWLF(Williams‑Landel‑Ferry)時                間‑温     度 換 算 則15)
+
+    を 用 い て,周       波 数 分 散 弾 性 率 に 変 換 し た 。 周 波 数 ω1,温
+
+    度T1で     測 定 さ れ た 温 度 分 散 弾 性 率G'(T1,ω1)を,温                   度T2,
+
+    周 波 数 ω2で 測 定 さ れ た 周 波 数 分 散 弾 性 率G'(T2,ω2)に                  変 換
+
+    す る 例 をFig.4に        示 す。
+
+
+
+                                                                    〓
+                                                                    (15)
+
+
+
+
+                                                                                     Fig.    5     Example      of measured      warpage        of BGA
+
+
+
+
+    56       エ レ ク ト ロ ニ ク ス 実 装 学 会 誌Vol.7No.1(2004)
+
+
+
+〓
+    Fig.   6     Relationship    between       measured         warpage     and
+                 temperature                                                                Fig.    8      Young's      modulus    of constructive    materials
+
+
+
+
+EMC2で          は 樹 脂 のTg付       近 に あ る が,EMC3に                 つ い て はTgと            張 係 数 は,ガ             ラ ス 転 移 温 度Tgを              境 に 大 き く増 大 す る が,
+差 違 が 見 ら れ る 。 こ れ に つ い て は,サ                        ン プ ル 内 部 に温 度 分               BTの 熱 膨 張 係 数 の 増 大 幅 は 小 さ く,220℃                             以 上 で は ガ ラス
+布 が 生 じ た こ と に よ る 測 定 誤 差 が 考 え ら れ る が,解                                析結 果       繊 維 の影 響 で 低 下 が見 られ る。 こ の よ うに,高 温 で はEMC
+と合 わ せ て 考 察 す る 。                                                                    と プ リ ン ト配 線 板 の 熱 膨 張 ミス マ ッチ が 大 き く,反                                    りの 管
+                                                                                      理 は難 しい こ とが理 解 で き る。
+5.反        り解 析
+                                                                                        まず,モ デ ルAでBGAパ                            ッケ ー ジ反 り解 析 に最 適 なFEM
+    5.1解        析方 法                                                                  要 素 タ イ プ,お よ び,計 算 手 法 の検 討 を 行 い,次                                   にモデル
+    パ ッ ケ ー ジ の 反 り を 汎 用 のFEMコ                     ー ドMARCKを              用 いて       Bの 解 析 を行 っ た。 検 討 したFEM要                             素 タ イ プ は,1)4節          点
+解 析 し た 。 本 研 究 で 解 析 し た モ デ ル をFig.7に                             示 した 。 モ          3次 元 多 層 シ ェル 要 素,2)8節                       点1次 ソ リ ッ ド要 素,3)20節
+デ ルAは,前              述 の プ リ ン ト配 線 板BTに                  封 止 樹 脂EMCを             成   点2次 ソ リ ッ ド要 素 で あ る。 な お,1次                              ソ リ ッ ド要 素 で は,
+形    し た2層          積 層 体 で,寸                法 はEMC:50×50×1.0,BT:                     曲 げ応 力 に対 す る計 算 誤 差 を 少 な くす る た め,形 状 関数 を
+50×50×0.3で           あ る。 モ デ ルBは            基 板BTにSi‑Chipを               実 装 後,      補 正 す る想 定 歪 み 法 を検 討 した8),13)。
+                                                                                                                    パ ッケ ー ジ反 りは,
+さ ら にEMCを             成 形 し たBGAで,寸                法 はEMC:30×30×0.6,                  初 期 温 度 を 成 形 温 度175℃                       と して25℃ に冷 却 す る過 程 と,
+BT:30×30×0.6,Die:20×20×0.3で                     あ る。                                  は ん だ リフ ロ ー温 度260℃ に 加 熱 す る過 程 を 計 算 した。 な
+
+    供 試 し たEMC,BT,Si‑Chipの                   引 張 弾 性 率 と温 度 の 関 係 を                   お,硬        化 収 縮 量 は,そ              れ ぞ れ175℃ ±1℃ の 範 囲 で 計 算 し
+Fig.8に         示 し た 。 な お,EMCの              引 張 弾 性 率Eは,動                 的せ ん       た 。 ま た,粘 弾 性 解 析 に お け る温 度 変 化 速 度 は,供 試 した
+
+断 弾 性 率Gよ    り換 算(E=2(1+v)G)し                     て い る。 ま た,EMCの                     反 り試 験 片 の 成 形 時 の 冷 却 条 件15℃/minと                             した 。 これ は,
+一 般 化Maxwel1モ   デル定数 は
+                            ,Gを                  用 い て3.2節           の方 法 で 算         実 際 の 製 品 の 冷 却 条 件 と較 べ る と早 い が7),16),リフ ロ ー 加
+出,そ        の 結 果 をTable1に          示 し た 。 表 中 の 緩 和 弾 性 率G,K                         熱 速 度 と較 べ る と遅 い条 件 で あ る。
+が ブ ラ ン ク で あ る 一 般 化Maxwell要                     素 は,最          小 二乗法 で負               5.2解        析結果
+値 と な り 除 去 した こ と を 示 し て い る 。                                                        5.2.1反          り解 析 技 術 の 検 討
+    Fig.9にEMCとBTの                熱 膨 張 特 性 を 示 し た 。EMCの                      熱 膨       封 止 樹 脂EMC2で                 成 形 した モ デ ルAの              反 り と温 度 の 関 係
+
+
+
+
+                                   a)   Model       A (without            Chip)             b)     Model       B (with        Chip)
+
+                                        EMC     :50•~50•~1.0                                  EMC       : 30•~30•~1.2
+                                                                                              Die       :10•~10•~0.37
+                                        BT       :52•~52•~0.3
+                                                                                              BT        :35•~35•~0.6
+
+                                 Fig. 7        FEM model of BGA (8-node solid element or 20-node solid element)
+
+
+
+                                                                                                   エ レ ク ト ロ ニ ク ス 実 装 学 会 誌Vol.7No.1(2004)                         57
+                                            Table       1.   Generalized   Maxwell model constants   of mold compound
+
+
+
+
+                                                                                          Fig. 10     Relationship    between calculated warpage and
+     Fig.   9    Coefficient   of thermal   expansion        of constructive                          temperature    (Elastic calculation using EMC2)
+                 materials
+
+
+を 弾 性 解 析,お             よ び,粘 弾 性 解 析 した結 果 をFig.10,Fig.11
+に示 した。 冷 却 過 程 の 解 析,お                      よ び,加 熱 過 程 の 解 析 と も
+硬 化 収 縮 量 に対 応 した 反 り量 が 正 確 に 計 算 さ れ て い る。 ま
+た,1次            ソ リ ッ ド要 素 で も想 定 歪 み法 を 適用 す る と,2次                           ソ
+リ ッ ド要 素 と 同等 の 計 算 精 度 が 得 られ る こ と が わ か る。
+     反 り測 定 値 と計 算 値 を比 較 す る と,全 体 的 に は 弾 性 解 析
+よ り粘 弾 性 解 析 の 方 が,ま                   た,2次      ソ リ ッ ド要 素 が1次 ソ
+リッ ド要 素 や 多 層 シ ェル要 素 よ り整 合 性 が 良 い と思 わ れ る。
+た だ し,リ           フ ロ ー 温 度 ま で の 加 熱 過 程 につ い て は,1次                          ソ
+リ ッ ド要 素 が 他 の要 素 よ り整 合 性 が 良 く,ま た粘 弾 性 解 析
+よ り弾 性 解 析 の方 が 良 い よ うで あ る。 こ の理 由 に つ い て,
+                                                                                          Fig. 11     Relationship      between calculated warpage and
+前 者 につ い て は不 明 で あ る が,後 者 に つ い て は実 際 の リ フ                                                        temperature        (Viscoelastic calculation using
+ロー 加 熱 速 度 に較 べ,本 粘 弾 性 解 析 に お け る温 度 変 化 速 度                                                        EMC2)
+
+
+
+58          エ レ ク トロ ニ ク ス 実 装 学 会 誌Vol.7No.1(2004)
+                                                                    (R1),凹 型 の 反 り量 は 徐 々 に 緩 和 さ れ る 。 一 方,成                     形 温度以
+
+                                                                    上 の 加 熱 過 程(R3)で           は,EMCの           熱 膨 張 量 がBTの      熱膨 張量
+
+                                                                    に 較 べ て 大 き い た め,凸              型 反 り(逆       反 り)が      発 生 す る。 そ
+
+                                                                    の 結 果,本BGAパ                ッ ケ ー ジ の 反 り は,Tg付            近 で ピー ク と
+
+                                                                    な る と考 え ら れ る。 な お,温                 度 領 域(R1)で    もEMCの       熱 膨張
+
+                                                                    係 数 が 基 板 よ り も大 き い 場 合,Fig.13の                   破 線で示す よ うに
+
+                                                                    反 り 量 は 一 様 に 大 き くな る 。 パ ッ ケ ー ジ 反 り 抑 制 の 目 的 か
+
+                                                                    ら は,こ          の 場 合 の 検 討 は 不 要 と考 え ら れ る の で,次               節 で は
+
+                                                                    Tg付      近 で 反 り の ピ ー ク が 現 れ る 場 合 に つ い て,シ                 ミュ レー
+                                                                    シ ョン を行 った 。
+
+                                                                      5.2.3反         り抑 制 シ ミ ュ レ ー シ ョ ン
+ Fig. 12   Relationship between calculated warpage and
+                                                                      シ ミ ュ レ ー シ ョ ン に 用 い た 仮 想EMCの                  弾 性 率 と温 度 の 関
+           temperature   (Viscoelastic calculation using 8-
+           node element)                                            係 をFig.14に         示 し た 。EMC1m〜EMC3mは,EMC1〜EMC3
+
+                                                                    を 基 準 にTgと          熱 膨 張 特 性 は 変 え な い で,高               温側 の弾性 率
+が 遅 い こ との 影 響 が考 え られ る。                                           を 小 さ く し て い る 。 ま た,EMC4はEMC3の                          弾 性 率 とCTE
+
+  この よ うに,全 温 度 範 囲 のBGAの            反 りを1つ の計 算 方 法                の 傾 向 を 変 え な い で,Tgの                み230℃     に 高 く して い る。 こ れ
+
+で 精 度 良 く予 測 す る に は,さ        ら に検 討 を要 す るが,こ           こで         ら のEMC物          性 を 用 い て,1次          ソ リ ッ ド要 素 を 用 い た 粘 弾 性
+
+は,1次   ソ リ ッ ド要 素‑粘 弾 性 解 析 法 で,EMC1〜EMC3を                          解 析 手 法 で数 値 シ ミュ レー シ ョ ンを 行 っ た。
+
+用 い た反 り解 析 結 果 の 比 較 をFig.12に           ま とめ た 。 図 よ り,              モ デ ルAに           つ い て 解 析 し た 結 果 をFig .15に               示 した。
+
+Tgの 最 も高 いEMC3は       実 験 結 果 との 整 合 性 が悪 い よ うで あ
+る。 この 理 由 に つ い て は,前         述 の反 り と温 度 の 測 定 誤 差,
+粘 弾 性 解 析 技 術 上 の 問 題 が 考 え られ る が,樹 脂 の 吸 湿 量,
+樹 脂 流 動 特 性 な どの影 響 も考 え られ る。 しか しな が ら,今
+回 の 方 法 で硬 化 収 縮 に 対 応 した 反 りが 正 確 に計 算 さ れ,特
+に リフ ロ ー 温 度 ま で の 反 り予 測 精 度 は,大 幅 に 向上 した と
+
+思 わ れ る。
+ 5.2.2BGAパ      ッケ ー ジ の反 り発 生 機 構
+
+ 封 止 樹 脂 物 性 と反 りの 関係 を 解 析 す る こ とで,BGAパ                     ッ
+ケ ー ジの 反 り発 生 機 構 はFig.13の よ うに考 察 され る。 成 形
+温 度 か らの 冷 却 過 程(R2)で は,EMCの            収 縮 量 がBTの       それ
+に 較 べ て 十 分 大 き い こ とか ら,凹 型 反 りに な る 。 そ して,                         Fig.    14     Young's   modulus    of assumed   mold    compound
+EMCのTg以      下 で 熱 膨 張 係 数 が 基 板 よ り も小 さ く な る と                                    for warpage   simulation
+
+
+
+
+                                            Fig.   13   Mechanism   of BGA warpage
+
+
+
+
+                                                                               エ レ ク トロ ニ ク ス 実 装 学 会 誌Vol.7No.1(2004)                    59
+                                                                             Fig:      17         Relationship                 between            warpage            and      shear           mod-
+
+         Fig.   15   Warpage    simulations   using   model   A                                   ulus        of    EMC       at     220•Ž        using        model         B
+
+
+
+
+                                                                       ン結 果 で は,指                             針1)の        方 が 低 減 で き そ う で あ る。 しか し な
+
+                                                                       が ら,エ                  ポ キ シ 樹 脂 のTgを                             高 く設 計 す る と 自 由 体 積 が 増
+
+                                                                       え て 吸 水 しや す く,リ                                   フ ロー 加 熱 時 に 発 生 す る 水 蒸 気 圧 に
+
+                                                                       よ り樹 脂 ク ラ ッ ク や は く離 が 懸 念 さ れ る17),18)。し た が っ て,
+
+                                                                       封 止 樹 脂 と して の 可 能 性 は,指                                                針1)よ              り指 針2)の                方 が高 い
+
+                                                                       と推 察 され る。
+
+
+                                                                       5.お            わ りに
+
+
+                                                                             熱 粘 弾 性 解 析 技 術 に 硬 化 収 縮 率 を 導 入 したBGAパ                                                                          ッケ ー
+
+                                                                       ジ の 反 り 解 析 技 術 を 提 案 し た 。 そ の 結 果,成                                                                 形 温度付近 の
+
+                                                                       硬 化 収 縮 に 対 応 す る 反 り を 正 確 に 計 算,低                                                               温 か ら リフ ロー
+
+         Fig.   16   Warpage    simulations   using   model   B        温 度 ま で の 反 りを お お む ね 予 測 で き る こ とが わ か っ た。 こ
+
+                                                                       れ に よ っ て,BGAパ                                  ッケ ー ジ反 りの発 生 メ カニ ズ ム が 明確
+
+EMC1m〜EMC3mで            は,そ      れ ぞ れ 高 温 の 弾 性 率 を小 さ くす             に な り,各                    温 度 の 反 り量 を 抑 制 す る2つ                                            の指 針 が 得 られ た。
+
+る こ とで 駆 動 応 力 が 低 下,高              温 側 の逆 反 りが 抑 制 さ れ る こ            な お 半 導 体 パ ッ ケ ー ジ の 反 り に 対 す る 主 要 因 は,構                                                                            成材料
+
+とが わ か る。 ま た,高 温 の 弾 性 率 を低 下 さ せ る と応 力 緩 和                          の 熱 膨 張 ミ ス マ ッ チ で あ る が,パ                                                    ッ ケ ー ジ の 冷 却/加                            熱 速
+
+効 果 も増 大 す る こ とか ら,常 温 付 近 の反 り も,基 準 のEMC                            度,樹              脂 の 吸 湿 量,樹                           脂 流 動 特 性,基                           板 の 予 備 加 熱,基
+
+に較 べ て抑 制 され る こ とが わ か る。 一 方,EMC4の                          反 りは,    板 と樹 脂 と の 摩 擦,金                                   型 ク ラ ン プ 圧 な ど 不 明 な 要 因 も多 い 。
+
+EMC3の     反 りを 高 温 側 に60℃ 程 度 シ フ トした 結 果 と な り,                       複 数 の チ ッ プ を1つ                                 の パ ッ ケ ー ジ に 搭 載 す るMCP(Multi
+
+260℃ 付 近 の 反 りは ほ とん ど0に な って い る。                                     Chip         Package)も                 し く はSiP(System‑in‑a‑Package)の                                            普 及 に伴
+
+     同様 に,モ      デ ルBに つ いて 解 析 した 結 果 をFig.16に 示 し                    い,こ             れ らの制 御 も必 要 に な っ て く る と思 わ れ る。
+
+た 。 モ デ ルBは 剛 直 な チ ップ が 実 装 さ れ,モ                      デ ルAと     比較                                                                                                         (2003.6.4‑受 理)
+
+す る とパ ッケ ー ジ寸 法 が や や小 さい 相 違 が あ る。 そ の た め,
+反 り量 は モ デ ルAの           約1/4程 度 に 低 減 して い るが,シ                  ミュ                                                          文                   献
+レー シ ョ ン結 果 の 傾 向 は 同 様 で あ る。 反 り範 囲 で 評 価 す れ                         1)      C. K.       Lee    and        J. C. Yan: •gWarpage                   in   Plastic       IC   Packages•h,             48th
+
+
+ば,EMC2mはEMC4と                  同等 レベ ル に小 さ くな って い る。 高                       ECTC,          1998
+
+
+温 に お け る反 り と樹 脂 弾 性 率 の 関係 を 明 確 に す る た め,両                          2) 三 宅                清,齋              藤       潔:            表 面実 装 パ ッケ ー ジの成 形 時 に お
+
+者 の 関 係 をFig.17に 示 し た。EMC1m〜EMC3mと                           も に高 温            け る反 り変 形 解 析                             ,日 本 機 械 学 会 第10回                              計 算 力 学 講 演 会,
+
+の 樹 脂 弾 性 率 を低 減 す る こ とで,反                   り量 を 目標 値 以 下 に 抑                 97‑7,         pp.41‑42, 1997
+
+制 可 能 で あ る と推 察 で き る。                                                 3)     W.      P. Sang,          G.    B.   Hyung,           J. Y.   Suck,        Y. B.     Kwang         and        S. R.    Kil:
+
+
+     以 上 の 結 果 よ り,BGAパ           ッケ ー ジの反 りを 低 減 す る方 法                •g          Warpage          Simulation                for     TSOP           (LOC)-Package•h,                  SEMICON
+
+と して,2通          り の 指 針 が 示 唆 さ れ た 。1)封 止 樹 脂 のTgを                           Korea,         1998
+
+
+200℃ 以 上 に 高 く して,260℃               で の 反 りを 凹型 か ら小 さ くす              4)      B.    D. Harper,              L. Lu    and         V. H.     Kenner: •gEffects               of    Temperature
+
+
+る。2)EMCの200℃            以 上 の 弾 性 率 を 低 減 して,凸 型 反 りの                          and       Moisture               upon         the     Mechanical              Behavior             of    an     Epoxy
+
+
+駆 動 応 力 を 抑 制 す る。 高 温 時 の 反 り量 は,シ                      ミュ レー シ ョ             Molding            Compound•h,                 EEP-Vol.19-1,                   Advances             in   Electronic
+
+
+
+
+60       エ レ ク ト ロ ニ ク ス 実 装 学 会 誌Vol         .7No.1(2004)
+      Packaging             ASME,           1997                                                                                   11)        三宅                 清,黒              柳 秋 久:               硬 化 収 縮 を 考 慮 し たBGAパ                                                 ッケ ー
+
+ 5)   R.     L. Willis,       T. S. Stone             and        Y. H.     Berthelot: •gAn              Experimental-                          ジ の 反 り熱 粘 弾 性 解 析                                        ,日           本 機 械学 会 年 次大 会 講 演論 文
+
+      Numerical             Technique               for     Evaluating             the    Bulk       and      Shear        Dy-                集,         Vol.VI,            pp.269‑270,                  2002
+
+      namic        Moduli            of   Viscoelastic              Materials•h,             J. Acoust.         Soc.       Am.     12)        牟 岐 鹿 桜:                       線形 粘 弾性 理論 の最 近 の進 歩                                                       ,日     本機 械学 会
+
+      102(6),          pp.3549-3555,                 1997                                                                                     誌,         Vol.64,             pp.1392‑1401,                       1961
+
+ 6)   中 村 省 三,芹                      沢 弘 二:               FCA実             装 構 造 体 の 反 り変 形 挙 動 と                                  13)         日 本 マ ー ク マ ニ ュ ア ルMARC                                                Ver.K5A編,日                          本 マ ー ク,                   pp.
+
+      残 留 応力 の熱 粘弾 性 解 析                                          ,回 路 実 装 学 会 誌, Vol.12,                                    pp.              272‑276,              1996
+
+      173‑178, 1997                                                                                                                14)        横 堀 武 夫,成                               沢 郁 夫:                高分 子 材 料 強 度 学                                   ,オ           ー ム 社,
+
+ 7) 佐 々 木 康 二,斉                           藤 直 人,天                 城 滋 夫,原                 口芳 広:                樹脂モー                           1981
+
+      ル ド時 残 留 応 力 の 数 値 解 析                                             ,日 本 機 械 学 会 論 文 集A編,                                     15)        三 木 祥 男,大                           西 啓 仁,浅                   野           猛:          粘 着 テ ー プ の接 着過 程
+
+      Vol.64, No.622, pp.1660‑1666,                                      1998                                                                  に関す る解析                                 ,日        東 技 報,           Vol.24,           No.2,         pp.16‑27,                  1986
+
+ 8)   K.     Miyake,        T.   Yoshida,            H.     G.   Baik       and    S. W.       Park: •gViscoelastic                16)        S. Yi       and        K.     Y. Sze: •gCooling                    Rate      Effect          on    Post       Cure          Stress          in
+
+
+      Warpage             Analysis          of     Surface         Mount          Package•h,         ASME          Journal                    Molded              Plastic             IC   Packages•h,             ASME             Journal             Electronic             Pack-
+
+      Electronic           Packaging,              Vol.123,              pp.101-104,             2001                                         aging,            Vol.120,               pp.385-390,                1998
+
+ 9)   K.     Miyake,        T.   Yoshida,            H.     G.   Baik       and    S. W.       Park: •gViscoelastic                17)        I.     Fukuzawa,                   S.     Ishiguro         and       S.     Nanbu: •gMoisture                          Resistance
+
+
+      Warpage              Analysis          of      Surface             Mount         Package•h,           ASME           Ad-                Degradation                    of        Plastic       LSIs        by      Reflow         Soldering•h,                 Proc.         23rd
+
+
+      vances        in    Electronic             Packaging,              EEP-Vol.26-1,               pp.1041-1046,                            IRPS,         pp.192-200,                     1985
+
+      1999                                                                                                                         18)        S. Ohizumi,                   M.        Nagasawa,             K.    Igarashi,           M.        Kohmoto              and       S. Ito:
+
+10)   K.     Miyake,        T.   Yoshida,            H.     G.   Baik       and    S. W.       Park: •gViscoelastic                      •g        Analytical               and         Experimental                    Study        for        Designing                 Molding
+
+
+      Warpage             Analysis          of TSOP•h,             4th      ICRMS99           Shanghai,          pp.353-                      Compounds                     for        Surface         Mounting                 Devices•h,          Proc.          40th       ECTC,
+
+
+      358,      1999                                                                                                                          pp.632-640,                    1990
+
+
+
+
+                                                                                                                                                          エ レ ク トロ ニ ク ス 実 装 学 会 誌Vol                                                 .7 No.1             (2004)                    61
+

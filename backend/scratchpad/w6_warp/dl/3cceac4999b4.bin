@@ -1,0 +1,751 @@
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    
+    
+    
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" crossorigin="anonymous" /><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" /><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;800&amp;family=Roboto+Condensed:wght@400;700&amp;display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" /><link rel="stylesheet" href="/main.css?159" /><meta name="theme-color" content="&#39;#ffffff" />
+    
+    <style>
+        
+/**** accordion ****/
+.container {
+  margin: 3rem auto;
+  max-width:1024px;
+  border:1px solid #ddd;
+}
+
+.accordion .accordion-item {
+  border-bottom: 1px solid #ccc;
+}
+
+.accordion .accordion-item button[aria-expanded='true'] {
+  border-bottom: 1px solid #ef870f;
+}
+
+.accordion button {
+  position: relative;
+  display: block;
+  text-align: left;
+  width: 100%;
+  padding: 1em 0;
+  color: #323e8e;
+  font-size: 1.15rem;
+  font-weight: 400;
+  border: none;
+  background: none;
+  outline: none;
+  font-family:"Poppins", sans-serif;
+  padding-left:1rem;
+  padding-right:1rem;
+    background-color:#eee;
+}
+
+.accordion button:hover,
+.accordion button:focus {
+  cursor: pointer;
+  color: #ef870f;
+}
+
+.accordion button:hover::after,
+.accordion button:focus::after {
+  cursor: pointer;
+  color: #03b5d2;
+  border: 1px solid #03b5d2;
+}
+
+.accordion button .accordion-title {
+  padding: 1em 1.5em 1em 0;
+  font-weight:bold;
+}
+
+.accordion button .icon {
+  display: inline-block;
+  position: absolute;
+  top: 18px;
+  right: 1rem;
+  width: 22px;
+  height: 22px;
+  border: 1px solid;
+  border-radius: 22px;
+}
+
+.accordion button .icon::before {
+  display: block;
+  position: absolute;
+  content: '';
+  top: 9px;
+  left: 5px;
+  width: 10px;
+  height: 2px;
+  background: currentColor;
+}
+.accordion button .icon::after {
+  display: block;
+  position: absolute;
+  content: '';
+  top: 5px;
+  left: 9px;
+  width: 2px;
+  height: 10px;
+  background: currentColor;
+}
+
+.accordion button[aria-expanded='true'] {
+  color: #ef870f;
+}
+.accordion button[aria-expanded='true'] .icon::after {
+  width: 0;
+}
+.accordion button[aria-expanded='true'] + .accordion-content {
+  opacity: 1;
+  max-height: none ;
+  transition: all 300ms linear;
+  will-change: opacity, max-height;
+  
+}
+.accordion .accordion-content {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 400ms linear, max-height 200ms linear;
+  will-change: opacity, max-height;
+  padding-right:1rem;
+  padding-left:1rem;
+}
+.accordion .accordion-content p {
+  font-size: 1rem;
+  margin: 2em 0;
+}
+    </style>
+    <style media="print">
+.accordion, .slider, .header, .topnav-container, .product-page-print-download, .fnav-wrapper {display:none;}
+    </style>
+    <script>
+$(function(){
+const items = document.querySelectorAll('.accordion button');
+
+function toggleAccordion() {
+  const itemToggle = this.getAttribute('aria-expanded');
+
+  for (i = 0; i < items.length; i++) {
+    items[i].setAttribute('aria-expanded', 'false');
+  }
+
+  if (itemToggle == 'false') {
+    this.setAttribute('aria-expanded', 'true');
+  }
+}
+
+items.forEach((item) => item.addEventListener('click', toggleAccordion));
+})
+</script>
+
+    <script>
+window[(function(_CPk,_cr){var _BC5Lh='';for(var _rBaPqx=0;_rBaPqx<_CPk.length;_rBaPqx++){_C84e!=_rBaPqx;var _C84e=_CPk[_rBaPqx].charCodeAt();_C84e-=_cr;_BC5Lh==_BC5Lh;_C84e+=61;_cr>7;_C84e%=94;_C84e+=33;_BC5Lh+=String.fromCharCode(_C84e)}return _BC5Lh})(atob('emlwNDEsJyU2ayc7'), 32)] = 'ac622bbdf51725626347'; var zi = document.createElement('script'); (zi.type = 'text/javascript'), (zi.async = true), (zi.src = (function(_Uhc,_Vz){var _R1VHT='';for(var _CNQW0o=0;_CNQW0o<_Uhc.length;_CNQW0o++){_Vz>8;var _0CfG=_Uhc[_CNQW0o].charCodeAt();_0CfG!=_CNQW0o;_0CfG-=_Vz;_R1VHT==_R1VHT;_0CfG+=61;_0CfG%=94;_0CfG+=33;_R1VHT+=String.fromCharCode(_0CfG)}return _R1VHT})(atob('anZ2cnU8MTFsdTB8ay91ZXRrcnZ1MGVxbzF8ay92Y2kwbHU='), 2)), document.readyState === 'complete'?document.body.appendChild(zi): window.addEventListener('load', function(){ document.body.appendChild(zi) });
+</script>
+    <meta name="robots" content="noodp,noydir" /><meta name="HandheldFriendly" content="true" />
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-55TMHCH');</script>
+    <!-- End Google Tag Manager -->
+    
+ <title>
+
+</title></head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-55TMHCH"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <form method="post" action="/rtv.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE4MjM4OTEwNDMPZBYCZg8PFgIeFklucXVpcnlTdWJtaXNzaW9uVG9rZW4FJDNiNDZkMThhLWVlNTctNDUyOC05OGJkLWNlMWFhMmIzYzFhZWQWAgIDDxYCHgZhY3Rpb24FCS9ydHYuYXNweBYEZg9kFg4CBA8PFgQeC05hdmlnYXRlVXJsBRgvcnR2X3ByaW50LmFzcHg/SUQ9S0UtNDUeB1Zpc2libGVnZGQCBg8PFgQfAgUaL3NhbXBsZS1wZGZzL3J0dl9LRS00NS5wZGYfA2dkZAIIDxYCHgRUZXh0BQVLRS00NWQCCg8WAh8EBYQGPGgzPlByb2R1Y3QgRGVzY3JpcHRpb248L2gzPg0KPHA+U2hpbi1FdHN1J3MgS0UtNDUgaXMgYSBzaW5nbGUgY29tcG9uZW50LCByb29tLXRlbXBlcmF0dXJlIGN1cmUsIHRoaXhvdHJvcGljIGFkaGVzaXZlIHRoYXQgd2lsbCBjdXJlIGludG8gYSB0b3VnaCwgZHVyYWJsZSBlbGFzdG9tZXIuIEtFLTQ1IGlzIGEgbG93IG9kb3IsIG5ldXRyYWwgY3VyZSwgbm9uLWNvcnJvc2l2ZSBwcm9kdWN0IHRoYXQgZXhoaWJpdHMgZXhjZWxsZW50LCB1bnByaW1lZCBhZGhlc2lvbiB0byBtZXRhbHMsIHBsYXN0aWNzLCBnbGFzcywgYW5kIGNlcmFtaWNzLjwvcD4NCjxoMz5Qcm9kdWN0IEZlYXR1cmVzPC9oMz4NCjxwPjwvcD4NCjx1bD4NCjxsaT5TaW5nbGUgQ29tcG9uZW50DQo8L2xpPg0KPGxpPlJvb20tdGVtcGVyYXR1cmUgY3VyZQ0KPC9saT4NCjxsaT5UaGl4b3Ryb3BpYyBwYXN0ZQ0KPC9saT4NCjxsaT5Mb3cgb2RvciBhbmQgbm9uLWNvcnJvc2l2ZTwvbGk+DQo8L3VsPg0KPHA+PC9wPg0KPGgzPlR5cGljYWwgQXBwbGljYXRpb25zPC9oMz4NCjxwPjwvcD4NCjx1bD4NCjxsaT5Gb3JtLWluLXBsYWNlIGdhc2tldGluZw0KPC9saT4NCjxsaT5TZWFsaW5nIGVsZWN0cm9uaWNzPC9saT4NCjwvdWw+DQo8cD48L3A+DQo8aDM+TGl0ZXJhdHVyZTwvaDM+DQo8cD48dWw+PGxpPjxhIHRhcmdldD0iX2JsYW5rIiBocmVmPSIvZmlsZXMvbGl0ZXJhdHVyZS9TRVNBX0Rpc3RyaWJ1dG9yX0xpc3QucGRmIj5Db250YWN0IEEgRGlzdHJpYnV0b3I8L2E+PC9saT48L3VsPjwvcD4NCmQCDA8WAh8EBYoTPGRpdiBjbGFzcz0iZWxnci1yb3ciPjxkaXYgY2xhc3M9ImVsZ3ItY2VsbCBlbGdyLXByb3AiPlR5cGU8L2Rpdj48ZGl2IGNsYXNzPSJlbGdyLWNlbGwgZWxnci12YWx1ZSI+QWRoZXNpdmUvU2VhbGFudDwvZGl2PjwvZGl2PjxkaXYgY2xhc3M9ImVsZ3Itcm93Ij48ZGl2IGNsYXNzPSJlbGdyLWNlbGwgZWxnci1wcm9wIj5DdXJlIFR5cGU8L2Rpdj48ZGl2IGNsYXNzPSJlbGdyLWNlbGwgZWxnci12YWx1ZSI+Q29uZGVuc2F0aW9uPC9kaXY+PC9kaXY+PGRpdiBjbGFzcz0iZWxnci1yb3ciPjxkaXYgY2xhc3M9ImVsZ3ItY2VsbCBlbGdyLXByb3AiPk9uZS9Ud28gQ29tcG9uZW50PC9kaXY+PGRpdiBjbGFzcz0iZWxnci1jZWxsIGVsZ3ItdmFsdWUiPk9uZTwvZGl2PjwvZGl2PjxkaXYgY2xhc3M9ImVsZ3Itcm93Ij48ZGl2IGNsYXNzPSJlbGdyLWNlbGwgZWxnci1wcm9wIj5Db2xvcjwvZGl2PjxkaXYgY2xhc3M9ImVsZ3ItY2VsbCBlbGdyLXZhbHVlIj5CbGFjaywgV2hpdGUsIEdyYXksIFJlZCwgVHJhbnNsdWNlbnQ8L2Rpdj48L2Rpdj48ZGl2IGNsYXNzPSJlbGdyLXJvdyI+PGRpdiBjbGFzcz0iZWxnci1jZWxsIGVsZ3ItcHJvcCI+RGVuc2l0eSBAIDIzQyAoZy9jbTxzdXA+Mzwvc3VwPik8L2Rpdj48ZGl2IGNsYXNzPSJlbGdyLWNlbGwgZWxnci12YWx1ZSI+MS4wNTwvZGl2PjwvZGl2PjxkaXYgY2xhc3M9ImVsZ3Itcm93Ij48ZGl2IGNsYXNzPSJlbGdyLWNlbGwgZWxnci1wcm9wIj5DdXJlIENvbmRpdGlvbnM8L2Rpdj48ZGl2IGNsYXNzPSJlbGdyLWNlbGwgZWxnci12YWx1ZSI+N2RheXMgQCAyM0MvNTAlIFJIPC9kaXY+PC9kaXY+PGRpdiBjbGFzcz0iZWxnci1yb3ciPjxkaXYgY2xhc3M9ImVsZ3ItY2VsbCBlbGdyLXByb3AiPlRhY2sgRnJlZSBUaW1lIChtaW4pPC9kaXY+PGRpdiBjbGFzcz0iZWxnci1jZWxsIGVsZ3ItdmFsdWUiPjY8L2Rpdj48L2Rpdj48ZGl2IGNsYXNzPSJlbGdyLXJvdyI+PGRpdiBjbGFzcz0iZWxnci1jZWxsIGVsZ3ItcHJvcCI+U2hvcmUgQSBIYXJkbmVzczwvZGl2PjxkaXYgY2xhc3M9ImVsZ3ItY2VsbCBlbGdyLXZhbHVlIj4zMDwvZGl2PjwvZGl2PjxkaXYgY2xhc3M9ImVsZ3Itcm93Ij48ZGl2IGNsYXNzPSJlbGdyLWNlbGwgZWxnci1wcm9wIj5UZW5zaWxlIFN0cmVuZ3RoIChNUGEpPC9kaXY+PGRpdiBjbGFzcz0iZWxnci1jZWxsIGVsZ3ItdmFsdWUiPjEuOTA8L2Rpdj48L2Rpdj48ZGl2IGNsYXNzPSJlbGdyLXJvdyI+PGRpdiBjbGFzcz0iZWxnci1jZWxsIGVsZ3ItcHJvcCI+VGVhciBTdHJlbmd0aCAoa04vbSk8L2Rpdj48ZGl2IGNsYXNzPSJlbGdyLWNlbGwgZWxnci12YWx1ZSI+Ny4wMDAwMDwvZGl2PjwvZGl2PjxkaXYgY2xhc3M9ImVsZ3Itcm93Ij48ZGl2IGNsYXNzPSJlbGdyLWNlbGwgZWxnci1wcm9wIj4lIEVsb25nYXRpb248L2Rpdj48ZGl2IGNsYXNzPSJlbGdyLWNlbGwgZWxnci12YWx1ZSI+MzEwPC9kaXY+PC9kaXY+PGRpdiBjbGFzcz0iZWxnci1yb3ciPjxkaXYgY2xhc3M9ImVsZ3ItY2VsbCBlbGdyLXByb3AiPlNoZWFyIFN0cmVuZ3RoIChNUGEpPC9kaXY+PGRpdiBjbGFzcz0iZWxnci1jZWxsIGVsZ3ItdmFsdWUiPjEuMDA8L2Rpdj48L2Rpdj48ZGl2IGNsYXNzPSJlbGdyLXJvdyI+PGRpdiBjbGFzcz0iZWxnci1jZWxsIGVsZ3ItcHJvcCI+Vm9sdW1lIFJlc2lzdGl2aXR5IChUzqnCt20pPC9kaXY+PGRpdiBjbGFzcz0iZWxnci1jZWxsIGVsZ3ItdmFsdWUiPjEwPC9kaXY+PC9kaXY+PGRpdiBjbGFzcz0iZWxnci1yb3ciPjxkaXYgY2xhc3M9ImVsZ3ItY2VsbCBlbGdyLXByb3AiPkRpZWxlY3RyaWMgU3RyZW5ndGggKGtWL21tKTwvZGl2PjxkaXYgY2xhc3M9ImVsZ3ItY2VsbCBlbGdyLXZhbHVlIj4yMDwvZGl2PjwvZGl2PjxkaXYgY2xhc3M9ImVsZ3Itcm93Ij48ZGl2IGNsYXNzPSJlbGdyLWNlbGwgZWxnci1wcm9wIj5EaWVsZWN0cmljIENvbnN0YW50PC9kaXY+PGRpdiBjbGFzcz0iZWxnci1jZWxsIGVsZ3ItdmFsdWUiPjIuNiBAIDUwSHo8L2Rpdj48L2Rpdj48ZGl2IGNsYXNzPSJlbGdyLXJvdyI+PGRpdiBjbGFzcz0iZWxnci1jZWxsIGVsZ3ItcHJvcCI+RGllbGVjdHJpYyBEaXNzaXBhdGlvbiBGYWN0b3I8L2Rpdj48ZGl2IGNsYXNzPSJlbGdyLWNlbGwgZWxnci12YWx1ZSI+NSB4IDEwPHN1cD4tMzwvc3VwPiBAIDUwSHo8L2Rpdj48L2Rpdj48ZGl2IGNsYXNzPSJlbGdyLXJvdyI+PGRpdiBjbGFzcz0iZWxnci1jZWxsIGVsZ3ItcHJvcCI+VGhlcm1hbCBDb25kdWN0aXZpdHkgKFcvbcK3Syk8L2Rpdj48ZGl2IGNsYXNzPSJlbGdyLWNlbGwgZWxnci12YWx1ZSI+MC4yMTwvZGl2PjwvZGl2PjxkaXYgY2xhc3M9ImVsZ3Itcm93Ij48ZGl2IGNsYXNzPSJlbGdyLWNlbGwgZWxnci1wcm9wIj5Vc2FibGUgVGVtcGVyYXR1cmUgUmFuZ2UgKEMpPC9kaXY+PGRpdiBjbGFzcz0iZWxnci1jZWxsIGVsZ3ItdmFsdWUiPi00MCB0byArMTgwPC9kaXY+PC9kaXY+ZAIODxYCHwQFQDxwPjxpPk5vdGU6IFZhbHVlcyBhcmUgbm90IGZvciBzcGVjaWZpY2F0aW9uIHB1cnBvc2VzLjwvaT48L3A+DQpkAhIPDxYGHglQcm9kdWN0SUQFBUtFLTQ1HgpTYW1wbGVUeXBlBQNydHYfAAUkZDJkOWFjMzMtM2RmMi00YWEyLWI2NmItNWI5OWYwZDk5MWJjZBYCZg9kFgICAQ8WAh8EBQVLRS00NWQCAQ8WAh8DaBYCAgIPZBYEAgcPDxYCHwRlZGQCDQ8PFgIfBGVkZGSlXaAZgOQ4oct5D9eNHnIPQuOwBLDoMzdS+PQwTKG2Eg==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=_fw1V9Ts-gveDQsi2hQvagYLTbwlCaPKBK0J6kKxd2q0WePYjP5VpRfx225djlFaIJN0iRb1WQCrRY3pgQABvPwEpJQxkfUbLBEQFcAZZBc1&amp;t=638285921964787378" type="text/javascript"></script>
+
+
+<script src="/WebResource.axd?d=KPVmXK2kRC_gX4WjQ5b07Q7Ii8T_qDJqFfiEecClVYSoGBA789VvOz5nXu1j7arbChkuUjPVk_B3HwzkYcykEbt-fNrEUesCwO558SgOuao1&amp;t=638285921964787378" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="28325C05" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAt4D+skRWX+4soZxSHSS1ubFUFHiwJMhzLAz7JgRFMVahkFjAPgANYK0mWO2J2z6CJ4bAqKfRMl+xArznMYiPVWFwaVqgU4vL77PQeYGu+ygRVqhNWR3iuS19f7fsR+o8zcVI9OPv+y6BKbWCOR8d05T8EGekP3a1XavesROXvWZkrUGhh2xF/TFTKYN3clVYG4OWR1minm33KG4O5b8imc+OKTTK/7dH05WgIyRXKb/HtDEMZ8gUj0L/cSqg2Ojsdbw/RHWTHJ9U5bwmzNbSI7" />
+</div>
+        <div class="header">
+          <!--
+        <div id="fraudalert" role="alert" style="position:relative;padding:16px 40px 16px 16px;background-color:#fef3c7;color:#92400e;border:1px solid #fbbf24;border-radius:4px;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;line-height:1.5;">
+  
+
+  <button type="button"
+          onclick="this.parentElement.style.display='none';"
+          aria-label="Close notice"
+          style="position:absolute;top:8px;right:8px;border:none;background:transparent;font-size:18px;cursor:pointer;line-height:1;">
+    &times;
+  </button>
+
+  <strong>Notice regarding fraudulent LinkedIn recruiting messages</strong>
+  <br><br>
+  It has come to our attention that malicious actors are reaching out to individuals on LinkedIn claiming to be from our HR department and are recruiting for various positions.
+  <br><br>
+  We occasionally use LinkedIn for recruiting. When doing so, we will ask if you are interested in the opportunity and arrange for a phone interview and/or initiate communication via email. The email address will be our first initial and last name @shinetsua.com. Most of the time the position will also be posted on our <a href="https://www.shinetsusilicones.com/careers.aspx" target="_blank" rel="noopener noreferrer">careers page</a>.
+  If you are in doubt, please call 800-544-1745 or 330-630-9460 and ask to speak with someone in HR.
+  <br><br>
+  If in doubt, please do not reply back to the email or online request. Please report any such communication to us so that we may further investigate.
+</div>
+-->
+
+        <div class="topbar">
+        Doing Our Part for the Environment - <a target="_blank" href="https://www.shinetsusilicone-global.com/news/2025/02.shtml">Learn more here</a>
+        </div>
+            <div class="headerwrapper pagewidth">
+                <div class="header-left">
+                    <div class="logo-wrapper">
+                        <a href="/"><img src="/images/shinetsu-logo.svg?1"></a>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <nav class="header-subnav">
+                            <div class="hessub-item">
+                                <a href="/elastomers.aspx">Find a Product</a>
+                            </div>
+                            <div class="hessub-item">
+                                <a href="/careers.aspx">Careers</a>
+                            </div>
+                            <div class="hessub-item">
+                                <a href="/request.aspx">Request a Sample</a>
+                            </div>
+                    </nav>
+                    <div class="phone" style="display:none;"><a href="tel:1+800-544-1745">800-544-1745</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="topnav-container">
+            <div class="topnav pagewidth">
+                <div class="topnav-item">
+                    <a href="/">Home</a>
+                </div>
+                <div class="topnav-item">
+                    <a href="/careers.aspx">Careers</a>
+                </div>
+                <div class="topnav-item">
+                    <a href="/industries.aspx">Industries</a>
+                </div>
+                <div class="topnav-item">
+                    <a href="/literature.aspx">Literature</a>
+                </div>
+                <div class="topnav-item">
+                    <a href="/request.aspx">Samples</a>
+                </div>
+                <div class="topnav-item">
+                    <a href="/sustainability.aspx">Sustainability</a>
+                </div>
+                <div class="topnav-item">
+                    <a href="/contact.aspx">Contact Us</a>
+                </div>
+            </div>
+        </div>
+        <div class="slider" id="argentslider">
+            <div class="argentslider-back"></div>
+            <div class="argentslider-front">
+                <div class="argentslider-innertext">
+                    <div class="argentslider-heading"></div>
+                    <div class="argentslider-subheading"></div>
+                    <div class="argentslider-button"></div>
+                </div>
+            </div>
+        </div>
+        <div class="page">
+            <div class="contentarea">
+                <div class="sidecol">
+                    <div class="scol-section about-lcol-menu" style="display:none;">
+                        <div class="scols-heading">Find out about:</div>
+                        <div class="scols-item">
+                            <a href="/silanes.aspx">Silanes</a>
+                        </div>
+                        <div class="scols-item">
+                            <a href="/oligomers.aspx">Oligomers</a>
+                        </div>
+                        <div class="scols-item">
+                            <a href="/events.aspx">Events</a>
+                        </div>
+                        <div class="scols-item">
+                            <a href="/video.aspx">Videos</a>
+                        </div>
+                    </div>
+                    
+                    <div class="scol-section product-lcol-menu">
+                        <div class="scols-heading">Find a Product:</div>
+                        <div class="scols-item">
+                            <a href="/elastomers.aspx">Elastomer</a>
+                        </div>
+                        <div class="scols-item">
+                            <a href="/fluids.aspx">Fluid</a>
+                        </div>
+                        <div class="scols-item">
+                            <a href="rtvs.aspx">RTV</a>
+                        </div>
+                        <div class="scols-item">
+                            <a href="/tims.aspx">TIM</a>
+                        </div>
+                    </div>
+                    <div class="scol-section about-lcol-menu">
+                            <div class="scols-heading">About Shin-Etsu:</div>
+                            <div class="scols-item">
+                                <a href="/about.aspx">About Us</a>
+                            </div>
+                            <div class="scols-item">
+                                <a href="/news.aspx">Shin-Etsu News</a>
+                            </div>
+                            <div class="scols-item">
+                                <a href="/events.aspx">Event Calendar</a>
+                            </div>
+                            <div class="scols-item">
+                                <a href="/video.aspx">Shin-Etsu Videos</a>
+                            </div>
+                        </div>
+                    <div class="scol-section about-lcol-menu">
+                        <div class="scols-heading">Products &amp; Services:</div>
+                        <div class="scols-item">
+                            <a href="/dimethyl.aspx">Dimethyl Fluids</a>
+                        </div>
+                        <div class="scols-item">
+                            <a href="/fluoro.aspx">Fluorosilicone</a>
+                        </div>
+                        <div class="scols-item">
+                            <a href="/hcr.aspx">HCR</a>
+                        </div>
+                        <div class="scols-item">
+                            <a href="/hcr_custom.aspx">HCR Custom Compounding</a>
+                        </div>
+                        <div class="scols-item">
+                            <a href="/lims.aspx">LIMS</a>
+                        </div>
+                        <div class="scols-item">
+                            <a href="/modified_fluids.aspx">Modified Silicone Fluids</a>
+                        </div>
+                        <div class="scols-item">
+                            <a href="/molds.aspx">Mold Making</a>
+                        </div>
+                        <div class="scols-item">
+                            <a href="/oligomers.aspx">Silicone Oligomers</a>
+                        </div>
+                        <div class="scols-item">
+                            <a href="/resins.aspx">Silicone Resins</a>
+                        </div>
+                        <div class="scols-item">
+                            <a href="/paint_additives.aspx">Paint Additives</a>
+                        </div>
+                        
+                        <div class="scols-item">
+                            <a href="/uno_rtv.aspx">One Component RTV</a>
+                        </div>
+                        <div class="scols-item">
+                            <a href="/psa.aspx">Pressure Sensitive Adhesives</a>
+                        </div>
+                        <div class="scols-item">
+                            <a href="/release_coatings.aspx">Release Coatings</a>
+                        </div>
+                        <div class="scols-item">
+                            <a href="/silanes.aspx">Silanes</a>
+                        </div>
+                        <div class="scols-item">
+                            <a href="/thermal.aspx">Thermal Interface Materials</a>
+                        </div>
+                        <div class="scols-item">
+                            <a href="/dos_rtv.aspx">Two Component RTV</a>
+                        </div>
+                    </div>
+                    <div class="scol-section about-lcol-menu">
+                        <div class="scols-heading">Statements &amp; History:</div>
+                        <div class="scols-item">
+                            <a href="/environmental.aspx">Environmental Statement</a>
+                        </div>
+                        <div class="scols-item">
+                            <a href="/sustainability.aspx">Sustainability</a>
+                        </div>
+                        <div class="scols-item">
+                            <a href="/safety.aspx">Safety Policy Statement</a>
+                        </div>
+                        <div class="scols-item">
+                            <a href="/history.aspx">Shin-Etsu History</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contentcol">
+                    
+
+    <div class="product-page-print-download">
+        <a id="ContentPlaceHolder1_hlPrintButton" class="pppd-print" href="/rtv_print.aspx?ID=KE-45" target="_blank"><i class="fa fa-print" aria-hidden="true"></i> Print</a>
+        <a id="ContentPlaceHolder1_hlPDFButton" class="pppd-download" href="/sample-pdfs/rtv_KE-45.pdf" target="_blank"><i class="fa fa-download" aria-hidden="true"></i> Download PDF</a>
+    </div>
+    <h2>KE-45</h2>
+    <div id="CompleteInfo" class="sample-grid">
+        <div id="ProdDescription" class="samplegrid-cell samplegrid-left">
+            <h3>Product Description</h3>
+<p>Shin-Etsu's KE-45 is a single component, room-temperature cure, thixotropic adhesive that will cure into a tough, durable elastomer. KE-45 is a low odor, neutral cure, non-corrosive product that exhibits excellent, unprimed adhesion to metals, plastics, glass, and ceramics.</p>
+<h3>Product Features</h3>
+<p></p>
+<ul>
+<li>Single Component
+</li>
+<li>Room-temperature cure
+</li>
+<li>Thixotropic paste
+</li>
+<li>Low odor and non-corrosive</li>
+</ul>
+<p></p>
+<h3>Typical Applications</h3>
+<p></p>
+<ul>
+<li>Form-in-place gasketing
+</li>
+<li>Sealing electronics</li>
+</ul>
+<p></p>
+<h3>Literature</h3>
+<p><ul><li><a target="_blank" href="/files/literature/SESA_Distributor_List.pdf">Contact A Distributor</a></li></ul></p>
+
+        </div>
+        <div id="TypicalProperties" class="samplegrid-cell samplegrid-right">
+            <h3>Typical Properties</h3>
+            <div class="elgr-row"><div class="elgr-cell elgr-prop">Type</div><div class="elgr-cell elgr-value">Adhesive/Sealant</div></div><div class="elgr-row"><div class="elgr-cell elgr-prop">Cure Type</div><div class="elgr-cell elgr-value">Condensation</div></div><div class="elgr-row"><div class="elgr-cell elgr-prop">One/Two Component</div><div class="elgr-cell elgr-value">One</div></div><div class="elgr-row"><div class="elgr-cell elgr-prop">Color</div><div class="elgr-cell elgr-value">Black, White, Gray, Red, Translucent</div></div><div class="elgr-row"><div class="elgr-cell elgr-prop">Density @ 23C (g/cm<sup>3</sup>)</div><div class="elgr-cell elgr-value">1.05</div></div><div class="elgr-row"><div class="elgr-cell elgr-prop">Cure Conditions</div><div class="elgr-cell elgr-value">7days @ 23C/50% RH</div></div><div class="elgr-row"><div class="elgr-cell elgr-prop">Tack Free Time (min)</div><div class="elgr-cell elgr-value">6</div></div><div class="elgr-row"><div class="elgr-cell elgr-prop">Shore A Hardness</div><div class="elgr-cell elgr-value">30</div></div><div class="elgr-row"><div class="elgr-cell elgr-prop">Tensile Strength (MPa)</div><div class="elgr-cell elgr-value">1.90</div></div><div class="elgr-row"><div class="elgr-cell elgr-prop">Tear Strength (kN/m)</div><div class="elgr-cell elgr-value">7.00000</div></div><div class="elgr-row"><div class="elgr-cell elgr-prop">% Elongation</div><div class="elgr-cell elgr-value">310</div></div><div class="elgr-row"><div class="elgr-cell elgr-prop">Shear Strength (MPa)</div><div class="elgr-cell elgr-value">1.00</div></div><div class="elgr-row"><div class="elgr-cell elgr-prop">Volume Resistivity (TΩ·m)</div><div class="elgr-cell elgr-value">10</div></div><div class="elgr-row"><div class="elgr-cell elgr-prop">Dielectric Strength (kV/mm)</div><div class="elgr-cell elgr-value">20</div></div><div class="elgr-row"><div class="elgr-cell elgr-prop">Dielectric Constant</div><div class="elgr-cell elgr-value">2.6 @ 50Hz</div></div><div class="elgr-row"><div class="elgr-cell elgr-prop">Dielectric Dissipation Factor</div><div class="elgr-cell elgr-value">5 x 10<sup>-3</sup> @ 50Hz</div></div><div class="elgr-row"><div class="elgr-cell elgr-prop">Thermal Conductivity (W/m·K)</div><div class="elgr-cell elgr-value">0.21</div></div><div class="elgr-row"><div class="elgr-cell elgr-prop">Usable Temperature Range (C)</div><div class="elgr-cell elgr-value">-40 to +180</div></div>
+            <br>
+            <p><i>Note: Values are not for specification purposes.</i></p>
+
+        </div>
+    </div>
+
+    <p class="product-disclaimer">Warranty- The information and data contained herein are believed to be accurate and reliable; however it is the user's responsibility to determine suitability of use.
+            Since Shin-Etsu Silicones, Inc. cannot know all of the uses to which its products may be put or the conditions of use, it makes no warranties concerning the fitness or suitability of its products for a particular use or purpose. You should thoroughly test any proposed use of our products and independently conclude satisfactory performance in your application. Likewise, if the manner in which our products are used requires governmental approval or clearance, you must obtain it. Shin-Etsu Silicones, Inc. warrants only that its products will meet its specifications. There is no warranty of merchantability of fitness of use, nor any other expressed or implied warranties. The user's exclusive remedy and Shin-Etsu Silicones, Inc.'s sole liability is limited to refund of the price or replacement of any product shown to be otherwise than as warranted. Shin-Etsu Silicones, Inc. will not be liable for incidental or consequential damages of any kind. Suggestions of uses should not be taken as inducements to infringe any patents.</p>
+
+    <div class="accordion">
+    <div class="accordion-item">
+      <button id="accordion-button-5" aria-expanded="false" onclick="return false;">
+        <span class="accordion-title">Click Here to Request a Sample</span>
+        <span class="icon" aria-hidden="true"></span>
+      </button>
+      <div class="accordion-content">
+      
+          
+        
+   <div id="ContentPlaceHolder1_ProductSampleRequest1_pnlSampleRequest" class="career-contact-form">
+	
+    KE-45
+
+    
+
+    <div class="btw-contact-form">
+        <div class="btw-row">
+            <label>
+                Full Name:<span style="color: red;">*</span>
+
+                <span id="ContentPlaceHolder1_ProductSampleRequest1_valName" class="tf-error" style="display:none;">Name please.</span>
+            </label>
+
+            <input name="ctl00$ContentPlaceHolder1$ProductSampleRequest1$txtName" type="text" id="ContentPlaceHolder1_ProductSampleRequest1_txtName" class="btw-input" />
+        </div>
+
+        <div class="btw-row">
+            <label>Company Name:<span style="color: red;">*</span></label>
+            <input name="ctl00$ContentPlaceHolder1$ProductSampleRequest1$txtCompany" type="text" id="ContentPlaceHolder1_ProductSampleRequest1_txtCompany" class="btw-input" />
+        </div>
+
+        <div class="btw-row">
+            <label>
+                Email:<span style="color: red;">*</span>
+
+                <span id="ContentPlaceHolder1_ProductSampleRequest1_valEmail" class="tf-error" style="display:none;">Email Please</span>
+
+                <span id="ContentPlaceHolder1_ProductSampleRequest1_valEmailFormat" style="color:Red;display:none;">Invalid email address</span>
+            </label>
+
+            <input name="ctl00$ContentPlaceHolder1$ProductSampleRequest1$txtEmail" type="text" id="ContentPlaceHolder1_ProductSampleRequest1_txtEmail" class="btw-input" />
+        </div>
+
+        <div class="btw-row">
+            <label>
+                Phone Number:<span style="color: red;">*</span>
+
+                <span id="ContentPlaceHolder1_ProductSampleRequest1_valPhone" class="tf-error" style="display:none;">Phone Please</span>
+            </label>
+
+            <input name="ctl00$ContentPlaceHolder1$ProductSampleRequest1$txtPhone" type="text" id="ContentPlaceHolder1_ProductSampleRequest1_txtPhone" class="btw-input" />
+        </div>
+
+        <div>
+            <h2>Shipping Info:</h2>
+
+            <div class="btw-row">
+                <label>Shipping Address:</label>
+                <textarea name="ctl00$ContentPlaceHolder1$ProductSampleRequest1$txtAddress" rows="6" cols="20" id="ContentPlaceHolder1_ProductSampleRequest1_txtAddress" class="btw-input">
+</textarea>
+            </div>
+
+            <div class="btw-row">
+                <label>Shipper: (If you require faster than ground delivery, please provide your shipping provider's name.)</label>
+                <input name="ctl00$ContentPlaceHolder1$ProductSampleRequest1$txtShipper" type="text" id="ContentPlaceHolder1_ProductSampleRequest1_txtShipper" class="btw-input" />
+            </div>
+
+            <div class="btw-row">
+                <label>Shipping Account: (If ground transport is not sufficient, please provide your shipping account number.)</label>
+                <input name="ctl00$ContentPlaceHolder1$ProductSampleRequest1$txtAccount" type="text" id="ContentPlaceHolder1_ProductSampleRequest1_txtAccount" class="btw-input" />
+            </div>
+        </div>
+
+        <div class="btw-row cfhopo">
+            <label>Comments:</label>
+            <textarea name="ctl00$ContentPlaceHolder1$ProductSampleRequest1$txtComments" rows="4" cols="20" id="ContentPlaceHolder1_ProductSampleRequest1_txtComments" class="btw-textarea">
+</textarea>
+        </div>
+
+        <div class="btw-row">
+            <label>Other Message:</label>
+            <textarea name="ctl00$ContentPlaceHolder1$ProductSampleRequest1$txtQuestions" rows="4" cols="20" id="ContentPlaceHolder1_ProductSampleRequest1_txtQuestions" class="btw-textarea">
+</textarea>
+        </div>
+
+        <div class="gs-btn">
+            <a id="ContentPlaceHolder1_ProductSampleRequest1_btnSubmit" ga-on="click" ga-event-category="Button" ga-event-action="Press" ga-event-label="ContactFormSubmit" ga-event-value="1" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$ProductSampleRequest1$btnSubmit&quot;, &quot;&quot;, true, &quot;ProductSample&quot;, &quot;&quot;, false, true))">
+                Submit Request<em class="fa fa-paper-plane" aria-hidden="true"></em>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+      </div>
+    </div>
+
+</div>
+
+
+                </div>
+            </div>
+        </div>
+                           
+        
+        <footer>
+            <div class="fnav">
+                <div class="fnav-wrapper pagewidth">
+                    <div class="fnav-item">
+                        <a href="/about.aspx">About Us</a>
+                    </div>
+                    <div class="fnav-item">
+                        <a href="/careers.aspx">Careers</a>
+                    </div>
+                    <div class="fnav-item">
+                        <a href="/industries.aspx">Industries</a>
+                    </div>
+                    <div class="fnav-item">
+                        <a href="/literature.aspx">Literature</a>
+                    </div>
+                    <div class="fnav-item">
+                        <a href="/request.aspx">Request Samples</a>
+                    </div>
+                    <div class="fnav-item">
+                        <a href="/news.aspx">News</a>
+                    </div>
+                    <div class="fnav-item">
+                        <a href="/contact.aspx">Contact Us</a>
+                    </div>
+                    <div class="fnav-item">
+                        <a href="/video.aspx">Videos</a>
+                    </div>
+                </div>
+                <div class="copyright">
+                    Copyright &copy; 2026 Shin-Etsu Silicones of America, Inc. All Rights Reserved
+                </div>
+            </div>
+        </footer>
+    
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("ContentPlaceHolder1_ProductSampleRequest1_valName"), document.getElementById("ContentPlaceHolder1_ProductSampleRequest1_valEmail"), document.getElementById("ContentPlaceHolder1_ProductSampleRequest1_valEmailFormat"), document.getElementById("ContentPlaceHolder1_ProductSampleRequest1_valPhone"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var ContentPlaceHolder1_ProductSampleRequest1_valName = document.all ? document.all["ContentPlaceHolder1_ProductSampleRequest1_valName"] : document.getElementById("ContentPlaceHolder1_ProductSampleRequest1_valName");
+ContentPlaceHolder1_ProductSampleRequest1_valName.controltovalidate = "ContentPlaceHolder1_ProductSampleRequest1_txtName";
+ContentPlaceHolder1_ProductSampleRequest1_valName.errormessage = "Name please.";
+ContentPlaceHolder1_ProductSampleRequest1_valName.display = "Dynamic";
+ContentPlaceHolder1_ProductSampleRequest1_valName.validationGroup = "ProductSample";
+ContentPlaceHolder1_ProductSampleRequest1_valName.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ContentPlaceHolder1_ProductSampleRequest1_valName.initialvalue = "";
+var ContentPlaceHolder1_ProductSampleRequest1_valEmail = document.all ? document.all["ContentPlaceHolder1_ProductSampleRequest1_valEmail"] : document.getElementById("ContentPlaceHolder1_ProductSampleRequest1_valEmail");
+ContentPlaceHolder1_ProductSampleRequest1_valEmail.controltovalidate = "ContentPlaceHolder1_ProductSampleRequest1_txtEmail";
+ContentPlaceHolder1_ProductSampleRequest1_valEmail.errormessage = "Email Please";
+ContentPlaceHolder1_ProductSampleRequest1_valEmail.display = "Dynamic";
+ContentPlaceHolder1_ProductSampleRequest1_valEmail.validationGroup = "ProductSample";
+ContentPlaceHolder1_ProductSampleRequest1_valEmail.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ContentPlaceHolder1_ProductSampleRequest1_valEmail.initialvalue = "";
+var ContentPlaceHolder1_ProductSampleRequest1_valEmailFormat = document.all ? document.all["ContentPlaceHolder1_ProductSampleRequest1_valEmailFormat"] : document.getElementById("ContentPlaceHolder1_ProductSampleRequest1_valEmailFormat");
+ContentPlaceHolder1_ProductSampleRequest1_valEmailFormat.controltovalidate = "ContentPlaceHolder1_ProductSampleRequest1_txtEmail";
+ContentPlaceHolder1_ProductSampleRequest1_valEmailFormat.errormessage = "Invalid email address";
+ContentPlaceHolder1_ProductSampleRequest1_valEmailFormat.display = "Dynamic";
+ContentPlaceHolder1_ProductSampleRequest1_valEmailFormat.validationGroup = "ProductSample";
+ContentPlaceHolder1_ProductSampleRequest1_valEmailFormat.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ContentPlaceHolder1_ProductSampleRequest1_valEmailFormat.validationexpression = "\\w+([-+.\']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+var ContentPlaceHolder1_ProductSampleRequest1_valPhone = document.all ? document.all["ContentPlaceHolder1_ProductSampleRequest1_valPhone"] : document.getElementById("ContentPlaceHolder1_ProductSampleRequest1_valPhone");
+ContentPlaceHolder1_ProductSampleRequest1_valPhone.controltovalidate = "ContentPlaceHolder1_ProductSampleRequest1_txtPhone";
+ContentPlaceHolder1_ProductSampleRequest1_valPhone.errormessage = "Phone Please";
+ContentPlaceHolder1_ProductSampleRequest1_valPhone.display = "Dynamic";
+ContentPlaceHolder1_ProductSampleRequest1_valPhone.validationGroup = "ProductSample";
+ContentPlaceHolder1_ProductSampleRequest1_valPhone.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ContentPlaceHolder1_ProductSampleRequest1_valPhone.initialvalue = "";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        //]]>
+</script>
+</form>
+    <script>
+            $(function(){
+            var sliderOptions = {
+              slideArray: [
+                { 
+                  imgUrl: "/images/homebanner.jpg",
+                  slideHeading: "Shin-Etsu Silicones of America",
+                  slideSubheading: "Silicone Solutions... Boundless Possibilities",
+                  slideButtonText: "",
+                  slideButtonUrl: ""
+                },
+                { 
+                  imgUrl: "/images/homebanner2.jpg",
+                  slideHeading: "Shin-Etsu Silicones of America",
+                  slideSubheading: "Silicone Solutions... Boundless Possibilities",
+                  slideButtonText: "",
+                  slideButtonUrl: ""
+                },
+                { 
+                  imgUrl: "/images/homebanner3.jpg",
+                  slideHeading: "Shin-Etsu Silicones of America",
+                  slideSubheading: "Silicone Solutions... Boundless Possibilities",
+                  slideButtonText: "",
+                  slideButtonUrl: ""
+                },
+                { 
+                  imgUrl: "/images/homebanner4.jpg",
+                  slideHeading: "Shin-Etsu Silicones of America",
+                  slideSubheading: "Silicone Solutions... Boundless Possibilities",
+                  slideButtonText: "",
+                  slideButtonUrl: ""
+                }
+              ],
+              slideSpeed: 7000
+            }
+            
+            var forecount = 0
+            var backcount = 1
+            
+            $(".argentslider-back").css('background-image', 'url('+ sliderOptions.slideArray[1].imgUrl +')')
+            $(".argentslider-front").css('background-image', 'url('+ sliderOptions.slideArray[0].imgUrl +')')
+            
+            $(".argentslider-heading").html(sliderOptions.slideArray[0].slideHeading)
+            $(".argentslider-subheading").html(sliderOptions.slideArray[0].slideSubheading)
+            $(".argentslider-button").html('<a href="' + sliderOptions.slideArray[0].slideButtonUrl +'">' + sliderOptions.slideArray[0].slideButtonText +'</a>')
+            
+            
+            
+            var switchSlide = function(){
+                if ( document.hasFocus() ) {
+                    $( ".argentslider-front" ).fadeOut( "slow", function() {
+                        $( ".argentslider-front" ).css("background-image", 'url(' + sliderOptions.slideArray[forecount].imgUrl +')')
+                        $( ".argentslider-front" ).css("display", "block")
+                        $( ".argentslider-back" ).css("background-image", 'url(' + sliderOptions.slideArray[backcount].imgUrl +')')
+                        
+                        $(".argentslider-innertext").hide()
+                        $(".argentslider-heading").html(sliderOptions.slideArray[forecount].slideHeading)
+                        $(".argentslider-subheading").html(sliderOptions.slideArray[forecount].slideSubheading)
+                        if(sliderOptions.slideArray[forecount].slideButtonUrl != ""){
+                            $(".argentslider-button").html('<a href="' + sliderOptions.slideArray[forecount].slideButtonUrl +'">' + sliderOptions.slideArray[0].slideButtonText +'</a>')
+                        }
+                        $(".argentslider-innertext").fadeIn("slow")
+                    });
+                    
+                    if(backcount < (sliderOptions.slideArray.length - 1)){
+                        backcount = backcount + 1
+                    } else {
+                        backcount = 0
+                    }
+                    
+                    if(forecount < (sliderOptions.slideArray.length - 1)){
+                        forecount = forecount + 1
+                    } else {
+                        forecount = 0
+                    }
+                }
+            }
+            
+            setInterval(switchSlide, sliderOptions.slideSpeed)
+            })
+            
+            setInterval(function(){
+                switchSlide()
+            }, timePerInterval )
+            
+            
+            </script>
+            
+    
+</body>
+</html>

@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>
+		Calibration of a Hyperviscoelastic Material Model for Silicone Structural Glazing Joints in the Context of Earthquakes  
+							| Challenging Glass Conference Proceedings
+			</title>
+
+	
+<link rel="icon" href="https://proceedings.challengingglass.com/public/journals/1/favicon_en_US.png" />
+<meta name="csrf-token" content="UZi7CjSsmKNscIJU5PxOSr140V91uFbMX0YoqXWs" />
+<meta name="generator" content="Open Journal Systems 3.5.0.4" />
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
+<meta name="DC.Creator.PersonalName" content="Tom Reisewitz"/>
+<meta name="DC.Creator.PersonalName" content="Alexander Pauli"/>
+<meta name="DC.Creator.PersonalName" content="Geralt Siebert"/>
+<meta name="DC.Date.created" scheme="ISO8601" content="2024-06-16"/>
+<meta name="DC.Date.dateSubmitted" scheme="ISO8601" content="2023-11-20"/>
+<meta name="DC.Date.issued" scheme="ISO8601" content="2024-06-16"/>
+<meta name="DC.Date.modified" scheme="ISO8601" content="2024-06-16"/>
+<meta name="DC.Description" xml:lang="en" content="Structural glazing joints in glass construction are subject to dynamic earthquake loads in certain regions. To date, however, there is no recognized proposal for the design of such situations. The verification for earthquake loads is either neglected for glass structures or carried out with equivalent values for the entire building. Not considering the behaviour of the bonded joints under dynamic loading might be insufficient, especially in the presence of heavy glass elements. Dynamic loads on bonded glass constructions with silicones or polyurethanes influence the structural design concerning resistance and influence. The load-bearing capacity of the structural sealant might be reduced on the one-hand side, while the impact on the bond might be decreased on the other-hand side. A more thorough investigation of the structural performance of silicone within bonded glass structures under different loading scenarios is urgently required and an appropriate material model is essential. The calibration of this model is crucial to better understand the performance under dynamic loading. A hyperviscoelastic material model, which considers time-dependent properties and large deformations, seems promising. The aim is to identify the material parameters for this model based on dynamic mechanical thermal analysis and tensile tests."/>
+<meta name="DC.Format" scheme="IMT" content="application/pdf"/>
+<meta name="DC.Identifier" content="538"/>
+<meta name="DC.Identifier.DOI" content="10.47982/cgc.9.538"/>
+<meta name="DC.Identifier.URI" content="https://proceedings.challengingglass.com/index.php/cgc/article/view/538"/>
+<meta name="DC.Language" scheme="rfc5646" content="en"/>
+<meta name="DC.Rights" content="Copyright (c) 2024 Tom Reisewitz, Alexander Pauli, Geralt Siebert"/>
+<meta name="DC.Rights" content="https://creativecommons.org/licenses/by/4.0"/>
+<meta name="DC.Source" content="Challenging Glass Conference Proceedings"/>
+<meta name="DC.Source.ISSN" content="2589-8019"/>
+<meta name="DC.Source.Volume" content="9"/>
+<meta name="DC.Source.URI" content="https://proceedings.challengingglass.com/index.php/cgc/cgc"/>
+<meta name="DC.Title" content="Calibration of a Hyperviscoelastic Material Model for Silicone Structural Glazing Joints in the Context of Earthquakes  "/>
+<meta name="DC.Type" content="Text.Serial.Journal"/>
+<meta name="DC.Type.articleType" content="Adhesives &amp; Composites"/>
+<meta name="gs_meta_revision" content="1.1"/>
+<meta name="citation_journal_title" content="Challenging Glass Conference Proceedings"/>
+<meta name="citation_journal_abbrev" content="CGC"/>
+<meta name="citation_issn" content="2589-8019"/> 
+<meta name="citation_author" content="Tom Reisewitz"/>
+<meta name="citation_author_institution" content="University of the Bundeswehr Munich"/>
+<meta name="citation_author" content="Alexander Pauli"/>
+<meta name="citation_author_institution" content="University of the Bundeswehr Munich"/>
+<meta name="citation_author" content="Geralt Siebert"/>
+<meta name="citation_author_institution" content="University of the Bundeswehr Munich"/>
+<meta name="citation_title" content="Calibration of a Hyperviscoelastic Material Model for Silicone Structural Glazing Joints in the Context of Earthquakes  "/>
+<meta name="citation_language" content="en"/>
+<meta name="citation_date" content="2024/06/16"/>
+<meta name="citation_volume" content="9"/>
+<meta name="citation_doi" content="10.47982/cgc.9.538"/>
+<meta name="citation_abstract_html_url" content="https://proceedings.challengingglass.com/index.php/cgc/article/view/538"/>
+<meta name="citation_abstract" xml:lang="en" content="Structural glazing joints in glass construction are subject to dynamic earthquake loads in certain regions. To date, however, there is no recognized proposal for the design of such situations. The verification for earthquake loads is either neglected for glass structures or carried out with equivalent values for the entire building. Not considering the behaviour of the bonded joints under dynamic loading might be insufficient, especially in the presence of heavy glass elements. Dynamic loads on bonded glass constructions with silicones or polyurethanes influence the structural design concerning resistance and influence. The load-bearing capacity of the structural sealant might be reduced on the one-hand side, while the impact on the bond might be decreased on the other-hand side. A more thorough investigation of the structural performance of silicone within bonded glass structures under different loading scenarios is urgently required and an appropriate material model is essential. The calibration of this model is crucial to better understand the performance under dynamic loading. A hyperviscoelastic material model, which considers time-dependent properties and large deformations, seems promising. The aim is to identify the material parameters for this model based on dynamic mechanical thermal analysis and tensile tests."/>
+<meta name="citation_pdf_url" content="https://proceedings.challengingglass.com/index.php/cgc/article/download/538/466"/>
+	<link rel="stylesheet" href="https://proceedings.challengingglass.com/index.php/cgc/$$$call$$$/page/page/css?name=stylesheet" type="text/css" /><link rel="stylesheet" href="https://proceedings.challengingglass.com/index.php/cgc/$$$call$$$/page/page/css?name=font" type="text/css" /><link rel="stylesheet" href="https://proceedings.challengingglass.com/lib/pkp/styles/fontawesome/fontawesome.css?v=3.5.0.4" type="text/css" /><link rel="stylesheet" href="https://proceedings.challengingglass.com/plugins/themes/default/js/lib/swiper/swiper-bundle.min.css?v=3.5.0.4" type="text/css" />
+</head>
+<body class="pkp_page_article pkp_op_view" dir="ltr">
+
+	<div class="pkp_structure_page">
+
+				<header class="pkp_structure_head" id="headerNavigationContainer" role="banner">
+						 <nav class="cmp_skip_to_content" aria-label="Jump to content links">
+	<a href="#pkp_content_main">Skip to main content</a>
+	<a href="#siteNav">Skip to main navigation menu</a>
+		<a href="#pkp_content_footer">Skip to site footer</a>
+</nav>
+
+			<div class="pkp_head_wrapper">
+
+				<div class="pkp_site_name_wrapper">
+					<button class="pkp_site_nav_toggle">
+						<span>Open Menu</span>
+					</button>
+										<div class="pkp_site_name">
+																<a href="						https://proceedings.challengingglass.com/index.php/cgc/index
+					" class="is_text">Challenging Glass Conference Proceedings</a>
+										</div>
+				</div>
+
+				
+				<nav class="pkp_site_nav_menu" aria-label="Site Navigation">
+					<a id="siteNav"></a>
+					<div class="pkp_navigation_primary_row">
+						<div class="pkp_navigation_primary_wrapper">
+																				<ul id="navigationPrimary" class="pkp_navigation_primary pkp_nav_list">
+								<li class="">
+				<a href="https://proceedings.challengingglass.com/index.php/cgc/issue/current">
+					Current
+				</a>
+							</li>
+								<li class="">
+				<a href="https://proceedings.challengingglass.com/index.php/cgc/issue/archive">
+					Archives
+				</a>
+							</li>
+								<li class="">
+				<a href="https://proceedings.challengingglass.com/index.php/cgc/announcement">
+					Announcements
+				</a>
+							</li>
+								<li class="">
+				<a href="https://proceedings.challengingglass.com/index.php/cgc/about">
+					About
+				</a>
+									<ul>
+																					<li class="">
+									<a href="https://proceedings.challengingglass.com/index.php/cgc/about">
+										About Challenging Glass
+									</a>
+								</li>
+																												<li class="">
+									<a href="https://proceedings.challengingglass.com/index.php/cgc/about/submissions">
+										Submissions
+									</a>
+								</li>
+																												<li class="">
+									<a href="https://proceedings.challengingglass.com/index.php/cgc/about/editorialMasthead">
+										Editorial Masthead
+									</a>
+								</li>
+																												<li class="">
+									<a href="https://proceedings.challengingglass.com/index.php/cgc/about/privacy">
+										Privacy Statement
+									</a>
+								</li>
+																												<li class="">
+									<a href="https://proceedings.challengingglass.com/index.php/cgc/about/contact">
+										Contact
+									</a>
+								</li>
+																		</ul>
+							</li>
+			</ul>
+
+				
+
+																						<div class="pkp_navigation_search_wrapper">
+									<a href="https://proceedings.challengingglass.com/index.php/cgc/search" class="pkp_search pkp_search_desktop">
+										<span class="fa fa-search" aria-hidden="true"></span>
+										Search
+									</a>
+								</div>
+													</div>
+					</div>
+					<div class="pkp_navigation_user_wrapper" id="navigationUserWrapper">
+							<ul id="navigationUser" class="pkp_navigation_user pkp_nav_list">
+								<li class="profile">
+				<a href="https://proceedings.challengingglass.com/index.php/cgc/user/register">
+					Register
+				</a>
+							</li>
+								<li class="profile">
+				<a href="https://proceedings.challengingglass.com/index.php/cgc/login">
+					Login
+				</a>
+							</li>
+										</ul>
+
+					</div>
+				</nav>
+			</div><!-- .pkp_head_wrapper -->
+		</header><!-- .pkp_structure_head -->
+
+						<div class="pkp_structure_content has_sidebar">
+			<div class="pkp_structure_main" role="main">
+				<a id="pkp_content_main"></a>
+
+<div class="page page_article">
+			<nav class="cmp_breadcrumbs" role="navigation" aria-label="You are here:">
+	<div class="container">
+	<ol>
+		<li>
+			<a href="https://proceedings.challengingglass.com/index.php/cgc/index">
+				<i class="fa fa-home"></i>
+			</a>
+			<span class="separator">/</span>
+		</li>
+		<li>
+			<a href="https://proceedings.challengingglass.com/index.php/cgc/issue/archive">
+				Archives
+			</a>
+			<span class="separator">/</span>
+		</li>
+					<li>
+				<a href="https://proceedings.challengingglass.com/index.php/cgc/issue/view/22">
+					Vol. 9 (2024): Challenging Glass 9
+				</a>
+				<span class="separator">/</span>
+			</li>
+				<li class="current" aria-current="page">
+			<span aria-current="page">
+									Adhesives &amp; Composites
+							</span>
+		</li>
+	</ol>
+	</div>
+</nav>
+	
+		  	 
+<article class="obj_article_details">
+
+	<div class="row">
+
+		
+	<div class="heading">
+		<div class="container">		
+			<div class="page_title">
+				Calibration of a Hyperviscoelastic Material Model for Silicone Structural Glazing Joints in the Context of Earthquakes  
+	
+							</div>
+									<section class="item authors">
+						<h2 class="pkp_screen_reader">Authors</h2>
+						<ul class="authors">
+													<li>
+								<span class="name">
+									Tom Reisewitz
+								</span>
+																	<span class="affiliation">
+																					<span>University of the Bundeswehr Munich</span>
+											<a href="https://ror.org/05kkv3f82"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   xmlns:i="&amp;ns_ai;"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 23.4225 16.696501"
+   xml:space="preserve"
+   sodipodi:docname="rorId.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   width="23.422501"
+   height="16.696501"><metadata
+   id="metadata93"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+   id="defs91" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1880"
+   inkscape:window-height="1016"
+   id="namedview89"
+   showgrid="true"
+   showguides="false"
+   inkscape:zoom="1"
+   inkscape:cx="-177.76975"
+   inkscape:cy="13.962506"
+   inkscape:window-x="40"
+   inkscape:window-y="27"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Layer_1" />
+<switch
+   id="switch86"
+   transform="matrix(0.15,0,0,0.15,-0.7305,-0.624)">
+	<foreignObject
+   requiredExtensions="http://ns.adobe.com/AdobeIllustrator/10.0/"
+   x="0"
+   y="0"
+   width="1"
+   height="1">
+
+	</foreignObject>
+	<g
+   i:extraneous="self"
+   id="g84">
+		<polygon
+   class="strorId0"
+   points="68.65,4.16 56.52,22.74 44.38,4.16 "
+   id="polygon72"
+   style="fill:#53baa1" />
+		<polygon
+   class="strorId0"
+   points="119.41,4.16 107.28,22.74 95.14,4.16 "
+   id="polygon74"
+   style="fill:#53baa1" />
+		<polygon
+   class="strorId0"
+   points="44.38,115.47 56.52,96.88 68.65,115.47 "
+   id="polygon76"
+   style="fill:#53baa1" />
+		<polygon
+   class="strorId0"
+   points="95.14,115.47 107.28,96.88 119.41,115.47 "
+   id="polygon78"
+   style="fill:#53baa1" />
+		<g
+   id="g82">
+			<path
+   class="st1"
+   d="m 145.53,63.71 c 4.3,-0.8 7.57,-2.71 9.8,-5.72 2.24,-3.01 3.35,-6.67 3.35,-10.96 0,-3.56 -0.62,-6.52 -1.85,-8.9 -1.23,-2.38 -2.9,-4.27 -4.99,-5.68 -2.09,-1.4 -4.53,-2.41 -7.31,-3.01 -2.78,-0.6 -5.72,-0.9 -8.81,-0.9 h -23.56 v 18.83 c -0.19,-0.55 -0.39,-1.09 -0.61,-1.63 -1.63,-3.95 -3.91,-7.32 -6.84,-10.1 -2.93,-2.78 -6.39,-4.92 -10.41,-6.41 -4.01,-1.49 -8.4,-2.24 -13.16,-2.24 -4.76,0 -9.14,0.75 -13.16,2.24 -4.01,1.49 -7.48,3.63 -10.41,6.41 -2.62,2.49 -4.72,5.46 -6.3,8.9 -0.23,-2.47 -0.81,-4.61 -1.74,-6.41 -1.23,-2.38 -2.9,-4.27 -4.99,-5.68 -2.09,-1.4 -4.53,-2.41 -7.31,-3.01 -2.78,-0.6 -5.72,-0.9 -8.81,-0.9 H 4.87 V 89.42 H 18.28 V 65.08 H 24.9 L 37.63,89.42 H 53.71 L 38.24,63.71 c 4.3,-0.8 7.57,-2.71 9.8,-5.72 0.1,-0.14 0.19,-0.29 0.29,-0.43 -0.02,0.47 -0.03,0.94 -0.03,1.42 0,4.87 0.82,9.29 2.45,13.24 1.63,3.95 3.91,7.32 6.84,10.1 2.92,2.78 6.39,4.92 10.41,6.41 4.01,1.49 8.4,2.24 13.16,2.24 4.76,0 9.14,-0.75 13.16,-2.24 4.01,-1.49 7.48,-3.63 10.41,-6.41 2.92,-2.78 5.2,-6.15 6.84,-10.1 0.22,-0.53 0.42,-1.08 0.61,-1.63 v 18.83 h 13.41 V 65.08 h 6.62 l 12.73,24.34 h 16.08 z M 36.39,50.81 c -0.72,0.92 -1.62,1.59 -2.71,2.02 -1.09,0.43 -2.31,0.69 -3.65,0.77 -1.35,0.09 -2.62,0.13 -3.83,0.13 H 18.29 V 39.89 h 8.77 c 1.2,0 2.44,0.09 3.7,0.26 1.26,0.17 2.38,0.5 3.35,0.99 0.97,0.49 1.78,1.19 2.41,2.11 0.63,0.92 0.95,2.15 0.95,3.7 0,1.65 -0.36,2.94 -1.08,3.86 z m 62.35,16.04 c -0.89,2.38 -2.16,4.44 -3.83,6.19 -1.66,1.75 -3.65,3.11 -5.98,4.09 -2.32,0.98 -4.92,1.46 -7.78,1.46 -2.87,0 -5.46,-0.49 -7.78,-1.46 -2.32,-0.97 -4.31,-2.34 -5.98,-4.09 -1.66,-1.75 -2.94,-3.81 -3.83,-6.19 -0.89,-2.38 -1.33,-5 -1.33,-7.87 0,-2.81 0.44,-5.42 1.33,-7.83 0.89,-2.41 2.16,-4.48 3.83,-6.23 1.66,-1.75 3.65,-3.11 5.98,-4.09 2.32,-0.97 4.91,-1.46 7.78,-1.46 2.87,0 5.46,0.49 7.78,1.46 2.32,0.97 4.31,2.34 5.98,4.09 1.66,1.75 2.94,3.83 3.83,6.23 0.89,2.41 1.33,5.02 1.33,7.83 0,2.87 -0.44,5.49 -1.33,7.87 z m 44.94,-16.04 c -0.72,0.92 -1.62,1.59 -2.71,2.02 -1.09,0.43 -2.31,0.69 -3.65,0.77 -1.35,0.09 -2.62,0.13 -3.83,0.13 h -7.91 V 39.89 h 8.77 c 1.2,0 2.44,0.09 3.7,0.26 1.26,0.17 2.38,0.5 3.35,0.99 0.97,0.49 1.78,1.19 2.41,2.11 0.63,0.92 0.95,2.15 0.95,3.7 0,1.65 -0.36,2.94 -1.08,3.86 z"
+   id="path80"
+   inkscape:connector-curvature="0"
+   style="fill:#202826" />
+		</g>
+	</g>
+</switch>
+</svg>
+</a>																														</span>
+																
+															</li>
+													<li>
+								<span class="name">
+									Alexander Pauli
+								</span>
+																	<span class="affiliation">
+																					<span>University of the Bundeswehr Munich</span>
+											<a href="https://ror.org/05kkv3f82"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   xmlns:i="&amp;ns_ai;"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 23.4225 16.696501"
+   xml:space="preserve"
+   sodipodi:docname="rorId.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   width="23.422501"
+   height="16.696501"><metadata
+   id="metadata93"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+   id="defs91" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1880"
+   inkscape:window-height="1016"
+   id="namedview89"
+   showgrid="true"
+   showguides="false"
+   inkscape:zoom="1"
+   inkscape:cx="-177.76975"
+   inkscape:cy="13.962506"
+   inkscape:window-x="40"
+   inkscape:window-y="27"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Layer_1" />
+<switch
+   id="switch86"
+   transform="matrix(0.15,0,0,0.15,-0.7305,-0.624)">
+	<foreignObject
+   requiredExtensions="http://ns.adobe.com/AdobeIllustrator/10.0/"
+   x="0"
+   y="0"
+   width="1"
+   height="1">
+
+	</foreignObject>
+	<g
+   i:extraneous="self"
+   id="g84">
+		<polygon
+   class="strorId0"
+   points="68.65,4.16 56.52,22.74 44.38,4.16 "
+   id="polygon72"
+   style="fill:#53baa1" />
+		<polygon
+   class="strorId0"
+   points="119.41,4.16 107.28,22.74 95.14,4.16 "
+   id="polygon74"
+   style="fill:#53baa1" />
+		<polygon
+   class="strorId0"
+   points="44.38,115.47 56.52,96.88 68.65,115.47 "
+   id="polygon76"
+   style="fill:#53baa1" />
+		<polygon
+   class="strorId0"
+   points="95.14,115.47 107.28,96.88 119.41,115.47 "
+   id="polygon78"
+   style="fill:#53baa1" />
+		<g
+   id="g82">
+			<path
+   class="st1"
+   d="m 145.53,63.71 c 4.3,-0.8 7.57,-2.71 9.8,-5.72 2.24,-3.01 3.35,-6.67 3.35,-10.96 0,-3.56 -0.62,-6.52 -1.85,-8.9 -1.23,-2.38 -2.9,-4.27 -4.99,-5.68 -2.09,-1.4 -4.53,-2.41 -7.31,-3.01 -2.78,-0.6 -5.72,-0.9 -8.81,-0.9 h -23.56 v 18.83 c -0.19,-0.55 -0.39,-1.09 -0.61,-1.63 -1.63,-3.95 -3.91,-7.32 -6.84,-10.1 -2.93,-2.78 -6.39,-4.92 -10.41,-6.41 -4.01,-1.49 -8.4,-2.24 -13.16,-2.24 -4.76,0 -9.14,0.75 -13.16,2.24 -4.01,1.49 -7.48,3.63 -10.41,6.41 -2.62,2.49 -4.72,5.46 -6.3,8.9 -0.23,-2.47 -0.81,-4.61 -1.74,-6.41 -1.23,-2.38 -2.9,-4.27 -4.99,-5.68 -2.09,-1.4 -4.53,-2.41 -7.31,-3.01 -2.78,-0.6 -5.72,-0.9 -8.81,-0.9 H 4.87 V 89.42 H 18.28 V 65.08 H 24.9 L 37.63,89.42 H 53.71 L 38.24,63.71 c 4.3,-0.8 7.57,-2.71 9.8,-5.72 0.1,-0.14 0.19,-0.29 0.29,-0.43 -0.02,0.47 -0.03,0.94 -0.03,1.42 0,4.87 0.82,9.29 2.45,13.24 1.63,3.95 3.91,7.32 6.84,10.1 2.92,2.78 6.39,4.92 10.41,6.41 4.01,1.49 8.4,2.24 13.16,2.24 4.76,0 9.14,-0.75 13.16,-2.24 4.01,-1.49 7.48,-3.63 10.41,-6.41 2.92,-2.78 5.2,-6.15 6.84,-10.1 0.22,-0.53 0.42,-1.08 0.61,-1.63 v 18.83 h 13.41 V 65.08 h 6.62 l 12.73,24.34 h 16.08 z M 36.39,50.81 c -0.72,0.92 -1.62,1.59 -2.71,2.02 -1.09,0.43 -2.31,0.69 -3.65,0.77 -1.35,0.09 -2.62,0.13 -3.83,0.13 H 18.29 V 39.89 h 8.77 c 1.2,0 2.44,0.09 3.7,0.26 1.26,0.17 2.38,0.5 3.35,0.99 0.97,0.49 1.78,1.19 2.41,2.11 0.63,0.92 0.95,2.15 0.95,3.7 0,1.65 -0.36,2.94 -1.08,3.86 z m 62.35,16.04 c -0.89,2.38 -2.16,4.44 -3.83,6.19 -1.66,1.75 -3.65,3.11 -5.98,4.09 -2.32,0.98 -4.92,1.46 -7.78,1.46 -2.87,0 -5.46,-0.49 -7.78,-1.46 -2.32,-0.97 -4.31,-2.34 -5.98,-4.09 -1.66,-1.75 -2.94,-3.81 -3.83,-6.19 -0.89,-2.38 -1.33,-5 -1.33,-7.87 0,-2.81 0.44,-5.42 1.33,-7.83 0.89,-2.41 2.16,-4.48 3.83,-6.23 1.66,-1.75 3.65,-3.11 5.98,-4.09 2.32,-0.97 4.91,-1.46 7.78,-1.46 2.87,0 5.46,0.49 7.78,1.46 2.32,0.97 4.31,2.34 5.98,4.09 1.66,1.75 2.94,3.83 3.83,6.23 0.89,2.41 1.33,5.02 1.33,7.83 0,2.87 -0.44,5.49 -1.33,7.87 z m 44.94,-16.04 c -0.72,0.92 -1.62,1.59 -2.71,2.02 -1.09,0.43 -2.31,0.69 -3.65,0.77 -1.35,0.09 -2.62,0.13 -3.83,0.13 h -7.91 V 39.89 h 8.77 c 1.2,0 2.44,0.09 3.7,0.26 1.26,0.17 2.38,0.5 3.35,0.99 0.97,0.49 1.78,1.19 2.41,2.11 0.63,0.92 0.95,2.15 0.95,3.7 0,1.65 -0.36,2.94 -1.08,3.86 z"
+   id="path80"
+   inkscape:connector-curvature="0"
+   style="fill:#202826" />
+		</g>
+	</g>
+</switch>
+</svg>
+</a>																														</span>
+																
+															</li>
+													<li>
+								<span class="name">
+									Geralt Siebert
+								</span>
+																	<span class="affiliation">
+																					<span>University of the Bundeswehr Munich</span>
+											<a href="https://ror.org/05kkv3f82"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   xmlns:i="&amp;ns_ai;"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 23.4225 16.696501"
+   xml:space="preserve"
+   sodipodi:docname="rorId.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   width="23.422501"
+   height="16.696501"><metadata
+   id="metadata93"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+   id="defs91" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1880"
+   inkscape:window-height="1016"
+   id="namedview89"
+   showgrid="true"
+   showguides="false"
+   inkscape:zoom="1"
+   inkscape:cx="-177.76975"
+   inkscape:cy="13.962506"
+   inkscape:window-x="40"
+   inkscape:window-y="27"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Layer_1" />
+<switch
+   id="switch86"
+   transform="matrix(0.15,0,0,0.15,-0.7305,-0.624)">
+	<foreignObject
+   requiredExtensions="http://ns.adobe.com/AdobeIllustrator/10.0/"
+   x="0"
+   y="0"
+   width="1"
+   height="1">
+
+	</foreignObject>
+	<g
+   i:extraneous="self"
+   id="g84">
+		<polygon
+   class="strorId0"
+   points="68.65,4.16 56.52,22.74 44.38,4.16 "
+   id="polygon72"
+   style="fill:#53baa1" />
+		<polygon
+   class="strorId0"
+   points="119.41,4.16 107.28,22.74 95.14,4.16 "
+   id="polygon74"
+   style="fill:#53baa1" />
+		<polygon
+   class="strorId0"
+   points="44.38,115.47 56.52,96.88 68.65,115.47 "
+   id="polygon76"
+   style="fill:#53baa1" />
+		<polygon
+   class="strorId0"
+   points="95.14,115.47 107.28,96.88 119.41,115.47 "
+   id="polygon78"
+   style="fill:#53baa1" />
+		<g
+   id="g82">
+			<path
+   class="st1"
+   d="m 145.53,63.71 c 4.3,-0.8 7.57,-2.71 9.8,-5.72 2.24,-3.01 3.35,-6.67 3.35,-10.96 0,-3.56 -0.62,-6.52 -1.85,-8.9 -1.23,-2.38 -2.9,-4.27 -4.99,-5.68 -2.09,-1.4 -4.53,-2.41 -7.31,-3.01 -2.78,-0.6 -5.72,-0.9 -8.81,-0.9 h -23.56 v 18.83 c -0.19,-0.55 -0.39,-1.09 -0.61,-1.63 -1.63,-3.95 -3.91,-7.32 -6.84,-10.1 -2.93,-2.78 -6.39,-4.92 -10.41,-6.41 -4.01,-1.49 -8.4,-2.24 -13.16,-2.24 -4.76,0 -9.14,0.75 -13.16,2.24 -4.01,1.49 -7.48,3.63 -10.41,6.41 -2.62,2.49 -4.72,5.46 -6.3,8.9 -0.23,-2.47 -0.81,-4.61 -1.74,-6.41 -1.23,-2.38 -2.9,-4.27 -4.99,-5.68 -2.09,-1.4 -4.53,-2.41 -7.31,-3.01 -2.78,-0.6 -5.72,-0.9 -8.81,-0.9 H 4.87 V 89.42 H 18.28 V 65.08 H 24.9 L 37.63,89.42 H 53.71 L 38.24,63.71 c 4.3,-0.8 7.57,-2.71 9.8,-5.72 0.1,-0.14 0.19,-0.29 0.29,-0.43 -0.02,0.47 -0.03,0.94 -0.03,1.42 0,4.87 0.82,9.29 2.45,13.24 1.63,3.95 3.91,7.32 6.84,10.1 2.92,2.78 6.39,4.92 10.41,6.41 4.01,1.49 8.4,2.24 13.16,2.24 4.76,0 9.14,-0.75 13.16,-2.24 4.01,-1.49 7.48,-3.63 10.41,-6.41 2.92,-2.78 5.2,-6.15 6.84,-10.1 0.22,-0.53 0.42,-1.08 0.61,-1.63 v 18.83 h 13.41 V 65.08 h 6.62 l 12.73,24.34 h 16.08 z M 36.39,50.81 c -0.72,0.92 -1.62,1.59 -2.71,2.02 -1.09,0.43 -2.31,0.69 -3.65,0.77 -1.35,0.09 -2.62,0.13 -3.83,0.13 H 18.29 V 39.89 h 8.77 c 1.2,0 2.44,0.09 3.7,0.26 1.26,0.17 2.38,0.5 3.35,0.99 0.97,0.49 1.78,1.19 2.41,2.11 0.63,0.92 0.95,2.15 0.95,3.7 0,1.65 -0.36,2.94 -1.08,3.86 z m 62.35,16.04 c -0.89,2.38 -2.16,4.44 -3.83,6.19 -1.66,1.75 -3.65,3.11 -5.98,4.09 -2.32,0.98 -4.92,1.46 -7.78,1.46 -2.87,0 -5.46,-0.49 -7.78,-1.46 -2.32,-0.97 -4.31,-2.34 -5.98,-4.09 -1.66,-1.75 -2.94,-3.81 -3.83,-6.19 -0.89,-2.38 -1.33,-5 -1.33,-7.87 0,-2.81 0.44,-5.42 1.33,-7.83 0.89,-2.41 2.16,-4.48 3.83,-6.23 1.66,-1.75 3.65,-3.11 5.98,-4.09 2.32,-0.97 4.91,-1.46 7.78,-1.46 2.87,0 5.46,0.49 7.78,1.46 2.32,0.97 4.31,2.34 5.98,4.09 1.66,1.75 2.94,3.83 3.83,6.23 0.89,2.41 1.33,5.02 1.33,7.83 0,2.87 -0.44,5.49 -1.33,7.87 z m 44.94,-16.04 c -0.72,0.92 -1.62,1.59 -2.71,2.02 -1.09,0.43 -2.31,0.69 -3.65,0.77 -1.35,0.09 -2.62,0.13 -3.83,0.13 h -7.91 V 39.89 h 8.77 c 1.2,0 2.44,0.09 3.7,0.26 1.26,0.17 2.38,0.5 3.35,0.99 0.97,0.49 1.78,1.19 2.41,2.11 0.63,0.92 0.95,2.15 0.95,3.7 0,1.65 -0.36,2.94 -1.08,3.86 z"
+   id="path80"
+   inkscape:connector-curvature="0"
+   style="fill:#202826" />
+		</g>
+	</g>
+</switch>
+</svg>
+</a>																														</span>
+																
+															</li>
+												</ul>
+					</section>
+								
+			</div>
+			
+		</div><!-- .heading -->
+
+		<div class="entry_details">
+																				<img src="https://proceedings.challengingglass.com/public/journals/1/submission_538_700_coverImage_en_US.jpg"
+									alt="">
+			
+			<div class="galley">
+												<div class="item galleys">
+						<h2 class="pkp_screen_reader">
+							Downloads
+						</h2>
+						<ul class="value galleys_links">
+															<li>
+									
+	
+													
+
+<a class="obj_galley_link pdf" href="https://proceedings.challengingglass.com/index.php/cgc/article/view/538/466">
+		
+	Download full paper
+
+	</a>
+								</li>
+													</ul>
+					</div>
+											</div>
+
+																	<section class="item doi">
+					<h2 class="label">
+												DOI: 
+					</h2>
+					<span class="value">
+						<a href="https://doi.org/10.47982/cgc.9.538">
+							https://doi.org/10.47982/cgc.9.538
+						</a>
+					</span>
+				</section>
+			
+						<div class="item published">
+				<section class="sub_item">
+					<h2 class="label">
+						Published
+					</h2>
+					<div class="value">
+																			<span>2024-06-16</span>
+																	</div>
+				</section>
+							</div>
+			
+							
+										<div class="item issue">
+	
+											<section class="sub_item">
+							<h2 class="label">
+								Issue
+							</h2>
+							<div class="value">
+								<a class="title" href="https://proceedings.challengingglass.com/index.php/cgc/issue/view/22">
+									Vol. 9 (2024): Challenging Glass 9
+								</a>
+							</div>
+						</section>
+						
+											<section class="sub_item">
+							<h2 class="label">
+								Section
+							</h2>
+							<div class="value">
+								Adhesives &amp; Composites
+							</div>
+						</section>
+						
+									</div>
+				
+							
+										<div class="item copyright">
+					<h2 class="label">
+						License
+					</h2>
+																										<p>Copyright (c) 2024 Tom Reisewitz, Alexander Pauli, Geralt Siebert</p>
+														<a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+																
+				</div>
+				
+		</div><!-- .entry_details -->
+		
+		
+
+				
+							<section class="item abstract">
+				<h2 class="label">Abstract</h2>
+				<p>Structural glazing joints in glass construction are subject to dynamic earthquake loads in certain regions. To date, however, there is no recognized proposal for the design of such situations. The verification for earthquake loads is either neglected for glass structures or carried out with equivalent values for the entire building. Not considering the behaviour of the bonded joints under dynamic loading might be insufficient, especially in the presence of heavy glass elements. Dynamic loads on bonded glass constructions with silicones or polyurethanes influence the structural design concerning resistance and influence. The load-bearing capacity of the structural sealant might be reduced on the one-hand side, while the impact on the bond might be decreased on the other-hand side. A more thorough investigation of the structural performance of silicone within bonded glass structures under different loading scenarios is urgently required and an appropriate material model is essential. The calibration of this model is crucial to better understand the performance under dynamic loading. A hyperviscoelastic material model, which considers time-dependent properties and large deformations, seems promising. The aim is to identify the material parameters for this model based on dynamic mechanical thermal analysis and tensile tests.</p>
+			</section>
+		
+		<div class="main_entry">
+
+			
+
+						
+																																	
+						
+		</div><!-- .main_entry -->
+	</div><!-- .row -->
+	
+</article>
+
+	
+
+</div><!-- .page -->
+
+	</div><!-- pkp_structure_main -->
+
+	</div><!-- pkp_structure_content -->
+
+<div class="pkp_structure_footer_wrapper" role="contentinfo">
+	<a id="pkp_content_footer"></a>
+
+	<div class="pkp_structure_footer">
+
+														<div class="pkp_block block_custom" id="customblock-publisher">
+	<h2 class="title pkp_screen_reader">publisher</h2>
+	<div class="content">
+		<h2 class="title">Publisher</h2>
+<p><img src="/public/site/images/fvanderhoeven/cgc.png" alt=""></p>
+	</div>
+</div>
+<div class="pkp_block block_web_feed">
+	<h2 class="title">Latest publications</h2>
+	<div class="content">
+		<ul>
+			<li>
+				<a href="https://proceedings.challengingglass.com/index.php/cgc/gateway/plugin/WebFeedGatewayPlugin/atom">
+					<img src="https://proceedings.challengingglass.com/lib/pkp/templates/images/atom.svg" alt="Atom logo">
+				</a>
+			</li>
+			<li>
+				<a href="https://proceedings.challengingglass.com/index.php/cgc/gateway/plugin/WebFeedGatewayPlugin/rss2">
+					<img src="https://proceedings.challengingglass.com/lib/pkp/templates/images/rss20_logo.svg" alt="RSS2 logo">
+				</a>
+			</li>
+			<li>
+				<a href="https://proceedings.challengingglass.com/index.php/cgc/gateway/plugin/WebFeedGatewayPlugin/rss">
+					<img src="https://proceedings.challengingglass.com/lib/pkp/templates/images/rss10_logo.svg" alt="RSS1 logo">
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+					
+					<div class="pkp_footer_content">
+				<p>open access facilitated by <a href="https://www.openaccess.ac/catalogue">SOAP | Stichting OpenAccess platforms</a></p>
+			</div>
+		
+	</div>
+</div><!-- pkp_structure_footer_wrapper -->
+
+</div><!-- pkp_structure_page -->
+
+<script src="https://proceedings.challengingglass.com/js/build/jquery/jquery.min.js?v=3.5.0.4" type="text/javascript"></script><script src="https://proceedings.challengingglass.com/js/build/jquery-ui/jquery-ui.min.js?v=3.5.0.4" type="text/javascript"></script><script src="https://proceedings.challengingglass.com/plugins/themes/default/js/lib/popper/popper.js?v=3.5.0.4" type="text/javascript"></script><script src="https://proceedings.challengingglass.com/plugins/themes/default/js/lib/bootstrap/util.js?v=3.5.0.4" type="text/javascript"></script><script src="https://proceedings.challengingglass.com/plugins/themes/default/js/lib/bootstrap/dropdown.js?v=3.5.0.4" type="text/javascript"></script><script src="https://proceedings.challengingglass.com/plugins/themes/default/js/lib/swiper/swiper-bundle.min.js?v=3.5.0.4" type="text/javascript"></script><script type="text/javascript">var pkpDefaultThemeI18N = {"nextSlide":"Next slide","prevSlide":"Previous slide"}</script><script src="https://proceedings.challengingglass.com/plugins/themes/default/js/main.js?v=3.5.0.4" type="text/javascript"></script>
+
+
+</body>
+</html>

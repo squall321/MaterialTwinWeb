@@ -1,0 +1,1404 @@
+               polymers
+Article
+Characterization of Potting Epoxy Resins Performance
+Parameters Based on a Viscoelastic Constitutive Model
+Lin Yang 1 , Anxin Ding 1 , Mi Xu 1 , Yuefang Li 2 , Xianhang Zhao 2 , Jingxuan Peng 1 and Xiang Li 2, *
+
+                                         1   School of Materials Science and Engineering, Wuhan University of Technology, Wuhan 430070, China;
+                                             317302@whut.edu.cn (L.Y.); axding@whut.edu.cn (A.D.); mix0121@whut.edu.cn (M.X.);
+                                             18986980044@163.com (J.P.)
+                                         2   Institute of Electronic Engineering, China Academy of Engineering Physics, Mianyang 621999, China;
+                                             yuefangli_caep@163.com (Y.L.); xhz@mail.nwpu.edu.cn (X.Z.)
+                                         *   Correspondence: caep_lixiang@163.com
+
+
+                                         Abstract: To describe the evolution of residual stresses in epoxy resin during the curing process, a
+                                         more detailed characterization of its viscoelastic properties is necessary. In this study, we have devised
+                                         a simplified apparatus for assessing the viscoelastic properties of epoxy resin. This apparatus employs
+                                         a confining cylinder to restrict the circumferential and radial deformations of the material. Following
+                                         the application of load by the testing machine, the epoxy resin sample gradually reduces the gap
+                                         between its surface and the inner wall of the confining cylinder, ultimately achieving full contact
+                                         and establishing a continuous interface. By recording the circumferential stress–strain on the outer
+                                         surface of the confining cylinder, we can deduce the variations in material bulk and shear moduli
+                                         with time. This characterization spans eight temperature points surrounding the glass transition
+                                         temperature, revealing the bulk and shear relaxation moduli of the epoxy resin. Throughout the
+                                         experiments, the epoxy resin’s viscoelastic response demonstrated a pronounced time-temperature
+                                         dependency. Below the glass transition temperature, the stress relaxation response progressively
+                                         accelerated with increasing temperature, while beyond the glass transition temperature, the stress
+                                         relaxation time underwent a substantial reduction. By applying the time-temperature superposition
+                                         principle, it is possible to construct the relaxation master curves for the bulk and shear moduli of
+Citation: Yang, L.; Ding, A.; Xu, M.;
+                                         the epoxy resin. By fitting the data, we can obtain expressions for the constitutive model describing
+Li, Y.; Zhao, X.; Peng, J.; Li, X.
+                                         the viscoelastic behavior of the epoxy resin. In order to validate the reliability of the test results, a
+Characterization of Potting Epoxy
+                                         uniaxial tensile relaxation test was conducted on the epoxy resin casting body. The results show good
+Resins Performance Parameters Based
+                                         agreement between the obtained uniaxial relaxation modulus curves and those derived from the bulk
+on a Viscoelastic Constitutive Model.
+Polymers 2024, 16, 930.
+                                         and shear relaxation modulus equations, confirming the validity of both the device design and the
+https://doi.org/10.3390/                 testing methodology.
+polym16070930
+                                         Keywords: epoxy resin; residual stress; viscoelastic properties; bulk modulus; shear modulus
+Academic Editors: Angels Serra and
+Adrià Roig
+
+Received: 6 March 2024
+Revised: 22 March 2024                   1. Introduction
+Accepted: 26 March 2024                        Potting compounds play a pivotal role in encapsulating semiconductor chips and
+Published: 28 March 2024
+                                         closed-circuit board components, as well as wires and solder joints. Their primary function
+                                         is to provide robust protection against mechanical damage, moisture, chemicals, and dust,
+                                         thereby enhancing the durability and stability of the chip and circuit boards. This protection
+Copyright: © 2024 by the authors.
+                                         is particularly crucial in demanding environments characterized by elevated temperatures,
+Licensee MDPI, Basel, Switzerland.       humidity, and vibrations [1,2]. Commonly utilized potting materials predominantly consist
+This article is an open access article   of various polymer compositions, such as epoxy resin, polyurethane, polyimide, and so on.
+distributed under the terms and          Among them, epoxy resin holds a prominent position in electronic packaging and related
+conditions of the Creative Commons       industries due to its excellent mechanical properties, commendable corrosion resistance,
+Attribution (CC BY) license (https://    and other inherent advantages [3].
+creativecommons.org/licenses/by/               Attributable to factors like curing shrinkage during chemical reactions and a mismatch
+4.0/).                                   of thermal expansion coefficients between the resin and the substrate, epoxy resin generates
+
+
+
+Polymers 2024, 16, 930. https://doi.org/10.3390/polym16070930                                             https://www.mdpi.com/journal/polymers
+Polymers 2024, 16, 930                                                                                          2 of 14
+
+
+
+                         residual stresses during curing. Resulting in material property degradation, it imparts a
+                         discernible influence on structural performance and potentially leads to device obsoles-
+                         cence [4–6]. In addition, epoxy resin is commonly used as the matrix of composite materials,
+                         and its related properties can affect the mechanical performance of composites. Hence,
+                         it is imperative to investigate the evolution of residual stresses in polymers during the
+                         curing process, analyze the influencing factors of cured residual stresses, and subsequently
+                         optimize the process conditions to minimize the adverse effects of these cured stresses
+                         effectively [7].
+                                Chunyan Qu et al. [8] utilized a thin-film stress analyzer to investigate changes in
+                         thermal stress within the modified epoxy system during the curing process and employed
+                         Stoney’s equation to calculate the curing stress within the system. The analysis concluded
+                         that the residual stress value of the modified epoxy resin system during the curing process
+                         was less than that of the pure epoxy. Employing an optimization algorithm through
+                         inverse analysis, Zafar Namazian et al. [9] optimized the thermal curing cycle to minimize
+                         exothermic peaks and temperature gradients during the curing process, thereby mitigating
+                         internal residual stresses. In contrast, establishing a constitutive model for the curing
+                         process of the material and employing theoretical or numerical methods to accurately
+                         quantify the influencing factors of curing stresses is a more common and reliable approach.
+                                Polymers exhibit pronounced viscoelastic behavior, especially under elevated tem-
+                         perature conditions. However, owing to the intricacies of the viscoelastic constitutive
+                         model, which demands numerous parameters and poses testing challenges, simplified
+                         viscoelastic models are frequently employed, such as the linear elasticity model and the
+                         path-dependent model. In the rapidly evolving landscape of technology, particularly in
+                         the field of electronics engineering where encapsulation technology plays a pivotal role,
+                         given the escalating demands and the continuous evolution of technology, considering
+                         the influence of viscoelasticity during the curing process becomes imperative for a more
+                         accurate analysis of changes in residual stress during the epoxy resin curing process. A
+                         close relationship exists between viscoelastic properties and curing stress, wherein the
+                         intensity and duration of the curing stress depend on the properties of the viscoelastic
+                         material. Epoxy resins exhibiting viscoelasticity do not deform instantaneously after stress
+                         application but rather evolve gradually over time. This implies a time delay after subjecting
+                         the viscoelastic material to stress. The material undergoes gradual relaxation over time
+                         following viscoelastic deformation, resulting in a gradual weakening of internal stress [10].
+                                A prevalent method for characterizing viscoelastic properties involves conducting
+                         uniaxial or shear relaxation modulus tests on materials [11,12]. Akshat Agha et al. [13]
+                         utilized a dynamic thermo-mechanical analyzer to conduct shear tests on a one-component
+                         epoxy-based thermosetting adhesive to investigate viscoelasticity and plastic deformation
+                         of the material during thermal curing, developing a viscoelastic model to predict residual
+                         stresses generated in the adhesive. Bàrbara Adrover-Monserrat et al. [14] determined the
+                         Prony series parameters of their viscoelastic model by conducting uniaxial relaxation tests
+                         on polyether block amide filaments, confirming the reliability of the model by rapid cyclic
+                         loading tests.
+                                Nevertheless, current viscoelastic models allocate limited attention to the testing of
+                         bulk modulus. This limitation primarily stems from the requirements for high precision and
+                         the demand for specialized instrumentation [15], posing challenges in practical applications.
+                         As of now, a unified standard for bulk modulus testing has not been established, and
+                         commercially available testing equipment is scarce. Methods for determining the bulk
+                         modulus in the publicly reported literature can be broadly categorized into two groups.
+                         The first is the indirect testing method, where the corresponding bulk modulus value
+                         is derived by characterizing Young’s modulus, shear modulus, or Poisson’s ratio of the
+                         material [16,17]. Wolfgang Klimm et al. [18] performed a series of creep tests at different
+                         temperatures using biaxial strain measurements of the axial and transverse strains of
+                         the polymer matrix to obtain the uniaxial and shear creep compliance, respectively, and
+                         then derived the bulk relaxation modulus through a correlation equation. Toru Ikeda
+Polymers 2024, 16, 930                                                                                           3 of 14
+
+
+
+                         et al. [19] conducted stress relaxation tests on resins using the Digital Image Correlation
+                         Method (DICM) and Confocal Laser Scanning Microscopy to characterize the changes
+                         in material stress, axial strain, and transverse strain, obtained tensile relaxation curves
+                         and the Poisson’s ratio, and then applied the Prony series to fit the primary curves of the
+                         relaxation modulus. Subsequently, the material bulk modulus was determined based on
+                         the relationship derived from the Laplace transform.
+                               An alternative is the direct test method, where the bulk modulus is calculated by ap-
+                         plying hydrostatic pressure to the material and measuring bulk stress and strain according
+                         to the bulk modulus definition [20–23]. Koray Senol et al. [24] explored the applicabil-
+                         ity of the 3D digital image correlation technique in the context of material viscoelastic
+                         properties. The study focused on investigating the deformation of underwater objects
+                         within a large-thickness acrylic bending tube and analyzing the viscoelastic constitutive
+                         behavior of PVC foam plastics. The bulk modulus of foams of different densities under
+                         hydrostatic pressure was determined by recording the volume change in the specimen
+                         using two cameras perpendicular to the tube during loading in a universal testing machine.
+                         Hyun Seop Lee et al. [25] designed a compact chamber to test the viscoelastic properties
+                         of epoxy molding compounds, subjecting the experimental specimen to bulk modulus
+                         tests spanning temperatures from 25 ◦ C to 235 ◦ C. The discussion centered on the time-
+                         dependent changes in bulk modulus and their impact on warpage. Nevertheless, these
+                         test methods pose significant complexities, both in terms of equipment requirements and
+                         sample preparation.
+                               Acknowledging the limitations of the aforementioned methods, this study focuses on
+                         E-44 epoxy resin as the research subject. A set of testing molds is designed, and this study
+                         proposes a straightforward experimental scheme to precisely measure the bulk stress and
+                         bulk strain of the epoxy resin. Subsequently, this study integrates experimental data with
+                         theoretical formulas to compute the bulk and shear modulus of the material. Leveraging
+                         the relaxation modulus curves of epoxy resin at different temperatures, this study applies
+                         the principles of time-temperature superposition and Maxwell’s formula to generate the
+                         relaxation master curves of epoxy resin bulk and shear modulus, providing expressions for
+                         the viscoelastic model. In conclusion, a uniaxial relaxation test is conducted to verify the
+                         reliability of the obtained results and the proposed viscoelastic model.
+
+                         2. Materials and Test
+                         2.1. Sample Preparation
+                               We incorporated 20 g of curing agent I (D230 polyether amine) and 14 g of curing agent
+                         II (D400 polyether amine) into 100 g of E-44 epoxy resin (bisphenol A epoxy resin WSR6101),
+                         which were thoroughly blended and then put into a vacuum drying box (YIHENG, BPG-
+                         9106B, Shanghai, China) to remove air bubbles inside the mixture. The cylinder was affixed
+                         to the base plate using sealant tape with an even layer of release agent (TIANYING MIRROR
+                         WAX NO. 8) applied to the inside. The resin was poured into the defined cylinder, followed
+                         by another vacuum process to eliminate air bubbles. Subsequently, the mixture was placed
+                         in the oven (Dingyao Science and Technologies, DYCK-50D, Shenzhen, China) for curing.
+                         The curing process involved an initial curing at 55 ◦ C for 3 h to achieve solidity. Following
+                         this, the cooled specimen was removed from the mold, and the curing continued in a 95 ◦ C
+                         atmosphere at a constant temperature for an additional 3.5 h to ensure complete curing.
+                         After removing the cylinder, the specimen exhibited unconstrained volume expansion
+                         in the high-temperature environment. The dimensional stability before and after curing
+                         improved, facilitating subsequent cooperation with the cylinder.
+
+                         2.2. DSC Testing
+                              Determining the glass transition temperature (Tg) of the cured specimens was carried
+                         out using DSC (Perkin Elmer, DSC 4000, Waltham, MA, USA) to establish reference con-
+                         ditions for the subsequent selection of temperature points for the perimeter pressure test.
+                         The test temperature procedures involved initially maintaining a constant temperature of
+                         2.2. DSC Testing
+                               Determining the glass transition temperature (Tg) of the cured specimens was carried
+Polymers 2024, 16, 930   out using DSC (Perkin Elmer, DSC 4000, Waltham, MA, USA) to establish reference 4con-                 of 14
+                         ditions for the subsequent selection of temperature points for the perimeter pressure test.
+                         The test temperature procedures involved initially maintaining a constant temperature of
+                         30  ◦ C for
+                          30 °C  for two minutes,
+                                          minutes, followed
+                                                     followedbybyaatemperature
+                                                                     temperaturerampramp at at a rate
+                                                                                            a rate         ◦ C/min
+                                                                                                        of 10
+                                                                                                    of 10      °C/min upup      ◦ C.
+                                                                                                                            to 100
+                                                                                                                         to 100
+                         °C.  Following
+                          Following        a data
+                                       a data     analysis,
+                                              analysis,      the glass
+                                                         the glass      transition
+                                                                   transition       temperature
+                                                                               temperature     of theofsample
+                                                                                                        the sample     was deter-
+                                                                                                                 was determined
+                         mined
+                          to be 75to◦be  75 °C. Temperature
+                                     C. Temperature     points points
+                                                               for the for the subsequent
+                                                                        subsequent             viscoelastic
+                                                                                      viscoelastic   test weretestselected
+                                                                                                                   were selected
+                                                                                                                            within
+                         within   the temperature
+                          the temperature            interval
+                                              interval  aboveabove    and below
+                                                               and below          the determined
+                                                                             the determined     glassglass    transition
+                                                                                                        transition        temper-
+                                                                                                                     temperature.
+                         Table 1Table
+                         ature.    presents  the specific
+                                        1 presents         valuesvalues
+                                                    the specific  of the selected  test temperatures.
+                                                                          of the selected test temperatures.
+
+                         Table
+                         Table 1. Material
+                                  Material viscoelasticity
+                                           viscoelasticity test temperature.
+
+            Number         1 Number2               31       2 4      3      5 4         65       67       7     8   8       99
+                          Temperature/°C           40       45       50         60      65       70       75        80      85
+       Temperature/◦ C    40          45           50          60          65          70          75          80           85
+
+                         3. Viscoelastic Homeostasis Testing Device and Principle
+                          3. Viscoelastic Homeostasis Testing Device and Principle
+                         3.1. Experimental Setup
+                          3.1. Experimental Setup
+                               In order to accurately and conveniently determine the bulk modulus and shear mod-
+                                In order to accurately and conveniently determine the bulk modulus and shear mod-
+                         ulus of the epoxy resin, a test mold was designed, as shown in Figure 1. This apparatus
+                          ulus of the epoxy resin, a test mold was designed, as shown in Figure 1. This apparatus
+                         mainly consists of an upper indenter, a sleeve, a confining cylinder, and two cylindrical
+                          mainly consists of an upper indenter, a sleeve, a confining cylinder, and two cylindrical
+                         metal blocks. The bottom of the upper indenter is designed with a groove that serves as a
+                          metal blocks. The bottom of the upper indenter is designed with a groove that serves as a
+                         limiting feature, facilitating alignment with the two cylindrical metal blocks to uniformly
+                          limiting feature, facilitating alignment with the two cylindrical metal blocks to uniformly
+                         apply the load to the specimen. The function of the sleeve is to ensure that the upper in-
+                          apply the load to the specimen. The function of the sleeve is to ensure that the upper
+                         denter and the defined cylinder do not tilt during the loading process. The cylinder, made
+                          indenter and the defined cylinder do not tilt during the loading process. The cylinder, made
+                         of stainless steel, provides a sufficient constraint on the specimen, suppressing uneven
+                          of stainless steel, provides a sufficient constraint on the specimen, suppressing uneven
+                         deformation.
+                          deformation.The   Thedefined
+                                                 definedcylinder,
+                                                           cylinder,inincoordination
+                                                                          coordination  with
+                                                                                         withthethe
+                                                                                                  upper
+                                                                                                    upperand   lower
+                                                                                                             and      cylindrical
+                                                                                                                  lower  cylindri-
+                         metal   blocks,   forms  triaxial pressure   on   the specimen,   characterizing    the viscoelastic
+                          cal metal blocks, forms triaxial pressure on the specimen, characterizing the viscoelastic           be-
+                         havior   of epoxy    resin under   high  stress  levels  [26]. Additionally,  two    high-temperature-
+                          behavior of epoxy resin under high stress levels [26]. Additionally, two high-temperature-
+                         resistant
+                          resistant strain
+                                     strain gauges
+                                             gauges (KYOWA,
+                                                      (KYOWA, KFGS-3-120-C1-11
+                                                                  KFGS-3-120-C1-11 L1M3R,L1M3R, Aichi,
+                                                                                                   Aichi, Japan)
+                                                                                                           Japan) were
+                                                                                                                   were attached
+                                                                                                                         attached
+                         at
+                          at the circumferential center position of the defined cylinder to avoid errors arising from
+                            the  circumferential    center  position  of  the  defined  cylinder  to avoid   errors arising  from
+                         variations
+                          variations inin attachment
+                                          attachment locations.
+                                                        locations.
+
+
+
+
+                         Figure 1.
+                         Figure    Materialviscoelasticity
+                                1. Material viscoelasticitytesting
+                                                            testingmold.
+                                                                   mold.
+
+                          3.2. Experimental Principles
+                         3.2. Experimental Principles
+                                To create smooth upper and lower surfaces, the fully cured specimens were cut, and
+                               To create smooth upper and lower surfaces, the fully cured specimens were cut, and
+                          the diameters and lengths of the specimens were measured and recorded. To ensure a
+                         the diameters and lengths of the specimens were measured and recorded. To ensure a
+                          good fit between the defined cylinder and the specimen, five different-sized cylinders were
+                         good fit between the defined cylinder and the specimen, five different-sized cylinders
+                          designed according to the specifications detailed in Table 2. Due to the different coefficients
+                         were designed according to the specifications detailed in Table 2. Due to the different co-
+                          of thermal expansion between the specimen and the stainless steel tube, it was necessary to
+                         efficients
+                          pre-matchofspecimens
+                                        thermal expansion  between
+                                                 and defined        theatspecimen
+                                                             cylinders    different and the stainless
+                                                                                    temperatures      steel tube,
+                                                                                                  to achieve      it was
+                                                                                                              optimal  fit.
+                         necessary    to pre-match  specimens  and   defined  cylinders  at different  temperatures
+                          In the most ideal scenario, when the specimen and cylinder are stabilized at an appropriate to
+                          ambient temperature, their gap is precisely equal to zero. At this point, applying a small
+                          load allows for the monitoring of the circumferential strain on the outer surface of the
+                          defined cylinder.
+Polymers 2024, 16, 930                                                                                                5 of 14
+
+
+
+                         Table 2. Specification of the confining cylinder.
+
+                                 Number             Inside Diameter/mm               Wall Thickness/mm       Amount
+                                     1                       16.00                                2            3
+                                     2                       16.02                                2            3
+                                     3                       16.05                                2            3
+                                     4                       16.10                                2            3
+                                     5                       16.12                                2            3
+
+
+                              Utilizing a cylindrical coordinate system to illustrate the stress–strain relationship
+                         between the specimen and the defined cylinder, a universal testing machine was employed
+                         to apply a load to the specimen, and two extensometers were clamped on both sides of
+                         the mold to measure the axial deformation of the specimen, ensuring uniformity of axial
+                         deformation on both sides. The axial stress σZZ (r, θ, z) and axial strain ε ZZ (r, θ, z) of the
+                         specimen are represented by the following equation:
+
+                                                                                           F
+                                                                σzz (r, θ, z) = σi =                                     (1)
+                                                                                          πi2
+
+                                                                                       l
+                                                                 ε zz (r, θ, z) = ε i =                               (2)
+                                                                                       L
+                         where F is the load applied by the testing machine in the axial direction, i is the radius of
+                         the specimen, l is the average value of the deformation of the two extensometers, and L is
+                         the length of the specimen.
+                               When subjected to axial stress, the cylinder restrains both radial and circumferential
+                         deformation of the specimen. The radial pressure exerted on the outer surface of the
+                         specimen is equal to that on the inner surface of the cylinder. The stress–displacement
+                         relationship at the interface between the inner wall of the cylinder and the outer surface of
+                                                                                         p             p
+                         the specimen is expressed as follows: when χr (i ) = χr (i ) > 0, σrr (i ) = σrr (i ) = −σ, and
+                         when χr (i ) ≤ 0, the inner surface of the confining cylinder experiences no traction. The
+                         circumferential strain ε c is characterized by the average value of the double strain gauges
+                         on the outer surface of the defined cylinder. The radial components of the displacement
+                         and stress on the inner surface of the cylinder are deduced from the Lam’e solution [27]
+                         as follows:
+                                                           p                     d2 − i 2 p
+                                                          σrr (d) = −σ = −               E εc                         (3)
+                                                                                   2i2
+                                                                                            d2
+                                                                                              
+                                                         p     εc
+                                                        ur =        (1 − νp ) i + (1 + νp )                           (4)
+                                                               2                             i
+                         where d is the outer diameter of the defined cylinder, Ep is the Young’s modulus of the
+                         cylinder, and νp is the Poisson’s ratio of the cylinder.
+                               The specimen undergoes axisymmetric uniform deformation in the experiment, and
+                         its radial stress–strain is equal to the circumferential stress–strain, as shown in the follow-
+                         ing equation:
+                                                        σrr = (r, θ, z) = σθθ (r, θ, z) = −σ                          (5)
+                                                               ε rr (r, θ, z) = ε θθ (r, θ, z)                           (6)
+                              In summary, the stress and strain of the specimen in three directions are as follows:
+                                                                                2
+                                                                                 d
+                                                                                 i       −1
+                                                         σrr (t) = σθθ = −                    Ep ε c ( t )               (7)
+                                                                                     2
+                                                                     σzz (t) = σi (t)                                    (8)
+                                                                     ε c (t)
+                                                                                                   2
+                                                                                     p          p d
+                                                   ε rr (t) = ε θθ =           (1 − ν ) + (1 + ν ) 2                     (9)
+                                                                        2                         i
+                                                                          σ zz ( t ) = σ i ( t )                                     (8)
+
+                                                                           ε (t )              d2 
+                                                                                    (          ) (
+                                                         ε rr ( t ) = εθθ = c  1 −ν p + 1 +ν p 2 
+                                                                            2 
+                                                                                                     )i                              (9)
+Polymers 2024, 16, 930                                                                                                           6 of 14
+
+
+                                                                    ε zz (t) = ε i (t)                            (10)
+                                                                 ε zz (t) = ε i (t)                                (10)
+                              Equations (7)–(10) allow for the characterization of the stress–strain of the material in
+                              Equations (7)–(10) allow for the characterization of the stress–strain of the material in
+                         the confining pressure state.
+                         the confining pressure state.
+                         4.
+                         4. Results
+                            Results and
+                                      and Discussion
+                                           Discussion
+                         4.1. Viscoelastic Test
+                         4.1. Viscoelastic Test
+                               The
+                               The universal
+                                    universal testing
+                                                testing machine
+                                                          machine is is equipped
+                                                                         equipped with
+                                                                                     with two
+                                                                                           two control
+                                                                                                 control systems:
+                                                                                                          systems: oneonefor
+                                                                                                                           for dis-
+                                                                                                                                dis-
+                         placement and
+                         placement     and load
+                                            load control
+                                                  control and
+                                                           and the
+                                                                the other
+                                                                     other for
+                                                                             for temperature
+                                                                                 temperature control,
+                                                                                                 control, enabling
+                                                                                                          enabling aa variety
+                                                                                                                         variety of
+                                                                                                                                 of
+                         temperaturetests.
+                         temperature     tests.The
+                                                 The  test
+                                                    test    apparatus
+                                                         apparatus        is installed
+                                                                      is installed  andand   secured
+                                                                                         secured        as shown
+                                                                                                   as shown         in Figure
+                                                                                                              in Figure          2a,
+                                                                                                                          2a, with
+                         with extensometers
+                         extensometers     (Force(Force  Test Coefficient
+                                                   Test Coefficient          LHLE50/10/10)
+                                                                       LHLE50/10/10)     clamped clamped
+                                                                                                    on the on
+                                                                                                            leftthe
+                                                                                                                 andleft andsides,
+                                                                                                                      right   right
+                         sides,
+                         as      as illustrated
+                            illustrated  in Figurein 2b.
+                                                     Figure   2b. Subsequently,
+                                                         Subsequently,     the entirethe  entire
+                                                                                       setup      setup is transferred
+                                                                                              is transferred              into the
+                                                                                                              into the tempera-
+                         temperature-controlled
+                         ture-controlled    chamber,chamber,     as illustrated
+                                                       as illustrated   in Figurein2c.
+                                                                                     Figure 2c.
+
+
+
+
+                         Figure
+                         Figure 2. Viscoelastic   test
+                                   Viscoelastic test   setup:
+                                                     setup: (a)(a) Confining
+                                                                Confining     pressure
+                                                                          pressure      device;
+                                                                                   device;       (b) Temperature
+                                                                                           (b) Temperature          control
+                                                                                                           control box;      box; (c)
+                                                                                                                        (c) Extensometer.
+                         Extensometer.
+                               We secured the specimen using displacement-controlled loading and securely fastened
+                         the strain gauge’s connection line with tape to prevent the connection line from shaking
+                         during the temperature control process, ensuring the accuracy of data collection. We set
+                         the desired testing temperature, and when the temperature reached the set value, we
+                         stabilized the temperature inside the chamber within ±0.5 ◦ C of the set value. The cylinder
+                         functions as a thermal buffer, and the temperature of the specimen is not easily affected by
+                         the ambient temperature.
+                               When the specimen is heated uniformly, an initial force of approximately 100 N is
+                         applied to the testing apparatus, followed by loading at a rate of 2 mm/min until reaching
+                         the target load. This target load is adjusted according to different experimental temperatures
+                         to achieve a circumferential strain of approximately 100 microstrains on the outer surface
+                         of the defined cylinder. Subsequently, the loading is stopped, the clamped end position is
+                         maintained, and the stress relaxation test is conducted to record the changes over time in
+                         the axial force F, axial deformation l1 and l2 , and circumferential strain ε c1 and ε c2 .
+
+                         4.2. Bulk Modulus and Shear Modulus
+                              The stresses and strains of the specimen in the three directions are calculated by
+                         the formulas described in the third section, and then the average stress σm and the bulk
+Polymers 2024, 16, 930                                                                                             7 of 14
+
+
+
+                         strain ε vol of the specimen are obtained based on the theoretical formulas, as shown in the
+                         following equations:
+                                                                     σzz + σrr + σθθ
+                                                              σm =                                               (11)
+                                                                              3
+                                                              ε vol = ε zz + ε rr + ε θθ                         (12)
+                              The calculated formulas for the bulk modulus and shear modulus of epoxy resin are
+                         derived as follows:
+                                                                     σm
+                                                                 K=                                        (13)
+                                                                     ε Vol
+                                                                     (σrr − σm )/2
+                                                               G=                                                    (14)
+                                                                      ε rr − 13 ε Vol
+                              This equation can describe the bulk modulus and shear modulus of resin under multiaxial
+                         stress, and it can also be used to study the micromechanical models of related composite
+                         materials, such as the Tsai-Wu [28] and Checkerboard [29] micromechanical models.
+                               The viscoelastic bulk modulus and shear modulus measured at various temperatures
+                         of the specimen are summarized, and the results are presented in Table 3. At 40 ◦ C,
+                         the initial bulk modulus and shear modulus of the epoxy resin can reach 4140 MPa and
+                         1205 MPa. The initial bulk modulus and shear modulus decrease with an increase in
+                         temperature. The decrease is more pronounced as the temperature approaches the glass
+                         transition temperature of the specimen. At 85 ◦ C, the initial bulk modulus of the specimen
+                         is reduced to 1862 MPa, while the initial shear modulus is reduced to 19 MPa.
+
+                         Table 3. Bulk modulus and shear modulus of materials at different temperatures.
+
+                                 Temperature/◦ C               Bulk Modulus/MPa                Shear Modulus/MPa
+                                        40                             4140                            1205
+                                        45                             4101                            1160
+                                        50                             4063                            1133
+                                        60                             3816                            1034
+                                        65                             3769                             966
+                                        70                             3474                             857
+                                        75                             2882                             578
+                                        80                             2387                              31
+                                        85                             1862                              19
+
+
+                              The 70 ◦ C test data were selected to analyze the viscoelastic response behavior of the
+                         epoxy resin, as shown in Figure 3. This temperature is in proximity to the glass transition
+                         temperature of the specimen, Tg = 75 ◦ C. The increased motility of the molecules and chain
+                         segments of the resin enhances the stress relaxation phenomenon, as depicted in Figure 3a.
+                         Figure 3b illustrates the strain data automatically collected by the testing machine and
+                         the strain recorded by the extensometer over time. It reveals that the strain measured by
+                         the extensometer is smaller than that of the testing machine. The deformation measured
+                         by the testing machine contains the deformation of the parts of the testing machine itself
+                         and the deformation of the specimen, and the deformation measured by the extensometer
+                         only contains the deformation of the specimen, so the use of the extensometer can more
+                         accurately characterize the deformation of the specimen in the experimental process. In
+                         Figure 3c, the time-dependent variation in strain is presented, as measured by two strain
+                         gauges on the outer surface of the confining cylinder. The nearly identical strain values
+                         from different positions affirm the uniformity of the specimen’s deformation. Figure 3d,e
+                         depicts the time-dependent variations in circumferential and radial stress–strain of the
+                         specimen obtained using Equations (7) and (9).
+                                                                       accurately characterize the deformation of the specimen in the experimental process. In
+                                                                       Figure 3c, the time-dependent variation in strain is presented, as measured by two strain
+                                                                       gauges on the outer surface of the confining cylinder. The nearly identical strain values
+                                                                       from different positions affirm the uniformity of the specimen’s deformation. Figure 3d,e
+ Polymers 2024, 16, 930                                                depicts the time-dependent variations in circumferential and radial stress–strain of8 ofthe
+                                                                                                                                                                14
+                                                                       specimen obtained using Equations (7) and (9).
+
+            15                                                                                                                                                                                 150
+                         (a)                                                                                     (b)                                                                                          (c)
+                                                                                                         8
+            12                                                     Actuator
+                                                                                                                                        Actuator                                               120
+                                                                                                                                        Extensometer
+                                                                                                         6
+    σzz(t)/MPa
+
+
+
+
+                                                                                                                                                                                                                                    Strain gauge1
+
+
+
+
+                                                                                             Ɛzz(t)/mɛ
+                 9                                                                                                                                                                                   90
+
+
+
+
+                                                                                                                                                                                         Ɛch(t)/μɛ
+                                                                                                                                                                                                                                    Strain gauge2
+
+                 6                                                                                       4
+                                                                                                                                                                                                     60
+
+                 3                                                                                       2
+                                                                                                                                                                                                     30
+
+                 0                                                                                       0
+                                                                                                             0         200        400           600                                                   0
+                     0                 200                400             600                                                                                                                             0         200      400              600
+                                                       Time/s                                                                Time/s                                                                                       Time/s
+                                              200
+                                                           (d)                                                                                                          7.5            (e)
+
+                                              150                                                                                                                       6.0
+
+
+
+
+                                                                                                                                                    σrr(t),σθθ(t)/MPa
+                               Ɛrr(t),Ɛθθ(t)/με
+
+
+
+
+                                                                                                                                                                                                                           Stress
+                                                                                             Strain                                                                     4.5
+                                              100
+                                                                                                                                                                        3.0
+                                                  50                                                                                                                    1.5
+
+                                                  0                                                                                                                     0.0
+                                                       0         200         400                 600                                                                               0                 200          400        600
+                                                                          Time/s                                                                                                                              Time/s
+
+                                                                        Figure 3.3. Viscoelastic
+                                                                       Figure       Viscoelastic test
+                                                                                                  test data
+                                                                                                       data plots
+                                                                                                            plots of
+                                                                                                                   ofspecimens
+                                                                                                                      specimens at
+                                                                                                                                 at70
+                                                                                                                                    70◦°C: (a)change
+                                                                                                                                       C: (a)  change in
+                                                                                                                                                       inaxial
+                                                                                                                                                          axialstress
+                                                                                                                                                                stressof
+                                                                                                                                                                       ofspecimens
+                                                                                                                                                                          specimens
+                                                                        with time;   (b) change   in axial strain recorded  by the testing machine  and   axial strain measured
+                                                                       with time; (b) change in axial strain recorded by the testing machine and axial strain measured by the    by
+                                                                        the extensometer with time; (c) change in annular and radial strains on the outer surface of cylinder
+                                                                       extensometer with time; (c) change in annular and radial strains on the outer surface of cylinder with
+                                                                        with time; (d) change in annular and radial strains of the specimens with time; (e) change in annular
+                                                                       time; (d) change in annular and radial strains of the specimens with time; (e) change in annular and
+                                                                        and radial stress of the specimens with time.
+                                                                       radial stress of the specimens with time.
+
+Polymers 2024, 16, x FOR PEER REVIEW                                       The relaxation curves of the bulk and shear modulus of the specimens at different        9 of 15
+                                                                          The relaxation curves of the bulk and shear modulus of the specimens at different
+                                                                      temperatures are summarized as shown in Figure 4. E-44 epoxy resin exhibits strong time
+                                                                     temperatures are summarized as shown in Figure 4. E-44 epoxy resin exhibits strong time
+                                                                      and temperature dependence. At low temperatures, the mobility of molecules and chain
+                                                                     and temperature dependence. At low temperatures, the mobility of molecules and chain
+                                                                     segmentsisis low,
+                                                                   segments        low, making
+                                                                                          makingdeformation
+                                                                                                   deformationdifficult, andand
+                                                                                                                 difficult,   stress relaxation
+                                                                                                                                  stress        is slower
+                                                                                                                                         relaxation         with awith
+                                                                                                                                                       is slower     smaller
+                                                                                                                                                                           a
+                                                                     amplitude.
+                                                                   smaller         Conversely,
+                                                                            amplitude.          at high at
+                                                                                           Conversely,   temperatures,  the mobility
+                                                                                                           high temperatures,         of molecules
+                                                                                                                                 the mobility        and chain
+                                                                                                                                               of molecules       segments
+                                                                                                                                                                and   chain
+                                                                     is enhanced,
+                                                                   segments          and polymer
+                                                                              is enhanced,           chain segments
+                                                                                              and polymer             are more
+                                                                                                             chain segments      flexible
+                                                                                                                               are        and easy
+                                                                                                                                   more flexible   andto easy
+                                                                                                                                                         deform,    leading
+                                                                                                                                                               to deform,
+                                                                     to more  significant   stress relaxation. Once  the  temperature    surpasses   the
+                                                                   leading to more significant stress relaxation. Once the temperature surpasses the glassglass  transition
+                                                                     temperature,
+                                                                   transition        the molecular
+                                                                                temperature,     the deformation   ability furtherability
+                                                                                                       molecular deformation        increases. Consequently,
+                                                                                                                                           further   increases. the    stress
+                                                                                                                                                                   Conse-
+                                                                     relaxation  time  decreases  dramatically, allowing   the specimen   to achieve
+                                                                   quently, the stress relaxation time decreases dramatically, allowing the specimen toa state of complete
+                                                                     relaxation
+                                                                   achieve       within
+                                                                            a state       a short period.
+                                                                                      of complete   relaxation within a short period.
+
+                                                                                  4000 (a)                                                 40℃                                1200 (b)                                                        40℃
+                                                                                                                                           50℃                                                                                                45℃
+                                                                                  3600                                                     60℃                                1000                                                            50℃
+                                                                                                                                                                                                                                              60℃
+                                                                                                                                          65℃                                      800
+                                                                       K(t)/MPa
+
+
+
+
+                                                                                                                                                                        G(t)/MPa
+
+
+
+
+                                                                                  3200
+                                                                                                                                                                                   600                                                         65℃
+                                                                                  2800                                                    70℃
+                                                                                                                                                                                   400
+                                                                                  2400
+                                                                                          85℃                                           75℃                                                                                                   70℃
+                                                                                                                                                                                   200
+                                                                                  2000                                                                                                                                                    75℃
+                                                                                                                                           80℃                                         0                                                     80℃
+                                                                                     −2      −1                   0     1     2       3         4                                               −1              0      1      2           3         4
+                                                                                                                   log(Time)/s                                                                                      log(Time)/s
+
+                                                                   Figure
+                                                                    Figure4.4.
+                                                                            Relaxation  curves
+                                                                               Relaxation      of specimens
+                                                                                           curves           at different
+                                                                                                  of specimens           temperatures:
+                                                                                                                at different           (a) bulk
+                                                                                                                             temperatures:      modulus
+                                                                                                                                            (a) bulk    relaxation;
+                                                                                                                                                     modulus        (b)
+                                                                                                                                                             relaxation;
+                                                                   shear modulus   relaxation.
+                                                                    (b) shear modulus relaxation.
+
+                                                                   4.3. Relaxation Modulus Principal Curves
+                                                                        The time-temperature superposition (TTS) principle is the foundation for deriving
+                                                                   long-term master curves for viscoelastic properties [30]. At low temperatures, the polymer
+                                                                   chain segments exhibit high internal friction, resulting in slow and less easily detectable
+                                                                   stress relaxation over short durations. Based on this principle, a series of higher tempera-
+                                                                   tures are used to simulate accelerated tests, serving as a substitute for longer relaxation
+                                      2000                                                                                                     75℃
+                                                                                     80℃                   0                                      80℃
+                                         −2         −1           0     1     2   3     4                       −1        0       1      2      3        4
+                                                                  log(Time)/s                                                 log(Time)/s
+
+Polymers 2024, 16, 930   Figure 4. Relaxation curves of specimens at different temperatures: (a) bulk modulus relaxation;9(b)
+                                                                                                                           of 14
+                         shear modulus relaxation.
+
+                         4.3.
+                           4.3.Relaxation
+                                 Relaxation  Modulus
+                                               Modulus  Principal
+                                                           PrincipalCurves
+                                                                      Curves
+                                The   time-temperature        superposition
+                                  The time-temperature superposition           (TTS)
+                                                                                  (TTS)principle
+                                                                                          principleis isthethefoundation
+                                                                                                                foundationfor   forderiving
+                                                                                                                                     deriving
+                         long-term     master    curves   for viscoelastic  properties    [30]. At   low   temperatures,
+                           long-term master curves for viscoelastic properties [30]. At low temperatures, the                 the  polymer
+                                                                                                                                     polymer
+                         chain
+                           chainsegments
+                                   segments    exhibit
+                                                 exhibit high
+                                                           highinternal
+                                                                 internalfriction,
+                                                                           friction,resulting
+                                                                                      resulting  ininslow
+                                                                                                       slowandandless
+                                                                                                                    lesseasily
+                                                                                                                          easilydetectable
+                                                                                                                                   detectable
+                         stress
+                           stressrelaxation
+                                   relaxation   over
+                                                   overshort
+                                                         shortdurations.
+                                                                durations.Based
+                                                                             Based onon
+                                                                                      thisthis
+                                                                                            principle,
+                                                                                               principle, a series   of higher
+                                                                                                              a series   of highertempera-
+                                                                                                                                      temper-
+                         tures   are  used    to simulate    accelerated   tests,  serving   as  a  substitute    for
+                           atures are used to simulate accelerated tests, serving as a substitute for longer relaxationlonger    relaxation
+                         testing
+                           testingtimes
+                                     times[31].
+                                              [31].The
+                                                     Theresults
+                                                          resultsofofshort-term
+                                                                       short-termrelaxation
+                                                                                    relaxation tests
+                                                                                                  testsatatdifferent
+                                                                                                             differenttemperatures
+                                                                                                                         temperatures     are
+                                                                                                                                            are
+                         considered
+                           considered    asaspart
+                                               partofof
+                                                      a amaster
+                                                           mastercurve
+                                                                   curve shifted
+                                                                           shiftedparallel  toto
+                                                                                     parallel   thethelogarithmic
+                                                                                                        logarithmic   time
+                                                                                                                        time axis
+                                                                                                                               axis[32]. Us-
+                                                                                                                                     [32].  Us-
+                           ing4040°C◦ Casasthe
+                         ing                 thereference
+                                                  referencetemperature,
+                                                              temperature,the thebulk
+                                                                                    bulkand
+                                                                                          andshear
+                                                                                                shearrelaxation
+                                                                                                         relaxationmodulus
+                                                                                                                       moduluscurvescurvesofof
+                         specimens      at  different    temperatures     were   horizontally      shifted   on
+                           specimens at different temperatures were horizontally shifted on the logarithmic time  the  logarithmic      time
+                                                                                                                                           axis,
+                         axis,  ensuring     that  the curves   were   superimposed      and  seamlessly      connected
+                           ensuring that the curves were superimposed and seamlessly connected to each other, as            to each   other,
+                         asillustrated
+                             illustratedininFigure
+                                               Figure5.5.
+
+                                                                                                    1200
+                                      4000
+                                                                                                    1000 40℃
+                                      3600    40℃                                                                   45℃ 50℃
+                                                     50℃                                                 800               60℃
+                                                             60℃
+                           K(t)/MPa
+
+
+
+
+                                                                                              G(t)/MPa
+                                      3200                      65℃                                                           65℃
+                                                                                                         600                     70℃
+                                      2800                            70℃                                          (b)
+                                                  (a)
+                                                                                                         400
+                                      2400                            75℃                                                              75℃
+                                                                       80℃
+                                                                                                         200
+                                      2000
+                                                                      85℃                                                          80℃
+                                                                                                           0
+                                              0     2        4     6 8 10 12 14 16                             0     2       4    6   8 10     12   14
+                                                                 log(Time)/s                                                  log(Time)/s
+
+                           Figure
+                         Figure  5. 5.  Horizontal
+                                    Horizontal      translational
+                                                 translational     relaxation
+                                                               relaxation     modulus
+                                                                           modulus    curves:
+                                                                                   curves:      (a) bulk
+                                                                                           (a) bulk      modulus
+                                                                                                    modulus      relaxation
+                                                                                                            relaxation curve;curve;
+                                                                                                                              (b)
+                           (b) shear
+                         shear         relaxation
+                                relaxation        modulus
+                                            modulus    curve.curve.
+
+                                 The
+                               The    relaxationmodulus
+                                   relaxation                curvesatat4040°C◦ C
+                                                  moduluscurves                  require
+                                                                               require nono  shift
+                                                                                           shift   andlg
+                                                                                                 and    lgα
+                                                                                                          αTT isiszero.
+                                                                                                                   zero.For
+                                                                                                                         Forcurves
+                                                                                                                             curvesat
+                           different temperatures, the relaxation curves shift to the right, with lgα T being negative.
+                         atThe
+                            different  temperatures,
+                                shifting                the
+                                          factors for the   relaxation
+                                                          relaxation      curves curves
+                                                                      modulus      shift toat
+                                                                                            the right, with
+                                                                                              various          lg αT being
+                                                                                                       temperatures           nega-
+                                                                                                                        are recorded,
+                         tive.
+                           andThe
+                                the shifting
+                                    results arefactors for the
+                                                  presented   in relaxation
+                                                                  Table 4. Frommodulus    curves
+                                                                                   the table,      at be
+                                                                                              it can  various    temperatures
+                                                                                                         concluded              are
+                                                                                                                       that although
+                           the shifting factors for the main curves of bulk and shear relaxation modulus are slightly
+                           different, the overall trend is the same, increasing with the temperature.
+
+                           Table 4. Shift factors of bulk and shear modulus relaxation curves of specimens at different temperatures.
+
+                                             Temperature/◦ C                                lgαKT                                      lgαGT
+                                                        40                                    0                                         0
+                                                        45                                                                            −1.871
+                                                        50                                 −2.9458                                    −3.206
+                                                        60                                 −5.0198                                    −5.026
+                                                        65                                  −6.473                                   −6.6975
+                                                        70                                  −8.992                                    −8.155
+                                                        75                                 −10.4671                                  −9.5586
+                                                        80                                 −11.9096                                  −11.2634
+                                                        85                                 −13.5383
+                           Note: αKT is the shift factor of the bulk relaxation modulus, and αGT is the shift factor of the shear relaxation modulus.
+
+
+                                To construct the isochronous curves of bulk and shear relaxation modulus with respect
+                           to temperature, the relaxation curves were further processed to obtain a continuous master
+                           curve for bulk and shear moduli relaxation, as illustrated in Figure 6. Over time, the
+                           primary curves of bulk and shear relaxation modulus gradually approach a horizontal
+                           trend, ultimately relaxing to the equilibrium state.
+                              To construct the isochronous curves of bulk and shear relaxation modulus with re-
+                         spect to temperature, the relaxation curves were further processed to obtain a continuous
+                         master curve for bulk and shear moduli relaxation, as illustrated in Figure 6. Over time,
+Polymers 2024, 16, 930   the primary curves of bulk and shear relaxation modulus gradually approach a horizontal
+                                                                                                               10 of 14
+                         trend, ultimately relaxing to the equilibrium state.
+
+                                       4500
+                                                              Bulk relaxation modulus                                                            Shear relaxation
+                                                              Fitting of bulk relaxation modulus                        1200                     Fitting shear relaxation curve
+                                       4000
+                                                                                                                        1000
+                                       3500                                                                             800
+
+
+
+                            Κ(t)/MPa
+
+
+
+
+                                                                                                             G(t)/MPa
+                                       3000         (a)                                                                 600              (b)
+                                       2500                                                                             400
+                                                                                                                        200
+                                       2000
+                                                                                                                            0
+                                       1500
+                                                0         3     6    9    12             15                                 −2       0     2   4 6 8 10 12 14
+                                                              log(Time)/s                                                                      log(Time)/s
+
+                            Figure
+                         Figure     6. Nonlinear
+                                6. Nonlinear        fits:
+                                             fits: (a)    (a)relaxation
+                                                       bulk   bulk relaxation modulus
+                                                                        modulus master master curve
+                                                                                       curve and      andshear
+                                                                                                 fit; (b) fit; (b) shear relaxation
+                                                                                                                relaxation mod-
+                         ulusmodulus
+                              master curve and   fit.
+                                      master curve and fit.
+
+                         4.4.4.4.
+                              MainMain  Curve
+                                     Curve    Fitting
+                                           Fitting
+                                  The  viscoelastic behavior
+                               The viscoelastic behavior   of of epoxy
+                                                              epoxy     resin
+                                                                      resin   canbebeeffectively
+                                                                            can       effectivelycharacterized
+                                                                                                   characterizedby
+                                                                                                                 bythe
+                                                                                                                    the sum-
+                                                                                                                        summa-
+                             tion of
+                         mation   of Maxwell
+                                     Maxwell elements.
+                                               elements. Given
+                                                         Giventhethetime-temperature
+                                                                     time-temperaturedependence
+                                                                                           dependenceofofits
+                                                                                                           itsbulk
+                                                                                                               bulkmodulus
+                                                                                                                    modulusand
+                         and shear modulus, each element is characterized by a distinctive relaxation time. Em- a
+                             shear modulus,   each  element  is characterized  by  a distinctive  relaxation time. Employing
+                            viscoelastic
+                         ploying          constitutive
+                                   a viscoelastic      model, the
+                                                  constitutive     primary
+                                                                model,       curves of
+                                                                        the primary      bulk and
+                                                                                       curves       shear
+                                                                                               of bulk andrelaxation moduli for
+                                                                                                            shear relaxation
+                             the specimen are fitted [33]. The fitting formula is expressed as follows:
+                         moduli for the specimen are fitted [33]. The fitting formula is expressed as follows:
+                                                                                                         n
+                                                                                                   ∞n                −)ξ ( T )
+                                                                                                                 −ξ (T
+                                                                       (ξ()ξ )==KK∞∞ +
+                                                                      KK             + [[KKu −−KK∞ ]
+                                                                                            u
+                                                                                                     ]∑ WωW  ω exp[
+                                                                                                            exp[        ]      ]                                                   (15)(15)
+                                                                                                       1 =1
+                                                                                                    ω =ω          τ τω                     ω
+
+                                                                                                                        n
+                                                                                                                  −ξ ( T )
+                                                                      G (ξ ) = G ∞∞ + [ Guu − G ∞n
+                                                                                                  ] ∑ Wω exp −ξ [(T )      ]                                                          (16)
+                                                                       G(ξ ) = G + [G − G ]ωW∞
+                                                                                                    =ω1
+                                                                                                        exp[         τ]ω                                                           (16)
+                                                                                                             ω =1                         τω
+                            where K ∞ and G ∞ are the bulk and shear moduli relaxed to equilibrium, K u and G u are the
+                            unrelaxed bulk and shear moduli, respectively, ξ ( T ) is the equivalent time, and Wω and
+                            τω represent the respective weighting factors and discrete stress relaxation times for the
+                            corresponding Maxwell unit.
+                                 The fitting results are shown in Figure 6, with R2 > 0.99 indicating a high degree of
+                            curve fitting accuracy. Table 5 presents the values of the model parameters K ∞ , K u , G ∞ ,
+                            and G u obtained through the fitting process.
+
+                            Table 5. Bulk and shear relaxation master curve fitting results.
+
+                                              Model Parameter                                      K∞                           Ku                G∞                              Gu
+                                          Fitting results/MPa                                      1805                     4122                  12                          1168
+
+
+                            4.5. Experimental Validation
+                                 In the context of linear viscoelastic behavior of materials, any analytical work can
+                            derive the other functions by describing any two of the four material functions (relaxation
+                            or creep) of uniaxial, shear, bulk, or Poisson’s ratio response [34]. The experimentally
+                            measured bulk and shear relaxation moduli can be converted to tensile relaxation moduli
+                            using the theoretical equation as follows:
+
+                                                                                                           9K (t) G (t)
+                                                                                              E(t) =                                                                                   (17)
+                                                                                                          3K (t) + G (t)
+
+                                 We poured and cured the epoxy resin in a glass mold to obtain a 3 mm thick, smooth
+                            and flat epoxy resin sheet. We employed a carving machine (Jingxun CNC, QL-1325, Jinan,
+                            China) to produce specimens of dimensions 150 × 50 × 3 mm (length, width, height).
+                            We performed uniaxial relaxation tests on the specimens to obtain the tensile relaxation
+                            modulus master curve. Then, we compared this curve with the tensile relaxation master
+Polymers 2024, 16, 930                                                                                                             11 of 14
+
+
+
+                               curve obtained through formula conversion to validate the reliability of the measured bulk
+                               and shear relaxation moduli of epoxy resin obtained from this experimental setup.
+                                     We converted the testing machine into tensile testing mode to assess the tensile
+                               relaxation modulus of epoxy resin at various temperatures. Initially, we secured the lower
+                               end of the specimen in a fixture, set the testing temperature, and clamped the upper end of
+                               the specimen after the specimen temperature stabilizes. We applied a load to the specimen
+                               at a rate of 2 mm/min, characterizing strain during the tensile process using strain gauges
+                               affixed at the center of the specimen. Once the load reached 900 N, we left the clamping
+                               end position unchanged and recorded the changes in force F and strain ε over time. We
+                               calculated the uniaxial relaxation modulus of epoxy resin using the following formula:
+
+                                                                                                  F (t)
+                                                                                         E(t) =                                       (18)
+                                                                                                  Aε(t)
+
+                                  where A is the force area of the specimen.
+                                        Similarly, based on the time-temperature superposition principle and using 40 ◦ C
+                                  as the reference, the relaxation modulus curves at other temperatures were horizontally
+                                  shifted to obtain the master curve for tensile relaxation modulus and the corresponding
+                                  shift factors.
+                                        The tensile relaxation modulus principal curves, derived by K-G using Equation (17),
+                                  are compared with the tensile relaxation modulus principal curves obtained from the
+                                  experimental test. The results are shown in Figure 7, which shows a good match between
+                                  the two. The shifting factors of the master curves obtained by the two methods are
+                                  compared as shown in Figure 8. From the figure, it is evident that the shift factors
+Polymers 2024, 16, x FOR PEER REVIEW
+Polymers 2024, 16, x FOR PEER REVIEW                                                                                  12 of of
+                                                                                                                       12 of 15
+                                                                                                                            15
+                                  the two are remarkably similar, affirming the reliability of the bulk and shear relaxation
+                                  modulus principal curves obtained through the self-designed molds in this study.
+
+                                                                  E(t)-Interconversion
+                                        3000                   E(t)-Interconversion
+                                                                E(t)-Measured
+                                       3000                    E(t)-Measured
+                                        2400 40℃ 45℃
+                                       2400 40℃ 45℃
+                                E(t)/MPa
+
+
+
+
+                                                      50℃
+                               E(t)/MPa
+
+
+
+
+                                        1800         50℃
+                                       1800                60℃
+                                                          60℃
+                                        1200                         70℃
+                                       1200                         70℃75℃
+                                         600                  65℃       75℃ 80℃
+                                        600                  65℃              80℃
+
+                                           0
+                                          0
+                                                0  3      6      9      12 15
+                                               0  3      6      9      12 15
+                                                       log(Time)/s
+                                                      log(Time)/s
+                                Figure 7.Comparison
+                                          Comparison ofthethe tensile  relaxation master  curves obtained   from  uniaxial  tensile  relaxa-
+                               Figure  7. Comparisonof
+                               Figure 7.              of thetensile
+                                                             tensilerelaxation
+                                                                      relaxationmaster
+                                                                                 mastercurves obtained
+                                                                                         curves         from
+                                                                                                 obtained  fromuniaxial tensile
+                                                                                                                 uniaxial       relaxation
+                                                                                                                           tensile  relaxa-
+                                tion experiments with the results obtained by interconverting.
+                               tion experiments
+                               experiments  with with the results
+                                                 the results      obtained
+                                                             obtained        by interconverting.
+                                                                        by interconverting.
+
+
+                                                                 Tensile relaxation
+                                           0                    Tensile relaxation
+                                           0                     Interconversion
+                                                                Interconversion
+                                       −3
+                                       −3
+                                  TT
+
+
+
+
+                                       −6
+                                lgα
+
+
+
+
+                                       −6
+                               lgα
+
+
+
+
+                                       −9
+                                       −9
+                                    −12
+                                    −12
+                                    −15
+                                    −15        40    50     60     70          80
+                                               40    50    60     70           80
+                                                      Temperature/℃
+                                                      Temperature/℃
+                                Figure8.8.Shift
+                               Figure      Shiftfactor
+                                                 factorof
+                                                        ofuniaxial
+                                                          uniaxialrelaxation
+                                                                   relaxationmodulus
+                                                                             modulusprincipal
+                                                                                     principalcurves
+                                                                                                curvesobtained
+                                                                                                       obtainedby
+                                                                                                                bytwo
+                                                                                                                   twomethods.
+                                                                                                                      methods.
+                               Figure 8. Shift factor of uniaxial relaxation modulus principal curves obtained by two methods.
+                                    To
+                                     Toillustrate
+                                         illustratethe
+                                                     therelationship
+                                                         relationshipbetween
+                                                                        betweenthetheshifting factors
+                                                                                      shiftingfactors  of
+                                                                                               factors of uniaxial
+                                                                                                       of uniaxial  relaxation
+                                                                                                          uniaxial relaxation    mod-
+                                                                                                                    relaxation mod-
+                                                                                                                                 mod-
+                               ulus To  illustrate
+                                     principal      the
+                                                 curves relationship
+                                                          obtained     between
+                                                                     through  K-Gthe shifting
+                                                                                    conversion   and  temperature,     a  scatter  plot
+                                ulus  principal   curves   obtained   through  K-G   conversion   and   temperature,
+                               ulus principal curves obtained through K-G conversion and temperature, a scatter plot    a  scatter plot
+                                was  generated,    followed  by  a linear regression   analysis. The outcomes    of this
+                               was generated, followed by a linear regression analysis. The outcomes of this analysis are analysis  are
+                                presented    in Figure   9, and  the   mathematical    expression  describing   the
+                               presented in Figure 9, and the mathematical expression describing the correlation be-  correlation   be-
+                                tween shifting
+                               tween   shifting factors
+                                                  factors and
+                                                          andtemperature
+                                                               temperature isis depicted
+                                                                                depicted below:
+                                                                                           below:
+                              −12
+
+                              −15
+                                       40    50    60     70                80
+                                              Temperature/℃
+Polymers 2024, 16, 930                                                                                                  12 of 14
+                         Figure 8. Shift factor of uniaxial relaxation modulus principal curves obtained by two methods.
+
+                               To illustrate the relationship between the shifting factors of uniaxial relaxation mod-
+                         was generated, followed by a linear regression analysis. The outcomes of this analysis are
+                         ulus principal curves obtained through K-G conversion and temperature, a scatter plot
+                         presented in Figure 9, and the mathematical expression describing the correlation between
+                         was generated, followed by a linear regression analysis. The outcomes of this analysis are
+                         shifting factors and temperature is depicted below:
+                         presented in Figure 9, and the mathematical expression describing the correlation be-
+                         tween shifting factors and temperature    is depicted
+                                                           lgα = 10.2608T      below:
+                                                                            − 0.2628                               (19)
+                                                                                   T
+
+
+                                                 Intercinversion-E
+                                                 Linear Fit of B"Intercinversion-E"
+                                 0
+
+                                −3
+                         lgαT
+
+
+
+
+                                −6
+
+                                −9
+
+                              −12
+                                       40     50    60     70                 80
+                                               Temperature/℃
+
+                         Figure 9. Linear
+                         Figure 9. Linear fit
+                                           fit to
+                                                to the
+                                                    the shift
+                                                        shift factor.
+                                                               factor.
+
+                              This equation can be used to derive the displacement factor at different temperatures
+                                                             lg αT =of
+                         and to describe the stress–strain behavior  10.2608T − 0.2628
+                                                                       viscoelastic                                (19)
+                                                                                    polymers at different temperatures
+                         using the time-temperature equivalence principle.
+                              This equation can be used to derive the displacement factor at different temperatures
+                         and
+                         5.   to describe the stress–strain behavior of viscoelastic polymers at different tempera-
+                            Conclusions
+                         turesTo
+                               using the time-temperature
+                                 investigate                 equivalence
+                                             the linear viscoelastic      principle.
+                                                                     properties  of potted epoxy resins, a specialized
+                         confining pressure testing device was designed. A series of compression tests were con-
+                         ducted on fully cured epoxy resins across various temperatures. Through meticulous data
+                         processing, a set of viscoelastic models for bulk and shear moduli were derived. The exper-
+                         imental setup was further validated for reliability using the viscoelastic model obtained
+                         from uniaxial tensile tests.
+                         1.          A simple method for obtaining the bulk and shear moduli of epoxy resin is described.
+                                     After applying a load to the experimental setup, a stainless steel tube and cylindrical
+                                     metal blocks conformed to the specimen, creating confining pressure. Measurements
+                                     were then taken for the circumferential strain on the outer surface of the cylinder and
+                                     axial stress–strain of the specimen. The initial bulk and shear moduli of the specimen
+                                     were deduced by theoretical formulas at different temperatures.
+                         2.          We characterized the bulk and shear relaxation modulus of the epoxy resin across
+                                     a range of eight temperatures, spanning both above and below its glass transition
+                                     temperature. Subsequently, we derived the relaxation modulus master curve by
+                                     applying translation to the relaxation modulus curves at different temperatures,
+                                     adhering to the time-temperature superposition principle.
+                         3.          The relaxation modulus master curve is nonlinearly fitted with a viscoelastic principal
+                                     model to obtain the parameters K ∞ , K u , G ∞ , and G u .
+                         4.          The data reliability of the relaxation curves of bulk and shear modulus obtained from
+                                     the confining pressure test of the homemade mold in this paper was verified by the
+                                     uniaxial relaxation test.
+
+                         Author Contributions: Methodology, M.X., L.Y. and Y.L.; Formal analysis, J.P. and Y.L.; Resources,
+                         X.Z.; Data curation, L.Y., M.X., X.Z. and X.L.; Writing—original draft, L.Y.; Writing—review & editing,
+                         A.D. and X.L. All authors have read and agreed to the published version of the manuscript.
+                         Funding: This research was funded by the National Natural Science Foundation of China grant
+                         number [No. 11902231].
+                         Institutional Review Board Statement: Not applicable.
+Polymers 2024, 16, 930                                                                                                                 13 of 14
+
+
+
+                                   Data Availability Statement: Data are contained within the article.
+                                   Conflicts of Interest: The authors declare no conflict of interest.
+
+References
+1.    Wen, Y.; Chen, C.; Ye, Y.; Xue, Z.; Liu, H.; Zhou, X.; Zhang, Y.; Li, D.; Xie, X.; Mai, Y. Advances on Thermally Conductive
+      Epoxy-Based Composites as Electronic Packaging Underfill Materials—A Review. Adv. Mater. 2022, 34, 2201023. [CrossRef]
+2.    Cheah, L.B.; Heng, C.W.; Ng, S.Y.; Teh, P.L.; Poopalan, P. UV Modified Epoxy for LED Encapsulant. J. Phys. Conf. Ser. 2020, 1535, 012057.
+      [CrossRef]
+3.    Zhang, C.; Liu, Z.; Zhang, T.; Wang, X.; Yin, C.; Liu, X.; Chi, Q. High-temperature resistance and excellent electrical insulation in
+      epoxy resin blends. J. Appl. Polym. Sci. 2023, 140, e54359. [CrossRef]
+4.    Sun, W.; Wang, L.; Zhu, N.; Xin, J.; Luo, Y.; Jiang, X.; Fan, G.; Chen, M. Characterization of Packaging Warpage, Residual Stress
+      and Their Effects on the Mechanical Reliability of IGBT Power Modules. Eng. Fail. Anal. 2023, 152, 107517. [CrossRef]
+5.    Huskić, M.; Kusić, D.; Pulko, I.; Nardin, B. Determination of residual stresses in amorphous thermoplastic polymers by DMA. J.
+      Appl. Polym. Sci. 2022, 139, e53210. [CrossRef]
+6.    Courtois, A. Viscoelastic behavior of an epoxy resin during cure below the glass transition temperature: Characterization and
+      modeling. J. Compos. Mater. 2019, 53, 155–171. [CrossRef]
+7.    Politi, M.; Breuer, O.; Cohen, Y. Simulation and Experimental Validation of the Cure Process of an Epoxy-Based Encapsulant. Exp.
+      Mech. 2023, 63, 1429–1444. [CrossRef]
+8.    Qu, C.; Zhang, X.; Wang, D.; Fan, X.; Li, H.; Liu, C.; Feng, H.; Wang, R.; Guo, K.; Tian, Y. Residual stress and thermal properties of
+      rubber-modified epoxy systems for semiconductor package. J. Appl. Polym. Sci. 2022, 139, 51786. [CrossRef]
+9.    Namazian, Z.; Yaghoubi, M. Optimization of thermal curing cycle for a large epoxy model. J. Comput. Appl. Mech. 2019, 50,
+      282–288. [CrossRef]
+10.   Nunes, S.G.; Saseendran, S.; Joffe, R.; Amico, S.C.; Fernberg, P.; Varna, J. On temperature-related shift factors and master curves in
+      viscoelastic constitutive models for thermoset polymers. Mech. Compos. Mater. 2020, 56, 573–590. [CrossRef]
+11.   Avila Torrado, M.; Constantinescu, A.; Johlitz, M.; Lion, A. Viscoelastic behavior of filled silicone elastomers and influence of
+      aging in inert and hermetic environment. Contin. Mech. Thermodyn. 2022, 1–18. [CrossRef]
+12.   Saseendran, S.; Wysocki, M.; Varna, J. Evolution of viscoelastic behaviour of a curing LY5052 epoxy resin in the rubbery state.
+      Adv. Compos. Mater. 2017, 26, 553–567. [CrossRef]
+13.   Agha, A.; Abu-Farha, F. Numerical implementation and validation of a viscoelastic-plastic material model for predicting curing
+      induced residual stresses in adhesive bonded joints. Int. J. Adhes. Adhes. 2022, 118, 103195. [CrossRef]
+14.   Adrover-Monserrat, B.; García-Vilana, S.; Sánchez-Molina, D.; Llumà, J.; Jerez-Mesa, R.; Travieso-Rodriguez, J.A. Viscoelastic
+      Characterization of a Thermoplastic Elastomer Processed through Material Extrusion. Polymers 2022, 14, 2914. [CrossRef]
+      [PubMed]
+15.   Nawab, Y.; Casari, P.; Boyard, N.; Jacquemin, F. Characterization of the cure shrinkage, reaction kinetics, bulk modulus and
+      thermal conductivity of thermoset resin from a single experiment. J. Mater. Sci. 2013, 48, 2394–2403. [CrossRef]
+16.   Sangtabi, M.R.; Kiasat, M.S. Long-term viscoelastic properties of an adhesive and molding compound, characterization and
+      modeling. Polymer 2017, 116, 204–217. [CrossRef]
+17.   Müller-Pabel, M.; Agudo, J.A.R.; Gude, M. Measuring and understanding cure-dependent viscoelastic properties of epoxy resin:
+      A review. Polym. Test. 2022, 114, 107701. [CrossRef]
+18.   Klimm, W.; Kwok, K. Mechanism of resistance relaxation and hysteresis in viscoelastic piezoresistive polymer nanocomposites.
+      Int. J. Mech. Mater. Des. 2022, 18, 769–783. [CrossRef]
+19.   Ikeda, T.; Kanno, T.; Shishido, N.; Miyazaki, N.; Tanaka, H.; Hatao, T. Non-linear analyses of strain in flip chip packages improved
+      by the measurement using the digital image correlation method. Microelectron. Reliab. 2013, 53, 145–153. [CrossRef]
+20.   Vieira de Mattos, D.F.; Huang, R.; Liechti, K.M. The effect of moisture on the nonlinearly viscoelastic behavior of an epoxy. Mech.
+      Time-Depend. Mater. 2020, 24, 435–461. [CrossRef]
+21.   Sfar Zbed, R.; Le Corre, S.; Sobotka, V. Process-induced strains measurements through a multi-axial characterization during
+      the entire curing cycle of an interlayer toughened Carbon/Epoxy prepreg. Compos. Part A Appl. Sci. Manuf. 2022, 153, 106689.
+      [CrossRef]
+22.   Qamar, S.Z.; Akhtar, M.; Pervez, T.; Al-Kharusi, M.S.M. Mechanical and structural behavior of a swelling elastomer under
+      compressive loading. Mater. Des. 2013, 45, 487–496. [CrossRef]
+23.   Barney, C.W.; Helgeson, M.E.; Valentine, M.T. Network structure influences bulk modulus of nearly incompressible filled silicone
+      elastomers. Extrem. Mech. Lett. 2022, 52, 101616. [CrossRef]
+24.   Senol, K.; Shukla, A. Underwater mechanical behavior of closed cell PVC foams under hydrostatic loading through 3D DIC
+      technique. Polymer Test. 2019, 73, 72–81. [CrossRef]
+25.   Lee, H.S.; Sun, Y.; Kim, C.; Han, B. Characterization of linear viscoelastic behavior of epoxy molding compound subjected to
+      uniaxial compression and hydrostatic pressure. IEEE Trans. Compon. Packag. Manuf. Technol. 2018, 8, 1363–1372. [CrossRef]
+26.   Ravi-Chandar, K.; Ma, Z. Inelastic Deformation in Polymers under Multiaxial Compression. Mech. Time-Depend. Mater. 2000, 4,
+      333–357. [CrossRef]
+Polymers 2024, 16, 930                                                                                                             14 of 14
+
+
+
+27.   Qvale, D.; Ravi-Chandar, K. Viscoelastic Characterization of Polymers under Multiaxial Compression. Mech. Time-Depend. Mater.
+      2004, 8, 193–214. [CrossRef]
+28.   Li, S.; Sitnikova, E.; Liang, Y.; Kaddour, A.-S. The Tsai-Wu failure criterion rationalised in the context of UD composites. Compos.
+      Part A Appl. Sci. Manuf. 2017, 102, 207–217. [CrossRef]
+29.   Kabir, H.; Aghdam, M.M. A robust Bézier based solution for nonlinear vibration and post-buckling of random checkerboard
+      graphene nano-platelets reinforced composite beams. Compos. Struct. 2019, 212, 184–198. [CrossRef]
+30.   Henriques, I.R.; Rouleau, L.; Castello, D.A.; Borges, L.; Deü, J.-F. Viscoelastic behavior of polymeric foams: Experiments and
+      modeling. Mech. Mater. 2020, 148, 103506. [CrossRef]
+31.   Schalnat, J.; Daelemans, L.; De Baere, I.; De Clerck, K.; Van Paepegem, W. Long-term stiffness prediction of particle filled polymers
+      by dynamic mechanical analysis: Frequency sweep versus creep method. Polym. Test. 2021, 103, 107368. [CrossRef]
+32.   Phansalkar, S.P.; Kim, C.; Han, B. Effect of critical properties of epoxy molding compound on warpage prediction: A critical
+      review. Microelectron. Reliab. 2022, 130, 114480. [CrossRef]
+33.   Prasatya, P.; McKenna, G.B.; Simon, S.L. A Viscoelastic Model for Predicting Isotropic Residual Stresses in Thermosetting
+      Materials: Effects of Processing Parameters. J. Compos. Mater. 2001, 35, 826–848. [CrossRef]
+34.   Tschoegl, N.W.; Knauss, W.G.; Emri, I. Poisson’s Ratio in Linear Viscoelasticity—A Critical Review. J. Mech. Time-Depend. Mater.
+      2002, 6, 3–51. [CrossRef]
+
+Disclaimer/Publisher’s Note: The statements, opinions and data contained in all publications are solely those of the individual
+author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to
+people or property resulting from any ideas, methods, instructions or products referred to in the content.
+

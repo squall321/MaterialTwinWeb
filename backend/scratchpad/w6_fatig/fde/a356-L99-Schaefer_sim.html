@@ -1,0 +1,86 @@
+
+#<HEAD>
+#<TITLE>F.D.+E. Cyclic Stress-Strain Model from U.Waterloo Calc. Site</TITLE>
+#</HEAD><BODY>
+#<H3>F.D.+E. <i>pdStressStrain.f</i> from UoWaterloo Calc. Site</h3>
+#<br>
+#<FORM METHOD="POST" ACTION="http://mme.uwaterloo.ca/cgi-bin/catsaeModel">
+#<DL compact> Your material file (its a Digital-Fitted Curve. Replace it with your own if you wish):
+#<br><pre><textarea rows=10 cols=90 name="#SAE_Standard_File" >
+
+#
+#Copyright (C) 2010  F.D.E Comm. and A. Conle
+#This data file is free software - you can redistribute it and/or
+#modify it under the terms of the GNU General Public License as
+#published by the Free Software Foundation; either version 2 of the
+#license, or (at your option) any later version.
+#This data file is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY - without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General PUblic License for more details.
+#You should have received a copy of the GNU General PUblic License
+#along with this program - if not, write to the Free Software
+#Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+#Try also their web site: http://www.gnu.org/copyleft/gpl.html
+#
+# Fitted data file!
+# BS-L99  AA-A356-T6 Die cast aluminum
+# Material does not cyclically harden or soften substantially.  See curves.
+# Cut from truck wheel ribs
+# Test section 5mm diam.
+# Test: UoWaterloo, S.G.Schaefer 1985 MSc. thesis
+#FileType= strain_life
+#DataType= fitted
+#Name= BS_L99_Alum
+#Name= AA-A356-T6
+#Name= Al-DieCast
+#Stress_units= MPa
+#Strain_units= strain
+#Sy=  213.
+#Su=  239.
+#E= 71000.  # was reported as 61000, but cyclic curve doesnt fit. Changed.
+#_          # You can change it back and run file again.
+#monotonic_K=  318.   #These are based on measured plastic strains.
+#monotonic_n= 0.062
+#FractureStrain= 0.0136
+#FractureStress=  242.
+#%RA=   1.4
+#MaterialForm= component  #Ribs of a production truck wheel
+#FailureDef= 50% load drop
+#Hardness, Vickers= 79   #?
+#Bhn= 0  # vickers no. is too low to be converted
+#Note: recalculated plastic strain based on changed modulus. FAC 2010
+#No. fatigue data points=   10 in raw file
+#
+# NOTE!! The Following Points are <b>FITTED DATA:</b>#NOTE!! Fitted Stress computed using Experm. K' and n'
+# NOTE!! Manual fit using the original data.  Coffin-Manson plot/fit was poor quality. FAC 2010
+#_TotStr 2Nf  Stress  Mean  PlsStr Initial
+#_   Amp       Amp   Stress  Amp   ElasMod.
+.0149       1  242    0    .0120     71000 #MonotonicTest Fract.stress and ultimate strain
+.0050     113  232    0    .0018     71000 #Fitted_point manually
+0.0042    300  224    0    .00105    71000 #Fitted_point manually
+.0035    1500  210    0    .0005     71000 #Fitted_point manually
+.003     6000  194    0    .00027    71000 #Fitted_point manually
+.0025   15000  172    0    .0001     71000 #Fitted_point manually
+.0018   90000  126    0    .0        71000 #Fitted_point manually
+.0010 2500000   73    0     0        71000 #None
+.0008 10000000  58.8  0     0        71000  #Fitted_point manually
+#</textarea></DL></pre>
+#MagFactor=<input value="1.0" size=8 name="#MagFactor">
+#<font size="3" color="green">&nbsp &nbsp Enter your Strain Reversal Points: <br>
+<input type="TEXT" value="0.005" size=9 name="xyz"> 
+<input type="TEXT" value="" size=9 name="xyz"> 
+<input type="TEXT" value="" size=9 name="xyz"> 
+<input type="TEXT" value="" size=9 name="xyz"> 
+<input type="TEXT" value="" size=9 name="xyz"> 
+<input type="TEXT" value="" size=9 name="xyz"> 
+<br>
+Simulate: <input type="submit" value=" Click here "></font> 
+</FORM><br>
+<p><img src="http://fde.uwaterloo.ca/Fde/genericSim.png">
+<br> 
+<pre>
+#TOTDAM(SWT)=  0.0000000E+00 allowed Repeats=      inf   nrev=         1
+</pre>
+</body></html>
+

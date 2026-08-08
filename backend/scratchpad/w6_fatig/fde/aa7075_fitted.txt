@@ -1,0 +1,79 @@
+#  Copyright (C) 2000 Fatigue Design & Evaluation Comm. of SAE
+# This data file is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the license, or (at
+# your option) any later version.
+#  This data file is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTA-
+# BILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public
+# License for more details.
+#  You should have received a copy of the GNU General PUblic License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 59 Temple Place -Suite 330, Boston, MA 02111-1307, USA. Try also their
+# web site: http://www.gnu.org/copyleft/gpl.html
+#
+# AA7075_T6 ALUMINUM WROUGHT, Data derived from reference:
+# ENDO T.,J.MORROW, ASTM J. OF MATERIALS, VOL.4,P.159,1969
+# Matls. Source: Reynolds, 3/4in.dia. rod (rolled), T6 heat treat.
+# Tests were diametral type spec. for strains higher than +-0.012
+# (longitudinal).  The paper shows cyclic hardening curves.
+# BHN assumed 150
+#
+#Ford= 107       ALUM
+#FileType= strain_life
+#DataType= fitted
+#TIMEcol= 0
+#NAME= AA7075_T6
+#UNITS= KSI
+#Stress_units= ksi
+#Su=       83.90
+#Sy=       68.00
+#E=       10298.
+#%RA=   33.0
+#BHN= 150.
+#NO. FAT. PTS.=  8
+#Tot Strain    2Nf  Stress  Mean   Plastic Strain   Initial
+#  Amp               Amp   Stress      Amp        Elastic Mod.
+#
+# AA7075_T6             BHN=    0. Fn=  107
+#          Monotonic Props.       Cyclic Props.
+#ELAS. MOD.= 10298. KSI,   71. GPA     K'        = 136.8 KSI,   943.MPA
+#YIELD,0.2%=    68. KSI,  469. MPA     N'        = 0.0966
+#ULT. STRG.=    84. KSI,  578. MPA     F. STRG COEF=  127.1 KSI,  876.MPA
+#K       =      0.0 KSI,      0. MPA   F.STRG EXP, b=-0.0751
+#N            = 0.0000                 FAT DUCT COEF=   0.4664
+#RED. IN AREA = 33.0                   F.DUCT EXP, c=-0.7779
+#T. FRAC. STG.=   0.0 KSI,    0. MPA   Exp Cyc Yld  =   75. Ksi, 517.MPA
+#T. FRAC. STR.= 0.000                  Fit Cyc Yld  =   78. Ksi, 536.MPA
+#No. fatigue data points=    8
+#
+#   NOTE!!! The Following Points are <b>FITTED DATA:</b>
+#UNITS= KSI
+#Stress_Units= KSI
+# Total Strain   2Nf  Stress  Mean   Plastic Strain   Initial
+#    Amp               Amp   Stress      Amp        Elastic Mod.
+   0.47877          1   127.1      0.   0.46643     10298. #Fitted_point
+   0.28375          2   120.6      0.   0.27204     10298. #Fitted_point
+   0.14431          5   112.6      0.   0.13338     10298. #Fitted_point
+   0.08817         10   106.9      0.   0.07779     10298. #Fitted_point
+   0.05522         20   101.4      0.   0.04537     10298. #Fitted_point
+   0.03144         50    94.7      0.   0.02224     10298. #Fitted_point
+   0.02170        100    89.9      0.   0.01297     10298. #Fitted_point
+   0.01585        200    85.3      0.   0.00757     10298. #Fitted_point
+   0.01144        500    79.6      0.   0.00371     10298. #Fitted_point
+   0.00951       1000    75.6      0.   0.00216     10298. #Fitted_point
+   0.00823       2000    71.8      0.   0.00126     10298. #Fitted_point
+   0.00712       5000    67.0      0.   0.00062     10298. #Fitted_point
+   0.00654      10000    63.6      0.   0.00036     10298. #Fitted_point
+   0.00607      20000    60.4      0.   0.00021     10298. #Fitted_point
+   0.00557      50000    56.3      0.   0.00010     10298. #Fitted_point
+   0.00525     100000    53.5      0.   0.00006     10298. #Fitted_point
+   0.00497     200000    50.8      0.   0.00004     10298. #Fitted_point
+   0.00462     500000    47.4      0.   0.00002     10298. #Fitted_point
+   0.00438    1000000    45.0      0.   0.00001     10298. #Fitted_point
+   0.00415    2000000    42.7      0.   0.00001     10298. #Fitted_point
+   0.00387    5000000    39.9      0.   0.00000     10298. #Fitted_point
+   0.00368   10000000    37.8      0.   0.00000     10298. #Fitted_point
+   0.00349   20000000    35.9      0.   0.00000     10298. #Fitted_point
+   0.00326   50000000    33.5      0.   0.00000     10298. #Fitted_point
+   0.00309  100000000    31.8      0.   0.00000     10298. #Fitted_point

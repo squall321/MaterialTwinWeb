@@ -142,6 +142,23 @@ def norm_tier(raw) -> int:
     return int(m.group(0)) if m else 3
 
 
+def pick_notes(pr: dict) -> str | None:
+    """`note`와 `notes`를 둘 다 받는다.
+
+    브리프의 출력 예시는 `notes`인데 로더는 `note`만 읽고 있었다. 근거 문구가 조용히
+    사라졌다 — 최근 인제스트분의 37%가 notes 없이 들어갔다. 값은 남고 "왜 그 값인가"만
+    없어지는 유실이라 무결성 검사에도 안 걸린다. 오탈자 하나가 이 카탈로그에서 가장
+    값진 부분(열 머리글 확인·환산 과정·등급 불일치 사유)을 지우고 있었다.
+
+    `uncertainty`도 register_property가 받지 않으니 ± 값은 notes 본문에 넣어야 산다.
+    """
+    for k in ("note", "notes"):
+        v = pr.get(k)
+        if v:
+            return str(v)
+    return None
+
+
 def pick_tier(pr: dict) -> int:
     """신뢰등급을 읽는다 — `tier`와 `quality_tier`를 **둘 다** 받는다.
 
@@ -298,7 +315,7 @@ def main() -> int:
                         r = M.register_property(
                             mid, key, value_text=val, method=meth,
                             quality_tier=pick_tier(pr),
-                            conditions=cond or None, notes=pr.get("note"),
+                            conditions=cond or None, notes=pick_notes(pr),
                             source_title=src.get("title"), source_url=src.get("url"),
                             source_doi=src.get("doi"),
                             source_kind=norm_kind(src.get("kind")),
@@ -343,7 +360,7 @@ def main() -> int:
                     r = M.register_property(
                         mid, key, value=float(val), unit=unit or d.si_unit,
                         method=meth, quality_tier=pick_tier(pr),
-                        conditions=cond or None, notes=pr.get("note"),
+                        conditions=cond or None, notes=pick_notes(pr),
                         source_title=src.get("title"), source_url=src.get("url"),
                         source_doi=src.get("doi"),
                         source_kind=norm_kind(src.get("kind")),

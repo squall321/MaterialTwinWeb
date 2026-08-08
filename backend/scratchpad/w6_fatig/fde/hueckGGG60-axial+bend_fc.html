@@ -1,0 +1,113 @@
+
+
+#<html><title>Material + Cycles File</title><body>
+#<FORM METHOD="POST" ACTION="http://mme.uwaterloo.ca/cgi-bin/catsaefcalc3">
+#<DL compact> <h3>1. Your Material (Digital-Fitted Curves):</h3>
+#<br><pre><textarea rows=10 cols=90 name="#SAE_Standard_File" >
+
+#
+#Copyright (C) 2012  F.D.E. Committee
+#This data file is free software - you can redistribute it and/or
+#modify it under the terms of the GNU General Public License as
+#published by the Free Software Foundation; either version 2 of the
+#license, or (at your option) any later version.
+#This data file is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY - without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General PUblic License for more details.
+#You should have received a copy of the GNU General PUblic License
+#along with this program - if not, write to the Free Software
+#Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+#Try also their web site: http://www.gnu.org/copyleft/gpl.html
+#
+# GGG60 (DIN)  80.55.06 (ASTM)  Nodular Iron
+# Some specimens are Rotating Bending with Kt=1.1
+# (as tabulated below)
+# Chem. Comp: 3.52C wt% 2.69Si .53Mn .035P .004S .24Cu .060Mb
+# Ref.: M. Hück, W.Schütz, H. Walter, "Moderne Schwingfestigkeitsnterlage
+# f ür die Bemessung von Bauteilen aus Sphäroguss und Temperguss- Teil 1
+# ATZ Automobile Zeitschrift 86 1984 7/8 pp.325-331.
+# Also see part 2 in same Journal:  vol.86 1984 9 pp.385-388.
+# Data digitized from graphs and may contain errors.
+#
+#FileType= strain_life
+#DataType= fitted
+#TIMEcol= 0
+#NAME=  GGG60
+#NAME=  80.55.06
+#NAME=  NodularIron
+#Stress_units= mpa
+#Strain_units= strain
+#Sy=     390.  0.2pc offset = 50 ksi
+#Su=     618.
+#eu=       0   #strain at Su not reported
+#E= 158000. mpa  =22930 ksi reported for axial samples
+#Emod for bend samples was reported as 175000 mpa.  Using axial
+#FractureStrain= 0.07  (from strain-life plot)
+#FractureStress=  790.  not reported. Used elasStrain intercept = .0050
+#monotonic_K= 0  not reported
+#monotonic_n= 0  not reported
+#BHN= 208.
+#%RA= 6.7 %   not reported. From frac.strain
+#saedigcurve_v2.2.f starts.
+#
+#NOTE!! The Following Points are <b>FITTED DATA:</b>#NOTE!! Fitted Stress computed using Experm. K' and n'
+#StrAmpl     2Nf  StsAmpl So  PlasStrAmpl IniMod   NeuberStressAmpl
+    .07             1   618        0     .06       158000. #Fitted_point monotonic
+   0.00860        500   507.1      0.   0.00539    158000. #Fitted_point
+   0.00644       1000   486.8      0.   0.00335    158000. #Fitted_point
+   0.00503       2000   467.1      0.   0.00208    158000. #Fitted_point
+   0.00388       5000   441.7      0.   0.00109    158000. #Fitted_point
+   0.00333      10000   422.6      0.   0.00065    158000. #Fitted_point
+   0.00293      20000   403.5      0.   0.00038    158000. #Fitted_point
+   0.00257      50000   377.8      0.   0.00018    158000. #Fitted_point
+   0.00236     100000   358.1      0.   0.00010    158000. #Fitted_point
+   0.00219     200000   338.8      0.   0.00005    158000. #Fitted_point
+   0.00201     500000   314.4      0.   0.00002    158000. #Fitted_point
+   0.00189    1000000   297.2      0.   0.00001    158000. #Fitted_point
+   0.00178    2000000   281.0      0.   0.00001    158000. #Fitted_point
+#Not clear if there is a flat fatigue limit.
+
+#</textarea></DL></pre>
+  
+#<h3>2. <input value="1.0" size=20 name="#MagFactor">History Magnification or Multiplication factor</h3> 
+
+
+
+#<h3>3. Enter Elastic Kt*Nominal (or Finite Element)  Stress History (Rainflow counted cycle sets)  Below:</h3> <b>MPa ! </b>
+ 
+<ul>
+  <li>Cycle Set #1 :
+       Smax<input type="TEXT" value="1200" size=6 name="xyz"> 
+       Smin<input type="TEXT" value="-600" size=6 name="xyz"> 
+       Cycles<input type="TEXT" value="1" size=20 name="xyz">
+
+  <li>Cycle Set #2 :
+       Smax<input value="" size=6 name="xyz"> 
+       Smin<input value="" size=6 name="xyz"> 
+       Cycles<input value="" size=20 name="xyz">
+
+  <li>Cycle Set #3 :
+       Smax<input value="" size=6 name="xyz"> 
+       Smin<input value="" size=6 name="xyz"> 
+       Cycles<input value="" size=20 name="xyz">
+
+  <li>Cycle Set #4 :
+       Smax<input value="" size=6 name="xyz"> 
+       Smin<input value="" size=6 name="xyz"> 
+       Cycles<input value="" size=20 name="xyz">
+
+  <li>Cycle Set #5 :
+       Smax<input value="" size=6 name="xyz"> 
+       Smin<input value="" size=6 name="xyz"> 
+       Cycles<input value="" size=20 name="xyz">
+
+  <li>Cycle Set #6 :
+       Smax<input value="" size=6 name="xyz"> 
+       Smin<input value="" size=6 name="xyz"> 
+       Cycles<input value="" size=20 name="xyz">
+</ul>
+
+#<h3> 4. <input type="submit" value=" CALCULATE "> <i>(Page will be submitted to UoWaterloo Website)</i></h3>
+#</FORM><hr> </body></html>
+

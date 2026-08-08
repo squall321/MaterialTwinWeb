@@ -1,0 +1,524 @@
+                                                                                   HITACHI CHEMICAL DATA SHEET
+
+
+
+
+             Hitachi Anisotropic Conductive Film
+                         ANISOLM®
+                                               AC-7206U-18
+                                                                                                                                    Page
+
+1. Standard Specification, Bonding and Storage Conditions, Reparability, and
+Characteristics ............................................................................................................................. 1
+
+2. Precautions in Bonding ........................................................................................................... 2
+
+3. Connection Reliability ............................................................................................................. 3
+
+4. Effect of Bonding Temperature on Connection Reliability.............. . ....................................5
+
+5. Peel Strength............................................................................................................................ 6
+
+6. Checking Connection Status ................................................................................................... 7
+
+7. Insulation Reliability............................................................................................................... 7
+
+8. Physical Properties ................................................................................................................. 8
+
+
+
+
+                                                         R & D Dept.
+                                                      Goshomiya Works
+                                                  Hitachi Chemical Co., Ltd.
+１.                Standard Specification, Bonding and Storage Conditions, Repairability, and Characteristics
+                                                     Item                   Unit               AC-7206U                           Remark
+                               Smallest    Line              μm pcs                      25
+                               connection
+      Standard specification
+
+
+
+
+                               circuit    Spacing Resolution μm /mm                      25                20
+
+                                                     Thickness               μm                     18
+
+                                                        Width                mm          1.2,1.5,1.8,2.0,2.5
+                                                        Length                m                     50
+                                                        Color                 −          Transparent(gray)
+
+                                                         Core                mm                     18.5
+                                                        Temperature           ℃                  80±10              ANISOLM’s ultimate temperature
+                               Temporary
+                                bonding
+      Bonding conditions
+
+
+
+
+                                                         Pressure           MPa                      1
+                                                            Time              s                      5
+                                                        Temperature           ℃         180±10             190±10   ANISOLM’s ultimate temperature
+                               bonding
+                                Final
+
+
+
+
+                                                         Pressure           MPa                      3
+                                                            Time              s           15                 10
+                                                          Packed              −       6 months after date of
+         Storage conditions
+
+
+
+
+                                                                                      manufacture when stored
+                                                                                      at -10 to 5℃.
+                                   Shelf life
+
+
+
+
+                                                         Unpacked             −       1 month at 25℃ or below
+                                                                                      and 70%RH or below.
+                                                        Pre-bonded            −       2 months at -10 to 5℃.1
+                                                                                      month at 25℃ or below
+                                                                                      and 70%RH or below.
+                                                 Repairability                −               Repairable      By acetone or toluene
+
+                                                Connection resistance         Ω                      1              ITO glass / TCP; bonding width,
+                                                                                                                    1.5mm
+                                                Insulation resistance         Ω                     1012            Space 25μm; bonding width, 2.5mm
+
+                                                 Peel strength(20℃)         kN/m                    1.2             ITO glass / TCP hot-bonded
+     Characteristics
+
+
+
+
+                                                Tack strength(20℃)          kN/m                    0.08            ITO glass / TCP cold-bonded
+
+                                    Separator peeling strength             gf/2.5mm                 1.5             ITO glass
+
+                                       Operating             Temperature      ℃                -40 to 100           Under no stress
+
+                                                range            Current    A/mm2              50 or below
+                                                                 Voltage      V                50 or below
+
+     Notes:
+     1)Take ANISOLM out of the refrigerator or other storage without taking it out of its hermetic containers. Leave the
+        ANISOLM in the containers at room temperature for about an hour. Then make sure that it does not risk
+        condensation before using it.
+     2) Connection resistance: The table indicates a half of the resistance between neighboring circuits.
+     Current measured: 1mA. Includes the circuit resistances of the FPC and ITO glass.
+     3)Tack strength: Pre-bond an ANISOLM sample to an ITO glass, peel its separator off, then tack s FPC to
+        it at room temperature. Then measure the tack strength of this sample.
+     4) Operating range: As per reliability tests using Hitachi’s test pieces.(This range varies according to the material used
+        and external stress applied. Check the reliability of specific pieces.)
+
+             The values given above represent typical measurements, not guaranteed ones.
+
+
+
+
+                                                                                                1
+   ２. Precautions in Bonding
+   ２.１. Connection time and ANISOLM temperature(Typical)
+
+                                     200
+                  200
+                  190                180                                      Head temperature: 295℃
+                    Temperature(℃)
+
+
+
+                  180                160
+                  170                                                         Backup temperature:40℃
+                  160                140                                      TCP: Pl, 75μm; Cu, 18μm; Au plating
+                  150
+TEMPERATURE （℃）
+
+
+
+
+                  140                120
+                  130                100
+                  120                                                         Glass board: 1.1mmt
+                  110                 80
+                  100
+                   90                 60                                        Ratio of temperature reached 5 seconds later: 90% or more of
+                   80
+                   70
+                                      40                                      the ultimate temperature(℃)
+                   60                 20
+                   50
+                   40                  0
+                   30
+                   20                      ‑5   0   5     10   15 20    25
+                   10
+                    0                                   Time(s)
+                             0             2     4      6         8    10
+                                                TIME （sec）
+   ２.２. Measuring ANISOLM temperature
+
+                                                                              Heat head
+                                                                               Silicon rubber cushion (0.2 to 0.3μmT)
+
+                                                                             Teflon film(25, 50μｍ)
+
+                                                                                                 FPC
+
+                                                                                  ANISOLM
+                                       Glass
+
+                                                                                      Thermocouple
+
+                                                               Glass stool
+
+
+
+   ２.３. Heat/Pressure Head
+         (1) Adjust carefully the eveness and parallelism of the heating head to keep the equal pressure.
+         (2) Use a head slightly wider than the ANISOLM piece to be connected.
+              -Example: ANISOLM width, 2.5mm→ head width, 3.0mm
+         (3) Tip the head with a thin and hard cushion, not a soft and thick one. Silicon rubber(about
+              0.2 mm thick with a hardness of 70 degrees or above) may be used for example.
+              The use of too soft a cushion or excessive pressure in connection will drive adhesive in the
+              space toward the end, resulting in insufficient adhesion. Be particularly careful when the
+              space is wider than the circuits.
+
+   ２.４. Misalignment of Opposite Circuits
+         (1) Align opposite circuits well. Do not let them get misaligned.
+         (2) In designing TABs (FPCs), allow for the misalignment of opposite circuits due to their expansion
+              during connection.
+         (3) Keep the circuit misalignment at or less than the circuit width.
+
+
+
+
+                                                                                       2
+３. Connection Reliability
+ -Connection circuits
+     TCP: Pl, 75μm; Cu, 18μm; Sn plating; pitch, 50μｍ
+     Glass: ITO sputter; 15Ω/□;electrodes all over
+ -Bonding conditions; 170℃−3MPa−15s; ANISOLM width 1.5mm
+
+３.１. Changes in connection resistance in a moisture absorption and freeze test
+
+
+
+                                        30
+    Connection resistance (
+
+
+
+
+                                        20
+
+
+                                        10
+
+
+                                         0
+                                             0                      100                     200                300
+                                                                                C ycles
+                                             (-30℃, 60min⇔70℃, 100min,95%RH,60min）
+
+
+３.２. Changes in connection resistance in a thermal shock test
+         (-40℃, 30min⇔room temperature, 5min⇔100℃, 30min）
+
+
+                                        30
+              Connection resistance (
+
+
+
+
+                                        20
+
+
+                                        10
+
+
+                                         0
+                                             0           200              400         600         800   1000
+                                                                                C ycles
+
+
+
+
+                                                                                 3
+３.３. Changes in connection resistance in a high-temperature, high-humidity test (85℃, 85%RH)
+                           ( (
+
+
+
+                                      30
+                                      30
+                  resistance
+                resistance
+
+
+
+
+                                      20
+                                      20
+       Connection
+     Connection
+
+
+
+
+                                      10
+                                      10
+
+
+                                                 00
+                                                      00   200
+                                                           200    400
+                                                                  400              600
+                                                                                   600   800
+                                                                                         800   1000
+                                                                                               1000
+                                                                         TTiimm e(h)
+                                                                                e(h)
+３.４. Changes in connection resistance in a high-temperature test (100℃)
+
+
+３.５. Changes in connection resistance in a low-temperature test (-40℃)
+
+
+                                                 30
+                       Connection resistance (
+
+
+
+
+                                                 20
+
+
+                                                 10
+
+
+                                                  0
+                                                       0    200    400           600     800   1000
+                                                                         T im e(h)
+
+
+
+   AC-7206U-18 changes little in connection resistance over time in various tests, thus a stable connection
+  reliability is obtained.
+
+
+
+
+                                                                           4
+４.   Effect of Bonding Temperature on Connection Reliability
+      -Connection circuits
+        TCP: Pl, 75μm; Cu, 18μm; Sn plating; pitch, 50μｍ
+        Glass: ITO sputter; 1 5Ω/□; electrodes all over
+     -Bonding conditions; 180,190,200,3MPa,10s; ANISOLM width 1.5mm
+
+４.１. Changes in connection resistance in a thermal shock test
+                                   (-40℃, 30min⇔room temperature, 5min⇔100℃, 30min）
+
+
+                                                                                                                Connection
+                                   30                                                                           temperature
+         Connection resistance (
+
+
+
+
+                                                                                                                ○：180℃
+                                   20                                                                              155℃
+                                                                                                                △：190℃
+                                                                                                                   170℃
+                                                                                                                □：200℃
+                                                                                                                   185℃
+                                   10
+
+
+                                    0
+                                            0              100                         200                300
+                                                                       C ycles
+
+４.２. Changes in connection resistance in a high-temperature, high-humidity test (85℃, 85%RH)
+
+                                                                                                                 Connection
+                                    30                                                                          temperature
+         Connection resistance (
+
+
+
+
+                                                                                                                 ○：180℃
+                                    20                                                                             155℃
+                                                                                                                 △：190℃
+                                                                                                                   170℃
+                                                                                                                 □：200℃
+                                                                                                                   185℃
+                                    10
+
+
+                                     0
+                                            0     200            400          600            800   1000
+                                                                        C ycles
+
+４.３. Changes in connection resistance in a high-temperature, high-humidity test (85℃, 85%RH)
+
+                                                                                                                Connection
+                                   30                                                                           temperature
+       Connection resistance (
+
+
+
+
+                                                                                                                 ○：180℃
+                                   20                                                                               155℃
+                                                                                                                 △：190℃
+                                                                                                                      170℃
+                                                                                                                 □：200℃
+                                                                                                                      185℃
+                                   10
+
+
+
+                                    0
+                                        0        200         400              600            800   1000
+                                                                       T im e(h)
+
+      AC-7206U connected at 170℃ to 200℃ change little in connection resistance over time, thus a stable
+     connection reliability is obtained.
+
+
+
+                                                                                   5
+５. Peel Strength
+ -Connection circuits
+   TCP: Pl, 75μm; Cu, 18μm; Sn plating; pitch, 50μｍ
+   Glass: ITO sputter; 1 5Ω/□;electrodes all over
+
+
+５.１. Connection Temperature Characteristics of Peel Strength
+                             2.0
+                                                                                                   7106
+                                                                                                   7104
+       Peel strength(kN/m)
+
+
+
+
+                             1.5
+
+
+                             1.0
+
+
+                             0.5
+
+
+                             0.0
+                                120    130     140       150    160    170    180     190   200
+                                                     Connection temperture(℃)
+
+  A high adhesive strength is obtained by bonding at 150℃ and above.
+５.２. Changes in peel strength in a high-temperature, high-humidity test (85℃, 85%RH)
+                             2.0
+                                                                                                   7106
+                                                                                                   7104
+   Peel strength(kN/m)
+
+
+
+
+                             1.5
+
+
+                             1.0
+
+
+                             0.5
+
+
+                             0.0
+                                   0     200          400      600       800        1000    1200
+                                                             Time(h)
+
+  Our high-temperatature, high-humidity test indicated a considerably small decline in the abhesive
+  Strength of samples, thus showing the high stability of our product.
+
+
+
+
+                                                                          6
+６. Insulation Reliability
+  -Connection circuits
+      FPC: Pl, 125μm; Cu, 12μm; Ni(2μm)/Au(0.1μm) plating; pitch, 100μｍ
+      Plate:Insulation glass plate
+  -Measuring method
+      Measure the resistance of samples with the condition to 100V DC for 60 seconds.
+      Measurement condition : 23℃ and 65%RH
+      Reliability of test condition : High-temperature, high-humidity test (85℃, 85%RH)
+
+                              1.0E +14
+      Insulation resistance
+
+
+
+
+                              1.0E +13
+
+                              1.0E +12                                                                            A ve.
+                                                                                                                  M ax.
+                              1.0E +11                                                                            M in.
+
+                              1.0E +10
+
+                              1.0E +09
+                                         0   200         400           600        800          1000      1200
+                                                                     T im e(h)
+
+
+
+７. Checking Connection Status
+                                 Item                          Flatness and contact of conductive particles
+   Evaluating equipment                      Metallographic, laser, or electron microscope
+    Criteria of judgment                     All conductive particles should be flat enough.
+                               Reason        The flatness of conductive particles when connection is established
+                                             increases the contact area between the particles and electrodes, resulting
+                                             in a stable conduction and a high connection reliability.
+     Method and action                       Use an ANISOLM piece of appropriate thickness according to the
+                                             thickness and line-to-space ratio of the copper foil, and establish
+                                             connection under appropriate bonding conditions (temperature, pressure,
+                                             and time)
+                               Remark        The flatness of conductive particles in connection and a high connection
+                                             reliability is obtained when the ANISOLM piece between opposite circuits
+                                             is 3 micrometers thick at the maximum (when measured with a laser
+                                             microscope, micrometer, or equivalent).
+
+
+
+
+                                                                          7
+８．Physical Properties
+
+
+                                Elastic modules(GPa)               tanΔ max
+       ANISOLM
+                                        40℃                          (℃)
+
+       AC-7206U                          1.2                         125
+
+    -Measuring conditions
+               DVE: hardened specimens (170℃,2min); tensile mode
+                    Frequency, 10Hz; programming rate, 10℃/min.
+
+
+
+
+                                               8
+

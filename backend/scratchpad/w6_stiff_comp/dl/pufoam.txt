@@ -1,0 +1,744 @@
+Article
+
+A Comprehensive Method with Verification for Characterizing
+the Visco-Hyperelastic Material Model of Polyurethane Foam of
+Passenger Car Seats
+Jianjiao Deng 1,† , Zunming Wang 2,† , Yi Qiu 3, *, Xu Zheng 2, * , Zuofeng Pan 1 , Jingbao Zhao 1 , Yuting Ma 1 ,
+Yabao Li 1 and Chi Liu 2
+
+                                            1   State Key Laboratory of Advanced Vehicle Integration and Control, China FAW Group Co., Ltd.,
+                                                Changchun 130011, China; dengjianjiao@faw.com.cn (J.D.); panzuofeng@faw.com.cn (Z.P.);
+                                                zhaojingbao@faw.com.cn (J.Z.); mayuting1@faw.com.cn (Y.M.); liyabao@faw.com.cn (Y.L.)
+                                            2   Department of Energy Engineering, Zhejiang University, Hangzhou 310027, China;
+                                                zm.wang@zju.edu.cn (Z.W.); chi.liu@zju.edu.cn (C.L.)
+                                            3   School of Vehicles and Intelligent Transportation, Fuyao University of Science and Technology,
+                                                Fuzhou 350300, China
+                                            *   Correspondence: yiqiu@fyust.edu.cn (Y.Q.); zhengxu@zju.edu.cn (X.Z.)
+                                            †   The two authors contributed equally to this paper.
+
+
+                                            Abstract
+                                            Polyurethane foam is widely used as a primary filling material in car seats. While it
+                                            provides good damping and energy absorption, the mechanical properties are complex but
+                                            play a vital role in vibration attenuation and vehicle ride comfort. This study proposes a
+                                            comprehensive experimental and analytical method to characterize the visco-hyperelastic
+                                            properties of seat-grade polyurethane foam. Quasi-static and dynamic compression tests
+                                            were conducted on foam blocks to obtain load–deflection curves and dynamic stiffness. A
+                                            visco-hyperelastic material model was developed, where the hyperelastic response was
+                                            derived via the hereditary integral and difference-stress method, and viscoelastic behavior
+                                            was captured using a Prony series fitted to dynamic stiffness data. The model was validated
+                                            using finite element simulations, showing good agreement with experimental results in
+Academic Editor: Angelo Morro               both static and dynamic conditions. The proposed method enables accurate characterization
+Received: 7 July 2025                       of the visco-hyperelastic material properties of seat-grade polyurethane foam.
+Revised: 23 July 2025
+Accepted: 25 July 2025                      Keywords: polyurethane foam; visco-hyperelastic model; finite element method; parameter
+Published: 28 July 2025
+                                            identification; stress decomposition
+Citation: Deng, J.; Wang, Z.; Qiu, Y.;
+Zheng, X.; Pan, Z.; Zhao, J.; Ma, Y.; Li,
+Y.; Liu, C. A Comprehensive Method
+with Verification for Characterizing
+                                            1. Introduction
+the Visco-Hyperelastic Material Model
+of Polyurethane Foam of Passenger                The passenger car stands as one of the most remarkable inventions in human history,
+Car Seats. Materials 2025, 18, 3526.        revolutionizing human life by providing convenience and efficiency. In this context, seat
+https://doi.org/10.3390/                    design plays a vital role as it serves as the primary interface between occupants and the
+ma18153526
+                                            vehicle structure. Undoubtedly, ensuring comfort has a high rank among the most crucial
+Copyright: © 2025 by the authors.           aspects of seat design. To comprehensively address this objective, the study of vehicle seat
+Licensee MDPI, Basel, Switzerland.          comfort can be approached from static and dynamic perspectives, depending on whether
+This article is an open access article
+                                            the seat is subjected to vibrations or not.
+distributed under the terms and
+                                                 Since the early 1960s, flexible-formed polyurethane foam has emerged as the preferred
+conditions of the Creative Commons
+Attribution (CC BY) license
+                                            material for automotive seat applications [1]. The success of this material can be attributed,
+(https://creativecommons.org/               in part, to its remarkable ability to be tailored to meet diverse performance objectives
+licenses/by/4.0/).                          required by vehicles worldwide. Particularly, its vibration-damping characteristics can be
+
+
+Materials 2025, 18, 3526                                                                                            https://doi.org/10.3390/ma18153526
+Materials 2025, 18, 3526                                                                                            2 of 16
+
+
+
+                           easily customized, allowing manufacturers to optimize comfort levels for occupants. In
+                           light of this, understanding the physical characteristics of polyurethane foam and their
+                           relationship to seat comfort plays an important role in seat design.
+                                 The stress–strain behavior of polyurethane foams exhibits nonlinear hyperelastic
+                           characteristics, which can be described by various hyperelastic models [2,3]. These mod-
+                           els available in the literature have been developed primarily by fitting experimental
+                           data of hyperelastic materials, typically by evaluating the strain energy density derived
+                           from the Green–Lagrange tensor or Euler–Almansi tensor. In addition to hyperelasticity,
+                           polyurethane foams also exhibit viscoelastic behavior, which significantly influences their
+                           performance [4,5]. A material is considered memory viscoelastic if its current response de-
+                           pends not only on its current loading state but also on its previous state [6]. Yang and Shim
+                           proposed a visco-hyperelastic model to capture the large three-dimensional compression
+                           behavior of foams under strain rates [7]. Ju et al. developed a visco-hyperelastic consti-
+                           tutive model to characterize the quasi-static behavior of polyurethane foam under large
+                           deformations, utilizing the difference-stress method to identify the viscoelastic behavior [8].
+                                 Describing the characteristics of polyurethane foam using the finite element method
+                           poses significant challenges. Firstly, elastomeric behavior is inherently complex, and
+                           secondly, the material undergoes large deformations leading to geometric nonlinearity.
+                           Numerous studies have conducted numerical simulations based on theoretical constitutive
+                           models to determine the material properties. Liang and Chandrashekhara developed
+                           a neural network-based strain energy function for compressible elastomeric foam and
+                           implemented it in the ABAQUS finite element code [9]. Silber et al. assessed the suitability
+                           of a strain energy function proposed by Hill and Storakers for finite hyperelasticity in
+                           describing the elastic properties of soft foams [10]. Mircheski et al. created a virtual solid
+                           model of the body and driver’s seat and performed virtual testing of the sitting process in
+                           ABAQUS [11]. Kim et al. calibrated hyperelastic and hyperfoam constitutive models for
+                           rigid polyurethane foam, capturing the characteristics of both soft foam and rubber [12].
+                           Grujicic et al. developed detailed finite element models of a car seat and a seated human to
+                           investigate their interactions and resulting seating comfort [13]. Oh et al. and Kim et al.
+                           incorporated normalized stress relaxation moduli into the static stress–strain curves to
+                           predict time-dependent deformation [14,15]. However, they considered viscoelasticity only
+                           during relaxation testing, not in static compression tests. Fazekas and Goda proposed
+                           numerical stress solutions to calibrate hyper-viscoelastic material models for polymer
+                           foams, allowing the separation of time-independent hyperelastic and time-dependent
+                           viscoelastic model parameters by mitigating errors [16].
+                                 Previous studies have commonly utilized the hyperfoam constitutive model in finite
+                           element analyses of low-density foam, with the model parameters determined through
+                           curve fitting based on experimental data. However, the hyperfoam model is essentially a
+                           hyperelastic model and cannot capture the viscoelastic properties of polyurethane foam. To
+                           address this limitation, some researchers attempted to incorporate viscoelasticity directly
+                           into hyperelastic models, often by applying stress relaxation functions or simplified as-
+                           sumptions. In these approaches, it is typically assumed that the stress–strain response is
+                           time-independent, which may neglect the effects of viscous dissipation observed during
+                           loading and unloading in compression tests. Moreover, many of these models treat the
+                           total stress as a single outcome of both elastic and viscous effects, without explicitly decom-
+                           posing the stress components. As a result, they may fail to accurately represent the coupled
+                           visco-hyperelastic behavior of polyurethane foam under varying loading conditions.
+                                 In this study, a method that independently identifies the hyperelastic and viscoelastic
+                           components based on quasi-static and dynamic test data was introduced, enabling accurate
+                           parameter determination and numerical implementation. The hyperelastic and viscoelastic
+Materials 2025, 18, 3526                                                                                             3 of 16
+
+
+
+                           components of stress were distinguished and identified independently based on the results
+                           of the above-mentioned tests. The results of the numerical calculations demonstrated
+                           excellent agreement with the experimental results.
+
+                           2. Experimental Study
+                                Quasi-static and dynamic compression tests are commonly performed on low-density
+                           polyurethane foam to investigate its mechanical behavior. In this study, we conducted these
+                           two tests to acquire the necessary data for modeling and analysis, which also offer valuable
+                           insights into the material’s structural performance under varying loading conditions.
+
+                           2.1. Materials
+                                A polyurethane foam sample provided by a seat supplier (Changchun Hongda Sponge
+                           Manufacturing Co., Ltd., Changchun, China) was selected for the quasi-static and dynamic
+                           tests. The foam sample had a density of 65 kg/m3 and a hardness of 150 N, which
+                           was determined using the low indentation hardness index as per method D defined in
+                           ISO 2439-2008. Table 1 is a summary of the material properties for the polyurethane
+                           foam sample.
+
+                           Table 1. Material properties for the polyurethane foam sample.
+
+                                              Foam Type                             Flexible Polyurethane Foam
+                                              Isocyanate                                Toluene diisocyanate
+                                                Polyol                                       Polyether
+                                            Expansion gas                                       CO2
+                                               Cell type                                       Open
+                                       Dimension (l × w × h)                         80 mm × 80 mm × 80 mm
+                                                Density                                      65 kg/m3
+                                               Hardness                                        150 N
+
+                           2.2. Quasi-Static Compression Test
+                                 The quasi-static tests were conducted using an “INSTRON 5965” (Instron, Norwood,
+                           MA, USA) universal material testing system equipped with Bluehill Universal Software
+                           (v 4.28), with a force measurement accuracy of ±0.5% and a 2.5 kHz data acquisition rate,
+                           which fulfilled the requirements of the quasi-static test. This instrument featured a vertically
+                           moving actuator, and the indenter was securely bolted to the crosshead of the actuator to
+                           cover the upper surface of the specimen. The experimental setup for the quasi-static test is
+                           illustrated in Figure 1.
+
+
+
+
+                           Figure 1. The apparatus used in the quasi-static test.
+Materials 2025, 18, 3526                                                                                           4 of 16
+
+
+
+                                In this study, Method E in ISO 2439-2008 was utilized as a reference for the test
+                           procedure. The test specimen was positioned on the supporting plate of the apparatus, and
+                           an indentation was made on the specimen. To initiate the test, the specimen underwent a
+                           preloading phase at a rate of 120 mm/min, resulting in a 60 mm deformation. The load
+                           was released at the same rate until the top of the specimen was fully cleared. Subsequently,
+                           the specimen was allowed to rest for a period of 5 min. To commence the compression test,
+                           the indenter was lowered at a rate of 30 mm/min until a contact force of 4.5 ± 0.5 N was
+                           achieved. At this point, the displacement and force indicators were zeroed, establishing
+                           the starting point of the compression test. The specimen was then compressed at a rate of
+                           120 mm/min to 75% of its thickness, while the force–displacement data was continuously
+                           recorded. Following the completion of the compression cycle, there was a controlled
+                           interval of 2 s before the decompression cycle commenced. The average value of the 6 tests
+                           was taken as the final result for the sample.
+                                Initially, the obtained force–displacement test results were transformed into nominal
+                           stress–strain test results. The nominal strain was calculated as the change in thickness per
+                           unit of the original thickness, while the nominal stress was determined as the force per unit
+                           of the original cross-sectional area. The resulting stress–strain curve of the polyurethane
+                           foam sample is depicted in Figure 2. As shown in the figure, the stress–strain curve
+                           exhibited pronounced nonlinear characteristics. Notably, the loading and unloading paths
+                           did not overlap, indicating the presence of viscoelastic properties.
+
+
+
+
+                           Figure 2. The stress–strain curve of the quasi-static compression test of the sample.
+
+                           2.3. Dynamic Compression Test
+                                 The dynamic test was conducted using the “INSTRON 8801” (Instron, Norwood,
+                           MA, USA) servohydraulic fatigue testing system with a force measurement accuracy of
+                           ±0.5%, equipped with two inline and vertically moving actuators. To begin the dynamic
+                           test, the supporting plate was mounted on the lower actuator and subsequently locked in
+                           place. Next, the indenter was securely bolted to the crosshead of the upper actuator. The
+                           experimental setup for the dynamic test is depicted in Figure 3.
+Materials 2025, 18, 3526                                                                                           5 of 16
+
+
+
+
+                           Figure 3. The apparatus used in the dynamic test.
+
+                                 The dynamic test, described in the “ASTM D3574-2017” standard for constant de-
+                           flection pounding, served as the reference for this study. The installation and preload
+                           procedures were identical to those described in Section 2.2. Subsequently, the specimen was
+                           indented at a rate of 30 mm/min to 25% of its thickness. Afterward, the lower actuators
+                           produced sinusoidal vibration excitations ranging from 1 to 20 Hz, with frequency intervals
+                           of 1 Hz, and at least 20 cycles were executed at each frequency. The amplitude of the
+                           vibration excitations at each frequency was set to a peak-to-peak value of 0.25 m/s2 .
+                                 The force–displacement test results were likewise transformed into nominal stress–
+                           strain data. In the context of dynamic testing, the dynamic complex modulus represents the
+                           transfer function between the nominal stress and nominal strain. This complex modulus is
+                           characterized by three components: the dynamic modulus, which represents its amplitude;
+                           the storage modulus, which corresponds to the real part of the complex modulus; and the
+                           loss modulus, which represents its imaginary part. The ratio of the loss modulus to the
+                           storage modulus is known as the loss factor, and it can be expressed as follows:
+
+                                                                               E′′
+                                                                     tan δ =                                          (1)
+                                                                               E′
+
+                           where E′′ is the loss modulus, E′ is the storage modulus, and the angle δ is indicative of the
+                           prominence of the viscous effect. The test results are illustrated in Figure 4.
+
+
+
+
+                           Figure 4. The dynamic modulus and phase angle of the sample.
+Materials 2025, 18, 3526                                                                                          6 of 16
+
+
+
+                           3. Parameter Identification of the Visco-Hyperelastic Model of the Foam
+                                This section presents the parameter determination of the visco-hyperelastic model
+                           of low-density foam. To achieve this, the material model of the polyurethane foam was
+                           accurately defined, and the parameters of the model were determined. To validate the
+                           material model, the static and dynamic tests were simulated by finite element analysis. By
+                           comparing the calculated results with the corresponding test results, the accuracy of the
+                           proposed model was verified.
+                                To predict the mechanical behavior of the foam accurately, a visco-hyperelastic model
+                           comprising both nonlinear hyperelastic and viscoelastic components was proposed. “Hy-
+                           perfoam” and “Viscoelastic” constitutive models were defined in finite element analysis.
+                           Specifically, the stress–strain curve obtained from the quasi-static compression test served
+                           as the input for identifying the hyperelastic component, while the dynamic modulus data
+                           from the dynamic compression test were used to characterize the viscoelastic behavior.
+                           Uniaxial compression test data were required for identifying the model parameters when
+                           the “Hyperfoam” model was defined. However, given the assumptions in this study, the
+                           stress during quasi-static compression tests encompassed both hyperelastic and viscoelastic
+                           components. To cope with this challenge, the hereditary integral viscoelastic model and
+                           the difference-stress method were employed to decompose the uniaxial compression stress.
+                           The resulting hyperelastic part was utilized as input data for the “Hyperfoam” model.
+                           Meanwhile, the Prony series was determined through parameter fitting of the dynamic test
+                           results to characterize the viscoelastic behavior for the “Viscoelastic” constitutive model.
+                           The entire modeling process, detailing the decomposition and fitting steps, is illustrated in
+                           Figure 5.
+
+
+
+
+                           Figure 5. Flow chart of the modeling process.
+
+                           3.1. Hyperelastic Model
+                                A modified form of the Hill strain energy potential for constitutive modeling of
+                           elastomeric foam materials named “Hyperfoam” in ABAQUS was adopted:
+
+                                                     N    
+                                                                           1  el −αi βi
+                                                                                            
+                                                      2µi αi
+                                             U = ∑ 2 λ̂1 + λ̂2 + λ̂3 − 3 +
+                                                             αi    αi
+                                                                                J         −1                         (2)
+                                                 i =1 α i
+                                                                           βi
+
+                           where µi , αi , and β i are temperature-dependent material constants to be determined by
+                           curve fitting the experimental stress–strain data; N is the curve fitting order.
+
+                                                           − 1
+                                                                3
+                                                     λ̂k = J th   λk (k = 1, 2, 3) λ̂1 λ̂2 λ̂3 = J el                (3)
+Materials 2025, 18, 3526                                                                                                   7 of 16
+
+
+
+                               Here, λk denotes the principal stretches. The elastic volume ratio, J el , relates the total
+                           volume ratio J and the thermal volume ratio J th :
+
+                                                                                        J
+                                                                             J el =                                           (4)
+                                                                                      J th
+
+                                J th is given by
+                                                                                      3
+                                                                        J th = 1 + εth                                        (5)
+
+                           where εth is the linear thermal expansion strain, which is obtained from the temperature
+                           and the isotropic thermal expansion coefficient.
+                                When the thermal effect is not considered, which is the case in this paper, J el = J and
+                           λ̂k = λk .
+                                It is worth noting that this part only introduced the hyperelastic constitutive model
+                           that was utilized in finite element analysis. The hyperfoam constitutive model was not
+                           employed for parameter fitting during the determination of the hyperelastic component of
+                           the stress from the quasi-static test.
+
+                           3.2. Viscoelastic Model
+                                Two viscoelastic models are introduced in this paper. To distinguish the quasi-static
+                           stress, the hereditary integral model, in conjunction with the difference-stress method,
+                           was employed. On the other hand, for determining the Prony series with the dynamic
+                           compression test, the generalized Maxwell viscoelastic model was utilized.
+                                The viscoelastic stress in this study was characterized using a hereditary integral
+                           model, which has been extensively utilized in previous research [17–19]. By employing the
+                           same loading and unloading parameters, this model effectively separated the stress during
+                           the quasi-static compression test through an analytical approach:
+                                              
+                                                                 Rt 2      − β i (t−τ ) ε ( τ ) dτ                     T
+                                                                  0 ∑ αi e                                      0≤t≤
+                                              
+                                              
+                                              
+                                              
+                                              
+                                                                   i =1                                               2
+                                   σv (t) =        T                                                                          (6)
+                                                        2                              2                        T
+                                              
+                                               R   2 ∑ α e− βi (t−τ ) ε(τ )dτ + R t ∑ α e− βi (t−τ ) ε(τ )dτ     ≤t≤T
+                                              
+                                                 0        i                       T      i
+                                                                                                                2
+                                                      i =1                           i =1
+                                              
+                                              
+                                                                                   2
+                                 ε is the strain in the test, and σv is the predicted viscoelastic stress response of the test.
+                           αi is the ith complex number that represents the viscoelastic residue. β i is the ith complex
+                           number that represents the viscoelastic mode.
+                                 To acquire the constitutive model parameters essential for the finite element analysis,
+                           the generalized Maxwell model was chosen and represented using the Dirichlet–Prony
+                           series. These parameters were determined through dynamic compression tests. The
+                           generalized Maxwell model comprises n + 1 constituent elements in parallel, which consist
+                           of n Maxwell models along with an isolated spring, as depicted in Figure 6.
+
+
+
+
+                           Figure 6. A schematic of the generalized Maxwell model.
+Materials 2025, 18, 3526                                                                                                   8 of 16
+
+
+
+                           3.3. Determining the Hyperelastic Component of the Model
+                                 During the quasi-static test, the hyperelastic model effectively captured the mate-
+                           rial’s nonlinear elastic behavior, while the hereditary integral model accurately depicted
+                           the nonlinear viscoelastic response. By integrating the hyperelastic and hereditary inte-
+                           gral models, this study established a visco-hyperelastic framework capable of describ-
+                           ing the nonlinear mechanical response of polyurethane foam. The stress response of
+                           the visco-hyperelastic model could be decomposed into the hyperelastic part and the
+                           viscoelastic part:
+                                                                    σ = σe + σv                                    (7)
+
+                           where σ is the total stress response of the process, and σe and σv are the hyperelastic stress
+                           and viscoelastic stress, respectively.
+                                In this study, the difference-stress method was employed to ascertain the viscoelastic
+                           parameters. The essence of the difference-stress method lies in leveraging the symmetry
+                           of elastic stress during both loading and unloading processes. As a result, the analytical
+                           expression for stress difference between loading and unloading solely encompassed the
+                           viscoelastic parameters:
+
+                                             δσ = σe (t1 ) − σe (t2 ) + σv (t1 ) − σv (t2 ) = σv (t1 ) − σv (t2 )             (8)
+                                       h   i          h    i
+                           where t1 ∈ 0, T2 and t2 ∈ T2 , T are the loading time and unloading time corresponding
+                           to the same strain level. During the quasi-static uniaxial compression test, the strain
+                           rate remained constant and consistent between the loading and unloading stages. The
+                           relationship between stress and time during these stages was described as follows:
+                                                                (
+                                                                          2ε max
+                                                                             T τ         0 ≤ τ ≤ T2
+                                                      ε(τ ) =        2ε max              T                                    (9)
+                                                                    − T τ + 2ε max       2 ≤τ ≤ T
+
+                           where ε max is the maximum strain. The following relationship between t1 and t2 was not
+                           difficult to deduce:
+                                                                 t1 + t2 = T                                   (10)
+
+                                Stress difference could be explicitly expressed by t1 , and viscoelastic parameters could
+                           be expressed by combining Equations (6), (8), and (10). The viscoelastic parameters were
+                           ascertained through a parameter optimization method. Utilizing the nonlinear least-square
+                           solver and the trust-region reflective algorithm within the MATLAB optimization tool, the
+                           error between the model results and the test data was minimized. To quantify the error
+                           and evaluate the fitting accuracy, the root mean square error function was employed:
+                                                                s
+                                                                    1 n h               i2
+                                                                      ∑
+                                                                                 (i )      (i )
+                                                    RMSE =                 σmod t1 − σexp t1                                 (11)
+                                                                    n i =1
+
+                           where σmod is the modeled stress and σexp is the experimental stress. In this study, the
+                                                                                                                    (i )
+                           computation of these two stresses was conducted at intervals of 1 s. t1 represents the
+                           selected discrete time point. The maximum index value n of the loading time i was set to
+                           150, corresponding to the completion of loading at 150 s.
+                                 The viscoelastic parameters were ultimately obtained and are presented in Table 2. To
+                           assess the model’s accuracy, a comparison of stress differences between the model and the
+                           test data is depicted in Figure 7.
+Materials 2025, 18, 3526                                                                                                            9 of 16
+
+
+
+                                      Table 2. The determined viscoelastic parameters.
+
+       Re (α1 )            Im (α1 )       Re (β1 )        Im (β1 )          Re (α2 )         Im (α2 )            Re (β2 )     Im (β2 )
+   −4.85 × 10−3             0.662      5.25 × 10−5      3.45 × 10−6          −3.01                6.25      1.32 × 10−3     2.01 × 10−4
+
+
+
+
+                                      Figure 7. The comparison of stress differences between the model and the test.
+
+                                           The viscoelastic part of the quasi-static test, in both loading and unloading stages, was
+                                      calculated based on the obtained viscoelastic parameters. Meanwhile, the hyperelastic part
+                                      was computed using Equations (6) and (7). The resultant decomposed hyperelastic and
+                                      viscoelastic stresses are illustrated in Figure 8.
+
+
+
+
+                                      Figure 8. The decomposed hyperelastic and viscoelastic stress.
+
+                                      3.4. Determining the Parameters of the Viscoelastic Model
+                                           In this section, the parameters of the generalized Maxwell viscoelastic model were
+                                      determined through the dynamic modulus test. The relaxation modulus of the generalized
+                                      Maxwell model is represented as follows:
+
+                                                                                               t−τ
+                                                                                            n        −
+                                                                       E(t − τ ) = E∞ + ∑ Er e Tr                                        (12)
+                                                                                           r =1
+
+                                      where E∞ represents the equilibrium modulus to maintain the long-term elasticity of the
+                                      model. Tr = ηr /Er represents relaxation time. Er is the elastic modulus, and ηr is the
+                                      viscosity coefficient.
+                                           When a viscoelastic material is subjected to an oscillating strain, the controlled strain
+                                      load can be expressed as follows:
+
+                                                                     ε(t) = ε 0 eiωt = ε 0 (cos ωt + i sin ωt)                           (13)
+Materials 2025, 18, 3526                                                                                               10 of 16
+
+
+
+                           where ε 0 is the strain amplitude, and ω is the angular velocity. The dynamic Prony series
+                           expression of the generalized Maxwell model can be obtained:
+
+                                                                                n
+                                                                                     iωEr ηr
+                                                              E∗ (iω ) = E∞ + ∑                                              (14)
+                                                                               r =1
+                                                                                    iωηr + Er
+
+                                                                   n                          n
+                                                                        ω 2 Er ηr2               ω 2 Tr2 Er
+                                                 E′ (ω ) = E∞ + ∑       2  2       2
+                                                                                     = E∞ + ∑     2 2
+                                                                                                                             (15)
+                                                                  r =1 ω ηr + Er            r =1 ω Tr + 1
+                                                                    n                  n
+                                                                         ωEr2 ηr           ωTr Er
+                                                       E′′ (ω ) = ∑      2 2     2
+                                                                                   = ∑     2 2
+                                                                                                                             (16)
+                                                                   r =1 ω ηr + Er    r =1 ω Tr + 1
+
+                                 E∗ (iω ) represents the complex modulus, and E′ (ω ) and E′′ (ω ) denote the real and
+                           imaginary parts of the complex modulus, respectively. The phase angle δ represents the
+                           viscous effect of the material.
+                                 For the discrete dynamic modulus frequency domain data, the relaxation time of each
+                           Maxwell sub-model was manually preset in advance, and parameters like equilibrium
+                           modulus and elastic modulus were determined through fitting the test data. In this study,
+                           the relaxation times of each artificially configured Maxwell sub-model were set as 0.01 s,
+                           0.1 s, 1 s, 10 s, and 100 s, respectively.
+                                 The Prony series parameters, obtained from the storage and loss moduli cyclic test
+                           data at M frequencies, were determined by minimizing the error function χ2 to achieve the
+                           most accurate fit between the model predictions and the test data:
+
+                                                              M                         
+                                                               1  ′    ′ 2
+                                                                         
+                                                                                   ′′ 2
+                                                       χ =∑ 2
+                                                          2
+                                                                   E −E         ′′
+                                                                             + E −E i                                        (17)
+                                                              E
+                                                          i =1 ∞
+                                                                           i
+
+                                    ′       ′′
+                           where E and E are the test data. In this paper, M is 20. Prony series were obtained as
+                           shown in Table 3.
+
+                           Table 3. The determined Prony series.
+
+                              Relaxation          T1 (s)          T2 (s)       T3 (s)       T4 (s)        T5 (s)       -
+                                Time               0.01            0.1           1              10            100      -
+                                                 E1 (kPa)       E2 (kPa)     E3 (kPa)      E4 (kPa)     E5 (kPa)    E∞ (kPa)
+                             Prony Series
+                                                   23.9            19.7         8.99         12.4         8.14        3.05
+
+
+                           4. Model Validation of the Foam by Finite Element Analysis
+                                To validate the constructed material model, the test processes on the foam on a larger
+                           scale (400 × 400 × 80 mm), but with the same material properties as in Section 2, were
+                           simulated using the finite element method.
+
+                           4.1. Finite Element Model
+                                As depicted in Figure 9, the finite element model comprised three primary components.
+                           A SIT-BAR commonly employed in seat comfort research was utilized as the indenter.
+                           In the previous section, the property definition of polyurethane foam in ABAQUS was
+                           briefly introduced. For polyurethane foam, two models were defined: the “Hyperfoam”
+                           hyperelastic model and the “Viscoelastic” model. The stress–strain curve obtained from
+                           the quasi-static uniaxial compression test (as discussed in Section 3.3) was utilized in the
+                           “Hyperfoam” model, with the strain energy potential curve fitting order set to 3. In the
+                           “Viscoelastic” model, the Prony series corresponding to each preconfigured relaxation time
+                           (from Section 3.4) was employed. To consider the structural damping of polyurethane foam,
+Materials 2025, 18, 3526                                                                                        11 of 16
+
+
+
+                           Rayleigh damping was added to the model. α = 180 and β = 1 × 10−4 were obtained by
+                           parameter optimization.
+
+
+
+
+                           Figure 9. The finite element model is composed of the base plate, the polyurethane foam, and
+                           the indenter.
+
+                           4.2. Finite Element Analysis
+                                 In the quasi-static analysis, the “Visco” step was employed to study problems involv-
+                           ing time-dependent material response, with a total time of 240 s. Contact was defined
+                           to obtain the contact force between the indenter and the polyurethane foam. All degrees
+                           of freedom of nodes on the base plate and the indenter (excluding the Z-direction) were
+                           constrained. Following the test process, the indenter was uniformly pressed down 60 mm
+                           at a constant speed during the initial 120 s and then moved up at the same speed.
+                                 The initial contact and constraint setup for the dynamic process analysis remained
+                           consistent with the quasi-static analysis. The dynamic analysis was divided into two
+                           steps. In the first step, “Visco”, the indenter descended 20 mm at a constant speed over
+                           40 s and then was fixed in position. The second step involved “steady-static dynamics,”
+                           where the constraint in the Z-direction of the bottom plate was removed. Displacements
+                           corresponding to an amplitude of 0.25 m/s2 were applied in the frequency range of 1–20 Hz,
+                           with a frequency interval of 1 Hz.
+
+                           4.3. Results
+                                 Figure 10 presents the deformation at the 60 mm indentation obtained through quasi-
+                           static analysis. Figure 11 shows the comparison between the contact pressure of the indenter
+                           obtained from quasi-static analysis and the nominal stress from the test. Figure 12 displays
+                           the comparison of dynamic modulus and phase angle obtained through dynamic analysis
+                           with the corresponding test results.
+
+
+
+
+                           Figure 10. The deformation at the indentation of 60 mm by quasi-static analysis.
+Materials 2025, 18, 3526                                                                                          12 of 16
+
+
+
+
+                           Figure 11. The comparison between the reaction forces of the indenter obtained by quasi-static
+                           analysis and the test.
+
+
+
+
+                           Figure 12. The comparison between the (a) dynamic modulus, (b) phase angle obtained by dynamic
+                           analysis, and the test results.
+
+                           5. Discussion
+                                To obtain the hyperelastic part using the hereditary integral model of viscoelastic
+                           stress, we employed the trust-region reflective algorithm with tight stopping criteria, which
+                           effectively handled the rapidly changing objective function. The error is shown in Figure 13.
+Materials 2025, 18, 3526                                                                                                13 of 16
+
+
+
+                           The hereditary integral model had two pairs of complex viscoelastic parameters, totaling
+                           eight parameters that significantly influenced the model’s accuracy.
+
+
+
+
+                           Figure 13. The error surfaces of the viscoelastic parameters in the real–imaginary planes.
+
+                                 As depicted in Figure 13, the horizontal and vertical coordinates represented the
+                           real and imaginary parts of each parameter, respectively, while the color bar depicted the
+                           logarithmic form of the error RMSE in Equation (11). The parameters were varied from 0 to
+                           double the determined values, leading to the minimum error consistently emerging at the
+                           center of each error surface.
+                                 It is evident that surfaces with the same subscript for imaginary parts (α1 and β1 ;
+                           α2 and β2 ) exhibited similar patterns. Therefore, we will focus on discussing surfaces
+                           with imaginary parts of α1 and α2 below. Regarding surfaces with real parts of α1 and
+                           α2 , smaller errors were observed along the diagonal, and the degree of dependence on
+                           parameter changes varied for each parameter. As for surfaces with real parts of β1 and β2 , in
+                           conjunction with the aforementioned imaginary parts of α1 and α2 , each surface displayed a
+                           distinct pattern but exhibited similar characteristics. When the real parts were smaller than
+                           the determined values, the error was significantly influenced by the real parts, whereas
+                           when the real parts were larger than the determined values, the error was predominantly
+                           influenced by the imaginary parts.
+                                 Secondly, the analysis result closely matched the experimental result, clearly
+                           demonstrating the hysteresis effect. The observed error may mainly arise from the
+                           following factors:
+                                 1. Polyurethane foam exhibits a high sensitivity to strain rate, primarily caused by the
+                           expulsion of air from the foam cells during the deformation of open-cell foams. This aspect
+                           was not taken into account in the current study.
+Materials 2025, 18, 3526                                                                                               14 of 16
+
+
+
+                                 2. The error may be attributed to the determination of the viscoelastic Prony series
+                           based on the dynamic compression test results. The conditions of the dynamic tests, such as
+                           preload and vibration amplitude, could potentially influence the final values of the Prony
+                           series. Further investigations and refinement of the test conditions may lead to improved
+                           accuracy in the model predictions.
+                                 Thirdly, it is evident from Figure 12 that incorporating additional damping factors,
+                           apart from viscoelastic damping, yielded more accurate results. These additional damping
+                           factors are primarily attributed to air passing through the foam at higher frequencies during
+                           dynamic tests. Many other researchers have also considered these damping factors in their
+                           studies [20,21].
+                                 The proposed model demonstrated satisfactory accuracy in the realm of seat com-
+                           fort research. Compared with existing visco-hyperelastic models proposed in previous
+                           studies, the present work emphasizes a more explicit decomposition of hyperelastic and
+                           viscoelastic components through the combination of the hereditary integral model and the
+                           difference-stress method. While the model in [7] effectively captures large-strain behavior
+                           under dynamic loading, and the model in [8] focuses on quasi-static conditions using
+                           the difference-stress method, our approach integrates both quasi-static and dynamic tests,
+                           enabling independent identification of each component and facilitating direct implemen-
+                           tation in commercial finite element software ABAQUS 2022. This enhances the model’s
+                           applicability to practical seat comfort analysis. Moreover, the tests employed in finite
+                           element analysis are widely used in seat comfort assessments. The findings of this study
+                           provided an accurate representation of the nonlinear and time-dependent behavior of
+                           polyurethane foam, which is essential for improving seat comfort prediction. The proposed
+                           model may assist in optimizing foam geometry, layering strategies, and material selection
+                           in automotive seat design.
+                                 For future investigations, additional test modes, such as the vibration transmissibility
+                           test, tensile test, and shear test, could be considered to further validate the model. Further-
+                           more, the current study focuses on a specific type of polyurethane foam commonly used
+                           in car seat applications. While the proposed visco-hyperelastic model effectively captures
+                           its mechanical behavior, the applicability of the model to other foam types—such as those
+                           with lower viscosity, PUR Polyester, PUR Polyether, or multi-component systems—remains
+                           to be investigated. Future work will explore the model’s adaptability and parameter
+                           identification procedures for these alternative materials to evaluate its broader applicability.
+
+                           6. Conclusions
+                                In this paper, a novel parameter identification method was proposed to accurately
+                           characterize the mechanical properties of polyurethane foam for further finite element
+                           analysis, using quasi-static and dynamic stiffness tests commonly conducted in the seat
+                           comfort analysis. By employing the visco-hyperelastic model, the hyperelastic component
+                           of the compression stress in the quasi-static test was determined through the combina-
+                           tion of the hereditary integral model and the difference-stress method. The viscoelastic
+                           Prony series was derived from the dynamic test using the generalized Maxwell model.
+                           The proposed constitutive model, “Hyperfoam,” and the viscoelastic Prony series were
+                           implemented in ABAQUS for numerical computations. The results obtained from the
+                           quasi-static compression and dynamic compression analyses demonstrated satisfactory
+                           accuracy, validating the effectiveness of the proposed method in accurately capturing the
+                           behavior of polyurethane foam.
+
+                           Author Contributions: Conceptualization, J.D. and X.Z.; Investigation, Z.W., J.Z. and Z.P.; Supervi-
+                           sion, C.L., X.Z. and Y.Q.; Writing—original draft, Z.W. and J.D.; Writing—review and editing, C.L.,
+                           Y.L. and Y.M. All authors have read and agreed to the published version of the manuscript.
+Materials 2025, 18, 3526                                                                                                            15 of 16
+
+
+
+                                   Funding: This work was supported by the 2023 Open Foundation of the National Key Laboratory of
+                                   Advanced Vehicle Integration and Control under Grant RBJ33.
+
+                                   Data Availability Statement: The original contributions presented in this study are included in the
+                                   article. Further inquiries can be directed to the corresponding authors.
+
+                                   Conflicts of Interest: The authors Jianjiao Deng, Zuofeng Pan, Jingbao Zhao, Yuting Ma, and Yabao Li
+                                   are currently employed by China FAW Group Co., Ltd. and were employed by China FAW Group Co.,
+                                   Ltd. while contributing to this manuscript. The authors’ contribution to this work and manuscript
+                                   were made independently without any requirement, guidance or input by the employer. The authors
+                                   received no financial compensation from any source for the contributions and made to this scientific
+                                   work and manuscript.
+
+References
+1.    Casati, F.M.; Herrington, R.M.; Broos, R.; Miyazaki, Y. Tailor-ing the performance of molded flexible polyurethane foams for car
+      seats. J. Cell. Plast. 1998, 34, 430–466. [CrossRef]
+2.    Widdle, R.D.; Bajaj, A.K.; Davies, P. Measurement of the Poisson’s ratio of flexible polyurethane foam and its influence on a
+      uniaxial compression model. Int. J. Eng. Sci. 2008, 46, 31–49. [CrossRef]
+3.    Zhang, X.F.; Andrieux, F.; Sun, D.Z. Pseudo-elastic description of polymeric foams at finite deformation with stress softening and
+      residual strain effects. Mater. Des. 2011, 32, 877–884. [CrossRef]
+4.    Joshi, G.; Bajaj, A.K.; Davies, P. Whole-body vibratory response study using a nonlinear multi-body model of seat-occupant
+      system with viscoelastic flexible polyurethane foam. Ind. Health 2010, 48, 663–674. [CrossRef]
+5.    Rajan, K.P.; Dhilipraj, D.B.; Manikandan, R.; Veena, N.R. Preparation of molded viscoelastic polyurethane foam for pillow
+      applications. Cell. Polym. 2011, 30, 13–21. [CrossRef]
+6.    Singh, R.; Davies, P.; Bajaj, A.K. Identification of nonlinear and viscoelastic properties of flexible polyurethane foam. Nonlinear
+      Dyn. 2003, 34, 319–346. [CrossRef]
+7.    Yang, L.M.; Shim, V.P.W. A visco-hyperelastic constitutive description of elastomeric foam. Int. J. Impact Eng. 2004, 30, 1099–1110.
+      [CrossRef]
+8.    Ju, M.L.; Jmal, H.; Dupuis, R.; Aubry, E. Visco-hyperelastic constitutive model for modeling the quasi-static behavior of poly-
+      urethane foam in large deformation. Polym. Eng. Sci. 2015, 55, 1795–1804. [CrossRef]
+9.    Liang, G.; Chandrashekhara, K. Neural network based constitutive model for elastomeric foams. Eng. Struct. 2008, 30, 2002–2011.
+      [CrossRef]
+10.   Silber, G.; Alizadeh, M.; Salimi, M. Large deformation analysis for soft foams based on hyperelasticity. J. Mech. 2010, 26, 327–334.
+      [CrossRef]
+11.   Mircheski, I.; Kandikjan, T.; Sidorenko, S. Comfort analysis of vehicle driver’s seat through simulation of the sitting process. Tech.
+      Gaz. 2014, 21, 291–298.
+12.   Kim, S.; Shin, H.; Rhim, S.; Rhee, K.Y. Calibration of hyperelastic and hyperfoam constitutive models for an indentation event of
+      rigid polyurethane foam. Compos. Part B Eng. 2019, 163, 297–302. [CrossRef]
+13.   Grujicic, M.; Pandurangan, B.; Arakere, G.; Bell, W.C.; He, T.; Xie, X. Seat-cushion and soft-tissue material modeling and a finite
+      element investigation of the seating comfort for passenger-vehicle occupants. Mater. Des. 2009, 30, 4273–4285. [CrossRef]
+14.   Oh, J.S.; Kim, D.Y.; Kim, T.H.; Kim, H.Y.; Lee, S.H.; Choi, K.Y. Numerical prediction of the viscoelastic deformation of seat foam in
+      response to long-term driving. Proc. Inst. Mech. Eng. Part D J. Automob. Eng. 2015, 229, 214–225. [CrossRef]
+15.   Kim, D.Y.; Bang, J.H.; Lee, C.A.; Kim, H.Y.; Choi, K.Y.; Lim, B.G. Numerical evaluation of time-dependent sagging for low density
+      polyurethane foams to apply the long-term driving comfort on the seat cushion design. Int. J. Ind. Ergon. 2018, 64, 178–187.
+      [CrossRef]
+16.   Fazekas, B.; Goda, T.J. Numerical stress solutions for the accurate calibration of hyper-viscoelastic material models of polymer
+      foams. Int. J. Solids Struct. 2020, 191–192, 390–400. [CrossRef]
+17.   Deng, R.; Davies, P.; Bajaj, A.K. A nonlinear fractional derivative model for large uniaxial deformation behavior of polyurethane
+      foam. Signal Process. 2006, 86, 2728–2743. [CrossRef]
+18.   Jmal, H.; Dupuis, R.; Aubry, E. Quasi-static behavior identification of polyurethane foam using a memory integer model and the
+      difference-forces method. J. Cell. Plast. 2011, 47, 447–465. [CrossRef]
+19.   Jmal, H.; Ju, M.L.; Dupuis, R.; Aubry, E. Generalization of the memory integer model for the analysis of the quasi-static behaviour
+      of polyurethane foams. J. Mech. Sci. Technol. 2014, 28, 4651–4662. [CrossRef]
+Materials 2025, 18, 3526                                                                                                         16 of 16
+
+
+
+20.   Singh, R.; Davies, P.; Bajaj, A.K. Estimation of the dynamical properties of polyurethane foam through use of Prony series. J.
+      Sound Vib. 2003, 264, 1005–1043. [CrossRef]
+21.   Azizi, Y.; Bajaj, A.K.; Davies, P.; Sundaram, V. Prediction and verification of the periodic response of a single-degree-of-freedom
+      foam-mass system by using incremental harmonic balance. Nonlinear Dyn. 2015, 82, 1933–1951. [CrossRef]
+
+
+Disclaimer/Publisher’s Note: The statements, opinions and data contained in all publications are solely those of the individual
+author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to
+people or property resulting from any ideas, methods, instructions or products referred to in the content.
+

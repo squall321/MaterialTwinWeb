@@ -1,0 +1,941 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head><!-- inj yui3-seed: --><script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/yui/3.6.0/yui/yui-min.js'></script><script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script><!-- Adobe Analytics --><script type='text/javascript' src='https://assets.adobedtm.com/4a848ae9611a/d0e96722185b/launch-d525bb0064d8.min.js'></script><script type='text/javascript' src=/assets/nr_browser_production.js></script>
+
+<!-- def.1 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>
+"A novel entropy production based full-chip TSV fatigue analysis" by Tianchen Wang
+</title>
+
+
+<!-- FILE article_meta-tags.inc --><!-- FILE: /srv/sequoia/main/data/assets/site/article_meta-tags.inc -->
+<meta itemprop="name" content="A novel entropy production based full-chip TSV fatigue analysis">
+<meta property="og:title" content="A novel entropy production based full-chip TSV fatigue analysis">
+<meta name="twitter:title" content="A novel entropy production based full-chip TSV fatigue analysis">
+<meta property="article:author" content="Tianchen Wang">
+<meta name="author" content="Tianchen Wang">
+<meta name="robots" content="noodp, noydir">
+<meta name="description" content="&quot;Through-silicon vias (TSVs) are subject to thermal fatigue due to stress over time, no matter how small the stress is. Existing works on TSV fatigue all rely on measurement-based parameters to estimate the lifetime, and cannot consider detailed thermal profiles. In this paper, we propose a new method for TSV fatigue prediction using entropy production during thermal cycles. By combining thermodynamics and mechanics laws, the fatigue process can be quantitatively evaluated with detailed thermal profiles. Experimental results show that interestingly, the landing pad possesses the most easy-to-fail region, which generates up to 50% more entropy compared with the TSV body. The impact of landing pad dimension and TSV geometries are also studied, providing guidance for reliability enhancement. Finally, full-chip fatigue analysis is performed based on stress superposition. To the best of the authors&#039; knowledge, this is the first TSV fatigue model that is free of measurement data fitting, the first that is capable of considering detailed thermal profiles, and the first framework for efficient full-chip TSV fatigue analysis.&quot;--Abstract, page iii.">
+<meta itemprop="description" content="&quot;Through-silicon vias (TSVs) are subject to thermal fatigue due to stress over time, no matter how small the stress is. Existing works on TSV fatigue all rely on measurement-based parameters to estimate the lifetime, and cannot consider detailed thermal profiles. In this paper, we propose a new method for TSV fatigue prediction using entropy production during thermal cycles. By combining thermodynamics and mechanics laws, the fatigue process can be quantitatively evaluated with detailed thermal profiles. Experimental results show that interestingly, the landing pad possesses the most easy-to-fail region, which generates up to 50% more entropy compared with the TSV body. The impact of landing pad dimension and TSV geometries are also studied, providing guidance for reliability enhancement. Finally, full-chip fatigue analysis is performed based on stress superposition. To the best of the authors&#039; knowledge, this is the first TSV fatigue model that is free of measurement data fitting, the first that is capable of considering detailed thermal profiles, and the first framework for efficient full-chip TSV fatigue analysis.&quot;--Abstract, page iii.">
+<meta name="twitter:description" content="&quot;Through-silicon vias (TSVs) are subject to thermal fatigue due to stress over time, no matter how small the stress is. Existing works on TSV fatigue all rely on measurement-based parameters to estimate the lifetime, and cannot consider detailed thermal profiles. In this paper, we propose a new method for TSV fatigue prediction using entropy production during thermal cycles. By combining thermodynamics and mechanics laws, the fatigue process can be quantitatively evaluated with detailed thermal profiles. Experimental results show that interestingly, the landing pad possesses the most easy-to-fail region, which generates up to 50% more entropy compared with the TSV body. The impact of landing pad dimension and TSV geometries are also studied, providing guidance for reliability enhancement. Finally, full-chip fatigue analysis is performed based on stress superposition. To the best of the authors&#039; knowledge, this is the first TSV fatigue model that is free of measurement data fitting, the first that is capable of considering detailed thermal profiles, and the first framework for efficient full-chip TSV fatigue analysis.&quot;--Abstract, page iii.">
+<meta property="og:description" content="&quot;Through-silicon vias (TSVs) are subject to thermal fatigue due to stress over time, no matter how small the stress is. Existing works on TSV fatigue all rely on measurement-based parameters to estimate the lifetime, and cannot consider detailed thermal profiles. In this paper, we propose a new method for TSV fatigue prediction using entropy production during thermal cycles. By combining thermodynamics and mechanics laws, the fatigue process can be quantitatively evaluated with detailed thermal profiles. Experimental results show that interestingly, the landing pad possesses the most easy-to-fail region, which generates up to 50% more entropy compared with the TSV body. The impact of landing pad dimension and TSV geometries are also studied, providing guidance for reliability enhancement. Finally, full-chip fatigue analysis is performed based on stress superposition. To the best of the authors&#039; knowledge, this is the first TSV fatigue model that is free of measurement data fitting, the first that is capable of considering detailed thermal profiles, and the first framework for efficient full-chip TSV fatigue analysis.&quot;--Abstract, page iii.">
+<meta name="keywords" content="3D-IC; Full-chip analysis">
+<meta name="bepress_citation_dissertation_institution" content="Missouri University of Science and Technology">
+<meta name="bepress_citation_dissertation_name" content="M.S. in Computer Engineering">
+<meta name="bepress_citation_author" content="Wang, Tianchen">
+<meta name="bepress_citation_title" content="A novel entropy production based full-chip TSV fatigue analysis">
+<meta name="bepress_citation_date" content="2015">
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_download_link.inc -->
+<!-- FILE: /srv/sequoia/main/data/assets/site/article_meta-tags.inc (cont) -->
+<meta name="bepress_citation_pdf_url" content="https://scholarsmine.mst.edu/cgi/viewcontent.cgi?article=8425&amp;context=masters_theses">
+<meta name="bepress_citation_abstract_html_url" content="https://scholarsmine.mst.edu/masters_theses/7426">
+<meta name="bepress_citation_publisher" content="Missouri University of Science and Technology">
+<meta name="bepress_citation_online_date" content="2015/9/15">
+<meta name="viewport" content="width=device-width">
+<!-- Additional Twitter data -->
+<meta name="twitter:card" content="summary">
+<!-- Additional Open Graph data -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://scholarsmine.mst.edu/masters_theses/7426">
+<meta property="og:site_name" content="Scholars' Mine">
+
+
+
+
+<!-- FILE: article_meta-tags.inc (cont) -->
+<meta name="bepress_is_article_cover_page" content="1">
+
+
+<!-- sh.1 -->
+<link rel="stylesheet" href="/ir-style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="/ir-custom.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../ir-custom.css" type="text/css" media="screen">
+<link rel="stylesheet" href="/ir-local.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../ir-local.css" type="text/css" media="screen">
+<link rel="stylesheet" href="/ir-print.css" type="text/css" media="print">
+<link type="text/css" rel="stylesheet" href="/assets/floatbox/floatbox.css">
+<link rel="alternate" type="application/rss+xml" title="Site Feed" href="/recent.rss">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<!--[if IE]>
+<link rel="stylesheet" href="/ir-ie.css" type="text/css" media="screen">
+<![endif]-->
+
+<!-- JS -->
+<script type="text/javascript" src="/assets/jsUtilities.js"></script>
+<script type="text/javascript" src="/assets/footnoteLinks.js"></script>
+<script type="text/javascript" src="/assets/scripts/yui-init.pack.js"></script>
+<script type="text/javascript" src="/assets/scripts/bepress-init.debug.js"></script>
+<script type="text/javascript" src="/assets/scripts/JumpListYUI.pack.js"></script>
+
+<!-- end sh.1 -->
+
+
+
+
+<script type="text/javascript">var pageData = {"page":{"environment":"prod","productName":"bpdg","language":"en","name":"ir_etd:article","businessUnit":"els:rp:st"},"visitor":{}};</script>
+
+</head>
+<body >
+<!-- FILE /srv/sequoia/main/data/scholarsmine.mst.edu/assets/header.pregen --><!-- FILE: /srv/sequoia/main/data/assets/site/mobile_nav.inc --><!--[if !IE]>-->
+<script src="/assets/scripts/dc-mobile/dc-responsive-nav.js"></script>
+
+<header id="mobile-nav" class="nav-down device-fixed-height" style="visibility: hidden;">
+  
+  
+  <nav class="nav-collapse">
+    <ul>
+      <li class="menu-item active device-fixed-width"><a href="https://scholarsmine.mst.edu" title="Home" data-scroll >Home</a></li>
+      <li class="menu-item device-fixed-width"><a href="https://scholarsmine.mst.edu/do/search/advanced/" title="Search" data-scroll ><i class="icon-search"></i> Search</a></li>
+      <li class="menu-item device-fixed-width"><a href="https://scholarsmine.mst.edu/communities.html" title="Browse" data-scroll >Browse Collections</a></li>
+      <li class="menu-item device-fixed-width"><a href="/cgi/myaccount.cgi?context=masters_theses" title="My Account" data-scroll >My Account</a></li>
+      <li class="menu-item device-fixed-width"><a href="https://scholarsmine.mst.edu/about.html" title="About" data-scroll >About</a></li>
+      <li class="menu-item device-fixed-width"><a href="https://network.bepress.com" title="Digital Commons Network" data-scroll ><img width="16" height="16" alt="DC Network" style="vertical-align:top;" src="/assets/md5images/8e240588cf8cd3a028768d4294acd7d3.png"> Digital Commons Network™</a></li>
+    </ul>
+  </nav>
+</header>
+
+<script src="/assets/scripts/dc-mobile/dc-mobile-nav.js"></script>
+<!--<![endif]-->
+<!-- FILE: /srv/sequoia/main/data/scholarsmine.mst.edu/assets/header.pregen (cont) -->
+
+
+
+<div id="mst">
+	<div id="container">
+		<a href="#main" class="skiplink" accesskey="2" >Skip to main content</a>
+
+		
+			<div id="navigation">
+				<!-- FILE: /srv/sequoia/main/data/assets/site/ir_navigation.inc -->
+
+<div id="tabs" role="navigation" aria-label="Main"><ul><li id="tabfour"><a href="https://scholarsmine.mst.edu" title="Home" ><span>Home</span></a></li><li id="tabthree"><a href="https://scholarsmine.mst.edu/about.html" title="About" ><span>About</span></a></li><li id="tabtwo"><a href="https://scholarsmine.mst.edu/faq.html" title="FAQ" ><span>FAQ</span></a></li><li id="tabone"><a href="https://scholarsmine.mst.edu/cgi/myaccount.cgi?context=masters_theses" title="My Account" ><span>My Account</span></a></li></ul></div>
+
+<!-- FILE: /srv/sequoia/main/data/scholarsmine.mst.edu/assets/header.pregen (cont) -->
+			</div>			
+					
+			<div id="header">
+				<a href="https://scholarsmine.mst.edu" id="banner_link" title="Scholars' Mine" >
+					<img id="banner_image" alt="Scholars' Mine" width='740' height='100' src="/assets/md5images/a408b327829bd7e1953ae3a914419b63.png">
+				</a>	
+				
+					<a href="http://www.mst.edu/" id="logo_link" title="Missouri University of Science and Technology" >
+						<img id="logo_image" alt="Missouri University of Science and Technology" width='100' height='100' src="/assets/md5images/4046bd1ac4526fd1aba9ffe14e09d050.png">
+					</a>	
+				
+			</div>
+		
+<div id="topborder"></div>
+		<div id="wrapper">
+			<div id="content">
+				<div id="main" class="text">
+
+
+<script type="text/javascript" src="/assets/floatbox/floatbox.js"></script>
+<!-- FILE: /srv/sequoia/main/data/assets/site/article_pager.inc -->
+
+<div id="breadcrumb"><ul id="pager">
+
+                
+                 
+<li>&lt; <a href="https://scholarsmine.mst.edu/masters_theses/7440" class="ignore" >Previous</a></li>
+        
+        
+        
+
+                
+                 
+<li><a href="https://scholarsmine.mst.edu/masters_theses/7485" class="ignore" >Next</a> &gt;</li>
+        
+        
+        
+<li>&nbsp;</li></ul><div class="crumbs"><!-- FILE: /srv/sequoia/main/data/assets/site/ir_breadcrumb.inc -->
+
+<div class="crumbs" role="navigation" aria-label="Breadcrumb">
+    <ol style="list-style:none;margin:0;padding:0">
+	
+	
+	<li style="display:inline;margin:0">
+		<a href="https://scholarsmine.mst.edu" class="ignore" >Home</a>
+	</li>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	 <span aria-hidden="true">&gt;</span> 
+	<li style="display:inline;margin:0">
+		<a href="https://scholarsmine.mst.edu/student_work" class="ignore" >Student Works</a>
+	</li>	
+	
+	
+	
+	
+	
+	
+	 <span aria-hidden="true">&gt;</span> 
+	<li style="display:inline;margin:0">
+		<a href="https://scholarsmine.mst.edu/student-tds" class="ignore" >TDs</a>
+	</li>	
+	
+	
+	
+	
+	
+	
+	 <span aria-hidden="true">&gt;</span> 
+	<li style="display:inline;margin:0">
+		<a href="https://scholarsmine.mst.edu/masters_theses" class="ignore" >Masters Theses</a>
+	</li>	
+	
+	
+	
+	
+	
+	 <span aria-hidden="true">&gt;</span> 
+	<li style="display:inline;margin:0">
+		<a href="https://scholarsmine.mst.edu/masters_theses/7426" class="ignore" aria-current="page" >7426</a>
+	</li>	
+	
+	
+	
+	</ol>
+</div>
+
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/article_pager.inc (cont) --></div>
+</div>
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_etd/article/index.html (cont) -->
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_etd/article/article_info.inc --><!-- FILE: /srv/sequoia/main/data/assets/site/openurl.inc -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_etd/article/article_info.inc (cont) -->
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_download_link.inc -->
+
+
+
+
+
+
+
+
+
+	
+	
+	
+    
+    
+    
+	
+		
+		
+		
+	
+	
+	
+	
+	
+	
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_etd/article/article_info.inc (cont) -->
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_etd/article/ir_article_header.inc --><div id="series-header"><div id="series-logo" style="text-align:center;margin:0 auto;">
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_etd/ir_etd_logo.inc -->
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_etd/article/ir_article_header.inc (cont) --></div></div>
+<div class="clear">&nbsp;</div>
+<h2 id="series-title"><a href="https://scholarsmine.mst.edu/masters_theses" >Masters Theses</a></h2><div style="clear: both"></div><div id="sub">
+<div id="alpha">
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_etd/article/article_info.inc (cont) --><div id='title' class='element'>
+<h1><a href='https://scholarsmine.mst.edu/cgi/viewcontent.cgi?article=8425&amp;context=masters_theses'>A novel entropy production based full-chip TSV fatigue analysis</a></h1>
+</div>
+<div class='clear'></div>
+<div id='authors' class='element'>
+<h2 class='visually-hidden'>Author</h2>
+<ul class="author"><li><a href='https://scholarsmine.mst.edu/do/search/?q=author%3A%22Tianchen%20Wang%22&start=0&context=5910169'><strong>Tianchen Wang</strong></a></li>
+</ul></div>
+<div class='clear'></div>
+<div id='keywords' class='element'>
+<h2 class='field-heading'>Keywords and Phrases</h2>
+<p>3D-IC; Full-chip analysis</p>
+</div>
+<div class='clear'></div>
+<div id='abstract' class='element'>
+<h2 class='field-heading'>Abstract</h2>
+<p>"Through-silicon vias (TSVs) are subject to thermal fatigue due to stress over time, no matter how small the stress is. Existing works on TSV fatigue all rely on measurement-based parameters to estimate the lifetime, and cannot consider detailed thermal profiles. In this paper, we propose a new method for TSV fatigue prediction using entropy production during thermal cycles. By combining thermodynamics and mechanics laws, the fatigue process can be quantitatively evaluated with detailed thermal profiles. Experimental results show that interestingly, the landing pad possesses the most easy-to-fail region, which generates up to 50% more entropy compared with the TSV body. The impact of landing pad dimension and TSV geometries are also studied, providing guidance for reliability enhancement. Finally, full-chip fatigue analysis is performed based on stress superposition. To the best of the authors' knowledge, this is the first TSV fatigue model that is free of measurement data fitting, the first that is capable of considering detailed thermal profiles, and the first framework for efficient full-chip TSV fatigue analysis."--Abstract, page iii.</p>
+</div>
+<div class='clear'></div>
+<div id='advisors_list' class='element'>
+<h2 class='field-heading'>Advisor(s)</h2>
+<p>Shi, Yiyu</p>
+</div>
+<div class='clear'></div>
+<div id='committee_members' class='element'>
+<h2 class='field-heading'>Committee Member(s)</h2>
+<p>Lim, Sung Kyu<br>Choi, Minsu</p>
+</div>
+<div class='clear'></div>
+<div id='department1' class='element'>
+<h2 class='field-heading'>Department(s)</h2>
+<p>Electrical and Computer Engineering</p>
+</div>
+<div class='clear'></div>
+<div id='degree_name' class='element'>
+<h2 class='field-heading'>Degree Name</h2>
+<p>M.S. in Computer Engineering</p>
+</div>
+<div class='clear'></div>
+<div id='publisher' class='element'>
+<h2 class='field-heading'>Publisher</h2>
+<p>Missouri University of Science and Technology</p>
+</div>
+<div class='clear'></div>
+<div id='publication_date' class='element'>
+<h2 class='field-heading'>Publication Date</h2>
+<p>Spring 2015</p>
+</div>
+<div class='clear'></div>
+<div id='format_extent' class='element'>
+<h2 class='field-heading'>Pagination</h2>
+<p>viii, 34 pages</p>
+</div>
+<div class='clear'></div>
+<div id='comment_bibliography' class='element'>
+<h2 class='field-heading'>Note about bibliography</h2>
+<p>Includes bibliographical references (pages 32-33).</p>
+</div>
+<div class='clear'></div>
+<div id='rights' class='element'>
+<h2 class='field-heading'>Rights</h2>
+<p>© 2015 Tianchen Wang, All rights reserved.</p>
+</div>
+<div class='clear'></div>
+<div id='document_type' class='element'>
+<h2 class='field-heading'>Document Type</h2>
+<p>Thesis - Open Access</p>
+</div>
+<div class='clear'></div>
+<div id='file_type' class='element'>
+<h2 class='field-heading'>File Type</h2>
+<p>text</p>
+</div>
+<div class='clear'></div>
+<div id='language_iso' class='element'>
+<h2 class='field-heading'>Language</h2>
+<p>English</p>
+</div>
+<div class='clear'></div>
+<div id='subject_area' class='element'>
+<h2 class='field-heading'>Subject Headings</h2>
+<p>Three-dimensional integrated circuitsInterconnects (Integrated circuit technology) -- Design and constructionMetals -- Thermal fatigueEntropy</p>
+</div>
+<div class='clear'></div>
+<div id='thesis_number' class='element'>
+<h2 class='field-heading'>Thesis Number</h2>
+<p>T 10746</p>
+</div>
+<div class='clear'></div>
+<div id='oclc_electronic' class='element'>
+<h2 class='field-heading'>Electronic OCLC #</h2>
+<p>921182171</p>
+</div>
+<div class='clear'></div>
+<div id='recommended_citation' class='element'>
+<h2 class='field-heading'>Recommended Citation</h2>
+<!-- FILE: /srv/sequoia/main/data/journals/scholarsmine.mst.edu/masters_theses/assets/ir_citation.inc --><p>
+    Wang, Tianchen, "A novel entropy production based full-chip TSV fatigue analysis" (2015). <em>Masters Theses</em>.  7426.
+    <br>
+    
+    
+        https://scholarsmine.mst.edu/masters_theses/7426
+    
+    
+</p>
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_etd/article/article_info.inc (cont) --></div>
+<div class='clear'></div>
+</div>
+    </div>
+    <div id='beta_7-3'>
+<!-- FILE: /srv/sequoia/main/data/assets/site/info_box_7_3.inc --><!-- FILE: /srv/sequoia/main/data/assets/site/openurl.inc -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/info_box_7_3.inc (cont) -->
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_download_link.inc -->
+
+
+
+
+
+
+
+
+
+	
+	
+	
+    
+    
+    
+	
+		
+		
+		
+	
+	
+	
+	
+	
+	
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/info_box_7_3.inc (cont) -->
+
+
+	<!-- FILE: /srv/sequoia/main/data/assets/site/info_box_download_button.inc --><div class="aside download-button">
+      <a id="pdf" class="btn" href="https://scholarsmine.mst.edu/cgi/viewcontent.cgi?article=8425&amp;context=masters_theses" title="PDF (5.2&nbsp;MB) opens in new window" target="_blank" > 
+    	<i class="icon-download-alt" aria-hidden="true"></i>
+        Download
+      </a>
+</div>
+
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/info_box_7_3.inc (cont) -->
+	<!-- FILE: /srv/sequoia/main/data/assets/site/info_box_embargo.inc -->
+<!-- FILE: /srv/sequoia/main/data/assets/site/info_box_7_3.inc (cont) -->
+
+<!-- FILE: /srv/sequoia/main/data/journals/scholarsmine.mst.edu/masters_theses/assets/info_box_custom_upper.inc -->
+
+
+
+
+
+     
+
+
+
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/info_box_7_3.inc (cont) -->
+<!-- FILE: /srv/sequoia/main/data/assets/site/info_box_openurl.inc -->
+<!-- FILE: /srv/sequoia/main/data/assets/site/info_box_7_3.inc (cont) -->
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/info_box_article_metrics.inc -->
+
+
+
+
+
+
+<div id="article-stats" class="aside hidden">
+
+    <p class="article-downloads-wrapper hidden"><span id="article-downloads"></span> DOWNLOADS</p>
+    <p class="article-stats-date hidden">Since September 15, 2015</p>
+
+    <p class="article-plum-metrics">
+        <a href="https://plu.mx/plum/a/?repo_url=https://scholarsmine.mst.edu/masters_theses/7426" class="plumx-plum-print-popup plum-bigben-theme" data-badge="true" data-hide-when-empty="true" ></a>
+    </p>
+</div>
+<script type="text/javascript" src="//cdn.plu.mx/widget-popup.js"></script>
+
+
+
+<!-- Article Download Counts -->
+<script type="text/javascript" src="/assets/scripts/article-downloads.pack.js"></script>
+<script type="text/javascript">
+    insertDownloads(7597524);
+</script>
+
+
+<!-- Add border to Plum badge & download counts when visible -->
+<script>
+// bind to event when PlumX widget loads
+jQuery('body').bind('plum:widget-load', function(e){
+// if Plum badge is visible
+  if (jQuery('.PlumX-Popup').length) {
+// remove 'hidden' class
+  jQuery('#article-stats').removeClass('hidden');
+  jQuery('.article-stats-date').addClass('plum-border');
+  }
+});
+// bind to event when page loads
+jQuery(window).bind('load',function(e){
+// if DC downloads are visible
+  if (jQuery('#article-downloads').text().length > 0) {
+// add border to aside
+  jQuery('#article-stats').removeClass('hidden');
+  }
+});
+</script>
+
+
+
+<!-- Adobe Analytics: Download Click Tracker -->
+<script>
+
+$(function() {
+
+  // Download button click event tracker for PDFs
+  $(".aside.download-button").on("click", "a#pdf", function(event) {
+    pageDataTracker.trackEvent('navigationClick', {
+      link: {
+          location: 'aside download-button',
+          name: 'pdf'
+      }
+    });
+  });
+
+  // Download button click event tracker for native files
+  $(".aside.download-button").on("click", "a#native", function(event) {
+    pageDataTracker.trackEvent('navigationClick', {
+        link: {
+            location: 'aside download-button',
+            name: 'native'
+        }
+     });
+  });
+
+});
+
+</script>
+<!-- FILE: /srv/sequoia/main/data/assets/site/info_box_7_3.inc (cont) -->
+
+
+
+	<!-- FILE: /srv/sequoia/main/data/assets/site/info_box_disciplines.inc -->
+
+
+
+
+	
+
+
+
+
+
+	<div id="beta-disciplines" class="aside">
+		<h3>Included in</h3>
+	<p>
+		
+				
+					<a href="https://network.bepress.com/hgg/discipline/258" title="Computer Engineering Commons" >Computer Engineering Commons</a>
+				
+				
+			
+		
+	</p>
+	</div>
+
+
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/info_box_7_3.inc (cont) -->
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/bookmark_widget.inc -->
+
+<div id="share" class="aside">
+<h2>Share</h2>
+	
+	<div class="a2a_kit a2a_kit_size_24 a2a_default_style">
+    	<a class="a2a_button_facebook"></a>
+    	<a class="a2a_button_linkedin"></a>
+		<a class="a2a_button_whatsapp"></a>
+		<a class="a2a_button_email"></a>
+    	<a class="a2a_dd"></a>
+    	<script async src="https://static.addtoany.com/menu/page.js"></script>
+	</div>
+</div>
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/info_box_7_3.inc (cont) -->
+<!-- FILE: /srv/sequoia/main/data/assets/site/info_box_geolocate.inc --><!-- FILE: /srv/sequoia/main/data/assets/site/ir_geolocate_enabled_and_displayed.inc -->
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/info_box_geolocate.inc (cont) -->
+
+<div class="aside">
+	<!-- FILE: /srv/sequoia/main/data/assets/site/ir_article_map.inc -->
+
+
+
+<div class="clear">&nbsp;</div>
+<!-- FILE: /srv/sequoia/main/data/assets/site/info_box_geolocate.inc (cont) -->
+</div>
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/info_box_7_3.inc (cont) -->
+
+	<!-- FILE: /srv/sequoia/main/data/assets/site/zotero_coins.inc -->
+
+<span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft_id=https%3A%2F%2Fscholarsmine.mst.edu%2Fmasters_theses%2F7426&amp;rft.atitle=A%20novel%20entropy%20production%20based%20full-chip%20TSV%20fatigue%20analysis&amp;rft.aufirst=Tianchen&amp;rft.aulast=Wang&amp;rft.jtitle=Masters%20Theses&amp;rft.date=2015-01-01">COinS</span>
+<!-- FILE: /srv/sequoia/main/data/assets/site/info_box_7_3.inc (cont) -->
+
+<!-- FILE: /srv/sequoia/main/data/scholarsmine.mst.edu/assets/ir_etd/info_box_custom_lower.inc -->
+
+<p class="ctlg"><br></p>
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/info_box_7_3.inc (cont) -->
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_etd/article/article_info.inc (cont) --></div>
+
+
+<div class='clear'>&nbsp;</div>
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_article_custom_fields.inc -->
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_etd/article/article_info.inc (cont) -->
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_etd/article/index.html (cont) -->
+<!-- FILE /srv/sequoia/main/data/assets/site/footer.pregen --></div>
+	<div class="verticalalign">&nbsp;</div>
+	<div class="clear">&nbsp;</div>
+
+</div>
+
+	<div id="sidebar" role="complementary">
+	<!-- FILE: /srv/sequoia/main/data/assets/site/ir_sidebar_7_8.inc -->
+
+	<!-- FILE: /srv/sequoia/main/data/assets/site/ir_sidebar_sort_sba.inc --><!-- FILE: /srv/sequoia/main/data/assets/site/ir_sidebar_custom_upper_7_8.inc -->
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_sidebar_sort_sba.inc (cont) -->
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_sidebar_search_7_8.inc --><h2>Search</h2>
+
+
+	
+<form method='get' action='https://scholarsmine.mst.edu/do/search/' id="sidebar-search">
+	<label for="search" accesskey="4">
+		Enter search terms:
+	</label>
+		<div>
+			<span class="border">
+				<input type="text" name='q' class="search" id="search">
+			</span> 
+			<input type="submit" value="Search" class="searchbutton" style="font-size:11px;">
+		</div>
+	<label for="context">
+		Select context to search:
+	</label> 
+		<div>
+			<span class="border">
+				<select name="fq" id="context">
+					
+					
+						<option value='virtual_ancestor_link:"https://scholarsmine.mst.edu/masters_theses"'>in this series</option>
+					
+					
+					
+					<option value='virtual_ancestor_link:"https://scholarsmine.mst.edu"'>in this repository</option>
+					<option value='virtual_ancestor_link:"http:/"'>across all repositories</option>
+				</select>
+			</span>
+		</div>
+</form>
+
+<p class="advanced">
+	
+	
+		<a href="https://scholarsmine.mst.edu/do/search/advanced/?fq=virtual_ancestor_link:%22https://scholarsmine.mst.edu/masters_theses%22" >
+			Advanced Search
+		</a>
+	
+</p>
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_sidebar_sort_sba.inc (cont) -->
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_sidebar_notify_7_8.inc -->
+
+
+	<ul id="side-notify">
+		<li class="notify">
+			<a href="https://scholarsmine.mst.edu/masters_theses/announcements.html" title="Email or RSS Notifications" >
+				Notify me via email or <acronym title="Really Simple Syndication">RSS</acronym>
+			</a>
+		</li>
+	</ul>
+
+
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/urc_badge.inc -->
+
+
+
+
+
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_sidebar_notify_7_8.inc (cont) -->
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_sidebar_sort_sba.inc (cont) -->
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_sidebar_custom_middle_7_8.inc --><!-- FILE: /srv/sequoia/main/data/assets/site/ir_sidebar_sort_sba.inc (cont) -->
+<!-- FILE: /srv/sequoia/main/data/scholarsmine.mst.edu/assets/ir_sidebar_browse.inc --><h2>Browse</h2>
+<ul id="side-browse">
+
+
+<li class="collections"><a href="https://scholarsmine.mst.edu/communities.html" title="Browse by Collections" >Collections</a></li>
+<li class="discipline-browser"><a href="https://scholarsmine.mst.edu/do/discipline_browser/disciplines" title="Browse by Disciplines" >Disciplines</a></li>
+<li class="author"><a href="https://scholarsmine.mst.edu/authors.html" title="Browse by Author" >All Authors</a></li>
+
+<li><a href="http://scholarsmine.mst.edu/faculty_work/browse_faculty.html" title="Browse by Faculty Author" >Faculty Authors</a></li>
+
+
+
+</ul>
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_sidebar_sort_sba.inc (cont) -->
+<!-- FILE: /srv/sequoia/main/data/journals/scholarsmine.mst.edu/masters_theses/assets/ir_sidebar_author_7_8.inc -->
+
+
+
+
+
+<h2>Author Corner</h2>
+
+
+
+
+	<ul id="side-author">
+		<li class="faq">
+			<a href="https://scholarsmine.mst.edu/faq.html" title="Author FAQ" >
+				Author FAQ
+			</a>
+		</li>
+		
+		<li>
+			<a href="https://scholarsmine.mst.edu/share.html" title="Share Your Thesis" >
+				Share Your Thesis
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+	</ul>
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_sidebar_sort_sba.inc (cont) -->
+<!-- FILE: /srv/sequoia/main/data/scholarsmine.mst.edu/assets/ir_sidebar_custom_lower_7_8.inc --><!-- FILE: /srv/sequoia/main/data/assets/site/ir_sidebar_homepage_links_7_8.inc -->
+
+<!-- FILE: /srv/sequoia/main/data/scholarsmine.mst.edu/assets/ir_sidebar_custom_lower_7_8.inc (cont) -->
+	
+
+
+<div id="sb-custom-lower">
+	<h2 class="sb-custom-title">Useful Links</h2>
+		<ul class="sb-custom-ul">
+			<li class="sb-custom-li">
+				<a href="https://scholarsmine.mst.edu/library_resources.html" title="Library Resources" >Library Resources</a>
+			</li>
+		
+			
+		
+			<li class="sb-custom-li">
+				<a href="https://scholarsmine.mst.edu/contact.html" title="Contact Us" >
+					Contact Us
+				</a>
+			</li>
+		</ul>
+	
+	
+</div>
+
+<div id="sb-custom-lower" class="lower-white">
+	<a href="http://library.mst.edu/" title="Missouri S&T University Libraries" ><img alt="S&T logo" title="Missouri S&T University Libraries" id="stlogo" width='133' height='150' src="/assets/md5images/b6e7584514344c6f5e80f90c144c0aab.png"></a>
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_geolocate_enabled_and_displayed.inc -->
+
+<!-- FILE: /srv/sequoia/main/data/scholarsmine.mst.edu/assets/ir_sidebar_custom_lower_7_8.inc (cont) -->
+
+<h2>Thesis Locations</h2>
+
+
+
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/google_map.inc -->
+	
+	
+
+
+
+
+	
+
+
+	
+
+
+
+
+<script>
+	if (typeof window.googleMap=='undefined') {
+		document.write(
+			'<script src="/assets/cgi/js/geolocate-v3.pack.js"></' + 'script>'
+		);
+	}
+	if (
+		typeof window.google=='undefined'
+		|| typeof window.google.maps=='undefined'
+	) {
+		document.write(
+			'<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhbW6Wxlc9A2yM3fqEEQKM2lIQU-a7kxM&amp;sensor=false&amp;v=3"></' + 'script>'
+		);
+	}
+</script>
+
+<div id="side_map"></div>
+
+<script>
+	// Enable the new look
+	google.maps.visualRefresh = true;
+
+	var side_mapOptions = {};
+	side_mapOptions.zoomLevel = 5;
+	side_mapOptions.divId = "side_map";
+	side_mapOptions.submit = false;
+	side_mapOptions.context = "masters_theses" + "/";
+	
+	
+
+	var side_mapObj = new googleMap(side_mapOptions);
+	
+	side_mapObj.instantiate();
+
+	// If it's a sidebar map or the large map, load the KML file
+	if (
+		(side_mapOptions.divId === "side_map")
+		|| (side_mapOptions.divId === "large_map") 
+	) {
+		side_mapObj.loadKml();
+	}
+
+	// Attach clickHandler and keypressHandler to submit form maps
+	if (false) {
+		document.getElementById("locate").onclick=function() {
+			side_mapObj.showAddress(side_mapObj);
+		};
+		document.getElementById("geoLocateAddress").onkeypress=function(e) {
+			side_mapObj.geolocateOnEnter(e, side_mapObj);
+		};
+		// If a location is already provided, make placemarker draggable and attach dragHandler
+		
+	}
+</script>
+<!-- FILE: /srv/sequoia/main/data/scholarsmine.mst.edu/assets/ir_sidebar_custom_lower_7_8.inc (cont) -->
+
+<ul>
+<li><a href="https://scholarsmine.mst.edu/masters_theses/map.html" rel="floatbox" rev="colorTheme:black width:900 height:675 caption:href scrolling:no showClose:true" >View theses on map</a></li>
+<li><a href="https://scholarsmine.mst.edu/masters_theses/images.kml" >View theses in Google Earth</a></li>
+</ul>
+
+</div>
+</magic>
+ 
+ 
+
+ 
+
+ <!-- FILE: /srv/sequoia/main/data/assets/site/ir_sidebar_sort_sba.inc (cont) -->
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_sidebar_sw_links_7_8.inc -->
+
+	
+		
+	
+
+
+	<!-- FILE: /srv/sequoia/main/data/assets/site/ir_sidebar_sort_sba.inc (cont) -->
+
+<!-- FILE: /srv/sequoia/main/data/scholarsmine.mst.edu/assets/ir_sidebar_geolocate.inc -->
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_sidebar_sort_sba.inc (cont) -->
+<!-- FILE: /srv/sequoia/main/data/scholarsmine.mst.edu/assets/ir_sidebar_custom_lowest_7_8.inc -->
+
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_sidebar_sort_sba.inc (cont) -->
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_sidebar_7_8.inc (cont) -->
+
+		
+
+
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/footer.pregen (cont) -->
+	<div class="verticalalign">&nbsp;</div>
+	</div>
+
+</div>
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_footer_content.inc --><div id="footer" role="contentinfo">
+	
+	
+	<!-- FILE: /srv/sequoia/main/data/assets/site/ir_bepress_logo.inc --><div id="bepress">
+
+<a href="https://www.elsevier.com/solutions/digital-commons" title="Elsevier - Digital Commons" >
+	<em>Elsevier - Digital Commons</em>
+</a>
+
+</div>
+<!-- FILE: /srv/sequoia/main/data/assets/site/ir_footer_content.inc (cont) -->
+	<p>
+		<a href="https://scholarsmine.mst.edu" title="Home page" accesskey="1" >Home</a> | 
+		<a href="https://scholarsmine.mst.edu/about.html" title="About" >About</a> | 
+		<a href="https://scholarsmine.mst.edu/faq.html" title="FAQ" >FAQ</a> | 
+		<a href="/cgi/myaccount.cgi?context=masters_theses" title="My Account Page" accesskey="3" >My Account</a> | 
+		<a href="https://scholarsmine.mst.edu/accessibility.html" title="Accessibility Statement" accesskey="0" >Accessibility Statement</a>
+	</p>
+	<p>
+	
+	
+		<a class="secondary-link" href="https://www.elsevier.com/legal/privacy-policy" title="Privacy Policy" >Privacy</a>
+	
+		<a class="secondary-link" href="https://www.elsevier.com/legal/elsevier-website-terms-and-conditions" title="Copyright Policy" >Copyright</a>	
+	</p> 
+	
+</div>
+
+<!-- FILE: /srv/sequoia/main/data/assets/site/footer.pregen (cont) -->
+
+</div>
+</div>
+
+<!-- FILE: /srv/sequoia/main/data/scholarsmine.mst.edu/assets/ir_analytics.inc --><!-- Google tag (gtag.js) --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XFSXQLHM3G"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-XFSXQLHM3G'); 
+</script><!-- FILE: /srv/sequoia/main/data/assets/site/footer.pregen (cont) -->
+
+<script type='text/javascript' src='/assets/scripts/bpbootstrap-20160726.pack.js'></script><script type='text/javascript'>BPBootstrap.init({appendCookie:''})</script></body></html>

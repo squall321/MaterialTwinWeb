@@ -1,0 +1,133 @@
+
+
+#<html><title>Material + Cycles File</title><body>
+#<FORM METHOD="POST" ACTION="http://mme.uwaterloo.ca/cgi-bin/catsaefcalc3">
+#<DL compact> <h3>1. Your Material (Digital-Fitted Curves):</h3>
+#<br><pre><textarea rows=10 cols=90 name="#SAE_Standard_File" >
+#
+# All of the data below was derived, but not copied, from the NASA Tech.
+# Note D-7532.The derivations and additions have been made by the members
+# of the FD&E committee of the SAE. Thus:
+#
+#  Copyright (C) 2003  Fatigue Design & Evaluation Committee of the SAE.
+# This data file is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the license, or (at
+# your option) any later version.
+#  This data file is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTA-
+# BILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public
+# License for more details.
+#  You should have received a copy of the GNU General PUblic License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA. Try also their
+# web site: http://www.gnu.org/copyleft/gpl.html
+#
+# AA 2014-T6 ALUMINUM, LONGITUDINAL
+# NACHTIGALL, NASA TN D-7532,FEB74
+# ASSUMED BHN 135
+#
+#FileType= strain_life
+#DataType= fitted
+#Fn= 160
+#TIMEcol= 0
+#NAME=  Aluminum
+#NAME=  AA2014-T6
+#Stress_units= ksi
+#Strain_units= strain
+#Su=  77.50   #ksi
+#Sy=  70.40   #ksi
+#E=   10791.  #ksi
+#%RA=  0.0
+#BHN= 135.
+#NO. FAT. PTS.=  9
+#Tot Strain      2Nf  Stress  Mean   Pl. Strain   Initial
+#  Amp                 Amp   Stress    Amp        Elastic Mod.
+# Aluminum   AA2014-T6  BHN=  135 Fn=    0
+#          Monotonic Props.       Cyclic Props.
+#ELAS. MOD.= 10791. KSI,   74. GPA     K'        = 146.4 KSI,  1010.MPA
+#YIELD,0.2%=    70. KSI,  485. MPA     N'        = 0.1266
+#ULT. STRG.=    78. KSI,  534. MPA     F. STRG COEF=  128.5 KSI,  886.MPA
+#K       =      0.0 KSI,      0. MPA   F.STRG EXP, b=-0.0921
+#N            = 0.0000                 FAT DUCT COEF=   0.3559
+#RED. IN AREA =  0.0                   F.DUCT EXP, c=-0.7274
+#T. FRAC. STG.=   0.0 KSI,    0. MPA   Exp Cyc Yld  =   67. Ksi, 460.MPA
+#T. FRAC. STR.= 0.000                  Fit Cyc Yld  =   74. Ksi, 512.MPA
+#No. fatigue data points=    9
+#
+# NOTE!! The Following Points are <b>FITTED DATA:</b>
+#UNITS= KSI
+#Stress_Units= KSI
+# Total Strain   2Nf  Stress  Mean   Plastic Strain   Initial
+#    Amp               Amp   Stress      Amp        Elastic Mod.
+   0.36783          1   128.5      0.   0.35593     10791. #Fitted_point
+   0.22614          2   120.5      0.   0.21497     10791. #Fitted_point
+   0.12065          5   110.8      0.   0.11039     10791. #Fitted_point
+   0.07630         10   103.9      0.   0.06667     10791. #Fitted_point
+   0.04930         20    97.5      0.   0.04027     10791. #Fitted_point
+   0.02898         50    89.6      0.   0.02068     10791. #Fitted_point
+   0.02028        100    84.1      0.   0.01249     10791. #Fitted_point
+   0.01485        200    78.9      0.   0.00754     10791. #Fitted_point
+   0.01059        500    72.5      0.   0.00387     10791. #Fitted_point
+   0.00864       1000    68.0      0.   0.00234     10791. #Fitted_point
+   0.00732       2000    63.8      0.   0.00141     10791. #Fitted_point
+   0.00616       5000    58.6      0.   0.00073     10791. #Fitted_point
+   0.00553      10000    55.0      0.   0.00044     10791. #Fitted_point
+   0.00505      20000    51.6      0.   0.00026     10791. #Fitted_point
+   0.00453      50000    47.4      0.   0.00014     10791. #Fitted_point
+   0.00420     100000    44.5      0.   0.00008     10791. #Fitted_point
+   0.00392     200000    41.7      0.   0.00005     10791. #Fitted_point
+   0.00358     500000    38.4      0.   0.00003     10791. #Fitted_point
+   0.00335    1000000    36.0      0.   0.00002     10791. #Fitted_point
+   0.00314    2000000    33.8      0.   0.00001     10791. #Fitted_point
+   0.00288    5000000    31.0      0.   0.00000     10791. #Fitted_point
+   0.00270   10000000    29.1      0.   0.00000     10791. #Fitted_point
+   0.00253   20000000    27.3      0.   0.00000     10791. #Fitted_point
+   0.00233   50000000    25.1      0.   0.00000     10791. #Fitted_point
+   0.00218  100000000    23.5      0.   0.00000     10791. #Fitted_point
+   0.00205  200000000    22.1      0.   0.00000     10791. #Fitted_point
+   0.00188  500000000    20.3      0.   0.00000     10791. #Fitted_point
+   0.00176 1000000000    19.0      0.   0.00000     10791. #Fitted_point
+#</textarea></DL></pre>
+  
+#<h3>2. <input value="1.0" size=20 name="#MagFactor">History Magnification or Multiplication factor</h3> 
+
+
+
+#<h3>3. Enter Elastic Kt*Nominal (or Finite Element)  Stress History (Rainflow counted cycle sets)  Below:</h3> <b>MPa ! </b>
+ 
+<ul>
+  <li>Cycle Set #1 :
+       Smax<input type="TEXT" value="1200" size=6 name="xyz"> 
+       Smin<input type="TEXT" value="-600" size=6 name="xyz"> 
+       Cycles<input type="TEXT" value="1" size=20 name="xyz">
+
+  <li>Cycle Set #2 :
+       Smax<input value="" size=6 name="xyz"> 
+       Smin<input value="" size=6 name="xyz"> 
+       Cycles<input value="" size=20 name="xyz">
+
+  <li>Cycle Set #3 :
+       Smax<input value="" size=6 name="xyz"> 
+       Smin<input value="" size=6 name="xyz"> 
+       Cycles<input value="" size=20 name="xyz">
+
+  <li>Cycle Set #4 :
+       Smax<input value="" size=6 name="xyz"> 
+       Smin<input value="" size=6 name="xyz"> 
+       Cycles<input value="" size=20 name="xyz">
+
+  <li>Cycle Set #5 :
+       Smax<input value="" size=6 name="xyz"> 
+       Smin<input value="" size=6 name="xyz"> 
+       Cycles<input value="" size=20 name="xyz">
+
+  <li>Cycle Set #6 :
+       Smax<input value="" size=6 name="xyz"> 
+       Smin<input value="" size=6 name="xyz"> 
+       Cycles<input value="" size=20 name="xyz">
+</ul>
+
+#<h3> 4. <input type="submit" value=" CALCULATE "> <i>(Page will be submitted to UoWaterloo Website)</i></h3>
+#</FORM><hr> </body></html>
+

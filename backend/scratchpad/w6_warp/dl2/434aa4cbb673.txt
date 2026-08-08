@@ -1,0 +1,2351 @@
+
+
+
+
+
+3127
+
+chemsci
+
+
+Chemical Science
+
+Chem Sci
+
+
+
+Royal Society of Chemistry
+
+
+
+
+PMC9116299
+
+9116299
+
+9116299
+
+35694343
+
+10.1039/d2sc01543a
+
+
+Highly efficient and stable deep-blue OLEDs based on narrowband emitters featuring an orthogonal spiro-configured indolo[3,2,1-
+de
+]acridine structure
+†
+
+
+
+
+
+
+Meng
+
+Guoyun
+
+
+1
+
+
+
+
+Zhang
+
+Dongdong
+
+
+1
+
+✉
+
+
+
+
+Wei
+
+Jinbei
+
+
+2
+
+
+
+
+Zhang
+
+Yuewei
+
+
+1
+
+
+
+
+Huang
+
+Tianyu
+
+
+1
+
+
+
+
+Liu
+
+Ziyang
+
+
+1
+
+
+
+
+Yin
+
+Chen
+
+
+1
+
+
+
+
+Hong
+
+Xiangchen
+
+
+1
+
+
+
+
+Wang
+
+Xiang
+
+
+1
+
+
+
+
+Zeng
+
+Xuan
+
+
+1
+
+
+
+
+Yang
+
+Dezhi
+
+
+3
+
+
+
+
+Ma
+
+Dongge
+
+
+3
+
+
+
+
+Li
+
+Guomeng
+
+
+1
+
+
+
+
+Duan
+
+Lian
+
+
+1
+
+4
+
+✉
+
+
+
+
+1
+Key Lab of Organic Optoelectronics and Molecular Engineering of Ministry of Education, Department of Chemistry, Tsinghua University, Beijing, P. R. China, Email: duanl@mail.tsinghua.edu.cn, Email: ddzhang@mail.tsinghua.edu.cn
+
+
+2
+Beijing National Laboratory for Molecular Sciences, CAS Research/Education Center for Excellence in Molecular Sciences, Institute of Chemistry Chinese Academy of Sciences, Beijing, 100190, P. R. China
+
+
+3
+Institute of Polymer Optoelectronic Materials and Devices, State Key Laboratory of Luminescent Materials and Devices, South China University of Technology, Guangzhou, 510640, P. R. China
+
+
+4
+Center for Flexible Electronics Technology, Tsinghua University, Beijing, 100084, P. R. China
+
+
+
+✉
+
+Corresponding author.
+
+
+
+
+20
+
+4
+
+2022
+
+
+13
+
+19
+
+5622
+
+5622–5630
+
+
+
+
+10
+
+6
+
+2022
+
+
+
+
+
+This journal is © The Royal Society of Chemistry
+
+
+
+
+
+
+
+
+Abstract
+
+High-efficiency and stable deep-blue bottom-emitting organic light-emitting diodes with Commission Internationale de l'Eclairage 
+y
+ coordinates (CIE
+
+y
+
+s) < 0.08 remain exclusive in the literature owing to the high excited-state energy of the emitters. Here, we propose the utilization of narrowband emitters to lower the excited-state energy for stable deep-blue devices by taking advantage of their high color purity. Two proof-of-concept deep-blue emitters with nitrogen-containing spiro-configured polycyclic frameworks are thereafter developed to introduce a multi-resonance effect for narrow emissions and sterically orthogonal configurations for alleviated molecular interactions. Both emitters show bright ultrapure deep-blue emissions with an extremely small full-width-at-half-maxima of only 18–19 nm, which can be maintained even in heavily doped films. Small CIE
+
+y
+
+s of 0.054 and 0.066 are therefore measured from the corresponding electroluminescence devices with peak energies of only 2.77 eV (448 nm) and 2.74 eV (453 nm), accounting for the remarkably long LT80s (lifetime to 80% of the initial luminance) of 18 900 and 43 470 hours at 100 cd m
+−2
+, respectively. Furthermore, by adopting a thermally activated delayed fluorescence sensitizer, impressive maximum external quantum efficiencies of 25% and 31% are recorded respectively, representing state-of-the-art performances for deep-blue devices.
+
+
+
+An advanced concept of using ultra-narrowband emitters to improve the stability of deep-blue OLEDs is proposed and two proof-of-concept deep-blue emitters are developed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+status
+
+released
+
+
+
+display-pdf
+
+yes
+
+
+
+is-olf
+
+no
+
+
+
+is-manuscript
+
+no
+
+
+
+is-preprint
+
+no
+
+
+
+is-journal-matter
+
+no
+
+
+
+is-scanned
+
+no
+
+
+
+is-retracted
+
+no
+
+
+
+
+
+
+Received 2022 Mar 17; Accepted 2022 Apr 6; Collection date 2022 May 18.
+
+
+
+
+
+
+Introduction
+
+Organic light-emitting diodes (OLEDs) have been successfully commercialized owing to the rapid development of organic semiconductors and device technologies. However, robust blue OLEDs with high efficiency and stability are still an ongoing pursuit as their performances largely lag behind the green and red ones.
+
+1
+
+ Substantial efforts thereby have been devoted to improving the performances of blue OLEDs. Recently, with conceptual advancements in molecular design, sky-blue OLEDs based on materials with phosphorescence or thermally activated delayed fluorescence (TADF) as emitters or sensitizers for fluorophores have witnessed rapid development in both efficiencies and lifetimes.
+
+1
+b
+,2
+
+ Blue emitters with hybridized local and charge-transfer (HLCT) states have also made great achievements in device efficiencies utilizing the spin-flip transition from a higher triplet state (T
+
+n
+
+, 
+n
+ ≥ 2) to a singlet state.
+
+3
+
+ Despite these efforts, the most successful are still the conventional fluorophores in the view of practical applications as they are solely the ones that are being adopted in commercialized devices. And the blue OLEDs based on them have also made significant improvement in efficiency by virtue of triplet–triplet annihilation (TTA) to recycle triplet excitons.
+
+4
+
+
+
+For commercialized displays, the National Television Standards Committee (NTSC) recommended Commission Internationale de l'Eclairage coordinates of (0.14, 0.08) for a blue point in 1954. Nowadays, demands have emerged for cutting-edge ultra-high-definition (UHD) displays, which brings new requirements for blue OLEDs. In 2012, the International Telecommunication Union Radiocommunication Sector (ITUR) recommended a new color gamut standard for UHD displays, referred to as BT.2020, which required blue CIE coordinates of (0.131, 0.046).
+
+5
+
+ To satisfy the above demands, numerous deep-blue emitters with a CIE
+
+y
+
+ < 0.08 have been developed, including conventional fluorophores,
+
+6
+
+ TADF emitters
+
+7
+
+ and phosphors,
+
+2
+b
+,
+d
+,8
+
+ which have afforded significant efficiency improvement with maximum external quantum efficiencies (EQEs) of over 25%. Nevertheless, to the best of our knowledge, the stabilities of bottom-emitting deep-blue OLEDs with a CIE
+
+y
+
+ < 0.08 have not been reported yet, even for devices with conventional fluorophores.
+
+9
+
+ One of the main reasons should be attributed to the high excited-state energy of deep-blue emitters as an extremely short emission wavelength is required to satisfy the CIE
+
+y
+
+ requirements. Commonly, the onset emission wavelengths of the reported deep-blue emitters are shorter than 400 nm, corresponding to an energy of over 3.10 eV. Such high excited energies would significantly increase the possibility of molecular degradation and thus go against good long-term operation stability. The realization of stable deep-blue devices therefore faces formidable challenges and needs new conceptual advancements in molecular design.
+
+10
+
+
+
+With this in mind, we presented a strategical concept of utilizing emitters with ultra-narrowband emission to lower the energy of the excited state for good operation stabilities of deep-blue OLEDs by taking advantage of their high color purity. As shown in 
+Scheme 1
+, bearing the same emission peaks, the narrower the emission band is, the smaller the CIE
+
+y
+
+ value that can be obtained. This character allows an emitter bearing a small full-width-at-half-maxima (FWHM) to achieve the target CIE
+
+y
+
+ with relatively red-shifted emission peaks compared with the one possessing a large FWHM. Both significantly reduced peaking and onset energy can therefore be obtained, which means a much lower excited state energy and thus naturally facilitating good long-term stabilities. Based on this, two proof-of-concept deep-blue emitters with nitrogen-containing spiro-configured polycyclic frameworks were developed. These skeletons not only endow a multi-resonance (MR) effect for extremely narrowband deep-blue emissions, but also possess a sterically orthogonal configuration to alleviate molecular interactions for an eliminated concentration quenching effect. Both emitters afforded an extremely narrowband of only ∼18 nm and photoluminescence quantum yields (PLQYs) of >80% in toluene. More importantly, in doped films or even pristine films, small FWHMs of ∼19 nm were maintained due to the reduced molecular interactions. The corresponding electroluminescent devices realized deep-blue emission colors with CIE
+
+y
+
+ of 0.054 and 0.066 that is close to the BT.2020 blue point with only moderately high emission-peak energies of 2.77 eV (448 nm) and 2.74 eV (453 nm), respectively, owing to the intrinsically small FWHMs. What is truly remarkable is that long LT80s (lifetime to 80% of the initial luminance) of ∼100 and ∼230 hours at 2000 cd m
+−2
+ were obtained, corresponding to 18 900 and 43 470 hours at 100 cd m
+−2
+. To the best of our knowledge, these values represented the longest one ever reported for deep-blue bottom-emitting OLEDs, evidencing the concept proposed above. Moreover, ultrahigh EQE
+max
+s of 25% and 31% were recorded for these two emitters when adopting TADF as a sensitizer, also representing state-of-the-art performances for deep-blue OLEDs. This work not only proposes the advanced concept of breaking the limitation on the stability of deep-blue OLEDs by narrowing the bandwidth of emission but also demonstrates the strategic implementation of two highly efficient and stable N-containing MR emitters with the ability to suppress molecular interactions, providing a new paradigm for deep-blue emitters.
+
+
+
+Scheme 1
+
+
+(a) The chromaticity coordinates of the blue point for NTSC and BT.2020. (b and c) The relationship between the CIE
+
+y
+
+ and onset energy with FWHMs for stable deep-blue OLEDs.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Results and discussion
+
+
+Molecular design and theoretical calculations
+
+This concept of improving the stability of deep-blue devices strongly relies on ultra-narrowband emitters. Multi-resonance (MR) fluorophores with frontier energy levels being located alternatively on single atoms of a rigid π-conjugation scaffold have proven to be effective for high purity, narrowband emissions by minimizing bonding/antibonding characters and suppressing vibrational coupling and relaxation.
+
+11
+
+ One design strategy for MR emitters is embedding heteroatoms with opposite resonance effects into polycyclic aromatic hydrocarbons (PAHs), including boron/nitrogen (B/N),
+
+2
+f
+,11
+a
+,12
+
+ boron/oxygen (B/O),
+
+7
+a
+,13
+
+ nitrogen/carbonyl (N/C
+
+
+
+
+Created by potrace 1.16, written by Peter Selinger 2001-2019
+
+
+
+
+
+
+
+]]>
+
+O),
+
+14
+
+
+etc.
+ Nevertheless, owing to their charge transfer (CT) characteristics, these MR emitters face formidable challenges in realizing deep-blue emission, let alone ultra-narrowband emission with a FWHM < 20 nm. Alternatively, easily accessible nitrogen (N)-atom embedded PAHs (N-PAHs) such as indolocarbazole (ICz) fusions are more favorable for deep-blue emission due to their quite limited CT characteristics.
+
+15
+
+ More importantly, the narrowest spectrum having been reported until now was based on N-PAH derivatives.
+
+15
+b
+
+
+ Therefore, in this manuscript, the N-PAH skeleton was adopted. Another unignorable fact is that though the intrinsic small FWHMs in solution, the inevitable intermolecular aggregation and packing between host-dopant and dopant themselves arising from the rigid plane structures of MR emitters would always lead to spectral broadening and emission quenching, particularly at a high dopant concentration, which greatly sacrifices the color purity.
+
+16
+
+ This has been a commonly observed phenomenon for MR emitters as summarized in Scheme S1,
+†
+ which compares the wavelength and FWHMs of photoluminescence (PL) and electroluminescence (EL) spectra for the representative blue MR emitters. Therefore, to obtain high color-purity deep-blue emission under EL excitation, the molecular interactions in the doped films must be suppressed.
+
+17
+
+ With this in mind, two emitters based on a spiro-configured indolo[3,2,1-
+de
+]acridine fusion structure were developed and the structure of the targeted molecules, 2′,12′-dimethyldispiro[spirofluorene-9,10′-dibenzo[2,3:5,6]indolizino[1,8-ab]indolo[3,2,1-
+de
+]acridine-20′,9′′-spirofluorene] (pSFIAc1) and 8′,18′-di-
+tert
+-butyl-2′,12′-dimethyldispiro[fluorene-9,10′-dibenzo[2,3:5,6]indolizino[1,8-
+ab
+]indolo[3,2,1-de]acridine-20′, 9′′-fluorene] (pSFIAc2) are shown in 
+Fig. 1a
+. The two emitters were developed, on one hand, to inherit the framework of N-PAH type MR emitters for ultra-narrowband deep-blue emission. On the other hand, the spiro-structure can introduce an orthogonal configuration to alleviate potential intermolecular packing to maintain the intrinsic FWHMs in doped films of the electroluminescent devices. For pSFIAc2, incorporation of bulky 
+tert
+-butyl groups on the indolo[3,2,1-de]acridine fusion structure can effectively increase the intermolecular distance with nearby molecules and increase the PLQY.
+
+
+
+Fig. 1
+
+
+(a) Synthesis procedure and structure of pSFIAc1 and pSFIAc2. (b) The calculated distribution of HOMOs and LUMOs (isovalue = 0.03), oscillator strength (f) and energy gap. (c) Schematic potential energy diagram of the single point energies (
+E
+) and reorganization energy (
+λ
+). (d) Single-crystal X-ray structure of pSFIAc1. One molecule as an ORTEP drawing with a probability of ellipsoids of 50% and a side view. Hydrogen atoms are omitted for clarity.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+To understand the electronic and physical characteristics of the designed emitters, density functional theory (DFT) and time-dependent-DFT (TD-DFT) calculations using the B3LYP/6-31G(d) method were carried out. As shown in 
+Fig. 1b
+, both emitters exhibit a remarkable atomically separated frontier molecular orbital (FMO) distribution on the skeletons, validating their MR effect. It is noted that the short-range charge transfers were observed between 
+N
+-substituted methylbenzene and the central backbone. Moreover, the HOMO and LUMO distribution of the two emitters displayed π-orbitals with bonding/antibonding characters at the centre of the phenyl rings, which suggest the strong coupling of electrons on 
+para
+-positioned N or C atoms, similar to the previous reports.
+
+18
+
+ Through these hybridized orbitals, extremely small reorganization energies (
+λ
+) of 0.206 and 0.187 eV were obtained for pSFIAc1 and pSFIAc2, respectively (Fig. S1
+†
+), smaller than that of pICz (0.239 eV).
+
+19
+
+ It is expected from the molecular orbital distribution and reorganization energy that the vibronic coupling and relaxation of the molecules would be suppressed. As shown in Fig. S1,
+†
+ emission spectra simulated by Franck–Condon analysis on the S
+1
+–S
+0
+ transitions were also obtained, which exhibited significantly narrow emission bandwidths and maximum emissions of 17 nm and 454 nm for pSFIAc1, and 14 nm and 458 nm for pSFIAc2, respectively, evidencing ultra-narrowband deep-blue emission for these two compounds. Moreover, both pSFIAc1 and pSFIAc2 exhibited a significantly large oscillator strength (
+f
+) of >0.1, benefitting from a fast radiative decay process. The HOMO/LUMO energy values were calculated to be −4.70/−1.18 eV for pSFIAc1 and −4.63/−1.17 eV for pSFIAc2, respectively. The HOMO energy level of pSFIAc2 became shallower compared to pSFIAc1 due to 
+tert
+-butyl substitution on the indolo[3,2,1-
+de
+]acridine fusion structure. Thus, we can expect that pSFIAc2 will show red-shifted emission compared to pSFIAc1. Notably, the calculated singlet (S
+1
+) and triplet (T
+1
+) energy differences exhibit a non-negligibly large Δ
+E
+
+ST
+ value of ∼0.48 eV for both emitters, an indication that the upconversion process from the T
+1
+ to the S
+1
+ state is intrinsically hindered. The details of the TD-DFT data are provided in the ESI.
+†
+
+
+
+
+Material synthesis and the single crystal structure
+
+The synthesis protocols for the nitrogen-containing emitters are described in the ESI
+†
+ and obtained in a two-step reaction from commercially available starting materials in good yields, involving a sequence of nucleophilic substitution and tandem nucleophilic addition/acid-catalyzed annulation reactions. The precise chemical structures of pSFIAc1 and pSFIAc2 were fully characterized using NMR spectroscopy, high-resolution mass spectrometry, and elemental analysis (see the ESI
+†
+). In addition, a single crystal of pSFIAc1 suitable for X-ray diffraction analysis was also obtained by vacuum sublimation. As shown in 
+Fig. 1d
+, the anticipated rigid plane conformation of a hexagonal ring fused backbone was validated in the solid-state crystal structure. Obviously, the two fluorene groups attached to the sp
+3
+ C atoms are aligned nearly orthogonally (torsion angles: 70.78–89.10°) to the hexagonal ring fused backbone, which is likely to reduce the impact of possible π–π interactions in the packing patterns. Thus, it can be observed that only a partial π–π stacking involves the head phenyl rings of the backbone with a distance from 3.488 to 3.621 Å. Furthermore, pSFIAc1 displays an extended one-dimensional structure in the crystal lattice 
+via
+ C–H⋯π interactions with distances between 2.765 and 2.892 Å (Fig. S2
+†
+). The orthogonal packing structures can not only alleviate the intramolecular nonradiative decay but also restrict the intermolecular interactions, which effectively suppresses molecular aggregation and luminescence concentration quenching, contributing to the high EL efficiency.
+
+
+
+Thermal, electrochemical and photophysical properties
+
+The thermal stability and electrochemical properties of pSFIAc1 and pSFIAc2 were investigated by thermal analysis and cyclic voltammetry (CV) measurement (Fig. S3–S5
+†
+), respectively. It can be observed that both two emitters displayed excellent thermal properties with 5% weight-loss decomposition temperatures of 382 °C (pSFIAc1) and 474 °C (pSFIAc2), respectively. The glass transitions were not observed during differential scanning calorimetry analysis. Based on the electrochemical data, the estimated HOMO and LUMO energy levels were −5.58 and −2.37 eV for pSFIAc1, and −5.49 and −2.32 eV for pSFIAc2, respectively. Notably, pSFIAc2 showed a 0.09 eV shallower HOMO energy level and a 0.05 eV deeper LUMO energy level than pSFIAc1, leading to a reduced HOMO–LUMO energy gap.
+
+The ultraviolet-visible (UV-vis) absorption and PL spectra of the two emitters were measured in toluene solution and are shown in 
+Fig. 2a
+ and 
+Table 1
+. Thus, two emitters showed intense absorption bands below 370 nm, attributed to the π–π* transition of indolo[3,2,1-
+de
+]acridine backbones, while the broad absorption bands between 370 and 450 nm should be caused by the n–π* transitions of fluorene fused N-phenylcarbazole.
+
+7
+d
+,20
+
+ In the fluorescence spectra, the sharp emission bands with peak wavelengths (
+λ
+
+em
+) at 443 nm (
+Φ
+
+PL
+ = 84%) and 450 nm (
+Φ
+
+PL
+ = 88%) were recorded for pSFIAc1 and pSFIAc2, respectively. Interestingly, compared to the reported ICz-based MR emitters,
+
+7
+d
+,15
+b
+,19
+
+ both emitters showed a narrowed FWHM of 18 nm (0.12 eV) and a small Stokes shift (10 nm), demonstrating a minor vibronic coupling between the ground state and excited state as well as the rigid π-conjugated framework. The weak shoulder peaks that appeared in the region of low energy are assigned to the vibronic split band. In addition, only slight changes in emission spectra are observed upon modulation of the solvent polarity (Fig. S6
+†
+), which can be assigned to the more localized FMO distributions. The transient PL decay curves of the two emitters were also measured in degassed toluene solution as shown in Fig. S7,
+†
+ showing only a single exponential component with fluorescence lifetimes of 7.7 ns for pSFIAc1 and 8.0 ns for pSFIAc2, and high radiative decay rates (
+k
+
+r
+s) of 10.9 × 10
+7
+ s
+−1
+ and 11.0 × 10
+7
+ s
+−1
+ were obtained, respectively. The energy differences (Δ
+E
+
+ST
+s) between the singlet and triplet states of the two emitters were calculated from the peaks of the fluorescence and phosphorescence spectra at 298 K and 77 K, respectively, which are estimated to be 0.29–0.31 eV. These results validate the effectiveness of these two compounds as ultra-narrowband deep-blue emitters, which is in line with expectations of molecular design purposes.
+
+
+
+Fig. 2
+
+
+(a) The absorption (left axis), fluorescence and phosphorescence (right axis) spectra of pSFIAc1 and pSFIAc2 in toluene (10
+−5
+ M). (b and c) The PL spectra and transient PL (inset) curves with different concentrations in α,β-ADN: 
+x
+ wt% MR emitters (
+x
+ = 1, 3, 5, 10, 15). (d) The PLQYs and FWHMs of the doped films with different concentrations in α,β-ADN: 
+x
+ wt% MR emitters (
+x
+ = 1, 3, 5, 10, 15).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Photophysical properties of pSFIAc1 and pSFIAc2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Compound
+
+
+
+λ
+
+
+abs
+
+
+
+a
+
+ [nm], 298 K
+
+
+
+λ
+
+
+PL
+
+
+
+a
+
+ [nm], 298 K
+
+Stokes shift
+
+a
+
+ [nm]
+
+FWHM
+
+b
+
+ [nm eV
+−1
+]
+
+
+
+Φ
+
+
+PL
+
+
+
+c
+
+ [%], 298 K
+
+
+
+E
+
+
+S1
+/
+E
+
+T1
+
+
+d
+
+ [eV]
+
+Δ
+E
+
+ST
+
+
+d
+
+ [eV]
+
+
+
+τ
+
+
+PF
+
+
+
+e
+
+ [ns]
+
+
+
+k
+
+
+r
+
+
+
+f
+
+ [10
+7
+ s
+−1
+]
+
+HOMO/LUMO
+
+g
+
+ [eV]
+
+
+
+
+
+pSFIAc1
+
+284, 311, 327, 344, 413, 433
+
+443
+
+10
+
+18/0.12
+
+84
+
+2.80/2.51
+
+0.29
+
+7.7
+
+10.9
+
+−5.58/−2.37
+
+
+
+pSFIAc2
+
+284, 310, 331, 348, 416, 440
+
+450
+
+10
+
+18/0.12
+
+88
+
+2.76/2.45
+
+0.31
+
+8.0
+
+11.0
+
+−5.49/−2.32
+
+
+
+
+
+
+a
+
+Measured in toluene (10
+−5
+ M) at room temperature.
+
+
+
+b
+
+Full-width at half-maximum of the PL spectrum given in wavelength and energy.
+
+
+
+c
+
+Absolute PL quantum yield evaluated using an integrating sphere.
+
+
+
+d
+
+Lowest excited singlet (
+E
+
+S
+1
+
+) and triplet (
+E
+
+T
+1
+
+) energies estimated from peaks of the fluorescence and phosphorescence spectra recorded at 298 K and 77 K, respectively. Δ
+E
+
+ST
+ = 
+E
+
+S
+1
+
+ − 
+E
+
+T
+1
+
+.
+
+
+
+e
+
+Emission lifetime of fluorescence.
+
+
+
+f
+
+Rate constant of fluorescence radiative decay, 
+K
+
+r
+ = 
+Φ
+
+PF
+/
+τ
+
+PF
+.
+
+
+
+g
+
+The HOMO and LUMO energies were determined according to 
+E
+
+HOMO/LUMO
+ = −(
+E
+
+ox
+/
+E
+
+red
+ + 4.8) eV.
+
+
+
+
+We further evaluated the performances of both emitters in suppressing molecular interactions by dispersing them into a host matrix, 9-(naphthalen-1-yl)-10-(naphthalen-2-yl)anthracene (α,β-ADN), which has been applied widely for P-type delayed fluorescence OLEDs.
+
+21
+
+ Interestingly, in a wide range of doping concentrations (1, 3, 5, 10, 15 wt%), identical deep-blue emissions peaking at ∼448 and 455 nm were observed for pSFIAc1 and pSFIAc2, respectively, with a high 
+Φ
+
+PL
+ ranging from 72% to 83% (
+Fig. 2
+). Particularly, both emitters possessed extremely narrowband spectra (FWHM = ∼19 nm or ∼0.12 eV) and showed intrinsically luminescence properties as they were in diluted solution. These behaviors not only suggest efficient energy transfer from the host to dopant but also make clear that the two emitters can greatly suppress molecular interactions in doped films. The reason should be assigned to the steric hindrance effect introduced by the orthogonal spiro-configuration, which prevents the intermolecular aggregation and packing between the host-dopant and dopant themselves to keep the essential emission bandwidth and photo-luminescence efficiency. The transient PL decay curves of all the films also showed single exponential prompt fluorescence decays. Thus, the radiative decay rate constants (
+k
+
+r
+s) of these films were calculated to be approximately 10
+8
+ s
+−1
+ orders of magnitude (Tables S5 and S6
+†
+). We also accessed the PL behaviors of pSFIAc1 and pSFIAc2 doped in other common wide energy gap compounds, such as 3,3-di(9
+H
+-carbazol-9-yl)biphenyl (mCBP) and bis[2-(diphenylphosphino)phenyl] ether oxide (DPEPO). Similarly, identical narrowband emissions and high 
+Φ
+
+PL
+s were recorded for these films with increased dopant concentrations (Fig. S8 and S9
+†
+). Particularly, due to the strong steric effect of diphenylphosphine oxide groups of DPEPO, the 
+Φ
+
+PL
+s of the two emitters in DPEPO can maintain high values of 87–80% when the doping concentration increased from 1 wt% to 15 wt%. These results further evidence the ability of such an orthogonal structure to prevent molecular interactions. It also deserves to be mentioned that even in pristine films, small FWHMs of ∼20 nm can also be maintained for both emitters with only quite weak excimer emission in the long-wavelength region, suggesting that intermolecular packing can be suppressed even in a neat film (Fig. S10
+†
+). This result suggests that the strategic introduction of orthogonal fluorene groups into the indolo[3,2,1-
+de
+]acridine fusion structure enables intriguing photoelectric properties especially in constructing high color purity MR emitters. How to suppress the molecular interactions for MR emitters has been an exigent task in this field, and the strategy here may provide an effective solution.
+
+
+
+Efficiency and stability of deep-blue P-type OLEDs
+
+Benefitting from the excellent photophysical properties of these deep-blue emitters, OLED devices were fabricated using an optimized device structure of indium tin oxide (ITO)/1,4,5,8,9,11-hexaazatriphenylene-hexacarbonitrile (HATCN, 5 nm)/4,4′-
+N
+,
+N
+′-bis[
+N
+-(1-naphthyl)-
+N
+-phenylamino]biphenyl (NPB, 30 nm)/9,9′-diphenyl-9
+H
+,9′
+H
+-3,3′-bicarbazole (BCzPh, 10 nm)/α,β-ADN: 
+x
+ wt% MR emitters (30 nm)/4,6-bis(3-(9
+H
+-carbazol-9-yl)phenyl)pyrimidine (CzPhPy, 10 nm)/9,10-bis(6-phenylpyridin-3-yl)anthracene (DPPyA, 20 nm)/LiF (0.5 nm)/Al (150 nm). This device structure was chosen as the OLED industry still relies on P-type delayed fluorescence (also known as TTA
+
+4
+a
+
+
+) to provide blue emission. In the emission layer, the MR emitters were co-deposited with the α,β-ADN host at various doping concentrations (
+x
+ = 1, 3, 5, 10, 15 wt%, devices A1–A5 for pSFIAc1 and devices B1–B5 for pSFIAc2) to study the ability of this emitter in suppressing molecular packing. The energy level diagram and the molecular structures of the materials used in the devices are shown in 
+Fig. 3
+ and S11.
+†
+ The detailed device performances are depicted in the ESI
+†
+ and summarized in 
+Table 2
+.
+
+
+
+Fig. 3
+
+
+(a) Device configuration with an energy-level diagram and (b) the molecular structures of the materials used in this device. (c and d) The EL spectra of the devices, and (e) EQE 
+versus
+ luminance curves of devices A1 and B1. (f) Luminescence and current density 
+versus
+ voltage. (g) The EQE
+max
+, FWHMs and CIE
+
+y
+
+-dopant concentration relationships in devices. (h) The device luminance 
+versus
+ lifetime curves measured at 2000 cd m
+−2
+.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Summary of the device performances
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Device type
+
+
+
+x
+ wt%
+
+
+
+λ
+
+
+EL
+
+
+
+a
+
+ [nm]
+
+FWHM 
+
+b
+
+ [nm eV
+−1
+]
+
+
+
+V
+
+
+on
+
+
+
+c
+
+ [V]
+
+
+
+L
+
+
+max
+
+
+
+d
+
+ [cd m
+−2
+]
+
+PE
+max
+
+
+e
+
+ [lm W
+−1
+]
+
+EQE
+max
+
+
+f
+
+ [%]
+
+CIE (
+x
+, 
+y
+)
+
+a
+
+
+
+
+
+
+
+Device A1
+
+1.0
+
+448
+
+19.0 (0.12 eV)
+
+2.6
+
+14 040
+
+4.6/2.9/2.0
+
+8.9/8.2/7.3
+
+(0.147, 0.054)
+
+
+
+Device B1
+
+1.0
+
+453
+
+19.0 (0.12 eV)
+
+2.7
+
+16 250
+
+5.2/4.0/3.0
+
+9.1/8.7/8.2
+
+(0.142, 0.066)
+
+
+
+Device C
+
+1.0
+
+453
+
+23.0 (0.13 eV)
+
+2.9
+
+10 660
+
+3.7/2.6/1.8
+
+8.4/8.0/7.2
+
+(0.142, 0.054)
+
+
+
+Device A6
+
+1.0
+
+446
+
+21.0 (0.13 eV)
+
+3.4
+
+2002
+
+14.9/1.2/0.6
+
+24.9/4.1/3.2
+
+(0.148, 0.058)
+
+
+
+Device B6
+
+1.0
+
+451
+
+21.0 (0.13 eV)
+
+3.5
+
+2253
+
+23.0/3.0/1.4
+
+31.4/5.6/4.3
+
+(0.146, 0.078)
+
+
+
+
+
+
+a
+
+Value recorded at a luminance around 1000 cd cm
+−2
+.
+
+
+
+b
+
+Full width at half maximum of electroluminescence.
+
+
+
+c
+
+Turn-on voltage at a luminance of 1 cd m
+−2
+.
+
+
+
+d
+
+Maximum luminescence (
+L
+).
+
+
+
+e
+
+Maximum power efficiency (PE), value at 1000 and 5000 cd cm
+−2
+ for devices A1, B1 and C, and maximum PE, value at 100 and 1000 cd cm
+−2
+ for devices A6 and B6.
+
+
+
+f
+
+Maximum EQE, value at 1000 and 5000 cd cm
+−2
+ for devices A1, B1 and C, and maximum EQE, value at 100 and 1000 cd cm
+−2
+ for devices A6 and B6.
+
+
+
+
+
+
+Fig. 3c and d
+ show the EL spectra of all these devices. It is interesting to note that in the dopant range of 1–15 wt%, all devices showed the same EL spectra with emission peaks of 448 and 453 nm for pSFIAc1 and pSFIAc2, and both small FWHMs of ∼19 nm (0.12 eV) as shown in 
+Fig. 3g
+. The independence of emission spectra on the concentration can be assigned to the alleviated molecular interactions owing to the orthogonal spiro-structure of these emitters as discussed above. Even non-doped devices using neat films as the emitting layer (Fig. S12 and S13
+†
+) also exhibit bright deep blue EL at 448 and 453 nm with both small FWHMs ∼20 nm for pSFIAc1 and pSFIAc2, respectively, in agreement with the PL results. It should be emphasized is that though the corresponding moderately high emission-peak energies of 2.77 eV and 2.74 eV and CIE coordinates of (0.148, 0.054) and (0.142, 0.066) were obtained for pSFIAc1 and pSFIAc2, respectively, being close to the BT.2020 standard (0.131, 0.046) without using microcavities or color filters as shown in 
+Fig. 3e
+. Particularly, the onset wavelengths of pSFIAc1 and pSFIAc2 were only 428 nm and 432 nm, corresponding to the energies of 2.90 eV and 2.87 eV, respectively. These onset energies were significantly lower than those of previously reported emitters with similar colors but much wider emission bands.
+
+The device EQE–luminance characteristics are shown in 
+Fig. 3f
+. Notably, both EQE
+max
+s of ∼9.0% were obtained for the devices A1 and B1 with a maximum brightness of 14 040 and 16 250 cd m
+−2
+, respectively. It is also worth noting that the efficiency roll-off of the devices was small with the EQE
+max
+s remaining at 8.0% and 7.1% for device A1 and 8.7% and 8.2% for device B1 at a brightness of 1000 and 5000 cd m
+−2
+, respectively. These EQEs greatly exceed the theoretical upper limit of conventional fluorescent OLEDs and should partly benefit from the TTA mechanism based delayed fluorescence owing to the adoption of the anthracene-based host material. To prove this, the voltage-dependent EL transient curves of devices A1 and B1 were measured as shown in Fig. S18.
+†
+ An obvious EL delayed component in the order of microseconds can be observed after switching off the electrical pulse, confirming the contribution of the TTA process in the devices. The delayed emission ratios of approximately 26% for the pSFIAc1- and pSFIAc2-based devices correspond to the total radiative exciton ratios of about 35% (=[0.26/(1 − delayed emission ratio)]).
+
+4
+b
+
+
+ Meanwhile, with the voltages being increased from 4 V to 6 V, shorter delayed lifetimes were observed, which indicated the accelerated TTA process from the high triplet density at high current densities, further evidencing this emission mechanism. We also provided the dependence of EQEs on the dopant concentration in 
+Fig. 3g
+ and found only slightly varied EQE
+max
+ values (9.1–7.4%) in a wide range of dopant concentrations (1–15 wt%) for both series of devices, benefiting from the greatly relieved concentration caused emission quenching issues due to the orthogonal structure of both MR emitters as evidenced by the slightly varied 
+Φ
+
+PL
+s of these doped films.
+
+We further evaluated the EL operational stability of pSFIAc1 and pSFIAc2 in the 1 wt% doped devices at a constant current density with an initial luminance of 2000 cd m
+−2
+. As shown in 
+Fig. 3h
+, remarkably long LT80s (lifetime to 80% of the initial luminance) of 96 and 230 hours were realized for device A1 and device B1, respectively. With a degradation acceleration factor (
+n
+) of 1.75, the extrapolated LT80s of these devices at an initial luminance of 100 cd m
+−2
+ can be calculated to be 18 900 and 43 470 hours for devices A1 and B1, respectively. The relatively longer lifetime of pSFIAc2 in the device compared to pSFIAc1 should arise from its red-shifted emission. To the best of our knowledge, these lifetimes represent the record-long values for deep-blue OLEDs with a CIE
+
+y
+
+ < 0.1. The good stabilities should arise from the high color-purity of these emitters. As aforementioned, benefiting from their ultra-narrowband emissions, both emitters feature reduced onset- and peak-energies, naturally facilitating alleviation of the degradation possibility of molecules in excited states and finally accounting for the remarkably long lifetimes. To further evaluate the stability of our compounds, we synthesised a B/N-type MR TADF emitter with 2,12-di-
+tert
+-butyl-5,9-bis(4-(
+tert
+-butyl)phenyl)-7-(3,6-di-
+tert
+-butyl-9
+H
+-carbazol-9-yl)-5,9-dihydro-5,9-diaza-13
+b
+-boranaphtho[3,2,1-
+de
+]anthracene (TBN-TPA)
+
+12
+c
+
+
+ as the reference emitter for comparison (Fig. S20
+†
+). The contrast device C with TBN-TPA as the emitter afforded deep-blue EL spectra with an emission peak of 453 nm, an FWHM of 23 nm (0.13 eV) and CIE coordinates of (0.142, 0.054) simultaneously (Fig. S21
+†
+ and 
+Table 2
+). However, device C only exhibited an LT80 of 70 hours at an initial luminance of 2000 cd m
+−2
+, much shorter than the device with pSFIAc1 as the emitter despite their same CIE
+
+y
+
+ values (
+Fig. 3h
+). One plausible reason can be ascribed to the relatively longer lifetimes of the delayed component, resulting in more significant exciton quenching at a high current density (Fig. S18
+†
+), which has been taken as the main reason for device degradation.
+
+22
+
+ It is also speculated that the orthogonal spiro-configured structure of pSFIAc1 should also benefit device stability by alleviating molecular interactions. Though numerous studies on the stability issues of B/N-type MR emitters have been carried out, this is the first time that the stability of N-embedded MR emitters was evaluated as far as we know. And the results here reveal good long-term operation stability of such emitters, which will arouse interest from both academic and industrial fields.
+
+
+
+TSF-OLED device performances
+
+Besides the TTA mechanism, an alternative strategy to assist the recycling of triplet excitons in fluorescent devices is the so-called TADF-sensitized fluorescence (TSF), whereby a TADF material is adopted as a sensitizer for fluorophores.
+
+23
+
+ To unlock the full potential of the device efficiencies of pSFIAc1 and pSFIAc2, we thereby constructed TSF based devices. Given that an efficient Förster energy transfer (FET) between the sensitizer and fluorophore is the prerequisite to promote the TSF process, a deep-blue TADF compound, m4TCzPhBN
+
+18
+a
+
+
+ was chosen here as a sensitizer for both the emitters. Previous studies have revealed the blue TADF emission of m4TCzPhBN, making it a potential TADF sensitizer for deep-blue emitters.
+
+
+
+Fig. 4a
+ shows the significant overlap between the emission spectra of m4TCzPhBN and the absorption spectra of both the emitters. Large Förster energy transfer radii of 2.9 and 3.0 nm were thereby recorded for m4TCzPhBN → pSFIAc1 and m4TCzPhBN → pSFIAc2, respectively. Furthermore, both PL spectra of mCPB: 30 wt% m4TCzPhBN: 1.0 wt% emitter-doped films exhibited narrow deep-blue emission with identical FWHMs of 21 nm and high 
+Φ
+
+PL
+s of >80%, which nearly coincide with that of the mCPB: 1.0 wt% emitter-doped films, suggesting complete energy transfer from the sensitizer to dopants (Fig. S22
+†
+). We also measured the PL decay curves of these doped films, unveiling clearly delayed components from dopant emission in the mCPB: 30 wt% m4TCzPhBN: 1.0 wt% emitter-doped films (Fig. S23
+†
+). In contrast, the PL transient decay curve of mCBP: 1.0 wt% emitter-doped films only exhibited a single exponential component. These results suggest that a part of the dopant emission originates by energy transfer from the up-converted triplets of the sensitizer in the tri-component films 
+via
+ the TSF process.
+
+22
+
+
+
+
+
+Fig. 4
+
+
+(a) The absorption spectra of MR emitters and the PL spectra of the doped films of mCBP: 30 wt% m4TCzPhBN; mCBP: 30 wt% m4TCzPhBN: 1 wt% MR emitters. (b) The EL spectra of devices were recorded at 1000 cd m
+−2
+. (c) The EQE and PE 
+versus
+ luminance curves of the devices. (d) Summary of the EQE 
+versus
+ FWHMs and CIE
+
+y
+
+ color coordinates plot of deep-blue materials reported in the literature. The red star represents the results of the present work.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Then, the TSF devices were constructed with structures of ITO/TAPC (30 nm)/TCTA (5 nm)/mCP (5 nm)/EMLs (30 nm)/PPF (5 nm)/Bphen (30 nm)/LiF (0.5 nm)/Al (150 nm), where EMLs stand for mCPB: 30 wt% m4TCzPhBN: 
+x
+ wt% pSFIAc1 (
+x
+ = 1, 2, 3 wt%, devices A6–A8) and mCPB: 30 wt% m4TCzPhBN: 
+x
+ wt% pSFIAc2 (
+x
+ = 1, 2, 3 wt%, devices B6–B8), respectively. Detailed energy diagrams of each functional layer, as well as the molecular structures, are shown in Fig. S24.
+†
+ The EL spectra of the devices with increased dopant concentrations are shown in 
+Fig. 4b
+, S25 and S26,
+†
+ which exhibited identical deep-blue peaks at 446 and 451 nm along with small FWHMs of ∼21 nm (∼0.13 eV) for devices A6–A8 and B6–B8, respectively. CIE coordinates of (0.148, 0.058) and (0.146, 0.078) were also recorded for pSFIAc1 and pSFIAc2 based devices. Besides, these EL spectra remain unchanged with increased luminances, suggesting complete energy transfer.
+
+Strikingly, the TSF-devices showed excellent efficiencies with EQE
+max
+s of 24.9% and 31.4% and power efficiencies (PE) of 14.9 and 23.0 lm W
+−1
+ for devices A6 and B6 (
+Fig. 4c
+), respectively. Owing to the rigid π-conjugated skeleton, moderate emitting dipole orientations (
+Θ
+
+‖
+) of 71% and 72% are fitted for pSFIAc1 and pSFIAc2 doped films (Fig. S27
+†
+), respectively, which mean that both emitters exhibit almost an isotropic dipole orientation and an improved outcoupling. For pSFIAc1 and pSFIAc2 based devices, the EQE
+max
+s slightly decreased with increasing dopant ratios, which could be attributed to the carrier trapping by the dopants and enhanced Dexter energy transfer at high dopant concentrations. The lifetimes of devices A6 and B6 were also estimated and the corresponding lifetimes (LT50) at an initial luminance of 1000 cd m
+−2
+ were 13 and 20 h (Fig. S28
+†
+), respectively. Both devices displayed a shorter operation lifetime than the TTA devices, which is in agreement with previous reports.
+
+24
+
+ As shown in 
+Fig. 4d
+, we summarized the device efficiencies (lifetimes) 
+versus
+ FWHMs and CIE
+
+y
+
+ color coordinates based on the reported deep-blue (blue) OLEDs, which are listed in the ESI (Tables S13 and S14
+†
+). These state-of-the-art performances further validate the superiority of pSFIAc1 and pSFIAc2 as deep-blue narrowband emitters. However, efficiency roll-off was observed for both TSF devices, and revealing a similar overall performance to the previously reported work.
+
+7
+d
+,19,25
+
+ We speculate that the plausible direct carrier trapping on the emitter molecules at a high current density should be responsible. Ideally, charge recombination should be on the sensitizer to guarantee the sensitizing process. The device energy levels are shown in Fig. S24,
+†
+ revealing relatively shallower LUMO levels of the emitter than the sensitizer. Therefore, at a low voltage, electrons tend to be directly injected into the LUMO levels of the sensitizer and then recombine with holes. At a high voltage, electrons can overcome the energy barrier to be injected into the LUMO levels of the emitter and then combine with holes on the emitter directly. Thus, at low brightness, the sensitizing process is efficient to afford a high EQE. But at high brightness, the sensitizing process is disabled and thus results in a low EQE, accounting for the significant efficiency roll-off. The direct charge trapping on the emitter can be avoided by optimizing the energy levels of the sensitizer and emitter. But at this moment, efficient deep-blue TADF sensitizers are still rare. We believe that by further optimizing the device structures and with the development of more efficient deep-blue TADF sensitizers, the performances of TSF devices based on N-embedded MR emitters can be further improved.
+
+
+
+
+Conclusions
+
+In conclusion, we presented an advanced strategy of using emitters with ultra-narrowband spectra to reduce the excited-state energy to break the stability limitation of deep-blue OLEDs. Based on this concept, two deep-blue N-containing emitters featuring a spiro-configuration were developed, affording bright ultrapure deep-blue emissions with an extremely small full-width-at-half-maxima of only 18–19 nm, which are maintained even in heavily doped films due to the alleviated molecular interactions. The corresponding electroluminescent devices realized deep-blue emission colors with CIE
+
+y
+
+s of 0.054 and 0.066, close to the BT.2020 blue point, though with moderate peak energies of 2.77 eV (448 nm) and 2.74 eV (453 nm). Remarkably long LT80s of 18 900 and 43 470 hours at 100 cd m
+−2
+ were thereby obtained respectively, representing the longest lifetimes of deep-blue OLEDs in the literature. We also adopted a TADF sensitizer to recycle excitons for both the emitters, realizing a high EQE
+max
+ of 25% and 31% respectively, which also represent state-of-the-art performances for deep-blue devices. This work not only opens a new avenue towards stable deep-blue OLEDs but also provides a new paradigm of N-embedded MR emitters with the ability to suppress molecular interactions, which will surely arouse a lot of attention and motivate the production of more efficient deep-blue emitters and devices.
+
+
+
+Data availability
+
+All data supporting this study are available from article and ESI.
+†
+
+
+
+
+Author contributions
+
+L. D. conceived and supervised the project. D. Z. and L. D. designed the experiments. G. M. synthesized and characterized the deep-blue emitters, OLED fabrication and measurement, and wrote the manuscript. G. L. synthesized the TBN-TPA emitter and performed the electrochemical measurements of the deep-blue emitters. X. H. and X. Z. helped in theoretical calculations. X. W. and J. W. measured the single crystal structure. Y. Z., Z. L., C. Y. and T. H. provided suggestions on device fabrication and experiments. D. Y. and D. M. measured the dipole orientations of the emitters. L. D. and D. Z. supervised and reviewed and revised the manuscript.
+
+
+
+Conflicts of interest
+
+There are no conflicts to declare.
+
+
+
+Supplementary Material
+
+
+
+SC-013-D2SC01543A-s001
+
+
+
+
+
+
+
+
+
+SC-013-D2SC01543A-s002
+
+
+
+
+
+
+
+
+
+Acknowledgments
+
+This work was supported by the National Science Fund of China (Grant No. 22135004, 51903137 and 61890942), the National Key Basic Research and Development Program of China (Grant No. 2020YFA0715000 and 2017YFA0204501), the Guangdong Major Project of Basic and Applied Basic Research (Grant No. 2019B030302009), the Foshan Xianhu Laboratory of the Advanced Energy Science and Technology Guangdong Laboratory XHT2020-005, the China Postdoctoral Science Foundation (Grant No. 2021M701865) and the Guangdong Basic and Applied Basic Research Foundation (2021B1515120041).
+
+
+
+
+
+†
+
+Electronic supplementary information (ESI) available. CCDC 2107659. For ESI and crystallographic data in CIF or other electronic format see 
+https://doi.org/10.1039/d2sc01543a
+
+
+
+
+
+
+Notes and references
+
+
+
+
+
+ (a) 
+
+Jeon S. O. Lee K. H. Kim J. S. Ihn S.-G. Chung Y. S. Kim J. W. Lee H. Kim S. Choi H. Lee J. Y. Nat. Photonics. 2021;15:208. doi: 10.1038/s41566-021-00763-5.
+
+
+
+
+
+ (b) 
+
+Chan C.-Y. Tanaka M. Lee Y.-T. Wong Y.-W. Nakanotani H. Hatakeyama T. Adachi C. Nat. Photonics. 2021;15:203. doi: 10.1038/s41566-020-00745-z.
+
+
+
+
+
+ (c) 
+
+Zhang D. Duan L. Nat. Photonics. 2021;15:173. doi: 10.1038/s41566-021-00765-3.
+
+
+
+
+
+ (d) 
+
+Wu T.-L. Huang M.-J. Lin C.-C. Huang P.-Y. Chou T.-Y. Chen-Cheng R.-W. Lin H.-W. Liu R.-S. Cheng C.-H. Nat. Photonics. 2018;12:235. doi: 10.1038/s41566-018-0112-9.
+
+
+
+
+
+ (e) 
+
+Chen Y. Zhang D. Zhang Y. Zeng X. Huang T. Liu Z. Li G. Duan L. Adv. Mater. 2021;33:e2103293. doi: 10.1002/adma.202103293.
+
+
+
+
+
+
+ (f) 
+
+Zhang Y. L. Ran Q. Wang Q. Liu Y. Hanisch C. Reineke S. Fan J. Liao L. S. Adv. Mater. 2019;31:1902368. doi: 10.1002/adma.201902368.
+
+
+
+
+
+
+ (g) 
+
+Naveen K. R. Prabhu Cp K. Braveenth R. Kwon J. H. Chem.–Eur. J. 2022;28:e202103532. doi: 10.1002/chem.202103532.
+
+
+
+
+
+
+
+
+ (a) 
+
+Li X. Zhang J. Zhao Z. Wang L. Yang H. Chang Q. Jiang N. Liu Z. Bian Z. Liu W. Lu Z. Huang C. Adv. Mater. 2018;30:e1705005. doi: 10.1002/adma.201705005.
+
+
+
+
+
+
+ (b) 
+
+Pal A. K. Krotkus S. Fontani M. Mackenzie C. F. R. Cordes D. B. Slawin A. M. Z. Samuel I. D. W. Zysman-Colman E. Adv. Mater. 2018;30:e1804231. doi: 10.1002/adma.201804231.
+
+
+
+
+
+
+ (c) 
+
+Lee J. Chen H. F. Batagoda T. Coburn C. Djurovich P. I. Thompson M. E. Forrest S. R. Nat. Mater. 2016;15:92. doi: 10.1038/nmat4446.
+
+
+
+
+
+
+ (d) 
+
+Lo K. W. Tong G. S. M. Cheng G. Low K. H. Che C. M. Angew. Chem., Int. Ed. 2022;61:e20211551. doi: 10.1002/anie.202115515.
+
+
+
+
+
+
+ (e) 
+
+Nam S. Kim J. W. Bae H. J. Maruyama Y. M. Jeong D. Kim J. Kim J. S. Son W. J. Jeong H. Lee J. Ihn S. G. Choi H. Adv. Sci. 2021;8:e2100586. doi: 10.1002/advs.202100586.
+
+
+
+
+
+
+
+ (f) 
+
+Kondo Y. Yoshiura K. Kitera S. Nishi H. Oda S. Gotoh H. Sasada Y. Yanai M. Hatakeyama T. Nat. Photonics. 2019;13:678. doi: 10.1038/s41566-019-0476-5.
+
+
+
+
+
+ (g) 
+
+Cai X. Su S.-J. Adv. Funct. Mater. 2018;28:1802558. doi: 10.1002/adfm.201802558.
+
+
+
+
+
+
+
+ (a) 
+
+Xu Y. Xu P. Hu D. Ma Y. Chem. Soc. Rev. 2021;50:1030. doi: 10.1039/D0CS00391C.
+
+
+
+
+
+
+ (b) 
+
+Lv X. Sun M. Xu L. Wang R. Zhou H. Pan Y. Zhang S. Sun Q. Xue S. Yang W. Chem. Sci. 2020;11:5058. doi: 10.1039/D0SC01341B.
+
+
+
+
+
+
+
+
+
+ (a) 
+
+Gao C. Wong W. W. H. Qin Z. Lo S. C. Namdas E. B. Dong H. Hu W. Adv. Mater. 2021;33:e2100704. doi: 10.1002/adma.202100704.
+
+
+
+
+
+
+ (b) 
+
+Lim H. Woo S. J. Ha Y. H. Kim Y. H. Kim J. J. Adv. Mater. 2021:e2100161. doi: 10.1002/adma.202100161.
+
+
+
+
+
+
+
+
+Sugawara M. Choi S.-Y. Wood D. IEEE Signal Process. Mag. 2014;31:170.
+
+
+
+
+
+
+ (a) 
+
+Guo R. Liu W. Ying S. Xu Y. Wen Y. Wang Y. Hu D. Qiao X. Yang B. Ma D. Wang L. Sci. Bull. 2021;66:2090. doi: 10.1016/j.scib.2021.06.018.
+
+
+
+
+
+
+ (b) 
+
+Peng L. Yao J.-W. Wang M. Wang L.-Y. Huang X.-L. Wei X.-F. Ma D.-G. Cao Y. Zhu X.-H. Sci. Bull. 2019;64:774. doi: 10.1016/j.scib.2019.04.029.
+
+
+
+
+
+
+ (c) 
+
+Takita Y. Takeda K. Hashimoto N. Nomura S. Suzuki T. Nakashima H. Uesaka S. Seo S. Yamazaki S. J. Soc. Inf. Disp. 2018;26:55. doi: 10.1002/jsid.634.
+
+
+
+
+
+ (d) 
+
+Hu J.-Y. Pu Y.-J. Satoh F. Kawata S. Katagiri H. Sasabe H. Kido J. Adv. Funct. Mater. 2014;24:2064. doi: 10.1002/adfm.201302907.
+
+
+
+
+
+
+
+ (a) 
+
+Ahn D. H. Kim S. W. Lee H. Ko I. J. Karthik D. Lee J. Y. Kwon J. H. Nat. Photonics. 2019;13:540. doi: 10.1038/s41566-019-0415-5.
+
+
+
+
+
+ (b) 
+
+Khan A. Tang X. Zhong C. Wang Q. Yang S. Y. Kong F. C. Yuan S. Sandanayaka A. S. D. Adachi C. Jiang Z. Q. Liao L. S. Adv. Funct. Mater. 2021;31:2009488. doi: 10.1002/adfm.202009488.
+
+
+
+
+
+ (c) 
+
+Kim H. J. Kang H. Jeong J. E. Park S. H. Koh C. W. Kim C. W. Woo H. Y. Cho M. J. Park S. Choi D. H. Adv. Funct. Mater. 2021;31:2102588. doi: 10.1002/adfm.202102588.
+
+
+
+
+
+ (d) 
+
+Patil V. V. Lee H. L. Kim I. Lee K. H. Chung W. J. Kim J. Park S. Choi H. Son W. J. Jeon S. O. Lee J. Y. Adv. Sci. 2021;8:e2101137. doi: 10.1002/advs.202101137.
+
+
+
+
+
+
+
+ (e) 
+
+Park I. S. Yang M. Shibata H. Amanokura N. Yasuda T. Adv. Mater. 2021:e2107951. doi: 10.1002/adma.202107951.
+
+
+
+
+
+
+
+
+ (a) 
+
+Fleetham T. Li G. Wen L. Li J. Adv. Mater. 2014;26:7116. doi: 10.1002/adma.201401759.
+
+
+
+
+
+
+ (b) 
+
+Wu Y. Yang C. Liu J. Zhang M. Liu W. Li W. Wu C. Cheng G. Yang Q. Wei G. Che C. M. Chem. Sci. 2021;12:10165. doi: 10.1039/D1SC01426A.
+
+
+
+
+
+
+
+
+
+ (a) 
+
+Jeon S. K. Lee H. L. Yook K. S. Lee J. Y. Adv. Mater. 2019;31:e1803524. doi: 10.1002/adma.201803524.
+
+
+
+
+
+
+ (b) 
+
+Sarma M. Tsai W. L. Lee W. K. Chi Y. Wu C. C. Liu S. H. Chou P. T. Wong K. T. Chem. 2017;3:461. doi: 10.1016/j.chempr.2017.08.001.
+
+
+
+
+
+
+
+Monkman A. ACS Appl. Mater. Interfaces. 2021 doi: 10.1021/acsami.1c09189.
+
+
+
+
+
+
+
+ (a) 
+
+Hatakeyama T. Shiren K. Nakajima K. Nomura S. Nakatsuka S. Kinoshita K. Ni J. Ono Y. Ikuta T. Adv. Mater. 2016;28:2777. doi: 10.1002/adma.201505491.
+
+
+
+
+
+
+ (b) 
+
+Madayanad Suresh S. Hall D. Beljonne D. Olivier Y. Zysman-Colman E. Adv. Funct. Mater. 2020;30:1908677. doi: 10.1002/adfm.201908677.
+
+
+
+
+
+ (c) 
+
+Teng J.-M. Wang Y.-F. Chen C.-F. J. Mater. Chem. C. 2020;8:11340. doi: 10.1039/D0TC02682D.
+
+
+
+
+
+ (d) 
+
+Ha J. M. Hur S. H. Pathak A. Jeong J.-E. Woo H. Y. NPG Asia Mater. 2021;13:53. doi: 10.1038/s41427-021-00318-8.
+
+
+
+
+
+
+
+ (a) 
+
+Matsui K. Oda S. Yoshiura K. Nakajima K. Yasuda N. Hatakeyama T. J. Am. Chem. Soc. 2018;140:1195. doi: 10.1021/jacs.7b10578.
+
+
+
+
+
+
+ (b) 
+
+Zhang Y. Zhang D. Wei J. Liu Z. Lu Y. Duan L. Angew. Chem., Int. Ed. 2019;58:16912. doi: 10.1002/anie.201911266.
+
+
+
+
+
+
+ (c) 
+
+Oda S. Kumano W. Hama T. Kawasumi R. Yoshiura K. Hatakeyama T. Angew. Chem., Int. Ed. 2021;60:2882. doi: 10.1002/anie.202012891.
+
+
+
+
+
+
+ (d) 
+
+Liu Y. Xiao X. Ran Y. Bin Z. You J. Chem. Sci. 2021;12:9408. doi: 10.1039/D1SC02042K.
+
+
+
+
+
+
+
+
+
+ (a) 
+
+Ikeda N. Oda S. Matsumoto R. Yoshioka M. Fukushima D. Yoshiura K. Yasuda N. Hatakeyama T. Adv. Mater. 2020;32:e2004072. doi: 10.1002/adma.202004072.
+
+
+
+
+
+
+ (b) 
+
+Hirai H. Nakajima K. Nakatsuka S. Shiren K. Ni J. Nomura S. Ikuta T. Hatakeyama T. Angew. Chem., Int. Ed. 2015;54:13581. doi: 10.1002/anie.201506335.
+
+
+
+
+
+
+
+
+ (a) 
+
+Min H. Park I. S. Yasuda T. Angew. Chem., Int. Ed. 2021;60:7643. doi: 10.1002/anie.202016914.
+
+
+
+
+
+
+ (b) 
+
+Yuan Y. Tang X. Du X. Y. Hu Y. Yu Y. J. Jiang Z. Q. Liao L. S. Lee S. T. Adv. Opt. Mater. 2019;7:1801536. doi: 10.1002/adom.201801536.
+
+
+
+
+
+ (c) 
+
+Li X. Shi Y. Z. Wang K. Zhang M. Zheng C. J. Sun D. M. Dai G. L. Fan X. C. Wang D. Q. Liu W. Li Y. Q. Yu J. Ou X. M. Adachi C. Zhang X. H. ACS Appl. Mater. Interfaces. 2019;11:13472. doi: 10.1021/acsami.8b19635.
+
+
+
+
+
+
+ (d) 
+
+Qiu X. Tian G. Lin C. Pan Y. Ye X. Wang B. Ma D. Hu D. Luo Y. Ma Y. Adv. Opt. Mater. 2020;9:2001845. doi: 10.1002/adom.202001845.
+
+
+
+
+
+
+
+ (a) 
+
+Taniguchi T. Itai Y. Nishii Y. Tohnai N. Miura M. Chem. Lett. 2019;48:1160. doi: 10.1246/cl.190494.
+
+
+
+
+
+ (b) 
+
+Lee H. L. Chung W. J. Lee J. Y. Small. 2020;16:1907569. doi: 10.1002/smll.201907569.
+
+
+
+
+
+
+
+
+ (a) 
+
+Hall D. Suresh S. M. dos Santos P. L. Duda E. Bagnich S. Pershin A. Rajamalli P. Cordes D. B. Slawin A. M. Z. Beljonne D. Köhler A. Samuel I. D. W. Olivier Y. Zysman-Colman E. Adv. Opt. Mater. 2019;8:1901627. doi: 10.1002/adom.201901627.
+
+
+
+
+
+ (b) 
+
+Stavrou K. Danos A. Hama T. Hatakeyama T. Monkman A. ACS Appl. Mater. Interfaces. 2021;13:8643. doi: 10.1021/acsami.0c20619.
+
+
+
+
+
+
+
+ (c) 
+
+Xu Y. Cheng Z. Li Z. Liang B. Wang J. Wei J. Zhang Z. Wang Y. Adv. Opt. Mater. 2020:1902142. doi: 10.1002/adom.201902142.
+
+
+
+
+
+
+
+ (a) 
+
+Zhang Y. Wei J. Zhang D. Yin C. Li G. Liu Z. Jia X. Qiao J. Duan L. Angew. Chem., Int. Ed. 2022;61:e202113206. doi: 10.1002/anie.202113206.
+
+
+
+
+
+
+ (b) 
+
+Jiang P. Miao J. Cao X. Xia H. Pan K. Hua T. Lv X. Huang Z. Zou Y. Yang C. Adv. Mater. 2021:e2106954. doi: 10.1002/adma.202106954.
+
+
+
+
+
+
+
+
+ (a) 
+
+Zhang D. Song X. Gillett A. J. Drummond B. H. Jones S. T. E. Li G. He H. Cai M. Credgington D. Duan L. Adv. Mater. 2020;32:1908355. doi: 10.1002/adma.201908355.
+
+
+
+
+
+
+ (b) 
+
+Hosokai T. Matsuzaki H. Nakanotani H. Tokumaru K. Tsutsui T. Furube A. Nasu K. Nomura H. Yahiro M. Adachi C. Sci. Adv. 2017;3:e1603282. doi: 10.1126/sciadv.1603282.
+
+
+
+
+
+
+
+
+
+Wei J. Zhang C. Zhang D. Zhang Y. Liu Z. Li Z. Yu G. Duan L. Angew. Chem., Int. Ed. 2021;60:12269. doi: 10.1002/anie.202017328.
+
+
+
+
+
+
+
+
+Thiery S. Tondelier D. Geffroy B. Jeannin O. Rault-Berthelot J. Poriel C. Chem.–Eur. J. 2016;22:10136. doi: 10.1002/chem.201600652.
+
+
+
+
+
+
+
+
+ (a) 
+
+Gao Z. Q. Mi B. X. Chen C. H. Cheah K. W. Cheng Y. K. Wen W.-S. Appl. Phys. Lett. 2007;90:123506. doi: 10.1063/1.2715041.
+
+
+
+
+
+ (b) 
+
+Zhang D. Zhang D. Duan L. ACS Appl. Mater. Interfaces. 2016;8:23197. doi: 10.1021/acsami.6b07107.
+
+
+
+
+
+
+
+
+Kim J. U. Park I. S. Chan C. Y. Tanaka M. Tsuchiya Y. Nakanotani H. Adachi C. Nat. Commun. 2020;11:1765. doi: 10.1038/s41467-020-15558-5.
+
+
+
+
+
+
+
+
+
+ (a) 
+
+Zhang D. Duan L. Li C. Li Y. Li H. Zhang D. Qiu Y. Adv. Mater. 2014;26:5050. doi: 10.1002/adma.201401476.
+
+
+
+
+
+
+ (b) 
+
+Nakanotani H. Higuchi T. Furukawa T. Masui K. Morimoto K. Numata M. Tanaka H. Sagara Y. Yasuda T. Adachi C. Nat. Commun. 2014;5:4016. doi: 10.1038/ncomms5016.
+
+
+
+
+
+
+
+
+ (a) 
+
+Ihn S. G. Jeong D. Kwon E. S. Kim S. Chung Y. S. Sim M. Chwae J. Koishikawa Y. Jeon S. O. Kim J. S. Kim J. Nam S. Kim I. Park S. Kim D. S. Choi H. Kim S. Adv. Sci. 2021:e2102141. doi: 10.1002/advs.202102141.
+
+
+
+
+
+
+
+ (b) 
+
+Naveen K. R. Lee H. Braveenth R. Karthik D. Yang K. J. Hwang S. J. Kwon J. H. Adv. Funct. Mater. 2021:2110356.
+
+
+
+
+
+
+Hall D. Stavrou K. Duda E. Danos A. Bagnich S. Warriner S. Slawin A. M. Z. Beljonne D. Kohler A. Monkman A. Olivier Y. Zysman-Colman E. Mater. Horiz. 2022;9:1068. doi: 10.1039/D1MH01383A.
+
+
+
+
+
+
+
+
+
+
+Associated Data
+
+
+Supplementary Materials
+
+
+
+SC-013-D2SC01543A-s001
+
+
+
+
+
+
+
+
+
+SC-013-D2SC01543A-s002
+
+
+
+
+
+
+
+
+
+Data Availability Statement
+
+All data supporting this study are available from article and ESI.
+†
+
+
+
+
+
+

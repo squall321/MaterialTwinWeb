@@ -1,0 +1,4995 @@
+PHYSICS-BASED RELIABLITY ASSESSMENT OF
+          EMBEDDED PASSIVES
+
+
+                  A Dissertation
+
+                   Presented to
+
+              The Academic Faculty
+
+
+
+                       By
+
+              Manoj Kumar Damani
+
+
+
+
+              In Partial Fulfillment
+
+       Of the Requirements for the Degree
+
+   Masters of Science in Mechanical Engineering
+
+
+
+
+         Georgia Institute of Technology
+
+                    July 2004
+
+
+
+
+      Copyright  2004 by Manoj Kumar Damani
+PHYSICS-BASED RELIABLITY ASSESSMENT OF
+          EMBEDDED PASSIVES
+
+
+
+
+                   Approved by:
+
+
+
+                   Dr. Suresh K. Sitaraman, Chair
+
+
+
+                   Dr. Peter Hesketh
+
+
+
+                   Dr. Manos Tentzeris
+
+
+
+                   Dr. Swapan Bhattacharya.
+
+
+
+
+                   July 12, 2004
+
+
+
+
+                  iv
+                       ACKNOWLEDGEMENTS
+
+       I would like to thank my advisor Dr. Suresh K. Sitaraman for his
+
+encouragement and support throughout my Master’s program. His advice has
+
+helped me advance both academically and professionally. I would also like to
+
+thank Dr. Tentzeris, Dr. Hesketh and Dr. Bhattacharya for agreeing to be on my
+
+thesis committee.
+
+       I would like to thank Dr. Bhattacharya for his support and his insight
+
+throughout the project. His knowledge of passives was very helpful in helping
+
+me complete this project. In addition, I would like to thank Dr. Pucha for helping
+
+me on various aspects of my project. Some other CASPaR members I would like
+
+to thank are Jamie Ahmad, Andy Perkins, Krishna Tunga and Shashikant Hegde.
+
+Their detailed knowledge in many subjects helped me learn a lot about
+
+packaging. I would also like to thank PRC for their support in this project.
+
+       Finally I would like to thank my Dad and Mom for believing in me and
+
+encouraging me throughout the project. I would also like to thank my Sister,
+
+Pallavi and Brother-in-Law Nishant for their good wishes. I would like to
+
+dedicate this thesis to them.
+
+
+
+
+                                        iii
+                                      TABLE OF CONTENTS
+
+ACKNOWLEDGEMENTS.............................................................................................iii
+
+LIST OF FIGURES........................................................................................................... ix
+
+LIST OF TABLES............................................................................................................ xii
+
+GLOSSARY ....................................................................................................................xiii
+
+SUMMARY ....................................................................................................................xvi
+
+CHAPTER I INTRODUCTION...................................................................................... 1
+
+       SOP Concept ............................................................................................................. 5
+
+       Thermo-Mechanical Reliability of Integral Passives........................................... 6
+
+CHAPTER II BACKGROUND ON PERFORMANCE AND RELIABILITY ........... 8
+
+       Electrical Performance............................................................................................. 8
+
+       Modeling Capacitors ............................................................................................. 10
+
+       Modeling Inductors ............................................................................................... 12
+
+       Modeling Resistors ................................................................................................ 14
+
+       Fabrication Of Passives ......................................................................................... 15
+
+          Capacitors............................................................................................................ 15
+
+              Physical Vapor deposition (PVD)................................................................ 16
+
+              Chemical Vapor Deposition (CVD)............................................................. 17
+
+              Anodization .................................................................................................... 18
+
+              Solution-Based: Physical ............................................................................... 20
+
+                 Spin Coating................................................................................................ 20
+
+
+
+                                                               iv
+                 Meniscus Coating....................................................................................... 21
+
+             Solution-Based - Chemical............................................................................ 22
+
+                 Sol-Gel Deposition ..................................................................................... 22
+
+                 Hydrothermal Deposition......................................................................... 23
+
+                 Photolithography ....................................................................................... 24
+
+             Commercialized Dielectric Materials for Capacitors................................ 25
+
+                 DuPont InterraTM ........................................................................................ 26
+
+                 3M C-PlyTM .................................................................................................. 27
+
+          Resistors............................................................................................................... 27
+
+             Sputtering........................................................................................................ 28
+
+             Screen Printing ............................................................................................... 28
+
+             Ink Jet Deposition........................................................................................... 29
+
+             Commercialized Processes for Resistors .................................................... 30
+
+                 Ohmega-PlyTM ............................................................................................ 30
+
+                 DuPont InterraTM ........................................................................................ 30
+
+                 Shipley InSiteTM .......................................................................................... 30
+
+      Reliability Experiments ......................................................................................... 31
+
+      Literature Review on passing qualifications for Embedded Passives ........... 33
+
+      Literature Review on Qualification Tests of Embedded Passives .................. 35
+
+      Reliability Modeling .............................................................................................. 36
+
+Chapter III OBJECTIVES............................................................................................... 38
+
+   Gaps in Existing Research......................................................................................... 39
+
+                                                                v
+Chapter IV DESCRIPTION OF TEST VEHICLE ....................................................... 41
+
+     Test Vehicle Details................................................................................................ 41
+
+     Fabrication Steps and Processing Conditions.................................................... 43
+
+        Metal 1 Layer ...................................................................................................... 44
+
+        Dielectric Layer .................................................................................................. 46
+
+        Metal 2 Layer ...................................................................................................... 47
+
+        Resistor Layer ..................................................................................................... 50
+
+        Solder Mask ........................................................................................................ 51
+
+CHAPTER V MODELING OF INTEGRAL PASSIVES ............................................ 54
+
+     Material Modeling ................................................................................................. 55
+
+        Copper ................................................................................................................. 55
+
+        FR4........................................................................................................................ 57
+
+        DynaVia............................................................................................................... 58
+
+        ViaLuxTM 81 ........................................................................................................ 60
+
+     Modeling of Capacitors ......................................................................................... 61
+
+        Geometric Modeling.......................................................................................... 61
+
+            Parametric Modeling ..................................................................................... 65
+
+        Fabrication Process Modeling .......................................................................... 65
+
+        Electromagnetic Modeling................................................................................ 68
+
+     Modeling of Inductors........................................................................................... 71
+
+        Geometric Modeling.......................................................................................... 71
+
+            Parametric Modeling ..................................................................................... 73
+
+                                                               vi
+           Electromagnetic Model ..................................................................................... 74
+
+CHAPTER               VI       THERMO-MECHANICAL                                 MODELING                  OF        INTEGRAL
+
+PASSIVES ........................................................................................................................ 76
+
+       Thermo-Mechanical Loading Conditions........................................................... 76
+
+           Thermal Cycling................................................................................................. 76
+
+           Fabrication Process Profile................................................................................ 77
+
+       FEA Methodology.................................................................................................. 79
+
+           Fabrication Process Methodology ................................................................... 79
+
+           Thermal Cycling................................................................................................. 81
+
+       Thermal Cycling of Capacitors ............................................................................ 81
+
+           Original Model ................................................................................................... 81
+
+           Parametric Model............................................................................................... 83
+
+       Fabrication Process Deformation In Capacitors ................................................ 84
+
+       Thermal Cycling of Inductors .............................................................................. 85
+
+           Parametric Model............................................................................................... 87
+
+           Effect of Materials on the Board....................................................................... 88
+
+CHAPTER VII RELIABILITY EXPERIMENTS.......................................................... 89
+
+       Moisture Effect ....................................................................................................... 89
+
+       Air-to-Air Thermal Cycling .................................................................................. 92
+
+       Humidity Testing ................................................................................................... 95
+
+CHAPTER VIII PERFORMANCE OF INTEGRAL PASSIVES DURING FIELD
+
+USE................................................................................................................................... 98
+
+                                                                  vii
+      Low Pass Filter ....................................................................................................... 98
+
+          Experimental Results....................................................................................... 100
+
+          FEA Results....................................................................................................... 103
+
+      Amplifier ............................................................................................................... 103
+
+          Thermal Cycling............................................................................................... 105
+
+          Humidity Testing............................................................................................. 105
+
+CHAPTER IX CONCLUSIONS AND FUTURE WORK ........................................ 106
+
+      Conclusions........................................................................................................... 106
+
+      Contributions ........................................................................................................ 107
+
+      Future Work.......................................................................................................... 108
+
+REFERENCES ............................................................................................................... 110
+
+
+
+
+                                                              viii
+                            LIST OF FIGURES
+
+Figure 1.1 Number of passives on PC motherboards                         2
+
+Figure 1.2. PRC’s SOP Test vehicle                                       6
+
+Figure 2.1. Impedance variance of Ideal Passives with frequency          9
+
+Figure 2.2. Behavior of a real capacitor                                12
+
+Figure 2.3. Schematic of CCVD                                           18
+
+Figure 2.4. Schematic of Meniscus coating                               21
+
+Figure 2.5. Dupont InterraTM process                                    27
+
+Figure 2.6. Droplets on Demand Ink Jet deposition                       29
+
+Figure 2.8. Shipley InSiteTM process                                    31
+
+Figure 4.1. Picture of the Test Board                                   42
+
+Figure 4.2. Bottom Metal Mask                                           45
+
+Figure 4.3. Via Mask                                                    46
+
+Figure 4.4. Top Metal Mask                                              49
+
+Figure 4.5. Resistor Mask                                               51
+
+Figure 4.6. Solder Mask mask                                            52
+
+Figure 4.7. Fabrication process of passives                             53
+
+Figure 5.1. Kinematic Hardening of Copper                               57
+
+Figure 5.2. Co-ordinate axis in ANSYSTM                                 57
+
+Figure 5.3 Schematic of the board and an explanation of layered shell   62
+
+Figure 5.4 FEA representations of capacitors                            63
+
+Figure 5.5 Symmetry boundary conditions applied on the board.           63
+
+                                           ix
+Figure 5.6. Close up on the capacitors                                      64
+
+Figure 5.7. Capacitor mesh moved through parameters                         65
+
+Figure 5.8 (a). Etching away of copper during fabrication                   67
+
+Figure 5.8 (b). Etching away of copper represented in ANSYSTM               67
+
+Figure 5.8. Capacitance Convergence for 330 mils (8.25mm)                   70
+
+Figure 5.9. Capacitance Convergence for 580 mils (14.5mm)                   70
+
+Figure 5.10. FEA representation of inductors                                72
+
+Figure 5.11. Zoomed view of the inductors on the board                      72
+
+Figure 5.12. Inductors as present on the board                              72
+
+Figure 5.13. Boundary Conditions on inductor model                          73
+
+Figure 5.14. Parametric models for inductors                                74
+
+Figure 5.15. Model of the Inductor in ANSYSTM                               75
+
+Figure 6.1. Load step used in thermal cycling of passives                   77
+
+Figure 6.2. Schematic of a part of the fabrication process in capacitors    78
+
+Figure 6.3. Thermal profile between the curing of the dielectric and plating of
+
+    top metal layer                                                         79
+
+Figure 6.4. Deformation in board after thermal cycling with capacitors      82
+
+Figure 6.5. Deformed capacitor furthest from the neutral point              82
+
+Figure 6.6. Deformed Inductor after thermal cycling                         86
+
+Figure 7.1. Capacitance values after baking the board                       90
+
+Figure 7.2. Inductance values after baking the board                        91
+
+Figure 7.3. Resistance values after baking the board                        91
+
+
+                                         x
+Figure 7.3. Picture of the Thermal Chamber used                            93
+
+Figure 7.5. Change in capacitance after 1000 thermal cycles                94
+
+Figure 7.6. Change in inductance after 1000 thermal cycles                 94
+
+Figure 7.7. Change in resistance after 1000 thermal cycles                 95
+
+Figure 7.7. Humidity Chamber used                                          96
+
+Figure 7.9. Capacitance change after humidity testing                      96
+
+Figure 7.10. Inductance change after humidity testing                      97
+
+Figure 7.11. Resistance change after humidity testing                      97
+
+Figure 8.1. Schematic of a low pass filter                                 99
+
+Figure 8.2. Low pass filter characteristics                               100
+
+Figure 8.3. Change in Attenuation constant after thermal cycling of the filter
+
+                                                                          101
+
+Figure 8.4. Change in Attenuation constant after humidity testing         102
+
+Figure 8.5. GaAs FET in the common source configuration                   104
+
+
+
+
+                                         xi
+                                            LIST OF TABLES
+
+Table 2.1. EIA temperature codes for dielectrics..................................................... 34
+
+Table 4.1. Materials used in the test board .............................................................. 42
+
+Table 4.2. Details of the capacitors ............................................................................ 43
+
+Table 5.1 Dependence of modulus on temperature [31]........................................ 56
+
+Table 5.2 Kinematic Behavior of copper................................................................... 56
+
+Table 5.3. Properties of FR4 at 30oC........................................................................... 58
+
+Table 5.4. Viscoelastic Prony Parameters for DynaVia 2000 ................................ 59
+
+Table 5.5. Viscoelastic Prony Parameters for ViaLux 81TM ................................... 60
+
+Table 5.6. Capacitance Convergence for 330 mils (8.25mm) ................................. 69
+
+Table 5.7. Comparison with simulated, actual and theoretical values of
+
+      capacitance.............................................................................................................. 71
+
+Table 6.1. Results from thermal cycling of capacitors ........................................... 83
+
+Table 6.2. Change in parametrically further capacitors......................................... 84
+
+Table 6.3. Results from the fabrication process simulation.................................. 85
+
+Table 6.4. Results from the thermal cycling of inductors ..................................... 87
+
+Table 6.5. Results from the parametric modeling of inductors............................ 87
+
+
+
+
+                                                              xii
+                               GLOSSARY
+
+Abbreviations
+
+CTE – Coefficient of Thermal Expansion
+
+CVD –Chemical Vapor Deposition
+
+DIP– Dual In line Package
+
+DNP – Distance From Neutral Point
+
+FEA- Finite Element Analysis
+
+FEM – Finite Element Model
+
+HDW – High Density Wiring
+
+IC – Integrated Circuits
+
+LTCC – Low Temperature Co-fired Ceramic
+
+MCM – Multi-chip module
+
+PC – Personal Computer
+
+RF – Radio Frequency
+
+RH – Relative Humidity
+
+SMT – Surface Mount Technology
+
+SOP – System On Package
+
+TCC – Temperature Coefficient of Capacitance
+
+TCR – Temperature Coefficient of Resistance
+
+WLP – Wafer Level Package
+
+
+
+
+                                     xiii
+Symbols
+
+oC – Degrees Celsius
+
+
+
+C – Capacitance
+
+E – Elastic Modulus
+
+f – frequency
+
+F – Farad (unit of capacitance)
+
+nF – Nano Farad (10-9 Farad)
+
+pF – Pico Farad (10-12 Farad)
+
+G – Shear Modulus
+
+GPa – Giga Pascals (unit of stress)
+
+H – Henry (unit of inductance)
+
+µH – Micro Henry (10-6 H)
+
+k – dielectric constant
+
+L – Inductance
+
+mm – millimeter
+
+MPa – Mega Pascal (unit of stress)
+
+µ– micro meter (10-6 m)
+
+Ω – Ohm (unit of resistance)
+
+kΩ – Kilo Ohm (103 Ohms)
+
+Q factor – Quality Factor
+
+R – Resistance
+
+µr – Relative Permeability
+
+                                      xiv
+Tg – Glass Transition Temperature
+
+
+
+
+                                    xv
+                                   SUMMARY
+
+              Multilayer embedded passives (resistors, inductors, and capacitors)
+
+on a printed wiring board can help to meet high performance requirements at a
+
+low cost and at a smaller size. Such an integration of embedded passives has new
+
+challenges   with   respect   to    design,    materials,   manufacturing,   thermal
+
+management and reliability. As the area of integral passives on printed circuit
+
+boards is relatively new, there is inadequate literature on the thermo-mechanical
+
+reliability of integral passives.     Therefore, there is a compelling need to
+
+understand the thermo-mechanical reliability of integral passives through the
+
+development of physics-based models as well as through experiments, and this
+
+thesis aims to develop such an experimental and theoretical program to study
+
+the thermo-mechanical reliability of integral passives..
+
+       As integral passives are often composite layers with dissimilar material
+
+properties compared to the other layers in the integral substrate, it is essential to
+
+ensure that RLC characteristics of the embedded passives do not deteriorate with
+
+thermal cycling due to thermo-mechanical deformations. This thesis aims to
+
+study the changes in the passive characteristics due to the thermally-induced
+
+deformations. Embedded capacitors and inductors have been looked at
+
+specifically in this research. Multi-field physics-based models have been
+
+constructed to determine the change in electrical parameters after thermal
+
+cycling. The thermo-mechanical models assume direction-dependent material
+
+                                         xvi
+properties for the board substrate and interconnect copper layers and
+
+temperature-dependent properties for interlayer dielectric and passive layers.
+
+Using the deformed geometry, the electrical characteristics have been
+
+determined at low frequency. In parallel to the models, test vehicle substrates
+
+have been subjected to 1000 thermal cycles between -55°C to 125°C and high
+
+humidity and temperature conditions at 85°C/85RH for 500 hours, and it has
+
+been observed that there are significant changes in the electrical parameters. The
+
+results obtained from the physics-based simulations have been validated against
+
+the measured electrical characteristics from the fabricated functional test boards
+
+that have been thermal cycled.
+
+
+
+
+                                       xvii
+                                CHAPTER I
+
+
+                           INTRODUCTION
+
+      The past four decades have seen tremendous progress in the field of
+
+system level packaging with IC packaging technology progressing from the dual-
+
+in-line package (DIPs) to the wafer-level-package (WLPs). However, there is
+
+another area in packaging that has not received that much attention as IC’s. This
+
+is the group of passive elements and the advancements have been comparatively
+
+marginal in size and density. As a result, the passive elements occupy more
+
+space and make up most of the weight in electronic packages.       Passive
+
+elements are very important to the functioning of the microelectronic circuit and
+
+perform functions like filtering, decoupling, bias etc. The number of passive
+
+components in hand-held devices and computers have been growing through the
+
+years and now stand at 80% of the total part counts [1]. Figure 1.1 shows the
+
+growth of passives in PC motherboards over the years [2].        The worldwide
+
+market of passives is $1.1 Billion with the increased use of cell phones and
+
+wireless technologies, passive components are going to play an important role in
+
+the development of next generation microlectronics devices.
+
+
+
+
+                                       1
+                           Number of passives on PC motherboards
+
+                3000                                                          2800
+
+                2500
+
+                2000
+                                                                1473
+                1500
+                1000
+                                                      593
+                                       369
+                500        165
+                    0
+                        Pentium 486 Pentium 120 Pentium 200   Pentium III   Pentium III
+                                       MHz         MHz        330 MHz
+                                             Num ber of passives
+
+
+
+
+               Figure 1.1 Number of passives on PC motherboards
+
+Passives can be categorized into three distinct categories:
+
+   1) Discrete Passive: A single passive element in its own leaded or surface
+
+       mount technology (SMT) package. The most commonly used size is 0402
+
+       (1 × 0.5 mm), 0201 (0.5 × 0.25 mm) is the smallest size available. [3]
+
+   2) Integrated Passive: This applies to many passive components grouped
+
+       together into one package.
+
+   3) Embedded Passive: This type of passive is embedded in the interconnect
+
+       substrate.
+
+   Discrete and Integrated passives have been used in the industry for many
+
+years now. Up until 1995, almost all passive components were discrete.
+
+However, in 1998, 55 Billion SMT Capacitors and Resistors were replaced by
+
+Integrated passives devices. 95% of the current 900 billion passive components
+
+
+
+
+                                                  2
+are Discrete and integrated passives and about 3% are used in the embedded
+
+form [4].
+
+          Even with its wide use, Discrete passives have an inherent number of
+
+disadvantages associated with them. They are:
+
+   i)        Real Estate Consumption: Discrete passives take up a large amount of
+
+             real estate area. Since the IC’s have been reducing in size much faster
+
+             than the passives, the total IC package including the discrete passives
+
+             is typically 6-8 times the size of the IC itself [5].
+
+   ii)       Poor Electrical Performance: Discrete passives have high parasitics
+
+             due to the presence of solder joints in the package, particularly the
+
+             parasitic inductance in capacitors.
+
+   iii)      Low Reliability: The presence of solder joints results in reliability
+
+             problems as the solder joints fail through thermo-mechanical fatigue
+
+             after prolonged use. In a typical board, passives account for 25% of the
+
+             solder joints.
+
+   iv)       Inflexible Design: Discrete passives are available in limited sizes and
+
+             ranges making them difficult for customization according to the
+
+             customer’s needs.
+
+   Given these shortcomings, there is a need to overcome these problems to
+
+improve the overall performance of the microelectronics system. Integral
+
+Passives can overcome these limitations due to the following aspects:
+
+
+
+                                              3
+   i)     Reduced footprint, mass and volume: Since the passives are
+
+          integrated in the interconnecting substrate, the Integral passives will
+
+          have lower mass and occupy less real estate area than the
+
+          corresponding Discrete passive.
+
+   ii)    Better Electrical Performance: The elimination of solder joints
+
+          improves the parasitics of the Integral passives.
+
+   iii)   Increased Design Flexibility: The Integral Passives can be designed
+
+          with respect to electrical characteristics to any value.
+
+   iv)    Improved Reliability: The elimination of solder joints leads to
+
+          improved reliability. A detailed discussion is presented after this
+
+          subsection.
+
+   v)     Better Yield: Integral Passives are fabricated with the interconnecting
+
+          substrate and no additional work is required on the substrate after
+
+          fabrication. In contrast, discrete passives have to be assembled on the
+
+          substrate after fabrication resulting in lower yield and higher costs.
+
+
+
+However, there are many concerns with Integral passives related to
+
+manufacturing and materials that will be addressed in the next section.
+
+
+
+
+                                         4
+                                SOP Concept
+
+      The SOP (System On Package) paradigm integrates various functionalities
+
+such as RF, Optical and Digital into one module. This module promises to
+
+provide low cost, reliable and faster to market approach to Microsystems
+
+packaging. This is in sharp contrast to the System on Chip (SOC) approach,
+
+which will be severely limited by expense and lithography technology by the
+
+year 2007. Integral passives form an important part of the SOP package and play
+
+an important part in the RF module of the SOP. The RF passives will be critical in
+
+the miniaturization and cost effectiveness of the SOP approach. There has been
+
+tremendous demand for mobile and wireless applications such as RF
+
+Identification, local multipoint distribution systems (LMDS) and wireless Local
+
+Area Networks (WLAN) operating at frequencies in the millimeter range. This
+
+has been implemented by the SOP approach that integrates antennas, filters,
+
+resonators, baluns and other RF components in an advanced LTCC based MCM
+
+module. In addition, high Quality factor inductors have been integrated in the
+
+multiplayer organic package [6]. Decoupling capacitors will also be essential in
+
+providing noise free supply to the different modules in the SOP package. Figure
+
+1.2 shows the SOP test vehicle currently being implemented in the Packaging
+
+Research Center (PRC) [7].
+
+
+
+
+                                        5
+                       Figure 1.2. PRC’s SOP Test vehicle
+
+
+
+
+         Thermo-Mechanical Reliability of Integral Passives
+
+      The elimination of solder joints in Integral passives means that Integral
+
+passives will have higher reliability than the Discrete passives. However
+
+integration into the substrate can give rise to new concerns with respect to
+
+reliability of the Integral passives. The primary concern arises from the use of
+
+new materials and new fabrication processes. With respect to reliability, the two
+
+failure modes are:
+
+          1) Mechanical    Failure:   This   failure   is   characterized   by   the
+
+             delamination of the different layers in the interconnecting substrate
+
+             containing the Integral passives, or cracks propagating in the
+
+             passive. Also cracking of the traces could lead to electrical opens.
+
+          2) Electrical Failure: This failure stems from the change in electrical
+
+             parameters above a certain tolerance value. The tolerance value
+
+                                        6
+              depends on the application of the passive component. The change
+
+              occurs due to the thermo-mechanical deformation of the passive
+
+              component and with the change in the electrical properties of the
+
+              dielectric material with time/temperature/age/bias. The change in
+
+              the electrical parameters influences the functioning of the module
+
+              or the system level functionality of the device.
+
+       With the use of different materials in a High Density Substrate (HDW), the
+
+difference in Coefficient of Thermal Expansion (CTE) between the different
+
+layers in the substrate can give rise to interlaminar stresses that can cause
+
+deformation, delamination or crack propagation. The induced stresses depend
+
+on the thickness of the layers, the difference in properties of the layers, the curing
+
+temperature and the reliability tests conducted. However, it is important to note
+
+that electrical failure may occur prior to mechanical failure making it important
+
+to analyze the potential for electrical failure before determining the mechanical
+
+integrity of the system. In short, just because the system does not exhibit signs of
+
+mechanical failure doesn’t imply that it has full electrical functionality.
+
+       This thesis looks at the change in the electrical parameters of embedded
+
+passives with thermal cycling and its impact on the performance of the passive.
+
+Test vehicles have been fabricated and subjected to thermal cycles and extreme
+
+temperature and humidity conditions. These results will be validated against
+
+Finite Element Analysis to determine the change in electrical parameters with
+
+adverse conditions.
+
+                                          7
+                                CHAPTER II
+
+
+         BACKGROUND ON PERFORMANCE AND
+
+                               RELIABILITY
+
+
+                           Electrical Performance
+
+       In order to accurately represent the electrical performance of embedded
+
+passives, the electrical model needs to consider the pure value of the ideal
+
+component and the parasitics associated with the passive. For example, this
+
+would mean considering the inductive and resistive effects of an embedded
+
+capacitor. Currently the discrete passives manufactured have specification sheets
+
+detailing its electrical performance. The parasitics of passives should always be
+
+taken into account while modeling the electrical performance. Ideal passives are
+
+represented by a single number and are characteristic of the passive being used.
+
+The impedance of an ideal resistor is a flat line with frequency whereas the
+
+impedance of an ideal capacitor decreases linearly with frequency and the
+
+impedance of an ideal inductor increases linearly with frequency. In an ideal
+
+capacitor, the voltage lags the current by 90o and in an inductor, the current lags
+
+the voltage by 90o. In an ideal resistor, both the current and the voltage are
+
+perfectly in phase.
+
+       The impedance or reactance of each passive is given by,
+
+                                   Resistor – R
+
+                                        8
+                                                                  1
+                                              Capacitance -
+                                                                2π f C
+
+                                              Inductance - 2 π f L
+
+where R = resistance
+
+C = Capacitance
+
+L = Inductance
+
+
+
+
+                                   Impedance variance of Ideal Passives
+
+                        1.00E+01
+                        1.00E+00
+          )
+
+
+
+
+                        1.00E-01                                         Capacitor Impedance
+          Impedance (
+
+
+
+
+                        1.00E-02                                         Inductor Impedance
+                        1.00E-03                                         Resistor Impedance
+
+                        1.00E-04
+                        1.00E-05
+                               0.001   0.01       0.1       1       10
+                                          Frequency (GHz)
+
+
+
+
+         Figure 2.1. Impedance variance of Ideal Passives with frequency
+
+
+
+       The following sections talk about different electrical parameters used to
+
+describe the electrical performance of embedded passives and the modeling of
+
+real passives.
+
+
+
+
+                                                        9
+                               Modeling Capacitors
+
+       A capacitor stores energy in the form of an electric field. The most
+
+important constant of the capacitor is the dielectric constant. Another way of
+
+representing the dielectric property of a capacitor is to use the capacitance
+
+density or specific capacitance. This is the capacitance per unit area and higher
+
+values mean higher dielectric constant. The capacitance density can be calculated
+
+by the dielectric constant and the dielectric thickness by
+
+                                                   nF            k
+                          Capacitance density (      2
+                                                       ) = 0.885
+                                                  cm             d
+
+Where k = dielectric constant
+
+d = distance between the plates in µm.
+
+       Another important parameter is the dissipation factor. This is the measure
+
+of how much energy is lost in the dielectric during the AC operation. The
+
+inability of the mobile charges to respond to changes in the electric field or the
+
+inductive and resistive losses in the capacitor can cause the dissipation factor to
+
+increase. The reciprocal of the dissipation factor is known as the quality factor. A
+
+dissipation factor of 0.1% is considered very good and is generally hard to obtain
+
+for high k dielectrics.
+
+       The dependence of capacitance on temperature is called the Temperature
+
+Coefficient of Capacitance (TCC). It is calculated by
+
+                                         1 ∂C   1 CT 2 − CT 1
+                                 TCC =        =
+                                         C ∂T C T 1 T2 − T1
+
+
+                                            10
+      A TCC of around 200 ppm / oC (parts per million) is considered low and
+
+the dielectric is very stable with temperature. Thus in order to find the change in
+
+capacitance from –55 oC to 125 oC, the change will be the TCC times the
+
+temperature change (180 oC). For a TCC of 200 ppm / oC, this will mean a change
+
+of 3.6% over this temperature range.
+
+      A capacitor has two parasitics associated with it called the ESR
+
+(Equivalent Series Resistance) and the ESL (Equivalent Series Inductance). The
+
+ESR is due to the inherent resistivity of the conductor plates and the leads of the
+
+capacitors. The ESL is due to the coupling between the conductor plates and the
+
+ground plane. Ideally both the ESR and the ESL should be zero. As mentioned in
+
+the section before, the capacitive reactance decreases with frequency and the
+
+inductive reactance increases with frequency. In the case of a capacitor, the
+
+inductive reactance or the ESL increases with frequency and at a particular
+
+frequency balances out the capacitive reactance. At this frequency, the current
+
+and voltage are in phase and the only impedance present is due to the resistive
+
+reactance. This point is known as the self-resonating frequency or simply the
+
+resonance frequency. Beyond the resonating frequency, the capacitor turns into
+
+an inductor and the impedance increases with frequency. Figure 2.2 shows the
+
+behavior of an actual capacitor and the lowest point is the resonance frequency
+
+where the only impedance comes form the resistive reactance.
+
+
+
+
+                                        11
+                                            Behavior of a Real Capacitor
+
+                          10
+
+
+          )
+          Impedance (      1
+
+                          0.1
+
+                         0.01
+
+                        0.001
+                            0.001           0.01             0.1           1   10
+                                                     Frequency (GHz)
+
+
+
+                                    Figure 2.2. Behavior of a real capacitor
+
+
+
+      The parasitic inductance of a capacitor is proportional to the distance
+
+between the plates. Closer plates mean higher capacitance and lower parasitic
+
+inductance but difficult manufacturability and distant plates mean lower
+
+capacitance with higher parasitic inductance but easier manufacturability.
+
+Embedded capacitors don’t suffer from the high parasitic inductance as discrete
+
+passives do due to the absence of leads and the lower height difference between
+
+the interconnects and the embedded capacitor.
+
+
+
+
+                                           Modeling Inductors
+
+      Inductors store energy in the form of magnetic energy. The most
+
+important property is that of magnetic permeability. Magnetic permeability is
+
+defined in terms of the magnetic field
+                                                        12
+                                        →        →
+                                        B= µH
+
+where B is the magnetic flux density vector, m is the magnetic permeability and
+
+H is the auxiliary magnetic field or the magnetic field vector. In addition,
+
+                                     µ = µ0(1+χm)
+
+where µ0 is the magnetic permeability of free space and χm is the magnetic
+
+susceptibility. The relative permeability is given by the ratio of the magnetic
+
+permeability of the material to the free space permeability.
+
+       A very common parameter used to measure the performance of an
+
+inductor is the Quality factor. This is the ratio of the Imaginary impedance to
+
+Real Impedance.       The Quality factor in inductors can be improved by a variety
+
+of methods. This includes reducing the ESR, using high resistivity and low k
+
+substrates.
+
+
+
+
+                    Z im      peak magnetic energy − peak electric energy
+               Q=        = 2π
+                    Z re               energy loss in one cycle
+
+       Magnetic fields generated in the inductors interact with other materials in
+
+the substrate which gives rise to eddy currents. These eddy currents oppose the
+
+original change in magnetic field and cause loss in the inductors. The most
+
+important factor related to eddy current effects is skin depth. The skin depth
+
+measures the level of penetration of the electric current and magnetic flux into
+
+the conductor. The skin depth is given by
+
+
+
+                                            13
+                                                  1
+                                       δ=
+                                             π µσ f
+
+where δ is the skin depth, µ is the permeability and σ is the conductivity of the
+
+material and f is the frequency. At high frequencies, the skin effect goes up and
+
+hence the current only flows on the surface of the conductor. The eddy current
+
+losses are minimal if the skin depth is greater than the thickness of the conductor.
+
+
+
+
+                                  Modeling Resistors
+
+       Resistors dissipate electrical energy in the form of heat. For a perfect
+
+resistor, the resistance is given by
+
+                                                 ρL
+                                            R=
+                                                 Wt
+
+where R is the resistance in W
+
+ρ = resistivity of the material
+
+L = length of the strip
+
+W = width of the strip
+
+t = thickness of the strip
+
+       Another way of describing the resistance is by sheet resistance. The sheet
+
+resistance is equal to the resistance of a square of the material. The resistance of a
+
+resistor can be broken down into little squares and by knowledge of the
+
+resistance of each square and the number of squares, the resistance of the entire
+
+resistor can be calculated. The sheet resistance is given by
+
+                                             14
+                                        ρ  L 
+                                   R =    = R s N s
+                                        W  W 
+
+where Rs is the sheet resistance
+
+Ns is the number of squares = L/W
+
+       Like the capacitors, the dependence of resistors on temperature is
+
+determined by Temperature Coefficient of Resistance (TCR). In some
+
+applications like thermistors, resistors with large TCR’s can be used to measure
+
+changes in temperature. In addition, a positive TCC for the capacitor can be
+
+countered with a negative TCR for the resistor to maintain a constant RC time
+
+constant.
+
+
+
+
+                           Fabrication Of Passives
+
+Capacitors
+
+This section deals with the various methods of fabricating integrated capacitors.
+
+Given the wide variety of processing options for fabricating integrated
+
+capacitors, only the most commonly used are considered in this section. It is
+
+important to note that certain processes have inherent disadvantages over others
+
+and can be used only for specific materials. Most of these processes are
+
+applicable to organic boards and hence the maximum processing temperature is
+
+250oC. All the processes may be divided into four basic categories. They are
+
+
+
+
+                                           15
+Physical Vapor deposition (PVD), Chemical Vapor Deposition (CVD), solution
+
+based physical methods and photolithography.
+
+
+
+
+Physical Vapor deposition (PVD)
+
+Sputtering: Sputtering involves bombing a secondary object with energetic
+
+positive ions. The positive ions on hitting the secondary object lose their energy
+
+ejecting particles towards the substrate to be coated [8]. Sputtering is used
+
+usually to deposit thin films of metals but is also used to deposit resistor
+
+materials and dielectrics such as Tantalum Oxide, Titanium Oxide, Barium
+
+Titanate, Alumina etc. Sputtering can be performed at low temperatures which
+
+makes it a favorable process for temperature sensitive materials but its
+
+requirement of a vacuum and its uneven material deposition can be
+
+disadvantageous. In addition, thin sputtered films can show high dispersion loss
+
+at low frequencies [9]. It is also very important that the bottom electrode of the
+
+capacitor on which the deposition is taking place be smooth or the coating will
+
+not be even on the steep slopes of the bottom metal plate [10]. As a result
+
+obtaining high yields on rough substrate materials such as Kapton and Alumina
+
+is very hard [11][12]. In addition, many ferroelectrics such as Barium Titanate
+
+have to be annealed at 300oC to obtain a higher dielectric constant than obtained
+
+from direct sputtering [13]. Some materials such as Tantalum Oxide may require
+
+temperatures as high as 550oC. Such annealing requirements for ferroelectrics
+
+
+                                       16
+have limited the commercialization of sputtering in industry. In addition, the
+
+slow deposition rate of the dielectric can limit formation of thick films in
+
+paraelectrics. The maximum film thickness that can be obtained from sputtering
+
+is limited to a few micrometers.
+
+
+
+
+Chemical Vapor Deposition (CVD)
+
+      In Chemical Vapor Deposition, the substance to be deposited is
+
+introduced as a vapor in a chamber containing the substrate. In order to deposit
+
+the dielectric on the surface, energy needs to be supplied for this endothermic
+
+reaction. This is done by either heating the substrate or using the electron energy
+
+of plasma. However the difficulty of vaporizing metallic dielectrics has led to use
+
+of metallo - organic CVD’s (MOCVD) which can be used at low temperatures.
+
+CVD can be used to deposit specific dielectrics that cannot be deposited with
+
+many other processes. One such example is Diamond-like carbon (DLC), which
+
+has high hardness and low friction coefficient [14]. The MOCVD is a promising
+
+technology but is limited by its cost and rigid processing conditions.
+
+      One emerging chemical vapor deposition process is Combustion Chemical
+
+Vapor Deposition (CCVD). Figure 2.3 shows a schematic of the process [15].
+
+
+
+
+                                        17
+                         Figure 2.3. Schematic of CCVD
+
+
+
+       This process entails mixing the dielectric with a combustible solvent and
+
+atomizing it to submicron droplets. The combustion of these droplets provides
+
+the energy required to evaporate the droplets and cause the dielectric to react
+
+and vapor deposit on the substrate. This process doesn’t require a vacuum to be
+
+realized and can be done in ambient conditions and temperature with
+
+appropriate filters [16]. All these features combine to make CCVD a lower cost
+
+process than sputtering. CCVD can be used with a variety of materials such as
+
+cerium oxide, yttria stabilized zirconia, strontium titanate, Tantalum, Hf oxide,
+
+ShipleyTM Insite etc.
+
+
+
+
+Anodization
+
+       Anodization refers to electrochemical process used in forming dielectric
+
+oxides on the metal surface. The tendency of metals to form a metal oxide when
+
+                                       18
+exposed to moisture or oxygen can be exploited to form an oxide on the metal
+
+surface. The resultant oxide will have residual compressive stresses giving it
+
+excellent mechanical properties and stability. The primary materials used in
+
+anodization are Tantalum and Aluminum. Barium Titanate has also been made
+
+but the process requires an alkaline solution and the resultant film comparatively
+
+poor dielectric properties [17].
+
+       The procedure for anodization is quite similar as a typical electrochemical
+
+cell. The anode is the metal to be oxidized and the cathode is a noble metal
+
+(metal such as gold which is highly resistant to oxidation and corrosion). One of
+
+the typical electrolytes used is that of tartaric acid and ammonium hydroxide
+
+[18]. The anode and cathode are connected by a DC power source, which should
+
+be capable of providing around 150V and 1 mA per cm2 of area to be anodized.
+
+The amount of oxide formed on the anode can be determined by Faraday’s law:
+
+dz ox   i M ox
+      =
+ dt nF ρ ox
+
+z ox = oxide thickness, cm
+
+t = time, sec
+
+i = current density, A/cm2
+
+n = number of electrons given off in the half reaction at the anode
+
+F = Faraday’s constant (96500 coulombs/mole of electrons)
+
+M ox = molecular weight of the oxide, gms/mole
+
+ρ ox = density of the oxide, gms/cm3
+
+                                        19
+       Anodization is an excellent process for making capacitor dielectrics for a
+
+multitude of reasons. It is very easy to achieve uniform defect free films with this
+
+process and in addition the final thickness is a function of cell voltage and not
+
+affected by processing time, electrolyte used, temperature and current. Also
+
+anodization is not affected by the thickness of the bottom electrode since the
+
+amount of dielectric grown can be easily determined by the above equation. The
+
+apparatus is inexpensive, easy to use and is non-toxic.
+
+
+
+
+Solution-Based: Physical
+
+
+Spin Coating
+
+       In spin coating, the liquid dielectric to be coated is put in the middle of the
+
+substrate and the substrate is rotated at a high speed. The dielectric then spreads
+
+over the substrate due to centrifugal force. The thickness of the dielectric
+
+depends on the angular velocity at which the substrate is rotated, the viscosity of
+
+the dielectric and surface tension of the dielectric. Hence it is very easy to control
+
+the thickness of the films produced by determining the required angular speed.
+
+However spin coating has its inherent disadvantages as well, the biggest being
+
+the wastage of material, which can drive up the costs. In addition, the ability to
+
+form thick films is limited in spin coating as the uniformity is not constant.
+
+       Polyimide is the most commonly used material in spin coating. Thickness
+
+of 0.95µm in polyimide has been achieved using spin coating. The dielectric
+
+                                         20
+showed changes within a range of 10% with increasing frequency and decreased
+
+with decreasing thickness [19].
+
+
+
+
+Meniscus Coating
+
+       In Meniscus coating, the dielectric to be coated is pumped through an
+
+applicator tube from one end. When the horizontally held tube is full, the
+
+material pours out from the slot back into the reservoir. The meniscus that is
+
+formed on the upper surface of the tube is made in contact with the substrate
+
+held upside down by a vacuum. The tube traverses the entire length of the
+
+substrate depositing a thin layer of dielectric on the substrate surface. The
+
+thickness of the dielectric deposited is a function of the viscosity of the dielectric,
+
+the applicator speed and environmental conditions. Figure 2.4 shows a schematic
+
+of the process [20].
+
+
+
+
+                       Figure 2.4. Schematic of Meniscus coating
+
+
+
+
+                                          21
+      At PRC at Georgia Tech, Meniscus coating has been successfully used to
+
+coat a variety of dielectrics such as CibaTM 7081, ShipleyTM XP9500CC, DupontTM
+
+P12611, DowTM Benzocyclobutene etc. Uniform thicknesses of 3-25µm have been
+
+obtained using the meniscus coater. Unlike Spin coating, Meniscus coating has
+
+achieved minimal material wastage, high throughput, high planarity, minimal
+
+defect density and uniform thickness over a large area. This simple to implement
+
+technology is an important aspect of achieving a high density, low cost SOP
+
+substrate with excellent mechanical and electrical properties.
+
+
+
+
+Solution-Based - Chemical
+
+
+Sol-Gel Deposition
+
+      In Sol-Gel deposition, a thin layer of a liquid-phase metallo-organic
+
+compound is thermally cured to remove the organic portion forming a metal
+
+inorganic oxide. Sol-gel processes allow for deposition of films with high degree
+
+of homogeneity at low temperatures.
+
+      The process starts by dissolving organometallic compounds such as metal
+
+alkoxides in alcohol to give a homogenous solution. This solution or “sol’ is then
+
+gelated by a hydrolysis reaction with water or by exposure to atmosphere.
+
+Important factors affecting the gelation are the pH and concentration of the
+
+catalyst, the amount and composition of the solvent and the sequence of mixing.
+
+The gel is amorphous and is mechanically weak because it has continuous pores
+
+                                        22
+and trapped organics, water and hydroxyl groups. Heat treatment and
+
+densification of the film form the final film. The high surface area of the dried
+
+gels results in very high reactivity, which results in a relatively low-temperature
+
+process as compared to ceramic deposition.
+
+       Sol-gel can be used for low cost processing of high k dielectrics since it
+
+requires less equipment and no vacuum. However the temperatures required to
+
+form high dielectric crystalline films are around 500oC. For example, films of
+
+Barium Strontium Titanate have to be annealed from 500oC to 700oC to achieve
+
+the crystalline structure and yield high dielectric constants in the range of 100-
+
+250 but the dielectric constant changes dramatically with the film thickness [21].
+
+One promising material is Lead Zirconate Titanate (PZT) ,which at a film
+
+thickness of 0.5µm, gives a capacitance density of 2000 nF/cm2 with a very high
+
+breakdown voltage of 1.3 MV/cm. Other materials that can be processed with
+
+Sol-Gel are Barium Titanate (formed from Barium Hydroxide), PZT (formed by
+
+lead acetate) etc.
+
+
+
+
+Hydrothermal Deposition
+
+       Hydrothermal deposition involves the dissolution of reactants and
+
+precipitation of crystalline compounds in hot, pressurized water. It is a standard
+
+technique to form crystalline powders in hot, pressurized water. The raw
+
+materials used are similar to that in the sol-gel process. A subsequent
+
+
+                                        23
+hydrothermal treatment of the sol can assist in the formation of thin films at
+
+lower temperatures. The reactions are carried out in closed vessels typically
+
+under strong alkali conditions. Hydrothermal processing can achieve crystalline
+
+ceramics at temperatures lower than 100oC.
+
+      At PRC at Georgia Tech, Barium Titanate has been deposited on Titanium
+
+coated glass slides or thin foils laminated on FR4. It was found that the specific
+
+capacitance was very high but so was the dielectric loss. By treatment with
+
+oxygen plasma, the dielectric loss was reduced but as the same time the specific
+
+capacitance went down as well. It is uncertain why the oxygen plasma had a
+
+significant effect on the dielectric properties of Barium Titanate. Another post
+
+hydrothermal method of improving the properties was to use polymer
+
+infiltration. The fabricated Barium Titanate films can be integrated on low cost
+
+substrate via standard build up processes.
+
+
+
+
+Photolithography
+
+      Photolithography is the most important process in industry right now that
+
+is used to assemble and package PWB’s. It can be used to get resolutions of upto
+
+2µm, which is far larger than the widths currently used in the semiconductor
+
+industry. The pattern to be realized on the substrate is generated on a CAD or a
+
+similar system and is transferred to a photographic film or photomask. The
+
+pattern is made by a computer-controlled photoplotter or an electron beam. In
+
+
+                                       24
+order to transfer the pattern from the photomask to the substrate a thin layer of
+
+photosensitive material known as photoresist is applied on the substrate surface.
+
+The photoresist is then exposed to UV light or other type of light source with the
+
+photomask on top of it. The photoresist can be positive in which light breaks the
+
+molecules in the polymer making the photoresist easier to dissolve or negative in
+
+which light causes crosslinking in the polymer making the illuminated portion
+
+harder to dissolve.
+
+
+
+
+Commercialized Dielectric Materials for Capacitors
+
+       In this section, the different types of dielectrics and commercially used
+
+dielectrics are discussed. Given the tremendous amount of development going
+
+on in the choice of dielectric materials, there are three mechanisms for
+
+polarization in dielectric when an electric field is applied. They are electronic,
+
+atomic and ionic polarization. Each occurs by a different mechanism and the
+
+dielectric constant produced by each of these mechanisms varies. There are two
+
+types of dielectrics that are used in embedded passives. They are paraelectric and
+
+ferroelectric dielectrics. They display each of the polarizations but the difference
+
+is that when the electric field is removed, ferroelectric materials do not lose all of
+
+their ionic polarization unlike paralectrics. An example of a ferroelectric is
+
+Barium Titanate which below its Curie temperature a asymmetric tetragonal
+
+with unequal side lengths giving the crystal a residual polarization. This residual
+
+
+                                         25
+polarization can give the ferroelectric a dielectric constant in the thousands and
+
+hence gives ferroelectrics dielectric constants that are quite large as compared to
+
+paraelectrics. Also unlike paralectrics, ferroelectrics are heavily influenced by
+
+temperature, frequency, bias, thickness of the film and aging. In addition, the
+
+process used to fabricate the paraelectric can have a significant effect on the final
+
+dielectric constant of the dielectric. Following are some of the commercialized
+
+materials:
+
+
+DuPont InterraTM
+
+       DuPont has developed a high-k integrated capacitor process called
+
+InterraTM that involves the firing of a screen-printed ferroelectric paste on one
+
+side of the Cu foil at 900oC and then firing a Cu-based paste on that to form a top
+
+plate and flipping the stack onto the FR4. The foil is then patterned to form
+
+separate capacitors and the electrical connections to the capacitors. The dielectric
+
+is fired two times in order to eliminate pinholes. The dielectric used is doped
+
+Barium Titanate plus a glass that is compatible with board-level etching
+
+processes. The dielectric has excellent properties with the dielectric constant in
+
+excess of a 1000 with a capacitance density of 44 nF/cm2 and a breakdown
+
+voltage of 0.8 MV/cm. Figure 2.5 depicts the process flow for the InterraTM
+
+integrated capacitor [22].
+
+
+
+
+                                         26
+                      Figure 2.5. Dupont InterraTM process
+
+
+
+
+3M C-PlyTM
+
+      This dielectric is a Barium Titanate filled epoxy, which is sandwiched
+
+between two layers of Cu foil. It has a capacitance density of 1.6nF/cm2 with a
+
+very low dissipation factor of 0.45%. Based on these performance parameters, the
+
+dielectric has been used for decoupling application and has been found to reduce
+
+switching noise by three times [23].
+
+
+
+Resistors
+
+      The following section talks about fabrication processes for resistors and
+
+materials that are currently being developed for embedded resistors. Some of the
+
+
+
+                                       27
+processes for fabricating resistors have been discussed in the capacitor
+
+fabrication section and hence will be only briefly revisited.
+
+
+Sputtering
+
+       Sputtering is the most commonly used process to deposit thin film
+
+integrated resistors. Tantalum Nitride (TaNx) has been deposited in a nitrogen
+
+rich environment and depending on the concentration of nitrogen, the resistivity
+
+increases with increasing nitrogen and the Temperature Coefficient of Resistance
+
+(TCR) decreases with increasing nitrogen. Tantalum Nitride films with resistivity
+
+of 250Ω-cm have been fabricated. Tantalum Oxy-Nitride (TaNxOy) is another
+
+material that is deposited by sputtering and resistivities of 5000Ω/square have
+
+been demonstrated. Semiconductors like Silicon can be used as resistors but their
+
+highly temperature and impurities dependent. Silicon is sputtered on organic
+
+substrates.
+
+
+
+
+Screen Printing
+
+       Polymer Thick Film (PTF) materials are primarily processed using screen-
+
+printing. These materials consist of epoxy-based polymers that have carbon
+
+fillers in the polymer. These are the conducting particles and the conduction
+
+mechanism is due to the bridging of these particles. PTF materials have low
+
+temperature processing and are usually cured at temperatures below 200oC.
+
+Screen-printing is a very simple and inexpensive process but it suffers from
+
+                                         28
+tolerance problems, reliability issues and delamination between the resistor
+
+material and the copper pad resulting in open circuits. In addition, swelling due
+
+to moisture and cracking of the polymer material due to CTE mismatch are
+
+causes of failure. Finally Screen-printing may be a little cumbersome process and
+
+requires very careful process control for good tolerance. The achievable sheet
+
+resistances cover a very wide range of 1 to 107 Ω/square.
+
+
+Ink Jet Deposition
+
+       This process is very similar to ink jet printers and is used to deposit
+
+curable resin polymers and solder. Good tolerances, flexibility in resistor values,
+
+ease of use and reworkability make ink jet deposition an attractive process.
+
+Epoxy resins have been deposited using the above method. Figure 2.6 shows a
+
+Figure of the process [24].
+
+
+
+
+                Figure 2.6. Droplets on Demand Ink Jet deposition
+
+
+
+
+                                        29
+Commercialized Processes for Resistors
+
+       This section discusses some commercialized processes in resistors that are
+
+currently being used or show great promise.
+
+
+Ohmega-PlyTM
+
+       Ohmega-PlyTM is an embedded resistor technology developed by Ohmega
+
+and is meant primarily for organic substrates or laminates. The resistor used is
+
+Nickel Phosphide (NiP), which is on one side of a copper foil. Using various
+
+process steps, copper interconnects can be formed to define the final resistor
+
+structure and value. The thickness of NiP varies between 0.1µm and 0.4µm and
+
+the sheet resistance can be as high as 250Ω/square.
+
+
+DuPont InterraTM
+
+       The process is the same as discussed earlier in the capacitor fabrication
+
+section with the exception of Lanthanum Boride being used as the resistor
+
+material. Lanthanum Boride is stable and highly reliable resistor material. The
+
+minimum thickness of the resistor lines is 10µm and issues relating to the
+
+separation of the resistor termination interface surfaced.
+
+
+Shipley InSiteTM
+
+       The resistor material used in embedded resistor is a thin film of doped
+
+platinum deposited on copper foil by CCVD. The process produces high values
+
+of sheet resistivity (1000Ω/square) and a TCR of 100ppm. The process consists of
+
+
+                                         30
+a copper foil of ½ oz or 1 oz thickness, which is coated with the InSite resistor
+
+material, laminated with the resistor film against the prepreg. Figure 2.8 shows a
+
+schematic of the process [25].
+
+
+
+
+                        Figure 2.8. Shipley InSiteTM process
+
+
+
+
+                           Reliability Experiments
+
+      This section addresses the previous research done in the field of reliability
+
+of embedded passives. Since embedded passives are still an emerging
+
+technology, research in the thermo-mechanical reliability of passives is very
+
+limited. Schatzel has studied the thermo-mechanical reliability of capacitors
+
+made from Tantalum Oxide (Ta2O5) and Benzocyclobutene (BCB) [26]. The
+
+capacitors were fabricated on silicon as compared to industry standard FR4 and
+
+the capacitance values were measured at low frequency. The changes in
+
+capacitance after assembly process and 20 thermal cycles between –55oC and
+
+                                        31
+100oC were measured. The mean change in capacitance was 0.61% but since only
+
+20 thermal cycles were performed, it is inconclusive as far as long-term reliability
+
+goes. Borland et al. have reviewed the reliability of the Dupont InterraTM process
+
+as outlined in the capacitor and resistor fabrication section above [27]. The
+
+ceramic embedded capacitors and resistors were cycled between –45oC and
+
+125oC and kept at 85oC/85%RH. The resistors showed an extremely small change
+
+0.3% and capacitors showed a maximum change of 5% after 1000 cycles. The
+
+change in resistors after the high humidity and temperature conditions are less
+
+than 2%. However the resistors and capacitors were ceramic which have a much
+
+lower CTE and hence the thermo-mechanical deformation experienced will be
+
+much less than the deformation experienced in organic polymer dielectrics.
+
+Strydom et al. have looked at the reliability of embedded inductors from a
+
+delamination standpoint [28]. The inductors are subjected to thermal cycling and
+
+then the interfacial peel strength was measured at the end of subsequent thermal
+
+cycles to see the potential site of delamination. In addition, the change in
+
+capacitance was measured after 2000 tests. Lots of other literature on reliability of
+
+passives was found but they were of discrete passives and generally did not
+
+involve any thermal cycling. In addition, the change in electrical parameters was
+
+also not considered as a mode of failure. Fairchild et al. have looked at the
+
+thermal cycling of flexible thin-film embedded resistors and noticed a change of
+
+2% after 300 thermal cycles. The resistor material used was Chromium Silicate
+
+(CrSi) with copper as the metalization [29]. Zhou et al. have subjected embedded
+
+                                         32
+resistors and capacitors to 1000 thermal cycles between –40 oC and 125 oC and
+
+observed a change of -0.3% and –3.10% respectively. The resistor used is
+
+DupontTM ceramic resistor material and the capacitor dielectric is 3M C-PlyTM
+
+[30].
+
+
+
+
+Literature Review on passing qualifications for Embedded Passives
+
+        Failure qualifications in traditional reliability experiments have been very
+
+specific and easy to determine. For example, in an IC, the failure of the solder
+
+joint occurs when a crack propagates through the entire length of the solder joint
+
+and hence current cannot flow through the solder joint. In thermo-mechanical
+
+failure of passives however, the failure is not clearly quantified and different
+
+applications of passives might carry different ranges of failure. For example, the
+
+tolerance in a decoupling capacitor is not extremely important and a change of
+
+about 5% is not considered to be high. On the other hand, analog functions such
+
+as filters, A/D conversion require tight tolerances and even a change of 5% is too
+
+high.
+
+        Though there is no standard for embedded passives, the Electronics
+
+Industry Association (EIA) has classified discrete capacitor dielectrics by the
+
+change in dielectric constant with temperature. Currently there is no code for
+
+embedded passives but a similar system may be implemented in the future. The
+
+system consists of a alphanumeric code; the first alphabet is used to describe the
+
+
+                                         33
+low temperature, the second number represents the high temperature and the
+
+third alphabet is the %change seen in the dielectric. For example, X7R represents
+
+a maximum change of ± 15% between –55oC and 125oC. Table 2.1 shows the EIA
+
+codes used for classifying different dielectric materials.
+
+
+
+                  Table 2.1. EIA temperature codes for dielectrics
+
+  Low Temperature              High Temperature                    % Change
+
+     Z    +10 deg. C            2      +45 deg. C             A         1.00%
+
+     Y     -30 deg. C           4      +65 deg. C              B        ± 1.5%
+
+     X     -55 deg. C           5      +85 deg. C              C        ± 2.2%
+
+                                6     +105 deg. C             D         ± 3.3%
+
+                                7     +125 deg. C              E        ± 4.7%
+
+                                                               F        ± 7.5%
+
+                                                               P       ± 10.0%
+
+                                                               R       ± 15.0%
+
+                                                               S       ± 22.0%
+
+                                                               T      +22%, -33%
+
+                                                              U       +22%, -56%
+
+                                                               V      +22%, -82%
+
+
+
+
+   In addition, the EIA has also classified dielectrics according to their dielectric
+
+constant and the stability with temperature. The three classes are:
+
+
+
+                                         34
+   i)       Class 1: These dielectrics usually have a k less than 100 and change no
+
+            more than 30ppm between temperature range of 125oC and -55oC. If
+
+            adapted for embedded passives, this category would go to
+
+            paraelectrics for dielectric constant and stability.
+
+   ii)      Class 2: These dielectrics usually have a k in the range of 2000-5000 and
+
+            a stability of upto ± 15.0%.
+
+   iii)     Class 3: These dielectrics have a k in the range of 4000-20000 and
+
+            stability in the range of +22% to –82%. Both Class 2 and 3 belong to the
+
+            category of ferroelectrics.
+
+   In the near future with the widespread use of embedded passives, some sort
+
+of code will be used to describe the changes in electrical parameters in passives
+
+with changes in temperature, voltage, bias, aging etc.
+
+
+
+
+  Literature Review on Qualification Tests of Embedded Passives
+
+          The reliability of passives has been determined using some of the
+
+techniques mentioned below.
+
+Air-to-air accelerated reliability testing: Air to air thermal stress testing is a
+
+standard methodology in the electronic packaging industry to assess the
+
+reliability of the components. It is also called the MIL-STD-883 Method or IPC-
+
+SM-785 test. Components are subjected to a temperature range from –55oC to
+
+
+
+
+                                           35
+125oC in a cycle. Each cycle has a period of 20 minutes with 10 minutes dwell at
+
+extreme temperatures.
+
+
+
+Standard Steady State Humidity Life Test: Very commonly used to determine the
+
+reliability of microelectronics packages, this test places the test substrate at high
+
+temperature and relative humidity of 85oC/85% RH. Sometimes the substrate is
+
+also subjected to a bias to determine the electrical performance of the test vehicle
+
+in adverse conditions. The test is also referred sometimes as the HAST test
+
+(Highly Accelerated Stress Test).
+
+
+
+
+                             Reliability Modeling
+
+       It is clear that research into the thermo-mechanical reliability of organic
+
+dielectrics on FR4 substrates is lacking and more work needs to understand the
+
+physics of passive reliability. In addition, very limited literature was found on
+
+the Finite Element Analysis validation of the results obtained from various
+
+experiments. Most of the research found published the results without any Finite
+
+Element Evaluation of the reason behind the changes in electrical parameters. No
+
+attempts are made to explain the reason for the changes in electrical parameters
+
+and the physics behind the change of the parameters.
+
+       Lee et al. have looked at the temperature distribution in integrated
+
+passive modules and determined the thermo-mechanical stress distribution in
+
+
+                                         36
+the module [31]. The temperature distribution was validated using an Infra Red
+
+camera and the Von Mises stress distribution was found to influenced by the in
+
+plane stresses. The stress distribution was not validated by any means.
+
+
+
+
+                                       37
+                                  Chapter III
+
+
+                                OBJECTIVES
+
+       Embedded passives will play a critical role in high performance low cost
+
+microelectronics packages of the future. Everything from the fabrication process
+
+to the materials to be used is still under research and there is no consensus on
+
+each of the issues. In addition, the reliability research in embedded passives is
+
+lacking and there is no standard developed right now to qualify the reliability of
+
+passives. With the strong consumer drive to wireless applications, it is necessary
+
+to have design guidelines to fabricate reliable passives structures.
+
+       The primary objective of this research is to see the effect of thermo-
+
+mechanical deformation on the electrical parameters of the embedded passive
+
+structures. In order to perform reliability experiments, test boards are fabricated
+
+in a class 1000 clean room and then subjected to various reliability tests. The
+
+results from the experimental studies are correlated with the results obtained
+
+from the Finite Element Simulations.
+
+       The specific objectives of this work are:
+
+   •   Develop theoretical models and to conduct experiments to study the
+
+       reliability of embedded passives.
+
+          o The theoretical program aims:
+
+
+
+
+                                         38
+          o To develop physics based models that simulate the board
+
+               deformation during thermal cycling.
+
+                     To develop electrostatic models that find the electrical
+
+                     parameters of the deformed model.
+
+                     Develop parametric models to see the effect of passive
+
+                     distance from neutral point and material selection on passive
+
+                     reliability.
+
+                     To develop physics based models to predict the change in
+
+                     electrical     parameters   based   on   the   thermal   loading
+
+                     experienced in fabrication processes.
+
+          o The experimental program aims:
+
+                     To fabricate test vehicles with embedded passives using
+
+                     photolithography process on standard FR4 substrate.
+
+                     To subject the test vehicles to various reliability tests and
+
+                     observe the change in electrical parameters.
+
+   •   To validate the results from the theoretical program with the experimental
+
+       data.
+
+
+
+
+                        Gaps in Existing Research
+
+       As observed in the literature survey, there is a severe shortage of research
+
+performed in thermo-mechanical reliability of embedded passives. Most of the
+
+                                           39
+research in the reliability of passives has been performed on either discrete
+
+passives or ceramic passives. Very limited literature takes a look at the reliability
+
+of standard photolithography process on conventional substrates. In addition,
+
+no Finite Element Analysis is performed in most of the published work to
+
+correlate the results with the experimental results obtained. There has been no
+
+attempt to understand the reason for the change in electrical parameters after the
+
+reliability experiments. No combined experimental and theoretical program
+
+exists for understanding the reliability of embedded passives. While material
+
+selection based on cost and electrical performance is widely considered, selection
+
+based on mechanical performance is very limited. No design guidelines exist for
+
+designing passives for optimal electrical and mechanical performance. Finally,
+
+there is limited research in understanding the effect of fabrication process on the
+
+change in electrical parameters. It has been generally observed in literature that
+
+obtaining a tolerance higher than 5% after fabrication is difficult. No literature
+
+could be found on effects on fabrication process on the performance of passives.
+
+In addition, the focus of most of the published work is limited to one type of
+
+passive instead of looking at all three.
+
+
+
+
+                                           40
+                                  Chapter IV
+
+
+                DESCRIPTION OF TEST VEHICLE
+
+       This chapter focuses on the steps to fabricate a multi-layered substrate
+
+with embedded passives. The first section discusses the test vehicle and the
+
+various passives structures in it. The next section looks at the processing
+
+conditions required to fabricate the test vehicle.
+
+
+
+
+                              Test Vehicle Details
+
+       The test vehicle fabricated has five layers of material on it. It is fabricated
+
+using a photolithography process on a FR4 substrate. The different materials
+
+used in the substrate and their thickness are listed in table 4.1. Figure 4.1 shows a
+
+picture of the test board and the passives embedded in the test board. The test
+
+board has 6 parallel circular plate capacitors, 4 spiral inductors and 2 meander
+
+resistors. The 6 capacitors have varying electrode diameters but same dielectric
+
+thickness between the electrodes. Table 4.2 shows the diameter of the capacitors
+
+and the capacitance value.
+
+
+
+
+                                         41
+                  Table 4.1. Materials used in the test board
+
+       Material                     Function                    Thickness
+
+                          Traces, Pads, Inductor traces,
+       Copper                                                    15µm
+                                Capacitor Plates
+
+Shipley Dynavia 2000TM              Dielectric                  63.5µ m
+
+     Carbon Ink                     Resistor                     15µ m
+
+         FR4                      Base material                  700µ m
+
+      Vialux 81                   Solder Mask                    30µ m
+
+
+
+
+                     Figure 4.1. Picture of the Test Board
+
+
+                                       42
+                        Table 4.2. Details of the capacitors
+
+                         Passive      Diameter        Value
+
+                       Capacitor 1     330 mils      29.53 pF
+
+                       Capacitor 2     380 mils      39.16 pF
+
+                       Capacitor 3     430 mils      50.14 pF
+
+                       Capacitor 4     480 mils      62.48 pF
+
+                       Capacitor 5     530 mils      76.18 pF
+
+                       Capacitor 6     580 mils      91.23 pF
+
+
+
+
+       The other passives on the board are inductors and resistors. The value of
+
+inductance for all the inductors is 4.9 µH and the resistance for the 8 mil thick
+
+resistor is 350KΩ and for the 12 mil thick resistor is 125 KΩ.
+
+
+
+
+              Fabrication Steps and Processing Conditions
+
+       There are five layers in the fabrication. They are metal 1 (or the bottom
+
+metal layer), dielectric, metal 2 (or the top metal layer), soldermask and resistor
+
+layer. The photoresist used in the process is DupontTM Riston 206, which is a
+
+negative defined dry film photoresist. The fabrication process starts with a
+
+double clad FR4 board. Prior to fabrication, the board is cleaned and the thin
+
+oxide formed on the copper is removed. This is done by dipping the board in
+
+Acetone, Methanol and Propanol to remove the dirt from the copper. It is then
+
+
+
+                                         43
+dipped in deionized water and placed in sulphuric acid for 1 min. The board is
+
+finally baked at the end of the process to remove the accumulated moisture.
+
+Metal 1 Layer
+
+      The photoresist is taken out of the refrigerator and allowed to warm up to
+
+room temperature. A 5.375” square is cut out from the photoresist and placed on
+
+the board. The protective coating on the side of the substrate is removed prior to
+
+the placement on the board. The photoresist is then vacuum laminated at 105 oC
+
+for 60 seconds and at 4 atmospheres for 30 seconds respectively. After the
+
+photoresist has been laminated, the laminator drawer is opened and the
+
+substrate is cooled down to room temperature.
+
+      The photoresist is now exposed for 15 seconds using the under the bottom
+
+metal mask shown in Figure 4.2. Photolithography is based on the principle that
+
+the exposed region is going to be harder to remove due to cross-linking under
+
+UV light. Hence when the photoresist is developed, the unexposed areas will
+
+etch away and the exposed areas will prevent the underneath materials from
+
+etching or other processes. The exposed photoresist is developed using a much
+
+stronger solvent. In case of the negative acting Riston 206, the unexposed
+
+photoresist is developed using Sodium Carbonate solution heated upto 35 oC.
+
+Before developing, the protective coating on the top side of the photoresist is
+
+removed and the substrate is placed in the solution for 60 seconds. The substrate
+
+is then rinsed in deionized water and dried with an air gun. The substrate is
+
+
+
+                                       44
+inspected under a microscope to make sure no residue of the exposed photoresist
+
+is left on the board.
+
+
+
+
+                           Figure 4.2. Bottom Metal Mask
+
+
+
+       Now that the photoresist is removed from the board, the exposed copper,
+
+which was under the unexposed photoresist, is etched away using a 30% Ferric
+
+Chloride solution. The substrate is rinsed and dried and inspected for any copper
+
+residue and feature sharpness. Having formed the bottom metal layer, the
+
+remaining developed photoresist is removed using 1% Sodium Hydroxide
+
+solution heated to 53 oC. Any residue of photoresist or copper means that the
+
+stripping should go on till no residue is left and all features on the board are
+
+visible. Finally the substrate is baked to remove any accumulated moisture in the
+
+substrate. After the metal 1 layer, the Dielectric layer is fabricated.
+
+
+
+
+                                          45
+Dielectric Layer
+
+         Shipley DynaVia 2000TM is the dielectric material used as the dielectric. It
+
+is a negative acting dry film dielectric. The dielectric is laminated on the
+
+substrate in the same manner as the photoresist. However the lamination takes
+
+place at 60 oC instead of 105 oC. Once the dielectric has been laminated, the
+
+substrate is baked at 85 oC for 45 minutes and allowed to cool down to room
+
+temperature. The DynaViaTM is exposed using the via mask. The vias mask used
+
+is shown in Figure 4.3. In order to align the mask properly with the board,
+
+orientation structures called fiducials are matched with the fiducials formed on
+
+the bottom metal layer. It is important to align the masks properly or the vias
+
+will be unable to connect the bottom layer with the top metal layer. This mask
+
+allows the formation of vias in the dielectric and connects the bottom metal layer
+
+with the top metal layer. The substrate is baked after exposure for 45 minutes at
+
+85 oC.
+
+
+
+
+                                 Figure 4.3. Via Mask
+
+                                          46
+       The Dynavia is then developed using a 98% solution of GBL
+
+(Gammabutyroacetone) for 31/2 minutes to form the via holes. Following the
+
+developing, the substrate is placed in a solution of propanol for 1-2 minutes and
+
+dried with an air gun. The substrate is inspected under a microscope to ensure
+
+that the vias have opened up and if that is not the case, the dielectric is
+
+developed again. The Dynavia is now exposed without any mask and
+
+subsequently cured at 135 oC for 45 minutes to cross link the dielectric. The
+
+substrate is removed from the oven and allowed to cool down to room
+
+temperature. Following the fabrication of the dielectric layer, the top metal layer
+
+is formed next.
+
+
+
+Metal 2 Layer
+
+       In order to form copper on the substrate, copper needs to be electroplated
+
+on the substrate. However electroplating requires a conducting medium on the
+
+surface of the substrate and Dynavia, being a dielectric, is not one. So a thin seed
+
+layer of copper is deposited to electroplate thicker layer of copper later. The seed
+
+layer has a thickness of around 5µm and is deposited by electroless plating.
+
+Following are the steps followed in order to do electroless plating on the
+
+substrate:
+
+
+
+
+                                        47
+i)     The substrate is swelled in order to make etching easier. This is done
+
+       by using a solution containing the solvents diethylene glycol and n-
+
+       butyl ether.
+
+ii)    The substrate is rinsed in deionized water and put in a permanganate
+
+       etch solution. This allows for better adhesion of the material.
+
+iii)   The board is rinsed in deionized water for 2 minutes and then
+
+       neutralized for 2 minutes at room temperature using a solution of p-
+
+       toulene, sulphuric acid and hydrogen peroxide to remove any excess
+
+       chemicals.
+
+iv)    The board is rinsed in deionized water and conditioned using weak
+
+       sulphuric acid to prepare the board for microetching.
+
+v)     The board is then microetched to prepare the substrate for the activator
+
+       and rinsed for 2 minutes.
+
+vi)    The board is pretreated for 1 minute before dipping in the activator.
+
+       The pretreatment solution consists of sodium bisulfate and carbamidic
+
+       acid. The activator bath triggers the insulating surface to provide metal
+
+       seeds and provide better copper deposition. The activator solution
+
+       consists of hydrochloric acid, palladium chloride and tin chloride.
+
+vii)   The board is rinsed and put in a reducer solution for 5 minutes. The
+
+       reducer allows for reduction of metal cations at the substrate surface, a
+
+       plating reaction, to occur. The reducing agent used is Formaldehyde.
+
+
+
+                                     48
+   viii)   The board is rinsed and electroless plating is performed on the board
+
+           for 6 minutes.
+
+   ix)     The board is rinsed and microetched for 1 minute.
+
+   x)      The board is rinsed and dipped in an antitarnish solution to remove
+
+           any oxide from the freshly formed copper surface.
+
+   xi)     The board is rinsed and baked at 65 oC for 2 minutes to remove excess
+
+           moisture from the board.
+
+
+
+
+                            Figure 4.4. Top Metal Mask
+
+
+
+   With the formation of the seed layer, electroplating can now be carried out.
+
+However, in order to pattern the top metal, copper only needs to be deposited in
+
+certain areas. Hence in order to develop that pattern, photoresist is laminated on
+
+the top surface of the substrate, aligned with the top metal mask and exposed.
+
+The photoresist is then developed to expose only the areas that need to be
+
+
+
+                                       49
+electroplated. The board is then microetched to remove the oxide layer on copper
+
+before electroplating. The following steps are followed for the electroplating of
+
+copper.
+
+   i)        The board is dipped in sulphuric acid for 1 minute to remove the
+
+             oxide.
+
+   ii)       The board is clipped into place and placed in the electroplating bath
+
+             for 10 minutes.
+
+   iii)      After 10 minutes, rotate the substrate to perform even coating over the
+
+             coated surface.
+
+   iv)       After all 4 sides of the board have been rotated; place the board in a 3%
+
+             Sodium Hydroxide solution to remove the remaining photoresist.
+
+   v)        Rinse the board and dry it.
+
+   vi)       The board is microetched for 40 seconds and rinsed and dried. The
+
+             board is inspected to ensure uniform coating.
+
+   vii)      The board is baked to remove any moisture.
+
+
+
+Resistor Layer
+
+          With the completion of the top metal layer, resistors are fabricated by
+
+opening gaps between copper pads and depositing resistor material with a
+
+squeegee in the gaps. The process starts by laminating photoresist on the
+
+substrate and exposing it using the resistor mask.
+
+
+
+                                           50
+                             Figure 4.5. Resistor Mask
+
+
+
+       The photoresist is developed and then rinsed in deionized water. The
+
+resistor material is then squeegeed into the gaps in the substrate. The substrate is
+
+then baked for 30 minutes at 85oC and for 15 minutes at 110oC. The photoresist
+
+then stripped off to complete the liftoff process. The resistor is then cured at
+
+150oC for 2 hours to make the resistor permanent. After the resistor layer, the
+
+final layer of solder mask is fabricated.
+
+
+
+Solder Mask
+
+       The solder mask is fabricated by first making the solder mask. The solder
+
+mask consists of a thinner, hardener and thinner. After the mixture is made, the
+
+solder mask is spun coat on the substrate by spinning it for 30 seconds at 300
+
+rpm and for 30 seconds at 1200 rpm. The substrate is then baked for 15 minutes
+
+
+
+                                            51
+at 60 oC and for 45 minutes for 85 oC. The solder mask is then exposed using the
+
+solder mask mask.
+
+
+
+
+                         Figure 4.6. Solder Mask mask
+
+
+
+      The solder mask is then developed in a 1% Sodium Carbonate solution
+
+and cured for 1 hour at 150 oC. With the completion of the solder mask layer, the
+
+fabrication of the board is concluded. Figure 4.7 shows a schematic of the
+
+fabrication process.
+
+
+
+
+                                       52
+Figure 4.7. Fabrication process of passives
+
+
+
+
+                    53
+                                  CHAPTER V
+
+
+              MODELING OF INTEGRAL PASSIVES
+
+         In this section, the electrical and geometric modeling of passives has been
+
+discussed. The FEA models corresponding to thermo-mechanical models have
+
+been discussed. In addition, the electrostatic simulation of passives has been
+
+discussed in detail. The focus is on capacitors and inductors. All the FEA models
+
+constructed are parametric and important parameters such as the material
+
+properties, board thickness, distance from the neutral point (DNP), capacitor
+
+diameter, inductor length, thickness of the layers can be changed to determine
+
+their effect. It is important to note that the geometric modeling is done using
+
+shell elements and electromagnetic modeling was done using solid elements.
+
+This difference will play an important role in the thermo-mechanical modeling of
+
+passives.
+
+         Some assumptions are made during modeling of the FEA modeling of the
+
+board. They are:
+
+   i)       Since mainly electrical failure is of concern here, mechanical failure is
+
+            not considered here. Only the deformation of the board is the critical
+
+            parameter that can lead to the failure of passives.
+
+   ii)      There are many other features on the board that are not modeled. It is
+
+            assumed that their effect on deformation is minimal.
+
+
+                                          54
+   iii)      During thermal cycling, all the components are assumed to be at same
+
+             temperature and there is no temperature gradient in the board.
+
+   iv)       All the thickness of the layers are measured using a profilometer. Any
+
+             small variations in thickness of the layers across the board are ignored.
+
+
+                                 Material Modeling
+
+          The test board fabricated has several layers of different materials in it. In
+
+order to represent these materials accurately, different material models are used
+
+in the FEA. The properties of the dielectric and soldermask are of particular
+
+interest since they exhibit viscoelastic behavior. The following section discusses
+
+the properties of the materials in the board.
+
+
+
+Copper
+
+          Copper is present in the board as the capacitor plates, as inductor traces
+
+and on the other side of FR4. The elastic properties are modeled as linear
+
+isotropic with temperature dependent material properties. The plastic behavior
+
+was modeled as multi-linear kinematic hardening. Unlike isotropic hardening
+
+where there is uniform expansion of the yield surface, kinematic hardening leads
+
+to translation of the yield surface. The copper laminated on the FR4 and the
+
+electroplated copper are both assumed to have same properties. Table 5.1 shows
+
+the temperature dependence of Copper modulus. Table 5.2 and Figure 5.1 shows
+
+the kinematic hardening behavior of copper.
+
+
+                                           55
+Table 5.1 Dependence of modulus on temperature [32]
+
+             Temperature (oC)   E (GPa)
+
+                   27              121
+
+                   38              119
+
+                   93              117
+
+                   149             115
+
+                   204             112
+
+                   260             110
+
+
+
+
+       Table 5.2 Kinematic Behavior of copper
+
+                  Strain    Stress (MPa)
+
+                  0.001         121
+
+                  0.004         186
+
+                   0.01         217
+
+                   0.02         234
+
+                   0.04         248
+
+
+
+
+                           56
+                                               Kinematic Hardening of Copper
+
+
+                                 300
+                                 250
+
+
+
+
+                  Stress (MPa)
+                                 200
+                                 150
+                                 100
+                                  50
+                                   0
+                                       0          0.01    0.02         0.03    0.04   0.05
+
+                                                              Strain
+
+
+
+
+                            Figure 5.1. Kinematic Hardening of Copper
+
+
+
+FR4
+
+       FR4 is the most commonly used material in electronics industry for the
+
+base material of Printed Wiring Boards (PWB). Its favorable mechanical and
+
+electrical properties combined with its low cost are the primary reasons for its
+
+wide spread use. In the FEA model, FR4 is modeled as temperature dependent,
+
+linear-elastic material with orthotropic properties. This is due to the fact that FR4
+
+consists of glass fibers in an epoxy matrix. The fabrication of FR4 makes it very
+
+orthotropic in the normal or out of plane direction (z direction). Table 5.3
+
+presents the properties of FR4 at 30oC [33].
+
+                 Z
+
+
+                                           X
+
+            Y
+                                 Figure 5.2. Co-ordinate axis in ANSYSTM
+
+
+                                                            57
+                      Table 5.3. Properties of FR4 at 30oC.
+
+                               Property         Value
+
+                                 EX, EZ     22.4 GPa
+
+                                  EY            1.5 GPa
+
+                                 αX, αZ          16.2
+
+                                  αY              54
+
+                               GXY, GYZ 0.199 GPa
+
+                                  GXZ       0.63 GPa
+
+                                νXY, νYZ        0.1425
+
+                                  νXZ             0.2
+
+
+
+
+DynaVia
+
+      Shipley DynaVia 2000TM is the dielectric that is used in the board. It is an
+
+epoxy based photo definable, negative acting, dry film dielectric. Unlike copper
+
+and FR4, DynaVia exhibits typical linear viscoelastic behavior after curing.
+
+DynaVia posses a very high CTE of 72ppm below its Glass transition of 110-
+
+120oC and a CTE of 200ppm above that.
+
+      Viscoelastic materials can be very simply represented by the Kelvin and
+
+the Maxwell model. The Kelvin model consists of a spring and dashpot in series
+
+and the Maxwell model consists of a spring and dashpot in parallel. However
+
+these models have severe deficiencies and cannot represent the viscoelastic
+
+
+                                           58
+behavior of materials satisfactorily [34]. The Maxwell model shows no time
+
+dependent recovery and does not show decreasing strain under constant strain
+
+rate. Both models show finite initial strain whereas the initial strain rate is very
+
+rapid. The approach used to capture the full behavior of the material is to use an
+
+array of Kelvin models and Maxwell models together. This model is also called
+
+the Prony Series and is represented by:
+
+                                               N          −ξ 
+                                                          τ 
+                                G (ξ ) = G 0 + ∑ G i e       i 
+
+
+                                              i =1
+
+
+
+where N is the number of Maxwell elements, G0 is the initial glassy modulus, ξ is
+
+the reduced time and τ is the relaxation time. The Viscoelastic Prony series
+
+parameters are obtained from Dynamic Mechanical Analysis (DMA). These are
+
+displayed in table 5.4 [35].
+
+
+
+            Table 5.4. Viscoelastic Prony Parameters for DynaVia 2000
+
+                                             Extensional relaxation modulus
+             Relaxation time τi (sec)
+                                                     weight factors (Ei in MPa)
+
+                     7.19E-03                                       16.6368
+
+                     9.05E-02                                       9.48133
+
+                     1.14E+00                                       167.537
+
+                     1.43E+01                                       136.641
+
+                     1.81E+02                                       312.464
+
+
+
+                                            59
+                      2.27E+03                        330.227
+
+                      2.86E+04                        267.117
+
+                      3.60E+05                        251.494
+
+                      4.54E+06                        9.75963
+
+                      5.71E+07                        38.8723
+
+                      7.19E+08                        21.4291
+
+                                                       E( ∞ )
+
+                                                (rubbery) = 7.55
+
+
+
+
+ViaLuxTM 81
+
+      ViaLux is used as the soldermask in the fabricated board. Like DynaVia, it
+
+is a viscoelastic material and has to be characterized in order to represent its
+
+properties in ANSYS. The properties are obtained from Dynamic Mechanical
+
+Analysis (DMA) and Digital Scanning Calorimetry (DSC).            Table 5.5 shows the
+
+Prony Series obtained for ViaLux 81TM [34].
+
+
+
+            Table 5.5. Viscoelastic Prony Parameters for ViaLux 81TM
+
+      Relaxation time, τi    Extensional Relaxation       Shear Relaxation
+              (sec)         Modulus Weight factors        Modulus Weight
+                                  (Ei in MPa)                   factors (gi )
+         1.24793E-1                 157.684                     0.05651770
+          1.24793E0                 1.00629                     0.00017334
+
+
+
+                                        60
+          1.24793E1                74.2163                 0.02667660
+          1.24793E2                293.866                 0.10383600
+          1.24793E3                284.428                 0.09921200
+          1.24793E4                684.306                 0.23453700
+          1.24793E5                863.822                 0.28453700
+          1.24793E6                380.537                 0.11971700
+          1.24793E7                176.611                 0.05630420
+          1.24793E8                45.0753                 0.01348240
+          1.24793E9                10.5792                 0.00356210
+                            E∞ (rubbery) = 12.9836        Go (glassy) =
+                                                          1066.61 MPa
+
+
+
+
+                          Modeling of Capacitors
+
+Geometric Modeling
+
+      Before discussing the modeling of capacitors, the element used to model
+
+the entire board is discussed. The element used in ANSYSTM to represent the
+
+board is a non-linear layered Shell element. Its number is 181 and it can store
+
+data for upto 250 layers. Several layers are combined into one element and this
+
+eliminates the need for using solid elements to represent the board. As such, the
+
+very small thickness of the layers (some as thin as 15µ) compared to the length
+
+and breadth of the board (140mm square) means that aspect ratio errors would
+
+be obtained while trying to represent the board with solid elements. In addition,
+
+the time needed to solve the FEA model would be tremendously large and the
+
+
+                                       61
+maximum number of nodes allowed in the educational version of ANSYSTM
+
+would be exceeded. One of the important distinctions between shell and solid
+
+elements is that there are six degrees of freedom (displacement and rotation) in
+
+shell elements as compared to 3 degrees of freedom in solid elements
+
+(displacement only). Figure 5.3 shows the schematic cross section of the board. In
+
+addition, an example of Shell 181 element is presented by considering a small
+
+portion of the board. Figure 5.4 shows the portion of the board containing
+
+capacitors and the half model that is used to represent it.
+
+
+
+
+      Figure 5.3 Schematic of the board and an explanation of layered shell
+
+
+
+
+                                         62
+                   Figure 5.4 FEA representations of capacitors
+
+
+
+       For capacitors, only half of the board is modeled as the other half is
+
+sufficiently far away and will not have an influence on capacitor deformation.
+
+The model constructed is a 140mm × 70mm. All six capacitors are modeled in the
+
+board at once. Constrained y boundary conditions are applied as shown in
+
+Figure 5.5. The neutral point lies on the top center of the model and is
+
+constrained in all directions.
+
+
+
+
+         Figure 5.5 Symmetry boundary conditions applied on the board.
+
+
+
+                                       63
+       The capacitors are displayed differently in the board because they
+
+reference different section identification as compared to the rest of the board. The
+
+section identification defines the number of layers in a particular element, the
+
+thickness of it, the material used in it and the number of integration points in that
+
+particular element. The integration points refer to the points in each layer where
+
+the stress is evaluated and more integration points means more accuracy but
+
+increased computation time. For example, one integration point means that the
+
+layer is infinitely stiff and has only membrane (in plane) stiffness and will not
+
+bend. Layers with non-linear properties have five integration points assigned to
+
+them whereas the thickest layer (FR4) has eleven integration points assigned to
+
+it. Figure 5.6 shows a close up on the capacitors, the soldermask, which is slightly
+
+higher than the top metal plate is shown in it.
+
+
+
+
+                      Figure 5.6. Close up on the capacitors
+
+
+
+
+                                         64
+Parametric Modeling
+
+      In order to determine the effect of the distance from neutral point (DNP)
+
+on the change in electrical parameters, parametric models are developed that
+
+change the position of the capacitors with respect to the neutral point. The
+
+capacitors can be put anywhere on the board both with respect to length and
+
+breadth. Figure 5.7 shows the parametric model constructed for the capacitors;
+
+each capacitor is moved by a distance of 11 mm vertically down (y direction on
+
+board). The original model is on the left and the parametric model is on the right.
+
+
+
+
+             Figure 5.7. Capacitor mesh moved through parameters
+
+
+
+Fabrication Process Modeling
+
+      In order to find the effect of the process on the capacitance of the
+
+capacitor, a model is constructed that takes into consideration the changing
+
+layers of the model as the fabrication process goes on. There are two ways of
+
+changing material properties in ANSYSTM. One of them involves the death and
+
+
+                                        65
+birth of elements and the other involves changing the pointer to the material. In
+
+death and birth, the elements that are “killed” have their stiffness reduced by six
+
+orders of magnitude and their stress history deleted as well. While the elements
+
+are killed, they do not contribute any stiffness to the model. When the elements
+
+are “reborn”, they start at a zero strain and stress state and have their stiffness
+
+restored to the initial value. In this way, a sequential fabrication process
+
+consisting of several layers can be simulated. Starting with only those layres in
+
+the first step of the process, the simulation accounts for sequential deposition of
+
+layers by stiffening the elements. However Shell 181 does not have death and
+
+birth ability and so an alternative approach is needed. The other approach is to
+
+use linear layered element Shell 91. This element also does not have birth and
+
+death like Shell 181 but it uses a different method for defining the layers. The
+
+method being used allows it to reference a different Material for a particular
+
+layer between the load steps in ANSYSTM. For example, if copper is etched away
+
+during fabrication, its representation is shown in Figure 5.8. Material 1 has the
+
+normal modulus of copper whereas Material 2 has the modulus of copper
+
+decreased by six orders of magnitude. Hence Material 1 has been etched away to
+
+give Material 2.
+
+
+
+
+                                        66
+            Figure 5.8 (a). Etching away of copper during fabrication
+
+
+
+
+         Figure 5.8 (b). Etching away of copper represented in ANSYSTM
+
+
+
+      However this method has a disadvantage associated with it. Suppose a
+
+Material is deposited on the substrate, the above process is reversed and Material
+
+2 will now change to Material 1. So if copper is electroplated onto the substrate,
+
+Material 2 will be changed to Material 1. It is necessary to have a layer of
+
+Material 2 in the first place because the number of layers cannot be changed
+
+between load steps. Hence when Material 2 is changed to Material 1, all the
+
+previous strain and stress history gets transferred to Material 1 even though it is
+
+supposed to be born strain and stress free. This represents a problem since there
+
+is now way to delete the strains or the stresses within a particular layer.
+
+However, this does not pose any concerns, as the stresses induced in the layer
+
+are very small because of the very low modulus. In addition, the strains are
+
+
+                                        67
+elastic and will disappear in other load steps. The fabrication simulation follows
+
+the deformation induced in the board from the curing of the dielectric to the end
+
+of fabrication of the top metal layer.
+
+
+
+Electromagnetic Modeling
+
+       Unlike the geometric model, the electrostatic model of capacitors needs to
+
+be made by solid elements only instead of shell elements since there are no
+
+electrostatic shell elements in ANSYSTM. The elements used are Electrostatic
+
+element Solid 122 and Infinity 111. The electrostatic model consists of only the
+
+two copper plates with the dielectric sandwiched in the middle. The dielectric
+
+constant of DynaVia 2000TM is 3.72 and its loss tangent is 0.024. Since ANSYSTM
+
+requires the dielectric properties of all materials used in the model, copper is
+
+given a very low dielectric constant of 10-8. The dielectric, which is 63µ thick, is
+
+sandwiched between two 15µ thick copper plates. Since the thickness of the
+
+layers is again much smaller than the diameter (smallest diameter is 330mils or
+
+8250 µm), the model is constructed with a fine mesh to prevent aspect ratio
+
+errors. In order to declare the ground plane on the capacitor, the bottom copper
+
+electrode is selected and all the elements are given infinity boundary conditions.
+
+With this, the bottom copper plate is now the ground plane.
+
+       The top plate nodes are grouped together and given a name to be
+
+referenced later. The bottom plate nodes are grouped together as well. The
+
+CMATRIX command is then invoked in ANSYSTM to find the capacitance of the
+
+                                         68
+structure. The grouped nodes are called in this command to declare the top and
+
+bottom conductor plates in ANSYSTM. On computation of the capacitance, it was
+
+found that the theoretical value was higher than the simulated value. A mesh
+
+convergence was then performed to see the effect of number of nodes on the
+
+capacitance simulation. As the number of nodes was increased, the capacitance
+
+value increased and then did not change more than 5% a little below 60,000
+
+nodes. Table 5.7 shows the capacitance values for the capacitor of 330 mils
+
+diameter (8.25 mm) and Figure 5.7 shows the capacitance convergence for the
+
+same diameter. Figure 5.9 shows the convergence for a diameter 580 mils
+
+(14.5mm). Table 5.7 shows the final capacitance values at 60,000 nodes for all the
+
+capacitors and compared with the theoretical and experimental values. This
+
+concludes the electromagnetic simulation of capacitance.
+
+
+
+           Table 5.6. Capacitance Convergence for 330 mils (8.25mm)
+
+                               # Nodes   Capacitance
+
+                                 7379         24.58 pF
+
+                                17312         26.16 pF
+
+                                31012         26.89 pF
+
+                                40271         27.29 pF
+
+                                54551         27.71 pF
+
+                                86887         27.7 pF
+
+
+
+
+                                         69
+Figure 5.8. Capacitance Convergence for 330 mils (8.25mm)
+
+
+
+
+Figure 5.9. Capacitance Convergence for 580 mils (14.5mm)
+
+
+
+
+                           70
+     Table 5.7. Comparison with simulated, actual and theoretical values of
+
+                                  capacitance
+
+
+
+
+                          Modeling of Inductors
+
+Geometric Modeling
+
+      Much of the geometric modeling of Inductors follows what has been done
+
+in capacitance modeling. However some changes are made to model the
+
+inductors in the board. Figure 5.10 shows the portion of the board represented by
+
+the inductor model. Figure 5.11 shows the zoomed view on the inductors on the
+
+board. Figure 5.12 shows the actual inductors on the board.
+
+
+
+
+                                       71
+     Figure 5.10. FEA representation of inductors
+
+
+
+
+Figure 5.11. Zoomed view of the inductors on the board
+
+
+
+
+    Figure 5.12. Inductors as present on the board
+
+
+                         72
+       The above part of the model is constrained in the y direction, the left part
+
+in the x direction and the neutral point in all directions. Figure 5.13 shows the
+
+boundary conditions applied on the quarter model.
+
+
+
+
+                Figure 5.13. Boundary Conditions on inductor model
+
+
+Parametric Modeling
+
+       Parametric models, similar to those of capacitors are written to determine
+
+the effect of DNP on the change in inductance values. Two models are
+
+constructed in this effort. In one, the inductors are moved by a distance of 40mm
+
+horizontally right and 55mm vertically down to the furthest end of the board. In
+
+another model, they are put in the center of the board between the neutral point
+
+and the furthest point on the board. Figure 5.14 shows the parametric model
+
+constructed for the furthest inductors. The parametric model is on the right and
+
+the original is on the left.
+
+
+
+
+                                        73
+                  Figure 5.14. Parametric models for inductors
+
+
+
+Electromagnetic Model
+
+      The electromagnetic analysis of inductors is performed in Conventor
+
+WareTM rather than ANSYSTM. The solid model of inductor is constructed in
+
+ANSYSTM and then exported to Conventor WareTM. Figure 5.15 shows the
+
+inductor as constructed in ANSYSTM. The length of the longest inductor is
+
+3.85mm with the thickness of the inductor trace as 150µm and the gap between
+
+the traces as 0.5µm. The material is copper with a relative permeability of 1.02.
+
+The model is then exported to Conventor WareTM and the inductance analysis is
+
+performed. The inductance value as determined from the above simulation is
+
+4.95 µH and matches well with the experimental value of 4.63 µH.
+
+
+
+
+                                       74
+Figure 5.15. Model of the Inductor in ANSYSTM
+
+
+
+
+                     75
+                               CHAPTER VI
+
+
+ THERMO-MECHANICAL MODELING OF INTEGRAL
+
+                                  PASSIVES
+
+      This chapter talks about the thermo-mechanical modeling of integral
+
+passives and the process followed to implement an electro-thermo-mechanical
+
+methodology. The basic aim of the thermo-mechanical modeling in this thesis is
+
+to subject the boards containing the passives to thermal cycling and then extract
+
+the electrical parameters of the deformed passives. However this is not a trivial
+
+task as it involves the interfacing between the shell and solid elements in
+
+ANSYSTM and between the different analysis modes in ANSYSTM. Since the final
+
+electromagnetic capacitance analysis is done in ANSYSTM and the inductance
+
+analysis is done in Conventor WareTM, the processes followed are slightly
+
+different. The first section discusses the thermal loading conditions used in the
+
+thermo-mechanical simulation, the FEA methodology used to resolve the above
+
+issues is presented, the next section is on the thermal loading of the capacitors
+
+and the final section focuses on inductors.
+
+
+                Thermo-Mechanical Loading Conditions
+
+Thermal Cycling
+
+      This section discusses the loading conditions used in the thermal cycling
+
+of the board with embedded capacitors and inductors. The thermal cycle used for
+
+                                        76
+the experimental testing of the boards is MIL-STD-883 Method or IPC-SM-785
+
+test. The test consists of thermal cycling the test vehicles in a thermal chamber
+
+from –55 oC to 125 oC. Each thermal cycle is for a duration of twenty minutes
+
+where the basket containing the test vehicle is moved from a basket of 125 oC to a
+
+basket of –55 oC. From literature review, it is found that it takes around 3
+
+minutes to achieve steady state temperature after being introduced from the
+
+other chamber [32]. Hence the thermal cycle, taking this ramp time into account
+
+and with the dwell time as seven minutes, is shown in Figure 6.1.
+
+
+
+
+                                       Thermal Cycle Temperature Time Profile
+
+                               140
+                               120
+                               100
+                                80
+           Temperature ( oC)
+
+
+
+
+                                60
+                                40
+                                20
+                                 0
+                               -20 0      200    400    600    800   1000   1200   1400
+                               -40
+                               -60
+                               -80
+                                                        Time (sec)
+
+
+
+                    Figure 6.1. Load step used in thermal cycling of passives
+
+
+
+Fabrication Process Profile
+
+      The fabrication process, which has been discussed in Chapter 4, involves
+
+baking and curing and then processing the board at room temperature. The
+                                                        77
+combination of the excursions between the baking or curing temperatures and
+
+the room temperature resembles an asymmetric thermal cycle. However given
+
+the limitations of ANSYSTM discussed in Chapter 5, only the portion between the
+
+curing of DynaVia and electroplating of the top metal layer is modeled. A
+
+collapsed version of the thermal cycle between the curing of DynaVia 2000TM and
+
+the end of the fabrication of the top metal layer is presented in Figure 6.2. The
+
+thermal cycle equivalent to the fabrication process is presented in Figure 6.3. It
+
+assumed that the board returns to room temperature after baking in 5 minutes
+
+(since the boards are kept on rack to cool off for 5 minutes before further
+
+processing).
+
+
+
+
+      Figure 6.2. Schematic of a part of the fabrication process in capacitors
+
+
+
+
+                                        78
+Figure 6.3. Thermal profile between the curing of the dielectric and plating of top
+
+                                    metal layer
+
+
+
+
+                              FEA Methodology
+
+Fabrication Process Methodology
+
+      Before the thermal cycling is considered, the effect of the fabrication
+
+process needs to be considered on the capacitor. Before thermal cycling, it is
+
+assumed that the board is stress free at 135 oC (curing temperature of the
+
+dielectric). However, this is not true because the board is subjected to more
+
+baking steps after the curing of the dielectric. In order to determine the effect of
+
+these baking steps, the fabrication temperature profile between the curing of the
+
+dielectric layer and the electroplating of the top metal layer is applied to the
+
+model (Figure 6.3).
+
+
+
+
+                                        79
+      As mentioned in the beginning of the chapter, there are issues that have to
+
+be resolved for transferring the thermo-mechanical loads from the substrate level
+
+into the electrostatic models of the passives. This section discusses the procedure
+
+followed to achieve the above objective. Once the geometric model of the
+
+passives has been constructed, the thermal profile is applied to the full board
+
+model of shell elements and solved. It is important to note that the thermal load
+
+is different for thermal cycling and for the fabrication process. The thermo-
+
+mechanical stresses and deformation induced by the thermal loading are saved
+
+into the ANSYSTM database. The program is restarted and a solid model
+
+corresponding to the passive only is constructed in the same coordinates with
+
+respect to the global coordinate system as its corresponding shell representation.
+
+Now the method of cut boundary interpolation is used in which the loads from
+
+the shell elements of the full board model are transferred to the solid elements of
+
+the passive by reading in the nodal loads from the nodes of the full model. These
+
+loads are applied as displacement boundary conditions in the solid element
+
+model. A load step of small time duration is then applied to the model and the
+
+results obtained. The thermo-mechanical deformations obtained for the
+
+individual passive (local model) are compared with the deformations in passives
+
+embedded in the board (global model). The deformations are found to be within
+
+0.1% change. Electromagnetic analysis is then performed on the passive by either
+
+using ANSYSTM for the capacitors or Conventor WareTM for the inductors. This
+
+
+
+                                        80
+concludes the FEA method uses to implement the fabrication process analysis of
+
+embedded passives.
+
+
+
+Thermal Cycling
+
+      The FEA methodology for determining the effect of the fabrication process
+
+is very similar to that of the fabrication process methodology. However, there are
+
+two primary differences between two analysis types. One, as discussed earlier, is
+
+that the loading conditions are different and another is that the no deformation
+
+convergence is required since the thermal profile followed is the one that is
+
+experienced by the board in the actual fabrication. The thermal cycles are applied
+
+till the deformation in the board converges. This happens after around 8 thermal
+
+cycles. Barring these differences, the FEA methodology is the same and the
+
+analysis procedure very similar.
+
+
+
+
+                      Thermal Cycling of Capacitors
+
+Original Model
+
+      This sections looks at the results obtained from the electro-thermo-
+
+mechanical analysis of capacitors. The procedure mentioned above is followed to
+
+obtain the changed electrical parameter from the thermo-mechanically deformed
+
+passive. Figure 6.4 presents the deformation in the board after thermal cycling.
+
+As seen from the figure, the deformation is symmetric about the x-axis of the
+
+
+                                       81
+board. Also the deformation increases with increase in DNP. The deformations in
+
+the board converge after 8 thermal cycles. Figure 6.5 shows the deformed
+
+capacitor furthest from the neutral point (capacitor 6).
+
+
+
+
+     Figure 6.4. Deformation in board after thermal cycling with capacitors
+
+
+
+
+          Figure 6.5. Deformed capacitor furthest from the neutral point
+
+
+                                         82
+      The electrostatic analysis then performed on the capacitors. The first three
+
+capacitors in the first row are numbered from 1-3 and the next three in the other
+
+row from 4-6. The results are tabulated in Table 6.1. The simulated change is the
+
+change obtained from the electro-thermo-mechanical analysis in ANSYSTM and
+
+experimental change is the change as measured from the fabricated test boards
+
+subjected to thermal cycling. As seen from the table, the results agree well with
+
+the experimental changes. The difference between the values is in part due to the
+
+change in the dielectric constant during thermal cycling and other factors.
+
+
+
+                Table 6.1. Results from thermal cycling of capacitors
+
+                       Before Thermal   After Thermal   Simulated   Experimental
+
+                          Cycling         Cycling        Change       Change
+
+         Capacitor 1      27.72 pF        27.45 pF       -1.50%        -3.92%
+
+         Capacitor 2      36.68 pF        36.02 pF       -1.78%        -4.21%
+
+         Capacitor 3      46.92 pF        46.05 pF       -1.85%        6.53%
+
+         Capacitor 4      58.68 pF        57.38 pF       -2.20%        -4.33%
+
+         Capacitor 5      71.18 pF        69.44 pF       -2.44%        -4.44%
+
+         Capacitor 6      85.19 pF        82.91 pF       -2.67%        N/A
+
+
+
+
+Parametric Model
+
+      The parametric model is run in the same way as the original model and
+
+the results obtained are tabulated in Table 6.2. It should be noted that the DNP of
+
+the capacitors is increased in the parametric model. As expected, the increased
+
+                                             83
+deformation in the capacitors leads to higher changes in the capacitance values. It
+
+is important to note that the parametric models can be validated with
+
+experimental results.
+
+
+
+              Table 6.2. Change in parametrically further capacitors
+
+                           Before Cycling   After Cycling   Simulated Change
+
+             Capacitor 1     27.72 pF            27.17 pF       -1.98%
+
+             Capacitor 2     36.68 pF            35.84 pF       -2.29%
+
+             Capacitor 3     46.92 pF            45.79 pF       -2.41%
+
+             Capacitor 4     58.68 pF            57.12 pF       -2.66%
+
+             Capacitor 5     71.18 pF            69.12pF        -2.89%
+
+             Capacitor 6     85.19 pF            82.59 pF       -3.05%
+
+
+
+
+            Fabrication Process Deformation In Capacitors
+
+      The fabrication process results are tabulated in table 6.3. The experimental
+
+deviation compares the simulated values of the deformed capacitors with the
+
+simulated electromagnetic values. The actual change is the deviation of the
+
+fabricated capacitors on the test board with the analytical values. As seen from
+
+the results, the fabrication process can have a significant impact on the final
+
+values of the capacitance. The actual change is a little different with respect to
+
+trends, as the experimental values don’t follow the pattern of increasing change
+
+with increasing DNP. The change in capacitance at the end of the fabrication
+
+process means that the fabrication process needs to be modified to reduce the
+                                            84
+temperature of the processes and the dwell times. Changes such as these can lead
+
+to more reliable fabrication and more stable values of the final capacitances.
+
+
+
+            Table 6.3. Results from the fabrication process simulation
+
+                                                        Experimental       Actual Deviation
+
+                Theoretical Value After Processing     Deviation from      from theoretical
+
+                                                     experimental values       values
+
+  Capacitor 1       27.72 pF          27.15 pF             -2.07%              -3.49%
+
+  Capacitor 2       36.68 pF          35.82 pF             -2.35%              -3.73%
+
+  Capacitor 3       46.92 pF          45.76 pF             -2.48%              -4.27%
+
+  Capacitor 4       58.68 pF          57.10 pF             -2.70%              -3.49%
+
+  Capacitor 5       71.18 pF          69.09 pF             -2.93%              -3.26%
+
+  Capacitor 6       85.19 pF          82.53 pF             -3.12%               N/A
+
+
+
+
+                        Thermal Cycling of Inductors
+
+       This section talks about the changes in inductance with thermal cycling.
+
+With the models constructed discussed in chapter V, the main focus of this
+
+section is to discuss the results obtained from the analysis of the boards
+
+conducted. The deformation of the board is very similar to the deformation
+
+obtained in the case of the capacitors. This is because the passives have very little
+
+effect on the deformation and hence the deformation in the board containing
+
+
+
+                                           85
+different passives is nearly the same. As seen from the results, the change in
+
+inductance is very small and will not even be measurable. The inductance does
+
+not undergo a significant change after deformation. This is due to the fact that
+
+the inductor is planar and does not have any turns in the z direction (in direction
+
+normal to top surface of board). Hence the deformation does not have a
+
+significant impact on the inductance. Another important aspect to consider is the
+
+change of material properties of copper with thermal cycling. In the simulation,
+
+the changes in the properties of copper with thermal cycling or high temperature
+
+and humidity conditions are not accounted for. Such changes can also be
+
+responsible for the small change in inductance obtained from the model
+
+simulations as compared to the experimental results. Figure 6.6 shows the
+
+deformed inductor after it has been subjected to thermal cycling. Table 6.4 shows
+
+the results of the thermo-mechanical-electro analysis.
+
+
+
+
+               Figure 6.6. Deformed Inductor after thermal cycling
+
+
+                                        86
+             Table 6.4. Results from the thermal cycling of inductors
+
+                 Inductor # Data Source   Before   After    % Change
+
+                 Inductor 1 Experimental 4.85µH    4.63µH    -4.75%
+
+                               FEA        4.95µH   4.94µH    -0.06%
+
+                 Inductor 2 Experimental 4.86µH    4.64µH    -4.76%
+
+                               FEA        4.95µH   4.94µH    -0.17%
+
+
+
+
+Parametric Model
+
+       The results of both the parametric models are tabulated in table 6.5. The
+
+parametric model moves the inductors further away form the DNP. As expected,
+
+the changes in the inductance increase with increase in DNP. However the
+
+change is still not large enough as compared to capacitors. Hence it can be
+
+inferred that inductors are more stable with respect to deformation as compared
+
+to capacitors.
+
+
+
+          Table 6.5. Results from the parametric modeling of inductors
+
+
+
+
+                                          87
+Effect of Materials on the Board
+
+      The deformation in the board is caused due to the high CTE mismatch
+
+between the different materials in the board. Prominent among them is
+
+DynaViaTM, which has a very high CTE of 72ppm. If the materials were to be
+
+more compatible with respect to the CTE, the deformation obtained in the board
+
+would decrease and the change in electrical parameters would follow. Since FR4
+
+is the most commonly used substrate material, the materials used in the board
+
+should have very similar CTE’s to that of FR4’s.
+
+
+
+
+                                       88
+                              CHAPTER VII
+
+
+                   RELIABILITY EXPERIMENTS
+
+
+
+      This section discusses the reliability experiments conducted on the boards
+
+with passives in detail. The equipment used, the type of experiments conducted
+
+and the final results obtained are the main goals of this section. The basic
+
+principle of reliability experiments is to accelerate the failure of electronic
+
+components within a reasonable time frame. Based on the data from previous
+
+reliable products or established standards, the new product can be qualified.
+
+Given the tremendous variety of reliability tests and standards available, only
+
+the most commonly used ones are used. At the end of each reliability test, the
+
+change in electrical parameters is measured.
+
+
+
+
+                               Moisture Effect
+
+      Before the boards are put in thermal chamber, measurements of all the
+
+electrical parameters are taken. These are then put in a convection oven at 100oC
+
+to drive out the moisture and see the effect of the moisture absorption on the
+
+dielectric. Figures 7.1 shows the effect of moisture absorption on capacitors. As
+
+expected, the capacitance decreases because the dielectric material loses all the
+
+moisture and the effective dielectric constant goes down decreasing the
+
+                                       89
+capacitance. On the other hand, the inductance of the embedded inductor goes
+
+up which is contrary to expectations. One possible explanation could be that the
+
+copper permeability improves due to the annealing of the material. The
+
+resistance of the embedded resistor goes down and again this could be because
+
+of the favorable change of material properties in copper or the resistor material
+
+after baking. The average change in capacitance after baking is around -0.80%,
+
+the change in inductance is around 1.1% and the resistance change is –1.4%.
+
+Figures 7.2 and 7.3 show the effect of moisture on inductance and resistance.
+
+
+
+
+              Figure 7.1. Capacitance values after baking the board
+
+
+
+
+                                       90
+Figure 7.2. Inductance values after baking the board
+
+
+
+
+Figure 7.3. Resistance values after baking the board
+
+
+
+
+                        91
+                        Air-to-Air Thermal Cycling
+
+      This reliability test is also called the MIL-STD-883 Method or IPC-SM-785
+
+test. In this test, the boards are thermal cycled between –55oC and 125oC. Given
+
+this 180 oC temperature range, any board or chip that lasts beyond 1000 thermal
+
+cycles is considered reliable. The test entails keeping the board at 125oC for 10
+
+minutes and –55oC for 10 minutes taking the whole cycle 20 minutes to complete.
+
+In our current set-up, the board is moved from one chamber to another with one
+
+chamber being kept at –55oC and the other being kept at 125oC.
+
+      After baking the boards, the boards are then subjected to 100 thermal
+
+cycles to see that the passives do not fail prematurely. With the functionality of
+
+the passives unaffected, the board is then cycled 1000 times. Figure 7.4 shows the
+
+thermal chamber used for thermal cycling. After the cycling, the boards are
+
+baked again to remove the moisture. However after thermal cycling, it is noticed
+
+that the copper oxidizes which has a significant impact on the passive. Hence
+
+etching is performed to remove the copper oxide and the properties are
+
+measured after that. Figure 7.5, 7.6 and 7.7 show the change of the electrical
+
+parameters after 1000 thermal cycles and etching away the copper oxide.
+
+      From the Figures, it can be seen that the capacitance decreases after
+
+thermal cycling. This change is expected as the capacitance undergoes thermo-
+
+mechanical deformation resulting in the decreased capacitance. After oxidation,
+
+the capacitance goes down by an average of 0.7%. Hence oxidation does not have
+
+
+
+                                       92
+a significant impact on capacitance. The capacitance decreases by an average of
+
+4% after oxide removal. The inductance drops by an average of 18% with the
+
+maximum drop being 20%. However when the inductor is etched to remove the
+
+oxide, the final change after thermal cycling is only 8%. One possible reason for
+
+the drop in inductance could be the change in the magnetic permeability of
+
+copper with thermal cycling and the thermo-mechanical deformation induced in
+
+the inductors. The average resistance change is around –13% and the maximum
+
+resistance change is –16%. However when the resistor is etched, the change
+
+increases to an average of –10% and a maximum of –12%. This is because the
+
+copper oxide on the pads gets etched away decreasing the resistance.
+
+
+
+
+                Figure 7.3. Picture of the Thermal Chamber used
+
+
+
+
+                                       93
+Figure 7.5. Change in capacitance after 1000 thermal cycles
+
+
+
+
+Figure 7.6. Change in inductance after 1000 thermal cycles
+
+
+
+
+                            94
+            Figure 7.7. Change in resistance after 1000 thermal cycles
+
+
+
+
+                               Humidity Testing
+
+       The other test performed on the board with passives is the humidity test.
+
+In this test, the board is subjected a temperature of 85oC and 85% Relative
+
+Humidity (RH). The test is performed in a Thermatron 2800 chamber as shown in
+
+Figure 7.8. The boards are kept for 100 hours initially and the electrical
+
+parameters are measured. The boards are then kept for 400 more hours for a total
+
+of 500 hours. The results are plotted in Figures 7.9, 7.10 and 7.11. As expected, the
+
+capacitance went up due to moisture absorbed by the dielectric. The average
+
+increase in capacitance was 5% after 100 hours and 10% after 500 hours. The
+
+inductance went up by an average of 4% after 100 hours and 8% after 500 hours.
+
+
+
+
+                                         95
+The resistance went down by an average of 3% after 100 hours and 7% after 500
+
+hours.
+
+
+
+
+                     Figure 7.7. Humidity Chamber used
+
+
+
+
+             Figure 7.9. Capacitance change after humidity testing
+
+                                      96
+Figure 7.10. Inductance change after humidity testing
+
+
+
+
+Figure 7.11. Resistance change after humidity testing
+
+
+
+
+                         97
+                              CHAPTER VIII
+
+
+  PERFORMANCE OF INTEGRAL PASSIVES DURING
+
+                                 FIELD USE
+
+
+
+      The previous chapters have looked at the change in electrical parameters
+
+of the passives with thermal cycling and humidity. FEA models were
+
+constructed and validated against experimental data. However the effect of these
+
+changes in electrical parameters needs to be determined. In particular, the system
+
+performance needs to be evaluated at the changed electrical parameters. To this
+
+purpose, the performance of a low pass and high pass filter are evaluated. A
+
+circuit is designed with capacitors and inductors from the test board and the
+
+performance evaluated after 1000 thermal cycles and humidity testing. In
+
+addition, the results from the FEA analysis are also incorporated. This analysis
+
+helps the designers get an idea about the how reliable the passives should be on
+
+the board to get maximum performance.
+
+
+
+
+                               Low Pass Filter
+
+      Low pass filters are the filers in which frequencies above a certain range
+
+are not allowed to pass through. It consists of series inductors and shunt
+
+
+
+                                       98
+capacitors, which tend to block high frequency signals. Figure 8.1 shows a Figure
+
+of a simple low pass filter.
+
+
+
+
+                      Figure 8.1. Schematic of a low pass filter
+
+
+
+       The cut off frequency is defined as the frequency above, which no signal
+
+passes through. It is denoted by ωc and is given by
+
+                                                      2
+                                         ωc =
+                                                      LC
+
+Above the cutoff frequency, the attenuation constant α increases steadily
+
+resulting in a drop in the signal propagation and finally as ω             ∞, α
+
+     ∞ . The attenuation constant is defined as the rate of decay with distance.
+
+The complex propagation constant (γ) is defined by sum of the attenuation
+
+constant and the complex phase constant. In the case of the above filter, the
+
+propagation constant is given by
+
+                                         2ω 2        2ω    ω
+                               eγ =1 −           +             −1
+                                         ω   2
+                                             c       ωc    ωc2
+
+
+
+
+                                                 99
+where ω is the frequency. The real part of the propagation constant gives the
+
+attenuation constant and the complex part gives the phase constant. Figure 8.2
+
+shows the response of the filter as a function of frequency.
+
+
+
+       A hypothetical case is now considered in which the inductance is taken to
+
+be the board value of 4.86µH (the FEA value is 4.951µH) and the capacitance is
+
+taken to be the board value of 73.7pF (the FEA value is 71.18pF).
+
+
+
+
+                     Figure 8.2. Low pass filter characteristics
+
+
+
+Experimental Results
+
+       The cutoff frequency considering experimental results would 105.67 MHz.
+
+The experimental change thermal cycling observed in the inductance is –4.75%
+
+and the capacitance change is –4.8%. Taking this into account, the inductance
+
+                                        100
+changes to 4.64 µH and the capacitance changes to 70.14pF. The new cutoff
+
+frequency is now 110.86 MHz or changes by nearly 5%. The filter will now allow
+
+an additional 5 MHz of signal to pass through it. This represents a huge change
+
+in most filters and this tolerance is not acceptable for stable, noise free
+
+performance. In addition, another change is in the decay of the signal after it has
+
+passed the cutoff frequency. Figure 8.3 shows the change in the attenuation
+
+constant after the change in electrical parameters. The attenuation constant goes
+
+down, meaning the signal will decay slower after the cutoff frequency. So this in
+
+addition with the change in cutoff frequency, will hinder the performance of the
+
+filter.
+
+
+
+
+                                                  Attenuation Constant
+                                                  after Thermal Cycling
+
+                                 3.98
+          Attenuation Constant
+
+
+
+
+                                 3.48
+                                 2.98                                       Original Attenuation
+                                 2.48
+                                 1.98                                       Attenuation after
+                                 1.48                                       cycling
+                                 0.98
+                                 0.48
+                                        0   100   200   300     400   500
+                                                  Frequency
+
+
+
+   Figure 8.3. Change in Attenuation constant after thermal cycling of the filter
+
+
+
+
+                                                              101
+      After humidity testing, the capacitance increases by 10.2% and inductance
+
+increases by 8.2%. Hence the changed cutoff frequency is 96.67 MHz. This
+
+massive change of 8.5% in cutoff frequency means that the filter will stop
+
+additional 9MHz of frequency from passing through it. Again such a big change
+
+can hamper the proper functioning of the filter. However the attenuation
+
+constant in this case goes up after the cut off frequency meaning that the signal
+
+will decay faster after the cutoff frequency. SO the change in cut off frequency is
+
+balanced off by the increase in attenuation constant.
+
+
+
+
+                                          Attenuation Constant after Humidity Testing
+
+                                4.5
+         Attenuation Constant
+
+
+
+
+                                  4
+                                3.5
+                                  3                                              Attenuation before
+                                2.5                                              humidity testing
+                                  2                                              Attenuation after
+                                1.5                                              humidity testing
+                                  1
+                                0.5
+                                  0
+                                      0      100     200    300      400   500
+                                                   Frequency (MHz)
+
+
+
+        Figure 8.4. Change in Attenuation constant after humidity testing
+
+
+
+      It is important to note that both ends of the spectrum are covered in the
+
+scenarios observed above. In one case, additional frequencies are allowed to pass
+
+through and in another; some frequencies, which had been previously allowed,
+
+
+                                                               102
+are now blocked. However, the attenuation constant in thermal cycling
+
+decreases, which aggravates the situation while in humidity testing, the
+
+attenuation constant increases balancing out the change in cutoff frequency.
+
+However, in both instances, the working of the filter is compromised.
+
+FEA Results
+
+      The cutoff frequency in this case is 106.53 MHz. The change in the
+
+capacitance is 3.05% and the change in inductance is 1.25%. Hence the cutoff
+
+frequency changes to 108.89 MHz. The change in the cutoff frequency is 2.2% and
+
+it will allow an additional 2.36MHz to get through.
+
+
+
+
+                                  Amplifier
+
+      Another commonly used component in electrical circuits is the amplifier.
+
+In simple terms, the amplifier increases the input voltage to the output voltage.
+
+In order to determine the effect of passive change on the amplifier, a simple
+
+GaAs Field Effect Transistor (FET) is evaluated with changed passive
+
+parameters. In order to find the equivalent changes, the FET is constructed with
+
+embedded passives in the board as shown in figure 8.5. The gate to source
+
+capacitance on the FET is denoted by Cgs and the gate to source capacitance on
+
+the board as an embedded passive is denoted by CGS. Similarly, the drain to
+
+source resistance on the FET is denoted by Rds and the drain to source resistance
+
+as embedded in the board is denoted by RDS. The passives embedded in the
+
+
+                                       103
+board are the ones that have been subjected to thermal cycling and humidity
+
+testing. The gain of the FET is given by
+
+                                           g m2 R DS
+                                 G=
+                                        2
+                                      R DS ω 2 CT2 + 1
+
+
+
+where gm is the transconductance (ratio of the AC output current to the input
+
+voltage), CT is the total capacitance of the circuit which is the sum of the gate to
+
+source capacitance on the FET and the gate to source capacitance on the circuit.
+
+Figure 8.5 shows a FET circuit for a common source configuration.
+
+
+
+
+            Figure 8.5. GaAs FET in the common source configuration
+
+
+
+The values of the different parameters are:
+
+gm = 40mS
+
+ω = 100 MHz
+
+CGS = 28.05 pF (capacitor 1 on the experimental board)
+
+
+
+
+                                           104
+Thermal Cycling
+
+       The resistance in the thermal cycled boards (taken as RDS) is 121000 Ω
+
+before cycling. The gain at the above parameters is 5.69. After thermal cycling,
+
+the gate to source capacitance changes to 26.95 pF and the drain to source
+
+resistance changes to 110000 Ω. The revised gain at these parameters is 5.92. It is
+
+interesting to note that despite a change of 4% in the capacitance and 10% in the
+
+resistance, the amplifier gain changes by a very small amount of 4%. This is
+
+because the change in resistance does no affect the gain of the amplifier due to
+
+the fact that ( R L ωC T ) 2 is much bigger than 1 and the resistance terms hence
+
+cancel out each other leaving only the capacitance and the transconductance.
+
+This is supported by the fact that if only the capacitance change is considered, the
+
+new gain will be 5.92 and if only the resistance changes, the gain still is 5.69.
+
+
+
+Humidity Testing
+
+       The experimental board tested in humidity testing has slight different
+
+resistors and hence the resistance for the drain to source is taken to be equal to
+
+the value of 950000 Ω. The value of the gain is now 5.92. After being subjected to
+
+humidity conditions, the value of the capacitance rises to 31.31pF (9.8% change)
+
+and the resistance drops to 795000 Ω (-16.9% change). The value of the new gain
+
+is 5.10. The new gain undergoes a drastic change of –14%. This will result in
+
+imminent failure of the amplifier.
+
+
+
+                                         105
+                                 CHAPTER IX
+
+
+             CONCLUSIONS AND FUTURE WORK
+
+
+                                  Conclusions
+
+       The study conducted in this research has given some understanding in the
+
+reliability of embedded passives. Complex thermo-mechanical-electrical models
+
+have been developed that take time and temperature dependent properties into
+
+consideration. Based on the experimental and FEA results and the field use
+
+analysis, it can be concluded that the thermo-mechanical deformation can have a
+
+significant impact on the functioning of the passive component. In addition, it
+
+was found from the parametric studies that the DNP is crucial and can result in
+
+higher changes in the electrical parameters. Finally, the fabrication process can be
+
+highly influential in the final electrical value of the passive. Based on the
+
+simulations performed and the experimental data collected, the following
+
+conclusions can be drawn:
+
+   •   . Capacitance, inductance and resistance change by –4%, -8% and –12%
+
+       respectively after 1000 thermal cycles.
+
+   •   The change in capacitance during humidity testing was 5% after 100 hours
+
+       and 10% after 500 hours. The change in inductance was 4% after 100 hours
+
+       and 8% after 500 hours. The change in resistance was 3% after 100 hours
+
+       and 7% after 500 hours.
+
+
+                                        106
+•   Moisture did not significantly affect the performance of the passives.
+
+•   Oxidation after thermal cycling does not impact the performance of a
+
+    capacitor but after etching the passives, the inductance change dropped
+
+    from -18% to -8% and the resistance change dropped from -16% to -12%.
+
+•   The fabrication process can alter the capacitance by as much as –3.12%
+
+    from the designed theoretical value.
+
+
+
+
+                             Contributions
+
+•   Developed an experimental and theoretical program to study the thermo-
+
+    mechanical reliability of embedded passives.
+
+•   Developed finite element models that take into account the time,
+
+    temperature and directional material properties.
+
+•   Developed finite element models that simulate a part of the fabrication
+
+    process.
+
+•   Developed parametric finite element models that change the DNP of the
+
+    passive.
+
+•   Fabricated experimental boards in the clean room.
+
+•   Performed reliability experiments on the fabricated test boards.
+
+•   Implemented an electro-thermo-mechanical approach to determine the
+
+    effect of deformation on electrical performance.
+
+•   Validated the results from theoretical models with experimental data
+
+                                    107
+                                  Future Work
+
+       The research in the field of embedded passives continues with respect to
+
+materials and processes and there is no standardization as of today in the field of
+
+embedded passives. While this thesis is one of the preliminary efforts to take a
+
+look at the reliability of embedded passives, a multitude of processes and
+
+material could mean new tests and analysis methods in contrast to those
+
+developed in this thesis. For example, sputtering metals can result in residual
+
+stresses in the material, which is controlled by a variety of factors. The future
+
+analysis procedures need to take all of the above into consideration. Materials
+
+such as Barium Titanate have a Curie temperature of 105 oC and so thermal
+
+cycling it between 125 oC and –55 oC is not possible since exceeding 105 oC will
+
+cause Barium Titanate to lose it ferroelectric properties and convert it to a
+
+paraelectric dielectric. Hence new qualification tests will be required to qualify
+
+the passives. In addition, there is no criterion for the failure of passives given the
+
+wide range of application of passives. Some applications like decoupling
+
+capacitors can withstand change in electrical properties but need very low
+
+leakage properties. Other applications such as filter or amplifiers, as considered
+
+in chapter 8, requires strict tolerances as small changes can cause malfunctioning
+
+of the passive. With increase in the number of layers in a HDW package, the
+
+potential for delamination and other mechanical failures can increase as well.
+
+
+
+
+                                         108
+The effect of mechanical failure on electrical functioning needs to be evaluated as
+
+well.
+
+        The models constructed in the thesis above do not take other components
+
+of the passives that are essential for the functioning of it into consideration. Pads,
+
+via and traces can also have an impact on the reliability of the passive and future
+
+thermo-mechanical-electro models needs to take the entire functioning passive as
+
+a single component.
+
+
+
+
+                                         109
+                               REFERENCES
+
+1) R.R. Tummala, G.E. White, V. Sundaram, S.K. Bhattacharya, “SOP: the
+
+   microelectronics for the 21st century with Integral passive integration”, Adv.
+
+   Microelectronics, Jan./Feb. 2000, Pages: 13-19.
+
+2) E.J. Reardon, R.W. Carpenter, “Novel, Practical Materials for Embedded
+
+   Capacitors and Resistors – an Update”, 2000 International Conference on
+
+   High-Density Interconnect and Systems Packaging, Volume 19, 1996, pp.483-
+
+   489.
+
+3) R.K. Ulrich, L.W. Schaper, Integrated Passive Component Technology, IEEE
+
+   Components, Packaging & Manufacturing Technology Society.
+
+4) R.R. Tummala, Fundamentals of Microsystems Packaging, McGraw-Hill,
+
+   pp.440.
+
+5) J. Rector Jr., J. Dougherty, V. Brown, J. Galvagni, J. Prymak, “Integrated and
+
+   Integral Passive Components: A Technology Roadmap” 1997 ECTC
+
+   Electronic Components and Technology Conference.
+
+6) R.R.   Tummala,     J.   Laskar,   “Gigabit   Wireless:   System-on-a-Package
+
+   Technology” February 2004, Proceedings of the IEEE, Volume 92, No. 2,
+
+   Pages: 376-377.
+
+7) R.R. Tummala, 2000, Packaging Research Center, Georgia Institute of
+
+   Technology, Atlanta, GA, Personal Communication.
+
+
+
+
+                                       110
+8) R.R. Tummala, Fundamentals of Microsystems Packaging,                 McGraw-Hill,
+
+   Pages 727.
+
+9) E. Itoh, K. Maki, K. Miyairi, “Effect of annealing on dielectric dispersion of
+
+   tantalum oxide films prepared by RF sputtering”, Annual Report Conference
+
+   on Electrical Insulation and Dielectric Phenomena, October 17-20 1999,
+
+   Volume 1, Pages: 62-65.
+
+10) R.K. Ulrich, L.W. Schaper, Integrated Passive Component Technology, IEEE
+
+   Components, Packaging & Manufacturing Technology Society, Pages: 114 -
+
+   123.
+
+11) G.    Morcan,    S.S.   Ang,   T.   Lenihan,   L.W.      Schaper,   W.D.   Brown,
+
+   “Characterization of thin film tantalum oxide capacitors on polyimide
+
+   substrates”, IEEE Transactions on Advanced Packaging, August 1999,
+
+   Volume 22, Issue 3, Pages: 499–509.
+
+12) K. Chen; M. Nielsen, S. Soss, E.J. Rymaszewski, Lu Toh-Ming, C.T. Wan,
+
+   “Study of tantalum oxide thin film capacitors on metallized polymer sheets
+
+   for advanced packaging applications”, IEEE Transactions on Components,
+
+   Packaging,       and     Manufacturing      Technology,     Part     B:   Advanced
+
+   Packaging, May 1997, Volume 20, Issue 2, Pages: 117–122.
+
+13) W.T. Liu, S. Cochrane, S.T. Lakshmikumar, D.B. Knorr, E.J. Rymaszewski,
+
+   J.M. Borrego, T.-M. Lu, “Low-temperature fabrication of amorphous BaTiO3
+
+   thin-film bypass capacitors”, IEEE Electron Device Letters, July 1993, Volume
+
+   14 , Issue: 7 , Pages: 320– 322.
+
+                                         111
+14) K. Baba, R. Hatada, S. Nakao, S. Miyagawa, Y. Miyagawa, “Formation of
+
+   diamond like carbon films by plasma source ion implantation from CH4,
+
+   C2H2 and C6H6”, International Conference on Ion Implantation Technology
+
+   Proceedings, June 22-26 1998, Volume 2, Pages: 1214-1217
+
+15) A.C. King, S.S. Shoup, M.K. White, S.L. Krebs, D.M. Mattox, T. Polley, N.
+
+   Darnell, K.R. Marken, Seung Hong; B. Czabaj, “The progress made using the
+
+   combustion chemical vapor deposition (CCVD) technique to fabricate
+
+   YBa/sub 2/Cu/sub 3/O/sub 7-x/ coated conductors”, IEEE Transactions on
+
+   Applied Superconductivity, June 2003, Volume 13, Issue 2, Pages: 2643–2645
+
+16) S.S. Shoup, S. Shanmugham, D. Cousins, A.T. Hunt, M. Paranthaman, A.
+
+   Goyal, P. Martin, D.M. Kroeger, ”Low-cost combustion chemical vapor
+
+   deposition of epitaxial buffer layers and superconductors” IEEE Transactions
+
+   on Applied Superconductivity, June 1999, Volume 9, Issue 2, Pages: 2426–
+
+   2429.
+
+17) P. Bendale, S. Venigalla, J. Ambrose, E. Verink Jr., and J. Adair, “Preparation
+
+   of Barium Titanate Films at 55oC by an Electrochemical Method,” Journal of
+
+   the American Ceramic Society.
+
+18) D. Nelms, R. Ulrich, L. Schaper, S. Reeder, “Anodization for forming
+
+   embedded capacitors in MCM-D and MCM-L substrates,” 48th Proceedings of
+
+   the Electronic Components and Technology Conference, 1998, Pages: 247-251.
+
+
+
+
+                                       112
+19) L. Matay, “Studies of dielectric characteristics of spin-coated polyimide
+
+   films” The Fourth International Conference on Advanced Semiconductor
+
+   Devices and Microsystems, 14-16 October 2002, Pages: 83– 86.
+
+20) S.K. Bhattacharya, K.S. Moon, R.R. Tummala, G.S. May, “Meniscus Coating:
+
+   A Low-Cost Polymer Deposition Method for System-on-Package Substrates”
+
+   IEEE Transactions on Electronics Packaging Manufacturing, April 2003,
+
+   Volume 26, No. 2.
+
+21) S. Lahiry, V. Gupta, K. Sreenivas, A. Mansingh, “Dielectric Properties of Sol-
+
+   Gel Derived Barium-Strontium-Titanate (Ba0.4Sr0.6TiO3) Thin Films” IEEE
+
+   Transactions on Ultrasonics, Ferroelectrics and Frequency Control, July 2000,
+
+   Volume 47, No. 4.
+
+22) W. Borland, J. J. Felten, “Thick Film Ceramic Capacitors and Resistors inside
+
+   Printed Circuit Boards” International Symposium on Microelectronics,
+
+   October 2001, Pages: 452 – 457.
+
+23) E. Diaz-Alvarez, J.P. Krusius, F. Kroeger, “Modeling and simulation of
+
+   integrated capacitors for high frequency chip power decoupling” IEEE
+
+   Transactions on Components and Packaging Technologies, December 2000,
+
+   Volume 23 , Issue 4 , Pages: 611– 619.
+
+24) D.J. Hayes, M.E. Grove, W.R. Cox, “Development and Application by Ink-Jet
+
+   printing of Advanced Packaging Materials” 1999 International Symposium
+
+   on Advanced Packaging Materials, 14-17 March 1999, Pages: 88-93.
+
+
+
+                                       113
+25) P. Chinoy, M. Langlois, ”Thin-film embedded resistor and capacitor
+
+   technologies”, Circuit World, 2004, Volume 30, Number 1, Pages: 16-19
+
+26) D. Schatzel, “Development Of Reliable Electronic Packaging Solutions For
+
+   Spacecraft Avionics Miniaturization Using Embedded Passives Devices”
+
+   Proceedings of International Electronic Packaging Technical Conference and
+
+   Exhibition, July 2003, Pages: 797-800.
+
+27) W. Borland, J.J. Felton, L.E. Dellis, S. Ferguson, D. Majumdar, A. B. Jones,
+
+   M.S. Lux, R.R. Traylor, M.Doyle, “Ceramic Resistors and Capacitors
+
+   Embedded In Organic Printed Wiring Boards” Proceedings of International
+
+   Electronic Packaging Technical Conference and Exhibition, July 2003, Pages:
+
+   797-800.
+
+28) J.T. Strydom, J.D.V. Wyk, “Investigation of Thermally Induced Failure
+
+   Mechanisms in Integrated Spiral Planar Power Passives” 37th IAS Annual
+
+   Meeting.     Conference      Record         of   the   Industry   Applications
+
+   Conference, Volume 3, 13-18 October 2002 Pages: 1781–1786.
+
+29) K. Fairchild, G. Morcan, T. Lenihan, W. Brown, L. Schaper, S. Ang, W.
+
+   Sommers, J. Parkerson, M. Glover, “Reliability of Flexible Thin-Film
+
+   Embedded Resistors and Electrical Characterization of Thin-Film Embedded
+
+   Capacitors and Inductors” 47th Proceedings of the Electronic Components
+
+   and Technology Conference, 1997, 18-21 May 1997, Pages: 730-738.
+
+
+
+
+                                         114
+30) J. Zhou, J.D. Myers, J.J. Felten, “Embedded Passives Technology for PCBs:
+
+   Materials,   Design      and   Process”    International   Microelectronics   and
+
+   Packaaging Society, 2002
+
+31) S.Y. Lee, W.G. Odendaal, J.D. van Wyk, “Thermo-Mechanical Stress Analysis
+
+   for an Integrated Passive Resonant Module” IEEE Transactions on Industry
+
+   Applications, Volume 40, No. 1, Jan - Feb 2004, Pages: 94 – 102.
+
+32) Iannuzzelli, R., “Predicting Plated-Through-Hole Reliability in High
+
+   Temperature Manufacturing Process” Proceedings of the 41st Electronics and
+
+   Technology Conf., 1991, pp 410-442
+
+33) H. Murai, Y. Takeda, N. Takano, “Halogen-free materials for PWB and
+
+   advanced packaging substrate” International Symposium on Advanced
+
+   Packaging Materials, 2000, Pages: 221-226.
+
+34) R.C. Dunne, ”An Integrated Process Modeling Methodology and Module for
+
+   Sequential    Multi-layered      high-density      substrate    fabrication   for
+
+   microelectronic packages” Ph.D. Thesis in Mechanical Engineering, Georgia
+
+   Institute of Technology, 2000.
+
+35) Ramakrishna, G, et al, “Role of Dielectric Material and Geometry on the
+
+   ThermoMechanical Reliability of Microvias” 52nd Electronic Compoenents and
+
+   Technology Conference.
+
+
+
+
+                                        115
+

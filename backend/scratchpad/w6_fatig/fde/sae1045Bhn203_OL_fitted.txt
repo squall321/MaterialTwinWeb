@@ -1,0 +1,76 @@
+
+#  Copyright (C) 2001 Fatigue Design & Eval. Comm. of the SAE
+# This data file is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the license, or (at 
+# your option) any later version. 
+#  This data file is distributed in the hope that it will be useful, but 
+# WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTA- 
+# BILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public 
+# License for more details. 
+#  You should have received a copy of the GNU General PUblic License along 
+# with this program; if not, write to the Free Software Foundation, Inc., 
+# 59 Temple Place -Suite 330, Boston, MA 02111-1307, USA. Try also their 
+# web site: http://www.gnu.org/copyleft/gpl.html 
+#
+# FD&E of SAE Phase 2, steel, J.J.F.Bonnen PhD Thesis, U.of Waterloo
+# 0.47%C 0.80Mn .016P .016S .22si .08Cu .04Ni .05Cr <.005V 
+# <.005Al <.005Ti .036Cb <0.005Ta <0.005Pb <0.0005B 
+# Rb=91.5 ,  Upper/Lower Yield points on monotonic
+#
+#FileType= strain_life_overload
+#DataType= fitted
+#NAME= SAE1045
+#NAME= Periodic_Overload_Tests
+#CACrossref= 525   #Original CA data Ford= 525
+#UNITS= KSI
+#Su= 101.9
+#Sy= 61.6
+#E=  29500.
+#%RA= 48.
+#BHN= 203
+#monotonic_K= 245.4
+#monotonic_n= 0.2375
+#FLAT= 61.6
+#FractureStress= 0.0
+#FractureStrain= 0.0
+#Stress_units= ksi
+#          Monotonic Props.
+#ELAS. MOD.= 29500. KSI,  203. GPA   
+#YIELD,0.2%=    62. KSI,  425. MPA   
+#ULT. STRG.=   102. KSI,    0. MPA   
+#K       =    245.4 KSI,   1692. MPA 
+#N            = 0.2375               
+#RED. IN AREA % = 48.2                 
+#No. fatigue data points=   36
+#
+# Data fitted by JJBonnen, Oct. 2001
+# Total Strain   2Nf  Stress  Mean   Plastic Strain   Initial
+#    Amp               Amp   Stress      Amp        Elastic Mod.
+0.41249          1    187.0    0    0.40749    29500    #Fitted_point JJB Oct.2001
+0.29120          2    171.8    0    0.28648    29500    #Fitted_point
+0.18384          5    154.1    0    0.17952    29500    #Fitted_point
+0.12988         10    140.9    0    0.12584    29500    #Fitted_point
+0.09185         20    129.8    0    0.08805    29500    #Fitted_point
+0.04121        100    106.5    0    0.03800    29500    #Fitted_point
+0.02930        200     96.7    0    0.02628    29500    #Fitted_point
+0.01874        500     86.8    0    0.01598    29500    #Fitted_point
+0.01343       1000     80.1    0    0.01087    29500    #Fitted_point
+0.00969       2000     72.8    0    0.00731    29500    #Fitted_point
+0.00637       5000     63.8    0    0.00423    29500    #Fitted_point
+0.00471      10000     56.5    0    0.00273    29500    #Fitted_point
+0.00353      20000     50.3    0    0.00172    29500    #Fitted_point
+0.00250      50000     43.3    0    0.00089    29500    #Fitted_point
+0.00197     100000     39.2    0    0.00052    29500    #Fitted_point
+0.00160     200000     36.0    0    0.00030    29500    #Fitted_point
+0.00128     500000     31.5    0    0.00014    29500    #Fitted_point
+0.00111    1000000     29.1    0    0.00008    29500    #Fitted_point
+0.00100    2000000     27.2    0    0.00005    29500    #Fitted_point
+0.00090    5000000     25.5    0    0.00003    29500    #Fitted_point
+0.00085   10000000     24.2    0    0.00002    29500    #Fitted_point
+0.00081   20000000     23.3    0    0.00002    29500    #Fitted_point
+0.00078   50000000     22.5    0    0.00002    29500    #Fitted_point
+0.00076  100000000     22.0    0    0.00001    29500    #Fitted_point
+0.00075  200000000     21.7    0    0.00001    29500    #Fitted_point
+0.00074  500000000     21.5    0    0.00001    29500    #Fitted_point
+0.00073 1000000000     21.3    0    0.00001    29500    #Fitted_point

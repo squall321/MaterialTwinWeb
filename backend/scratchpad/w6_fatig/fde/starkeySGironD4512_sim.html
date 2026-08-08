@@ -1,0 +1,94 @@
+
+#<HEAD>
+#<TITLE>F.D.+E. Cyclic Stress-Strain Model from U.Waterloo Calc. Site</TITLE>
+#</HEAD><BODY>
+#<H3>F.D.+E. <i>pdStressStrain.f</i> from UoWaterloo Calc. Site</h3>
+#<br>
+#<FORM METHOD="POST" ACTION="http://mme.uwaterloo.ca/cgi-bin/catsaeModel">
+#<DL compact> Your material file (its a Digital-Fitted Curve. Replace it with your own if you wish):
+#<br><pre><textarea rows=10 cols=90 name="#SAE_Standard_File" >
+
+#
+#Copyright (C) 2012  F.D.E. Committee
+#This data file is free software - you can redistribute it and/or
+#modify it under the terms of the GNU General Public License as
+#published by the Free Software Foundation; either version 2 of the
+#license, or (at your option) any later version.
+#This data file is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY - without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General PUblic License for more details.
+#You should have received a copy of the GNU General PUblic License
+#along with this program - if not, write to the Free Software
+#Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+#Try also their web site: http://www.gnu.org/copyleft/gpl.html
+#
+# NOTE:   Fitted Data !!
+# Nodular Iron BS420/12  SAE D4512 ASTM-65-45-12 machined surfaces
+# From axle housings of 7 different suppliers.
+# Paper also shows surface cut specimens (results not included here).
+# Ref.: M.S.Starkey and P.E.Irving, "A comparison of the fatigue strength
+#  of machined and as-cast surfaces of SG iron", Int.J.Fat., July 1982 pp.129-136
+# Data digitized from graphs and probably contains errors.
+#
+#FileType= strain_life
+#DataType= fitted
+#TIMEcol= 0
+#NAME=  SAE-D4512
+#NAME=  BS420-12
+#NAME=  NodularFe
+#Name=  Iron
+#Stress_units= mpa
+#Strain_units= strain
+#Sy=     300.  0.2pc offset = 44 ksi
+#Su=     445
+#eu=       0   #strain at Su not reported
+#E= 174800. mpa  =25370 ksi
+#FractureStrain= 0  not reported
+#FractureStress=  0. not reported
+#monotonic_K= 0  not reported
+#monotonic_n= 0  not reported
+#BHN= 0.
+#%RA= 0. %  not reported
+#saedigcurve_v2.2.f starts.
+#NOTE!! The Following Points are <b>FITTED DATA:</b>#NOTE!! Fitted Stress computed using Experm. K' and n'
+#StrAmpl     2Nf  StsAmpl So  PlasStrAmpl IniMod   NeuberStressAmpl
+   0.10588          1   560.8      0.   0.10267    174800. #Fitted_point
+   0.01352         50   462.5      0.   0.01088    174800. #Fitted_point
+   0.00992        100   447.2      0.   0.00736    174800. #Fitted_point
+   0.00747        200   432.6      0.   0.00499    174800. #Fitted_point
+   0.00538        500   414.2      0.   0.00301    174800. #Fitted_point
+   0.00435       1000   400.9      0.   0.00206    174800. #Fitted_point
+   0.00363       2000   388.2      0.   0.00141    174800. #Fitted_point
+   0.00299       5000   372.1      0.   0.00086    174800. #Fitted_point
+   0.00266      10000   360.4      0.   0.00060    174800. #Fitted_point
+   0.00240      20000   348.9      0.   0.00041    174800. #Fitted_point
+   0.00216      50000   334.0      0.   0.00024    174800. #Fitted_point
+   0.00201     100000   322.6      0.   0.00016    174800. #Fitted_point
+   0.00189     200000   311.1      0.   0.00011    174800. #Fitted_point
+   0.00175     500000   295.8      0.   0.00006    174800. #Fitted_point
+   0.00166     720000   284.1      0.   0.00004    174800. #Fitted_point manually
+   0.00158    1000000   272.6      0.   0.00002    174800. #Fitted_point manually
+   0.00149    1600000   257.7      0.   0.00001    174800. #Fitted_point manually
+   0.00142    2000000   246.8      0.   0.00001    174800. #Fitted_point manually
+   0.00136    2500000   236.3      0.   0.00000    174800. #Fitted_point manually
+ 0.00115      4100000   201        0.   0.00000    174800. #Fitted_point manually
+ 0.0011      20000000   192.3      0.   0.00000    174800. #Fitted_point manually
+
+#</textarea></DL></pre>
+#MagFactor=<input value="1.0" size=8 name="#MagFactor">
+#<font size="3" color="green">&nbsp &nbsp Enter your Strain Reversal Points: <br>
+<input type="TEXT" value="0.005" size=9 name="xyz"> 
+<input type="TEXT" value="" size=9 name="xyz"> 
+<input type="TEXT" value="" size=9 name="xyz"> 
+<input type="TEXT" value="" size=9 name="xyz"> 
+<input type="TEXT" value="" size=9 name="xyz"> 
+<input type="TEXT" value="" size=9 name="xyz"> 
+<br>
+Simulate: <input type="submit" value=" Click here "></font> 
+</FORM><br>
+<p><img src="http://fde.uwaterloo.ca/Fde/genericSim.png">
+<br> 
+<pre>
+#TOTDAM(SWT)=  0.0000000E+00 allowed Repeats=      inf   nrev=         1
+</pre>

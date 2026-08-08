@@ -1,0 +1,78 @@
+#saeinput FDE_fit SAE_Standard_File #
+#  Copyright (C) 2003  Fatigue Design & Evaluation Committee of the SAE
+#  This data file is free software; you can redistribute it and/or
+#  modify it under the terms of the GNU General Public License as
+#  published by the Free Software Foundation; either version 2 of the
+#  license, or (at your option) any later version.
+#  This data file is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General PUblic License for more details.
+#  You should have received a copy of the GNU General PUblic License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+#  Try also their web site: http://www.gnu.org/copyleft/gpl.html
+#
+#Ford= 488       # QMP - Powder Metal Steel - QQ (0.45Carbon%)
+#FileType= strain_life
+#DataType= fitted
+#TIMEcol= 0
+#NAME=  Q1001PM
+#NAME=  M1001
+# Tested  1990
+# Ref. See SAE Report 910155 for original data
+#
+#UNITS= KSI
+#Stress_units= ksi
+#Su=      111.30
+#Sy=       81.10
+#E=       29500.
+#%RA=   33.4
+#BHN= 234.
+#Original file:NO. FAT. PTS.=  7
+#Used this data to create Fitted curves:
+#ELAS. MOD.= 29500. KSI,  203. GPA     K'        = 250.3 KSI,  1726.MPA
+#YIELD,0.2%=    81. KSI,  559. MPA     N'        = 0.1753
+#ULT. STRG.=   111. KSI,  767. MPA     F. STRG COEF=  220.2 KSI, 1518.MPA
+#K       =      0.0 KSI,      0. MPA   F.STRG EXP, b=-0.1122
+#N            = 0.0000                 FAT DUCT COEF=   0.4807
+#RED. IN AREA = 33.4                   F.DUCT EXP, c=-0.6396
+#T. FRAC. STG.=   0.0 KSI,    0. MPA   Exp Cyc Yld  =   84. Ksi, 580.MPA
+#T. FRAC. STR.= 0.000                  Fit Cyc Yld  =   80. Ksi, 551.MPA
+#
+#   NOTE!!! The Following Points are <b>FITTED DATA:</b>
+# Total Strain   2Nf  Stress  Mean   Plastic Strain   Initial
+#    Amp               Amp   Stress      Amp        Elastic Mod.
+   0.48820          1   220.2      0.   0.48074     29500. #Fitted_point
+   0.31548          2   203.7      0.   0.30858     29500. #Fitted_point
+   0.17795          5   183.8      0.   0.17172     29500. #Fitted_point
+   0.11599         10   170.1      0.   0.11023     29500. #Fitted_point
+   0.07609         20   157.3      0.   0.07075     29500. #Fitted_point
+   0.04419         50   142.0      0.   0.03937     29500. #Fitted_point
+   0.02973        100   131.3      0.   0.02527     29500. #Fitted_point
+   0.02034        200   121.5      0.   0.01622     29500. #Fitted_point
+   0.01275        500   109.7      0.   0.00903     29500. #Fitted_point
+   0.00923       1000   101.5      0.   0.00579     29500. #Fitted_point
+   0.00690       2000    93.9      0.   0.00372     29500. #Fitted_point
+   0.00494       5000    84.7      0.   0.00207     29500. #Fitted_point
+   0.00399      10000    78.4      0.   0.00133     29500. #Fitted_point
+   0.00331      20000    72.5      0.   0.00085     29500. #Fitted_point
+   0.00269      50000    65.4      0.   0.00047     29500. #Fitted_point
+   0.00236     100000    60.5      0.   0.00030     29500. #Fitted_point
+   0.00209     200000    56.0      0.   0.00020     29500. #Fitted_point
+   0.00182     500000    50.5      0.   0.00011     29500. #Fitted_point
+   0.00165    1000000    46.8      0.   0.00007     29500. #Fitted_point
+   0.00151    2000000    43.3      0.   0.00004     29500. #Fitted_point
+   0.00135    5000000    39.0      0.   0.00002     29500. #Fitted_point
+   0.00135 1000000000    39.0      0.   0.00000     29500. #Fitted_point  edited
+#
+#Following points were removed from fitted file.  They were an extrapolation
+#of the least squ. lines and did not fit the observed runout information of
+# the PM merged file.  FAC Oct.2003
+#   0.00124   10000000    36.1      0.   0.00002     29500. #Fitted_point
+#   0.00114   20000000    33.4      0.   0.00001     29500. #Fitted_point
+#   0.00103   50000000    30.1      0.   0.00001     29500. #Fitted_point
+#   0.00095  100000000    27.9      0.   0.00000     29500. #Fitted_point
+#   0.00088  200000000    25.8      0.   0.00000     29500. #Fitted_point
+#   0.00079  500000000    23.3      0.   0.00000     29500. #Fitted_point
+#   0.00073 1000000000    21.5      0.   0.00000     29500. #Fitted_point

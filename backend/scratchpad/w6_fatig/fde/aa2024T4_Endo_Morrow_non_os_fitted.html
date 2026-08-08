@@ -1,0 +1,93 @@
+
+#<html><title>SAE Standard Fatigue Data File format</title><body>
+#<FORM METHOD="POST" ACTION="http://mme.uwaterloo.ca/cgi-bin/catgnume">
+#<DL compact> Pick one:
+#<input type="radio" name="#saeinput" value="FDE_plot" >FDE_plot
+#<input type="radio" name="#saeinput" value="FDE_fit"  checked >FDE_fit
+#<input type="submit" value="Send for processing">
+#<br><pre><textarea rows=50 cols=90 name="SAE_Standard_File" >
+#Copyright (C) 2001 Fatigue Design & Evaluation Comm. of SAE
+#This data file is free software; you can redistribute it and/or modify
+#it under the terms of the GNU General Public License as published by
+#the Free Software Foundation; either version 2 of the license, or (at
+#your option) any later version.
+#This data file is distributed in the hope that it will be useful, but
+#WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTA-
+#BILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public
+#License for more details.
+#You should have received a copy of the GNU General PUblic License along
+#with this program; if not, write to the Free Software Foundation, Inc.,
+#59 Temple Place -Suite 330, Boston, MA 02111-1307, USA. Try also their
+#web site: http://www.gnu.org/copyleft/gpl.html
+#
+# Fitted Data Only!
+# AA 2024-T4 ALUM., wrought, Specimens from 3/4inch rod stock.
+# ENDO T. J. MORROW, J. OF MATERIALS, VOL.4, P.159,1969
+# BHN ASSUMED 120,  Strain Controlled Diametral testing
+# Converted to longitudinal. correction Jan.31, CCChu
+# NOTE:  Data points are averages of several points
+#
+#FileType= strain_life
+#DataType= fitted
+#TIMEcol= 0
+#Fn= 108
+#NAME=  A2024C02
+#NAME=  AA2024-T4
+#Name= Aluminum
+#Stress_units= ksi
+#Strain_units= strain
+#Su=       69.00
+#Sy=       44.00
+#E=       10196.
+#%RA=   35.0
+#BHN= 120.
+#NO. FAT. PTS.=  8
+# A2024C02   AA2024-T4  BHN=  120 Fn=    0
+#_         Monotonic Props.       Cyclic Props.
+#ELAS. MOD.= 10196. KSI,   70. GPA     K'        = 113.2 KSI,   780.MPA
+#YIELD,0.2%=    44. KSI,  303. MPA     N'        = 0.0907
+#ULT. STRG.=    69. KSI,  476. MPA     F. STRG COEF=  110.0 KSI,  758.MPA
+#K       =      0.0 KSI,      0. MPA   F.STRG EXP, b=-0.0760
+#N            = 0.0000                 FAT DUCT COEF=   0.7306
+#RED. IN AREA = 35.0                   F.DUCT EXP, c=-0.8375
+#T. FRAC. STG.=   0.0 KSI,    0. MPA   Exp Cyc Yld  =   64. Ksi, 444.MPA
+#T. FRAC. STR.= 0.000                  Fit Cyc Yld  =   67. Ksi, 461.MPA
+#No. fatigue data points=    8
+#
+# NOTE!! The Following Points are <b>FITTED DATA:</b>
+#UNITS= KSI
+#Stress_Units= KSI
+#_Total Strain   2Nf  Stress  Mean   Plastic Strain   Initial
+#_   Amp               Amp   Stress      Amp        Elastic Mod.
+   0.74135          1   110.0      0.   0.73056     10196. #Fitted_point
+   0.41906          2   104.4      0.   0.40882     10196. #Fitted_point
+   0.19933          5    97.3      0.   0.18978     10196. #Fitted_point
+   0.11526         10    92.3      0.   0.10620     10196. #Fitted_point
+   0.06802         20    87.6      0.   0.05943     10196. #Fitted_point
+   0.03560         50    81.7      0.   0.02759     10196. #Fitted_point
+   0.02304        100    77.5      0.   0.01544     10196. #Fitted_point
+   0.01585        200    73.6      0.   0.00864     10196. #Fitted_point
+   0.01074        500    68.6      0.   0.00401     10196. #Fitted_point
+   0.00863       1000    65.1      0.   0.00224     10196. #Fitted_point
+   0.00731       2000    61.7      0.   0.00126     10196. #Fitted_point
+   0.00623       5000    57.6      0.   0.00058     10196. #Fitted_point
+   0.00569      10000    54.6      0.   0.00033     10196. #Fitted_point
+   0.00527      20000    51.8      0.   0.00018     10196. #Fitted_point
+   0.00483      50000    48.4      0.   0.00008     10196. #Fitted_point
+   0.00455     100000    45.9      0.   0.00005     10196. #Fitted_point
+   0.00429     200000    43.5      0.   0.00003     10196. #Fitted_point
+   0.00399     500000    40.6      0.   0.00001     10196. #Fitted_point
+   0.00378    1000000    38.5      0.   0.00001     10196. #Fitted_point
+   0.00359    2000000    36.5      0.   0.00000     10196. #Fitted_point
+   0.00334    5000000    34.1      0.   0.00000     10196. #Fitted_point
+   0.00317   10000000    32.3      0.   0.00000     10196. #Fitted_point
+   0.00301   20000000    30.7      0.   0.00000     10196. #Fitted_point
+   0.00281   50000000    28.6      0.   0.00000     10196. #Fitted_point
+   0.00266  100000000    27.1      0.   0.00000     10196. #Fitted_point
+   0.00253  200000000    25.8      0.   0.00000     10196. #Fitted_point
+   0.00236  500000000    24.0      0.   0.00000     10196. #Fitted_point
+   0.00224 1000000000    22.8      0.   0.00000     10196. #Fitted_point
+#Here is the bottom part of the html  graph/calc wrapper-----------
+#</textarea>
+#</pre></DL></FORM></body></html>
+

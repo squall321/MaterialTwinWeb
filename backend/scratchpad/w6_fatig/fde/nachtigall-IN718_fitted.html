@@ -1,0 +1,70 @@
+
+#<html><title>SAE Standard Fatigue Data File format</title><body>
+#<FORM METHOD="POST" ACTION="http://mme.uwaterloo.ca/cgi-bin/catgnume">
+#<DL compact> Pick one:
+#<input type="radio" name="#saeinput" value="FDE_plot" >FDE_plot
+#<input type="radio" name="#saeinput" value="FDE_fit"  checked >FDE_fit
+#<input type="submit" value="Send for processing">
+#<br><pre><textarea rows=50 cols=90 name="SAE_Standard_File" >
+#
+#Copyright (C) 2012  F.D.E. Committee
+#This data file is free software - you can redistribute it and/or
+#modify it under the terms of the GNU General Public License as
+#published by the Free Software Foundation; either version 2 of the
+#license, or (at your option) any later version.
+#This data file is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY - without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General PUblic License for more details.
+#You should have received a copy of the GNU General PUblic License
+#along with this program - if not, write to the Free Software
+#Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+#Try also their web site: http://www.gnu.org/copyleft/gpl.html
+#
+# NOTE: Fitted Data  !!
+# INCONEL 718 Room Temp test. cut from 25.4mm wrought bar
+# NOTE: Traditional CoffinManson fit does not work well at short lives.
+# Solution annealed at 1950F 1hr, aged 1350F 9hr, furnace cooled
+# to 1200F and held for total age of 19hr
+# 52.64Ni wt% .36Al .03C 18.59Cr .03Cu 18.94Fe .18Mn 2.96Mo
+# .007S .35Si .91Ti 4.98Cb+Ta
+# Ref.  A.J.Nachtigall, NASA TN D-7532, 1974
+#
+#FileType= strain_life
+#DataType= fitted
+#TIMEcol= 0
+#NAME=  Inconel718
+#NAME=  NickelBase
+#Name=  RoomTemp.
+#Strain_units= strain
+#Stress_units= mpa
+#Sy= 1110. mpa = 161 ksi
+#Su= 1304.     = 189 ksi
+#eu= 0
+#E=   204100 mpa  = 29600. ksi
+#%RA=  39. %
+#BHN=   0. not reported
+#FractureStrain=  0.50
+#FractureStress=  0.  not reported
+#monotonic_K= 0  not reported
+#monotonic_n= 0  not reported
+#
+#saedigcurve_v2.2.f starts.
+#NOTE!! The Following Points are <b>FITTED DATA:</b>#NOTE!! Fitted Stress computed using Experm. K' and n'
+#TotStrAmpl     2Nf  StsAmpl So  PlasStrAmpl Init.Modulus 
+   0.50             1  2191.       0.   0.489  204100. #Fitted_point monotonic, Sts from ElasIntercpt
+   0.03847        200  1332.6      0.   0.03194    204100. #Fitted_point
+   0.02007        550  1222.7      0.   0.01408    204100. #Fitted_point manually
+   0.00932       2500  1072.9      0.   0.00406    204100. #Fitted_point manually
+   0.00658       5000   983.1      0.   0.00177    204100. #Fitted_point
+   0.00543      10000   919.1      0.   0.00093    204100. #Fitted_point
+   0.00469      20000   858.1      0.   0.00048    204100. #Fitted_point
+   0.00403      50000   782.2      0.   0.00020    204100. #Fitted_point
+   0.00367     100000   728.6      0.   0.00010    204100. #Fitted_point
+   0.00338     200000   678.7      0.   0.00005    204100. #Fitted_point
+#Points below are extrapolation beyond actual test data:
+   0.00305     500000   618.1      0.   0.00002    204100. #Fitted_point
+   0.00283    1000000   576.1      0.   0.00001    204100. #Fitted_point
+#</textarea>
+#</pre></DL></FORM></body></html>
+

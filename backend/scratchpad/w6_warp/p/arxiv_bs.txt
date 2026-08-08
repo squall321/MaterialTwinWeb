@@ -1,0 +1,1658 @@
+                                                       C OMPUTATIONAL MODELING OF VISCOELASTIC BACKSHEET
+                                                                                MATERIALS FOR PHOTOVOLTAICS
+
+                                                                                                         A P REPRINT
+
+
+                                                                                                  Ajinkya R. Dusane
+                                                       Research Unit Multi-scale Analysis of Materials (MUSAM), IMT School for Advanced Studies Lucca, Italy.
+                                                                                           ajinkya.dusane@imtlucca.it
+arXiv:2305.17810v1 [physics.comp-ph] 28 May 2023
+
+
+
+
+                                                                                                    Pietro Lenarda
+                                                       Research Unit Multi-scale Analysis of Materials (MUSAM), IMT School for Advanced Studies Lucca, Italy.
+                                                                                           pietro.lenarda@imtlucca.it
+
+                                                                                                     Marco Paggi
+                                                       Research Unit Multi-scale Analysis of Materials (MUSAM), IMT School for Advanced Studies Lucca, Italy.
+                                                                                             marco.paggi@imtlucca.it
+
+
+                                                                                                        May 30, 2023
+
+                                                                                                        A BSTRACT
+                                                            Backsheet is the outermost layer of the photovoltaic (PV) laminate which consists of polymers such
+                                                            as Polyethylene terephthalate (PET), Polyvinyl fluoride (PVF). The viscoelastic response of these
+                                                            materials significantly affects the durability of the PV module. In this study, the viscoelastic response
+                                                            of commercially available backsheet materials is experimentally characterized and computationally
+                                                            modeled. An extensive viscoelastic experimental study on backsheet materials is carried out, con-
+                                                            sidering the temperature-dependent properties for characterizing the mechanical properties. Based
+                                                            on an experimental campaign, small-strain viscoelastic models based on the Prony-series (PS) and
+                                                            Fractional Calculus (FC) Models are proposed here. The form of the constitutive equations for
+                                                            both models is summarized, and the finite element implementation is described in detail. Following
+                                                            identifications of relevant material parameters, we validate the model with the experimental data that
+                                                            shows good predictability. A comparative study of model responses under different loading condi-
+                                                            tions is also reported to assess the advantages and disadvantages of both models. Such an extensive
+                                                            experimental study and constitutive modeling will help design and simulate a more comprehensive
+                                                            modeling of PV modules, as illustrated by the benchmark problems.
+
+                                                   Keywords Prony series model, Fractional calculus model, Creep, Relaxation modulus, Linear viscoelasticity.
+
+                                                   1   Introduction
+                                                   Photovoltaic (PV) modules are laminates composed of thin layers, as schematically shown in Fig. 1. The durability
+                                                   of PV modules has always been a subject of concern (Kim et al. 2021, Paggi et al. 2016), primarily because of their
+                                                   multilayered structure. Various material degradation mechanisms have been discussed in the literature to understand the
+                                                   origin of the PV module’s overall underperformance (Liu et al. 2019). The mechanical and electrical response of PV
+                                                   modules may degrade over time due to various environmental factors, such as humidity, solar radiation, temperature, and
+                                                   external loading, causing mechanical damage in Silicon solar cells in the polymeric materials (Vázquez & Rey-Stolle
+                                                   2008, Borri et al. 2018, Liu et al. 2022). Developing a comprehensive multiphysics model that can predict the overall
+                                                   mechanical behavior of PV modules under different conditions is still an active area of research (Omazic et al. 2019).
+                                                   Till now, the scientific community has given more attention to EVA (Poly-ethylene Vinyl Acetate), which encapsulates
+                                                   the silicon solar cells (Czanderna & Pern 1996). The EVA mechanical properties, its chemical and physical degradation,
+                     Computational modeling of viscoelastic backsheet materials for photovoltaics
+
+
+and its response to temperature are widely known (De Oliveira et al. 2018, Gagliardi et al. 2017) and, in most cases,
+they have been successfully modeled (Hirschl et al. 2013). It can now be predicted with high accuracy. On the other
+hand, much less attention has been given to the experimental characterization and modeling of the backsheet materials,
+which are used for the outermost layer of the PV module. Several commercial types are available with very different
+physico-mechanical characteristics. The primary purpose of the backsheet is to protect the inner components of the
+module, specifically the Silicon solar cells and electric components, from external loading and also to act as an electric
+insulator. Therefore, any damage may cause a severe safety hazard. Usually, backsheets are made up of polymers such
+as Polyethylene terephthalate (PET), Polyvinyl fluoride (PVF), Polyvinylidene fluoride (PVDF), and Polyamide (PA),
+with thicknesses ranging from 30 to 270 µm.
+Analysis of the backsheet mainly emphasized material identification of polymers to be incorporated into the PV module
+and the determination of material degradation effects/failure analysis, which are based on chemical and physical material
+analysis of their constituent polymers. These materials often show a complex rheological behavior, changing their
+properties with time. In most cases, responses of backsheets are modeled within the elastic regime only (Ottersböck
+et al. 2022). At the same time, there is a lack of a complete characterization of their viscoelastic response. The elastic
+modulus of the backsheet material may vary depending on the temperature and corresponding relaxation time. Similar
+to EVA and other polymers, backsheet materials also show power-law-type stress relaxation, and their behavior can
+be studied through viscoelasticity. Backsheet properties significantly influence the stress and deformation state of the
+PV module (Dietrich et al. 2010). In order to identify the viscoelastic response of the material, various experimental
+tests, such as relaxation tests (at a constant applied strain level, stress is recorded) and creep tests (at a constant applied
+stress level, strain is recorded). Apart from these, Dynamic-Mechanical Analysis (DMA tests) can be used to determine
+the characteristics of materials efficiently. The latter applies sinusoidal-varying stress and measures the deformation
+of the material, allowing the determination of the storage modulus as well as the loss modulus. Based on frequency
+response, viscoelastic material parameters are identified (Bosco et al. 2020). The properties of viscoelastic materials
+strongly depend on temperature as well. The temperature dependency can be taken into account by means of the
+Time-Temperature-Superposition-Principle (TTSP) (Kraus et al. 2017), which provides all relaxation/creep functions
+at a given temperature from the material response at a reference temperature, Tref . In practice, back sheets are often
+exposed to high temperatures with a load that induces constant stress or strain over a period of time. Therefore,
+relaxation tests seem to be the most appropriate test for identifying the parameters. Various mathematical models have
+
+                                                                                       Glass
+                                                                                       EVA
+                                                                                        Si
+                                                                                       EVA
+                                                                                      Backsheet
+                  Figure 1: Schematic representing different components of a PV module.
+
+been proposed in the literature to model the viscoelastic response of materials (Taylor et al. 1970, Knauss 2015). The
+primary aim of modeling is to extract model parameters and relate them to different deformation mechanisms. The
+linear viscoelastic model is an integro-differential equation in which the elastic stress tensor is a convolution product
+between the strain with a time-dependent elastic relaxation modulus. Models based on a combination of springs and
+dashpots are often used to get exponential-type relations and provide an approximate power-law trend of the elastic
+parameters’ dependence over time. A more versatile Maxwell model proposed by Maxwell and Wiechart (Marques &
+Creus 2012) consists of a linear spring and a dashpot in parallel, giving rise to a Generalized Maxwell Model (GMM),
+also called Prony Series (PS) model, which is used to fit experimental data (Kaliske & Rothert 1997, Reese & Govindjee
+1998, Simo 1987). A high number of prony series is often required to improve the fitting accuracy, giving rise to several
+drawbacks, including the fact that many unknown parameters must be identified (Pander et al. 2011). The PS models
+are already in use to describe the linear viscoelastic behavior of solids such as polymers (Xu & Engquist 2018, Eitner
+2011, Sánchez et al. 2022), asphalt concrete(Xu & Solaimanian 2009), biological materials Budday et al. (2017), etc.
+The numerical implementation of the PS models is also computationally convenient due to its exponential format for
+closed-form solutions in time integration Chen (2000), Reese & Govindjee (1998). Alternatively, models based on
+fractional calculus (FC) are becoming a promising alternative to modeling the power-law dependency of the relaxation
+behavior of polymers (Paggi & Sapora 2015). As power-law relations rise naturally by assuming a material constitutive
+law of fractional type, that is, involving noninteger order derivatives of stress and/or strain (Alotta, Barrera, Cocks &
+Di Paola 2018, Bonfanti et al. 2020). Implementation of FC models is pretty straightforward, as convolution integral
+can be represented in the form of Caputo fractional derivative (Samko et al. 1993, Alotta, Barrera & Pegg 2018). Recent
+work by Lenarda & Paggi (2022) shows that fractional calculus offers the easiest way to estimate the model parameters
+compared to other models.
+Based on these premises, the contribution of the current study has the following specific aims. At first, a comprehensive
+
+
+                                                              2
+                    Computational modeling of viscoelastic backsheet materials for photovoltaics
+
+
+experimental campaign on different types of commercial backsheets to evaluate their material properties, considering
+uniaxial tensile tests and temperature-dependent relaxation tests, was performed. We have proposed small-strain linear
+viscoelastic models based on prony series and fractional calculus to model the viscoelastic response. So, a valid
+comparative study can be made. The form of the constitutive equations for both models is summarized in brief, and the
+finite element implementation is described in detail. Since experimental results are obtained using uniaxial tests, we
+reformulate the two-dimensional viscoelastic constitutive model to one-dimensional forms. Afterward, all parameters of
+the models are identified using an optimization procedure with additional focus given to addressing the issue of reducing
+model parameters. For that reason, a MATLAB program has been written for parameter identification. Finally, some
+benchmark problems are discussed to show the capability of the developed models through Finite Element Analysis
+(FEA). The manuscript is organized as follows. A brief note describing experimental tests with results carried out in the
+MUSAM-Lab at the IMT School for Advanced Studies Lucca is presented in Sec. 2. Sec. 3 provides an overview of the
+linear viscoelastic material models herein considered. The proposed prony series (PS) and the fractional calculus (FC)
+models are described in detail, and the complexities arising from their parameter identification are discussed. Moreover,
+their finite element implementation is described. Sec. 4 discusses the proposed optimization procedure for parameter
+identification and presents the results for the considered backsheets, with a critical perspective regarding the two
+different viscoelastic models. Sec. 5 presents the numerical analysis and model validations with previously identified
+parameters. Finally, concluding remarks close the manuscript in Sec. 6, with an outlook on future developments.
+
+2     Experimental tests
+2.1   Material description and properties
+
+The experiments described in this section have been conducted in the MUSAM-Lab of the IMT School for Advanced
+Studies Lucca. All the specimens were tested with the Zwick/Roell Z010TH universal standard testing machine
+equipped with a 1 kN load cell and with the Zwick/Roell BW91272 thermostatic chamber to perform the experiments
+at different imposed temperatures. The detail of the experimental setup is shown in Fig. 2. All specimens have the same
+dimensions to have a better comparison. The thickness of each sample varies according to the respective manufacturer.
+The details of the material composition and thickness of the tested back sheet specimens are given in Tab. 1. The
+backsheet material may have multilayer or single-layer. All backsheet materials under study have antireflective coatings
+on both sides for protection. In the present study, a rectangular-shaped sample specimen is prepared from a large sheet
+provided by the manufacturer, in which a length-to-width ratio ≈ 5:2 is maintained throughout the sample length.
+Samples are cut out very carefully using a sharp cutter. Dimensions are chosen according to standard sample sizes
+specified in the literature (Carollo et al. 2019, Eitner 2011). It was also ensured that there would not be any effects from
+grippers’ (edge) effects due to the presence of enhanced areas at sample ends. A rectangular sample is prepared with
+dimensions 50 mm × 20 mm × thickness mm of respective backsheet material as given in Tab. 1. In all experimental
+results presented, we use nominal stress (PK1), and the corresponding nominal strain corresponds to the change in
+deformation considered with respect to the initial length of the gauge section.
+
+          Commercial Name        Abbreviation          Material composition             Thickness (µm)
+           Reflexolar OSBS          OSBS       White PP, polyamide, clear polyester          320
+           Madico TPE-HD           TPE-HD         White PVF, clear polyester, EVA            285
+         Medico Reflekt LEAN Reflekt Lean Fluoropolymer, polyester, polyolefine              269
+            Lexan FR25A             Lexan                 Polycarbonate                      297
+                       Table 1: Commercial names and composition of the testing materials
+
+
+
+2.2   Uniaxial ensile tests
+
+The uniaxial tensile tests are often performed to determine the strength of materials. Material behavior can be categorized
+based on the relationship between stress, σ, vs. strain, ϵ. To understand the temperature effect on elasticity, the uniaxial
+tensile test was performed on the backsheets at an ambient 25°C and at a high temperature of 85°C, at which viscoelastic
+effects are more prominent and since some of the standard testing procedures for the assessment of the durability of
+PV modules requires high temperatures around 85°C. All backsheets were loaded by applying a constant strain over
+time. Moreover, uniaxial tests up to failure were carried out with a constant loading rate of 0.1 mm/s at ambient and
+85°C. Plots of complete uniaxial tensile stress vs. strain are shown in Fig. 3. The backsheet materials, such as TPE-HD
+and ReflektLean, show plastic behavior before failure. The elastic modulus is calculated considering small strains up
+to 0.02 (2%), which guarantees a linear response. The response becomes non-linear as strains start increasing further.
+A common observation is that the load-bearing capacity of backsheet materials has decreased at 85°C compared to
+
+
+                                                             3
+                                          Computational modeling of viscoelastic backsheet materials for photovoltaics
+
+
+
+                                                               Thermostatic                                                       2000
+                                                                                                                                                                                                     T-25°C
+                                                                 chamber
+
+
+
+
+                                                                                          Elastic relaxation modulus E(t) (MPa)
+                                                                                                                                  1800                                                               T-45°C
+                                                                                                                                                                                                     T-65°C
+                                                                                                                                  1600                                                               T-85°C
+                                                                                                                                  1400
+
+                                                                                                                                  1200
+
+                                                                                                                                  1000
+
+                                                                                                                                   800
+
+                                                                                                                                   600
+
+                                                                                                                                   400
+
+                                                                                                                                           0            1000                 2000      3000       4000        5000
+                                                                                                                                                                                 Time (s)
+
+
+                                                                                                                                  Material modelling
+                         Grippers                     Specimen                                                                                                                                       T=25°C
+
+                                                                                                                                                                                                         T=45°C
+                                                                                                                                       3
+                                                                                                                                  10
+                                                                                                                                                                                                          T=65°C
+
+
+
+
+                                                                                                         E(t) (MPa)
+                                                                                                                                                                                                      T=85°C
+
+
+
+
+                                                                                                                                               Experimental Relaxation
+                                                                                                                                               Prony Series Fit
+                                                                                                                                               Fractional Model Fit
+
+                                                                                                                                  10 2
+                                                                                                                                    10 0                              10 1           10 2          10 3
+                                                                                                                                                                                 Time (s)
+
+                                          a)                                                                                                                                 b)                                                             c)
+Figure 2: Schematic illustrating steps in modeling a) complete experimental setup with the loaded specimen highlighting
+important components b) Modelling response using prony series (PS) and fractional calculus-based models (FC), and c)
+FEM implementation for simulations.
+
+
+
+
+ambient temperature. As backsheets are made of polymers, the load required to straighten up the complex polymer
+chain at high temperatures decreases, which directly affects reducing their strength. The strength of Lexan was found
+to be the highest, irrespective of temperature. The strength of OSBS was found to be the lowest. The response fitted
+linearly within the limit of 0.02 strain to find the elastic modulus under finite deformations. The bar chart compares
+elastic moduli for materials represented as shown in Fig.4. The measured strength values for all the materials are
+collected in Tab. 2.
+
+
+
+
+                        100                                                                                                                                           100
+                                                                                                                                                                                                                                           OSBS
+                         90                                                                                                                                            90
+                                                                          OSBS                                                                                                                                                             TPE-HD
+                         80                                               TPE-HD                                                                                       80                                                                  ReflektLean
+                                                                          ReflektLean                                                                                                                                                      Lexan
+ Nominal Stress (MPa)
+
+
+
+
+                                                                                                                                               Nominal Stress (MPa)
+
+
+
+
+                         70                                               Lexan                                                                                        70
+
+                         60                           50                                                                                                               60
+
+                         50                           40                                                                                                               50                                               30
+
+                         40                           30                                                                                                               40                                               20
+
+                         30                           20                                                                                                               30                                               10
+
+                         20                           10                                                                                                               20                                                0
+                                                                                                                                                                                                                             0      0.01         0.02
+                         10                            0                                                                                                               10
+                                                           0       0.01       0.02
+                          0                                                                                                                                              0
+                              0     0.2        0.4     0.6         0.8          1       1.2                                                                                  0              0.2              0.4         0.6        0.8           1      1.2
+                                                 Nominal Strain                                                                                                                                                    Nominal Strain
+                                                       a)                                                                                                                                                                b)
+
+Figure 3: Tensile test performed until failure of specimens loaded with 0.1 mm/s at a) 25 °C and b) 85 °C respectively.
+
+
+                                                                                                                                           4
+                                        Computational modeling of viscoelastic backsheet materials for photovoltaics
+
+
+
+                         2500
+                                                                        25°C
+                                                                        85°C
+
+                         2000
+ Elastic Modulus (MPa)
+
+
+
+
+                         1500
+                                                                                             Material       σ25 (MPa)    σ85 (MPa)
+                                                                                              OSBS             4.57       0.6158
+                         1000                                                                TPE-HD           38.12        22.10
+                                                                                            ReflektLean       26.48        13.14
+                                                                                              Lexan           42.66        37.78
+                          500
+                                                                                   Table 2: Evaluated tensile strength of backsheet materials.
+                            0
+                                Lexan         TPE-HD   ReflektLean   OSBS
+
+
+Figure 4: Bar chart comparing elastic modulus of back-
+sheets.
+
+
+2.3                        Relaxation tests
+
+Following the experimental analysis performed in (Eitner 2011, Borri et al. 2018), at 85 °C, the backsheet material
+experiences thermal stress around 4-8 MPa which is sufficient enough to support viscoelastic straining/relaxation effects.
+Therefore, a series of relaxation tests were performed by holding the sample at corresponding constant strains for a
+long duration of time at a given temperature. In the current study, relaxation tests were carried out at constant strains
+but at different temperatures in the range 25-85 °C, to observe temperature-dependent effects. The initial loading rate
+was kept constant until reaching the corresponding constant strain, using 0.1 mm/sec for all cases. We have kept the
+initial loading rate constant so that results will be in line with uniaxial tests and valid comparisons can be carried
+out. The instantaneous elastic modulus can be estimated by considering the problem as one-dimensional Eins = ϵσ0 .
+Corresponding values are collected in the Tab. 3. It can be observed that values of the instantaneous elastic moduli are
+very much within the range of elastic moduli estimated previously from the tensile test. Fig. 5 shows the relaxation
+response of the Lexan back sheet at corresponding temperatures. Instantaneous elastic modulus reduces as temperature
+increases. The relaxation response of other materials is represented in Fig. 6. All materials except OSBS follow the
+power-law type relaxation behavior at higher temperatures. As OSBS has the lowest elastic strength compared to
+others, it relaxes faster. A backsheet is a layered composition of different polymeric materials, every material has its
+glass transition Tg , which affects the relaxation response. Due to material composition, OSBS has lower Tg , affecting
+its relaxation response. As temperature increases beyond Tg , compared to other materials OSBS loses its power-law
+behavior. These elastic relaxation responses of backsheet materials can be modeled into different material models.
+
+
+                    Material      Strain (ε0 ) E25 (MPa) E45 (MPa) E65 (MPa) E85 (MPa)
+                     OSBS            0.02         446.18         285.2          175.68          135.43
+                    TPE-HD           0.02         1914.9        1735.8          1368.7          874.31
+                  RefelektLean       0.02         1462.8        1236.7          866.47          495.03
+                     Lexan          0.0417        1836.6        1654.6          1561.8          1444.3
+Table 3: Instantaneous elastic modulus for the backsheet materials at the start of relaxation, for each corresponding test
+temperature.
+
+
+
+The relaxation tests were performed on Lexan specimens at a constant temperature for different strain levels to assess
+also how the maximum applied strain affects relaxation. Fig. 7 shows the relaxation response for different constant
+strains ϵ = 0.0167, 0.0250, and 0.0333, for Lexan at 85 °C. Initially, stress is proportional to strain, but the response
+becomes nonlinear for higher strains. It is noted that at higher temperatures, specimens loaded at small strains relax
+faster than compared to what happens at larger strains. The study is performed to see changes in material relaxation
+parameters for different strains at the constant temperature which is discussed in Sec. 4.
+
+
+                                                                               5
+                                                                                               Computational modeling of viscoelastic backsheet materials for photovoltaics
+
+
+
+                                                                  80                                                                                                                                                                                   2000
+                                                                                                                                                                                                                                                                                                                                                                                      T-25°C
+                                                                                T-25°C                                                                                                                                                                                                                                                                                                T-45°C
+                                                                  70            T-45°C
+
+
+
+
+                                                                                                                                                                                                               Elastic relaxation modulus E(t) (MPa)
+                                                                                                                                                                                                                                                       1800                                                                                                                           T-65°C
+                                                                                T-65°C                                                                                                                                                                                                                                                                                                T-85°C
+                                                                  60            T-85°C
+                                         Nominal Stress (MPa)
+
+
+
+
+                                                                                                                                                                                                                                                       1600
+                                                                  50
+
+                                                                  40                                                                                                                                                                                   1400
+
+                                                                  30
+                                                                                                                                                                                                                                                       1200
+                                                                  20
+                                                                                                                                                                                                                                                       1000
+                                                                  10
+
+                                                                   0                                                                                                                                                                                          800
+                                                                          0          0.01               0.02               0.03                                                      0.04                                                                                                      1000                                             2000             3000          4000          5000
+                                                                                                     Nominal Strain                                                                                                                                                                                                                                     Time (s)
+                                                                                                               a)                                                                                                                                                                                                                                          b)
+Figure 5: Temperature-dependent relaxation test response of Lexan back sheet: a) Nominal stress over nominal strain,
+and b) change in the elastic relaxation modulus over time (s).
+
+
+                                        2000                                                                                                                              1600                                                                                                                                                                450
+                                                                                                               T-25°C                                                                                                                                                                     T-25°C                                                                                         T-25°C
+Elastic relaxation modulus E(t) (MPa)
+
+
+
+
+                                                                                                                                  Elastic relaxation modulus E(t) (MPa)
+
+
+
+
+                                                                                                                                                                                                                                                                                                      Elastic relaxation modulus E(t) (MPa)
+                                        1800                                                                   T-45°C                                                                                                                                                                     T-45°C                                              400                                        T-45°C
+                                                                                                                                                                          1400
+                                                                                                               T-65°C                                                                                                                                                                     T-65°C                                                                                         T-65°C
+                                        1600                                                                   T-85°C                                                                                                                                                                     T-85°C                                              350                                        T-85°C
+                                                                                                                                                                          1200
+                                        1400
+                                                                                                                                                                                                                                                                                                                                              300
+                                                                                                                                                                          1000
+                                        1200
+                                                                                                                                                                                                                                                                                                                                              250
+                                        1000                                                                                                                               800
+                                                                                                                                                                                                                                                                                                                                              200
+                                         800
+                                                                                                                                                                           600
+                                                                                                                                                                                                                                                                                                                                              150
+                                         600
+                                                                                                                                                                           400                                                                                                                                                                100
+                                         400
+                                                                                                                                                                           200                                                                                                                                                                 50
+                                                                  0           1000      2000     3000     4000        5000                                                       0      1000        2000                                    3000                                       4000   5000                                                  0     1000     2000       3000    4000      5000
+                                                                                          Time (s)                                                                                                    Time (s)                                                                                                                                                          Time (s)
+                                                                                     a) TPE-HD                                                                                                 b) ReflektLean                                                                                                                                                      c) OSBS
+Figure 6: Temperature dependent relaxation test: response of change in the elastic relaxation modulus over time (s) for
+a) TPE-HD, b) Lean, and c) OSBS back sheet materials respectively.
+
+
+                                                                  55                                                                                                                                                                                                          55
+                                                                                                                                                                                                                                                                                                                                                                              Strain-0.0167
+                                                                  50             Strain-0.0167                                                                                                                                                                                                                                                                                Strain-0.0250
+                                                                                 Strain-0.0250                                                                                                                                                                                50                                                                                              Strain-0.0333
+                                                                  45             Strain-0.0333
+                                                                  40                                                                                                                                                                                                          45
+                                           Nominal Stress (MPa)
+
+
+
+
+                                                                                                                                                                                                                                                       Nominal Stress (MPa)
+
+
+
+
+                                                                  35
+                                                                                                                                                                                                                                                                              40
+                                                                  30
+                                                                  25
+                                                                                                                                                                                                                                                                              35
+                                                                  20
+                                                                  15                                                                                                                                                                                                          30
+
+                                                                  10
+                                                                                                                                                                                                                                                                              25
+                                                                      5
+                                                                      0                                                                                                                                                                                                       20
+                                                                          0     0.005      0.01       0.015         0.02     0.025                                               0.03       0.035                                                                                  0           1000                                             2000             3000          4000           5000
+                                                                                                     Nominal strain                                                                                                                                                                                                                                     Time (s)
+                                                                                                           a)                                                                                                                                                                                                                                               b)
+Figure 7: Relaxation test response of Lexan back sheet at constant temperature: a) Nominal stress over nominal strain,
+and b) change in the elastic relaxation modulus over time (s).
+
+
+
+
+                                                                                                                                                                                                           6
+                           Computational modeling of viscoelastic backsheet materials for photovoltaics
+
+
+3   Constitutive modeling of small-strain viscoelasticity
+Viscoelastic materials are characterized by their Relaxation and Creep functions R(t) and C(t), respectively. These
+functions describe the behavior of the material when a constant strain and constant stress are applied, respectively.
+Depending upon the choice of creep and relaxation response fitting with experimental tests, these functions can be
+modeled with the exponential response (PS model) or power law (FC model) as given below:
+                               N                                              N
+                               X            − τt                          1   X 1 h      − t
+                                                                                             i
+          R(t) = E∞ +                Ej e      j   ;            C(t) =      +       1 − e τj                          (1)
+                               j=1
+                                                                         E∞ j=1 Ej
+
+
+                    Aα t−α                                          tα
+          R(t) =            ;                          C(t) =                                                         (2)
+                   Γ(1 − α)                                     Aα Γ(1 + α)
+where E∞ and Ei are materials parameters for relaxation moduli corresponding to the fixed spring and the ith spring of
+Maxwell’s arm in the PS model whereas, Γ(·) is the Euler gamma function, α is a real number 0 ≤ α ≤ 1, and Aα is a
+material parameter. All these material parameters are evaluated by fitting creep or experimental relaxation curves. The
+constitutive models can be represented with physical means as shown in Fig. 8 In the linear viscoelasticity framework,
+
+
+
+
+                   E1             E2                        Ek                 En
+      E
+                   η              η                         η                  η                 Cρ         ρ
+                       1              2                         k              n
+
+
+
+
+                                                       a)                                             b)
+Figure 8: Schematic of representation a) Generalized Maxwell Model b) Spring-pot Model for viscoelastic material
+models.
+
+the Boltzmann superposition principle allows us to obtain the response of a material when the imposed stress s(t) or
+strain history e(t) is not constant and can be expressed in two forms:
+                  Z t
+          s(t) =      R(t − τ )ė(τ )dτ                                                                          (3)
+                       0
+
+                   Z t
+          e(t) =           A(t − τ )ṡ(τ )dτ                                                                          (4)
+                       0
+
+These integrals are called hereditary integrals because the actual value of s(t) (or e(t)) depends on the previous history
+of e(t) (or s(t)). Substitution of Eq.1 and Eq.2 into the above Eqs. gives the corresponding constitutive law. Let’s
+consider any solid body occupying region Ω ⊂ Rndim (ndim = 1, 2, 3 spatial dimensions). Let u be the displacement
+field. Corresponding strain field can be defined as ε := sym (∇u). The external boundary ∂Ω ⊂ Rnndim −1 composed of
+two open, disjoint regions, ∂Ω = ∂Ωu ∪ ∂Ωt such that u = ū on ∂Ωu and t = t̄ on ∂Ωt . For such a body, the total
+energy functional can be given as:
+                Z              Z               Z
+         Π :=      Ψ(ε)dΩ −        fv · u dΩ −     t̄ · u d∂Ω                                                          (5)
+                   Ω                      Ω                     ∂Ω
+
+Where fv is a body force and Ψ(ε) is elastic energy density function which is defined as Ψ(ε) = ε(u)T : σ(u), where
+σ(u) is the stress which can also be given as σ(u) := C : ε(u) where C is a constitutive material tensor that is obtained
+through different material models.
+
+
+                                                                           7
+                       Computational modeling of viscoelastic backsheet materials for photovoltaics
+
+
+3.1   Generalised Maxwell model for linear Viscoelasticity
+
+The behavior of viscoelastic materials under loading is usually represented by conceptual models composed of elastic
+and viscous elements which correspond to springs and dashpots. A more general form of this is PS models, where an
+isolated spring is attached in parallel to several series spring-dashpot models, which are also called Maxwell’s arms, to
+get a better viscoelastic response. The representative model is shown in Fig. 8. As there are 2N+1 unknown parameters
+required to fit the experimental test, these models can give a good fit compared to other models. However, it can be
+cumbersome since all the parameters should also have physical meaning, rather than just numerical parameters. In most
+of the implementations, the most convenient choice is to use volumetric KR (t) and deviatoric relaxation GR (t) (or
+creep) functions (Taylor et al. 1970). In the case of the PS model, these functions can be taken as a series of exponential
+responses similar to Eq. 1 as,
+                             N                                           N
+                             X            − tg                           X            − tk
+                                           τ                                           τ
+         GR (t) = G∞ +             Gj e     j    ;       KR (t) = K∞ +         Kj e        j                            (6)
+                             j=1                                         j=1
+
+
+Where, G∞ , Gi and K∞ , Ki are corresponding shear and bulk relaxation modulii in fixed and ith maxwell’s arms
+respectively with τig and τik are the corresponding relaxation time periods. Following (Holzapfel & Simo 1996), bulk
+relaxation modulus can be taken as constant KR (t) = K v . This is because polymers show a predominant visco-elastic
+behavior in shear deformation rather than in volumetric expansion. It also limits the number of unknowns to evaluate.
+Now, the strain-stress relationship can be given from Eq. 3 as:
+                 Z t                                Z t
+         σ̄(t) =      R(t − τ )ε̇(τ )dτ = K v θ + 2     GR (t − τ )ė(τ )dτ                                      (7)
+                   0                                          0
+
+where, ε is actual strain can be given as, ε = e + 13 θ. In which, θ = tr(ε) · I and e are the corresponding second-order
+volumetric and deviatoric tensors. K v is the time-independent bulk modulus, and ė(τ ) shows the rate of change of
+deviatoric strains with time. Following Eq. 6, G∞ is the shear modulus in the pure spring batch, which is also called the
+long-term shear modulus, and N denotes the number of Maxwell’s arms. The term τi = µηii , (µi is the shear modulus)
+is the relaxation time for each dashpot branch, which controls the time it takes for the stress to relax (higher the τi
+means the longer stress relaxation times). ηi is the viscosity of the ith dashpot, which basically defines the strain rate
+dependence of material which can be taken as constant. The deviatoric stress σ̄dev (t) from Eq. 7 can be written as:
+                                N   Z t
+                                            − t−τ
+                                X
+         σ̄dev (t) = 2G∞ e(t) +   2     Gi e τi ė(τ )dτ                                                                (8)
+                                     i=1             0
+
+
+Using the time integration scheme for implementation of semi-analytical integration of the convolution integral, which
+is presented in (Taylor et al. 1970, Londono et al. 2016), the deviatoric stress σ̄dev (t) at time n + 1 for a time step of
+∆t can be written in the form differential operators as:
+                      "              N                       #
+                                   X                 ∆t     i
+         σ̄dev (t) = 2 G∞ e(t) +         Gi exp −          hn+1                                                         (9)
+                                    i=1
+                                                     τi
+
+where hin+1 is the stress corresponding to the ith Maxwell arm at current time n + 1 which can be given as an update
+integral considering strains at the current step and previous strains:
+                              
+           i               ∆t
+          hn+1 = exp −            hin + hvis (en+1 − en )                                                       (10)
+                            τi
+
+Where hin takes care of the previous time-step history of hi , and hvis is given by
+                                     
+                 τi                ∆t
+        hvis =        1 − exp −                                                                                       (11)
+                ∆t                 τi
+Finally, the constitutive law for viscoelastic solids with moduli in the form of a Prony-series is obtained by directly
+substituting Eq.(11), (10) into Eq.(7) which defines the total stress σ̄(t) in the material. Due to the flexibility of
+accommodating a number of unknowns, in many cases of engineering interest, PS models can adequately reproduce the
+time-dependent features of viscoelastic materials (Knauss 2015, Xu & Engquist 2018)
+
+
+                                                                   8
+                    Computational modeling of viscoelastic backsheet materials for photovoltaics
+
+
+3.2   Fractional calculus model for linear viscoelasticity
+
+The volumetric and the deviatoric creep/relaxation functions are both well-fitted by the pure power law function. Then
+their behavior can be reproduced by the spring pot model as shown in Fig. 8. In the case of the fractional calculus model,
+the substitution of relaxation function R(t) into Eq. 3 leads to constitutive laws that involve fractional operators, namely
+derivatives and integrals of real order (Samko et al. 1993, Alotta, Barrera, Cocks & Di Paola 2018). It is straightforward
+in which strain history is applied. Based on that, the corresponding stress history can be given as follows:
+                             Z t
+                      Aα
+          s(t) =                 (t − τ )−α ė(τ )dτ = Aα Dtα e(t)                                                      (12)
+                  Γ(1 − α) 0
+Where Dtα represents the Caputo fractional derivative of order α (Podlubny 1999, Scherer et al. 2011), a convolution
+integral with a power law kernel. It has been shown in Ref. (Paggi & Sapora 2015, Lenarda & Paggi 2022) that the
+behavior of the number of springs/dashpots in a classical viscoelasticity framework can be easily reproduced with
+a spring pot. This is why using fractional viscoelasticity results in a significant reduction of mechanical parameters
+compared to using classical viscoelastic models. Similar to the PS model, volumetric KR (t) and deviatoric relaxation
+GR (t) (or creep) functions are chosen to represent viscoelastic behavior. In the case of the FC model, these functions
+can be taken as power law kernel similar to Eq. 2 as,
+                       Gα t−α                    Kβ t−β
+         GR (t) =              ;       KR (t) =                                                               (13)
+                      Γ(1 − α)                  Γ(1 − β)
+where Kβ and Gα are anomalous bulk and shear relaxation moduli, respectively, while β and α are real numbers
+indicating the orders of bulk and shear power laws. Considering time-independent bulk modulus KR (t) = K v , Now,
+the strain-stress relationship can be given from Eq. 3 as:
+                   Z t                                      Z t
+                                                     2Gα
+          σ̄(t) =      R(t − τ )ε̇(τ )dτ = K v θ +              (t − τ )−α ė(τ )dτ                           (14)
+                    0                              Γ(1 − α)  0
+The time-dependent shear relaxation modulus G(t) is found via elastic/visco-elastic correspondence principle and
+inverse Laplace transform using the Mittag-Leffler special functions as given in (Alotta, Barrera, Cocks & Di Paola
+2018, Bonfanti et al. 2020). The deviatoric stress tensor σ̄dev can be written with shear relaxation function Gα and α as
+follows:
+                                 Z t                    
+                           Gα
+         σ̄dev (t) = 2                (t − τ )−α ė(τ )dτ = 2Gα Dtα e(t)                                             (15)
+                         Γ(1 − α) 0
+The Caputo fractional derivative of any function f (t) can be given by using the Grunwald-Letnikov (GL) fractional
+derivative (Wei & Shimizu 2001, Schmidt & Gaul 2002). The Grunwald-Letnikov approximation of the fractional
+derivative at the current time steps n + 1 for a time step of ∆t , Dα f (tn+1 ) for f function (Samko et al. 1993) given as:
+                                                                                   
+                              n                                             cn+1 (α)
+         Dα f (t) = (∆t)−α
+                              X
+                               cj+1 (α)f n+1−j = (∆t)−α f 1 | . . . |f n+1 
+                                                                             ..  
+                                                                                                                       (16)
+                                                                                 .  
+                           j=0                                               c1 (α)
+where the coefficients cj (α) are defined by the recursive formula:
+                   (j−1−α)
+                          j   cj−1 (α) if j > 1
+        cj (α) =                                                                                                       (17)
+                                       1 if j = 1
+                  
+
+Following this, the deviatoric stress σ̄dev (t) at time n + 1 for a time step of ∆t can be written in the form differential
+operators as:
+                                                     Xn
+         σ̄dev (t) = 2Gα Dtα e(t) = 2Gα (∆t)−α          cj+1 (α)en+1−j                                                (18)
+                                                   j=0
+
+Coefficients are such that cj (α) < cj+1 (α) < 0 for j > 1 and limj→+∞ cj (α) = 0. In the FEM           discretization, f
+matrix stores the values of deviatoric strains e of previous time steps into columns e1 | . . . |en+1 with increasing order
+respectively which acts as the memory of material. Using Eq. 14 with the volumetric and the deviatoric creep/relaxation
+functions are both well fitted by pure power law function. Then their behavior can be reproduced by the spring pot
+model. In many cases of engineering cases, spring pots may not adequately reproduce the time-dependent features
+of viscoelastic materials completely, then other fractional viscoelastic material models with different combinations of
+springs along with spring pots are used (Alotta, Barrera, Cocks & Di Paola 2018).
+
+
+                                                             9
+                      Computational modeling of viscoelastic backsheet materials for photovoltaics
+
+
+3.3   Numerical implementation
+
+Viscoelastic constitutive laws are time-dependent equations that can be solved by the finite element method (FEM)
+through step-by-step numerical integration schemes. We have implemented models into an implicit(Newton-Raphson)
+scheme; all of the components of stress at the end of a previous time step must be provided. Here, we show details of the
+implementation of PS and FC models in a user element routine(UEL) into the finite element analysis program (FEAP),
+(Taylor 2014). For the implementation of viscoelasticity in an implicit integration scheme, all of the components of
+stress and the jacobian at the end of a time step must be provided for each Gauss point. The deviatoric and hydrostatic
+parts of the stress tensor are given by:
+                       "              N                       #
+                                    X                ∆t      i
+          σ̄dev (t) = 2 G∞ e(t) +         Gi exp −         hn+1     = 2Gα Dtα e(t);      σ̄vol (t) = K v θ          (19)
+                                     i=1
+                                                      τi
+
+The weak form corresponds to the energy functional Eq. 5 is derived by multiplying it by a virtual displacement v and
+integrating the result on the domain Ω. Applying the divergence theorem:
+          Z                        Z                        Z             Z
+             σ̄dev e(u) : ε(v)dΩ +    K v div(u) · div(v) =   fv · v dΩ +     t̄ · v d∂Ω                         (20)
+           Ω                           Ω                                Ω       ∂Ω
+
+Following discretization of Ω into elements such that Ω → Ωe . The trial solution functions space for displacement v
+can be defined as,
+         Uh (u) = u ∈ H 1 (Ω)|∇u ∈ L2 (Ω); u = ud on ∂Ωd
+                   
+                                                                                                                (21)
+Respective test functions space for displacement v can be given as,
+        Vh (v) = v ∈ H 1 (Ω)|∇δu ∈ L2 (Ω); v = 0 on ∂Ωd
+                   
+                                                                                                                    (22)
+For the single element, displacement and it’s gradients are approximated by Galerkin’s method as follows,
+          ue ≈ Nu du      ∇ue ≈ Bu du         ve ≈ Nu dv      ∇ve ≈ Bu dv                                           (23)
+
+Where variable du are vectors of nodal values of displacements, in our implementation, the standard bi-linear shape
+functions N are used for both displacements and phase field variables. For simplicity, the gradient of shape function
+∇N is taken as B. Through the insertion of the previous interpolation scheme for the displacement and phase field
+variable, the discrete versions of element residual vectors for both fields are given by,
+                 Z                             Z              Z
+                         T                          T
+          Ru =       ∇v (σ̄dev + σ̄vol )dΩ −       v f dΩ −         v T t̄d∂Ω                                    (24)
+                 Ωe                                  Ωe                 ∂Ωe
+
+To obtain the solutions for which Ru = 0 and because the corresponding residuals are nonlinear, an incremental-iterative
+scheme using the Newton-Raphson method is employed,
+                                       −1
+         (du )t+∆t = (du )t − [K u ]        (Ru )t                                                                  (25)
+                          u
+where coefficients of K can be given as follows,
+                        Z
+                ∂Ru
+        Ku =          =    BvT C̄vis Bu dΩ                                                                          (26)
+                ∂du      Ω
+
+where C̄vis viscoelastic material tensor can be defined as,
+                       n+1
+                 ∂∆σij
+                                              
+                                       2
+         C̄vis =           =    K  v
+                                     −   G vis   δij δkh + Gvis (δik δjh + δih δjk )                                (27)
+                 ∂∆εn+1kh
+                                       3
+The components of the material tensor can be evaluated as follows:
+            n+1
+         ∂∆σii     v  4
+            n+1 = K + 3 Gvis ;                 i = 1, 2, 3                                                          (28)
+         ∂∆εii
+
+            n+1
+         ∂∆σii     v  2
+            n+1 = K − 3 Gvis ;                 i, j = 1, 2, 3; i ̸= j                                               (29)
+         ∂∆εjj
+
+                                                                 10
+                    Computational modeling of viscoelastic backsheet materials for photovoltaics
+
+
+
+
+             n+1
+          ∂∆σij
+                    = Gvis ;            i, j = 1, 2, 3, i ̸= j                                                           (30)
+          ∂∆εn+1
+             ij
+                                                                         PN
+Where K v is the time-independent bulk modulus and Gvis = G∞ + i=1 Gi hvis and Gvis = Gα ∆t−α respectively
+considered for PS and FC models, which is only modification from a linear elastic material is the substitution of the
+factor. δ is Kronecker delta. It can be noted that for both models, Jacobian depends only on the value of ∆t and on the
+mechanical parameters. Fixed time-step increment ∆t is considered to obtain convergence results. As compared to
+the prony series model, which only requires the history of stress at the previous time step, the fractional model needs
+complete history data of stress at Gauss points to calculate the stress at the current time step, which takes a significant
+amount of memory data. This is one of the main reasons why the FC Model takes a more extensive simulation time than
+the PS model. In order to reduce the amount of memory, one can use a larger time increment ∆t or truncate the memory
+of the material for the GL derivative. In this study, we have chosen optimum value for ∆t to improve computational
+effectiveness.
+
+4   Parameter identification procedure
+Since the models for the viscoelastic material characterization were established in the previous section, here we describe
+the material parameter identification. There are various techniques suggested in the literature (Chen 2000, Suchocki
+et al. 2013) to identify the model parameters. A more suitable choice is to use a relaxation response to get material
+parameters. For the relaxation test, a constitutive relation for the period of constant strain can be given as σ(t) = E(t)ϵ0 ,
+where E(t), is the relaxation function and ϵ0 is the strain at a time, t = 0. Considering the material functions based on
+both the models can be given by expressions discussed previously as :
+         E(t) = Aα t−α /Γ(1 − α),                    0≤α≤1              Fractional calculus Model                        (31)
+
+
+                           N
+                           X            − τt
+         E(t) = E∞ +             Ej e      j                        PS Model                                             (32)
+                           j=1
+
+where R(t) is already available from experimental relaxation tests as given in Fig. 5. Consider vector p, a set of model
+parameters p = (p1 , p2 , ....., pm ) which collects unknown coefficients of the Prony series, or (A, α) for the Fractional
+model. Vector p take values in parameter space P , containing all the admissible values for p. This feasible set P also
+takes into account the restriction of model parameters. The problem of estimating the coefficients is addressed as an
+optimization problem which has the objective of minimizing cost function ϕ(p) defined as:
+                  N
+                  X              2
+         ϕ(p) =         (fi (p)) ,             for   fi (p) = Eiexp − Eimodel (p)                                        (33)
+                  i=1
+
+
+To minimize the cost function, ϕ(p) there are various algorithms reported in the literature, such as (Carollo et al. 2019)
+uses gradient descent algorithm and Particle Swarm Optimization (PSO) to get model parameters. In (Kraus et al.
+2017), GUSTL was used to identify the Prony series from DMTA data, while parameter estimation based on Genetic
+Algorithms (GA) was done in (Kohandel et al. 2008). It was found that the Nonlinear Least Squares method based on
+the Levenberg-Marquardt optimization algorithm solves the minimization problem effectively (Ranganathan 2004).
+Based on that, an interactive MATLAB program has been implemented to extract the model parameters from the present
+experimental relaxation tests. In the case of the Prony Series (PS) model, there are 2n + 1 unknowns corresponding to
+E∞ , Ei ’s, and τi ’s. As the number of Maxwell’s arms increases so do the unknowns. In literature, it was suggested
+that the values for τi can be chosen as multiples of decades (Paggi & Sapora 2015, Eitner 2011). One of the reasons
+to choose multiple decades is to accommodate a complete relaxation response. For example τ = (100 , 102 , 104 ). So
+that PS model parameters would reduce to n + 1. The idea behind this is that every Maxwell’s arm has a local impact
+on the shape of E(t). Parameters τi define the range of the impact within time t and Ei sets the height of the model
+curve. As the problem gets constrained in the time range, a higher number of Maxwell’s arms is needed to get an
+accurate response. Instead of fixing the time range τi ’s, the current study focuses on finding the optimum time τi
+for dashpots which can minimize the cost function ϕ(p). Though the total unknown model parameters are 2n + 1,
+the overall number of parameters to find gets reduced compared to fixing the time range. It also guarantees physical
+meaning to the outcome of the identification problem. Fig. 9 shows the plot of E(t) fitted with up to 5 Maxwell’s Arms
+for a relaxation response for Lexan at 85 °C. For n = 1 to 3 Maxwell’s arms, the response of E(t) is wavier, but as the
+
+
+                                                                   11
+                    Computational modeling of viscoelastic backsheet materials for photovoltaics
+
+
+
+
+                                   1700
+                                                                         Maxwell Model(n=1)
+                                   1600
+                                                                         Maxwell Model(n=2)
+                                   1500                                  Maxwell Model(n=3)
+                                                                         Maxwell Model(n=4)
+                                   1400                                  Maxwell Model(n=5)
+                                                                         Experimental Data
+                                   1300
+                                                                         Fractional Model
+                                   1200
+                      E(t) (MPa)
+
+
+                                   1100
+
+                                   1000
+
+                                    900
+
+                                    800      Loading time
+
+
+                                    700
+                                      10 0             10 1     10 2         10 3             10 4
+                                                              Time (s)
+      Figure 9: Parameter estimation for relaxation response of Lexan at 85 °C for Maxwell and Fractional Model.
+
+
+number n of arms increases, the error between the experiment and model decreases as shown in Tab. 4. Using the same
+algorithm, fractional calculus (FC) model parameters A and α are estimated for the relaxation response of Lexan, as
+shown in Fig. 9. The response of the Fractional model (FM) is linear on the double logarithmic scale with an objective
+                                                                                  A
+function, y = log E(t), having a slope of m = −α with a constant of c = log Γ(1−α)     . The initial value of the relaxation
+modulus depends on the constant. Since α is in line with the slope of relaxation, the corresponding values obtained
+from the Fractional model are higher than that of experimental data. But after a short duration, the Fractional Model
+gives a very good fit compared to other Maxwell models with many arms.
+The short-term period can be considered a loading time period most of the time (Glaesener et al. 2021), and it is
+time to obtain the constant state of stress, σ0 for creep or a constant state of strain ϵ0 as for relaxation experiments.
+Though the Fractional calculus model is not able to predict short-time relaxation behavior, these models are very
+effective for long-term response (Bonfanti et al. 2020, Paggi & Sapora 2015). Most modeling problems are done for a
+long-term response which accounts for the viscoelastic relaxation. These models are very effective since they require
+only 2 unknowns to describe the complete relaxation as compared to 2n + 1 for models based on the Prony series.
+All experimental data with MATLAB code for estimating model parameters with optimization is provided in ??, the
+supplementary data of this article.
+
+                    Material Model       PS       1        2        3       4        5       FC
+                   RSME Error (%)              123.320 12.896 0.887 0.101 0.014 1.301
+                Table 4: Error analysis with increasing Maxwell’s arm and Fractional Calculus Model.
+
+
+4.1    Parameter estimation for temperature-dependent relaxation response of backsheet materials
+
+The relaxation response of backsheet materials at different temperatures for constant strains can be modeled using PS
+and FC models, as shown in Fig. 10. The model parameters for both material models are obtained for all backsheet
+materials based on the relaxation response obtained from experiments as shown in Tab. 5 and 6, respectively. An
+optimum number of Maxwell’s arms was identified, which was used to find parameters. As the number of PS parameters
+increases beyond 4-5 terms, finding the physical meaning of terms is difficult. But valid observations can be made from
+fractional calculus parameters. As temperature increases, slope α increases until temperature reaches Tg , which is the
+glass transition temperature at which constituent polymer material loses its crystalline phase. A similar analysis for
+EVA is reported in (Paggi & Sapora 2015, Eitner 2011). As backsheet materials are layered composites, finding the
+exact transition temperature is difficult. Tg is helpful in finding Williams- Landel-Ferry parameters (WLF) theoretically
+expected shift function) which plays an important role in Time-Temperature-Superposition-Principle (TTSP) to get
+
+
+                                                               12
+                              Computational modeling of viscoelastic backsheet materials for photovoltaics
+
+
+
+             2000                                                                   2000
+                                                                                                                                  T=25°C
+                                                             T=25°C                 1500
+             1500                                                                                                                T=45°C
+                                                             T=45°C
+                                                                                    1000
+E(t) (MPa)
+
+
+
+
+                                                                       E(t) (MPa)
+                                                 T=65°C
+                                                                                                                                 T=65°C
+             1000
+
+                                                                                     500
+                                                      T=85°C                                                                      T=85°C
+                       Experimental Relaxation
+                       Prony Series Fit                                                       Experimental Relaxation
+                       Fractional Model Fit                                                   Prony Series Fit
+                                                                                              Fractional Model Fit
+
+              500
+                10 0         10 1         10 2            10 3                         10 0         10 1         10 2          10 3
+                                      Time (s)                                                               Time (s)
+                                    a) Lexan                                                               b) TPE-HD
+             2000                                                                   2000
+             1500                                                                   1500
+                                                                                                              Experimental Relaxation
+                                                            T=25°C
+                                                                                                              Prony Series Fit
+             1000                                                                   1000
+                                                                                                              Fractional Model Fit
+                                                    T=45°C
+E(t) (MPa)
+
+
+
+
+                                                                       E(t) (MPa)
+
+
+
+
+              500                                                                    500
+                                                          T=65°C
+
+
+                                                                                                                                 T=25°C
+                                                           T=85°C
+                       Experimental Relaxation
+                                                                                                                                  T=45°C
+                       Prony Series Fit
+                       Fractional Model Fit
+
+
+                10 0         10 1         10 2            10 3                         10 0         10 1         10 2          10 3
+                                      Time (s)                                                               Time (s)
+                                c) ReflektLean                                                              d) OSBS
+Figure 10: Experimental results with numerical fitting for elastic relaxation modulus E(t) versus time response for a)
+Lean and, b) OSBS back sheet materials at different temperatures.
+
+
+an approximate response by shifting the master curve. Here we can estimate the approximate α from its variation
+corresponding to the temperature. Except for OSBS, for all other backsheet materials, α increases as temperature
+increases till higher temperatures around 65 °C, but for OSBS, it starts decreasing from room temperature. One of the
+main reasons for having lesser α for OSBS is its lower Tg . Refer (Pander et al. 2011, Eitner 2011) to understand the
+role of Tg on the viscoelastic materials. Every time, it isn’t easy to get a master curve for viscoelastic materials such as
+backsheet, so performing temperature-dependent tests with characterization gives an idea about the change of material
+parameters with temperature.
+
+4.2            Parameter estimation for strain-dependent relaxation response at constant temperature
+
+The relaxation tests were performed on Lexan back sheet specimens keeping the constant temperature at different
+strain levels to understand the effect of strains on the relaxation curve. Fig. 11 shows the relaxation response modeled
+using PS and FC models against constant strains εc = 0.0167, 0.0250, and 0.0333, for Lexan at 85 °C. The model
+parameters for both material models are obtained for all backsheet materials based on the relaxation response obtained
+from experiments as shown in Tab. 7. It is noted that at 85 °C, specimens loaded at small strains relax early compared
+to those loaded at higher strains. No significant change in α was observed, so one may take a constant relaxation
+pattern for all strains at a constant temperature for Lexan. In most numerical simulations, taking constant α describing
+relaxation behavior for a given temperature is helpful. Similarly, for the PS series model, which is modeled with 4
+
+
+                                                                      13
+                   Computational modeling of viscoelastic backsheet materials for photovoltaics
+
+
+       Material      Temperature     Strain     PS                 Parameters Identified                  RSME
+                        (°C )          ε       Terms                  Ei (MPa), τi (s)                   Error (%)
+                                                           E∞ = 229.47, E1 = 71.53, τ1 = 4.59
+                          25         0.02       4          E2 = 64.54, τ2 = 42.60, E3 = 44.051              1.58
+                                                         τ3 = 288.602, E4 = 36.59, τ4 = 1980.18
+        OSBS                                              E∞ = 147.48, E1 = 51.264, τ1 = 4.85
+                          45         0.02       4          E2 = 44.41, τ2 = 39.26, E3 = 16.66               1.01
+                                                          τ3 = 267.65, E4 = 25.38, τ4 = 1201.95
+                                                        E∞ = 1490.58, E1 = 99.523, τ1 = 5.431
+                          25         0.02       4          E2 = 92.24, τ2 = 57.21, E3 = 91.41               2.23
+                                                         τ3 = 373.25, E4 = 141.17, τ4 = 2881.27
+                                                        E∞ = 1058.275, E1 = 106.69, τ1 = 3.10
+                          45         0.02       5       E2 = 134.925, τ2 = 15.96, E3 = 163.601             0.125
+                                                       τ3 = 67.19, E4 = 116.425989, τ4 = 447.94
+                                                               E5 = 155.86, τ5 = 2813.216
+      TPE-HD                                             E∞ = 567.25, E1 = 268.456, τ1 = 10.4
+                          65         0.02       4         E2 = 258.15, τ2 = 64.9, E3 = 136.014              2.06
+                                                       τ3 = 463.862, E4 = 138.82, τ4 = 1948.052
+                                                         E∞ = 351.01, E1 = 211.414, τ1 = 5.13
+                          85         0.02       4          E2 = 156.97, τ2 = 38.81, E3 = 87.39              1.87
+                                                         τ3 = 238.517, E4 = 67.53, τ4 = 1987.01
+                                                          E∞ = 921.77, E1 = 118.23, τ1 = 7.15
+                          25         0.02       4         E2 = 127.92, τ2 = 61.44, E3 = 120.61             0.485
+                                                         τ3 = 372.49, E4 = 174.36, τ4 = 2886.36
+    RefelektLean                                         E∞ = 703.55, E1 = 123.26, τ1 = 8.075
+                          45         0.02       4          E2 = 152.68, τ2 = 70.38, E3 = 99.89             0.843
+                                                         τ3 = 340.73, E4 = 157.29, τ4 = 2096.87
+                                                          E∞ = 466.78, E1 = 120.22, τ1 = 6.97
+                          65         0.02       4        E2 = 121.301, τ2 = 54.067, E3 = 72.56              1.53
+                                                         τ3 = 273.29, E4 = 85.613, τ4 = 2298.70
+                                                          E∞ = 267.90, E1 = 63.677, τ1 = 4.27
+                          85         0.02       4          E2 = 77.15, τ2 = 20.68, E3 = 60.66              1.085
+                                                          τ3 = 96.44, E4 = 25.63, τ4 = 1423.905
+                                                         E∞ = 1355.09, E1 = 95.945, τ1 = 9.38
+                          25        0.0417      5          E2 = 92.683, τ2 = 85.95, E3 = 78.51            0.3318
+                                                        τ3 = 534.650, E4 = 80.385, τ4 = 2891.94
+                                                               E5 = 133.992, τ5 = 25430.43
+        Lexan                                          E∞ = 1160.15, E1 = 102.074, τ1 = 7.486
+                          45        0.0417      4       E2 = 148.61, τ2 = 99.854, E3 = 117.735              3.40
+                                                        τ3 = 901.367, E4 = 126.03, τ4 = 6086.96
+                                                         E∞ = 996.04, E1 = 153.49, τ1 = 11.84
+                          65        0.0417      4         E2 = 122.07, τ2 = 96.92, E3 = 142.25            0.9792
+                                                         τ3 = 860.72, E4 = 147.93, τ4 = 5758.89
+                                                         E∞ = 603.52, E1 = 170.69, τ1 = 10.88
+                          85        0.0417      5         E2 = 165.59, τ2 = 93.78, E3 = 209.43             1.366
+                                                         τ3 = 686.34, E4 = 169.95, τ4 = 1976.20
+                                                               E5 = 125.12, τ5 = 24459.21
+                      Table 5: Material parameters identified based on prony series (PS) model.
+
+
+
+arms, relaxation time τi and elastic stiffness Ei of respective arms seem to be in the same range, which can be taken as
+constant.
+
+
+5   Numerical Analysis
+
+This section implements models with parameters identified as in the previous section into FEAP as user elements. They
+are applied here to some relevant case studies to prove their effectiveness in capturing experimental trends. Moreover,
+
+
+                                                          14
+                   Computational modeling of viscoelastic backsheet materials for photovoltaics
+
+
+                       Material    Temperature Strain             α           A         RSME
+                                        (°C )         ε                   (MPa sα ) Error (%)
+                                         25         0.02       0.06858     429.133      0.5364
+                       OSBS              45         0.02      0.06390      259.943      0.6485
+                                         25         0.02       0.03110 2013.616          0.169
+                      TPE-HD             45         0.02      0.054732 1783.832          0.155
+                                         65         0.02      0.106298 1503.640          0.558
+                                         85         0.02      0.084548 757.535           0.828
+                                         25         0.02      0.059327 1643.10          0.3313
+                     ReflektLean         45         0.02      0.074289 1412.195         0.3329
+                                         65         0.02      0.067308      875.67       0.407
+                                         85         0.02      0.044636      397.10       1.067
+                                         25        0.0417 0.030154 1946.379             0.1412
+                                         45        0.0417 0.042348 1791.409             0.2087
+                       Lexan             65        0.0417 0.054757 1749.269             0.3227
+                                         85        0.0417 0.099548 1833.933             1.3014
+                     Table 6: Material parameters identified based on fractional calculus model.
+
+
+                                                                        E1 ,
+                                                                         E2 ,      E3 ,      E4 ,
+                   Strain                A      α          E0           τ1τ2        τ3        τ4
+                                                                             (MPa, s)
+                   0.0167 2605.01 0.0834 1211.33 146.03 190.78 226.27 261.85
+                                                               9.08     73.87 593.06 1629.53
+                   0.0250 2198.51 0.0689 1131.55 122.84 151.76 146.55 251.65
+                                                               9.84     79.35 480.78 2477.23
+                   0.0330 1930.74 0.0716 966.17 129.15 153.35 139.36 223.35
+                                                               9.09     70.75 438.32 2562.24
+Table 7: Parameter estimation for relaxation response of Lexan at 85 °C for Maxwell and Fractional Model for different
+strains
+
+
+
+
+                                                                  Experimental Relaxation
+                                                                  Prony Series Fit
+                                                                  Fractional Model Fit
+                                      2000
+                         E(t) (MPa)
+
+
+
+
+                                                                                  -0.0167
+                                      1500
+                                                                   -0.025
+
+
+
+
+                                                                               -0.033
+                                      1000
+                                         10 0       10 1              10 2          10 3
+                                                                Time (s)
+Figure 11: Plot for relaxation response E(t) of Lexan at 85 °C for Maxwell and Fractional Model for different strains.
+
+
+
+the numerical models are exploited to simulate realistic conditions for a PV module. Namely, we consider bending tests
+to assess how the viscoelastic properties of the backsheet affect the axial stress σz along the PV module cross-section.
+
+
+                                                                 15
+                              Computational modeling of viscoelastic backsheet materials for photovoltaics
+
+
+5.1            Numerical validation of relaxation tests
+
+Numerical simulation of relaxation tests was performed on specimens of dimensions 50 mm × 20 mm × thickness
+of the respective backsheets. The bottom side is fixed, while and the top side is subjected to constant strain so that
+ϵ0 = d/l0 . The considered strain data for each material are collected in Tab. 3. The inertia of the material is neglected.
+Material parameters have already been estimated from experimental relaxation tests on different backsheets in the
+previous section 4. Other input parameters besides the relaxation modulus are the Poisson’s ratio ν = 0.30 and the
+time-independent bulk modulus K = E/3(1 − 2ν). The PS and FC models show good convergence for a fixed time
+increment ∆t = 1 s. Fig. 12 shows the numerically predicted elastic relaxation response of backsheet materials as
+compared to experimental results. The elastic relaxation modulus can be evaluated as E(t) = σ(t)/ϵ0 , where σ(t) is
+the nominal stress at time t predicted by numerical simulations. The numerical results for different backsheet materials
+show good agreement with the experimental tests. The slight deviations from experimental results can be ascribed to a
+time-independent bulk modulus assumption.
+
+
+             2000                                                                       2000
+                                                                                                                                          T=25°C
+                                                                 T=25°C
+                                                                                        1500
+
+             1500                                                T=45°C                 1000                                     T=45°C
+
+
+                                                                                                                        T=65°C
+                                                    T=65°C
+E(t) (MPa)
+
+
+
+
+                                                                           E(t) (MPa)
+                                                                                         500
+             1000
+                                                        T=85°C                                                                       T=85°C
+
+                       Prony Series Model                                                         Prony Series Model
+                       Fractional Calculus Model                                                  Fractional Calculus Model
+                       Experimental Relaxation                                                    Experimental Relaxation
+
+
+              500
+                10 0           10 1              10 2              10 3                    10 0          10 1            10 2             10 3
+                                        Time (s)                                                                 Time (s)
+                                      a) Lexan                                                                  b) TPE-HD
+             2000                                                                       2000
+             1500                                                                       1500
+                                                                 T=25°C
+                                                                                                   Prony Series Model
+                                                                                                   Fractional Calculus Model
+             1000                                                                       1000       Experimental Relaxation
+                                                   T=45°C
+E(t) (MPa)
+
+
+
+
+                                                                           E(t) (MPa)
+
+
+
+
+              500                                                                        500
+                                                             T=65°C
+                                                                                                                                     T=25°C
+
+                                                             T=85°C
+                         Prony Series Model
+                         Fractional Calculus Model
+                         Experimental Relaxation                                                                                 T=65°C
+
+
+
+                10 0           10 1              10 2              10 3                    10 0          10 1            10 2             10 3
+                                        Time (s)                                                                 Time (s)
+                                 c) ReflektLean                                                                  d) OSBS
+              Figure 12: Numerical results obtained from the simulations for elastic relaxation modulus E(t) versus time.
+
+
+
+5.2            Effect of the initial loading rate on creep and relaxation experiments
+
+To understand the effect of the initial loading rate on elastic relaxation and creep of materials, a numerical study is
+performed with a different initial loading rate for the Lexan backsheet. A specimen of dimensions 60 mm × 40 mm ×
+0.296 mm is clamped on the bottom side and loaded on top with a constant strain ε = 0.0065, over the period of the
+
+
+                                                                          16
+                             Computational modeling of viscoelastic backsheet materials for photovoltaics
+
+
+relaxation test, while a constant force F = 30 N is maintained over time for the creep tests. The numerical results with
+the 5 Prony Series arm model are shown in Fig. 13. It can be observed that the initial loading rate significantly affects
+the initial stress σ0 or strain ε0 . But, over time, both relaxation and creep responses with varying initial loading rates
+converged together as we kept all input material parameters constant. From those plots, it is evident that the initial rate
+of loading does not affect the long-term response. Fig. 14 shows a specimen’s numerically predicted creep behavior at
+
+
+                                                                                             0.02
+             160
+
+             140
+                                                                                            0.015
+             120
+
+
+
+
+                                                                        Displacement (mm)
+             100
+ Force (N)
+
+
+
+
+                                                                                             0.01
+              80
+                                 Loading Rate: 93.96 mm/hr
+              60                 Loading Rate: 18.79 mm/hr
+                                 Loading Rate: 9.396 mm/hr                                                         Loading Rate: 18.79 mm/hr
+              40                                                                            0.005                  Loading Rate: 9.396 mm/hr
+                                 Loading Rate: 3.7584 mm/hr
+                                 Experiment                                                                        Loading Rate: 3.7584 mm/hr
+              20                                                                                                   Loading Rate: 4.698 mm/hr
+
+               0                                                                                0
+                   0       500         1000          1500      2000                                 0   200        400      600        800      1000
+                                     Time (s)                                                                        Time (s)
+                                      a)                                                                                   b)
+Figure 13: Numerical results from simulations for the effect of strain rates on a) Relaxation and b) Creep response of
+Lexan backsheet at 85 °C considering 5 Maxwell arms.
+
+25 °C with dimensions L = 120 mm, B = 20 mm, and 0.296 mm thick Lexan backsheet subjected to the constant
+F = 40 N. The contour plot of the axial strain ϵl over a time period from 100 to 10,000 s is shown. The predicted
+spatial variation of strain is the same in both viscoelastic models.
+
+                                           t = 1102s         1103s                        1104s        1105s
+
+
+
+
+                       L
+
+
+
+
+                                                a)              b)                              c)            d)
+                                 B
+Figure 14: Simulation of Lexan backsheet creep experiment at 25 °C: contour plot of the tensile strain at different
+points and its evolution in time.
+
+
+
+                                                                       17
+                                       Computational modeling of viscoelastic backsheet materials for photovoltaics
+
+
+5.3                 Response under creep cycles
+
+A numerical investigation is performed to understand the response of backsheet materials, with parameters identified
+in Tab. 5, when subjected to creep cycles as in Fig.15. A specimen of dimensions 60 mm × 40 mm × thickness is
+clamped on the bottom side and loaded on top. All materials were subjected to the constant traction F = 30 N over the
+first 200 s, relaxed for the next 50 s, and again loaded with constant F = 30 N for another 200 s period, followed by
+unloading for the rest of the time. The response of both material models, and for all the backsheet materials, is shown in
+Fig.15. Both PS and FC material models show good predictions. It also shows that FC models with only two unknown
+parameters are able to predictable responses as PS models with a large number of unknowns. As OSBS has a lower
+elastic modulus than the other materials, it deforms more than the others, and it also gets faster relaxed. An important
+observation that can be made from all the material responses is that, after the first cycle of loading, the material deforms
+more at the next cycle for the same load, as compared to the first one. This is primarily due to the polymeric response
+of backsheet materials, as chains of constituent polymers get unstrained and stretched over the first cycle, followed by
+relaxation. This response is very important in the case of failures of PV modules that are repeatedly subjected to cyclic
+loads.
+
+                           0.2                                                                                    0.06
+                                                                     OSBS-PS                                                                         TPE-HD-PS
+                          0.18                                       OSBS-FC                                                                         TPE-HD-FC
+                                                                                                                  0.05
+                          0.16
+
+                          0.14
+                                                                                                                  0.04
+      Displacement (mm)
+
+
+
+
+                                                                                              Displacement (mm)
+                          0.12
+
+                           0.1                                                                                    0.03
+
+                          0.08
+                                                                                                                  0.02
+                          0.06
+
+                          0.04
+                                                                                                                  0.01
+                          0.02
+
+                             0                                                                                       0
+                                 0   200     400         600      800       1000                                         0   200   400         600   800      1000
+                                                Time (s)                                                                              Time (s)
+                                                 a)                                                                                         b)
+                          0.06                                                                                    0.02
+                                                               ReflektLean-PS                                                                          Lexan-PS
+                                                               ReflektLean-FC                           0.018                                          Lexan-FC
+                          0.05
+                                                                                                        0.016
+
+                                                                                                        0.014
+                          0.04
+      Displacement (mm)
+
+
+
+
+                                                                                    Displacement (mm)
+
+
+
+
+                                                                                                        0.012
+
+                          0.03                                                                                    0.01
+
+                                                                                                        0.008
+                          0.02
+                                                                                                        0.006
+
+                                                                                                        0.004
+                          0.01
+                                                                                                        0.002
+
+                             0                                                                                       0
+                                 0   200     400         600      800       1000                                         0   200   400         600   800      1000
+                                                Time (s)                                                                              Time (s)
+                                                 c)                                                                                          d)
+Figure 15: Response of backsheet materials a) OSBS, b) TPE-HD, c) ReflektLean, and d) Lexan under creep cyclic
+loading at 25 °C.
+
+
+
+5.4                 Three-point bending of a PV mini-module
+
+In this section, using the identified model parameters given in Tab. 5, the response of a PV mini-module under bending
+is being tested for a long duration of time to understand the effect of viscoelastic properties of the backsheet in terms of
+axial stresses σz developed within the PV module. The PV mini-module under study is composed of the following
+layers (from the intrados to the extrados): a backsheet 0.32 mm thick, an EVA layer with EEVA = 10 MPa 0.5 mm thick,
+
+
+                                                                                   18
+                    Computational modeling of viscoelastic backsheet materials for photovoltaics
+
+
+                                                                    A
+
+
+
+                                                      A
+                      Figure 16: Schematic showing three-point bending of a PV mini-module.
+
+
+a polycrystalline Si solar cell with ESi = 130 GPa 0.166 mm thick, another EVA layer 0.5 mm thick, and finally a PET
+with EPET = 2800 MPa cover 0.265 mm thick. The span of the mini-module is L = 180 mm. The three-point bending
+experiment and boundary conditions are schematically shown in Fig.16. Following the experimental tests performed by
+(Borri et al. 2018), the PV mini-module was subjected to a maximum deformation of 20 mm at its mid-span position,
+which led to a reaction force of 64 N. The experimental setup is shown in Fig. 17. In the FE analysis, Poisson’s ratio ν
+is taken as 0.3 for all layers, assuming that all layers are perfectly bonded. The time-dependent response of backsheet
+materials is introduced based on the elastic moduli values at 85°C, as given in Tab. 2. The PV mini-module is subjected
+to a constant mid-span defection of uy = −20 mm over the whole time period. As correspondence principle (Alotta,
+Barrera, Cocks & Di Paola 2018) proved to be valid for linear viscoelasticity, the shape of the deformed configuration
+of the backsheet layer is the same as that with elastic one only difference being stress across the layer, which scales
+with time and directly affects stress configuration across whole PV module with time. The axial stress σz distribution
+for the PV module considering Lexan as backsheet material over time is shown in Fig. 17. The variation of stress σBS ,
+over time across a range of temperatures is shown in Fig.18. It shows that as σBS decreases as temperature increases. It
+can be observed that with the reduction of E(t) over time, higher stresses tend to build across the Si layer. The timely
+degradation of elasticity may lead to mechanical failure of Si cells, which are too thin and brittle than other layers.
+
+
+
+                                                          Backsheet
+
+
+                                                          EVA
+
+
+                                                          Si
+
+
+                                                          EVA
+
+                                                          PET
+
+
+
+
+Figure 17: a)The experimental setup for the bending test for PV laminate (Borri et al. 2018), and b) Axial stress
+σz (MPa) across the mid-cross-section of the PV mini-module under constant displacement uy = −20mm with Lexan
+backsheet at 85 °C.
+
+
+
+6   Discussion and conclusion
+In this study, the viscoelastic response of commercially available backsheet materials is experimentally characterized for
+temperature-dependent relaxation and uniaxial tensile tests. An extensive viscoelastic experimental study on backsheet
+materials is carried out, considering the temperature-dependent properties for characterizing the mechanical properties.
+Experiments show that the Lexan backsheet has the highest strength compared to other back sheet materials under study.
+Based on an experimental campaign, we have proposed small-strain viscoelastic models based on the Prony-series (PS)
+and Fractional Calculus (FC) models for constitutive equations. We have implicitly implemented both models using
+user element (UEL) subroutines in the FEAP (Taylor 2014). We have shown that the FC model can be implemented in
+finite elements by using the discretized version of the fractional derivative provided by Grunwald-Letnikov (GL) and
+the PS model through a semi-analytical approach. The current element formulation can be easily implemented with
+
+
+                                                               19
+                                                               Computational modeling of viscoelastic backsheet materials for photovoltaics
+
+
+
+                                                                                                                                        15
+                                                                                                          t=1s
+                        1.6
+                                                                                                          t = 100 s                     14
+                        1.4                                                                               t = 500 s
+                                                                                                          t = 1000 s                    13
+                        1.2                                                                               t = 1400 s                                                             T25 °C
+    Y coordinate (mm)
+
+
+
+
+                                                                                                                                        12                                       T45 °C
+                          1                                                                                                                                                      T65 °C
+                                                                                                                                        11
+                                                                                                                                                                                 T85 °C
+                        0.8                                                                                                             10
+                               0.94
+                        0.6   0.935
+                                                                                       0.78
+                                                                                                                                         9
+                                                                                       0.77
+                               0.93
+
+
+                        0.4   0.925
+
+                               0.92
+                                                                                       0.76
+                                                                                                                                         8
+                                                                                       0.75
+                              0.915
+
+                        0.2    0.91
+                                                                                       0.74                                              7
+                                  -60.5   -60   -59.5    -59   -58.5    -58                   50.5   51   51.5   52   52.5    53
+
+
+
+                          0                                                                                                              6
+                                      -60               -40             -20        0     20               40                 60              0   200   400   600    800   1000   1200     1400
+                                                                       Axial stress (MPa)                                                                    Time (s)
+                                                                              a)                                                                                   b)
+Figure 18: a) Axial stress σz (MPa) across the mid-cross-section of the PV mini-module under constant displacement
+uy = −20mm with Lexan backsheet at 85 °C, and b) Variation of σBS (MPa) with respect to time over a different
+ranges of temperature when subjected to bending
+
+
+any FE code. A robust optimization procedure for identifying viscoelastic material parameters for both models. It was
+observed that the FC model needs only two parameters, A and α, to characterize the relaxation response, while the
+PS model needs the identification of 7 to 11 unknown parameters. It is also noted that FC models cannot predict the
+relaxation behavior for very short periods under 101 s. Still, they give very good predictions for the long-term response,
+which is the regime of interest for applications. FC models require the complete time history of strains compared to the
+PS model, in which only the strain at a current and a previous time step is required. In this regard, the FC model needs
+more memory to store the history variables as compared to the PS model.
+The parameters identified can be directly used as a material input for simulating the response of the respective backsheet
+materials. Following identifications of relevant material parameters, we have validated the model with the experimental
+data that shows good predictability. From the numerical experiments, we also showed that when the material is loaded
+under creep cyclic loads, the material undergoes more deformation as long as the number of cycles increases. Such an
+extensive experimental study and constitutive modeling will help design and simulate a more comprehensive modeling
+of PV modules. To understand the effect of the viscoelastic response of the backsheet on the stress field inside a PV
+module, a three-point bending experiment was simulated with parameters identified for both viscoelastic material
+models. Numerical simulations show that the elastic modulus reduction over time of the backsheet material leads to an
+increase in the axial stress σz to be withstood by the Silicon layer, which may enhance the brittle failure of Silicon solar
+cells. Future investigations will concern the fracturing of the PV-back sheet, as shown in Fig. 19. In most cases, these
+failures occur due to material degradation over time. To address fracture in the backsheet, the present framework can
+be coupled with a phase field approach to fracture, which could be effectively applied to simulate and capture such
+complex material-degradation scenarios.
+
+7                       Acknowledgements
+The authors acknowledge funding from the Italian Ministry of University to the research project of national interest
+PRIN 2017 XFAST-SIMS: Extra fast and accurate simulation of complex structural systems (MUR code 20173C478N).
+
+References
+Alotta, G., Barrera, O., Cocks, A. & Di Paola, M. (2018), ‘The finite element implementation of 3d fractional viscoelastic
+  constitutive models’, Finite Elements in Analysis and Design 146, 28–41.
+Alotta, G., Barrera, O. & Pegg, E. C. (2018), ‘Viscoelastic material models for more accurate polyethylene wear
+  estimation’, The Journal of Strain Analysis for Engineering Design 53(5), 302–312.
+Bonfanti, A., Kaplan, J., Charras, G. & Kabla, A. (2020), ‘Fractional viscoelastic models for power-law materials’, Soft
+  Matter 16(26), 6002–6020.
+
+
+                                                                                                                                   20
+                   Computational modeling of viscoelastic backsheet materials for photovoltaics
+
+
+
+
+Figure 19: Common failures in PV backsheet due to thermo-mechanical and material degradation: a) cracked backsheet
+beneath a hot Si-cell, b) squared cracks beneath cell interspaces, and c) longitudinal cracks located beneath bus-bars,
+from (Eder et al. 2019).
+
+
+Borri, C., Gagliardi, M. & Paggi, M. (2018), ‘Fatigue crack growth in silicon solar cells and hysteretic behaviour of
+  busbars’, Solar Energy Materials and Solar Cells 181, 21–29.
+Bosco, N., Springer, M. & He, X. (2020), ‘Viscoelastic material characterization and modeling of photovoltaic module
+  packaging materials for direct finite-element method input’, IEEE Journal of Photovoltaics 10(5), 1424–1440.
+Budday, S., Sommer, G., Holzapfel, G., Steinmann, P. & Kuhl, E. (2017), ‘Viscoelastic parameter identification of
+  human brain tissue’, Journal of the Mechanical Behavior of Biomedical Materials 74, 463–476.
+Carollo, V., Piga, D., Borri, C. & Paggi, M. (2019), ‘Identification of elasto-plastic and nonlinear fracture mechanics
+  parameters of silver-plated copper busbars for photovoltaics’, Engineering Fracture Mechanics 205, 439–454.
+Chen, T. (2000), ‘Determining viscoelastic strain data a prony material series for a from time varying’, NASA Langley
+  Research Center: Hampton, VA, USA .
+Czanderna, A. & Pern, F. (1996), ‘Encapsulation of pv modules using ethylene vinyl acetate copolymer as a pottant: A
+  critical review’, Solar Energy Materials and Solar Cells 43(2), 101–181.
+De Oliveira, M., Cardoso, A., Viana, M. & Lins, de Freitas Cunha, V. (2018), ‘The causes and effects of degradation of
+  encapsulant ethylene vinyl acetate copolymer (eva) in crystalline silicon photovoltaic modules: A review’, Renewable
+  and Sustainable Energy Reviews 81, 2299–2317.
+Dietrich, S., Pander, M., Sander, M., Schulze, S. & Ebert, M. (2010), Mechanical and thermomechanical assessment of
+  encapsulated solar cells by finite-element-simulation, in ‘Reliability of photovoltaic cells, modules, components, and
+  systems III’, Vol. 7773, SPIE, pp. 117–126.
+Eder, G., Voronko, Y., Oreski, G., Mühleisen, W., Knausz, M., Omazic, A., Rainer, A., Hirschl, C. & Sonnleitner, H.
+  (2019), ‘Error analysis of aged modules with cracked polyamide backsheets’, Solar Energy Materials and Solar Cells
+  203, 110194.
+Eitner, U. (2011), ‘Thermomechanics of photovoltaic modules [ph. d. thesis]’, Zentrum für Ingenieurwissenschaften der
+  Martin-Luther-Universität Halle-Wittenberg .
+Gagliardi, M., Lenarda, P. & Paggi, M. (2017), ‘A reaction-diffusion formulation to simulate eva polymer degradation
+  in environmental and accelerated ageing conditions’, Solar Energy Materials and Solar Cells 164, 93–106.
+Glaesener, R. N., Bastek, J.-H., Gonon, F., Kannan, V., Telgen, B., Spöttling, B., Steiner, S. & Kochmann, D. M. (2021),
+ ‘Viscoelastic truss metamaterials as time-dependent generalized continua’, Journal of the Mechanics and Physics of
+  Solids 156, 104569.
+Hirschl, C., Biebl-Rydlo, M., DeBiasio, M., Mühleisen, W., Neumaier, L., Scherf, W., Oreski, G., Eder, G., Chernev, B.,
+  Schwab, W. et al. (2013), ‘Determining the degree of crosslinking of ethylene vinyl acetate photovoltaic module
+  encapsulants − a comparative study’, Solar Energy Materials and Solar Cells 116, 203–218.
+Holzapfel, G. A. & Simo, J. C. (1996), ‘A new viscoelastic constitutive model for continuous media at finite thermome-
+  chanical changes’, International Journal of Solids and Structures 33(20-22), 3019–3034.
+Kaliske, M. & Rothert, H. (1997), ‘Formulation and implementation of three-dimensional viscoelasticity at small and
+  finite strains’, Computational Mechanics 19(3), 228–239.
+
+
+                                                          21
+                   Computational modeling of viscoelastic backsheet materials for photovoltaics
+
+
+Kim, J., Rabelo, M., Padi, S., Yousuf, H., Cho, E.-C. & Yi, J. (2021), ‘A review of the degradation of photovoltaic
+  modules for life expectancy’, Energies 14(14).
+Knauss, W. (2015), ‘A review of fracture in viscoelastic materials’, International Journal of Fracture 196(1), 99–146.
+Kohandel, M., Sivaloganathan, S. & Tenti, G. (2008), ‘Estimation of the quasi-linear viscoelastic parameters using a
+  genetic algorithm’, Mathematical and Computer Modelling 47(3-4), 266–270.
+Kraus, M., Schuster, M., Kuntsche, J., Siebert, G. & Schneider, J. (2017), ‘Parameter identification methods for
+  visco-and hyperelastic material models’, Glass Structures & Engineering 2(2), 147–167.
+Lenarda, P. & Paggi, M. (2022), ‘A computational framework for rheologically complex thermo-visco-elastic materials’,
+  International Journal of Solids and Structures 236, 111297.
+Liu, Z., Castillo, M., Youssef, A., Serdy, J., Watts, A., Schmid, C., Kurtz, S., Peters, I. & Buonassisi, T. (2019),
+  ‘Quantitative analysis of degradation mechanisms in 30-year-old pv modules’, Solar Energy Materials and Solar
+  Cells 200, 110019.
+Liu, Z., Reinoso, J. & Paggi, M. (2022), ‘A humidity dose-czm formulation to simulate new end-of-life recycling
+  methods for photovoltaic laminates’, Engineering Fracture Mechanics 259, 108125.
+Londono, J. G., Berger-Vergiat, L. & Waisman, H. (2016), ‘A prony-series type viscoelastic solid coupled with a
+  continuum damage law for polar ice modeling’, Mechanics of Materials 98, 81–97.
+Marques, S. & Creus, G. (2012), Computational viscoelasticity, Springer Science & Business Media.
+Omazic, A., Oreski, G., Halwachs, M., Eder, G., Hirschl, C., Neumaier, L., Pinter, G. & Erceg, M. (2019), ‘Relation
+  between degradation of polymeric components in crystalline silicon pv module and climatic conditions: A literature
+  review’, Solar energy materials and solar cells 192, 123–133.
+Ottersböck, B., Oreski, G. & Pinter, G. (2022), ‘How to accelerate natural weathering of polymeric photovoltaic
+  backsheets–a comparison with standardized artificial aging’, Solar Energy Materials and Solar Cells 244, 111819.
+Paggi, M., Corrado, M. & Berardone, I. (2016), ‘A global/local approach for the prediction of the electric response of
+  cracked solar cells in photovoltaic modules under the action of mechanical loads’, Engineering Fracture Mechanics
+  168, 40–57.
+Paggi, M. & Sapora, A. (2015), ‘An accurate thermoviscoelastic rheological model for ethylene vinyl acetate based on
+  fractional calculus’, International Journal of Photoenergy 2015.
+Pander, M., Dietrich, S., Schulze, S.-H., Eitner, U. & Ebert, M. (2011), Thermo-mechanical assessment of solar cell
+  displacement with respect to the viscoelastic behaviour of the encapsulant, in ‘2011 12th Intl. Conf. on Thermal,
+  Mechanical & Multi-Physics Simulation and Experiments in Microelectronics and Microsystems’, IEEE, pp. 1–6.
+Podlubny, I. (1999), ‘Fractional differential equation. san diego’.
+Ranganathan, A. (2004), ‘The levenberg-marquardt algorithm’, Tutoral on LM algorithm 11(1), 101–110.
+Reese, S. & Govindjee, S. (1998), ‘A theory of finite viscoelasticity and numerical aspects’, International journal of
+  solids and structures 35(26-27), 3455–3482.
+Samko, S., Kilbas, A., Marichev, O. et al. (1993), Fractional integrals and derivatives, Vol. 1, Gordon and breach
+  science publishers, Yverdon Yverdon-les-Bains, Switzerland.
+Sánchez, E., Nájera, A. & Sotomayor, O. (2022), ‘Numerical study of the viscoelastic mechanical response of
+  polystyrene in the process of thermoforming through the generalized maxwell model’, Materials Today: Proceedings
+  49, 107–114.
+Scherer, R., Kalla, S. L., Tang, Y. & Huang, J. (2011), ‘The grunwald-letnikov method for fractional differential
+  equations’, Computers & Mathematics with Applications 62(3), 902–917.
+Schmidt, A. & Gaul, L. (2002), ‘Finite element formulation of viscoelastic constitutive equations using fractional time
+  derivatives’, Nonlinear Dynamics 29, 37–55.
+Simo, J. (1987), ‘On a fully three-dimensional finite-strain viscoelastic damage model: formulation and computational
+  aspects’, Computer methods in applied mechanics and engineering 60(2), 153–173.
+Suchocki, C., Pawlikowski, M., Skalski, K., Jasiński, C. & Morawiński, L. (2013), ‘Determination of material
+  parameters of quasi-linear viscoelastic rheological model for thermoplastics and resins’, Journal of Theoretical and
+  Applied Mechanics 51.
+Taylor, R. (2014), ‘Feap-a finite element analysis program’.
+Taylor, R., Pister, K. & Goudreau, G. (1970), ‘Thermomechanical analysis of viscoelastic solids’, International Journal
+  for Numerical Methods in Engineering 2(1), 45–59.
+
+
+                                                          22
+                   Computational modeling of viscoelastic backsheet materials for photovoltaics
+
+
+Vázquez, M. & Rey-Stolle, I. (2008), ‘Photovoltaic module reliability model based on field degradation studies’,
+  Progress in photovoltaics: Research and Applications 16(5), 419–433.
+Wei, Z. & Shimizu, N. (2001), ‘Fe formulation for the viscoelastic body modeled by fractional constitutive law’, Acta
+ Mechanica Sinica 17(4), 354–365.
+Xu, Q. & Engquist, B. (2018), ‘A mathematical model for fitting and predicting relaxation modulus and simulating
+  viscoelastic responses’, Proceedings of the Royal Society A: Mathematical, Physical and Engineering Sciences
+  474(2213), 20170540.
+Xu, Q. & Solaimanian, M. (2009), ‘Modelling linear viscoelastic properties of asphalt concrete by the huet–sayegh
+  model’, International Journal of Pavement Engineering 10(6), 401–422.
+
+
+
+
+                                                         23
+

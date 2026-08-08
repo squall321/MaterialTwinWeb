@@ -1,0 +1,66 @@
+
+#<html><title>SAE Standard Fatigue Data File format</title><body>
+#<FORM METHOD="POST" ACTION="http://mme.uwaterloo.ca/cgi-bin/catgnume">
+#<DL compact> Pick one:
+#<input type="radio" name="#saeinput" value="FDE_plot" >FDE_plot
+#<input type="radio" name="#saeinput" value="FDE_fit"  checked >FDE_fit
+#<input type="submit" value="Send for processing">
+#<br><pre><textarea rows=50 cols=90 name="SAE_Standard_File" >
+#
+#Copyright (C) 2011  F.D.E. Committee
+#This data file is free software - you can redistribute it and/or
+#modify it under the terms of the GNU General Public License as
+#published by the Free Software Foundation; either version 2 of the
+#license, or (at your option) any later version.
+#This data file is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY - without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General PUblic License for more details.
+#You should have received a copy of the GNU General PUblic License
+#along with this program - if not, write to the Free Software
+#Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+#Try also their web site: http://www.gnu.org/copyleft/gpl.html
+#
+# Note: Fitted Data !!
+# AA 2014-T6 from 41.3mm diam. rod.
+# Diametral Strain hourglass test specimens. 10mm diam. 50mm Radius
+# 4.30Cu wt% .20Zn .53Mg .84Si .38Fe .61Mn .038Ti .21Cr
+# Ref.: G.Ramusat and G.Vidal, "fatigue oligocyclique de six alliages
+# d'aluminium en efforts et en deformations imposes," Memoires Scientifiques
+# Revue Metallurgie, Jan. 1979. pg23-36.
+# Data digitized from graph and may contain slight errors.
+#
+#FileType= strain_life
+#DataType= fitted
+#TIMEcol= 0
+#NAME=  2014-T6
+#NAME=  AluminumRod
+#Stress_units= mpa
+#Strain_units= strain
+#Sy=     507.  0.2pc offset
+#Su=     556.
+#eu=       0   #strain at Su not reported
+#E=       74300.
+#FractureStrain= 0.185  #computed from %RA
+#FractureStress=  623.
+#BHN=   0. not reported
+#%RA= 9.8 %
+# saedigcurve_v2.2.f starts.
+#
+# NOTE!! The Following Points are <b>FITTED DATA:</b>#NOTE!! Fitted Stress computed using Experm. K' and n'
+#Stress_Units= MPa
+#StrAmpl     2Nf  StsAmpl So  PlasStrAmpl IniMod   NeuberStressAmpl
+    .185            1   623.       0.    .177       74300. #Fitted_point monotonic test
+   0.01424        200   559.3      0.   0.00671     74300. #Fitted_point
+   0.00962        500   533.1      0.   0.00245     74300. #Fitted_point
+   0.00811       1000   515.0      0.   0.00118     74300. #Fitted_point
+   0.00729       2000   498.2      0.   0.00059     74300. #Fitted_point
+   0.00665       5000   476.9      0.   0.00023     74300. #Fitted_point
+#Test data region ends here. Below is extrapolation
+   0.00631      10000   460.7      0.   0.00011     74300. #Fitted_point
+   0.00603      20000   444.1      0.   0.00005     74300. #Fitted_point
+   0.00570      50000   422.1      0.   0.00002     74300. #Fitted_point
+   0.00547     100000   405.7      0.   0.00001     74300. #Fitted_point
+#</textarea>
+#</pre></DL></FORM></body></html>
+

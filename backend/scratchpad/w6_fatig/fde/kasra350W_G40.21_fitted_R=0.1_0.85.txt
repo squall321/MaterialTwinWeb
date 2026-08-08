@@ -1,0 +1,28 @@
+#NAME= G40.21-350Wdadn
+#Now:
+#deltaKunits=  mpa_mm
+#dadnUnits= mm
+
+#kasra350W+haddadG40.21+R=0.1.txt
+#Conversions:
+# 1 ksi*sqrt(inch) = 1.0989*MPa*sqrt(m)
+# 1 MPa*sqrt(m)  =   31.6228*N/(mm**(3/2) )
+# 1 MPa*sqrt(mm) =         1 N/(mm**(3/2) )
+#All inputs converted to    MPa*sqrt(mm)   and  mm/cycle
+#Note that this is same as  N/(mm**(3/2))  and  mm/cycle
+
+#   MPa*sqrt(mm)  mm/Cycle
+90.    1.02783e-08
+120.   1.0e-07
+192.   2.12627e-06
+250.   7.65503e-06
+350.     2.52247e-05
+458.894  4.77921e-05
+629.967  0.000117731
+898.817  0.000229643
+#1187.44  0.000475054
+1150.    0.000365353
+1500.    0.00067213
+2100.    0.001274
+3653.68  0.00342305
+4301.89  0.00444517

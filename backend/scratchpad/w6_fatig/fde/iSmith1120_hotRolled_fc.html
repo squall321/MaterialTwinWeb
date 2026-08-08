@@ -1,0 +1,107 @@
+
+
+#<html><title>Material + Cycles File</title><body>
+#<FORM METHOD="POST" ACTION="http://mme.uwaterloo.ca/cgi-bin/catsaefcalc3">
+#<DL compact> <h3>1. Your Material (Digital-Fitted Curves):</h3>
+#<br><pre><textarea rows=10 cols=90 name="#SAE_Standard_File" >
+
+#
+#Copyright  (C) 2011  F.D.E. Committee 
+#This data file is free software - you can redistribute it and/or
+#modify it under the terms of the GNU General Public License as
+#published by the Free Software Foundation; either version 2 of the
+#license, or (at your option) any later version.
+#This data file is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY - without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General PUblic License for more details.
+#You should have received a copy of the GNU General PUblic License
+#along with this program - if not, write to the Free Software
+#Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+#Try also their web site: http://www.gnu.org/copyleft/gpl.html
+#
+# NOTE: Fitted Data!
+# SAE1120  BS4360 43A Structural Steel. 10x150mm hot rolled Plate.
+# Also similar to ASTM A36
+# Measured: 0.20wt%C .71Mn 0.05Si .038S .020P
+# The standard strain-life fitting proceedure did not work well for this
+# data set. A manual fit was made that uses more of the origial raw data points.
+# Ref.: Test data by I.F.C.Smith, "Fatigue Crack Growth in a Fillet Weled Joint,"
+#       PhD thesis Cambridge Univ., 1982.
+#
+#FileType= strain_life
+#DataType= fitted
+#TIMEcol= 0
+#NAME=  SAE1120
+#NAME=  BS4360_43A
+#NAME=  HotRolled
+#NAME=  Steel
+#Stress_units= mpa
+#Strain_units= strain
+#Sy=       254.
+#Su=       430.
+#E=      195000.
+#FractureStrain= 0.645
+#FractureStress=  712.
+#BHN=   110.   #approx.  Measured: Vickers = 137
+#%RA=  64.5 % Not reported
+#saedigcurve_v2.2.f starts.
+#
+#NOTE!! The Following Points are <b>FITTED DATA:</b>#NOTE!! Fitted Stress computed using Experm. K' and n'
+#Total Strain   2Nf  Stress  Mean   Plastic Strain   Initial
+#    Amp               Amp   Stress      Amp        Elastic Mod.
+    .645            1   712.       0.    .641      19500.  #Fitted_point monotonic
+   0.00921       2000   355.4      0.   0.00739    195000. #Fitted_point
+   0.00698       5000   322.0      0.   0.00533    195000. #Fitted_point
+   0.00569      10000   298.8      0.   0.00416    195000. #Fitted_point
+   0.00467      20000   277.3      0.   0.00325    195000. #Fitted_point
+   0.00291      75000     240     0     0.00168     195000  #Fitted_point manually
+0.00175       361000     180     0     0.00083     195000  #Fitted_point manually
+0.00145       957000     165     0     0.00061     195000  #Fitted_point manually
+0.00136      1739000     157     0     0.00056     195000  #Fitted_point manually
+0.00125     13827000     151     0     0.00047     195000  #Fitted_point manually
+0.00125     50000000     151     0     0.00047     195000  #Fitted_point manually
+
+#</textarea></DL></pre>
+  
+#<h3>2. <input value="1.0" size=20 name="#MagFactor">History Magnification or Multiplication factor</h3> 
+
+
+
+#<h3>3. Enter Elastic Kt*Nominal (or Finite Element)  Stress History (Rainflow counted cycle sets)  Below:</h3> <b>MPa ! </b>
+ 
+<ul>
+  <li>Cycle Set #1 :
+       Smax<input type="TEXT" value="1200" size=6 name="xyz"> 
+       Smin<input type="TEXT" value="-600" size=6 name="xyz"> 
+       Cycles<input type="TEXT" value="1" size=20 name="xyz">
+
+  <li>Cycle Set #2 :
+       Smax<input value="" size=6 name="xyz"> 
+       Smin<input value="" size=6 name="xyz"> 
+       Cycles<input value="" size=20 name="xyz">
+
+  <li>Cycle Set #3 :
+       Smax<input value="" size=6 name="xyz"> 
+       Smin<input value="" size=6 name="xyz"> 
+       Cycles<input value="" size=20 name="xyz">
+
+  <li>Cycle Set #4 :
+       Smax<input value="" size=6 name="xyz"> 
+       Smin<input value="" size=6 name="xyz"> 
+       Cycles<input value="" size=20 name="xyz">
+
+  <li>Cycle Set #5 :
+       Smax<input value="" size=6 name="xyz"> 
+       Smin<input value="" size=6 name="xyz"> 
+       Cycles<input value="" size=20 name="xyz">
+
+  <li>Cycle Set #6 :
+       Smax<input value="" size=6 name="xyz"> 
+       Smin<input value="" size=6 name="xyz"> 
+       Cycles<input value="" size=20 name="xyz">
+</ul>
+
+#<h3> 4. <input type="submit" value=" CALCULATE "> <i>(Page will be submitted to UoWaterloo Website)</i></h3>
+#</FORM><hr> </body></html>
+

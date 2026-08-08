@@ -1,0 +1,85 @@
+
+#<HEAD>
+#<TITLE>F.D.+E. Cyclic Stress-Strain Model from U.Waterloo Calc. Site</TITLE>
+#</HEAD><BODY>
+#<H3>F.D.+E. <i>pdStressStrain.f</i> from UoWaterloo Calc. Site</h3>
+#<br>
+#<FORM METHOD="POST" ACTION="http://mme.uwaterloo.ca/cgi-bin/catsaeModel">
+#<DL compact> Your material file (its a Digital-Fitted Curve. Replace it with your own if you wish):
+#<br><pre><textarea rows=10 cols=90 name="#SAE_Standard_File" >
+#
+#Copyright (C) 2012 Fatigue Design + Evaluation Comm.
+#This data file is free software; you can redistribute it and/or modify
+#it under the terms of the GNU General Public License as published by
+#the Free Software Foundation; either version 2 of the license, or (at
+#your option) any later version.
+#This data file is distributed in the hope that it will be useful, but
+#WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTA-
+#BILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public
+#License for more details.
+#You should have received a copy of the GNU General PUblic License along
+#with this program; if not, write to the Free Software Foundation, Inc.,
+#59 Temple Place -Suite 330, Boston, MA 02111-1307, USA. Try also their
+#web site: http://www.gnu.org/copyleft/gpl.html
+#
+# Note:  Fitted Data !!
+# of a Merged Data File.   AA7075_T6xx Aluminum Wrought
+# Ref.1:  M.Sc. Thesis by P. Kurath Univ. of Illinois.
+# Ref.2: ENDO T.,J.MORROW, ASTM J. OF MATERIALS, VOL.4,P.159, 1969
+# Ref.3 : G.Ramusat and G.Vidal, "Fatigue oligocyclique de six alliages
+# d'aluminium en efforts et en deformations imposes," Memoires Scientifiques
+# Revue Metallurgie, Jan. 1979. pg23-36.
+#FileType= strain_life
+#DataType= fitted
+#TIMEcol= 0
+#Name= Merged
+#NAME= AA7075T6xx
+#Name= Aluminum
+#Stress_units= mpa
+#Strain_units= strain
+#Sy=    480     average of (492,468)
+#Su=    566     average of (553,578)
+#E=    69980.   average of (70000,70953,69010)
+#%RA=  35.3     avg.  of (33,37.6)
+#BHN= 150  (from Rasmusat/Vidal)
+#FractureStrain= 0.408  #computed from %RA
+#FractureStress= 786.
+#
+#saedigcurve_v2.2.f starts.
+#NOTE!! The Following Points are <b>FITTED DATA:</b>#NOTE!! Fitted Stress computed using Experm. K' and n'
+#TotalStrain   2Nf  Stress  Mean   Plastic Strain   Initial
+#_  Amp               Amp   Stress      Amp        Elastic Mod.
+   0.408            1   786.       0.    .397      69980  #Fitted_point monotonic 
+   0.01700        300   605.6      0.   0.00835     69980. #Fitted_point manually
+   0.01158        650   572.7      0.   0.00340     69980. #Fitted_point Manually
+   0.00937       1000   545.8      0.   0.00157     69980. #Fitted_point
+   0.00796       2000   514.4      0.   0.00061     69980. #Fitted_point
+   0.00674       4500   463.4      0.   0.00011     69980. #Fitted_point manually
+   0.00607       9000   422.9      0.   0.00003     69980. #Fitted_point manually
+   0.00553      15000   386.4      0.   0.00001     69980. #Fitted_point manually
+   0.00493      33000   345.0      0.   0.00000     69980. #Fitted_point manually
+   0.00454      66000   317.7      0.   0.00000     69980. #Fitted_point manually
+   0.00419     140000   293.0      0.   0.00000     69980. #Fitted_point manually
+   0.00377     350000   263.7      0.   0.00000     69980. #Fitted_point manually
+   0.00348     820000   243.6      0.   0.00000     69980. #Fitted_point manually
+   0.00322    1450000   225.1      0.   0.00000     69980. #Fitted_point manually
+#Original test data ends at about 2Nf=3000000
+   0.00268   10000000   187.5      0.   0.00000     69980. #Fitted_point
+#</textarea></DL></pre>
+#MagFactor=<input value="1.0" size=8 name="#MagFactor">
+#<font size="3" color="green">&nbsp &nbsp Enter your Strain Reversal Points: <br>
+<input type="TEXT" value="0.010" size=9 name="xyz"> 
+<input type="TEXT" value="" size=9 name="xyz"> 
+<input type="TEXT" value="" size=9 name="xyz"> 
+<input type="TEXT" value="" size=9 name="xyz"> 
+<input type="TEXT" value="" size=9 name="xyz"> 
+<input type="TEXT" value="" size=9 name="xyz"> 
+<br>
+Simulate: <input type="submit" value=" Click here "></font> 
+</FORM><br>
+<p><img src="http://fde.uwaterloo.ca/Fde/genericSim.png">
+<br> 
+<pre>
+#TOTDAM(SWT)=  0.0000000E+00 allowed Repeats=      inf   nrev=         1
+</pre>
+</body></html>

@@ -1,0 +1,2332 @@
+           polymers
+Article
+Reliability-Based Evaluation of the Suitability of
+Polymers for Additive Manufacturing Intended for
+Extreme Operating Conditions
+Alvaro Rodríguez-Prieto 1,2, * , Ernesto Primera 3,4 , Manuel Callejas 2 and Ana M. Camacho 1
+ 1   Department of Manufacturing Engineering, Universidad Nacional de Educación a Distancia (UNED),
+     28040 Madrid, Spain; amcamacho@ind.uned.es
+ 2   Department of Industrial Inspection and Technical Assistance, SGS TECNOS, 28042 Madrid, Spain;
+     manuel.callejas@sgs.com
+ 3   Department of Applied Statistics, University of Delaware, 531 South College Avenue,
+     Newark, DE 19716, USA; eprimera@udel.edu
+ 4   Machinery and Reliability Institute (MRI), 2149 Adair Ct., Mobile, AL 36695, USA
+ *   Correspondence: alvaro.rodriguez@ind.uned.es; Tel.: +34-913-988-660
+                                                                                                           
+ Received: 29 August 2020; Accepted: 9 October 2020; Published: 12 October 2020                            
+
+
+ Abstract: A reliability engineering program must be implemented from the conceptual phase of the
+ physical asset to define the performance requirements of the components and equipment. Thus,
+ in this work, the aim is to find the most optimal solution to manufacture polymer-based parts for
+ the nuclear power industry using additive manufacturing routes. This case study application has
+ been selected because polymers processed by additive manufacturing (AM) can be well suited for
+ nuclear applications. The methodology includes—firstly—an analysis of the suitability of materials
+ based on high-temperature resistance, thermal aging and irradiation tolerance, considering operation
+ conditions. Secondly, an analysis of materials’ processability considering their associated AM routes
+ is performed based on thermal analysis and evaluation of physical properties of materials. A final
+ assessment integrating the in-service suitability and AM processability is performed using a reliability
+ approach, solving different emerging objective conflicts through defined constraints and selection
+ criteria. According to the integrated in-service performance evaluation: Polypropylene-ethylene
+ polyallomer (PPP), Epoxy (EP), Phenolics (Ph), Polyurethane (PU) and Acrylonitrile butadiene
+ rubber (NBR) are the best options for mild operation conditions and EP, Ph and PU, considering
+ high temperature along with radiation exposure. Considering AM techniques: EP and Ph can be
+ manufactured using VAT photopolymerization-stereolithography (VP-SLA) with a good expected
+ processability being these materials valid for high temperature environments. Consequently, this
+ research work analyzes the viability, processability and in-service behavior of parts.
+
+ Keywords: polymer selection;                 design-for-reliability;   durability;    additive manufacturing;
+ extreme operation
+
+
+
+
+1. Introduction
+     The contemporary engineering design process takes into account the full life cycle of the component
+being designed. This includes its functions, manufacturability and economic and environmental
+factors in the product’s life cycle analysis [1]. Engineering design should be based not only on
+the requirements on safety, but also on environmental aspects of product manufacture, use and
+disposal [2,3]. Over the past decade, within manufacturing industries there has been an increasing
+interest in research techniques that allow the performance of processes with high efficiency under
+sustainable environments [4]. Additionally, in recent years, customers have been paying more and
+
+
+Polymers 2020, 12, 2327; doi:10.3390/polym12102327                                    www.mdpi.com/journal/polymers
+Polymers 2020, 12, 2327                                                                             2 of 21
+
+
+
+more attention to the green level of a product and incorporating green factors into their choice of living
+products [5]. In order to ensure sustainable production, the entire process chain must be taken into
+consideration [6].
+     Additive Manufacturing (AM) technologies can sustainably contribute to the Fourth Industrial
+Revolution, providing advantages versus traditional manufacturing processes [7]. AM is becoming a
+future-oriented manufacturing process because it can produce customized products, allowing high
+levels of complexity with high precision, resolution and repeatability, reducing material wastes and
+addressing components’ obsolescence problems, for example, in the nuclear industry. Obsolete parts
+are particularly well-suited for this new technology as they and their designs are virtually difficult
+to obtain due to a lack of design information such as component drawings or bill of materials [8,9].
+Moreover, the main AM advantage is that parts with more complex geometry can be manufactured
+without tools [10–12]. Thus, AM has drawn tremendous attention from both academia and industry
+with its potential applications in numerous fields [13].
+     In addition, another advantage is that at-home 3D printing capitalizes on the elimination of
+product transport [14]. AM technology eliminates the need of having large spare warehouses, but it
+requires an additional reliability evaluation to update the failure rate and inspection intervals of the
+spare components [15]. AM exemplifies a decentralized, on demand, localized and customizable
+manufacturing model, and its associated sustainability has been demonstrated recently with initiatives
+such as the home manufacturing of masks, filters and protective visors. Thus, AM may imply major
+changes for the economy, society and industry of the future [16]. The AM technology proposes major
+challenges to business models because it is a new approach to traditional business models [17].
+     Nowadays, polymer materials hold an important role in industry, thanks to their unique properties,
+such as a wide range of operating temperatures, high thermal/electrical insulation, corrosion-and
+light-resistance and adequate balance between different mechanical properties such as ductility and
+mechanical strength [18,19]. Using high-performance polymers for AM is pointless without proper
+selection of the appropriate AM technique [20]. In addition, the state of the art technique is often
+insufficient to help us understand the reliability of materials and manufactured parts, and consequently
+of their associated AM processes [21].
+     In fact, the lack of AM specific mechanical standards creates challenges for stakeholders to provide
+intercomparisons between machines, materials and models that predict final part properties to generate
+valid designs. Focusing on the type of AM technology, 50% of newly AM standards will be related
+to powder bed fusion (PBF), while 33% will be related to extrusion-based additive manufacturing
+(EBAM) and the 17% to direct energy deposition (DED) processes [22]. Therefore, the methodology
+presented in this work is centered in PBF and EBAM technologies. Thus, selective laser sintering
+(SLS) is chosen from PBF technologies and fused deposition modeling (FDM) is selected from EBAM
+technologies. DED technologies are discarded since they are predominantly used for metal powders.
+However, on the other hand, in the study, the VAT photopolymerization (VP)-stereolithography (SLA)
+technique is included because it is an adequate technique to process thermosets. In addition, SLS can
+be used for thermoset and elastomer AM [23,24]. VP (including SLA) and EBAM (including FDM) are
+very suitable routes to additively manufacture with polymers [25]. Due to this reason, thermosets and
+elastomers are included in the study along with the typical additively processable thermoplastics.
+     The process of characterizing the suitability of a material and its associated manufacturing
+technique may involve a bulk of tests that requires a substantial amount of time and the investment of
+vast quantities of resources [26,27].
+     The selection problem of the material-AM process binomial can be addressed, not only by
+performing trial-error testing, but also by performing recommendable previous analysis of suitability [9].
+     Thus, in this work, the aim is to find the most optimal solution to manufacture polymer-based
+parts for nuclear power industry using additive manufacturing routes. This case study application has
+been selected because polymers processed by AM can be well suited for nuclear applications.
+Polymers 2020, 12, 2327                                                                                                3 of 21
+
+Polymers 2020, 12, x FOR PEER REVIEW                                                                                   3 of 20
+
+      The selection problem considers different aspects such as the fitness for service of each candidate
+      The selection problem considers different aspects such as the fitness for service of each candidate
+material and the match with the considered AM technologies (FDM, SLS, and VP-SLA). To this end,
+material and the match with the considered AM technologies (FDM, SLS, and VP-SLA). To this end,
+a stringency level methodology integrating multiobjective optimization concepts is used to obtain the
+a stringency level methodology integrating multiobjective optimization concepts is used to obtain the
+best candidates considering an optimal additive manufacturing processing and in-service behavior
+best candidates considering an optimal additive manufacturing processing and in-service behavior
+including reliability calculations.
+including reliability calculations.
+      Thus, a complex analysis is carried out, including an analysis of suitability of materials along with
+      Thus, a complex analysis is carried out, including an analysis of suitability of materials along
+AM route possibilities, considering operation conditions. Some other aspects of materials’ life-cycle
+with AM route possibilities, considering operation conditions. Some other aspects of materials’ life-
+impact on the environment, such as material recyclability, are also considered in the study.
+cycle impact on the environment, such as material recyclability, are also considered in the study.
+      Therefore, this research work analyzes the viability, processability and in-service behavior of
+      Therefore, this research work analyzes the viability, processability and in-service behavior of
+parts. This novel approach addresses a necessity not covered by most of the multicriteria studies
+parts. This novel approach addresses a necessity not covered by most of the multicriteria studies
+where reliability and quality assurance [28] are not incorporated as key aspects in materials selection
+where reliability and quality assurance [28] are not incorporated as key aspects in materials selection
+in product design.
+in product design.
+2. Methodology
+2. Methodology
+      Finding the optimal solution that combines an adequate in-service behavior along with a
+      Finding result
+cost-efficient  the optimal
+                        is very solution
+                                  complex that     combinesa multiperspective
+                                             and requires      an adequate in-service
+                                                                                  analysis;behavior    along
+                                                                                              since, for       with aa large
+                                                                                                          example,      cost-
+efficient result
+in-operation      is very complex
+                durability    is requiredandtogether
+                                               requireswith
+                                                          a multiperspective
+                                                              a short degradationanalysis;
+                                                                                      time since,
+                                                                                             when thefor example,    a large
+                                                                                                         material ends     its
+in-operation    durability    is  required   together   with  a short degradation    time    when    the
+life cycle. Thus, different constraints (CS) to solve the conflicts between goal functions and selection material   ends   its
+life cycle.
+criteria    Thus,
+         (SC)       different constraints
+               are established.                 (CS) to thermosets
+                                     Thermoplastics,     solve the conflicts   betweentogoal
+                                                                      and elastomers             functions using
+                                                                                            be processed     and selection
+                                                                                                                    AM are
+criteria (SC)   are established.      Thermoplastics,
+evaluated according to their in-service performance.       thermosets   and   elastomers    to  be  processed    using   AM
+are evaluated    according     to   their in-service  performance.
+      In addition, it is important to consider human factors in the material life cycle (e.g., obsolescence
+among In addition,
+         others). Coxit is et
+                           important     to consider
+                              al. [29] found           human factors
+                                                 that product   lifetimeindepends
+                                                                            the material   life cycle
+                                                                                     as much           (e.g., obsolescence
+                                                                                                  on human     factors as it
+among    others).  Cox    et  al.  [29] found   that  product   lifetime  depends    as  much     on
+does on functional product durability [30]. AM techniques are well suited to the nuclear industry’s   human    factors   as it
+does   on functional     product     durability   [30]. AM   techniques    are  well suited   to
+requirements for low volume production, wide variety and highly critical plant components. Thus,  the  nuclear   industry’s
+requirements
+obsolete partsfor arelow    volume production,
+                         particularly     well-suitedwide     variety
+                                                        for this   newand   highly critical
+                                                                        technology     as theyplantandcomponents.
+                                                                                                        their designs Thus,
+                                                                                                                          are
+obsolete difficult
+virtually  parts aretoparticularly
+                          obtain due to   well-suited   for this
+                                            a lack of design       new technology
+                                                               information    such as as   they anddrawings
+                                                                                        component       their designs
+                                                                                                                   or billare
+                                                                                                                            of
+virtually
+materialsdifficult    to obtain
+            [8]. Figure    1 providesdue the
+                                          to amethodology
+                                               lack of designofinformation      such as in
+                                                                  analysis developed      component
+                                                                                             this work.drawings or bill
+of materials [8]. Figure 1 provides the methodology of analysis developed in this work.
+
+                                                      Stage A- Evaluation of
+                                                      suitability of materials
+                                                      candidates, considering
+                                                       operating conditions
+
+
+
+
+                                      Stage C- Integrated
+                                                                         Stage B- Analysis of
+                                    evaluation. Reliability-
+                                                                        suitability for materials
+                                       based quantitative
+                                                                             processability
+                                     evaluation based on a
+                                                                           considering their
+                                        multiperspective
+                                                                         associated AM routes
+                                           approach
+
+
+                                            Figure 1. Methodology of analysis.
+                                            Figure 1. Methodology of analysis.
+      Prior to data collection, several technological requirements have been selected according to their
+      Prior to data collection, several technological requirements have been selected according to their
+ability to describe in-service performance related to environmental conditions [24] and the suitability
+ability to describe in-service performance related to environmental conditions [24] and the suitability
+for additive manufacturing processability. Thus, in-service performance parameters (and calculations
+for additive manufacturing processability. Thus, in-service performance parameters (and
+performed based on them) for further evaluation (Stage A) are divided into three features groups:
+calculations performed based on them) for further evaluation (Stage A) are divided into three features
+groups:
+•     High-temperature resistance (HTR): maximum continuous service temperature (Tmax ) and the
+      remelting possibility of the polymer candidate.
+•     High-temperature resistance (HTR): maximum continuous service temperature (Tmax) and the
+      remelting possibility of the polymer candidate.
+Polymers 2020, 12, 2327                                                                                                  4 of 21
+Polymers 2020, 12, x FOR PEER REVIEW                                                                                     4 of 20
+
+
+••   Thermal aging
+     Thermal    agingtolerance
+                       tolerance(TAT):
+                                     (TAT):basedbasedonon  activation
+                                                        activation     energies
+                                                                    energies    specified
+                                                                             specified     by EPRI
+                                                                                       by EPRI         TR 1009748
+                                                                                                 TR 1009748              in
+                                                                                                                    in this
+     this work,
+     work,  usefuluseful
+                   life at alife  at a previously
+                              previously                defined
+                                             defined upper       upper
+                                                               limit     limit of window
+                                                                     of operating operating(tfailure
+                                                                                              window ) and (t failure) and
+                                                                                                            remaining
+     remaining
+     useful       useful
+            life (RUL    life
+                       Tmax    (RUL
+                             ) at TmaxTmax ) atcalculated.
+                                         are     Tmax are calculated.
+••   Irradiation(gamma)
+     Irradiation  (gamma)aging agingresistance
+                                       resistance(IAT):
+                                                     (IAT):radiation
+                                                            radiationtolerance
+                                                                       tolerance threshold
+                                                                               threshold    (RTT)
+                                                                                          (RTT)       until
+                                                                                                  until     a decrease
+                                                                                                         a decrease      of
+     of a 50%  in ultimate    tensile   strength    (UTS)  and  maximum
+     a 50% in ultimate tensile strength (UTS) and maximum elongation (EL).  elongation  (EL).
+      On the
+      On  the other
+              other hand,
+                       hand, material
+                              material processability
+                                         processability (Stage
+                                                           (Stage B)B) analysis
+                                                                        analysis is
+                                                                                  is centered
+                                                                                     centered onon thermal
+                                                                                                   thermal conductivity
+                                                                                                             conductivity
+ and thermal
+and   thermaldiffusivity
+                 diffusivity
+                           thatthat
+                                 allowallow
+                                         us tous  to calculate
+                                               calculate          interesting
+                                                          interesting             parameters
+                                                                         parameters              such
+                                                                                       such as the     as the maximum
+                                                                                                     maximum    allowable
+ allowable  supplied     heat (H s,max) and the maximum linear heat dissipation (DL,max).
+supplied heat (Hs,max ) and the maximum linear heat dissipation (DL,max ).
+      Analysis of
+      Analysis   of in-service
+                     in-servicerelated
+                                 relatedparameters
+                                           parameters(Stage
+                                                        (StageC)  C)requires
+                                                                       requiresa amultiperspective
+                                                                                   multiperspective     approach
+                                                                                                      approach     (Figure
+                                                                                                                 (Figure 2)
+since the fulfillment of objective of several functions involves several conflicts. For example, a greatera
+ 2) since the  fulfillment    of objective    of  several   functions     involves   several  conflicts.  For  example,
+ greater maximum
+maximum     continuous  continuous      service temperature
+                           service temperature                     (Tmax) is desirable
+                                                     (Tmax ) is obviously      obviously(increasing
+                                                                                             desirable high
+                                                                                                        (increasing   high
+                                                                                                             temperature
+ temperature    resistance  and    processing    temperature),     but   the  maximizing     of this
+resistance and processing temperature), but the maximizing of this parameter demand, in some cases,  parameter    demand,
+aindecrease
+    some cases,
+            of thea remaining
+                     decrease of   the remaining
+                                 useful  life at Tmaxuseful
+                                                      (RULTmaxlife),atand
+                                                                        Tmaximplies
+                                                                             (RULTmax
+                                                                                    the),preference
+                                                                                          and implies   the of
+                                                                                                     to use preference
+                                                                                                               thermosetsto
+ use of thermosets     implying    no  possibility  of remelting
+implying no possibility of remelting (and, therefore, recyclability). (and,  therefore,   recyclability).
+
+
+
+
+     Figure 2. Multiobjective perspective to evaluate goals and conflicts between in-service performance and
+     Figure 2. Multiobjective
+     processability.  Abbreviationperspective
+                                     in Figure: to evaluate
+                                                 Tmax         goalscontinuous
+                                                      : Maximum     and conflicts between
+                                                                               service         in-service
+                                                                                        temperature;     tULperformance
+                                                                                                             : Useful life
+     and
+     at   processability.
+        upper                Abbreviation
+               limit of operating   window;inRUL Figure:
+                                                    Tmax : Tmax: Maximum
+                                                           Remaining        continuous
+                                                                        Useful Life at T   service
+                                                                                         max ; Ri:    temperature;
+                                                                                                   Radiation          tUL:
+                                                                                                                tolerance
+     Useful  life at upper  limit of  operating   window;    RUL     : Remaining   Useful  Life   at T
+     threshold; Ea : Activation energy; Hs,max : Maximum allowable supplied heat; DL,MAX: Maximum linear
+                                                                 Tmax                                  max; Ri: Radiation
+     tolerance
+     heat         threshold;
+          dissipation;        Ea: Activation
+                        a: Thermal    diffusivity.energy; Hs,max: Maximum allowable supplied heat; DL,MAX:
+     Maximum linear heat dissipation; a: Thermal diffusivity.
+
+     AM is well-suited to manufacture complex forms, and suitable when design data are not
+available. Therefore, AM can fit very well for the manufacturing of components intended for the
+nuclear sector. Most typical components and polymers [9] used in nuclear power plants are:
+Polymers 2020, 12, 2327                                                                                       5 of 21
+
+
+
+    AM is well-suited to manufacture complex forms, and suitable when design data are not available.
+Therefore, AM can fit very well for the manufacturing of components intended for the nuclear sector.
+Most typical components and polymers [9] used in nuclear power plants are:
+
+•     Thermoplastics (Polyvinyl Chloride-PVC, Polyamide-PA, Polycarbonate-PC, Polyethylene-PE,
+      Polypropylene-ethylene polyallomer-PPP) for mechanical and electromechanical components.
+•     Thermosets for sealants, lining in tanks and printed circuit boards (PCB): Epoxy-EP, Phenolics-Ph,
+      Polyester-PL, Polyester (glass filled)-PL-GF and Polyurethane-PU.
+•     Elastomers for O-Ring manufacturing: Acrylonitrile butadiene rubber-NBR, Fluorocarbon
+      elastomer-FKM, Silicone rubber-SI.
+
+     Reviewing the suitable AM techniques, Table 1 exhibits the materials along with their potential
+application components in the nuclear industry, as well as the possible additive manufacturing routes
+to process them.
+
+               Table 1. Polymers, related applications and AM technique suitability [9,23,24,31–39].
+
+                                                                              AM Technique Suitability
+                  Application               Polymer
+                                                                     FDM                SLS          VP-SLA
+                                              PVC                     X
+                 Mechanical and                PA                                        X
+        electromechanical components           PC                     X
+            (fittings and fix pieces)          PE                                        X
+                                              PPP                                                        X
+                                              EP                                                         X
+                                              Ph
+         Complex elements of printed
+                                              PL                                                         X
+               circuit boards
+                                             PL-GF
+                                              PU
+                                              FKM
+         Complex diagrams of valves            SI                                                        X
+                                              NBR
+      Abbreviations in Table: PVC—Polyvinyl Chloride, PA—Polyamide, PC—Polycarbonate, PE—Polyethylene,
+      PPP—Polypropylene-ethylene polyallomer, EP—Epoxy, Ph—Phenolics, PL—Polyester, PL-GF—Polyester glass
+      filled, PU—Polyurethane, FKM—Fluorocarbon elastomer, SI—Silicone, NBR—Acrylonitrile butadiene rubber.
+
+
+2.1. Stage A—Evaluation of Materials Candidates, Considering Operating Conditions
+     A reliability engineering program must be implemented from the conceptual phase of the physical
+asset to define the reliability requirements of the systems and equipment and the selection of suppliers
+that can deliver high-performance equipment in reliability. Therefore, predictive analyses based on
+more extended and recognized models and databases are performed.
+     Thermal aging of polymers considering operating time can be explained using the Arrhenius
+model. Thus, the common form to equate periods of time at two different temperatures is (Equation (1)):
+                                                           Ea    1        1
+                                          t0UL = tUL ·e−[ k (( Tn ) − ( Ta ))]                                   (1)
+
+where:
+
+tUL = Lifetime by design (hours) at normal plant temperature
+t’UL = Useful life (hours) at an increased temperature
+Tn = Normal plant temperature (K)
+Ta = Augmented temperature (K)
+Ea = Activation energy (eV)
+Polymers 2020, 12, 2327                                                                                                   6 of 21
+Polymers 2020, 12, x FOR PEER REVIEW                                                                                      6 of 20
+
+
+     The behavior
+k = Boltzmann’s     of polymers
+                  constant       under
+                           = 0.8617  × 10irradiation
+                                          4 eV/K     is strongly influenced by the atmosphere in which
+they are irradiated, particularly in the presence of oxygen. When polymers are irradiated in oxygen-
+      The behavior of polymers under irradiation is strongly influenced by the atmosphere in which
+containing atmospheres, the irradiation dose required to reach a particular level of degradation
+they are irradiated, particularly in the presence of oxygen. When polymers are irradiated in
+usually changes with dose rate [40]. However, many studies show a synergy between heat and
+oxygen-containing atmospheres, the irradiation dose required to reach a particular level of degradation
+radiation most of the failures are caused by thermal aging rather than radiation aging [41]. Radiation
+usually changes with dose rate [40]. However, many studies show a synergy between heat and
+resistance is characterized by the half value dose of significant mechanical properties, for instance
+radiation most of the failures are caused by thermal aging rather than radiation aging [41]. Radiation
+tensile strength [42]. This is the absorbed dose that reduces a property by 50% [43]. Thus, several
+resistance is characterized by the half value dose of significant mechanical properties, for instance
+studies have determined radiation thresholds until no severe degradation effects are observed [44–
+tensile strength [42]. This is the absorbed dose that reduces a property by 50% [43]. Thus, several
+46].
+studies have determined radiation thresholds until no severe degradation effects are observed [44–46].
+     Well-defined temperature and radiation operating windows are essential to stablish an analysis
+      Well-defined temperature and radiation operating windows are essential to stablish an analysis
+framework (Figure 3). Thus, defined normal conditions allow us to consider different scenarios
+framework (Figure 3). Thus, defined normal conditions allow us to consider different scenarios
+depending the parameters variability inside the constructed range. Additionally, extreme conditions
+depending the parameters variability inside the constructed range. Additionally, extreme conditions
+(out of operating windows) can be taken into account, comparatively, with respect to normal
+(out of operating windows) can be taken into account, comparatively, with respect to normal operating
+operating parameters (considering mild or harsh environment).
+parameters (considering mild or harsh environment).
+
+
+
+
+               Temperature operating
+     Figure 3. Temperature
+     Figure                   operating window
+                                        window in
+                                               in mild
+                                                  mild environment
+                                                       environment plus radiation
+                                                                        radiation (considering
+                                                                                  (considering normal
+                                                                                               normal
+     conditions). Note
+     conditions). Note (*):
+                        (*): Main
+                             Mainpumps
+                                  pumpsroom
+                                         roomusual
+                                             usualradiation.
+                                                   radiation.
+
+     Table 22 shows
+     Table            energy activation
+              shows energy   activation (E
+                                        (Eaa)) according
+                                               according to to EPRI
+                                                               EPRI TR
+                                                                    TR 1009748
+                                                                         1009748 [47]
+                                                                                  [47] for
+                                                                                       for thermal
+                                                                                           thermal aging
+                                                                                                   aging and
+                                                                                                         and
+maximum continuous
+maximum    continuous service
+                        servicetemperature
+                                temperature(T(T  max ) [48], along with the radiation thresholds according to
+                                                  max) [48], along with the radiation thresholds according
+EPRI  NP 2921   [44], IAEA 1551  [45] and CERN
+to EPRI NP 2921 [44], IAEA 1551 [45] and CERN 72-0772-07   [46].
+                                                              [46].
+     Table 2. Evaluation of parameters of degradation (due to thermal and irradiation conditions) [45–48].
+     Table 2. Evaluation of parameters of degradation (due to thermal and irradiation conditions) [45–48].
+                                   Thermal Aging and
+                                        Thermal Aging
+                                   High-Temperature                       Irradiation Aging
+                                           and High-
+                                        Resistance
+                                                                                           Irradiation Aging
+                                                Temperature
+                                                       (Tmax )     RmaxIAEA 1551 RmaxEPRI NP 2921 RmaxCERN 72-07 ,
+        Type          Polymer            Ea (eV)
+                                                        [◦ C]
+                                                  Resistance            (Rads)                     (Rads)           (Rads)
+                        PVC                    E a                      R  max IAEA7         R   max EPRI NP6 R    2.0 × 107 ,
+                                                                                                                max CERN 72-07
+         Type            Polymer 1.28                  119.44
+                                                      (T max) [°C]
+                                                                       1.0 × 10                  1.2 × 10
+                         PA                   (eV)
+                                            1.18       121.11          1551×
+                                                                       7.0   (Rads)
+                                                                               10  5             7.0
+                                                                                              2921  (Rads)
+                                                                                                      × 10  6     (Rads)
+                                                                                                                   5.0 × 105
+   Thermoplastics        PCPVC              1.18
+                                              1.28     141.67
+                                                         119.44        4.0         6
+                                                                         1.0× ×10107             7.0××10
+                                                                                               1.2       1065              76
+                                                                                                                   4.0××1010
+                                                                                                                 2.0
+                         PE                 1.29        91.11                      7                        5                7
+                             PA               1.18       121.11          7.0× ×1010
+                                                                       1.0
+                                                                                   6
+                                                                                      5          3.8××10
+                                                                                               7.0       106
+                                                                                                            6
+                                                                                                                   1.0××1010
+                                                                                                                 5.0       5
+                        PPP                 1.14        60.00          2.0 × 10 6                1.0 × 10          2.0 × 106
+    Thermoplastics           PC               1.18       141.67          4.0 × 10              7.0 × 105         4.0 × 106
+                         EP                 0.90       176.67                      9                     1058                8
+                             PE               1.29       91.11           1.0× ×1010
+                                                                       2.0
+                                                                                   6
+                                                                                      7          2.0××10
+                                                                                               3.8                 4.0××1010
+                                                                                                                 1.0       7
+                                                                                                                             6
+                         Ph                 1.05       176.67          4.0 × 10 6                      -           2.0 × 10
+     Thermosets          PL PPP               1.14
+                                            1.20          60.00
+                                                       190.56            2.0 × 10
+                                                                       5.0 × 105
+                                                                                               1.0   × 106
+                                                                                                 5.0 × 105
+                                                                                                                 2.0  × 106
+                                                                                                                   4.0 × 105
+                       PL-GFEP                0.90
+                                            1.42         176.67
+                                                       190.56            2.0× ×1010
+                                                                       1.0         9 9         2.0
+                                                                                                 4.0××10
+                                                                                                           8
+                                                                                                         108     4.0
+                                                                                                                   1.0××10109
+                                                                                                                           8
+
+                         PU Ph                                                     9                        7              69
+                                              1.05
+                                            1.05         176.67
+                                                       121.11            4.0× ×10106
+                                                                       1.0                       6.0 -× 10       2.0
+                                                                                                                   1.0××1010
+      Thermosets        FKMPL                 1.20
+                                            1.17         190.56
+                                                        87.22            5.0× ×1010
+                                                                       5.0         6 5         5.0 × -105        4.0 × 10
+                                                                                                                        - 5
+                         SIPL-GF            1.28                                   8                        5              98
+     Elastomers                               1.42       190.56
+                                                       260.00            1.0× ×10109
+                                                                       1.0                     4.0
+                                                                                                 1.0××10 108     1.0
+                                                                                                                   1.0××1010
+                        NBRPU               0.88        73.33                      6                        6                7
+                                              1.05       121.11          1.0× ×10109
+                                                                       2.0                       1.0××10
+                                                                                               6.0       107       2.0××1010
+                                                                                                                 1.0       9
+
+                            FKM               1.17        87.22          5.0 × 106                   -                -
+     The  time to
+      Elastomers  failure (t  SI
+                            failure )  is  obtained
+                                              1.28   by   solving
+                                                         260.00    the   Equation
+                                                                         1.0 × 10     8   (2)  1.0 × 10    5     1.0 × 108
+                            NBR               0.88        73.33          2.0 × 106             1.0 × 106         2.0 × 107
+                                                                       −[ Eka (( T1n )−( T1a ))]
+                                    t f ailure = limTa→T         tUL ·e                                                        (2)
+                                                          OW,max
+     The time to failure (tfailure) is obtained by solving the Equation (2)
+Polymers 2020, 12, x FOR PEER REVIEW                                                                           7 of 20
+
+
+
+
+                                  𝑡        = lim               𝑡   ∙𝑒                                              (2)
+                                                    →     ,
+Polymers 2020, 12, 2327                                                                                       7 of 21
+      Additionally, Equation (3) is used to calculate RULTmax.
+
+      Additionally, Equation (3) is used to calculate RULTmax .
+                                   𝑅𝑈𝐿       = lim →     𝑡 ∙𝑒                                                      (3)
+                                                                Ea     1      1
+                                   RULTmax = limTa→Tmax tUL ·e−[ k (( Tn )−( Ta ))]                                (3)
+      Table 3 presents tfailure at TOW,max and RULTmax.
+      Table 3 presents tfailure at TOW,max and RULTmax .
+                               Table 3. Calculated tfailure and RULTmax.
+                                     Table 3. Calculated tfailure and RULTmax .
+                               Polymer             tfailure at TOW,max (h)   RULTmax (h)
+                             Polymer
+                                 PVC            tfailure at5082.40
+                                                            TOW,max (h)      RUL5.95
+                                                                                Tmax (h)
+
+                               PVCPA                      6348.75
+                                                         5082.40                  10.86
+                                                                                  5.95
+                                PAPC                     6348.75
+                                                          6348.75                 10.86
+                                                                                   1.94
+                                PCPE                     6348.75
+                                                          4970.57                 1.94
+                                                                                 107.07
+                                PE                       4970.57                 107.07
+                                 PPP                      6939.63               6939.63
+                               PPP                       6939.63                6939.63
+                                EPEP                      11836.51
+                                                        11,836.51                  3.48
+                                                                                  3.48
+                                PhPh                      8478.01
+                                                         8478.01                   0.64
+                                                                                  0.64
+                                PLPL                     6072.45
+                                                          6072.45                 0.05
+                                                                                   0.05
+                              PL-GF
+                                PL-GF                    3722.01
+                                                          3722.01                   00
+                                PU                       8478.01                  0.29
+                                  PU                      8478.01                  0.29
+                               FKM                       6491.58                 298.82
+                                 FKM
+                                SI                        6491.58
+                                                         5082.40                 298.82
+                                                                                    0
+                               NBR SI                     5082.40
+                                                        12,375.07                    0
+                                                                                3805.11
+      Note: Calculation parameters:NBR
+                                    tUL = 10 years, Tn = 4012375.07                  3805.11 RULTmax = remaining
+                                                            ◦ C (typical operating temperature).
+
+      useful
+       Note:life (at maximum
+              Calculation    temperature).
+                           parameters:  tUL = 10 years, Tn = 40 °C (typical operating temperature). RULTmax =
+      remaining useful life (at maximum temperature).
+     Using a stringency level methodology [49], the maximum level of stringency is assigned to the
+      Usingvalue
+maximum      a stringency   level methodology
+                   of the distribution            [49],HTR
+                                        (to evaluate    the maximum   levelstringency
+                                                            and TAT). The    of stringency
+                                                                                       levelis(SL)
+                                                                                               assigned   to the
+                                                                                                   is therefore
+ maximumaccording
+calculated  value of the   distribution
+                        to Equation  (4):(to evaluate HTR and TAT). The stringency level (SL) is therefore
+ calculated according to Equation (4):
+         SL = 5.00 for max {Ls (PVC, PA, PC, PE, PPP, EP, Ph, PL, PL-GF, PU, FKM, SI, NBR)}                  (4)
+          SL = 5.00 for max {Ls (PVC, PA, PC, PE, PPP, EP, Ph, PL, PL-GF, PU, FKM, SI, NBR)}                (4)
+      SL
+      SLof
+         ofthe
+            therest
+                restof
+                     ofHRT
+                       HRTand
+                           andTAT
+                               TATrequirements
+                                   requirementsare
+                                                arecalculated
+                                                    calculatedasasfollows
+                                                                    follows(Equation
+                                                                            (Equation(5)):
+                                                                                       (5)):
+                                                       L𝐿s
+                                                  𝑆𝐿 =
+                                                 SL  = Ls     SL
+                                                               𝑆𝐿max                                                (5)
+                                                                                                                   (5)
+                                                        𝐿 max
+where Ls is the analyzed requirement value, Ls,max is the maximum value of the distribution and SLmax
+ where Ls is the analyzed requirement value, Ls,max is the maximum value of the distribution and SLmax
+is the maximum value in the scale of stringency levels (between 1 and 5). Thus, Figure 4 exhibits the
+ is the maximum value in the scale of stringency levels (between 1 and 5). Thus, Figure 4 exhibits the
+SL (HTR).
+ SL (HTR).
+
+
+
+
+                     Figure 4. High temperature resistance in terms of stringency level values.
+
+     As Figure 2 indicated, conflict#1 and conflict#2 arise when materials should be selected according
+to the maximum temperature in service (Tmax ); to maximize the high-temperature resistance (HTR),
+Polymers 2020, 12, x FOR PEER REVIEW                                                                                      8 of 20
+
+
+                      Figure 4. High temperature resistance in terms of stringency level values.
+Polymers 2020, 12, 2327                                                                                                    8 of 21
+
+      As Figure 2 indicated, conflict#1 and conflict#2 arise when materials should be selected
+according
+ Tmax mustto  bethe maximumNevertheless,
+                 maximized.      temperature this
+                                                in service
+                                                     differs(Ttomaxthe
+                                                                    ); toobjective
+                                                                           maximize     the high-temperature
+                                                                                     of selecting  thermoplasticresistance
+                                                                                                                   polymers
+(HTR),
+ nature T  max must
+         due          be better
+               to their  maximized.     Nevertheless,
+                                recyclability.           this differs
+                                                In addition,    to maximize to the objective
+                                                                                    a remainingof selecting  thermoplastic
+                                                                                                   useful life (RULTmax ) in
+polymers
+ abnormalnature       due to
+              conditions       their
+                            (out      better recyclability.
+                                 of normal                    In addition,
+                                              operating window;           at Tmaxto), maximize
+                                                                                      Tmax should a remaining    useful
+                                                                                                     not be a higher     life
+                                                                                                                      value.
+(RUL  Tmax) in
+ Therefore,   a abnormal
+                constraint conditions
+                             (CS#1) is now(outdefined
+                                                of normal     operating
+                                                        to find  a moderate    window;     at Tmax), Tmax should not be a
+                                                                                    balance:
+higherConstraint
+        value. Therefore,        < SL(HTR)(CS#1)
+                     (CS)#1: a2 constraint    ≤ 3.5 is now defined to find a moderate balance:
+      Constraint    (CS)#1: 2 <toSL(HTR)
+       Therefore, according                  ≤ shown
+                                   the results 3.5     in Figure 4 and the Constraint #1, the following polymers
+ meetTherefore,       PVC (SL =
+       the criteria:according    to2.30), PA (SL =
+                                     the results   shown
+                                                     2.33), in   (SL = 2.72),
+                                                             PCFigure         4 andEPthe    = 3.40), Ph (SL
+                                                                                       (SLConstraint    #1, =the following
+                                                                                                               3.40) and PU
+ (SL = 2.33).
+polymers    meet   the  criteria: PVC    (SL = 2.30),  PA   (SL  =   2.33),    PC  (SL  = 2.72), EP  (SL  = 3.40), Ph (SL =
+3.40) and   PU TAT
+       For the   (SL =requirements,
+                       2.33).           a relative weight of 90% for the normal operating condition versus
+      For the
+ abnormal       TAT requirements,
+             operation   is considereda(inrelative
+                                             case ofweight
+                                                     accident,of 90%
+                                                                 i.e., outforofthe  normal
+                                                                                 normal      operating
+                                                                                          operating      condition
+                                                                                                      window         versus
+                                                                                                                as indicated
+abnormal     operation
+ in Figure 3),   Equationis(6)considered
+                                shows the(in    case ofSL:
+                                             weighted     accident, i.e., out of normal operating window as
+indicated in Figure 3), Equation (6) shows the weighted SL:              
+                           SL(TAT ) = 0.90·SL t f ailure atTOW,max + 0.10·SL (RULTmax )                                    (6)
+                         𝑆𝐿(𝑇𝐴𝑇) = 0.90 ∙ 𝑆𝐿 𝑡            𝑎𝑡𝑇 ,              + 0.10 ∙ 𝑆𝐿 (𝑅𝑈𝐿        )                  (6)
+     Thus, Figure
+    Thus,   Figure 55exhibits
+                      exhibitsthethe
+                                  stringency  levellevel
+                                      stringency     of thermal aging aging
+                                                          of thermal  tolerance—SL  (TAT)—for
+                                                                             tolerance—SL     the analyzed
+                                                                                          (TAT)—for    the
+ materials set.
+analyzed materials set.
+                                 5
+
+
+                                 4
+                      SL (TAT)
+
+
+
+
+                                 3
+
+
+                                 2
+
+
+                                 1
+
+
+
+
+                     Figure 5. Thermal aging tolerance (TAT) in terms of stringency level values.
+                    Figure 5. Thermal aging tolerance (TAT) in terms of stringency level values.
+          According to the results shown in Figure 5 along with a goal function that consists in maximizing
+ tfailureAccording   to the
+           and RULTmax         results
+                            , the      shown
+                                  materials    in Figure
+                                             with  highest5 along
+                                                              valueswith   a goal
+                                                                      (above         function
+                                                                                  SL(TAT)        that are:
+                                                                                             ≥ 3.00)   consists
+                                                                                                            PPPin    = 3.02), EP
+                                                                                                                   maximizing
+                                                                                                                 (SL
+ failure =
+t(SL       4.30), Ph (SL = 3.08), PU (SL = 3.08), NBR (SL = 4.77).
+         and  RUL  Tmax , the   materials  with  highest  values    (above     SL(TAT)     ≥  3.00)   are: PPP  (SL  = 3.02), EP
+(SL = Equation
+          4.30), Ph (SL
+                     (7) =provides
+                             3.08), PUthe
+                                        (SLcalculation
+                                            = 3.08), NBRof (SL
+                                                             RTT=i 4.77).
+                                                                    based on the more restrictive (minimum) value
+ provide Equation   (7) provides
+              by IAEA,     EPRI andthe    calculation
+                                       CERN            of RTTi based on the more restrictive (minimum) value
+                                               databases.
+provide by IAEA, EPRI and CERN databases.
+                                    RTT                                                                                        (7)
+                                  𝑅𝑇𝑇 i=min{Rmax,IAEA
+                                                   ,
+                                                       1551 , Rmax,EPRI NP 2921 , Rmax,CERN 72 − 07 }
+                                                             ,    ,              ,     ,                                    (7)
+       Irradiation performance
+      Irradiation    performanceisiscalculated
+                                        calculatedapplying
+                                                        applyinga astringency
+                                                                       stringency   level
+                                                                                 level     calculation.
+                                                                                       calculation.          It assigns
+                                                                                                       It assigns   the
+ the  maximum      level  of  stringency     to the  maximum        value  of the  distribution,
+maximum level of stringency to the maximum value of the distribution, according to the following    according    to  the
+ following
+equation:     equation:
+       Thecalculation
+      The   calculation to
+                        to evaluate
+                           evaluate the
+                                     theradiation
+                                           radiationresistance
+                                                       resistanceisisdeveloped
+                                                                      developed according
+                                                                                  according to to
+                                                                                               thethe
+                                                                                                   Equations
+                                                                                                      Equations (8)–(12)
+                                                                                                                   (8)–
+ using   radiation threshold
+(12) using radiation threshold (R        )  and  the radiation    tolerance threshold  for  the polymer
+                                     (ROW,max) and the radiation tolerance threshold for the polymer i
+                                  OW,max                                                                   i according
+ to IAEA, EPRI
+according          andEPRI
+             to IAEA,   CERN anddatabases     (RTTi ), that
+                                  CERN databases        (RTTdefines   the limit to avoid pernicious effects on the
+                                                             i), that defines the limit to avoid pernicious effects
+ mechanical    properties  of the  polymers:
+on the mechanical properties of the polymers:
+
+                                                 SL== 1.00
+                                                SL          (RTTi i <
+                                                      1.00 (RTT     <RROW,max
+                                                                       OW,max))                                             (8)(8)
+
+                                       SLSL= =2.00
+                                               2.00(R(ROW,max ≤
+                                                      OW,max    RTTii <<1.75
+                                                              ≤ RTT      1.75RROW,max) )
+                                                                                OW,max                                      (9)(9)
+
+                                     SL = 3.00 (1.75 ROW,max ≤ RTTi < 2.75 ROW,max )                                         (10)
+Polymers 2020, 12, x FOR PEER REVIEW                                                                                        9 of 20
+Polymers 2020, 12, 2327                                                                                                      9 of 21
+
+                                      SL = 3.00 (1.75 ROW,max ≤ RTTi < 2.75 ROW,max)                                         (10)
+                                     SL = 4.00 (2.75 ROW,max ≤ RTTi < 3.75 ROW,max )                                           (11)
+                                      SL = 4.00 (2.75 ROW,max ≤ RTTi < 3.75 ROW,max)                                         (11)
+                                               SL==5.00
+                                              SL        (RTTi i ≥≥ 3.75
+                                                   5.00(RTT        3.75 R
+                                                                        ROW,max
+                                                                          OW,max)
+                                                                                  )                                            (12)
+                                                                                                                             (12)
+      Therefore, aa safety
+      Therefore,    safety factor
+                            factor (SF)
+                                   (SF) equal
+                                        equal to
+                                              to 3.75
+                                                 3.75 is
+                                                      is chosen
+                                                         chosen to
+                                                                to assign
+                                                                   assign maximum
+                                                                           maximum stringency
+                                                                                     stringency value.
+                                                                                                value.
+      Figure 6 shows    the  irradiation aging tolerance  based  on the stringency level approach.
+      Figure 6 shows the irradiation aging tolerance based on the stringency level approach.
+
+                             5
+
+
+                             4
+
+
+                             3
+                  SL (IAT)
+
+
+
+
+                             2
+
+
+                             1
+
+
+                             0
+
+
+
+
+                        Figure 6. Irradiation aging tolerance based on the stringency level approach.
+                        Figure 6. Irradiation aging tolerance based on the stringency level approach.
+       IAT evaluation is shown in Figure 6, in terms of stringency levels using Equations (8)–(12).
+ Thus,IATselecting  the polymers
+            evaluation  is shown inthat exhibit
+                                     Figure      SL(IAT)
+                                             6, in terms of≥ 3, the following
+                                                             stringency    levelslist is obtained:
+                                                                                  using   EquationsPVC   (SL =Thus,
+                                                                                                    (8)–(12).  5.00),
+ PC (SL =the
+selecting    5.00),  PPP (SL
+                polymers       = exhibit
+                            that 4.00), EP (SL = ≥5.00),
+                                         SL(IAT)     3, thePh (SL = 5.00),
+                                                            following   list isPL-GF       = 5.00),
+                                                                                       (SL PVC
+                                                                                obtained:       (SLPU   (SL =
+                                                                                                    = 5.00), PC5.00),
+                                                                                                                (SL
+=FKM
+  5.00),(SL
+          PPP= 5.00),
+                (SL =NBR      EP=(SL
+                      4.00),(SL   4.00).
+                                     = 5.00), Ph (SL = 5.00), PL-GF(SL = 5.00), PU (SL = 5.00), FKM (SL =
+5.00), NBR (SL = 4.00).
+ 2.2. Stage B—Analysis of Materials Processability Considering Their Associated AM Routes
+2.2. Stage B—Analysis
+      As mentioned    of Materials
+                   previously,     Processability
+                                FDM,              Considering
+                                       SLS and VP-SLA     haveTheir
+                                                               been Associated AM
+                                                                     selected as   Routes
+                                                                                 the potential AM routes
+ to process    the materials
+      As mentioned                when FDM,
+                          previously,     obsolescence
+                                                   SLS andproblems
+                                                               VP-SLA haveand anbeenintricate
+                                                                                        selectedmanufacturing
+                                                                                                    as the potential  geometry
+                                                                                                                         AM routesare
+ challenges    to  face.
+to process the materials when obsolescence problems and an intricate manufacturing geometry are
+       FDM uses
+challenges    to face.a heated nozzle to convert the thermoplastic filament into a semi-molten form, which
+ is extruded     to  build
+      FDM uses a heated       thenozzle
+                                   structure   through
+                                          to convert     thelayer-by-layer
+                                                              thermoplasticdeposition
+                                                                                filament into  [50].   Compared to
+                                                                                                   a semi-molten          other
+                                                                                                                       form,     AM
+                                                                                                                              which
+ methods,     as  the  FDM     method     offers   many    advantages      including     cost
+is extruded to build the structure through layer-by-layer deposition [50]. Compared to other AM effectiveness,     and   now,  many
+ researchers
+methods,     as are
+                 themoving
+                       FDM methodtowards    FDMmany
+                                         offers      to study   this process
+                                                           advantages          thoroughly
+                                                                          including             [51].
+                                                                                        cost effectiveness,       and now, many
+       With   SLS,   a  powder     bed  fusion    AM    process,    three-dimensional
+researchers are moving towards FDM to study this process thoroughly [51].                   (3D)    objects can be fabricated by
+ adding
+      Withpowdered
+             SLS, a powdermaterials
+                                  bed layer
+                                       fusionby  AM layer  according
+                                                       process,          to computer-aided
+                                                                   three-dimensional                designcan
+                                                                                           (3D) objects       (CAD)     models [52].
+                                                                                                                  be fabricated   by
+ The  main   advantage       of  SLS  is that  it can   process    an  extensive   scope   of
+adding powdered materials layer by layer according to computer-aided design (CAD) models [52]. materials     including     polymers,
+ metals,
+The  main ceramics
+             advantage  andof composites.
+                                SLS is that In    fact,process
+                                              it can    SLS of plastics    showsscope
+                                                                  an extensive       an excellent
+                                                                                          of materialscapability    to manufacture
+                                                                                                            including     polymers,
+ serial components.
+metals, ceramics and composites. In fact, SLS of plastics shows an excellent capability to manufacture
+serialVP-SLA
+        components.is a very high suitable technique for thermoset and elastomers additive manufacturing,
+ whereas
+      VP-SLA is aEB
+           PBF    or      are high
+                        very   not suitable.
+                                     suitable VP-SLA
+                                                technique  is one   of the mostand
+                                                               for thermoset      interesting
+                                                                                       elastomers technologies     among the wide
+                                                                                                       additive manufacturing,
+ AM family,
+whereas     PBFbecause
+                   or EB areit allows   one to reach
+                                not suitable.     VP-SLA the is
+                                                              highest
+                                                                 one oflevels   of accuracy
+                                                                          the most               combining
+                                                                                       interesting              the advantages
+                                                                                                       technologies      among the of
+ starting  from    a liquid    base  material   with    the  vector   scanning    driven
+wide AM family, because it allows one to reach the highest levels of accuracy combining themodality      that  the   laser adopts  to
+ cure it [53]. of starting from a liquid base material with the vector scanning driven modality that the
+advantages
+       For example,
+laser adopts     to curethe    photopolymer resins used during this process are also known as thermosetting
+                           it [53].
+ plastics or  thermosets,      which strengthen
+      For example, the photopolymer                    during
+                                                  resins  usedpost-curing
+                                                                  during thisand      keepare
+                                                                                process      their
+                                                                                                 alsoshape,
+                                                                                                       known even    after reheating.
+                                                                                                                 as thermosetting
+ This is inorcontrast
+plastics                 to thermoplastics,
+                thermosets,       which strengthenwhich can      be re-melted
+                                                            during               afterand
+                                                                       post-curing       being   formed
+                                                                                              keep     theirinto  a part.
+                                                                                                               shape,    even after
+       Some    recent   AM    studies  have   been    centered    on  thermal  properties,
+reheating. This is in contrast to thermoplastics, which can be re-melted after being formed    calculating    the  thermal
+                                                                                                                         intoprofiles
+                                                                                                                              a part.
+ for an  arbitrary
+      Some     recent rastering
+                         AM studiessequence,
+                                          havesquarely       focusing
+                                                  been centered        ononthermal
+                                                                            part scale    depending
+                                                                                       properties,        on severalthe
+                                                                                                       calculating      normalized
+                                                                                                                            thermal
+profiles for an arbitrary rastering sequence, squarely focusing on part scale depending on several
+Polymers 2020, 12, 2327                                                                                         10 of 21
+
+
+
+parameters that depend on the time and length scales of the rastering process: normalized power,
+normalized thermal diffusivity and normalized beam width. Normalized profiles remove a prefactor,
+resulting on profiles that depend on two parameters, the normalized thermal diffusivity and the
+normalized beam spread [54]. Therefore, in this work, thermal diffusivity is considered as the most
+relevant feature to calculate thermal processability.
+     The differential equation of heat conduction through an isotropic material [55] considering the
+propagation in a linear dimension, is shown in Equation (13).
+
+                                          ∂2 T     ∂T
+                              ∇2 kT = k        = ρc , x ∈ [0, thickness] and t > 0                                 (13)
+                                          ∂x 2     ∂t
+
+where ρ is the material density and c is the heat capacity of material.
+     Thus, an important processability parameter is the density of polymer, since the mechanical
+strength typically increases with the molecular weight and degree of branching or side chains. The other
+important parameter is the specific heat capacity of material (cs ), presented also in Table 4, along with
+density, according to the information provided by different databases [44–46].
+
+                   Table 4. Analysis of parameters related to materials processability [48,56–67].
+
+                                                                                      tlayer,min (mm)   d (mm),
+                                     Density        K           a            cs
+                          Polymer                                                         per AM          per
+                                     (g/cm3 )    [W/m·◦ C]    [mm2 /s]   [J/kg·◦ C]
+                                                                                        Technique       Second
+                           PVC         1.45        0.25         0.18       1004                          0.06
+                                                                                      FDM: 0.05–0.4
+                            PA         1.15        0.24         0.17       1700                          0.10
+      Thermoplastics                                                                       mm
+                            PC         1.44        0.20         0.09       1674                          0.06
+                                                                                      SLS: 0.10–0.12
+                            PE         1.38        0.50         0.19       2301                          0.22
+                                                                                           mm
+                           PPP         0.91        0.22         0.06       2343                          0.05
+                           EP          1.29        0.25         0.15       1046                          0.10
+                           Ph          1.30        0.25         0.09       1464                          0.08
+                                                                                         VP-SLA:
+        Thermosets         PL          1.50        0.70         0.13       1130                          0.25
+                                                                                      0.50–0.15 mm
+                          PL-GF        1.80        0.30         0.13       1130                          0.11
+                           PU          1.50        0.19         0.40       1757                          0.12
+                           FKM         2.00        0.45         0.23       1023                          0.22
+                                                                                         VP-SLA:
+        Elastomers          SI         1.35        0.75         0.46       1255                          0.31
+                                                                                      0.50–0.15 mm
+                           NBR         1.24        0.42         0.22       1443                          0.20
+
+
+     Other aspects important in the further processing are related to the rheological behavior of
+materials. Nevertheless, this methodology intends to fit a basis to make a decision on materials and
+their associated AM routes. Rheological aspects can be quantified by an experimental or numerical
+method in a further phase.
+     Table 4 shows the main processability parameters (density-ρ, thermal conductivity-k, thermal
+diffusivity-a, specific heat capacity-cs , typical layer thickness per AM technique-tlayer,min obtained from
+different databases [48,56–67], including the calculation of penetration depth (d).
+     Subsequently, it is recommendable that a medium density is used to find a balance between
+mechanical strength and processability. Unfortunately, this also results in an elevation of the melt
+viscosity and melting point, and the extrusion of high strength thermoplastics requires elevated
+temperatures that aggravate thermal distortion [56]. Therefore, an adequate balance between resistance
+and elongation is crucial to improve processability, delaying also an early embrittlement due to a
+further thermal and radiation in-service degradation. Thus, (SC)#1 is stablished considered a balanced
+requirement mean ±0.2.
+     Selecting criterion (SC)#1: 1.25 < ρ ≤ 1.65
+     Therefore, PVC, PC, PE, EP, Ph, PL, PL-GF, PU and SI fulfill the selection criterion (SC)#1.
+     On the other hand, it is recommendable a low specific heat capacity to ease the heat transfer.
+The following selection criterion is considered in the analysis, considering that the study is comparative
+and a cs = 1500 J/kg·◦ C is a central representative value.
+Polymers 2020, 12, x FOR PEER REVIEW                                                                                  11 of 20
+
+Polymers 2020, 12, 2327                                                                                               11 of 21
+     On the other hand, it is recommendable a low specific heat capacity to ease the heat transfer. The
+following selection criterion is considered in the analysis, considering that the study is comparative
+and aSelecting
+       cs=1500 J/kg·°C
+                   criterion is a(SC)#2:
+                                  central representative
+                                             cs < 1500 J/kg·◦ value.
+                                                                C
+     Selecting
+      Thus, thecriterion
+                       selection (SC)#2:
+                                     order  cs <according
+                                                 1500 J/kg·°C  to SC#2 criterion is: PVC (Cs = 1004 J/kg·◦ C),
+ FKMThus,
+       (Cs =the
+              1023selection
+                      J/kg·◦ C), order
+                                   EP (Caccording     to SC#2
+                                                           ◦      criterion is: PVC (Cs = 1004    ◦ J/kg·°C), FKM Cs = 1023
+                                           s = 1046 J/kg· C), PL/PL-GF (Cs = 1130 J/kg· C), SI (Cs = 1255 J/kg· C),
+                                                                                                                            ◦
+J/kg·°C  EP  (C    =  1046    J/kg·°C),   PL/PL-GF
+ NBR (Cs = 1443 J/kg· C) and Ph (Cs = 1463 J/kg· C).
+                s           ◦                           (C s  = 1130
+                                                                ◦     J/kg·°C),  SI (C s =  1255   J/kg·°C), NBR   (Cs = 1443
+J/kg·°C)
+      Onand    Ph (C
+          the one       s = 1463
+                     hand,     highJ/kg·°C).
+                                     thermal conductivity improves processability and, on the other hand, heat
+     On   the  one    hand,
+ transfer and hence reduce the  high   thermal
+                                           insideconductivity
+                                                   temperature improves
+                                                                     and thermalprocessability      and, on the[57].
+                                                                                    stress of components         other  hand,
+                                                                                                                     Thermal
+heat  transfer
+ analysis         and hence
+           can become              reduce
+                              a useful    toolthe
+                                                to inside
+                                                   enhance   temperature
+                                                                our ability and    thermal
+                                                                             to predict    thestress
+                                                                                                outcomeof components      [57].
+                                                                                                           of the fabrication
+Thermal    analysis      can   become      a  useful  tool   to  enhance   our   ability  to  predict
+ process [54]. In additive manufacturing, parameters such as thermal conductivity and diffusivity and   the  outcome    of  the
+fabrication  process       [54].  In additive     manufacturing,       parameters    such    as  thermal
+ specific heat capacity are essential to estimate the penetration depth (mm) and speed (mm/s), which is    conductivity    and
+diffusivity
+ important and     specific the
+             to evaluate        heatsuitability
+                                      capacity are    essential additive
+                                                   of different    to estimate  the penetration
+                                                                             manufacturing           depthThus,
+                                                                                                  routes.   (mm)penetration
+                                                                                                                  and speed
+(mm/s),   which     is  important      to   evaluate   the
+ depth (d) can be calculated according to Equation (14):     suitability  of different   additive    manufacturing     routes.
+Thus, penetration depth (d) can be calculated according to Equation (14):
+                                                                     √
+                                                              d = k a·t                                                    (14)
+                                                             𝑑 = 𝑘 √𝑎 ∙ 𝑡                                                (14)
+where aaisisthe
+where         thethermal
+                   thermaldiffusivity, t is tthe
+                             diffusivity,      is application
+                                                   the application time
+                                                              time of    of energy-input
+                                                                      energy-input            the kthermal
+                                                                                     and k isand     is the
+ thermal  conductivity.
+conductivity.
+      In addition, considering the maximum service temperature (T ), the maximum allowable
+     In addition, considering the maximum service temperature (Tmax        max), the maximum allowable
+ supplied heat (HS, MAX ) can be calculated according the Equation (15).
+supplied heat (HS, MAX) can be calculated according the Equation (15).
+                                                                       ∆TMAX
+                                                          H𝐻S, , MAX==𝛥𝑇   ∙ 𝑐·cs                                        (15)
+                                                                                                                       (15)
+where
+ where ccss isisthe
+                 thespecific
+                      specificheat
+                                heatcapacity,
+                                     capacity, calculated
+                                                calculatedas asc/m
+                                                                c/m (where
+                                                                     (where m
+                                                                            m isis the
+                                                                                    the mass
+                                                                                        mass in
+                                                                                              in kg
+                                                                                                 kg and
+                                                                                                    and cc is
+                                                                                                            is the
+                                                                                                                the heat
+                                                                                                                    heat
+capacity
+ capacity inin J/°C)
+                 J/◦ C) and
+                        and ΔT
+                             ∆TMAX  is the maximum temperature gap, calculated like the difference between
+                                MAX is the maximum temperature gap, calculated like the difference between
+TTMAX (maximum          service temperature—until degradation) and usual room temperature (25 °C).            ◦
+  MAX (maximum service temperature—until degradation) and usual room temperature (25 C).
+     Figure
+      Figure 77 provides
+                    provides the
+                               the H
+                                   HS,MAX (J/kg)
+                                            (J/kg)for
+                                                    foreach
+                                                        eachanalyzed
+                                                             analyzedpolymer.
+                                                                       polymer.
+                                               S,MAX
+
+                                         400
+                                         300
+                          HS,MAX(J/kg)
+
+
+
+
+                                         200
+                                         100
+                                           0
+
+
+
+                                           Figure 7. Maximum allowable supplied heat (HS,MAX ).
+                                           Figure 7. Maximum allowable supplied heat (HS,MAX).
+      To find the most suitable (best processability) options, a selection criterion (SC#3) considering the
+ valueTooffind  the most
+           HS,MAX            suitable (best processability) options, a selection criterion (SC#3) considering
+                     is established:
+the value   of HS,MAX
+      Selection                 (SC)#3: HS,MAX > 150 J/g
+                        is established:
+                   criterion
+      Analogously,      a  considered
+      Selection criterion (SC)#3: H      central
+                                           S,MAX >value
+                                                    150 J/gof 150 J/g are stablished as a minimum threshold.
+      Thus, the selection
+      Analogously,              order according
+                        a considered                 to SC#3:
+                                         central value    of 150SIJ/g
+                                                                    (Hare
+                                                                       S,MAX = 294.93asJ/g),
+                                                                          stablished          Ph (HS,MAX
+                                                                                          a minimum         = 222.04 J/g),
+                                                                                                        threshold.
+ PC (HS,MAX = 195.31 J/g), PL/PL-GF (HS,MAX = 187.08 J/g), PU (HS,MAX = 168.87 J/g),
+      Thus, the selection order according to SC#3: SI (HS,MAX = 294.93 J/g), Ph (HS,MAX = 222.04 J/g), PC
+ PA (HS,MAX = 163.39 J/g), EP (HS,MAX = 158.65 J/g) and PE (HS,MAX = 152.12 J/g).
+(HS,MAX
+      One= 195.31   J/g),inPL/PL-GF
+            challenge                   (HS,MAX the
+                            AM is to control      = 187.08   J/g), PU (HS,MAX
+                                                      heat penetration    depth= since
+                                                                                 168.87layers
+                                                                                         J/g), PA  (HS,MAX
+                                                                                               are very    = 163.39
+                                                                                                        thin        J/g),
+                                                                                                             and usually
+EP
+ heat  S,MAX =
+    (Hinput     158.65more
+              affects    J/g) deeply
+                              and PEthat(HS,MAX  = 152.12
+                                            it would        J/g).
+                                                        be recommended,      moreover considering the discontinuous
+      One challenge
+ structure   of AM parts  in AM
+                              [68]. isTherefore,
+                                       to controltothe   heat penetration
+                                                      analyze                 depth
+                                                                 the suitability      since
+                                                                                 of each     layers are
+                                                                                           potential AMvery    thin and
+                                                                                                           technique  for
+usually   heat input
+ each polymer,           affects more
+                  a comparison            deeply
+                                      between       that
+                                                 heat     it would depth
+                                                       penetration    be recommended,
+                                                                            (due to polymer moreover    considering
+                                                                                                characteristics) andthe
+                                                                                                                      the
+discontinuous
+ average expected structure     of AM parts
+                       layer thickness          [68]. Therefore,
+                                           is performed      (Figureto8).
+                                                                       analyze the suitability of each potential AM
+technique for each polymer, a comparison between heat penetration depth (due to polymer
+characteristics) and the average expected layer thickness is performed (Figure 8).
+Polymers      12, 2327
+         2020,2020,
+     Polymers       12, x FOR PEER REVIEW                                                                           12 of 12
+                                                                                                                          21 of 20
+
+
+                        0.4
+                         0.4
+
+
+                        0.3
+                         0.3
+               d (mm)
+
+                        0.2
+                         0.2
+
+
+                         0.1
+                        0.1
+
+
+                         00
+
+
+
+
+                                         FDM           SLS          VP-SLA            d
+
+     Figure 8. Heat penetration depth (d) versus expected layer thickness (tlayer,min ) for the considered
+         FigureAM
+     candidate  8. Heat  penetration depth (d) versus expected layer thickness (tlayer,min) for the considered
+                   techniques.
+         candidate AM techniques.
+      Thermoplastics show, in general (excepting PE), better behavior since the penetration depth for a
+heat input  Thermoplastics        show, inless
+               per second is usually        general
+                                               than the(excepting
+                                                           averagePE), layer better  behavior
+                                                                                thickness.  Onsince   the penetration
+                                                                                                the other  hand, EP anddepth
+                                                                                                                          Ph for
+     a heat input
+thermosets      showper     second
+                        similar       is usually
+                                  behavior        less than
+                                            compared          the average layer thickness. On the other hand, EP and
+                                                          to thermoplastics.
+     Ph   thermosets show
+      Compatibility       betweensimilar  behavior
+                                     material          compared
+                                               and their            to thermoplastics.
+                                                           associated      AM technique: for FDM, PVC and PC are the
+            Compatibility       between    material   and  their
+best options to control the heat input. For SLS, PA is the unique associated       AM    technique:
+                                                                                     adequate       for FDM,
+                                                                                                option.  On thePVC   and
+                                                                                                                 other    PC are
+                                                                                                                       hand,
+     the best the
+considering       options   to controlPPP
+                      thermoplastic      theand
+                                             heatthermosets
+                                                    input. Forand SLS,elastomers
+                                                                          PA is the to  unique  adequate
+                                                                                          be processed     option.
+                                                                                                        using      On the
+                                                                                                               VP-SLA,      other
+                                                                                                                         only
+PPP,hand,
+      EP and  considering      the thermoplastic
+                  Ph are suitable    considering this PPPheat
+                                                           andinput
+                                                                 thermosets
+                                                                         controland     elastomers to be processed using VP-
+                                                                                    criterion.
+     SLA, only PPP, EP and Ph are suitable considering this heat input control criterion.
+3. Results
+     3.InResults
+          Stage A, performance features of materials have been analyzed, whereas AM processability
+characteristics
+            In Stage have
+                        A, been    studied in
+                           performance         Stage B
+                                            features    ofobtaining
+                                                           materials several
+                                                                          have been constraints.
+                                                                                        analyzed,Inwhereas
+                                                                                                    Stage C,AMan integrated
+                                                                                                                  processability
+evaluation      using ahave
+     characteristics       reliability-based
+                                 been studied in approach
+                                                     Stage B is    carried several
+                                                               obtaining        out using    the calculations
+                                                                                         constraints.           obtained
+                                                                                                      In Stage C,          in
+                                                                                                                   an integrated
+stages    A and B.
+     evaluation         Since
+                     using      it is essential toapproach
+                             a reliability-based      predict reliability
+                                                                is carried out   of end-products    because obtained
+                                                                                     using the calculations   this is one  of
+                                                                                                                        in stages
+theirAmajor
+         and B. limitations
+                   Since it is[69].
+                                essential to predict reliability of end-products because this is one of their major
+     limitations [69].
+Stage C—Integrated evaluation. Reliability-Based Quantitative Evaluation Based on a
+Multiperspective Approach
+     Stage C—Integrated evaluation. Reliability-Based Quantitative Evaluation Based on a Multiperspective
+      Using the tfailure for operation near upper limit of operating window (60 ◦ C), failure rate λOW,max
+     Approach
+is calculated according to Equation (16).
+            Using the tfailure for operation near upper limit of operating window (60 °C), failure rate λOW,max is
+     calculated according to Equation (16).                              1
+                                                      λOW,max =                                                          (16)
+                                                                    t f ailure 1
+                                                            ,         =                                                    (16)
+                                                                           𝑡
+      If remaining useful life at Tmax (RULTmax ) is used in the calculation, failure rate at Tmax can be
+calculated  If as
+               remaining      useful life(17)).
+                   follows (Equation       at Tmax (RULTmax) is used in the calculation, failure rate at Tmax can be
+     calculated as follows (Equation (17)).
+                                                                      1
+                                                      λTmax =                 1                                          (17)
+                                                            RUL    = Tmax                                                  (17)
+                                                                        𝑅𝑈𝐿
+      Table    5 exhibits
+            Table           λOW,max
+                     5 exhibits   λOW,max  λTmax
+                                       andand λTmaxfor
+                                                     foreach
+                                                         eachmaterial.
+                                                               material.
+          Polymers 2020, 12, x FOR PEER REVIEW                                                                                                                                                              13 of 20
+
+
+                                                                                         Table 5. λOW,max and λTmax calculation.
+
+Polymers 2020, 12, 2327                                                           Polymer                                           λOW,max                    λTmax                                   13 of 21
+                                                                                       PVC                                          0.00019               0.16801
+                                                                                        PA
+                                                                                  Table 5. λOW,max and λTmax calculation.
+                                                                                                                                    0.00015               0.09201
+                                                                                        PC                                          0.00015               0.51546
+                                                                             Polymer                           λOW,max                                 λTmax
+                                                                                        PE                                          0.00020               0.00933
+                                                                               PVC                              0.00019                               0.16801
+                                                                                PA PPP                               0.00014
+                                                                                                                0.00015                                  0.00014
+                                                                                                                                                      0.09201
+                                                                                PC EP                           0.00015
+                                                                                                                     0.00008                          0.51546
+                                                                                                                                                         0.28736
+                                                                                PE                              0.00020                               0.00933
+                                                                                    Ph                               0.00011                             1.56250
+                                                                               PPP                              0.00014                               0.00014
+                                                                                EP PL                                0.00016
+                                                                                                                0.00008                                  20.0000
+                                                                                                                                                      0.28736
+                                                                                Ph                              0.00011                               1.56250
+                                                                                  PL-GF                              0.00026                                ∞
+                                                                                PL                              0.00016                               20.0000
+                                                                              PL-GFPU                                0.00011
+                                                                                                                0.00026                                  3.44828
+                                                                                                                                                         ∞
+                                                                                PUFKM                           0.00011
+                                                                                                                     0.00015                          3.44828
+                                                                                                                                                         0.00335
+                                                                               FKM                              0.00015                               0.00335
+                                                                                SI SI                                0.00019
+                                                                                                                0.00019                                  ∞ ∞
+                                                                               NBRNBR                           0.00008
+                                                                                                                     0.00008                          0.00026
+                                                                                                                                                         0.00026
+
+                    Using
+                     Usinga normal distribution,
+                            a normal             thethe
+                                     distribution,    reliability function
+                                                        reliability        R(t)
+                                                                    function    is is
+                                                                             R(t)  calculated  according
+                                                                                      calculated         toto
+                                                                                                 according  Equation (18).
+                                                                                                              Equation (18).
+                                                                                                                                           
+                                                                                                          R(𝑅(𝑡)
+                                                                                                            t) = e=−λt
+                                                                                                                    𝑒                                                                                        (18)
+                                                                                                                                                                                                            (18)
+      On the other hand, probability of failure distribution POF (t) can be calculated according to
+            other hand, probability of failure distribution POF (t) can be calculated according to
+    On the(19).
+  Equation
+Equation (19).
+                                   𝑃𝑂𝐹((𝑡)             = 1 − 𝑅(𝑡)
+                                  POF   t) ==11− −  𝑒 =
+                                                 e−λt    1 − R(t)                              (19)
+                                                                                              (19)
+       Figure
+     Figure     9 shows
+             9 shows  thethe  reliability
+                           reliability  (R)(R)
+                                            andand probability
+                                                 probability of of failure
+                                                                failure    (POF)
+                                                                         (POF) forfor 1000
+                                                                                    1000   h (a),
+                                                                                         h (a),   2000
+                                                                                                2000   h (b)
+                                                                                                     h (b)   and
+                                                                                                           and
+  5000
+5000   h (c)
+     h (c) of of operating
+              operating     time.
+                         time.
+
+                   1.01                                                                                                             1.0
+                                                                                                                                     1
+                   0.8
+                   0.8                                                                                                              0.8
+                                                                                                                                   0.8
+ Row,max (1000h)
+
+
+
+
+                                                                                                                 Row,max (2000h)
+
+
+
+
+                   0.6
+                   0.6                                                                                                             0.6
+                                                                                                                                    0.6
+
+                   0.4
+                   0.4                                                                                                             0.4
+                                                                                                                                    0.4
+
+                   0.2
+                   0.2                                                                                                             0.2
+                                                                                                                                    0.2
+
+                   0.00                                                                                                              0
+                                                                                                                                    0.0
+                                     Ph
+                                          PU
+                                               PPP
+
+
+                                                                       PA
+                                                                             PC
+                                                                                  PL
+                                                                                       PVC
+
+
+                                                                                                  PE
+                          NBR
+
+
+
+
+                                                                 FKM
+
+
+
+
+                                                                                             SI
+
+
+                                                                                                       PL-GF
+                                EP
+
+
+
+
+                                                                                                                                                                                  PC
+                                                                                                                                                                                       PL
+
+
+
+
+                                                                                                                                                                                                       PE
+                                                                                                                                                                                                  SI
+                                                                                                                                                EP
+                                                                                                                                                     Ph
+                                                                                                                                                          PU
+                                                                                                                                                                PPP
+
+
+                                                                                                                                                                             PA
+
+
+
+
+                                                                                                                                                                                            PVC
+                                                                                                                                          NBR
+
+
+
+
+                                                                                                                                                                       FKM
+
+
+
+
+                                                                                                                                                                                                            PL-GF
+
+
+                   (a)                                                                                                              (b)
+                                          Reliability                              POF                                                                         Reliability             POF
+
+
+                                                                       1
+                                                                       1.0
+                                                                   0.8
+                                                                    0.8
+                                               Row,max (5000h)
+
+
+
+
+                                                                   0.6
+                                                                    0.6
+
+                                                                   0.4
+                                                                    0.4
+
+                                                                    0.2
+                                                                   0.2
+                                                                       0.0
+                                                                       0
+
+                                                      (c)
+
+                                                                                                               Reliability                       POF
+
+                    Figure 9. Reliability (R) and Probability of Failure (POF) for 1000 h (a), 2000 h (b) and 5000 h (c) under
+                    the maximum operating window temperature (Tow,max ).
+
+                    According to the results shown in Figure 9, the following selection criteria are defined:
+Polymers 2020, 12, x FOR PEER REVIEW                                                                                             14 of 20
+
+
+       Figure 9. Reliability (R) and Probability of Failure (POF) for 1000 h (a), 2000 h (b) and 5000 h (c) under
+       the maximum operating window temperature (Tow,max).
+Polymers 2020, 12, 2327                                                                                                          14 of 21
+
+        According to the results shown in Figure 9, the following selection criteria are defined:
+        Selection     criterion (SC)#4:
+       Selection criterion        (SC)#4: R Row,max
+                                              ow,max(2000
+                                                       (2000h)h)> > 0.75
+                                                                       0.75when
+                                                                            when  T→TT →ow,max
+                                                                                          Tow,max
+        Selection criterion
+       Selection                  (SC)#5: R
+                      criterion (SC)#5:     Row,max    (5000h)
+                                              ow,max (5000      h)>>0.50
+                                                                       0.50when
+                                                                            whenT→T  T →ow,max
+                                                                                          Tow,max
+       Hence,
+        Hence,for forin-service     reliabilityatatTTow,max
+                       in-servicereliability                    a typical
+                                                        ow,max, a  typical reliability greater
+                                                                                         greater thanthan 0.75
+                                                                                                           0.75 for
+                                                                                                                for 2000
+                                                                                                                     2000 hh and
+                                                                                                                             and 0.50
+                                                                                                                                  0.50
+for
+ for 5000
+     5000 hhare arerequired.
+                     required.
+       Thus,
+        Thus, the selection
+                      selection order
+                                   orderaccording
+                                           accordingtotoSC#4   SC#4is isNBRNBR (R (R  = 0.85),
+                                                                                   = 0.85), EP (R EP=(R    = 0.84),
+                                                                                                        0.84), Ph (RPh   (R = PU
+                                                                                                                      = 0.78),  0.78),
+                                                                                                                                    (R
+PU    (R =
+ = 0.78)      0.78)
+            and  PPPand (R =PPP
+                             0.75),   = 0.75),
+                                  (Rand           and theorder
+                                           the selection        selection    order to
+                                                                       according     according
+                                                                                        SC#5 is NBR  to SC#5
+                                                                                                          (R = is NBR
+                                                                                                               0.67),  EP(R(R== 0.67),
+                                                                                                                                0.65),
+EP   (R == 0.65),
+ Ph (R              Ph (R
+             0.55) and   PU=(R 0.55) and PU (R = 0.55).
+                                  = 0.55).
+       IfIf NBR,
+            NBR, EP,EP,PhPhandandPU PU(that
+                                         (thatmeets
+                                                 meetsSC#5,SC#5,i.e.,      5000hhatatTow,max
+                                                                     i.e.,5000          Tow,max)) are
+                                                                                                  are analyzed
+                                                                                                       analyzed considering
+                                                                                                                    considering thethe
+reliability
+ reliabilityat  atabnormal
+                   abnormalconditions          (i.e.,atatTTmax
+                                conditions(i.e.,            max for
+                                                                 for each
+                                                                      each material),
+                                                                            material),using
+                                                                                         usingthe  theλλTmax  presented in Table 5,
+                                                                                                         Tmax presented
+the
+ the results
+      resultsobtained
+                 obtainedare areasasfollows
+                                     follows(Figure
+                                                (Figure10). 10).
+
+                                         1.0
+                                         1.00
+                    RTmax (1h) at Tmax
+
+
+
+
+                                         0.8
+                                         0.80
+
+                                         0.60
+                                         0.6
+
+                                         0.40
+                                         0.4
+
+                                         0.20
+                                         0.2
+
+                                         0.00
+                                         0.0
+                                                     NBR                EP                Ph               PU
+
+                                                                    R (1h)         POF (1h)
+
+             Figure 10. Reliability (R) and Probability of Failure (POF) after 1 h of operating at (Tmax ).
+              Figure 10. Reliability (R) and Probability of Failure (POF) after 1 h of operating at (Tmax).
+      Analogously, a selection criterion is established for operation at Tmax :
+      Selection criterion (SC)#6: RTmax (1 h) > 0.50 when T → Tmax
+      Analogously, a selection criterion is established for operation at Tmax:
+      Analogously, a minimum reliability of 0.50 for 1 h at Tmax considering that this is an extreme event.
+      Selection criterion (SC)#6: RTmax(1 h) > 0.50 when T→Tmax
+      An analysis of in-service and processability parameters requires a multiobjective approach since
+      Analogously, a minimum reliability of 0.50 for 1 h at Tmax considering that this is an extreme
+the fulfillment of the objective of several functions involves several conflicts. Hence, Table 6 shows
+ event.
+a collection of the conflicts (C#) emerged along with the constraints (CS#) defined to solve them.
+      An analysis of in-service and processability parameters requires a multiobjective approach since
+In addition, selection criteria emerged during the course of the methodology are indicated as a note of
+ the fulfillment of the objective of several functions involves several conflicts. Hence, Table 6 shows a
+the Table. These six selection criteria have been selected for being representative of general aspects
+ collection of the conflicts (C#) emerged along with the constraints (CS#) defined to solve them. In
+related to processability and in-service behavior.
+ addition, selection criteria emerged during the course of the methodology are indicated as a note of
+ the Table. These six selection  criteria
+                               Table      haveofbeen
+                                     6. Review        selectedsolving
+                                                 the conflicts for being  representative of general aspects
+                                                                      roadmap.
+ related to processability and in-service behavior.
+                                                                                         Constraint (CS)# to Solve the Conflict# or
+                                           Goal                           Conflict (C)#   Minimize the Damage and/or Maximize
+                                                  Table 6. Review of the conflicts solving roadmap. Processability
+    HTR-1 Max (Tmax )                                                                         Constraint (CS)# to Solve the Conflict#
+    TAT-1 Max{(RULTmax )} → Min {(Tmax )}                                     Conflict
+                                                                          C#1, C#2, C#3
+                                                                                          CS#1 to solve C#1, C#2 and C#3:
+                             Goal nature → Min (Tmax )
+    HTR-2 Polymer = Thermoplastic                                                               or Minimize
+                                                                                          2 < SL(HTR)  ≤ 3.5    the Damage and/or
+                                                                               (C)#
+    TB-1 Max {(Hs,max )} ↔ Max {(Tmax )}                                                       Maximize Processability
+ HTR-1
+   TAT-2Max
+          Max{(t (TULmax
+                      )} )→ Min {(Ea )}                                             Minimize thermal and irradiation superposition
+                                                                         -
+   IAT-1 Max{(RUL
+ TAT-1   Min{(Dose)} or       )} →
+                             Min
+                          Tmax      Min {(Tmax)}
+                                 (oxygen%)                            C#1, C#2, effect.
+                                                                                     CS#1Selecting
+                                                                                            to solvepolymers
+                                                                                                      C#1, C#2with
+                                                                                                                andlow Ea 2 <
+                                                                                                                      C#3:
+ HTR-2   Polymer
+     Note:   Selection = Thermoplastic
+                           criteria appliednature   → Min (Tmax
+                                             for processability = )(SC)#1:C#3
+                                                                           1.25 < r <SL(HTR)    ≤ 3.5cs < 1500 J/kg·◦ C; (SC)#3:
+                                                                                       1.65, (SC)#2:
+ TB-1HMax
+       S,MAX{(H> 150    J/g; Selection criteria applied for in-service reliability = (SC)#4: Row,max (2000 h) > 0.75 when T →
+                   s,max)} ↔ Max {(Tmax)}
+     Tow,max ; (SC)#5: Row,max (5000 h) > 0.50 when T → Tow,max ; (SC)#6: RTmax (1 h) > 0.50 when T → Tmax .
+ TAT-2 Max{(tUL)} → Min {(Ea)}                                                       Minimize thermal and irradiation
+                                                                            -        superposition effect. Selecting polymers
+ IAT-1  Min{(Dose)}
+     Using                  or Min criteria
+                the selection        (oxygen%) (SC)#1, 2 and 3, Table 7 provides     withthe
+                                                                                           lowmaterials
+                                                                                                Ea          and AM techniques
+suitability according to the evaluation of heat input control performed in Stage B (Section 2.2).
+ Polymers 2020, 12, 2327                                                                                            15 of 21
+
+
+
+                           Table 7. Materials and techniques according to processability analysis.
+
+   Processability and Heat Input Control Evaluation                          Materials and Techniques
+   Best processability options
+                                                               PVC ↔ FDM, EP ↔ VP-SLA, Ph ↔ VP-SLA.
+   (Selection criteria (SC)#1, 2 and 3)
+                                                               PC ↔ FDM, PA, PE ↔ SLS, PPP, PL-GF, PU, FKM, SI,
+   Other possibilities of processing
+                                                               NBR ↔ VP-SLA
+
+
+      Additionally, Table 8 exhibits the selected materials according to their thermal and radiation
+ tolerance (Stage A—Section 2.1), using the selection criteria (SC)#4, 5 and 6.
+
+                    Table 8. Selected materials according to their thermal and radiation tolerance.
+
+                             Operation Environment                            Selected Materials
+               Medium temperature + radiation *1                    PPP, EP, Ph, PU and NBR.
+               High Temperature + radiation *2                      EP, Ph and PU.
+      Note
+ Polymers    *1: 12,
+          2020,   notx considering HTR criterion; considering thermal aging resistance (TAT). The materials meet SC#4
+                       FOR PEER REVIEW                                                                              16 of 20
+      criterion (2000 h at Tow,max ). Note *2: considering HTR criterion; considering thermal aging resistance (TAT).
+      The materials meet SC#5 (5000 h at Tow,max ) and SC#6 (1 h at Tmax ).
+                                                    𝐿
+                                              𝑆𝐿 =        𝑆𝐿                                               (22)
+      According to the evaluation presented in Table  𝐿     8 (focusing on in-service performance): PPP,
+ EP, Ph, PU and NBR are the best options for mild operation conditions (medium temperature plus
+      SL (SC#4-SC#5
+ radiation) and EP, Phand
+                        andSC#6)  can be calculated
+                             PU, considering         (consideringalong
+                                              high temperature       a relative
+                                                                          with weight   of exposure.
+                                                                                radiation  90% for theIf normal
+                                                                                                         an AM
+ operating  condition  versus  abnormal  operation)   using the  following   expression  (Equation
+ technique is necessary (evaluation presented in Table 7) to reproduce the intricate geometry, EP and(23)):
+ Ph can be manufactured 𝑆𝐿(𝑅) = [0.90
+                             using    ∙ 𝑅 ,with
+                                   VP-SLA        (5000ℎ)
+                                                   a good+expected         (1ℎ)] ∙ 𝑆𝐿, as these materials(23)
+                                                              0.10 ∙ 𝑅 processability                        are
+ valid for a high temperature environment. Other possibilities with poorer expected processability
+      C1, C2, C3 and C4 are relative weights that can be modulated by decision maker/designer in each
+ include PU processed by VP-SLA, also valid for high temperatures, or PPP or NBR processed by the
+ case, but always keeping ΣCi = 1. In this case study, a balanced criterion has been used, therefore C1 =
+ same AM technique but only valid for medium temperature operation. Figure 11 provides a selection
+ C2 = C3 = C4 = 0.25 (considering a 75% of weight for processability and 25% for in-service reliability;
+ chart showing graphically the alternatives and the valuation, being a valuable contribution for the
+ since not allowable in service-behavior has been limited during the analysis using different
+ design-for-reliability (DfR) applied to the considered case study.
+ constraints and, in this step, processability is essential).
+
+
+
+
+                                Figure 11. Material selection chart for nuclear applications.
+                                Figure 11. Material selection chart for nuclear applications.
+      It is important to highlight that advances in materials are promoting the use and applications
+      Figure 12 provides the SCmean for the materials that meet the constraint (CS)#1. Consequently, the
+ of additive manufacturing [70]. In addition, numerous innovative techniques were spotted amongst
+ thermosets EP, Ph and PU exhibit the best balance between processability based on AM and in-service
+ recent work trying to overcome different challenges with material and manufacturing techniques [71].
+ behavior in nuclear applications. Although, PPP and NBR show less balanced suitability, they
+ However, there are still some limitations, especially pertaining to the lower mechanical properties
+ provide a higher reliability at their Tmax. Finally, EP and Ph are the best options (according to the
+ selection chart—Figure 11) to be processed using AM techniques (VP-SLA).
+
+
+
+Thermoplastics         PPP       1.40
+            Polymers 2020, 12, x FOR PEER REVIEW                                                                          16 of 20
+
+Polymers 2020, 12, 2327                                                                                        16 of 21
+                                                                        𝐿
+                                                                 𝑆𝐿 =
+                                                                𝑆𝐿                                         (22)
+                                                           𝐿
+generally exhibited by AM parts [72]. Subsequently, this selection chart can improve the preliminary
+              SL (SC#4-SC#5
+process and materials         andanalysis.
+                      integrated  SC#6) can be calculated (considering a relative weight of 90% for the normal
+          operating condition versus abnormal operation)
+    The averaged stringency level (considering             using the
+                                                  the suitability     following
+                                                                  of thermal    expression
+                                                                              and radiation(Equation
+                                                                                            tolerance(23)):
+behavior) can be calculated as (Equation (20)):∙ 𝑅
+                               𝑆𝐿(𝑅) = [0.90                       (5000ℎ) + 0.10 ∙ 𝑅      (1ℎ)] ∙ 𝑆𝐿,                     (23)
+                                                             ,
+
+               C1, SL
+                   C2mean
+                      , C3 (and
+                             SC#C
+                                ) 4=are Crelative  weights
+                                          1 ·SL(SC#1   ) + C2that
+                                                              ·SL(can
+                                                                  SC#2be) +
+                                                                          modulated
+                                                                            C3 ·SL(SC#3by) decision
+                                                                                           + C4     maker/designer in each
+                                                                                                             (20)
+         case, but always keeping·SL     ΣC(i SC#4,
+                                              = 1. InSC#5,
+                                                      this case study,
+                                                            SC#6)]     a  balanced  criterion has been used, therefore C1 =
+         C2 = C3 = C4 = 0.25 (considering a 75% of weight for processability and 25% for in-service reliability;
+where: since not allowable in service-behavior has been limited during the analysis using different
+         constraints and, in this step, processability is essential).
+SL(SC#1 and SC#3) is calculated using Equations (4) and (5).
+SL(SC#2) is calculated using Equations (21) and (22) (as follows):
+
+                                 SL = 5.00 for min {Ls (PPP, EP, Ph, PU, NBR)}                                    (21)
+
+
+      The stringency levels of the remaining values are calculated as follows:
+
+                                                         LsMin
+                                                  SL =         SLMax                                              (22)
+                                                          Ls
+
+    SL (SC#4-SC#5 and SC#6) can be calculated (considering a relative weight of 90% for the normal
+operating condition versus abnormal operation) using the following expression (Equation (23)):
+
+                            SL(R) = [0.90·ROW,max (5000h) + 0.10·RTmax (1h)]·SL,Max                               (23)
+
+     C1 , C2 , C3 and C4 are relative weights that can be modulated by decision maker/designer in each
+case, but always keeping ΣCi = 1. In this case study, a balanced criterion has been used, therefore
+C1 = C2 = C3 = C4 = 0.25 (considering a 75% of weight for processability and 25% for in-service
+                                     Figure 11. Material selection chart for nuclear applications.
+reliability; since not allowable in service-behavior has been limited during the analysis using different
+constraints and, in this step, processability is essential).
+                 Figure 12 provides the SCmean for the materials that meet the constraint (CS)#1. Consequently, the
+     Figure 12 provides the SCmean for the materials that meet the constraint (CS)#1. Consequently,
+           thermosets EP, Ph and PU exhibit the best balance between processability based on AM and in-service
+the thermosets EP, Ph and PU exhibit the best balance between processability based on AM and
+           behavior in nuclear applications. Although, PPP and NBR show less balanced suitability, they
+in-service behavior in nuclear applications. Although, PPP and NBR show less balanced suitability,
+           provide a higher reliability at their Tmax. Finally, EP and Ph are the best options (according to the
+they provide a higher reliability at their Tmax . Finally, EP and Ph are the best options (according to the
+           selection chart—Figure 11) to be processed using AM techniques (VP-SLA).
+selection chart—Figure 11) to be processed using AM techniques (VP-SLA).
+
+
+          Thermoplastics         PPP       1.40
+
+              Elastomers        NBR                              2.62
+
+
+                                  Ph                                                    4.13
+               Thermosets
+                                  PU                                                     4.25
+
+
+                                  EP                                                                4.94
+
+
+                                       1                 2                   3             4               5
+                                                                        SLmean (SC#)
+
+                    Figure 12. Stringency levels (obtained from selection criteria SC#1 to SC#6).
+                               Figure 12. Stringency levels (obtained from selection criteria SC#1 to SC#6).
+Polymers 2020, 12, 2327                                                                                     17 of 21
+
+
+
+4. Conclusions
+     This paper provides a methodology that support designers to make a decision about to manufacture
+polymer-based parts for nuclear power industry using additive manufacturing routes. A high
+demanding application such as the manufacturing of nuclear parts has been selected because polymers
+processed by AM can be well suited for nuclear applications. Thus, a new reliability-based approach
+using multiperspective concepts has been developed. This methodology eases the complex problem of
+selecting materials and their associated AM techniques.
+     Novel performance indicators related to processability and in-service behavior prediction have
+been integrated in the analysis. These performance indicators along with the definition of several
+constraints and section criteria have allowed us to solve several conflicts emerged among in-service
+and processability goals. To quantitatively assess, a stringency level methodology has been defined
+and integrated in the research methodology.
+     According to the integrated in-service performance evaluation, PPP, EP, Ph, PU and NBR are the
+best options for mild operation conditions (medium temperature plus radiation) and EP, Ph and PU,
+considering high temperature along with radiation exposure.
+     If an AM technique is necessary to reproduce the intricate geometry, EP and Ph can be manufactured
+using VP-SLA with a good expected processability being these materials valid for high temperature
+environment. Other possibilities with poorer expected processability include PU processed by VP-SLA,
+which is also valid for high temperatures, or PPP or NBR processed by the same AM technique but
+only valid for medium temperature operation.
+     The methodology developed in this paper provides a reliability-based analytical tool that allows
+us to make a decision about the optimal combination of polymer and their associated AM technique
+along with a prediction of the materials in-service behavior. In future, this methodology and obtained
+results will be used to improve the materials and AM process selection tasks that are previously
+performed to the experimental testing.
+
+Author Contributions: Conceptualization, A.R.-P., E.P. and A.M.C.; Formal analysis, A.R.-P., E.P. and A.M.C.;
+Funding acquisition, A.R.-P., M.C. and A.M.C.; Investigation, A.R.-P., E.P. and M.C.; Methodology, A.R.-P. and
+A.M.C.; Project administration, A.R.-P.; Resources, A.R.-P., E.P. and A.M.C.; Supervision, A.R.-P. and A.M.C.;
+Validation, A.R.-P. and A.M.C.; Writing—original draft, A.R.-P. and E.P.; Writing—review and editing, A.R.-P., E.P.,
+M.C. and A.M.C. All authors have read and agreed to the published version of the manuscript.
+Funding: This work is part of the activities included in the transfer contract of research results with reference
+2019-CTINV-0068 (based on Article 83 of the Spanish Universities Act, 2007) between UNED and SGS TECNOS,
+being the scope aligned with the 9th Sustainable Development Goal related to “Industry, Innovation and
+Infrastructure”, as established by United Nations and included by the Spanish Government in the “Agenda
+2030”. In addition, this work has also been partially funded by the Annual Grants Call of the E.T.S.I. Industriales
+of UNED through the projects of references 2020-ICF04/B and 2020-ICF04/D and by the Innovation Projects of
+the GID2016-28 on “Additive Manufacturing” and “Reliability and Advanced Failure Prognosis in industrial
+applications” applied to the teaching of Materials Technology and Processing.
+Acknowledgments: The authors acknowledge the Research Group of the UNED “Industrial Production and
+Manufacturing Engineering (IPME)” and its “Additive Manufacturing Research Team”, as well as the UNED
+Industrial Research Group “Advanced Failure Prognosis for Engineering Applications”. The authors also
+acknowledge the Blas Galván (ULPGC) for his high valuable conceptual contributions. In addition, Ernesto
+Primera wants to thank the University of Delaware’s StatLab and, specially, Fan (Assistant Professor of Reliability
+and Survival analysis).
+Conflicts of Interest: The authors declare no conflict of interest.
+
+References
+1.    Branowski, B.; Zabłocki, M.; Sydor, M. The material indices method in the sustainable engineering design
+      process: A review. Sustainability 2019, 11, 5465. [CrossRef]
+2.    Ashby, M.F. Drivers for material development in the 21st century. Prog. Mater. Sci. 2001, 46, 191–199.
+      [CrossRef]
+Polymers 2020, 12, 2327                                                                                         18 of 21
+
+
+
+3.    Ermolaeva, N.S.; Kaveline, K.G.; Spoormaker, J.L. Materials selection combined with optimal structural
+      design: Concept and some results. Mater. Des. 2002, 23, 459–470. [CrossRef]
+4.    Domingo, R.; de Agustina, B.; Marín, M.M. Study of drilling process by cooling compressed air in reinforced
+      Polyether-Ether-Ketone. Materials 2020, 13, 1965. [CrossRef]
+5.    Zhang, Z.; Liao, H.; Chang, J.; Al-barakati, A. Green-building-material supplier selection with a
+      rough-set-enhanced quality function deployment. Sustainability 2019, 11, 7153. [CrossRef]
+6.    Pannitz, O.; Sehrt, J.T. Transferability of process parameters in laser powder bed fusion processes for an
+      energy and cost efficient manufacturing. Sustainability 2020, 12, 1565. [CrossRef]
+7.    Rodríguez-Panes, A.; Claver, J.; Camacho, A.M. The influence of manufacturing parameters on the mechanical
+      behaviour of PLA and ABS pieces manufactured by FDM: A comparative analysis. Materials 2018, 11, 1333.
+      [CrossRef] [PubMed]
+8.    NEI. Printing Nuclear Parts. Available online: http://www.neimagazine.com/features/featureprinting-
+      nuclear-parts-5861118/ (accessed on 10 October 2020).
+9.    Rodríguez-Prieto, A.; Camacho, A.M.; Aragón, A.M.; Sebastián, M.A.; Yanguas-Gil, A. Polymers selection
+      for harsh environments to be processed using additive manufacturing techniques. IEEE Access 2018, 6,
+      29899–29911. [CrossRef]
+10.   Gibson, I.; Rosen, D.W.; Stucker, B. Additive Manufacturing Technologies; Springer: New York, NY, USA, 2010.
+11.   Ding, D.; Chen, S.; Zengxi, P.; Dominic, C.; Huijun, L.; Larkin, N.; Duin, S.V. Towards an automated robotic
+      arc-welding-based additive manufacturing system from CAD to finished part. Comput.-Aided Des. 2016, 73,
+      66–75. [CrossRef]
+12.   Tamás, P.; Tollár, S.; Illés, B.; Bányai, T.; Tóth, A.B.; Skapinyecz, R. Decision support simulation method for
+      process improvement of electronic product testing systems. Sustainability 2020, 12, 3063. [CrossRef]
+13.   Chang, J.; He, J.; Mao, M.; Zhou, W.; Lei, Q.; Li, X.; Li, D.; Chua, C.-K.; Zhao, X. Advanced material strategies
+      for next-generation additive manufacturing. Materials 2018, 11, 166. [CrossRef] [PubMed]
+14.   Petersen, E.E.; Pearce, J. Emergence of home manufacturing in the developed world: Return on investment
+      for open-source 3-D printers. Technologies 2017, 5, 7. [CrossRef]
+15.   Coro, A.; Macareno, L.M.; Aguirrebeitia, J.; López de Lacalle, L.N. A methodology to evaluate the reliability
+      impact of the replacement of welded components by additive manufacturing spare parts. Metals 2019, 9, 932.
+      [CrossRef]
+16.   Pérez-Pérez, M.; Gómez, E.; Sebastián, M.A. Delphi prospection on additive manufacturing in 2030:
+      Implications for education and employment in Spain. Materials 2018, 11, 1500. [CrossRef] [PubMed]
+17.   Oettmeier, K.; Hofmann, E. Additive manufacturing technology adoption: An empirical analysis of general
+      and supply chain-related determinants. J. Bus. Econ. 2017, 87, 97–124. [CrossRef]
+18.   Cruz Sanchez, F.A.; Boudaoud, H.; Hoppe, S.; Camargo, M. Polymer recycling in an open-source additive
+      manufacturing context: Mechanical issues. Addit. Manuf. 2017, 17, 87–105. [CrossRef]
+19.   Vidakis, N.; Petousis, M.; Maniadi, A.; Koudoumas, E.; Vairis, A.; Kechagias, J. sustainable additive
+      manufacturing: Mechanical response of Acrylonitrile-Butadiene-Styrene over multiple recycling processes.
+      Sustainability 2020, 12, 3568. [CrossRef]
+20.   De Leon, A.C.; Chen, Q.; Palaganas, N.B.; Palaganas, J.O.; Manapat, J.; Advincula, R.C. High performance
+      polymer nanocomposites for additive manufacturing applications Reactive and Functional. Polymers 2016,
+      103, 141–155. [CrossRef]
+21.   Yanguas-Gil, A. Building to last: Challenges in additive manufacturing going from prototype to functional
+      component. In Proceedings of the 2016 NIST Roadmapping Workshop Conferences, Gaithersburg, MD, USA,
+      9–11 June 2016; pp. 1–5.
+22.   Rodriguez-Prieto, A.; Camacho, A.M.; Aragón, A.M.; Sebastián, M.A.; Yanguas-Gil, A. Analysis of the current
+      scenario of additive manufacturing standardization and certification. In Proceedings of the 22nd International
+      Congress on Project Management and Engineering, Madrid, Spain, 11–13 July 2018; pp. 1011–1023.
+23.   Lukic, M.; Clarke, J.; Tuck, C.; Whittow, W.; Wells, G. Printability of elastomer latex for additive manufacturing
+      or 3D printing. J. Appl. Polym. Sci. 2016, 133, 42931. [CrossRef]
+Polymers 2020, 12, 2327                                                                                        19 of 21
+
+
+
+24.   Rodríguez-Prieto, A.; Camacho, A.M.; Sebastián, M.A.; Yanguas-Gil, A. Analysis of mechanical and thermal
+      properties of elastomers for manufacturing of components in the nuclear industry. Procedia Manuf. 2019, 41,
+      177–184. [CrossRef]
+25.   Tofail, S.A.M.; Koumoulos, E.P.; Bandyopadhyay, A.; Bose, S.; O’Donoghue, L.; Charitidis, C. Additive
+      manufacturing: Scientific and technological challenges, market uptake and opportunities. Mater. Today 2018,
+      21, 22–37. [CrossRef]
+26.   Kamaya, M.; Kawakubo, M. A procedure for determining the true stress–strain curve over a large range of
+      strains using digital image correlation and finite element analysis. Mech. Mater. 2011, 43, 243–253. [CrossRef]
+27.   Merayo, D.; Rodríguez-Prieto, A.; Camacho, A.M. Prediction of the Bilinear Stress-Strain Curve of Aluminum
+      Alloys Using Artificial Intelligence and Big Data. Metals 2020, 10, 904. [CrossRef]
+28.   García-Domínguez, A.; Claver, J.; Camacho, A.M.; Sebastián, M.A. Analysis of General and Specific
+      Standardization Developments in Additive Manufacturing from a Materials and Technological Approach.
+      IEEE Access 2020, 8, 125056–125075. [CrossRef]
+29.   Cox, J.; Griffith, S.; Giorgi, S.; King, G. Consumer understanding of product lifetimes. Resour. Conserv. Recycl.
+      2013, 79, 21–29. [CrossRef]
+30.   Wastling, T.; Charnley, F.; Moreno, M. Design for circular behaviour: Considering users in a circular economy.
+      Sustainability 2018, 10, 1743. [CrossRef]
+31.   3D Natives. Available online: https://www.3dnatives.com/es/aoniq-impresora-3d-de-pvc-030720172/
+      (accessed on 10 October 2020).
+32.   Bai, J.; Yuan, S.; Shen, F.; Zhang, B.; Chua, C.K.; Zhou, K.; Weiv, J. Toughening of polyamide 11 with carbon
+      nanotubes for additive manufacturing. Virtual Phys. Prototype 2017, 12, 235–240. [CrossRef]
+33.   Wudy, K.; Drummer, D. Infiltration behavior of thermosets for use in a combined selective laser sintering
+      process of polymers. JOM 2019, 71, 920–927. [CrossRef]
+34.   Wong, K.V.; Hernandez, A. A review of additive manufacturing. Mech. Eng. 2012, 2012, 208760. [CrossRef]
+35.   Wegner, A. New polymer materials for the laser sintering process: Polypropylene and others. Phys. Procedia
+      2016, 83, 1003–1012. [CrossRef]
+36.   Lantean, S.; Roppolo, I.; Sangermano, M.; Pirri, C.F.; Chiappone, A. Development of new hybrid Acrylic/Epoxy
+      DLP-3D printable materials. Inventions 2018, 3, 29. [CrossRef]
+37.   Kuang, X.; Zhao, Z.; Chen, K.; Fang, D.; Kang, G.; Qi, H.J. High-speed 3D printing of high-performance
+      thermosetting polymers via two-stage curing. Macromol. Rapid Commun. 2018, 39, 1700809. [CrossRef]
+      [PubMed]
+38.   Shi, Q.; Yu, K.; Kuang, X.; Mu, X.; Dunn, C.K.; Dunn, M.L.; Wang, T.; Qi, H.J. Recyclable 3D printing of
+      vitrimer epoxy. Mater. Horiz. 2017, 4, 598. [CrossRef]
+39.   Lewicki, J. High Performance, Thermal UV Curing Epoxy Resin for Additive Manufacturing of Short and
+      Continuous Carbon Fiber Epoxy Composites. U.S. Patent US 2017/0015059, 17 April 2018.
+40.   IEC 61244-2. Determination of Long-Term Radiation Ageing in Polymers—Part 2: Procedures for Predicting Ageing
+      at Low Dose Rates; International Electrotechnical Commission: Geneva, Switzerland, 2014; pp. 1–62.
+41.   IAEA NP-T-3.6. Assessing and Managing Cable Ageing in Nuclear Power Plants; International Atomic Energy
+      Agency: Vienna, Austria, 2012; pp. 1–111.
+42.   Granlund, M.; Eriksson, J.; Bondesson, A.; Jansson, A.; Almström, S. Acceptance Criteria for Polymers in Nuclear;
+      Energifosk: Malmö, Sweden, 2015; pp. 1–48.
+43.   Wündrich, K. A review of radiation resistance for plastic and elastomeric materials. Radiat. Phys. Chem.
+      1984, 24, 503–510. [CrossRef]
+44.   EPRI NP 2921. Radiation Effects on Organic Materials in Nuclear Plants; Electric Power Research Institute:
+      Palo Alto, CA, USA, 1981; pp. 1–119.
+45.   IAEA-TECDOC-1551. Implementation Strategies and tools for Condition Based on Maintenance at Nuclear
+      Power Plants; International Atomic Energy Agency: Vienna, Austria, 2007; pp. 1–187.
+46.   Van de Voorde, M.H.; Restat, C. Selection Guide to Organic Materials for Nuclear Engineering; European
+      Organization for Nuclear research (CERN): Geneva, Switzerland, 1972; pp. 1–47.
+47.   EPRI TR 1009748. Guidance for Accident Function Assessment for RISC-3 Applications; Electric Power Research
+      Institute: Palo Alto, CA, USA, 2005; pp. 1–192.
+Polymers 2020, 12, 2327                                                                                           20 of 21
+
+
+
+48.   THERMTEST. Materials Thermal Properties Database. Available online: https://thermtest.com/materials-
+      database (accessed on 10 October 2020).
+49.   Rodríguez-Prieto, A.; Camacho, A.M.; Sebastián, M.A. Materials selection criteria for nuclear power
+      applications: A decision algorithm. JOM 2016, 68, 496–506. [CrossRef]
+50.   Ahn, S.H.; Montero, M.; Odell, D.; Roundy, S.; Wright, P.K. Anisotropic material properties of fused deposition
+      modeling ABS. Rapid Prototype J. 2002, 8, 248–257. [CrossRef]
+51.   Wickramasinghe, S.; Do, T.; Tran, P. FDM-based 3D printing of polymer and associated composite: A review
+      on mechanical properties, defects and treatments. Polymers 2020, 12, 1529. [CrossRef]
+52.   Li, Z.; Zhou, W.; Yang, L.; Chen, P.; Yan, C.; Cai, C.; Li, H.; Li, L.; Shi, Y. Glass fiber-reinforced Phenol
+      Formaldehyde resin-based electrical insulating composites fabricated by Selective Laser Sintering. Polymers
+      2019, 11, 135. [CrossRef]
+53.   Taormina, G.; Sciancalepore, C.; Bondioli, F.; Messori, M. Special resins for Stereolithography: In situ
+      generation of silver nanoparticles. Polymers 2018, 10, 212. [CrossRef]
+54.   Yanguas-Gil, A.; Webster, S.; Rodriguez-Prieto, A.; Cao, J.; Aithal, S. Thermal models of additive
+      manufacturing at part scale: Impact of rastering on thermal history. In Proceedings of the 2018 Additive
+      Manufacturing Benchmarks, Gaithersburg, MD, USA, 18–21 June 2018; p. 27.
+55.   Foteinopoulos, P.; Papacharalampopoulos, A.; Stavropoulos, P. On thermal modeling of Additive
+      Manufacturing processes. CIRP J. Manuf. Sci. Technol. 2018, 20, 66–83. [CrossRef]
+56.   Rios, O.; Carter, W.; Kutchko, C.; Fenn, D.; Olson, K. Evaluation of Advanced Polymers for Additive Manufacturing
+      (ORNL/TM-2017/509); Oak Ridge National Laboratory: Oak Ridge, TN, USA, 2017; pp. 1–29.
+57.   Zhao, Y.; Zhai, Z.; Drummer, D. Thermal conductivity of aluminosilicate- and aluminum oxide-filled
+      thermosets for injection molding: Effect of filler content, filler size and filler geometry. Polymers 2018, 10, 457.
+      [CrossRef] [PubMed]
+58.   Maddah, H.A. Polypropylene as a promising plastic: A review. Am. J. Polym. Sci. 2016, 6, 1–11.
+59.   Khoshnoud, P.; Gunashekar, S.; Jamel, M.M.; Abu-Zahra, N. Comparative analysis of rigid PVC foam
+      reinforced with Class C and Class F Fly Ash. J. Miner. Mater. Char. Eng. 2014, 2, 554–565. [CrossRef]
+60.   Maya, M.G.; George, S.C.; Jose, T.; Sreekala, M.S.; Thomas, S. Mechanical properties of short sisal fibre
+      reinforced phenol formaldehyde eco-friendly composites. Polym. Renew. Resour. 2017, 8, 1–17. [CrossRef]
+61.   Safiee, S.; Akil, H.M.; Mazuki, A.A.M.; Ishak, Z.A.M.; Bakar, A.B. Properties of pultruded jute fiber reinforced
+      unsaturated polyester composites. Adv. Compos. Mater. 2011, 20, 231–244. [CrossRef]
+62.   Brondi, C.; Di Caprio, M.R.; Di Maio, G.S.E.; Mosciatti, T.; Cavalca, S.; Parenti, V.; Corti, M.; Iannace, S.
+      Thermosetting polyurethane foams by physical blowing agents: Chasing the synthesis reaction with the
+      pressure. J. Supercrit. Fluid. 2019, 154, 104630. [CrossRef]
+63.   TECHNÉ. Properties of an Elastomer. Available online: https://www.techne.fr/uk/expertise/materials
+      (accessed on 10 October 2020).
+64.   Chung, S.L.; Lin, J.S. Thermal conductivity of epoxy resin composites filled with combustion synthesized
+      h-BN particles. Molecules 2016, 21, 670. [CrossRef]
+65.   Makeitfrom Database. Available online: https://www.makeitfrom.com/compare/Phenol-Formaldehyde-PF-
+      Phenolic (accessed on 10 October 2020).
+66.   3DHubs, Introduction to SLA 3D Printing. Available online: https://www.3dhubs.com/knowledge-base/
+      introduction-sla-3d-printing/ (accessed on 10 October 2020).
+67.   Consult3D, VAT Photopolymerisation. Available online: https://consult3d.com/additive-manufacturing/
+      technologies/vat-photopolymerisation/ (accessed on 10 October 2020).
+68.   García-Domínguez, A.; Claver, J.; Camacho, A.M.; Sebastián, M.A. Considerations on the applicability of
+      test methods for mechanical characterization of materials manufactured by FDM. Materials 2020, 13, 28.
+      [CrossRef] [PubMed]
+69.   Karakoç, A.; Rastogi, V.K.; Isoaho, T.; Tardy, B.; Paltakari, J.; Rojas, O.J. Comparative screening of the
+      structural and thermomechanical properties of FDM filaments comprising thermoplastics loaded with
+      cellulose, carbon and glass fibers. Materials 2020, 13, 422. [CrossRef]
+70.   Holmes, M. Additive manufacturing continues composites market growth. Reinf. Plast. 2019, 63, 296–301.
+      [CrossRef]
+Polymers 2020, 12, 2327                                                                                    21 of 21
+
+
+
+71.   Parandoush, P.; Lin, N. A review on additive manufacturing of polymer-fiber composites. Compos. Struct.
+      2017, 182, 36–53. [CrossRef]
+72.   Rahim, T.N.A.T.; Abdullah, A.M.; Akil, H.M. Recent developments in Fused Deposition Modeling-based 3D
+      printing of polymers and their composites. Polym. Rev. 2019, 59, 589–624. [CrossRef]
+
+                          © 2020 by the authors. Licensee MDPI, Basel, Switzerland. This article is an open access
+                          article distributed under the terms and conditions of the Creative Commons Attribution
+                          (CC BY) license (http://creativecommons.org/licenses/by/4.0/).
+

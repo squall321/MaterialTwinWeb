@@ -1,0 +1,68 @@
+
+#<html><title>SAE Standard Fatigue Data File format</title><body>
+#<FORM METHOD="POST" ACTION="http://fde.uwaterloo.ca/cgi-bin/catgnume">
+#<DL compact> Pick one:
+#<input type="radio" name="#saeinput" value="FDE_plot" >FDE_plot
+#<input type="radio" name="#saeinput" value="FDE_fit"  checked >FDE_fit
+#<input type="submit" value="Send for processing">
+#<br><pre><textarea rows=50 cols=90 name="SAE_Standard_File" >
+#
+#Copyright (C) 2015  FD+E Comm. of SAE
+#This data file is free software; you can redistribute it and/or modify it under the terms
+#of the GNU General Public License as published by the Free Software Founda-
+#tion; either version 2 of the license, or (at your option) any later version.
+#This data file is distributed in the hope that it will be useful, but
+#WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+#or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General PUblic License for
+#more details.
+#You should have received a copy of the GNU General PUblic License
+#along with this program; if not, write to the Free Software
+#Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+#Try also their web site: http://www.gnu.org/copyleft/gpl.html
+#
+# Note !!  Fitted data/curve
+# CSA G40.21-350W, or ASTM-A572 Grade 50,  9.5mm plate
+# Simulated HAZ: heat 990C 30min, cool between 2 large circular disks.
+# Specimen polished, smooth cylindrical, 10mm gauge length. 5mm diam.
+# Nominal Chem.: 0.23C 0.50-1.50Mn .04P .05S .35Si
+# Ref. K.Ghahremani, PhD thesis U.ofWaterloo, 2015.
+# HRB= 89 before sim. HAZ, =94 after sim.HAZ
+# Elongation= 32% over 10mm.
+#FileType= strain_life
+#DataType= fitted
+#TIMEcol= 0
+#NAME=  ASTM-A572-Gr50
+#NAME=  G40.21-350W
+#NAME= StructuralSteel
+#Stress_units= mpa
+#Strain_units= strain
+#Su=       612. mpa
+#Sy=       356. mpa
+#E=    208083.
+#FractureStrain=  0.70
+#FractureStress=  0. not reported. Used K'=676
+#monotonic_K= 494 mpa
+#monotonic_n= 0.036
+#%RA=   49.
+#BHN= 200.  = 93.4 HRb
+#No. fatigue data points=   21
+#
+#NOTE!! Following Points are <b>FITTED DATA:</b>#NOTE!! Fitted Stress computed using Experm. K' and n'
+#Total Strain   2Nf  Stress  Mean   Plastic Strain   Initial
+##   Amp               Amp   Stress      Amp        Elastic Mod.
+ 0.70             1   676.       0.   0.69       208083. #Fitted_point manually: tensile test
+ 0.01123       1000   477.1      0.   0.00894    208083. #Fitted_point
+ 0.00782       2000   456.5      0.   0.00563    208083. #Fitted_point
+ 0.00513       5000   430.6      0.   0.00306    208083. #Fitted_point
+ 0.00391      10000   412.2      0.   0.00193    208083. #Fitted_point
+ 0.00313      20000   394.7      0.   0.00123    208083. #Fitted_point
+ 0.00248      40000   373.2      0.   0.00068    208083. #Fitted_point
+ 0.00217      80000   358.2      0.   0.00044    208083. #Fitted_point manually
+ 0.00195     160000   344.3      0.   0.00029    208083. #Fitted_point manually
+ 0.00175     400000   327.5      0.   0.00017    208083. #Fitted_point manually
+ 0.00164    1000000   315.9      0.   0.00012    208083. #Fitted_point
+ 0.00155    3000000   305.0      0.   0.00008    208083. #Fitted_point manually
+ 0.00155   10000000   305.       0.   0.00008    208083. #Fitted_point manually
+#</textarea>
+#</pre></DL></FORM></body></html>
+

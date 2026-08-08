@@ -1,0 +1,70 @@
+
+#<html><title>SAE Standard Fatigue Data File format</title><body>
+#<FORM METHOD="POST" ACTION="http://mme.uwaterloo.ca/cgi-bin/catgnume">
+#<DL compact> Pick one:
+#<input type="radio" name="#saeinput" value="FDE_plot" >FDE_plot
+#<input type="radio" name="#saeinput" value="FDE_fit"  checked >FDE_fit
+#<input type="submit" value="Send for processing">
+#<br><pre><textarea rows=50 cols=90 name="SAE_Standard_File" >
+#
+#Copyright (C) 2015  F.D.E. Committee
+#This data file is free software - you can redistribute it and/or
+#modify it under the terms of the GNU General Public License as
+#published by the Free Software Foundation; either version 2 of the
+#license, or (at your option) any later version.
+#This data file is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY - without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General PUblic License for more details.
+#You should have received a copy of the GNU General PUblic License
+#along with this program - if not, write to the Free Software
+#Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+#Try also their web site: http://www.gnu.org/copyleft/gpl.html
+#
+# Note!:  This is a fitted file/curve 
+# Merged files of  GGG 60  ASTM 80.55.06  Nodular Iron
+# Ref.1: M. Hueck, W.Schuetz, H. Walter, "Moderne Schwingfestigkeitsnterlage
+# fuer die Bemessung von Bauteilen aus Sphroeguss und Temperguss- Teil 1
+# ATZ Automobile Zeitschrift 86 1984 7/8 pp.325-331.
+# Some specimens are Rotating Bending with Kt=1.1
+# Ref.2: A.Fatemi, J.Williams,F.Montazersadgh, "Fatigue Performance Evaluation
+# of Forged Steel versus Ductile Cast Iron Crankshaft: A Comparative Study,"
+# U.of Toledo Report, Aug. 2007.
+#FileType= strain_life
+#DataType= fitted
+#TIMEcol= 0
+#NAME=  GGG60
+#NAME=  80.55.06
+#NAME=  NodularIron
+#Stress_units= mpa
+#Strain_units= strain
+#Sy= 401   average
+#Su= 638   average
+#eu= 0.05
+#E= 166000  average
+#FractureStrain= 0.065 average
+#FractureStress= 724   average
+#BHN= 215  ave.
+#%RA= 6.4  ave.
+#saedigcurve_v2.2.f starts.
+#
+#NOTE!! The Following Points are <b>FITTED DATA:</b>#NOTE!! Fitted Stress computed using Experm. K' and n'
+#StrAmpl     2Nf  StsAmpl So  PlasStrAmpl IniMod   NeuberStressAmpl
+    .07             1   618        0     .06       166000. #Fitted_point monotonic
+   0.00860        340   507.1      0.   0.00539    166000. #Fitted_point manually
+   0.00644        785   486.8      0.   0.00335    166000. #Fitted_point manually
+   0.00503       1520   467.1      0.   0.00208    166000. #Fitted_point manually
+   0.00388       3460   441.7      0.   0.00109    166000. #Fitted_point manually
+   0.00333       6000   422.6      0.   0.00065    166000. #Fitted_point manually
+   0.00293      10800   403.5      0.   0.00038    166000. #Fitted_point manually
+   0.00257      22600   377.8      0.   0.00018    166000. #Fitted_point manually
+   0.00236      50000   358.1      0.   0.00010    166000. #Fitted_point manually
+   0.00219      90000   338.8      0.   0.00005    166000. #Fitted_point manually
+   0.00201     180000   314.4      0.   0.00002    166000. #Fitted_point manually
+   0.00189     400000   297.2      0.   0.00001    166000. #Fitted_point manually
+   0.00178    1000000   281.0      0.   0.00001    166000. #Fitted_point manually
+   0.00151    6800000   251        0     0         166000. #Fitted_point manually
+#Not clear if there is a flat fatigue limit.
+#</textarea>
+#</pre></DL></FORM></body></html>
+

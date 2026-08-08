@@ -1,0 +1,1023 @@
+Article
+
+A Comprehensive Experimental, Simulation, and
+Characterization Mechanical Analysis of Ecoflex and Its
+Formulation Under Uniaxial Testing
+Ranjith Janardhana 1,2, Fazli Akram 1,2, Zeynel Guler 1,2, Akanksha Adaval 1,2 and Nathan Jackson 1,2,3,*
+
+                                         1 Center for High Technology Materials, The University of New Mexico, Albuquerque, NM 87106, USA;
+                                           zeynelguler@unm.edu (Z.G.); aadaval06@unm.edu (A.A.)
+                                         2 The Department of Mechanical Engineering, The University of New Mexico, Albuquerque, NM 87131, USA
+
+                                         3 The Nanoscience and Microsystems Engineering, The University of New Mexico, Albuquerque,
+
+                                           NM 87131, USA
+                                         * Correspondence: njack@unm.edu
+
+
+                                         Abstract
+                                         The current study focuses on the manufacturing and characterization of various forms of
+                                         Ecoflex and their composites to improve the mechanical properties and surface texture,
+                                         specifically for use in wearable sensors and electronic skin applications. Various types of
+                                         Ecoflex elastomers were mixed to form blended composite materials, which could be used
+                                         to tune the mechanical properties. Experimental and simulation methods were conducted
+                                         to understand the mechanical behavior and material properties of the manufactured sam-
+                                         ples under large deformation (1200% strain) by various dynamic loading conditions. Fur-
+                                         ther, the surface conditions of specimens were analyzed and evaluated using scanning
+                                         electron microscopy and contact angle goniometer. The Yeoh model reasonably predicts
+                                         the viscoelastic and hysteresis behavior of Ecoflex and its composites in accordance with
+                                         the experimental data for small and large strain. The surface smoothness and moisture-
+                                         resistant properties of the material surface were enhanced up to a contact angle of 127°
+Academic Editor: Aparna Beena Unni       (maximum) by adding x = 15 wt% of surface tension diﬀusers, with a slight compromise
+                                         in stretchability. This comprehensive investigation and database of Ecoflex–Ecoflex com-
+Received: 27 May 2025
+Revised: 19 June 2025
+                                         posite can guide and help researchers in selecting and applying the most appropriate Eco-
+Accepted: 24 June 2025                   flex/blended solutions for a specific application, while providing insight into the mechan-
+Published: 26 June 2025                  ics of materials of blended materials.
+Citation: Janardhana, R.; Akram, F.;
+Guler, Z.; Adaval, A.; Jackson, N. A
+                                         Keywords: Ecoflex; artificial skin; finite element modeling; wearable sensor; self-cleaning
+Comprehensive Experimental,              surface; silicone elastomer
+Simulation, and Characterization
+Mechanical Analysis of Ecoflex and
+Its Formulation Under Uniaxial
+Testing. Materials 2025, 18, 3037.
+                                         1. Introduction
+https://doi.org/10.3390/ma18133037
+                                              Silicone elastomers have been extensively researched due to their unique physical
+Copyright: © 2025 by the authors.
+                                         properties, ease of manufacturing, and high reproducibility, which has led to a wide range
+Licensee MDPI, Basel, Switzerland.
+This article is an open access article
+                                         of applications, including biomedical [1–4], aerospace [5,6], electronics [7–9], cosmetics
+distributed under the terms and          [10–12], and textile [13,14]. These elastomers exhibit excellent characteristics such as bio-
+conditions of the Creative Commons       compatibility, ease in manufacturing, relatively low cost, thermal stability, chemical re-
+Attribution (CC BY) license              sistance, tunability, and high flexibility [15–20]. Synthesis of nanoparticles into the elasto-
+(https://creativecommons.org/license
+                                         mers can be used to enhance performance or add functionality to the material such as
+s/by/4.0/).
+                                         electrical conductivity, magnetic properties, and piezoelectric properties [21–26]. These
+
+
+
+Materials 2025, 18, 3037                                                                                     https://doi.org/10.3390/ma18133037
+Materials 2025, 18, 3037                                                                                            2 of 25
+
+
+
+
+                           multifunctional elastomer composites have resulted in the development of wearable sen-
+                           sors, flexible electronics [27], stretchable electronic skin (e-skin) [28], and mechanical sen-
+                           sors [29]. Silicone elastomers are utilized as a flexible/stretchable substrate (lower stiﬀ-
+                           ness) to create actuators and sensors for soft robotic applications [30,31]. Additionally,
+                           biomedical devices such as dialysis membranes [32], artificial skin [33], prosthetics, and
+                           arterial phantoms [34] were developed by using elastomers due to their biocompatibility
+                           and chemical resistance. Ga-based liquid metal has been embedded in the elastomer to
+                           develop a stretchable monopole antenna and coaxial phase shifter [35–37] and various
+                           other devices [38]. Furthermore, Zhou et al. and Jeong et al. demonstrated the feasibility
+                           of creating a high power density stretchable energy harvester for smart material applica-
+                           tions [39–41].
+                                However, stretchable electromechanical sensors typically require the ability to with-
+                           stand large strain (>800%) under repetitive loading cycles [42,43]. These sensors need to
+                           be soft and flexible with higher tear strength and lower stiﬀness materials. Similarly, in-
+                           fused polymer matrix wearable sensors and health monitoring sensors involve the utili-
+                           zation of ultra-soft stretchable and high-sensitivity substrates to detect human body mo-
+                           tion [44]. Environmental stressors and cyclic loading conditions influence the eﬀective
+                           functioning of the soft energy harvester [45]. In addition, the use of artificial e-skin on the
+                           human body is needed to cope with the complex human function with good adhesion,
+                           hydrophobicity, adaptability to rapid deformation, and durability. Young’s modulus of
+                           the human skin varies with age, skin texture, gender, and location of the human body (5
+                           kPa–140 MPa), which are significant factors for the design of electromechanical sensors or
+                           the development preparing artificial human skin [46,47], along with environmental con-
+                           ditions. The combination of the above characteristics such as flexibility, stretchability, du-
+                           rability, environmental stability, adaptability to dynamic loading conditions, and mois-
+                           ture resistance is necessary for the development of a wide range of flexible e-skin sensors
+                           or energy harvesters. Regardless, key challenges exist in the selection of elastomers based
+                           on their application to produce the desired performance.
+                                Ecoflex is a silicone elastomer with relatively low stiﬀness (5 kPa–80 kPa), highly
+                           flexible and deformable, and biocompatibility, and it is adaptable to dynamic loading and
+                           environmental conditions. Ecoflex is prepared by crosslinking the platinum-based catalyst
+                           with the base component that is typically cured at room temperature, which forms a pol-
+                           ymer chain structure. The softness of Ecoflex is specified by its shore hardness, which
+                           typically ranges from 000-34 (Gel2) to 00-50. Recent work highlighted that the mechanical
+                           behavior and stiﬀness of these elastomers vary greatly under large strain (>500%) irre-
+                           spective of shore hardness [17]. Additionally, micro-scale Ecoflex samples become harder
+                           and stiﬀer under uniaxial testing, which aﬀects the performance of microelectromechani-
+                           cal (MEMS) devices [48].The excellent tunability properties of Ecoflex have been demon-
+                           strated to improve the softness and stretchability when combined with other elastomers
+                           such as Sylgard 184, Sylgard 186, and Solaris [15,49,50]. Previous research conducted on
+                           the blending of Ecoflex–Ecoflex illustrated an enhancement in the ultimate strength and
+                           deformability of the material [48]. These improvements in the mechanical characteristics
+                           by blending the Ecoflex–Ecoflex mixture necessitate further investigations to explore the
+                           tunability of its properties for the desired applications such as developing artificial human
+                           skin or mountable flexible sensors on the skin. Moreover, human skin is a complex, highly
+                           resistive viscoelastic material that is significantly influenced by factors such as strain rate,
+                           cyclic loading, relaxation test, stretching, and hydration [51].
+                                In this paper, we investigate the mechanical properties of Ecoflex elastomers with
+                           varying shore hardness values along with creating blended composites of Ecoflex to de-
+                           termine the impacts it has on the mechanical properties. Ecoflex with shore hardness 00-
+                           10, 00-20, 00-30, Gel2 (000-34) and its combination mixtures with respect to diﬀerent
+Materials 2025, 18, 3037                                                                                       3 of 25
+
+
+
+
+                           weight ratios were investigated. Despite the selected Ecoflex samples being prepared in a
+                           similar fashion, the mechanical response/failure of these elastomers is considerably af-
+                           fected due to the variation in the polymer structure induced by the reaction of prepolymer
+                           and crosslinker [17]. For example, the result shows that widely used Ecoflex 00-30 fails
+                           under continuous five loading–unloading cycles and stress relaxation tests compared to
+                           the other Ecoflex formulation. Due to this variability, the current study comprehensively
+                           analyzes the material behavior of Ecoflex by subjecting the prepared samples to various
+                           real-world conditions. Further, the relationship between shore hardness, peak strength,
+                           and Young’s modulus was interpolated based on the experimental data set. Additionally,
+                           the finite element model (FEM) was developed to predict the material properties that can
+                           be infused in the development of a particular application. The scanning electron micros-
+                           copy (SEM) method is used to examine the morphological structure of pristine and frac-
+                           tured samples. This work establishes the complete database for the researchers in the se-
+                           lection of diﬀerent formulations of the Ecoflex–Ecoflex mixture for the advancement of
+                           smart material devices.
+
+                           2. Materials and Methods
+                           2.1. Materials
+                                 Four distinct shore hardnesses of Ecoflex 00-10, 00-20, 00-30, and Gel2 (000-34) from
+                           Smooth-On Inc., Macungie, PA, USA, were utilized for this study. Ease Release 200 aero-
+                           sol spray (Mann Release Technology, Macungie, PA, USA) was applied to the mold as a
+                           release agent. Customized molds were created using a 3D printer (Ultimaker S5, Zaltbom-
+                           mel, The Netherlands), 3M 71601 blue squeegee, and a mixing container of diameter 35
+                           mm for leveling and mixing samples, respectively. SLIDETM Liquid surface tension dif-
+                           fuser (ST-Diﬀuser) from Smooth-On Inc., USA, was added when specifically mentioned
+                           to alter the surface properties and the hydrophobicity of the elastomer.
+
+                           2.2. Sample Preparation
+                                The sample preparation steps are illustrated in schematic Figure 1 [52]. First, two
+                           parts of liquid components, the base (Part A) and crosslinker (Part B) of Ecoflex, were
+                           weighed in a container with a precision balance scale (MTI Corporation, Richmond, CA,
+                           USA) in a weight ratio 1 (Part A):1 (Part B). Then the sample was mixed thoroughly in a
+                           speed mixer (FlackTek, Inc., Landrum, SC, USA) at a speed of 3000 rpm for 1 min. Based
+                           on diﬀerent speed rates, it was observed that mixing the sample at 3000 rpm resulted in
+                           minimizing the microbubble formation. The combined solution sample was immediately
+                           poured into a customized mold that had been coated with a release agent approximately
+                           30 min before. A doctor’s blade method technique was followed to remove excess liquid
+                           from the mold and establish uniform thickness of the specimen. All samples were allowed
+                           to cure for 24 h at room temperature before demolding. Since the mixtures had diﬀerent
+                           curing durations, a 24 h curing time was chosen to ensure that all samples were fully cured
+                           before removal from the mold. The dimensions of the manufactured dogbone-shaped
+                           mold were in accordance with the American Society for Testing of Materials (ASTM-D412-
+                           C) standards [53], as shown in Figure 2.
+                                The same steps mentioned above were used to produce samples from Ecoflex 00-10,
+                           00-20, 00-30, and Gel2, which were considered as a “base liquid”. Similar procedures were
+                           followed to create Ecoflex–Ecoflex blended samples by mixing pairs, triplets, and quad-
+                           ruples of base liquids, and for convenience, they were referred to as “two type mixing”,
+                           “three type mixing”, and “four type mixing”, respectively. After each stage of combining
+                           diﬀerent Ecoflex liquids, the resulting solutions were mixed in the speed mixer. The total
+                           weight of the final solution considered in a mixing container was 22 g. Weight ratios for
+Materials 2025, 18, 3037                                                                                            4 of 25
+
+
+
+
+                           mixing diﬀerent Ecoflex shore hardness liquids were calculated based on the concentra-
+                           tion, 25%, 50%, 75% and 100%, as tabulated in Supplementary Material Table S2. How-
+                           ever, Part A and Part B were maintained in a weight ratio of 1:1 for each Ecoflex liquid
+                           mixture. All the samples were identically prepared, blended, molded, cured, and
+                           demolded. Hereafter, Ecoflex composition solutions of 00-10, 00-20, 00-30, and Gel2 are
+                           mentioned as 0010:0020:0030:Gel2 for simplicity.
+
+
+
+
+                           Figure 1. Schematic representation of sample preparation cycle.
+
+                                 Although the combining process lasted 20 min for four diﬀerent Ecoflex mixing ratios
+                           (0010:0020:0030:Gel2), it was observed that the lower viscosity flow of the solutions with
+                           ratios 1:4:1:1, 1:1:4:1, 1:1:1:3, and 3:3:3:2 was insuﬃcient. The pot life of Gel2 and 0010 were
+                           20 and 30 min, respectively, so high concentrations of these two blended materials had
+                           issues with molding. The pot life of the final solution decreased especially for 3:3:4:3,
+                           4:1:1:1, 2:2:2:3, and 2:3:2:2, which resulted in diﬃcultly in pouring the sample into the
+                           mold. Potential causes of the reduced pot life of the final solution include the concentra-
+                           tion of the various Ecoflex liquids, prolonged combining durations, or temperature rise in
+                           the solution in a container during the mixing cycles in a speed mixer.
+
+
+
+
+                           Figure 2. Dimensions of mold prepared as per ASTM-D412-C.
+
+                           2.3. Experimental Setup and Characterization
+                                All the fabricated samples were subjected to uniaxial tensile test using universal tex-
+                           ture analysis equipment (Stable Mirco Systems, Godalming, UK) with a 5 kg load cell at
+                           room temperature. Various types of end strips such as diﬀerent grits of sandpaper, thick
+                           paper, and scour pads (Scotch-Brite, 3M, St. Paul, MN, USA) were investigated to prevent
+                           slippage of samples from metallic grip during stretching. However, scour pads were
+Materials 2025, 18, 3037                                                                                            5 of 25
+
+
+
+
+                           eﬀectively bonded between samples and metallic grip, which avoided the slippage of
+                           samples, as shown in Figure 3.
+
+
+
+
+                           Figure 3. Universal texture analysis testing system with scour pads for metallic grip.
+
+                                 Ecoflex 0010, 0020, 0030, and Gel2 (base liquids) and its mixture formulation 2:1 (two
+                           mixing ratio), 2:1:2 (three mixing ratio), and 2:1:2:2 (four mixing ratio) were considered as
+                           “base samples”. The mechanical behavior of the base samples was characterized by strain
+                           rate, cyclic test, stress relaxation, Mullins eﬀect, specimen age condition, and SEM. Stick-
+                           iness of the Ecoflex surface was measured using a TA-3 probe (Stable Mirco Systems, Go-
+                           dalming, UK) (diameter of 25.4 mm) with universal texture analysis equipment. Contact
+                           angle goniometer (Ossila, Sheﬃeld, UK) and digital shore hardness durometer (Model
+                           HT-6510, Grainger, NY, USA) were utilized for assessing the hydrophobicity and shore
+                           hardness of the material surface. Shore hardness was measured by manually pressing the
+                           durometer onto the surface of each sample. A total of 10 readings were taken at diﬀerent
+                           locations and the average was reported.
+
+                           3. Results and Discussion
+                           3.1. Reproducibility
+                                 In detail, the consistency of the result produced by the prepared specimen under uni-
+                           axial tensile test conditions was demonstrated in Figure 4. Each fabricated Ecoflex mixture
+                           ratio consists of five samples and the results were evaluated by stretching up to 1200%
+                           strain. In Figure 4a, five samples of three type mixing ratio 1:1:1 (0010:0020:0030) were
+                           subjected to cyclic loading–unloading at 0.1/s strain rate, producing the hysteresis loop
+                           with a ±7% margin of error. The loading and unloading path of four type mixing ratio
+                           1:1:4:1 (0010:0020:003:Gel2) was found to be within 7% error where sample 3 was fractured
+                           at 1200% strain. The results of three type mixing ratio 1:1:2 (0010:0030:Gel2) and four type
+                           mixing ratio 1:1:2:1 (0010:0020:0030:Gel2) (Figures 4c and 5d) exhibit good repeatability of
+                           the stress–strain curve with a 5% error. These outcomes display the consistency in the
+                           mechanical behavior of the batch samples that were generated from uniaxial tensile test-
+                           ing equipment.
+                                 Additionally, it was observed that the failure of the various samples was occurring
+                           near the middle of the gauge length (Figure 5e), indicating that the samples were not slip-
+                           ping under a large deformation. Figure 5a–d demonstrates that the presence of a notched
+                           crack leads to an oblique fracture of the material. However, failure of the samples may
+                           occur due to the variation in the formation of the polymer chain, presence of gas entrap-
+                           ment (air bubbles), contamination, micro-cracks, and position of the samples [34], which
+                           resulted in diﬀerent modes of fracture, as represented in Figure 5e.
+Materials 2025, 18, 3037                                                                                                   6 of 25
+
+
+
+
+                           Figure 4. Stress–strain curve of Ecoflex: (a) 1:1:1 (0010:0020:0030), (b) 1:1:4:1 (0010:0020:0030:Gel2),
+                           (c) 1:1:2 (0010:0030:Gel2), and (d) 1:1:2:1 (0010:0020:0030:Gel2) at 0.1/s strain rate with dogbone il-
+                           lustrating breaking point.
+
+
+
+
+                           Figure 5. (a–d) Crack propagation during deformation under stretch; (e) fractured samples.
+
+                                Furthermore, the eﬀect of the mixing sequence on the mechanical behavior of the
+                           sample was analyzed by considering three type mixing ratio 1:1:1 (0010:0020:0030). All six
+                           possible mixing combinations of diﬀerent samples were tested under uniaxial testing. Fig-
+                           ure 6 represents the comparison of stress–strain behavior and the mean error in the results
+                           was within a 10% range. This suggests that the sequence of mixing the Ecoflex of diﬀerent
+                           shore hardnesses has less eﬀect on the mechanical behavior. Therefore, the eﬀect of mixing
+                           sequences for other blended ratios was not considered within the scope of this study.
+Materials 2025, 18, 3037                                                                                            7 of 25
+
+
+
+
+                           Figure 6. Comparison of stress–strain curve for mixing ratio 1:1:1 (0010:0020:0030) with varying
+                           mixing sequence at 0.1/s strain rate.
+
+                           3.2. Young’s Modulus and Peak Stress
+                                 Young’s modulus of the prepared samples was evaluated at 100% strain within the
+                           linear region of the stress–strain curve, as all samples retained their original shape for
+                           more than five cycles of loading–unloading at this strain [48]. Further, stretching of the
+                           Ecoflex (>200%) undergoes continuous deformation with steep increments in the re-
+                           sistance from the material. Hence, tensile stress was evaluated at a specific location of
+                           strain from 100 to 500% due to the nonlinear behavior of the samples [34,54]. Peak stress
+                           refers to the maximum amount of stress experienced by the Ecoflex under strain at 1200%.
+                           Supplementary Figure S1 shows the variation in peak stress and Young’s modulus under
+                           strain 1200% for all the formulations of the Ecoflex ratio. Similarly, the boxplot (Supple-
+                           mentary Figure S2) represents the extension of the blend solution samples tested under
+                           strain 1200%, with most specimens having stretchability greater than 1200% strain. Eco-
+                           flex formulations 3:2:2:0, 2:3:3:3, and 0:0:2:3 (0010:0020:0030:Gel2) have the least stretcha-
+                           bility of 950% strain. These results signify that Ecoflex can be the ideal material for the
+                           stretchable sensor and e-skin applications.
+
+                           3.3. Strain Rate
+                                Base Ecoflex samples were subjected to diﬀerent stretching rates to examine the strain
+                           rate dependency. Figure 7 depicts the mechanical behavior of Ecoflex 0010 under strain
+                           rates of 0.01/s, 0.1/s, and 1/s. The stress–strain relationship indicates that the strain rate
+                           eﬀect was insignificant under initial strain (<200%); however, specimen 0010 exhibits sig-
+                           nificant resistance for a higher strain rate under larger elongation (>200%). This suggests
+                           that the stretching rate influences the mechanical behavior of the specimen. However, the
+                           tested sample exhibited an uneven material response, which can be attributed to the prop-
+                           agation of micro-cracks or the expansion of micro-voids at higher deformation levels
+                           (>700% strain), due to increased data acquisition resolution from the tensile machine at a
+                           slower strain rate of 0.01/s. This can also be caused by the fast recovery of the material,
+                           which is more prominent at low strain rates.
+Materials 2025, 18, 3037                                                                                                    8 of 25
+
+
+
+
+                           Figure 7. Stress–strain curve under varying strain rates of 0.01/s, 0.1/s and 1/s for Ecoflex 0010.
+
+                                Figure 8 displays the comparison of stress–strain relationships, measured values of
+                           Young’s modulus, and peak stress of diﬀerent base samples 0010, 0020, 0030, Gel2, and
+                           2:1:2 (0010:0020:0030) at a strain rate of 0.1/s. The initial Young’s modulus was found to
+                           be minimum for Gel2 (~6kPa) and highest for Ecoflex 0030 (~25 kPa). These results show
+                           that the elastomers with a higher shore hardness were stiﬀer [34] under small strain. The
+                           methods used to manufacture Ecoflex can significantly aﬀect Young’s modulus [52].
+
+
+
+
+                           Figure 8. Comparison of (a) stress–strain curve under strain rate of 0.1/s, (b) Young’s modulus and
+                           peak stress under diﬀerent strain rates of 0.01/s, 0.1/s, and 1/s for Ecoflex 0010, 0020, 0030, Gel2, and
+                           mixing ratio 2:1:2 (0010:0020:0030).
+
+                                However, it was evident from Figure 8a that lower shore hardness Ecoflex such as
+                           0010, 0020, and mixture 2:1:2 (measured shore hardness = 16) becomes stiﬀer under large
+                           strain. Similar behavior was observed for vulcanized rubber of higher stiﬀness subjected
+                           to large strain [55]. This indicates that after a certain threshold (strain > 200%), the me-
+                           chanical behavior of the flexible samples significantly diﬀers by exhibiting higher re-
+                           sistance to the larger deformation due to strain hardening. These changes in stress–strain
+                           behavior correspond to the polymer chain alignment and crosslinking process in the mo-
+                           lecular structure, which was considerably aﬀected under large strain [34], despite mixing
+                           formulation 2:1:2 having similar initial stiﬀness with respect to 0010 and 0020. A compar-
+                           ison of strain rate dependency for diﬀerent Ecoflex samples is demonstrated in Figure 8b.
+                           The result indicates that the samples behave more rigidly under the influence of a faster
+                           stretching rate.
+                                Although Figure 8a shows diﬀerent loading paths for base samples 0010, 0020, 0030,
+                           and 2:1:2, all the samples follow a similar unloading cycle path. This suggests that, despite
+Materials 2025, 18, 3037                                                                                                9 of 25
+
+
+
+
+                           variations in the loading behavior, the materials demonstrate comparable recovery char-
+                           acteristics upon unloading. This was further investigated by expressing the stress–strain
+                           curve in terms of energy density by bifurcating the loading–unloading cycle into dissi-
+                           pated and stored energy, as represented in Figure 9a. Total energy was computed by in-
+                           tegrating the area inside the hysteresis loop and energy recovered under the unloading
+                           cycle [18], given by
+
+                                                                      𝑊      𝑊     𝑊,                                       (1)
+                           where 𝑊 , 𝑊 , and 𝑊 are total energy density, dissipated energy density, and stored en-
+                           ergy density, respectively.
+                                The findings in Figure 9b display the increment in the hysteresis loop area by dissi-
+                           pating large amounts of energy with a faster stretching rate, which aligns with the pattern
+                           observed in Figure 8b. However, Gel2 samples showed the least changes to the defor-
+                           mation rate due to the high flexibility of the material. Although Ecoflex 0010, 0020, and
+                           0030 and mixing ratio 2:1:2 had a comparable elastic stored energy density, the mixing
+                           ratio of 2:1:2 (0010:0020:0030) absorbs more energy by resisting larger deformation, which
+                           signifies the eﬀect of complex polymer structure with respect to large strain.
+
+
+
+
+                           Figure 9. (a) Representation of energy density; (b) comparison of energy density under diﬀerent
+                           strain rates of 0.01/s, 0.1/s, and 1/s for Ecoflex 0010, 0020, 0030, and Gel2 and mixing ratio 2:1:2
+                           (0010:0020:0030).
+
+                           3.4. Cyclic Loading
+                                Figure 10a demonstrates the reduction in the force under five loading–unloading
+                           stretching cycles. The peak force observed during each cycle decreases gradually, indicat-
+                           ing a slight material softening. This softening may stem from internal molecular structural
+                           rearrangements, such as polymer chain reorientation or stress relaxation [56]. In detail, a
+                           comparative analysis of Young’s modulus for various Ecoflex samples over five cycles is
+                           presented in Figure 10b. A significant reduction in modulus was observed from Cycle 1
+                           to Cycle 2, followed by a stabilization in subsequent cycles. Among the tested samples,
+                           Ecoflex 0030 shows the highest modulus, maintaining values above 23 kPa throughout the
+                           cycles, reflecting its superior stiﬀness and structural integrity. Ecoflex Gel2 exhibits the
+                           lowest modulus (~5 kPa), indicative of its softer and more flexible nature. The 2:1:2 mix-
+                           ture (0010:0020:0030) displays intermediate mechanical behavior, balancing stiﬀness and
+                           compliance. These findings highlight the ability to tune mechanical properties through
+                           specific formulations, enabling targeted applications based on stiﬀness and loading re-
+                           quirements.
+Materials 2025, 18, 3037                                                                                                10 of 25
+
+
+
+
+                           Figure 10. (a) Ecoflex 0010 under five cyclic loading–unloading; (b) comparison of Young’s modulus
+                           of base Ecoflex samples under five cyclic loading–unloading conditions at strain rate of 0.1/s.
+
+                                 Further, the energy density of the base samples was evaluated under cyclic loading
+                           conditions and is outlined in Figure 11. The dissipated energy density sharply decreases
+                           from Cycle 1 to Cycle 2 and stabilizes thereafter for all samples. Gel2 has the lowest dissi-
+                           pated energy density across all cycles. The 2:1:2 blend and pristine 0010 sample exhibit
+                           the highest dissipated energy density in the first cycle, followed by stabilization at similar
+                           levels across subsequent cycles. Dissipated energy represents energy loss due to internal
+                           friction or material hysteresis during loading and unloading. The sharp decrease indicates
+                           a reduction in energy loss, likely due to polymer structural adjustments or material fatigue
+                           [57].
+                                 On the other hand, the stored energy density remains nearly constant across cycles
+                           for all samples. Ecoflex 0030 demonstrates the highest stored energy density, indicating
+                           higher stiﬀness. Gel2 has the lowest stored energy density, showing greater compliance.
+                           Stored energy density reflects the material’s ability to elastically store mechanical energy.
+                           The constant values across cycles imply minimal degradation in the elastic properties un-
+                           der cyclic loading. The higher stored energy for stiﬀer samples (e.g., 0030) suggests a cor-
+                           relation with their higher Young’s modulus, as seen in Figure 11b [58].
+
+
+
+
+                           Figure 11. Comparison of (a) dissipated energy density, (b) stored energy density, and (c) total en-
+                           ergy density of base Ecoflex samples under five cyclic loading–unloading conditions at strain rate
+                           of 0.1/s.
+
+                                The total energy density decreases gradually from Cycle 1 to Cycle 5 for all samples,
+                           following a similar trend to the dissipated energy density in Panel a. The 2:1:2 blend and
+                           0010 initially have the highest total energy density. Gel2 consistently exhibits the lowest
+                           total energy density across cycles. Total energy density includes both dissipated and
+                           stored energy. The decrease suggests that the material undergoes changes (e.g., polymer
+                           chain reorganization or microstructural fatigue), reducing its energy-handling capacity.
+Materials 2025, 18, 3037                                                                                                 11 of 25
+
+
+
+
+                           3.5. Stress Relaxation
+                                 Stress relaxation experiments were conducted to investigate the viscoelastic proper-
+                           ties of Ecoflex samples under diﬀerent strain rates and conditions. These experiments pro-
+                           vide an understanding of the durability and mechanical behavior of the material that is
+                           crucial for applications requiring sustained deformation. Figure 12 illustrates the stress
+                           relaxation behavior of the Ecoflex samples (0010, 0020, 0030, and Gel2) under diﬀerent
+                           strain rates (0.01/s, 0.1/s, and 1/s) at a fixed strain of 1200%, except for Ecoflex 0030
+                           (1000%). Ecoflex 0010 showed the highest initial stress across all strain rates, with a signif-
+                           icant relaxation phase. The diﬀerences in strain rate were most evident in the first relaxa-
+                           tion period, where higher strain rates (1/s) resulted in slightly higher initial forces. Nev-
+                           ertheless, long-term stress levels converged across all strain rates. Ecoflex 0020 demon-
+                           strated slightly lower initial forces than 0010 but displayed a similar relaxation trend. The
+                           influence of strain rate on long-term force was minimal. Ecoflex 0030 showed significantly
+                           lower initial forces compared to 0010 and 0020, with rapid relaxation and convergence
+                           across strain rates. Although 0030 showed higher stiﬀness (strain < 200%), the material
+                           exhibits softness under large stretching. It was observed that a few samples of 0030 failed
+                           under 1200% strain, highlighting the potential failure of Ecoflex 0030 over a long stretch
+                           condition duration. Gel2, which was the softest among all the materials, exhibited the
+                           lowest initial forces and the fastest relaxation, along with minimal dependence on strain
+                           rate. These results underline the role of large deformation and strain rate influencing the
+                           relaxation behavior of Ecoflex. Samples like Ecoflex 0010 retained higher stress over time,
+                           while softer materials like Gel2 exhibit rapid relaxation and demonstrate the risk of break-
+                           age of 0030 during long-term stretching [34].
+
+
+
+
+                           Figure 12. Comparison of stress relaxation for Ecoflex (a) 0010, (b) 0020, (c) 0030, and (d) Gel2 under
+                           diﬀerent strain rates.
+
+                                Figure 13 and Table 1 compare the stress relaxation behavior of the Ecoflex samples
+                           under varying strain levels including 200%, 600%, and 1000% or 1200% at a constant strain
+                           rate of 0.1/s. The relaxation ratio was evaluated by comparing the initial force to the final
+                           force at the end of the 1 h period. For Ecoflex 0010, higher strains (1200%) resulted in
+                           higher initial stress and a slower rate of stabilization with a relaxation ratio of 29.1%.
+Materials 2025, 18, 3037                                                                                                12 of 25
+
+
+
+
+                           Lower strains (200% and 600%) showed lower stress responses and achieved immediate
+                           stress equilibrium with relaxation ratios of 3.8% and 12.7%, respectively. This indicates
+                           that stress relaxation increases with stretching. Ecoflex 0020 followed similar trends, with
+                           slightly lower initial stresses and a faster steady state than 0010. The result demonstrates
+                           that Ecoflex 0030 relaxed more rapidly, which signifies its softer mechanical properties
+                           under large strain in accordance with the earlier result. In Figure 13d, a comparison was
+                           conducted for base Ecoflex samples and their mixtures under stress relaxation at 1200%
+                           strain and a strain rate of 0.1/s. Ecoflex 0010 exhibited the highest initial stress and a high
+                           degree of relaxation, which is consistent with its stiﬀer nature for larger deformation.
+                           Gel2, the softest material, demonstrated the lowest stress response and the minimal relax-
+                           ation rate (24.7%). The mixtures of Ecoflex samples (e.g., 2:1:2 (0010:0020:0030) exhibited
+                           intermediate relaxation profiles with lower stress relaxation. This suggests that combining
+                           materials allows for tuning stress relaxation properties, providing versatility in adapting
+                           materials for specific applications.
+
+
+
+
+                           Figure 13. Comparison of stress relaxation for Ecoflex (a) 0010, (b) 0020, and (c) 0030 under diﬀerent
+                           strain conditions at strain rate of 0.1/s; (d) comparison of base Ecoflex samples under stress relaxa-
+                           tion condition at strain rate of 0.1/s.
+
+                           Table 1. Stress relaxation for base Ecoflex samples at strain rate of 0.1/s.
+
+                                            Ecoflex                                     Relaxation Ratio (%)
+                                             Strain                        200%           600%       1000%            1200%
+                                              0010                          3.8            12.7                        29.1
+                                              0020                          3.7            13.7                        24.1
+                                              0030                          2.8            11.7        20.1
+                                              Gel2                          407            7.4                         24.7
+                                        2:1 (0010:0020)                                                                28.9
+                                    2:1:2 (0010:0020:0030)                                                              26
+                                2:1:2:2 (0010:0020:0030:Gel2)                                                          24.4
+Materials 2025, 18, 3037                                                                                                   13 of 25
+
+
+
+
+                           3.6. Mullin Eﬀect
+                                Mullin’s eﬀect, which is a stress-softening behavior observed in silicone elastomers
+                           after cyclic loading, was recorded for the base samples in this study. A comparison of the
+                           stress–strain relationship between sample 1 (cyclic loading–unloading condition at diﬀer-
+                           ent strains) and sample 2 (cyclic loading–unloading condition at 1200% strain) is por-
+                           trayed in Figure 14a. Ecoflex 0020 progressively loses its stiﬀness as the strain increases.
+                           Sample 1 shows the reduction in the stress up to the previous stretch level and regains its
+                           stress hardening in consecutive cycles following the same path as sample 2, demonstrat-
+                           ing the viscoelastic behavior of the material [59]. Ecoflex 2:1 (0010:0020) shows similar
+                           nonlinear stress–strain behavior, with strain stiﬀening at higher strains. Stress levels were
+                           higher across all strains compared to pristine Ecoflex 0020, reflecting the influence of the
+                           stiﬀer Ecoflex 0010 component under larger deformation. At a strain of 1200%, the stress
+                           response was significantly greater than at lower strains, indicating enhanced stiﬀness due
+                           to the silicone composite.
+
+
+
+
+                           Figure 14. (a) Comparison of stress–strain behavior for Ecoflex 0020 with sample 1 under consecu-
+                           tive 200% to 1200% strain and sample 2 under 1200% strain only at strain rate of 0.1/s; (b) stress–
+                           strain curve under diﬀerent strain for mixing ratio of Ecoflex 2:1 (0010:0020) at strain rate of 0.1/s.
+
+                                Figure 15 illustrates the comparison of dissipated energy density (Figure 15a), stored
+                           energy density (Figure 15b), and total energy density (Figure 15c) for base Ecoflex samples
+                           under various stretching conditions at a strain rate of 0.1/s. The dissipated energy density,
+                           representing energy loss during deformation, shows a consistent increase with strain
+                           across all samples, with variations influenced by material composition. Similarly, the
+                           stored energy density, indicative of elastic energy retention, rises higher than dissipated
+                           energy at larger deformation (>500%). Diﬀerences between sample formulations reveal
+                           the impact of material modifications on energy dissipation and storage eﬃciency under
+                           dynamic loading conditions [60]. Among all, Ecoflex 0030 fails due to subsequent dynamic
+                           loading cycles (at strain 1200%), indicating that softening of the material led to failure
+                           under large strain.
+Materials 2025, 18, 3037                                                                                                14 of 25
+
+
+
+
+                           Figure 15. Comparison of (a) dissipated energy density, (b) stored energy density, and (c) total en-
+                           ergy density of base Ecoflex samples under diﬀerent stretching conditions at strain rate of 0.1/s.
+
+                           3.7. Shore Hardness
+                                The shore hardness (SH) of each prepared sample was evaluated using the shore
+                           hardness tester. Table 2 shows the average measured values of shore hardness for base
+                           Ecoflex samples. The measured shore hardness of Ecoflex 0010, 0020, and 0030 were in
+                           good agreement with the manufacture’s specifications. Further, the shore hardness of fab-
+                           ricated samples was evaluated and specifically explored the relationship between stiﬀness
+                           and peak stress using Pearson’s correlation (r) to fit the set of data.
+                                                                       ∑     𝑥     𝑥̅ 𝑦    𝑦
+                                                           𝑟                                                                    (2)
+                                                                   ∑     𝑥    𝑥̅    ∑     𝑦     𝑦
+
+                           where n is the sample size, 𝑥 and 𝑦 represent the mean of each Ecoflex formulation,
+                           and 𝑥̅ and 𝑦 are the sample mean.
+                                Figure 16 shows the correlation between shore hardness, Young’s modulus, and peak
+                           stress for diﬀerent formulations of Ecoflex. A strong positive linear correlation (r = 0.73)
+                           exists between Young’s modulus and shore hardness, as represented in Figure 16a. Linear
+                           equation 𝑦 1.16𝑥 fits the set of data, which indicates the relative increment relationship
+                           between Young’s modulus and shore hardness together. Ecoflex mixture ratio 4:0:0:1
+                           (0010:0020:0030:Gel2) shows the highest shore hardness (𝑆𝐻 = 26) and stiﬀness (30 kPa)
+                           compared to all data sets, which emphasize the eﬀect of polymer chain structure and
+                           crosslinking agent on the material properties, while individual Ecoflex 0010 and Gel2 had
+                           lesser shore hardnesses (Table 2).
+
+                           Table 2. Measurement of shore hardness for base samples.
+
+                                                        Ecoflex                                              𝑺𝑯
+                                                          0010                                               11.5
+                                                          0020                                              19.85
+                                                          0030                                                25
+                                                          Gel2                                              5.05
+                                                    2:1 (0010:0020)                                          18.4
+                                                2:1:2 (0010:0020:0030)                                       16.2
+                                            2:1:2:2 (0010:0020:0030:Gel2)                                   17.55
+Materials 2025, 18, 3037                                                                                             15 of 25
+
+
+
+
+                           Figure 16. Correlation between (a) Young’s modulus and shore hardness, and (b) peak stress and
+                           shore hardness at strain rate of 0.1/s.
+
+                                On the contrary, the relationship between peak stress and shore hardness demon-
+                           strates a relatively weaker correlation (r = 0.52), as represented by Figure 16b. Each range
+                           of shore hardness in the data set represents the unique cluster of the Ecoflex mixture,
+                           highlighting the categorical behavior of data points (shown in color labels). Additionally,
+                           the proximity of Young’s modulus and maximum stress at strain 1200% was evaluated
+                           and is depicted in Figure 17. The correlation was found to be 0.79 and the equation 𝑦
+                           35.73𝑥 signifies the stronger positive relationship among the two parameters.
+
+
+
+
+                           Figure 17. Correlation between Young’s modulus and peak stress at strain rate of 0.1/s.
+Materials 2025, 18, 3037                                                                                             16 of 25
+
+
+
+
+                           3.8. Aging
+                                 The aging effect of Ecoflex 0010 was studied by subjecting the samples under five cyclic
+                           loading–unloading conditions and the Mullins effect as per above Sections 3.4 and 3.5. The
+                           outcomes of sample 1 and sample 2 were depicted in Figure 18. Sample 1 (pristine) and
+                           sample 2 (365 days old sitting) were prepared from the same solution and sample 2 was
+                           stored in the laboratory at room temperature and normal condition. Both samples exhibited
+                           similar behavior of reduction in stiffness and energy density under identical cyclic loading–
+                           unloading conditions. Comparable characteristics were observed for sample 1 and sample
+                           2 for Young’s modulus and energy density under the Mullins effect.
+
+
+
+
+                           Figure 18. (a,b) Comparison of Young’s modulus, dissipated energy density, stored energy density,
+                           andtotal energy density for Ecoflex 0010 sample 1 (pristine) and sample 2 (365 days old) at strain
+                           rate of 0.1/s under diﬀerent conditions.
+
+                                 Both samples demonstrated comparable stiffness (13% error) and reduction in energy
+                           density (5% error) behavior when subjected to the identical cyclic loading–unloading con-
+                           dition. Also, samples 1 and 2 showed similar characteristics in terms of Young’s modulus
+                           (5% error) and energy density under the Mullins effect. This result suggests that the dura-
+                           bility and performance of Ecoflex 0010 samples were not significantly impacted by aging
+                           and storage conditions.
+                                 Further, the durability of the base samples was investigated by subjecting the samples
+                           under stress relaxation at a strain of 1200% and the results are demonstrated in Figure 19.
+                           Both pristine and 365 days old samples exhibited relatively similar behavior with respect to
+                           achieving the steady state. Among all, the old Ecoflex 0020 sample responded to lower re-
+                           sistance (relaxation ratio = 24% and stress = 480 kPa) with respect to the stretch condition in
+                           comparison to the pristine sample (relaxation ratio = 22% and stress = 590 kPa). The rest of
+                           the base samples showed slight changes to the relaxation ratio and resistance with respect
+                           to the pristine sample. In summary, Ecoflex samples were less impacted by the environmen-
+                           tal conditions.
+Materials 2025, 18, 3037                                                                                              17 of 25
+
+
+
+
+                           Figure 19. Comparison of stress–strain behavior of pristine and 365 old base samples at strain rate
+                           of 0.1/s.
+
+                           3.9. Surface Morphology
+                                The surface morphology of various Ecoflex samples under diﬀerent conditions was
+                           investigated using SEM, as illustrated in Figure 20. The surface texture of the pristine and
+                           stretched Ecoflex sample 2:1:2 (0010:0020:0030) (Figure 20a–c,f–h) and 0030 (Figure 20k–l)
+                           reveals a smooth, intact surface with no visible diﬀerences or visible damage under SEM
+                           (resolution 10 µm). Figures 20d–e,i–j and Supplementary Videos S1 and S2 illustrate the
+                           conformational variations observed in the stretched Ecoflex sample under the influence
+                           of SEM analysis. Observation revealed that the stretched Ecoflex 2:1:2 sample exhibited a
+                           higher susceptibility to deformation compared to the pristine Ecoflex 2:1:2 sample (Figure
+                           20d–e), which suggests that the softening of the sample was due to stretching (from earlier
+                           Section 3.4). The recovery of the surface texture of Ecoflex 0030 was observed upon re-
+                           moval of the focused beam of electrons, which signifies the adaptability of the samples to
+                           environmental changes, as demonstrated in Supplementary Video S3.
+                                For the elemental atomic percent of elements in the Ecoflex samples, Energy Disper-
+                           sive X-ray Spectroscopy (EDS) spectra analysis was evaluated, as presented in Figure 21
+                           with summarized tables. EDS analysis confirmed the presence of elements silicon (Si) and
+                           oxygen (O), indicating the possible representation of siloxane (Si-O) compounds. Addi-
+                           tionally, carbon (C), a component of methyl groups–(CH ), was also detected [49]. This
+                           resembles the results evaluated through FTIR from previous studies [61]. Platinum (Pt)
+                           element is likely to be anticipated from the Pt-based crosslinker. Variation in the mass
+                           composition of the sample (Figure 21) signifies the potential influence on the material
+                           properties such as flexibility, curing, and softness of the Ecoflex. However, results from
+                           Section 3.3 (strain rate) suggested that the final mechanical response of the Ecoflex sam-
+                           ples mainly depends on the complex behavior of the polymer chain such as entangle-
+                           ments, chain slipping, dangling chains, and bond rupture [62,63].
+Materials 2025, 18, 3037                                                                                              18 of 25
+
+
+
+
+                           Figure 20. SEM images of Ecoflex samples (a–e) pristine 2:1:2 (0010:0020:0030) and (f–j) 2:1:2
+                           (0010:0020:0030) under strain 1200% and (k,l) 0030 fractured.
+
+
+
+
+                           Figure 21. Energy Dispersive X-ray Spectroscopy (EDS) spectra and the atomic percentages of the
+                           main elements (C, Si, Pt, and O) summarized in tables for Ecoflex (a) 0020, (b) 0030, and (c) 2:1:2
+                           (0010:0020:0030).
+Materials 2025, 18, 3037                                                                                                19 of 25
+
+
+
+
+                           3.10. Hydrophobicity.
+                                 This section explores the method to improve the non-adhesiveness and smoothness
+                           of the Ecoflex surface. The sample was prepared by adding surface tension diﬀuser (ST-
+                           Diﬀuser) in varying weight percentages (x = 0 wt%, 0.15 wt%, 1.5 wt%, and 15 wt%) rela-
+                           tive to the total amount of Ecoflex 0020. Probe TA–3 (diameter 25.4 mm) was utilized for
+                           measuring the stickiness of the sample with a load cell speed of 1 mm/s for a depth of 3.5
+                           mm.
+                                 The experimental data showed that the addition of ST-Diﬀuser concentration im-
+                           proves the non-adhesiveness of the Ecoflex sample, as presented in Figure 22a. Stickiness
+                           was found highest (7 N) for the pristine 0020 sample and the surface turned into a non-
+                           adhesive for x = 1.5 wt% and 15 wt%. In addition, hydrophobicity of the surface was meas-
+                           ured using deionized (DI) water and the results are illustrated in Figure 22b–f. The mean
+                           contact angle was measured by averaging the value of both the left and right edges of the
+                           individual droplet, as shown in Figure 22b–e. Although previous adhesion test data indi-
+                           cated that the pristine Ecoflex 0020 (x = 0 wt%) was sticky, still it repels the water, showing
+                           the behavior of the hydrophobic surface. Blending the ST-Diﬀuser composition to the Eco-
+                           flex enhances the surface hydrophobicity with an increase in concentration. Average
+                           measured values were determined to be 122° for x = 15 wt% (Figure 22f), implying the
+                           ability to use as self-cleaning surfaces.
+
+
+
+
+                           Figure 22. (a) Comparison of adhesion force; (b–e) contact angle of individual droplet summarized
+                           in tables; (f) variation in average contact angle of Ecoflex 0020 for varied ST-Diﬀuser composition.
+
+                                Further, the impact of ST-Diﬀuser concentration on the mechanical behavior of Eco-
+                           flex 0020 was studied. The outcomes reflect the decrement in the stretchability of 0020
+                           with the ST-Diﬀuser additive composite, as shown in Figure 23. The mechanical failure
+                           was observed for 𝑥 = 15 wt% at 920% strain with least stretchability in comparison to
+                           other concentrations. Additionally, resistance from the samples was increased for larger
+                           deformation (>500%), indicating the stiﬀening of the material before fracture. Overall, ST-
+                           Diﬀuser additives improve the non-adhesive, hydrophobicity, and smoothness of the Eco-
+                           flex surface, though there was a trade-oﬀ in the stretchability, material behavior under
+                           large strain, and changes in the specimen color.
+Materials 2025, 18, 3037                                                                                               20 of 25
+
+
+
+
+                           Figure 23. Stress–strain curve for Ecoflex 0020 with varying ST-Diﬀuser concentration at strain rate
+                           of 0.1/s.
+
+                           3.11. Simulation
+                                Uniaxial tensile test experiments described in the above section were simulated using
+                           COMSOL Multiphysics software (v. 6.1) [64,65] to understand the stress distribution in
+                           the dogbone specimen. The discretized FEM domain consists of 16971 tetrahedral ele-
+                           ments. The left end of the domain was subjected to a fixed boundary condition, while a
+                           strain rate was applied to the right end by adhering to the experimental condition. The
+                           Yeoh material model was adopted to simulate the large strain (up to 1200% strain), and
+                           Table 3 shows the material parameters used for the simulation (Supplementary Tabel S1
+                           provides a detailed description). Time-dependent simulations were performed by varying
+                           the stretching speed according to the experimental condition.
+                                The simulation results of Ecoflex 0030 were in good agreement with the experimental
+                           data under larger strain, as demonstrated in Figure 24a. The respective stress distribution
+                           at 100% strain shows that the uniform stress was distributed across the gauge length of
+                           the dogbone specimen. Furthermore, stretching (at 600% strain) of the specimen induced
+                           deformation of the specimen with higher stress concentration along the gauge length. At
+                           large strain (1000% strain), the shape of the grip section changes, showing elongation of
+                           the material, with the risk of failure developing at the narrower section of the gauge
+                           length, which corresponds to the experimental failure observed in the specimen (shown
+                           in Figure 5e). Additionally, the Yeoh model was implemented to investigate the stress–
+                           strain behavior of the blending solution of Ecoflex 2:1:2 (0010:0020:0030). The simulation
+                           results showed that the material response of the blended solution agreed with the exper-
+                           imental results (shown in Figure 24b). In summary, Ecoflex and its mixing solution closely
+                           resemble the behavior of rubber-like materials along with softness, high flexibility, and
+                           stretchability.
+
+                           Table 3. Material properties.
+
+                              Yeoh Material Model                Ecoflex 0030             Ecoflex 2:1:2 (0010:0020:0030)
+                                   𝐶 (MPa)                          0.0033                            0.0031
+                                   𝐶 (MPa)                             0                                 0
+                                   𝐶 (MPa)                       1.17 10                             2 10
+                                   𝜅 (MPa)                           0.78                              1.13
+                                      𝜐                               0.4                               0.4
+Materials 2025, 18, 3037                                                                                         21 of 25
+
+
+
+
+                           Figure 24. Comparison of simulation and experimental results of Ecoflex (a) 0030, (b) 2:1:2
+                           (0010:0020:0030), and (c) 0010 and (d) relative error for strain rate of 0.1/s.
+
+                                In addition, the Yeoh model was adopted along with five terms of the Prony series to
+                           replicate the loading–unloading cycle under smaller strain to replicate the hysteretic be-
+                           havior. The outcome of the simulation analysis for Ecoflex 0010 under strain = 400% is
+                           presented in Figure 24c. The simulation results follow closely with experimental results
+                           along with a reasonable representation of the energy dissipated in Ecoflex under cyclic
+                           loading–unloading conditions. The relative error was observed to be within 25% between
+                           simulation and experimental results, which decreases along with the stretching of the
+                           sample (up to 900% strain), as shown in Figure 24d. Overall, the applied Yeoh material
+                           model eﬀectively predicts the mechanical behavior of the Ecoflex and its formulation,
+                           which can be further implemented for the characterization of the Ecoflex or silicone elas-
+                           tomer-like material.
+
+                           4. Conclusions
+                                 This work presents a comprehensive experiment, simulation, and characterization of
+                           Ecoflex and its formulation based on weight concentrations subjected to monotonic uni-
+                           axial testing. The study showed that Ecoflex 0030 (SH = 30) transformed into a softer ma-
+                           terial under large deformation (>400%) compared to Ecoflex 0010 (SH = 11.5). The results
+                           from diﬀerent loading conditions displayed the tunability nature of the Ecoflex (4:1
+                           (0010:Gel2)), with improved stiﬀness and ultimate strength of the material. This signifies
+                           that mixing multiple formulations of Ecoflex–Ecoflex composite can be used to tune the
+                           mechanical properties for specific applications such as artificial skin/tissue. The durability
+                           test between the pristine and 365 days old samples indicated a minor eﬀect on the material
+                           response to the mechanical deformation, which emphasizes the insignificant influences
+                           on the material in ambient conditions. The addition of ST-Diﬀuser improved the non-ad-
+                           hesive and smooth texture of the surface, yielding an average contact angle of 122° for
+                           Ecoflex 0020 at 𝑥 15 wt% of additives. Furthermore, enhancing the hydrophobicity of
+                           the surface can be applied to create a soft touch, moisture-resistant, self-cleaning wearable
+Materials 2025, 18, 3037                                                                                                              22 of 25
+
+
+
+
+                                   devices. The adopted Yeoh model predicts the viscoelastic behavior and hysteresis of the
+                                   Ecoflex and its blended composite, with a 25% relative error for large deformation (1200%
+                                   strain) under loading and unloading cycles. The detailed analyses and databases allow
+                                   researchers to select multiple formulations of Ecoflex–Ecoflex composite for their desired
+                                   applications. Future work will focus on the integration of machine learning for the opti-
+                                   mization of mixing formulation and prediction of mechanical properties.
+
+                                   Supplementary Materials: The following supporting information can be downloaded at:
+                                   https://www.mdpi.com/article/10.3390/ma18133037/s1. Table S1. Detailed simulation setup and ma-
+                                   terial model. Table S2. Detailed weight concentration of Ecoflex and its formulation solution. Figure
+                                   S1. (a–f): Comparison of Young’s modulus and peak stress of Ecoflex and its formulation. Figure S2.
+                                   (a–d): Comparison of stretchability of Ecoflex and its formulation. Video S1. Pristine_Eco-
+                                   flex_2_1_2_under_SEM. Video S2. Streched_Ecoflex_2_1_2_under_SEM. Video S3. Recov-
+                                   ery_of_Ecoflex_0030_under_SEM. Video S4. Vibratiion_of_Ecoflex_0020_under_SEM. Video S5.
+                                   Simulaton_loading_unloading_strain_400.gif.
+
+                                   Author Contributions: Conceptualization, R.J., F.A., and N.J.; methodology, R.J. and N.J.; software,
+                                   R.J.; validation, R.J., F.A., and Z.G.; formal analysis, R.J. and F.A.; investigation, R.J., F.A., Z.G., and
+                                   A.A.; resources, N.J.; data curation, R.J. and N.J.; writing, R.J.; writing—review and editing, F.A.,
+                                   Z.G., A.A., and N.J.; visualization, R.J.; supervision, N.J.; project administration, N.J.; funding ac-
+                                   quisition, N.J. All authors have read and agreed to the published version of the manuscript.
+
+                                   Funding: This research was sponsored by the Air Force Oﬃce of Scientific Research under Award
+                                   Number W911NF-23-1-0171. The views and conclusions contained in this document are those of the
+                                   authors and should not be interpreted as representing the oﬃcial policies, either expressed or im-
+                                   plied, of the Army Research Oﬃce or the U.S. Government.
+
+                                   Institutional Review Board Statement: Not applicable.
+
+                                   Informed Consent Statement: Not applicable.
+
+                                   Data Availability Statement: The original contributions presented in this study are included in the
+                                   article/Supplementary Material. Further inquiries can be directed to the corresponding author.
+
+                                   Acknowledgments: The authors would like to thank the members of the SMART group at the Uni-
+                                   versity of New Mexico.
+
+                                   Conflicts of Interest: The authors declare no conflicts of interest.
+
+
+References
+1.    Brown, X.Q.; Ookawa, K.; Wong, J.Y. Evaluation of Polydimethylsiloxane Scaffolds with Physiologically-Relevant Elastic Mod-
+      uli: Interplay of Substrate Mechanics and Surface Chemistry Effects on Vascular Smooth Muscle Cell Response. Biomaterials
+      2005, 26, 3123–3129. https://doi.org/10.1016/j.biomaterials.2004.08.009.
+2.    Del Bosque, A.; Sánchez-Romate, X.F.; Gómez, A.; Sánchez, M.; Ureña, A. Highly Stretchable Strain Sensors Based on Graphene
+      Nanoplatelet-Doped       Ecoflex    for      Biomedical    Purposes.      Sens.     Actuators   A     Phys.    2023,    353,    114249.
+      https://doi.org/10.1016/j.sna.2023.114249.
+3.    Fujii, T. PDMS-Based Microfluidic Devices for Biomedical Applications. Microelectron. Eng. 2002, 61–62, 907–914.
+      https://doi.org/10.1016/S0167-9317(02)00494-X.
+4.    Potrich, C.; Lunelli, L.; Cocuzza, M.; Marasso, S.L.; Pirri, C.F.; Pederzolli, C. Simple PDMS Microdevice for Biomedical Appli-
+      cations. Talanta 2019, 193, 44–50. https://doi.org/10.1016/j.talanta.2018.09.080.
+5.    Ahmad, D.; Ajaj, R.M.; Amoozgar, M. Elastomer-Based Skins for Morphing Aircraft Applications: Effect of Biaxial Strain Rates
+      and Prestretch. Polym. Test. 2022, 113, 107655. https://doi.org/10.1016/j.polymertesting.2022.107655.
+6.    Liu, Y.; Ma, L.; Wang, W.; Kota, A.K.; Hu, H. An Experimental Study on Soft PDMS Materials for Aircraft Icing Mitigation. Appl.
+      Surf. Sci. 2018, 447, 599–609. https://doi.org/10.1016/j.apsusc.2018.04.032.
+Materials 2025, 18, 3037                                                                                                              23 of 25
+
+
+
+
+7.    Gray,    D.S.;   Tien,   J.;   Chen,   C.S.   High-Conductivity   Elastomeric    Electronics.    Adv.    Mater.   2004,   16,   393–397.
+      https://doi.org/10.1002/adma.200306107.
+8.    Larmagnac, A.; Eggenberger, S.; Janossy, H.; Vörös, J. Stretchable Electronics Based on Ag-PDMS Composites. Sci. Rep. 2014, 4,
+      7254. https://doi.org/10.1038/srep07254.
+9.    Qi, D.; Zhang, K.; Tian, G.; Jiang, B.; Huang, Y. Stretchable Electronics Based on PDMS Substrates. Adv. Mater. 2021, 33, 2003155.
+      https://doi.org/10.1002/adma.202003155.
+10.   Cheng, W.; Kai, D.; Loh, X.J.; He, C.; Li, Z. Silicone Copolymers for Healthcare and Personal Care Applications. In Silicon Con-
+      taining Hybrid Copolymers; He, C., Li, Z., Eds.; Wiley: New York, NY, USA, 2020; pp. 145–166, ISBN 978-3-527-34664-6.
+11.   Ivanova, E.V.; Minyaylo, E.O.; Temnikov, M.N.; Mukhtorov, L.G.; Atroshchenko, Yu.M. Silicones in Cosmetics. Polym. Sci. Ser.
+      B 2023, 65, 578–594. https://doi.org/10.1134/S1560090423600201.
+12.   Moon, J.; Huh, Y.; Park, J.; Kim, H.W.; Choe, Y.; Huh, J.; Bang, J. Adhesion Behavior of Catechol-Incorporated Silicone Elastomer
+      on Metal Surface. ACS Appl. Polym. Mater. 2020, 2, 2444–2451. https://doi.org/10.1021/acsapm.0c00387.
+13.   Li, Y.; Zhang, Z.; Li, X.; Zhang, J.; Lou, H.; Shi, X.; Cheng, X.; Peng, H. A Smart, Stretchable Resistive Heater Textile. J. Mater.
+      Chem. C 2017, 5, 41–46. https://doi.org/10.1039/C6TC04399B.
+14.   Yamashita, T.; Takamatsu, S.; Miyake, K.; Itoh, T. Fabrication and Evaluation of a Conductive Polymer Coated Elastomer Con-
+      tact Structure for Woven Electronic Textile. Sens. Actuators A Phys. 2013, 195, 213–218. https://doi.org/10.1016/j.sna.2012.09.002.
+15.   Darby, D.R.; Cai, Z.; Mason, C.R.; Pham, J.T. Modulus and Adhesion of Sylgard 184, Solaris, and Ecoflex 00-30 Silicone Elasto-
+      mers with Varied Mixing Ratios. J. Appl. Polym. Sci. 2022, 139, e52412. https://doi.org/10.1002/app.52412.
+16.   Guler, Z.; Jackson, N. Mechanical Properties of Stretchable Multifunctional Ecoflex Composites for E-Skin Applications. In Pro-
+      ceedings of the Volume 12: Micro- and Nano-Systems Engineering and Packaging; American Society of Mechanical Engineers: New
+      Orleans, LA, USA, 2023; p. V012T13A020.
+17.   Lavazza, J. A Study on the Mechanical Behaviour of Ecoflex 00-50 Silicone Elastomer. Available online: https://www.politesi.po-
+      limi.it/bitstream/10589/187294/5/Executive_Summary_Lavazza.pdf (accessed on 23 June 2025).
+18.   Lavazza, J.; Contino, M.; Marano, C. Strain Rate, Temperature and Deformation State Effect on Ecoflex 00-50 Silicone Mechanical
+      Behaviour. Mech. Mater. 2023, 178, 104560. https://doi.org/10.1016/j.mechmat.2023.104560.
+19.   Liao, Z.; Hossain, M.; Yao, X.; Navaratne, R.; Chagnon, G. A Comprehensive Thermo-Viscoelastic Experimental Investigation
+      of Ecoflex Polymer. Polym. Test. 2020, 86, 106478. https://doi.org/10.1016/j.polymertesting.2020.106478.
+20.   Yoda,     R.     Elastomers     for    Biomedical    Applications.    J.   Biomater.   Sci.     Polym.    Ed.     1998,   9,    561–626.
+      https://doi.org/10.1163/156856298X00046.
+21.   Suo, G.; Yu, Y.; Zhang, Z.; Wang, S.; Zhao, P.; Li, J.; Wang, X. Piezoelectric and Triboelectric Dual Effects in Mechanical-Energy
+      Harvesting Using BaTiO3/Polydimethylsiloxane Composite Film. ACS Appl. Mater. Interfaces 2016, 8, 34335–34341.
+      https://doi.org/10.1021/acsami.6b11108.
+22.   Said, M.Mohd.; Yunas, J.; Pawinanto, R.E.; Majlis, B.Y.; Bais, B. PDMS Based Electromagnetic Actuator Membrane with Embed-
+      ded Magnetic Particles in Polymer Composite. Sens. Actuators A Phys. 2016, 245, 85–96. https://doi.org/10.1016/j.sna.2016.05.007.
+23.   Wu, S.; Zhang, J.; Ladani, R.B.; Ravindran, A.R.; Mouritz, A.P.; Kinloch, A.J.; Wang, C.H. Novel Electrically Conductive Porous
+      PDMS/Carbon Nanofiber Composites for Deformable Strain Sensors and Conductors. ACS Appl. Mater. Interfaces 2017, 9, 14207–
+      14215. https://doi.org/10.1021/acsami.7b00847.
+24.   Vazquez, I.R.; Guler, Z.; Jackson, N. Enhancing Manufacturability of SU-8 Piezoelectric Composite Films for Microsystem Ap-
+      plications. Micromachines 2024, 15, 397. https://doi.org/10.3390/mi15030397.
+25.   Guler, Z.; Vazquez, I.R.; Jackson, N. Multi-Functional 0–3 Composite Polyimide Films for Microsystem Applications. Smart
+      Mater. Struct. 2023, 32, 075015. https://doi.org/10.1088/1361-665x/acdba2.
+26.   Babu, I.; De With, G. Highly Flexible Piezoelectric 0–3 PZT–PDMS Composites with High Filler Content. Compos. Sci. Technol.
+      2014, 91, 91–97. https://doi.org/10.1016/j.compscitech.2013.11.027.
+27.   Demidenko, N.A.; Kuksin, A.V.; Molodykh, V.V.; Pyankov, E.S.; Ichkitidze, L.P.; Zaborova, V.A.; Tsymbal, A.A.; Tkachenko,
+      S.A.; Shafaei, H.; Diachkova, E.; et al. Flexible Strain-Sensitive Silicone-CNT Sensor for Human Motion Detection. Bioengineering
+      2022, 9, 36. https://doi.org/10.3390/bioengineering9010036.
+28.   Someya, T.; Kato, Y.; Sekitani, T.; Iba, S.; Noguchi, Y.; Murase, Y.; Kawaguchi, H.; Sakurai, T. Conformable, Flexible, Large-Area
+      Networks of Pressure and Thermal Sensors with Organic Transistor Active Matrixes. Proc. Natl. Acad. Sci. USA 2005, 102, 12321–
+      12325. https://doi.org/10.1073/pnas.0502392102.
+Materials 2025, 18, 3037                                                                                                              24 of 25
+
+
+
+
+29.   Silipigni, L.; Salvato, G.; Torrisi, A.; Cutroneo, M.; Slepicka, P.; Fajstavr, D.; Torrisi, L. Pressure Sensor Based on Porous Polydi-
+      methylsiloxane       with    Embedded      Gold   Nanoparticles.   J.   Mater.   Sci.     Mater.    Electron.   2021,   32,   8703–8715.
+      https://doi.org/10.1007/s10854-021-05541-1.
+30.   Ye, Z.; Faisal, Md.S.S.; Asmatulu, R.; Chen, Z. Artificial Muscles of Dielectric Elastomers Attached to Artificial Tendons of Func-
+      tionalized Carbon Fibers. In Proceedings of Volume 9056: Electroactive Polymer Actuators and Devices (EAPAD); SPIE: San Diego,
+      CA, USA, 2014.
+31.   Yong-Lae Park; Bor-Rong Chen; Wood, R.J. Design and Fabrication of Soft Artificial Skin Using Embedded Microchannels and
+      Liquid Conductors. IEEE Sens. J. 2012, 12, 2711–2718. https://doi.org/10.1109/JSEN.2012.2200790.
+32.   Victor, A.; Ribeiro, J.; F. Araújo, F. Study of PDMS Characterization and Its Applications in Biomedicine: A Review. J. Mech. Eng.
+      Biomech. 2019, 4, 1–9. https://doi.org/10.24243/JMEB/4.1.163.
+33.   Nachman, M.; Franklin, S.E. Artificial Skin Model Simulating Dry and Moist in Vivo Human Skin Friction and Deformation
+      Behaviour. Tribol. Int. 2016, 97, 431–439. https://doi.org/10.1016/j.triboint.2016.01.043.
+34.   Liao, Z.; Hossain, M.; Yao, X. Ecoflex Polymer of Different Shore Hardnesses: Experimental Investigations and Constitutive
+      Modelling. Mech. Mater. 2020, 144, 103366. https://doi.org/10.1016/j.mechmat.2020.103366.
+35.   Hensley, D.; Christodoulou, C.; Jackson, N. A Stretchable Liquid Metal Antenna Array. In Proceedings of the 2021 IEEE Inter-
+      national Symposium on Antennas and Propagation and USNC-URSI Radio Science Meeting (APS/URSI), Singapore, 4 Decem-
+      ber 2021; pp. 1777–1778.
+36.   Hensley, D.M.; Christodoulou, C.G.; Jackson, N. A Stretchable Liquid Metal Coaxial Phase Shifter. IEEE Open J. Antennas Propag.
+      2021, 2, 370–374. https://doi.org/10.1109/OJAP.2021.3063289.
+37.   Jackson, N.; Buckley, J.; Clarke, C.; Stam, F. Manufacturing Methods of Stretchable Liquid Metal-Based Antenna. Microsyst.
+      Technol. 2019, 25, 3175–3184. https://doi.org/10.1007/s00542-018-4234-2.
+38.   Fassler, A.; Majidi, C. Liquid-Phase Metal Inclusions for a Conductive Polymer Composite. Adv. Mater. 2015, 27, 1928–1932.
+      https://doi.org/10.1002/adma.201405256.
+39.   Jeong, C.K.; Lee, J.; Han, S.; Ryu, J.; Hwang, G.; Park, D.Y.; Park, J.H.; Lee, S.S.; Byun, M.; Ko, S.H.; et al. A Hyper-Stretchable
+      Elastic-Composite Energy Harvester. Adv. Mater. 2015, 27, 2866–2875. https://doi.org/10.1002/adma.201500367.
+40.   Noh, J.S. Conductive Elastomers for Stretchable Electronics, Sensors and Energy Harvesters. Polymers 2016, 8, 123.
+      https://doi.org/10.3390/polym8040123.
+41.   Zhou, Z.; Tang, H.; Sodano, H.A. Scalable Synthesis of Morphotropic Phase Boundary Lead Zirconium Titanate Nanowires for
+      Energy Harvesting. Adv. Mater. 2014, 26, 7547–7554. https://doi.org/10.1002/adma.201403286.
+42.   Amjadi, M.; Yoon, Y.J.; Park, I. Ultra-Stretchable and Skin-Mountable Strain Sensors Using Carbon Nanotubes–Ecoflex Nano-
+      composites. Nanotechnology 2015, 26, 375501. https://doi.org/10.1088/0957-4484/26/37/375501.
+43.   Boland, C.S.; Khan, U.; Backes, C.; O’Neill, A.; McCauley, J.; Duane, S.; Shanker, R.; Liu, Y.; Jurewicz, I.; Dalton, A.B.; et al.
+      Sensitive, High-Strain, High-Rate Bodily Motion Sensors Based on Graphene–Rubber Composites. ACS Nano 2014, 8, 8819–8830.
+      https://doi.org/10.1021/nn503454h.
+44.   Tang, Y.; Zhao, Z.; Hu, H.; Liu, Y.; Wang, X.; Zhou, S.; Qiu, J. Highly Stretchable and Ultrasensitive Strain Sensor Based on
+      Reduced Graphene Oxide Microtubes–Elastomer Composite. ACS Appl. Mater. Interfaces 2015, 7, 27432–27439.
+      https://doi.org/10.1021/acsami.5b09314.
+45.   Mariello, M.; Fachechi, L.; Guido, F.; De Vittorio, M. Multifunctional Sub-100 µm Thickness Flexible Piezo/Triboelectric Hybrid
+      Water Energy Harvester Based on Biocompatible AlN and Soft Parylene C-PDMS-EcoflexTM. Nano Energy 2021, 83, 105811.
+      https://doi.org/10.1016/j.nanoen.2021.105811.
+46.   Daly, C.H. Biomechanical Properties of Dermis. J. Investig. Dermatol. 1982, 79, 17–20. https://doi.org/10.1038/jid.1982.4.
+47.   Kalra, A.; Lowe, A. An Overview of Factors Affecting the Skins Youngs Modulus. J. Aging Sci. 2016, 4, 1000156.
+      https://doi.org/10.4172/2329-8847.1000156.
+48.   Janardhana, R.; Guler, Z.; Akram, F.; Jackson, N. Comparison of Mechanical Behavior of Macro and Micro-Sized Ecoflex 0030
+      and 0031. In Proceedings of the Volume 10: Mechanics of Solids, Structures, and Fluids; Micro- and Nano-Systems Engineering and
+      Packaging; American Society of Mechanical Engineers: Portland, OR, USA, 2024; p. V010T13A001.
+49.   Krpovic, S.; Dam-Johansen, K.; Skov, A.L. Importance of Mullins Effect in Commercial Silicone Elastomer Formulations for Soft
+      Robotics. J. Appl. Polym. Sci. 2021, 138, 50380. https://doi.org/10.1002/app.50380.
+50.   Vaicekauskaite, J.; Mazurek, P.; Vudayagiri, S.; Skov, A.L. Mapping the Mechanical and Electrical Properties of Commercial
+      Silicone    Elastomer       Formulations    for   Stretchable   Transducers.     J.     Mater.     Chem.   C    2020,   8,    1273–1279.
+      https://doi.org/10.1039/C9TC05072H.
+Materials 2025, 18, 3037                                                                                                             25 of 25
+
+
+
+
+51.   Blanchard, B.; Derail, C.; Nardin, C. Measurement of Human Skin Mechanical Properties: Variations According to the Effect of
+      Different Stresses. In Mesure Des Propriétés Mécaniques de La Peau Humaine: Variations Sous l’effet de Différents Stress; Université
+      de Pau et des Pays de l’Adour: Pau, France, 2023.
+52.   Weigel, E.; Janardhana, R.; Jackson, N. Mechanical Characterization of Stretchable Ecoflex Thin Films for Microengineering
+      Applications (Manuscript Accepted). In Proceedings of the ASME International Mechanical Engineering Congress and Exposi-
+      tio, Memphis, TN, USA, 16–20 November 2025; Unpublished results.
+53.   ASTM-D412; Standard Test Methods for Vulcanized Rubber and Thermoplastic Elastomers. ASTM: West Conshohocken, PA,
+      USA, 2012.
+54.   Modulus of Elasticity Available online: https://www.instron.com/en/resources/glossary/modulus-of-elasticity (accessed on 20
+      January 2025).
+55.   Zhao, Z.; Mu, X.; Du, F. Modeling and Verification of a New Hyperelastic Model for Rubber-Like Materials. Math. Probl. Eng.
+      2019, 2019, 2832059. https://doi.org/10.1155/2019/2832059.
+56.   Meng, F.; Pritchard, R.H.; Terentjev, E.M. Stress Relaxation, Dynamics, and Plasticity of Transient Polymer Networks. Macro-
+      molecules 2016, 49, 2843–2852. https://doi.org/10.1021/acs.macromol.5b02667.
+57.   Guo, S.; Wang, L.; Shao, G.; Shao, H.; Jiang, J.; Chen, N. Mechanical Behavior and Energy Dissipation of Woven and Warp-
+      Knitted      Pvc     Membrane        Materials   under       Multistage    Cyclic    Loading.      Polymers     2022,    14,     1666.
+      https://doi.org/10.3390/polym14091666.
+58.   Zhang, H.; Wang, L.; Li, J.; Deng, H.; Xu, X. Study on the Mechanical Properties of Unloading Damaged Sandstone under Cyclic
+      Loading and Unloading. Sci. Rep. 2023, 13, 7370. https://doi.org/10.1038/s41598-023-33721-y.
+59.   Houwink, R. Slipping of Molecules during the Deformation of Reinforced Rubber. Rubber Chem. Technol. 1956, 29, 888–893.
+      https://doi.org/10.5254/1.3542602.
+60.   Liao, Z.; Yang, J.; Hossain, M.; Chagnon, G.; Yao, X. The Time and Temperature Dependences of the Stress Recovery of Ecoflex
+      Polymer. Int. J. Non-Linear Mech. 2023, 149, 104338. https://doi.org/10.1016/j.ijnonlinmec.2022.104338.
+61.   Luis, E.; Pan, H.M.; Bastola, A.K.; Bajpai, R.; Sing, S.L.; Song, J.; Yeong, W.Y. 3D Printed Silicone Meniscus Implants: Influence
+      of the 3D Printing Process on Properties of Silicone Implants. Polymers 2020, 12, 2136. https://doi.org/10.3390/polym12092136.
+62.   Abadi, M.; Serag, M.F.; Habuchi, S. Entangled Polymer Dynamics beyond Reptation. Nat. Commun. 2018, 9, 5098.
+      https://doi.org/10.1038/s41467-018-07546-7.
+63.   Diani, J.; Fayolle, B.; Gilormini, P. A Review on the Mullins Effect. Eur. Polym. J. 2009, 45, 601–612. https://doi.org/10.1016/j.eur-
+      polymj.2008.11.017.
+64.   COMSOL Multiphysicss® v. 6.1. COMSOL, Inc. Available online: https://www.comsol.com (accessed on 10 May 2025).
+65.   Janardhana, R.D.; Jackson, N. A Simulated Investigation of Lithium Niobate Orientation Effects on Standing Acoustic Waves.
+      Sensors 2023, 23, 8317. https://doi.org/10.3390/s23198317.
+
+Disclaimer/Publisher’s Note: The statements, opinions and data contained in all publications are solely those of the individual au-
+thor(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to
+people or property resulting from any ideas, methods, instructions or products referred to in the content.
+

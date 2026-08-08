@@ -1,0 +1,1055 @@
+                                                                                           Scholars' Mine
+
+Masters Theses                                                              Student Theses and Dissertations
+
+
+Spring 2015
+
+A novel entropy production based full-chip TSV fatigue analysis
+Tianchen Wang
+
+
+
+
+Follow this and additional works at: https://scholarsmine.mst.edu/masters_theses
+
+    Part of the Computer Engineering Commons
+
+
+Department: Electrical and Computer Engineering
+
+
+If you have a disability and have trouble accessing this content, please submit an accessibility
+request form.
+
+
+Recommended Citation
+Wang, Tianchen, "A novel entropy production based full-chip TSV fatigue analysis" (2015). Masters
+Theses. 7426.
+https://scholarsmine.mst.edu/masters_theses/7426
+
+
+This thesis is brought to you by Scholars' Mine, a service of the Missouri S&T Library and Learning Resources. This
+work is protected by U. S. Copyright Law. Unauthorized use including reproduction for redistribution requires the
+permission of the copyright holder. For more information, please contact scholarsmine@mst.edu.
+       A NOVEL ENTROPY PRODUCTION BASED
+          FULL-CHIP TSV FATIGUE ANALYSIS
+
+
+                              by
+
+
+                     TIANCHEN WANG
+
+
+                          A THESIS
+
+    Presented to the Faculty of the Graduate School of the
+
+MISSOURI UNIVERSITY OF SCIENCE AND TECHNOLOGY
+
+   In Partial Fulfillment of the Requirements for the Degree
+
+
+  MASTER OF SCIENCE IN COMPUTER ENGINEERING
+
+
+                            2015
+
+                        Approved by
+
+
+
+                    Dr. Yiyu Shi, Advisor
+                     Dr. Sung Kyu Lim
+                       Dr. Minsu Choi
+  Copyright 2015
+TIANCHEN WANG
+All Rights Reserved
+                                                                                          iii
+
+                                       ABSTRACT
+
+
+
+
+       Through-silicon vias (TSVs) are subject to thermal fatigue due to stress over time,
+no matter how small the stress is. Existing works on TSV fatigue all rely on measurement-
+based parameters to estimate the lifetime, and cannot consider detailed thermal profiles. In
+this paper, we propose a new method for TSV fatigue prediction using entropy production
+during thermal cycles. By combining thermodynamics and mechanics laws, the fatigue
+process can be quantitatively evaluated with detailed thermal profiles. Experimental re-
+sults show that interestingly, the landing pad possesses the most easy-to-fail region, which
+generates up to 50% more entropy compared with the TSV body. The impact of landing
+pad dimension and TSV geometries are also studied, providing guidance for reliability en-
+hancement. Finally, full-chip fatigue analysis is performed based on stress superposition.
+To the best of the authors’ knowledge, this is the first TSV fatigue model that is free of
+measurement data fitting, the first that is capable of considering detailed thermal profiles,
+and the first framework for efficient full-chip TSV fatigue analysis.
+                                                                                          iv
+
+                               ACKNOWLEDGMENTS
+
+
+
+
+        Foremost, I would like to express my sincere gratitude to my advisor Prof. Yiyu Shi
+for the continuous support of my master study and research, for his patience, motivation,
+enthusiasm, and immense knowledge. His guidance helped me in all the time of research
+and writing of this thesis. I could not have imagined having a better advisor and mentor for
+my study.
+        Besides my advisor, I would like to thank the rest of my thesis committee: Prof.
+Sung Kyu Lim and Prof Minsu Choi, for their encouragement, insightful comments, and
+hard questions.
+        My sincere thanks also goes to Prof. Sung Kyu Lim, for offering me the visiting
+student opportunities in his group and leading me working on diverse exciting project.
+        I thank my fellow labmates in Missouri S&T CAD Group: Hui Geng, Umamah-
+eswara Rao Tida, Khalid K. Al-Jabery, Jinglan Liu, Qifeng Chen, Chunyu Wang, and Ying
+Zhang, for the stimulating discussions, for the sleepless nights we were working together
+before deadlines, and for all the fun we have had in the past. Also I thank my friends in
+Missouri S&T University: Wei Wang, Huixu Deng, Boyang Li and Fei Cheng. In particu-
+lar, I am grateful to my girlfriend Shanshan Bi for enlightening me my life.
+        Last but not the least, I would like to thank my family: my parents Yi Wang and Yi
+Ma, for giving birth to me at the first place and supporting me spiritually throughout my
+life.
+                                                                                                                                              v
+
+                                                  TABLE OF CONTENTS
+
+
+                                                                                                                                        Page
+
+
+
+ABSTRACT . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . iii
+
+
+ACKNOWLEDGMENTS . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                 iv
+
+
+LIST OF ILLUSTRATIONS . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . vii
+
+
+LIST OF TABLES . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . viii
+
+
+SECTION
+
+
+1    INTRODUCTION . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .           1
+
+
+2    PRELIMINARIES . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .          4
+
+     2.1       VON MISES STRESS CRITERION . . . . . . . . . . . . . . . . . . . .                                                             4
+
+     2.2       EXISTING FATIGUE MODELS . . . . . . . . . . . . . . . . . . . . . .                                                            5
+
+
+3    ENTROPY PRODUCTION MODELING . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                                      7
+
+     3.1       CONCEPT OF MODELING . . . . . . . . . . . . . . . . . . . . . . . .                                                            7
+
+     3.2       RELATIONSHIP TO COFFIN-MANSON MODEL . . . . . . . . . . . .                                                                    9
+
+     3.3       EXPERIMENTAL VALIDATION OF ENTROPY PRODUCTION . . . .                                                                        10
+
+
+4    SIMULATION AND ANALYSIS . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+
+     4.1       IMPACT OF THERMAL CYCLES . . . . . . . . . . . . . . . . . . . .                                                             14
+
+     4.2       IMPACT OF TSV STRUCTURE PARAMETERS . . . . . . . . . . . . .                                                                 18
+
+     4.3       IMPACT OF THE PITCH IN A TSV PAIR . . . . . . . . . . . . . . . .                                                            23
+
+     4.4       IMPACT OF LANDING PAD ORIENTATION IN ARRAYS . . . . . . .                                                                    24
+                                                                                                                                                     vi
+
+5     FULL CHIP ANALYSIS . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+
+
+6     CONCLUSIONS . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 31
+
+
+BIBLIOGRAPHY . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 32
+
+
+VITA . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 34
+                                                                                            vii
+
+                              LIST OF ILLUSTRATIONS
+
+
+Figure                                                                                     Page
+
+
+   1.1   SEM images of interfacial cracks under Cu pad and on the TSV side wall.             2
+
+   3.1   SEM image showing shearing and cracking in via after thermal cycles,
+         cross-sectional view of via in entropy production modeling and cycles to
+         failure of experiment test, entropy production and Coffin-Manson prediction. 13
+
+   4.1   Illustration of the side view and the top view of the TSV structure, with the
+         profile of a thermal cycle. . . . . . . . . . . . . . . . . . . . . . . . . . .    15
+
+   4.2   Entropy production distributions on the top and bottom surfaces of the
+         landing pad through five thermal cycles. . . . . . . . . . . . . . . . . . .       17
+
+   4.3   Entropy production distributions on the inner surface, outer surface and top
+         surface of the TSV body through five thermal cycles. . . . . . . . . . . .         18
+
+   4.4   Thermal profiles for entropy production validation. . . . . . . . . . . . .        19
+
+   4.5   The maximum entropy production values of the landing pad and the TSV
+         body, with various thickness and width of the landing pad, thickness of the
+         liner and length of the TSV body, respectively. . . . . . . . . . . . . . . .      21
+
+   4.6   The entropy production distribution on the top and bottom surfaces of the
+         landing pads in a TSV pair. . . . . . . . . . . . . . . . . . . . . . . . . .      22
+
+   4.7   The entropy production distribution on the outer surface, inner surface and
+         top surface of the TSV body in a TSV pair. . . . . . . . . . . . . . . . .         23
+
+   4.8   The maximum entropy production of the landing pad and the TSV body,
+         with various pitches. . . . . . . . . . . . . . . . . . . . . . . . . . . . .      25
+
+   4.9   The two layouts of TSV arrays and the corresponding results. . . . . . . .         27
+
+   5.1   Entropy production distributions on the top surfaces of a TSV pair using
+         FEA and our framework. . . . . . . . . . . . . . . . . . . . . . . . . . .         29
+
+   5.2   Entropy production distributions of full-chip TSVs in regular and irregular
+         layouts. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     30
+                                                                                            viii
+
+                                    LIST OF TABLES
+
+
+Table                                                                                      Page
+
+
+   3.1   Comparisons Between the Von Mises Stress, the Coffin-Manson Model
+         and the Entropy Production Model. . . . . . . . . . . . . . . . . . . . . .          9
+
+   4.1   Material Properties . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       16
+
+   4.2   Entropy production of TSV body and landing pad with different thermal
+         cycles. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     20
+                                    1. INTRODUCTION
+
+
+
+
+        With the rapid growing requirements on the performance, speed and power of in-
+tegrated circuits, tremendous efforts have been made towards the successful development
+of the three-dimensional integrated circuit (3D IC). Through-silicon vias (TSVs) play an
+important role in 3D ICs as vertical signal and power interconnects and facilitating heat
+transfer between different tiers.
+        Due to thermal loading, all electronic devices have limited lifetime restricted by
+thermal failures. In the application of 3D ICs, the mismatch of coefficients of thermal
+expansion (CTE) between copper, silicon dioxide and silicon leads to thermo-mechanical
+stress and strain at the interfaces. If the stress applied on a material is higher than its yield
+strength, it will start plastic deformation. Various literature have thus studied the algorithms
+to capture stress hotspots in a 3D IC(e.g.,[1, 2]). A less known and studied problem, on
+the other hand, is the thermal fatigue when the stress is below yield strength. With cyclic
+thermal loading, the stress and strain will cause elastic deformation, accumulating fatigue
+over time. Such fatigue will result in interfacial cracks between liner, substrate, landing
+pad and TSV body, as shown in Figure 1.1 [3]. It is essential to understand and investigate
+the mechanics of TSV fatigue and optimize chip designs for better performance, reliability
+and robustness.
+        The limited works available on TSV fatigue are mainly based on the Coffin-Manson
+model, the details of which will be discussed in Section 2.2. For example, Choa [4] studied
+the durability of TSV using the model by analyzing the plastic strain due to repetitive
+temperature cycling and investigated the impact of TSV design parameters. Ladani [5]
+applied the model in the reliability analysis of TSVs and solder joints as well as in the
+                                                                                            2
+
+
+
+
+                           (a)                                  (b)
+  Figure 1.1: SEM images of interfacial cracks under Cu pad and on the TSV side wall.
+
+
+
+
+impact study of underfill thickness and stiffness. A few limitations exist for the Coffin-
+Mason model and thus all these methods. They require measurement data fitting, and
+cannot consider any thermal profile details during thermal cycling.
+       In this paper, we propose a novel model based on entropy production, which does
+not need any measurement data fitting, to quantitatively predict TSV fatigue during thermal
+cycles. The model takes detailed transient thermal profile into consideration. In addition,
+we show that the classic Coffin-Manson fatigue model can be deduced from our model,
+which partially verifies its correctness. We then further study the impact of TSV structures
+and locations on fatigue using our model. Finally, we present an efficient framework for
+full-chip fatigue analysis based on stress superposition. The main contribution of our paper
+is that we have proposed (1) the first TSV fatigue model that is free of measurement data
+fitting, and the first capable of considering detailed thermal profiles; (2) a few interesting
+observations on the impact of TSV structures and locations on fatigue; and (3) the first
+framework for full-chip TSV fatigue analysis.
+       The remainder of the paper is organized as follows: Section 2 reviews two models
+for mechanical reliability and thermal fatigue analysis, with their shortcomings. Section 3
+                                                                                        3
+
+theoretically introduces the novel entropy production fatigue analysis. Section 4 investi-
+gates the impact of TSV structures and locations, and Section 5 presents the full-chip TSV
+fatigue analysis framework. Concluding remarks are given in Section 6.
+                                                                                          4
+
+                                  2. PRELIMINARIES
+
+
+
+
+2.1. VON MISES STRESS CRITERION
+
+       When stress exceeds the yield strength, materials start to experience irreversible
+plastic deformation. The von Mises yield criterion is most widely used to determine
+whether an isotropic and ductile metal will yield when it is subject to a complex loading
+condition [6, 7].
+       The von Mises stress is derived from stress tensor, a combination of normal and
+shear stresses that has nine components and completely describes the state of a stress ap-
+plied on an object at a point. The equation of stress tensor is shown in Eq. (2.1) and the
+related von Mises stress is shown in Eq. (2.2). The indices (i, j) in Eq. (2.2) refer to the
+normal and tangential directions of the stress, respectively. When i equals j, σij is called
+normal stress and when i does not equal j, σij is called shear stress.
+
+                                                      
+                                          σ11 σ12 σ13 
+                                                      
+                                σ = σij = 
+                                          σ21 σ22 σ23 
+                                                                                      (2.1)
+                                                      
+                                           σ31 σ32 σ33
+
+        1               1               1                                     1
+  σv = [ (σxx − σyy )2 + (σyy − σzz )2 + (σzz − σxx )2 + 3(σxy
+                                                            2     2
+                                                               + σyz    2
+                                                                     + σxz )] 2        (2.2)
+        2               2               2
+
+The von Mises criterion only shows whether a material starts plastic deformation during
+operation at a specific time, and therefore does not apply to long-term material fatigue
+analysis (especially when the stress does not exceed the yield strength).
+                                                                                               5
+
+2.2. EXISTING FATIGUE MODELS
+
+          Researchers have attempted to quantify material fatigue under various circum-
+stances for many years. Miner [8] proposed the first idea about quantifying the fatigue
+damage under the assumption that the life fractions of individual amplitudes sum up to
+unity. From then on, various models for fatigue lifetime prediction were developed on dif-
+ferent variables such as strain, stress, energy, damage, temperature, frequency, etc. Among
+them, the Coffin-Manson model is the most widely used one, which is based on plastic
+strain.
+          Depending on the strain amplitude (∆ε), the total number of cycles to failure (Nf )
+is depicted, with the fatigue ductility coefficient (ε0f ) and the fatigue ductility exponent (c)
+adopted for various materials by specific measurement data fitting. The equation is shown
+in Eq. (2.3).
+                                       ∆ε
+                                          = ε0f (2Nf )c                                    (2.3)
+                                       2
+
+          Since the Coffin-Manson model applies on the condition that the fatigue due to
+plastic deformation dominates, it is commonly combined with Basquin’s equation to take
+elastic deformation into consideration, leading to Eq. (2.4).
+
+                                ∆ε   σf0
+                                   =     (2Nf )b + ε0f (2Nf )c                             (2.4)
+                                2    E
+
+where σf0 is the fatigue strength coefficient, E is the elastic modulus and b is the Basquin’s
+exponent. This equation greatly improves the accuracy as it accounts the attribution of
+elastic deformation, especially in the higher reversals to failure area.
+          Two significant limitations exist for both models. First, they rely on measurement
+data, which are valid only under specific environmental conditions such as thermal shock
+and thermal cycles, to fit various parameters. As such, the fitted parameters are not suit-
+able for all the complex conditions. Second, they only consider the effects of maximum
+                                                                                       6
+
+temperature, temperature change, and cycling frequency, and are thus semi-empirical. For
+example, they cannot tell the difference between temperature cycle and thermal shock,
+where the ramp rate is the key difference. Thermal shock has much higher ramp rate, and
+results in more damage [9].
+       In this paper, we will propose a new model for TSV fatigue analysis that addresses
+both issues.
+                                                                                        7
+
+                     3. ENTROPY PRODUCTION MODELING
+
+
+
+
+3.1. CONCEPT OF MODELING
+
+       The theory of fatigue prediction using entropy production is developed based on
+the Degradation-Entropy Generation (DEG) theorem. According to the second law of
+the thermodynamics, entropy is generated when the permanent degradation is presented
+through an irreversible process, which leads to a monotonic increase of disorder in a sys-
+tem. Therefore, the component of material degradation can be measured by entropy and
+thermodynamics energy [10, 11].
+       As for experimental validation, Naderi [12] validated the sufficient and necessary
+condition for the entropy production of a metal which takes cyclic loading before reaching
+the final fracture. In the experiment, it is observed that the metal specimen breaks dur-
+ing operation when its entropy production through thermal deformation cycles reaches a
+critical value. The behavior is independent of the loading type, the size and the geom-
+etry of the specimen. Furthermore, by applying the entropy degradation theory related
+thermodynamic forces, Amiri [13] experimentally determined the critical damage value of
+specimens subjected to different operations based on the entropy flow.
+       In this work, we take one step further and apply the concept of entropy generation
+to the context of TSV fatigue. Based on previous theories, when expressing the fact that
+the volumetric entropy production is positive, the Clausius-Duhem inequality (second law
+of thermodynamics) can be used
+
+                                           ε˙p (t)      gradT (t)
+                          γ̇(t) = σ(t) :           − Jq           ≥0                 (3.1)
+                                           T (t)          T 2 (t)
+                                                                                                  8
+
+where Jq is the heat flux through the boundary, σ(t)is the symmetric stress tensor, γ̇(t)is
+the entropy production, ε˙p (t)is the strain rate, σ(t) : ε˙p (t) = σij (t)ε̇p(ij) (t) is the tensor
+multiplication.
+        The heat flow and the work within an arbitrary control volume contribute to the to-
+tal energy of a system, which describes the conservation of energy in thermodynamics. By
+introducing temperature and total strain, the coupling of thermodynamics and continuum
+mechanics can lead to an energy balance as shown in Eq. (3.2), made by heat conduc-
+tion (kO2 T (t)), thermal inertia retardation effect (ρC Ṫ ), internal heat generation through
+plastic deformation (σ(t) : ε˙p (t)) and thermo-elastic coupling (T (t)∂σ/∂T (t) : ε˙e (t)).
+
+                                                                 T (t)∂σ
+                         kO2 T (t) = ρC Ṫ − σ(t) : ε˙p (t) −            : ε˙e (t)             (3.2)
+                                                                  ∂T (t)
+
+Then the entropy production during a certain period of time (γc ) can be obtained by com-
+bining Eq. (3.1) and Eq. (3.2) with time integration, shown in Eq. (3.3).
+
+                                      Z t
+                                                W (t) Jq · gradT (t)
+                               γc =         (         −              ) dt                      (3.3)
+                                       0        T (t)     T 2 (t)
+
+Subsequently, the material fatigue status of TSV is obtained based on entropy produc-
+tion. A larger entropy production means shorter lifetime due to fatigue. Apparently, the
+above model does not have any parameter that needs to be fitted, and considers the detailed
+thermal profile T (t).
+        To conclude, comparisons between the von Mises stress, the Coffin-Manson model
+and our entropy production model are summarized in Table 3.1.
+                                                                                      9
+
+Table 3.1: Comparisons Between the Von Mises Stress, the Coffin-Manson Model and the
+           Entropy Production Model.
+
+                                    Von Mises    Coffin-Manson    Entropy
+                                      stress         model       production
+              Fatigue life                             √             √
+              prediction
+              Consider detailed         √                            √
+              thermal profiles
+              No measurement            √                            √
+              data needed
+                                        √
+              Stress analysis
+                                                       √             √
+              Fatigue analysis
+
+
+
+
+3.2. RELATIONSHIP TO COFFIN-MANSON MODEL
+
+       To partially validate our entropy production model, we will show in this section
+that the widely used Coffin-Manson model (i.e., Eq. (2.3)) can be deduced from Eq. (3.3)
+by making reasonable assumptions.
+       As the Coffin-Manson model applies the condition that plastic deformation dom-
+inates the fatigue of a material, we only consider the entropy production due to plastic
+deformation. First we introduce the model from Morrow [14], in which the plastic strain
+energy per cycle keeps approximately constant during the fully reversed experimental fa-
+tigue tests. The related equation is
+
+                                                 0
+                                       4σf0 ( 1−n
+                                              1+n0
+                                                   ) ∆εp 1+n0
+                                 ∆wp =        0
+                                                    (   )                          (3.4)
+                                            εf        2
+                                                                                         10
+
+Assuming that we are dealing with low-cycle fatigue in small volume with heat conduction
+neglected, Eq. (3.4) leads to
+                                          Z t
+                                                    f (t)∆wp
+                                   γf =         (            ) dt                    (3.5)
+                                           0           T (t)
+
+where f (t) is the fraction of work done by plastic deformation during thermal cycles.
+        Then, by assuming the plastic energy dissipation and the temperature are constants
+throughout the thermal cycles, Eq. (3.5) leads to
+
+                                                    ∆wp
+                                       γf =             Nf                           (3.6)
+                                                     T
+
+Therefore, the number of cycles to failure Nf is obtained by employing Eq. (3.4), which
+is
+                                                      0
+                                    T γf (ε0f )n ∆εp −(1+n0 )
+                                Nf = 0 1−n0 (       )                                (3.7)
+                                    4σf ( 1+n0 ) 2
+
+Compared with Coffin Mason model, we get
+
+                                                               0
+                                 1       0
+                                               2σf0 ( 1−n
+                                                      1+n0
+                                                           ) − 10
+                           c=−        , εf = (               ) 1+n                   (3.8)
+                               1 + n0          T γf (ε0f )n0
+
+This leads to the conclusion that Coffin-Manson model is a special case of our entropy
+generation model under specific assumptions and simplifications, which partially validates
+the correctness of our model. In the future, we will validate our model directly with mea-
+surement data.
+
+
+3.3. EXPERIMENTAL VALIDATION OF ENTROPY PRODUCTION
+
+        In the previous section, we have demonstrate that our entropy production method
+is more generalized than Coffin-Manson model. To validate it experimentally, we use the
+via chain test structures, which would form part of 3D ICs [15] with measurement data for
+silicon correlation.
+                                                                                              11
+
+        As shown in Figure 3.1(a), the stacked via chain structure is used for reliability
+evaluation. It is made of two SiLK levels and two SiO2 levels upper placed, with three
+metal levels (MC, M1 and M2) connected by two level of vias (V1 and V2). In the exper-
+iment, the chain has 50 links repeatedly, alternating between M2 and MC, which are local
+interconnects linking to other stacks. Therefore, this unsymmetrical structure would lead
+to a non-homogeneous stress on vias.
+        In Figure 3.1(b), the SEM cross section view clearly shows the typical fail at the
+stress condition of certain thermal cycles, occurred along the (111) plane.
+        To model the via structure, the geometry of the structures applied in the experimen-
+tal test were adopted from [16]. The entropy production result of via with cross-section
+view is shown in Figure 3.1(c). The highest entropy production occurs on upper-right and
+bottom-left parts, leading to the crack shears through the entire via. The nonsymmetrical
+crack is due to the stacked via test structure: Repeated units of metal levels in the test struc-
+ture are connected by two levels of vias, with a nonsymmetrical configuration. This result
+agrees well with the crack plane in Figure 3.1(b), showing a precise fatigue prediction of
+entropy production method.
+        To compare entropy production with Coffin-Manson prediction, four different ther-
+mal profiles are used. The parameters of Coffin-Manson equation vary due to various
+experimental environments [4, 17, 18] and yield multiple results. The resulting cycles to
+failure from measurement, entropy production and Coffin-Manson equation are shown in
+Figure 3.1(d). ∆T means the temperature difference in thermal cycles, while cycles to
+failure in y axis is in log scale. Noted that the measurement data uses N50 median number,
+and the entropy production prediction is determined by the result of 215◦ C.
+        As shown in the figure, the curves of Coffin-Manson exhibits a large range of un-
+certainties in y-axis (cycles to failure). In practical application, it is hard to decide which
+parameters should be used, which depends on specific working environment. By setting
+                                                                                       12
+
+total entropy production value, the curve fits well with experiment data along higher tem-
+perature difference area. Entropy production has a better fatigue prediction performance
+than Coffin-Manson in practical application.
+                                                                                      13
+
+
+
+
+                                           (a)
+                                                                         1
+
+
+                                                                         0
+
+
+                                                                         0
+
+                           (b)                              (c)
+
+
+
+
+                                             (d)
+Figure 3.1: SEM image showing shearing and cracking in via after thermal cycles, cross-
+            sectional view of via in entropy production modeling and cycles to failure of
+            experiment test, entropy production and Coffin-Manson prediction.
+                                                                                              14
+
+                           4. SIMULATION AND ANALYSIS
+
+
+
+
+4.1. IMPACT OF THERMAL CYCLES
+
+        In this section, TSV cells are modeled in Abaqus to calculate the entropy production
+of TSV for fatigue prediction. For the first part of the simulation, a single TSV cell with a
+copper TSV body and two landing pads attached is built as shown in Figure 4.1(a)(b).
+        Unless specified, the geometries are the same as in [7]. The parameters of mate-
+rials applied are listed in Table 4.1. In this model, we have simplified the bottom part of
+the TSV by ignoring the solder joint attached. The top part is modeled accurately for fa-
+tigue analysis. The interfaces between different parts are assumed to be perfectly adhesive.
+The thermal cycles range from 20◦ C to 70◦ C, as shown in Figure 4.1(c). Note that this
+temperature profile is derived from actual operating conditions of a chip.
+        It needs to be clarified that since entropy production has only been experimentally
+proved on metals, our fatigue analysis only focuses on the TSV body and the attached
+landing pad. In other words, it is limited to copper. In addition, in all the figures afterwards,
+we use a single color bar for all the parts in the same figure for better comparison.
+        We simulate the TSV structure for five thermal cycles. The resulting entropy pro-
+duction distributions on the top and bottom surfaces of the landing pad attached to the top
+surface of the TSV are shown in Figure 4.2.
+        It is clear that after five thermal cycles, the entropy production at the four corners
+of the landing pad increases much faster than that at the center. The reason is that the
+expansion and contraction of the TSV body has little axial effect on the attached area
+between the TSV body and the landing pad, since they have the same CTE. However,
+the corners of the landing pad located between the dielectric layer and ILD have larger
+moments during deformation, thus leading to higher entropy production.
+                                                                                           15
+
+
+
+
+Figure 4.1: Illustration of the side view and the top view of the TSV structure, with the
+            profile of a thermal cycle.
+
+
+
+
+       The results of the TSV body are shown in Figure 4.3, with its inner surface, outer
+surface and top surface displayed. After the thermal cycles, the outer edge of the top surface
+has the maximum entropy production. This is again due to the CTE mismatch between the
+TSV body and the barrier, which causes large stress and strain on the top interface. In
+addition, the minimum entropy production area can be found in the middle part of the top
+surface, as it is attached to the landing pad with the same CTE. Finally, due to the radial
+                                                                                         16
+
+                               Table 4.1: Material Properties
+
+                                  CTE        Young’s        Poisson’s
+                    Material
+                                (ppm/K)    Modulus(GPa)       ratio
+                    Cu             17          110            0.35
+                    Si             2.3         130            0.28
+                    SiO2           0.5          71            0.16
+                    Low K          20          9.5             0.3
+                    BCB            40            3            0.34
+                    Ti             8.6         116            0.32
+
+
+
+
+effect of stress, the entropy production also concentrates in the middle of the TSV body,
+which increases at about 50% higher rate than the neighboring parts. This suggests that the
+middle part of a TSV body can be a new reliability concern in the presence of fatigue.
+       In the simulations, we also discover that the rate of entropy production increase in
+the landing pad and the TSV body through cycles remain the same. Thus, single cycle
+modeling is sufficient for TSV fatigue analysis using entropy production, which will be
+used in the remaining of the paper.
+       We summarize the important findings from the above study as follows.
+       Observation 1: Landing pads have maximum entropy production located at corners.
+       Observation 2: The middle part of a TSV body shows concentrated entropy pro-
+duction, leading to a new reliability concern.
+       As illustrated in previous section, the Coffin-Manson method only considers the
+maximum strain amplitude during the thermal cycles. Therefore, to prove the capable of
+considering detailed thermal profiles of entropy production, the TSV models with four
+different thermal cycles are built for comparison, shown in Figure. 4.4. The four thermal
+cycles have the same cycle time and temperature range, leading to the same Coffin-Manson
+                                                                                         17
+
+
+
+
+Figure 4.2: Entropy production distributions on the top and bottom surfaces of the landing
+            pad through five thermal cycles.
+
+
+
+
+fatigue prediction. The four cycles have different rate of temperature change and distribu-
+tion. Group 1 and 2, 3 and 4 have the same high temperature period, while group 1 and 3 ,
+2 and 4 has the same rates of temperature change. The results are shown in Table. 4.2.
+       The results clearly illustrate that the time period of high temperature doesn’t in-
+fluence the fatigue within entropy production, while the rate of temperature change does
+influence. It is observed that the results of group 2 and 4 with a higher temperature change
+rate have higher entropy production, in both landing pad and TSV body. This is caused by
+the nonlinear increasing of entropy production in plastic deformation at high stress. The
+higher temperature change rate, the higher entropy production leading to easier fatigue of
+material. Therefore, the entropy production fatigue method is applicable in the fatigue
+analysis considering the impact of different thermal cycles.
+                                                                                          18
+
+
+
+
+Figure 4.3: Entropy production distributions on the inner surface, outer surface and top
+            surface of the TSV body through five thermal cycles.
+
+
+
+
+4.2. IMPACT OF TSV STRUCTURE PARAMETERS
+
+       In this section, we study the impact of TSV structure parameters on the entropy
+production in a single TSV cell, hoping to establish guidelines for reliability optimization.
+We only focus on the maximum entropy production values of the TSV body and the landing
+pad respectively, which provide information about the most dangerous areas.
+       The results of entropy production of the landing pad and the TSV body with dif-
+ferent thickness and width of the landing pad, thickness of the liner and length of the TSV
+body are shown in Figure 4.5.
+                                                                                         19
+
+
+
+
+             Figure 4.4: Thermal profiles for entropy production validation.
+
+
+
+
+       First of all, from Figure 4.5 we can first see that in all the cases, the landing pad
+always has a much higher maximum entropy production compared with the TSV body. For
+example, when the landing pad thickness is 0.1 µm, the maximum entropy production of
+the landing pad is approximately 50% higher than that of the TSV body.
+       Observation 3: More attention should be paid to the landing pad than the TSV body
+in terms of thermal fatigue during TSV cell designs.
+       In addition, from Figure 4.5(a) we can see that when the thickness of the landing
+pad increases, the maximum entropy production value of the landing pad decreases while
+that of the TSV body increases. This is because with the increase of thickness the landing
+pad gets stronger to hold against the deformation from the TSV body along the axial direc-
+tion. As such, the strain rate gets smaller and the entropy production becomes smaller. As
+for the TSV body, a stronger landing pad leads to more stress on the surface, resulting in
+higher entropy production.
+                                                                                         20
+
+Table 4.2: Entropy production of TSV body and landing pad with different thermal cycles.
+
+            Thermal Profile Groups                      1       2       3       4
+     Landing Pad       Max Entropy                     45.4    46.6    45.4    46.6
+     TSV Body     Production(×108 J/m3 K)              28.0    28.9    28.0    28.9
+
+
+
+
+       Observation 4: Increasing the thickness of the landing pad is helpful for the landing
+pad to reduce fatigue, but harmful for the TSV body.
+       Moreover, from Figure 4.5(b) we can see that as the width of the landing pad in-
+creases from 6 µm to 9 µm, the maximum entropy production values of both the landing
+pad and the TSV body increase. For the landing pad, this is because a wider landing pad
+introduces larger strain rate due to longer distance. For the TSV body, the stress acted on
+it remains the same while the strain rate increases. Therefore, increasing the width of the
+landing pad is not preferred for fatigue reduction.
+       Observation 5: Increasing the width of the landing pad is harmful for both the
+landing pad and the TSV body.
+       Furthermore, from Figure 4.5(c) we can see that as the thickness of the liner in-
+creases, the maximum entropy production value of the landing pad increases while that of
+the TSV body decreases, with very small differences. This is because the liner is made
+of silicon dioxide, which has a much lower CTE than copper. When the liner thickness
+increases, a more rigid wall is built around the TSV body, which holds against the landing
+pad. This causes the landing pad harder to deform, thus an increased stress on the interface
+between the liner and the landing pad. For the TSV body, the outer edge of the top sur-
+face has less strain rate than before, which leads to a slightly decreased maximum entropy
+production value.
+                                                                                         21
+
+
+
+
+Figure 4.5: The maximum entropy production values of the landing pad and the TSV body,
+            with various thickness and width of the landing pad, thickness of the liner and
+            length of the TSV body, respectively.
+
+
+
+
+       Observation 6: The thickness of the liner has limited impact on the fatigue of both
+the landing pad and the TSV body.
+       Finally, from Figure 4.5(d) we can see that when the length of the TSV body is
+below 20 µm or aspect ratio 4:1, the maximum entropy production value of the landing pad
+decreases and that of the TSV body increases with the increase of the TSV body length.
+Both stop changing afterwards. This is because when the TSV body is long enough, the
+stress from expansion and contraction along the axial direction at the top surface does not
+change any more.
+       Observation 7: Aspect ratio of the TSV body only matters when it is small. In such
+scenarios, increasing the aspect ratio is helpful for the landing pad to reduce fatigue, but
+harmful for the TSV body.
+                                                                                         22
+
+
+
+
+Figure 4.6: The entropy production distribution on the top and bottom surfaces of the land-
+            ing pads in a TSV pair.
+
+
+
+
+       In this section, we study the impact of the pitch in a TSV pair. The entropy pro-
+duction distributions on the landing pads with different pitches (d1 = 7 µm, d2 = 10 µm,
+d3 = 13 µm) are shown in Figure 4.6. From the figure, it is clear that the pitch affects the
+entropy production on both surfaces of the landing pad. When the TSVs get closer, the
+two inner corners on each landing pad have lower entropy production. This difference is
+caused by the silicon between the two TSVs. Small volume has less restricted power and
+since copper has a much higher CTE, the stress applied on the inner sides would decrease.
+Meanwhile on the contrary, the outer sides of both landing pads would be subject to more
+stress from the TSV body, leading to a higher entropy production.
+                                                                                          23
+
+
+
+
+Figure 4.7: The entropy production distribution on the outer surface, inner surface and top
+            surface of the TSV body in a TSV pair.
+
+
+
+
+       The corresponding entropy production distributions on the inner surface (b,d,f),
+outer surface (a, c, e) and top surface (g, h, i) of the TSV body are shown in Figure 4.7.
+From the figure we can tell that when the TSVs get closer, there is an easy-to-fail area
+in the middle part of the TSV body. Unlike the landing pad, the area closer to the other
+TSV body shows a higher entropy production. However, when the pitch increases, the
+distribution of entropy production becomes uniform, which is similar as the result of the
+single TSV model. The top surface of the TSV also shows the trend that the smaller pitch,
+the larger entropy production.
+
+
+4.3. IMPACT OF THE PITCH IN A TSV PAIR
+
+       In this section, we study the impact of the pitch in a TSV pair. The entropy produc-
+tion distributions on the landing pads with different pitches are shown in Figure 4.6. From
+the figure, it is clear that the pitch affects the entropy production on both surfaces of the
+                                                                                       24
+
+landing pad. When the TSVs get closer, the two inner corners on each landing pad have
+lower entropy production. This difference is caused by the silicon between the two TSVs.
+Small volume has less restricted power and since copper has a much higher CTE, the stress
+applied on the inner sides would decrease. Meanwhile on the contrary, the outer sides of
+both landing pads would be subject to more stress from the TSV body, leading to a higher
+entropy production.
+       The corresponding entropy production distributions on the inner surface, outer sur-
+face and top surface of the TSV body are shown in Figure 4.7. From the figure we can tell
+that when the TSVs get closer, there is an easy-to-fail area in the middle part of the TSV
+body. Unlike the landing pad, the area closer to the other TSV body shows a higher entropy
+production. However, when the pitch increases, the distribution of entropy production be-
+comes uniform, which is similar as the result of the single TSV model. The top surface of
+the TSV also shows the trend that the smaller pitch, the larger entropy production.
+       Finally, Figure 4.8 with various pitches (d1 = 7 µm, d2 = 10 µm, d3 = 13 µm)
+presents the maximum entropy production value of both the landing pad and the TSV body
+for various pitches. From the figure we can see that with the increase of the pitch, the
+maximum entropy production value of both the landing pad and the TSV body reduces.
+       Observation 8: Increasing the TSV pitch is helpful for both the landing pad and the
+TSV body to reduce fatigue.
+
+
+4.4. IMPACT OF LANDING PAD ORIENTATION IN ARRAYS
+
+       The entropy production distribution depends on the configuration of TSV array.
+The TSV fatigue with various TSV array while retaining the same TSV density have been
+studied by [19]. However, the impact of TSV array configuration on landing pad has not
+been investigated before. As the previous section shows, the landing pad always has a
+higher entropy production compared with TSV body during thermal cycles, that attract
+                                                                                        25
+
+
+
+
+Figure 4.8: The maximum entropy production of the landing pad and the TSV body, with
+            various pitches.
+
+
+
+
+more attention on fatigue preventing. Therefore, two arrays with different landing pad
+orientations and same TSV density are modeled for comparison, shown in Figure. 4.9(a)
+and (b). The angles of the landing pad in two groups have a difference of 45 degree. Models
+with various pitch sizes are built for comparison.
+       The results are shown in Figure. 4.9(c) with five different pitch size groups. It is
+observed that the maximum entropy production of landing pad is higher than that of TSV
+body as the same as before. The larger pitch size causes the lower entropy production, for
+both TSV body and landing pad. For most cases, the entropy productions of TSV body and
+                                                                                      26
+
+landing pad in group (b) is lower than those in group (a). The only exception is the TSV
+body entropy production with pitch size is 10 µm, where the distance between two landing
+pads is as small as 1.5 µm. This is caused by close interact of each landing pads, which
+occur a high stress effect on the other TSV body. Therefore, the fatigue tradeoff between
+landing pad and TSV bdoy needs to be made when TSV pitch is small enough. In most
+cases, the TSV layout with landing pad orientation as Figure. 4.9(b) is preferred.
+                                                                            27
+
+
+
+
+               (a)                                  (b)
+
+
+
+
+                                                             (Angle)
+                                                             (Pitch Size)
+                               (c)
+Figure 4.9: The two layouts of TSV arrays and the corresponding results.
+                                                                                            28
+
+                               5. FULL CHIP ANALYSIS
+
+
+
+
+       FEA analysis of TSV fatigue using entropy production for a single TSV and a TSV
+pair has been investigated in the previous section. However, FEA is limited to small scale
+simulation due to the computational complexity. Therefore, it is necessary to develop a fast
+and accurate framework to analyze the fatigue of TSVs at full-chip scale. Superposition
+is the best approach in this context, but unfortunately, the entropy production as can be
+seen from Eq. (3.3) is nonlinear and cannot be superposed. Accordingly, we propose to use
+stress tensor superposition to achieve this target. The validity of stress tensor superposition
+has been verified in [7]. With the full-chip stress obtained from superposition, the strain
+can be obtained by fitting Hooke’s law and the strain-stress curve of copper. The entropy
+production can then be readily derived.
+       To validate the correctness of our framework, the layout of a TSV pair is simulated
+by both FEA and our framework, with results shown in Figure 5.1. Note that the landing
+pads are not included in the analysis. It can be clearly seen that the patterns from both
+exactly match. The meshes in Figure 5.1(b) is the computation grid used to perform the
+superposition of stress.
+       Now we are ready to apply our framework to full-chip analysis. We apply two
+TSV placement styles on the same design with the same TSV cell size. A total of 1,472
+TSVs are placed in a chip area of 1 mm × 1 mm. In the regular placement the TSVs are
+uniformly placed with 25 µm pitch as shown in Figure 5.2(a). The irregular placement, as
+shown in Figure 5.2(b), results in shorter wirelength. The minimum TSV pitch is 10 µm.
+Comparing the two maps, the irregular TSV placement results in 17.3× higher maximum
+entropy production during thermal cycles. In addition, in the irregular placement, the hot-
+pots are mainly located at places where the TSVs have small pitches. Meanwhile in the
+regular placement with much larger pitches, almost identical entropy production occurs at
+                                                                                     29
+
+
+
+
+Figure 5.1: Entropy production distributions on the top surfaces of a TSV pair using FEA
+            and our framework.
+
+
+
+
+each TSV. Therefore, we can conclude that full-chip TSV placement needs to consider the
+tradeoff between wirelength and TSV fatigue.
+                                                                                         30
+
+
+
+
+Figure 5.2: Entropy production distributions of full-chip TSVs in regular and irregular lay-
+            outs.
+                                                                                          31
+
+                                   6. CONCLUSIONS
+
+
+
+
+       In this paper, a new TSV fatigue model based on entropy production has been
+proposed. By combining thermodynamics and mechanics laws, the fatigue process can be
+quantitatively evaluated with the model. Experimental results show many interesting and
+important observations on the impact of TSV structure and location, providing guidance
+for reliability enhancement. Finally, full-chip fatigue analysis is performed based on stress
+superposition. To the best of the authors’ knowledge, this is the first TSV fatigue model
+that is free of measurement data fitting, the first that is capable of considering detailed
+thermal profiles, and the first framework for efficient full-chip TSV fatigue analysis.
+                                                                                       32
+
+                                  BIBLIOGRAPHY
+
+
+
+
+ [1] Moongon Jung, David Z Pan, and Sung Kyu Lim. Chip/package co-analysis of
+     thermo-mechanical stress and reliability in tsv-based 3d ics. In Proceedings of the
+     49th Annual Design Automation Conference, pages 317–326. ACM, 2012.
+
+ [2] Kuan H Lu, Suk-Kyu Ryu, Qiu Zhao, Xuefeng Zhang, Jay Im, Rui Huang, and Paul S
+     Ho. Thermal stress induced delamination of through silicon vias in 3-d interconnects.
+     In Electronic Components and Technology Conference (ECTC), 2010 Proceedings
+     60th, pages 40–45. IEEE, 2010.
+
+ [3] Xi Liu, Qiao Chen, Venkatesh Sundaram, Rao R Tummala, and Suresh K Sitaraman.
+     Failure analysis of through-silicon vias in free-standing wafer under thermal-shock
+     test. Microelectronics Reliability, 53(1):70–78, 2013.
+
+ [4] Sung-Hoon Choa, Cha Gyu Song, and Haeng Soo Lee. Investigation of durability
+     of tsv interconnect by numerical thermal fatigue analysis. International Journal of
+     Precision Engineering and Manufacturing, 12(4):589–596, 2011.
+
+ [5] Leila J Ladani. Numerical analysis of thermo-mechanical reliability of through sili-
+     con vias (tsvs) and solder interconnects in 3-dimensional integrated circuits. Micro-
+     electronic Engineering, 87(2):208–215, 2010.
+
+ [6] Joseph Edward Shigley. Mechanical engineering design. McGraw-Hill, 1972.
+
+ [7] Moongon Jung, Joydeep Mitra, David Z Pan, and Sung Kyu Lim. Tsv stress-aware
+     full-chip mechanical reliability analysis and optimization for 3d ic. Communications
+     of the ACM, 57(1):107–115, 2014.
+
+ [8] Milton A Miner et al. Cumulative damage in fatigue. Journal of applied mechanics,
+     12(3):159–164, 1945.
+
+ [9] Rakesh K Agarwal, L Tuchscherer, H Cui, R Jain, T Torri, and S Baxter. Thermal
+     cycling and thermal shock for fcob testing. ASME EEP, 26:2, 1999.
+
+[10] C Basaran and C-Y Yan. A thermodynamic framework for damage mechanics of
+     solder joints. Journal of Electronic Packaging, 120(4):379–384, 1998.
+
+[11] MD Bryant, MM Khonsari, and FF Ling. On the thermodynamics of degradation.
+     Proceedings of the Royal Society A: Mathematical, Physical and Engineering Sci-
+     ence, 464(2096):2001–2014, 2008.
+
+[12] M Naderi, M Amiri, and MM Khonsari. On the thermodynamic entropy of fatigue
+     fracture. Proceedings of the Royal Society A: Mathematical, Physical and Engineer-
+     ing Science, page rspa20090348, 2009.
+                                                                                        33
+
+[13] M Amiri, M Naderi, and MICHAEL M Khonsari. An experimental approach to
+     evaluate the critical damage. International Journal of Damage Mechanics, 20(1):89–
+     112, 2011.
+
+[14] JoDean Morrow. Cyclic plastic strain energy and fatigue of metals. Internal Friction,
+     Damping and Cyclic Plasticitiy, STP378, pages 45–84, July 1965.
+
+[15] RG Filippi, JF McGrath, TM Shaw, CE Murray, HS Rathore, PS McLaughlin, V Mc-
+     Gahay, L Nicholson, P-C Wang, JR Lloyd, et al. Thermal cycle reliability of stacked
+     via structures with copper metallization and an organic low-k dielectric. In Reliabil-
+     ity Physics Symposium Proceedings, 2004. 42nd Annual. 2004 IEEE International,
+     pages 61–67. IEEE, 2004.
+
+[16] Jing Zhang, Max O Bloomfield, Jian-Qiang Lu, Ronald J Gutmann, and Timothy S
+     Cale. Modeling thermal stresses in 3-d ic interwafer interconnects. Semiconductor
+     Manufacturing, IEEE Transactions on, 19(4):437–448, 2006.
+
+[17] Qiao Chen, Xi Liu, Venkatesh Sundaram, S Sitaraman, and R Tummala. Double-side
+     process and reliability of through-silicon vias (tsvs) for passive interposer applica-
+     tions. 2014.
+
+[18] TH Low and John HL Pang. Modeling plated copper interconnections in a bumpless
+     flip chip package. In Electronics Packaging Technology, 2003 5th Conference (EPTC
+     2003), pages 791–796. IEEE, 2003.
+
+[19] Kuan H Lu, Xuefeng Zhang, Suk-Kyu Ryu, Jay Im, Rui Huang, and Paul S Ho.
+     Thermo-mechanical reliability of 3-d ics containing through silicon vias. In Elec-
+     tronic Components and Technology Conference, 2009. ECTC 2009. 59th, pages 630–
+     634. IEEE, 2009.
+                                                                                      34
+
+                                         VITA
+
+
+
+
+       Tianchen Wang was born in China in 1987. He earned a bachelor’s degree of sci-
+ence and a master’s degree of science in mechanical engineering, both at North China
+Electric Power University, 2010 and 2013 respectively. He received his master’s degree in
+computer engineering from Missouri University of Science and Technology in May 2015.
+

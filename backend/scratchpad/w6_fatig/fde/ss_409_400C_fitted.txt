@@ -1,0 +1,100 @@
+
+#<HEAD> <TITLE>F.D.& E. Standard file Plot/Fit from U.Waterloo Calc. Site</TITLE> </HEAD>
+#<BODY> <H2>F.D.& E. Standard file Plot/Fit from UoWaterloo Calc. Site</h2>
+#Thu Nov  7 16:50:19 EST 2002 #<p>
+#
+#Original File used to create this Fitted file:
+#http://fde.uwaterloo.ca/Fde/Materials/SSteel/AISI_409_stainless/aisi409_400C_calcEp_AMerit_non_os.html">
+#saeinput FDE_fit SAE_Standard_File #
+#<html><title> #SAE Standard Data File #</title> #<body>
+#<FORM METHOD="POST" ACTION="http://fde.uwaterloo.ca/cgi-bin/catgnume">
+#<DL compact> Pick one:
+#<input type="radio" name="#saeinput" value="FDE_plot" >FDE_plot
+#<input type="radio" name="#saeinput" value="FDE_fit"  checked >FDE_fit
+#<input type="submit" value="Send for processing">
+#<br>The FD&E file is below:
+#<textarea rows=50 cols=90 name="SAE_Standard_File" >
+#<pre>
+#  Copyright (C) 2002  F.D.&E. Comm. of SAE
+# See the GNU disclaimer below indicating the distribution of this
+# data file with no warranty, express or implied, whatsoever.
+#
+# This data file is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the license, or (at
+# your option) any later version.
+#  This data file is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTA-
+# BILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public
+# License for more details.
+#  You should have received a copy of the GNU General PUblic License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 59 Temple Place -Suite 330, Boston, MA 02111-1307, USA. Try also their
+# web site: http://www.gnu.org/copyleft/gpl.html
+#
+# SS409_400C T409_400C  Test Temp. 400 deg. C
+# Su= 37.3 #Sy= 17.5 #E= 25000. #%RA= 85.4 #BHN=  75. Test at WMT&R
+#  circa June 1998 Data entered by Paul Lubinski, ArvinMeritor, 31Oct01
+# Because of high temp plastic effects at high strain levels the fitted
+# cyclic stress-strain curve was not reliable, and calculated elastic and
+# plastic values are use in this file. FAC
+#
+#FileType= strain_life
+#DataType= fitted
+#TIMEcol= 0
+#Ford= 753
+#NAME=  SS409fit
+#NAME= SS409_400C
+#UNITS= KSI
+#Stress_units= ksi
+#Su=       37.30
+#Sy=       17.50
+#E=       25000.
+#%RA=   85.4
+#BHN=  75.
+#NO. FAT. PTS.=  11
+#The plastic strains in the original file were calculated from Stress,Strain Amp
+#
+# SS409fit   SS409_400C BHN=    0. Fn=  753
+#          Monotonic Props.       Cyclic Props.
+#ELAS. MOD.= 25000. KSI,  172. GPA     K'        =  35.8 KSI,   247.MPA
+#YIELD,0.2%=    18. KSI,  121. MPA     N'        = 0.0367
+#ULT. STRG.=    37. KSI,  257. MPA     F. STRG COEF=   36.0 KSI,  248.MPA
+#K       =      0.0 KSI,      0. MPA   F.STRG EXP, b=-0.0253
+#N            = 0.0000                 FAT DUCT COEF=   1.1246
+#RED. IN AREA = 85.4                   F.DUCT EXP, c=-0.6883
+#T. FRAC. STG.=   0.0 KSI,    0. MPA   Exp Cyc Yld  =   28. Ksi, 196.MPA
+#T. FRAC. STR.= 0.000                  Fit Cyc Yld  =   29. Ksi, 197.MPA
+#No. fatigue data points=   11
+#
+#   NOTE!!! The Following Points are <b>FITTED DATA:</b>
+# Total Strain   2Nf  Stress  Mean   Plastic Strain   Initial
+#    Amp               Amp   Stress      Amp        Elastic Mod.
+   1.12606          1    36.0      0.   1.12462     25000. #Fitted_point
+   0.69935          2    35.3      0.   0.69794     25000. #Fitted_point
+   0.37286          5    34.5      0.   0.37148     25000. #Fitted_point
+   0.23189         10    33.9      0.   0.23054     25000. #Fitted_point
+   0.14441         20    33.3      0.   0.14307     25000. #Fitted_point
+   0.07745         50    32.6      0.   0.07615     25000. #Fitted_point
+   0.04854        100    32.0      0.   0.04726     25000. #Fitted_point
+   0.03059        200    31.4      0.   0.02933     25000. #Fitted_point
+   0.01684        500    30.7      0.   0.01561     25000. #Fitted_point
+   0.01090       1000    30.2      0.   0.00969     25000. #Fitted_point
+   0.00720       2000    29.7      0.   0.00601     25000. #Fitted_point
+   0.00436       5000    29.0      0.   0.00320     25000. #Fitted_point
+   0.00313      10000    28.5      0.   0.00199     25000. #Fitted_point
+   0.00235      20000    28.0      0.   0.00123     25000. #Fitted_point
+   0.00175      50000    27.3      0.   0.00066     25000. #Fitted_point
+   0.00148     100000    26.9      0.   0.00041     25000. #Fitted_point
+   0.00131     200000    26.4      0.   0.00025     25000. #Fitted_point
+   0.00117     500000    25.8      0.   0.00013     25000. #Fitted_point
+   0.00110    1000000    25.4      0.   0.00008     25000. #Fitted_point
+   0.00105    2000000    24.9      0.   0.00005     25000. #Fitted_point
+   0.00100    5000000    24.3      0.   0.00003     25000. #Fitted_point
+   0.00097   10000000    23.9      0.   0.00002     25000. #Fitted_point
+   0.00095   20000000    23.5      0.   0.00001     25000. #Fitted_point
+   0.00092   50000000    23.0      0.   0.00001     25000. #Fitted_point
+   0.00091  100000000    22.6      0.   0.00000     25000. #Fitted_point
+#</textarea>
+#</pre></DL></FORM></body></html>
+

@@ -1,0 +1,77 @@
+
+#<html><title>SAE Standard Fatigue Data File format</title><body>
+#<FORM METHOD="POST" ACTION="http://mme.uwaterloo.ca/cgi-bin/catgnume">
+#<DL compact> Pick one:
+#<input type="radio" name="#saeinput" value="FDE_plot" >FDE_plot
+#<input type="radio" name="#saeinput" value="FDE_fit"  checked >FDE_fit
+#<input type="submit" value="Send for processing">
+#<br><pre><textarea rows=50 cols=90 name="SAE_Standard_File" >
+#
+#Copyright (C) 2012  F.D.E. Committee
+#This data file is free software - you can redistribute it and/or
+#modify it under the terms of the GNU General Public License as
+#published by the Free Software Foundation; either version 2 of the
+#license, or (at your option) any later version.
+#This data file is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY - without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General PUblic License for more details.
+#You should have received a copy of the GNU General PUblic License
+#along with this program - if not, write to the Free Software
+#Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+#Try also their web site: http://www.gnu.org/copyleft/gpl.html
+#
+# NOTE:  Fitted Data !!
+# Grey Iron    Note: Original test data from LOAD CONTROL Tests!
+# Note: Fitted Curve did not use tests with mean stress.
+# 3.30C wt% 2.20Si .44Mn .40Cu
+# Ref.: J.Fash and D.F.Socie, "Fatigue behaviour and mean effects in grey
+#  cast iron," Int.J.Fatigue July 1982 pp.137-142.
+# It is strongly recommended that in order to understand this work
+# the readers refer to the original paper listed above.
+# Data digitized from graphs and may contain errors.
+#
+# Note: Modulus used is average of tensile modulus and comp. modulus
+# Note: "Plastic Strain" doesn't have much meaning for Grey Iron.
+#
+#FileType= strain_life
+#DataType= fitted
+#TIMEcol= 0
+#NAME=  GreyIron
+#NAME=  CastIron
+#Stress_units= mpa
+#Strain_units= strain
+#Sy=     185.  0.2pc offset = 26.9 ksi
+#Su=     228.
+#eu=     0.0122
+#E=  96000. mpa  =13930 ksi
+#FractureStrain= 0.0122
+#FractureStress=  228. (same as ultimate)
+#monotonic_K= 0  not reported
+#monotonic_n= 0  not reported
+#BHN= 180.
+#%RA= 1.2 %
+#saedigcurve_v2.2.f starts.
+# NOTE!! The Following Points are <b>FITTED DATA:</b>#NOTE!! Fitted Stress computed using Experm. K' and n'
+#StrAmpl     2Nf  StsAmpl So  PlasStrAmpl IniMod   NeuberEqiuvStressAmpl
+    .0122           1   228.       0     .0098      96000. #Fitted_point monotonic test
+   0.00305        500   151.2      0.   0.00148     96000. #Fitted_point
+   0.00269       1000   141.2      0.   0.00121     96000. #Fitted_point
+   0.00237       2000   131.9      0.   0.00100     96000. #Fitted_point
+   0.00202       5000   120.6      0.   0.00077     96000. #Fitted_point
+   0.00180      10000   112.6      0.   0.00063     96000. #Fitted_point
+   0.00161      20000   105.2      0.   0.00052     96000. #Fitted_point
+   0.00140      50000    96.2      0.   0.00040     96000. #Fitted_point
+   0.00126     100000    89.9      0.   0.00033     96000. #Fitted_point
+   0.00114     200000    84.0      0.   0.00027     96000. #Fitted_point
+   0.00101     500000    76.8      0.   0.00021     96000. #Fitted_point
+   0.00092    1000000    71.7      0.   0.00017     96000. #Fitted_point
+#Original Test data ends at about 2Nf=1 million. Below are extrapolation:
+   0.00084    2000000    67.0      0.   0.00014     96000. #Fitted_point
+   0.00075    5000000    61.3      0.   0.00011     96000. #Fitted_point
+   0.00069   10000000    57.3      0.   0.00009     96000. #Fitted_point
+   0.00063   20000000    53.6      0.   0.00007     96000. #Fitted_point
+   0.00057   50000000    49.0      0.   0.00006     96000. #Fitted_point
+#</textarea>
+#</pre></DL></FORM></body></html>
+
