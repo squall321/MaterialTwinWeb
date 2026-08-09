@@ -39,7 +39,11 @@ CHECKS = [
     ("파장 없는 광학값(tier<4)", f"""select count(*) from property_value where property_key in {OPT}
         and quality_tier<4 and (conditions is null or (conditions not like '%wavelength%' and conditions not like '%line%'))"""),
     ("온도가 값인데 온도 조건", f"select count(*) from property_value where property_key in {TEMP_VALUED} and conditions like '%temperature_C%'"),
+    # 장기계수(E∞)는 **Prony 항이 아니라 평형값**이라 항번호가 없는 것이 맞다.
+    # 급수는 E(t) = E∞ + Σ Ei·exp(-t/τi) 이고 E∞는 급수 밖에 있다.
+    # 9차 파동이 장기계수 36건을 넣자 이 검사가 전부 오탐했다.
     ("Prony 항에 항번호 없음", """select count(*) from property_value where property_key like 'mechanical.prony_%'
+        and property_key <> 'mechanical.prony_long_term_modulus'
         and (conditions is null or conditions not like '%term%')"""),
     # 계수·지수는 쌍이 맞아야 곡선이 성립한다. 하나만 있으면 수명 계산이 안 된다.
     #
