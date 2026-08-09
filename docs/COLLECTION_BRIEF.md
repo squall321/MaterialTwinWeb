@@ -118,9 +118,19 @@ Prony·투습·젖음**처럼 그 해석의 정체성을 이루는 물성이고,
   — 섹션 한정 검색(`TABLE:"..."`, `RESULTS:"..."`)이 가장 수율이 높다
 - **res.mdpi.com** — `article_deploy/` 세그먼트가 **필수**다. 없으면 404:
   `res.mdpi.com/d_attachment/{j}/{j}-{vol:02d}-{art:05d}/article_deploy/{j}-{vol:02d}-{art:05d}.pdf`
-- **accudynetest.com/polymer_surface_data/{슬러그}.pdf** — 폴리머별 표면에너지 시트 54종.
-  각 행이 1차 출처와 측정 방식을 함께 인쇄한다. `Calculated` 행은 tier4이니 쓰지 마라.
-  색인은 `polytable_01.html` ~ `polytable_04.html`
+- **accudynetest.com — 젖음성 최대 광맥이다. 9차 파동이 182종 중 133종(74%)을 여기서 닫았다.**
+  - **먼저 `polytable_03.html`을 봐라.** 개별 PDF보다 이쪽이 빠르다 — **38종 폴리머의
+    임계표면장력(mJ/m²)과 물 접촉각(deg)을 한 행에 나란히** 인쇄해서 **두 키를 한 출처로
+    동시에 닫는다.** 각주 5가 접촉각 열의 정체를 밝힌다("평형각과 전진각 측정 전부의
+    산술평균") — 단일 측정치가 아니므로 `conditions.angle_type`에 적어라.
+  - **`polymer_surface_data/other_polymers.pdf`가 숨은 보고다.** 색인 링크가 전부 이 한
+    파일로 몰려 있어 내용이 안 보이는데 실제로는 **38종이 CAS 번호와 함께** 들어 있다
+    (PEHA·폴리(라우릴/스테아릴 메타크릴레이트)·HEMA·EPDM·PEI·PES·PTHF·PVP).
+    9차에서 이 하나가 아크릴 PSA 테이프 23종 + 폴리(n-알킬 아크릴레이트) 11종을 닫았다.
+  - 개별 시트는 `polymer_surface_data/{슬러그}.pdf`. 각 행이 1차 출처와 측정 방식을 함께
+    인쇄한다. **`Calculated` 행은 쓰지 마라**(계산값이다).
+  - **색인은 `polytable_01` ~ `03`뿐이다. `polytable_04.html`은 404다**(9차에서 확인 —
+    앞선 브리프가 04까지 있다고 적은 것이 틀렸다). 셋에서 54개 슬러그가 전부 나온다.
 - **www-origin.nitto.com** — `www.nitto.com`이 HTTP/2 INTERNAL_ERROR로 죽을 때 우회로
 - **qnityelectronics.com** — DuPont 전자재료 도메인이 여기로 옮겨졌다.
   구 `dupont.com/content/dam/electronics/...` 경로는 전부 404이고 도메인만 바꾸면 200이다
