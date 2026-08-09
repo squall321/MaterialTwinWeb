@@ -232,11 +232,27 @@ DB에 등록돼 있던 구형 "product information" PDF에는 그 섹션이 **�
 
 ## 6. 자주 나오는 함정 (파동마다 반복해서 걸린 것들)
 
-- **matmake.com은 재료군마다 신뢰도가 다르다.** 금속 페이지는 쓸 만한데
-  **고무 페이지는 통째로 오염돼 있다** — SBR `Young's Modulus 2.1~10.3 GPa`(3자릿수 틀림),
-  NR `Yield 17.1~31.7 MPa` 대 `UTS 29 MPa`(항복>UTS, 규칙 6 위반).
-  **사이트 단위로 신뢰/불신을 판정하지 마라**(AZoM도 같다 — PU 선팽창은 정상인데
-  E-SBR은 체적팽창계수로 보인다).
+- **matmake.com은 재료군마다, 그리고 물성 열마다 신뢰도가 다르다.**
+  - **고무 페이지는 통째로 오염됐다** — SBR `Young's Modulus 2.1~10.3 GPa`(3자릿수 틀림),
+    NR `Yield 17.1~31.7 MPa` 대 `UTS 29 MPa`(항복>UTS, 규칙 6 위반).
+  - **`Electrical Resistivity` 열은 재료마다 갈린다** — PET 행 10¹⁴ Ω·cm는 DuPont Mylar
+    실측 10¹⁸ Ω·cm와 **네 자릿수** 어긋나는데, PTFE 행 10¹⁸은 카탈로그 tier2와 일치한다.
+  - **`Relative Permittivity (@1 MHz)` 열은 믿을 만하다**(PET 3.0이 Mylar 실측과 같다).
+  - C17200 페이지는 **자기 표 안에서 모순**이다(도전율 1.28e7 S/m ↔ 저항률 7.2e-8 Ω·m,
+    역수를 취하면 8% 차이).
+  - **텍스트 추출하면 위첨자가 분리돼 `10^15 Ω·cm`가 `15 … 10 15`로 나온다.**
+    원시 HTML의 `Electrical Properties` 블록을 태그 단위로 잘라 읽어라.
+  - **없는 페이지는 HTTP 200에 ~495바이트 본문**을 준다 — 상태코드가 아니라 길이를 봐라.
+  - **사이트 단위로 신뢰/불신을 판정하지 마라**(AZoM도 같다 — PU 선팽창은 정상인데
+    E-SBR은 체적팽창계수로 보인다).
+- **박리강도에서 각주가 특정 행에만 걸린다.** UBE UPILEX의 180° Peel 표에서
+  **Epoxy Resin 행에만** `peel off at an angle of 90°` 각주가 붙는다. 그 행만 90도다.
+  Rogers ULTRALAM의 `Peel Strength 0.95 N/mm`도 **3850 라미네이트 열**이지
+  3908 Bondply 값이 아니다(Bondply 전용 TDS에는 그 행이 아예 없다).
+- **프로젝트 목표치를 실측으로 착각하지 마라.** OSTI 1615916의 `>5 N/cm`, `>10 N/cm`는
+  `T1. Adhesion/peel strength to EVA >5 N/cm` 같은 **Go/No-Go 목표**이지 측정 결과가 아니다.
+- **도전율만 인쇄한 것을 역수 취해 저항률로 넣지 마라**(역산이다). Panasonic PGS·Kaneka
+  흑연시트가 S/cm만 발표해서 9차에서 3종을 비웠다.
 - **표 머리글의 단위가 틀릴 수 있다. 같은 표의 다른 값으로 교차검산하라.**
   `PMC12300880` Table 4의 `ε_b (mm/mm) 730`은 73,000 %라 NR에 불가능하다.
   같은 행의 파단에너지(32.2 J/cm³ ÷ 7.30 = 4.4 MPa 평균응력)로 검산해 **730 %**로 확정했다.
