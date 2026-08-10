@@ -1,0 +1,392 @@
+<title>MaterialTwin 물성 카탈로그 현황</title>
+<style>
+:root{
+  --ink:#14181c; --ink2:#3d474f; --ink3:#6b7780;
+  --paper:#f5f6f7; --card:#ffffff; --line:#dfe3e6;
+  --teal:#0d5c55; --teal2:#2f8378; --tealw:#e2efec;
+  --clay:#a8674a; --clayw:#f4e9e3;
+  --ok:#0d5c55; --warn:#9a6b12; --crit:#98402f;
+  --mono:ui-monospace,"SF Mono","Cascadia Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Pretendard","Segoe UI","Noto Sans KR",
+         "Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ink:#e8ecee; --ink2:#aab4bb; --ink3:#7c878e;
+  --paper:#12161a; --card:#1a2026; --line:#2b333a;
+  --teal:#5fb3a6; --teal2:#3f8b80; --tealw:#152b28;
+  --clay:#cf9375; --clayw:#2c211b;
+  --ok:#5fb3a6; --warn:#d5a343; --crit:#e08a75;
+}}
+:root[data-theme="dark"]{
+  --ink:#e8ecee; --ink2:#aab4bb; --ink3:#7c878e;
+  --paper:#12161a; --card:#1a2026; --line:#2b333a;
+  --teal:#5fb3a6; --teal2:#3f8b80; --tealw:#152b28;
+  --clay:#cf9375; --clayw:#2c211b;
+  --ok:#5fb3a6; --warn:#d5a343; --crit:#e08a75;
+}
+:root[data-theme="light"]{
+  --ink:#14181c; --ink2:#3d474f; --ink3:#6b7780;
+  --paper:#f5f6f7; --card:#ffffff; --line:#dfe3e6;
+  --teal:#0d5c55; --teal2:#2f8378; --tealw:#e2efec;
+  --clay:#a8674a; --clayw:#f4e9e3;
+  --ok:#0d5c55; --warn:#9a6b12; --crit:#98402f;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+     font-size:16px;line-height:1.72;-webkit-font-smoothing:antialiased}
+.mono,code,.n,.pct,.bval{font-family:var(--mono);font-variant-numeric:tabular-nums}
+code{background:var(--tealw);color:var(--teal);padding:.08em .34em;border-radius:3px;font-size:.88em}
+b{font-weight:650}
+em{font-style:normal}
+
+.hero{max-width:1080px;margin:0 auto;padding:76px 28px 40px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+         color:var(--teal);margin:0 0 22px}
+.hero h1{font-size:clamp(30px,4.6vw,50px);line-height:1.24;letter-spacing:-.022em;
+         font-weight:700;margin:0 0 22px;text-wrap:pretty;max-width:26ch}
+.lede{font-size:17.5px;color:var(--ink2);max-width:66ch;margin:0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:1px;
+      background:var(--line);border:1px solid var(--line);border-radius:10px;
+      overflow:hidden;margin-top:40px}
+.kpi{background:var(--card);padding:20px 18px;display:flex;flex-direction:column;gap:2px}
+.kpi b{font-family:var(--mono);font-size:29px;font-weight:600;letter-spacing:-.02em;
+       color:var(--teal);line-height:1.1}
+.kpi span{font-size:13px;font-weight:600;margin-top:5px}
+.kpi em{font-size:12px;color:var(--ink3);font-family:var(--mono)}
+
+.toc{position:sticky;top:0;z-index:9;background:var(--paper);border-bottom:1px solid var(--line)}
+.toc ol{max-width:1080px;margin:0 auto;padding:11px 28px;list-style:none;display:flex;
+        flex-wrap:wrap;gap:2px 20px;counter-reset:t}
+.toc li{counter-increment:t}
+.toc a{font-family:var(--mono);font-size:12px;color:var(--ink3);text-decoration:none}
+.toc a::before{content:counter(t,decimal-leading-zero) " ";color:var(--teal2)}
+.toc a:hover{color:var(--teal)}
+.toc a:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+
+section{max-width:1080px;margin:0 auto;padding:56px 28px 8px;border-top:1px solid var(--line)}
+section:first-of-type{border-top:none}
+.shead{margin-bottom:26px}
+.sno{font-family:var(--mono);font-size:12px;color:var(--teal2);letter-spacing:.1em}
+.shead h2{font-size:clamp(22px,2.7vw,31px);margin:4px 0 4px;letter-spacing:-.018em;font-weight:700}
+.ssub{margin:0;color:var(--ink3);font-size:14.5px}
+h4{font-size:13px;font-family:var(--mono);letter-spacing:.05em;text-transform:uppercase;
+   color:var(--ink3);margin:30px 0 12px;font-weight:600}
+p{max-width:74ch}
+.note{background:var(--card);border-left:3px solid var(--teal2);padding:14px 18px;
+      border-radius:0 7px 7px 0;font-size:14.5px;color:var(--ink2);max-width:none}
+.note.warn{border-left-color:var(--warn)}
+
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;
+       background:var(--line);border:1px solid var(--line);border-radius:9px;overflow:hidden;margin:22px 0}
+.cell{background:var(--card);padding:16px 16px}
+.cell b{display:block;font-family:var(--mono);font-size:25px;color:var(--teal);font-weight:600}
+.cell span{font-size:12.5px;color:var(--ink3)}
+
+.defs{display:grid;grid-template-columns:auto 1fr;gap:6px 20px;margin:22px 0;
+      font-size:14.5px;align-items:baseline}
+.defs dt{font-weight:650;color:var(--teal);white-space:nowrap}
+.defs dd{margin:0;color:var(--ink2)}
+
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:9px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:9px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle}
+thead th{font-size:11.5px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em;
+         color:var(--ink3);font-weight:600;background:var(--paper);white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+td.n,th.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.nm{font-weight:600;white-space:nowrap}
+tr.tot td{background:var(--paper);font-weight:650;border-top:2px solid var(--line)}
+.barcell{min-width:150px}
+.pct{font-size:12px;color:var(--ink3);margin-left:8px}
+.src td.kind{font-family:var(--mono);font-size:11.5px;color:var(--ink3);white-space:nowrap}
+.unf td:first-child{color:var(--teal2);white-space:nowrap}
+
+.btrack{display:inline-block;width:110px;height:7px;background:var(--line);
+        border-radius:4px;overflow:hidden;vertical-align:middle}
+.btrack.sm{width:96px;height:6px}
+.bfill{display:block;height:100%;border-radius:4px;background:var(--teal)}
+.bfill.clay{background:var(--clay)}
+.brow{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13.5px}
+.blabel{flex:0 0 150px;color:var(--ink2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bval{flex:0 0 48px;text-align:right;font-size:12.5px}
+.bnote{color:var(--ink3);font-size:12px;font-family:var(--mono)}
+
+.pill{display:inline-block;padding:2px 9px;border-radius:11px;font-family:var(--mono);
+      font-size:12px;font-weight:600}
+.pill.ok{background:var(--tealw);color:var(--ok)}
+.pill.warn{background:#f7edd7;color:var(--warn)}
+.pill.crit{background:var(--clayw);color:var(--crit)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pill.warn{background:#2e2513}}
+:root[data-theme="dark"] .pill.warn{background:#2e2513}
+
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:22px 0}
+.tier{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:15px 16px;
+      border-top:3px solid var(--teal)}
+.tier.t2{border-top-color:var(--teal2)}
+.tier.t3{border-top-color:#9bb0ab}
+.tier.t4{border-top-color:var(--clay)}
+.tier b{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ink3)}
+.tn{display:block;font-family:var(--mono);font-size:26px;font-weight:600;color:var(--teal);line-height:1.2}
+.tier.t4 .tn{color:var(--clay)}
+.tp{font-family:var(--mono);font-size:12px;color:var(--ink3)}
+.tt{margin:9px 0 3px;font-size:14px;font-weight:600;max-width:none}
+.td{margin:0;font-size:13px;color:var(--ink3);max-width:none}
+
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px 40px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin:22px 0}
+.box{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:16px 18px}
+.box.ok{border-left:3px solid var(--teal)}
+.box.crit{border-left:3px solid var(--clay)}
+.box h4{margin-top:0}
+.box .big{font-family:var(--mono);font-size:38px;font-weight:600;color:var(--teal);
+          margin:0 0 6px;line-height:1}
+.box.crit .big{color:var(--clay)}
+.box .big em{font-size:15px;color:var(--ink3);margin-left:5px}
+.box p{font-size:14px;color:var(--ink2);max-width:none}
+.mini td{font-size:13.5px;padding:9px 0;vertical-align:top;border-bottom:1px solid var(--line)}
+.mini td.nm{padding-right:16px;color:var(--ink);width:36%;white-space:normal}
+.mini .where{display:block;font-family:var(--mono);font-size:11.5px;color:var(--ink3);font-weight:400}
+.mini .ex{display:block;font-family:var(--mono);font-size:11.5px;color:var(--teal2);margin-bottom:3px}
+.mini tr:last-child td{border-bottom:none}
+
+.steps{list-style:none;counter-reset:s;padding:0;margin:22px 0;
+       display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1px;
+       background:var(--line);border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.steps li{background:var(--card);padding:14px 16px;display:flex;gap:13px;align-items:flex-start}
+.sn{font-family:var(--mono);font-size:12px;color:var(--teal2);padding-top:3px}
+.steps b{font-size:14.5px}
+.steps p{margin:2px 0 0;font-size:13px;color:var(--ink3);max-width:none}
+.rules{padding-left:0;list-style:none;counter-reset:r;margin:22px 0;display:grid;gap:10px}
+.rules li{counter-increment:r;background:var(--card);border:1px solid var(--line);
+          border-radius:8px;padding:13px 16px 13px 52px;position:relative}
+.rules li::before{content:counter(r);position:absolute;left:16px;top:13px;font-family:var(--mono);
+                  font-size:12px;color:var(--teal);font-weight:600}
+.rules b{font-size:14.5px}
+.rules p{margin:2px 0 0;font-size:13.5px;color:var(--ink2);max-width:none}
+
+.krow{display:flex;justify-content:space-between;gap:14px;padding:7px 0;
+      border-bottom:1px solid var(--line);font-size:13.5px}
+.krow span{color:var(--ink2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.krow b{color:var(--teal);font-weight:600}
+.tips{margin:0;padding-left:18px;font-size:13.5px;color:var(--ink2)}
+.tips li{margin-bottom:7px}
+
+.verify{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin:22px 0}
+.vcard{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:15px 17px}
+.vcard b{display:block;font-size:14.5px;margin-bottom:5px;color:var(--teal)}
+.vcard p{margin:0;font-size:13.5px;color:var(--ink2);max-width:none}
+
+.chart{margin:22px 0;background:var(--card);border:1px solid var(--line);
+       border-radius:9px;padding:16px 16px 10px}
+.chart svg{width:100%;height:180px;display:block}
+.chart .ar{fill:var(--tealw)}
+.chart .ln{fill:none;stroke:var(--teal);stroke-width:2;vector-effect:non-scaling-stroke;
+           stroke-linejoin:round}
+.chart .dt circle{fill:var(--teal)}
+.xax{display:flex;justify-content:space-between;font-family:var(--mono);
+     font-size:11.5px;color:var(--ink3);margin-top:6px}
+
+footer{max-width:1080px;margin:44px auto 0;padding:22px 28px 60px;border-top:1px solid var(--line)}
+footer p{font-family:var(--mono);font-size:12px;color:var(--ink3);margin:0 0 5px}
+footer .gen{color:var(--ink3);opacity:.8}
+@media (max-width:640px){
+  .hero{padding:48px 20px 30px} section{padding:40px 20px 6px} footer{padding:20px 20px 44px}
+  .toc ol{padding:9px 20px} .blabel{flex-basis:110px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<header class="hero">
+<p class="eyebrow">MaterialTwin · 물성 카탈로그</p>
+<h1>측정한 값과 가정한 값을<br>같은 표에 두되, 절대 섞지 않는다</h1>
+<p class="lede">스마트폰 구조해석에 필요한 물성을 재료 × 물성 격자로 세고, 모든 값에 출처와 등급을 붙여 <b>무엇이 근거 있는 값이고 무엇이 아직 가정인지</b>를 표 위에서 바로 읽게 만든 카탈로그다. 아래 숫자는 전부 라이브 DB에서 계산했다.</p>
+<div class="kpis">
+<div class="kpi"><b>21,279</b><span>물성값</span><em>재료 544종 · 정의 161종</em></div>
+<div class="kpi"><b>2,134</b><span>출처</span><em>DOI 733 · URL 1977</em></div>
+<div class="kpi"><b>97.4%</b><span>셀 채움</span><em>격자 14,478칸</em></div>
+<div class="kpi"><b>61.8%</b><span>실측기반</span><em>tier4 가정을 뺀 값</em></div>
+</div></header>
+<nav class="toc"><ol>
+<li><a href="#s1">격자</a></li>
+<li><a href="#s2">현황</a></li>
+<li><a href="#s3">등급</a></li>
+<li><a href="#s4">출처</a></li>
+<li><a href="#s5">사이클</a></li>
+<li><a href="#s6">규칙</a></li>
+<li><a href="#s7">역산 경계</a></li>
+<li><a href="#s8">부재</a></li>
+<li><a href="#s9">검증</a></li>
+<li><a href="#s10">성장</a></li>
+<li><a href="#s11">남은 일</a></li>
+</ol></nav>
+<section id="s1"><div class="shead"><span class="sno">01</span><h2>격자</h2><p class="ssub">무엇을 세고 있는가</p></div>
+<p>재료 544종 × 물성 정의 161종은 87,584칸이지만 이것을 다 세지 않는다. <b>세라믹에 항복강도를 요구하고 도체에 유전율을 요구하면 분모가 거짓이 된다.</b> 그래서 실제 해석 13종이 각각 요구하는 물성만 골라 <b>14,478칸</b>의 격자를 만들고, 그 격자만 센다.</p>
+<div class="grid4">
+<div class="cell"><b>14,478</b><span>해석이 실제로 요구하는 칸</span></div>
+<div class="cell"><b>14,102</b><span>채워진 칸</span></div>
+<div class="cell"><b>722</b><span>구조적으로 못 채우는 칸</span></div>
+<div class="cell"><b>72</b><span>아직 채울 수 있는 칸</span></div>
+</div>
+<p class="note">택일군이 있다. 낙하해석의 소성 입력은 <code>항복강도</code> 하나든 <code>인장강도+파단연신율</code> 쌍이든 역할이 채워지므로 <b>칸 하나</b>로 센다. 어느 쪽이 인쇄되는지는 시험규격 관행이 정하지, 재료가 정하지 않는다.</p>
+<dl class="defs"><dt>셀 채움</dt><dd>채워진 칸 / 전체 칸 — 수집 진척도</dd><dt>실측기반</dt><dd>tier4(가정·계산)를 뺀 채움 — 근거의 실제 크기</dd><dt>유효채움</dt><dd>구조적 부재를 분모에서 뺀 채움 — 도달 가능한 천장 대비</dd><dt>적용 대비 준비율</dt><dd>그 해석이 원리적으로 성립하는 재료만 분모로 둔 재료 준비율</dd></dl>
+</section>
+<section id="s2"><div class="shead"><span class="sno">02</span><h2>현황</h2><p class="ssub">해석 13종이 지금 돌아가는가</p></div>
+<div class="tblwrap"><table class="cov">
+<thead><tr><th>해석</th><th class="n">대상</th><th class="n">칸</th><th>셀 채움</th><th class="n">실측기반 %</th><th class="n">유효채움 %</th><th class="n">적용 대비<br>준비율</th></tr></thead><tbody>
+<tr><td class="nm">구조·강성</td><td class="n">544</td><td class="n">1,632</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:99.9%"></i></span><span class="pct">99.9</span></td><td class="n mono">58.4</td><td class="n mono">99.9</td><td class="n"><span class="pill ok">99.8%</span></td></tr>
+<tr><td class="nm">낙하·충격</td><td class="n">544</td><td class="n">2,720</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:95.0%"></i></span><span class="pct">95.0</span></td><td class="n mono">49.0</td><td class="n mono">98.6</td><td class="n"><span class="pill warn">93.5%</span></td></tr>
+<tr><td class="nm">열전달·방열</td><td class="n">544</td><td class="n">1,632</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:100.0%"></i></span><span class="pct">100.0</span></td><td class="n mono">67.6</td><td class="n mono">100.0</td><td class="n"><span class="pill ok">100.0%</span></td></tr>
+<tr><td class="nm">열응력·워피지</td><td class="n">544</td><td class="n">2,176</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:99.9%"></i></span><span class="pct">99.9</span></td><td class="n mono">59.5</td><td class="n mono">99.9</td><td class="n"><span class="pill ok">99.8%</span></td></tr>
+<tr><td class="nm">폴더블 벤딩</td><td class="n">185</td><td class="n">740</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:99.1%"></i></span><span class="pct">99.1</span></td><td class="n mono">60.1</td><td class="n mono">99.1</td><td class="n"><span class="pill ok">96.2%</span></td></tr>
+<tr><td class="nm">결로(표면)</td><td class="n">544</td><td class="n">2,176</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:97.5%"></i></span><span class="pct">97.5</span></td><td class="n mono">68.3</td><td class="n mono">100.0</td><td class="n"><span class="pill ok">100.0%</span></td></tr>
+<tr><td class="nm">결로(투습)</td><td class="n">417</td><td class="n">1,668</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:96.8%"></i></span><span class="pct">96.8</span></td><td class="n mono">61.9</td><td class="n mono">99.8</td><td class="n"><span class="pill ok">98.9%</span></td></tr>
+<tr><td class="nm">초탄성(실링·완충)</td><td class="n">46</td><td class="n">92</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:100.0%"></i></span><span class="pct">100.0</span></td><td class="n mono">82.6</td><td class="n mono">100.0</td><td class="n"><span class="pill ok">100.0%</span></td></tr>
+<tr><td class="nm">접착·박리</td><td class="n">185</td><td class="n">370</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:88.1%"></i></span><span class="pct">88.1</span></td><td class="n mono">68.9</td><td class="n mono">98.2</td><td class="n"><span class="pill ok">95.9%</span></td></tr>
+<tr><td class="nm">전기·EMI</td><td class="n">544</td><td class="n">544</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:100.0%"></i></span><span class="pct">100.0</span></td><td class="n mono">75.2</td><td class="n mono">100.0</td><td class="n"><span class="pill ok">100.0%</span></td></tr>
+<tr><td class="nm">피로·수명</td><td class="n">198</td><td class="n">594</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:87.2%"></i></span><span class="pct">87.2</span></td><td class="n mono">73.2</td><td class="n mono">97.0</td><td class="n"><span class="pill warn">88.4%</span></td></tr>
+<tr><td class="nm">산소소광-발광체</td><td class="n">55</td><td class="n">55</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:100.0%"></i></span><span class="pct">100.0</span></td><td class="n mono">100.0</td><td class="n mono">100.0</td><td class="n"><span class="pill ok">100.0%</span></td></tr>
+<tr><td class="nm">산소확산-매트릭스</td><td class="n">79</td><td class="n">79</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:97.5%"></i></span><span class="pct">97.5</span></td><td class="n mono">82.3</td><td class="n mono">97.5</td><td class="n"><span class="pill ok">97.5%</span></td></tr>
+<tr class="tot"><td class="nm">전체</td><td class="n">544</td><td class="n">14,478</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:97.4%"></i></span><span class="pct">97.4</span></td><td class="n mono">61.8</td><td class="n mono">99.5</td><td class="n">—</td></tr>
+</tbody></table></div>
+<p class="note"><b>셀 채움과 실측기반의 차이 35.6%p(5,161칸)가 가정값이 만든 착시다.</b> 표를 하나만 보면 속는다 — 채움률이 100%인 해석도 실측기반은 67%일 수 있다.</p>
+</section>
+<section id="s3"><div class="shead"><span class="sno">03</span><h2>등급</h2><p class="ssub">tier가 무엇을 뜻하고 왜 가정을 허용하는가</p></div>
+<div class="tiers">
+<div class="tier t1"><b>tier 1</b><span class="tn">9,535</span><span class="tp">44.8%</span><p class="tt">그 제품에 대해 인쇄된 값</p><p class="td">벤더 데이터시트·논문이 이 제품을 시험한 결과</p></div>
+<div class="tier t2"><b>tier 2</b><span class="tn">1,640</span><span class="tp">7.7%</span><p class="tt">핸드북·규격·인증 DB</p><p class="td">계열 대표값이지만 권위 있는 기관이 보증한다</p></div>
+<div class="tier t3"><b>tier 3</b><span class="tn">5,614</span><span class="tp">26.4%</span><p class="tt">2차 인용·클래스 대표·등급 대체</p><p class="td">출처는 실재하나 이 제품의 값은 아니다</p></div>
+<div class="tier t4"><b>tier 4</b><span class="tn">4,490</span><span class="tp">21.1%</span><p class="tt">계산·유도·추정·가정</p><p class="td">우리가 만든 값이다. 반드시 표지를 단다</p></div>
+</div>
+<p>tier4를 <b>허용하되 반드시 표시한다.</b> 빈 칸으로 두면 해석이 아예 안 돌고, 표시 없이 채우면 가정이 실측 행세를 한다. 그래서 tier4는 <code>method="estimated"</code> · <code>conditions.assumption=true</code> · notes에 근거를 함께 요구하고, 지표를 <b>셀 채움과 실측기반 두 줄로 나란히</b> 낸다. 현재 assumption 표지를 단 값이 4,398건이다.</p>
+<div class="split">
+<div><h4>method 분포</h4><div class="brow"><span class="blabel">measured</span><span class="btrack"><i class="bfill teal" style="width:61.7%"></i></span><span class="bval">61.7%</span><span class="bnote">13,125건</span></div><div class="brow"><span class="blabel">estimated</span><span class="btrack"><i class="bfill teal" style="width:20.7%"></i></span><span class="bval">20.7%</span><span class="bnote">4,413건</span></div><div class="brow"><span class="blabel">handbook</span><span class="btrack"><i class="bfill teal" style="width:14.3%"></i></span><span class="bval">14.3%</span><span class="bnote">3,050건</span></div><div class="brow"><span class="blabel">computed</span><span class="btrack"><i class="bfill teal" style="width:3.2%"></i></span><span class="bval">3.2%</span><span class="bnote">691건</span></div></div>
+<div><h4>도메인 분포</h4><div class="brow"><span class="blabel">mechanical (58종)</span><span class="btrack"><i class="bfill teal" style="width:46.9%"></i></span><span class="bval">46.9%</span><span class="bnote">9,987건</span></div><div class="brow"><span class="blabel">thermal (16종)</span><span class="btrack"><i class="bfill teal" style="width:18.5%"></i></span><span class="bval">18.5%</span><span class="bnote">3,933건</span></div><div class="brow"><span class="blabel">physical (13종)</span><span class="btrack"><i class="bfill teal" style="width:8.8%"></i></span><span class="bval">8.8%</span><span class="bnote">1,878건</span></div><div class="brow"><span class="blabel">electrical (11종)</span><span class="btrack"><i class="bfill teal" style="width:8.1%"></i></span><span class="bval">8.1%</span><span class="bnote">1,716건</span></div><div class="brow"><span class="blabel">optical (18종)</span><span class="btrack"><i class="bfill teal" style="width:6.4%"></i></span><span class="bval">6.4%</span><span class="bnote">1,361건</span></div><div class="brow"><span class="blabel">interface (9종)</span><span class="btrack"><i class="bfill teal" style="width:3.8%"></i></span><span class="bval">3.8%</span><span class="bnote">798건</span></div><div class="brow"><span class="blabel">chemical (15종)</span><span class="btrack"><i class="bfill teal" style="width:3.5%"></i></span><span class="bval">3.5%</span><span class="bnote">738건</span></div></div>
+</div></section>
+<section id="s4"><div class="shead"><span class="sno">04</span><h2>출처</h2><p class="ssub">값 하나에 문서 하나</p></div>
+<p>스키마가 <b>출처 없는 값의 저장 자체를 거부한다</b> — 등록 API가 DOI·URL·제목 중 하나를 요구한다. 덕분에 21,279건 전부에 출처가 붙어 있고 끊어진 참조가 0건이다. 조건(온도·주파수·방향 등)이 붙은 값은 20,245건(95.1%)이다.</p>
+<div class="split">
+<div><h4>출처 종류 (2,134건)</h4><div class="brow"><span class="blabel">datasheet</span><span class="btrack"><i class="bfill teal" style="width:41.2%"></i></span><span class="bval">41.2%</span><span class="bnote">879건</span></div><div class="brow"><span class="blabel">journal</span><span class="btrack"><i class="bfill teal" style="width:33.5%"></i></span><span class="bval">33.5%</span><span class="bnote">714건</span></div><div class="brow"><span class="blabel">database</span><span class="btrack"><i class="bfill teal" style="width:14.7%"></i></span><span class="bval">14.7%</span><span class="bnote">313건</span></div><div class="brow"><span class="blabel">other</span><span class="btrack"><i class="bfill teal" style="width:4.9%"></i></span><span class="bval">4.9%</span><span class="bnote">105건</span></div><div class="brow"><span class="blabel">book</span><span class="btrack"><i class="bfill teal" style="width:3.4%"></i></span><span class="bval">3.4%</span><span class="bnote">72건</span></div><div class="brow"><span class="blabel">standard</span><span class="btrack"><i class="bfill teal" style="width:1.2%"></i></span><span class="bval">1.2%</span><span class="bnote">26건</span></div><div class="brow"><span class="blabel">web</span><span class="btrack"><i class="bfill teal" style="width:1.1%"></i></span><span class="bval">1.1%</span><span class="bnote">24건</span></div><div class="brow"><span class="blabel">computed</span><span class="btrack"><i class="bfill teal" style="width:0.0%"></i></span><span class="bval">0.0%</span><span class="bnote">1건</span></div></div>
+<div><h4>재료 분류 (544종)</h4><div class="brow"><span class="blabel">polymer</span><span class="btrack"><i class="bfill clay" style="width:55.1%"></i></span><span class="bval">55.1%</span><span class="bnote">300종</span></div><div class="brow"><span class="blabel">metal</span><span class="btrack"><i class="bfill clay" style="width:14.7%"></i></span><span class="bval">14.7%</span><span class="bnote">80종</span></div><div class="brow"><span class="blabel">composite</span><span class="btrack"><i class="bfill clay" style="width:13.1%"></i></span><span class="bval">13.1%</span><span class="bnote">71종</span></div><div class="brow"><span class="blabel">ceramic</span><span class="btrack"><i class="bfill clay" style="width:8.6%"></i></span><span class="bval">8.6%</span><span class="bnote">47종</span></div><div class="brow"><span class="blabel">rubber</span><span class="btrack"><i class="bfill clay" style="width:4.4%"></i></span><span class="bval">4.4%</span><span class="bnote">24종</span></div><div class="brow"><span class="blabel">foam</span><span class="btrack"><i class="bfill clay" style="width:4.0%"></i></span><span class="bval">4.0%</span><span class="bnote">22종</span></div></div>
+</div>
+<h4>값을 가장 많이 낸 문서</h4><div class="tblwrap"><table class="src"><tbody>
+<tr><td class="n mono">829</td><td class="kind">journal</td><td>Warpage Simulation of Fan-Out Wafer-Level Package Considering Viscoelastic Behavior of E</td></tr>
+<tr><td class="n mono">475</td><td class="kind">other</td><td>Experimental and Theoretical Assessment of Through-Silicon Vias for 3D Integrated Microe</td></tr>
+<tr><td class="n mono">392</td><td class="kind">book</td><td>Polymer Handbook (Brandrup, Immergut, Grulke), 4th ed.</td></tr>
+<tr><td class="n mono">242</td><td class="kind">journal</td><td>Estimation of viscoelastic resistance and subduction profile of acrylic based pressure s</td></tr>
+<tr><td class="n mono">222</td><td class="kind">book</td><td>Critical Surface Tension and Contact Angle with Water for Various Polymers (Accu Dyne Te</td></tr>
+<tr><td class="n mono">202</td><td class="kind">book</td><td>Handbook of Infrared Radiation — emissivity tables (Touloukian TPRC Data Series)</td></tr>
+<tr><td class="n mono">193</td><td class="kind">other</td><td>Computational modeling of viscoelastic backsheet materials for photovoltaics</td></tr>
+<tr><td class="n mono">192</td><td class="kind">book</td><td>ASM Engineered Materials Handbook — Ceramics and Glasses</td></tr>
+<tr><td class="n mono">188</td><td class="kind">journal</td><td>Mechanical Behavior and Constitutive Model Characterization of Optically Clear Adhesive </td></tr>
+<tr><td class="n mono">182</td><td class="kind">journal</td><td>Experimental characterisation and modelling of polyethylene terephthalate preform for in</td></tr>
+<tr><td class="n mono">170</td><td class="kind">journal</td><td>Toward a Common Framework and Database of Materials for Soft Robotics</td></tr>
+<tr><td class="n mono">157</td><td class="kind">computed</td><td>MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값</td></tr>
+</tbody></table></div>
+<p class="note">한 문서가 800건 넘게 내는 경우가 있다 — 패키지 워피지 논문 하나가 재료 수십 종의 물성표를 통째로 싣기 때문이다. <b>그래서 상위 문서일수록 검증 비용이 크다</b> — 한 열이 밀려 있으면 수백 건이 함께 틀린다.</p>
+</section>
+<section id="s5"><div class="shead"><span class="sno">05</span><h2>사이클</h2><p class="ssub">한 파동에 무엇을 하는가</p></div>
+<ol class="steps">
+<li><span class="sn">01</span><div><b>빈칸 탐지</b><p>커버리지 격자를 재계산해 (재료 × 물성) 공백을 뽑는다</p></div></li>
+<li><span class="sn">02</span><div><b>표적 선정</b><p>칸 수가 아니라 <b>칸/재료</b>와 <b>1칸 부족 재료</b>로 우선순위를 정한다</p></div></li>
+<li><span class="sn">03</span><div><b>브리프 전달</b><p>규칙·함정 지도·확정 부재 목록을 그대로 넘긴다</p></div></li>
+<li><span class="sn">04</span><div><b>병렬 수집</b><p>재료군별로 배치를 나눠 동시에 원문을 받는다</p></div></li>
+<li><span class="sn">05</span><div><b>청크 저장</b><p>10~12종마다 중간 파일을 쓴다 — 끝에 몰아 쓰면 중단 시 전부 잃는다</p></div></li>
+<li><span class="sn">06</span><div><b>값 검증</b><p>규칙 6 자릿수 대조 · 자기 검산 · 원문 문자열 대조</p></div></li>
+<li><span class="sn">07</span><div><b>인제스트</b><p>스키마·단위·조건·tier 규약을 거치지 못하면 거부한다</p></div></li>
+<li><span class="sn">08</span><div><b>반례 검증</b><p>부재 선언에 실측 반례가 하나라도 있으면 선언을 자동 은퇴시킨다</p></div></li>
+<li><span class="sn">09</span><div><b>무결성 검사</b><p>36항목이 전부 0이어야 배포한다</p></div></li>
+<li><span class="sn">10</span><div><b>기록</b><p>성공보다 <b>실패와 함정</b>을 남긴다 — 다음 파동이 같은 벽에 부딪히지 않도록</p></div></li>
+</ol>
+<p class="note">5단계(청크 저장)는 <b>사고에서 나온 규칙</b>이다. 배치 6개가 결과를 끝에 몰아 쓰다가 동시에 죽어 산출물이 0이었다. 이후 모든 파동이 10~12종마다 중간 파일을 쓰고, 다시는 잃지 않았다.</p>
+</section>
+<section id="s6"><div class="shead"><span class="sno">06</span><h2>규칙</h2><p class="ssub">절대 넘지 않는 선</p></div>
+<ol class="rules">
+<li><b>지어내지 않는다</b><p>빈 칸이 틀린 값보다 낫다. 문서에 실제로 인쇄된 숫자만 넣는다.</p></li>
+<li><b>역산 금지</b><p>다른 물성에서 계산한 값을 저장하지 않는다. 계산은 원문이 했을 때만 옮긴다.</p></li>
+<li><b>그래프에서 읽지 않는다</b><p>축 눈금과 스캔 해상도가 유효숫자를 정한다 — 읽으면 그 자릿수는 우리가 만든 것이다.</p></li>
+<li><b>재인쇄본·2차 인용 불가</b><p>인용된 값은 1차 출처까지 따라가서 확인한다.</p></li>
+<li><b>조건 없는 값은 값이 아니다</b><p>온도·주파수·방향·습도가 없으면 해석 입력이 되지 않는다.</p></li>
+<li><b>자릿수 대조</b><p>그 재료의 상위 tier 값과 자릿수가 어긋나면 넣지 않는다.</p></li>
+<li><b>인접 열 오독 주의</b><p>표는 한 열이 통째로 밀려 있을 수 있다. 대조군 행과 본문 서술로 검산한다.</p></li>
+</ol>
+<p class="note">이 규칙들은 이상론이 아니라 <b>실제로 사고를 막은 기록</b>이다. 규칙 4는 "3M이 인쇄한 0.49"라던 43건의 근거 문장이 사실은 계열 기술자료였음을 잡아냈고, 규칙 6은 1000배 큰 굽힘강도 두 건을 걸러냈다.</p>
+</section>
+<section id="s7"><div class="shead"><span class="sno">07</span><h2>역산 경계</h2><p class="ssub">무엇이 계산이고 무엇이 조작인가</p></div>
+<p>이 카탈로그에서 가장 자주 오해받는 선이다. <b>계산 자체가 금지된 것이 아니라, 계산을 <em>누가</em> 했느냐가 갈림길이다.</b> 논문이 자기 데이터에 피팅해 발표한 상수는 옮긴다. 우리가 다른 물성에서 만들어낸 값은 넣지 않는다. 두 값은 표 위에서 똑같이 생겼기 때문에 <b>근거를 검증하지 않으면 구별되지 않는다.</b></p>
+<div class="two">
+<div class="box ok"><h4>옮긴다 — 원문이 계산한 것</h4><table class="mini"><tbody>
+<tr><td class="nm">단위 환산</td><td><span class="ex">psi→Pa, cal/(cm·s·°C)→W/(m·K), Barrer→SI, N/25mm→N/m</span>같은 양을 다른 눈금으로 옮기는 것뿐이다. 원문 값과 배율을 notes에 남긴다.</td></tr>
+<tr><td class="nm">원문이 인쇄한 피팅</td><td><span class="ex">Prony 급수, Ogden·Mooney-Rivlin 계수, Johnson-Cook, Basquin 회귀식</span>저자가 자기 데이터에 맞춰 발표한 상수다. 우리가 곡선에서 뽑은 것이 아니다.</td></tr>
+<tr><td class="nm">공표된 상관식</td><td><span class="ex">Okabe 적층재 S-N, Maekawa 세라믹 피로, Ishiyama 흑연</span>누가 그 관계를 보증하느냐가 갈림길이다. 논문이 보증하면 쓰고, 우리가 만들면 안 쓴다.</td></tr>
+<tr><td class="nm">무차원비 이전</td><td><span class="ex">공여재 정적강도로 나눠 수용재 강도를 곱한다</span>입력 두 숫자가 모두 원문 인쇄값이어야 한다. 계보를 notes에 적는다.</td></tr>
+<tr><td class="nm">클래스 중앙값</td><td><span class="ex">카탈로그 내 같은 클래스 실측값의 중앙값</span>출처 제목이 그 사실을 그대로 말한다. tier4이고 assumption 표지를 단다.</td></tr>
+</tbody></table></div>
+<div class="box crit"><h4>넣지 않는다 — 우리가 계산한 것</h4><table class="mini"><tbody>
+<tr><td class="nm">E = 2G(1+ν)<span class="where">VHB 점착테이프 14행</span></td><td>손으로 만든 항등식으로 탄성률을 만들고 출처는 Satas 핸드북을 달았다. 핸드북이 실제로 인쇄한 0.4 MPa로 되돌렸다.</td></tr>
+<tr><td class="nm">AZoM <code>Shear Modulus</code><span class="where">폴리머·세라믹 전 행</span></td><td>같은 표의 E·ν로 E/(2(1+ν))를 계산하면 마지막 자리까지 일치한다 (96% 알루미나: 300/(2×1.21) = 123.97 = 인쇄값 124).</td></tr>
+<tr><td class="nm">AZoM <code>Ductility</code><span class="where">세라믹 행</span></td><td>σts/E 유도값이다. 파단연신율로 옮기면 취성재에 소성 연신을 부여하게 된다.</td></tr>
+<tr><td class="nm">AZoM <code>Endurance Limit</code><span class="where">폴리머 행</span></td><td>k × Elastic Limit이고 범위 양 끝점이 정확히 같은 배수다(PET 0.6000/0.6000 · PI 0.5500/0.5500 · LDPE 0.7000/0.7000). 세라믹 행은 MgO의 내구한도 하한이 같은 표의 탄성한도 하한을 넘는다 — 물리적으로 불가능하다.</td></tr>
+<tr><td class="nm">MakeItFrom 폴리머 <code>G</code><span class="where">전 폴리머 행</span></td><td>LDPE가 E=0.30 GPa, G=0.21 GPa를 동시에 인쇄하는데 이러면 ν=−0.29가 된다. 같은 사이트의 금속 값은 정합한다 — 폴리머만 오염됐다.</td></tr>
+<tr><td class="nm">α = β/3<span class="where">액체 전해질</span></td><td>인쇄된 것은 체적팽창계수뿐이었다. 3으로 나누면 역산이라 칸을 비웠다.</td></tr>
+</tbody></table></div>
+</div>
+<h4>지금 계산값으로 들어와 있는 것</h4><p><code>method="computed"</code>는 691건이다. tier 분포가 t1 103 · t2 104 · t3 392 · t4 92인데, <b>tier1·2에 계산값이 있는 것이 정상</b>이다 — 그 논문이 자기 시편에 피팅해 발표한 구성모델 상수이기 때문이다. 반대로 <code>estimated</code>는 4,413건 전부가 tier3 이하로 내려가 있다.</p>
+<div class="split">
+<div><h4>계산값이 많은 물성</h4><div class="krow"><span>영률</span><b class="mono">87</b></div><div class="krow"><span>초탄성 계수</span><b class="mono">76</b></div><div class="krow"><span>반사율</span><b class="mono">74</b></div><div class="krow"><span>동적증가계수(DIF)</span><b class="mono">47</b></div><div class="krow"><span>굴절률</span><b class="mono">37</b></div><div class="krow"><span>박리강도</span><b class="mono">36</b></div><div class="krow"><span>복굴절</span><b class="mono">23</b></div><div class="krow"><span>인장강도(UTS)</span><b class="mono">23</b></div></div>
+<div><h4>역산을 어떻게 잡아내는가</h4><ul class="tips"><li><b>마지막 자리까지 일치하는가.</b> E/(2(1+ν))를 손으로 계산해 인쇄값과 대조한다.</li><li><b>범위 양 끝점이 같은 배수인가.</b> 유도열은 하한·상한이 정확히 같은 계수로 묶인다.</li><li><b>물리적으로 가능한가.</b> 내구한도 하한이 탄성한도 하한을 넘으면 그 열은 유도값이다.</li><li><b>ν가 음수로 나오는가.</b> E와 G를 함께 인쇄하는 표는 이 검산으로 무너진다.</li><li><b>대조군 행이 본문과 같은가.</b> 0 wt% 대조 행이 본문 값과 같으면 그 값은 첨가물의 것이다.</li></ul></div>
+</div>
+<p class="note"><b>근거를 바꾸는 편집이 값을 바꾸는 편집보다 늦게 발각된다.</b> 생성 스크립트가 익명 문자열로 적어 둔 추정 라벨 5건이 "제목 없는 출처" 정리에서 실제 벤더·규격 문서 이름으로 바뀌었고, 그 아래 18개 값이 문서 인용처럼 보이게 됐다. 값은 하나도 안 바뀌었는데 근거만 거짓이 됐다. 지금은 무결성 검사가 이 패턴을 잡는다.</p>
+</section>
+<section id="s8"><div class="shead"><span class="sno">08</span><h2>부재</h2><p class="ssub">채울 수 없는 칸을 분모에서 뺀다</p></div>
+<p>액체에 항복강도를, 증착 도판트에 투습도를 요구하면 그 칸은 영원히 비어 있다. 분모에 남겨 두면 <b>도달할 수 없는 100%를 좇게 된다.</b> 그래서 (재료군 × 물성) 쌍 단위로 부재를 선언하고 722칸을 분모에서 뺐다. 현재 선언 21건이다.</p>
+<div class="tblwrap"><table class="unf"><tbody>
+<tr><td class="n mono">11키</td><td>저분자 도판트 — 광물리 물성만 발표된다</td></tr>
+<tr><td class="n mono">5키</td><td>점착테이프 — 벤더가 발표하지 않는다(항복점은 물리적으로도 정의되지 않는다)</td></tr>
+<tr><td class="n mono">5키</td><td>PCB·RF 라미네이트 — 비열·피로를 어느 벤더도 발표하지 않는다</td></tr>
+<tr><td class="n mono">4키</td><td>커버글래스 — 젖음·열물성 발표 자체가 없다</td></tr>
+<tr><td class="n mono">1키</td><td>세라믹·유리 — 취성 파괴라 항복점이 물리적으로 없다</td></tr>
+<tr><td class="n mono">1키</td><td>고무·엘라스토머 — 초탄성이라 항복점이 정의되지 않는다</td></tr>
+<tr><td class="n mono">1키</td><td>저분자 유기 고체 — 벌크 항복 시험이 성립하지 않는다</td></tr>
+<tr><td class="n mono">6키</td><td>저분자 유기 고체 — 흡습·투습 시험이 성립하지 않는다</td></tr>
+<tr><td class="n mono">3키</td><td>무점착 폼 — 접착제가 없어 박리·전단이 정의되지 않는다</td></tr>
+<tr><td class="n mono">3키</td><td>코팅 — 접착을 스크래치·풀오프로 재므로 박리·전단과 모드가 다르다</td></tr>
+<tr><td class="n mono">3키</td><td>맨 필름·흑연시트 — 접착제가 없다</td></tr>
+<tr><td class="n mono">5키</td><td>유리 — 사이클 기준 S-N이 성립하지 않는다(정적피로·동적피로로만 발표된다)</td></tr>
+<tr><td class="n mono">5키</td><td>박막 기능층·활물질 분말 — 벌크 피로 시편이 성립하지 않는다</td></tr>
+<tr><td class="n mono">7키</td><td>저분자 유기 고체 — 자립 인장시편이 없어 소성·율속이 정의되지 않는다</td></tr>
+<tr><td class="n mono">3키</td><td>세라믹 — 순환소성이 없어 변형률-수명·에너지 계수가 정의되지 않는다(S-N은 존재한다)</td></tr>
+<tr><td class="n mono">3키</td><td>영구자석 — MMPA 0100-00이 인장·경도 측정이 적절하지도 가능하지도 않다고 인쇄한다</td></tr>
+<tr><td class="n mono">5키</td><td>단결정 — 입계 브리징이 없어 순환 열화 기전이 없고, Si는 지수가 재료상수가 아니다</td></tr>
+<tr><td class="n mono">5키</td><td>PVD·CVD 박막 — 응력-수명이 아니라 임계하중·균열밀도로 재는 분야다</td></tr>
+<tr><td class="n mono">5키</td><td>배리어 필름 — 수명을 굽힘 횟수 대 기능 상실로 재고 응력-수명 축이 없다</td></tr>
+<tr><td class="n mono">5키</td><td>불소수지 RF 적층판 — S-N이 발표되지 않고 σB가 Okabe 적합 하한 아래다</td></tr>
+<tr><td class="n mono">5키</td><td>활물질 분말 — 벌크 피로 시편이 성립하지 않는다</td></tr>
+</tbody></table></div>
+<p class="note"><b>선언은 주장이 아니라 반례로 검증된다.</b> 두 조건을 다 만족해야 부재로 친다 — (1) 문서에 기록된 사유가 있다, (2) 그 군의 어느 재료도 그 물성을 <b>실측으로</b> 갖고 있지 않다. 값이 하나라도 들어오면 그 쌍은 자동으로 부재에서 빠진다. 실제로 "세라믹은 피로계수가 없다"는 선언이 알루미나 S-N 회귀식 하나에 무너졌고, "폼엔 박리강도가 없다"는 선언이 VHB 폼테이프 반례 25건에 무너졌다.</p>
+<p class="note warn"><b>전수 검색이 비었다는 것은 검색 실패와 구분되지 않는다.</b> 출처 281건을 재다운로드해 grep했는데 0건이라는 정량이 나와도, 그것만으로는 부재가 아니다. 인쇄된 부재 문장이나 기전(機轉) 논거가 있는 군만 선언에 넣고 나머지는 일감으로 남긴다.</p>
+</section>
+<section id="s9"><div class="shead"><span class="sno">09</span><h2>검증</h2><p class="ssub">다섯 겹으로 거른다</p></div>
+<div class="verify">
+<div class="vcard"><b>무결성 검사 36항목</b><p>구조를 본다. 출처 없는 값·단위 불일치·쌍이 깨진 모델 상수·조건 없는 확산계수·근거 없는 tier4를 전부 0으로 만들어야 배포한다.</p></div>
+<div class="vcard"><b>반례 검증</b><p>부재 선언에 실측 반례가 하나라도 있으면 선언을 자동 은퇴시킨다. 우리가 만든 가정이 우리의 선언을 지우지는 못하게 tier4는 반례로 치지 않는다.</p></div>
+<div class="vcard"><b>자기 검산</b><p>얻은 값으로 그 논문의 다른 값을 예측해 본다. Ogden 계수에서 E₀=2(μ₁+μ₂)를 계산해 같은 논문 실측 탄성률과 맞는지 본다.</p></div>
+<div class="vcard"><b>원문 문자열 대조</b><p>저장한 숫자가 인용 출처에 실제로 있는지 전문을 받아 grep한다. 0.176이라는 값이 원문에 0회 나오는 것을 이 방법으로 잡았다.</p></div>
+<div class="vcard"><b>규칙 6 자릿수 대조</b><p>같은 재료의 상위 tier 값과 자릿수가 어긋나면 넣지 않는다. 1000배 큰 굽힘강도 두 건이 여기 걸렸다.</p></div>
+</div>
+<p class="note">검사가 <b>오탐</b>을 냈을 때의 규율도 정해 뒀다. 장기계수 E∞는 Prony 급수 밖에 있어 항번호가 없는 것이 옳은데 검사가 36건을 결함으로 잡았다. 이럴 때 값을 고치는 것이 아니라 <b>검사를 고친다</b> — 다만 왜 예외인지를 코드 주석에 남긴다.</p>
+</section>
+<section id="s10"><div class="shead"><span class="sno">10</span><h2>성장</h2><p class="ssub">2026-07-31 → 2026-08-10</p></div>
+<div class="chart"><svg viewBox="0 0 880 200" preserveAspectRatio="none" role="img" aria-label="물성값 누적 성장 곡선"><polygon points="8,192 8.0,188.8 94.4,152.7 180.8,132.7 267.2,98.7 353.6,95.5 440.0,72.5 526.4,69.4 612.8,59.8 699.2,40.3 785.6,19.1 872.0,8.0 872,192" class="ar"/><polyline points="8.0,188.8 94.4,152.7 180.8,132.7 267.2,98.7 353.6,95.5 440.0,72.5 526.4,69.4 612.8,59.8 699.2,40.3 785.6,19.1 872.0,8.0" class="ln"/><g class="dt"><circle cx="8.0" cy="188.8" r="2.5"/><circle cx="94.4" cy="152.7" r="2.5"/><circle cx="180.8" cy="132.7" r="2.5"/><circle cx="267.2" cy="98.7" r="2.5"/><circle cx="353.6" cy="95.5" r="2.5"/><circle cx="440.0" cy="72.5" r="2.5"/><circle cx="526.4" cy="69.4" r="2.5"/><circle cx="612.8" cy="59.8" r="2.5"/><circle cx="699.2" cy="40.3" r="2.5"/><circle cx="785.6" cy="19.1" r="2.5"/><circle cx="872.0" cy="8.0" r="2.5"/></g></svg><div class="xax"><span>2026-07-31</span><span>2026-08-10</span></div></div>
+<p>11일 동안 21,279건이 쌓였다. 파동 13번을 돌았고, 각 파동은 <b>이전 파동이 남긴 함정 지도를 읽고 시작한다.</b> 축적되는 것은 값만이 아니라 <b>어디서 속았는지의 목록</b>이다.</p>
+</section>
+<section id="s11"><div class="shead"><span class="sno">11</span><h2>남은 일</h2><p class="ssub">무엇이 실제로 남았는가</p></div>
+<div class="two">
+<div class="box"><h4>빈칸 — 거의 소진됐다</h4><p class="big">72<em>칸</em></p><p>구조적 부재를 뺀 유효채움이 99.5%다. 남은 칸은 흩어져 있고 하나씩 난이도가 높다 — 앵커 논문에 인장강도는 있는데 변형률이 전문에 0회인 식이다.</p></div>
+<div class="box crit"><h4>가정 대체 — 이것이 진짜 남은 일</h4><p class="big">3,219<em>칸</em></p><p>(재료 × 물성) 10,890칸 중 <b>29.6%가 가정값으로만 대표된다.</b> 셋 중 하나는 아직 근거가 없다는 뜻이다.</p></div>
+</div>
+<div class="split">
+<div><h4>대체 여지가 큰 물성</h4><div class="krow"><span>포아송비</span><b class="mono">327</b></div><div class="krow"><span>동적증가계수(DIF)</span><b class="mono">254</b></div><div class="krow"><span>영률</span><b class="mono">229</b></div><div class="krow"><span>열전도율</span><b class="mono">226</b></div><div class="krow"><span>선팽창계수(CTE)</span><b class="mono">201</b></div><div class="krow"><span>전방사율</span><b class="mono">198</b></div><div class="krow"><span>비열</span><b class="mono">181</b></div><div class="krow"><span>파단연신율</span><b class="mono">148</b></div></div>
+<div><h4>가정 의존이 큰 재료</h4><div class="krow"><span>Color Filter Resin (pigment)</span><b class="mono">19칸</b></div><div class="krow"><span>FPCB Bonding Adhesive (acrylic/epoxy)</span><b class="mono">19칸</b></div><div class="krow"><span>OCA Foldable (Tg&lt;-30C)</span><b class="mono">18칸</b></div><div class="krow"><span>OCA Rollable (Tg&lt;-40C)</span><b class="mono">18칸</b></div><div class="krow"><span>OCA Rigid High Bond</span><b class="mono">17칸</b></div><div class="krow"><span>On-Chip Lens (OCL)</span><b class="mono">17칸</b></div><div class="krow"><span>EMI Shielding Film (FPCB)</span><b class="mono">17칸</b></div><div class="krow"><span>Microlens Resin (thermal reflow)</span><b class="mono">16칸</b></div></div>
+</div>
+<p class="note"><b>다만 대체 가능성은 물성마다 다르다.</b> 열전도율은 실측으로 덮인 비율이 16%인데 포아송비는 4%뿐이다. CAMPUS 스키마에 포아송비 필드가 없고, Rogers 전 사이트에 <code>Poisson</code>이 5건이며, MnZn 페라이트 데이터북은 E·인장·경도·파괴인성까지 싣고 ν만 뺀다. <b>벤더가 아예 발표하지 않는 물성</b>이라 여기는 천장이 낮다.</p>
+</section>
+<footer><p>라이브 DB 조회 · 재료 544종 · 물성값 21,279건 · 출처 2,134건 · 무결성 36항목 0 · 최종 갱신 2026-08-10</p><p class="gen">이 페이지는 <code>build_overview_html.py</code>가 매번 다시 생성한다 — 숫자를 손으로 적지 않는다.</p></footer>
