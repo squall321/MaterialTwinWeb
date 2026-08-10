@@ -167,6 +167,13 @@ _LAMINATE = ("laminate", "prepreg", "ccl", "coverlay", "megtron", "duroid", "i-t
              "tlx-", "clte", "ro40", "ro30", "ultralam", "tsm-ds3", "chukoh")
 
 # (재료 매처, 못 채우는 물성 키 집합, 사유)
+# 피로 택일군 다섯 키 — 13차 선언이 여러 군에서 같은 집합을 쓴다.
+_FATIG_SET = {
+    "mechanical.fatigue_strength_coefficient", "mechanical.fatigue_ductility_coefficient",
+    "mechanical.darveaux_constant", "mechanical.morrow_energy_coefficient",
+    "mechanical.fatigue_stromeyer_coefficient",
+}
+
 UNFILLABLE = [
     # 광물리 논문은 λ·Φ_PL·τ·HOMO/LUMO만 인쇄한다. 벤더 TDS 자체가 없다.
     # 4·5·6·7차 파동이 각각 독립으로 확인(PubChem에 Heat Capacity 항목 없음,
@@ -297,6 +304,55 @@ UNFILLABLE = [
         "mechanical.fatigue_ductility_coefficient",
         "mechanical.darveaux_constant", "mechanical.morrow_energy_coefficient",
     }, "세라믹 — 순환소성이 없어 변형률-수명·에너지 계수가 정의되지 않는다(S-N은 존재한다)"),
+
+    # ── 13차 파동 선언. 65종을 훑은 피로 배치가 declined 53종의 출처 328건 중 281건을
+    # 재다운로드해 grep했고 **피로 모델 상수 0건**이었다. 다만 "전수 검색이 비었다"는
+    # 검색 실패와 구분되지 않는다 — 그래서 **인쇄된 부재 문장이나 기전(機轉) 논거가 있는
+    # 군만** 여기 넣는다. METGLAS·나노결정·분말코어·ACF/DAF/Ag에폭시·E-glass·커버레이는
+    # 근거가 검색 소진뿐이라 **일부러 남겼다** — 다음 파동의 일감이지 부재가 아니다.
+
+    # MMPA 0100-00 본문이 영구자석 전체를 덮어 인쇄한다 —
+    # *"Most permanent magnet materials lack ductility and are inherently brittle. Such materials
+    # should not be utilized as structural components… Measurement of properties such as hardness
+    # and tensile strength is not appropriate or feasible."*
+    # 이 군에 발표되는 것은 굽힘강도이고, 13차가 그 굽힘강도로 S-N을 세웠다(피로는 채워졌다).
+    (("recoma", "alnico", "hard ferrite magnet", "ndfeb sintered"), {
+        "mechanical.yield_strength", "mechanical.tensile_strength",
+        "mechanical.elongation_at_break",
+    }, "영구자석 — MMPA 0100-00이 인장·경도 측정이 적절하지도 가능하지도 않다고 인쇄한다"),
+
+    # 알루미나의 순환 열화는 **입계 브리징의 마모**가 기전이다. 단결정에는 입계가 없다.
+    # 게다가 Si는 문헌 자신이 지수가 재료상수가 아님을 밝힌다 — *"The slopes of S–N plots have
+    # been strongly dependent on specimens, test methods, and environments… The reason for this
+    # variation is still unknown"* (같은 실험실·같은 재료가 파운드리만 달라 n=27 대 19다).
+    # **재료상수가 아닌 것은 카탈로그에 담기지 않는다.**
+    (("sapphire single-crystal", "lithium niobate", "lithium tantalate",
+      "crystalline silicon", "capacitive mems"), _FATIG_SET,
+     "단결정 — 입계 브리징이 없어 순환 열화 기전이 없고, Si는 지수가 재료상수가 아니다"),
+
+    # 카탈로그 자신의 출처가 부재를 인쇄한다 — AlN 박막(J. Alloys Compd. 772, 306):
+    # *"No clear signs of fatigue were observed after 10,000 cycles at 83% of the fracture strength."*
+    # 이 분야는 밀착을 스크래치 임계하중으로, 열화를 균열밀도로 잰다. 응력-수명 축이 아니다.
+    (("dlc coating", "tin pvd", "anodized aluminum", "ar/ir coating",
+      "thin-film encapsulation", "piezo mems", "silver nanowire", "magnetic sensor",
+      "imag surface", "oled cathode"), _FATIG_SET,
+     "PVD·CVD 박막 — 응력-수명이 아니라 임계하중·균열밀도로 재는 분야다"),
+
+    # 배리어 필름의 수명은 **굽힘/비틀림 횟수 대 배리어·전기 기능 상실**로 잰다(WVTR 열화).
+    # 응력-수명 곡선이 아니다. **택시노미에 굽힘 횟수 키(MIT folding endurance,
+    # IPC-TM-650 2.4.3)가 없어서 이 군은 담을 그릇 자체가 없다** — 다음 파동의 숙제로 남긴다.
+    (("toppan g", "pecvd siox", "quantum dot film", "emi shielding film"), _FATIG_SET,
+     "배리어 필름 — 수명을 굽힘 횟수 대 기능 상실로 재고 응력-수명 축이 없다"),
+
+    # J-Stage 疲労 표제 18,750건 전수 grep에 불소수지 용어 0건이고, 세라믹충전 PTFE 논문
+    # 약 20편이 전부 유전특성만 보고한다. 게다가 11종 중 9종은 σB가 Okabe 적합 하한
+    # (≈69 MPa) 아래라 **적층재 상수를 옮기는 길도 범위 밖이다.**
+    (("ro3003", "clte", "rt/duroid", "taconic", "chukoh", "tsm-ds3"), _FATIG_SET,
+     "불소수지 RF 적층판 — S-N이 발표되지 않고 σB가 Okabe 적합 하한 아래다"),
+
+    # 위 '박막 기능층·활물질' 선언과 같은 사유인데 매처가 두 활물질을 놓치고 있었다.
+    (("graphite anode", "silicon anode"), _FATIG_SET,
+     "활물질 분말 — 벌크 피로 시편이 성립하지 않는다"),
 ]
 
 
