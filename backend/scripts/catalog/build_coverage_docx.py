@@ -92,7 +92,9 @@ def main():
     r.font.size = Pt(13)
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    r = p.add_run(f"2026-08-06 · 재료 {n_mat:,}종 · 물성값 {n_val:,}건 · "
+    # 날짜를 손으로 적으면 재생성해도 옛 날짜가 남는다 — DB의 최신 갱신 시각에서 만든다.
+    _stamp = c.execute("select max(created_at) from property_value").fetchone()[0] or ""
+    r = p.add_run(f"{str(_stamp)[:10]} · 재료 {n_mat:,}종 · 물성값 {n_val:,}건 · "
                   f"출처 {n_src:,}건 · 물성 정의 {n_def}종")
     r.font.size = Pt(9)
     r.font.color.rgb = RGBColor(0x60, 0x60, 0x60)
@@ -100,7 +102,7 @@ def main():
 
     # ── 1. 한 줄 요약 ────────────────────────────────────────────────────
     doc.add_heading("1. 요약", level=1)
-    _p(doc, f"12개 해석이 요구하는 (재료 × 필수물성) 격자 {tot_cells:,}칸 중 "
+    _p(doc, f"{len(cov)}개 해석이 요구하는 (재료 × 필수물성) 격자 {tot_cells:,}칸 중 "
             f"{tot_filled:,}칸이 채워졌다 — 전체 {tot_pct:.1f}%.", bold=True, size=11)
 
     _p(doc, "“몇 %”의 분모를 두 가지로 낸다. 둘은 다른 것을 잰다.", space=2)
@@ -237,8 +239,11 @@ def main():
         ["tier 4", "계산·추정·가정값", f"{tiers.get(4,0):,}", f"{tiers.get(4,0)*100/tot:.1f}%"],
     ])
     doc.add_paragraph()
+    # 부분문자열 검사는 68장에서 오탐이 확인된 방식이다(`direction: "bulk effective
+    # (isotropic assumption)"` 같은 서술문이 걸린다). 구조적 표지 `"assumption":true`만 센다.
     n_assum = c.execute("select count(*) from property_value where "
-                        "instr(coalesce(conditions,''),'assumption')>0").fetchone()[0]
+                        "replace(replace(coalesce(conditions,''),' ',''),'\"assumption\":true','@@') "
+                        "like '%@@%'").fetchone()[0]
     _p(doc, f"가정값 {n_assum:,}건은 조건에 assumption 표지가 붙어 UI·카드에 “가정”으로 표시된다. "
             f"대표값 선택에서 실측에 밀리므로, 나중에 실측이 들어오면 자동으로 대체된다.")
 

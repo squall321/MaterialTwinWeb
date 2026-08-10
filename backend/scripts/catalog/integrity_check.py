@@ -113,6 +113,12 @@ CHECKS = [
     # 초음파 실측의 등방 근사 서술이지 값이 가정이라는 뜻이 아니다(SmCo 3건이 실제로 걸렸다).
     # 근거 문구를 복원하고 conditions가 풍부해지자 이 오탐이 나타났다 —
     # **검사는 산문이 아니라 구조를 봐야 한다.**
+    # method='estimated'는 **우리가 세운 가정**을 뜻한다. 그 값이 tier1~2에 앉으면
+    # "추정값은 실측에 밀린다"는 규약이 무력화된다 — 실측이 들어와도 대표값이 안 바뀐다.
+    # 10차 점검에서 8건이 발견됐고 전부 라벨 오류였다(논문이 동정한 모델 상수였다).
+    # tier3은 허용한다 — 계열 대체값·경계값이 여기 앉고, 이미 tier1·2에 밀린다.
+    ("estimated인데 tier1·2", "select count(*) from property_value "
+                              "where method='estimated' and quality_tier<3"),
     ("가정값인데 tier4·estimated 아님", """select count(*) from property_value
         where (instr(replace(coalesce(conditions,''),' ',''),'"assumption":true')>0
                or instr(replace(coalesce(conditions,''),' ',''),'"assumption":True')>0)

@@ -333,6 +333,9 @@ def compute():
         #     구조적 부재 칸은 따로 센다. 분모에 남겨 두면 도달할 수 없는 100%를 좇게 된다.
         cells = filled = 0
         unfill = 0          # 구조적으로 못 채우는 칸
+        # **부재로 뺀 칸에 tier4 가정값이 들어 있으면 분자에도 남아 유효채움이 100%를 넘는다.**
+        # 실제로 워피지 107.4%, 구조·강성 106.5%가 나왔다. 분모에서 뺀 칸은 분자에서도 뺀다.
+        unfill_filled = 0
         wrong_unfill = []   # 부재로 선언했는데 실제로 값이 있는 칸 — 선언이 틀렸다는 뜻
         miss_by_key = Counter()
         m_filled = 0   # tier4 가정을 뺀 채움
@@ -345,6 +348,7 @@ def compute():
                 has = k in ks
                 if _cell_unfillable(mat[m][0], (k,), mat[m][1]):
                     unfill += 1
+                    unfill_filled += has
                     # 반례는 **실측(tier<=3)**만 인정한다. 8차 파동 방침대로 넣은 tier4
                     # 가정값이 부재 칸에 앉는 것은 정상이다 — 선언이 틀렸다는 뜻이 아니다.
                     if k in ms:
@@ -359,6 +363,7 @@ def compute():
                 has = grp_ok(ks, grp)
                 if _cell_unfillable(mat[m][0], grp, mat[m][1]):
                     unfill += 1
+                    unfill_filled += has
                     if grp_ok(ms, grp):
                         wrong_unfill.append((mat[m][0], "택일군"))
                 if has:
@@ -382,7 +387,8 @@ def compute():
                  if all(k in own[m] for k in must) and all(grp_ok(own[m], g) for g in anyof)]
         ready_m = [m for m in tgt
                    if all(k in meas[m] for k in must) and all(grp_ok(meas[m], g) for g in anyof)]
-        eff = cells - unfill      # 채울 수 있는 칸
+        eff = cells - unfill              # 채울 수 있는 칸
+        eff_filled = filled - unfill_filled  # 그중 채워진 칸(부재 칸의 가정값은 뺀다)
         out.append({
             "name": name, "desc": desc, "n_target": n,
             "cells": cells, "filled": filled,
@@ -390,7 +396,9 @@ def compute():
             # 구조적 부재를 뺀 분모. **이 상승은 수집 성과가 아니라 분모 정의다.**
             "unfillable": unfill,
             "eff_cells": eff,
-            "eff_pct": round(filled * 100 / eff, 1) if eff else 0.0,
+            "eff_filled": eff_filled,
+            "unfill_filled": unfill_filled,
+            "eff_pct": round(eff_filled * 100 / eff, 1) if eff else 0.0,
             "wrong_unfillable": wrong_unfill,
             "meas_filled": m_filled,
             "meas_pct": round(m_filled * 100 / cells, 1) if cells else 0.0,
