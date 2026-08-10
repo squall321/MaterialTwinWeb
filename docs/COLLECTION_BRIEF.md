@@ -155,6 +155,21 @@ Prony·투습·젖음**처럼 그 해석의 정체성을 이루는 물성이고,
   상대경로 정규식은 전부 놓친다
 - **University of Waterloo FD&E** `fde.uwaterloo.ca/Fde/Materials/dindex.html`
   — SAE 표준 포맷 `*_fitted.html`이 피로계수를 평문으로 인쇄한다. 디렉터리 순회 가능
+- **accuratus.com/{재료}.html** — 세라믹·유리의 E·G·K·ν와 유전율·손실계수·체적저항률을
+  **조건까지 붙여 한 표에** 싣는다. 전기군과 Prony군을 한 출처로 동시에 닫는다.
+  없는 슬러그는 **959바이트 HTML을 200으로** 준다.
+- **specialmetals.com/documents/technical-bulletins/{계열}/{합금}.pdf** — Ni 합금의
+  `Modulus of Rigidity`를 **온도별로 SI·미국단위 두 블록**으로 인쇄해 교차검산이 된다.
+  애그리게이터 역산값을 피할 수 있는 몇 안 되는 경로다.
+- **AFLOW AFLUX API가 키 없이 열린다** — `aflow.org/API/aflux/?species(Ti,N),nspecies(2),
+  ael_shear_modulus_vrh(*),ael_bulk_modulus_vrh,ael_poisson_ratio,compound,$paging(1,40)`.
+  `(*)`가 null 제외 필터다. **단 계산값이다** — 흑연·층상물질은 GGA가 층간을 못 잡고
+  hcp Ti도 실측과 1.6배 어긋난다. **등방성 강결합 결정에만 써라.**
+- **PMC 본문 표가 이미지일 때** — `fullTextXML`의 `image-cloudpmc-urn` 처리명령을
+  `https://cdn.ncbi.nlm.nih.gov/pmc/blobs/{4hex}/{num}/{12hex}/{파일명}`으로 조립하면 200이다.
+  보충자료는 `.../rest/{PMCID}/supplementaryFiles`(zip)에 텍스트로 들어 있다.
+- **`web.archive.org/web/{ts}id_/{pdf-url}`이 DataDome 우회에 매번 통했다** —
+  epj-conferences.org·hindawi가 이 경로로 열린다(DYMAT 프로시딩 포함).
 - `curl` + `pdftotext -layout` 이 WebFetch보다 PDF에서 항상 낫다
 
 **막힘 — 시간 쓰지 마라**
@@ -162,7 +177,11 @@ Prony·투습·젖음**처럼 그 해석의 정체성을 이루는 물성이고,
 **IOPscience는 간헐적이다** — `iopscience.iop.org/article/{DOI}/pdf` + UA가 통할 때가 있고,
 막힐 때는 200을 주면서 PDF가 아니라 HTML을 돌려준다. `file`로 실제 형식을 확인하라 ·
 **OpenAlex는 429가 아니라 과금 벽이다**(`Insufficient budget… $0 remaining`) — 재시도해도 소용없다. 대체재는 **DOAJ API**(`doaj.org/api/search/articles/{q}?pageSize=40`, boolean 지원)가 가장 낫고 MDPI *Metals*처럼 PMC에 없는 것까지 잡는다 · Semantic Scholar(키 필요) · ScienceDirect(OA 논문도 403) · Wiley pdfdirect ·
-Elsevier·IEEE·Springer 페이월 · apps.dtic.mil · DYMAT(DataDome)
+Elsevier·IEEE·Springer 페이월 · apps.dtic.mil ·
+**MakeItFrom은 이제 전 요청에 2,194바이트 스텁을 준다**(종전 "금속 값은 정합한다"가 무효화됐다) ·
+Corning HPFS 전 경로 · hollandshielding·schlegelemi·tech-etch의 `.pdf`(200 + HTML,
+tech-etch는 1.4 MB라 크기로도 안 걸린다) · MATEC Web of Conferences(DataDome) ·
+NSF PAR 검색(JS 렌더링 — `servlets/purl/{ID}` 직접 조회만 가능)
 
 **WebSearch 예산은 세션당 200회이고 금방 마른다.** 처음부터 Europe PMC REST / OSTI API /
 Crossref / DOAJ API / 벤더 사이트 직접 fetch로 가라. 웹검색은 방법론 논문만 반복해서 돌려준다.
@@ -350,6 +369,14 @@ DB에 등록돼 있던 구형 "product information" PDF에는 그 섹션이 **�
   0.0071 → 0.0656으로 **10배** 변한다. 밀도가 다른 폼에 빌려주면 크게 틀린다.
   (카탈로그의 PORON XRD·Foam PU 값은 각 재료 자신의 율속 스윕을 피팅한 것이라 유효하지만,
   `method='computed'`이고 그 재료 전용이다. 다른 폼으로 옮기지 마라.)
+- **검증 스크립트 자체가 위양성을 낼 수 있다 — 내용 유형으로 분기하라.**
+  10차에서 HTML 태그 제거 정규식(`<[^>]+>` → ' ')을 **평문 PDF 텍스트에** 그대로 적용했더니,
+  학위논문 본문의 `<`/`>` 부등호가 짝을 이뤄 **수백 줄이 통째로 사라졌다.** 정상 5건이
+  MISS로 나왔다. **원문 문자열 대조기는 HTML/XML과 평문을 갈라서 처리하라.**
+- **표의 열 순서가 추출 과정에서 뒤섞일 수 있다 — 물리 검산으로 되돌려라.**
+  ORNL/TM-2019/1256 Table 2를 인쇄 순서대로 읽으면 흑연의 CTE가 52e-6/°C, 굽힘강도가
+  1240 MPa가 된다. **둘 다 흑연에 불가능하다.** 물리적으로 가능한 배정을 찾아
+  실제 순서(밀도 1.81 / 굽힘 52 / CTE 5.3 / 저항률 1240 / 열전도 104)를 확정했다.
 - **혼합물은 성분의 상·하한을 넘을 수 없다 — 이 한 줄로 표를 거를 수 있다.**
   EMC는 에폭시(cp ≈ 1,200)와 실리카(≈ 740)의 혼합물이라 **cp가 1,200을 넘거나 740보다 낮으면
   물리적으로 불가능**하다. 8차 파동이 이 검사로 논문 표 두 건(1,672와 236)을 걸렀다.
