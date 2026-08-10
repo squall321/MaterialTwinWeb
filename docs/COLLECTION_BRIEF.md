@@ -186,6 +186,15 @@ Prony·투습·젖음**처럼 그 해석의 정체성을 이루는 물성이고,
   보충자료는 `.../rest/{PMCID}/supplementaryFiles`(zip)에 텍스트로 들어 있다.
 - **`web.archive.org/web/{ts}id_/{pdf-url}`이 DataDome 우회에 매번 통했다** —
   epj-conferences.org·hindawi가 이 경로로 열린다(DYMAT 프로시딩 포함).
+- **makeitfrom.com은 살아 있다.** 10차에 "전 요청에 2,194 B 스텁"이라고 적었으나 **틀렸다** —
+  **2,194 B는 404 응답 본문**이고 유효 슬러그는 정상 물성표(약 14.5 KB)를 200으로 준다.
+  `material-properties/{슬러그}`이고 **슬러그를 추측하면 안 된다**(9차 확인: `1100-O-Aluminum`은
+  200인데 `Nichrome`·`Grade-9-Titanium` 등 8개 변형이 전부 404). DB에 저장된 URL을 써라.
+- **AZoM `properties.aspx?ArticleID={n}`의 `Ductility` 열** — 무차원 파단변형률이다.
+  **폴리머 행은 실측 계열값이라 쓸 수 있지만, 세라믹 행은 σts/E 유도값이라 역산이다.**
+  12차가 세 건으로 확인했다 — 알루미나 0.00018 = 69/413000, AlN 0.00061 ≈ 197/348000.
+  **폴리머만 써라.** 색인은 ArticleID를 훑어 본문에 `Ductility`가 있는 것만 남기면 만들어진다
+  (12차가 342건 색인. EVA 410~412, PU 679·680·683·685, PU TPE 765·766·852, SBS TPE 868~870).
 - `curl` + `pdftotext -layout` 이 WebFetch보다 PDF에서 항상 낫다
 
 **막힘 — 시간 쓰지 마라**
@@ -194,7 +203,6 @@ Prony·투습·젖음**처럼 그 해석의 정체성을 이루는 물성이고,
 막힐 때는 200을 주면서 PDF가 아니라 HTML을 돌려준다. `file`로 실제 형식을 확인하라 ·
 **OpenAlex는 429가 아니라 과금 벽이다**(`Insufficient budget… $0 remaining`) — 재시도해도 소용없다. 대체재는 **DOAJ API**(`doaj.org/api/search/articles/{q}?pageSize=40`, boolean 지원)가 가장 낫고 MDPI *Metals*처럼 PMC에 없는 것까지 잡는다 · Semantic Scholar(키 필요) · ScienceDirect(OA 논문도 403) · Wiley pdfdirect ·
 Elsevier·IEEE·Springer 페이월 · apps.dtic.mil ·
-**MakeItFrom은 이제 전 요청에 2,194바이트 스텁을 준다**(종전 "금속 값은 정합한다"가 무효화됐다) ·
 Corning HPFS 전 경로 · hollandshielding·schlegelemi·tech-etch의 `.pdf`(200 + HTML,
 tech-etch는 1.4 MB라 크기로도 안 걸린다) · MATEC Web of Conferences(DataDome) ·
 NSF PAR 검색(JS 렌더링 — `servlets/purl/{ID}` 직접 조회만 가능. `api/search`는 404) ·
@@ -438,6 +446,14 @@ DB에 등록돼 있던 구형 "product information" PDF에는 그 섹션이 **�
   ORNL/TM-2019/1256 Table 2를 인쇄 순서대로 읽으면 흑연의 CTE가 52e-6/°C, 굽힘강도가
   1240 MPa가 된다. **둘 다 흑연에 불가능하다.** 물리적으로 가능한 배정을 찾아
   실제 순서(밀도 1.81 / 굽힘 52 / CTE 5.3 / 저항률 1240 / 열전도 104)를 확정했다.
+- **CUED Materials Data Book Table II.4의 세라믹 `σy` 열은 항복이 아니다.**
+  표 각주가 `(*) For ceramics, yield stress is replaced by compressive strength`라고 인쇄한다.
+  소다라임 유리의 `360~420 MPa`를 항복으로 옮기면 **같은 표의 σts 31 MPa와 나란히 놓여
+  항복 > UTS**가 되어 규칙 6에 걸린다.
+- **`σ_break / E ≤ 파단연신율` 검사를 엘라스토머에 적용하지 마라.**
+  대변형 경화 때문에 **정상적으로 위반한다**(NR: E 1.5 MPa · UTS 25 MPa · 연신 600%).
+  이 검산은 **파단까지 거의 선형인 재료**(세라믹·유리질 폴리머·적층판)에만 유효하다.
+  적층판에서는 이 검사가 실제로 앵커 오적용을 여럿 걸렀다.
 - **대조군이 본체와 같은 값을 주면, 그 값은 본체의 성질이 아니다.**
   11차가 충전 실리콘 PSA 특허(US 5,561,203) Table 4를 광학용 무충전 제품에 대입하려다
   거부한 근거가 이것이다 — **MQ 수지만 뺀 `Comparison` 행이 314 psi로 예시들(144.5~361)과
