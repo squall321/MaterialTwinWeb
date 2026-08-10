@@ -254,7 +254,7 @@ Microsyst Nanoeng Table 3에 **OCA 행이 아예 없는데** 인접 4개 층 값
 | 7 | 인제스트 드라이런 | `ingest_agent_json.py <dir>` | **6단계 검증**(아래) | 인제스터 |
 | 8 | 적용 | `--apply` | 신규 재료·거부 사유 리뷰 | 인제스터 |
 | 9 | tier 정규화 | 값의 성격으로 등급 재판정 | 자동 규칙 vs `MANUAL`/`FROZEN` 예외 | `normalize_tiers.py` |
-| 10 | 무결성 검사 | 36항목 + 주의 1항목 | **0이 아니면 결함** | `integrity_check.py` |
+| 10 | 무결성 검사 | 37항목 + 주의 1항목 | **0이 아니면 결함** | `integrity_check.py` |
 | 11 | 통계·문서 재생성 | 커버리지·xlsx·docx | 하드코딩 없이 전부 계산값인가 | `build_*` 스크립트 |
 | 12 | 이력 기록 → 배포 | 무엇이 틀렸는지까지 | — | `PROPERTY_DATA_HISTORY.md` |
 
@@ -291,9 +291,9 @@ Microsyst Nanoeng Table 3에 **OCA 행이 아예 없는데** 인접 4개 층 값
 3M Viscoelastic 112P05 박리력이 112P02와 시험조건이 같아 이렇게 사라져 있었다 —
 그레이드가 `conditions`가 아니라 `note`에만 있었기 때문이다.
 
-### 4.3 10단계 — 무결성 검사 36항목
+### 4.3 10단계 — 무결성 검사 37항목
 
-배포 전 반드시 0으로 통과시킨다. 현재 **36항목 전부 0**, 주의 1항목 41건.
+배포 전 반드시 0으로 통과시킨다. 현재 **37항목 전부 0**, 주의 1항목 41건.
 
 | 검사군 | 항목 예 |
 |---|---|
@@ -454,7 +454,7 @@ Microsyst Nanoeng Table 3에 **OCA 행이 아예 없는데** 인접 4개 층 값
 
 ## 7. 검증 장치 다섯 — 그리고 각각이 실제로 잡은 것
 
-### ① 무결성 검사 36항목 — 구조를 본다
+### ① 무결성 검사 37항목 — 구조를 본다
 
 | 검사 | 실제로 잡은 것 |
 |---|---|
@@ -682,7 +682,7 @@ Kapton PI Adhesive Tape 40건, Arisawa C33 Low-Dk Coverlay 40건.
 | 출처 | **2,134건** (DOI 보유 733 · URL 보유 1,977) |
 | 물성 정의 | **161종 — 전부에 값이 있다(개통률 100%)** |
 | 시편 | 73건 |
-| 무결성 | **36항목 전부 0** · 주의 1항목(방향 없는 열전도율) 41건 |
+| 무결성 | **37항목 전부 0** · 주의 1항목(방향 없는 열전도율) 41건 |
 
 **출처 종류** — datasheet 879 · journal 714 · database 313 · other 105 · book 72 ·
 standard 26 · web 24 · computed 1.
@@ -873,23 +873,27 @@ structure 7/324 · rheological 5/195 · magnetic 5/201 · acoustic 4/148.
 **−309칸**으로 인쇄됐다. **지표를 고칠 때는 같은 수식이 쓰인 자리를 전부 찾아야 한다.**
 현재 값은 유효채움 **99.5%**, 남은 일 **72칸**(376 − 304, 304 = 부재이면서 아직 비어 있는 칸)이다.
 
-**(나) 문서화된 method×tier 조합표가 지켜지지 않고 있고, 검사가 없다.**
+**(나) 문서화된 method×tier 조합표가 좁았다 — 표를 버리고 불변식 둘로 바꿨다.**
 `PROPERTY_DATA_HISTORY.md`의 "정한 규칙" 2항이 허용 조합 7개를 표로 못박고
-**"다른 조합이 나오면 어딘가 어긋난 것이다"**라고 적는다. 그런데 현재 DB에
-**표 밖 조합이 219건(1.1%)** 있다.
+**"다른 조합이 나오면 어딘가 어긋난 것이다"**라고 적었다. 그런데 표 밖 조합이 225건이었다.
+전수로 열어 보니 **대부분은 데이터가 아니라 표가 틀렸다.**
 
-| 조합 | 건수 | 살펴본 결과 |
+| 조합 | 건수 | 열어 본 결과 |
 |---|---:|---|
-| `computed` @ tier1 | 101 | 대부분 정당해 보인다 — 논문이 상대계수 Eᵢ/E₀와 E₀를 같은 표에 인쇄해 곱한 Prony 항 등 |
-| `computed` @ tier2 | 104 | 데이터시트 인쇄값의 단위 환산(열저항 → 열전도율, N/20mm → Pa 등) |
-| `estimated` @ tier1 | **8** | **가장 문제다.** tier1은 "그 제품의 인쇄된 실측"인데 method가 estimated다. SAC305 Darveaux K3/K4, Al2024-T3 JC 손상 d1~d5, EMC CHE |
-| `estimated` @ tier3 | 5 | 계열 대입인데 tier3 |
-| `handbook` @ tier1 | 1 | 정성 등급 인용 |
+| `computed` @ tier1 | 103 | **정당하다.** 벤더가 각주로 *"calculated value per datasheet footnote"*라 밝힌 값, 논문이 자기 시편에 피팅해 인쇄한 Prony 항 — 그 제품에 대해 인쇄됐으니 tier1이고, 계산값이니 computed다 |
+| `computed` @ tier2 | 104 | **정당하다.** 인쇄된 두 수로 우리가 환산한 값을 한 단계 낮춘 것이다(tesa 61395: 20 N/cm ÷ 200 µm 두께 = 10 MPa). 기하가 개입하는 환산이라 tier1을 주지 않는 것이 보수적으로 옳다 |
+| `measured` @ tier2 | 2 | **정당하다.** 다른 시료의 실측을 계열값으로 쓴 것이다 |
+| `handbook` @ tier1 | 1 | 제조사(Special Metals) 자사 불리틴의 정성 등급이라 tier1이 맞다 |
+| **`estimated` @ tier3** | **15** | **이것만 진짜 결함이었다.** 전부 CRC·ASM·벤더 TDS에 **인쇄된 계열값**인데 method가 estimated였다. 우리가 만든 수가 아니므로 `handbook` 14 · `measured` 1로 정정했다 |
 
-특히 **`estimated` @ tier1 8건은 §2.2에서 설명한 자동 대체 장치를 정면으로 무력화한다** —
-추정값이 tier1에 앉아 있으면 나중에 진짜 실측이 들어와도 **밀려나지 않는다.**
-이 8건은 `assumption:true` 표지도 없어 기존 무결성 검사 2항목에 걸리지 않는다.
-`integrity_check.py`에 **method×tier 조합 검사를 추가할 것을 권한다.**
+**조합을 세는 것이 애초에 잘못된 검사 설계였다.** 조합표는 허용 목록이라 새로운 정당한
+조합이 생길 때마다 오탐을 낸다. 뜻이 어긋나는 것만 잡으면 규칙이 둘로 줄어든다.
+
+1. **`estimated`는 "우리가 만든 값"이다** → tier4가 아니면 어느 쪽이든 거짓말이다.
+2. **tier4는 "우리가 만든 값"이다** → `measured`·`handbook`이면 등급이 틀렸다.
+
+`integrity_check.py`가 이 둘을 검사한다(37항목). 앞서 지적한 `estimated` @ tier1 8건은
+12차에 이미 `measured`로 정정됐다 — 전부 그 논문이 그 재료에 대해 식별한 모델 상수였다.
 
 ### 11.11 요지
 
@@ -913,7 +917,7 @@ structure 7/324 · rheological 5/195 · magnetic 5/201 · acoustic 4/148.
 python3 backend/scripts/catalog/coverage_report.py
 python3 backend/scripts/catalog/coverage_report.py --json   # 기계 판독용
 
-# 무결성 36항목 — 0이 아니면 배포 금지
+# 무결성 37항목 — 0이 아니면 배포 금지
 python3 backend/scripts/catalog/integrity_check.py
 
 # 파동 인제스트
@@ -941,6 +945,6 @@ python3 backend/scripts/catalog/build_stats_xlsx.py          # 통계 워크북
 | `docs/coverage-honest/` · `docs/hub-export/` | 결정 기록(계획·체크리스트·컨텍스트 노트) |
 | `backend/app/property_taxonomy.py` | 물성 정의 161종 |
 | `backend/scripts/catalog/coverage_report.py` | 지표 정의 · 구조적 부재 선언 · 반례 검증 |
-| `backend/scripts/catalog/integrity_check.py` | 무결성 36항목 + 주의 1항목 |
+| `backend/scripts/catalog/integrity_check.py` | 무결성 37항목 + 주의 1항목 |
 | `backend/scripts/catalog/ingest_agent_json.py` | 적재 6단계 검증 · 조건 충돌 감지 |
 | `backend/scripts/catalog/normalize_tiers.py` | tier를 "값의 성격"으로 재판정 |

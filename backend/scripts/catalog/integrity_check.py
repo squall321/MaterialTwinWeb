@@ -1,4 +1,4 @@
-# 카탈로그 정합성 32항목 + 주의 1항목 일괄 점검 — 0이 아니면 결함이다. 배포 전 반드시 통과시킬 것.
+# 카탈로그 정합성 37항목 + 주의 1항목 일괄 점검 — 0이 아니면 결함이다. 배포 전 반드시 통과시킬 것.
 import sqlite3
 import sys
 
@@ -139,8 +139,19 @@ CHECKS = [
           and not exists(select 1 from property_value where source_id=s.id and quality_tier<=3)"""),
     ("tier4 가정인데 근거 notes 없음", "select count(*) from property_value "
                                  "where quality_tier=4 and method='estimated' and coalesce(notes,'')=''"),
-    ("estimated인데 tier1·2", "select count(*) from property_value "
-                              "where method='estimated' and quality_tier<3"),
+    # **method와 tier의 진짜 불변식은 조합표가 아니라 둘이다.**
+    # 문서가 못박아 둔 7개 조합표는 좁았다 — computed t1(벤더가 각주로 "calculated"라 밝힌 값),
+    # computed t2(인쇄된 두 수로 우리가 환산한 값을 한 단계 낮춘 것), measured t2(다른 시료의
+    # 실측을 계열값으로 쓴 것)는 전부 정당한데 표 밖이라 225건이 결함처럼 보였다.
+    # 조합을 세지 말고 **뜻이 어긋나는 것만** 잡는다.
+    #
+    #   (1) estimated는 "우리가 만든 값"이다 → tier4가 아니면 어느 쪽이든 거짓말이다.
+    #       실제로 15건이 tier3에 있었는데 전부 출처에 인쇄된 계열값이었다(method가 틀렸다).
+    #   (2) tier4는 "우리가 만든 값"이다 → measured·handbook이면 등급이 틀렸다.
+    ("estimated인데 tier4가 아님", "select count(*) from property_value "
+                              "where method='estimated' and quality_tier<>4"),
+    ("tier4인데 실측·핸드북", "select count(*) from property_value "
+                        "where quality_tier=4 and method in ('measured','handbook')"),
     ("가정값인데 tier4·estimated 아님", """select count(*) from property_value
         where (instr(replace(coalesce(conditions,''),' ',''),'"assumption":true')>0
                or instr(replace(coalesce(conditions,''),' ',''),'"assumption":True')>0)

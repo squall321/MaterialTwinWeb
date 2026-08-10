@@ -21,10 +21,12 @@ from coverage_report import ANALYSES, compute  # noqa: E402
 OUT = Path("/home/koopark/claude/MaterialTwinWeb/MaterialTwin_물성수집_방법론.docx")
 DB = "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web/materialtwin.db"
 
-# 문서화된 method×tier 허용 조합(PROPERTY_DATA_HISTORY "정한 규칙" 2항).
-# 이 밖의 조합이 나오면 어딘가 어긋난 것이다 — 문서가 매번 세어서 드러낸다.
-METHOD_TIER_OK = {("measured", 1), ("measured", 3), ("handbook", 2), ("handbook", 3),
-                  ("computed", 3), ("computed", 4), ("estimated", 4)}
+# method×tier 불변식 — **허용 조합 목록이 아니라 뜻이 어긋나는 것만** 본다.
+# 조합표(7개)는 좁아서 정당한 computed@t1·computed@t2·measured@t2를 결함으로 셌다(225건).
+# estimated는 "우리가 만든 값"이라 tier4가 아니면 거짓말이고, tier4를 measured·handbook으로
+# 적으면 등급이 틀린 것이다. 그 둘만 남긴다.
+METHOD_TIER_OK = {(m, t) for m in ("measured", "handbook", "computed") for t in (1, 2, 3)}
+METHOD_TIER_OK |= {("computed", 4), ("estimated", 4)}
 
 # 레버리지 항목의 읽을 수 있는 이름과 "왜 어려운가".
 # 택일군 라벨은 taxonomy 키를 이어붙인 것이라 그대로 실으면 표에서 잘린다.
