@@ -133,7 +133,17 @@ Prony·투습·젖음**처럼 그 해석의 정체성을 이루는 물성이고,
     앞선 브리프가 04까지 있다고 적은 것이 틀렸다). 셋에서 54개 슬러그가 전부 나온다.
 - **www-origin.nitto.com** — `www.nitto.com`이 HTTP/2 INTERNAL_ERROR로 죽을 때 우회로
 - **qnityelectronics.com** — DuPont 전자재료 도메인이 여기로 옮겨졌다.
-  구 `dupont.com/content/dam/electronics/...` 경로는 전부 404이고 도메인만 바꾸면 200이다
+  구 `dupont.com/content/dam/electronics/...` 경로는 전부 404이고 도메인만 바꾸면 200이다.
+  **단 파일명 체계도 바뀌었다** — 구 `PyraluxAPclad_DataSheet.pdf`는 이제 404이고
+  `EI-1012x-Pyralux-{계열}-Data-Sheet.pdf` 형태다(AP는 `EI-10124`, AC는 `EI-10122`).
+- **IPC-TM-650 시험방법 원문은 호스트가 옮겨졌다** —
+  `https://www.electronics.org/sites/default/files/test_methods_docs/{번호}.pdf`.
+  **`www.ipc.org/sites/.../test_methods_docs/`는 전부 404다.** 번호가 파일명과 정확히
+  일치해야 하고(2.4.9.1 → 200), 개정문자를 붙이거나 상위번호를 쓰면 404 + 84 KB HTML이 온다.
+- **Dymax 현행 PDS** — `dymax.com/get-resource-file/{id}/file/{제품}%20PDS.pdf`.
+  `dymax.com/images/pdf/pds/*`와 `wp-content/uploads/*`는 404다.
+- **`www.furukawa.co.jp`는 기본 curl에서 간헐적으로 `000`(연결 실패)을 준다.**
+  `--insecure`로 재시도하면 200이 온다.
 - **KoreaScience** `koreascience.kr/article/{JAKO id}.pdf` (UA 필요) — 한국 전자패키징·표면처리
 - Europe PMC 페이월 논문도 `EXT_ID:{PMID}&resultType=core`로 초록 전문을 받을 수 있다
 - J-Stage `_pdf` · DOAJ **API**(웹페이지는 403) · Crossref API · Unpaywall API · arXiv · NTRS(NASA)
@@ -242,9 +252,24 @@ DB에 등록돼 있던 구형 "product information" PDF에는 그 섹션이 **�
     역수를 취하면 8% 차이).
   - **텍스트 추출하면 위첨자가 분리돼 `10^15 Ω·cm`가 `15 … 10 15`로 나온다.**
     원시 HTML의 `Electrical Properties` 블록을 태그 단위로 잘라 읽어라.
-  - **없는 페이지는 HTTP 200에 ~495바이트 본문**을 준다 — 상태코드가 아니라 길이를 봐라.
+  - **없는 페이지의 거동이 바뀌었다** — 종전 `HTTP 200 + 약 495 B`였으나 10차 확인 시점에는
+    `HTTP 404 + 6,871 B`다. **길이 495로 판정하면 전부 놓친다.** 상태코드와 본문을 함께 봐라.
   - **사이트 단위로 신뢰/불신을 판정하지 마라**(AZoM도 같다 — PU 선팽창은 정상인데
     E-SBR은 체적팽창계수로 보인다).
+- **"접착물인가"부터 판정하라 — 카테고리가 아니라 제품별 TDS로.**
+  10차 박리 배치가 55종 중 **31종을 "접착물이 아니다"로 판정**했다(Rogers PORON TDS 7판 전부
+  `peel` 히트 0, Panasonic PGS는 S type = 접착제 없음). **다만 9차에서 "폼에는 박리강도가
+  없다"는 카테고리 가설이 실측 반례 25건으로 무너졌다** — VHB 폼테이프는 실제 점착제다.
+  **⚠️ 함정** — PORON XRD·D3O·폴리우레아폼의 DB 출처에 **다른 물성 때문에 3M VHB TDS가
+  붙어 있다.** 그 문서의 `90° Peel Adhesion` 표를 이 재료들로 옮기면 안 된다.
+- **접착을 재긴 하는데 우리 키에 안 담기는 것들이 있다.** 스크래치 임계하중(ASTM C1624, 단위 N),
+  풀오프(ASTM D4541, 인장 모드), 크로스컷 등급, 계면파괴에너지(J/m²)는 **박리·전단과 모드가
+  다르다.** 옮기지 말고 보고서에만 적어라. Parylene은 SCS 공식 문서 2종에 `ADHESION` 절이
+  있으면서 **수치가 하나도 없다**.
+- **출처 재grep은 정규식 하나로는 샌다 — 세 벌을 다 돌려라.**
+  10차에서 `peel strength|adhesion strength`가 Daikin의 `Adhesive tape peeling strength`를
+  놓쳤고, `adhesi\w+\s+(strength|force)`도 놓쳤다. **`peeling strength|peel force|剥離強度|
+  release force|pull-off`를 3차로 돌려서야 tier1 한 건이 나왔다.** 일본어 표기도 넣어라.
 - **박리강도에서 각주가 특정 행에만 걸린다.** UBE UPILEX의 180° Peel 표에서
   **Epoxy Resin 행에만** `peel off at an angle of 90°` 각주가 붙는다. 그 행만 90도다.
   Rogers ULTRALAM의 `Peel Strength 0.95 N/mm`도 **3850 라미네이트 열**이지
@@ -267,6 +292,17 @@ DB에 등록돼 있던 구형 "product information" PDF에는 그 섹션이 **�
   30분 뒤에도 루트 인덱스까지 죽어 있었다. 그 차단 때문에 AA7050-T7351 실측 피팅과
   유일한 복합재 후보(PPS-glass)를 놓쳤고, **둘 다 Wayback에도 없다**(CDX 조회 결과
   FD&E는 343개만 아카이브돼 있다). **되돌릴 수 없는 손실이다.**
+- **한 논문이 두 물성 사이에 숫자를 복사한 것을 잡는 법 — 그리고 어느 쪽이 오염인지 가리는 법.**
+  9·10차가 같은 논문(`PMC12732896`)에서 이 사고를 두 번 만났다. EWC 문단과 접촉각 문단이
+  **수정군 네 값(62.55/62.53/52.77/50.39)을 바이트 단위로 공유**한다.
+  **어느 쪽이 오염인지는 세 가지로 가린다.**
+  1. **기준 시료 값이 다르면 통째 복사가 아니다** — 여기서는 EWC Ref 64.80 대 접촉각 Ref 92.25로
+     달랐다. 즉 한쪽이 **나머지 값만** 복사해 갔다는 뜻이다.
+  2. **표준편차는 대개 함께 복사되지 않는다** — ±1.49/1.05 대 ±1.29/1.99로 달랐다.
+  3. **Discussion을 읽어라.** 이 논문의 Discussion이 "contact angles showed only marginal
+     differences … small variations (<5%) fall within the experimental uncertainty"라고 적어
+     **Results의 92.25 → 50.39(45% 감소)를 자기 논문이 반박한다.** 오염된 쪽이 접촉각이다.
+  **Results만 읽으면 못 잡는다. 같은 물성을 Discussion에서 다시 찾아 읽어라.**
 - **논문 본문이 자기 표를 반박할 수 있다. 표에서 값을 뽑았으면 본문에서 그 숫자를 찾아라.**
   `PMC8587845` Table 4의 RTM6 행이 **통째로 정확히 +20 MPa 오식**이었다
   (136.403/145.318/… 대 전용 논문의 116.403/125.318/…). **표준편차 열 여섯 개가 바이트
