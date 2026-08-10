@@ -193,6 +193,11 @@ UNFILLABLE = [
         "mechanical.fatigue_strength_coefficient", "mechanical.fatigue_strength_exponent",
         "mechanical.fatigue_ductility_coefficient", "mechanical.fatigue_ductility_exponent",
     }, "PCB·RF 라미네이트 — 비열·피로를 어느 벤더도 발표하지 않는다"),
+    # [2026-08-10] 위 선언의 **전제는 참이고 결론이 틀렸다.** 벤더가 발표하지 않는 것은 맞지만
+    # 그렇다고 못 채우는 것은 아니었다 — 10차가 학술 문헌에서 직조유리/에폭시 적층판의
+    # S-N 회귀식을 찾아 19종에 tier3을 넣었다(IEC 60893 EPGC 203 축하중, JIS-K6912 굽힘).
+    # 반례 검증이 이 선언의 피로 키를 자동 은퇴시킨다. **"벤더가 안 낸다"와 "문헌에도 없다"는
+    # 다른 명제다. 부재 사유를 쓸 때 둘을 구분해라.**
 
     # Corning PI 시트에 항목 자체가 없고 자사 백서는 접촉각을 상한(`< 10°`)으로만 인쇄한다.
     (("gorilla", "victus", "ultra-thin glass", "utg"), {

@@ -57,5 +57,18 @@ Su가 524 대 578 MPa로 10% 차이다 — **피로강도를 10% 과대평가하
 
 나머지 25개 세트는 카탈로그가 **이미 실측 계수를 갖고 있는 재료**(Al1100·6061·7075·2024,
 Ti6Al4V)이거나 **카탈로그에 없는 재료**(SAE 구조강, A356 주조 Al, Ti-8Al-1Mo-1V 등)다.
-**아카이브를 다 뒤져도 남은 피로 빈칸은 안 닫힌다** — 구리 계열·CP 티타늄·오스테나이트계
-스테인리스는 FD&E 자체에 없다.
+**아카이브를 다 뒤져도 남은 피로 빈칸은 안 닫힌다.**
+
+**[2026-08-10 정정] 위 문장의 근거 하나가 틀렸다.** "구리 계열은 FD&E 자체에 없다"고 적었으나
+**`Fde/Materials/Other/`에 구리가 있다** — `hatanakaCopper.html`, `nachtigall-CopperAnnealed.html`
+(+ −195 °C, −269 °C판). 9차 CDX 파일에 이미 들어 있었는데 `Alum/`·`Steel/` 위주로만 훑어 놓쳤다.
+**정확한 서술은 "구리는 있으나 피팅 계수가 없다"다** — 두 건 모두 `DataType= raw`라 계수 블록이
+없고, hatanaka는 "Data digitized from graph"라 규칙 3에 걸리며 nachtigall(NASA TN D-7532)은
+원시 6점뿐이다. **결론(빈칸이 안 닫힌다)은 바뀌지 않지만 이유가 다르다.**
+
+**FD&E 실제 디렉터리는 14개다** — `Alum, Alumcast, Composites, Iron, Mag, Other, Plastics,
+PM, ShortFiberComposites, SMDIdbase, SSteel, Steel, Titan, ToolSteel`.
+`Mag/`에 마그네슘(az91-T4, AZ91E-T6, magcast)도 있다.
+**CDX는 전역 `limit=8000` 한 번보다 디렉터리별로 좁혀 조회하는 편이 누락이 없다.**
+회수 URL은 `https://web.archive.org/web/{timestamp}id_/http://fde.uwaterloo.ca/{path}`,
+**요청 간격 3초 이상.**
