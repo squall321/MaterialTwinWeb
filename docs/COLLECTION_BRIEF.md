@@ -131,7 +131,13 @@ Prony·투습·젖음**처럼 그 해석의 정체성을 이루는 물성이고,
     인쇄한다. **`Calculated` 행은 쓰지 마라**(계산값이다).
   - **색인은 `polytable_01` ~ `03`뿐이다. `polytable_04.html`은 404다**(9차에서 확인 —
     앞선 브리프가 04까지 있다고 적은 것이 틀렸다). 셋에서 54개 슬러그가 전부 나온다.
-- **www-origin.nitto.com** — `www.nitto.com`이 HTTP/2 INTERNAL_ERROR로 죽을 때 우회로
+- **www-origin.nitto.com** — `www.nitto.com`이 HTTP/2 INTERNAL_ERROR로 죽을 때 우회로.
+  **11차 확인 — 데이터시트 경로(`/others/products/file/datasheet/*.pdf`)는 이제 `www.nitto.com`에서
+  curl 연결 자체가 실패하고, 도메인만 `www-origin`으로 바꾸면 200 + PDF가 온다.**
+  단 **일본어 경로(`/jp/ja/...`)는 www-origin에서도 Error 페이지 37,616 B를 200으로** 준다 —
+  대만·EU·US 영어 경로(`/tw/en/`, `/eu/en/`, `/au/en/`)만 실제 물성표를 준다.
+- **Evonik PLEXIGLAS 데이터시트가 `Stress at break`와 `Strain at break`를 같은 ISO 527 표에
+  나란히 인쇄한다** — PMMA 계열 소성 택일군을 한 출처로 닫는 경로다.
 - **qnityelectronics.com** — DuPont 전자재료 도메인이 여기로 옮겨졌다.
   구 `dupont.com/content/dam/electronics/...` 경로는 전부 404이고 도메인만 바꾸면 200이다.
   **단 파일명 체계도 바뀌었다** — 구 `PyraluxAPclad_DataSheet.pdf`는 이제 404이고
@@ -297,6 +303,15 @@ DB에 등록돼 있던 구형 "product information" PDF에는 그 섹션이 **�
 - **적층판 피로는 규약이 또 다르다.** 금속의 변형률-수명은 `Δε/2` 대 `2Nf`인데,
   적층판 S-N은 **응력진폭 대 사이클(N)**이다. `conditions.basis`에 반드시 못 박아라.
   하중 모드(축하중 R=−1 / 굽힘)도 갈라서 넣어라 — 같은 재료라도 값이 다르다.
+- **캐리어 없는 전사형 점착제는 인장 시편이 성립하지 않는다 — 벤더가 인쇄하지 않는 이유다.**
+  3M CEF35XX가 `Adhesive Carrier: None`을 명시하고 박리·색·환경내구만 싣는다.
+  ARclear·Avery FT·Lohmann DuploCOLL 전부 같다. **3M VHB TDS의 `Normal Tensile`은
+  ASTM D-897 T-Block 접착시험이지 재료 인장이 아니고, 신율 행은 어느 개정판에도 없다.**
+- **규격이 "그 물성을 재는 것이 부적절하다"고 인쇄하는 경우가 있다.**
+  MMPA 0100-00 Table II-4 각주 verbatim — *"Alnico permanent magnet materials lack ductility,
+  and are inherently extremely brittle... Measurement of properties such as hardness and
+  tensile strength is not appropriate or feasible on commercial materials."*
+  **이건 "못 찾았다"가 아니라 인쇄된 부재 선언이다.** 부재 근거로 그대로 인용하라.
 - **"접착물인가"부터 판정하라 — 카테고리가 아니라 제품별 TDS로.**
   10차 박리 배치가 55종 중 **31종을 "접착물이 아니다"로 판정**했다(Rogers PORON TDS 7판 전부
   `peel` 히트 0, Panasonic PGS는 S type = 접착제 없음). **다만 9차에서 "폼에는 박리강도가
