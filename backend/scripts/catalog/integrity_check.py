@@ -71,6 +71,14 @@ CHECKS = [
           and pv.conditions like '%mooney_rivlin_2%'
           and json_extract(pv.conditions,'$.term') in ('C10','C01')
         group by pv.material_id, r having n=2 and s<=0)"""),
+    # Stromeyer는 (계수, 지수, 점근응력) **셋이 한 세트**다. 하나만 있으면 곡선이 안 선다.
+    ("Stromeyer 3종 세트 불완전", """select count(*) from (
+        select material_id from property_value
+        where property_key in ('mechanical.fatigue_stromeyer_coefficient',
+                               'mechanical.fatigue_stromeyer_exponent',
+                               'mechanical.fatigue_stromeyer_asymptote')
+        group by material_id
+        having count(distinct property_key) <> 3)"""),
     ("Morrow 계수·지수 쌍 불일치", """select count(*) from (
         select material_id from property_value
         where property_key in ('mechanical.morrow_energy_coefficient','mechanical.morrow_energy_exponent')

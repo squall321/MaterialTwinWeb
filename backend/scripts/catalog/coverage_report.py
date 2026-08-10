@@ -49,7 +49,9 @@ ADH = ("interface.peel_strength", "interface.lap_shear_strength", "interface.die
 ELEC = ("electrical.dielectric_constant", "electrical.resistivity_volume",
         "electrical.dissipation_factor")
 FATIG = ("mechanical.fatigue_strength_coefficient", "mechanical.fatigue_ductility_coefficient",
-         "mechanical.darveaux_constant", "mechanical.morrow_energy_coefficient")
+         "mechanical.darveaux_constant", "mechanical.morrow_energy_coefficient",
+         # Stromeyer형도 수명 곡선을 세운다 — 점근 응력이 있는 재료는 이쪽으로만 담긴다.
+         "mechanical.fatigue_stromeyer_coefficient")
 O2 = ("physical.gas_permeability_o2", "physical.gas_solubility")
 PHOTO = ("optical.excited_state_lifetime", "optical.stern_volmer_constant",
          "optical.bimolecular_quenching_rate")
@@ -231,14 +233,32 @@ UNFILLABLE = [
         "chemical.moisture_absorption_equilibrium",
     }, "저분자 유기 고체 — 흡습·투습 시험이 성립하지 않는다"),
 
-    # Basquin·Coffin-Manson·Morrow는 **순환소성**을 전제한 변형률-수명 정식이고
-    # Darveaux는 솔더 균열식이다. 세라믹은 전위소성이 없어 순환소성 구간 자체가 없다.
-    # 9차 피로 배치가 세라믹 44종을 적용범위 밖으로 판정했고 실측 반례는 0건이다.
-    # (복합재는 제외한다 — Prepreg(Glass Cloth/Epoxy)에 실측 반례가 있다.)
+    # 진공증착 저분자는 **자립 인장시편을 만들 수 없다.** 벌크 소성 구간도 율속 의존
+    # 항복도 존재하지 않는다. 8·9·10차가 각각 독립으로 확인했고(8차: 벌크 항복 시험 불가,
+    # 9차: 소성 구성모델 자체가 없음, 10차: 율속 배치가 건너뜀), 51종 전체에 대해
+    # **소성 택일군·율속 택일군 둘 다 실측(tier<=3) 반례가 0건**이다.
+    # 이 선언으로 낙하·충격의 '적용 대상'에서 이 군이 빠진다 — 이 재료로 낙하해석을
+    # 돌리는 일 자체가 없다.
+    (_DOPANT, {
+        "mechanical.tensile_strength", "mechanical.elongation_at_break",
+        "mechanical.cowper_symonds_c", "mechanical.cowper_symonds_p",
+        "mechanical.dynamic_increase_factor", "mechanical.yield_strength_at_rate",
+        "mechanical.johnson_cook_c",
+    }, "저분자 유기 고체 — 자립 인장시편이 없어 소성·율속이 정의되지 않는다"),
+
+    # Coffin-Manson·Morrow는 **순환소성**을 전제한 변형률-수명·에너지 정식이고
+    # Darveaux는 솔더 균열식이다. 세라믹은 전위소성이 없어 이 셋의 구간이 없다.
+    #
+    # **[2026-08-10 축소] `fatigue_strength_coefficient`를 뺐다.** 9차가 "세라믹은 피로계수가
+    # 없다"고 선언했으나 **틀렸다** — 11차가 알루미나의 S-N 회귀식을 찾았다
+    # (Maekawa 1988, 材料 37(415) 441). **응력-수명(Basquin/S-N)은 세라믹에도 존재한다.**
+    # 없는 것은 소성을 전제한 정식뿐이다. 그 반례가 `Alumina Ceramic Package (Kyocera A440)`인데
+    # 분류가 composite라 반례 검증에 안 걸리고 있었다 — 함께 ceramic으로 고쳤다.
+    # **"순환소성이 없다"에서 "피로 데이터가 없다"로 넘어간 것이 오류였다.**
     (("cat:ceramic",), {
-        "mechanical.fatigue_strength_coefficient", "mechanical.fatigue_ductility_coefficient",
+        "mechanical.fatigue_ductility_coefficient",
         "mechanical.darveaux_constant", "mechanical.morrow_energy_coefficient",
-    }, "세라믹 — 순환소성이 없어 변형률-수명 계수가 정의되지 않는다"),
+    }, "세라믹 — 순환소성이 없어 변형률-수명·에너지 계수가 정의되지 않는다(S-N은 존재한다)"),
 ]
 
 

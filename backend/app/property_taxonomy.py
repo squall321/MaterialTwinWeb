@@ -119,6 +119,17 @@ _DEFS: list[tuple] = [
      ["model", "temperature_k"], "ASTM E606"),
     ("mechanical.fatigue_ductility_exponent", "mechanical", "피로연성지수 c", "c", "1", "numeric",
      ["model", "temperature_k"], "ASTM E606"),
+    # Stromeyer형 (σ − σ∞)^m · N = C — **점근 응력이 있는** 응력-수명 회귀다.
+    # Basquin은 N→∞에서 σ→0으로 가는데, 실제 여러 재료는 유한한 피로한도로 수렴한다.
+    # 11차 금속 피로 배치가 Zr-BMG·베릴륨동에서 이 형태를 만났고, Basquin으로
+    # 재매개화하려면 점근선을 0으로 놓아야 해서 **인쇄되지 않은 숫자를 만들게 된다.**
+    # 세 값이 한 세트다 — 계수·지수 중 하나만 있으면 곡선이 서지 않는다.
+    ("mechanical.fatigue_stromeyer_coefficient", "mechanical", "Stromeyer 계수 C", "C_st", "1", "numeric",
+     ["model", "stress_ratio_R", "temperature_k"], None),
+    ("mechanical.fatigue_stromeyer_exponent", "mechanical", "Stromeyer 지수 m", "m_st", "1", "numeric",
+     ["model", "stress_ratio_R", "temperature_k"], None),
+    ("mechanical.fatigue_stromeyer_asymptote", "mechanical", "Stromeyer 점근응력 σ∞", "sigma_inf", "Pa", "numeric",
+     ["model", "stress_ratio_R", "temperature_k"], None),
     # Darveaux K1~K4 — 사이클당 비탄성 소성일 ΔW를 균열 개시·전파 사이클로 환산한다.
     # Anand로 계산한 ΔW가 이미 있어도 이 상수가 없으면 수명이 안 나온다.
     ("mechanical.darveaux_constant", "mechanical", "Darveaux 균열 상수", None, "1", "numeric",
