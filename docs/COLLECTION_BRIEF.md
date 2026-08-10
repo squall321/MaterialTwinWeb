@@ -146,7 +146,17 @@ Prony·투습·젖음**처럼 그 해석의 정체성을 이루는 물성이고,
   `--insecure`로 재시도하면 200이 온다.
 - **KoreaScience** `koreascience.kr/article/{JAKO id}.pdf` (UA 필요) — 한국 전자패키징·표면처리
 - Europe PMC 페이월 논문도 `EXT_ID:{PMID}&resultType=core`로 초록 전문을 받을 수 있다
-- J-Stage `_pdf` · DOAJ **API**(웹페이지는 403) · Crossref API · Unpaywall API · arXiv · NTRS(NASA)
+- **J-Stage WebAPI가 키 없이 열린다** —
+  `api.jstage.jst.go.jp/searchapi/do?service=3&article=<UTF-8 키워드>&count=N`.
+  `article`이 제목검색이고 공백은 AND다. `author`·`material`(저널명)도 된다.
+  **`abst`는 전부 0건을 주니 쓰지 마라.** 11차 피로 배치 수확 전부가 여기서 나왔다.
+  **⚠️ XML 파싱 함정** — `article_title`의 자식 `<ja>`/`<en>`이 **Atom 네임스페이스 안**에 있다.
+  `find('ja')`는 조용히 None을 주고 제목이 전부 빈칸으로 나온다. `find('a:ja', NS)`를 써라.
+  PDF는 材料(1963~) `article/jsms1963/{vol}/{no}/{vol}_{no}_{page}/_pdf`,
+  材料試験(~1962)은 `jsms1952`. **`jcersj` 구권은 이 경로에 없다**(200 + 19.8 KB HTML).
+- **Semantic Scholar `graph/v1/paper/DOI:{doi}`는 키 없이 된다**(`openAccessPdf` 포함).
+  반면 `paper/search`는 즉시 429다.
+- DOAJ **API**(웹페이지는 403) · Crossref API · Unpaywall API · arXiv · NTRS(NASA)
 - 대학 DSpace — GaTech SMARTech REST, UT Austin, EPFL Infoscience, HAL, Brunel BURA
 - Wayback CDX (벤더가 지운 TDS 복구)
 - **bzycj.cn은 살아 있다**(닫혔다는 보고가 두 번 있었으나 오판이다).
@@ -181,7 +191,10 @@ Elsevier·IEEE·Springer 페이월 · apps.dtic.mil ·
 **MakeItFrom은 이제 전 요청에 2,194바이트 스텁을 준다**(종전 "금속 값은 정합한다"가 무효화됐다) ·
 Corning HPFS 전 경로 · hollandshielding·schlegelemi·tech-etch의 `.pdf`(200 + HTML,
 tech-etch는 1.4 MB라 크기로도 안 걸린다) · MATEC Web of Conferences(DataDome) ·
-NSF PAR 검색(JS 렌더링 — `servlets/purl/{ID}` 직접 조회만 가능)
+NSF PAR 검색(JS 렌더링 — `servlets/purl/{ID}` 직접 조회만 가능. `api/search`는 404) ·
+**ASME Digital Collection은 CC-BY 하이브리드 OA PDF도 봇 차단이다**(Referer를 붙여도 5.8 KB
+HTML, Wayback에 캡처 자체가 없다) · **imapsjmep.org는 Scholastica JS 렌더링**이라
+검색이 안 된다(id를 다른 데서 얻어야 `article/{id}-{slug}.pdf`를 쓸 수 있다)
 
 **WebSearch 예산은 세션당 200회이고 금방 마른다.** 처음부터 Europe PMC REST / OSTI API /
 Crossref / DOAJ API / 벤더 사이트 직접 fetch로 가라. 웹검색은 방법론 논문만 반복해서 돌려준다.
@@ -331,7 +344,23 @@ DB에 등록돼 있던 구형 "product information" PDF에는 그 섹션이 **�
      differences … small variations (<5%) fall within the experimental uncertainty"라고 적어
      **Results의 92.25 → 50.39(45% 감소)를 자기 논문이 반박한다.** 오염된 쪽이 접촉각이다.
   **Results만 읽으면 못 잡는다. 같은 물성을 Discussion에서 다시 찾아 읽어라.**
+- **"근거가 없다"고 판단하기 전에 같은 저자의 후속 논문을 찾아라.**
+  10차가 "순수 에폭시 S-N을 실리카 80 wt% 몰딩컴파운드에 옮길 근거가 없다"며 EMC를 포기했다.
+  11차가 **같은 Okabe 그룹의 후속 논문**(材料 33(364) 41, 1984)을 찾았는데
+  **제목이 "Filler Reinforced Epoxy Resin Castings"**로 정확히 그 재료를 시험했다.
+  게다가 **충전재 종류별(알루미나 [A-I]/[A-II] · 실리카 [S])로 계수를 갈라** 인쇄한다.
+  **저자·그룹으로 추적하는 것이 키워드 검색보다 낫다.**
+- **1960~80년대 스캔본은 렌더 해상도가 유효숫자를 결정한다.**
+  JSMS 구권 표는 전부 이미지라 `pdftotext`가 캡션만 준다. **190 dpi로는 0.07943과 0.07948을
+  구분하지 못한다** — `pdftoppm -r 500` 이상으로 렌더해라.
+- **회귀식이 두 개면 평균선이 아니라 산포대 경계일 수 있다.**
+  알루미나 피로에서 `σ=166·N^-0.03`과 `σ=832·N^-0.13` 두 식이 나왔는데, 본문의
+  "수명 하한계치에 n=33, 상한치에 n=8"과 1/33=0.0303 · 1/8=0.125로 맞아
+  **산포대의 하한·상한 경계선**임이 확정됐다. `conditions.bound`에 못 박아라.
 - **논문 본문이 자기 표를 반박할 수 있다. 표에서 값을 뽑았으면 본문에서 그 숫자를 찾아라.**
+  (11차 추가 사례 — 材料 34(378) 333 Table III의 `D_t* = 68.10`은 같은 논문 Table I의
+  4점을 회귀하면 **40.6**이 나온다. `Q_t*`는 정합하므로 **그 한 칸만 틀렸다.**
+  실측표를 믿고 유도식 상수는 쓰지 마라.)
   `PMC8587845` Table 4의 RTM6 행이 **통째로 정확히 +20 MPa 오식**이었다
   (136.403/145.318/… 대 전용 논문의 116.403/125.318/…). **표준편차 열 여섯 개가 바이트
   단위로 동일한데 평균만 20씩 다르다** — 복사 중 사고다. 결정적 증거는 **그 논문 자신의 본문**이
