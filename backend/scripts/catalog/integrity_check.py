@@ -125,6 +125,20 @@ CHECKS = [
     # "추정값은 실측에 밀린다"는 규약이 무력화된다 — 실측이 들어와도 대표값이 안 바뀐다.
     # 10차 점검에서 8건이 발견됐고 전부 라벨 오류였다(논문이 동정한 모델 상수였다).
     # tier3은 허용한다 — 계열 대체값·경계값이 여기 앉고, 이미 tier1·2에 밀린다.
+    # 브리프는 "무엇을 근거로 그 값을 골랐는지 notes에 반드시 적어라"를 요구한다.
+    # 근거 없는 가정값은 나중에 무엇을 대체해야 하는지 알 수 없어 고도화가 막힌다.
+    # 출처 제목이 실제 문서 이름인데 그 문서에서 읽은 값이 아닌 경우가 있었다 —
+    # 생성 스크립트가 출처를 '…추정'이라는 익명 문자열로 적었고, 이후 '제목 없는 출처' 정리에서
+    # 설명적 제목이 붙으면서 **추정 라벨이 문서 인용으로 바뀌었다**(13차에 18건 발견).
+    # datasheet·standard로 분류된 출처는 그 문서를 실제로 가리켜야 한다 —
+    # 걸린 값이 전부 tier4 estimated이고 URL·DOI·ISBN이 하나도 없으면 문서가 아니라 라벨이다.
+    ("datasheet·standard인데 식별자도 실측도 없음", """select count(*) from source s
+        where s.kind in ('datasheet','standard')
+          and coalesce(s.url,'')='' and coalesce(s.doi,'')='' and coalesce(s.isbn,'')=''
+          and exists(select 1 from property_value where source_id=s.id)
+          and not exists(select 1 from property_value where source_id=s.id and quality_tier<=3)"""),
+    ("tier4 가정인데 근거 notes 없음", "select count(*) from property_value "
+                                 "where quality_tier=4 and method='estimated' and coalesce(notes,'')=''"),
     ("estimated인데 tier1·2", "select count(*) from property_value "
                               "where method='estimated' and quality_tier<3"),
     ("가정값인데 tier4·estimated 아님", """select count(*) from property_value

@@ -233,6 +233,44 @@ UNFILLABLE = [
         "chemical.moisture_absorption_equilibrium",
     }, "저분자 유기 고체 — 흡습·투습 시험이 성립하지 않는다"),
 
+    # ── 접착 택일군 — **접착물이 아닌 것**에 박리·전단강도를 요구하면 척도 오류다.
+    # 10·12차가 제품별 TDS로 판정했고(Rogers PORON 7판 `peel` 0건, Panasonic PGS는
+    # 기본이 접착제 없는 S type), 네 군 전부 실측 반례가 0건이다.
+    # **9차의 "폼엔 박리강도 없다"가 VHB 폼테이프 반례 25건으로 무너진 것을 기억해
+    # 카테고리가 아니라 제품 이름으로 좁혔다** — VHB·ACXplus 같은 점착 폼은 여기 없다.
+    (("poron", "epe epe", "d3o", "polyurea foam", "seat foam", "foam pu impact"), {
+        "interface.peel_strength", "interface.lap_shear_strength", "interface.die_shear_strength",
+    }, "무점착 폼 — 접착제가 없어 박리·전단이 정의되지 않는다"),
+    # 코팅은 스크래치 임계하중(ASTM C1624)·풀오프(D4541)·크로스컷으로 재고 **모드가 다르다.**
+    (("dlc coating", "tin pvd", "parylene", "ar/ir coating", "polyurethane coating",
+      "thin-film encapsulation"), {
+        "interface.peel_strength", "interface.lap_shear_strength", "interface.die_shear_strength",
+    }, "코팅 — 접착을 스크래치·풀오프로 재므로 박리·전단과 모드가 다르다"),
+    # 맨 필름·흑연시트는 접착제가 없다. 접착 변종이 따로 있는 제품도 카탈로그 등재분은 무점착이다.
+    (("lexan", "peek film", "pei ultem", "pen film", "toppan g", "prism sheet",
+      "pe packaging film", "pecvd siox", "quantum dot film",
+      "pgs", "kaneka multilayer", "graphene film"), {
+        "interface.peel_strength", "interface.lap_shear_strength", "interface.die_shear_strength",
+    }, "맨 필름·흑연시트 — 접착제가 없다"),
+
+    # ── 피로 택일군 — 사이클 기준 S-N이 물리적으로 성립하지 않는 군.
+    # **유리**: 순환 데이터가 등가파단시간 축에서 정적피로 띠에 겹쳐, 이 분야는 사이클 S-N을
+    # 만들지 않고 정적피로(σⁿ·t=B)·동적피로(응력속도)만 발표한다(材料 40(454) 914 / 40(458) 1491).
+    (("gorilla glass", "ultra-thin glass", "soda-lime", "quartz crystal", "aspheric lens",
+      "ir cut filter", "periscope prism", "aluminosilicate cover"), {
+        "mechanical.fatigue_strength_coefficient", "mechanical.fatigue_ductility_coefficient",
+        "mechanical.darveaux_constant", "mechanical.morrow_energy_coefficient",
+        "mechanical.fatigue_stromeyer_coefficient",
+    }, "유리 — 사이클 기준 S-N이 성립하지 않는다(정적피로·동적피로로만 발표된다)"),
+    # **박막 기능층·배터리 활물질**: 벌크 피로 시편을 만들 수 없다(nm~µm 증착막·분말).
+    (("ito transparent", "igzo", "high-k dielectric", "ltps polysilicon", "gan hemt",
+      "soi substrate", "vcsel epitaxy", "scaln", "lfp cathode", "nca cathode", "ncm811",
+      "carbon black", "2d material"), {
+        "mechanical.fatigue_strength_coefficient", "mechanical.fatigue_ductility_coefficient",
+        "mechanical.darveaux_constant", "mechanical.morrow_energy_coefficient",
+        "mechanical.fatigue_stromeyer_coefficient",
+    }, "박막 기능층·활물질 분말 — 벌크 피로 시편이 성립하지 않는다"),
+
     # 진공증착 저분자는 **자립 인장시편을 만들 수 없다.** 벌크 소성 구간도 율속 의존
     # 항복도 존재하지 않는다. 8·9·10차가 각각 독립으로 확인했고(8차: 벌크 항복 시험 불가,
     # 9차: 소성 구성모델 자체가 없음, 10차: 율속 배치가 건너뜀), 51종 전체에 대해
@@ -467,15 +505,18 @@ def main():
     tot_unfill = sum(x["unfillable"] for x in cov)
     tot_eff = tot_cells - tot_unfill
     tot_meas = sum(x["meas_filled"] for x in cov)
+    # **적용대비**가 준비율의 정직한 형태다 — 그 해석이 구조적으로 성립하지 않는 재료
+    # (액체에 항복강도, 도판트에 투습)를 분모에서 뺀다. 빼지 않으면 영원히 못 채우는 칸이
+    # 미완료로 남아, 다 한 일도 덜 한 것처럼 보인다.
     print(f"\n{'해석':18s} {'대상':>5s}  {'셀채움':>7s} {'실측기반':>7s}  "
-          f"{'재료준비':>7s} {'실측':>6s}   가장 큰 공백")
-    print("  " + "─" * 104)
+          f"{'재료준비':>7s} {'적용대비':>7s} {'실측':>6s}   가장 큰 공백")
+    print("  " + "─" * 112)
     for x in cov:
         top = x["missing"][0][0].replace("택일군: ", "") if x["missing"] else "—"
         top = top.split(".", 1)[-1][:26]
         print(f"  {x['name']:18s} {x['n_target']:5d}  "
               f"{x['cell_pct']:6.1f}% {x['meas_pct']:6.1f}%  "
-              f"{x['ready_pct']:6.1f}% {x['ready_meas_pct']:5.1f}%   {top}")
+              f"{x['ready_pct']:6.1f}% {x['ready_app_pct']:6.1f}% {x['ready_meas_pct']:5.1f}%   {top}")
     print("  " + "─" * 104)
     print(f"  {'전체':18s} {'':5s}  {tot_filled*100/tot_cells:6.1f}% "
           f"{tot_meas*100/tot_cells:6.1f}%")
@@ -486,8 +527,10 @@ def main():
           f"**천장은 100%에 가깝고, 남은 일은 실측 기준 {tot_cells-tot_meas}칸이다.**")
     print(f"\n  구조적 부재 {tot_unfill}칸을 뺀 분모가 '유효채움'이다 — "
           f"**그 물성이 그 재료군에서 애초에 발표되지 않는 칸**이다.")
-    print(f"  남은 일은 {tot_cells - tot_filled}칸이 아니라 "
-          f"**{tot_eff - tot_filled}칸**이다.")
+    # 부재 칸에 들어앉은 가정값은 분자에서도 빼야 한다 — 안 빼면 남은 일이 음수로 나온다.
+    tot_eff_filled = tot_filled - sum(x["unfill_filled"] for x in cov)
+    print(f"  전체 유효채움 {tot_eff_filled*100/tot_eff:.1f}% — "
+          f"남은 일은 {tot_cells - tot_filled}칸이 아니라 **{tot_eff - tot_eff_filled}칸**이다.")
     # 부재로 선언했는데 값이 있으면 선언이 틀린 것이다 — 반드시 드러낸다.
     wrong = [w for x in cov for w in x["wrong_unfillable"]]
     if wrong:
