@@ -215,6 +215,25 @@ UNFILLABLE = [
     # 증착 박막·분산체로 쓰이는 저분자 유기 고체다. 벌크 소성 시험 자체가 성립하지 않는다.
     (_DOPANT, {"mechanical.yield_strength"},
      "저분자 유기 고체 — 벌크 항복 시험이 성립하지 않는다"),
+
+    # 진공증착 저분자에 ASTM D570 침지·ISO 62 평형·WVTR을 요구하는 것은 시험 자체가
+    # 성립하지 않는다(자립 필름을 만들 수 없다). 9차 투습 배치가 55종을 훑어 확인했고
+    # 이 군의 실측 반례는 0건이다.
+    (_DOPANT, {
+        "physical.water_vapor_transmission", "physical.gas_permeability_h2o",
+        "physical.diffusion_coefficient",
+        "chemical.water_absorption_24h", "chemical.water_absorption_saturation",
+        "chemical.moisture_absorption_equilibrium",
+    }, "저분자 유기 고체 — 흡습·투습 시험이 성립하지 않는다"),
+
+    # Basquin·Coffin-Manson·Morrow는 **순환소성**을 전제한 변형률-수명 정식이고
+    # Darveaux는 솔더 균열식이다. 세라믹은 전위소성이 없어 순환소성 구간 자체가 없다.
+    # 9차 피로 배치가 세라믹 44종을 적용범위 밖으로 판정했고 실측 반례는 0건이다.
+    # (복합재는 제외한다 — Prepreg(Glass Cloth/Epoxy)에 실측 반례가 있다.)
+    (("cat:ceramic",), {
+        "mechanical.fatigue_strength_coefficient", "mechanical.fatigue_ductility_coefficient",
+        "mechanical.darveaux_constant", "mechanical.morrow_energy_coefficient",
+    }, "세라믹 — 순환소성이 없어 변형률-수명 계수가 정의되지 않는다"),
 ]
 
 
@@ -350,6 +369,15 @@ def compute():
                          else alt.split(".", 1)[1]) for alt in grp)
                     miss_by_key["택일군: " + label[:70]] += 1
         # (b) 재료 준비율
+        # **그 해석이 원리적으로 성립하지 않는 재료는 분모에서 뺀다.**
+        # 세라믹에 변형률-수명 피로계수를 요구하면 그 재료는 영원히 '준비 안 됨'으로 남아
+        # 준비율을 끌어내린다 — 셀 지표에는 이미 부재를 반영해 놓고 준비율에는 안 했다.
+        # 알루미나로 strain-life 피로해석을 돌리는 일은 없다. 적용 대상이 아니다.
+        def _na(m):
+            if any(_cell_unfillable(mat[m][0], (k,), mat[m][1]) for k in must):
+                return True
+            return any(_cell_unfillable(mat[m][0], g, mat[m][1]) for g in anyof)
+        applicable = [m for m in tgt if not _na(m)]
         ready = [m for m in tgt
                  if all(k in own[m] for k in must) and all(grp_ok(own[m], g) for g in anyof)]
         ready_m = [m for m in tgt
@@ -368,6 +396,12 @@ def compute():
             "meas_pct": round(m_filled * 100 / cells, 1) if cells else 0.0,
             "n_ready": len(ready),
             "ready_pct": round(len(ready) * 100 / n, 1) if n else 0.0,
+            "n_applicable": len(applicable),
+            # 분자도 같은 집합에서 센다. 부재 칸에 tier4 가정값이 들어 있으면
+            # 적용 대상에서 뺀 재료가 '준비 완료'로 세어져 100%를 넘는다(실제로 109.9%가 나왔다).
+            "n_ready_app": len([m for m in applicable if m in set(ready)]),
+            "ready_app_pct": (round(len([m for m in applicable if m in set(ready)]) * 100
+                                    / len(applicable), 1) if applicable else 0.0),
             "n_ready_meas": len(ready_m),
             "ready_meas_pct": round(len(ready_m) * 100 / n, 1) if n else 0.0,
             "missing": miss_by_key.most_common(6),
