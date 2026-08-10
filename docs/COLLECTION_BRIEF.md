@@ -621,3 +621,86 @@ DB에 등록돼 있던 구형 "product information" PDF에는 그 섹션이 **�
 - **한 논문 안에서 두 물성의 숫자가 통째로 복사돼 있을 수 있다.** 7차 파동이 만난 사례 —
   함수율 문단의 네 값(62.55/62.53/52.77/50.39)이 두 절 뒤 접촉각 문단과 **바이트 단위로 동일**했다.
   어느 쪽이 오염됐는지 알 수 없으면 **둘 다 버려라.** 중복되지 않은 행만 살릴 수 있다.
+
+---
+
+## 6-M. 13차 파동이 새로 잡은 함정과 정정
+
+### AZoM Granta 표는 **유도열이 실측열 옆에 나란히 인쇄된다**
+12차가 `Ductility`(세라믹 행은 σts/E)와 `Shear Modulus`(E/(2(1+ν)) 역산)를 잡아냈는데, 같은 계보가 둘 더 있다.
+
+- **`Endurance Limit` 열은 역산이다.** `Endurance Limit = k × Elastic Limit`이고 **범위 양 끝점이
+  정확히 같은 배수**다 — PET 0.6000/0.6000, PI 0.5500/0.5500, LDPE 0.7000/0.7000, PP 0.5500/0.5515.
+  세라믹 행은 배수가 일정하지 않은 대신 **MgO의 내구한도 하한 95.45 MPa가 같은 표의 탄성한도 하한
+  83.3 MPa를 넘는다** — 물리적으로 불가능하다. **피로 물성으로 쓰지 마라.**
+- **폴리머 행의 `Elastic Limit`은 인장강도와 바이트 단위로 같은 경우가 많다** — 실리콘고무 2.4–5.5,
+  PU 48–51. 항복점이 없는 재료에 Granta가 넣는 규약이지 측정이 아니다. **yield_strength로 옮기지 마라.**
+
+그 대신 **`properties.aspx`는 한 행에 `Ductility`·`Tensile Strength`·`Elastic Limit`·`Young's Modulus`를
+나란히 인쇄한다** — 폴리머라면 한 페이지로 소성 택일군을 닫을 수 있다. 확인된 ID: 820 PP · 788 PMMA ·
+795 PET Crystalline · 630 Epoxy GP · 428 LDPE · 920 Silicone Rubber.
+
+### 규격의 **합격기준**을 재료의 측정값으로 넣지 마라
+ASTM E595 이름을 단 출처 하나가 38종 76행을 들고 있었는데, 값은 전부 TML 1.0 % / CVCM 0.10 % —
+**NASA 저아웃가싱 판정 상한선**이지 이 재료들을 시험한 결과가 아니었다. 규격 제목이 붙으면 규격에서
+읽은 측정값처럼 보인다. 이런 값은 `conditions.bound="upper"`와 판정 기준을 함께 적고,
+출처 제목을 `[상한 라벨] …`로 시작해 정체를 드러내라. IPC-4101 수지함량도 같은 처리를 했다.
+
+### **출처 제목을 다듬는 작업이 추정 라벨을 문서 인용으로 바꾼다**
+생성 스크립트가 출처를 `src("IPC-4562A class-typical 추정")` 같은 익명 문자열로 적었는데, 이후
+"제목 없는 출처" 정리에서 설명적 제목이 붙으면서 **5개 출처·18개 값이 실제 벤더 문서를 인용한 것처럼
+바뀌었다.** IPC-4562A는 항복강도도 비커스 경도도 규정하지 않는다. 정리 작업은 값을 건드리지 않아
+안전해 보이지만, **근거를 바꾸는 편집이 값을 바꾸는 편집보다 발각되기 어렵다.**
+정합성 검사 36번(`datasheet·standard인데 식별자도 실측도 없음`)이 이 재발을 잡는다.
+
+### 각주의 **시험 조건**을 성능 상한으로 뒤집어 읽지 마라
+Daikin Optool DSX TDS의 `Heat resistance` 행은 단위가 섭씨가 아니라 **접촉각(deg)이고 값은 79**다.
+200 °C는 각주의 노출 조건(`after having been left for 6 days in the air at 200 C`)일 뿐이고,
+같은 표의 신품 접촉각이 112°이므로 그 시험은 **200 °C에서 성능이 떨어졌음을 보여준다.**
+최고사용온도 473 K로 넣으면 견디는 온도와 열화를 확인한 온도를 맞바꾼 것이다.
+(2020년판은 이 시험 온도를 130 °C로 낮춰 재정의했다.)
+
+### 시편 형상과 변형률의 정체를 확인하라
+- **노치(SEN) 시편의 파단 신장비를 파단연신율로 옮기지 마라** — PEA λ=1.19는 크게 과소평가한다.
+- **"strain rate 50/60/70 %"는 변형률 진폭이지 율속이 아니다.** DIF로 못 쓴다.
+- **논문이 스스로 밝힌 피팅 비유일성을 읽어라** — 4파라미터 Ogden 자유피팅은 "같은 곡선에서
+  R²=0.9999로 세 조합이 나온다"고 인쇄돼 있었다. 제약피팅을 쓰고, `E₀=2(μ₁+μ₂)`가 같은 논문의
+  실측 탄성률과 맞는지로 검산하라.
+
+### 절대값이 안 맞으면 **무차원비로 옮겨라**
+Maekawa 1988의 피로계수 166 MPa를 굽힘강도 62 MPa인 페라이트에 그대로 넣으면 정적강도의 2.7배가 되어
+규칙 6에 걸린다. 같은 논문에 인쇄된 **공여재 정적강도 219.5 MPa로 나눠** 무차원비를 만들고 수용재
+자신의 강도를 곱하면 성립한다. 입력 두 숫자가 모두 원문 인쇄값이어야 하고, 계보를 notes에 적어라.
+(Ishiyama 흑연 선례와 같은 산술이다.)
+
+### 앞선 브리프 서술 정정
+- **Okabe 적층재 상수 `a=0.6274, b=1.346`은 Okabe 1984(材料 33(364) 41) Table III**다 —
+  브리프가 적은 "1982년 논문 + 1987 Table III"가 틀렸다. 적합 하한은 σB ≈ 69 MPa이고,
+  **`Dt/σB`는 b>1 때문에 상수가 아니다**(40 MPa에서 1.02 → 324 MPa에서 2.10).
+- **JSMS 구권 스캔에는 OCR 텍스트층이 있다**(e.Typist). "pdftotext가 캡션만 준다"는 서술이 틀렸다 —
+  본문은 4만 자 이상 나오고 **표·그림만 이미지**다. 렌더 전에 텍스트층을 먼저 grep하라.
+- **MMPA 0100-00의 취성 총론은 Alnico 한정이 아니다.** 본문에 영구자석 전체를 덮는 문장이 있다 —
+  *"Most permanent magnet materials lack ductility and are inherently brittle… Measurement of
+  properties such as hardness and tensile strength is not appropriate or feasible."*
+- **PMC 전문은 브라우저 UA로 정상 응답한다.** "PMC는 reCAPTCHA"를 전면 차단으로 읽지 마라 —
+  Europe PMC `fullTextXML`이 0바이트인 논문을 `pmc.ncbi.nlm.nih.gov/articles/{PMCID}/`로 회수했다.
+
+### 새로 뚫은 경로
+- **iTeh Standards 무료 샘플 PDF에 요구사항 표가 들어 있다** —
+  `https://cdn.standards.iteh.ai/samples/{id}/{hash}/{ISO-번호}.pdf`.
+  ISO 6915:2019 Table 3(연질 PU 폼 인장강도·파단연신율 **최소치**)이 여기서 나왔다.
+  규격 최소치는 `conditions.bound="lower"`로 적고 tier3까지 인정한다.
+- **GaTech DSpace 7 REST 체인** — `hdl.handle.net/1853/…`는 862 B 스텁이지만
+  `/server/api/discover/search/objects?query=…` → uuid → `/server/api/core/items/{uuid}/bundles`
+  → `/server/api/core/bundles/{uuid}/bitstreams` → `_links.content.href`로 원문 PDF가 온다.
+
+### 확정된 벤더 부재 (검색 실패가 아니다)
+- **TAICA alpha-GEL 실리콘 OCA 물성표의 기계 블록은 4행뿐**(硬度/ヤング率(압축)/引張破壊ひずみ/tanδ)이고
+  **인장 응력 행이 아예 없다.** ARclear·실리콘 OCA 계열의 인장강도 부재는 벤더가 발표하지 않는 것이다.
+- **취성재의 파단연신율은 독립 실측으로 인쇄되지 않는다.** 코퍼스에서 나오는 것은
+  ① 압축 failure strain(다른 물성) ② MD 시뮬레이션 변형률 ③ AZoM Ductility(유도값)뿐이다.
+- **불소수지 RF 적층판의 S-N 곡선은 존재하지 않는다** — J-Stage 疲労 표제 18,750건 전수 grep에
+  불소수지 용어 0건. 세라믹충전 PTFE 논문 약 20편이 전부 유전특성만 보고한다.
+- **박막·코팅의 피로는 응력-수명으로 재지 않는다.** 카탈로그 자신의 출처가 부재를 인쇄한다 —
+  AlN 박막: *"No clear signs of fatigue were observed after 10,000 cycles at 83% of the fracture strength"*.
+  배리어 필름도 마찬가지로 **굽힘/비틀림 횟수 대 기능 상실**로 잰다.
