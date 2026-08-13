@@ -73,7 +73,10 @@ RANGE = {
     "mechanical.prony_shear_modulus": (1.0, 1e11),
     # 마스터커브는 WLF 시프트로 아래로 1e-16 s, 위로 1e14 s(≈3백만 년)까지 간다.
     # 물리적 완화시간이 아니라 시간·온도 등가로 확장한 피팅 파라미터라 양쪽을 넓게 둔다.
-    "mechanical.prony_relaxation_time": (1e-20, 1e16),
+    # **Prony 완화시간은 물리적 완화시간이 아니라 마스터커브를 덮는 피팅 항이다.**
+    # TTS로 20 decade를 덮는 급수는 1e17~1e19 s 항을 정상적으로 포함한다(Springer 2020·Chiu 2018).
+    # 상한을 1e16으로 두면 **급수의 꼬리가 잘려 세트가 못 쓰게 된다** — 17차에 31항이 잘렸다.
+    "mechanical.prony_relaxation_time": (1e-20, 1e21),
 }
 # Material.category도 고정 어휘 — 에이전트 표기를 매핑한다.
 CAT_OK = {"metal", "polymer", "rubber", "composite", "ceramic", "foam"}
