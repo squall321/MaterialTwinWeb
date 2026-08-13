@@ -177,7 +177,8 @@ _DEFS: list[tuple] = [
      ["temperature_k", "humidity_pct"], None),
     # 노화 후 유지율 — 조건(시간·온도·습도)이 없으면 아무 의미가 없다.
     ("mechanical.property_retention", "mechanical", "노화 후 물성 유지율", None, "1", "numeric",
-     ["property", "aging_hours", "temperature_k", "humidity_pct"], None),
+     ["property", "aging_hours", "temperature_k", "humidity_pct",
+      "radiant_exposure_mj_m2", "standard"], None),
     # 가속시험 ↔ 실사용 환산.
     ("chemical.activation_energy", "chemical", "Arrhenius 활성화에너지", "Ea", "J/mol", "numeric",
      ["mechanism", "temperature_range_k"], None),
@@ -216,6 +217,9 @@ _DEFS: list[tuple] = [
     ("optical.extinction_coefficient", "optical", "소광계수", "k", "1", "numeric", ["wavelength_nm"], None),
     ("optical.transmittance", "optical", "투과율", "T", "1", "numeric", ["wavelength_nm"], None),
     ("optical.reflectance", "optical", "반사율", "R", "1", "numeric", ["wavelength_nm"], None),
+    # 어느 파장에서 투과가 기준치로 떨어지는가 — 기준 투과율을 조건에 안 적으면 값이 아니다.
+    ("optical.uv_cutoff_wavelength", "optical", "UV 차단파장", "lambda_cut", "m", "numeric",
+     ["transmittance_pct", "thickness_um"], None),
     ("optical.absorptance_solar", "optical", "태양흡수율", "alpha_s", "1", "numeric", None, "ASTM E903"),
     ("optical.emissivity_total", "optical", "전방사율", "eps", "1", "numeric", ["temperature_k"], "ASTM E408"),
     ("optical.emissivity_spectral", "optical", "분광방사율", None, "1", "numeric", ["wavelength_nm", "temperature_k"], None),
@@ -230,8 +234,21 @@ _DEFS: list[tuple] = [
     ("chemical.water_absorption_24h", "chemical", "수분흡수율(24h)", None, "1", "numeric", None, "ASTM D570"),
     ("chemical.water_absorption_saturation", "chemical", "포화수분흡수율", None, "1", "numeric", None, "ASTM D570"),
     ("chemical.moisture_absorption_equilibrium", "chemical", "평형흡습율", None, "1", "numeric", ["humidity_rh", "temperature_k"], None),
-    ("chemical.hydrolytic_stability", "chemical", "내가수분해성", None, None, "categorical", ["temperature_k"], None),
-    ("chemical.uv_ozone_resistance", "chemical", "내UV/오존성", None, None, "categorical", None, None),
+    # ── 내후성 계열. 정성 등급("excellent")만으로는 해석 입력이 안 된다.
+    # 등급은 **노출 조건과 판정 기준을 함께 적어야** 다른 재료와 비교된다 —
+    # UV는 램프가 다르면 시간이 비교되지 않으므로 조사량(MJ/m^2)이 1차 축이다.
+    ("chemical.hydrolytic_stability", "chemical", "내가수분해성", None, None, "categorical",
+     ["temperature_k", "humidity_pct", "duration_h", "criterion"], None),
+    ("chemical.uv_ozone_resistance", "chemical", "내UV/오존성", None, None, "categorical",
+     ["standard", "radiant_exposure_mj_m2", "duration_h", "criterion"], None),
+    # 광열화·가수분해 속도상수 — 수명 예측의 본체다. 조건이 빠지면 자릿수가 통째로 달라진다.
+    ("chemical.photodegradation_rate_constant", "chemical", "광열화 속도상수", "k_photo", "1/s", "numeric",
+     ["wavelength_nm", "irradiance_w_m2", "temperature_k", "humidity_pct", "property"], None),
+    ("chemical.hydrolysis_rate_constant", "chemical", "가수분해 속도상수", "k_hyd", "1/s", "numeric",
+     ["temperature_k", "humidity_pct", "ph", "medium", "property"], None),
+    # 시간이 아니라 **조사량**으로 적어야 램프가 달라도 비교된다(Pickett 2009).
+    ("chemical.radiant_exposure_to_failure", "chemical", "판정도달 조사량", "H_fail", "J/m^2", "numeric",
+     ["standard", "criterion", "wavelength_band_nm", "temperature_k"], None),
     ("chemical.outgassing_tml", "chemical", "아웃가싱 TML", "TML", "1", "numeric", None, "ASTM E595"),
     ("chemical.outgassing_cvcm", "chemical", "아웃가싱 CVCM", "CVCM", "1", "numeric", None, "ASTM E595"),
     ("chemical.ph_stability", "chemical", "pH 안정성", None, None, "categorical", None, None),
