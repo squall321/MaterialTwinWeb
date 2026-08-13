@@ -151,10 +151,50 @@ def near(query: str, domain: str | None, limit: int, rx: str, ctx: int) -> None:
         print("(적중 없음)")
 
 
+def doi_of(title: str) -> tuple[str | None, str | None]:
+    """논문 제목으로 DOI를 되찾는다 — `(doi, 근거경로)`.
+
+    두 곳을 본다. `catalog.csv`(8,047행 중 7,788건이 DOI 보유)를 먼저 보고,
+    없으면 그 논문 폴더의 `document.docling.json`에서 뽑는다.
+    **인제스트가 만든 journal 출처는 DOI가 비기 쉬운데**, 원문이 디스크에 있으므로
+    웹에 물어볼 필요가 없다.
+    """
+    import csv
+    import io
+
+    def _n(s):
+        s = re.sub(r"[^a-z0-9]+", " ", (s or "").lower())
+        return re.sub(r"\s+", " ", s).strip()
+
+    tk = _n(title)
+    try:
+        for r in csv.DictReader(io.open("/data/paper_patent_corpus/catalog.csv",
+                                        encoding="utf-8-sig")):
+            if r.get("doi") and _n(r.get("title"))[:55] == tk[:55]:
+                return r["doi"], "catalog.csv"
+    except OSError:
+        pass
+    c = sqlite3.connect(DB)
+    for path, in c.execute("select path from doc"):
+        if _n(os.path.basename(path)[:-3])[-len(tk[:55]):] and tk[:50] in _n(os.path.basename(path)[:-3]):
+            j = os.path.join(os.path.dirname(path), "document.docling.json")
+            if os.path.exists(j):
+                try:
+                    blob = open(j, encoding="utf-8", errors="replace").read(400_000)
+                except OSError:
+                    continue
+                m = re.search(r"10\.[0-9]{4,9}/[^\"'\\ ,]{4,60}", blob)
+                if m:
+                    return m.group(0).rstrip(".;"), j
+    return None, None
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("build")
+    p = sub.add_parser("doi")
+    p.add_argument("title")
     for name in ("search", "near"):
         p = sub.add_parser(name)
         p.add_argument("query")
@@ -165,6 +205,9 @@ def main() -> None:
     a = ap.parse_args()
     if a.cmd == "build":
         build()
+    elif a.cmd == "doi":
+        d, where = doi_of(a.title)
+        print(f"{d}\t{where}" if d else "(못 찾음)")
     elif a.cmd == "search":
         search(a.query, a.domain, a.limit, a.regex)
     else:
