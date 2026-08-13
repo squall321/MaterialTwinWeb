@@ -354,6 +354,17 @@ _DEFS: list[tuple] = [
     # 와이블 계수는 **재료 상수가 아니다.** 시편 수·시험 기하·유효면적·표면 이력에 종속된다 —
     # 같은 유리(Corning 2318)에서 강화 이력만 바뀌었는데 m이 2.68에서 32.95로 12배 움직였다.
     # 조건 없는 m은 값이 아니므로 축을 넓게 요구한다.
+    # WLF 상수 — Prony 급수만으로는 기준온도에서만 쓸 수 있다. 마스터커브를 다른 온도로
+    # 옮기려면 이 둘이 있어야 한다.
+    #
+    # **부호와 로그 밑이 논문마다 다르다.** 표준형은 log10 a_T = -C1(T-Tref)/(C2+T-Tref) 인데,
+    # ln 을 쓰는 논문이 있고(그러면 C1이 2.303배로 보인다) 선두 마이너스를 식에 흡수한 논문도 있다.
+    # 16차에 Jung 2019가 ln 을 쓰면서 자기 검산을 log10 기준 Ferry 규칙과 비교해 틀리는 것을 봤다.
+    # 그래서 `log_base`와 `sign_convention`을 조건축으로 **요구한다** — 없으면 값이 아니다.
+    ("mechanical.wlf_c1", "mechanical", "WLF 상수 C1", "C1", "1", "numeric",
+     ["reference_temperature_k", "log_base", "sign_convention", "fit_r2"], None),
+    ("mechanical.wlf_c2", "mechanical", "WLF 상수 C2", "C2", "K", "numeric",
+     ["reference_temperature_k", "log_base", "sign_convention", "fit_r2"], None),
     ("mechanical.weibull_modulus", "mechanical", "와이블 계수 m", "m", "1", "numeric",
      ["strength_property", "test_geometry", "n_specimens", "stress_rate",
       "specimen_thickness_mm", "estimator", "surface_state"], "ASTM C1239"),
