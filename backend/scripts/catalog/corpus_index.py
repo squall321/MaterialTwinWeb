@@ -20,6 +20,7 @@ import os
 import re
 import sqlite3
 import sys
+from collections import Counter
 
 ROOT = "/data/paper_patent_corpus/structured"
 DB = "/data/paper_patent_corpus/_index/corpus_fts.db"
@@ -151,6 +152,155 @@ def near(query: str, domain: str | None, limit: int, rx: str, ctx: int) -> None:
         print("(적중 없음)")
 
 
+# 물성표 탐지용 신호 — (라벨 정규식, 단위 정규식, 카탈로그 키).
+# **라벨만 보면 안 된다.** 본문에 'modulus'라는 단어가 있는 것과 표에 숫자가 실린 것은 다르다.
+# 라벨과 단위가 같은 표 안에 함께 있고 숫자가 있을 때만 물성표로 친다.
+_SIG = [
+    (r"young|elastic modulus|tensile modulus|모듈러스|\bE\b", r"\b(GPa|MPa|N/mm)", "youngs_modulus"),
+    (r"poisson|포아송", r"0\.[0-9]{2}", "poisson_ratio"),
+    (r"density|밀도", r"(g/cm|kg/m|g cm)", "density"),
+    (r"thermal expansion|\bCTE\b|expansion coeff", r"(ppm|10\s?[-−]\s?6|/K|/°C|K\s?-1)", "expansion_linear"),
+    (r"thermal conductivity|열전도", r"W/\(?m", "conductivity"),
+    (r"specific heat|비열|heat capacity", r"J/\(?(kg|g)", "specific_heat"),
+    (r"tensile strength|인장강도", r"\b(MPa|GPa)", "tensile_strength"),
+    (r"yield strength|항복", r"\b(MPa|GPa)", "yield_strength"),
+    (r"elongation|연신", r"%", "elongation_at_break"),
+    (r"dielectric constant|permittivity|유전율|Dk\b", r"[0-9]\.[0-9]", "dielectric_constant"),
+    (r"loss tangent|dissipation factor|\bDf\b|tan\s?δ", r"0\.0", "dissipation_factor"),
+    (r"glass transition|\bTg\b", r"(°C|K\b)", "glass_transition"),
+    (r"refractive index|굴절률", r"1\.[0-9]{2}", "refractive_index"),
+    (r"resistivity|저항률", r"(Ω|ohm)", "resistivity_volume"),
+    (r"transmittance|투과율", r"%", "transmittance"),
+]
+
+
+def _tables(text: str):
+    """마크다운 표 블록을 통째로 뽑는다(연속된 `|` 줄)."""
+    buf, out = [], []
+    for ln in text.splitlines():
+        if ln.lstrip().startswith("|"):
+            buf.append(ln)
+        else:
+            if len(buf) >= 3:
+                out.append("\n".join(buf))
+            buf = []
+    if len(buf) >= 3:
+        out.append("\n".join(buf))
+    return out
+
+
+def scan_build() -> None:
+    """물성표 적중을 **색인에 한 번 구워 둔다.** 전수 스캔이 8분 걸려 매번 돌릴 수 없다.
+
+    이후 `tables` 조회는 SQL 한 방이라 즉시 끝난다.
+    """
+    c = sqlite3.connect(DB)
+    c.executescript("drop table if exists ptab;"
+                    "create table ptab(doc_id integer, key text, n_in_table integer);")
+    n = 0
+    for did, path in c.execute("select id,path from doc").fetchall():
+        try:
+            body = open(path, encoding="utf-8", errors="replace").read()
+        except OSError:
+            continue
+        if "|" not in body:
+            continue
+        best: set = set()
+        for tb in _tables(body):
+            low = tb.lower()
+            hits = {k for lab, un, k in _SIG
+                    if re.search(lab, low, re.I) and re.search(un, tb, re.I)}
+            if len(hits) > len(best):
+                best = hits
+        if best:
+            c.executemany("insert into ptab values(?,?,?)",
+                          [(did, k, len(best)) for k in best])
+            n += 1
+        if n and n % 2000 == 0:
+            c.commit()
+            print(f"  {n}편", file=sys.stderr)
+    c.commit()
+    c.execute("create index ptab_k on ptab(key)")
+    c.execute("create index ptab_d on ptab(doc_id)")
+    c.commit()
+    print(f"물성표 보유 논문 {n}편 색인 완료", file=sys.stderr)
+
+
+def tables_query(min_hits: int, limit: int, domain: str | None, want: str | None) -> None:
+    """구워 둔 색인에서 즉시 조회한다."""
+    c = sqlite3.connect(DB)
+    if not c.execute("select name from sqlite_master where name='ptab'").fetchone():
+        print("ptab 없음 — 먼저 `scan` 을 돌려라", file=sys.stderr)
+        return
+    sql = ("select d.id,max(p.n_in_table) n,d.domain,d.subdir,d.title,d.path "
+           "from ptab p join doc d on d.id=p.doc_id where p.n_in_table>=?")
+    args: list = [min_hits]
+    if domain:
+        sql += " and d.domain=?"
+        args.append(domain)
+    if want:
+        sql += (" and exists(select 1 from ptab q where q.doc_id=d.id and q.key=?)")
+        args.append(want)
+    sql += " group by d.id order by n desc limit ?"
+    args.append(limit)
+    rows = c.execute(sql, args).fetchall()
+    tot = c.execute("select count(distinct doc_id) from ptab where n_in_table>=?",
+                    (min_hits,)).fetchone()[0]
+    print(f"물성표 {min_hits}종 이상 보유 논문 {tot}편 — 상위 {len(rows)}편\n")
+    for did, n, dom, sub, title, path in rows:
+        keys = [k for k, in c.execute("select key from ptab where doc_id=? order by key", (did,))]
+        print(f"[{n}종] {dom}/{sub}  {title[:84]}")
+        print(f"   {' · '.join(keys)}")
+        print(f"   {path}")
+    print("\n── 물성별 보유 논문 수(기준 이상)")
+    for k, v in c.execute("select key,count(*) from ptab where n_in_table>=? "
+                          "group by key order by 2 desc", (min_hits,)):
+        print(f"   {v:5d}  {k}")
+
+
+def scan_tables(min_hits: int, limit: int, domain: str | None, want: str | None) -> None:
+    """물성표를 담은 논문을 **적중 물성 수 순으로** 낸다 — 배치가 훑을 작업목록이다.
+
+    라벨·단위·숫자가 한 표 안에 같이 있어야 적중으로 친다. 그래서 여기서 나온 목록은
+    "이 주제를 언급한 논문"이 아니라 **"물성 숫자가 표로 실린 논문"**이다.
+    """
+    c = sqlite3.connect(DB)
+    sql = "select id,title,domain,subdir,path from doc"
+    args: list = []
+    if domain:
+        sql += " where domain=?"
+        args.append(domain)
+    rows = []
+    for _i, title, dom, sub, path in c.execute(sql, args):
+        try:
+            body = open(path, encoding="utf-8", errors="replace").read()
+        except OSError:
+            continue
+        if "|" not in body:
+            continue
+        best, keys = 0, set()
+        for tb in _tables(body):
+            low = tb.lower()
+            hits = {k for lab, un, k in _SIG
+                    if re.search(lab, low, re.I) and re.search(un, tb, re.I)}
+            if len(hits) > best:
+                best, keys = len(hits), hits
+        if best >= min_hits and (not want or want in keys):
+            rows.append((best, sorted(keys), dom, sub, title, path))
+    rows.sort(key=lambda r: -r[0])
+    print(f"물성표 보유 논문 {len(rows)}편 (기준: 한 표에 {min_hits}종 이상)\n")
+    for n, keys, dom, sub, title, path in rows[:limit]:
+        print(f"[{n}종] {dom}/{sub}  {title[:86]}")
+        print(f"   {' · '.join(keys)}")
+        print(f"   {path}")
+    agg: Counter = Counter()
+    for n, keys, *_ in rows:
+        agg.update(keys)
+    print("\n── 물성별 보유 논문 수")
+    for k, v in agg.most_common():
+        print(f"   {v:5d}  {k}")
+
+
 def doi_of(title: str) -> tuple[str | None, str | None]:
     """논문 제목으로 DOI를 되찾는다 — `(doi, 근거경로)`.
 
@@ -195,6 +345,12 @@ def main() -> None:
     sub.add_parser("build")
     p = sub.add_parser("doi")
     p.add_argument("title")
+    sub.add_parser("scan")
+    p = sub.add_parser("tables")
+    p.add_argument("-m", "--min-hits", type=int, default=4)
+    p.add_argument("-n", "--limit", type=int, default=40)
+    p.add_argument("-d", "--domain")
+    p.add_argument("-k", "--want", help="이 물성을 담은 표만")
     for name in ("search", "near"):
         p = sub.add_parser(name)
         p.add_argument("query")
@@ -205,6 +361,10 @@ def main() -> None:
     a = ap.parse_args()
     if a.cmd == "build":
         build()
+    elif a.cmd == "scan":
+        scan_build()
+    elif a.cmd == "tables":
+        tables_query(a.min_hits, a.limit, a.domain, a.want)
     elif a.cmd == "doi":
         d, where = doi_of(a.title)
         print(f"{d}\t{where}" if d else "(못 찾음)")
