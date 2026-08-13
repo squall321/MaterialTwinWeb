@@ -38,7 +38,15 @@ CHECKS = [
         and (conditions is null or conditions not like '%model%')"""),
     ("파장 없는 광학값(tier<4)", f"""select count(*) from property_value where property_key in {OPT}
         and quality_tier<4 and (conditions is null or (conditions not like '%wavelength%' and conditions not like '%line%'))"""),
-    ("온도가 값인데 온도 조건", f"select count(*) from property_value where property_key in {TEMP_VALUED} and conditions like '%temperature_C%'"),
+    # **부분일치로 보면 안 된다.** 17차에 `aging_temperature_c`(노화 조건)와 `cure_temperature_k`가
+    # 41건 걸렸다 — 둘 다 시험온도가 아니라 독립 축이고, 노화 격자를 담으려면 반드시 있어야 하는 값이다.
+    # 이 검사가 막으려는 것은 **값 자체가 온도인 물성에 시험온도가 붙는 것**이므로 키를 정확히 본다.
+    ("온도가 값인데 시험온도 조건", f"""select count(*) from property_value
+        where property_key in {TEMP_VALUED}
+        and (json_extract(conditions,'$.temperature_C') is not null
+             or json_extract(conditions,'$.temperature_c') is not null
+             or json_extract(conditions,'$.temperature_K') is not null
+             or json_extract(conditions,'$.temperature_k') is not null)"""),
     # 장기계수(E∞)는 **Prony 항이 아니라 평형값**이라 항번호가 없는 것이 맞다.
     # 급수는 E(t) = E∞ + Σ Ei·exp(-t/τi) 이고 E∞는 급수 밖에 있다.
     # 9차 파동이 장기계수 36건을 넣자 이 검사가 전부 오탐했다.

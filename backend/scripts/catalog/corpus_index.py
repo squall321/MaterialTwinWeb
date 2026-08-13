@@ -171,6 +171,15 @@ _SIG = [
     (r"refractive index|굴절률", r"1\.[0-9]{2}", "refractive_index"),
     (r"resistivity|저항률", r"(Ω|ohm)", "resistivity_volume"),
     (r"transmittance|투과율", r"%", "transmittance"),
+    # 17차 추가 — 배치 둘이 "이 키들은 -k로 못 찾는다"고 보고했다. 없는 것을 부재로 읽지 않도록 넓힌다.
+    (r"fracture toughness|K\s?_?ic\b|파괴인성", r"MPa\s?[·. ]?\s?m|MPa\s?m\^?0?\.?5", "fracture_toughness"),
+    (r"hardness|경도|\bHv?\b", r"(GPa|HV|kgf/mm|Shore)", "hardness"),
+    (r"weibull|와이블", r"m\s?=|modulus", "weibull_modulus"),
+    (r"contact angle|접촉각", r"(°|deg)", "contact_angle_water"),
+    (r"surface energy|surface tension|표면에너지", r"(mN/m|mJ/m|dyne)", "surface_energy"),
+    (r"viscosity|점도", r"(Pa[·. ]?s|cP|mPa)", "viscosity"),
+    (r"(peel|lap shear|die shear|adhesion) strength|박리|전단강도", r"(N/mm|N/m\b|MPa|kgf)", "interface_strength"),
+    (r"flexural strength|굽힘강도|modulus of rupture|\bMOR\b", r"\b(MPa|GPa)", "flexural_strength"),
 ]
 
 
