@@ -351,6 +351,16 @@ _DEFS: list[tuple] = [
     # ── 화학강화 유리 (커버윈도우 강도 설계의 지배 인자) ──────────────────────
     ("mechanical.surface_compressive_stress", "mechanical", "표면압축응력(CS)", "CS", "Pa",
      "numeric", ["depth_um"], "ASTM C1422"),
+    # 와이블 계수는 **재료 상수가 아니다.** 시편 수·시험 기하·유효면적·표면 이력에 종속된다 —
+    # 같은 유리(Corning 2318)에서 강화 이력만 바뀌었는데 m이 2.68에서 32.95로 12배 움직였다.
+    # 조건 없는 m은 값이 아니므로 축을 넓게 요구한다.
+    ("mechanical.weibull_modulus", "mechanical", "와이블 계수 m", "m", "1", "numeric",
+     ["strength_property", "test_geometry", "n_specimens", "stress_rate",
+      "specimen_thickness_mm", "estimator", "surface_state"], "ASTM C1239"),
+    # 마이어 경도는 **투영면적** 기준(H = P/(2a^2))이고 비커스 HV는 표면적 기준이다.
+    # 둘의 비 2/1.8544 = 1.0785 를 우리가 곱하면 역산이므로 키를 따로 둔다.
+    ("mechanical.hardness_meyer", "mechanical", "마이어 경도 H", "H", "Pa", "numeric",
+     ["load_n", "dwell_s", "environment", "temperature_c"], None),
     ("mechanical.depth_of_layer", "mechanical", "이온교환 깊이(DOL)", "DOL", "m", "numeric",
      None, "ASTM C1422"),
 ]
