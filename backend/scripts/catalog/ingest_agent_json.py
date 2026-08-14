@@ -252,7 +252,8 @@ def main() -> int:
             existing_cond.setdefault((mid, k), set()).add(cond_sig(cond))
 
     stats = {"ok": 0, "no_source": 0, "bad_key": 0, "bad_unit": 0, "out_of_range": 0,
-             "pct_suspect": 0, "kept_better": 0, "new_mat": 0, "no_mat": 0, "cond_clash": 0}
+             "pct_suspect": 0, "kept_better": 0, "new_mat": 0, "no_mat": 0, "cond_clash": 0,
+             "mat_fail": 0, "skipped_rows": 0}
     # 적재는 (재료·물성·출처·조건)에 멱등이다. 조건이 같은데 값이 다르면 나중 것이
     # 앞의 것을 조용히 덮어 측정 하나가 사라진다(3M 112P02/112P05가 그렇게 사라졌다).
     seen_cond: dict[tuple, float] = {}
@@ -277,10 +278,21 @@ def main() -> int:
                 if nm["name"] in by_name:
                     mid = by_name[nm["name"]]
                 elif a.apply:
+                    if len(nm["name"]) > 200:      # material.name 은 VARCHAR(200) 이다
+                        n_lost = len(entry.get("properties", []))
+                        stats["mat_fail"] += 1
+                        stats["skipped_rows"] += n_lost
+                        print(f"  ✗✗ 재료명이 {len(nm['name'])}자 — 200자 제한 초과, 물성 {n_lost}행 유실\n"
+                              f"      {nm['name'][:90]}...")
+                        continue
                     r = M.register_material(name=nm["name"], category=norm_cat(nm.get("category")),
                                             attributes=nm.get("attributes"))
                     if "error" in r:
-                        print(f"  ✗ 재료 등록 실패 {nm['name']}: {r['error']}")
+                        n_lost = len(entry.get("properties", []))
+                        stats["mat_fail"] += 1
+                        stats["skipped_rows"] += n_lost
+                        print(f"  ✗✗ 재료 등록 실패 — 물성 {n_lost}행 유실 "
+                              f"({len(nm['name'])}자) {nm['name'][:70]}: {r['error']}")
                         continue
                     mid = r["material_id"]
                     by_name[nm["name"]] = mid
@@ -374,6 +386,12 @@ def main() -> int:
                 stats["ok"] += 1
     print(f"\n{'[APPLY]' if a.apply else '[DRY-RUN]'} " +
           " / ".join(f"{k} {v}" for k, v in stats.items() if v))
+    # **조용한 유실을 요약 밖으로 끌어낸다.** 18차에 재료명이 202자라 등록이 거부되고
+    # 물성 5행이 사라졌는데, print 한 줄이 정상 출력에 묻혀 아무도 못 봤다.
+    # 무결성 검사는 '들어오지 않은 행'을 볼 수 없다 — 여기가 유일한 방어선이다.
+    if stats["mat_fail"] or stats["skipped_rows"]:
+        print(f"  ⚠ 재료 등록 실패 {stats['mat_fail']}건 때문에 물성 "
+              f"{stats['skipped_rows']}행이 적재되지 않았다 — 위 ✗✗ 줄을 확인해라.")
     return 0
 
 
