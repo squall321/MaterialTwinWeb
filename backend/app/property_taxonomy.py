@@ -161,6 +161,12 @@ _DEFS: list[tuple] = [
      ["model", "model_form", "unit_of_term", "temperature_k"], None),
     ("mechanical.morrow_energy_exponent", "mechanical", "Morrow 에너지 지수", "m", "1", "numeric",
      ["model", "model_form", "temperature_k"], None),
+    # Dasgupta 에너지분할 — 크리프 성분과 순간소성 성분의 수명을 따로 피팅하고
+    # 1/N = 1/N_pl + 1/N_cr 로 합친다. Morrow 와 **다른 모델**이라 키를 따로 둔다.
+    # **C 는 분모에 있고 n 은 음수로 인쇄된다** — `ΔW = C·N^(−n)` 형태로 읽으면
+    # 상수 규모가 자릿수로 틀린다. 그래서 `model_form` 을 필수 축으로 요구한다(브리프 66번).
+    ("mechanical.energy_partitioning_constant", "mechanical", "에너지분할 상수", "C/n", "1", "numeric",
+     ["model", "model_form", "term", "unit_of_term", "component", "temperature_k", "set_id"], None),
     # Johnson-Cook 파괴 D1~D5 — 삼축도·율속·온도 의존 파단변형률.
     # 지금은 총 파단연신율을 파괴 유효소성변형률로 근사하고 있다.
     ("mechanical.johnson_cook_damage", "mechanical", "Johnson-Cook 파괴상수", None, "1", "numeric",
