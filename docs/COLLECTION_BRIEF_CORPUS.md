@@ -265,6 +265,36 @@ Darveaux 1992 `Constitutive relations for tin-based solder joints` 의 DOI를
 **경계 — 같은 표·같은 행 안에서 모순이 닫히면 고치고, 바깥 지식으로만 이상하면 버려라.**
 어느 쪽이든 근거 사슬을 notes에 verbatim으로 남겨라.
 
+## 19. 표면물성은 `tables` 로 못 찾는다 — `grep -a` 전수가 유일한 길이다
+
+18차 H2 실측 — `tables -k contact_angle_water` 는 전 코퍼스에서 **9편**, `surface_energy` 는 **10편**만 낸다.
+실제 광맥은 표적 8개 디렉터리(355편)를 `grep -aric "contact angle|surface (free )?energy"` 로
+전수 훑어 후보 60여 편을 뽑은 데서 나왔다. **"표 0편"을 부재로 읽지 마라**(14번 절).
+
+**확정 부재** — `mech_papers/16_anodizing_chem`(54편)은 접촉각이 사실상 없다(히트 1편).
+양극산화 갈래는 착색·봉공·내식 논문이 대부분이다.
+`materials_papers/26_mech_psa_adhesive`(5편)에도 표면물성이 없고,
+`disp_polarizer_oca`(44편)는 Park 2015 하나뿐인데 그마저 그림이다.
+
+**Shore OO 광맥은 표면물성 갈래가 아니라 `pkg_papers/18_thermal_gap_filler` 에 있다.**
+
+## 20. 접촉각·표면에너지의 조건은 타협하지 마라
+
+18차 H2가 90행을 넣으면서 **조건 누락 0건**을 달성했다. 그 규율이 이렇다.
+
+- **접촉각 59행 전부 `angle_type` 보유** — 전진/후퇴/정적/Wilhelmy/Washburn.
+  Muster 2004에서 같은 시편의 히스테리시스가 **36.8~41.9°** 였다.
+- **접촉각 59행 전부 `surface_state` 보유.** Karnal 2019는 같은 PSA에서 **pH만 바꿔 후퇴각이
+  62°→47°** 로 움직인다. Fotie 2017은 조습 습도 57/81/97%에서 **11.23/9.33/8.05°** 다.
+  조건 없이 넣으면 그 값은 자체 모순이 된다.
+- **표면에너지 29행 전부 `model` 보유** — Owens-Wendt 21 · van Oss 10 · Neumann EOS 8 · OWRK 1.
+  같은 시편에서 모델이 다르면 값이 다르다.
+- **액체를 확인해라.** `physical.contact_angle_water` 는 **물 전용**이다.
+  He 2011의 "Surface tension / Contact angle" 표는 **PSA 에멀전(액체)의 표면장력과
+  그 에멀전이 PE 필름 위에서 이루는 각**이라 통째로 폐기됐다.
+- **van Oss 성분은 산술로 검산할 수 있다** — `γ_AB = 2√(γ⁺γ⁻)`, `γ_TOT = γ_LW + γ_AB`.
+  H2가 Liu 2005의 병합 헤더 열 배치를 이 검산으로 확정했다.
+
 ---
 
 ## 산출 형식

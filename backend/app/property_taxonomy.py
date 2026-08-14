@@ -24,6 +24,10 @@ _DEFS: list[tuple] = [
     ("mechanical.hardness_vickers", "mechanical", "비커스 경도", "HV", "HV", "numeric", None, "ISO 6507"),
     ("mechanical.hardness_rockwell_c", "mechanical", "로크웰 경도 C", "HRC", "HRC", "numeric", None, "ISO 6508"),
     ("mechanical.hardness_shore_a", "mechanical", "쇼어 A 경도", "ShoreA", "ShoreA", "numeric", None, "ASTM D2240"),
+    # Shore OO는 초연질(폼·겔·갭필러) 전용 척도다. **Shore A/OO/D는 상호 환산이 불가능하다** —
+    # 규격이 압침 형상과 스프링 하중을 다르게 정의한다(ASTM D2240). 환산하면 우리가 만든 값이 된다.
+    ("mechanical.hardness_shore_oo", "mechanical", "쇼어 OO 경도", None, "ShoreOO", "numeric",
+     ["standard", "dwell_s", "temperature_c", "specimen_thickness_mm"], "ASTM D2240"),
     ("mechanical.fracture_toughness", "mechanical", "파괴인성", "K_IC", "Pa*m^0.5", "numeric", ["temperature_k"], "ASTM E399"),
     ("mechanical.fatigue_strength", "mechanical", "피로한도", "sigma_f", "Pa", "numeric", ["cycles"], None),
     ("mechanical.compressive_strength", "mechanical", "압축강도", None, "Pa", "numeric", ["temperature_k"], None),
