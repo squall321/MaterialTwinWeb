@@ -88,10 +88,42 @@ def build() -> None:
     print(f"완료: {n}편 → {DB}", file=sys.stderr)
 
 
+def _fts_safe(query: str) -> str:
+    """FTS5가 연산자로 읽어 버리는 토큰을 따옴표로 감싼다.
+
+    `lead-free solder` 를 그대로 넘기면 FTS5가 `-` 를 NOT 으로 읽어
+    `no such column: free` 로 죽는다. **그 스택트레이스가 '적중 없음'처럼 보여서
+    갈래를 통째로 버리게 된다** — 20차 E가 실제로 그럴 뻔했다.
+    이미 따옴표로 묶인 구, AND/OR/NOT/NEAR 연산자, 접두검색(`foo*`)은 건드리지 않는다.
+    """
+    out, i, n = [], 0, len(query)
+    while i < n:
+        ch = query[i]
+        if ch == '"':                                   # 인용구는 통째로 보존
+            j = query.find('"', i + 1)
+            j = n if j < 0 else j + 1
+            out.append(query[i:j]); i = j; continue
+        if ch.isspace():
+            out.append(ch); i += 1; continue
+        j = i
+        while j < n and not query[j].isspace() and query[j] != '"':
+            j += 1
+        tok = query[i:j]; i = j
+        if tok in ("AND", "OR", "NOT", "NEAR") or tok.startswith("NEAR("):
+            out.append(tok)
+        elif tok.endswith("*") and tok[:-1].isalnum():   # 접두검색은 연산자다
+            out.append(tok)
+        elif tok.isalnum():
+            out.append(tok)
+        else:                                            # 하이픈·슬래시·괄호 등
+            out.append('"' + tok.replace('"', '') + '"')
+    return "".join(out)
+
+
 def _rows(c, query: str, domain: str | None, limit: int):
     sql = ("select d.id,d.title,d.domain,d.subdir,d.path from ft "
            "join doc d on d.id=ft.rowid where ft match ?")
-    args: list = [query]
+    args: list = [_fts_safe(query)]
     if domain:
         sql += " and d.domain=?"
         args.append(domain)

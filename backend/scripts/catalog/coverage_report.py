@@ -238,6 +238,21 @@ UNFILLABLE = [
     (_TAPE, {"physical.gas_permeability_o2", "physical.gas_solubility"},
      "아크릴 PSA/OCA — 산소투과를 재지 않는다(기능과 무관, 코퍼스 전수 0편)"),
 
+    # [2026-08-14 · 20차 F] 표면처리·단분자막·전환피막 41종 × 전기 택일군.
+    # **"문헌이 안 낸다"가 아니라 물리적으로 정의되지 않는다** — 다섯 판정 중 유일하게
+    # 재료 부류가 아니라 물리를 근거로 세운 것이다. 실란 단분자막·전환피막·연마된 강판
+    # 표면은 **재료가 아니라 표면 상태**다. 체적저항률은 체적을 가진 물체의 물성이고
+    # 유전율은 유전체 시편의 물성인데, 이들에는 그 시편이 없다.
+    # 20차 F가 기록한 실증 — Yuan 2011의 `kΩ·cm²` 는 **EIS 전하전달저항(면적 규격화)**이지
+    # 체적저항률이 아니다. 두께로 나눠도 안 된다(단위가 애초에 다른 물리량이다).
+    (("silane", "self-assembled", "monolayer", "conversion film", "passivation film",
+      "treated carbon steel", "solvent-cleaned surface", "acetone-degreased",
+      "abraded to", "graft-polymerised", "adhesion substrate", "cleaved muscovite",
+      "wetting reference"),
+     {"electrical.dielectric_constant", "electrical.resistivity_volume",
+      "electrical.dissipation_factor"},
+     "표면처리·단분자막 — 재료가 아니라 표면 상태다(체적물성이 정의되지 않는다)"),
+
     # [2026-08-14 · 20차 G] 스퍼터 확산배리어와 RF 적층판에 기체투과도를 요구한 것은
     # 택일군 설계의 사고다. Ta/TaN은 금속 박막이고 RF 적층판은 유전 기판이다 —
     # **"못 채운 칸"이 아니라 애초에 그 물성을 발표할 이유가 없는 칸**이다.
