@@ -295,6 +295,96 @@ Darveaux 1992 `Constitutive relations for tin-based solder joints` 의 DOI를
 - **van Oss 성분은 산술로 검산할 수 있다** — `γ_AB = 2√(γ⁺γ⁻)`, `γ_TOT = γ_LW + γ_AB`.
   H2가 Liu 2005의 병합 헤더 열 배치를 이 검산으로 확정했다.
 
+## 21. 각주를 읽어라 — 물성의 **정체**가 거기 있다
+
+18차 H4가 브리프의 서술 둘을 정정했다. 둘 다 **표 아래 각주** 한 줄에서 나왔다.
+
+- 17차 G3가 "Joon Lee 2010은 경도 척도가 미표기"라고 적었으나, Table 1 아래에
+  `* including Contact Resistance based on ASTM D5470, ** Shore 00` 이 인쇄돼 있다.
+  **막고 있던 것은 논문이 아니라 우리 taxonomy였다.**
+- **같은 각주가 열전도율의 정체도 바꾼다.** 그 8칸은 벌크 k가 아니라
+  **접촉저항이 포함된 겉보기 열전도율**이다. 방법절 verbatim —
+  *"'Apparent' thermal conductivity (TC) which includes contact resistance was reported as well
+  even though the true TC value was calculated from the measurements of multiple thickness samples"*.
+  진짜 벌크 k는 끝내 인쇄되지 않는다. **`conditions.basis` 에 못 박아라.**
+
+TIM·갭필러의 열전도율은 특히 이 함정이 잦다 — ASTM D5470 측정은 계면저항을 포함한다.
+
+## 22. 같은 저자의 동명 논문을 조심해라
+
+`find -name "Manikam - 2013*.pdf" | head -1` 이 **다른 논문**을 준다.
+코퍼스에 2013년 Manikam 논문이 둘이고 주제가 거의 같다
+(`pkg_papers/12_die_attach_film` 의 Microelectronics Reliability판 vs
+`materials_papers/pkg_sintered_silver` 의 J Mater Sci판).
+**`pdftotext` 직후 첫 줄로 제목과 저널명을 확인해라.**
+
+**저자·그룹으로 추적하는 것이 키워드 검색보다 낫다.** Manikam은 코퍼스에 5편이고
+(2011 리뷰 / 2012 IEEE Trans / 2013 ×2 / 2014) 서로 다른 격자를 싣는다.
+
+## 23. docling이 나란한 두 표의 캡션을 서로 바꿔 붙인다
+
+Kumaresan 2021의 Table 2(Part A)/Table 3(Part B)가 md에서 어긋나 있었다.
+`pdftotext -layout` 이 두 표를 좌우로 뽑아 캡션-표 짝을 확정했고, **본문 서술로 독립 교차검증**했다
+(Part A: TGF A ~10⁴→~10⁻⁴ 서술이 11,100→0.000603과 정확히 일치).
+**좌우로 나란한 표를 만나면 캡션을 의심하고 본문 서술로 짝을 확인해라.**
+
+## 24. 스캔 IEEE 논문은 OCR이 단위를 통째로 망친다
+
+Liao 2012에서 실제로 나온 것 — `Mm`=μm, `°e`=°C, `nem`=Ω·cm, `lOoe/min`=10 °C/min, `ppml`=ppm.
+**300 dpi 렌더로 표를 눈으로 확인하고서야** 옮길 수 있었다.
+그 논문은 시험법(DMA/TMA/JIS C2151/ASTM E1530)은 인쇄하면서 **측정 주체를 밝히지 않아**
+벤더 스펙 전재로 보고 전 행 tier3으로 낮췄다.
+
+## 25. 논문이 자기모순이면 양쪽을 다 버려라
+
+Manikam 2013b의 밀도·기공률은 **논문 자신과 모순된다.** 자기가 계산한 완전밀도 6.65 g/cm³에
+기공률 19%면 5.39가 나와야 하는데 6.42를 인쇄하고, 30%면 4.66이어야 하는데 2.36을 인쇄한다.
+**양 끝이 반대 방향으로 어긋나** 어느 열이 오염인지 가릴 수 없다 — 둘 다 버렸다.
+
+같은 논문의 CTE 6.99~7.74e-6 /K도 버렸다. Ag 19.5 · Al 23.1 · Ag₂Al/Ag₃Al ≈20 ppm/K로
+**모든 성분보다 낮다.** 혼합물 상하한 규칙에 걸린다(기공은 성분이 아니다).
+
+## 26. 언더필 2차 크리프율 — 키는 있고 값이 없다
+
+17번 절을 강화한다. `mechanical.creep_rate`(1/s) 키는 **있다.**
+문제는 Lin 2008/2010 계열에서 **값 자체가 표로 인쇄되지 않는 것**이다.
+Lin 2010의 유일한 숫자표(Figure 28)는 크리프율이 아니라 `log ε̇` 대 시효시간의 **기울기 C1**이고,
+식 `ε̇ = e^(C0 + C1·t + C2(1−e^(−C3t)))` 에서 t가 **시효일수**라 C1의 차원은 1/day다.
+
+**코퍼스의 시효×물성 격자는 대부분 Auburn CAVE3 계열이고 그쪽은 값을 3D 표면 그림으로 낸다.**
+이 갈래를 다시 노리려면 그림이 아닌 표를 싣는 다른 그룹을 찾아야 한다.
+
+## 27. 디렉터리 이름을 믿지 마라
+
+`materials_papers/pkg_sintered_silver` 에 **소결 페이스트와 무관한 세라믹 무가압소결 논문이
+약 15편 섞여 있다**(AlN·SiAlON·SnO₂·ZrB₂-SiC·β-SiAlON/TiN).
+`pkg_papers/18_thermal_gap_filler` 에는 **경제학 putty-clay 논문 4편과 언어학 논문 1편**이 있다.
+**디렉터리를 배정받으면 제목부터 훑어 걸러라.** 편수만 세면 모수를 잘못 잡는다.
+
+## 28. 소결·접합 갈래의 조건 규율 (18차 H1이 격자를 닫은 방식)
+
+이 갈래는 **조건이 값을 뒤집는다** — 방향까지 뒤집힌 사례가 실제로 나왔다.
+
+- **분위기** — Chua 2014에서 미크론Ag와 나노Ag의 **순서가 반대다**
+  (미크론: 대기 14 > 포밍가스 7 > N2 0 MPa, 나노: 포밍가스 17 > N2 10 > 대기 4).
+  Zhao 2016은 **99.999% N2가 오히려 나쁘다**(7.4 대 21.9 MPa) — 유기물 연소에 미량 산소가 필요하다.
+- **기판 표면처리** — Ishikawa 2018에서 Au 위 소결 Ag만 **온도가 오르면 강도가 떨어진다**
+  (30→35 MPa인 Ag와 달리 8→3 MPa, Kirkendall).
+- **압력·초음파·시간**도 전부 독립 축이다.
+
+`conditions` 에 **소결온도·시간·압력·분위기·계면쌍·접합면적**을 전부 넣어라.
+하나라도 빠지면 다른 논문 값과 비교가 안 되고, 그 값은 격자의 한 점이 되지 못한다.
+
+**익명화된 조건은 값을 무효로 만든다** — Calabretta 2021은 다공성 20/12/8%를 인쇄하지만
+압력이 `p1·p2·p3` 로 익명화돼 있어 통째로 버렸다.
+
+## 29. `tables -k interface_strength` 는 다이전단을 못 잡는다
+
+18차 H1이 `die_shear_strength` 61행을 캤는데 **스캐너는 이 갈래를 하나도 못 잡았다.**
+실제로 통한 방법은 세 디렉터리 93편 **전수**에 대한 정규식 스윕이었다
+(`shear strength|Young's modulus|thermal conductivity|porosity|resistivity` × 수치+단위).
+14번 절(나)의 실증이다 — **`_SIG` 는 후보를 좁히는 도구이지 모수를 정하는 도구가 아니다.**
+
 ---
 
 ## 산출 형식
