@@ -514,6 +514,107 @@ Table 2·3에 pristine + 100/125/150 °C × 30/60 d 를 **저장탄성률·손�
 
 `set_id` 만으로는 부족하다. 넷을 다 그룹키에 넣어야 오탐이 사라진다.
 
+## 41. docling이 **빈 셀을 접어** 행을 엉뚱한 재료 위로 밀어 올린다
+
+23번 절(나란한 표의 캡션을 바꿔 붙인다)과 같은 계열이지만 **다른 사고**다.
+원문 표에 빈 칸이 있으면 docling이 그것을 지우고 남은 숫자를 왼쪽으로 당긴다.
+결과적으로 **네 재료 중 두 재료에만 인쇄된 값이 네 재료 전부에 걸린 것처럼 보인다.**
+
+20차 D가 Chivers 1991에서 잡았다 — HBA/IA/HQ LCP 열에만 횡수축비가 인쇄돼 있고
+**HBA/HNA(=Vectra A 화학) 열은 비어 있는데**, 접히면서 네 숫자가 네 재료에 다 걸린 것처럼 보였다.
+그대로 옮겼으면 Vectra A950RX에 남의 조성 값이 t1으로 들어갔다.
+
+**판별법** — 값을 옮기기 전에 `pdftotext -layout` 으로 그 표를 다시 떠라.
+빈 칸이 공백으로 유지되므로 열 정렬이 눈에 보인다. **열 개수가 재료 개수와 맞는지 세어라.**
+
+## 42. 밀도는 이 코퍼스의 구조적 공백이다 — 백필을 기대하지 마라
+
+20차 A가 밀도 한 칸만 빈 재료 33종을 표적으로 논문 12편(PSA·OCA·접착필름·CCL·CFRP·
+포팅·소결페이스트)을 전수로 열었다. **밀도 숫자를 인쇄한 논문은 1편뿐이고 그마저 쓸 수 없었다.**
+`densit` 이 걸려도 대부분 **가교밀도(crosslink density)**다.
+
+밀도는 "당연히 어딘가 있겠지" 싶어서 표적으로 삼기 쉬운데, 이 갈래들에서는 아니다.
+CCL(Kehong 2004)은 Tg·Td·CTE·흡습·저항률·Dk/Df·peel·UL94를 다 싣고 **밀도만 없다.**
+English 2016은 탄성상수·파괴에너지·강도·손상계수 24행을 싣고 **밀도 행만 없다.**
+
+## 43. α·Cp·k 셋이 다 인쇄돼도 ρ만 없는 경우가 실재한다 — 그때 나누면 역산이다
+
+20차 B/A의 전제 하나가 반증됐다. "열전도 논문은 `k = ρ·Cp·α` 를 쓰니 ρ가 표에 있다"가
+**항상 참은 아니다.** Tan 2015 §3.2 verbatim —
+*"The values of specific heat and bulk density have been reported in previous paragraph
+and in Ref. [43], respectively."* **ρ만 선행 논문으로 넘긴다.**
+
+이때 `ρ = k/(Cp·α)` 는 역산이다. 그리고 그 Ref [43]이 코퍼스 밖이면 규칙 5로 닫힌다.
+
+## 44. 2액형 에폭시의 `Components and density` 행은 밀도 칸이 아니다
+
+Nguyen 2011 Table 1 verbatim —
+`Part A (resin): 1.20 g/cm3, Part B (curing agent): 1.02 g/cm3`, 혼합비 10:1 (wt),
+각주 *"based on the datasheets of the manufacturer"*.
+
+**경화 전 2액형 성분 각각의 액상 밀도**이지 경화 컴파운드의 밀도가 아니다.
+혼합비가 바로 옆에 인쇄돼 있어 계산을 강하게 유혹하지만 **규칙 3**이다.
+같은 논문 본문의 `bulk density of Ag-MPS is 1.44 g/cm3` 도 재료가 아니라 **필러 입자**의 밀도다.
+
+## 45. 소결체는 다공률만 인쇄되는 경우가 많다 — 이론밀도 × (1−P) 도 역산이다
+
+Tan 2014는 소결 Ag/Cu/Ag-Cu의 다공률(48 / 70 / 50~62 %)을 인쇄하고 밀도는 인쇄하지 않는다.
+`ρ = ρ_theoretical × (1 − P)` 는 우리가 하면 안 된다. **논문이 그렇게 계산해 인쇄했으면 괜찮다.**
+
+**다만 `porosity` 키가 taxonomy에 없다** — 다공률 자체는 담을 곳이 없어서 버려지고 있다.
+36번 절의 taxonomy 공백 목록에 추가한다.
+
+## 46. 저자가 "가정했다"고 인쇄한 값은 tier3이 아니라 **tier4**다
+
+20차 D가 이 경계를 물어 왔다. Kouters 2013 verbatim —
+*"a Poisson ratio of 0.30 is assumed for the brittle intermetallics"*, Springer 2020 —
+*"The Poisson ratio is assumed to be 0.35 and is chosen the same for all ECA material models."*
+
+**인쇄됐다는 것만으로는 부족하다. 그 숫자가 무엇인지가 티어를 정한다.**
+tier3(handbook)은 "이 제품에 대해 측정되진 않았지만 **어딘가에서는 측정된** 값"의 자리다.
+저자의 가정값은 어디서도 측정되지 않았다 — tier4 + `method: "estimated"` +
+`conditions.assumption: true` 다.
+
+**선례** — 14차에 Diepens 2011의 21 kJ/mol을 버렸다. 1차 출처를 열어 보니 가정값이었기 때문이다.
+그 판단과 같은 자를 쓴다.
+
+**대신 notes로 우리 가정과 구별해라.** 저자의 가정은 그 논문의 나머지 값과 **자기정합적**이다 —
+Kouters의 인덴테이션 E는 전부 ν=0.30 전제로 환산됐고, Springer의 Prony 급수 약 995항은
+ν=0.35 고정으로 피팅됐다. **다른 ν로 그 값들을 쓰면 모델이 틀린다.** 이 사실을 notes에 적어라.
+
+## 47. 키워드 밀도는 값 신호가 아니다
+
+20차 G가 잡았다. Fotie 2017은 산소 관련 키워드 히트 49건으로 **코퍼스 전체 1위**인데
+**값이 한 개도 없다.** PO2·확산계수 D·용해도 S를 전부 측정하는 논문인데
+숫자가 Figure 3·4·5에만 있고 표가 없다.
+
+**히트 수로 논문을 줄 세우지 마라.** 표 사이드카와 PDF를 열기 전까지 그 논문이
+값을 가졌는지는 알 수 없다. 1번 절(문장이 아니라 표를 찾아라)의 다른 얼굴이다.
+
+## 48. 이 코퍼스에서 자주 걸리는 동음이의 다섯
+
+20차 G가 산소 갈래에서 히트 17편이 **전부 오탐**임을 확인하며 모았다.
+
+| 걸리는 말 | 실제 정체 |
+|---|---|
+| `barrier` (양극산화 문헌) | 기체 배리어가 아니라 **barrier oxide**(양극산화 장벽층). Kim 2017이 60히트 |
+| `solubility` (PSA 문헌) | **Hansen 용해도 파라미터** 또는 약물 용해도. Henry 상수가 아니다 |
+| `barrer` | 저자명 **Barrera · Barrere** 를 잡는다 |
+| `OTR` | 단어 경계 없이 걸면 단어 속에서 걸린다 |
+| `Oxygen` (신뢰성 표) | `\| Oxygen \| ppm \| ND \|` 는 **추출 이온 오염도**다(Leung 1989) |
+
+`oxygen` 이 UV 경화 문헌에 나오면 대개 *"purged with nitrogen to prevent inhibition by oxygen"* —
+**공정 서술이지 물성이 아니다.**
+
+## 49. 배치 지시문의 키 네임스페이스를 DB에서 확인하고 써라
+
+20차 G의 지시문에 내가 `transport.gas_permeability_o2` 라고 적었는데 실제 DB 키는
+**`physical.gas_permeability_o2` · `physical.gas_solubility`** 다. 표적 JSON의 `missing`
+필드는 맞았지만 산문 지시가 틀렸다. 배치가 지시문을 따라 `transport.` 로 냈으면
+**인제스트에서 통째로 튕긴다.**
+
+지시문을 쓰기 전에 `list_property_definitions` 나 `select distinct property_key` 로 확인해라.
+
 ---
 
 ## 산출 형식
