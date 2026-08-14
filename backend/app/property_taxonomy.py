@@ -161,6 +161,15 @@ _DEFS: list[tuple] = [
      ["model", "model_form", "unit_of_term", "temperature_k"], None),
     ("mechanical.morrow_energy_exponent", "mechanical", "Morrow 에너지 지수", "m", "1", "numeric",
      ["model", "model_form", "temperature_k"], None),
+    # Arrhenius 전지수인자 — 활성화에너지의 짝인데 담을 곳이 없어 notes 에만 적혀 있었다.
+    # **`physical.diffusion_coefficient` 에 D₀ 를 넣으면 tier1 확산계수와 6자릿수 충돌**한다.
+    # 그래서 상수 번들로 둔다 — `lnA (ln s⁻¹)` · `A (min⁻¹)` · `A₀ (h⁻¹atm⁻¹·³¹⁴)` · `η₀ (Pa·s)`
+    # 가 한 키에 들어가야 하므로 si_unit 을 물리단위로 고정할 수 없다.
+    # **값 규모가 2.91e-24 ~ 8.0e15 로 40자릿수다 — 물리 범위검사를 걸지 마라**(브리프 39번).
+    # `lnA` 와 `A` 는 다른 수다. 원문이 lnA 로 인쇄했으면 그대로 넣고 exp 를 취하지 않는다.
+    ("chemical.arrhenius_prefactor", "chemical", "Arrhenius 전지수인자", "A", "1", "numeric",
+     ["term", "unit_of_term", "model", "mechanism", "method_detail",
+      "temperature_range_k", "set_id"], None),
     # Dasgupta 에너지분할 — 크리프 성분과 순간소성 성분의 수명을 따로 피팅하고
     # 1/N = 1/N_pl + 1/N_cr 로 합친다. Morrow 와 **다른 모델**이라 키를 따로 둔다.
     # **C 는 분모에 있고 n 은 음수로 인쇄된다** — `ΔW = C·N^(−n)` 형태로 읽으면
