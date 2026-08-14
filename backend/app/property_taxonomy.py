@@ -369,6 +369,40 @@ _DEFS: list[tuple] = [
      ["reference_temperature_k", "log_base", "sign_convention", "fit_r2"], None),
     ("mechanical.wlf_c2", "mechanical", "WLF 상수 C2", "C2", "K", "numeric",
      ["reference_temperature_k", "log_base", "sign_convention", "fit_r2"], None),
+    # ── 구성모델 상수 다발. **항마다 단위가 달라** si_unit을 1로 두고
+    # `conditions.term` 과 `unit_of_term` 에 정체를 적는다(darveaux_constant 선례).
+    # 세트가 깨지면 곡선이 안 서므로 `set_id` 로 묶는다.
+    #
+    # Garofalo sinh: de/dt = A'[sinh(a*sigma)]^n exp(-Q/RT). 네 항의 단위가 1/s, 1/Pa, 무차원, J/mol.
+    ("mechanical.garofalo_constant", "mechanical", "Garofalo sinh 크리프 상수", None, "1", "numeric",
+     ["term", "unit_of_term", "model", "component", "temperature_range_k",
+      "stress_range_pa", "strain_rate_range_s", "set_id"], None),
+    # 1차(천이) 크리프 상수. 2차(정상상태)와 다른 모델이다.
+    ("mechanical.primary_creep_constant", "mechanical", "1차 크리프 상수", None, "1", "numeric",
+     ["term", "unit_of_term", "model", "temperature_range_k", "stress_range_pa", "set_id"], None),
+    # Ramberg-Osgood: e = s/E + a(s/s0)^n. 항마다 단위가 다르다.
+    ("mechanical.ramberg_osgood_constant", "mechanical", "Ramberg-Osgood 상수", None, "1", "numeric",
+     ["term", "unit_of_term", "model", "temperature_k", "set_id"], None),
+    # 변형률 분해(SRRT/SRT). 성분마다 정체가 다르므로 term으로 가른다.
+    ("mechanical.strain_partition_component", "mechanical", "변형률 분해 성분", None, "1", "numeric",
+     ["term", "unit_of_term", "test_method", "strain_rate_s", "temperature_k", "set_id"], None),
+    # 균열 개시·성장은 **모델 계수(darveaux_constant)가 아니라 그 모델의 출력 실측값**이다.
+    ("mechanical.crack_initiation_cycles", "mechanical", "균열개시 사이클 수", "No", "1", "numeric",
+     ["thermal_cycle_profile", "statistic", "solder_alloy", "negative_regression_intercept"], None),
+    ("mechanical.crack_growth_rate", "mechanical", "균열성장률 da/dN", "da/dN", "m/cycle", "numeric",
+     ["thermal_cycle_profile", "statistic", "solder_alloy"], None),
+    # 경화 kinetics 다발(DiBenedetto λ·C3, Kamal k/m/n, Vogel ΔH 등).
+    # **Vogel ΔH를 chemical.activation_energy 에 넣지 마라** — 660 kJ/mol이라 화학 Ea로 읽으면 틀린다.
+    ("chemical.cure_model_constant", "chemical", "경화 모델 상수", None, "1", "numeric",
+     ["term", "unit_of_term", "model", "temperature_range_k", "set_id"], None),
+    # 흡습 확산 모델 상수(전지수인자 D0 등). 확산계수 자체는 physical.diffusion_coefficient 다.
+    ("physical.moisture_diffusion_constant", "physical", "흡습확산 모델 상수", None, "1", "numeric",
+     ["term", "unit_of_term", "model", "temperature_range_k", "set_id"], None),
+    # secant CTE 다항식 계수. **계수를 대입해 CTE 값을 만들지 마라** —
+    # 293 K 부근에서 항끼리 154~306배 상쇄돼 대입값의 유효숫자가 인쇄 자릿수보다 훨씬 적다.
+    ("thermal.expansion_polynomial_coefficient", "thermal", "CTE 다항식 계수", None, "1", "numeric",
+     ["term", "unit_of_term", "model", "reference_temperature_k",
+      "temperature_range_k", "set_id"], None),
     ("mechanical.weibull_modulus", "mechanical", "와이블 계수 m", "m", "1", "numeric",
      ["strength_property", "test_geometry", "n_specimens", "stress_rate",
       "specimen_thickness_mm", "estimator", "surface_state"], "ASTM C1239"),

@@ -80,6 +80,30 @@ CHECKS = [
           and json_extract(pv.conditions,'$.term') in ('C10','C01')
         group by pv.material_id, r having n=2 and s<=0)"""),
     # Stromeyer는 (계수, 지수, 점근응력) **셋이 한 세트**다. 하나만 있으면 곡선이 안 선다.
+    # **Prony 급수는 가중치와 완화시간의 항수가 같아야 한다.** 짝이 없는 항은 쓸 수 없다.
+    # 19차에 Chiu 2018이 17항인데 완화시간만 15항으로 들어와 있었다 —
+    # 인제스트 범위검사 하한이 10^-22·10^-25 두 항을 조용히 잘랐고, 이 검사가 없어 못 봤다.
+    #
+    # **세 가지를 구분해야 오탐이 안 난다.**
+    #  · 전단(또는 인장)과 체적은 **각각** 같은 tau 집합과 짝을 이룬다 — 합치면 2배로 보인다.
+    #  · 평형항(w_inf / Inf / equilibrium)은 급수 밖이라 tau가 없는 것이 옳다.
+    #  · 한 재료가 여러 급수를 가지면 set_id·model·temperature_k 로 갈린다 —
+    #    19차에 같은 OCA가 같은 온도에서 generalized Maxwell 과 viscoelastic-viscoplastic
+    #    두 모델을 동시에 갖고 있었다. model 을 안 보면 오탐이 난다.
+    ("Prony 가중치·완화시간 항수 불일치", """select count(*) from (
+        select material_id, json_extract(conditions,'$.set_id') sid,
+               coalesce(json_extract(conditions,'$.series'),'-') ser,
+               coalesce(json_extract(conditions,'$.model'),'-') mdl,
+               coalesce(json_extract(conditions,'$.temperature_k'),'-') tk,
+               sum(property_key='mechanical.prony_relaxation_time') n_tau,
+               sum(property_key='mechanical.prony_relative_modulus'
+                   and lower(coalesce(json_extract(conditions,'$.term'),'')) not like '%inf%'
+                   and lower(coalesce(json_extract(conditions,'$.term'),'')) not like '%equil%') n_w
+        from property_value
+        where property_key in ('mechanical.prony_relaxation_time',
+                               'mechanical.prony_relative_modulus')
+        group by material_id, sid, ser, mdl, tk
+        having n_tau>0 and n_w>0 and n_w<>n_tau)"""),
     ("Stromeyer 3종 세트 불완전", """select count(*) from (
         select material_id from property_value
         where property_key in ('mechanical.fatigue_stromeyer_coefficient',
