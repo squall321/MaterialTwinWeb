@@ -157,7 +157,12 @@ def grp_ok(ks, grp):
 #     기록된 것만 넣는다. 한 번 못 찾은 것은 부재가 아니다.
 #  3. **페이월은 부재가 아니다.** 접근 문제는 언제든 열릴 수 있으므로 분모에 남긴다.
 #     (FR-4 방향별 열전도율, EMC 포아송비 등이 그 예다.)
-_DOPANT = ("emitter", "dopant", "tadf", "iridium", "ir(", "ir-", "pt(", "porphyrin",
+# [2026-08-14] `"ir-"` 가 **"a`ir-`sintered"** 와 **"`IR-`cut dye"** 를 잡고 있었다.
+# 소결 Ag 페이스트 4종·컬러필터 2종·PSZ-air 3종이 도판트로 분류돼 이 선언의 반례가 됐고,
+# **그 반례 때문에 발광체 43종의 젖음 부재 선언이 통째로 은퇴해 있었다.**
+# 20차 H가 발광체 × 젖음을 근거 다섯으로 부재 판정하면서 드러났다.
+# 부분일치 매처는 **짧은 토큰일수록 위험하다** — 17차 무결성 오탐과 같은 유형이다.
+_DOPANT = ("emitter", "dopant", "tadf", "iridium", "ir(", "ir-containing", "pt(", "porphyrin",
            "coumarin", "photoinitiator", "irgacure", "thioxanthone", "benzophenone",
            "phosphor dye", "phosphorescent", "ptoep", "pdoep")
 _TAPE = ("tape", "psa", "oca ", "ocr", "adhesive transfer", "vhb", "acxplus",
