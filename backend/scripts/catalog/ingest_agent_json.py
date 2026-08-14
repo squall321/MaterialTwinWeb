@@ -246,8 +246,12 @@ def main() -> int:
     a = ap.parse_args()
 
     with SessionLocal() as s:
+        # **어느 DB를 치는지 먼저 찍는다.** MATERIALTWIN_DATA_DIR 을 빼먹고 돌리면
+        # 저장소 기본 DB를 쳐서 '재료 미지정'이 무더기로 뜬다 — 19차 I6이 그렇게 한 번 헛돌았다.
+        _url = str(s.get_bind().url)
         defs = {d.key: d for d in s.query(PropertyDefinition).all()}
         by_name = {m.name: m.id for m in s.query(Material).all()}
+        print(f"[DB] {_url}\n     재료 {len(by_name)}종 · 정의 {len(defs)}종")
         existing = {}
         # 같은 (재료, 물성)이라도 조건이 다르면 별개 측정이므로, 조건 집합도 함께 들고 있는다.
         existing_cond: dict[tuple[int, str], set[str]] = {}
