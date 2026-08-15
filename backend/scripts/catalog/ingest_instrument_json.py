@@ -115,6 +115,19 @@ def main() -> int:
                     print(f"  ✗ 범위 역전 {lo} > {hi} — {vendor} {model} / {k}")
                     n_skip += 1
                     continue
+                # **`insert or replace` 는 조용히 덮어쓴다.** 유니크 키가
+                # (장비, 키, 기법)이라 **규격만 다른 행이 서로를 지운다** — 24차 Q 가 짚었다.
+                # 규격이 여러 개면 한 행에 모아 적는 게 맞고, 정말 다른 측정이면 기법을 달리해라.
+                if iid is not None:
+                    prev = c.execute(
+                        "select standard from instrument_capability "
+                        "where instrument_id=? and property_key=? and technique=?",
+                        (iid, k, tech),
+                    ).fetchone()
+                    if prev is not None and (prev[0] or "") != (cap.get("standard") or ""):
+                        print(f"  ⚠ 덮어씀 — {vendor} {model} / {k} / {tech}: "
+                              f"규격 {prev[0]!r} → {cap.get('standard')!r}. "
+                              f"**규격이 여럿이면 한 행에 모아 적어라.**")
                 n_cap += 1
                 if not a.apply:
                     continue
