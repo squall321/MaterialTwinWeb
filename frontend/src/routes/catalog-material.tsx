@@ -3,6 +3,7 @@ import { Link, useParams } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import {
   ChevronLeft, ExternalLink, Factory, FileText, Beaker, SearchX, Info, GitCompare, FlaskConical,
+  Ruler,
 } from "lucide-react";
 import { getCatalogMaterial, type PropertyValueRow, type PropertySource } from "../api/catalog";
 import { ApiError } from "../api/client";
@@ -277,6 +278,15 @@ function PropRow({ r }: { r: PropertyValueRow }) {
           {r.standard && (
             <div className="mt-0.5 text-[0.6875rem] text-text-tertiary">{r.standard}</div>
           )}
+          {/* 값을 보고 "이걸 어떻게 재나" 로 넘어가는 통로. */}
+          <Link
+            to="/metrology"
+            search={{ key: r.key }}
+            className="mt-0.5 inline-flex items-center gap-1 text-[0.6875rem] text-text-tertiary transition-colors hover:text-primary"
+          >
+            <Ruler className="size-3" />
+            측정법
+          </Link>
         </div>
 
         {/* 값 + 불확도 */}

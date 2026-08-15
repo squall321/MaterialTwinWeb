@@ -3,7 +3,7 @@
 ## 1. 스키마
 - [x] `Instrument` · `InstrumentCapability` 모델 추가 → 검증: `python3 -c "from app.models import Instrument"`
 - [x] alembic 마이그레이션 생성·적용 → 검증: `integrity_check.py` 이상 0
-- [ ] 무결성 점검에 장비 규칙 추가 → 검증: 규칙이 목록에 뜨고 0 이 나온다
+- [x] 무결성 점검에 장비 규칙 추가 → 검증: 규칙이 목록에 뜨고 0 이 나온다
 
 ## 2. 적재 도구
 - [x] `ingest_instrument_json.py` — 배치 산출 JSON 을 적재(dry-run 기본) → 검증: dry-run 이 오류 0
@@ -25,7 +25,7 @@
 ## 5. 화면
 - [x] `/metrology` 라우트 + 사이드 내비 항목
 - [x] 물성 선택 → 기법 → 장비 표(측정범위·온도범위·규격)
-- [ ] 물성 카탈로그 빈 칸에서 넘어오는 링크
+- [x] 물성 카탈로그 빈 칸에서 넘어오는 링크
 - [x] 검증: `npm run build` 통과
 
 ## 6. 마무리

@@ -38,6 +38,20 @@ CHECKS = [
         and (conditions is null or conditions not like '%model%')"""),
     ("파장 없는 광학값(tier<4)", f"""select count(*) from property_value where property_key in {OPT}
         and quality_tier<4 and (conditions is null or (conditions not like '%wavelength%' and conditions not like '%line%'))"""),
+    # ── 시험장비 ──────────────────────────────────────────────────────────
+    # **범위는 단위와 함께가 아니면 값이 아니다.** 적재기가 막지만 직접 INSERT 를 막지는 못한다.
+    ("장비 범위에 단위 없음", """select count(*) from instrument_capability
+        where (range_min is not null or range_max is not null) and coalesce(range_unit,'')=''"""),
+    ("장비 범위 역전", """select count(*) from instrument_capability
+        where range_min is not null and range_max is not null and range_min > range_max"""),
+    ("장비 온도범위 역전", """select count(*) from instrument_capability
+        where temperature_min_k is not null and temperature_max_k is not null
+          and temperature_min_k > temperature_max_k"""),
+    # 절대영도 아래는 환산 실수다 — °C 를 켈빈 칸에 그대로 넣으면 여기 걸린다.
+    ("장비 온도가 절대영도 아래", """select count(*) from instrument_capability
+        where (temperature_min_k is not null and temperature_min_k < 0)
+           or (temperature_max_k is not null and temperature_max_k < 0)"""),
+    ("장비인데 카탈로그 경로 없음", "select count(*) from instrument where coalesce(doc_path,'')=''"),
     # **부분일치로 보면 안 된다.** 17차에 `aging_temperature_c`(노화 조건)와 `cure_temperature_k`가
     # 41건 걸렸다 — 둘 다 시험온도가 아니라 독립 축이고, 노화 격자를 담으려면 반드시 있어야 하는 값이다.
     # 이 검사가 막으려는 것은 **값 자체가 온도인 물성에 시험온도가 붙는 것**이므로 키를 정확히 본다.

@@ -198,6 +198,9 @@ const uploadRoute = createRoute({
 const metrologyRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/metrology",
+  // /metrology?key=thermal.conductivity — 재료 상세의 물성 행에서 진입 시 사전 선택.
+  validateSearch: (s: Record<string, unknown>): { key?: string } =>
+    typeof s.key === "string" && s.key ? { key: s.key } : {},
   component: MetrologyScreen,
 });
 

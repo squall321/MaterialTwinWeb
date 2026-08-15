@@ -1,5 +1,6 @@
 // 측정 방법(/metrology) — 물성을 고르면 기법별로 묶인 장비·측정범위를 낸다 + 측정공백 목록.
 import * as React from "react";
+import { useSearch } from "@tanstack/react-router";
 import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import { Search, Ruler, CircleAlert, Thermometer, FileText, Microscope } from "lucide-react";
 import {
@@ -20,7 +21,8 @@ import { TableSkeleton } from "../components/states/Skeletons";
 import { domainMeta } from "../lib/catalog-ui";
 
 export function MetrologyScreen() {
-  const [sel, setSel] = React.useState<string | null>(null);
+  const search = useSearch({ from: "/metrology" }) as { key?: string };
+  const [sel, setSel] = React.useState<string | null>(search.key ?? null);
   const [q, setQ] = React.useState("");
 
   const summary = useQuery({ queryKey: ["metro", "summary"], queryFn: getMetrologySummary });
