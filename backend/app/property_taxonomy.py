@@ -52,6 +52,28 @@ _DEFS: list[tuple] = [
     # ISO 180 · GB/T 1843 은 kJ/m² 다. 둘을 환산하려면 시편 폭이 필요한데 대개 안 적혀 있어
     # **역산 금지에 걸린다** — 그래서 키를 나눈다. 24차 I 가 Pan 2020 4행을 여기서 막혔다.
     ("mechanical.impact_strength_izod_area", "mechanical", "아이조드 충격강도(면적)", None, "J/m^2", "numeric", ["notch", "temperature_k"], "ISO 180"),
+    # **DMA 의 두 성분이 통째로 없었다**(24차 P). `loss_tangent`(= E''/E')만 있었는데,
+    # tanδ 는 비율이라 **강성의 크기를 못 준다** — 점탄성 해석에 E' 자체가 있어야 한다.
+    # 주파수·온도가 없으면 값이 아니다(같은 재료가 10 Hz 와 1 Hz 에서 다르게 나온다).
+    ("mechanical.storage_modulus", "mechanical", "저장탄성률", "E'", "Pa", "numeric",
+     ["frequency_hz", "temperature_k", "mode"], "ISO 6721"),
+    ("mechanical.loss_modulus", "mechanical", "손실탄성률", "E''", "Pa", "numeric",
+     ["frequency_hz", "temperature_k", "mode"], "ISO 6721"),
+    # 계장화 압입경도 H_IT(ISO 14577). **Meyer 경도와 정의가 다르다** — 접촉투영면적 기준이고
+    # 압입깊이 곡선에서 나온다. 24차 P 가 KLA 나노압입기 값을 임시로 Meyer 에 걸어 뒀다.
+    ("mechanical.hardness_indentation", "mechanical", "계장화 압입경도 H_IT", "H_IT", "Pa", "numeric",
+     ["indentation_depth_nm", "load_mn", "temperature_k"], "ISO 14577"),
+    # 마르텐스 경도는 **접촉표면적** 기준이라 H_IT 와도 다른 양이다.
+    ("mechanical.hardness_martens", "mechanical", "마르텐스 경도 HM", "HM", "Pa", "numeric",
+     ["load_mn", "temperature_k"], "ISO 14577"),
+    ("mechanical.hardness_knoop", "mechanical", "누프 경도", "HK", "HK", "numeric", ["load_kgf"], "ISO 4545"),
+    ("mechanical.hardness_brinell", "mechanical", "브리넬 경도", "HBW", "HBW", "numeric", ["load_kgf", "indenter_mm"], "ISO 6506"),
+    # 마모 — 24차 P 가 트라이보미터 다섯 모델의 사양 절반을 여기서 잃었다.
+    # **비마모율은 하중·거리로 정규화한 값**이라 단위가 부피/(힘·거리)다.
+    ("mechanical.specific_wear_rate", "mechanical", "비마모율", "k", "m^3/(N*m)", "numeric",
+     ["load_n", "sliding_distance_m", "counterface", "temperature_k"], "ASTM G99"),
+    ("mechanical.residual_stress", "mechanical", "잔류응력", None, "Pa", "numeric",
+     ["depth_um", "direction"], None),
     ("mechanical.creep_rate", "mechanical", "정상상태 크리프율", None, "1/s", "numeric", ["stress_pa", "temperature_k"], None),
     # 변형률속도 의존 — LS-DYNA *MAT_024/*MAT_098이 그대로 받는 형식.
     # 테이프·접착제·폼은 충격 해석에서 이 항이 없으면 강성을 크게 과소평가한다.
@@ -194,6 +216,13 @@ _DEFS: list[tuple] = [
     ("chemical.gel_fraction", "chemical", "겔분율", "gel", "1", "numeric",
      ["solvent", "extraction_time_h", "extraction_temperature_k", "drying"], None),
     # 표면조도 Ra — **측정법(촉침/AFM/광학)에 따라 값이 갈린다.**
+    # **Ra 한 줄뿐이었다**(24차 Q). 조도 파라미터는 서로 환산이 불가능하다 —
+    # Ra 는 산술평균, Rq 는 제곱평균, Rz 는 최대높이라 같은 표면에서 값이 몇 배 갈린다.
+    # 컷오프 λc 가 없으면 비교하면 안 된다.
+    ("surface.roughness_rq", "surface", "표면조도 Rq(RMS)", "Rq", "m", "numeric",
+     ["cutoff_mm", "evaluation_length_mm"], "ISO 4287"),
+    ("surface.roughness_rz", "surface", "표면조도 Rz(최대높이)", "Rz", "m", "numeric",
+     ["cutoff_mm", "evaluation_length_mm"], "ISO 4287"),
     ("surface.roughness_ra", "surface", "표면조도 Ra", "Ra", "m", "numeric",
      ["measurement_method", "surface_state", "scan_length_mm", "parameter_definition"], None),
     # 손실탄젠트 — 점탄성 감쇠의 기본량인데 카탈로그에 자리가 없었다.
@@ -336,6 +365,10 @@ _DEFS: list[tuple] = [
     ("chemical.corrosion_rate", "chemical", "부식률", None, "m/s", "numeric", ["environment", "temperature_k"], "ASTM G31"),
     ("chemical.oxidation_resistance", "chemical", "내산화성", None, None, "categorical", ["temperature_k"], None),
     ("chemical.chemical_resistance", "chemical", "내약품성", None, None, "categorical", ["reagent"], "ISO 175"),
+    # **칼피셔가 재는 바로 그 값**(24차 Q). 기존 흡수 키들은 전부 `24h 침지`·`포화` 같은
+    # **흡수 조건**이 붙은 시험값이라 '지금 이 시료에 물이 얼마나 있나'를 못 담는다.
+    ("chemical.water_content", "chemical", "수분함량", None, "1", "numeric",
+     ["method_detail", "temperature_k"], "ISO 15512"),
     ("chemical.water_absorption_24h", "chemical", "수분흡수율(24h)", None, "1", "numeric", None, "ASTM D570"),
     ("chemical.water_absorption_saturation", "chemical", "포화수분흡수율", None, "1", "numeric", None, "ASTM D570"),
     ("chemical.moisture_absorption_equilibrium", "chemical", "평형흡습율", None, "1", "numeric", ["humidity_rh", "temperature_k"], None),
@@ -412,6 +445,14 @@ _DEFS: list[tuple] = [
     ("structure.crystal_structure", "structure", "결정구조", None, None, "categorical", None, None),
     ("structure.grain_size", "structure", "결정립 크기", None, "m", "numeric", None, "ASTM E112"),
     ("structure.molecular_weight", "structure", "분자량(Mw)", "Mw", "kg/mol", "numeric", None, None),
+    # 결정자 크기는 **결정립(grain)과 다른 양이다** — XRD 선폭에서 나오는 간섭성 산란 영역이다.
+    ("structure.crystallite_size", "structure", "결정자 크기", None, "m", "numeric",
+     ["method_detail"], None),
+    ("structure.lattice_parameter", "structure", "격자상수", "a", "m", "numeric",
+     ["axis", "temperature_k"], None),
+    # 정량상분석 — `chemical.composition`은 **원소**조성이라 축이 다르다.
+    ("structure.phase_fraction", "structure", "상분율", None, "1", "numeric",
+     ["phase", "method_detail"], None),
     ("structure.crystallinity", "structure", "결정화도", None, "1", "numeric", None, None),
     ("structure.filler_content", "structure", "충전제 함량", None, "1", "numeric", None, None),
     # 도전입자·필러 입경. 결정립(grain_size)과 의미가 달라 별도 키로 둔다.

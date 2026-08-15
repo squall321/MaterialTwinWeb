@@ -11,7 +11,7 @@
 
 ## 3. 데이터 추출 (배치)
 - [x] 공통 지시문 `METROLOGY_PREAMBLE.md` 작성 → 검증: 규율 8개가 다 들어갔다
-- [ ] thermal 9편 · mechanical 16편 추출 → 검증: dry-run 통과
+- [x] thermal 9편 · mechanical 16편 추출 → 검증: dry-run 통과
 - [x] surface 15편 · chemical 12편 추출 → 검증: dry-run 통과
 - [ ] particle 9 · optical 5 · electrical 4 · ndt 4 · reliability 6 추출 → 검증: dry-run 통과
 - [ ] `property_key` 매핑 검수 — 애매한 것은 안 잇는다 → 검증: 매핑된 키가 전부 `property_definition` 에 있다
