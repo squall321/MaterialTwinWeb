@@ -189,14 +189,14 @@ def near(query: str, domain: str | None, limit: int, rx: str, ctx: int) -> None:
 # **라벨만 보면 안 된다.** 본문에 'modulus'라는 단어가 있는 것과 표에 숫자가 실린 것은 다르다.
 # 라벨과 단위가 같은 표 안에 함께 있고 숫자가 있을 때만 물성표로 친다.
 _SIG = [
-    (r"young|elastic modulus|tensile modulus|모듈러스|\bE\b", r"\b(GPa|MPa|N/mm)", "youngs_modulus"),
+    (r"young|elastic modulus|tensile modulus|모듈러스|\bE\b", r"\b(GPa|MPa|N/mm|MN/m|kgf/mm|psi|lb/in)", "youngs_modulus"),
     (r"poisson|포아송", r"0\.[0-9]{2}", "poisson_ratio"),
-    (r"density|밀도", r"(g/cm|kg/m|g cm)", "density"),
-    (r"thermal expansion|\bCTE\b|expansion coeff", r"(ppm|10\s?[-−]\s?6|/K|/°C|K\s?-1)", "expansion_linear"),
+    (r"density|밀도", r"(g/cm|kg/m|g cm|lb/in|relative density|specific gravity)", "density"),
+    (r"thermal expansion|\bCTE\b|expansion coeff", r"(ppm|10\s?[-−]\s?6|/K|/°C|K\s?-1|per deg|deg C\s?-1|/deg)", "expansion_linear"),
     (r"thermal conductivity|열전도", r"W/\(?m", "conductivity"),
     (r"specific heat|비열|heat capacity", r"J/\(?(kg|g)", "specific_heat"),
-    (r"tensile strength|인장강도", r"\b(MPa|GPa)", "tensile_strength"),
-    (r"yield strength|항복", r"\b(MPa|GPa)", "yield_strength"),
+    (r"tensile strength|인장강도", r"\b(MPa|GPa|MN/m|kgf/mm|psi|ksi)", "tensile_strength"),
+    (r"yield strength|항복", r"\b(MPa|GPa|MN/m|kgf/mm|psi|ksi)", "yield_strength"),
     (r"elongation|연신", r"%", "elongation_at_break"),
     (r"dielectric constant|permittivity|유전율|Dk\b", r"[0-9]\.[0-9]", "dielectric_constant"),
     (r"loss tangent|dissipation factor|\bDf\b|tan\s?δ", r"0\.0", "dissipation_factor"),
@@ -212,7 +212,10 @@ _SIG = [
     (r"surface energy|surface tension|표면에너지", r"(mN/m|mJ/m|dyne)", "surface_energy"),
     (r"viscosity|점도", r"(Pa[·. ]?s|cP|mPa)", "viscosity"),
     (r"(peel|lap shear|die shear|adhesion) strength|박리|전단강도", r"(N/mm|N/m\b|MPa|kgf)", "interface_strength"),
-    (r"flexural strength|굽힘강도|modulus of rupture|\bMOR\b", r"\b(MPa|GPa)", "flexural_strength"),
+    (r"heat distortion|deflection temperature|\bHDT\b", r"(°C|deg C)", "hdt"),
+    (r"impact strength|충격강도|charpy|izod", r"(kJ/m|J/m|ft\s?lb|kgf\s?cm)", "impact_strength"),
+    (r"dielectric strength|절연내력", r"(kV/mm|MV/m|V/mil)", "dielectric_strength"),
+    (r"flexural strength|굽힘강도|modulus of rupture|\bMOR\b", r"\b(MPa|GPa|MN/m|kgf/mm|psi|ksi)", "flexural_strength"),
 ]
 
 
@@ -242,7 +245,7 @@ def scan_build() -> None:
     # **격자 판별에 아무 정보가 없었다.** 실제 숫자행을 세는 열을 따로 둔다.
     c.executescript("drop table if exists ptab;"
                     "create table ptab(doc_id integer, key text, n_in_table integer, "
-                    "n_num_rows integer, body_kb integer, n_tbl_files integer);")
+                    "n_num_rows integer, body_kb integer, n_tbl_files integer, n_keys_union integer);")
     n = 0
     for did, path in c.execute("select id,path from doc").fetchall():
         try:
@@ -263,23 +266,25 @@ def scan_build() -> None:
         if not tabs:
             continue
         best: set = set()
+        uni: set = set()
         best_rows = 0
         for tb in tabs:
             low = tb.lower()
             hits = {k for lab, un, k in _SIG
                     if re.search(lab, low, re.I) and re.search(un, tb, re.I)}
+            uni |= hits
             if len(hits) > len(best):
                 best = hits
                 # **숫자가 둘 이상 든 줄**만 데이터 행으로 센다 — 격자는 행이 많다.
                 best_rows = sum(1 for ln in tb.splitlines()
                                 if len(re.findall(r"-?\d+(?:\.\d+)?", ln)) >= 2)
-        if best:
+        if uni:
             # 본문 길이는 **`bookish` 제목 정규식보다 나은 단행본·리뷰 탐지기**다.
             # 23차 B 실측 — 코퍼스 중앙값 41 KB · p95 104 KB. 100 KB 초과 10편 중 8편이
             # 리뷰/단행본인데 제목 정규식은 3편만 잡았다(Liu 2011은 1.37 MB인데 0이었다).
             kb = len(body) // 1024
-            c.executemany("insert into ptab values(?,?,?,?,?,?)",
-                          [(did, k, len(best), best_rows, kb, n_tf) for k in best])
+            c.executemany("insert into ptab values(?,?,?,?,?,?,?)",
+                          [(did, k, len(best), best_rows, kb, n_tf, len(uni)) for k in uni])
             n += 1
         if n and n % 2000 == 0:
             c.commit()
