@@ -34,6 +34,10 @@ _DEFS: list[tuple] = [
     ("mechanical.flexural_modulus", "mechanical", "굽힘탄성계수", None, "Pa", "numeric", None, "ISO 178"),
     ("mechanical.flexural_strength", "mechanical", "굽힘강도", None, "Pa", "numeric", None, "ISO 178"),
     ("mechanical.impact_strength_izod", "mechanical", "아이조드 충격강도", None, "J/m", "numeric", ["temperature_k"], "ASTM D256"),
+    # **면적 정규화 충격강도는 아이조드(J/m)와 다른 물리량이다** — ISO 179 는 kJ/m² 로 낸다.
+    # 노치 유무로 몇 배가 갈리므로 `conditions.notch` 가 없으면 값이 아니다.
+    # 23차 H 가 Wu 2016 의 14행을 이 키가 없어 못 넣었다.
+    ("mechanical.impact_strength_charpy", "mechanical", "샤르피 충격강도(면적)", None, "J/m^2", "numeric", ["notch", "temperature_k"], "ISO 179"),
     ("mechanical.creep_rate", "mechanical", "정상상태 크리프율", None, "1/s", "numeric", ["stress_pa", "temperature_k"], None),
     # 변형률속도 의존 — LS-DYNA *MAT_024/*MAT_098이 그대로 받는 형식.
     # 테이프·접착제·폼은 충격 해석에서 이 항이 없으면 강성을 크게 과소평가한다.

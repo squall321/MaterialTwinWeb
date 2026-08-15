@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import glob
 import re
 import sqlite3
 import sys
@@ -241,18 +242,29 @@ def scan_build() -> None:
     # **격자 판별에 아무 정보가 없었다.** 실제 숫자행을 세는 열을 따로 둔다.
     c.executescript("drop table if exists ptab;"
                     "create table ptab(doc_id integer, key text, n_in_table integer, "
-                    "n_num_rows integer, body_kb integer);")
+                    "n_num_rows integer, body_kb integer, n_tbl_files integer);")
     n = 0
     for did, path in c.execute("select id,path from doc").fetchall():
         try:
             body = open(path, encoding="utf-8", errors="replace").read()
         except OSError:
             continue
-        if "|" not in body:
+        # **표는 본문 md 에만 있는 게 아니다.** docling 이 표를 `tables/table-N.md` 로 빼면
+        # 본문에 파이프가 한 개도 안 남아 이 논문이 **모수에서 통째로 사라진다.**
+        # 23차 H 가 찾았다 — 179편 목록이 소진된 줄 알았는데, 표 5장 이상이면서 목록 밖인
+        # 논문이 2,359편 있었고 그 상위 두 편에서 105행이 나왔다(Thompson 1983 은 표가 6장).
+        tabs = list(_tables(body))
+        for tf in sorted(glob.glob(os.path.join(os.path.dirname(path), "tables", "*.md"))):
+            try:
+                tabs += _tables(open(tf, encoding="utf-8", errors="replace").read())
+            except OSError:
+                continue
+        n_tf = len(glob.glob(os.path.join(os.path.dirname(path), "tables", "*.md")))
+        if not tabs:
             continue
         best: set = set()
         best_rows = 0
-        for tb in _tables(body):
+        for tb in tabs:
             low = tb.lower()
             hits = {k for lab, un, k in _SIG
                     if re.search(lab, low, re.I) and re.search(un, tb, re.I)}
@@ -266,8 +278,8 @@ def scan_build() -> None:
             # 23차 B 실측 — 코퍼스 중앙값 41 KB · p95 104 KB. 100 KB 초과 10편 중 8편이
             # 리뷰/단행본인데 제목 정규식은 3편만 잡았다(Liu 2011은 1.37 MB인데 0이었다).
             kb = len(body) // 1024
-            c.executemany("insert into ptab values(?,?,?,?,?)",
-                          [(did, k, len(best), best_rows, kb) for k in best])
+            c.executemany("insert into ptab values(?,?,?,?,?,?)",
+                          [(did, k, len(best), best_rows, kb, n_tf) for k in best])
             n += 1
         if n and n % 2000 == 0:
             c.commit()
