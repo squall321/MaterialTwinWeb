@@ -42,6 +42,19 @@ def upsert_source(
         ).scalar_one_or_none()
     if found is None and url and not doi:
         found = session.execute(select(Source).where(Source.url == url)).scalar_one_or_none()
+    # **식별자가 하나도 없으면 제목으로라도 dedup 한다.**
+    # 23차에 DOI·URL 없는 논문 한 편이 **출처 295개**를 만들었다(값 하나에 하나씩).
+    # 제목은 약한 키라 동명이인 논문을 합칠 위험이 있지만(브리프 22번),
+    # 식별자가 아예 없는 경우에만 쓰므로 그 위험보다 중복 폭발이 훨씬 크다.
+    # kind 까지 같아야 합친다 — 같은 제목의 논문과 데이터시트는 다른 것이다.
+    if found is None and title and not (doi or url or isbn or content_hash):
+        found = session.execute(
+            select(Source).where(
+                Source.title == title, Source.kind == kind,
+                Source.doi.is_(None), Source.url.is_(None),
+                Source.isbn.is_(None), Source.content_hash.is_(None),
+            )
+        ).scalars().first()
     if found is not None:
         return found
 

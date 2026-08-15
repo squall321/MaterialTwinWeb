@@ -236,8 +236,12 @@ def scan_build() -> None:
     이후 `tables` 조회는 SQL 한 방이라 즉시 끝난다.
     """
     c = sqlite3.connect(DB)
+    # `n_in_table` 은 **한 표에 공존하는 물성 종류 수**이지 행 수가 아니다.
+    # 23차에 이걸 행 수로 오해해 표적 파일을 만들었더니 sum(n_in_table) == n_keys² 이 돼
+    # **격자 판별에 아무 정보가 없었다.** 실제 숫자행을 세는 열을 따로 둔다.
     c.executescript("drop table if exists ptab;"
-                    "create table ptab(doc_id integer, key text, n_in_table integer);")
+                    "create table ptab(doc_id integer, key text, n_in_table integer, "
+                    "n_num_rows integer, body_kb integer);")
     n = 0
     for did, path in c.execute("select id,path from doc").fetchall():
         try:
@@ -247,15 +251,23 @@ def scan_build() -> None:
         if "|" not in body:
             continue
         best: set = set()
+        best_rows = 0
         for tb in _tables(body):
             low = tb.lower()
             hits = {k for lab, un, k in _SIG
                     if re.search(lab, low, re.I) and re.search(un, tb, re.I)}
             if len(hits) > len(best):
                 best = hits
+                # **숫자가 둘 이상 든 줄**만 데이터 행으로 센다 — 격자는 행이 많다.
+                best_rows = sum(1 for ln in tb.splitlines()
+                                if len(re.findall(r"-?\d+(?:\.\d+)?", ln)) >= 2)
         if best:
-            c.executemany("insert into ptab values(?,?,?)",
-                          [(did, k, len(best)) for k in best])
+            # 본문 길이는 **`bookish` 제목 정규식보다 나은 단행본·리뷰 탐지기**다.
+            # 23차 B 실측 — 코퍼스 중앙값 41 KB · p95 104 KB. 100 KB 초과 10편 중 8편이
+            # 리뷰/단행본인데 제목 정규식은 3편만 잡았다(Liu 2011은 1.37 MB인데 0이었다).
+            kb = len(body) // 1024
+            c.executemany("insert into ptab values(?,?,?,?,?)",
+                          [(did, k, len(best), best_rows, kb) for k in best])
             n += 1
         if n and n % 2000 == 0:
             c.commit()
