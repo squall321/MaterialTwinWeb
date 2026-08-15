@@ -24,11 +24,21 @@ _DEFS: list[tuple] = [
     ("mechanical.hardness_vickers", "mechanical", "비커스 경도", "HV", "HV", "numeric", None, "ISO 6507"),
     ("mechanical.hardness_rockwell_c", "mechanical", "로크웰 경도 C", "HRC", "HRC", "numeric", None, "ISO 6508"),
     ("mechanical.hardness_shore_a", "mechanical", "쇼어 A 경도", "ShoreA", "ShoreA", "numeric", None, "ASTM D2240"),
+    # Shore A/D/OO 는 **상호 환산이 불가능하다**(규격이 압침 형상과 스프링 하중을 다르게 정의한다).
+    ("mechanical.hardness_shore_d", "mechanical", "쇼어 D 경도", "ShoreD", "ShoreD", "numeric", None, "ASTM D2240"),
     # Shore OO는 초연질(폼·겔·갭필러) 전용 척도다. **Shore A/OO/D는 상호 환산이 불가능하다** —
     # 규격이 압침 형상과 스프링 하중을 다르게 정의한다(ASTM D2240). 환산하면 우리가 만든 값이 된다.
     ("mechanical.hardness_shore_oo", "mechanical", "쇼어 OO 경도", None, "ShoreOO", "numeric",
      ["standard", "dwell_s", "temperature_c", "specimen_thickness_mm"], "ASTM D2240"),
     ("mechanical.fracture_toughness", "mechanical", "파괴인성", "K_IC", "Pa*m^0.5", "numeric", ["temperature_k"], "ASTM E399"),
+    # **G_Ic 는 K_IC 와 다른 단위·다른 물리량이다**(J/m² 대 Pa·m^0.5).
+    # G = K²/E' 로 서로 바꿀 수 있지만 **그건 역산이라 금지**다 — 인쇄된 쪽만 넣는다.
+    ("mechanical.fracture_energy_gic", "mechanical", "파괴에너지 G_Ic", "G_IC", "J/m^2", "numeric",
+     ["mode", "temperature_k"], "ASTM D5528"),
+    # **층간전단강도는 복합재 논문에 거의 항상 나온다**(24차 L). 단보(short-beam) 시험이라
+    # 순수 전단이 아니고 스팬/두께 비에 따라 값이 달라져 `span_to_depth` 없이는 비교하면 안 된다.
+    ("mechanical.interlaminar_shear_strength", "mechanical", "층간전단강도(ILSS)", "ILSS", "Pa", "numeric",
+     ["span_to_depth", "temperature_k"], "ASTM D2344"),
     ("mechanical.fatigue_strength", "mechanical", "피로한도", "sigma_f", "Pa", "numeric", ["cycles"], None),
     ("mechanical.compressive_strength", "mechanical", "압축강도", None, "Pa", "numeric", ["temperature_k"], None),
     ("mechanical.flexural_modulus", "mechanical", "굽힘탄성계수", None, "Pa", "numeric", None, "ISO 178"),
