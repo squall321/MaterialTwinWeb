@@ -9,7 +9,7 @@ import {
   Outlet,
 } from "@tanstack/react-router";
 import type { ReactNode } from "react";
-import { FlaskConical, Library, Upload, LayoutDashboard, SearchX, Boxes } from "lucide-react";
+import { FlaskConical, Library, Upload, LayoutDashboard, SearchX, Boxes, Ruler } from "lucide-react";
 import { cn } from "./lib/utils";
 import { Button } from "./components/ui/button";
 import { EmptyState } from "./components/states/EmptyState";
@@ -22,6 +22,7 @@ import { CatalogCompareScreen } from "./routes/catalog-compare";
 import { CatalogAshbyScreen } from "./routes/catalog-ashby";
 import { CatalogDynaScreen } from "./routes/catalog-dyna";
 import { UploadScreen } from "./routes/upload";
+import { MetrologyScreen } from "./routes/metrology";
 
 // ── 공통 셸: 좌측 256px 고정 사이드 + 우측 콘텐츠(max-width 1180px, §14.3) ──
 function AppShell() {
@@ -36,6 +37,7 @@ function AppShell() {
           <NavItem to="/insights" icon={<LayoutDashboard className="size-4" />} label="인사이트" />
           <NavItem to="/catalog" icon={<Boxes className="size-4" />} label="물성 카탈로그" />
           <NavItem to="/materials" icon={<Library className="size-4" />} label="재료 라이브러리" />
+          <NavItem to="/metrology" icon={<Ruler className="size-4" />} label="측정 방법" />
           <NavItem to="/upload" icon={<Upload className="size-4" />} label="업로드" />
         </nav>
       </aside>
@@ -193,6 +195,12 @@ const uploadRoute = createRoute({
   component: UploadScreen,
 });
 
+const metrologyRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/metrology",
+  component: MetrologyScreen,
+});
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   insightsRoute,
@@ -203,6 +211,7 @@ const routeTree = rootRoute.addChildren([
   catalogAshbyRoute,
   catalogDynaRoute,
   catalogMaterialRoute,
+  metrologyRoute,
   uploadRoute,
 ]);
 

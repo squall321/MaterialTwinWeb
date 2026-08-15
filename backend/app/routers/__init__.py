@@ -9,6 +9,7 @@ from app.routers import (
     hub_export,
     insights,
     materials,
+    metrology,
     properties,
     specimens,
     uploads,
@@ -22,4 +23,5 @@ api_router.include_router(uploads.router)
 api_router.include_router(properties.router)
 api_router.include_router(insights.router)
 api_router.include_router(catalog.router)
+api_router.include_router(metrology.router)
 api_router.include_router(hub_export.router)

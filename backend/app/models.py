@@ -331,3 +331,92 @@ class PropertyValue(Base):
     material: Mapped["Material"] = relationship(back_populates="property_values")
     definition: Mapped["PropertyDefinition"] = relationship(back_populates="values")
     source: Mapped["Source | None"] = relationship(back_populates="values")
+
+
+class Instrument(Base):
+    """시험장비 레지스트리 — 제조사 카탈로그에 **인쇄된** 장비.
+
+    물성 카탈로그가 "무엇이 얼마인가"에 답한다면 이 표는 "그걸 무엇으로 재는가"에 답한다.
+    사양은 값과 같은 규율을 따른다 — **카탈로그에 인쇄된 것만**, 근거는 `source`(kind='datasheet').
+    """
+
+    __tablename__ = "instrument"
+    __table_args__ = (
+        UniqueConstraint("vendor", "model", name="uq_instrument_vendor_model"),
+        CheckConstraint(
+            "category IN ('thermal','mechanical','surface','chemical','particle',"
+            "'optical','electrical','ndt','reliability')",
+            name="ck_instrument_category",
+        ),
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    vendor: Mapped[str] = mapped_column(String(80), nullable=False)
+    model: Mapped[str] = mapped_column(String(120), nullable=False)
+    category: Mapped[str] = mapped_column(String(20), nullable=False)
+    # 기법 계열(예: '레이저 플래시', '나노압입'). 한 장비가 여러 기법을 하면 능력행이 나눠 든다.
+    technique: Mapped[str | None] = mapped_column(String(120), nullable=True)
+    description: Mapped[str | None] = mapped_column(Text, nullable=True)
+    # 카탈로그 PDF 경로(DATA_DIR 기준 상대). **파일은 재배포하지 않는다** — 경로만 기록한다.
+    doc_path: Mapped[str | None] = mapped_column(String(300), nullable=True)
+    source_id: Mapped[int | None] = mapped_column(
+        ForeignKey("source.id", ondelete="SET NULL"), nullable=True
+    )
+    notes: Mapped[str | None] = mapped_column(Text, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(
+        UTCDateTime, nullable=False, server_default=func.now()
+    )
+
+    capabilities: Mapped[list["InstrumentCapability"]] = relationship(
+        back_populates="instrument", cascade="all, delete-orphan"
+    )
+
+
+class InstrumentCapability(Base):
+    """장비 × 물성 — 이 장비로 그 물성을 어느 범위까지 재는가.
+
+    **범위는 단위와 함께가 아니면 넣지 않는다**(조건 없는 값은 값이 아니다).
+    카탈로그가 `up to 1100 °C`처럼 상한만 인쇄하면 `range_max`만 채우고 하한은 비운다.
+
+    `property_key` 매핑은 **우리 판단**이다 — 카탈로그는 우리 키를 모른다.
+    그래서 `mapping_confidence`를 남기고, 애매하면 아예 잇지 않는다.
+    """
+
+    __tablename__ = "instrument_capability"
+    __table_args__ = (
+        UniqueConstraint(
+            "instrument_id", "property_key", "technique", name="uq_capability_triple"
+        ),
+        CheckConstraint(
+            "mapping_confidence IN ('high','medium','low')", name="ck_capability_confidence"
+        ),
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    instrument_id: Mapped[int] = mapped_column(
+        ForeignKey("instrument.id", ondelete="CASCADE"), nullable=False
+    )
+    property_key: Mapped[str] = mapped_column(
+        ForeignKey("property_definition.key", ondelete="RESTRICT"), nullable=False
+    )
+    # 측정 기법(예: '레이저 플래시법'). 같은 장비가 같은 물성을 두 기법으로 재면 행이 둘이다.
+    technique: Mapped[str] = mapped_column(String(120), nullable=False)
+    # 규격번호가 기법을 확정한다(브리프 242·252번). 본문 명칭보다 이쪽이 강하다.
+    standard: Mapped[str | None] = mapped_column(String(120), nullable=True)
+    range_min: Mapped[float | None] = mapped_column(Float, nullable=True)
+    range_max: Mapped[float | None] = mapped_column(Float, nullable=True)
+    range_unit: Mapped[str | None] = mapped_column(String(40), nullable=True)
+    resolution: Mapped[float | None] = mapped_column(Float, nullable=True)
+    accuracy: Mapped[str | None] = mapped_column(String(80), nullable=True)
+    # 시편이 놓이는 온도 범위(측정범위와 다르다 — 강도 시험기의 챔버 온도 같은 것).
+    temperature_min_k: Mapped[float | None] = mapped_column(Float, nullable=True)
+    temperature_max_k: Mapped[float | None] = mapped_column(Float, nullable=True)
+    specimen: Mapped[str | None] = mapped_column(String(200), nullable=True)
+    mapping_confidence: Mapped[str] = mapped_column(String(10), nullable=False, default="high")
+    source_detail: Mapped[str | None] = mapped_column(String(200), nullable=True)
+    notes: Mapped[str | None] = mapped_column(Text, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(
+        UTCDateTime, nullable=False, server_default=func.now()
+    )
+
+    instrument: Mapped["Instrument"] = relationship(back_populates="capabilities")
