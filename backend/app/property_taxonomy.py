@@ -161,6 +161,28 @@ _DEFS: list[tuple] = [
      ["model", "model_form", "unit_of_term", "temperature_k"], None),
     ("mechanical.morrow_energy_exponent", "mechanical", "Morrow 에너지 지수", "m", "1", "numeric",
      ["model", "model_form", "temperature_k"], None),
+    # 손실탄젠트 — 점탄성 감쇠의 기본량인데 카탈로그에 자리가 없었다.
+    # `acoustic.loss_factor`(제진 손실계수)와 **다른 물성**이다.
+    # **tan δ 는 온도·주파수 없이는 값이 아니다.**
+    ("mechanical.loss_tangent", "mechanical", "손실탄젠트", "tan_delta", "1", "numeric",
+     ["temperature_k", "frequency_hz", "strain_pct", "phase_angle_deg", "set_id"], None),
+    # 크리프 컴플라이언스 — `creep_rate`(1/s)는 있는데 컴플라이언스가 없었다.
+    # PSA·점탄성 갈래는 크리프를 컴플라이언스로 보고한다. **어느 시점의 값인지가 필수다.**
+    ("mechanical.creep_compliance", "mechanical", "크리프 컴플라이언스", "J(t)", "1/Pa", "numeric",
+     ["temperature_k", "stress_pa", "time_s", "component", "set_id"], None),
+    # G'-G" 교차점 — **점탄성 전이점이지 계수가 아니다.** 온도판과 주파수판을 따로 둔다.
+    # 지금까지는 교차 온도가 `conditions.temperature_k` 안에 갇혀 검색이 안 됐다.
+    ("rheological.crossover_temperature", "rheological", "G'-G\" 교차온도", "T_x", "K", "numeric",
+     ["frequency_hz", "heating_rate_k_min", "strain_pct", "sweep_type", "set_id"], None),
+    ("rheological.crossover_frequency", "rheological", "G'-G\" 교차주파수", "f_x", "Hz", "numeric",
+     ["temperature_k", "strain_pct", "sweep_type", "set_id"], None),
+    # 프로브 택을 **응력으로 인쇄하는 쪽이 PSA 문헌에서 오히려 흔하다.**
+    # `interface.tack`(N)과 같은 관계다 — 원문이 인쇄한 단위 쪽에만 넣는다(중복 금지).
+    ("interface.tack_stress", "interface", "프로브 택 응력", "sigma_tack", "Pa", "numeric",
+     ["probe_diameter_mm", "dwell_time_s", "debonding_rate_mm_s", "temperature_k", "substrate"], None),
+    # TGA 표의 마지막 열. **분위기 없는 잔탄율은 값이 아니다.**
+    ("thermal.char_residue", "thermal", "잔탄율", "residue", "1", "numeric",
+     ["atmosphere", "final_temperature_k", "heating_rate_k_min", "flow_rate_ml_min"], None),
     # 박리력·전단력 — **원문이 시편 폭·접합면적을 인쇄하지 않아 응력으로 못 바꾼 경우**의 그릇이다.
     # 폭이 인쇄돼 있으면 이 키가 아니라 `interface.peel_strength` 로 가야 한다.
     # 조건축의 `specimen_width_status` 가 `not_printed`(아예 없다)인지
