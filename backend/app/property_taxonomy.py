@@ -161,6 +161,17 @@ _DEFS: list[tuple] = [
      ["model", "model_form", "unit_of_term", "temperature_k"], None),
     ("mechanical.morrow_energy_exponent", "mechanical", "Morrow 에너지 지수", "m", "1", "numeric",
      ["model", "model_form", "temperature_k"], None),
+    # 진파괴연성 D = ln[100/(100−q)] (q = 단면감소율). **파단연신율로 대체할 수 없다** —
+    # 단면감소율 기반 진변형률은 신장률과 다른 양이고, 솔더 피로 문헌이 Coffin-Manson
+    # 연성정규화(Δεp/2D)의 표준 축으로 쓴다. 정의가 둘로 갈려 model_form 을 요구한다.
+    ("mechanical.true_fracture_ductility", "mechanical", "진파괴연성 D", "D", "1", "numeric",
+     ["model_form", "temperature_k", "specimen_basis", "strain_rate_s"], None),
+    # 순환강도계수 A — **model_form 이 필수다.** 같은 저자가 두 형태를 쓴다:
+    # `Δσ = A·Δεp^β` 면 A 는 순수 Pa 인데 `σ = A·εp^β·ν^λ` 면 A 는 Pa·s^λ 라 **다른 물리량**이다.
+    ("mechanical.cyclic_strength_coefficient", "mechanical", "순환강도계수 A", "A", "Pa", "numeric",
+     ["model_form", "unit_of_term", "temperature_k", "frequency_hz", "specimen_basis"], None),
+    ("mechanical.cyclic_strain_hardening_exponent", "mechanical", "순환변형경화지수", "beta", "1",
+     "numeric", ["model_form", "temperature_k", "frequency_hz", "specimen_basis"], None),
     # Arrhenius 전지수인자 — 활성화에너지의 짝인데 담을 곳이 없어 notes 에만 적혀 있었다.
     # **`physical.diffusion_coefficient` 에 D₀ 를 넣으면 tier1 확산계수와 6자릿수 충돌**한다.
     # 그래서 상수 번들로 둔다 — `lnA (ln s⁻¹)` · `A (min⁻¹)` · `A₀ (h⁻¹atm⁻¹·³¹⁴)` · `η₀ (Pa·s)`
