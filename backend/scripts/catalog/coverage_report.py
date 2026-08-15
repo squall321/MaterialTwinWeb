@@ -109,7 +109,24 @@ ANALYSES = [
 
 def load():
     c = sqlite3.connect(DB)
-    mat = {i: (n, cat) for i, n, cat in c.execute("select id,name,category from material")}
+    # `attributes.role` 이 `evidence` 인 재료는 **해석 대상이 아니다.**
+    # 논문의 연구용 조성(`PC/ASA/PMMA blend 1 black 2`, `SiC 휘스커 30 vol% BAS 유리세라믹`)은
+    # 계열 근거로 쓰되 격자에서는 뺀다. **구조적 부재와 다르다** —
+    # 부재는 "그 물성이 없다"이고 이건 "그 해석의 대상이 아니다".
+    # role 이 없으면 `product` 로 본다(분류 전에는 아무것도 안 바뀐다).
+    mat, _ev = {}, 0
+    for i, n, cat, attrs in c.execute("select id,name,category,attributes from material"):
+        try:
+            role = (json.loads(attrs or "{}") or {}).get("role")
+        except Exception:
+            role = None
+        if role == "evidence":
+            _ev += 1
+            continue
+        mat[i] = (n, cat)
+    if _ev:
+        print(f"  근거 재료(role=evidence) {_ev}종을 해석 격자에서 제외했다 — "
+              f"값은 남아 있고 계열 근거로 쓰인다.")
     own = defaultdict(set)
     # tier4는 **가정·계산값**이다. 칸은 채우지만 근거가 아니다.
     # 두 집합을 따로 들고 다니며 "가정 포함"과 "실측 기반"을 나란히 낸다 —
