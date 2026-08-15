@@ -29,6 +29,6 @@
 - [x] 검증: `npm run build` 통과
 
 ## 6. 마무리
-- [ ] `PROPERTY_DATA_HISTORY.md` 에 장이 하나 추가
-- [ ] 산출물 4종 재생성 + AIDataHub 동기화
-- [ ] 커밋
+- [x] `PROPERTY_DATA_HISTORY.md` 에 장이 하나 추가
+- [x] 산출물 4종 재생성 + AIDataHub 동기화
+- [x] 커밋
