@@ -141,3 +141,30 @@ Williams 2013(포팅 5종) · Athawale 1995 · Sun 2013 · Hsiung 2003.
 **3 — B-1 벤더 시트**(밀도 18 + 전기 53). 1칸 부족이라 칸/재료 효율이 가장 높다.
 **4 — B-2 Fuensanta 광맥** + 캡션 스윕 나머지.
 **5 — C-1 대기 키를 한꺼번에 연다.** 값이 이미 확보돼 있다.
+
+---
+
+## F. 조달 목록 — **접근 부재**로 확정된 것(구조적 부재가 아니다)
+
+**DOI·문서를 특정했고, 열기만 하면 칸이 닫힌다.** 재조사 대상이 아니다.
+
+| 문서 | 닫히는 칸 | 상태 |
+|---|---|---|
+| **Rabkin et al., *Powder Metall. Met. Ceram.* 9 (1970) 695-700, `10.1007/BF00803820`** | **Cu-Al 금속간화합물 5상의 저항률**(+ 미소경도·인장강도·CTE) | Springer 인증 리다이렉트. 21차 S1이 코퍼스 md 60,980편 전수로 부재를 확정하고 이 1차 출처를 특정했다 |
+| *Low temperature resistivity of thin film and bulk samples of CuAl2 and Cu9Al4*, Solid State Comm. (1981) | 위 5상 중 2상 | 미확인 |
+| Cytec CYCOM 5250-4 TDS | BMI 3종 전기물성 | 두 경로 403 — **재시도 가치 있음** |
+| Jia 2019 정식판 `10.1016/j.orgel.2018.11.026` | 폴더블 OCA Prony 기준온도·Yeoh 지수 | 17차부터 대기 |
+| Corning GG3 PI 시트 | (21차에 **유통사 미러로 우회 성공** — jnsglass) | **해결됨** |
+
+**죽은 경로 기록**(다시 두드리지 마라) — `indium.com` 전체 403 · `matweb.com` 403 ·
+`msdsdigital.com` 403 · `multimedia.3m.com` 타임아웃 · `ulprospector.com` 403 ·
+`specialchem.com` 403 · `e-aircraftsupply.com` 403 · `mdpi.com` 일부 403 ·
+`materialdatacenter.com` 404. `epotek.com/docs` 는 meridianadhesives 로 301(미러 우회 가능).
+
+## G. 등급만 특정되면 즉시 닫히는 표
+
+- **MGC BT 적층판 13등급 × Dk/Df × 1·5·10 GHz 격자** — 우리 `BT/glass-fibre laminate` 가
+  어느 등급인지 모른다. He 2007이 등급을 인쇄하지 않는다.
+- **Lundgaard 2008** (`elec_papers/pcb_10_rf_pcb_substrate`) — 절연지 3종 × 수분함량 × LF/HF
+  **활성화에너지 6행(eV)**. 제품명이 붙어 별개 재료가 필요하다.
+- **Heraeus 용융실리카** 유전강도 `40…50 kV/mm (20 °C)` · `4…5 (500 °C)` — 범위라 하한·상한 2행씩.
