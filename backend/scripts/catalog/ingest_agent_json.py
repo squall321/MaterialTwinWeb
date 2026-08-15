@@ -48,7 +48,13 @@ RANGE = {
     "chemical.water_absorption_24h": (0.0, 1.0),
     "chemical.water_absorption_saturation": (0.0, 1.0),
     # 아래는 단위 오입력이 잦은 신규 키 — 범위 자체가 단위 검산 역할을 한다.
-    "interface.peel_strength": (0.5, 5e5),              # N/m (N/mm로 넣으면 1000배 작아짐)
+    # [2026-08-15 · 21차 Q2] 하한을 0.5 → 0 으로 내린다.
+    # 하한 0.5 N/m 는 "N/mm 로 넣으면 1000배 작아진다"를 잡으려던 것인데,
+    # **측정된 0 을 함께 잘랐다.** Park 2014 의 `0.00 N/cm` 는 단위 오입력이 아니라
+    # "접착이 아예 안 됐다"는 실측이고, 그건 값이다.
+    # 19차에 Prony 꼬리를 세 번 자른 것과 같은 함정 — **물리적으로 가능한 값을 범위로 막지 마라.**
+    # 단위 오입력은 범위가 아니라 조건·notes 대조로 잡는다.
+    "interface.peel_strength": (0.0, 5e5),              # N/m (N/mm로 넣으면 1000배 작아짐)
     "interface.lap_shear_strength": (1e4, 1e9),
     "interface.die_shear_strength": (1e4, 1e9),
     "physical.surface_energy": (1e-3, 1.0),   # J/m^2. mN/m 원값(15 등)이면 걸린다
