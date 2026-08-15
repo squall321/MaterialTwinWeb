@@ -66,8 +66,12 @@ RANGE = {
     "optical.birefringence": (-1.0, 1.0),   # 음의 1축 결정(사파이어 등)은 Δn<0
     "mechanical.surface_compressive_stress": (1e6, 5e9),  # Pa (MPa 원값이면 걸린다)
     "mechanical.depth_of_layer": (1e-9, 1e-3),            # m (µm 원값이면 걸린다)
-    "interface.tack": (1e-3, 1e3),                        # N (gf 원값이면 걸린다)
-    "interface.static_shear_holding": (1.0, 1e8),         # s. 폼 양면테이프는 5,000 h(1.8e7 s)도 나온다
+    # [2026-08-15 · 21차 S2] 하한 1e-3 → 0. **인쇄된 0 은 값이다.**
+    # Athawale 1995 가 택·유지시간을 `0` 으로 인쇄한다 — "붙지 않았다"는 실측이다.
+    # **이 사고가 네 번째다**(17·19차 Prony 상·하한, 21차 peel_strength 하한 0.5).
+    # 단위 오입력(gf 원값)은 범위가 아니라 조건·notes 대조로 잡아라.
+    "interface.tack": (0.0, 1e3),                         # N (gf 원값이면 걸린다)
+    "interface.static_shear_holding": (0.0, 1e8),         # s. 인쇄된 0 = 즉시 미끄러짐. 폼 양면테이프는 5,000 h(1.8e7 s)도 나온다
     "interface.wire_pull_strength": (1e-4, 1e2),          # N (gf 원값이면 걸린다)
     "mechanical.cure_shrinkage": (0.0, 0.5),              # 비율 (% 원값이면 걸린다)
     "rheological.pot_life": (1.0, 1e7),                   # s (분 단위면 걸린다)
