@@ -337,6 +337,15 @@ _DEFS: list[tuple] = [
     ("electrical.dielectric_strength", "electrical", "유전강도", None, "V/m", "numeric", ["thickness_m"], "ASTM D149"),
     ("electrical.dissipation_factor", "electrical", "손실계수", "tan_d", "1", "numeric", ["frequency_hz"], "ASTM D150"),
     ("electrical.comparative_tracking_index", "electrical", "비교트래킹지수(CTI)", "CTI", "V", "numeric", None, "IEC 60112"),
+    # **홀측정 갈래가 통째로 막혀 있었다**(24차 R — LakeShore 5대). 반도체·투명전극
+    # (IGZO·ITO)에 필수인데 이동도 키가 없었다. 세 값은 한 측정에서 함께 나온다.
+    # 부호가 캐리어 종류를 정한다 — **홀계수가 음수면 n형**이라 부호를 지우면 안 된다.
+    ("electrical.carrier_mobility", "electrical", "캐리어 이동도", "mu", "m^2/(V*s)", "numeric",
+     ["carrier_type", "temperature_k", "magnetic_field_t"], "ASTM F76"),
+    ("electrical.carrier_concentration", "electrical", "캐리어 농도", "n", "1/m^3", "numeric",
+     ["carrier_type", "temperature_k"], "ASTM F76"),
+    ("electrical.hall_coefficient", "electrical", "홀계수", "R_H", "m^3/C", "numeric",
+     ["temperature_k", "magnetic_field_t"], "ASTM F76"),
     ("electrical.band_gap", "electrical", "밴드갭", "Eg", "eV", "numeric", ["temperature_k"], None),
     # OLED 발광층 설계에 쓰는 준위다. **측정법이 값을 바꾼다** — CV(순환전압전류법)와 UPS 가
     # 0.3 eV 이상 갈리므로 `conditions.method_detail` 없이는 비교하면 안 된다.
@@ -399,6 +408,10 @@ _DEFS: list[tuple] = [
     ("physical.gas_permeability_o2", "physical", "산소투과도", None, "mol/(m*s*Pa)", "numeric", ["temperature_k"], "ASTM D3985"),
     ("physical.gas_permeability_co2", "physical", "이산화탄소투과도", None, "mol/(m*s*Pa)", "numeric", ["temperature_k"], None),
     ("physical.gas_permeability_h2o", "physical", "수분투과도", None, "mol/(m*s*Pa)", "numeric", ["temperature_k"], None),
+    # 제타전위 — Litesizer·Zetasizer 의 주 기능인데 키가 없었다.
+    # **pH 와 이온세기가 없으면 값이 아니다** — 등전점에서 부호가 뒤집힌다.
+    ("physical.zeta_potential", "physical", "제타전위", "zeta", "V", "numeric",
+     ["ph", "ionic_strength_mm", "medium", "temperature_k"], "ISO 13099"),
     ("physical.contact_angle_water", "physical", "물 접촉각", None, "deg", "numeric", None, None),
     ("physical.surface_energy", "physical", "표면에너지", None, "J/m^2", "numeric", None, None),
     ("physical.diffusion_coefficient", "physical", "확산계수", "D", "m^2/s", "numeric", ["species", "temperature_k"], None),
@@ -438,6 +451,10 @@ _DEFS: list[tuple] = [
     ("magnetic.curie_temp", "magnetic", "큐리온도", "Tc", "K", "numeric", None, None),
     # ── 유변/가공 ──────────────────────────────────────────────────────────────
     ("rheological.melt_flow_index", "rheological", "용융흐름지수(MFI)", "MFI", "g/600s", "numeric", ["temperature_k", "load_kg"], "ISO 1133"),
+    # **레올로지 항복응력은 고체 항복강도와 다른 양이다**(24차 R). 유체가 흐르기 시작하는
+    # 응력이고 모델(Bingham·Herschel-Bulkley)마다 값이 달라 `model` 없이는 비교 불가다.
+    ("rheological.yield_stress", "rheological", "항복응력", "tau_0", "Pa", "numeric",
+     ["model", "temperature_k"], None),
     ("rheological.viscosity", "rheological", "점도", "eta", "Pa*s", "numeric", ["temperature_k", "shear_rate_1/s"], None),
     ("rheological.mold_shrinkage", "rheological", "성형수축률", None, "1", "numeric", None, "ISO 294-4"),
     ("rheological.gel_time", "rheological", "겔타임", None, "s", "numeric", ["temperature_k"], None),
@@ -446,6 +463,9 @@ _DEFS: list[tuple] = [
     ("structure.grain_size", "structure", "결정립 크기", None, "m", "numeric", None, "ASTM E112"),
     ("structure.molecular_weight", "structure", "분자량(Mw)", "Mw", "kg/mol", "numeric", None, None),
     # 결정자 크기는 **결정립(grain)과 다른 양이다** — XRD 선폭에서 나오는 간섭성 산란 영역이다.
+    # 기공 **직경**은 기공**률**(physical.porosity)과 다른 축이다 — 수은압입·SAXS 의 주력 출력.
+    ("structure.pore_diameter", "structure", "기공 직경", None, "m", "numeric",
+     ["method_detail", "distribution_stat"], None),
     ("structure.crystallite_size", "structure", "결정자 크기", None, "m", "numeric",
      ["method_detail"], None),
     ("structure.lattice_parameter", "structure", "격자상수", "a", "m", "numeric",
