@@ -161,6 +161,17 @@ _DEFS: list[tuple] = [
      ["model", "model_form", "unit_of_term", "temperature_k"], None),
     ("mechanical.morrow_energy_exponent", "mechanical", "Morrow 에너지 지수", "m", "1", "numeric",
      ["model", "model_form", "temperature_k"], None),
+    # 박리력·전단력 — **원문이 시편 폭·접합면적을 인쇄하지 않아 응력으로 못 바꾼 경우**의 그릇이다.
+    # 폭이 인쇄돼 있으면 이 키가 아니라 `interface.peel_strength` 로 가야 한다.
+    # 조건축의 `specimen_width_status` 가 `not_printed`(아예 없다)인지
+    # `ambiguous`(후보가 둘인데 원문에서 안 닫힌다)인지 반드시 구별해라 — 21차 Q2의 Kiilunen 2012는
+    # 폭 후보가 30 mm(패드열)와 40 mm(서모드)로 갈리고 SEM이 어느 쪽도 확정하지 못한다.
+    # 하나를 고르면 그 숫자는 우리가 만든 것이다.
+    ("interface.peel_force", "interface", "박리력", "F_peel", "N", "numeric",
+     ["specimen_width_mm", "specimen_width_status", "quantity", "peel_angle_deg",
+      "peel_rate_mm_min", "substrate", "temperature_k"], None),
+    ("interface.shear_force", "interface", "전단력", "F_shear", "N", "numeric",
+     ["bonded_area_mm2", "bonded_area_status", "substrate", "temperature_k"], None),
     # 진파괴연성 D = ln[100/(100−q)] (q = 단면감소율). **파단연신율로 대체할 수 없다** —
     # 단면감소율 기반 진변형률은 신장률과 다른 양이고, 솔더 피로 문헌이 Coffin-Manson
     # 연성정규화(Δεp/2D)의 표준 축으로 쓴다. 정의가 둘로 갈려 model_form 을 요구한다.
