@@ -31,6 +31,7 @@
 ## 6. 마무리
 - [x] `PROPERTY_DATA_HISTORY.md` 에 장이 하나 추가
 - [x] 산출물 4종 재생성
-- [ ] 라이브 재배포 — **AIDataHub 는 `/api/export/materials` 로 당겨 가는 구조라 밀 게 없다.**
-      다만 새 라우터·화면은 재배포해야 라이브에 뜬다(DB 는 이미 라이브를 직접 쓰고 있다).
+- [x] 라이브 재배포 — **AIDataHub 는 `/api/export/materials` 로 당겨 가는 구조라 밀 게 없다.**
+      포털 경유 `/api/health`·`/api/metrology/summary`·`/` 전부 200 확인
+      (스크립트 끝줄의 `health=404`는 프로브가 앱 포트에 포털 프리픽스를 붙여 치는 탓이라 정상이다).
 - [x] 커밋
