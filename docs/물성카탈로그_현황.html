@@ -202,8 +202,8 @@ footer .gen{color:var(--ink3);opacity:.8}
 <div class="kpis">
 <div class="kpi"><b>27,686</b><span>물성값</span><em>재료 1098종 · 정의 184종</em></div>
 <div class="kpi"><b>2,350</b><span>출처</span><em>DOI 945 · URL 2113</em></div>
-<div class="kpi"><b>54.8%</b><span>셀 채움</span><em>격자 29,452칸</em></div>
-<div class="kpi"><b>37.2%</b><span>실측기반</span><em>tier4 가정을 뺀 값</em></div>
+<div class="kpi"><b>88.6%</b><span>셀 채움</span><em>격자 13,848칸</em></div>
+<div class="kpi"><b>60.7%</b><span>실측기반</span><em>tier4 가정을 뺀 값</em></div>
 </div></header>
 <nav class="toc"><ol>
 <li><a href="#s1">격자</a></li>
@@ -219,12 +219,12 @@ footer .gen{color:var(--ink3);opacity:.8}
 <li><a href="#s11">남은 일</a></li>
 </ol></nav>
 <section id="s1"><div class="shead"><span class="sno">01</span><h2>격자</h2><p class="ssub">무엇을 세고 있는가</p></div>
-<p>재료 1098종 × 물성 정의 184종은 202,032칸이지만 이것을 다 세지 않는다. <b>세라믹에 항복강도를 요구하고 도체에 유전율을 요구하면 분모가 거짓이 된다.</b> 그래서 실제 해석 13종이 각각 요구하는 물성만 골라 <b>29,452칸</b>의 격자를 만들고, 그 격자만 센다.</p>
+<p>재료 1098종 × 물성 정의 184종은 202,032칸이지만 이것을 다 세지 않는다. <b>세라믹에 항복강도를 요구하고 도체에 유전율을 요구하면 분모가 거짓이 된다.</b> 그래서 실제 해석 13종이 각각 요구하는 물성만 골라 <b>13,848칸</b>의 격자를 만들고, 그 격자만 센다.</p>
 <div class="grid4">
-<div class="cell"><b>29,452</b><span>해석이 실제로 요구하는 칸</span></div>
-<div class="cell"><b>16,140</b><span>채워진 칸</span></div>
-<div class="cell"><b>717</b><span>구조적으로 못 채우는 칸</span></div>
-<div class="cell"><b>12,997</b><span>아직 채울 수 있는 칸</span></div>
+<div class="cell"><b>13,848</b><span>해석이 실제로 요구하는 칸</span></div>
+<div class="cell"><b>12,272</b><span>채워진 칸</span></div>
+<div class="cell"><b>135</b><span>구조적으로 못 채우는 칸</span></div>
+<div class="cell"><b>1,469</b><span>아직 채울 수 있는 칸</span></div>
 </div>
 <p class="note">택일군이 있다. 낙하해석의 소성 입력은 <code>항복강도</code> 하나든 <code>인장강도+파단연신율</code> 쌍이든 역할이 채워지므로 <b>칸 하나</b>로 센다. 어느 쪽이 인쇄되는지는 시험규격 관행이 정하지, 재료가 정하지 않는다.</p>
 <dl class="defs"><dt>셀 채움</dt><dd>채워진 칸 / 전체 칸 — 수집 진척도</dd><dt>실측기반</dt><dd>tier4(가정·계산)를 뺀 채움 — 근거의 실제 크기</dd><dt>유효채움</dt><dd>구조적 부재를 분모에서 뺀 채움 — 도달 가능한 천장 대비</dd><dt>적용 대비 준비율</dt><dd>그 해석이 원리적으로 성립하는 재료만 분모로 둔 재료 준비율</dd></dl>
@@ -232,22 +232,22 @@ footer .gen{color:var(--ink3);opacity:.8}
 <section id="s2"><div class="shead"><span class="sno">02</span><h2>현황</h2><p class="ssub">해석 13종이 지금 돌아가는가</p></div>
 <div class="tblwrap"><table class="cov">
 <thead><tr><th>해석</th><th class="n">대상</th><th class="n">칸</th><th>셀 채움</th><th class="n">실측기반 %</th><th class="n">유효채움 %</th><th class="n">적용 대비<br>준비율</th></tr></thead><tbody>
-<tr><td class="nm">구조·강성</td><td class="n">1098</td><td class="n">3,294</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:57.1%"></i></span><span class="pct">57.1</span></td><td class="n mono">36.2</td><td class="n mono">55.8</td><td class="n"><span class="pill crit">50.0%</span></td></tr>
-<tr><td class="nm">낙하·충격</td><td class="n">1098</td><td class="n">5,490</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:52.2%"></i></span><span class="pct">52.2</span></td><td class="n mono">29.2</td><td class="n mono">52.3</td><td class="n"><span class="pill crit">43.9%</span></td></tr>
-<tr><td class="nm">열전달·방열</td><td class="n">1098</td><td class="n">3,294</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:56.5%"></i></span><span class="pct">56.5</span></td><td class="n mono">40.4</td><td class="n mono">56.5</td><td class="n"><span class="pill crit">49.8%</span></td></tr>
-<tr><td class="nm">열응력·워피지</td><td class="n">1098</td><td class="n">4,392</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:57.7%"></i></span><span class="pct">57.7</span></td><td class="n mono">37.5</td><td class="n mono">56.2</td><td class="n"><span class="pill crit">47.8%</span></td></tr>
-<tr><td class="nm">폴더블 벤딩</td><td class="n">363</td><td class="n">1,452</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:55.2%"></i></span><span class="pct">55.2</span></td><td class="n mono">35.1</td><td class="n mono">55.2</td><td class="n"><span class="pill crit">50.4%</span></td></tr>
-<tr><td class="nm">결로(표면)</td><td class="n">1098</td><td class="n">4,392</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:55.1%"></i></span><span class="pct">55.1</span></td><td class="n mono">40.6</td><td class="n mono">55.7</td><td class="n"><span class="pill crit">46.8%</span></td></tr>
-<tr><td class="nm">결로(투습)</td><td class="n">813</td><td class="n">3,252</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:56.4%"></i></span><span class="pct">56.4</span></td><td class="n mono">38.6</td><td class="n mono">57.2</td><td class="n"><span class="pill crit">47.4%</span></td></tr>
-<tr><td class="nm">초탄성(실링·완충)</td><td class="n">48</td><td class="n">96</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:95.8%"></i></span><span class="pct">95.8</span></td><td class="n mono">79.2</td><td class="n mono">95.8</td><td class="n"><span class="pill ok">95.8%</span></td></tr>
-<tr><td class="nm">접착·박리</td><td class="n">363</td><td class="n">726</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:53.0%"></i></span><span class="pct">53.0</span></td><td class="n mono">43.3</td><td class="n mono">56.2</td><td class="n"><span class="pill crit">44.1%</span></td></tr>
-<tr><td class="nm">전기·EMI</td><td class="n">1098</td><td class="n">1,098</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:55.3%"></i></span><span class="pct">55.3</span></td><td class="n mono">43.0</td><td class="n mono">53.2</td><td class="n"><span class="pill crit">53.2%</span></td></tr>
-<tr><td class="nm">피로·수명</td><td class="n">583</td><td class="n">1,749</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:41.5%"></i></span><span class="pct">41.5</span></td><td class="n mono">36.8</td><td class="n mono">43.3</td><td class="n"><span class="pill crit">23.8%</span></td></tr>
-<tr><td class="nm">산소소광-발광체</td><td class="n">63</td><td class="n">63</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:87.3%"></i></span><span class="pct">87.3</span></td><td class="n mono">87.3</td><td class="n mono">87.3</td><td class="n"><span class="pill warn">87.3%</span></td></tr>
-<tr><td class="nm">산소확산-매트릭스</td><td class="n">154</td><td class="n">154</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:50.0%"></i></span><span class="pct">50.0</span></td><td class="n mono">42.2</td><td class="n mono">50.7</td><td class="n"><span class="pill crit">50.7%</span></td></tr>
-<tr class="tot"><td class="nm">전체</td><td class="n">1098</td><td class="n">29,452</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:54.8%"></i></span><span class="pct">54.8</span></td><td class="n mono">37.2</td><td class="n mono">54.8</td><td class="n">—</td></tr>
+<tr><td class="nm">구조·강성</td><td class="n">517</td><td class="n">1,551</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:90.3%"></i></span><span class="pct">90.3</span></td><td class="n mono">59.3</td><td class="n mono">90.2</td><td class="n"><span class="pill warn">87.4%</span></td></tr>
+<tr><td class="nm">낙하·충격</td><td class="n">517</td><td class="n">2,585</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:88.7%"></i></span><span class="pct">88.7</span></td><td class="n mono">50.4</td><td class="n mono">88.8</td><td class="n"><span class="pill crit">82.8%</span></td></tr>
+<tr><td class="nm">열전달·방열</td><td class="n">517</td><td class="n">1,551</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:88.3%"></i></span><span class="pct">88.3</span></td><td class="n mono">63.4</td><td class="n mono">88.3</td><td class="n"><span class="pill warn">87.3%</span></td></tr>
+<tr><td class="nm">열응력·워피지</td><td class="n">517</td><td class="n">2,068</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:90.0%"></i></span><span class="pct">90.0</span></td><td class="n mono">61.2</td><td class="n mono">90.0</td><td class="n"><span class="pill warn">86.6%</span></td></tr>
+<tr><td class="nm">폴더블 벤딩</td><td class="n">200</td><td class="n">800</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:92.2%"></i></span><span class="pct">92.2</span></td><td class="n mono">56.2</td><td class="n mono">92.2</td><td class="n"><span class="pill warn">88.0%</span></td></tr>
+<tr><td class="nm">결로(표면)</td><td class="n">517</td><td class="n">2,068</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:87.7%"></i></span><span class="pct">87.7</span></td><td class="n mono">65.0</td><td class="n mono">87.9</td><td class="n"><span class="pill warn">86.7%</span></td></tr>
+<tr><td class="nm">결로(투습)</td><td class="n">356</td><td class="n">1,424</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:91.1%"></i></span><span class="pct">91.1</span></td><td class="n mono">61.8</td><td class="n mono">91.1</td><td class="n"><span class="pill warn">89.9%</span></td></tr>
+<tr><td class="nm">초탄성(실링·완충)</td><td class="n">45</td><td class="n">90</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:97.8%"></i></span><span class="pct">97.8</span></td><td class="n mono">81.1</td><td class="n mono">97.8</td><td class="n"><span class="pill ok">97.8%</span></td></tr>
+<tr><td class="nm">접착·박리</td><td class="n">200</td><td class="n">400</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:83.2%"></i></span><span class="pct">83.2</span></td><td class="n mono">65.5</td><td class="n mono">91.5</td><td class="n"><span class="pill warn">86.6%</span></td></tr>
+<tr><td class="nm">전기·EMI</td><td class="n">517</td><td class="n">517</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:90.3%"></i></span><span class="pct">90.3</span></td><td class="n mono">77.4</td><td class="n mono">90.3</td><td class="n"><span class="pill warn">90.3%</span></td></tr>
+<tr><td class="nm">피로·수명</td><td class="n">248</td><td class="n">744</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:75.8%"></i></span><span class="pct">75.8</span></td><td class="n mono">65.1</td><td class="n mono">82.5</td><td class="n"><span class="pill crit">63.3%</span></td></tr>
+<tr><td class="nm">산소소광-발광체</td><td class="n">2</td><td class="n">2</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:100.0%"></i></span><span class="pct">100.0</span></td><td class="n mono">100.0</td><td class="n mono">100.0</td><td class="n"><span class="pill ok">100.0%</span></td></tr>
+<tr><td class="nm">산소확산-매트릭스</td><td class="n">48</td><td class="n">48</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:93.8%"></i></span><span class="pct">93.8</span></td><td class="n mono">77.1</td><td class="n mono">97.8</td><td class="n"><span class="pill ok">97.8%</span></td></tr>
+<tr class="tot"><td class="nm">전체</td><td class="n">1098</td><td class="n">13,848</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:88.6%"></i></span><span class="pct">88.6</span></td><td class="n mono">60.7</td><td class="n mono">89.3</td><td class="n">—</td></tr>
 </tbody></table></div>
-<p class="note"><b>셀 채움과 실측기반의 차이 17.6%p(5,191칸)가 가정값이 만든 착시다.</b> 표를 하나만 보면 속는다 — 채움률이 100%인 해석도 실측기반은 67%일 수 있다.</p>
+<p class="note"><b>셀 채움과 실측기반의 차이 27.9%p(3,868칸)가 가정값이 만든 착시다.</b> 표를 하나만 보면 속는다 — 채움률이 100%인 해석도 실측기반은 67%일 수 있다.</p>
 </section>
 <section id="s3"><div class="shead"><span class="sno">03</span><h2>등급</h2><p class="ssub">tier가 무엇을 뜻하고 왜 가정을 허용하는가</p></div>
 <div class="tiers">
@@ -337,7 +337,7 @@ footer .gen{color:var(--ink3);opacity:.8}
 <p class="note"><b>근거를 바꾸는 편집이 값을 바꾸는 편집보다 늦게 발각된다.</b> 생성 스크립트가 익명 문자열로 적어 둔 추정 라벨 5건이 "제목 없는 출처" 정리에서 실제 벤더·규격 문서 이름으로 바뀌었고, 그 아래 18개 값이 문서 인용처럼 보이게 됐다. 값은 하나도 안 바뀌었는데 근거만 거짓이 됐다. 지금은 무결성 검사가 이 패턴을 잡는다.</p>
 </section>
 <section id="s8"><div class="shead"><span class="sno">08</span><h2>부재</h2><p class="ssub">채울 수 없는 칸을 분모에서 뺀다</p></div>
-<p>액체에 항복강도를, 증착 도판트에 투습도를 요구하면 그 칸은 영원히 비어 있다. 분모에 남겨 두면 <b>도달할 수 없는 100%를 좇게 된다.</b> 그래서 (재료군 × 물성) 쌍 단위로 부재를 선언하고 717칸을 분모에서 뺐다. 현재 선언 24건이다.</p>
+<p>액체에 항복강도를, 증착 도판트에 투습도를 요구하면 그 칸은 영원히 비어 있다. 분모에 남겨 두면 <b>도달할 수 없는 100%를 좇게 된다.</b> 그래서 (재료군 × 물성) 쌍 단위로 부재를 선언하고 135칸을 분모에서 뺐다. 현재 선언 24건이다.</p>
 <div class="tblwrap"><table class="unf"><tbody>
 <tr><td class="n mono">11키</td><td>저분자 도판트 — 광물리 물성만 발표된다</td></tr>
 <tr><td class="n mono">5키</td><td>점착테이프 — 벤더가 발표하지 않는다(항복점은 물리적으로도 정의되지 않는다)</td></tr>
@@ -383,7 +383,7 @@ footer .gen{color:var(--ink3);opacity:.8}
 </section>
 <section id="s11"><div class="shead"><span class="sno">11</span><h2>남은 일</h2><p class="ssub">무엇이 실제로 남았는가</p></div>
 <div class="two">
-<div class="box"><h4>빈칸 — 거의 소진됐다</h4><p class="big">12997<em>칸</em></p><p>구조적 부재를 뺀 유효채움이 54.8%다. 남은 칸은 흩어져 있고 하나씩 난이도가 높다 — 앵커 논문에 인장강도는 있는데 변형률이 전문에 0회인 식이다.</p></div>
+<div class="box"><h4>빈칸 — 거의 소진됐다</h4><p class="big">1469<em>칸</em></p><p>구조적 부재를 뺀 유효채움이 89.3%다. 남은 칸은 흩어져 있고 하나씩 난이도가 높다 — 앵커 논문에 인장강도는 있는데 변형률이 전문에 0회인 식이다.</p></div>
 <div class="box crit"><h4>가정 대체 — 이것이 진짜 남은 일</h4><p class="big">3,226<em>칸</em></p><p>(재료 × 물성) 12,922칸 중 <b>25.0%가 가정값으로만 대표된다.</b> 셋 중 하나는 아직 근거가 없다는 뜻이다.</p></div>
 </div>
 <div class="split">
