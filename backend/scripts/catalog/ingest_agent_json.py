@@ -247,9 +247,17 @@ def load(paths: list[str]) -> list[tuple[str, dict]]:
             if f.name in ("property_keys.json", "materials.json"):
                 continue
             try:
-                out.append((f.name, json.loads(f.read_text())))
+                doc = json.loads(f.read_text())
             except Exception as e:
                 print(f"  ✗ {f.name}: JSON 파싱 실패 {e}")
+                continue
+            # **배치가 산출 디렉터리에 값 JSON 아닌 것을 같이 둔다.**
+            # 23차에 `targets_v2.json` · `key_proposal.json` · `next_targets.json` 이 섞여 있었고,
+            # 디렉터리째 넘기면 로더가 통째로 죽을 뻔했다. 값 문서만 골라 쓰고 나머지는 건너뛴다.
+            if not (isinstance(doc, dict) and isinstance(doc.get("materials"), list)):
+                print(f"  · {f.name}: 값 문서가 아니다(`materials` 배열 없음) — 건너뛴다")
+                continue
+            out.append((f.name, doc))
     return out
 
 
