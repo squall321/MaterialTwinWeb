@@ -255,6 +255,28 @@ UNFILLABLE = [
     (_TAPE, {"physical.gas_permeability_o2", "physical.gas_solubility"},
      "아크릴 PSA/OCA — 산소투과를 재지 않는다(기능과 무관, 코퍼스 전수 0편)"),
 
+    # [2026-08-15 · 21차 R1] 취성 재료 × 소성 택일군 — **벤더 시트를 실제로 열어 확정했다.**
+    # 격자에 남은 1칸 부족 재료 중 가장 큰 덩어리였는데 채울 수 있는 것이 하나도 없었다.
+    #
+    # **택일군이라 세 키를 다 막아야 닫힌다.** 인장강도는 이미 대부분 들어 있고(굽힘·압축을
+    # 인장으로 환산한 t2/t3), **비어 있는 것은 항복강도와 파단연신**이다. 취성 재료는
+    # 항복 없이 파괴하고 연신은 사실상 0이라 벤더가 발표하지 않는다 —
+    # **Corning PI 시트를 열어 보니 인장강도·연신 행이 아예 없고** 탄성률·경도·파괴인성·
+    # 굴곡/압축응력만 인쇄한다. Kyocera 알루미나·페라이트·SmCo도 같다.
+    #
+    # **주조 Alnico 는 금속인데도 여기 들어간다.** Eclipse 시트가
+    # `Tensile Strength 20−450 x10⁶ Pa (37 LNG44)` 를 주는데 (1) 20~450은 **20배 범위**라
+    # 클래스값이 될 수 없고 (2) 괄호의 37은 **LNG44 것이지 LNG40 것이 아니다.**
+    # 연신·항복은 없고 대신 압축강도를 준다 — 주조 Alnico는 취성이다.
+    #
+    # **전사테이프와 Loctite 2025D 는 뺐다.** R1이 "전사테이프는 인장 시험 대상이 아니다"라고
+    # 판정했지만 **ARclear 4종이 연신 10.5를 발표한다** — 반례가 있으므로 구조적 부재가 아니라
+    # "그 벤더가 그 제품에 대해 안 낸다"이다. 10차에 정한 자를 그대로 쓴다.
+    (("gorilla", "victus", "alumina 99", "alumina ceramic package", "ferrite magnet",
+      "alnico", "recoma", "soda-lime glass", "piezo mems"),
+     {"mechanical.yield_strength", "mechanical.elongation_at_break"},
+     "취성 재료 — 항복 없이 파괴하고 연신이 사실상 0이라 벤더가 발표하지 않는다"),
+
     # [2026-08-14 · 20차 F] 표면처리·단분자막·전환피막 41종 × 전기 택일군.
     # **"문헌이 안 낸다"가 아니라 물리적으로 정의되지 않는다** — 다섯 판정 중 유일하게
     # 재료 부류가 아니라 물리를 근거로 세운 것이다. 실란 단분자막·전환피막·연마된 강판
@@ -502,10 +524,21 @@ def _cell_unfillable(mat_name: str, keys, cat: str = "") -> bool:
     bad = unfillable_keys(mat_name, cat)
     if not bad:
         return False
-    flat = []
-    for k in keys:
-        flat.extend(k if isinstance(k, tuple) else (k,))
-    return bool(flat) and all(k in bad for k in flat)
+    if not keys:
+        return False
+    # [2026-08-15] **중첩 택일군을 평탄화하면 안 된다.** PLAS는
+    # `항복 OR (인장 AND 연신)` 인데, 평탄화해 셋을 다 요구하면
+    # **연신 하나가 없어서 못 채우는 칸을 "채울 수 있다"고 세게 된다.**
+    # 21차 R1이 취성 재료를 부재로 선언했는데 선언이 안 먹어서 드러났다 —
+    # 유리·세라믹은 인장강도는 있고(굽힘을 환산한 값) 항복·연신이 없다.
+    #
+    # 갈래(AND 묶음)는 **하나라도** 부재면 그 갈래가 막히고,
+    # 택일군은 **모든 갈래**가 막혀야 부재다.
+    for alt in keys:
+        members = alt if isinstance(alt, tuple) else (alt,)
+        if not any(k in bad for k in members):
+            return False        # 살아 있는 갈래가 하나라도 있으면 채울 수 있는 칸이다
+    return True
 
 
 def compute():
