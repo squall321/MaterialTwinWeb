@@ -36,7 +36,7 @@ def main() -> int:
             st["없는 재료"] += 1
             print(f"  ✗ 없는 material_id {mid} — {str(r.get('name'))[:60]}")
             continue
-        if role not in ("product", "evidence"):
+        if role not in ("product", "evidence", "out_of_scope"):
             st["역할 어휘 밖"] += 1
             print(f"  ✗ role={role!r} — {have[mid][0][:60]}")
             continue

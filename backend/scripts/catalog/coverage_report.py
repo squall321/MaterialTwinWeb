@@ -113,20 +113,26 @@ def load():
     # 논문의 연구용 조성(`PC/ASA/PMMA blend 1 black 2`, `SiC 휘스커 30 vol% BAS 유리세라믹`)은
     # 계열 근거로 쓰되 격자에서는 뺀다. **구조적 부재와 다르다** —
     # 부재는 "그 물성이 없다"이고 이건 "그 해석의 대상이 아니다".
+    # [2026-08-15 · 23차] `out_of_scope` 를 더한다 — **실재 상용 제품인데 스마트폰 해석 대상이
+    # 아닌 것**이다(교정용 아치와이어 13종 · 듀플렉스 철근 · 콘택트렌즈 · 변압기 절연지 ·
+    # NASA SiC/SiC CMC). `evidence` 와 다르다 — 연구 조성이 아니라 **다른 도메인의 제품**이다.
+    # 값은 그대로 남고 그 도메인에서는 쓸 수 있다. 격자에서만 뺀다.
     # role 이 없으면 `product` 로 본다(분류 전에는 아무것도 안 바뀐다).
-    mat, _ev = {}, 0
+    mat, _ev, _evd, _oos = {}, 0, 0, 0
     for i, n, cat, attrs in c.execute("select id,name,category,attributes from material"):
         try:
             role = (json.loads(attrs or "{}") or {}).get("role")
         except Exception:
             role = None
-        if role == "evidence":
+        if role in ("evidence", "out_of_scope"):
             _ev += 1
+            _evd += (role == "evidence")
+            _oos += (role == "out_of_scope")
             continue
         mat[i] = (n, cat)
     if _ev:
-        print(f"  근거 재료(role=evidence) {_ev}종을 해석 격자에서 제외했다 — "
-              f"값은 남아 있고 계열 근거로 쓰인다.")
+        print(f"  격자 밖 재료 {_ev}종 제외 — 근거 재료(evidence) {_evd}종 + "
+              f"도메인 밖 제품(out_of_scope) {_oos}종. **값은 남아 있다.**")
     own = defaultdict(set)
     # tier4는 **가정·계산값**이다. 칸은 채우지만 근거가 아니다.
     # 두 집합을 따로 들고 다니며 "가정 포함"과 "실측 기반"을 나란히 낸다 —
