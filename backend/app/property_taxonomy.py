@@ -38,6 +38,10 @@ _DEFS: list[tuple] = [
     # 노치 유무로 몇 배가 갈리므로 `conditions.notch` 가 없으면 값이 아니다.
     # 23차 H 가 Wu 2016 의 14행을 이 키가 없어 못 넣었다.
     ("mechanical.impact_strength_charpy", "mechanical", "샤르피 충격강도(면적)", None, "J/m^2", "numeric", ["notch", "temperature_k"], "ISO 179"),
+    # **아이조드도 면적기준이 따로 있다.** ASTM D256 은 J/m(폭으로 나눈 값)이고
+    # ISO 180 · GB/T 1843 은 kJ/m² 다. 둘을 환산하려면 시편 폭이 필요한데 대개 안 적혀 있어
+    # **역산 금지에 걸린다** — 그래서 키를 나눈다. 24차 I 가 Pan 2020 4행을 여기서 막혔다.
+    ("mechanical.impact_strength_izod_area", "mechanical", "아이조드 충격강도(면적)", None, "J/m^2", "numeric", ["notch", "temperature_k"], "ISO 180"),
     ("mechanical.creep_rate", "mechanical", "정상상태 크리프율", None, "1/s", "numeric", ["stress_pa", "temperature_k"], None),
     # 변형률속도 의존 — LS-DYNA *MAT_024/*MAT_098이 그대로 받는 형식.
     # 테이프·접착제·폼은 충격 해석에서 이 항이 없으면 강성을 크게 과소평가한다.
@@ -295,6 +299,10 @@ _DEFS: list[tuple] = [
     ("electrical.dissipation_factor", "electrical", "손실계수", "tan_d", "1", "numeric", ["frequency_hz"], "ASTM D150"),
     ("electrical.comparative_tracking_index", "electrical", "비교트래킹지수(CTI)", "CTI", "V", "numeric", None, "IEC 60112"),
     ("electrical.band_gap", "electrical", "밴드갭", "Eg", "eV", "numeric", ["temperature_k"], None),
+    # OLED 발광층 설계에 쓰는 준위다. **측정법이 값을 바꾼다** — CV(순환전압전류법)와 UPS 가
+    # 0.3 eV 이상 갈리므로 `conditions.method_detail` 없이는 비교하면 안 된다.
+    ("electrical.homo_level", "electrical", "HOMO 준위", "E_HOMO", "eV", "numeric", None, None),
+    ("electrical.lumo_level", "electrical", "LUMO 준위", "E_LUMO", "eV", "numeric", None, None),
     ("electrical.piezoelectric_d33", "electrical", "압전상수 d33", "d33", "C/N", "numeric", None, None),
     # ── 광/복사 ────────────────────────────────────────────────────────────────
     ("optical.refractive_index", "optical", "굴절률", "n", "1", "numeric", ["wavelength_nm", "temperature_k"], None),
@@ -302,6 +310,9 @@ _DEFS: list[tuple] = [
     ("optical.transmittance", "optical", "투과율", "T", "1", "numeric", ["wavelength_nm"], None),
     ("optical.reflectance", "optical", "반사율", "R", "1", "numeric", ["wavelength_nm"], None),
     # 어느 파장에서 투과가 기준치로 떨어지는가 — 기준 투과율을 조건에 안 적으면 값이 아니다.
+    # 발광 피크는 **용액/박막/소자에서 다르게 나온다** — 매질이 없으면 값이 아니다.
+    ("optical.emission_peak_wavelength", "optical", "발광 피크파장", "lambda_em", "m", "numeric",
+     ["medium"], None),
     ("optical.uv_cutoff_wavelength", "optical", "UV 차단파장", "lambda_cut", "m", "numeric",
      ["transmittance_pct", "thickness_um"], None),
     ("optical.absorptance_solar", "optical", "태양흡수율", "alpha_s", "1", "numeric", None, "ASTM E903"),
