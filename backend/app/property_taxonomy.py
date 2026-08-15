@@ -219,10 +219,18 @@ _DEFS: list[tuple] = [
     # **Ra 한 줄뿐이었다**(24차 Q). 조도 파라미터는 서로 환산이 불가능하다 —
     # Ra 는 산술평균, Rq 는 제곱평균, Rz 는 최대높이라 같은 표면에서 값이 몇 배 갈린다.
     # 컷오프 λc 가 없으면 비교하면 안 된다.
+    # **컷오프를 필수로 강제하면 광학·X선 계열이 통째로 막힌다**(24차 Q).
+    # 촉침식만 λc 규약이 있고 CSI·AFM·XRR 에는 그 개념이 없다 — `method` 를 먼저 두고
+    # 컷오프는 촉침식일 때만 요구한다.
     ("surface.roughness_rq", "surface", "표면조도 Rq(RMS)", "Rq", "m", "numeric",
-     ["cutoff_mm", "evaluation_length_mm"], "ISO 4287"),
+     ["method", "cutoff_mm", "evaluation_length_mm"], "ISO 4287"),
     ("surface.roughness_rz", "surface", "표면조도 Rz(최대높이)", "Rz", "m", "numeric",
-     ["cutoff_mm", "evaluation_length_mm"], "ISO 4287"),
+     ["method", "cutoff_mm", "evaluation_length_mm"], "ISO 4287"),
+    # **면적 파라미터는 프로파일 파라미터와 다른 양이다**(ISO 25178 대 4287).
+    # Zygo 같은 3D 면적 프로파일러의 `RMS` 는 Rq 가 아니라 Sq 일 수 있다 —
+    # 24차 Q 가 그래서 그 행들을 `medium` 으로 남겼다.
+    ("surface.roughness_sq", "surface", "면적조도 Sq(면적 RMS)", "Sq", "m", "numeric",
+     ["method", "evaluation_area_mm2"], "ISO 25178"),
     ("surface.roughness_ra", "surface", "표면조도 Ra", "Ra", "m", "numeric",
      ["measurement_method", "surface_state", "scan_length_mm", "parameter_definition"], None),
     # 손실탄젠트 — 점탄성 감쇠의 기본량인데 카탈로그에 자리가 없었다.
