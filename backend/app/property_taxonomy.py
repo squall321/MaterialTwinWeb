@@ -161,6 +161,23 @@ _DEFS: list[tuple] = [
      ["model", "model_form", "unit_of_term", "temperature_k"], None),
     ("mechanical.morrow_energy_exponent", "mechanical", "Morrow 에너지 지수", "m", "1", "numeric",
      ["model", "model_form", "temperature_k"], None),
+    # 루프택 — **`tack`(N)·`tack_stress`(Pa)와 다른 양이다.** 루프 형상과 접촉면적이
+    # 시험법에 내장돼 있어 셋을 섞으면 안 된다(FINAT FTM 9 · ASTM D6195).
+    # 21차 T1이 기존 `interface.tack` 68행 중 **17행이 원문의 폭당힘(N/25mm·N/cm·lbf/in)을
+    # 앞 파동이 폭을 곱해 N 으로 바꿔 넣은 것**임을 찾아냈다 — 그 17행이 여기로 이관된다.
+    ("interface.loop_tack", "interface", "루프택", "F_loop", "N/m", "numeric",
+     ["substrate", "separation_rate_mm_min", "temperature_k", "dwell_time_s",
+      "loop_length_mm", "standard"], None),
+    # 택 에너지 — 분리 일. 힘·응력과 다른 차원이다.
+    ("interface.tack_energy", "interface", "택 에너지", "W_tack", "J/m^2", "numeric",
+     ["substrate", "contact_time_s", "temperature_k", "contact_pressure_pa",
+      "separation_rate_mm_min", "failure_mode"], None),
+    # 겔분율 — **용매 없이는 값이 아니다.** 추출시간이 미인쇄면 조건에 그대로 적어라.
+    ("chemical.gel_fraction", "chemical", "겔분율", "gel", "1", "numeric",
+     ["solvent", "extraction_time_h", "extraction_temperature_k", "drying"], None),
+    # 표면조도 Ra — **측정법(촉침/AFM/광학)에 따라 값이 갈린다.**
+    ("surface.roughness_ra", "surface", "표면조도 Ra", "Ra", "m", "numeric",
+     ["measurement_method", "surface_state", "scan_length_mm", "parameter_definition"], None),
     # 손실탄젠트 — 점탄성 감쇠의 기본량인데 카탈로그에 자리가 없었다.
     # `acoustic.loss_factor`(제진 손실계수)와 **다른 물성**이다.
     # **tan δ 는 온도·주파수 없이는 값이 아니다.**

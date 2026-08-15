@@ -255,6 +255,43 @@ UNFILLABLE = [
     (_TAPE, {"physical.gas_permeability_o2", "physical.gas_solubility"},
      "아크릴 PSA/OCA — 산소투과를 재지 않는다(기능과 무관, 코퍼스 전수 0편)"),
 
+    # [2026-08-15 · 21차 T2] 기능성 접착필름 — **수명 판정축이 응력-수명이 아니다.**
+    # ACF 는 접촉저항 상승, DAF 는 박리, 커버레이는 굽힘 횟수 대 도체 단선으로 수명을 잰다.
+    # 13차가 "근거가 검색 소진뿐이라 일부러 남긴" 열 종 중 셋인데, T2가 근거를 만들었다 —
+    # ACF 디렉터리 59편 전수 0편, DAF 57편 중 2편은 전부 타재료다.
+    (("anisotropic conductive film", "acf ", "anisolm", "die attach film", "daf ",
+      "coverlay"),
+     _FATIG_SET,
+     "기능성 접착필름 — 수명을 접촉저항·박리·굽힘 횟수로 잰다(응력-수명 축이 없다)"),
+
+    # [2026-08-15 · 21차 T2] EMI 차폐재·가스켓 — 압축 영구변형과 차폐효과가 판정축이다.
+    # EMI 디렉터리 50편 전수에서 유일한 피로 신호(Jouan 2018)는 실리콘 ECA 접합부라 재료가 다르다.
+    (("emi shield", "conductive fabric gasket", "emi shielding film"),
+     _FATIG_SET,
+     "EMI 차폐재·가스켓 — 압축 영구변형·차폐효과로 판정한다"),
+
+    # [2026-08-15 · 21차 T2] 금속간화합물 영구자석(SmCo·NdFeB·Alnico) — 근거 네 갈래.
+    #  (1) MMPA 0100-00 이 인장·경도 측정이 "적절하지도 가능하지도 않다"고 인쇄한다.
+    #  (2) **Arnold Recoma 35E 시트를 실제로 열어 보니** 굽힘·압축·영률·밀도·비커스·저항률뿐이고
+    #      인장·연신·피로 행이 없다.
+    #  (3) 코퍼스 68편 0건 · 웹 2회 0건.
+    #  (4) **13차가 하드페라이트 tier4 notes 에 "NdFeB/SmCo/Alnico 는 금속간화합물이라
+    #      제외했다"고 적어 대체 추정 경로를 이미 기각해 뒀다.**
+    # **하드페라이트는 빼야 한다** — 13차가 이미 tier4 를 넣어 뒀다.
+    (("recoma", "ndfeb sintered magnet", "alnico"),
+     _FATIG_SET,
+     "금속간화합물 영구자석 — 취성이고 벤더가 인장·피로를 발표하지 않는다"),
+
+    # [2026-08-15 · 21차 T2] Cu-Al 금속간화합물 × **순환소성 세 키만.**
+    # **택일군 다섯 키를 다 선언하면 안 된다** — S-N 갈래가 살아 있다.
+    # 11차가 알루미나 S-N 을 찾은 뒤로 "응력-수명은 취성 재료에도 존재한다"가 이 카탈로그의 자이고,
+    # Kouters 는 이 상들을 **벌크 잉곳으로 주조·균질화해 EDM 디스크까지 가공**했으므로
+    # "벌크 시편이 성립하지 않는다"도 쓸 수 없다. **미수확이지 부재가 아니다.**
+    (("cual2 (theta)", "cual (gamma)", "cu4al3", "cu3al2", "cu9al4"),
+     {"mechanical.fatigue_ductility_coefficient", "mechanical.darveaux_constant",
+      "mechanical.morrow_energy_coefficient"},
+     "Cu-Al 금속간화합물 — 순환소성 상수는 발표되지 않는다(S-N 갈래는 살아 있다)"),
+
     # [2026-08-15 · 21차 R1] 취성 재료 × 소성 택일군 — **벤더 시트를 실제로 열어 확정했다.**
     # 격자에 남은 1칸 부족 재료 중 가장 큰 덩어리였는데 채울 수 있는 것이 하나도 없었다.
     #
@@ -355,7 +392,12 @@ UNFILLABLE = [
     # **유리**: 순환 데이터가 등가파단시간 축에서 정적피로 띠에 겹쳐, 이 분야는 사이클 S-N을
     # 만들지 않고 정적피로(σⁿ·t=B)·동적피로(응력속도)만 발표한다(材料 40(454) 914 / 40(458) 1491).
     (("gorilla glass", "ultra-thin glass", "soda-lime", "quartz crystal", "aspheric lens",
-      "ir cut filter", "periscope prism", "aluminosilicate cover"), {
+      "ir cut filter", "periscope prism", "aluminosilicate cover",
+      # [2026-08-15 · 21차 T2] `fused silica` 를 쓰면 **실리카 충전 EMC 6종을 잡는다** —
+      # 짧은 토큰의 위험이 유리 갈래에서 실증됐다. 유리 본체만 잡도록 좁혔다.
+      # E-유리 직물은 논거가 두 겹이다 — 유리라서, 그리고 **건조 직물은 S-N 시편이 아니다.**
+      # 문헌의 유리섬유 피로 값은 예외 없이 함침 적층체의 것이고 그건 적층체의 물성이다.
+      "vitreous sio2", "vitreous silica", "e-glass cloth"), {
         "mechanical.fatigue_strength_coefficient", "mechanical.fatigue_ductility_coefficient",
         "mechanical.darveaux_constant", "mechanical.morrow_energy_coefficient",
         "mechanical.fatigue_stromeyer_coefficient",
@@ -426,7 +468,12 @@ UNFILLABLE = [
     # 이 분야는 밀착을 스크래치 임계하중으로, 열화를 균열밀도로 잰다. 응력-수명 축이 아니다.
     (("dlc coating", "tin pvd", "anodized aluminum", "ar/ir coating",
       "thin-film encapsulation", "piezo mems", "silver nanowire", "magnetic sensor",
-      "imag surface", "oled cathode"), _FATIG_SET,
+      "imag surface", "oled cathode",
+      # [2026-08-15 · 21차 T2] Ta/TaN 은 수~수십 nm 확산배리어, RuO2 후막저항체는 ~10 µm 인쇄층이다.
+      # 이 분야는 밀착을 스크래치 임계하중으로, 열화를 균열밀도·저항 드리프트로 잰다 — 응력-수명 축이 없다.
+      # 정량 근거: TaN 을 **대소문자 구분**으로 물어 119편이 나오는데 피로 모델 신호가 0편이다
+      # (대소문자를 무시하면 저자명 `Tan` 이 99편 잡힌다 — 브리프 63번).
+      "ta/tan", "tsv barrier", "chip resistor film"), _FATIG_SET,
      "PVD·CVD 박막 — 응력-수명이 아니라 임계하중·균열밀도로 재는 분야다"),
 
     # 배리어 필름의 수명은 **굽힘/비틀림 횟수 대 배리어·전기 기능 상실**로 잰다(WVTR 열화).

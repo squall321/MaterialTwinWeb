@@ -55,8 +55,12 @@ RANGE = {
     # 19차에 Prony 꼬리를 세 번 자른 것과 같은 함정 — **물리적으로 가능한 값을 범위로 막지 마라.**
     # 단위 오입력은 범위가 아니라 조건·notes 대조로 잡는다.
     "interface.peel_strength": (0.0, 5e5),              # N/m (N/mm로 넣으면 1000배 작아짐)
-    "interface.lap_shear_strength": (1e4, 1e9),
-    "interface.die_shear_strength": (1e4, 1e9),
+    # [2026-08-15 · 21차 T1] 하한 1e4 → 0. **이 사고가 다섯 번째다**
+    # (17·19차 Prony, 21차 Q2 peel_strength 0.5, S2 tack/holding, 그리고 여기).
+    # Rebholz 2016 결과절 verbatim — *"VL did not bond on zirconia (0 MPa)"* 라 실측이다.
+    # **새 키는 하한 0 으로 시작해라.** 단위 오입력은 조건·notes 대조로 잡는다.
+    "interface.lap_shear_strength": (0.0, 1e9),
+    "interface.die_shear_strength": (0.0, 1e9),   # 인쇄된 0 = 접합 실패. 위와 같은 이유
     "physical.surface_energy": (1e-3, 1.0),   # J/m^2. mN/m 원값(15 등)이면 걸린다
     "electrical.shielding_effectiveness": (0.0, 150.0),
     "electrical.temperature_coefficient_resistance": (-1e-2, 1e-2),  # ppm/K 원값이면 걸린다
