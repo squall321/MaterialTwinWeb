@@ -61,8 +61,10 @@ _DEFS: list[tuple] = [
      ["frequency_hz", "temperature_k", "mode"], "ISO 6721"),
     # 계장화 압입경도 H_IT(ISO 14577). **Meyer 경도와 정의가 다르다** — 접촉투영면적 기준이고
     # 압입깊이 곡선에서 나온다. 24차 P 가 KLA 나노압입기 값을 임시로 Meyer 에 걸어 뒀다.
+    # **깊이제어 압입이 표준이라 하중이 애초에 안 인쇄된다**(27차 U). 둘을 AND 로 요구하면
+    # 이 키는 영구히 0 이다 — **깊이 또는 하중** 중 하나 + 압자·해석법이면 값이 된다.
     ("mechanical.hardness_indentation", "mechanical", "계장화 압입경도 H_IT", "H_IT", "Pa", "numeric",
-     ["indentation_depth_nm", "load_mn", "temperature_k"], "ISO 14577"),
+     ["indentation_depth_nm|load_mn", "indenter", "analysis_method", "temperature_k"], "ISO 14577"),
     # 마르텐스 경도는 **접촉표면적** 기준이라 H_IT 와도 다른 양이다.
     ("mechanical.hardness_martens", "mechanical", "마르텐스 경도 HM", "HM", "Pa", "numeric",
      ["load_mn", "temperature_k"], "ISO 14577"),
