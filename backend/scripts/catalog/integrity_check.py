@@ -308,6 +308,27 @@ if _w:
     print("         CTE가 두 방향 이상으로 갈린 재료다. FR-4는 면내가 두께방향의 약 3배라")
     print("         (0.81~1.06 vs 0.29~0.34 W/mK) 등방으로 쓰면 크게 틀린다.")
     print("         원문에 방향이 없으면 지어내지 말고, 해석에서 이 값을 등방으로 쓰지 말 것.")
+
+# 같은 출처에 값이 완전히 같은 재료쌍 — **중복 적재일 수도, 정당한 클래스 전이일 수도 있다.**
+# 30차 AB 가 이걸로 ZrB2 10종·Cr2O3 1종의 실제 중복을 찾았지만, 같은 질의가
+# 등급 다른 대리값(SUS316/316L 같은 것)도 함께 잡는다. **그래서 이상이 아니라 주의다.**
+from collections import defaultdict as _dd
+_g = _dd(list)
+for _sid, _sig, _mid, _n, _t in c.execute(
+    """select v.source_id, group_concat(v.property_key||'='||coalesce(v.value_num,'')) sig,
+              v.material_id, count(*) n, min(v.quality_tier) t
+       from property_value v group by v.material_id, v.source_id having n >= 3"""):
+    _g[(_sid, _sig)].append((_mid, _t))
+_dup = [(k, v) for k, v in _g.items() if len(v) > 1 and min(t for _, t in v) <= 2]
+if _dup:
+    print(f"\n  [주의] 같은 출처에 **1차값(tier<=2)이 완전히 같은 재료쌍**: {len(_dup)}건")
+    print("         두 배치가 같은 시편을 다른 이름으로 넣었을 수 있다(30차 AB 가 ZrB2 10종을 이렇게 찾았다).")
+    print("         다만 한 논문이 조성만 다른 시료에 같은 값을 인쇄한 정당한 경우도 걸린다 —")
+    print("         **이름이 같은 시편을 가리키는지 눈으로 확인해라.** 자동 삭제하지 말 것.")
+    for (_sid, _), _ms in _dup[:5]:
+        _t = (c.execute("select title from source where id=?", (_sid,)).fetchone() or ["?"])[0]
+        print(f"           출처 {_sid} · {str(_t)[:56]} · 재료 {[m for m, _ in _ms]}")
+
 q = lambda s: c.execute(s).fetchone()[0]
 print(f"\n재료 {q('select count(*) from material')} · 물성값 {q('select count(*) from property_value')}"
       f" · 출처 {q('select count(*) from source')}"
