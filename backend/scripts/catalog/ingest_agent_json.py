@@ -317,8 +317,12 @@ def main() -> int:
                         print(f"  ✗✗ 재료명이 {len(nm['name'])}자 — 200자 제한 초과, 물성 {n_lost}행 유실\n"
                               f"      {nm['name'][:90]}...")
                         continue
-                    r = M.register_material(name=nm["name"], category=norm_cat(nm.get("category")),
-                                            attributes=nm.get("attributes"))
+                    # **`attributes` 가 `new_material` 바깥에 오는 배치가 있다.**
+                    # 안쪽만 보면 **역할 판정이 조용히 버려져** 근거 재료가 해석 격자에
+                    # 들어간다(27차 V 에서 59종이 그렇게 들어가 커버리지가 7%p 내려앉았다).
+                    attrs = {**(entry.get("attributes") or {}), **(nm.get("attributes") or {})}
+                    r = M.register_material(name=nm["name"], category=norm_cat(nm.get("category") or entry.get("category")),
+                                            attributes=attrs or None)
                     if "error" in r:
                         n_lost = len(entry.get("properties", []))
                         stats["mat_fail"] += 1
