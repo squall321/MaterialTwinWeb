@@ -415,6 +415,11 @@ _DEFS: list[tuple] = [
     ("physical.porosity", "physical", "기공률", None, "1", "numeric", None, None),
     ("physical.specific_surface_area", "physical", "비표면적", None, "m^2/kg", "numeric", None, "BET"),
     ("physical.water_vapor_transmission", "physical", "수증기투과율(WVTR)", "WVTR", "kg/(m^2*s)", "numeric", ["temperature_k", "humidity_rh"], "ASTM E96"),
+    # **투과율(permeability)과 투과도(transmission rate)는 다른 물리량이다**(31차 AC).
+    # permeability 는 두께로 정규화한 재료 고유값이고, OTR/WVTR 은 **그 시편의** 통과량이다.
+    # 두께를 곱해 바꾸는 것은 **역산**이고, 연신 시편은 연신 후 두께가 아예 안 적힌다.
+    ("physical.gas_transmission_rate_o2", "physical", "산소투과도(OTR)", "OTR", "m^3/(m^2*s)", "numeric",
+     ["temperature_k", "humidity_rh", "thickness_um", "partial_pressure_pa"], "ASTM D3985"),
     ("physical.gas_permeability_o2", "physical", "산소투과도", None, "mol/(m*s*Pa)", "numeric", ["temperature_k"], "ASTM D3985"),
     ("physical.gas_permeability_co2", "physical", "이산화탄소투과도", None, "mol/(m*s*Pa)", "numeric", ["temperature_k"], None),
     ("physical.gas_permeability_h2o", "physical", "수분투과도", None, "mol/(m*s*Pa)", "numeric", ["temperature_k"], None),
@@ -422,6 +427,18 @@ _DEFS: list[tuple] = [
     # **pH 와 이온세기가 없으면 값이 아니다** — 등전점에서 부호가 뒤집힌다.
     ("physical.zeta_potential", "physical", "제타전위", "zeta", "V", "numeric",
      ["ph", "ionic_strength_mm", "medium", "temperature_k"], "ISO 13099"),
+    # **표면에너지는 계산 모델이 값을 바꾼다** — 31차 AC 가 Muster 2004 에서 같은 판재의 γsv 가
+    # Neumann 18.4 / van Oss 18.8 / **Wu 53.3 mN/m** 로 **2.9배** 벌어지는 것을 찾았다.
+    # 그리고 논문 상당수가 **성분만 인쇄하고 총합을 안 낸다** — 총합만 받으면 통째로 버려야 했다.
+    ("physical.surface_energy_dispersive", "physical", "표면에너지 분산성분", "gamma_d", "J/m^2", "numeric",
+     ["method_detail", "temperature_k"], None),
+    ("physical.surface_energy_polar", "physical", "표면에너지 극성성분", "gamma_p", "J/m^2", "numeric",
+     ["method_detail", "temperature_k"], None),
+    # van Oss(LW/AB) 계열은 극성성분이 산·염기 둘로 갈린다 — 합치면 그 모델이 아니게 된다.
+    ("physical.surface_energy_acid", "physical", "표면에너지 산성분(γ+)", "gamma_plus", "J/m^2", "numeric",
+     ["method_detail", "temperature_k"], None),
+    ("physical.surface_energy_base", "physical", "표면에너지 염기성분(γ−)", "gamma_minus", "J/m^2", "numeric",
+     ["method_detail", "temperature_k"], None),
     ("physical.contact_angle_water", "physical", "물 접촉각", None, "deg", "numeric", None, None),
     ("physical.surface_energy", "physical", "표면에너지", None, "J/m^2", "numeric", None, None),
     ("physical.diffusion_coefficient", "physical", "확산계수", "D", "m^2/s", "numeric", ["species", "temperature_k"], None),
