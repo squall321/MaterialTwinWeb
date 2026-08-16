@@ -476,6 +476,11 @@ _DEFS: list[tuple] = [
     # 기공 **직경**은 기공**률**(physical.porosity)과 다른 축이다 — 수은압입·SAXS 의 주력 출력.
     ("structure.pore_diameter", "structure", "기공 직경", None, "m", "numeric",
      ["method_detail", "distribution_stat"], None),
+    # **기공부피는 기공직경·비표면적과 `D = 4V/A` 로 묶인다** — 셋 중 둘이 있으면 나머지가
+    # 검산된다. 29차 Y 가 이 키가 없어 세 논문에서 버렸다.
+    # 단위가 cm³/g 라 **비체적**이다(체적분율이 아니다 — 그건 `physical.porosity`).
+    ("structure.pore_volume", "structure", "기공부피(비체적)", None, "m^3/kg", "numeric",
+     ["method_detail", "pore_size_range"], None),
     ("structure.crystallite_size", "structure", "결정자 크기", None, "m", "numeric",
      ["method_detail"], None),
     ("structure.lattice_parameter", "structure", "격자상수", "a", "m", "numeric",
