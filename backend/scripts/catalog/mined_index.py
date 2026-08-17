@@ -208,6 +208,14 @@ def look(idx: dict, *, doi=None, path=None, title=None) -> dict | None:
             return _out(r, "path(parent)")
     if title and (r := idx["title"].get(norm_title(title))):
         return _out(r, "title")
+    # **부제가 붙고 안 붙고로 갈린다** — 코퍼스 파일명은 `… Viscoelasticity` 인데
+    # DB 제목은 `… Viscoelasticity: An Introduction` 이라 45자 절단이 부제 한복판에서 끊긴다
+    # (36차에 Brinson 2008 이 그렇게 제목 축을 통째로 비껴갔다).
+    # 한쪽이 다른 쪽의 **접두**면 같은 논문으로 본다 — 25자 이상을 요구해 짧은 제목의 오탐을 막는다.
+    if title and len(q0 := norm_title(title)) >= 25:
+        for k, r in idx["title"].items():
+            if len(k) >= 25 and (k.startswith(q0) or q0.startswith(k)):
+                return _out(r, "title(prefix)")
     # **인용키 조회** — `Tsai 2013` 뿐 아니라 **코퍼스 제목에서도 뽑는다.**
     # 35차 AK 가 찾았다 — `^Surname YYYY$` 만 받으면 `--json` 에 전체 제목을 넣었을 때
     # 인용키·재료명 축이 **통째로 죽는다**(같은 27편에 제목 0건 대 인용키 7건).

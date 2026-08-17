@@ -5149,3 +5149,42 @@ The Gund Company · Rochling Glastic). 이 코퍼스는 패키징·전자 갈래
 제조사 시트(The Gund · Rochling Glastic)는 같은 물성을 각각 1.7e6 psi · 22,100 psi 로
 정상 인쇄한다. **제조사인지 유통·가공사인지를 먼저 확인해라** —
 후자는 시험법 열이 비거나 단위 라벨이 통째로 밀려 있다.
+
+## 416. 판정하고 버린 논문은 **대장에 적어라** — 안 적으면 다음 파동이 다시 연다
+
+기채굴 조회는 **행이 들어간 논문**만 잡는다. **열어 보고 버린 논문은 행이 0이라 영영 안 걸린다.**
+36차가 9편을 판정해 버렸는데(전부 재인용·역산 지문·단위 붕괴), 37차 표적 목록을 뽑으니
+**그 9편이 상위권에 그대로 올라왔다.** 물성키가 많으니 당연히 위로 온다.
+
+조회의 문제가 아니라 **기록**의 문제다. 정본 대장을 하나 만들었다 —
+`/data/paper_patent_corpus/_index/_verdicts/discarded.jsonl` (JSONL, 한 줄에 한 편).
+
+```json
+{"title":"Iqbal - 2018 - Reactive Sputtering of Aluminum Nitride ...",
+ "wave":"36차 AP","verdict":"discarded","reason":"Table 1 캡션 verbatim 'data are taken from references [13,14]' — 순수 재인용. ..."}
+```
+
+**논문을 통째로 버릴 때마다 여기에 한 줄 덧붙여라.** 사유는 다음 사람이 재판정할 수 있을 만큼 적어라 —
+"리뷰라서" 는 부족하고, **어느 캡션·어느 문장이 그렇게 말하는지**를 verbatim 으로 넣어라.
+파동 폴더의 `_scan/verdicts.json` 은 계속 써도 되지만 **형식이 배치마다 달라 아무도 못 읽는다** —
+대장은 그것과 별개로 반드시 채워라.
+
+**대장은 보수적으로 쓴다.** 거짓 폐기는 **논문을 잃고**, 놓친 폐기는 재발굴로 일만 낭비한다(410번과 같은 비대칭).
+그래서 `scan_targets.py` 는 **제목 정규화가 정확히 맞을 때만** 거른다 — 접두·인용키 같은 느슨한 축은 안 쓴다.
+
+### 표적은 손으로 만들지 마라 — `scan_targets.py` 를 써라
+
+```
+python3 backend/scripts/catalog/scan_targets.py --min-keys 4 --out targets.json
+```
+기채굴(`mined_index` 5축)과 기폐기(대장)를 둘 다 걸러서 낸다.
+**모호(`ambiguous`) 표시가 붙은 것은 반드시 열어서 확인해라** — 제목이 같은 다른 논문이 섞여 있다는 뜻이다.
+
+## 417. 부제가 붙고 안 붙고로 제목 축이 통째로 비껴간다
+
+코퍼스 파일명은 `Brinson - 2008 - Polymer Engineering Science and Viscoelasticity` 인데
+DB 제목은 `Polymer Engineering Science and Viscoelasticity: **An Introduction**` 이다.
+정규화 45자 절단이 **부제 한복판에서 끊겨** 두 키가 안 겹친다.
+
+→ `look()` 에 **접두 일치**를 넣었다. 한쪽이 다른 쪽의 접두면 같은 논문으로 본다.
+짧은 제목의 오탐을 막으려고 **25자 이상**을 요구한다.
