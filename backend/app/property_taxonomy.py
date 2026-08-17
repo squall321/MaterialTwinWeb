@@ -156,6 +156,11 @@ _DEFS: list[tuple] = [
     # 아래 계수쌍이 있어야 "몇 사이클에 깨지는가"를 답한다.
     #
     # Basquin σa = σf'(2Nf)^b — 고주기(응력 지배). 반복 낙하·진동 수명.
+    # **정규화 피로강도계수 `σ'f/E`** — 논문 상당수가 이 꼴로 인쇄한다(32차 AF 가 넷 중 둘에서 확인).
+    # 무차원이라 Pa 키에 못 들어가고, **같은 논문이 E 를 인쇄해도 곱하면 역산**이다.
+    # 그래서 인쇄된 형태 그대로 받는 키를 둔다 — 해석기가 E 를 알 때 스스로 곱하면 된다.
+    ("mechanical.fatigue_strength_coefficient_normalized", "mechanical", "정규화 피로강도계수 σ'f/E",
+     "sigma_f_over_E", "1", "numeric", ["model", "model_form", "set_id", "temperature_k"], None),
     ("mechanical.fatigue_strength_coefficient", "mechanical", "피로강도계수 σf'", "sigma_f", "Pa", "numeric",
      ["model", "stress_ratio_R", "temperature_k"], "ASTM E466"),
     ("mechanical.fatigue_strength_exponent", "mechanical", "피로강도지수 b", "b", "1", "numeric",

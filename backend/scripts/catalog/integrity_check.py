@@ -74,10 +74,13 @@ CHECKS = [
     # conditions.pair_incomplete 에 사유를 적어 두고 검사에서 뺀다 — 사유 없는 반쪽만 잡는다.
     ("Basquin 계수·지수 쌍 불일치", """select count(*) from (
         select material_id from property_value
-        where property_key in ('mechanical.fatigue_strength_coefficient','mechanical.fatigue_strength_exponent')
+        where property_key in ('mechanical.fatigue_strength_coefficient',
+                               'mechanical.fatigue_strength_coefficient_normalized',
+                               'mechanical.fatigue_strength_exponent')
         and instr(coalesce(conditions,''),'pair_incomplete')=0
         group by material_id
-        having count(distinct property_key)=1)"""),
+        having sum(property_key='mechanical.fatigue_strength_exponent')=0
+            or sum(property_key<>'mechanical.fatigue_strength_exponent')=0)"""),
     ("Coffin-Manson 계수·지수 쌍 불일치", """select count(*) from (
         select material_id from property_value
         where property_key in ('mechanical.fatigue_ductility_coefficient','mechanical.fatigue_ductility_exponent')
