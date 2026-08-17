@@ -128,6 +128,21 @@ def _merge(idx: dict, axis: str, key: str, rec: dict) -> None:
     if old is None:
         idx[axis][key] = dict(rec)
         return
+    # **DOI 가 갈리면 다른 논문이다 — 합산하면 안 된다.**
+    # 실측: 제목 충돌 59묶음 중 18묶음이 서로 다른 DOI 였다. Iridium 착물 둘은
+    # RSC Advances 대 Dalton Transactions 이고, PTH 신뢰성 둘은 같은 호의 연속 논문이다
+    # (…90016-8 과 …90017-x). 뭉쳐서 행수를 더하면 **한 번도 안 판 논문이 채굴됨으로 보인다** —
+    # 첫 건만 보던 옛 오류(재발굴, 일 낭비)보다 **더 나쁜 방향이다. 논문을 잃는다.**
+    # 창을 넓혀도 안 없어진다(200자에서도 9묶음 남고 적중은 29% 잃는다) — 창이 아니라 DOI 문제다.
+    # → 합산은 하되 **모호 표시**를 달고, 조회에서 `confidence: low` 로 내보낸다.
+    #   대량 필터는 `low` 로 절대 제외하지 않으므로 그 논문은 표적에 남는다.
+    da, db_ = (old.get("doi") or "").strip(), (rec.get("doi") or "").strip()
+    seen = set(old.get("_dois") or ([da] if da else []))
+    if db_:
+        seen.add(db_)
+    old["_dois"] = sorted(seen)
+    if len(seen) > 1:
+        old["ambiguous"] = True
     old["rows"] = (old.get("rows") or 0) + (rec.get("rows") or 0)
     a, b = old.get("min_tier"), rec.get("min_tier")
     old["min_tier"] = min([x for x in (a, b) if x is not None], default=None)
@@ -148,7 +163,7 @@ def build(c: sqlite3.Connection) -> dict:
         "where source_id is not null group by 1")}
     for sid, doi, title, lp in c.execute("select id,doi,title,local_path from source"):
         n, tier = sagg.get(sid, (0, None))
-        rec = {"source_id": sid, "rows": n, "min_tier": tier, "title": title}
+        rec = {"source_id": sid, "rows": n, "min_tier": tier, "title": title, "doi": doi}
         if doi:
             _merge(idx, "doi", norm_doi(doi), rec)
         if lp:
@@ -173,17 +188,26 @@ def build(c: sqlite3.Connection) -> dict:
 
 
 def look(idx: dict, *, doi=None, path=None, title=None) -> dict | None:
+    def _out(r, how):
+        # **모호 묶음은 낮은 신뢰다** — 제목이 같은 다른 논문이 섞여 있다는 뜻이다.
+        # DOI 축으로 직접 맞은 것은 모호할 수 없다(DOI 가 곧 식별자다).
+        d = {**r, "matched_by": how}
+        if how != "doi" and r.get("ambiguous"):
+            d["confidence"] = "low"
+            d["ambiguous_dois"] = r.get("_dois")
+        return d
+
     if doi and (r := idx["doi"].get(norm_doi(doi))):
         return {**r, "matched_by": "doi"}
     if path:
         key = Path(str(path)).name.lower()
         if r := idx["path"].get(key):
-            return {**r, "matched_by": "path"}
+            return _out(r, "path")
         # md 파일 경로를 주면 부모 디렉터리가 논문 이름이다.
         if r := idx["path"].get(Path(str(path)).parent.name.lower()):
-            return {**r, "matched_by": "path(parent)"}
+            return _out(r, "path(parent)")
     if title and (r := idx["title"].get(norm_title(title))):
-        return {**r, "matched_by": "title"}
+        return _out(r, "title")
     # **인용키 조회** — `Tsai 2013` 뿐 아니라 **코퍼스 제목에서도 뽑는다.**
     # 35차 AK 가 찾았다 — `^Surname YYYY$` 만 받으면 `--json` 에 전체 제목을 넣었을 때
     # 인용키·재료명 축이 **통째로 죽는다**(같은 27편에 제목 0건 대 인용키 7건).
@@ -200,10 +224,12 @@ def look(idx: dict, *, doi=None, path=None, title=None) -> dict | None:
                 continue
             ov = len(q & _tok(str(r.get("title"))))
             # 제목 낱말이 둘 이상 겹치면 확정, 아니면 낮은 신뢰로 넘긴다.
-            return {**r, "matched_by": axis.replace("authoryear", "author+year")
-                    .replace("matname", "material-name"),
-                    "confidence": "high" if ov >= 2 else "low",
-                    "title_token_overlap": ov}
+            how = axis.replace("authoryear", "author+year").replace("matname", "material-name")
+            conf = "low" if (ov < 2 or r.get("ambiguous")) else "high"
+            out = {**r, "matched_by": how, "confidence": conf, "title_token_overlap": ov}
+            if r.get("ambiguous"):
+                out["ambiguous_dois"] = r.get("_dois")
+            return out
     return None
 
 
