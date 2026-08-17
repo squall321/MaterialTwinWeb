@@ -60,6 +60,19 @@ _TAB = re.compile(r"(?im)^\s*(?:\*\*)?tab(?:le|\.)\s*[0-9IVX]+[.:]?")
 _CIT = re.compile(r"\[\s*\d{1,3}\s*(?:[,\-–]\s*\d{1,3}\s*)*\]"
                   r"|\((?:[A-Z][a-zA-Z]+(?: et al\.?)?[ ,]+(?:19|20)\d{2})\)")
 _REFCOL = re.compile(r"(?i)\|\s*(?:ref\.?|references?|source)\s*\|")
+# ③ **FEA 입력표를 스스로 밝히는 문구** — 38차 AX 가 폐기한 셋이 거의 같은 말을 썼다:
+#    *"The material properties used in FEA modeling … are listed in Table I."* ·
+#    *"material properties in Table 2"* · *"The material properties used are shown in Table 1,
+#    and have been obtained from the literature [7-10]."*
+# 실측(폐기 20편 대 수확 10편): 재현율 40% · 오탐 20%. 캡션 지표와 **잡는 논문이 다르다.**
+_FEA = re.compile(
+    r"(?i)(?:material|mechanical|thermal)\s+propert\w+\s+(?:\w+\s+){0,6}?"
+    r"(?:used|utilis\w+|utiliz\w+|adopted|employed|taken|selected|sourced)"
+    r"|propert\w+\s+(?:\w+\s+){0,4}(?:are|is|were|was)\s+"
+    r"(?:listed|shown|summari[sz]ed|given|presented)\s+in\s+tab")
+# **기각한 후보** — "측정 소절(Experimental·Characterization 표제)이 있는가" 는 38차 AX 의 제안인데
+# 실측하니 **신호가 아니다**: 폐기 6/20(30%) 대 수확 5/10(50%) 로 오히려 방향이 반대다.
+# 해석입력 논문도 자기 실험(휨 측정 등)은 하기 때문이다. 넣지 않았다.
 
 
 def recite_risk(path: str) -> dict:
@@ -78,8 +91,13 @@ def recite_risk(path: str) -> dict:
             hit += 1
     ref = len(_REFCOL.findall(t))
     ratio = hit / len(ms) if ms else 0.0
+    cap = bool(ref) or (len(ms) >= 2 and ratio >= 0.34)
+    fea = bool(_FEA.search(t))
+    # **0~2 점수로 쓴다. 불리언 OR 은 오탐이 40% 라 수확 논문을 뒤로 민다.**
+    # 둘 다 걸린 것(2점)은 오탐 10% 로 정밀하고, 0점은 가장 깨끗하다.
     return {"tables": len(ms), "cited": hit, "ratio": round(ratio, 2), "ref_col": ref,
-            "flag": bool(ref) or (len(ms) >= 2 and ratio >= 0.34)}
+            "caption": cap, "fea_phrase": fea, "score": int(cap) + int(fea),
+            "flag": cap and fea}
 VERDICTS = Path("/data/paper_patent_corpus/_index/_verdicts/discarded.jsonl")
 
 
@@ -171,16 +189,17 @@ def main() -> int:
                     "prior": r, "ambiguous": bool(r and r.get("ambiguous")),
                     "recite": rk})
     # **재인용 위험이 낮은 것을 먼저 읽는다.** 제외는 절대 하지 않는다 — 목록에는 다 남는다.
-    out.sort(key=lambda u: (u["recite"]["flag"], u["recite"]["ratio"], -u["nk"], -(u["nr"] or 0)))
+    out.sort(key=lambda u: (u["recite"]["score"], u["recite"]["ratio"], -u["nk"], -(u["nr"] or 0)))
 
     print(f"[코퍼스] 합집합 {a.min_keys}키+ {len(rows)}편", file=sys.stderr)
     print(f"  기채굴 제외 {n_mined}편 · **기폐기 제외 {n_disc}편**(대장 {len(verd)}건)"
           f" → 표적 {len(out)}편", file=sys.stderr)
     if n_amb:
         print(f"  그중 {n_amb}편은 제목 충돌로 **모호** — 반드시 열어서 확인해라", file=sys.stderr)
-    nflag = sum(1 for u in out if u["recite"]["flag"])
-    print(f"  재인용 위험 ⚑ {nflag}편 — **제외가 아니라 뒤로 미룬 것이다.** "
-          f"캡션·`Ref.` 열을 먼저 확인해라(재현율 50% · 오탐 25%)", file=sys.stderr)
+    c2 = sum(1 for u in out if u["recite"]["score"] == 2)
+    c1 = sum(1 for u in out if u["recite"]["score"] == 1)
+    print(f"  재인용 위험 — 2점 {c2}편(오탐 10%) · 1점 {c1}편 · 0점 {len(out)-c1-c2}편. "
+          f"**제외가 아니라 읽는 순서다.** 0점부터 읽어라", file=sys.stderr)
 
     seen = {norm_full(t) for _, t, *_ in rows} | set(verd["__by_path__"])
     # `not_in_corpus` 는 웹 자료·규격 문서다 — 코퍼스에 없는 게 정상이라 경고하지 않는다.
@@ -199,7 +218,7 @@ def main() -> int:
     else:
         for u in out[:30]:
             rk = u["recite"]
-            mark = "⚑" if rk["flag"] else " "
+            mark = ("⚑" if rk["score"] == 2 else "·") if rk["score"] else " "
             print(f" {mark}{u['nk']}키 {u['nr']:>4}행 재인용{rk['ratio']:>5.0%}"
                   f"{('/Ref' + str(rk['ref_col'])) if rk['ref_col'] else '     '}"
                   f" | {os.path.basename(u['path'])[:64]}")
