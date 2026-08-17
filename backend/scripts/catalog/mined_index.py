@@ -78,6 +78,28 @@ def author_year_keys(title: str | None, authors: str | None, year) -> set[str]:
     return out
 
 
+def citation_keys(title: str | None) -> list[str]:
+    """조회어에서 `성+연도` 후보를 뽑는다 — **전체 제목도 받는다.**
+
+    코퍼스 파일명은 `Tsai - 2013 - Properties of ...` 꼴이고 DB 제목은
+    `Tsai, Lin, Chen 등 (2013), Properties of ...` 꼴이다. 둘 다에서 첫 성과 연도를 뽑는다.
+    """
+    t = (title or "").strip()
+    if not t:
+        return []
+    out: list[str] = []
+    yrs = re.findall(r"(?:19|20)\d{2}", t[:120])
+    if not yrs:
+        return []
+    # 첫 대문자 낱말이 성이다(`Tsai - 2013 - ...` · `Tsai, Lin (2013), ...` · `Tsai 2013`).
+    for w in re.findall(r"[A-Z][a-zA-Z\u00C0-\u024F'-]{1,}", t[:60])[:3]:
+        if w.lower() in ("the", "and", "for", "of", "on", "in", "a", "an"):
+            continue
+        base = unicodedata.normalize("NFKD", w).encode("ascii", "ignore").decode().lower()
+        out += [base + y for y in yrs[:2]]
+    return out
+
+
 def build(c: sqlite3.Connection) -> dict:
     """네 축의 색인을 만든다. 값은 (source_id, 행수, 최소등급)."""
     idx: dict[str, dict] = {"doi": {}, "path": {}, "title": {}, "authoryear": {}, "matname": {}}
@@ -121,17 +143,15 @@ def look(idx: dict, *, doi=None, path=None, title=None) -> dict | None:
             return {**r, "matched_by": "path(parent)"}
     if title and (r := idx["title"].get(norm_title(title))):
         return {**r, "matched_by": "title"}
-    # **인용키 조회** — `Tsai 2013` · `Kim 2002` 처럼 성+연도만 주는 경우.
-    if title:
-        m = re.match(r"^\s*([A-Za-z\u00C0-\u024F'-]+)[\s,]+(\d{4})\s*$", title.strip())
-        if m:
-            k = (unicodedata.normalize("NFKD", m.group(1)).encode("ascii", "ignore")
-                 .decode().lower() + m.group(2))
-            if r := idx["authoryear"].get(k):
-                return {**r, "matched_by": "author+year"}
-            # 출처가 안 걸려도 **재료명**이 걸리면 이미 채굴된 논문이다.
-            if r := idx["matname"].get(k):
-                return {**r, "matched_by": "material-name"}
+    # **인용키 조회** — `Tsai 2013` 뿐 아니라 **코퍼스 제목에서도 뽑는다.**
+    # 35차 AK 가 찾았다 — `^Surname YYYY$` 만 받으면 `--json` 에 전체 제목을 넣었을 때
+    # 인용키·재료명 축이 **통째로 죽는다**(같은 27편에 제목 0건 대 인용키 7건).
+    for k in citation_keys(title):
+        if r := idx["authoryear"].get(k):
+            return {**r, "matched_by": "author+year"}
+        # 출처가 안 걸려도 **재료명**이 걸리면 이미 채굴된 논문이다.
+        if r := idx["matname"].get(k):
+            return {**r, "matched_by": "material-name"}
     return None
 
 
