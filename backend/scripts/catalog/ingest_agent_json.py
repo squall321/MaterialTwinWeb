@@ -71,7 +71,11 @@ RANGE = {
     "electrical.shielding_effectiveness": (0.0, 150.0),
     "electrical.temperature_coefficient_resistance": (-1e-2, 1e-2),  # ppm/K 원값이면 걸린다
     "thermal.thermal_resistance": (1e-6, 1.0),
-    "thermal.decomposition_time_t260": (1.0, 1e5),      # s (분 단위면 걸린다)
+    # 옛 `thermal.decomposition_time_t260` 의 가드를 그대로 옮겼다(39차 BA의 키 통합).
+    "thermal.time_to_delamination": (1.0, 1e5),         # s (시간 단위면 걸린다)
+    # 구간 총 팽창률은 **비율**이다. 원문이 % 로 인쇄하므로 2.46 을 그대로 넣는 사고가 잦다 —
+    # 상한 1.0 이 그것을 잡는다(cure_shrinkage 와 같은 가드).
+    "thermal.expansion_total": (0.0, 1.0),
     "optical.abbe_number": (10.0, 120.0),
     "optical.birefringence": (-1.0, 1.0),   # 음의 1축 결정(사파이어 등)은 Δn<0
     "mechanical.surface_compressive_stress": (1e6, 5e9),  # Pa (MPa 원값이면 걸린다)

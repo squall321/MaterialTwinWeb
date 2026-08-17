@@ -605,8 +605,20 @@ _DEFS: list[tuple] = [
      "1/K", "numeric", ["temperature_range_C"], "MIL-STD-202 Method 304"),
     ("thermal.thermal_resistance", "thermal", "열저항", "Rth", "K*m^2/W", "numeric",
      ["pressure_kPa", "thickness_m"], "ASTM D5470"),
-    ("thermal.decomposition_time_t260", "thermal", "내열시간 T260", None, "s", "numeric",
-     None, "IPC-TM-650 2.4.24.1"),
+    # **T-260 전용이던 키를 온도축이 있는 하나로 합쳤다**(39차 BA).
+    # IPC-TM-650 2.4.24.1 의 시험 이름은 `Time to Delamination` 이고 **유지온도가 파라미터**다 —
+    # 적층판 시트는 T-260·T-288·T-300 을 같은 블록에 나란히 인쇄한다. 온도마다 키를 열면
+    # 같은 물리량이 셋으로 갈려 "이 적층판에 내열시간 자료가 있나"를 세 키의 합집합으로
+    # 물어야 하고, 다음 온도가 나올 때마다 키가 늘어난다(136번).
+    # 옛 `thermal.decomposition_time_t260` 21행은 `conditions.temperature_c=260` 을 붙여
+    # 이 키로 이관했고, 되돌릴 수 있도록 `conditions.migrated_from` 에 옛 키를 남겼다(162번).
+    #
+    # ⚠ `temperature_c` 없이는 값이 아니다 — 같은 적층판의 T-260 이 60분인데 T-288 은 5분이다.
+    # 나머지 축(specimen·conditioning·bound)은 **OR 로 읽어라**(287번) — 논문·시트가
+    # `T-288(min) 45` 한 줄만 인쇄하는 일이 흔하다. 시트가 `>60` 처럼 부등호로 인쇄하면
+    # `bound: "lower"` 를 붙여라(우측 절단값이다).
+    ("thermal.time_to_delamination", "thermal", "내열시간(층간박리 도달시간)", None, "s", "numeric",
+     ["temperature_c", "specimen", "conditioning", "bound"], "IPC-TM-650 2.4.24.1"),
     # ── 광학 보강 ──────────────────────────────────────────────────────────────
     ("optical.abbe_number", "optical", "아베수", "nu_d", "1", "numeric", None, None),
     ("optical.birefringence", "optical", "복굴절", "dn", "1", "numeric",
@@ -657,11 +669,34 @@ _DEFS: list[tuple] = [
     # 흡습 확산 모델 상수(전지수인자 D0 등). 확산계수 자체는 physical.diffusion_coefficient 다.
     ("physical.moisture_diffusion_constant", "physical", "흡습확산 모델 상수", None, "1", "numeric",
      ["term", "unit_of_term", "model", "temperature_range_k", "set_id"], None),
+    # 점도 모델 상수 다발 — Cross-WLF · Carreau-Yasuda · 멱법칙 등(39차 BA).
+    # **항마다 단위가 달라**(무차원 n · Pa 인 τ* · Pa·s 인 D1) si_unit 을 1 로 두고
+    # `term`·`unit_of_term` 에 정체를 적는다(darveaux_constant 선례). 세트가 깨지면 곡선이
+    # 안 서므로 `set_id` 로 묶는다. 사출성형·휨 갈래 논문이 이 표를 통째로 싣는데,
+    # 38차 AY 가 Lee 2010 TABLE II 를 담을 자리가 없어 논문을 미완주로 넘겼다.
+    #
+    # ⚠ **고정해 둔 상수는 값이 아니다**(228번). Moldflow Cross-WLF 카드의 `Ã2 = 51.6 K`
+    # (WLF 보편 C2) · `D2 = 263.15 K`(기준온도) · `D3 = 0 K/Pa`(압력의존 미피팅)은 피팅 결과가
+    # 아니라 붙박이다 — 값 행으로 넣지 말고 `conditions.held_fixed` 와 notes 에 남겨라.
+    # 실제로 피팅되는 것은 n · τ* · D1 셋이고, WLF 의 A1 은 **`mechanical.wlf_c1` 이 이미 있다** —
+    # 새 키를 만들지 말고 그쪽에 넣되 Moldflow 는 exp 형이라 `log_base: "e"` 로 적어라
+    # (log10 보편값 17.44 의 ln 환산은 2.303×17.44 = 40.16 이다).
+    ("rheological.viscosity_model_constant", "rheological", "점도 모델 상수", None, "1", "numeric",
+     ["term", "unit_of_term", "model", "temperature_range_k", "shear_rate_range_s",
+      "pressure_pa", "reference_temperature_k", "set_id"], None),
     # secant CTE 다항식 계수. **계수를 대입해 CTE 값을 만들지 마라** —
     # 293 K 부근에서 항끼리 154~306배 상쇄돼 대입값의 유효숫자가 인쇄 자릿수보다 훨씬 적다.
     ("thermal.expansion_polynomial_coefficient", "thermal", "CTE 다항식 계수", None, "1", "numeric",
      ["term", "unit_of_term", "model", "reference_temperature_k",
       "temperature_range_k", "set_id"], None),
+    # **구간 누적 팽창률은 CTE 가 아니다**(39차 BA). 적층판 시트와 IPC-4101 은 Z축 팽창을
+    # `50~260 °C (%)` 처럼 **구간 총 변형률**로 인쇄한다 — `thermal.expansion_linear`(1/K)와
+    # 단위도 물리량도 다르다. 구간 길이로 나눠 CTE 를 만들면 **Tg 를 가로지르는 구간에서
+    # 역산**이다(α1·α2 두 기울기와 전이온도가 하나로 뭉개진다).
+    # ⚠ `temperature_range_c` 없이는 값이 아니다 — 구간을 모르면 2.46% 는 숫자일 뿐이다.
+    # `axis` 는 이방성 재료(적층판·복합재)에만 요구한다. 나머지 축은 **OR 로 읽어라**(287번).
+    ("thermal.expansion_total", "thermal", "구간 총 열팽창률", None, "1", "numeric",
+     ["temperature_range_c", "axis", "conditioning", "specimen"], "IPC-TM-650 2.4.24"),
     ("mechanical.weibull_modulus", "mechanical", "와이블 계수 m", "m", "1", "numeric",
      ["strength_property", "test_geometry", "n_specimens", "stress_rate",
       "specimen_thickness_mm", "estimator", "surface_state"], "ASTM C1239"),
