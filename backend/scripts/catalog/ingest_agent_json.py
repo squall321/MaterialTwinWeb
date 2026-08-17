@@ -38,6 +38,12 @@ RANGE = {
     "mechanical.shear_strength": (1e3, 1e11),
     "mechanical.compressive_yield_strength": (1e3, 1e11),
     "mechanical.elongation_at_break": (0.0, 20.0),
+    # 단면감소율·항복연신율은 **무차원 비율**이다. 원문이 예외 없이 % 로 인쇄하므로
+    # 35 · 10.5 를 그대로 넣는 사고가 잦다 — 상한 1.0 이 그것을 잡는다.
+    # 단면감소율의 물리 상한도 1 이다(파단면 면적이 음수가 될 수는 없다).
+    # **하한은 0 이다** — 넥킹이 전혀 없는 취성재의 인쇄된 `0` 은 값이다(브리프 161번).
+    "mechanical.reduction_of_area": (0.0, 1.0),
+    "mechanical.elongation_at_yield": (0.0, 1.0),
     "thermal.conductivity": (0.0, 3000.0),
     "thermal.specific_heat": (10.0, 5000.0),
     "thermal.expansion_linear": (-1e-4, 5e-3),

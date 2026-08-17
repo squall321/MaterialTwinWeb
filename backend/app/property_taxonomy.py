@@ -18,11 +18,46 @@ _DEFS: list[tuple] = [
     ("mechanical.yield_strength", "mechanical", "항복강도", "Rp0.2", "Pa", "numeric", ["temperature_k"], "ISO 6892"),
     ("mechanical.tensile_strength", "mechanical", "인장강도(UTS)", "Rm", "Pa", "numeric", ["temperature_k"], "ISO 6892"),
     ("mechanical.elongation_at_break", "mechanical", "파단연신율", "A", "1", "numeric", ["temperature_k"], "ISO 6892"),
+    # **단면감소율은 파단연신율과 다른 양이다**(40차 BE). 표점거리 기준 신장률(A)은 균일변형과
+    # 넥킹을 표점 전체로 평균내는데, Z 는 **파단면 한 곳의 국부 변형**이라 넥킹 능력을 직접 잰다 —
+    # 그래서 같은 시편에서 A 22% 대 Z 35% 처럼 갈린다(Vandervoort 1979 Table 2, 21행 전부).
+    # ASTM A370·E8 · ISO 6892 인장 출력의 표준 4항(YS·UTS·A·Z) 중 하나라 **극저온·용접 문헌은
+    # 거의 항상 인쇄한다** — 키가 없어 39차 BD 가 한 편에서 23행을 통째로 버렸다.
+    # **`true_fracture_ductility`(D) 로 대신 넣지 마라** — D = ln[1/(1−Z)] 는 우리가 만드는 값이다(역산).
+    # 인쇄된 쪽만 넣는다(fracture_toughness ↔ fracture_energy_gic 와 같은 규율).
+    #
+    # ⚠ 단위는 **무차원 0~1**이다. 원문은 예외 없이 % 로 인쇄하므로 100 으로 나눠라
+    # (`elongation_at_break` 와 같은 규약). 35% → 0.35.
+    # ⚠ `temperature_k` 없이는 값이 아니다 — 같은 21-6-9 모재가 상온 75%, 4.2 K 30% 다.
+    # 나머지 축(test_standard·specimen·weld_process)은 **OR 로 읽어라**(287번) —
+    # 규격표·벤더시트가 `Reduction of area 45%` 한 줄만 인쇄하는 일이 흔하다.
+    ("mechanical.reduction_of_area", "mechanical", "단면감소율", "Z", "1", "numeric",
+     ["temperature_k", "test_standard", "specimen", "weld_process"], "ISO 6892"),
+    # **항복연신율은 파단연신율과 다른 양이다**(40차 BE). 벤더 물성표가 두 행을 나란히 인쇄하고
+    # (`Tensile elongation@ yield` / `Elongation at break`), 값이 한 자릿수 대 세 자릿수로 갈린다 —
+    # SABIC LADENE PP570P 는 항복 10.5% 인데 같은 등급의 파단연신율은 수백 %다.
+    # **응력 쪽은 이미 `yield_strength` 와 `tensile_strength` 로 갈려 있다** — 변형률 쪽만
+    # 한 키에 뭉쳐 있어서 항복점 자료가 들어올 자리가 없었다. 그 대칭을 맞춘 것이다.
+    # ⚠ 단위는 무차원 0~1(% 를 100 으로 나눈다). 축은 **OR 로 읽어라**(287번).
+    ("mechanical.elongation_at_yield", "mechanical", "항복연신율", "e_y", "1", "numeric",
+     ["temperature_k", "test_standard", "specimen"], "ASTM D638"),
     ("mechanical.poisson_ratio", "mechanical", "포아송비", "nu", "1", "numeric", ["temperature_k"], "ASTM E132"),
     ("mechanical.shear_modulus", "mechanical", "전단탄성계수", "G", "Pa", "numeric", ["temperature_k"], None),
     ("mechanical.bulk_modulus", "mechanical", "체적탄성계수", "K", "Pa", "numeric", ["temperature_k"], None),
     ("mechanical.hardness_vickers", "mechanical", "비커스 경도", "HV", "HV", "numeric", None, "ISO 6507"),
-    ("mechanical.hardness_rockwell_c", "mechanical", "로크웰 경도 C", "HRC", "HRC", "numeric", None, "ISO 6508"),
+    # **C 스케일 전용이던 키에 스케일 축을 세워 하나로 합쳤다**(40차 BE, BA 의 T-260 선례).
+    # 로크웰은 **한 시험의 스케일 파라미터**다 — 압자(다이아몬드 원뿔 · 1/2" 강구 …)와 하중
+    # (150 · 100 · 60 kgf)만 다르고 시험 자체는 같다(ASTM E18 금속 · ASTM D785 플라스틱).
+    # 스케일마다 키를 열면 C·B·R·M·L·E·F… 로 무한히 늘고, "이 재료에 로크웰 경도가 있나"를
+    # 키 합집합으로 물어야 한다(136번). 옛 `mechanical.hardness_rockwell_c` 17행은
+    # `conditions.scale="C"` 를 붙여 이 키로 이관했고 `conditions.migrated_from` 을 남겼다(162번).
+    #
+    # ⚠ `scale` 없이는 값이 아니다 — **스케일 사이 환산은 존재하지 않는다.**
+    # 102R(HRR)과 44 HRC 는 같은 축의 수가 아니다. 표가 `102R` 처럼 값에 스케일 글자를 붙여
+    # 인쇄하면 숫자만 값으로 넣고 글자는 `scale` 로 옮겨라.
+    # ⚠ si_unit 은 스케일 중립인 `HR` 이다(HRC/HRR/HRM 을 단위 문자열에 박으면 키가 다시 갈린다).
+    ("mechanical.hardness_rockwell", "mechanical", "로크웰 경도", "HR", "HR", "numeric",
+     ["scale", "test_standard", "temperature_k", "condition"], "ASTM E18"),
     ("mechanical.hardness_shore_a", "mechanical", "쇼어 A 경도", "ShoreA", "ShoreA", "numeric", None, "ASTM D2240"),
     # Shore A/D/OO 는 **상호 환산이 불가능하다**(규격이 압침 형상과 스프링 하중을 다르게 정의한다).
     ("mechanical.hardness_shore_d", "mechanical", "쇼어 D 경도", "ShoreD", "ShoreD", "numeric", None, "ASTM D2240"),
