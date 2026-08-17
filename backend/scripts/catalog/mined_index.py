@@ -80,7 +80,7 @@ def author_year_keys(title: str | None, authors: str | None, year) -> set[str]:
 
 def build(c: sqlite3.Connection) -> dict:
     """네 축의 색인을 만든다. 값은 (source_id, 행수, 최소등급)."""
-    idx: dict[str, dict] = {"doi": {}, "path": {}, "title": {}, "authoryear": {}}
+    idx: dict[str, dict] = {"doi": {}, "path": {}, "title": {}, "authoryear": {}, "matname": {}}
     for sid, doi, title, lp in c.execute("select id,doi,title,local_path from source"):
         n, tier = c.execute(
             "select count(*), min(quality_tier) from property_value where source_id=?", (sid,)
@@ -95,6 +95,17 @@ def build(c: sqlite3.Connection) -> dict:
             idx["title"].setdefault(norm_title(title), rec)
         for k in author_year_keys(title, None, None):
             idx["authoryear"].setdefault(k, rec)
+    # **재료명 축** — 배치들이 재료를 `... (Watanabe 2018)` 꼴로 짓는다(재료의 74%).
+    # 출처 제목이 달라도 재료명이 걸리면 그 논문은 이미 채굴된 것이다(34차 AI 제안).
+    for name, mid in c.execute("select name, id from material"):
+        for m in re.finditer(r"([A-Z][a-zA-Z\u00C0-\u024F'-]+)\s+((?:19|20)\d{2})", name or ""):
+            k = (unicodedata.normalize("NFKD", m.group(1)).encode("ascii", "ignore")
+                 .decode().lower() + m.group(2))
+            n, tier = c.execute(
+                "select count(*), min(quality_tier) from property_value where material_id=?", (mid,)
+            ).fetchone()
+            idx["matname"].setdefault(k, {"source_id": None, "material_id": mid,
+                                          "rows": n or 0, "min_tier": tier, "title": name})
     return idx
 
 
@@ -118,6 +129,9 @@ def look(idx: dict, *, doi=None, path=None, title=None) -> dict | None:
                  .decode().lower() + m.group(2))
             if r := idx["authoryear"].get(k):
                 return {**r, "matched_by": "author+year"}
+            # 출처가 안 걸려도 **재료명**이 걸리면 이미 채굴된 논문이다.
+            if r := idx["matname"].get(k):
+                return {**r, "matched_by": "material-name"}
     return None
 
 
@@ -133,7 +147,8 @@ def main() -> int:
     c = sqlite3.connect(DB)
     idx = build(c)
     print(f"[DB] {DB}\n     출처 {len(idx['doi'])} DOI · {len(idx['path'])} 경로 · "
-          f"{len(idx['title'])} 제목 · {len(idx['authoryear'])} 인용키", file=sys.stderr)
+          f"{len(idx['title'])} 제목 · {len(idx['authoryear'])} 인용키 · "
+          f"{len(idx['matname'])} 재료명", file=sys.stderr)
 
     if a.json:
         items = json.load(open(a.json))
