@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# 이미 채굴한 논문을 **DOI·경로·제목 세 축으로** 조회한다 — 선별기 앞단에 붙이는 도구.
+# 이미 채굴한 논문을 **DOI·경로·제목·인용키 네 축으로** 조회한다 — 선별기 앞단에 붙이는 도구.
 #
 # 왜 필요한가
 #   브리프 226번(선별기 앞단에 DB 조회를 붙여라)을 지켰는데도 31차 AC 의 DOI 처리에서
@@ -11,7 +11,8 @@
 #   ① DOI 를 최우선으로 본다(정규화: 소문자·공백제거·`https://doi.org/` 접두 제거).
 #   ② `local_path` 의 **디렉터리명**으로 본다 — 코퍼스 경로가 곧 논문 식별자다.
 #   ③ 제목은 **NFKD 분해 후 결합문자 제거**로 정규화한다(브리프 302번 — `Förster` 와 `Forster`).
-#   ④ **"출처가 있다 ≠ 채굴됐다"**(222번) — `property_value` 행 수와 최소 등급을 함께 낸다.
+#   ④ **인용키**(`Tsai 2013`)로도 찾는다 — 배치들이 완전 제목이 아니라 이 꼴로 조회한다(33차 AG).
+#   ⑤ **"출처가 있다 ≠ 채굴됐다"**(222번) — `property_value` 행 수와 최소 등급을 함께 낸다.
 from __future__ import annotations
 
 import argparse
@@ -51,9 +52,35 @@ def norm_title(s: str | None) -> str:
     return re.sub(r"[^a-z0-9]", "", s.lower())[:45]
 
 
+def author_year_keys(title: str | None, authors: str | None, year) -> set[str]:
+    """`Tsai 2013` 같은 **인용키**로도 찾게 한다.
+
+    배치들이 완전 제목이 아니라 인용키로 조회한다(33차 AG 가 Tsai 2013 을 이렇게 놓쳤다).
+    성(姓)과 연도만 있으면 되므로 제목 접두(`Tsai, Lin, Chen 등 (2013), ...`)와
+    `authors`/`year` 컬럼 양쪽에서 뽑는다.
+    """
+    out: set[str] = set()
+    yrs = {str(year)} if year else set()
+    m = re.match(r"^(.*?)\((\d{4})(?:/\d{4})?\),", title or "")
+    if m:
+        yrs.add(m.group(2))
+        head = m.group(1)
+    else:
+        head = authors or ""
+    if authors:
+        head = head + " " + authors
+    # 성만 뽑는다 — `Tsai, Lin, Chen 등` · `Tsai, Lin & Chen` 둘 다 받는다.
+    for w in re.findall(r"[A-Z][a-zA-Z\u00C0-\u024F'-]{1,}", head):
+        if w.lower() in ("et", "al", "and"):
+            continue
+        for y in yrs:
+            out.add(f"{unicodedata.normalize('NFKD', w).encode('ascii','ignore').decode().lower()}{y}")
+    return out
+
+
 def build(c: sqlite3.Connection) -> dict:
-    """세 축의 색인을 만든다. 값은 (source_id, 행수, 최소등급)."""
-    idx: dict[str, dict] = {"doi": {}, "path": {}, "title": {}}
+    """네 축의 색인을 만든다. 값은 (source_id, 행수, 최소등급)."""
+    idx: dict[str, dict] = {"doi": {}, "path": {}, "title": {}, "authoryear": {}}
     for sid, doi, title, lp in c.execute("select id,doi,title,local_path from source"):
         n, tier = c.execute(
             "select count(*), min(quality_tier) from property_value where source_id=?", (sid,)
@@ -66,6 +93,8 @@ def build(c: sqlite3.Connection) -> dict:
             idx["path"][Path(str(lp)).name.lower()] = rec
         if title:
             idx["title"].setdefault(norm_title(title), rec)
+        for k in author_year_keys(title, None, None):
+            idx["authoryear"].setdefault(k, rec)
     return idx
 
 
@@ -81,14 +110,22 @@ def look(idx: dict, *, doi=None, path=None, title=None) -> dict | None:
             return {**r, "matched_by": "path(parent)"}
     if title and (r := idx["title"].get(norm_title(title))):
         return {**r, "matched_by": "title"}
+    # **인용키 조회** — `Tsai 2013` · `Kim 2002` 처럼 성+연도만 주는 경우.
+    if title:
+        m = re.match(r"^\s*([A-Za-z\u00C0-\u024F'-]+)[\s,]+(\d{4})\s*$", title.strip())
+        if m:
+            k = (unicodedata.normalize("NFKD", m.group(1)).encode("ascii", "ignore")
+                 .decode().lower() + m.group(2))
+            if r := idx["authoryear"].get(k):
+                return {**r, "matched_by": "author+year"}
     return None
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description="이미 채굴한 논문인지 DOI·경로·제목으로 조회")
+    ap = argparse.ArgumentParser(description="이미 채굴한 논문인지 DOI·경로·제목·인용키로 조회")
     ap.add_argument("--doi")
     ap.add_argument("--path")
-    ap.add_argument("--title")
+    ap.add_argument("--title", help="완전 제목 또는 인용키(`Tsai 2013`)")
     # 배치가 후보 목록을 통째로 넘겨 거르는 용도.
     ap.add_argument("--json", help="[{doi?,path?,title?}, ...] 파일 — 미채굴만 남겨 stdout 으로")
     a = ap.parse_args()
@@ -96,7 +133,7 @@ def main() -> int:
     c = sqlite3.connect(DB)
     idx = build(c)
     print(f"[DB] {DB}\n     출처 {len(idx['doi'])} DOI · {len(idx['path'])} 경로 · "
-          f"{len(idx['title'])} 제목", file=sys.stderr)
+          f"{len(idx['title'])} 제목 · {len(idx['authoryear'])} 인용키", file=sys.stderr)
 
     if a.json:
         items = json.load(open(a.json))
