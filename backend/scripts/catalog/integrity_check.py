@@ -343,6 +343,19 @@ if _dup:
         _t = (c.execute("select title from source where id=?", (_sid,)).fetchone() or ["?"])[0]
         print(f"           출처 {_sid} · {str(_t)[:56]} · 재료 {[m for m, _ in _ms]}")
 
+
+# **Tg 위 CTE 가 물리적 상한을 넘는 값** — 고분자 고무상 CTE 는 대개 50~400 ppm/K 다.
+# 35차 AL 의 Chung 2007 A계열이 2953 ppm/K(alpha2/alpha1 = 40배)로 들어왔다.
+# 인쇄값이라 지우지 않되 **표식 없이 지나가면 안 된다**(TMA 프로브 침강 인공산물일 수 있다).
+_cte = c.execute("""select count(*) from property_value
+    where property_key='thermal.expansion_linear' and value_num > 1.0e-3
+      and instr(coalesce(conditions,''),'magnitude_suspect')=0""").fetchone()[0]
+if _cte:
+    print(f"\n  [주의] **Tg 위 CTE 가 1000 ppm/K 를 넘는데 표식이 없는 값: {_cte}건**")
+    print("         고분자 고무상 CTE 는 대개 50~400 ppm/K 다. TMA 팽창모드에서 연화된 시편이")
+    print("         프로브 하중에 눌리면 겉보기 CTE 가 크게 나온다 — **인쇄값이어도 해석 입력으로")
+    print("         바로 쓰면 안 된다.** conditions 에 `magnitude_suspect` 를 달아라.")
+
 q = lambda s: c.execute(s).fetchone()[0]
 print(f"\n재료 {q('select count(*) from material')} · 물성값 {q('select count(*) from property_value')}"
       f" · 출처 {q('select count(*) from source')}"

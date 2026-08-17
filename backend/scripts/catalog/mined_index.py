@@ -78,6 +78,11 @@ def author_year_keys(title: str | None, authors: str | None, year) -> set[str]:
     return out
 
 
+_STOP = {"with", "from", "using", "based", "study", "effect", "effects", "properties",
+         "property", "analysis", "novel", "high", "material", "materials", "their",
+         "characterization", "investigation", "influence", "behavior", "behaviour"}
+
+
 def citation_keys(title: str | None) -> list[str]:
     """조회어에서 `성+연도` 후보를 뽑는다 — **전체 제목도 받는다.**
 
@@ -146,12 +151,23 @@ def look(idx: dict, *, doi=None, path=None, title=None) -> dict | None:
     # **인용키 조회** — `Tsai 2013` 뿐 아니라 **코퍼스 제목에서도 뽑는다.**
     # 35차 AK 가 찾았다 — `^Surname YYYY$` 만 받으면 `--json` 에 전체 제목을 넣었을 때
     # 인용키·재료명 축이 **통째로 죽는다**(같은 27편에 제목 0건 대 인용키 7건).
+    # **인용키·재료명 축은 오탐한다** — 35차 AL 실측: 흔한 성(Wang·Liu·Zhang)에서
+    # 6건 중 3건이 **다른 논문**이었다. 오탐을 믿으면 **미채굴 논문을 버린다**.
+    # → 제목 낱말이 겹치는지 확인하고, 못 하면 `confidence: low` 로 내보낸다.
+    def _tok(x: str) -> set:
+        return {w for w in re.findall(r"[a-z]{4,}", (x or "").lower()) if w not in _STOP}
+    q = _tok(title)
     for k in citation_keys(title):
-        if r := idx["authoryear"].get(k):
-            return {**r, "matched_by": "author+year"}
-        # 출처가 안 걸려도 **재료명**이 걸리면 이미 채굴된 논문이다.
-        if r := idx["matname"].get(k):
-            return {**r, "matched_by": "material-name"}
+        for axis in ("authoryear", "matname"):
+            r = idx[axis].get(k)
+            if not r:
+                continue
+            ov = len(q & _tok(str(r.get("title"))))
+            # 제목 낱말이 둘 이상 겹치면 확정, 아니면 낮은 신뢰로 넘긴다.
+            return {**r, "matched_by": axis.replace("authoryear", "author+year")
+                    .replace("matname", "material-name"),
+                    "confidence": "high" if ov >= 2 else "low",
+                    "title_token_overlap": ov}
     return None
 
 
@@ -176,7 +192,9 @@ def main() -> int:
         for it in items:
             r = look(idx, doi=it.get("doi"), path=it.get("path"), title=it.get("title"))
             # **행이 한둘이고 전부 tier3 이면 클래스 전이만 하고 논문은 안 판 것이다**(222번).
-            mined = bool(r) and r["rows"] > 2 or (bool(r) and (r["min_tier"] or 9) <= 2)
+            # **낮은 신뢰 일치로는 빼지 않는다** — 오탐으로 미채굴 논문을 버리는 쪽이 더 나쁘다.
+            solid = bool(r) and r.get("confidence") != "low"
+            mined = solid and (r["rows"] > 2 or (r["min_tier"] or 9) <= 2)
             if mined:
                 hit += 1
                 continue

@@ -478,6 +478,13 @@ _DEFS: list[tuple] = [
      ["quencher", "temperature_k", "matrix"], None),
     ("optical.bimolecular_quenching_rate", "optical", "이분자 소광 속도상수", "k_q", "m^3/(mol*s)", "numeric",
      ["quencher", "temperature_k", "matrix"], None),
+    # 단일항·삼중항 에너지 — **`E_g > E_T` 검산이 이 둘 없이는 성립하지 않는다**(30차 AA 가
+    # 그 검산으로 카탈로그에 이미 있던 재료 둘을 걸러냈다). 35차 AL 실측 공급량 —
+    # 적중 217편 → 표 7편/56값 + **산문 44편/85값**. 매질(matrix)이 값을 바꾼다.
+    ("optical.singlet_energy_s1", "optical", "단일항 에너지 S1", "E_S1", "eV", "numeric",
+     ["method_detail", "matrix", "temperature_k"], None),
+    ("optical.triplet_energy_t1", "optical", "삼중항 에너지 T1", "E_T1", "eV", "numeric",
+     ["method_detail", "matrix", "temperature_k"], None),
     ("optical.photoluminescence_quantum_yield", "optical", "광발광 양자수율", "PLQY", "1", "numeric",
      ["matrix", "atmosphere", "wavelength_nm"], None),
     # 소광 에너지가 3O2 -> 1O2 로 넘어가면 가역 소광이 비가역 광산화로 전이한다.
