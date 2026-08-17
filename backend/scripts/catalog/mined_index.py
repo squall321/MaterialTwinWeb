@@ -41,11 +41,18 @@ def norm_title(s: str | None) -> str:
 
     비영숫자를 그냥 지우면 `Förster` 가 `frster` 가 돼 `Forster` 와 안 맞는다(302번).
     저자 접두(`Kim, Lee (2020), `)와 저널명 접미(`, Journal of ...`)도 벗긴다.
+
+    **코퍼스 폴더명 접두(`Liu - 2007 - `)도 벗긴다.** 브리프·PREAMBLE 이 배치에게
+    `--title "Tsai - 2013 - Properties of ..."` 꼴로 조회하라고 지시하는데,
+    이 접두가 붙으면 마지막 45자 절단 창이 통째로 밀려 **같은 논문이 안 걸렸다.**
+    36차 AR 실측 — 출처 300편을 무작위로 뽑아 대조하니 맨제목은 300/300,
+    폴더명 꼴은 **19/300(6.3%)** 이었다. Liu 2007 이 그렇게 `null` 로 나왔다.
     """
     s = s or ""
     m = re.match(r"^.*?\(\d{4}(?:/\d{4})?\),\s*(.+)$", s)
     if m:
         s = m.group(1)
+    s = re.sub(r"^\s*\S[^-–]{0,38}?\s[-–]\s(?:19|20)\d{2}\s[-–]\s", "", s)
     s = re.sub(r",\s*[A-Z][A-Za-z .&]+$", "", s)
     s = unicodedata.normalize("NFKD", s)
     s = "".join(ch for ch in s if not unicodedata.combining(ch))
