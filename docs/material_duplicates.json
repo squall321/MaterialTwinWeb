@@ -7,7 +7,7 @@
   "병합할 때는 **양쪽 고유 칸을 다 살려야 하고**, 겹치는 칸의 등급이 갈리면 원문으로 갈라야 한다."
  ],
  "확인된 사례": {
-  "1367/1645": "Style 109 직조 E-glass/에폭시노볼락. 같은 논문(Daniel 1990)·같은 출처(3696)에서 나왔다. 1367 고유: 인장강도 2 · 연신 2 · 부 포아송비. 1645 고유: 110 C 이상 CTE 2행. 겹치는 8칸의 등급이 t2 대 t1 로 갈린다 — **원문을 봐야 갈린다.** 38차 AX 가 발견했다."
+  "1367/1645": "**[39차 BC 종결] 같은 재료였다 — 1645 를 1367 로 병합하고 1645 를 삭제했다.** 근거 셋. ① **논문에 표가 하나뿐이다** — `tables.json` 1건(22행x2열, p.3, 'Table 1 Properties of Woven-Glass/Epoxy System')이고 두 재료의 notes 가 인용한 verbatim 셀이 글자까지 같다. ② **논문이 만든 재료도 하나뿐이다** — 본문 verbatim: \"Twelve-ply 'unidirectional' laminates (with all plies arranged in the same direction) were prepared for material characterization. Physical and mechanical properties determined from basic characterization tests are listed in Table 1.\" ③ **1645 이름의 'lamina'(단층) 는 원문에 없다** — 초록이 그 물성을 'the unidirectional layer' 의 것이라 부르는 것은 전 층이 같은 방향이라 12겹 적층체의 면내 물성이 곧 단층 물성이기 때문이고, 저자도 그것을 lamination theory 의 ply 입력으로 쓴다. 별개 재료가 아니다. **등급은 400 dpi 렌더로 갈랐다 — 겹친 9칸 중 7칸이 t1, CTE 2칸만 t2 다.** t1 근거: 브리프 정본 tier 규약의 t1 은 '그 재료를 시험한 논문에 인쇄된 값'이고 라벨이 렌더에서 또렷하다 (앞 배치가 표 전체에 t2 를 준 것은 규약 오적용, 다른 배치가 shrinkage 에 t3 를 준 것은 md 손상만 보고 '행 이름이 비어 있다'고 판단한 것인데 원문은 ε₁ᶜ·ε₂ᶜ 를 인쇄한다). t2 근거: **원문이 CTE 네 행의 아래첨자를 전부 α₁ 로 오식해** 방향 배정이 우리 추론이다. **양쪽 고유 칸은 다 살렸다** — 1645 고유였던 110 °C 이상 CTE 2행을 1367 로 이관했고, 1367 고유 5행(인장강도 2·연신 2·ν21)은 그대로다. 덤으로 두 배치가 다 놓친 F12 = 46.5 MPa 를 `mechanical.shear_strength` 로 새로 넣었다 (1367 의 attributes 가 '이관 불가'라고 적었던 것은 오판 — 키가 실재한다). 최종 1367 은 17행이다."
  },
  "후보": [
   {
@@ -79,16 +79,6 @@
    "b_name": "Soda-lime-silica float glass G9 (73.2SiO2-12.7CaO-11.5Na2O-2.6MgO mol%, Sellappan 2013)",
    "a_rows": 107,
    "b_rows": 9
-  },
-  {
-   "shared": 9,
-   "ratio": 0.82,
-   "a": 1367,
-   "b": 1645,
-   "a_name": "Style 109 woven E-glass / epoxy-novolac laminate, 12-ply unidirectional lay-up, 74% resin content (Daniel 1990)",
-   "b_name": "Style 109 woven E-glass/epoxy-novolac unidirectional lamina, resin content 74% (Daniel 1990)",
-   "a_rows": 14,
-   "b_rows": 11
   },
   {
    "shared": 9,
