@@ -425,10 +425,18 @@ _DEFS: list[tuple] = [
     # **permeance 는 압력으로 정규화하되 두께는 안 한 것**이다. 셋을 서로 환산하면 역산이다.
     ("physical.gas_permeance_o2", "physical", "산소 투과계수(permeance)", None, "mol/(m^2*s*Pa)",
      "numeric", ["temperature_k", "humidity_rh", "thickness_um"], None),
-    # 질량 기준 두께정규화 투과율 — `g·mm/(m²·day)` 계열. 부피 기준(cc·mm)과 **분자량 없이는
-    # 환산이 안 된다** — 우리가 곱하면 역산이다.
+    # 질량 기준 두께정규화 투과율 — `g·mm/(m²·day)` · `g·mil/(100in²·24h)` 계열.
+    # **압력항이 없다**(32차 AE 가 세 논문의 인쇄 단위로 확정했고 Yuwawech 는 정의식
+    # `WVTR = W·T/(t·A)` 를 직접 인쇄한다). **Pa 로 나누려면 시험온도의 물 포화증기압이 필요한데
+    # 그건 정의상수가 아니라 수증기표에서 빌려오는 값이라 328번 위반이다.**
+    # 부피 기준(cc·mm)과는 분자량 없이 환산이 안 된다.
     ("physical.water_vapor_permeability_mass", "physical", "수증기 투과율(질량기준)", None,
-     "kg/(m*s*Pa)", "numeric", ["temperature_k", "humidity_rh"], None),
+     "kg/(m*s)", "numeric", ["temperature_k", "humidity_rh"], None),
+    # **부피 기준 permeance** — `cc/(m²·day·atm)`. 압력은 정규화됐고 두께는 안 됐다.
+    # **`(STP)` 가 인쇄돼 있지 않으면 몰로 못 바꾼다**(32차 AE 가 이 기준으로 Rao 는 되고
+    # Lazar 는 안 되는 것을 갈랐다) — 그래서 부피 단위를 그대로 쓰는 키가 따로 필요하다.
+    ("physical.gas_permeance_o2_volumetric", "physical", "산소 투과계수(부피기준)", None,
+     "m^3/(m^2*s*Pa)", "numeric", ["temperature_k", "humidity_rh", "thickness_um"], None),
     ("physical.gas_permeability_o2", "physical", "산소투과도", None, "mol/(m*s*Pa)", "numeric", ["temperature_k"], "ASTM D3985"),
     ("physical.gas_permeability_co2", "physical", "이산화탄소투과도", None, "mol/(m*s*Pa)", "numeric", ["temperature_k"], None),
     ("physical.gas_permeability_h2o", "physical", "수분투과도", None, "mol/(m*s*Pa)", "numeric", ["temperature_k"], None),
