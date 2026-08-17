@@ -43,6 +43,7 @@ export function tierBadge(t: number, conditions?: Record<string, unknown> | null
 export const METHOD_LABEL: Record<string, string> = {
   measured: "측정", handbook: "핸드북", datasheet: "데이터시트",
   computed: "계산", estimated: "추정",
+  digitized: "그림 판독",
 };
 
 // 값을 사람이 읽기 좋은 형태로(공학 표기: 큰/작은 값은 지수, 중간값은 유효 4자리).

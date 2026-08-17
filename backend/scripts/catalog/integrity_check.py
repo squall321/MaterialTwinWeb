@@ -23,7 +23,9 @@ CHECKS = [
         and replace(replace(replace(coalesce(pv.unit,''),'(',''),')',''),' ','')
          <> replace(replace(replace(pd.si_unit,'(',''),')',''),' ','')"""),
     ("tier 범위 밖", "select count(*) from property_value where quality_tier not between 1 and 5"),
-    ("method 어휘 밖", "select count(*) from property_value where method not in ('measured','handbook','computed','estimated')"),
+    # `digitized` = 그림에서 읽은 값(40차 BF). `datasheet` 는 로더가 measured 로 정규화하므로 여기 없다.
+    ("method 어휘 밖", "select count(*) from property_value where method not in "
+                    "('measured','handbook','computed','estimated','digitized')"),
     ("출처 kind 어휘 밖", """select count(*) from source where kind not in
         ('journal','book','database','datasheet','computed','standard','web','other')"""),
     ("category 어휘 밖", """select count(*) from material where category not in

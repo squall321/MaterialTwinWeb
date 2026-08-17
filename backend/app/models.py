@@ -294,7 +294,10 @@ class PropertyValue(Base):
     __tablename__ = "property_value"
     __table_args__ = (
         CheckConstraint(
-            "method IN ('measured','handbook','datasheet','computed','estimated')",
+            # `digitized` = **그림에서 읽은 값**. 인쇄된 숫자가 아니므로 measured 와 갈라야 한다
+            # (40차 BF 가 Uddeholm 고온인장 곡선 95행을 넣으면서 드러났다 — 조건에는 남겼는데
+            #  method 가 measured 라 인쇄 실측과 구별이 안 됐다).
+            "method IN ('measured','handbook','datasheet','computed','estimated','digitized')",
             name="ck_propval_method",
         ),
         CheckConstraint("quality_tier BETWEEN 1 AND 5", name="ck_propval_tier"),

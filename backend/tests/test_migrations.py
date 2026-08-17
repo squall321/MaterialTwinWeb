@@ -32,6 +32,17 @@ def db_url(tmp_path, monkeypatch):
     config_mod.get_settings.cache_clear()
 
 
+def _head_rev(db_url) -> str:
+    """현재 head 리비전을 스크립트 디렉터리에서 읽는다.
+
+    예전엔 리터럴(`9d623ccf6364`)로 박아 뒀는데 **마이그레이션을 추가할 때마다 세 곳이 깨졌다.**
+    이 테스트가 확인하려는 것은 "부팅이 head 까지 올리는가" 이지 head 가 무엇인가가 아니다.
+    """
+    from alembic.script import ScriptDirectory
+
+    return ScriptDirectory.from_config(_alembic_cfg(db_url)).get_current_head()
+
+
 def test_upgrade_creates_all_tables(db_url):
     import sqlite3
 
@@ -116,7 +127,7 @@ def test_boot_migrates_old_versioned_db(db_url, tmp_path):
     ver = con.execute("SELECT version_num FROM alembic_version").fetchone()[0]
     assert "relaxation" in test_sql and "AUTOINCREMENT" in test_sql
     assert "uq_specimen_material_label" in spec_sql
-    assert ver == "9d623ccf6364"  # head.
+    assert ver == _head_rev(db_url)  # head.
 
 
 def test_boot_fresh_db_is_versioned_at_head(db_url, tmp_path):
@@ -127,7 +138,7 @@ def test_boot_fresh_db_is_versioned_at_head(db_url, tmp_path):
     con = sqlite3.connect(db_url.replace("sqlite:///", ""))
     ver = con.execute("SELECT version_num FROM alembic_version").fetchone()[0]
     sql = con.execute("SELECT sql FROM sqlite_master WHERE name='test'").fetchone()[0]
-    assert ver == "9d623ccf6364" and "relaxation" in sql
+    assert ver == _head_rev(db_url) and "relaxation" in sql
 
 
 def test_no_model_migration_drift(db_url):
@@ -169,7 +180,7 @@ def test_mcp_stdio_entrypoint_migrates_schema(db_url, tmp_path, monkeypatch):
 
     assert ran, "mcp.run이 호출되지 않았다"
     ver = sqlite3.connect(path).execute("SELECT version_num FROM alembic_version").fetchone()[0]
-    assert ver == "9d623ccf6364", f"부팅이 스키마를 head로 올리지 않았다: {ver}"
+    assert ver == _head_rev(db_url), f"부팅이 스키마를 head로 올리지 않았다: {ver}"
 
 
 def test_database_url_follows_data_dir(tmp_path, monkeypatch):

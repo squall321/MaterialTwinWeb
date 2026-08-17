@@ -366,7 +366,10 @@ def register_property(material_id: int, property_key: str, value: float | None =
 
     property_key는 list_property_definitions의 key. 근거 없는 값은 저장하지 않으므로
     source_doi/source_url/source_title 중 하나는 필수. method: measured/handbook/datasheet/
-    computed/estimated. quality_tier 1(측정)~5(추정). 온도·습도 등은 conditions에.
+    computed/estimated/**digitized**. quality_tier 1(측정)~5(추정).
+    digitized: **그림에서 읽은 값**이다. 인쇄된 숫자가 아니므로 measured 로 넣으면 안 된다
+    (40차 BF 가 Uddeholm 고온인장 곡선 95행을 넣으면서 드러났다 — 조건에는 남겼는데
+    method 가 measured 로 정규화돼 인쇄 실측과 구별이 안 됐다). 온도·습도 등은 conditions에.
     source_manufacturer: 데이터시트면 업체명(예: "Mitsui Chemicals"·"3M") — 프로비넌스에
     업체를 1급으로 남겨 "어느 업체 값인지" 추론 가능하게 한다.
     source_authors/source_year: 저자·연도. **꼭 채워라** — 기채굴 조회(mined_index)가
@@ -382,7 +385,8 @@ def register_property(material_id: int, property_key: str, value: float | None =
         return {"error": "value 또는 value_text 중 하나는 필요합니다."}
     if not (source_doi or source_url or source_title):
         return {"error": "출처(source_doi·source_url·source_title 중 하나)가 필요합니다(근거 필수)."}
-    if method not in ("measured", "handbook", "datasheet", "computed", "estimated"):
+    if method not in ("measured", "handbook", "datasheet", "computed", "estimated",
+                      "digitized"):
         return {"error": "method는 measured/handbook/datasheet/computed/estimated 중 하나."}
     if not (1 <= quality_tier <= 5):
         return {"error": "quality_tier는 1~5."}

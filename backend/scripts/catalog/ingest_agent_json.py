@@ -157,7 +157,11 @@ METHOD_MAP = {"datasheet": "measured", "experiment": "measured", "experimental":
               # 피팅·가정은 측정이 아니다. 'assumed'가 measured로 들어가면 논문이 "측정하지 않았다"고
               # 밝힌 값이 실측으로 둔갑한다(SAC305 Johnson-Cook m=1.0이 실제로 그렇게 들어왔다).
               "fitted": "computed", "fit": "computed", "inverse": "computed",
-              "assumed": "estimated", "assumption": "estimated"}
+              "assumed": "estimated", "assumption": "estimated",
+              # **그림에서 읽은 값은 실측이 아니다.** 조건에 남겨도 method 가 measured 면
+              # 인쇄 실측과 구별이 안 된다(40차 BF).
+              "digitized": "digitized", "digitised": "digitized", "graph": "digitized",
+              "curve": "digitized", "readoff": "digitized"}
 
 
 def norm_method(raw) -> tuple[str, str | None]:
