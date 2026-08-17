@@ -610,8 +610,10 @@ _DEFS: list[tuple] = [
     # 적층판 시트는 T-260·T-288·T-300 을 같은 블록에 나란히 인쇄한다. 온도마다 키를 열면
     # 같은 물리량이 셋으로 갈려 "이 적층판에 내열시간 자료가 있나"를 세 키의 합집합으로
     # 물어야 하고, 다음 온도가 나올 때마다 키가 늘어난다(136번).
-    # 옛 `thermal.decomposition_time_t260` 21행은 `conditions.temperature_c=260` 을 붙여
-    # 이 키로 이관했고, 되돌릴 수 있도록 `conditions.migrated_from` 에 옛 키를 남겼다(162번).
+    # 옛 `thermal.decomposition_time_t260` 25행을 이 키로 이관했다(39차 BA) —
+    # 유지온도가 없던 15행에 `conditions.temperature_c=260` 을 붙이고, 이미 있던 10행
+    # (Ehrler 2004)은 그대로 두었다. 되돌릴 수 있도록 25행 전부에 `conditions.migrated_from`
+    # 으로 옛 키를 남겼다(162번). 옛 정의 행은 지웠다 — 남기면 다음 파동이 다시 그 키로 넣는다.
     #
     # ⚠ `temperature_c` 없이는 값이 아니다 — 같은 적층판의 T-260 이 60분인데 T-288 은 5분이다.
     # 나머지 축(specimen·conditioning·bound)은 **OR 로 읽어라**(287번) — 논문·시트가
