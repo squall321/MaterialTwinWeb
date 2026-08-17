@@ -75,6 +75,36 @@ _FEA = re.compile(
 # 해석입력 논문도 자기 실험(휨 측정 등)은 하기 때문이다. 넣지 않았다.
 
 
+# ④ **물리 상한 위반** — 등방재의 포아송비는 0.5 를 못 넘는다(체적탄성률이 발산한다).
+# 38차 AZ 가 Wang 2017 에서 ν = 0.50·0.53 을 잡아 표 전체를 30초에 죽였다.
+# 실측: 폐기 24편 중 **1편**만 걸린다(재현율 4%). 그런데 **수확 11편에서 0건 — 오탐이 없다.**
+# 통계 지표가 아니라 **확정 신호**라 정렬에 쓰지 않고 별도 경고로 낸다.
+# 걸리면 그 표는 물리적으로 틀린 것이고, 10번대로 **표 전체**를 의심해야 한다.
+# **표 행만 본다.** 처음엔 산문까지 훑었더니 실제 코퍼스에서 오탐이 4건 났다 —
+# `\bnu\b` 가 낱말 안에 걸리고, 긴 산문 줄의 아무 소수나 집었다.
+# (수확 11편에서 오탐 0 이었지만 그건 표본이 작아서였다. 실제 163편에 걸어 보고 알았다.)
+# 그래서 **파이프표 행 + 라벨 셀에 poisson 이 있는 것**만 본다.
+_NU_ROW = re.compile(r"(?im)^\|[^|\n]*poisson[^|\n]*\|(.+)$")
+_NUM = re.compile(r"(?<![\d.])(0?\.\d+|\d\.\d+)(?![\d])")
+
+
+def physics_violation(text: str) -> list[float]:
+    """등방 포아송비가 0.5 를 넘는 칸을 찾는다. 걸리면 그 표는 못 쓴다.
+
+    **이방성 적층판은 nu12 가 0.5 를 넘을 수 있다** — 그러니 걸린 것도 사람이 확인해야 한다.
+    라벨에 방향 표기(nu12·in-plane·warp 등)가 있으면 위반이 아니다.
+    """
+    bad = set()
+    for m in _NU_ROW.finditer(text):
+        lab = m.group(0).split("|")[1].lower()
+        if re.search(r"(?:12|21|13|23|xy|in.?plane|warp|fill|major|minor)", lab):
+            continue          # 이방성 방향 성분은 0.5 를 넘을 수 있다
+        for v in _NUM.findall(m.group(1)):
+            if 0.5 < float(v) <= 0.99:
+                bad.add(float(v))
+    return sorted(bad)
+
+
 def recite_risk(path: str) -> dict:
     """표가 남의 것인지 예측한다. 판정이 아니라 **읽는 순서와 경고**용이다."""
     try:
@@ -97,7 +127,7 @@ def recite_risk(path: str) -> dict:
     # 둘 다 걸린 것(2점)은 오탐 10% 로 정밀하고, 0점은 가장 깨끗하다.
     return {"tables": len(ms), "cited": hit, "ratio": round(ratio, 2), "ref_col": ref,
             "caption": cap, "fea_phrase": fea, "score": int(cap) + int(fea),
-            "flag": cap and fea}
+            "flag": cap and fea, "physics": physics_violation(t)}
 VERDICTS = Path("/data/paper_patent_corpus/_index/_verdicts/discarded.jsonl")
 
 
@@ -196,6 +226,13 @@ def main() -> int:
           f" → 표적 {len(out)}편", file=sys.stderr)
     if n_amb:
         print(f"  그중 {n_amb}편은 제목 충돌로 **모호** — 반드시 열어서 확인해라", file=sys.stderr)
+    phys = [u for u in out if u["recite"]["physics"]]
+    if phys:
+        print(f"  ✗ **물리 상한 위반 {len(phys)}편** — 등방 포아송비가 0.5 를 넘는다. "
+              f"오탐이 없는 확정 신호다(10번: 표 전체를 의심해라):", file=sys.stderr)
+        for u in phys[:5]:
+            print(f"      nu={u['recite']['physics']} | {os.path.basename(u['path'])[:62]}",
+                  file=sys.stderr)
     c2 = sum(1 for u in out if u["recite"]["score"] == 2)
     c1 = sum(1 for u in out if u["recite"]["score"] == 1)
     print(f"  재인용 위험 — 2점 {c2}편(오탐 10%) · 1점 {c1}편 · 0점 {len(out)-c1-c2}편. "
