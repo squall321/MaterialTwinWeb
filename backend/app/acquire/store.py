@@ -56,6 +56,19 @@ def upsert_source(
             )
         ).scalars().first()
     if found is not None:
+        # **찾은 출처의 빈 칸은 채운다**(37차 AS). 브리프 407번이 배치에게
+        # `authors`·`year`·`local_path` 를 의무로 지웠는데, 그 셋은 **출처가 새로 만들어질 때만**
+        # 저장되고 있었다 — 같은 URL 의 출처가 이미 있으면 인자가 통째로 버려진다.
+        # 앞 파동이 URL 만 넣고 만든 출처는 다음 파동이 경로를 넘겨도 영영 NULL 로 남는다
+        # (지금 local_path 가 2,671/2,675 NULL 인 이유의 일부다).
+        # **비어 있는 칸만 채우고 이미 값이 있는 칸은 절대 덮지 않는다** — 덮으면 앞 파동의
+        # 확인된 서지가 뒤 파동의 오타로 바뀐다.
+        for _f, _v in (("title", title), ("authors", authors), ("year", year),
+                       ("publisher", publisher), ("license", license),
+                       ("local_path", local_path), ("content_hash", content_hash),
+                       ("doi", doi), ("url", url), ("isbn", isbn)):
+            if _v and getattr(found, _f, None) is None:
+                setattr(found, _f, _v)
         return found
 
     src = Source(

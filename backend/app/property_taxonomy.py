@@ -39,8 +39,44 @@ _DEFS: list[tuple] = [
     # 순수 전단이 아니고 스팬/두께 비에 따라 값이 달라져 `span_to_depth` 없이는 비교하면 안 된다.
     ("mechanical.interlaminar_shear_strength", "mechanical", "층간전단강도(ILSS)", "ILSS", "Pa", "numeric",
      ["span_to_depth", "temperature_k"], "ASTM D2344"),
-    ("mechanical.fatigue_strength", "mechanical", "피로한도", "sigma_f", "Pa", "numeric", ["cycles"], None),
+    # **벌크 전단강도 — 금속과 적층판을 한 키에 담는다**(37차 AS).
+    # 36차 AO 가 NADCA A-3-14(아연 7합금)와 GPO-3 벤더시트 3등급에서 전단강도를 눈으로 보고도
+    # 담을 키가 없어 못 넣었다. `shear_modulus`(탄성계수 G)·`interface.lap_shear_strength`(접착
+    # 조인트)·`interlaminar_shear_strength`(ASTM D2344 단보)는 전부 다른 물리량이다.
+    #
+    # **금속과 적층판을 가르지 않는 근거** — 전단파괴 응력이라는 같은 물리량이고 단위도 같다.
+    # ILSS 를 따로 둔 이유는 "층 사이 면에서 깨지고 스팬/두께비라는 기하 인자가 값을 바꾸는"
+    # 겉보기량이기 때문이지 재료가 복합재라서가 아니다. ASTM D732(펀치전단)는 원판 펀치가
+    # 시트를 뚫어 **두께를 가로지르는 원통면**에서 깨진다 — 층 사이가 아니라 층을 끊는 면이라
+    # ILSS 와 파괴면이 다르고, 금속의 전단강도와 같은 종류의 횡전단이다.
+    # 키를 가르면 같은 양이 두 키로 흩어져 Ashby·카드 내보내기에서 비교가 끊긴다(136번).
+    #
+    # ⚠ 조건축은 **OR 로 읽어라**(287번의 교훈). 시험규격과 전단면을 AND 로 요구하면
+    # NADCA·Eastern Alloys 처럼 `Shear Strength` 한 줄만 인쇄하는 규격표가 통째로 못 들어온다.
+    # `test_standard` 또는 `shear_plane` 중 하나는 있어야 하고, 둘 다 없으면 notes 에
+    # 원문 머리글을 verbatim 으로 남겨라.
+    ("mechanical.shear_strength", "mechanical", "전단강도", "tau_u", "Pa", "numeric",
+     ["test_standard", "shear_plane", "specimen_thickness_m", "temperature_k"], None),
+    # ⚠ 회전굽힘 내구한도는 **이 키가 맞다** — 새 키를 만들지 마라(37차 AS 가 확인).
+    # 36차 AO 가 "S-N 곡선 상수가 아니라 단일 내구한도라 안 맞는다"고 보류했는데,
+    # 이 키의 정의가 바로 "N 사이클에서의 단일 피로한도"다. Basquin·Coffin-Manson 계수쌍은
+    # 아래 `fatigue_strength_coefficient` 계열이 따로 받는다.
+    # **`cycles` 만으로는 부족하다** — 회전굽힘(R = −1)과 축하중 반복(R = 0.1)은 같은 합금에서
+    # 2배 가까이 갈린다. 하중방식과 응력비를 조건축에 넣는다(93번: 벌크와 접합부도 갈린다).
+    # 기존 120행은 조건이 전부 NULL 이다 — 채우지는 않았고, 새 행부터 축을 지킨다.
+    ("mechanical.fatigue_strength", "mechanical", "피로한도", "sigma_f", "Pa", "numeric",
+     ["cycles", "loading_mode", "stress_ratio_R", "temperature_k"], None),
     ("mechanical.compressive_strength", "mechanical", "압축강도", None, "Pa", "numeric", ["temperature_k"], None),
+    # **압축항복은 인장항복과 같은 키에 못 넣는다**(37차 AS). `mechanical.yield_strength` 는
+    # ISO 6892 **인장 0.2% offset** 이고, 아연 다이캐스팅 규격표가 인쇄하는 것은
+    # **압축 0.1% offset** 이다 — offset 값과 하중 방식이 **둘 다** 다르다.
+    # 0.2%→0.1% 만으로도 같은 합금이 수십 MPa 갈리고, 인장↔압축은 주조재에서 2배 이상 벌어진다
+    # (ZAMAK 2: 인장항복 283 MPa ↔ 압축항복 641 MPa).
+    # `compressive_strength`(파괴강도)와도 다르다 — 항복이 먼저 오고 값이 더 작다.
+    # ⚠ **`offset` 이 이 키의 정체다.** offset 없이 들어온 값은 `compressive_strength` 와
+    # 구별이 안 되니 반드시 채워라(예: "0.1%" · "0.2%").
+    ("mechanical.compressive_yield_strength", "mechanical", "압축항복강도", "Rpc", "Pa", "numeric",
+     ["offset", "test_standard", "strain_rate_s", "temperature_k"], None),
     ("mechanical.flexural_modulus", "mechanical", "굽힘탄성계수", None, "Pa", "numeric", None, "ISO 178"),
     ("mechanical.flexural_strength", "mechanical", "굽힘강도", None, "Pa", "numeric", None, "ISO 178"),
     ("mechanical.impact_strength_izod", "mechanical", "아이조드 충격강도", None, "J/m", "numeric", ["temperature_k"], "ASTM D256"),

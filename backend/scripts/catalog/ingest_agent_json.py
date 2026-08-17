@@ -31,6 +31,12 @@ RANGE = {
     "mechanical.poisson_ratio": (0.0, 0.5),
     "mechanical.tensile_strength": (1e3, 1e11),
     "mechanical.yield_strength": (1e3, 1e11),
+    # 인장항복·인장강도와 같은 응력 갈래라 같은 가드를 쓴다. 하한 1e3 은 MPa 원값을
+    # Pa 로 넣는 오입력을 잡는다(358 MPa 를 358 로 넣으면 걸린다).
+    # 접착 갈래와 달리 **인쇄된 0 이 나올 수 없는 물성**이라 하한 0 규칙(161번)이 아니다 —
+    # 전단강도 0 인 벌크재는 재료가 아니다.
+    "mechanical.shear_strength": (1e3, 1e11),
+    "mechanical.compressive_yield_strength": (1e3, 1e11),
     "mechanical.elongation_at_break": (0.0, 20.0),
     "thermal.conductivity": (0.0, 3000.0),
     "thermal.specific_heat": (10.0, 5000.0),
