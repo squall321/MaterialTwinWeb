@@ -112,34 +112,63 @@ def citation_keys(title: str | None) -> list[str]:
     return out
 
 
+def _merge(idx: dict, axis: str, key: str, rec: dict) -> None:
+    """같은 키에 **합산**한다 — `setdefault` 로 첫 건만 남기면 안 된다.
+
+    36차에 실측했다: 제목 정규화(45자 절단)가 59건 충돌하고 그중 **28건은 행수가 갈린다**.
+    먼저 들어온 것이 0~2행이면 **채굴이 끝난 논문이 미채굴로 보인다** — 실제로
+    Ehrler 2002(143행)·Fujishima 2017(59행)·Narahashi 2010(19행)이 그렇게 표적 목록에 올라
+    배치 둘이 중복 작업을 했다.
+
+    충돌의 정체는 대개 **같은 논문·같은 데이터시트가 출처로 중복 등록된 것**이다
+    (DuPont Kapton HN 이 4건 = 15+35+13+2행). 그러니 "이 논문이 채굴됐나" 의 답은
+    **합계**이지 첫 건이 아니다. 등급은 가장 좋은 것(최소값)을 쓴다.
+    """
+    old = idx[axis].get(key)
+    if old is None:
+        idx[axis][key] = dict(rec)
+        return
+    old["rows"] = (old.get("rows") or 0) + (rec.get("rows") or 0)
+    a, b = old.get("min_tier"), rec.get("min_tier")
+    old["min_tier"] = min([x for x in (a, b) if x is not None], default=None)
+    # 제목은 행이 가장 많은 쪽을 대표로 남긴다 — 보고에 쓰인다.
+    if (rec.get("rows") or 0) > (old.get("_top") or 0):
+        old["_top"], old["title"] = rec.get("rows") or 0, rec.get("title")
+
+
 def build(c: sqlite3.Connection) -> dict:
-    """네 축의 색인을 만든다. 값은 (source_id, 행수, 최소등급)."""
+    """네 축의 색인을 만든다. 값은 (source_id, 행수, 최소등급).
+
+    **행수는 합산이다**(`_merge`) — 같은 논문이 출처로 중복 등록돼 있어서다.
+    """
     idx: dict[str, dict] = {"doi": {}, "path": {}, "title": {}, "authoryear": {}, "matname": {}}
+    # 출처별 집계를 **한 번에** 만든다 — 건마다 count 를 돌면 2,700회라 색인 구축이 분 단위로 간다.
+    sagg = {r[0]: (r[1], r[2]) for r in c.execute(
+        "select source_id,count(*),min(quality_tier) from property_value "
+        "where source_id is not null group by 1")}
     for sid, doi, title, lp in c.execute("select id,doi,title,local_path from source"):
-        n, tier = c.execute(
-            "select count(*), min(quality_tier) from property_value where source_id=?", (sid,)
-        ).fetchone()
-        rec = {"source_id": sid, "rows": n or 0, "min_tier": tier, "title": title}
+        n, tier = sagg.get(sid, (0, None))
+        rec = {"source_id": sid, "rows": n, "min_tier": tier, "title": title}
         if doi:
-            idx["doi"][norm_doi(doi)] = rec
+            _merge(idx, "doi", norm_doi(doi), rec)
         if lp:
             # 경로는 **디렉터리명**으로 본다 — 파일명에 확장자·중복 접미가 붙는다.
-            idx["path"][Path(str(lp)).name.lower()] = rec
+            _merge(idx, "path", Path(str(lp)).name.lower(), rec)
         if title:
-            idx["title"].setdefault(norm_title(title), rec)
+            _merge(idx, "title", norm_title(title), rec)
         for k in author_year_keys(title, None, None):
-            idx["authoryear"].setdefault(k, rec)
+            _merge(idx, "authoryear", k, rec)
     # **재료명 축** — 배치들이 재료를 `... (Watanabe 2018)` 꼴로 짓는다(재료의 74%).
     # 출처 제목이 달라도 재료명이 걸리면 그 논문은 이미 채굴된 것이다(34차 AI 제안).
+    magg = {r[0]: (r[1], r[2]) for r in c.execute(
+        "select material_id,count(*),min(quality_tier) from property_value group by 1")}
     for name, mid in c.execute("select name, id from material"):
         for m in re.finditer(r"([A-Z][a-zA-Z\u00C0-\u024F'-]+)\s+((?:19|20)\d{2})", name or ""):
             k = (unicodedata.normalize("NFKD", m.group(1)).encode("ascii", "ignore")
                  .decode().lower() + m.group(2))
-            n, tier = c.execute(
-                "select count(*), min(quality_tier) from property_value where material_id=?", (mid,)
-            ).fetchone()
-            idx["matname"].setdefault(k, {"source_id": None, "material_id": mid,
-                                          "rows": n or 0, "min_tier": tier, "title": name})
+            n, tier = magg.get(mid, (0, None))
+            _merge(idx, "matname", k, {"source_id": None, "material_id": mid,
+                                       "rows": n, "min_tier": tier, "title": name})
     return idx
 
 

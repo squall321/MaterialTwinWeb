@@ -394,6 +394,8 @@ def main() -> int:
                             conditions=cond or None, notes=pick_notes(pr),
                             source_title=src.get("title"), source_url=src.get("url"),
                             source_doi=src.get("doi"),
+                            source_authors=src.get("authors"), source_year=src.get("year"),
+                            source_local_path=src.get("local_path"),
                             source_kind=norm_kind(src.get("kind")),
                             source_manufacturer=src.get("manufacturer"))
                         if "error" in r:
@@ -439,6 +441,8 @@ def main() -> int:
                         conditions=cond or None, notes=pick_notes(pr),
                         source_title=src.get("title"), source_url=src.get("url"),
                         source_doi=src.get("doi"),
+                        source_authors=src.get("authors"), source_year=src.get("year"),
+                            source_local_path=src.get("local_path"),
                         source_kind=norm_kind(src.get("kind")),
                         source_manufacturer=src.get("manufacturer"))
                     if "error" in r:

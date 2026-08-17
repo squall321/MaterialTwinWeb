@@ -359,6 +359,8 @@ def register_property(material_id: int, property_key: str, value: float | None =
                       source_doi: str | None = None, source_url: str | None = None,
                       source_title: str | None = None, source_kind: str = "journal",
                       source_manufacturer: str | None = None,
+                      source_authors: str | None = None, source_year: int | None = None,
+                      source_local_path: str | None = None,
                       notes: str | None = None) -> dict:
     """재료에 물성값 1건을 근거(출처)와 함께 등록 — list_property_definitions 의 157개 key 전 도메인이 대상이다(mechanical 54·optical 18·thermal 16·chemical 15·physical 13·electrical 11·interface 9·structure 7·magnetic 5·rheological 5·acoustic 4). 시험 데이터 없이 카탈로그 물성을 채우는 표준 경로다.
 
@@ -367,6 +369,12 @@ def register_property(material_id: int, property_key: str, value: float | None =
     computed/estimated. quality_tier 1(측정)~5(추정). 온도·습도 등은 conditions에.
     source_manufacturer: 데이터시트면 업체명(예: "Mitsui Chemicals"·"3M") — 프로비넌스에
     업체를 1급으로 남겨 "어느 업체 값인지" 추론 가능하게 한다.
+    source_authors/source_year: 저자·연도. **꼭 채워라** — 기채굴 조회(mined_index)가
+    `성+연도` 인용키 축으로 중복을 잡는데, 이 둘이 비면 그 축을 **제목에서 역추출**할 수밖에 없어
+    적중률이 떨어진다(36차 AQ 가 짚었다: 출처 2743건 중 2644건이 authors NULL).
+    source_local_path: 코퍼스 원문 경로. **코퍼스에서 캔 값이면 반드시 채워라** —
+    경로가 그 논문의 정확한 식별자라 제목 정규화(45자 절단·충돌)에 기대지 않아도 된다.
+    지금 출처의 97%가 이 값이 비어 있어 기채굴 조회의 경로 축이 사실상 죽어 있다.
     """
     from app.acquire.store import upsert_property_value, upsert_source
 
@@ -382,7 +390,9 @@ def register_property(material_id: int, property_key: str, value: float | None =
         if not s.get(Material, material_id):
             return {"error": "재료를 찾을 수 없습니다."}
         src = upsert_source(s, kind=source_kind, doi=source_doi, url=source_url,
-                            title=source_title, publisher=source_manufacturer)
+                            title=source_title, publisher=source_manufacturer,
+                            authors=source_authors, year=source_year,
+                            local_path=source_local_path)
         try:
             pv, created = upsert_property_value(
                 s, material_id=material_id, property_key=property_key, value_num=value,
