@@ -420,6 +420,15 @@ _DEFS: list[tuple] = [
     # 두께를 곱해 바꾸는 것은 **역산**이고, 연신 시편은 연신 후 두께가 아예 안 적힌다.
     ("physical.gas_transmission_rate_o2", "physical", "산소투과도(OTR)", "OTR", "m^3/(m^2*s)", "numeric",
      ["temperature_k", "humidity_rh", "thickness_um", "partial_pressure_pa"], "ASTM D3985"),
+    # **투과계수(permeance)는 투과도·투과율과 또 다른 제3의 물리량이다**(32차 AE).
+    # 투과도(OTR)는 그 시편의 통과량, 투과율(permeability)은 두께 정규화,
+    # **permeance 는 압력으로 정규화하되 두께는 안 한 것**이다. 셋을 서로 환산하면 역산이다.
+    ("physical.gas_permeance_o2", "physical", "산소 투과계수(permeance)", None, "mol/(m^2*s*Pa)",
+     "numeric", ["temperature_k", "humidity_rh", "thickness_um"], None),
+    # 질량 기준 두께정규화 투과율 — `g·mm/(m²·day)` 계열. 부피 기준(cc·mm)과 **분자량 없이는
+    # 환산이 안 된다** — 우리가 곱하면 역산이다.
+    ("physical.water_vapor_permeability_mass", "physical", "수증기 투과율(질량기준)", None,
+     "kg/(m*s*Pa)", "numeric", ["temperature_k", "humidity_rh"], None),
     ("physical.gas_permeability_o2", "physical", "산소투과도", None, "mol/(m*s*Pa)", "numeric", ["temperature_k"], "ASTM D3985"),
     ("physical.gas_permeability_co2", "physical", "이산화탄소투과도", None, "mol/(m*s*Pa)", "numeric", ["temperature_k"], None),
     ("physical.gas_permeability_h2o", "physical", "수분투과도", None, "mol/(m*s*Pa)", "numeric", ["temperature_k"], None),

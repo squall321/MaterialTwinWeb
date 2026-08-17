@@ -194,8 +194,19 @@ CHECKS = [
     #   (1) estimated는 "우리가 만든 값"이다 → tier4가 아니면 어느 쪽이든 거짓말이다.
     #       실제로 15건이 tier3에 있었는데 전부 출처에 인쇄된 계열값이었다(method가 틀렸다).
     #   (2) tier4는 "우리가 만든 값"이다 → measured·handbook이면 등급이 틀렸다.
-    ("estimated인데 tier4가 아님", "select count(*) from property_value "
-                              "where method='estimated' and quality_tier<>4"),
+    # **`estimated` 가 곧 tier4 는 아니다.** tier4 는 **우리가** 만든 값이고,
+    # **저자가 스스로 외삽해 인쇄한 값**은 인쇄값이라 tier1·2 이면서 방법만 estimated 다
+    # (32차 AE 의 Kim 2017 초록 — `estimated to be only 6x10^-6`).
+    # 우리 것인지는 `conditions.assumption` 이 가른다(브리프 265번).
+    ("우리 추정인데 tier4가 아님", """select count(*) from property_value
+        where method='estimated' and quality_tier<>4
+          and instr(replace(coalesce(conditions,''),' ',''),'"assumption":true')>0"""),
+    # 저자 추정은 정상이지만 **왜 estimated 인지 근거가 없으면** 구분이 안 된다.
+    ("저자 추정인데 근거 없음", """select count(*) from property_value
+        where method='estimated' and quality_tier<>4
+          and instr(replace(coalesce(conditions,''),' ',''),'"assumption":true')=0
+          and coalesce(notes,'') not like '%외삽%' and coalesce(notes,'') not like '%estimat%'
+          and coalesce(notes,'') not like '%추정%'"""),
     ("tier4인데 실측·핸드북", "select count(*) from property_value "
                         "where quality_tier=4 and method in ('measured','handbook')"),
     ("가정값인데 tier4·estimated 아님", """select count(*) from property_value
