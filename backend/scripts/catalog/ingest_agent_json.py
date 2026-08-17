@@ -289,10 +289,35 @@ def main() -> int:
     # 적재는 (재료·물성·출처·조건)에 멱등이다. 조건이 같은데 값이 다르면 나중 것이
     # 앞의 것을 조용히 덮어 측정 하나가 사라진다(3M 112P02/112P05가 그렇게 사라졌다).
     seen_cond: dict[tuple, float] = {}
+    # **기채굴 조회는 지시로 안 지켜진다.** 34차 AG·AI·AJ 가 세 파동 연속으로 도구의 낡은 사본을
+    # 돌려 이미 채굴한 논문을 놓쳤다(Tsai 2013 21행 · Vitry 2008 8행 · Kuang 2016 3행).
+    # **적재기는 우회할 수 없으므로 여기서 한 번 더 친다** — 막지는 않고 경고만 한다
+    # (같은 논문의 다른 조건 행은 정당하게 늘어난다).
+    try:
+        sys.path.insert(0, str(Path(__file__).parent))
+        import sqlite3 as _sq
+        from mined_index import DB as _MI_DB, build as _mi_build, look as _mi_look
+        _mi = _mi_build(_sq.connect(_MI_DB))
+    except Exception as _e:                      # 도구가 없어도 적재는 계속돼야 한다
+        _mi = None
+        print(f"  · 기채굴 조회 건너뜀({str(_e)[:60]})")
+    _warned: set = set()
+
     for fname, doc in load(a.paths):
         print(f"\n=== {fname} ===")
         for entry in doc.get("materials", []):
             src = entry.get("source") or {}
+            # 이 논문이 이미 채굴됐는지 — DOI·경로·제목·인용키·재료명 다섯 축으로 본다.
+            if _mi is not None:
+                _k = (src.get("doi") or "", src.get("title") or "")
+                if _k not in _warned:
+                    _warned.add(_k)
+                    _p = _mi_look(_mi, doi=src.get("doi"), path=src.get("local_path"),
+                                  title=src.get("title"))
+                    if _p and (_p.get("rows") or 0) >= 3:
+                        print(f"  ⚠ **이미 채굴된 논문이다**({_p['matched_by']}, {_p['rows']}행"
+                              f", 최소 tier{_p.get('min_tier')}) — {str(_p.get('title'))[:64]}")
+                        print("     조건이 다른 행이면 정상이다. 같은 값을 다시 넣는 것이면 빼라.")
             if not (src.get("url") or src.get("doi") or src.get("title")):
                 stats["no_source"] += len(entry.get("properties", []))
                 print("  ✗ 출처 없음 — 항목 전체 건너뜀")
