@@ -108,6 +108,7 @@ def load_verdicts(idx: dict | None = None) -> dict[str, dict]:
     if not VERDICTS.exists():
         return out
     _rows = db_rows_by_full_title()
+    out["__by_path__"] = {}  # 경로 축 — 제목보다 정확하다
     for ln in VERDICTS.read_text(encoding="utf-8").splitlines():
         ln = ln.strip()
         if not ln or ln.startswith("#"):
@@ -126,6 +127,13 @@ def load_verdicts(idx: dict | None = None) -> dict[str, dict]:
                   file=sys.stderr)
             continue
         out[norm_full(t)] = r
+        # **경로가 있으면 그것으로도 건다.** 배치가 제목을 줄여 적으면 제목 축은 안 맞는다 —
+        # 37차에 21건 중 5건이 그랬다(`Nahill - 1967` 처럼 부제를 통째로 뺀 꼴).
+        # 경로는 코퍼스가 정한 식별자라 줄어들지 않는다.
+        if pth := r.get("path"):
+            out["__by_path__"][str(pth)] = r
+        if ct := r.get("corpus_title"):
+            out[norm_full(ct)] = r
     return out
 
 
@@ -153,7 +161,7 @@ def main() -> int:
         if r and r.get("confidence") != "low" and (r["rows"] > 2 or (r["min_tier"] or 9) <= 2):
             n_mined += 1
             continue
-        if (v := verd.get(norm_full(t))):
+        if verd["__by_path__"].get(p) or verd.get(norm_full(t)):
             n_disc += 1
             continue
         if r and r.get("ambiguous"):
@@ -173,6 +181,15 @@ def main() -> int:
     nflag = sum(1 for u in out if u["recite"]["flag"])
     print(f"  재인용 위험 ⚑ {nflag}편 — **제외가 아니라 뒤로 미룬 것이다.** "
           f"캡션·`Ref.` 열을 먼저 확인해라(재현율 50% · 오탐 25%)", file=sys.stderr)
+
+    seen = {norm_full(t) for _, t, *_ in rows} | set(verd["__by_path__"])
+    # `not_in_corpus` 는 웹 자료·규격 문서다 — 코퍼스에 없는 게 정상이라 경고하지 않는다.
+    stale = [k for k in verd if k != "__by_path__" and k not in seen
+             and not verd[k].get("path") and not verd[k].get("not_in_corpus")]
+    if stale:
+        print(f"  ⚠ 대장 {len(stale)}줄이 코퍼스의 어떤 논문과도 안 맞는다 — "
+              f"제목을 줄여 적었거나 오타다. `path` 를 박아라: "
+              f"{', '.join(verd[k]['title'][:34] for k in stale[:3])}", file=sys.stderr)
 
     if a.limit:
         out = out[: a.limit]

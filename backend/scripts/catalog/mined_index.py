@@ -161,7 +161,11 @@ def build(c: sqlite3.Connection) -> dict:
     sagg = {r[0]: (r[1], r[2]) for r in c.execute(
         "select source_id,count(*),min(quality_tier) from property_value "
         "where source_id is not null group by 1")}
-    for sid, doi, title, lp in c.execute("select id,doi,title,local_path from source"):
+    # **`authors`·`year` 컬럼을 함께 읽는다.** 예전엔 제목에서만 성·연도를 역추출했는데,
+    # 그러면 `Surname - YYYY - Title` 꼴이 아닌 출처(데이터시트·규격)는 인용키 축에 아예 못 들어간다.
+    # 38차에 코퍼스에서 397건을 백필해 컬럼이 실제로 차기 시작했다.
+    for sid, doi, title, lp, au, yr in c.execute(
+            "select id,doi,title,local_path,authors,year from source"):
         n, tier = sagg.get(sid, (0, None))
         rec = {"source_id": sid, "rows": n, "min_tier": tier, "title": title, "doi": doi}
         if doi:
@@ -171,7 +175,7 @@ def build(c: sqlite3.Connection) -> dict:
             _merge(idx, "path", Path(str(lp)).name.lower(), rec)
         if title:
             _merge(idx, "title", norm_title(title), rec)
-        for k in author_year_keys(title, None, None):
+        for k in author_year_keys(title, au, yr):
             _merge(idx, "authoryear", k, rec)
     # **재료명 축** — 배치들이 재료를 `... (Watanabe 2018)` 꼴로 짓는다(재료의 74%).
     # 출처 제목이 달라도 재료명이 걸리면 그 논문은 이미 채굴된 것이다(34차 AI 제안).
