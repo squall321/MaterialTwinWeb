@@ -366,6 +366,13 @@ class Instrument(Base):
         ForeignKey("source.id", ondelete="SET NULL"), nullable=True
     )
     notes: Mapped[str | None] = mapped_column(Text, nullable=True)
+    # 사내 보유 여부. ⚠ 이 표는 '우리가 가진 장비'가 아니라 '카탈로그를 찾을 수 있는 장비'다 —
+    # 그 둘을 구분하지 않으면 "사내에서 잴 수 있다"는 틀린 답이 나간다(2026-08-19 지적).
+    # 기본은 False: 확인되지 않은 것을 보유로 세면 시험 계획이 있지도 않은 장비를 전제한다.
+    # 실제 보유 장비는 확인된 것만 True 로 올린다.
+    owned: Mapped[bool] = mapped_column(Boolean, nullable=False, server_default="0")
+    # 보유로 판정한 근거(자산번호·부서·확인일 등). owned=True 인데 비어 있으면 검증 대상이다.
+    owned_note: Mapped[str | None] = mapped_column(Text, nullable=True)
     created_at: Mapped[datetime] = mapped_column(
         UTCDateTime, nullable=False, server_default=func.now()
     )

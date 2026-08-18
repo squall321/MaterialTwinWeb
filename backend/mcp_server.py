@@ -1460,14 +1460,22 @@ def register_test_data(description: str) -> str:
 # REST 라우터(app/routers/metrology.py)와 같은 질의를 쓰되, 반환은 챗이 읽을 크기로 줄인다.
 
 
+# ⚠ 이 표는 '우리가 보유한 장비'가 아니다. **카탈로그를 찾을 수 있는 장비** 목록이다.
+# 보유 여부는 instrument.owned 에만 있고 기본값은 False(=미확인/미보유)다. 둘을 섞으면
+# "사내에서 잴 수 있다"는 틀린 답이 나가고, 시험 계획이 있지도 않은 장비를 전제한다.
 def _inst_brief(i: Instrument) -> dict:
     return {"id": i.id, "vendor": i.vendor, "model": i.model,
-            "category": i.category, "technique": i.technique}
+            "category": i.category, "technique": i.technique,
+            "owned": bool(getattr(i, "owned", False))}
 
 
 @mcp.tool()
 def instrument_summary() -> dict:
-    """보유 시험장비 총계 — 몇 대를 어떤 분류·제조사로 갖고 있고 몇 가지 물성을 잴 수 있는가.
+    """시험장비 카탈로그 총계 — 어떤 장비가 **세상에 있고** 무엇을 잴 수 있는가.
+
+    ⚠ 이것은 보유 목록이 아니다. 카탈로그를 확보한 장비의 목록이고, 사내 보유 여부는
+    별도(owned)다. 현재 보유로 확인된 것은 owned_instruments 로 함께 낸다 — 그 값이 0이면
+    "잴 수 있다"고 답하면 안 된다. 외주·신규 도입을 전제해야 한다.
 
     "장비 뭐 있어" 류 질문의 첫 답이다. 개별 장비 열거는 list_instruments,
     특정 물성의 측정 수단은 how_to_measure 를 쓴다.
@@ -1481,20 +1489,26 @@ def instrument_summary() -> dict:
         by_vendor = dict(s.query(Instrument.vendor, func.count(Instrument.id))
                          .group_by(Instrument.vendor)
                          .order_by(func.count(Instrument.id).desc()).limit(15).all())
-    return {"instruments": n_inst, "capabilities": n_cap,
-            "measurable_properties": n_key,
-            "by_category": by_cat, "by_vendor_top15": by_vendor}
+        n_owned = s.query(func.count(Instrument.id)).filter(Instrument.owned.is_(True)).scalar()
+    return {"catalog_instruments": n_inst, "owned_instruments": n_owned,
+            "capabilities": n_cap, "measurable_properties": n_key,
+            "by_category": by_cat, "by_vendor_top15": by_vendor,
+            "note": ("카탈로그 확보 장비 수이고 보유 수가 아니다. "
+                     f"보유 확인 {n_owned}대 — 0이면 사내 측정 가능이라고 답하지 말 것.")}
 
 
 @mcp.tool()
 def list_instruments(query: str | None = None, category: str | None = None,
-                     property_key: str | None = None, limit: int = 40) -> dict:
+                     property_key: str | None = None, owned_only: bool = False,
+                     limit: int = 40) -> dict:
     """시험장비를 찾는다 — 제조사·모델 부분일치(query), 분류(category), 잴 수 있는 물성(property_key).
 
     category 는 instrument_summary 의 by_category 키를 쓴다
     (mechanical/thermal/chemical/surface/particle/optical/electrical/ndt/reliability).
     property_key 를 주면 그 물성을 재는 장비만 남는다 — 다만 '어떻게 재는가'가 궁금하면
     기법으로 묶어 주는 how_to_measure 쪽이 답에 가깝다.
+    ⚠ 기본은 **카탈로그 전체**다(보유 목록이 아니다). 사내에 있는 것만 보려면 owned_only=True.
+    각 항목의 owned 가 보유 여부이고, 지금은 대부분 False(미확인)다.
     총 건수(total)와 잘렸는지(truncated)를 함께 낸다 — 몇 건인지 모르면 답이 틀린다.
     """
     limit = max(1, min(int(limit), 200))
@@ -1509,6 +1523,8 @@ def list_instruments(query: str | None = None, category: str | None = None,
             q = q.filter(Instrument.id.in_(
                 s.query(InstrumentCapability.instrument_id)
                  .filter(InstrumentCapability.property_key == property_key)))
+        if owned_only:
+            q = q.filter(Instrument.owned.is_(True))
         total = q.count()
         rows = q.order_by(Instrument.vendor, Instrument.model).limit(limit).all()
         items = []
@@ -1566,16 +1582,21 @@ def how_to_measure(property_key: str) -> dict:
 
 @mcp.tool()
 def measurement_gaps(limit: int = 40) -> dict:
-    """**잴 장비가 없는 물성**을 낸다 — 카탈로그에 값은 있는데 측정 수단이 없는 것들.
+    """**측정 수단이 알려지지 않은 물성**을 낸다 — 값은 쌓였는데 재는 방법이 카탈로그에도 없는 것들.
 
-    '문헌에만 있는 물성'을 드러내는 질문이다. 시험 계획에서 외주·신규 도입 후보가 되고,
-    해석에 쓰는 값이 사내에서 검증 불가능하다는 뜻이기도 하다.
-    values 가 많을수록 (많이 쓰는데 못 재는) 우선순위가 높다.
+    '문헌에만 있는 물성'을 드러내는 질문이다. values 가 많을수록 (많이 쓰는데 방법을 모르는)
+    우선순위가 높다.
+
+    ⚠ 여기 없다고 '사내에서 잴 수 있다'는 뜻이 아니다. 장비 표는 카탈로그 목록이지 보유
+    목록이 아니다 — 보유 확인분으로 잴 수 있는 물성 수는 n_measurable_by_owned 로 함께 낸다.
     """
     limit = max(1, min(int(limit), 200))
     with SessionLocal() as s:
         measurable = {k for (k,) in s.query(
             func.distinct(InstrumentCapability.property_key)).all()}
+        owned_keys = {k for (k,) in s.query(func.distinct(InstrumentCapability.property_key))
+                       .join(Instrument, Instrument.id == InstrumentCapability.instrument_id)
+                       .filter(Instrument.owned.is_(True)).all()}
         used = dict(s.query(PropertyValue.property_key, func.count(PropertyValue.id))
                      .group_by(PropertyValue.property_key).all())
         defs = {d.key: d for d in s.query(PropertyDefinition).all()}
@@ -1584,9 +1605,12 @@ def measurement_gaps(limit: int = 40) -> dict:
              "domain": getattr(defs.get(k), "domain", None)}
             for k, n in used.items() if k not in measurable]
     gaps.sort(key=lambda g: -g["values"])
-    return {"n_measurable": len(measurable), "n_used": len(used),
-            "n_gaps": len(gaps), "gaps": gaps[:limit],
-            "note": "values = 카탈로그에 쌓인 값 개수. 많은데 못 재면 우선순위가 높다."}
+    return {"n_method_known": len(measurable),
+            "n_measurable_by_owned": len(owned_keys),
+            "n_used": len(used), "n_gaps": len(gaps), "gaps": gaps[:limit],
+            "note": ("values = 카탈로그에 쌓인 값 개수. 많은데 방법을 모르면 우선순위가 높다. "
+                     "n_method_known 은 '카탈로그에 수단이 있다'이고 보유가 아니다 — "
+                     "사내 보유로 잴 수 있는 것은 n_measurable_by_owned 다.")}
 
 
 @mcp.tool()
@@ -1602,9 +1626,13 @@ def test_plan_for_material(material_id: int | None = None, name: str | None = No
     '필수 물성' 표 같은 건 없으므로, 무엇을 기준으로 삼았는지(peers·threshold)를 함께 낸다.
     기준을 모르면 '부족하다' 는 판정은 읽는 사람을 오도한다.
 
-    각 결핍 물성은 사내 장비로 잴 수 있는지로 갈린다:
-      in_house  — 잴 수 있다. how_to_measure(key) 로 기법·규격·장비를 본다
-      outsource — 사내에 수단이 없다. 외주·신규 도입 대상이다
+    각 결핍 물성은 **측정 수단이 알려져 있는지**로 갈린다:
+      known_method   — 그 물성을 재는 장비·기법이 카탈로그에 있다. how_to_measure(key) 로 본다
+      no_known_method — 카탈로그에도 수단이 없다. 방법부터 찾아야 한다
+
+    ⚠ known_method 는 '사내에서 잴 수 있다'는 뜻이 **아니다**. 장비 표는 카탈로그를 확보한
+    목록이지 보유 목록이 아니고, 보유 확인분(owned)은 별도로 센다. owned_count 가 0이면
+    known_method 라도 외주·신규 도입이 전제다 — 그 사실을 응답에 함께 낸다.
     """
     with SessionLocal() as s:
         q = s.query(Material)
@@ -1629,6 +1657,11 @@ def test_plan_for_material(material_id: int | None = None, name: str | None = No
 
         measurable = {k for (k,) in s.query(
             func.distinct(InstrumentCapability.property_key)).all()}
+        # 보유가 확인된 장비로 잴 수 있는 물성 — measurable 의 부분집합이다.
+        owned_keys = {k for (k,) in s.query(func.distinct(InstrumentCapability.property_key))
+                       .join(Instrument, Instrument.id == InstrumentCapability.instrument_id)
+                       .filter(Instrument.owned.is_(True)).all()}
+        n_owned = s.query(func.count(Instrument.id)).filter(Instrument.owned.is_(True)).scalar()
         defs = {d.key: d for d in s.query(PropertyDefinition).all()}
 
         cutoff = max(1, int(peer_n * float(peer_threshold))) if peer_n else 0
@@ -1641,10 +1674,11 @@ def test_plan_for_material(material_id: int | None = None, name: str | None = No
                     "peer_ratio": round(n / peer_n, 2) if peer_n else None,
                     "name": getattr(d, "name", None), "domain": getattr(d, "domain", None),
                     "si_unit": getattr(d, "si_unit", None),
-                    "test_standard": getattr(d, "test_standard", None)}
+                    "test_standard": getattr(d, "test_standard", None),
+                    "measurable_by_owned": k in owned_keys}
 
-        in_house = [_row(k, n) for k, n in missing if k in measurable][:limit]
-        outsource = [_row(k, n) for k, n in missing if k not in measurable][:limit]
+        known = [_row(k, n) for k, n in missing if k in measurable][:limit]
+        unknown = [_row(k, n) for k, n in missing if k not in measurable][:limit]
 
     return {
         "material": {"id": m.id, "name": m.name, "category": m.category},
@@ -1653,8 +1687,13 @@ def test_plan_for_material(material_id: int | None = None, name: str | None = No
                   "note": "동료 재료의 이 비율 이상이 가진 물성을 '통상 갖는 것'으로 봤다."},
         "have": {"n": len(have), "keys": sorted(have)},
         "missing": {"n": len(missing),
-                    "in_house": in_house, "outsource": outsource,
-                    "note": "in_house 는 how_to_measure(property_key) 로 기법·규격·장비를 본다."},
+                    "known_method": known, "no_known_method": unknown,
+                    "note": ("known_method 는 how_to_measure(property_key) 로 기법·규격·장비를 본다. "
+                             "각 항목의 measurable_by_owned 만이 '사내 보유 장비로 가능'을 뜻한다.")},
+        "ownership": {"owned_instruments": n_owned,
+                      "warning": ("보유 확인 장비가 0대다 — known_method 라도 사내에서 잴 수 있다는 "
+                                  "뜻이 아니다. 외주·신규 도입을 전제로 계획하라."
+                                  if not n_owned else None)},
     }
 
 
