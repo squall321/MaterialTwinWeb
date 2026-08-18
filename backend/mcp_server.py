@@ -1589,6 +1589,75 @@ def measurement_gaps(limit: int = 40) -> dict:
             "note": "values = 카탈로그에 쌓인 값 개수. 많은데 못 재면 우선순위가 높다."}
 
 
+@mcp.tool()
+def test_plan_for_material(material_id: int | None = None, name: str | None = None,
+                           peer_threshold: float = 0.3, limit: int = 40) -> dict:
+    """이 재료의 물성을 확보하려면 무슨 시험을 해야 하는가 — 사내 가능 / 외주 필요로 가른다.
+
+    재료 카탈로그와 장비 카탈로그를 교차한다. 두 카탈로그는 따로 있어서, 지금까지 "이 재료에
+    무엇이 없나"(재료 쪽)와 "무엇을 잴 수 있나"(장비 쪽)를 사람이 머리로 합쳐야 했다.
+
+    '없는 물성' 은 같은 category 동료 재료들이 통상 갖는 키를 기준으로 정한다 —
+    peer_threshold(기본 0.3) 이상의 동료가 가진 키인데 이 재료엔 없는 것. 절대적인
+    '필수 물성' 표 같은 건 없으므로, 무엇을 기준으로 삼았는지(peers·threshold)를 함께 낸다.
+    기준을 모르면 '부족하다' 는 판정은 읽는 사람을 오도한다.
+
+    각 결핍 물성은 사내 장비로 잴 수 있는지로 갈린다:
+      in_house  — 잴 수 있다. how_to_measure(key) 로 기법·규격·장비를 본다
+      outsource — 사내에 수단이 없다. 외주·신규 도입 대상이다
+    """
+    with SessionLocal() as s:
+        q = s.query(Material)
+        m = (q.filter(Material.id == int(material_id)).first() if material_id
+             else q.filter(Material.name.ilike(f"%{name}%")).first() if name else None)
+        if m is None:
+            return {"error": "재료를 찾지 못했다 — material_id 또는 name 을 확인하라(list_materials)."}
+
+        have = {k for (k,) in s.query(func.distinct(PropertyValue.property_key))
+                 .filter(PropertyValue.material_id == m.id).all()}
+
+        peer_ids = [i for (i,) in s.query(Material.id)
+                     .filter(Material.category == m.category, Material.id != m.id).all()]
+        peer_n = len(peer_ids)
+        peer_keys: dict[str, int] = {}
+        if peer_ids:
+            rows = (s.query(PropertyValue.property_key,
+                            func.count(func.distinct(PropertyValue.material_id)))
+                     .filter(PropertyValue.material_id.in_(peer_ids))
+                     .group_by(PropertyValue.property_key).all())
+            peer_keys = dict(rows)
+
+        measurable = {k for (k,) in s.query(
+            func.distinct(InstrumentCapability.property_key)).all()}
+        defs = {d.key: d for d in s.query(PropertyDefinition).all()}
+
+        cutoff = max(1, int(peer_n * float(peer_threshold))) if peer_n else 0
+        missing = [(k, n) for k, n in peer_keys.items() if n >= cutoff and k not in have]
+        missing.sort(key=lambda kv: -kv[1])
+
+        def _row(k, n):
+            d = defs.get(k)
+            return {"property_key": k, "peers_with_it": n,
+                    "peer_ratio": round(n / peer_n, 2) if peer_n else None,
+                    "name": getattr(d, "name", None), "domain": getattr(d, "domain", None),
+                    "si_unit": getattr(d, "si_unit", None),
+                    "test_standard": getattr(d, "test_standard", None)}
+
+        in_house = [_row(k, n) for k, n in missing if k in measurable][:limit]
+        outsource = [_row(k, n) for k, n in missing if k not in measurable][:limit]
+
+    return {
+        "material": {"id": m.id, "name": m.name, "category": m.category},
+        "basis": {"peers_in_category": peer_n, "peer_threshold": peer_threshold,
+                  "cutoff_peers": cutoff,
+                  "note": "동료 재료의 이 비율 이상이 가진 물성을 '통상 갖는 것'으로 봤다."},
+        "have": {"n": len(have), "keys": sorted(have)},
+        "missing": {"n": len(missing),
+                    "in_house": in_house, "outsource": outsource,
+                    "note": "in_house 는 how_to_measure(property_key) 로 기법·규격·장비를 본다."},
+    }
+
+
 def main() -> None:
     """stdio MCP 진입점. **스키마를 맞춘 뒤에 뜬다.**
 
