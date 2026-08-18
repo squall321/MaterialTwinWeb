@@ -59,6 +59,8 @@ from app.dyna_export import build_cards as build_dyna_cards
 from app.db import SessionLocal
 from app.models import (
     ConstitutiveFit,
+    Instrument,
+    InstrumentCapability,
     Material,
     ProcessedResult,
     PropertyDefinition,
@@ -1450,6 +1452,141 @@ def register_test_data(description: str) -> str:
 3. 반환된 물성(E·항복·UTS·연신)과 피팅 R²를 검토하고, 영률이 이상하면
    recompute_properties로 탄성창을 지정해 재계산한다.
 4. get_mat_card로 카드를 뽑아 결과를 요약한다."""
+
+
+# ── 시험장비 카탈로그 ────────────────────────────────────────────────────────
+# REST(/api/metrology/*)에는 있었으나 MCP 에는 없었다 — 그래서 웹에서는 보이는 장비가
+# 챗에서는 "검색이 안 되는" 상태였다. 도구가 없으면 에이전트는 그 데이터의 존재조차 모른다.
+# REST 라우터(app/routers/metrology.py)와 같은 질의를 쓰되, 반환은 챗이 읽을 크기로 줄인다.
+
+
+def _inst_brief(i: Instrument) -> dict:
+    return {"id": i.id, "vendor": i.vendor, "model": i.model,
+            "category": i.category, "technique": i.technique}
+
+
+@mcp.tool()
+def instrument_summary() -> dict:
+    """보유 시험장비 총계 — 몇 대를 어떤 분류·제조사로 갖고 있고 몇 가지 물성을 잴 수 있는가.
+
+    "장비 뭐 있어" 류 질문의 첫 답이다. 개별 장비 열거는 list_instruments,
+    특정 물성의 측정 수단은 how_to_measure 를 쓴다.
+    """
+    with SessionLocal() as s:
+        n_inst = s.query(func.count(Instrument.id)).scalar()
+        n_cap = s.query(func.count(InstrumentCapability.id)).scalar()
+        n_key = s.query(func.count(func.distinct(InstrumentCapability.property_key))).scalar()
+        by_cat = dict(s.query(Instrument.category, func.count(Instrument.id))
+                      .group_by(Instrument.category).all())
+        by_vendor = dict(s.query(Instrument.vendor, func.count(Instrument.id))
+                         .group_by(Instrument.vendor)
+                         .order_by(func.count(Instrument.id).desc()).limit(15).all())
+    return {"instruments": n_inst, "capabilities": n_cap,
+            "measurable_properties": n_key,
+            "by_category": by_cat, "by_vendor_top15": by_vendor}
+
+
+@mcp.tool()
+def list_instruments(query: str | None = None, category: str | None = None,
+                     property_key: str | None = None, limit: int = 40) -> dict:
+    """시험장비를 찾는다 — 제조사·모델 부분일치(query), 분류(category), 잴 수 있는 물성(property_key).
+
+    category 는 instrument_summary 의 by_category 키를 쓴다
+    (mechanical/thermal/chemical/surface/particle/optical/electrical/ndt/reliability).
+    property_key 를 주면 그 물성을 재는 장비만 남는다 — 다만 '어떻게 재는가'가 궁금하면
+    기법으로 묶어 주는 how_to_measure 쪽이 답에 가깝다.
+    총 건수(total)와 잘렸는지(truncated)를 함께 낸다 — 몇 건인지 모르면 답이 틀린다.
+    """
+    limit = max(1, min(int(limit), 200))
+    with SessionLocal() as s:
+        q = s.query(Instrument)
+        if category:
+            q = q.filter(Instrument.category == category)
+        if query:
+            like = f"%{query}%"
+            q = q.filter((Instrument.vendor.ilike(like)) | (Instrument.model.ilike(like)))
+        if property_key:
+            q = q.filter(Instrument.id.in_(
+                s.query(InstrumentCapability.instrument_id)
+                 .filter(InstrumentCapability.property_key == property_key)))
+        total = q.count()
+        rows = q.order_by(Instrument.vendor, Instrument.model).limit(limit).all()
+        items = []
+        for i in rows:
+            caps = [{"property_key": c.property_key, "technique": c.technique,
+                     "standard": c.standard}
+                    for c in i.capabilities]
+            items.append({**_inst_brief(i), "n_capabilities": len(caps),
+                          "measures": caps[:8]})
+    return {"total": total, "returned": len(items),
+            "truncated": total > len(items), "items": items}
+
+
+@mcp.tool()
+def how_to_measure(property_key: str) -> dict:
+    """이 물성을 무엇으로 어떻게 재는가 — 장비가 아니라 **기법**으로 묶어 낸다.
+
+    같은 기법을 하는 장비 여럿은 서로 다른 답이 아니라 선택지다. 규격(standard)은
+    능력행마다 다를 수 있어 모아서 낸다 — 하나로 뭉치면 거짓이 된다.
+    잴 수단이 아예 없으면 techniques 가 빈 목록이다(그 사실이 곧 답이다).
+    property_key 는 list_property_definitions 로 찾는다.
+    """
+    with SessionLocal() as s:
+        d = s.query(PropertyDefinition).filter(PropertyDefinition.key == property_key).first()
+        rows = (s.query(InstrumentCapability, Instrument)
+                 .join(Instrument, Instrument.id == InstrumentCapability.instrument_id)
+                 .filter(InstrumentCapability.property_key == property_key)
+                 .order_by(Instrument.vendor, Instrument.model).all())
+        n_val = (s.query(func.count(PropertyValue.id))
+                  .filter(PropertyValue.property_key == property_key).scalar())
+        groups: dict[str, list] = {}
+        for c, i in rows:
+            groups.setdefault(c.technique, []).append({
+                "instrument": _inst_brief(i), "standard": c.standard,
+                "range": [c.range_min, c.range_max, c.range_unit],
+                "temperature_k": [c.temperature_min_k, c.temperature_max_k],
+                "resolution": c.resolution, "accuracy": c.accuracy,
+                "specimen": c.specimen, "confidence": c.mapping_confidence,
+            })
+    return {
+        "property": ({"key": d.key, "name": d.name, "domain": d.domain,
+                      "si_unit": d.si_unit, "test_standard": d.test_standard}
+                     if d else {"key": property_key, "note": "미정의 물성 key"}),
+        "values_in_catalog": n_val,
+        "techniques": [
+            {"technique": t,
+             "standards": sorted({x["standard"] for x in items if x["standard"]}),
+             "instruments": items}
+            for t, items in sorted(groups.items())
+        ],
+        "note": ("잴 수단이 등록돼 있지 않다 — 외주·신규 도입 대상이다."
+                 if not groups else None),
+    }
+
+
+@mcp.tool()
+def measurement_gaps(limit: int = 40) -> dict:
+    """**잴 장비가 없는 물성**을 낸다 — 카탈로그에 값은 있는데 측정 수단이 없는 것들.
+
+    '문헌에만 있는 물성'을 드러내는 질문이다. 시험 계획에서 외주·신규 도입 후보가 되고,
+    해석에 쓰는 값이 사내에서 검증 불가능하다는 뜻이기도 하다.
+    values 가 많을수록 (많이 쓰는데 못 재는) 우선순위가 높다.
+    """
+    limit = max(1, min(int(limit), 200))
+    with SessionLocal() as s:
+        measurable = {k for (k,) in s.query(
+            func.distinct(InstrumentCapability.property_key)).all()}
+        used = dict(s.query(PropertyValue.property_key, func.count(PropertyValue.id))
+                     .group_by(PropertyValue.property_key).all())
+        defs = {d.key: d for d in s.query(PropertyDefinition).all()}
+    gaps = [{"property_key": k, "values": n,
+             "name": getattr(defs.get(k), "name", None),
+             "domain": getattr(defs.get(k), "domain", None)}
+            for k, n in used.items() if k not in measurable]
+    gaps.sort(key=lambda g: -g["values"])
+    return {"n_measurable": len(measurable), "n_used": len(used),
+            "n_gaps": len(gaps), "gaps": gaps[:limit],
+            "note": "values = 카탈로그에 쌓인 값 개수. 많은데 못 재면 우선순위가 높다."}
 
 
 def main() -> None:
