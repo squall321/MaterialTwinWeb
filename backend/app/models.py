@@ -373,6 +373,12 @@ class Instrument(Base):
     owned: Mapped[bool] = mapped_column(Boolean, nullable=False, server_default="0")
     # 보유로 판정한 근거(자산번호·부서·확인일 등). owned=True 인데 비어 있으면 검증 대상이다.
     owned_note: Mapped[str | None] = mapped_column(Text, nullable=True)
+    # 담당자·연락처 — 보유 여부만 알면 "그래서 누구에게 말하나"에서 멈춘다. 시험을 실제로
+    # 걸려면 사람이 필요하다. owned=True 면 이 둘이 채워져 있어야 쓸모가 있다.
+    owner_name: Mapped[str | None] = mapped_column(String(80), nullable=True)
+    owner_contact: Mapped[str | None] = mapped_column(String(160), nullable=True)
+    # 보유 정보를 마지막으로 확인한 시각. 오래된 담당자 정보는 없는 것만 못하다.
+    owned_checked_at: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
     created_at: Mapped[datetime] = mapped_column(
         UTCDateTime, nullable=False, server_default=func.now()
     )

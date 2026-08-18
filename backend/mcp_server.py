@@ -1464,9 +1464,14 @@ def register_test_data(description: str) -> str:
 # 보유 여부는 instrument.owned 에만 있고 기본값은 False(=미확인/미보유)다. 둘을 섞으면
 # "사내에서 잴 수 있다"는 틀린 답이 나가고, 시험 계획이 있지도 않은 장비를 전제한다.
 def _inst_brief(i: Instrument) -> dict:
-    return {"id": i.id, "vendor": i.vendor, "model": i.model,
-            "category": i.category, "technique": i.technique,
-            "owned": bool(getattr(i, "owned", False))}
+    d = {"id": i.id, "vendor": i.vendor, "model": i.model,
+         "category": i.category, "technique": i.technique,
+         "owned": bool(getattr(i, "owned", False))}
+    # 보유 장비만 담당자를 싣는다 — 미보유에 담당자를 달면 '연락하면 되겠구나'로 읽힌다.
+    if d["owned"]:
+        d["owner_name"] = i.owner_name
+        d["owner_contact"] = i.owner_contact
+    return d
 
 
 @mcp.tool()
@@ -1695,6 +1700,65 @@ def test_plan_for_material(material_id: int | None = None, name: str | None = No
                                   "뜻이 아니다. 외주·신규 도입을 전제로 계획하라."
                                   if not n_owned else None)},
     }
+
+
+@mcp.tool()
+def set_instrument_ownership(instrument_id: int | None = None,
+                            vendor: str | None = None, model: str | None = None,
+                            owned: bool = True,
+                            owner_name: str | None = None,
+                            owner_contact: str | None = None,
+                            note: str | None = None) -> dict:
+    """이 장비를 사내 보유로 표시하고 담당자·연락처를 남긴다.
+
+    장비 표는 기본이 '카탈로그를 찾을 수 있는 장비'다(전부 owned=False). 실제로 갖고 있는
+    것만 이 도구로 올린다 — 확인되지 않은 것을 보유로 세면 시험 계획이 있지도 않은 장비를
+    전제하게 된다.
+
+    **담당자·연락처가 핵심이다.** 보유 여부만 알면 "그래서 누구에게 말하나"에서 멈춘다.
+    장비가 있다는 것과 그것을 쓸 수 있다는 것은 다르고, 그 사이를 잇는 것이 사람이다.
+    owned=True 인데 담당자가 비면 경고를 함께 낸다.
+
+    장비 지정: instrument_id 또는 (vendor, model) 쌍. 후자는 정확히 일치해야 한다 —
+    부분일치로 엉뚱한 장비의 소유권을 바꾸면 되돌리기 어렵다. 먼저 list_instruments 로 찾아라.
+
+    owned=False 로 부르면 보유 표시를 내린다(담당자 정보는 지우지 않는다 — 이력이다).
+    """
+    from datetime import datetime, timezone
+
+    with SessionLocal() as s:
+        if instrument_id is not None:
+            inst = s.query(Instrument).filter(Instrument.id == int(instrument_id)).first()
+        elif vendor and model:
+            inst = s.query(Instrument).filter(Instrument.vendor == vendor.strip(),
+                                              Instrument.model == model.strip()).first()
+        else:
+            return {"error": "instrument_id 또는 (vendor, model) 을 정확히 지정하라. "
+                             "찾으려면 list_instruments(query=...) 를 쓴다."}
+        if inst is None:
+            return {"error": "장비를 찾지 못했다 — vendor·model 은 정확히 일치해야 한다. "
+                             "list_instruments(query=...) 로 확인하라."}
+
+        inst.owned = bool(owned)
+        if owner_name is not None:
+            inst.owner_name = owner_name.strip() or None
+        if owner_contact is not None:
+            inst.owner_contact = owner_contact.strip() or None
+        if note is not None:
+            inst.owned_note = note.strip() or None
+        inst.owned_checked_at = datetime.now(timezone.utc)
+        s.commit()
+
+        out = {"id": inst.id, "vendor": inst.vendor, "model": inst.model,
+               "owned": inst.owned, "owner_name": inst.owner_name,
+               "owner_contact": inst.owner_contact, "owned_note": inst.owned_note,
+               "checked_at": inst.owned_checked_at.isoformat()}
+        n_owned = s.query(func.count(Instrument.id)).filter(Instrument.owned.is_(True)).scalar()
+    out["owned_instruments_total"] = n_owned
+    if out["owned"] and not (out["owner_name"] or out["owner_contact"]):
+        out["warning"] = ("보유로 표시했으나 담당자·연락처가 비어 있다 — 시험을 걸 때 "
+                          "누구에게 말해야 하는지 아무도 모른다. owner_name·owner_contact 를 채워라.")
+    return out
 
 
 def main() -> None:
