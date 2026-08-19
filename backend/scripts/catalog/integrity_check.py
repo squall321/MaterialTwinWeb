@@ -7,7 +7,8 @@ OPT = "('optical.refractive_index','optical.reflectance','optical.extinction_coe
 # 값 자체가 온도인 물성 — 여기에 temperature_C 조건이 붙으면 대표값 선택이 무너진다(문서 19장).
 TEMP_VALUED = ("('thermal.melting_point','thermal.glass_transition','thermal.max_service_temp',"
                "'thermal.min_service_temp','thermal.decomposition_temp','thermal.heat_deflection_temp',"
-               "'thermal.vicat_softening')")
+               # 43차 EE 신규. 새그온도 Ts 도 **값 자체가 온도**다(브리프 199·266, 세 번째 재발).
+               "'thermal.vicat_softening','thermal.dilatometric_softening_point')")
 
 CHECKS = [
     ("출처 없는 값", "select count(*) from property_value where source_id is null"),
@@ -243,6 +244,44 @@ CHECKS = [
             cast(replace(substr(conditions, instr(conditions,'wavelength_nm')+15), '}}', '') as real) <= 0)"""),
 ]
 
+def bad_energy_product() -> list:
+    """(BH)max 가 Br^2/(4*mu0) 를 넘는 값의 목록 — **물리 상한 위반은 확정이다**(브리프 431).
+
+    최대자기에너지적은 감자곡선 위 B x H 의 최대값이다. 자화가 완전히 사각형이어도
+    2상한의 직사각형 넓이는 (Br/2) x (Br/2/mu0) = Br^2/(4*mu0) 를 못 넘는다.
+    실측 격자(Eclipse NdFeB 8등급 x min/typ · 하드페라이트)에서 실제 비는 0.90~0.97 이다.
+    1 을 넘으면 단위 오입력이거나 표가 죽은 것이다.
+
+    같은 재료의 Br 을 **여러 개 들고 있을 수 있으므로 최대 Br 로 상한을 잡는다** —
+    가장 관대한 상한이라, 그래도 넘으면 확정이다.
+    """
+    import math
+    con = sqlite3.connect(DB)
+    mu0 = 4e-7 * math.pi
+    br: dict = {}
+    for mid, v in con.execute(
+            "select material_id, value_num from property_value "
+            "where property_key='magnetic.remanence' and value_num is not null"):
+        br[mid] = max(br.get(mid, 0.0), float(v))
+    out = []
+    for mid, v, cond in con.execute(
+            "select material_id, value_num, conditions from property_value "
+            "where property_key='magnetic.energy_product_max' and value_num is not null"):
+        b = br.get(mid)
+        if not b:
+            continue                      # Br 이 없으면 검산할 수 없다 — 위반이 아니다
+        cap = b * b / (4 * mu0)
+        # **인쇄 유효자릿수의 반올림 구간으로 판정한다**(브리프 339). Br 이 `400 mT` 로
+        # 인쇄되면 실제는 [395,405) 이고 cap 은 Br^2 에 비례해 ±0.3% 흔들린다.
+        # 실제로 Eclipse Y30H-1 행이 32.0 대 31.83(=1.005배)으로 걸린다 — 반올림 안이다.
+        # 2% 는 반올림 잡음보다 훨씬 크고, 진짜 단위 오입력(x1000 · x7.96)보다 훨씬 작다.
+        if float(v) > cap * 1.02:
+            name = (con.execute("select name from material where id=?", (mid,)).fetchone()
+                    or ["?"])[0]
+            out.append((mid, name, float(v), cap, cond))
+    return out
+
+
 def k_missing_direction() -> int:
     """열적 이방성이 입증됐는데 열전도율에 방향이 없는 값의 수.
 
@@ -322,6 +361,12 @@ for label, sql in CHECKS:
 _v = bad_lcsr_curves()
 bad += 1 if _v else 0
 print(f"  {'LCSR 가로축 비단조':28s} {_v}{'  ←' if _v else ''}")
+_bh = bad_energy_product()
+bad += 1 if _bh else 0
+print(f"  {'(BH)max > Br^2/(4mu0)':28s} {len(_bh)}{'  ←' if _bh else ''}")
+for _mid, _nm, _v2, _cap, _ in _bh[:5]:
+    print(f"      재료{_mid} {str(_nm)[:44]:46s} {_v2/1e3:.1f} > {_cap/1e3:.1f} kJ/m^3"
+          f" (비 {_v2/_cap:.3f})")
 
 # 주의 항목 — 결함은 아니지만 쓰는 사람이 알아야 하는 것. bad에 세지 않는다.
 # 방향을 지어내서 검사를 통과시키는 것도, 아는 위험을 안 알리는 것도 안 된다.
