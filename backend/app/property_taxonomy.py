@@ -123,6 +123,25 @@ _DEFS: list[tuple] = [
     # ISO 180 · GB/T 1843 은 kJ/m² 다. 둘을 환산하려면 시편 폭이 필요한데 대개 안 적혀 있어
     # **역산 금지에 걸린다** — 그래서 키를 나눈다. 24차 I 가 Pan 2020 4행을 여기서 막혔다.
     ("mechanical.impact_strength_izod_area", "mechanical", "아이조드 충격강도(면적)", None, "J/m^2", "numeric", ["notch", "temperature_k"], "ISO 180"),
+    # **흡수에너지(J)는 면적당 충격강도(J/m²)와 차원이 다르다 — 조건축으로는 못 담는다**(41차 CA).
+    # 로크웰 스케일(40차 BE)·T-260 온도(39차 BA)는 **같은 차원의 값**이라 한 키에 조건축으로 얹었지만,
+    # ISO 148 금속 샤르피는 **절대 에너지 J**, ISO 179 고분자 샤르피는 **단면적당 kJ/m²** 다.
+    # 한 키에 두 단위를 담으면 `si_unit` 이 하나뿐인 taxonomy 와 무결성검사("단위가 정의와 다름"),
+    # 범위검사·Ashby 축이 전부 무의미해진다. **그래서 이것만은 키를 갈라야 한다.**
+    # 환산도 금지다 — J → J/m² 는 시편 단면(ISO 148 표준 8×10 mm)이 인쇄돼 있어야 하는데
+    # 금속 시트는 거의 인쇄하지 않는다. 나누는 순간 우리가 만든 값이 된다(136번).
+    # 40차 BF 가 Uddeholm 다섯 시트의 Charpy-V 곡선을 이 키가 없어 한 행도 못 넣었다.
+    #
+    # ⚠ **노치 형상은 키가 아니라 조건축이다.** V·U·무노치는 차원이 같고(J) 시편 파라미터일 뿐이라
+    #   `notch` 로 가른다(면적 키가 이미 쓰는 축이다). `_charpy_v` 로 키를 파면 Vidar 의 Charpy U 와
+    #   Dievar 의 무노치 300 J 이 다시 갈 곳을 잃는다.
+    # ⚠ `temperature_k` 없이는 값이 아니다 — 금속은 천이온도를 지나며 값이 몇 배로 갈린다
+    #   (Impax Supreme 은 −100 °C 8 J 대 150 °C 68 J).
+    # ⚠ 나머지 축(hardness·direction·tempering_temperature_c·test_standard)은 **OR 로 읽어라**(287번).
+    #   규격표 한 줄짜리(`Charpy-V 47 HRC : 7 J`)가 못 들어오면 안 된다.
+    ("mechanical.impact_energy_charpy", "mechanical", "샤르피 흡수에너지", "KV", "J", "numeric",
+     ["notch", "temperature_k", "hardness", "direction", "tempering_temperature_c", "test_standard"],
+     "ISO 148-1"),
     # **DMA 의 두 성분이 통째로 없었다**(24차 P). `loss_tangent`(= E''/E')만 있었는데,
     # tanδ 는 비율이라 **강성의 크기를 못 준다** — 점탄성 해석에 E' 자체가 있어야 한다.
     # 주파수·온도가 없으면 값이 아니다(같은 재료가 10 Hz 와 1 Hz 에서 다르게 나온다).
@@ -437,7 +456,34 @@ _DEFS: list[tuple] = [
     # 0.3 eV 이상 갈리므로 `conditions.method_detail` 없이는 비교하면 안 된다.
     ("electrical.homo_level", "electrical", "HOMO 준위", "E_HOMO", "eV", "numeric", None, None),
     ("electrical.lumo_level", "electrical", "LUMO 준위", "E_LUMO", "eV", "numeric", None, None),
-    ("electrical.piezoelectric_d33", "electrical", "압전상수 d33", "d33", "C/N", "numeric", None, None),
+    # **압전 텐서 성분은 키가 아니라 조건축이다**(41차 CA — 40차 BE 의 로크웰 선례).
+    # 옛 `electrical.piezoelectric_d33` 은 이름·기호에 성분번호가 박혀 있어 d31 이 들어올 자리가 없었다.
+    # d31·d33·d15 는 **같은 3계 텐서 d_ij 의 성분**이라 단위가 전부 C/N 로 같고 측정도 같다
+    # (Berlincourt d33 미터 · IEEE 176 공진법). 성분마다 키를 열면 33·31·15·32·24… 로 무한히 늘고
+    # "이 재료에 압전상수가 있나"를 키 합집합으로 물어야 한다(136번).
+    # **샤르피와 갈리는 지점이 여기다** — 샤르피는 J 와 J/m² 로 **차원이 달라** 키를 갈랐지만,
+    # 압전 성분은 차원이 같아 조건축으로 담을 수 있다. 가르는 자는 물리적 의미가 아니라 **차원**이다.
+    # 옛 키 23행은 `conditions.component="33"` 을 붙여 이관했다(마이그레이션 e5f6a7b8c9d0, 162번).
+    #
+    # ⚠ `component` 없이는 값이 아니다 — **d31 은 부호가 음수**고 d33 의 3분의 1 안팎이다.
+    #   성분을 지우면 두 수가 같은 축에 앉는다. 원문이 인쇄한 부호를 지우지 마라(9번).
+    # ⚠ **g 상수(V·m/N)와 e 상수(C/m²)는 이 키가 아니다** — 차원이 다르다. 넣지 마라.
+    ("electrical.piezoelectric_charge_coefficient", "electrical", "압전전하상수 d", "d", "C/N", "numeric",
+     ["component", "temperature_k", "poling", "frequency_hz"], "IEEE 176"),
+    # **전기기계결합계수는 갈래가 통째로 없었다**(41차 CA, 40차 BG 인계). 압전소자의 에너지 변환 효율이라
+    # d 상수와 함께 반드시 인쇄되는데 담을 키가 없었다. 무차원이고 **모드가 값을 정한다** —
+    # k31(횡효과 막대)·k33(종효과 막대)·kp(원판 평면)·kt(두께)·k15(전단)가 한 재료에서 서너 배 갈린다.
+    # 모드가 같은 차원의 파라미터라 조건축으로 담는다(d 와 같은 논리).
+    # ⚠ 무차원 0~1 이다. 원문이 % 로 인쇄하면 100 으로 나눠라(`elongation_at_break` 규약).
+    ("electrical.electromechanical_coupling_factor", "electrical", "전기기계결합계수 k", "k", "1", "numeric",
+     ["mode", "temperature_k", "frequency_hz"], "IEEE 176"),
+    # **기계품질계수 Qm** — 공진에서의 기계손실의 역수로, 하드/소프트 PZT 를 가르는 대표 지표다
+    # (하드계 Qm > 1000, 소프트계 Qm < 100). `acoustic.loss_factor`(η)·`mechanical.loss_tangent` 과
+    # **역수 관계이지만 환산해 넣지 마라** — 공진 모드와 구동전압이 다르면 같은 수가 아니다.
+    # 도메인을 electrical 로 둔 것은 측정이 임피던스 공진(IEEE 176)이고 벤더 시트가 d·k 와
+    # **같은 블록에 인쇄**하기 때문이다.
+    ("electrical.mechanical_quality_factor", "electrical", "기계품질계수 Qm", "Qm", "1", "numeric",
+     ["mode", "temperature_k", "drive_level"], "IEEE 176"),
     # ── 광/복사 ────────────────────────────────────────────────────────────────
     ("optical.refractive_index", "optical", "굴절률", "n", "1", "numeric", ["wavelength_nm", "temperature_k"], None),
     ("optical.extinction_coefficient", "optical", "소광계수", "k", "1", "numeric", ["wavelength_nm"], None),
