@@ -169,6 +169,19 @@ METHOD_MAP = {"datasheet": "measured", "experiment": "measured", "experimental":
               "curve": "digitized", "readoff": "digitized"}
 
 
+# **구간의 중앙값은 계산값이다** — notes 가 그렇게 밝히면 method 를 강제로 computed 로 내린다.
+# 41차에 실측했다: 중앙값 표기 379행 중 210행이 measured/handbook 이었다(브리프 451).
+# 검사기로 사후에 잡으면 배치가 도는 동안 계속 쌓인다 — **적재 단계에서 막는 것이 맞다.**
+_MIDPOINT = re.compile(r"중간값|중앙값|midpoint of|mid-?point of")
+
+
+def force_computed_if_midpoint(method: str, notes) -> tuple[str, bool]:
+    """중앙값이면 (computed, True). 그 외에는 그대로."""
+    if method in ("measured", "handbook") and _MIDPOINT.search(str(notes or "")):
+        return "computed", True
+    return method, False
+
+
 def norm_method(raw) -> tuple[str, str | None]:
     """(정규화된 method, 원문 서술 또는 None)."""
     s = (str(raw) if raw is not None else "").strip()
@@ -410,6 +423,7 @@ def main() -> int:
                 if is_text:
                     if a.apply:
                         meth, detail = norm_method(pr.get("method"))
+                        meth, _mid = force_computed_if_midpoint(meth, pr.get("notes"))
                         cond = as_cond(pr.get("conditions"))
                         if detail:
                             cond["test_method"] = detail
@@ -457,6 +471,7 @@ def main() -> int:
                     continue
                 if a.apply:
                     meth, detail = norm_method(pr.get("method"))
+                    meth, _mid = force_computed_if_midpoint(meth, pr.get("notes"))
                     cond = as_cond(pr.get("conditions"))
                     if detail:
                         cond["test_method"] = detail
