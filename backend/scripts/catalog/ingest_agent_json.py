@@ -125,6 +125,28 @@ RANGE = {
     # TTS로 20 decade를 덮는 급수는 1e17~1e19 s 항을 정상적으로 포함한다(Springer 2020·Chiu 2018).
     # 상한을 1e16으로 두면 **급수의 꼬리가 잘려 세트가 못 쓰게 된다** — 17차에 31항이 잘렸다.
     "mechanical.prony_relaxation_time": (1e-40, 1e40),
+    # ── 43차 EE 신규 키 ──────────────────────────────────────────────────────
+    # **하한은 전부 0(또는 물리적으로 음수가 되는 것만 음수)으로 시작한다** —
+    # 인쇄된 값을 범위 가드가 막은 사고가 여섯 번 났다(브리프 150·161). 단위 오입력은
+    # 범위가 아니라 조건·notes 대조와 검사기의 물리 검산으로 잡는다.
+    #
+    # (BH)max 는 J/m^3 다. kJ/m^3 원값(414)이나 MGOe 원값(52)을 그대로 넣으면
+    # 상한이 아니라 **integrity_check 의 (BH)max <= Br^2/(4*mu0) 검산**이 잡는다 —
+    # 자릿수가 세 자리 작아지면 그 부등식은 오히려 통과하므로, 여기 상한은 자릿수 사고만 본다.
+    # 상한 1e6 J/m^3 = 1000 kJ/m^3 — 알려진 어떤 영구자석도 500 kJ/m^3 을 못 넘는다.
+    "magnetic.energy_product_max": (0.0, 1e6),
+    "mechanical.puncture_strength": (0.0, 1e5),          # N (gf 원값이면 자릿수로 걸린다)
+    # 양수 = 수축. 가열로 늘어나는 필름이 있어 하한이 음수다. 상한 1 은 % 원값(3.0)을 잡는다.
+    "thermal.heat_shrinkage": (-1.0, 1.0),
+    "physical.air_permeability_gurley": (0.0, 1e6),      # s
+    # 부호가 음수인 수지가 있다(폴리스티렌). cm^2/dyne 원값이면 정확히 10 배 작아지는데
+    # 범위로는 못 잡는다 — 자릿수만 본다(PC 7.2e-11 · PMMA 6.0e-12 · 유리 2~3e-12).
+    "optical.stress_optical_coefficient": (-1e-7, 1e-7),
+    "interface.tensile_adhesion_strength": (0.0, 1e9),   # Pa. lap_shear 와 같은 가드
+    "mechanical.lankford_r_value": (0.0, 20.0),          # 무차원. Mg 합금이 5 대까지 간다
+    "thermal.dilatometric_softening_point": (200.0, 3000.0),   # K (섭씨 원값이면 걸린다)
+    "mechanical.abrasion_factor": (0.0, 1e4),            # BSC7 = 100 기준 상대값
+    "mechanical.hardness_ball_indentation": (1e3, 1e11),  # Pa (N/mm^2 원값이면 걸린다)
 }
 # Material.category도 고정 어휘 — 에이전트 표기를 매핑한다.
 CAT_OK = {"metal", "polymer", "rubber", "composite", "ceramic", "foam"}
@@ -180,11 +202,31 @@ METHOD_MAP = {"datasheet": "measured", "experiment": "measured", "experimental":
 # 41차에 실측했다: 중앙값 표기 379행 중 210행이 measured/handbook 이었다(브리프 451).
 # 검사기로 사후에 잡으면 배치가 도는 동안 계속 쌓인다 — **적재 단계에서 막는 것이 맞다.**
 _MIDPOINT = re.compile(r"중간값|중앙값|midpoint of|mid-?point of")
+# **부정문이 오탐을 낸다 — 브리프 451 을 지킨 배치가 오히려 벌을 받았다**(43차 EE).
+# 451 을 읽은 배치는 근거에 "구간의 중앙값은 만들지 않았다" 라고 적는다. 그 한 줄 때문에
+# **인쇄된 상·하한 실측이 computed 로 강등됐다** — EE 가 자기 행 7개에서 발견했고,
+# 거슬러 보니 ED-3 의 Y30H-1 Br 상단 `0.40 T`(인쇄된 구간 상단)도 같은 이유로 computed 였다.
+# 즉 이 가드는 **자기를 지킨 배치만 골라 틀리게 만든다.**
+# 매치 뒤 24자 안에 부정어가 있으면 그 매치는 주장이 아니다. 부정 아닌 매치가 하나라도
+# 있어야 강등한다. 놓친 것은 integrity_check 의 같은 판정이 파동 끝에 잡는다
+# (**오탐은 아무도 못 잡지만 오미는 검사기가 잡는다** — 그래서 이 방향이 맞다).
+# **부정어의 위치가 언어마다 반대다** — 한국어는 뒤("중앙값은 만들지 **않았다**"),
+# 영어는 앞("we did **not** take the midpoint of"). 양쪽을 다 봐야 한다.
+_MID_NEG_AFTER = re.compile(r"않|아니|없|금지")
+_MID_NEG_BEFORE = re.compile(r"not |no |never |n't |without ", re.I)
+
+
+def asserts_midpoint(notes) -> bool:
+    """notes 가 '이 값이 구간의 중앙값이다' 라고 **주장**하면 True. 부정문은 세지 않는다."""
+    s = str(notes or "")
+    return any(not _MID_NEG_AFTER.search(s[m.end():m.end() + 24])
+               and not _MID_NEG_BEFORE.search(s[max(0, m.start() - 24):m.start()])
+               for m in _MIDPOINT.finditer(s))
 
 
 def force_computed_if_midpoint(method: str, notes) -> tuple[str, bool]:
     """중앙값이면 (computed, True). 그 외에는 그대로."""
-    if method in ("measured", "handbook") and _MIDPOINT.search(str(notes or "")):
+    if method in ("measured", "handbook") and asserts_midpoint(notes):
         return "computed", True
     return method, False
 
@@ -430,8 +472,11 @@ def main() -> int:
                 if is_text:
                     if a.apply:
                         meth, detail = norm_method(pr.get("method"))
+                        meth0 = meth
                         meth, _mid = force_computed_if_midpoint(meth, pr.get("notes"))
                         cond = as_cond(pr.get("conditions"))
+                        if _mid:
+                            cond["method_before_correction"] = meth0
                         if detail:
                             cond["test_method"] = detail
                         r = M.register_property(
@@ -478,8 +523,14 @@ def main() -> int:
                     continue
                 if a.apply:
                     meth, detail = norm_method(pr.get("method"))
+                    meth0 = meth
                     meth, _mid = force_computed_if_midpoint(meth, pr.get("notes"))
                     cond = as_cond(pr.get("conditions"))
+                    # **강등했으면 표시를 남긴다** — 41차 CD 가 SQL 로 옮길 때 스스로 쓴 방식인데
+                    # 적재기에는 없었다. 표시가 없으면 나중에 "가드가 내린 것"과 "배치가 그렇게
+                    # 적어 보낸 것"을 구별할 수 없다(EE 가 기존 441행에서 그 벽을 만났다).
+                    if _mid:
+                        cond["method_before_correction"] = meth0
                     if detail:
                         cond["test_method"] = detail
                     r = M.register_property(

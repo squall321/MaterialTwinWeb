@@ -31,9 +31,9 @@ CHECKS = [
     # 인쇄된 것은 구간이고 중앙값은 우리 산술이라, `assumed → estimated` 를 가른 것과 같은 부류다.
     # 실측 당시 143행이 measured/handbook 이었다. 값은 그대로 두고 method 만 computed 로 옮겼다.
     # **본래는 상·하한 두 행으로 갈라야 한다**(브리프 76) — 원문 구간이 있어야 하므로 배치 몫이다.
-    ("중앙값인데 실측·핸드북 표기",
-     "select count(*) from property_value where (notes like '%중간값%' or notes like '%중앙값%') "
-     "and method in ('measured','handbook')"),
+    # (43차 EE) 이 항목은 **SQL 로는 못 본다** — 아래 bad_midpoint_method() 로 옮겼다.
+    # `LIKE '%중앙값%'` 은 "중앙값은 만들지 **않았다**" 같은 부정문까지 잡아, 브리프 451 을
+    # 지킨 배치를 오히려 벌준다. 적재기(ingest_agent_json.asserts_midpoint)와 **같은 판정**을 쓴다.
     ("출처 kind 어휘 밖", """select count(*) from source where kind not in
         ('journal','book','database','datasheet','computed','standard','web','other')"""),
     ("category 어휘 밖", """select count(*) from material where category not in
@@ -244,6 +244,31 @@ CHECKS = [
             cast(replace(substr(conditions, instr(conditions,'wavelength_nm')+15), '}}', '') as real) <= 0)"""),
 ]
 
+def bad_midpoint_method() -> int:
+    """중앙값이라고 **주장**하는데 실측·핸드북으로 표기된 값의 수(브리프 451).
+
+    판정은 적재기의 ``asserts_midpoint`` 와 같아야 한다 — 부정어의 위치가 언어마다
+    반대라(한국어는 뒤, 영어는 앞) 양쪽 창을 다 본다. 두 스크립트가 서로를 import 하지
+    않고 각자 standalone 이라 여섯 줄을 나란히 둔다 — **한쪽만 고치면 안 된다.**
+    """
+    import re as _re
+    mid = _re.compile(r"중간값|중앙값|midpoint of|mid-?point of")
+    neg_after = _re.compile(r"않|아니|없|금지")
+    neg_before = _re.compile(r"not |no |never |n't |without ", _re.I)
+    con = sqlite3.connect(DB)
+    n = 0
+    for (notes,) in con.execute(
+            "select notes from property_value where notes is not null "
+            "and method in ('measured','handbook') and ("
+            "notes like '%중간값%' or notes like '%중앙값%' "
+            "or notes like '%midpoint of%' or notes like '%mid-point of%')"):
+        if any(not neg_after.search(notes[m.end():m.end() + 24])
+               and not neg_before.search(notes[max(0, m.start() - 24):m.start()])
+               for m in mid.finditer(notes)):
+            n += 1
+    return n
+
+
 def bad_energy_product() -> list:
     """(BH)max 가 Br^2/(4*mu0) 를 넘는 값의 목록 — **물리 상한 위반은 확정이다**(브리프 431).
 
@@ -361,6 +386,9 @@ for label, sql in CHECKS:
 _v = bad_lcsr_curves()
 bad += 1 if _v else 0
 print(f"  {'LCSR 가로축 비단조':28s} {_v}{'  ←' if _v else ''}")
+_mp = bad_midpoint_method()
+bad += 1 if _mp else 0
+print(f"  {'중앙값인데 실측·핸드북 표기':28s} {_mp}{'  ←' if _mp else ''}")
 _bh = bad_energy_product()
 bad += 1 if _bh else 0
 print(f"  {'(BH)max > Br^2/(4mu0)':28s} {len(_bh)}{'  ←' if _bh else ''}")
