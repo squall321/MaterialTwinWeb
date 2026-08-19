@@ -28,7 +28,12 @@ from app.models import Material, PropertyDefinition, PropertyValue  # noqa: E402
 RANGE = {
     "physical.density": (1.0, 25000.0),
     "mechanical.youngs_modulus": (1e3, 1.5e12),
-    "mechanical.poisson_ratio": (0.0, 0.5),
+    # [2026-08-19 · 42차 DA] 하한 0.0 → -1.0. **인쇄된 값을 범위 가드가 막는 사고 — 여섯 번째다**
+    # (17·19차 Prony 상·하한, 21차 peel_strength·tack, 40차 인쇄된 0, 그리고 여기).
+    # 포아송비는 **무차원이라 하한 0 이 단위 오입력을 하나도 못 잡는다** — 막는 것은 auxetic 재료뿐이다.
+    # 열분해흑연(PG)의 basal 면은 실제로 음수이고, 제조사 시트(MINTEQ Pyroid HT)가 XY -0.18 을 인쇄한다.
+    # 하한은 등방 탄성의 열역학 한계인 -1.0 으로 둔다.
+    "mechanical.poisson_ratio": (-1.0, 0.5),
     "mechanical.tensile_strength": (1e3, 1e11),
     "mechanical.yield_strength": (1e3, 1e11),
     # 인장항복·인장강도와 같은 응력 갈래라 같은 가드를 쓴다. 하한 1e3 은 MPa 원값을
