@@ -1,0 +1,834 @@
+{
+ "batch": "FB-2 44차 · NEG OA 기판유리 4종 · AGC AN100/AN635 · NEG LS-3075 봉지 프릿",
+ "materials": [
+  {
+   "new_material": {
+    "name": "NEG OA-10G Alkali-free Glass Substrate",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "display",
+     "manufacturer": "Nippon Electric Glass Co., Ltd.",
+     "material_class": "alkali-free (non-alkali) aluminosilicate glass substrate",
+     "process": "overflow fusion draw",
+     "composition": "alkali oxide 0.1 wt% max, As/Sb-free",
+     "strain_point_c_not_loadable": 650,
+     "role_confidence": "high",
+     "application": "TFT-LCD / OLED display glass substrate; LTPS and IGZO processes",
+     "role_reason": "LCD·OLED 패널 기판. 현행 NEG 영문 사이트에는 물성표가 없어 2019년판(1910-01E) Wayback 스냅샷이 유일한 1차 출처다"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "OA-10G/OA-11 Alkali-free Glass Substrate (Nippon Electric Glass, Ref. No. 1910-01E)",
+    "url": "https://web.archive.org/web/20210925094348id_/https://www.neg.co.jp/en/assets/file/product/dp/en-oa-10g_11.pdf",
+    "authors": "Nippon Electric Glass Co., Ltd. (corporate author)",
+    "year": 2019,
+    "publisher": "Nippon Electric Glass Co., Ltd.",
+    "manufacturer": "Nippon Electric Glass Co., Ltd.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/NEG_OA-10G_OA-11_Alkali-free_Glass_Substrate_1910-01E.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2460,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "Properties 표 verbatim `Density x10^3 kg/m^3 2.46`. OA-10G 열(2019년판 1910-01E, OA-10G/OA-11 병기표의 왼쪽 열)."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 3.8e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "30-380"
+     },
+     "notes": "표 verbatim `Coefficient of thermal expansion 30-380 °C x10-7/K 38`. **구간이 인쇄돼 있다.**"
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 73000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Young's modulus GPa 73`."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.2,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Poisson's ratio 0.2`. 전단탄성계수는 시트가 인쇄하지 않아 역산하지 않았다(§10)."
+    },
+    {
+     "key": "mechanical.hardness_vickers",
+     "value": 600.0,
+     "unit": "HV",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "load": "not printed"
+     },
+     "notes": "표 verbatim `Vickers hardness Hv 600`. **하중·유지시간이 인쇄돼 있지 않다** — Corning EAGLE XG Slim(200 gf/25 s)과 직접 비교하지 마라."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 10000000000.0,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 350
+     },
+     "notes": "표 verbatim `Volume resistivity Log rho 350 °C ohm·cm 12.0`. **§409 — 인쇄값이 log10 이다.** 10^12.0 ohm·cm x0.01 = 1.000e+10 ohm·m."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.3,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "temperature_c": "RT"
+     },
+     "notes": "표 verbatim `Dielectric constant 1MHz, RT 5.3`."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.001,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "temperature_c": "RT"
+     },
+     "notes": "표 verbatim `tan delta 1MHz, RT 0.001`."
+    },
+    {
+     "key": "optical.transmittance",
+     "value": 0.92,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 550,
+      "thickness_mm": 0.5
+     },
+     "notes": "표 verbatim `Light transmittance lambda=550nm % 92`. **두께 주의(§467)** — 투과율 행에는 두께가 인쇄돼 있지 않고, 같은 쪽 투과율 그래프 캡션의 `(Thickness: 0.5 mm)` 를 조건으로 붙였다. 이 캡션은 OA-11·OA-20·OA-31 세 시트에 똑같이 박혀 있어 서식 잔재일 가능성을 완전히 배제하지 못한다. 다만 치수표의 대표 두께가 0.50 mm 라 정합적이다."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.52,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 587.6
+     },
+     "notes": "표 verbatim `Refractive index (nd) 587.6nm 1.52` — d선."
+    },
+    {
+     "key": "chemical.composition",
+     "value_text": "alkali oxide content 0.1 wt% max.; As, Sb content less than 0.1 wt%",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "basis": "weight percent"
+     },
+     "notes": "표 verbatim `Alkali oxide content wt % 0.1 max.` · `As, Sb content wt % Less than 0.1`. **'무알칼리'는 조성 표시지 물성이 아니다** — 그래서 composition 에 넣는다(브리프 트랩 3)."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "NEG OA-11 Alkali-free Glass Substrate",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "display",
+     "manufacturer": "Nippon Electric Glass Co., Ltd.",
+     "material_class": "alkali-free (non-alkali) aluminosilicate glass substrate",
+     "process": "overflow fusion draw",
+     "composition": "alkali oxide 0.1 wt% max, As/Sb-free",
+     "strain_point_c_not_loadable": 685,
+     "role_confidence": "high",
+     "application": "TFT-LCD / OLED display glass substrate; low gravity deflection, high dimensional stability",
+     "role_reason": "OA-10G 후속 기판유리. 변형점·영률이 갈리는 별개 등급",
+     "edition_cross_check": "2019년판(1910-01E)과 2025년판(2510-01E)이 11개 물성 전부 자릿수까지 같다"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "OA-11 Alkali-free Glass Substrate (Nippon Electric Glass, Ref. No. 2510-01E)",
+    "url": "https://www.neg.co.jp/en/assets/OA-11_en_2026.pdf",
+    "authors": "Nippon Electric Glass Co., Ltd. (corporate author)",
+    "year": 2025,
+    "publisher": "Nippon Electric Glass Co., Ltd.",
+    "manufacturer": "Nippon Electric Glass Co., Ltd.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/NEG_OA-11_Alkali-free_Glass_Substrate_2510-01E.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2520,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "Properties 표 verbatim `Density x10^3 kg/m^3 2.52`. 2025년판(2510-01E). **§426 판 대조 — 2019년판(1910-01E) OA-11 열과 밀도·CTE·변형점·E·nu·Hv·log rho·Dk·tan d·투과율·nd 11칸이 전부 일치한다.**"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 3.6999999999999997e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "30-380"
+     },
+     "notes": "표 verbatim `Coefficient of thermal expansion 30-380 °C x10-7/K 37`. **구간이 인쇄돼 있다.**"
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 78000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Young's modulus GPa 78`."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.2,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Poisson's ratio 0.2`. 전단탄성계수는 시트가 인쇄하지 않아 역산하지 않았다(§10)."
+    },
+    {
+     "key": "mechanical.hardness_vickers",
+     "value": 620.0,
+     "unit": "HV",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "load": "not printed"
+     },
+     "notes": "표 verbatim `Vickers hardness Hv 620`. **하중·유지시간이 인쇄돼 있지 않다** — Corning EAGLE XG Slim(200 gf/25 s)과 직접 비교하지 마라."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 100000000000.0,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 350
+     },
+     "notes": "표 verbatim `Volume resistivity Log rho 350 °C ohm·cm 13.0`. **§409 — 인쇄값이 log10 이다.** 10^13.0 ohm·cm x0.01 = 1.000e+11 ohm·m."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.6,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "temperature_c": "RT"
+     },
+     "notes": "표 verbatim `Dielectric constant 1MHz, RT 5.6`."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.001,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "temperature_c": "RT"
+     },
+     "notes": "표 verbatim `tan delta 1MHz, RT 0.001`."
+    },
+    {
+     "key": "optical.transmittance",
+     "value": 0.92,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 550,
+      "thickness_mm": 0.5
+     },
+     "notes": "표 verbatim `Light transmittance lambda=550nm % 92`. **두께 주의(§467)** — 투과율 행에는 두께가 인쇄돼 있지 않고, 같은 쪽 투과율 그래프 캡션의 `(Thickness: 0.5 mm)` 를 조건으로 붙였다. 이 캡션은 OA-11·OA-20·OA-31 세 시트에 똑같이 박혀 있어 서식 잔재일 가능성을 완전히 배제하지 못한다. 다만 치수표의 대표 두께가 0.50 mm 라 정합적이다."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.53,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 587.6
+     },
+     "notes": "표 verbatim `Refractive index (nd) 587.6nm 1.53` — d선."
+    },
+    {
+     "key": "chemical.composition",
+     "value_text": "alkali oxide content 0.1 wt% max.; As, Sb content less than 0.1 wt%",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "basis": "weight percent"
+     },
+     "notes": "표 verbatim `Alkali oxide content wt % 0.1 max.` · `As, Sb content wt % Less than 0.1`. **'무알칼리'는 조성 표시지 물성이 아니다** — 그래서 composition 에 넣는다(브리프 트랩 3)."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "NEG OA-20 High-Rigidity Low-Compaction Glass Substrate",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "display",
+     "manufacturer": "Nippon Electric Glass Co., Ltd.",
+     "material_class": "alkali-free (non-alkali) aluminosilicate glass substrate",
+     "process": "overflow fusion draw",
+     "composition": "alkali oxide 0.1 wt% max, As/Sb-free",
+     "strain_point_c_not_loadable": 725,
+     "role_confidence": "high",
+     "application": "oxide TFT (IGZO) and OLED high-definition displays, in-vehicle displays requiring high rigidity; G8.5+ sizes",
+     "role_reason": "IGZO·OLED 고온공정용 저열수축 고강성 기판유리"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "OA-20 High Rigidity and Low Thermal Compaction Glass Substrate (Nippon Electric Glass, Ref. No. 2510-02E)",
+    "url": "https://www.neg.co.jp/en/assets/OA-20_en_2026.pdf",
+    "authors": "Nippon Electric Glass Co., Ltd. (corporate author)",
+    "year": 2025,
+    "publisher": "Nippon Electric Glass Co., Ltd.",
+    "manufacturer": "Nippon Electric Glass Co., Ltd.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/NEG_OA-20_Glass_Substrate_2510-02E.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2550,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "Properties 표 verbatim `Density x10^3 kg/m^3 2.55`. 2025년판(2510-02E)."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 3.6999999999999997e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "30-380"
+     },
+     "notes": "표 verbatim `Coefficient of thermal expansion 30-380 °C x10-7/K 37`. **구간이 인쇄돼 있다.**"
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 83000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Young's modulus GPa 83`."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.2,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Poisson's ratio 0.2`. 전단탄성계수는 시트가 인쇄하지 않아 역산하지 않았다(§10)."
+    },
+    {
+     "key": "mechanical.hardness_vickers",
+     "value": 670.0,
+     "unit": "HV",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "load": "not printed"
+     },
+     "notes": "표 verbatim `Vickers hardness Hv 670`. **하중·유지시간이 인쇄돼 있지 않다** — Corning EAGLE XG Slim(200 gf/25 s)과 직접 비교하지 마라."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 100000000000.0,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 350
+     },
+     "notes": "표 verbatim `Volume resistivity Log rho 350 °C ohm·cm 13.0`. **§409 — 인쇄값이 log10 이다.** 10^13.0 ohm·cm x0.01 = 1.000e+11 ohm·m."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.7,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "temperature_c": "RT"
+     },
+     "notes": "표 verbatim `Dielectric constant 1MHz, RT 5.7`."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.001,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "temperature_c": "RT"
+     },
+     "notes": "표 verbatim `tan delta 1MHz, RT 0.001`."
+    },
+    {
+     "key": "optical.transmittance",
+     "value": 0.91,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 550,
+      "thickness_mm": 0.5
+     },
+     "notes": "표 verbatim `Light transmittance lambda=550nm % 91`. **두께 주의(§467)** — 투과율 행에는 두께가 인쇄돼 있지 않고, 같은 쪽 투과율 그래프 캡션의 `(Thickness: 0.5 mm)` 를 조건으로 붙였다. 이 캡션은 OA-11·OA-20·OA-31 세 시트에 똑같이 박혀 있어 서식 잔재일 가능성을 완전히 배제하지 못한다. 다만 치수표의 대표 두께가 0.50 mm 라 정합적이다."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.53,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 587.6
+     },
+     "notes": "표 verbatim `Refractive index (nd) 587.6nm 1.53` — d선."
+    },
+    {
+     "key": "chemical.composition",
+     "value_text": "alkali oxide content 0.1 wt% max.; As, Sb content less than 0.1 wt%",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "basis": "weight percent"
+     },
+     "notes": "표 verbatim `Alkali oxide content wt % 0.1 max.` · `As, Sb content wt % Less than 0.1`. **'무알칼리'는 조성 표시지 물성이 아니다** — 그래서 composition 에 넣는다(브리프 트랩 3)."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "NEG OA-31 High-Heat-Resistant Low-Compaction Glass Substrate",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "display",
+     "manufacturer": "Nippon Electric Glass Co., Ltd.",
+     "material_class": "alkali-free (non-alkali) aluminosilicate glass substrate",
+     "process": "overflow fusion draw",
+     "composition": "alkali oxide 0.1 wt% max, As/Sb-free",
+     "strain_point_c_not_loadable": 750,
+     "role_confidence": "high",
+     "application": "LTPS display substrate for smartphones/mobile; carrier glass for flexible OLED",
+     "role_reason": "LTPS 공정용 최고변형점(750 degC) 저열수축 기판유리. 유연 OLED 캐리어"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "OA-31 High Heat-resistant and Low Thermal Compaction Glass Substrate (Nippon Electric Glass, Ref. No. 2510-03E)",
+    "url": "https://www.neg.co.jp/en/assets/OA-31_en_2026.pdf",
+    "authors": "Nippon Electric Glass Co., Ltd. (corporate author)",
+    "year": 2025,
+    "publisher": "Nippon Electric Glass Co., Ltd.",
+    "manufacturer": "Nippon Electric Glass Co., Ltd.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/NEG_OA-31_Glass_Substrate_2510-03E.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2640,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "Properties 표 verbatim `Density x10^3 kg/m^3 2.64`. 2025년판(2510-03E)."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 3.9e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "30-380"
+     },
+     "notes": "표 verbatim `Coefficient of thermal expansion 30-380 °C x10-7/K 39`. **구간이 인쇄돼 있다.**"
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 83000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Young's modulus GPa 83`."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.25,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Poisson's ratio 0.25`. 전단탄성계수는 시트가 인쇄하지 않아 역산하지 않았다(§10)."
+    },
+    {
+     "key": "mechanical.hardness_vickers",
+     "value": 680.0,
+     "unit": "HV",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "load": "not printed"
+     },
+     "notes": "표 verbatim `Vickers hardness Hv 680`. **하중·유지시간이 인쇄돼 있지 않다** — Corning EAGLE XG Slim(200 gf/25 s)과 직접 비교하지 마라."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 158489319246.11108,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 350
+     },
+     "notes": "표 verbatim `Volume resistivity Log rho 350 °C ohm·cm 13.2`. **§409 — 인쇄값이 log10 이다.** 10^13.2 ohm·cm x0.01 = 1.585e+11 ohm·m."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.9,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "temperature_c": "RT"
+     },
+     "notes": "표 verbatim `Dielectric constant 1MHz, RT 5.9`."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.002,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "temperature_c": "RT"
+     },
+     "notes": "표 verbatim `tan delta 1MHz, RT 0.002`."
+    },
+    {
+     "key": "optical.transmittance",
+     "value": 0.91,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 550,
+      "thickness_mm": 0.5
+     },
+     "notes": "표 verbatim `Light transmittance lambda=550nm % 91`. **두께 주의(§467)** — 투과율 행에는 두께가 인쇄돼 있지 않고, 같은 쪽 투과율 그래프 캡션의 `(Thickness: 0.5 mm)` 를 조건으로 붙였다. 이 캡션은 OA-11·OA-20·OA-31 세 시트에 똑같이 박혀 있어 서식 잔재일 가능성을 완전히 배제하지 못한다. 다만 치수표의 대표 두께가 0.50 mm 라 정합적이다."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.53,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 587.6
+     },
+     "notes": "표 verbatim `Refractive index (nd) 587.6nm 1.53` — d선."
+    },
+    {
+     "key": "chemical.composition",
+     "value_text": "alkali oxide content 0.1 wt% max.; As, Sb content less than 0.1 wt%",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "basis": "weight percent"
+     },
+     "notes": "표 verbatim `Alkali oxide content wt % 0.1 max.` · `As, Sb content wt % Less than 0.1`. **'무알칼리'는 조성 표시지 물성이 아니다** — 그래서 composition 에 넣는다(브리프 트랩 3)."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "AGC AN100 Alkali-free Glass Substrate",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "display",
+     "manufacturer": "AGC Inc. (Asahi Glass Co., Ltd.)",
+     "material_class": "alkali-free aluminosilicate glass substrate, float-formed",
+     "process": "float process with on-line annealing",
+     "composition": "alkali-free aluminosilicate; As2O3/Sb2O3-free fining",
+     "application": "TFT-LCD and OLED display glass substrate; widely used for LTPS-TFT small/medium panels",
+     "strain_point_c_not_loadable": 670,
+     "annealing_point_c_not_loadable": 711,
+     "role_reason": "AGC 의 주력 무알칼리 TFT 기판유리. 공개 제품페이지(agc.com/en/products/display/detail/an100.html)에는 물성표가 없고 AGC 자사 연구보고가 유일한 1차 수치원이다",
+     "role_confidence": "high"
+    }
+   },
+   "source": {
+    "kind": "other",
+    "title": "FPD Glass Substrates; Up to Now and Future (Res. Reports Asahi Glass Co., Ltd., 57 (2007) 37-42), Table 2",
+    "url": "https://www.agc.com/innovation/library/pdf/57-08.pdf",
+    "authors": "Hiroyuki Ishikawa",
+    "year": 2007,
+    "publisher": "Asahi Glass Co., Ltd. (AGC Inc.)",
+    "manufacturer": "AGC Inc.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/AGC_Res_Rep_57_2007_08_FPD_Glass_Substrates.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2510,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "Table 2 verbatim `密度（g/cm3） 2.51`. AGC 자사 연구보고 Table 2 `当社の液晶用ガラス基板` 의 AN100 열. **표 내부 검산(§237)** — 같은 표의 `비탄성률(specific modulus)` 행이 E/rho 와 맞는지 봤다. AX 69/2.41=28.6(인쇄 28.6) · AN100 77/2.51=30.7(인쇄 31) · AN635 73/2.77=26.35(인쇄 26) 세 열이 맞는다. AS(소다라임) 열만 71/2.49=28.5 인데 24.5 로 인쇄돼 어긋난다 — **그 칸만 원문 오식으로 보고 버렸다(§141)**. AN100·AN635 열은 검산을 통과하므로 밀도·영률을 신뢰한다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 77000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "Table 2 verbatim `ヤング率（GPa） 77`. AGC 자사 연구보고 Table 2 `当社の液晶用ガラス基板` 의 AN100 열."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.8,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "temperature_c": "RT"
+     },
+     "notes": "Table 2 verbatim `誘電率（R.T. 1 MHz） 5.8`. AGC 자사 연구보고 Table 2 `当社の液晶用ガラス基板` 의 AN100 열."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "AGC AN635 Alkali-free Glass Substrate",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "display",
+     "manufacturer": "AGC Inc. (Asahi Glass Co., Ltd.)",
+     "material_class": "alkali-free aluminosilicate glass substrate, float-formed (AN100 predecessor, 1992-)",
+     "process": "float process with on-line annealing",
+     "composition": "alkali-free aluminosilicate",
+     "application": "TFT-LCD glass substrate (first alkali-free TFT glass commercially float-formed)",
+     "strain_point_c_not_loadable": 635,
+     "annealing_point_c_not_loadable": 685,
+     "role_reason": "AN100 의 선행 등급. 같은 표에 나란히 인쇄돼 있어 AN100 열의 검산 상대가 된다",
+     "role_confidence": "high"
+    }
+   },
+   "source": {
+    "kind": "other",
+    "title": "FPD Glass Substrates; Up to Now and Future (Res. Reports Asahi Glass Co., Ltd., 57 (2007) 37-42), Table 2",
+    "url": "https://www.agc.com/innovation/library/pdf/57-08.pdf",
+    "authors": "Hiroyuki Ishikawa",
+    "year": 2007,
+    "publisher": "Asahi Glass Co., Ltd. (AGC Inc.)",
+    "manufacturer": "AGC Inc.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/AGC_Res_Rep_57_2007_08_FPD_Glass_Substrates.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2770,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "Table 2 verbatim `密度（g/cm3） 2.77`. Table 2 의 AN635 열. AN100 의 선행 제품(1992년 상업생산)이다. 밀도 2.77 은 AN100 2.51 보다 크지만 초기 무알칼리 유리(예: Corning 7059, 2.76)의 통상값이고 비탄성률 검산도 통과한다. **표 내부 검산(§237)** — 같은 표의 `비탄성률(specific modulus)` 행이 E/rho 와 맞는지 봤다. AX 69/2.41=28.6(인쇄 28.6) · AN100 77/2.51=30.7(인쇄 31) · AN635 73/2.77=26.35(인쇄 26) 세 열이 맞는다. AS(소다라임) 열만 71/2.49=28.5 인데 24.5 로 인쇄돼 어긋난다 — **그 칸만 원문 오식으로 보고 버렸다(§141)**. AN100·AN635 열은 검산을 통과하므로 밀도·영률을 신뢰한다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 73000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "Table 2 verbatim `ヤング率（GPa） 73`. Table 2 의 AN635 열. AN100 의 선행 제품(1992년 상업생산)이다. 밀도 2.77 은 AN100 2.51 보다 크지만 초기 무알칼리 유리(예: Corning 7059, 2.76)의 통상값이고 비탄성률 검산도 통과한다."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 6.5,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "temperature_c": "RT"
+     },
+     "notes": "Table 2 verbatim `誘電率（R.T. 1 MHz） 6.5`. Table 2 의 AN635 열. AN100 의 선행 제품(1992년 상업생산)이다. 밀도 2.77 은 AN100 2.51 보다 크지만 초기 무알칼리 유리(예: Corning 7059, 2.76)의 통상값이고 비탄성률 검산도 통과한다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "NEG LS-3075 Low-Temperature Sealing Glass (frit for alkali-free display glass)",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "display",
+     "manufacturer": "Nippon Electric Glass Co., Ltd.",
+     "material_class": "PbO-B2O3 composite (COM) low-melting sealing glass frit with ceramic filler",
+     "composition": "PbO·B2O3 matrix glass + synthesized ceramic filler (composite sealing glass)",
+     "application": "frit sealing of alkali-free (display substrate) glass; sealing temperature 450 degC",
+     "process_parameter_sealing_temperature_c": 450,
+     "process_parameter_prefiring_c": "T1 320 / T2 380",
+     "colour": "black",
+     "role_reason": "무알칼리 기판유리 봉지용 저융점 프릿. 브리프 ②(봉지·실링 유리)의 유일한 공식 수치원",
+     "role_confidence": "high"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Powder Glass — Low Temperature Sealing Glass 2 (Nippon Electric Glass powder glass catalogue, Ref. No. 2410-19E)",
+    "url": "https://www.neg.co.jp/en/assets/Powder%20Glass_en.pdf",
+    "authors": "Nippon Electric Glass Co., Ltd. (corporate author)",
+    "year": 2024,
+    "publisher": "Nippon Electric Glass Co., Ltd.",
+    "manufacturer": "Nippon Electric Glass Co., Ltd.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/NEG_Powder_Glass_Catalog_en_2410.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 3.65e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "30-250"
+     },
+     "notes": "표 verbatim `Coefficient of thermal expansion 30-250°C x10-7/K 36.5`. 구간 인쇄됨. Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 LS-3075 열. **이 열의 `Application` 행이 `Alkali-free glass` 다** — 무알칼리 기판유리 봉지용임을 시트가 스스로 밝힌다. CTE 36.5e-7(30-250 degC)은 같은 파동에 넣은 무알칼리 기판(EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39, 전부 x1e-7/K)과 정합한다 — 프릿-기판 CTE 정합이 이 갈래의 본체다."
+    },
+    {
+     "key": "physical.density",
+     "value": 6910.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Density x10^3 kg/m^3 6.91`. 납계 프릿이라 규산염 유리보다 2배 이상 무겁다 — PbO·B2O3 조성과 정합한다(§443 아는 값 대조). Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 LS-3075 열. **이 열의 `Application` 행이 `Alkali-free glass` 다** — 무알칼리 기판유리 봉지용임을 시트가 스스로 밝힌다. CTE 36.5e-7(30-250 degC)은 같은 파동에 넣은 무알칼리 기판(EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39, 전부 x1e-7/K)과 정합한다 — 프릿-기판 CTE 정합이 이 갈래의 본체다."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 573.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "transformation point (dilatometric Tg), heating rate not printed"
+     },
+     "notes": "표 verbatim `Transformation point °C 300`. **이것은 점도 기준점이 아니라 팽창계 곡선의 전이점(Tg)** 이라 thermal.glass_transition 이 맞다. 같은 표가 `Deformation point` 와 `Softening point` 를 따로 인쇄하므로 세 온도가 각각 다른 물리량임이 원문에서 확정된다. Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 LS-3075 열. **이 열의 `Application` 행이 `Alkali-free glass` 다** — 무알칼리 기판유리 봉지용임을 시트가 스스로 밝힌다. CTE 36.5e-7(30-250 degC)은 같은 파동에 넣은 무알칼리 기판(EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39, 전부 x1e-7/K)과 정합한다 — 프릿-기판 CTE 정합이 이 갈래의 본체다."
+    },
+    {
+     "key": "thermal.dilatometric_softening_point",
+     "value": 603.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "deformation point (dilatometric yield point At), heating rate not printed"
+     },
+     "notes": "표 verbatim `Deformation point °C 330`. **팽창계 곡선의 굴복점(At)** — 새그온도이므로 thermal.dilatometric_softening_point 이 정확히 맞는 키다. Tg 300 보다 30 K 위, Littleton 연화점(이 열은 `-` 로 미인쇄)보다 아래. Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 LS-3075 열. **이 열의 `Application` 행이 `Alkali-free glass` 다** — 무알칼리 기판유리 봉지용임을 시트가 스스로 밝힌다. CTE 36.5e-7(30-250 degC)은 같은 파동에 넣은 무알칼리 기판(EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39, 전부 x1e-7/K)과 정합한다 — 프릿-기판 CTE 정합이 이 갈래의 본체다."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 630957344.4801942,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 150
+     },
+     "notes": "표 verbatim `Volume resistivity Log rho 150°C ohm·cm 10.8` — §409 log 값. 10^10.8 ohm·cm x0.01 = 6.31e8 ohm·m. Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 LS-3075 열. **이 열의 `Application` 행이 `Alkali-free glass` 다** — 무알칼리 기판유리 봉지용임을 시트가 스스로 밝힌다. CTE 36.5e-7(30-250 degC)은 같은 파동에 넣은 무알칼리 기판(EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39, 전부 x1e-7/K)과 정합한다 — 프릿-기판 CTE 정합이 이 갈래의 본체다."
+    }
+   ]
+  }
+ ]
+}

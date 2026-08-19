@@ -1,0 +1,1327 @@
+{
+ "batch": "FB-3 44차 · 몰딩용 저Tg 광학유리(OHARA L-BAL42·L-LAH53·L-LAH94·L-LAH85V · SCHOTT P-PK53·P-SF67)",
+ "materials": [
+  {
+   "new_material": {
+    "name": "OHARA L-BAL42 low-Tg moldable optical glass",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "camera",
+     "manufacturer": "OHARA INC.",
+     "material_class": "low-Tg (low softening temperature) optical glass for precision glass molding",
+     "process": "precision glass mould pressing (GMO)",
+     "grade": "L-BAL42",
+     "strain_point_c_not_loadable": 467,
+     "annealing_point_c_not_loadable": 494,
+     "softening_point_littleton_c_not_loadable": 607,
+     "role_reason": "스마트폰 몰딩 비구면 렌즈용 저Tg 광학유리 실등급. 카탈로그 재료 182 `Glass Molded Aspheric Lens` 는 클래스 대표값이라 벤더 등급이 없었다",
+     "role_confidence": "high"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "OHARA Optical Glass Data Sheet L-BAL42 (OHARA 25-04)",
+    "url": "https://oharacorp.com/wp-content/uploads/2025/04/elbal42.pdf",
+    "authors": "OHARA INC. (corporate author)",
+    "year": 2025,
+    "publisher": "OHARA INC.",
+    "manufacturer": "OHARA INC.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/cam/OHARA_L-BAL42_DataSheet_25-04.pdf"
+   },
+   "properties": [
+    {
+     "key": "optical.refractive_index",
+     "value": 1.58013,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 656.27,
+      "temperature_c": "not printed (catalogue reference condition)"
+     },
+     "notes": "Refractive Indices 표 verbatim `nC (C선, H 656.27 nm) = 1.58013`. **굴절률은 파장이 없으면 값이 아니다**(브리프 트랩 4) — 네 기준선으로 갈라 넣었다."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.58313,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 587.56,
+      "temperature_c": "not printed (catalogue reference condition)"
+     },
+     "notes": "Refractive Indices 표 verbatim `nd (d선, He 587.56 nm) = 1.58313`. **굴절률은 파장이 없으면 값이 아니다**(브리프 트랩 4) — 네 기준선으로 갈라 넣었다."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.58547,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 546.07,
+      "temperature_c": "not printed (catalogue reference condition)"
+     },
+     "notes": "Refractive Indices 표 verbatim `ne (e선, Hg 546.07 nm) = 1.58547`. **굴절률은 파장이 없으면 값이 아니다**(브리프 트랩 4) — 네 기준선으로 갈라 넣었다."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.58995,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 486.13,
+      "temperature_c": "not printed (catalogue reference condition)"
+     },
+     "notes": "Refractive Indices 표 verbatim `nF (F선, H 486.13 nm) = 1.58995`. **굴절률은 파장이 없으면 값이 아니다**(브리프 트랩 4) — 네 기준선으로 갈라 넣었다."
+    },
+    {
+     "key": "optical.abbe_number",
+     "value": 59.38,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "basis": "nu_d = (nd-1)/(nF-nC), d/F/C lines"
+     },
+     "notes": "표 verbatim `Abbe Number nu_d 59.38`. **우리가 계산하지 않고 인쇄값을 그대로 옮겼다**(브리프 트랩 5). 검산만 했다 — (1.58313-1)/(1.58995-1.58013) = 59.38 로 인쇄값과 맞는다."
+    },
+    {
+     "key": "optical.abbe_number",
+     "value": 59.13,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "basis": "nu_e = (ne-1)/(nF'-nC'), e/F'/C' lines"
+     },
+     "notes": "표 verbatim `Abbe Number nu_e 59.13`. d선 기준 아베수와 **기준선이 달라 별개 값**이다 — 조건축으로 갈랐다."
+    },
+    {
+     "key": "physical.density",
+     "value": 3050.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "Other Properties verbatim `Specific Gravity d 3.05`. 비중(무차원, 물 기준)이라 수치가 g/cm3 와 같고 x1000 으로 kg/m3."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 89100000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "Mechanical Properties verbatim `Young's Modulus E (GPa) 89.1`."
+    },
+    {
+     "key": "mechanical.shear_modulus",
+     "value": 35700000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "verbatim `Rigidity Modulus G (GPa) 35.7`. **§469 역산 검산 — E/2(1+nu) = 89.1/2.494 = 35.73 GPa 로 인쇄값 35.7 과 인쇄 자릿수까지 일치한다.** 광학유리는 초음파 종파·횡파 속도 두 개에서 E·G·nu 를 한꺼번에 내므로 셋 중 하나는 나머지 둘의 종속값이다 — **독립 측정 세 개가 아니라 측정 하나**로 읽어라."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.247,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "verbatim `Poisson's Ratio sigma 0.247`. 위 전단탄성계수 주석의 항등식 참조."
+    },
+    {
+     "key": "mechanical.hardness_knoop",
+     "value": 590.0,
+     "unit": "HK",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "load_kgf": "not printed (JOGIS 標準 0.1 kgf)",
+      "class": 6
+     },
+     "notes": "verbatim `Knoop Hardness Hk[Class] 590  6`. **하중이 인쇄돼 있지 않다** — SCHOTT 의 HK 0.1/20 과 직접 비교하지 마라."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 775.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "transformation temperature Tg (dilatometric)"
+     },
+     "notes": "Thermal Properties verbatim `Transformation Temperature Tg (degC) 502`. **팽창계 전이점이라 이 키가 맞다.** 같은 표가 변형점·서냉점·연화점(점도 기준점)을 따로 인쇄하므로 정의가 원문에서 확정된다. **점도 기준점 셋(변형점 StP · 서냉점 AP · 연화점 SP)은 카탈로그에 키가 없어 못 넣었다** — attributes 에 숫자만 남긴다. 이것들은 점도로 정의된 온도(10^14.5 / 10^13 / 10^7.6 P)라 thermal.glass_transition 에 넣으면 안 된다(브리프 트랩 1). **§426 판 대조** — 같은 회사의 `Technical Data ~Pressing & Forming for Low Tg Optical Glasses~ Ver.9.1 (2022-01-28)` 5.1 표와 겹쳐 읽었다. nd·nu_d 는 두 판이 자릿수까지 같으나 Tg·At·alpha(100-300)는 갈린다(L-BAL42 Tg 502 대 506 · At 551 대 538 · alpha 92 대 88; L-LAH53 Tg 573 대 574 · At 610 대 607 · alpha 75 대 72). **제품별 최신 데이터시트(25-04)를 정본으로 삼고 판 차이를 지우지 않았다.**"
+    },
+    {
+     "key": "thermal.dilatometric_softening_point",
+     "value": 824.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "yield point At (dilatometric softening / sag temperature)",
+      "heating_rate_k_min": "not printed"
+     },
+     "notes": "verbatim `Yield Point At (degC) 551`. **팽창계 곡선의 굴복점 = 새그온도** 라 이 키가 정확히 맞다. Tg 502 보다 위, Littleton 연화점 SP 보다 아래. **§426 판 대조** — 같은 회사의 `Technical Data ~Pressing & Forming for Low Tg Optical Glasses~ Ver.9.1 (2022-01-28)` 5.1 표와 겹쳐 읽었다. nd·nu_d 는 두 판이 자릿수까지 같으나 Tg·At·alpha(100-300)는 갈린다(L-BAL42 Tg 502 대 506 · At 551 대 538 · alpha 92 대 88; L-LAH53 Tg 573 대 574 · At 610 대 607 · alpha 75 대 72). **제품별 최신 데이터시트(25-04)를 정본으로 삼고 판 차이를 지우지 않았다.**"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 7.2e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "-30 to 70"
+     },
+     "notes": "verbatim `Expansion Coefficients (-30 degC ~ 70 degC) alpha_l (10-7 K-1) 72`. **구간이 조건축이다** — 같은 유리의 100-300 구간과 별개 행이다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 9.2e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "100 to 300"
+     },
+     "notes": "verbatim `alpha_l (10-7 K-1) (100 degC ~ 300 degC) 92`. **§426 판 대조** — 같은 회사의 `Technical Data ~Pressing & Forming for Low Tg Optical Glasses~ Ver.9.1 (2022-01-28)` 5.1 표와 겹쳐 읽었다. nd·nu_d 는 두 판이 자릿수까지 같으나 Tg·At·alpha(100-300)는 갈린다(L-BAL42 Tg 502 대 506 · At 551 대 538 · alpha 92 대 88; L-LAH53 Tg 573 대 574 · At 610 대 607 · alpha 75 대 72). **제품별 최신 데이터시트(25-04)를 정본으로 삼고 판 차이를 지우지 않았다.**"
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.03,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "verbatim `Thermal Conductivity lambda (W/(m·K)) 1.03`."
+    },
+    {
+     "key": "optical.stress_optical_coefficient",
+     "value": 2.1899999999999998e-12,
+     "unit": "1/Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": "not printed"
+     },
+     "notes": "verbatim `Photoelastic Constant beta nm/(cm·10^5 Pa) 2.19`. 환산 — 2.19 nm/(cm·1e5 Pa) = 2.19e-9 m / (1e-2 m x 1e5 Pa) = 2.19e-12 /Pa. 측정 파장은 인쇄돼 있지 않다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "OHARA L-LAH53 low-Tg moldable optical glass",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "camera",
+     "manufacturer": "OHARA INC.",
+     "material_class": "low-Tg (low softening temperature) optical glass for precision glass molding",
+     "process": "precision glass mould pressing (GMO)",
+     "grade": "L-LAH53",
+     "strain_point_c_not_loadable": 534,
+     "annealing_point_c_not_loadable": 558,
+     "softening_point_littleton_c_not_loadable": 646,
+     "role_reason": "고굴절(nd 1.806) 몰딩 광학유리 실등급. 카탈로그 재료 156 `Periscope Prism Glass (high-index)` 가 클래스 대표값이라 벤더 등급이 없었다",
+     "role_confidence": "high"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "OHARA Optical Glass Data Sheet L-LAH53 (OHARA 25-04)",
+    "url": "https://oharacorp.com/wp-content/uploads/2025/04/ellah53.pdf",
+    "authors": "OHARA INC. (corporate author)",
+    "year": 2025,
+    "publisher": "OHARA INC.",
+    "manufacturer": "OHARA INC.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/cam/OHARA_L-LAH53_DataSheet_25-04.pdf"
+   },
+   "properties": [
+    {
+     "key": "optical.refractive_index",
+     "value": 1.80039,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 656.27,
+      "temperature_c": "not printed (catalogue reference condition)"
+     },
+     "notes": "Refractive Indices 표 verbatim `nC (C선, H 656.27 nm) = 1.80039`. **굴절률은 파장이 없으면 값이 아니다**(브리프 트랩 4) — 네 기준선으로 갈라 넣었다."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.80625,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 587.56,
+      "temperature_c": "not printed (catalogue reference condition)"
+     },
+     "notes": "Refractive Indices 표 verbatim `nd (d선, He 587.56 nm) = 1.80625`. **굴절률은 파장이 없으면 값이 아니다**(브리프 트랩 4) — 네 기준선으로 갈라 넣었다."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.81093,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 546.07,
+      "temperature_c": "not printed (catalogue reference condition)"
+     },
+     "notes": "Refractive Indices 표 verbatim `ne (e선, Hg 546.07 nm) = 1.81093`. **굴절률은 파장이 없으면 값이 아니다**(브리프 트랩 4) — 네 기준선으로 갈라 넣었다."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.8201,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 486.13,
+      "temperature_c": "not printed (catalogue reference condition)"
+     },
+     "notes": "Refractive Indices 표 verbatim `nF (F선, H 486.13 nm) = 1.8201`. **굴절률은 파장이 없으면 값이 아니다**(브리프 트랩 4) — 네 기준선으로 갈라 넣었다."
+    },
+    {
+     "key": "optical.abbe_number",
+     "value": 40.91,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "basis": "nu_d = (nd-1)/(nF-nC), d/F/C lines"
+     },
+     "notes": "표 verbatim `Abbe Number nu_d 40.91`. **우리가 계산하지 않고 인쇄값을 그대로 옮겼다**(브리프 트랩 5). 검산만 했다 — (1.80625-1)/(1.8201-1.80039) = 40.91 로 인쇄값과 맞는다."
+    },
+    {
+     "key": "optical.abbe_number",
+     "value": 40.66,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "basis": "nu_e = (ne-1)/(nF'-nC'), e/F'/C' lines"
+     },
+     "notes": "표 verbatim `Abbe Number nu_e 40.66`. d선 기준 아베수와 **기준선이 달라 별개 값**이다 — 조건축으로 갈랐다."
+    },
+    {
+     "key": "physical.density",
+     "value": 4490.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "Other Properties verbatim `Specific Gravity d 4.49`. 비중(무차원, 물 기준)이라 수치가 g/cm3 와 같고 x1000 으로 kg/m3."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 115100000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "Mechanical Properties verbatim `Young's Modulus E (GPa) 115.1`."
+    },
+    {
+     "key": "mechanical.shear_modulus",
+     "value": 44300000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "verbatim `Rigidity Modulus G (GPa) 44.3`. **§469 역산 검산 — E/2(1+nu) = 115.1/2.596 = 44.34 GPa 로 인쇄값 44.3 과 인쇄 자릿수까지 일치한다.** 광학유리는 초음파 종파·횡파 속도 두 개에서 E·G·nu 를 한꺼번에 내므로 셋 중 하나는 나머지 둘의 종속값이다 — **독립 측정 세 개가 아니라 측정 하나**로 읽어라."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.298,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "verbatim `Poisson's Ratio sigma 0.298`. 위 전단탄성계수 주석의 항등식 참조."
+    },
+    {
+     "key": "mechanical.hardness_knoop",
+     "value": 660.0,
+     "unit": "HK",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "load_kgf": "not printed (JOGIS 標準 0.1 kgf)",
+      "class": 7
+     },
+     "notes": "verbatim `Knoop Hardness Hk[Class] 660  7`. **하중이 인쇄돼 있지 않다** — SCHOTT 의 HK 0.1/20 과 직접 비교하지 마라."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 846.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "transformation temperature Tg (dilatometric)"
+     },
+     "notes": "Thermal Properties verbatim `Transformation Temperature Tg (degC) 573`. **팽창계 전이점이라 이 키가 맞다.** 같은 표가 변형점·서냉점·연화점(점도 기준점)을 따로 인쇄하므로 정의가 원문에서 확정된다. **점도 기준점 셋(변형점 StP · 서냉점 AP · 연화점 SP)은 카탈로그에 키가 없어 못 넣었다** — attributes 에 숫자만 남긴다. 이것들은 점도로 정의된 온도(10^14.5 / 10^13 / 10^7.6 P)라 thermal.glass_transition 에 넣으면 안 된다(브리프 트랩 1). **§426 판 대조** — 같은 회사의 `Technical Data ~Pressing & Forming for Low Tg Optical Glasses~ Ver.9.1 (2022-01-28)` 5.1 표와 겹쳐 읽었다. nd·nu_d 는 두 판이 자릿수까지 같으나 Tg·At·alpha(100-300)는 갈린다(L-BAL42 Tg 502 대 506 · At 551 대 538 · alpha 92 대 88; L-LAH53 Tg 573 대 574 · At 610 대 607 · alpha 75 대 72). **제품별 최신 데이터시트(25-04)를 정본으로 삼고 판 차이를 지우지 않았다.**"
+    },
+    {
+     "key": "thermal.dilatometric_softening_point",
+     "value": 883.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "yield point At (dilatometric softening / sag temperature)",
+      "heating_rate_k_min": "not printed"
+     },
+     "notes": "verbatim `Yield Point At (degC) 610`. **팽창계 곡선의 굴복점 = 새그온도** 라 이 키가 정확히 맞다. Tg 573 보다 위, Littleton 연화점 SP 보다 아래. **§426 판 대조** — 같은 회사의 `Technical Data ~Pressing & Forming for Low Tg Optical Glasses~ Ver.9.1 (2022-01-28)` 5.1 표와 겹쳐 읽었다. nd·nu_d 는 두 판이 자릿수까지 같으나 Tg·At·alpha(100-300)는 갈린다(L-BAL42 Tg 502 대 506 · At 551 대 538 · alpha 92 대 88; L-LAH53 Tg 573 대 574 · At 610 대 607 · alpha 75 대 72). **제품별 최신 데이터시트(25-04)를 정본으로 삼고 판 차이를 지우지 않았다.**"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 5.899999999999999e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "-30 to 70"
+     },
+     "notes": "verbatim `Expansion Coefficients (-30 degC ~ 70 degC) alpha_l (10-7 K-1) 59`. **구간이 조건축이다** — 같은 유리의 100-300 구간과 별개 행이다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 7.499999999999999e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "100 to 300"
+     },
+     "notes": "verbatim `alpha_l (10-7 K-1) (100 degC ~ 300 degC) 75`. **§426 판 대조** — 같은 회사의 `Technical Data ~Pressing & Forming for Low Tg Optical Glasses~ Ver.9.1 (2022-01-28)` 5.1 표와 겹쳐 읽었다. nd·nu_d 는 두 판이 자릿수까지 같으나 Tg·At·alpha(100-300)는 갈린다(L-BAL42 Tg 502 대 506 · At 551 대 538 · alpha 92 대 88; L-LAH53 Tg 573 대 574 · At 610 대 607 · alpha 75 대 72). **제품별 최신 데이터시트(25-04)를 정본으로 삼고 판 차이를 지우지 않았다.**"
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.862,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "verbatim `Thermal Conductivity lambda (W/(m·K)) 0.862`."
+    },
+    {
+     "key": "optical.stress_optical_coefficient",
+     "value": 1.8799999999999997e-12,
+     "unit": "1/Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": "not printed"
+     },
+     "notes": "verbatim `Photoelastic Constant beta nm/(cm·10^5 Pa) 1.88`. 환산 — 1.88 nm/(cm·1e5 Pa) = 1.88e-9 m / (1e-2 m x 1e5 Pa) = 1.88e-12 /Pa. 측정 파장은 인쇄돼 있지 않다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "OHARA L-LAH94 low-Tg moldable optical glass",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "camera",
+     "manufacturer": "OHARA INC.",
+     "material_class": "low-Tg (low softening temperature) optical glass for precision glass molding",
+     "process": "precision glass mould pressing (GMO)",
+     "grade": "L-LAH94",
+     "strain_point_c_not_loadable": 560,
+     "annealing_point_c_not_loadable": 583,
+     "softening_point_littleton_c_not_loadable": 664,
+     "role_reason": "OHARA 몰딩 라인업 중 최고굴절(nd 1.861). 페리스코프 프리즘·고굴절 렌즈 후보 등급",
+     "role_confidence": "high"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "OHARA Optical Glass Data Sheet L-LAH94 (OHARA 25-04)",
+    "url": "https://oharacorp.com/wp-content/uploads/2025/04/ellah94.pdf",
+    "authors": "OHARA INC. (corporate author)",
+    "year": 2025,
+    "publisher": "OHARA INC.",
+    "manufacturer": "OHARA INC.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/cam/OHARA_L-LAH94_DataSheet_25-04.pdf"
+   },
+   "properties": [
+    {
+     "key": "optical.refractive_index",
+     "value": 1.85416,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 656.27,
+      "temperature_c": "not printed (catalogue reference condition)"
+     },
+     "notes": "Refractive Indices 표 verbatim `nC (C선, H 656.27 nm) = 1.85416`. **굴절률은 파장이 없으면 값이 아니다**(브리프 트랩 4) — 네 기준선으로 갈라 넣었다."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.861,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 587.56,
+      "temperature_c": "not printed (catalogue reference condition)"
+     },
+     "notes": "Refractive Indices 표 verbatim `nd (d선, He 587.56 nm) = 1.861`. **굴절률은 파장이 없으면 값이 아니다**(브리프 트랩 4) — 네 기준선으로 갈라 넣었다."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.8665,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 546.07,
+      "temperature_c": "not printed (catalogue reference condition)"
+     },
+     "notes": "Refractive Indices 표 verbatim `ne (e선, Hg 546.07 nm) = 1.8665`. **굴절률은 파장이 없으면 값이 아니다**(브리프 트랩 4) — 네 기준선으로 갈라 넣었다."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.87737,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 486.13,
+      "temperature_c": "not printed (catalogue reference condition)"
+     },
+     "notes": "Refractive Indices 표 verbatim `nF (F선, H 486.13 nm) = 1.87737`. **굴절률은 파장이 없으면 값이 아니다**(브리프 트랩 4) — 네 기준선으로 갈라 넣었다."
+    },
+    {
+     "key": "optical.abbe_number",
+     "value": 37.1,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "basis": "nu_d = (nd-1)/(nF-nC), d/F/C lines"
+     },
+     "notes": "표 verbatim `Abbe Number nu_d 37.1`. **우리가 계산하지 않고 인쇄값을 그대로 옮겼다**(브리프 트랩 5). 검산만 했다 — (1.861-1)/(1.87737-1.85416) = 37.10 로 인쇄값과 맞는다."
+    },
+    {
+     "key": "optical.abbe_number",
+     "value": 36.85,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "basis": "nu_e = (ne-1)/(nF'-nC'), e/F'/C' lines"
+     },
+     "notes": "표 verbatim `Abbe Number nu_e 36.85`. d선 기준 아베수와 **기준선이 달라 별개 값**이다 — 조건축으로 갈랐다."
+    },
+    {
+     "key": "physical.density",
+     "value": 4890.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "Other Properties verbatim `Specific Gravity d 4.89`. 비중(무차원, 물 기준)이라 수치가 g/cm3 와 같고 x1000 으로 kg/m3."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 112100000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "Mechanical Properties verbatim `Young's Modulus E (GPa) 112.1`."
+    },
+    {
+     "key": "mechanical.shear_modulus",
+     "value": 43000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "verbatim `Rigidity Modulus G (GPa) 43.0`. **§469 역산 검산 — E/2(1+nu) = 112.1/2.610 = 42.95 GPa 로 인쇄값 43.0 과 인쇄 자릿수까지 일치한다.** 광학유리는 초음파 종파·횡파 속도 두 개에서 E·G·nu 를 한꺼번에 내므로 셋 중 하나는 나머지 둘의 종속값이다 — **독립 측정 세 개가 아니라 측정 하나**로 읽어라."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.305,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "verbatim `Poisson's Ratio sigma 0.305`. 위 전단탄성계수 주석의 항등식 참조."
+    },
+    {
+     "key": "mechanical.hardness_knoop",
+     "value": 650.0,
+     "unit": "HK",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "load_kgf": "not printed (JOGIS 標準 0.1 kgf)",
+      "class": 7
+     },
+     "notes": "verbatim `Knoop Hardness Hk[Class] 650  7`. **하중이 인쇄돼 있지 않다** — SCHOTT 의 HK 0.1/20 과 직접 비교하지 마라."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 868.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "transformation temperature Tg (dilatometric)"
+     },
+     "notes": "Thermal Properties verbatim `Transformation Temperature Tg (degC) 595`. **팽창계 전이점이라 이 키가 맞다.** 같은 표가 변형점·서냉점·연화점(점도 기준점)을 따로 인쇄하므로 정의가 원문에서 확정된다. **점도 기준점 셋(변형점 StP · 서냉점 AP · 연화점 SP)은 카탈로그에 키가 없어 못 넣었다** — attributes 에 숫자만 남긴다. 이것들은 점도로 정의된 온도(10^14.5 / 10^13 / 10^7.6 P)라 thermal.glass_transition 에 넣으면 안 된다(브리프 트랩 1). **§426 판 대조** — 같은 회사의 `Technical Data ~Pressing & Forming for Low Tg Optical Glasses~ Ver.9.1 (2022-01-28)` 5.1 표와 겹쳐 읽었다. nd·nu_d 는 두 판이 자릿수까지 같으나 Tg·At·alpha(100-300)는 갈린다(L-BAL42 Tg 502 대 506 · At 551 대 538 · alpha 92 대 88; L-LAH53 Tg 573 대 574 · At 610 대 607 · alpha 75 대 72). **제품별 최신 데이터시트(25-04)를 정본으로 삼고 판 차이를 지우지 않았다.**"
+    },
+    {
+     "key": "thermal.dilatometric_softening_point",
+     "value": 908.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "yield point At (dilatometric softening / sag temperature)",
+      "heating_rate_k_min": "not printed"
+     },
+     "notes": "verbatim `Yield Point At (degC) 635`. **팽창계 곡선의 굴복점 = 새그온도** 라 이 키가 정확히 맞다. Tg 595 보다 위, Littleton 연화점 SP 보다 아래. **§426 판 대조** — 같은 회사의 `Technical Data ~Pressing & Forming for Low Tg Optical Glasses~ Ver.9.1 (2022-01-28)` 5.1 표와 겹쳐 읽었다. nd·nu_d 는 두 판이 자릿수까지 같으나 Tg·At·alpha(100-300)는 갈린다(L-BAL42 Tg 502 대 506 · At 551 대 538 · alpha 92 대 88; L-LAH53 Tg 573 대 574 · At 610 대 607 · alpha 75 대 72). **제품별 최신 데이터시트(25-04)를 정본으로 삼고 판 차이를 지우지 않았다.**"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 6.5999999999999995e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "-30 to 70"
+     },
+     "notes": "verbatim `Expansion Coefficients (-30 degC ~ 70 degC) alpha_l (10-7 K-1) 66`. **구간이 조건축이다** — 같은 유리의 100-300 구간과 별개 행이다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 8.1e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "100 to 300"
+     },
+     "notes": "verbatim `alpha_l (10-7 K-1) (100 degC ~ 300 degC) 81`. **§426 판 대조** — 같은 회사의 `Technical Data ~Pressing & Forming for Low Tg Optical Glasses~ Ver.9.1 (2022-01-28)` 5.1 표와 겹쳐 읽었다. nd·nu_d 는 두 판이 자릿수까지 같으나 Tg·At·alpha(100-300)는 갈린다(L-BAL42 Tg 502 대 506 · At 551 대 538 · alpha 92 대 88; L-LAH53 Tg 573 대 574 · At 610 대 607 · alpha 75 대 72). **제품별 최신 데이터시트(25-04)를 정본으로 삼고 판 차이를 지우지 않았다.**"
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.817,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "verbatim `Thermal Conductivity lambda (W/(m·K)) 0.817`."
+    },
+    {
+     "key": "optical.stress_optical_coefficient",
+     "value": 1.71e-12,
+     "unit": "1/Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": "not printed"
+     },
+     "notes": "verbatim `Photoelastic Constant beta nm/(cm·10^5 Pa) 1.71`. 환산 — 1.71 nm/(cm·1e5 Pa) = 1.71e-9 m / (1e-2 m x 1e5 Pa) = 1.71e-12 /Pa. 측정 파장은 인쇄돼 있지 않다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "OHARA L-LAH85V low-Tg moldable optical glass",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "camera",
+     "manufacturer": "OHARA INC.",
+     "material_class": "low-Tg (low softening temperature) optical glass for precision glass molding",
+     "process": "precision glass mould pressing (GMO)",
+     "grade": "L-LAH85V",
+     "strain_point_c_not_loadable": null,
+     "annealing_point_c_not_loadable": null,
+     "softening_point_littleton_c_not_loadable": null,
+     "role_reason": "고굴절·고Tg 쪽 몰딩 등급. **변형점·서냉점·연화점 세 칸이 데이터시트에 `-` 로 미인쇄** — 부재가 확정된 칸이다",
+     "role_confidence": "high"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "OHARA Optical Glass Data Sheet L-LAH85V (OHARA 25-04)",
+    "url": "https://oharacorp.com/wp-content/uploads/2025/04/ellah85v.pdf",
+    "authors": "OHARA INC. (corporate author)",
+    "year": 2025,
+    "publisher": "OHARA INC.",
+    "manufacturer": "OHARA INC.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/cam/OHARA_L-LAH85V_DataSheet_25-04.pdf"
+   },
+   "properties": [
+    {
+     "key": "optical.refractive_index",
+     "value": 1.84772,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 656.27,
+      "temperature_c": "not printed (catalogue reference condition)"
+     },
+     "notes": "Refractive Indices 표 verbatim `nC (C선, H 656.27 nm) = 1.84772`. **굴절률은 파장이 없으면 값이 아니다**(브리프 트랩 4) — 네 기준선으로 갈라 넣었다."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.854,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 587.56,
+      "temperature_c": "not printed (catalogue reference condition)"
+     },
+     "notes": "Refractive Indices 표 verbatim `nd (d선, He 587.56 nm) = 1.854`. **굴절률은 파장이 없으면 값이 아니다**(브리프 트랩 4) — 네 기준선으로 갈라 넣었다."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.85903,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 546.07,
+      "temperature_c": "not printed (catalogue reference condition)"
+     },
+     "notes": "Refractive Indices 표 verbatim `ne (e선, Hg 546.07 nm) = 1.85903`. **굴절률은 파장이 없으면 값이 아니다**(브리프 트랩 4) — 네 기준선으로 갈라 넣었다."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.86887,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 486.13,
+      "temperature_c": "not printed (catalogue reference condition)"
+     },
+     "notes": "Refractive Indices 표 verbatim `nF (F선, H 486.13 nm) = 1.86887`. **굴절률은 파장이 없으면 값이 아니다**(브리프 트랩 4) — 네 기준선으로 갈라 넣었다."
+    },
+    {
+     "key": "optical.abbe_number",
+     "value": 40.38,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "basis": "nu_d = (nd-1)/(nF-nC), d/F/C lines"
+     },
+     "notes": "표 verbatim `Abbe Number nu_d 40.38`. **우리가 계산하지 않고 인쇄값을 그대로 옮겼다**(브리프 트랩 5). 검산만 했다 — (1.854-1)/(1.86887-1.84772) = 40.38 로 인쇄값과 맞는다."
+    },
+    {
+     "key": "optical.abbe_number",
+     "value": 40.13,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "basis": "nu_e = (ne-1)/(nF'-nC'), e/F'/C' lines"
+     },
+     "notes": "표 verbatim `Abbe Number nu_e 40.13`. d선 기준 아베수와 **기준선이 달라 별개 값**이다 — 조건축으로 갈랐다."
+    },
+    {
+     "key": "physical.density",
+     "value": 5250.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "Other Properties verbatim `Specific Gravity d 5.25`. 비중(무차원, 물 기준)이라 수치가 g/cm3 와 같고 x1000 으로 kg/m3."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 111500000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "Mechanical Properties verbatim `Young's Modulus E (GPa) 111.5`."
+    },
+    {
+     "key": "mechanical.shear_modulus",
+     "value": 42700000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "verbatim `Rigidity Modulus G (GPa) 42.7`. **§469 역산 검산 — E/2(1+nu) = 111.5/2.612 = 42.69 GPa 로 인쇄값 42.7 과 인쇄 자릿수까지 일치한다.** 광학유리는 초음파 종파·횡파 속도 두 개에서 E·G·nu 를 한꺼번에 내므로 셋 중 하나는 나머지 둘의 종속값이다 — **독립 측정 세 개가 아니라 측정 하나**로 읽어라."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.306,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "verbatim `Poisson's Ratio sigma 0.306`. 위 전단탄성계수 주석의 항등식 참조."
+    },
+    {
+     "key": "mechanical.hardness_knoop",
+     "value": 670.0,
+     "unit": "HK",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "load_kgf": "not printed (JOGIS 標準 0.1 kgf)",
+      "class": 7
+     },
+     "notes": "verbatim `Knoop Hardness Hk[Class] 670  7`. **하중이 인쇄돼 있지 않다** — SCHOTT 의 HK 0.1/20 과 직접 비교하지 마라."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 889.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "transformation temperature Tg (dilatometric)"
+     },
+     "notes": "Thermal Properties verbatim `Transformation Temperature Tg (degC) 616`. **팽창계 전이점이라 이 키가 맞다.** 같은 표가 변형점·서냉점·연화점(점도 기준점)을 따로 인쇄하므로 정의가 원문에서 확정된다. **점도 기준점 셋(변형점 StP · 서냉점 AP · 연화점 SP)은 카탈로그에 키가 없어 못 넣었다** — attributes 에 숫자만 남긴다. 이것들은 점도로 정의된 온도(10^14.5 / 10^13 / 10^7.6 P)라 thermal.glass_transition 에 넣으면 안 된다(브리프 트랩 1). **§426 판 대조** — 같은 회사의 `Technical Data ~Pressing & Forming for Low Tg Optical Glasses~ Ver.9.1 (2022-01-28)` 5.1 표와 겹쳐 읽었다. nd·nu_d 는 두 판이 자릿수까지 같으나 Tg·At·alpha(100-300)는 갈린다(L-BAL42 Tg 502 대 506 · At 551 대 538 · alpha 92 대 88; L-LAH53 Tg 573 대 574 · At 610 대 607 · alpha 75 대 72). **제품별 최신 데이터시트(25-04)를 정본으로 삼고 판 차이를 지우지 않았다.** 이 등급은 변형점·서냉점·연화점 칸이 원문에서 `-` 다(측정 미공표)."
+    },
+    {
+     "key": "thermal.dilatometric_softening_point",
+     "value": 931.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "yield point At (dilatometric softening / sag temperature)",
+      "heating_rate_k_min": "not printed"
+     },
+     "notes": "verbatim `Yield Point At (degC) 658`. **팽창계 곡선의 굴복점 = 새그온도** 라 이 키가 정확히 맞다. Tg 616 보다 위, Littleton 연화점 SP 보다 아래. **§426 판 대조** — 같은 회사의 `Technical Data ~Pressing & Forming for Low Tg Optical Glasses~ Ver.9.1 (2022-01-28)` 5.1 표와 겹쳐 읽었다. nd·nu_d 는 두 판이 자릿수까지 같으나 Tg·At·alpha(100-300)는 갈린다(L-BAL42 Tg 502 대 506 · At 551 대 538 · alpha 92 대 88; L-LAH53 Tg 573 대 574 · At 610 대 607 · alpha 75 대 72). **제품별 최신 데이터시트(25-04)를 정본으로 삼고 판 차이를 지우지 않았다.** 이 등급은 변형점·서냉점·연화점 칸이 원문에서 `-` 다(측정 미공표)."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 6.5e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "-30 to 70"
+     },
+     "notes": "verbatim `Expansion Coefficients (-30 degC ~ 70 degC) alpha_l (10-7 K-1) 65`. **구간이 조건축이다** — 같은 유리의 100-300 구간과 별개 행이다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 7.699999999999999e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "100 to 300"
+     },
+     "notes": "verbatim `alpha_l (10-7 K-1) (100 degC ~ 300 degC) 77`. **§426 판 대조** — 같은 회사의 `Technical Data ~Pressing & Forming for Low Tg Optical Glasses~ Ver.9.1 (2022-01-28)` 5.1 표와 겹쳐 읽었다. nd·nu_d 는 두 판이 자릿수까지 같으나 Tg·At·alpha(100-300)는 갈린다(L-BAL42 Tg 502 대 506 · At 551 대 538 · alpha 92 대 88; L-LAH53 Tg 573 대 574 · At 610 대 607 · alpha 75 대 72). **제품별 최신 데이터시트(25-04)를 정본으로 삼고 판 차이를 지우지 않았다.** 이 등급은 변형점·서냉점·연화점 칸이 원문에서 `-` 다(측정 미공표)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.819,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "verbatim `Thermal Conductivity lambda (W/(m·K)) 0.819`."
+    },
+    {
+     "key": "optical.stress_optical_coefficient",
+     "value": 1.83e-12,
+     "unit": "1/Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": "not printed"
+     },
+     "notes": "verbatim `Photoelastic Constant beta nm/(cm·10^5 Pa) 1.83`. 환산 — 1.83 nm/(cm·1e5 Pa) = 1.83e-9 m / (1e-2 m x 1e5 Pa) = 1.83e-12 /Pa. 측정 파장은 인쇄돼 있지 않다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "SCHOTT P-PK53 low-Tg moldable optical glass",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "camera",
+     "manufacturer": "SCHOTT AG",
+     "grade": "P-PK53",
+     "glass_code": "527662.283",
+     "material_class": "low-Tg optical glass suitable for precision molding (SCHOTT 'inquiry glass')",
+     "process": "precision molding (blank pressing)",
+     "availability": "inquiry glass — not a stock catalogue melt",
+     "annealing_point_T10e13_c_not_loadable": 390,
+     "softening_point_T10e7p6_c_not_loadable": 453,
+     "abrasion_aa": 977,
+     "datasheet_as_of": "01-Feb-2014",
+     "role_reason": "저Tg(383 degC) 몰딩 광학유리. 브리프 트랩 4대로 **저Tg 로 갈수록 아베수가 커지고 굴절률이 낮아지는 쪽**의 대표 — nd 1.5269 / nu_d 66.2",
+     "role_confidence": "high"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "SCHOTT Optical Glass Data Sheets — Inquiry Glass Collection (28-Aug-2019 compilation of individual data sheets)",
+    "url": "https://www.schott.com/en-dk/products/optical-glass/-/media/project/onex/products/o/optical-glass/downloads/schott-optical-glass-inquiry-glass-collection-datasheets-english-28082019.pdf",
+    "authors": "SCHOTT AG, Advanced Optics (corporate author)",
+    "year": 2019,
+    "publisher": "SCHOTT AG",
+    "manufacturer": "SCHOTT AG",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/cam/SCHOTT_Optical_Glass_Inquiry_Collection_DataSheets_2019-08-28.pdf"
+   },
+   "properties": [
+    {
+     "key": "optical.refractive_index",
+     "value": 1.5269,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 587.6,
+      "temperature_c": "not printed"
+     },
+     "notes": "Data Sheet 머리 verbatim `nd = 1.5269` (Refractive Indices 표에서 nd lambda = 587.6 nm). 유리코드 527662.283."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.5288,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 546.1,
+      "temperature_c": "not printed"
+     },
+     "notes": "verbatim `ne = 1.5288` (lambda = 546.1 nm)."
+    },
+    {
+     "key": "optical.abbe_number",
+     "value": 66.22,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "basis": "nu_d = (nd-1)/(nF-nC), d/F/C lines"
+     },
+     "notes": "verbatim `nd = 66.22` (머리글의 두 번째 칸이 아베수다 — SCHOTT 조판이 기호를 `nd` 로 인쇄한다). 검산 — (nd-1)/(nF-nC) = 0.52690/0.007957 = 66.22, 인쇄값과 맞는다. 우리가 계산하지 않았다."
+    },
+    {
+     "key": "optical.abbe_number",
+     "value": 65.92,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "basis": "nu_e = (ne-1)/(nF'-nC'), e/F'/C' lines"
+     },
+     "notes": "verbatim `ne = 65.92` (e선 기준 아베수). d선 기준과 별개 값이라 조건축으로 갈랐다."
+    },
+    {
+     "key": "physical.density",
+     "value": 2830.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "Other Properties verbatim `r [g/cm3] 2.83`."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 59000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "verbatim `E [10^3 N/mm2] 59`. 10^3 N/mm2 = GPa 라 59 GPa. **전단탄성계수는 시트가 인쇄하지 않으므로 역산하지 않았다**(§10)."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.271,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "verbatim `mu 0.271`."
+    },
+    {
+     "key": "mechanical.hardness_knoop",
+     "value": 335.0,
+     "unit": "HK",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "load_kgf": 0.1,
+      "dwell_s": 20
+     },
+     "notes": "verbatim `HK0.1/20 335` — 하중 0.1 kgf, 유지 20 s 가 기호에 박혀 있다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.33e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "-30 to +70"
+     },
+     "notes": "verbatim `a-30/+70°C [10-6/K] 13.3`. **구간이 조건축이다.**"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.6e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "+20 to +300"
+     },
+     "notes": "verbatim `a+20/+300°C [10-6/K] 16.0`."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 656.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "transformation temperature Tg (dilatometric)"
+     },
+     "notes": "verbatim `Tg [°C] 383`. 같은 상자가 `T10^13`(390 degC, 서냉점)·`T10^7.6`(453 degC, 연화점)·`AT`(418 degC)를 따로 인쇄하므로 Tg 의 정의가 원문에서 확정된다. **점도 기준점 셋(변형점 StP · 서냉점 AP · 연화점 SP)은 카탈로그에 키가 없어 못 넣었다** — attributes 에 숫자만 남긴다. 이것들은 점도로 정의된 온도(10^14.5 / 10^13 / 10^7.6 P)라 thermal.glass_transition 에 넣으면 안 된다(브리프 트랩 1)."
+    },
+    {
+     "key": "thermal.dilatometric_softening_point",
+     "value": 691.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "A_T (dilatometric yield / softening temperature)",
+      "heating_rate_k_min": "not printed"
+     },
+     "notes": "verbatim `AT [°C] 418`. SCHOTT 의 A_T 는 팽창계 곡선의 굴복(새그) 온도로 Tg 383 와 Littleton 연화점 T10^7.6 453 사이에 놓인다 — 이 배치의 순서 확인: 383 < 390 < 418 < 453. 점도 기준점이 아니므로 이 키가 맞다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 770.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "verbatim `cp [J/(g*K)] 0.77` → x1000 = 770.0 J/(kg·K)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.64,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "verbatim `l [W/(m•K)] 0.64`."
+    },
+    {
+     "key": "optical.stress_optical_coefficient",
+     "value": 2.06e-12,
+     "unit": "1/Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": "not printed"
+     },
+     "notes": "verbatim `K [10-6 mm2/N] 2.06`. 환산 — mm^2/N = 1e-6 m^2/N = 1e-6 /Pa 이므로 2.06e-6 mm2/N = 2.06e-12 /Pa. OHARA 의 nm/(cm·1e5 Pa) 표기와 같은 자릿수로 떨어진다(교차 단위검산)."
+    },
+    {
+     "key": "chemical.composition",
+     "value_text": "CR 2 / FR 1 / SR 51 / AR 4.3 / PR 4.3 (SCHOTT climatic-, stain-, acid-, alkali-, phosphate-resistance classes)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "basis": "SCHOTT chemical resistance class codes"
+     },
+     "notes": "내화학성 등급표는 물성값이 아니라 등급 코드라 조성/등급 텍스트로 남긴다(§124)."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "SCHOTT P-SF67 low-Tg moldable optical glass",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "camera",
+     "manufacturer": "SCHOTT AG",
+     "grade": "P-SF67",
+     "glass_code": "907214.424",
+     "material_class": "low-Tg optical glass suitable for precision molding (SCHOTT 'inquiry glass')",
+     "process": "precision molding (blank pressing)",
+     "availability": "inquiry glass — not a stock catalogue melt",
+     "annealing_point_T10e13_c_not_loadable": 546,
+     "softening_point_T10e7p6_c_not_loadable": 663,
+     "abrasion_aa": 309,
+     "datasheet_as_of": "13-Jul-2016",
+     "role_reason": "초고굴절(nd 1.9068) 저분산 아닌 고분산(nu_d 21.4) 몰딩 광학유리. 페리스코프 프리즘·고굴절 렌즈 등급의 SCHOTT 쪽 대표",
+     "role_confidence": "high"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "SCHOTT Optical Glass Data Sheets — Inquiry Glass Collection (28-Aug-2019 compilation of individual data sheets)",
+    "url": "https://www.schott.com/en-dk/products/optical-glass/-/media/project/onex/products/o/optical-glass/downloads/schott-optical-glass-inquiry-glass-collection-datasheets-english-28082019.pdf",
+    "authors": "SCHOTT AG, Advanced Optics (corporate author)",
+    "year": 2019,
+    "publisher": "SCHOTT AG",
+    "manufacturer": "SCHOTT AG",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/cam/SCHOTT_Optical_Glass_Inquiry_Collection_DataSheets_2019-08-28.pdf"
+   },
+   "properties": [
+    {
+     "key": "optical.refractive_index",
+     "value": 1.9068,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 587.6,
+      "temperature_c": "not printed"
+     },
+     "notes": "Data Sheet 머리 verbatim `nd = 1.9068` (Refractive Indices 표에서 nd lambda = 587.6 nm). 유리코드 907214.424."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.91675,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 546.1,
+      "temperature_c": "not printed"
+     },
+     "notes": "verbatim `ne = 1.91675` (lambda = 546.1 nm)."
+    },
+    {
+     "key": "optical.abbe_number",
+     "value": 21.4,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "basis": "nu_d = (nd-1)/(nF-nC), d/F/C lines"
+     },
+     "notes": "verbatim `nd = 21.4` (머리글의 두 번째 칸이 아베수다 — SCHOTT 조판이 기호를 `nd` 로 인쇄한다). 검산 — (nd-1)/(nF-nC) = 0.90680/0.042374 = 21.40, 인쇄값과 맞는다. 우리가 계산하지 않았다."
+    },
+    {
+     "key": "optical.abbe_number",
+     "value": 21.23,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "basis": "nu_e = (ne-1)/(nF'-nC'), e/F'/C' lines"
+     },
+     "notes": "verbatim `ne = 21.23` (e선 기준 아베수). d선 기준과 별개 값이라 조건축으로 갈랐다."
+    },
+    {
+     "key": "physical.density",
+     "value": 4240.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "Other Properties verbatim `r [g/cm3] 4.24`."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 90000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "verbatim `E [10^3 N/mm2] 90`. 10^3 N/mm2 = GPa 라 90 GPa. **전단탄성계수는 시트가 인쇄하지 않으므로 역산하지 않았다**(§10)."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.248,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "verbatim `mu 0.248`."
+    },
+    {
+     "key": "mechanical.hardness_knoop",
+     "value": 440.0,
+     "unit": "HK",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "load_kgf": 0.1,
+      "dwell_s": 20
+     },
+     "notes": "verbatim `HK0.1/20 440` — 하중 0.1 kgf, 유지 20 s 가 기호에 박혀 있다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 6.2e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "-30 to +70"
+     },
+     "notes": "verbatim `a-30/+70°C [10-6/K] 6.2`. **구간이 조건축이다.**"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 7.4e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "+20 to +300"
+     },
+     "notes": "verbatim `a+20/+300°C [10-6/K] 7.4`."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 812.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "transformation temperature Tg (dilatometric)"
+     },
+     "notes": "verbatim `Tg [°C] 539`. 같은 상자가 `T10^13`(546 degC, 서냉점)·`T10^7.6`(663 degC, 연화점)·`AT`(601 degC)를 따로 인쇄하므로 Tg 의 정의가 원문에서 확정된다. **점도 기준점 셋(변형점 StP · 서냉점 AP · 연화점 SP)은 카탈로그에 키가 없어 못 넣었다** — attributes 에 숫자만 남긴다. 이것들은 점도로 정의된 온도(10^14.5 / 10^13 / 10^7.6 P)라 thermal.glass_transition 에 넣으면 안 된다(브리프 트랩 1)."
+    },
+    {
+     "key": "thermal.dilatometric_softening_point",
+     "value": 874.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "A_T (dilatometric yield / softening temperature)",
+      "heating_rate_k_min": "not printed"
+     },
+     "notes": "verbatim `AT [°C] 601`. SCHOTT 의 A_T 는 팽창계 곡선의 굴복(새그) 온도로 Tg 539 와 Littleton 연화점 T10^7.6 663 사이에 놓인다 — 이 배치의 순서 확인: 539 < 546 < 601 < 663. 점도 기준점이 아니므로 이 키가 맞다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 530.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "verbatim `cp [J/(g*K)] 0.53` → x1000 = 530.0 J/(kg·K)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.79,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "verbatim `l [W/(m•K)] 0.79`."
+    },
+    {
+     "key": "optical.stress_optical_coefficient",
+     "value": 2.96e-12,
+     "unit": "1/Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": "not printed"
+     },
+     "notes": "verbatim `K [10-6 mm2/N] 2.96`. 환산 — mm^2/N = 1e-6 m^2/N = 1e-6 /Pa 이므로 2.96e-6 mm2/N = 2.96e-12 /Pa. OHARA 의 nm/(cm·1e5 Pa) 표기와 같은 자릿수로 떨어진다(교차 단위검산)."
+    },
+    {
+     "key": "chemical.composition",
+     "value_text": "CR 1 / FR 0 / SR 1 / AR 1.3 / PR 1 (SCHOTT chemical resistance classes)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "basis": "SCHOTT chemical resistance class codes"
+     },
+     "notes": "내화학성 등급표는 물성값이 아니라 등급 코드라 조성/등급 텍스트로 남긴다(§124)."
+    }
+   ]
+  }
+ ]
+}

@@ -820,3 +820,28 @@ Wayback을 0.6초 간격으로 돌려 55건 중 42건이 실패했다. **아카�
 **대응 원칙** — 벤더 TDS를 새로 등록할 때 **Wayback에 스냅샷이 있는지 함께 확인하고,
 없으면 저장 시점 사본을 남기는 편이 낫다.** 9차 FD&E 사고(사이트를 통째로 잃었고 필요한
 두 파일이 아카이브에도 없었다)가 같은 종류의 손실이다.
+
+---
+
+## AB. 디스플레이 기판유리 벤더 넷의 접근 실태 (2026-08-19 · 44차 FB)
+
+무알칼리 기판유리(EAGLE XG · Lotus NXT · AN100 · AN Wizus · OA-10G/11/20/31)를 캐면서
+**차단 유형이 벤더마다 완전히 달랐다.** 유형을 갈라 적는다 — 다음 파동이 바로 쓸 수 있다.
+
+| 벤더 | 유형 | 실측 | 우회 |
+|---|---|---|---|
+| **corning.com** | **봇 차단(403)** | 제품페이지·`media/worldwide/cdt/documents/*.pdf` 둘 다 `curl` 403 + 463 B HTML. **WebFetch 도 403** — §51 의 "WebFetch 가 벤더 PDF 를 떨어뜨려 준다" 경로가 여기서는 안 통한다 | **Wayback CDX 로 전부 뚫린다.** `id_` 를 붙여 받으면 원본 PDF 가 온다. EAGLE XG(2023) · EAGLE XG Slim(2013-08) · Lotus NXT(2023) 확보 |
+| **agc.com** | **벤더가 애초에 공표 안 함(C절)** | `products/display/detail/an100.html` · `anwizus.html` 을 영문·일문 둘 다 열었다 — **물성표가 아예 없다.** 마케팅 산문뿐 | **자사 연구보고가 유일한 1차 수치원** — `agc.com/innovation/library/pdf/57-08.pdf` (Res. Reports Asahi Glass 57 (2007) Table 2) 가 AS·AX·AN100·AN635 의 변형점·서냉점·CTE·밀도·영률·유전율을 인쇄한다. **AN Wizus 는 이 경로로도 안 나온다** |
+| **neg.co.jp** | **현행판에서 제품이 사라짐** | `/en/products/` 에 OA-11·OA-20·OA-31 만 남고 **OA-10G 페이지가 Display 일반 페이지로 리다이렉트**(200 + 285 KB HTML — §438 의 그 함정이다) | OA-10G 는 **Wayback 의 2019년판 `en-oa-10g_11.pdf`(Ref. 1910-01E)** 가 유일하다. 현행 OA-11 시트(2510-01E)와 겹쳐 읽으면 OA-11 열 11칸이 전부 일치해 판 대조가 닫힌다 |
+| **schott.com** | **간헐 503** | `schott.com/shop/medias/SCHOTT-Datenblatt-P-LASF47.pdf` 가 `curl`·WebFetch 둘 다 **503 + 191 KB HTML** | `schott.com/en-dk/products/optical-glass/-/media/project/onex/...` 경로의 **데이터시트 합본 PDF 는 200 으로 열린다.** P-PK53 · P-SF67 을 여기서 얻었다 |
+| **oharacorp.com** | 차단 없음 | `wp-content/uploads/2025/04/e<등급소문자>.pdf` 로 등급별 시트가 그대로 열린다 | — |
+
+**얻지 못한 것 — 조달 대상(§145)**
+
+| 대상 | 얻을 것 | 상태 |
+|---|---|---|
+| **AGC AN Wizus / AN Wizus SP** | LTPS·OLED 용 무알칼리 유리의 변형점·영률·밀도·CTE·열수축 | agc.com 영문·일문 제품페이지에 표 자체가 없고, AGC 연구보고 57호(2007)는 AN Wizus 출시 이전이다. **최신 AGC 연구보고(60호대 이후)나 SID Display Week 발표자료가 1차 후보** |
+| **Corning EAGLE XG / Lotus NXT 의 compaction(열수축)** | LTPS 정렬을 좌우하는 핵심값 | **PI 시트가 수치로 인쇄하지 않는다.** Lotus NXT 는 `Compaction Variation` 을 치수측정 항목으로만 올린다. Corning TIP 노트(`cdt/documents/*TIP*.pdf`)가 후보 |
+| **NEG OA-11/20/31 의 compaction** | 〃 | **그래프로만 있다**(Thermal Shrinkage, 350~650 degC, 1 h). E절(디지타이즈 가능) 성격이다 — 350·400·…·650 의 6점을 `method: "digitized"` 로 뽑을 수 있다 |
+| **NEG 레이저실링 프릿(Ref. 2410-26E)** | OLED 봉지 프릿의 Tg·연화점·CTE | **카탈로그 그 쪽에 물성표가 없다** — 공정도·적용예뿐이고 *"Customers can select the optimal glass lid ... from our various glass lids with a wide CTE range"* 라고만 적는다. **정성 서술 확정(§124)** |
+| **전 벤더의 파괴인성·액상온도** | K_IC, liquidus | **디스플레이 기판유리 시트 8장 어디에도 없다.** 구조적 부재로 본다 |

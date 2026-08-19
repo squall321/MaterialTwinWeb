@@ -1,0 +1,1082 @@
+{
+ "batch": "FB-1 44차 · Corning 디스플레이 기판유리 3종(EAGLE XG · EAGLE XG Slim · Lotus NXT)",
+ "materials": [
+  {
+   "new_material": {
+    "name": "Corning EAGLE XG Glass (alkali-free display substrate)",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "display",
+     "material_class": "alkaline earth boro-aluminosilicate, alkali-free, fusion-drawn sheet",
+     "process": "fusion draw (overflow downdraw)",
+     "manufacturer": "Corning Incorporated",
+     "application": "active-matrix flat panel display (LCD/OLED) TFT glass substrate",
+     "composition": "alkali-free; no added heavy metals (As/Sb/Ba free)",
+     "role_reason": "OLED·LCD 패널의 실제 기판유리. 커버글라스(Gorilla)와 조성·물성이 다른 별개 제품이다",
+     "role_confidence": "high"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Corning EAGLE XG Glass — Product & Material Information (Product Information Sheet, (C) 2023 Corning Incorporated)",
+    "url": "https://www.corning.com/media/worldwide/cdt/documents/EAGLE_XG_Glass_PI_Sheet.pdf",
+    "authors": "Corning Incorporated, Display Technologies (corporate author)",
+    "year": 2023,
+    "publisher": "Corning Incorporated",
+    "manufacturer": "Corning Incorporated",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/Corning_EAGLE_XG_Glass_PI_Sheet_2023.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2380.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20
+     },
+     "notes": "Material Information 표 verbatim `Density (20°C) 2.38 g/cm3`. g/cm3 x1000 = kg/m3."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 74000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "room temperature (not printed)"
+     },
+     "notes": "Mechanical Properties 표 verbatim `Young's Modulus 74 GPa`. 시험온도 미인쇄."
+    },
+    {
+     "key": "mechanical.shear_modulus",
+     "value": 30000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "room temperature (not printed)"
+     },
+     "notes": "표 verbatim `Shear Modulus 30 GPa`. **§469 역산 검산** — E/2(1+nu) = 74/2.46 = 30.08 GPa 로 인쇄된 2자리 유효숫자 안에서 일치한다. 유효숫자가 2자리라 역산인지 독립 초음파 측정인지 가를 수 없다. 같은 제품군의 EAGLE XG Slim 시트는 E 73.6 / G 30.1 / nu 0.23 을 3자리로 인쇄하는데 그쪽은 E/2(1+nu)=29.92 로 0.6% 어긋나므로 **세 값이 하나의 초음파 측정 세트에서 나온 것**으로 보인다. E·nu 와 같은 측정을 두 번 세는 것일 수 있으니 대표값 선택에서 주의."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.23,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "room temperature (not printed)"
+     },
+     "notes": "표 verbatim `Poisson's Ratio 0.23`."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 3.2e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "0-300"
+     },
+     "notes": "표 verbatim `Coefficient of Thermal Expansion (0 - 300°C) 32 x 10-7/°C`. 구간이 인쇄돼 있다."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.51,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 589.3
+     },
+     "notes": "Optical Properties 표 verbatim `Refractive Index (at 589.3nm) 1.510` — 나트륨 D선."
+    },
+    {
+     "key": "optical.stress_optical_coefficient",
+     "value": 3.34e-12,
+     "unit": "1/Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": "not printed"
+     },
+     "notes": "표 verbatim `Stress Optical Coefficient 33.4 (nm/cm/MPa)`. 환산 — 33.4 nm/(cm·MPa) = 33.4e-9 m / (1e-2 m x 1e6 Pa) = 3.34e-12 /Pa. **측정 파장이 인쇄돼 있지 않다**(관행상 546.1 nm 이나 시트가 안 밝히므로 빌리지 않는다, §328)."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.3,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000,
+      "temperature_c": 23,
+      "humidity_rh": 20
+     },
+     "notes": "표 verbatim `Dielectric Constant (23°C, 20% RH, 1kHz) 5.3`."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.001,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000,
+      "temperature_c": 23,
+      "humidity_rh": 20
+     },
+     "notes": "표 verbatim `Loss Tangent (23°C, 20% RH, 1kHz) 0.1%` = 0.001."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 199526231496.88828,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 250
+     },
+     "notes": "표 verbatim `Log10 Volume Resistivity ... 13.3 ohm-cm at 250°C`. **§409 — 인쇄된 숫자는 log10 이다.** 10^13.3 ohm·cm = 1.995e13 ohm·cm, x0.01 → 1.995e11 ohm·m. 표기 해독이지 우리가 만든 값이 아니다."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 7943282.347242822,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 500
+     },
+     "notes": "표 verbatim `8.9 ohm- cm at 500°C` — log10 값(§409). 10^8.9 ohm·cm x0.01 = 7.94e6 ohm·m."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 3.9810717055349854e+21,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 25
+     },
+     "notes": "표 verbatim `23.6 ohm- cm at 25°C` — log10 값(§409). 10^23.6 ohm·cm x0.01 = 3.98e21 ohm·m. **외삽 냄새가 난다** — 250 degC 13.3, 500 degC 8.9 의 1/T 직선을 25 degC 로 늘리면 대략 이 자릿수가 나온다. 시트가 측정/외삽을 구분하지 않으므로 그대로 옮기되 tier3 으로 둔다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.9e-07,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 25
+     },
+     "notes": "원문 verbatim `0.0059` cm2/s @ 25 degC. cm^2/s -> m^2/s 는 x1e-4. 검산 — 25 degC 에서 5.9e-7 x 753 x 2380 = 1.0574 W/(m·K), 인쇄 1.058 과 일치(§237)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 753.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 25
+     },
+     "notes": "원문 verbatim `753` J/kg-degK @ 25 degC. 검산 — 25 degC 에서 5.9e-7 x 753 x 2380 = 1.0574 W/(m·K), 인쇄 1.058 과 일치(§237)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.058,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 25
+     },
+     "notes": "원문 verbatim `1.058` W/m-degK @ 25 degC. **시트가 스스로 계산값이라 밝힌다** — verbatim *\"Thermal conductivity is a calculated value and is equal to the product of the thermal diffusivity multiplied by specific heat multiplied by density of the glass\"* → method=computed. 검산 — 25 degC 에서 5.9e-7 x 753 x 2380 = 1.0574 W/(m·K), 인쇄 1.058 과 일치(§237)."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.5e-07,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 100
+     },
+     "notes": "원문 verbatim `0.0055` cm2/s @ 100 degC. cm^2/s -> m^2/s 는 x1e-4. 검산 — 25 degC 에서 5.9e-7 x 753 x 2380 = 1.0574 W/(m·K), 인쇄 1.058 과 일치(§237)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 831.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 100
+     },
+     "notes": "원문 verbatim `831` J/kg-degK @ 100 degC. 검산 — 25 degC 에서 5.9e-7 x 753 x 2380 = 1.0574 W/(m·K), 인쇄 1.058 과 일치(§237)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.098,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 100
+     },
+     "notes": "원문 verbatim `1.098` W/m-degK @ 100 degC. **시트가 스스로 계산값이라 밝힌다** — verbatim *\"Thermal conductivity is a calculated value and is equal to the product of the thermal diffusivity multiplied by specific heat multiplied by density of the glass\"* → method=computed. 검산 — 25 degC 에서 5.9e-7 x 753 x 2380 = 1.0574 W/(m·K), 인쇄 1.058 과 일치(§237)."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.4e-07,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 200
+     },
+     "notes": "원문 verbatim `0.0054` cm2/s @ 200 degC. cm^2/s -> m^2/s 는 x1e-4. 검산 — 25 degC 에서 5.9e-7 x 753 x 2380 = 1.0574 W/(m·K), 인쇄 1.058 과 일치(§237)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 969.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 200
+     },
+     "notes": "원문 verbatim `969` J/kg-degK @ 200 degC. 검산 — 25 degC 에서 5.9e-7 x 753 x 2380 = 1.0574 W/(m·K), 인쇄 1.058 과 일치(§237)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.247,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 200
+     },
+     "notes": "원문 verbatim `1.247` W/m-degK @ 200 degC. **시트가 스스로 계산값이라 밝힌다** — verbatim *\"Thermal conductivity is a calculated value and is equal to the product of the thermal diffusivity multiplied by specific heat multiplied by density of the glass\"* → method=computed. 검산 — 25 degC 에서 5.9e-7 x 753 x 2380 = 1.0574 W/(m·K), 인쇄 1.058 과 일치(§237)."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.3e-07,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 300
+     },
+     "notes": "원문 verbatim `0.0053` cm2/s @ 300 degC. cm^2/s -> m^2/s 는 x1e-4. 검산 — 25 degC 에서 5.9e-7 x 753 x 2380 = 1.0574 W/(m·K), 인쇄 1.058 과 일치(§237)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1093.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 300
+     },
+     "notes": "원문 verbatim `1093` J/kg-degK @ 300 degC. 검산 — 25 degC 에서 5.9e-7 x 753 x 2380 = 1.0574 W/(m·K), 인쇄 1.058 과 일치(§237)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.365,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 300
+     },
+     "notes": "원문 verbatim `1.365` W/m-degK @ 300 degC. **시트가 스스로 계산값이라 밝힌다** — verbatim *\"Thermal conductivity is a calculated value and is equal to the product of the thermal diffusivity multiplied by specific heat multiplied by density of the glass\"* → method=computed. 검산 — 25 degC 에서 5.9e-7 x 753 x 2380 = 1.0574 W/(m·K), 인쇄 1.058 과 일치(§237)."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.100000000000001e-07,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 400
+     },
+     "notes": "원문 verbatim `0.0051` cm2/s @ 400 degC. cm^2/s -> m^2/s 는 x1e-4. 검산 — 25 degC 에서 5.9e-7 x 753 x 2380 = 1.0574 W/(m·K), 인쇄 1.058 과 일치(§237)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1148.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 400
+     },
+     "notes": "원문 verbatim `1148` J/kg-degK @ 400 degC. 검산 — 25 degC 에서 5.9e-7 x 753 x 2380 = 1.0574 W/(m·K), 인쇄 1.058 과 일치(§237)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.409,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 400
+     },
+     "notes": "원문 verbatim `1.409` W/m-degK @ 400 degC. **시트가 스스로 계산값이라 밝힌다** — verbatim *\"Thermal conductivity is a calculated value and is equal to the product of the thermal diffusivity multiplied by specific heat multiplied by density of the glass\"* → method=computed. 검산 — 25 degC 에서 5.9e-7 x 753 x 2380 = 1.0574 W/(m·K), 인쇄 1.058 과 일치(§237)."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.100000000000001e-07,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 500
+     },
+     "notes": "원문 verbatim `0.0051` cm2/s @ 500 degC. cm^2/s -> m^2/s 는 x1e-4. 검산 — 25 degC 에서 5.9e-7 x 753 x 2380 = 1.0574 W/(m·K), 인쇄 1.058 과 일치(§237)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1189.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 500
+     },
+     "notes": "원문 verbatim `1189` J/kg-degK @ 500 degC. 검산 — 25 degC 에서 5.9e-7 x 753 x 2380 = 1.0574 W/(m·K), 인쇄 1.058 과 일치(§237)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.447,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 500
+     },
+     "notes": "원문 verbatim `1.447` W/m-degK @ 500 degC. **시트가 스스로 계산값이라 밝힌다** — verbatim *\"Thermal conductivity is a calculated value and is equal to the product of the thermal diffusivity multiplied by specific heat multiplied by density of the glass\"* → method=computed. 검산 — 25 degC 에서 5.9e-7 x 753 x 2380 = 1.0574 W/(m·K), 인쇄 1.058 과 일치(§237)."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Corning EAGLE XG Slim Glass (alkali-free display substrate)",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "display",
+     "material_class": "alkaline earth boro-aluminosilicate, alkali-free, fusion-drawn sheet (slim/thin form factor)",
+     "process": "fusion draw (overflow downdraw)",
+     "manufacturer": "Corning Incorporated",
+     "application": "substrates for active-matrix flat panel displays, thin form factor",
+     "composition": "alkali-free",
+     "role_reason": "EAGLE XG 와 등급이 갈리는 별개 제품(손실계수·E·G 가 다르게 인쇄된다)",
+     "role_confidence": "high"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "EAGLE XG Slim Glass — Product Information Sheet (Corning Display Technologies, August 2013)",
+    "url": "https://www.corning.com/media/worldwide/cdt/documents/EAGLE%20XG%20%C2%AE%20Slim%20Glass.pdf",
+    "authors": "Corning Incorporated, Corning Display Technologies (corporate author)",
+    "year": 2013,
+    "publisher": "Corning Incorporated",
+    "manufacturer": "Corning Incorporated",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/Corning_EAGLE_XG_Slim_Glass_PI_Sheet_2013-08.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2380.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20
+     },
+     "notes": "Mechanical 표 verbatim `Density (20oC, 68oF) 2.38 g/cc | 148.5 lb/ft3`. **단위쌍 병기 검산(§225)** — 2.38 g/cc x 62.428 = 148.6 lb/ft3, 인쇄 148.5 와 일치."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 73600000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "room temperature (not printed)"
+     },
+     "notes": "표 verbatim `Young's Modulus 73.6 GPa | 10.7 x 10^6 psi`. 검산 — 73.6 GPa = 10.67e6 psi, 인쇄와 일치."
+    },
+    {
+     "key": "mechanical.shear_modulus",
+     "value": 30100000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "room temperature (not printed)"
+     },
+     "notes": "표 verbatim `Shear Modulus 30.1 GPa | 4.4 x 10^6 psi`. **§469 검산** — E/2(1+nu) = 73.6/2.46 = 29.92 GPa 로 인쇄 30.1 과 0.6% 어긋난다. 역으로 nu = E/2G - 1 = 0.2226 으로 인쇄 0.23 과 어긋난다. **정확히 닫히지 않으므로 역산이 아니라 초음파 두 속도에서 함께 나온 세트**로 읽는다."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.23,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "room temperature (not printed)"
+     },
+     "notes": "표 verbatim `Poisson's Ratio 0.23`."
+    },
+    {
+     "key": "mechanical.hardness_vickers",
+     "value": 640.0,
+     "unit": "HV",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "load_gf": 200,
+      "dwell_s": 25
+     },
+     "notes": "표 verbatim `Vicker's Hardness (200 gm load, 25 sec dwell) 640`. **하중·유지시간이 인쇄돼 있다.**"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 3.17e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "0-300"
+     },
+     "notes": "Thermal Expansion 표 verbatim `0 - 300oC : 31.7 x 10-7 / oC | 17.7 x 10-7 / oF (32 - 572oF)`. 검산 — 31.7/1.8 = 17.6, 인쇄 17.7 과 일치(§225)."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 3.55e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "25-675"
+     },
+     "notes": "표 verbatim `Room Temperature To Setting Point : 35.5 x 10-7 / oC (25 - 675oC)`. **같은 유리의 두 구간 값이다 — 구간이 조건축이라 별개 행으로 넣는다**(브리프 트랩 2). 25-675 구간이 0-300 보다 큰 것은 유리의 정상 거동이다."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.27,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000,
+      "temperature_c": 20
+     },
+     "notes": "Dielectric Constant 그래프 옆 인쇄값 verbatim `Dielectric Constant: 5.27 (200C/680F - 1 kHz)` — 원문 `20oC/68oF` 의 추출 손상(0 이 붙었다). 20 degC 로 읽는다(68 degF = 20 degC 가 확정한다)."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.003,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000,
+      "temperature_c": 20
+     },
+     "notes": "verbatim `Loss Tangent: 0.30% (200C/680F - 1 kHz)` = 0.0030. **2023년판 EAGLE XG 시트의 0.1% 와 3배 다르다** — Slim 은 별개 제품이고 조건 표기도 다르므로(23 degC/20%RH vs 20 degC) 지우지 않고 각각 남긴다(§426)."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 79432823472.4282,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 250
+     },
+     "notes": "Electrical 표 verbatim `Log10 Volume Resistivity (ohm-cm) 12.9 (250oC, 482oF)` — §409 log 값. 10^12.9 ohm·cm x0.01 = 7.94e10 ohm·m."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 6309573.444801943,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 500
+     },
+     "notes": "표 verbatim `8.8 (500oC, 932oF)` — §409 log 값. 10^8.8 ohm·cm x0.01 = 6.31e6 ohm·m."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 6.01e-07,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 23
+     },
+     "notes": "원문 verbatim `0.00601` cm2/s @ 23 degC. cm^2/s -> m^2/s 는 x1e-4. 원문은 cp 를 J/gm-degK, k 를 W/cm-degK 로 인쇄한다(각각 x1000, x100 환산). 검산 — 23 degC 에서 6.01e-7 x 768 x 2380 = 1.0985, 인쇄 0.0109 W/(cm·K) = 1.09 와 일치(§237)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 768.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 23
+     },
+     "notes": "원문 verbatim `768` J/kg-degK @ 23 degC. 원문은 cp 를 J/gm-degK, k 를 W/cm-degK 로 인쇄한다(각각 x1000, x100 환산). 검산 — 23 degC 에서 6.01e-7 x 768 x 2380 = 1.0985, 인쇄 0.0109 W/(cm·K) = 1.09 와 일치(§237)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.09,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 23
+     },
+     "notes": "원문 verbatim `1.09` W/m-degK @ 23 degC. **시트가 스스로 계산값이라 밝힌다** — verbatim *\"Thermal conductivity is a calculated value and is equal to the product of the thermal diffusivity multiplied by specific heat multiplied by density of the glass\"* → method=computed. 원문은 cp 를 J/gm-degK, k 를 W/cm-degK 로 인쇄한다(각각 x1000, x100 환산). 검산 — 23 degC 에서 6.01e-7 x 768 x 2380 = 1.0985, 인쇄 0.0109 W/(cm·K) = 1.09 와 일치(§237)."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.720000000000001e-07,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 100
+     },
+     "notes": "원문 verbatim `0.00572` cm2/s @ 100 degC. cm^2/s -> m^2/s 는 x1e-4. 원문은 cp 를 J/gm-degK, k 를 W/cm-degK 로 인쇄한다(각각 x1000, x100 환산). 검산 — 23 degC 에서 6.01e-7 x 768 x 2380 = 1.0985, 인쇄 0.0109 W/(cm·K) = 1.09 와 일치(§237)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 896.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 100
+     },
+     "notes": "원문 verbatim `896` J/kg-degK @ 100 degC. 원문은 cp 를 J/gm-degK, k 를 W/cm-degK 로 인쇄한다(각각 x1000, x100 환산). 검산 — 23 degC 에서 6.01e-7 x 768 x 2380 = 1.0985, 인쇄 0.0109 W/(cm·K) = 1.09 와 일치(§237)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.22,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 100
+     },
+     "notes": "원문 verbatim `1.22` W/m-degK @ 100 degC. **시트가 스스로 계산값이라 밝힌다** — verbatim *\"Thermal conductivity is a calculated value and is equal to the product of the thermal diffusivity multiplied by specific heat multiplied by density of the glass\"* → method=computed. 원문은 cp 를 J/gm-degK, k 를 W/cm-degK 로 인쇄한다(각각 x1000, x100 환산). 검산 — 23 degC 에서 6.01e-7 x 768 x 2380 = 1.0985, 인쇄 0.0109 W/(cm·K) = 1.09 와 일치(§237)."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.459999999999999e-07,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 200
+     },
+     "notes": "원문 verbatim `0.00546` cm2/s @ 200 degC. cm^2/s -> m^2/s 는 x1e-4. 원문은 cp 를 J/gm-degK, k 를 W/cm-degK 로 인쇄한다(각각 x1000, x100 환산). 검산 — 23 degC 에서 6.01e-7 x 768 x 2380 = 1.0985, 인쇄 0.0109 W/(cm·K) = 1.09 와 일치(§237)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 998.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 200
+     },
+     "notes": "원문 verbatim `998` J/kg-degK @ 200 degC. 원문은 cp 를 J/gm-degK, k 를 W/cm-degK 로 인쇄한다(각각 x1000, x100 환산). 검산 — 23 degC 에서 6.01e-7 x 768 x 2380 = 1.0985, 인쇄 0.0109 W/(cm·K) = 1.09 와 일치(§237)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.29,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 200
+     },
+     "notes": "원문 verbatim `1.29` W/m-degK @ 200 degC. **시트가 스스로 계산값이라 밝힌다** — verbatim *\"Thermal conductivity is a calculated value and is equal to the product of the thermal diffusivity multiplied by specific heat multiplied by density of the glass\"* → method=computed. 원문은 cp 를 J/gm-degK, k 를 W/cm-degK 로 인쇄한다(각각 x1000, x100 환산). 검산 — 23 degC 에서 6.01e-7 x 768 x 2380 = 1.0985, 인쇄 0.0109 W/(cm·K) = 1.09 와 일치(§237)."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.3e-07,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 300
+     },
+     "notes": "원문 verbatim `0.0053` cm2/s @ 300 degC. cm^2/s -> m^2/s 는 x1e-4. 원문은 cp 를 J/gm-degK, k 를 W/cm-degK 로 인쇄한다(각각 x1000, x100 환산). 검산 — 23 degC 에서 6.01e-7 x 768 x 2380 = 1.0985, 인쇄 0.0109 W/(cm·K) = 1.09 와 일치(§237)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1067.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 300
+     },
+     "notes": "원문 verbatim `1067` J/kg-degK @ 300 degC. 원문은 cp 를 J/gm-degK, k 를 W/cm-degK 로 인쇄한다(각각 x1000, x100 환산). 검산 — 23 degC 에서 6.01e-7 x 768 x 2380 = 1.0985, 인쇄 0.0109 W/(cm·K) = 1.09 와 일치(§237)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.34,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 300
+     },
+     "notes": "원문 verbatim `1.34` W/m-degK @ 300 degC. **시트가 스스로 계산값이라 밝힌다** — verbatim *\"Thermal conductivity is a calculated value and is equal to the product of the thermal diffusivity multiplied by specific heat multiplied by density of the glass\"* → method=computed. 원문은 cp 를 J/gm-degK, k 를 W/cm-degK 로 인쇄한다(각각 x1000, x100 환산). 검산 — 23 degC 에서 6.01e-7 x 768 x 2380 = 1.0985, 인쇄 0.0109 W/(cm·K) = 1.09 와 일치(§237)."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.22e-07,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 400
+     },
+     "notes": "원문 verbatim `0.00522` cm2/s @ 400 degC. cm^2/s -> m^2/s 는 x1e-4. 원문은 cp 를 J/gm-degK, k 를 W/cm-degK 로 인쇄한다(각각 x1000, x100 환산). 검산 — 23 degC 에서 6.01e-7 x 768 x 2380 = 1.0985, 인쇄 0.0109 W/(cm·K) = 1.09 와 일치(§237)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1110.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 400
+     },
+     "notes": "원문 verbatim `1110` J/kg-degK @ 400 degC. 원문은 cp 를 J/gm-degK, k 를 W/cm-degK 로 인쇄한다(각각 x1000, x100 환산). 검산 — 23 degC 에서 6.01e-7 x 768 x 2380 = 1.0985, 인쇄 0.0109 W/(cm·K) = 1.09 와 일치(§237)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.37,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 400
+     },
+     "notes": "원문 verbatim `1.37` W/m-degK @ 400 degC. **시트가 스스로 계산값이라 밝힌다** — verbatim *\"Thermal conductivity is a calculated value and is equal to the product of the thermal diffusivity multiplied by specific heat multiplied by density of the glass\"* → method=computed. 원문은 cp 를 J/gm-degK, k 를 W/cm-degK 로 인쇄한다(각각 x1000, x100 환산). 검산 — 23 degC 에서 6.01e-7 x 768 x 2380 = 1.0985, 인쇄 0.0109 W/(cm·K) = 1.09 와 일치(§237)."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.18e-07,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 500
+     },
+     "notes": "원문 verbatim `0.00518` cm2/s @ 500 degC. cm^2/s -> m^2/s 는 x1e-4. 원문은 cp 를 J/gm-degK, k 를 W/cm-degK 로 인쇄한다(각각 x1000, x100 환산). 검산 — 23 degC 에서 6.01e-7 x 768 x 2380 = 1.0985, 인쇄 0.0109 W/(cm·K) = 1.09 와 일치(§237)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1154.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 500
+     },
+     "notes": "원문 verbatim `1154` J/kg-degK @ 500 degC. 원문은 cp 를 J/gm-degK, k 를 W/cm-degK 로 인쇄한다(각각 x1000, x100 환산). 검산 — 23 degC 에서 6.01e-7 x 768 x 2380 = 1.0985, 인쇄 0.0109 W/(cm·K) = 1.09 와 일치(§237)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.42,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 500
+     },
+     "notes": "원문 verbatim `1.42` W/m-degK @ 500 degC. **시트가 스스로 계산값이라 밝힌다** — verbatim *\"Thermal conductivity is a calculated value and is equal to the product of the thermal diffusivity multiplied by specific heat multiplied by density of the glass\"* → method=computed. 원문은 cp 를 J/gm-degK, k 를 W/cm-degK 로 인쇄한다(각각 x1000, x100 환산). 검산 — 23 degC 에서 6.01e-7 x 768 x 2380 = 1.0985, 인쇄 0.0109 W/(cm·K) = 1.09 와 일치(§237)."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Corning Lotus NXT Glass (high-strain-point alkali-free display substrate)",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "display",
+     "material_class": "alkaline earth boro-aluminosilicate, alkali-free, fusion-drawn sheet, high strain point",
+     "process": "fusion draw (overflow downdraw)",
+     "manufacturer": "Corning Incorporated",
+     "application": "LTPS and oxide (IGZO) TFT backplane substrates for high-performance LCD/OLED displays; flexible OLED carrier",
+     "composition": "alkali-free",
+     "role_reason": "LTPS·산화물 TFT 공정온도를 견디는 고변형점 기판유리. EAGLE XG 와 별개 등급",
+     "role_confidence": "high"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Corning Lotus NXT Glass — Product & Material Information (Product Information Sheet, (C) 2023 Corning Incorporated)",
+    "url": "https://www.corning.com/media/worldwide/cdt/documents/Lotus_NXT_Glass_PI_Sheet.pdf",
+    "authors": "Corning Incorporated, Display Technologies (corporate author)",
+    "year": 2023,
+    "publisher": "Corning Incorporated",
+    "manufacturer": "Corning Incorporated",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/Corning_Lotus_NXT_Glass_PI_Sheet_2023.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2590.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20
+     },
+     "notes": "표 verbatim `Density (20°C) 2.59 g/cm3`."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 83000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "room temperature (not printed)"
+     },
+     "notes": "표 verbatim `Young's Modulus 83 GPa`. 시트 서두가 *\"our highest Young's Modulus and annealing point\"* 라 밝힌다."
+    },
+    {
+     "key": "mechanical.shear_modulus",
+     "value": 34000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "room temperature (not printed)"
+     },
+     "notes": "표 verbatim `Shear Modulus 34 GPa`. §469 검산 — E/2(1+nu) = 83/2.46 = 33.74 GPa 로 2자리 반올림하면 34 다. 유효숫자가 부족해 역산 여부를 못 가른다."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.23,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "room temperature (not printed)"
+     },
+     "notes": "표 verbatim `Poisson's Ratio 0.23`."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 3.5e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "0-300"
+     },
+     "notes": "표 verbatim `Coefficient of Thermal Expansion (0 - 300°C) 35 x 10-7/°C`."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.526,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": 589.3
+     },
+     "notes": "표 verbatim `Refractive Index (at 589.3nm) 1.526`."
+    },
+    {
+     "key": "optical.stress_optical_coefficient",
+     "value": 2.87e-12,
+     "unit": "1/Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "wavelength_nm": "not printed"
+     },
+     "notes": "표 verbatim `Stress Optical Coefficient 28.7 (nm/cm/MPa)` → 28.7e-9/(1e-2 x 1e6) = 2.87e-12 /Pa. 파장 미인쇄."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 6.1,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000,
+      "temperature_c": 23,
+      "humidity_rh": 20
+     },
+     "notes": "표 verbatim `Dielectric Constant (23°C, 20% RH, 1kHz) 6.1`."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.001,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000,
+      "temperature_c": 23,
+      "humidity_rh": 20
+     },
+     "notes": "표 verbatim `Loss Tangent (23°C, 20% RH, 1kHz) 0.1%` = 0.001."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 1995262314968.8828,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 250
+     },
+     "notes": "표 verbatim `14.3 ohm- cm at 250°C` — §409 log 값. 10^14.3 x0.01 = 1.995e12 ohm·m."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 39810717.05534969,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 500
+     },
+     "notes": "표 verbatim `9.6 ohm- cm at 500°C` — §409 log 값. 10^9.6 x0.01 = 3.98e7 ohm·m."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 2.5118864315095718e+23,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 25
+     },
+     "notes": "표 verbatim `25.4 ohm- cm at 25°C` — §409 log 값. 10^25.4 x0.01 = 2.5e23 ohm·m. EAGLE XG 와 마찬가지로 외삽 냄새가 난다 — tier3."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 6.100000000000001e-07,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 25
+     },
+     "notes": "원문 verbatim `0.0061` cm2/s @ 25 degC. cm^2/s -> m^2/s 는 x1e-4. 검산 — 25 degC 에서 6.1e-7 x 671 x 2590 = 1.060 W/(m·K), 인쇄 1.064 와 0.4% 차(확산계수 2자리 반올림 폭 안)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 671.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 25
+     },
+     "notes": "원문 verbatim `671` J/kg-degK @ 25 degC. 검산 — 25 degC 에서 6.1e-7 x 671 x 2590 = 1.060 W/(m·K), 인쇄 1.064 와 0.4% 차(확산계수 2자리 반올림 폭 안)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.064,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 25
+     },
+     "notes": "원문 verbatim `1.064` W/m-degK @ 25 degC. **시트가 스스로 계산값이라 밝힌다** — verbatim *\"Thermal conductivity is a calculated value and is equal to the product of the thermal diffusivity multiplied by specific heat multiplied by density of the glass\"* → method=computed. 검산 — 25 degC 에서 6.1e-7 x 671 x 2590 = 1.060 W/(m·K), 인쇄 1.064 와 0.4% 차(확산계수 2자리 반올림 폭 안)."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.9e-07,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 100
+     },
+     "notes": "원문 verbatim `0.0059` cm2/s @ 100 degC. cm^2/s -> m^2/s 는 x1e-4. 검산 — 25 degC 에서 6.1e-7 x 671 x 2590 = 1.060 W/(m·K), 인쇄 1.064 와 0.4% 차(확산계수 2자리 반올림 폭 안)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 737.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 100
+     },
+     "notes": "원문 verbatim `737` J/kg-degK @ 100 degC. 검산 — 25 degC 에서 6.1e-7 x 671 x 2590 = 1.060 W/(m·K), 인쇄 1.064 와 0.4% 차(확산계수 2자리 반올림 폭 안)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.119,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 100
+     },
+     "notes": "원문 verbatim `1.119` W/m-degK @ 100 degC. **시트가 스스로 계산값이라 밝힌다** — verbatim *\"Thermal conductivity is a calculated value and is equal to the product of the thermal diffusivity multiplied by specific heat multiplied by density of the glass\"* → method=computed. 검산 — 25 degC 에서 6.1e-7 x 671 x 2590 = 1.060 W/(m·K), 인쇄 1.064 와 0.4% 차(확산계수 2자리 반올림 폭 안)."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.6e-07,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 200
+     },
+     "notes": "원문 verbatim `0.0056` cm2/s @ 200 degC. cm^2/s -> m^2/s 는 x1e-4. 검산 — 25 degC 에서 6.1e-7 x 671 x 2590 = 1.060 W/(m·K), 인쇄 1.064 와 0.4% 차(확산계수 2자리 반올림 폭 안)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 889.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 200
+     },
+     "notes": "원문 verbatim `889` J/kg-degK @ 200 degC. 검산 — 25 degC 에서 6.1e-7 x 671 x 2590 = 1.060 W/(m·K), 인쇄 1.064 와 0.4% 차(확산계수 2자리 반올림 폭 안)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.294,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 200
+     },
+     "notes": "원문 verbatim `1.294` W/m-degK @ 200 degC. **시트가 스스로 계산값이라 밝힌다** — verbatim *\"Thermal conductivity is a calculated value and is equal to the product of the thermal diffusivity multiplied by specific heat multiplied by density of the glass\"* → method=computed. 검산 — 25 degC 에서 6.1e-7 x 671 x 2590 = 1.060 W/(m·K), 인쇄 1.064 와 0.4% 차(확산계수 2자리 반올림 폭 안)."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.6e-07,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 300
+     },
+     "notes": "원문 verbatim `0.0056` cm2/s @ 300 degC. cm^2/s -> m^2/s 는 x1e-4. 검산 — 25 degC 에서 6.1e-7 x 671 x 2590 = 1.060 W/(m·K), 인쇄 1.064 와 0.4% 차(확산계수 2자리 반올림 폭 안)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1001.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 300
+     },
+     "notes": "원문 verbatim `1001` J/kg-degK @ 300 degC. 검산 — 25 degC 에서 6.1e-7 x 671 x 2590 = 1.060 W/(m·K), 인쇄 1.064 와 0.4% 차(확산계수 2자리 반올림 폭 안)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.442,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 300
+     },
+     "notes": "원문 verbatim `1.442` W/m-degK @ 300 degC. **시트가 스스로 계산값이라 밝힌다** — verbatim *\"Thermal conductivity is a calculated value and is equal to the product of the thermal diffusivity multiplied by specific heat multiplied by density of the glass\"* → method=computed. 검산 — 25 degC 에서 6.1e-7 x 671 x 2590 = 1.060 W/(m·K), 인쇄 1.064 와 0.4% 차(확산계수 2자리 반올림 폭 안)."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.5e-07,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 400
+     },
+     "notes": "원문 verbatim `0.0055` cm2/s @ 400 degC. cm^2/s -> m^2/s 는 x1e-4. 검산 — 25 degC 에서 6.1e-7 x 671 x 2590 = 1.060 W/(m·K), 인쇄 1.064 와 0.4% 차(확산계수 2자리 반올림 폭 안)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1045.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 400
+     },
+     "notes": "원문 verbatim `1045` J/kg-degK @ 400 degC. 검산 — 25 degC 에서 6.1e-7 x 671 x 2590 = 1.060 W/(m·K), 인쇄 1.064 와 0.4% 차(확산계수 2자리 반올림 폭 안)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.479,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 400
+     },
+     "notes": "원문 verbatim `1.479` W/m-degK @ 400 degC. **시트가 스스로 계산값이라 밝힌다** — verbatim *\"Thermal conductivity is a calculated value and is equal to the product of the thermal diffusivity multiplied by specific heat multiplied by density of the glass\"* → method=computed. 검산 — 25 degC 에서 6.1e-7 x 671 x 2590 = 1.060 W/(m·K), 인쇄 1.064 와 0.4% 차(확산계수 2자리 반올림 폭 안)."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.5e-07,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 500
+     },
+     "notes": "원문 verbatim `0.0055` cm2/s @ 500 degC. cm^2/s -> m^2/s 는 x1e-4. 검산 — 25 degC 에서 6.1e-7 x 671 x 2590 = 1.060 W/(m·K), 인쇄 1.064 와 0.4% 차(확산계수 2자리 반올림 폭 안)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1071.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 500
+     },
+     "notes": "원문 verbatim `1071` J/kg-degK @ 500 degC. 검산 — 25 degC 에서 6.1e-7 x 671 x 2590 = 1.060 W/(m·K), 인쇄 1.064 와 0.4% 차(확산계수 2자리 반올림 폭 안)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.505,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 500
+     },
+     "notes": "원문 verbatim `1.505` W/m-degK @ 500 degC. **시트가 스스로 계산값이라 밝힌다** — verbatim *\"Thermal conductivity is a calculated value and is equal to the product of the thermal diffusivity multiplied by specific heat multiplied by density of the glass\"* → method=computed. 검산 — 25 degC 에서 6.1e-7 x 671 x 2590 = 1.060 W/(m·K), 인쇄 1.064 와 0.4% 차(확산계수 2자리 반올림 폭 안)."
+    }
+   ]
+  }
+ ]
+}
