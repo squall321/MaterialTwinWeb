@@ -37,6 +37,9 @@ _LAM = {94: "220 Isola 370HR", 98: "198 High-Tg FR-4 프리프레그",
 for i, prod in _LAM.items():
     SUB[i] = ("pcb", f"적층판 계열 클래스 대표값 — 제품판({prod})이 pcb 에 있다")
 
+# 옛 계통값 → 새 값. 위 id 목록과 달리 **값 전체를 쓸어** 나중에 들어온 재료도 잡는다.
+LEGACY = {"speaker": "acoustics", "audio": "acoustics", "fpcb": "pcb", "soc": "wlp"}
+
 # ── ② role — 다른 산업의 실제 제품이다(브리프 193) ──────────────────────────
 # **GPO-3(2377~2379)는 넣지 않았다.** 낙하 모델의 Glastic 부품 근거라 범위 안이다
 # (`docs/drop_materials.k` 298~309행). 442 Lexan FR25A 도 뺐다 — 난연 PC 필름은
@@ -86,8 +89,20 @@ def main() -> int:
     n_sub = sum(patch(m, subsystem=v, subsystem_basis=w) for m, (v, w) in SUB.items())
     n_oos = sum(patch(m, role="out_of_scope", role_reason=w) for m, w in OOS.items())
     n_evi = sum(patch(m, role="evidence", role_reason=w) for m, w in EVI.items())
+
+    # 옛 값을 **값으로** 쓸어 담는다. id 목록만으로는 부족하다 — 이 스크립트를 돈 뒤에
+    # 들어온 재료가 옛 어휘를 달고 올 수 있다(실측: 43차 ED 지시문에 `speaker` 가
+    # 그대로 적혀 있어 새 재료 8종이 옛 값으로 들어왔다).
+    n_leg = 0
+    for old, new in LEGACY.items():
+        for (mid,) in c.execute(
+                "select id from material where json_extract(attributes,'$.subsystem')=?",
+                (old,)).fetchall():
+            n_leg += patch(mid, subsystem=new,
+                           subsystem_basis=f"옛 계통값 `{old}` 를 `{new}` 로 합쳤다")
     c.commit()
-    print(f"계통 재배치 {n_sub} · out_of_scope {n_oos} · evidence {n_evi}")
+    print(f"계통 재배치 {n_sub} · 옛 값 정리 {n_leg} · "
+          f"out_of_scope {n_oos} · evidence {n_evi}")
 
     print("\n── 계통 분포(role=product)")
     for s, k in c.execute(
