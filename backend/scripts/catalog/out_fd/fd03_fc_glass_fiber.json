@@ -1,0 +1,225 @@
+{
+ "batch": "FD-3 44차 · 44차 FC 가 키 부재로 못 넣은 점도 기준온도 (AGY 편찬표 E/S-2/D glass · Nittobo E-glass · Saint-Gobain Quartzel)",
+ "materials": [
+  {
+   "match_name": "E-Glass Cloth (reinforcement)",
+   "source": {
+    "kind": "datasheet",
+    "title": "AGY - High Strength Glass Fibers (technical paper), Pub. No. LIT-2006-111 R2 (02/06); 값은 AGY Technical Product Guide, Pub. No. LIT-2009-351 R1 (1/09) p.38 각주가 측정법까지 밝혀 재확인한다",
+    "url": "https://web.archive.org/web/20060313225542id_/http://www.agy.com/technical_info/graphics_PDFs/HighStrengthTechPaperEng.pdf",
+    "authors": "AGY (AGY Holding Corp.)",
+    "year": 2006,
+    "publisher": "AGY (AGY Holding Corp.)",
+    "local_path": "standards_appnotes/pcb/AGY_High_Strength_Glass_Fibers_TechPaper_LIT-2006-111R2.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 888.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 14.5,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "AGY 기술논문 Table 2 `Properties of Glass Fibers -- PHYSICAL PROPERTIES` verbatim 행: `Strain Point,°C(°F) | A  | C 522 | D 477 | E 615 | ECRGlas  | AR  | R 736 | S-2 766` — 이 재료는 **E GLASS 열**이다. 615 °C + 273.15 = 888.15 K. 이미지 표라 pdftoppm -r 200 렌더로 읽었다. **본문 §3.4 가 세 기준점의 점도를 직접 인쇄한다**(verbatim): *\"The softening point ... occurs at a viscosity of approximately 10^6.6 Pa.s (10^7.6 P)\"* · *\"The viscosity at the annealing point is approximately 10^12 Pa.s (10^13 P)\"* · *\"The viscosity at the strain point is approximately 10^13.5 Pa.s (10^14.5 P)\"*. 조건축은 그 인쇄값이다. **표의 순금속식 검산** — E Glass 연화점 846 °C 는 같은 벤더의 2024년 L Glass 제품시트 E Glass 열(846 °C)과 18년 사이 글자 단위로 같다(브리프 129·139). 순서 검산: 변형점 615 < 서냉점 657 < 연화점 846 °C."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 930.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.0,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "AGY 기술논문 Table 2 `Properties of Glass Fibers -- PHYSICAL PROPERTIES` verbatim 행: `Annealing Point,°C(°F) | A  | C 588 | D 521 | E 657 | ECRGlas  | AR  | R  | S-2 816` — 이 재료는 **E GLASS 열**이다. 657 °C + 273.15 = 930.15 K. 이미지 표라 pdftoppm -r 200 렌더로 읽었다. **본문 §3.4 가 세 기준점의 점도를 직접 인쇄한다**(verbatim): *\"The softening point ... occurs at a viscosity of approximately 10^6.6 Pa.s (10^7.6 P)\"* · *\"The viscosity at the annealing point is approximately 10^12 Pa.s (10^13 P)\"* · *\"The viscosity at the strain point is approximately 10^13.5 Pa.s (10^14.5 P)\"*. 조건축은 그 인쇄값이다. **표의 순금속식 검산** — E Glass 연화점 846 °C 는 같은 벤더의 2024년 L Glass 제품시트 E Glass 열(846 °C)과 18년 사이 글자 단위로 같다(브리프 129·139). 순서 검산: 변형점 615 < 서냉점 657 < 연화점 846 °C."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1119.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 7.6,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C338"
+     },
+     "notes": "AGY 기술논문 Table 2 `Properties of Glass Fibers -- PHYSICAL PROPERTIES` verbatim 행: `Softening Point,°C(°F) | A 705 | C 750 | D 771 | E 846 | ECRGlas 882 | AR 773 | R 952 | S-2 1056` — 이 재료는 **E GLASS 열**이다. 846 °C + 273.15 = 1119.15 K. 이미지 표라 pdftoppm -r 200 렌더로 읽었다. **본문 §3.4 가 세 기준점의 점도를 직접 인쇄한다**(verbatim): *\"The softening point ... occurs at a viscosity of approximately 10^6.6 Pa.s (10^7.6 P)\"* · *\"The viscosity at the annealing point is approximately 10^12 Pa.s (10^13 P)\"* · *\"The viscosity at the strain point is approximately 10^13.5 Pa.s (10^14.5 P)\"*. 조건축은 그 인쇄값이다. **표의 순금속식 검산** — E Glass 연화점 846 °C 는 같은 벤더의 2024년 L Glass 제품시트 E Glass 열(846 °C)과 18년 사이 글자 단위로 같다(브리프 129·139). 순서 검산: 변형점 615 < 서냉점 657 < 연화점 846 °C."
+    }
+   ]
+  },
+  {
+   "match_name": "S-Glass fibre PCB reinforcement - Ehrler 2002",
+   "source": {
+    "kind": "datasheet",
+    "title": "AGY - High Strength Glass Fibers (technical paper), Pub. No. LIT-2006-111 R2 (02/06); 값은 AGY Technical Product Guide, Pub. No. LIT-2009-351 R1 (1/09) p.38 각주가 측정법까지 밝혀 재확인한다",
+    "url": "https://web.archive.org/web/20060313225542id_/http://www.agy.com/technical_info/graphics_PDFs/HighStrengthTechPaperEng.pdf",
+    "authors": "AGY (AGY Holding Corp.)",
+    "year": 2006,
+    "publisher": "AGY (AGY Holding Corp.)",
+    "local_path": "standards_appnotes/pcb/AGY_High_Strength_Glass_Fibers_TechPaper_LIT-2006-111R2.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1039.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 14.5,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "AGY 기술논문 Table 2 `Properties of Glass Fibers -- PHYSICAL PROPERTIES` verbatim 행: `Strain Point,°C(°F) | A  | C 522 | D 477 | E 615 | ECRGlas  | AR  | R 736 | S-2 766` — 이 재료는 **S-2 GLASS 열**이다. 766 °C + 273.15 = 1039.15 K. 이미지 표라 pdftoppm -r 200 렌더로 읽었다. **본문 §3.4 가 세 기준점의 점도를 직접 인쇄한다**(verbatim): *\"The softening point ... occurs at a viscosity of approximately 10^6.6 Pa.s (10^7.6 P)\"* · *\"The viscosity at the annealing point is approximately 10^12 Pa.s (10^13 P)\"* · *\"The viscosity at the strain point is approximately 10^13.5 Pa.s (10^14.5 P)\"*. 조건축은 그 인쇄값이다. **표의 순금속식 검산** — E Glass 연화점 846 °C 는 같은 벤더의 2024년 L Glass 제품시트 E Glass 열(846 °C)과 18년 사이 글자 단위로 같다(브리프 129·139). 순서 검산: 변형점 766 < 서냉점 816 < 연화점 1056 °C."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1089.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.0,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "AGY 기술논문 Table 2 `Properties of Glass Fibers -- PHYSICAL PROPERTIES` verbatim 행: `Annealing Point,°C(°F) | A  | C 588 | D 521 | E 657 | ECRGlas  | AR  | R  | S-2 816` — 이 재료는 **S-2 GLASS 열**이다. 816 °C + 273.15 = 1089.15 K. 이미지 표라 pdftoppm -r 200 렌더로 읽었다. **본문 §3.4 가 세 기준점의 점도를 직접 인쇄한다**(verbatim): *\"The softening point ... occurs at a viscosity of approximately 10^6.6 Pa.s (10^7.6 P)\"* · *\"The viscosity at the annealing point is approximately 10^12 Pa.s (10^13 P)\"* · *\"The viscosity at the strain point is approximately 10^13.5 Pa.s (10^14.5 P)\"*. 조건축은 그 인쇄값이다. **표의 순금속식 검산** — E Glass 연화점 846 °C 는 같은 벤더의 2024년 L Glass 제품시트 E Glass 열(846 °C)과 18년 사이 글자 단위로 같다(브리프 129·139). 순서 검산: 변형점 766 < 서냉점 816 < 연화점 1056 °C."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1329.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 7.6,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C338"
+     },
+     "notes": "AGY 기술논문 Table 2 `Properties of Glass Fibers -- PHYSICAL PROPERTIES` verbatim 행: `Softening Point,°C(°F) | A 705 | C 750 | D 771 | E 846 | ECRGlas 882 | AR 773 | R 952 | S-2 1056` — 이 재료는 **S-2 GLASS 열**이다. 1056 °C + 273.15 = 1329.15 K. 이미지 표라 pdftoppm -r 200 렌더로 읽었다. **본문 §3.4 가 세 기준점의 점도를 직접 인쇄한다**(verbatim): *\"The softening point ... occurs at a viscosity of approximately 10^6.6 Pa.s (10^7.6 P)\"* · *\"The viscosity at the annealing point is approximately 10^12 Pa.s (10^13 P)\"* · *\"The viscosity at the strain point is approximately 10^13.5 Pa.s (10^14.5 P)\"*. 조건축은 그 인쇄값이다. **표의 순금속식 검산** — E Glass 연화점 846 °C 는 같은 벤더의 2024년 L Glass 제품시트 E Glass 열(846 °C)과 18년 사이 글자 단위로 같다(브리프 129·139). 순서 검산: 변형점 766 < 서냉점 816 < 연화점 1056 °C."
+    }
+   ]
+  },
+  {
+   "match_name": "D-glass low-dielectric borosilicate glass fibre (PCB reinforcement)",
+   "source": {
+    "kind": "datasheet",
+    "title": "AGY - High Strength Glass Fibers (technical paper), Pub. No. LIT-2006-111 R2 (02/06); 값은 AGY Technical Product Guide, Pub. No. LIT-2009-351 R1 (1/09) p.38 각주가 측정법까지 밝혀 재확인한다",
+    "url": "https://web.archive.org/web/20060313225542id_/http://www.agy.com/technical_info/graphics_PDFs/HighStrengthTechPaperEng.pdf",
+    "authors": "AGY (AGY Holding Corp.)",
+    "year": 2006,
+    "publisher": "AGY (AGY Holding Corp.)",
+    "local_path": "standards_appnotes/pcb/AGY_High_Strength_Glass_Fibers_TechPaper_LIT-2006-111R2.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 750.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 14.5,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "AGY 기술논문 Table 2 `Properties of Glass Fibers -- PHYSICAL PROPERTIES` verbatim 행: `Strain Point,°C(°F) | A  | C 522 | D 477 | E 615 | ECRGlas  | AR  | R 736 | S-2 766` — 이 재료는 **D GLASS 열**이다. 477 °C + 273.15 = 750.15 K. 이미지 표라 pdftoppm -r 200 렌더로 읽었다. **본문 §3.4 가 세 기준점의 점도를 직접 인쇄한다**(verbatim): *\"The softening point ... occurs at a viscosity of approximately 10^6.6 Pa.s (10^7.6 P)\"* · *\"The viscosity at the annealing point is approximately 10^12 Pa.s (10^13 P)\"* · *\"The viscosity at the strain point is approximately 10^13.5 Pa.s (10^14.5 P)\"*. 조건축은 그 인쇄값이다. **표의 순금속식 검산** — E Glass 연화점 846 °C 는 같은 벤더의 2024년 L Glass 제품시트 E Glass 열(846 °C)과 18년 사이 글자 단위로 같다(브리프 129·139). 순서 검산: 변형점 477 < 서냉점 521 < 연화점 771 °C."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 794.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.0,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "AGY 기술논문 Table 2 `Properties of Glass Fibers -- PHYSICAL PROPERTIES` verbatim 행: `Annealing Point,°C(°F) | A  | C 588 | D 521 | E 657 | ECRGlas  | AR  | R  | S-2 816` — 이 재료는 **D GLASS 열**이다. 521 °C + 273.15 = 794.15 K. 이미지 표라 pdftoppm -r 200 렌더로 읽었다. **본문 §3.4 가 세 기준점의 점도를 직접 인쇄한다**(verbatim): *\"The softening point ... occurs at a viscosity of approximately 10^6.6 Pa.s (10^7.6 P)\"* · *\"The viscosity at the annealing point is approximately 10^12 Pa.s (10^13 P)\"* · *\"The viscosity at the strain point is approximately 10^13.5 Pa.s (10^14.5 P)\"*. 조건축은 그 인쇄값이다. **표의 순금속식 검산** — E Glass 연화점 846 °C 는 같은 벤더의 2024년 L Glass 제품시트 E Glass 열(846 °C)과 18년 사이 글자 단위로 같다(브리프 129·139). 순서 검산: 변형점 477 < 서냉점 521 < 연화점 771 °C."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1044.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 7.6,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C338"
+     },
+     "notes": "AGY 기술논문 Table 2 `Properties of Glass Fibers -- PHYSICAL PROPERTIES` verbatim 행: `Softening Point,°C(°F) | A 705 | C 750 | D 771 | E 846 | ECRGlas 882 | AR 773 | R 952 | S-2 1056` — 이 재료는 **D GLASS 열**이다. 771 °C + 273.15 = 1044.15 K. 이미지 표라 pdftoppm -r 200 렌더로 읽었다. **본문 §3.4 가 세 기준점의 점도를 직접 인쇄한다**(verbatim): *\"The softening point ... occurs at a viscosity of approximately 10^6.6 Pa.s (10^7.6 P)\"* · *\"The viscosity at the annealing point is approximately 10^12 Pa.s (10^13 P)\"* · *\"The viscosity at the strain point is approximately 10^13.5 Pa.s (10^14.5 P)\"*. 조건축은 그 인쇄값이다. **표의 순금속식 검산** — E Glass 연화점 846 °C 는 같은 벤더의 2024년 L Glass 제품시트 E Glass 열(846 °C)과 18년 사이 글자 단위로 같다(브리프 129·139). 순서 검산: 변형점 477 < 서냉점 521 < 연화점 771 °C."
+    }
+   ]
+  },
+  {
+   "match_name": "E-Glass Cloth (reinforcement)",
+   "source": {
+    "kind": "datasheet",
+    "title": "T-glass - Electronic Materials Business (T-glass vs E-glass composition and characteristics tables)",
+    "url": "https://www.nittobo.co.jp/eng/business/electronicmaterials/t-glass.htm",
+    "publisher": "Nitto Boseki (Nittobo)"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1117.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 7.6,
+      "determination": "viscosity from the ASTM/JOGIS definition of the printed term"
+     },
+     "notes": "Nittobo T-glass 제품페이지 특성표 verbatim 행: `Softening point (C) *1 | >1000 | 844` (T-glass | E-glass) — 이 값은 **E-glass 열**이다. 844 + 273.15 = 1117.15 K. 각주 verbatim: `*1 Measured values for lumps of glass` — 벌크 유리 측정이다. ⚠ **T-glass 열 `>1000` 은 넣지 않았다** — 부등호는 값이 아니다(브리프 110·132). **AGY 2006 Table 2 의 E Glass 연화점 846 °C 와 2 °C 어긋난다** — 벤더가 다르고 계보도 달라 보이므로(§456) 두 행을 다 남기고 어느 쪽으로도 맞추지 않았다. Nittobo 는 점도값을 인쇄하지 않아 `Softening point` 라는 용어의 정의(10^7.6 P)를 조건축에 적었다."
+    }
+   ]
+  },
+  {
+   "match_name": "Quartz fibre PCB reinforcement - Ehrler 2002",
+   "source": {
+    "kind": "datasheet",
+    "title": "Saint-Gobain Quartz - Quartzel Fused Quartz textiles, Brochure & Technical Data (SM-A4-EN, printed March 2004, revised 06/06/2006)",
+    "url": "https://web.archive.org/web/20060831034733id_/http://www.quartz.saint-gobain.com:80/media/documents/S0000000000000001011/Quartzel%20Brochure%20&%20Technical%20Data.pdf",
+    "authors": "Saint-Gobain Quartz",
+    "year": 2006,
+    "publisher": "Saint-Gobain Quartz",
+    "local_path": "standards_appnotes/pcb/SaintGobain_Quartzel_Fused_Quartz_Textiles_Brochure_TechData_2006-06.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1493.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.0,
+      "determination": "viscosity printed on the sheet"
+     },
+     "notes": "Saint-Gobain Quartzel 기술자료 verbatim 행: `Annealing point (log10η = 13) | °C | 1 220`. 1220 + 273.15 = 1493.15 K. **시트가 점도를 log10 으로 직접 인쇄한다** — 조건축이 원문 표기 그대로다. 순서 검산: 서냉점 1220 < 연화점 1700 °C. 석영섬유는 유리섬유 갈래에서 기준점이 가장 높다 — E-glass 서냉점 657 °C 의 약 1.9 배다."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1973.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 7.6,
+      "determination": "viscosity printed on the sheet"
+     },
+     "notes": "Saint-Gobain Quartzel 기술자료 verbatim 행: `Softening point (log10η = 7.6) | °C | 1 700`. 1700 + 273.15 = 1973.15 K. **본문이 같은 값을 다시 인쇄해 검산이 닫힌다**(브리프 207) — verbatim: *\"The softening point of silica is 1 700°C.\"* 같은 절이 사용대역(600~1050 °C)과 승화 개시(1600 °C 이상)를 밝혀 자릿수가 맞는다."
+    }
+   ]
+  }
+ ]
+}

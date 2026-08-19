@@ -1,0 +1,599 @@
+{
+ "batch": "FD-1 44차 · 44차 FB 가 키 부재로 못 넣은 점도 기준온도 (Corning 기판 3종 · NEG OA 4종 · AGC AN 2종 · OHARA 3종 · SCHOTT P 2종)",
+ "materials": [
+  {
+   "match_name": "Corning EAGLE XG Glass (alkali-free display substrate)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Corning EAGLE XG Glass — Product & Material Information (Product Information Sheet, (C) 2023 Corning Incorporated)",
+    "url": "https://www.corning.com/media/worldwide/cdt/documents/EAGLE_XG_Glass_PI_Sheet.pdf",
+    "authors": "Corning Incorporated, Display Technologies (corporate author)",
+    "year": 2023,
+    "publisher": "Corning Incorporated",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/Corning_EAGLE_XG_Glass_PI_Sheet_2023.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 942.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 14.5,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "Corning PI 시트 `Viscosity` 블록 verbatim: `Strain Point (10 14.5 poises) 669°C`. 669 °C + 273.15 = 942.15 K. **시트가 점도값을 함께 인쇄한다** — 조건축 `viscosity_log10_poise` 는 해독이지 우리가 만든 값이 아니다(§409 와 같은 부류). 같은 블록의 세 점이 변형점 669 < 서냉점 722 < 연화점 972 °C 로 순서를 이루어 물리 검산이 닫힌다(브리프 431)."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 995.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.0,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "Corning PI 시트 `Viscosity` 블록 verbatim: `Annealing Point (1013 poises) 722°C`. 722 °C + 273.15 = 995.15 K. **시트가 점도값을 함께 인쇄한다** — 조건축 `viscosity_log10_poise` 는 해독이지 우리가 만든 값이 아니다(§409 와 같은 부류). 같은 블록의 세 점이 변형점 669 < 서냉점 722 < 연화점 972 °C 로 순서를 이루어 물리 검산이 닫힌다(브리프 431)."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1245.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 7.6,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C338"
+     },
+     "notes": "Corning PI 시트 `Viscosity` 블록 verbatim: `Softening Point (10 poises)7.6 972°C`. 972 °C + 273.15 = 1245.15 K. **시트가 점도값을 함께 인쇄한다** — 조건축 `viscosity_log10_poise` 는 해독이지 우리가 만든 값이 아니다(§409 와 같은 부류). 같은 블록의 세 점이 변형점 669 < 서냉점 722 < 연화점 972 °C 로 순서를 이루어 물리 검산이 닫힌다(브리프 431). pdftotext 가 지수 `7.6` 을 줄 끝으로 밀어내지만 렌더에서는 `10^7.6 poises` 다(브리프 9)."
+    }
+   ]
+  },
+  {
+   "match_name": "Corning EAGLE XG Slim Glass (alkali-free display substrate)",
+   "source": {
+    "kind": "datasheet",
+    "title": "EAGLE XG Slim Glass — Product Information Sheet (Corning Display Technologies, August 2013)",
+    "url": "https://www.corning.com/media/worldwide/cdt/documents/EAGLE%20XG%20%C2%AE%20Slim%20Glass.pdf",
+    "authors": "Corning Incorporated, Corning Display Technologies (corporate author)",
+    "year": 2013,
+    "publisher": "Corning Incorporated",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/Corning_EAGLE_XG_Slim_Glass_PI_Sheet_2013-08.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 942.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 14.5,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "Corning PI 시트 `Viscosity` 블록 verbatim: `Strain Point (1014.5 poises) 669`. 669 °C + 273.15 = 942.15 K. **시트가 점도값을 함께 인쇄한다** — 조건축 `viscosity_log10_poise` 는 해독이지 우리가 만든 값이 아니다(§409 와 같은 부류). 같은 블록의 세 점이 변형점 669 < 서냉점 722 < 연화점 971 < 작업점 1293 °C 로 순서를 이루어 물리 검산이 닫힌다(브리프 431)."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 995.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.0,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "Corning PI 시트 `Viscosity` 블록 verbatim: `Annealing Point (1013 poises) 722`. 722 °C + 273.15 = 995.15 K. **시트가 점도값을 함께 인쇄한다** — 조건축 `viscosity_log10_poise` 는 해독이지 우리가 만든 값이 아니다(§409 와 같은 부류). 같은 블록의 세 점이 변형점 669 < 서냉점 722 < 연화점 971 < 작업점 1293 °C 로 순서를 이루어 물리 검산이 닫힌다(브리프 431)."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1244.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 7.6,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C338"
+     },
+     "notes": "Corning PI 시트 `Viscosity` 블록 verbatim: `Softening Point (107.6 poises) 971`. 971 °C + 273.15 = 1244.15 K. **시트가 점도값을 함께 인쇄한다** — 조건축 `viscosity_log10_poise` 는 해독이지 우리가 만든 값이 아니다(§409 와 같은 부류). 같은 블록의 세 점이 변형점 669 < 서냉점 722 < 연화점 971 < 작업점 1293 °C 로 순서를 이루어 물리 검산이 닫힌다(브리프 431). **EAGLE XG 본판은 972 · Slim 은 971 이다** — 시트가 다르므로 한쪽으로 맞추지 않았다(§426)."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1566.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 4.0,
+      "determination": "viscosity printed on the sheet"
+     },
+     "notes": "Corning PI 시트 `Viscosity` 블록 verbatim: `Working Point (104 poises) 1293`. 1293 °C + 273.15 = 1566.15 K. **시트가 점도값을 함께 인쇄한다** — 조건축 `viscosity_log10_poise` 는 해독이지 우리가 만든 값이 아니다(§409 와 같은 부류). 같은 블록의 세 점이 변형점 669 < 서냉점 722 < 연화점 971 < 작업점 1293 °C 로 순서를 이루어 물리 검산이 닫힌다(브리프 431). **카탈로그 전체에서 작업점이 인쇄된 유일한 무알칼리 기판 시트다.**"
+    }
+   ]
+  },
+  {
+   "match_name": "Corning Lotus NXT Glass (high-strain-point alkali-free display substrate)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Corning Lotus NXT Glass — Product & Material Information (Product Information Sheet, (C) 2023 Corning Incorporated)",
+    "url": "https://www.corning.com/media/worldwide/cdt/documents/Lotus_NXT_Glass_PI_Sheet.pdf",
+    "authors": "Corning Incorporated, Display Technologies (corporate author)",
+    "year": 2023,
+    "publisher": "Corning Incorporated",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/Corning_Lotus_NXT_Glass_PI_Sheet_2023.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1025.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 14.5,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "Corning PI 시트 `Viscosity` 블록 verbatim: `Strain Point (10 14.5 poises) 752°C`. 752 °C + 273.15 = 1025.15 K. **시트가 점도값을 함께 인쇄한다** — 조건축 `viscosity_log10_poise` 는 해독이지 우리가 만든 값이 아니다(§409 와 같은 부류). 같은 블록의 세 점이 변형점 752 < 서냉점 806 < 연화점 1043 °C 로 순서를 이루어 물리 검산이 닫힌다(브리프 431)."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1079.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.0,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "Corning PI 시트 `Viscosity` 블록 verbatim: `Annealing Point (1013 poises) 806°C`. 806 °C + 273.15 = 1079.15 K. **시트가 점도값을 함께 인쇄한다** — 조건축 `viscosity_log10_poise` 는 해독이지 우리가 만든 값이 아니다(§409 와 같은 부류). 같은 블록의 세 점이 변형점 752 < 서냉점 806 < 연화점 1043 °C 로 순서를 이루어 물리 검산이 닫힌다(브리프 431). 시트 서두 verbatim: *\"our highest Young's Modulus and annealing point\"* — 카탈로그 안에서 실제로 최고다(EAGLE XG 722 · AN100 711 · OA-31 750(변형점))."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1316.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 7.6,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C338"
+     },
+     "notes": "Corning PI 시트 `Viscosity` 블록 verbatim: `Softening Point (10 poises)7.6 1043°C`. 1043 °C + 273.15 = 1316.15 K. **시트가 점도값을 함께 인쇄한다** — 조건축 `viscosity_log10_poise` 는 해독이지 우리가 만든 값이 아니다(§409 와 같은 부류). 같은 블록의 세 점이 변형점 752 < 서냉점 806 < 연화점 1043 °C 로 순서를 이루어 물리 검산이 닫힌다(브리프 431)."
+    }
+   ]
+  },
+  {
+   "match_name": "NEG OA-10G Alkali-free Glass Substrate",
+   "source": {
+    "kind": "datasheet",
+    "title": "OA-10G/OA-11 Alkali-free Glass Substrate (Nippon Electric Glass, Ref. No. 1910-01E)",
+    "url": "https://web.archive.org/web/20210925094348id_/https://www.neg.co.jp/en/assets/file/product/dp/en-oa-10g_11.pdf",
+    "authors": "Nippon Electric Glass Co., Ltd. (corporate author)",
+    "year": 2019,
+    "publisher": "Nippon Electric Glass Co., Ltd.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/NEG_OA-10G_OA-11_Alkali-free_Glass_Substrate_1910-01E.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 923.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 14.5,
+      "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "NEG Properties 표 verbatim: `Strain point °C 650`. 650 + 273.15 = 923.15 K. **시트는 점도값을 인쇄하지 않는다** — `Strain point` 라는 용어 자체가 ASTM C336 에서 10^14.5 P 로 정의된 온도이므로 조건축에 14.5 를 적고 `determination` 에 그 사실을 밝혔다(지어낸 조건이 아니라 용어의 정의다). 이 시트는 서냉점·연화점·작업점을 인쇄하지 않아 순서 검산이 한 점뿐이다."
+    }
+   ]
+  },
+  {
+   "match_name": "NEG OA-11 Alkali-free Glass Substrate",
+   "source": {
+    "kind": "datasheet",
+    "title": "OA-11 Alkali-free Glass Substrate (Nippon Electric Glass, Ref. No. 2510-01E)",
+    "url": "https://www.neg.co.jp/en/assets/OA-11_en_2026.pdf",
+    "authors": "Nippon Electric Glass Co., Ltd. (corporate author)",
+    "year": 2025,
+    "publisher": "Nippon Electric Glass Co., Ltd.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/NEG_OA-11_Alkali-free_Glass_Substrate_2510-01E.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 958.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 14.5,
+      "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "NEG Properties 표 verbatim: `Strain point °C 685`. 685 + 273.15 = 958.15 K. **시트는 점도값을 인쇄하지 않는다** — `Strain point` 라는 용어 자체가 ASTM C336 에서 10^14.5 P 로 정의된 온도이므로 조건축에 14.5 를 적고 `determination` 에 그 사실을 밝혔다(지어낸 조건이 아니라 용어의 정의다). 이 시트는 서냉점·연화점·작업점을 인쇄하지 않아 순서 검산이 한 점뿐이다."
+    }
+   ]
+  },
+  {
+   "match_name": "NEG OA-20 High-Rigidity Low-Compaction Glass Substrate",
+   "source": {
+    "kind": "datasheet",
+    "title": "OA-20 High Rigidity and Low Thermal Compaction Glass Substrate (Nippon Electric Glass, Ref. No. 2510-02E)",
+    "url": "https://www.neg.co.jp/en/assets/OA-20_en_2026.pdf",
+    "authors": "Nippon Electric Glass Co., Ltd. (corporate author)",
+    "year": 2025,
+    "publisher": "Nippon Electric Glass Co., Ltd.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/NEG_OA-20_Glass_Substrate_2510-02E.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 998.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 14.5,
+      "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "NEG Properties 표 verbatim: `Strain point °C 725`. 725 + 273.15 = 998.15 K. **시트는 점도값을 인쇄하지 않는다** — `Strain point` 라는 용어 자체가 ASTM C336 에서 10^14.5 P 로 정의된 온도이므로 조건축에 14.5 를 적고 `determination` 에 그 사실을 밝혔다(지어낸 조건이 아니라 용어의 정의다). 이 시트는 서냉점·연화점·작업점을 인쇄하지 않아 순서 검산이 한 점뿐이다."
+    }
+   ]
+  },
+  {
+   "match_name": "NEG OA-31 High-Heat-Resistant Low-Compaction Glass Substrate",
+   "source": {
+    "kind": "datasheet",
+    "title": "OA-31 High Heat-resistant and Low Thermal Compaction Glass Substrate (Nippon Electric Glass, Ref. No. 2510-03E)",
+    "url": "https://www.neg.co.jp/en/assets/OA-31_en_2026.pdf",
+    "authors": "Nippon Electric Glass Co., Ltd. (corporate author)",
+    "year": 2025,
+    "publisher": "Nippon Electric Glass Co., Ltd.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/NEG_OA-31_Glass_Substrate_2510-03E.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1023.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 14.5,
+      "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "NEG Properties 표 verbatim: `Strain point °C 750`. 750 + 273.15 = 1023.15 K. **시트는 점도값을 인쇄하지 않는다** — `Strain point` 라는 용어 자체가 ASTM C336 에서 10^14.5 P 로 정의된 온도이므로 조건축에 14.5 를 적고 `determination` 에 그 사실을 밝혔다(지어낸 조건이 아니라 용어의 정의다). 이 시트는 서냉점·연화점·작업점을 인쇄하지 않아 순서 검산이 한 점뿐이다."
+    }
+   ]
+  },
+  {
+   "match_name": "AGC AN100 Alkali-free Glass Substrate",
+   "source": {
+    "kind": "other",
+    "title": "FPD Glass Substrates; Up to Now and Future (Res. Reports Asahi Glass Co., Ltd., 57 (2007) 37-42), Table 2",
+    "url": "https://www.agc.com/innovation/library/pdf/57-08.pdf",
+    "authors": "Hiroyuki Ishikawa",
+    "year": 2007,
+    "publisher": "AGC Inc.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/AGC_Res_Rep_57_2007_08_FPD_Glass_Substrates.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 943.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 14.5,
+      "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "AGC 사내 연구보고 57호 Table 2 `当社の液晶用ガラス基板` 의 AN100 열 verbatim: `歪点（℃） 670`. 670 + 273.15 = 943.15 K. (이미지 표라 pdftoppm -r 250 렌더로 읽었다.) **같은 표의 소다라임(AS) 열이 검산기다** — 歪点 511 · 徐冷点 554 로 44차 FA 가 AGC 연구보고 61호에서 읽은 소다라임 열(변형점 511 · 서냉점 554)과 글자 단위로 같다(브리프 129·173). 열 배정이 두 문서에서 닫힌다. **표가 점도값을 인쇄하지 않는다** — 歪点/徐冷点 은 각각 10^14.5 / 10^13 P 로 정의된 용어이므로 그 정의를 조건축에 적었다. 한 유리 안에서 670 < 711 °C 로 순서가 성립한다."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 984.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.0,
+      "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "AGC 사내 연구보고 57호 Table 2 `当社の液晶用ガラス基板` 의 AN100 열 verbatim: `徐冷点（℃） 711`. 711 + 273.15 = 984.15 K. (이미지 표라 pdftoppm -r 250 렌더로 읽었다.) **같은 표의 소다라임(AS) 열이 검산기다** — 歪点 511 · 徐冷点 554 로 44차 FA 가 AGC 연구보고 61호에서 읽은 소다라임 열(변형점 511 · 서냉점 554)과 글자 단위로 같다(브리프 129·173). 열 배정이 두 문서에서 닫힌다. **표가 점도값을 인쇄하지 않는다** — 歪点/徐冷点 은 각각 10^14.5 / 10^13 P 로 정의된 용어이므로 그 정의를 조건축에 적었다. 한 유리 안에서 670 < 711 °C 로 순서가 성립한다."
+    }
+   ]
+  },
+  {
+   "match_name": "AGC AN635 Alkali-free Glass Substrate",
+   "source": {
+    "kind": "other",
+    "title": "FPD Glass Substrates; Up to Now and Future (Res. Reports Asahi Glass Co., Ltd., 57 (2007) 37-42), Table 2",
+    "url": "https://www.agc.com/innovation/library/pdf/57-08.pdf",
+    "authors": "Hiroyuki Ishikawa",
+    "year": 2007,
+    "publisher": "AGC Inc.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/AGC_Res_Rep_57_2007_08_FPD_Glass_Substrates.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 908.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 14.5,
+      "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "AGC 사내 연구보고 57호 Table 2 `当社の液晶用ガラス基板` 의 AN635 열 verbatim: `歪点（℃） 635`. 635 + 273.15 = 908.15 K. (이미지 표라 pdftoppm -r 250 렌더로 읽었다.) **같은 표의 소다라임(AS) 열이 검산기다** — 歪点 511 · 徐冷点 554 로 44차 FA 가 AGC 연구보고 61호에서 읽은 소다라임 열(변형점 511 · 서냉점 554)과 글자 단위로 같다(브리프 129·173). 열 배정이 두 문서에서 닫힌다. **표가 점도값을 인쇄하지 않는다** — 歪点/徐冷点 은 각각 10^14.5 / 10^13 P 로 정의된 용어이므로 그 정의를 조건축에 적었다. 한 유리 안에서 635 < 685 °C 로 순서가 성립한다."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 958.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.0,
+      "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "AGC 사내 연구보고 57호 Table 2 `当社の液晶用ガラス基板` 의 AN635 열 verbatim: `徐冷点（℃） 685`. 685 + 273.15 = 958.15 K. (이미지 표라 pdftoppm -r 250 렌더로 읽었다.) **같은 표의 소다라임(AS) 열이 검산기다** — 歪点 511 · 徐冷点 554 로 44차 FA 가 AGC 연구보고 61호에서 읽은 소다라임 열(변형점 511 · 서냉점 554)과 글자 단위로 같다(브리프 129·173). 열 배정이 두 문서에서 닫힌다. **표가 점도값을 인쇄하지 않는다** — 歪点/徐冷点 은 각각 10^14.5 / 10^13 P 로 정의된 용어이므로 그 정의를 조건축에 적었다. 한 유리 안에서 635 < 685 °C 로 순서가 성립한다."
+    }
+   ]
+  },
+  {
+   "match_name": "OHARA L-BAL42 low-Tg moldable optical glass",
+   "source": {
+    "kind": "datasheet",
+    "title": "OHARA Optical Glass Data Sheet L-BAL42 (OHARA 25-04)",
+    "url": "https://oharacorp.com/wp-content/uploads/2025/04/elbal42.pdf",
+    "authors": "OHARA INC. (corporate author)",
+    "year": 2025,
+    "publisher": "OHARA INC.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/cam/OHARA_L-BAL42_DataSheet_25-04.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 740.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 14.5,
+      "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+      "test_standard": "JOGIS 08"
+     },
+     "notes": "OHARA 데이터시트 `Thermal Properties` 블록 verbatim: `Strain Point (StP) (℃) 467`. 467 + 273.15 = 740.15 K. **시트는 점도값을 인쇄하지 않지만 OHARA 는 JOGIS 정의를 쓴다** — StP 10^14.5 · AP 10^13 · SP 10^7.6 P. 조건축의 수는 그 용어 정의다. ⚠ **같은 표의 `Yield Point At` 는 이 키가 아니다** — 팽창계 새그온도라 `thermal.dilatometric_softening_point` 로 이미 들어가 있다(At 551 °C). 한 표가 둘을 나란히 인쇄하는 것이 두 키를 가른 근거다. 순서 검산: StP 467 < AP 494 < At 551 < SP 607 °C."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 767.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.0,
+      "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+      "test_standard": "JOGIS 08"
+     },
+     "notes": "OHARA 데이터시트 `Thermal Properties` 블록 verbatim: `Annealing Point (AP) (℃) 494`. 494 + 273.15 = 767.15 K. **시트는 점도값을 인쇄하지 않지만 OHARA 는 JOGIS 정의를 쓴다** — StP 10^14.5 · AP 10^13 · SP 10^7.6 P. 조건축의 수는 그 용어 정의다. ⚠ **같은 표의 `Yield Point At` 는 이 키가 아니다** — 팽창계 새그온도라 `thermal.dilatometric_softening_point` 로 이미 들어가 있다(At 551 °C). 한 표가 둘을 나란히 인쇄하는 것이 두 키를 가른 근거다. 순서 검산: StP 467 < AP 494 < At 551 < SP 607 °C."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 880.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 7.6,
+      "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+      "test_standard": "JOGIS 08"
+     },
+     "notes": "OHARA 데이터시트 `Thermal Properties` 블록 verbatim: `Softening Point (SP) (℃) 607`. 607 + 273.15 = 880.15 K. **시트는 점도값을 인쇄하지 않지만 OHARA 는 JOGIS 정의를 쓴다** — StP 10^14.5 · AP 10^13 · SP 10^7.6 P. 조건축의 수는 그 용어 정의다. ⚠ **같은 표의 `Yield Point At` 는 이 키가 아니다** — 팽창계 새그온도라 `thermal.dilatometric_softening_point` 로 이미 들어가 있다(At 551 °C). 한 표가 둘을 나란히 인쇄하는 것이 두 키를 가른 근거다. 순서 검산: StP 467 < AP 494 < At 551 < SP 607 °C."
+    }
+   ]
+  },
+  {
+   "match_name": "OHARA L-LAH53 low-Tg moldable optical glass",
+   "source": {
+    "kind": "datasheet",
+    "title": "OHARA Optical Glass Data Sheet L-LAH53 (OHARA 25-04)",
+    "url": "https://oharacorp.com/wp-content/uploads/2025/04/ellah53.pdf",
+    "authors": "OHARA INC. (corporate author)",
+    "year": 2025,
+    "publisher": "OHARA INC.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/cam/OHARA_L-LAH53_DataSheet_25-04.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 807.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 14.5,
+      "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+      "test_standard": "JOGIS 08"
+     },
+     "notes": "OHARA 데이터시트 `Thermal Properties` 블록 verbatim: `Strain Point (StP) (℃) 534`. 534 + 273.15 = 807.15 K. **시트는 점도값을 인쇄하지 않지만 OHARA 는 JOGIS 정의를 쓴다** — StP 10^14.5 · AP 10^13 · SP 10^7.6 P. 조건축의 수는 그 용어 정의다. ⚠ **같은 표의 `Yield Point At` 는 이 키가 아니다** — 팽창계 새그온도라 `thermal.dilatometric_softening_point` 로 이미 들어가 있다(At 610 °C). 한 표가 둘을 나란히 인쇄하는 것이 두 키를 가른 근거다. 순서 검산: StP 534 < AP 558 < At 610 < SP 646 °C."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 831.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.0,
+      "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+      "test_standard": "JOGIS 08"
+     },
+     "notes": "OHARA 데이터시트 `Thermal Properties` 블록 verbatim: `Annealing Point (AP) (℃) 558`. 558 + 273.15 = 831.15 K. **시트는 점도값을 인쇄하지 않지만 OHARA 는 JOGIS 정의를 쓴다** — StP 10^14.5 · AP 10^13 · SP 10^7.6 P. 조건축의 수는 그 용어 정의다. ⚠ **같은 표의 `Yield Point At` 는 이 키가 아니다** — 팽창계 새그온도라 `thermal.dilatometric_softening_point` 로 이미 들어가 있다(At 610 °C). 한 표가 둘을 나란히 인쇄하는 것이 두 키를 가른 근거다. 순서 검산: StP 534 < AP 558 < At 610 < SP 646 °C."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 919.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 7.6,
+      "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+      "test_standard": "JOGIS 08"
+     },
+     "notes": "OHARA 데이터시트 `Thermal Properties` 블록 verbatim: `Softening Point (SP) (℃) 646`. 646 + 273.15 = 919.15 K. **시트는 점도값을 인쇄하지 않지만 OHARA 는 JOGIS 정의를 쓴다** — StP 10^14.5 · AP 10^13 · SP 10^7.6 P. 조건축의 수는 그 용어 정의다. ⚠ **같은 표의 `Yield Point At` 는 이 키가 아니다** — 팽창계 새그온도라 `thermal.dilatometric_softening_point` 로 이미 들어가 있다(At 610 °C). 한 표가 둘을 나란히 인쇄하는 것이 두 키를 가른 근거다. 순서 검산: StP 534 < AP 558 < At 610 < SP 646 °C."
+    }
+   ]
+  },
+  {
+   "match_name": "OHARA L-LAH94 low-Tg moldable optical glass",
+   "source": {
+    "kind": "datasheet",
+    "title": "OHARA Optical Glass Data Sheet L-LAH94 (OHARA 25-04)",
+    "url": "https://oharacorp.com/wp-content/uploads/2025/04/ellah94.pdf",
+    "authors": "OHARA INC. (corporate author)",
+    "year": 2025,
+    "publisher": "OHARA INC.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/cam/OHARA_L-LAH94_DataSheet_25-04.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 833.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 14.5,
+      "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+      "test_standard": "JOGIS 08"
+     },
+     "notes": "OHARA 데이터시트 `Thermal Properties` 블록 verbatim: `Strain Point (StP) (℃) 560`. 560 + 273.15 = 833.15 K. **시트는 점도값을 인쇄하지 않지만 OHARA 는 JOGIS 정의를 쓴다** — StP 10^14.5 · AP 10^13 · SP 10^7.6 P. 조건축의 수는 그 용어 정의다. ⚠ **같은 표의 `Yield Point At` 는 이 키가 아니다** — 팽창계 새그온도라 `thermal.dilatometric_softening_point` 로 이미 들어가 있다(At 635 °C). 한 표가 둘을 나란히 인쇄하는 것이 두 키를 가른 근거다. 순서 검산: StP 560 < AP 583 < At 635 < SP 664 °C."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 856.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.0,
+      "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+      "test_standard": "JOGIS 08"
+     },
+     "notes": "OHARA 데이터시트 `Thermal Properties` 블록 verbatim: `Annealing Point (AP) (℃) 583`. 583 + 273.15 = 856.15 K. **시트는 점도값을 인쇄하지 않지만 OHARA 는 JOGIS 정의를 쓴다** — StP 10^14.5 · AP 10^13 · SP 10^7.6 P. 조건축의 수는 그 용어 정의다. ⚠ **같은 표의 `Yield Point At` 는 이 키가 아니다** — 팽창계 새그온도라 `thermal.dilatometric_softening_point` 로 이미 들어가 있다(At 635 °C). 한 표가 둘을 나란히 인쇄하는 것이 두 키를 가른 근거다. 순서 검산: StP 560 < AP 583 < At 635 < SP 664 °C."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 937.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 7.6,
+      "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+      "test_standard": "JOGIS 08"
+     },
+     "notes": "OHARA 데이터시트 `Thermal Properties` 블록 verbatim: `Softening Point (SP) (℃) 664`. 664 + 273.15 = 937.15 K. **시트는 점도값을 인쇄하지 않지만 OHARA 는 JOGIS 정의를 쓴다** — StP 10^14.5 · AP 10^13 · SP 10^7.6 P. 조건축의 수는 그 용어 정의다. ⚠ **같은 표의 `Yield Point At` 는 이 키가 아니다** — 팽창계 새그온도라 `thermal.dilatometric_softening_point` 로 이미 들어가 있다(At 635 °C). 한 표가 둘을 나란히 인쇄하는 것이 두 키를 가른 근거다. 순서 검산: StP 560 < AP 583 < At 635 < SP 664 °C."
+    }
+   ]
+  },
+  {
+   "match_name": "SCHOTT P-PK53 low-Tg moldable optical glass",
+   "source": {
+    "kind": "datasheet",
+    "title": "SCHOTT Optical Glass Data Sheets — Inquiry Glass Collection (28-Aug-2019 compilation of individual data sheets)",
+    "url": "https://www.schott.com/en-dk/products/optical-glass/-/media/project/onex/products/o/optical-glass/downloads/schott-optical-glass-inquiry-glass-collection-datasheets-english-28082019.pdf",
+    "authors": "SCHOTT AG, Advanced Optics (corporate author)",
+    "year": 2019,
+    "publisher": "SCHOTT AG",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/cam/SCHOTT_Optical_Glass_Inquiry_Collection_DataSheets_2019-08-28.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 663.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.0,
+      "determination": "viscosity printed on the sheet"
+     },
+     "notes": "SCHOTT 광학유리 데이터시트 P-PK53 상자 verbatim: `T1013 [°C] 390`. 390 + 273.15 = 663.15 K. **SCHOTT 는 기준점을 점도로 직접 표기한다**(T10^13 = 서냉점 · T10^7.6 = 리틀턴 연화점) — 조건축이 원문 표기 그대로다. ⚠ 같은 상자의 `AT` 는 팽창계 굴복(새그) 온도라 다른 키다(`thermal.dilatometric_softening_point`, 418 °C). 순서 검산: Tg 383 < T10^13 390 < AT 418 < T10^7.6 453 °C. **변형점(10^14.5)은 이 시트에 인쇄되지 않았다.**"
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 726.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 7.6,
+      "determination": "viscosity printed on the sheet"
+     },
+     "notes": "SCHOTT 광학유리 데이터시트 P-PK53 상자 verbatim: `T107.6 [°C] 453`. 453 + 273.15 = 726.15 K. **SCHOTT 는 기준점을 점도로 직접 표기한다**(T10^13 = 서냉점 · T10^7.6 = 리틀턴 연화점) — 조건축이 원문 표기 그대로다. ⚠ 같은 상자의 `AT` 는 팽창계 굴복(새그) 온도라 다른 키다(`thermal.dilatometric_softening_point`, 418 °C). 순서 검산: Tg 383 < T10^13 390 < AT 418 < T10^7.6 453 °C. **변형점(10^14.5)은 이 시트에 인쇄되지 않았다.**"
+    }
+   ]
+  },
+  {
+   "match_name": "SCHOTT P-SF67 low-Tg moldable optical glass",
+   "source": {
+    "kind": "datasheet",
+    "title": "SCHOTT Optical Glass Data Sheets — Inquiry Glass Collection (28-Aug-2019 compilation of individual data sheets)",
+    "url": "https://www.schott.com/en-dk/products/optical-glass/-/media/project/onex/products/o/optical-glass/downloads/schott-optical-glass-inquiry-glass-collection-datasheets-english-28082019.pdf",
+    "authors": "SCHOTT AG, Advanced Optics (corporate author)",
+    "year": 2019,
+    "publisher": "SCHOTT AG",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/cam/SCHOTT_Optical_Glass_Inquiry_Collection_DataSheets_2019-08-28.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 819.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.0,
+      "determination": "viscosity printed on the sheet"
+     },
+     "notes": "SCHOTT 광학유리 데이터시트 P-SF67 상자 verbatim: `T1013 [°C] 546`. 546 + 273.15 = 819.15 K. **SCHOTT 는 기준점을 점도로 직접 표기한다**(T10^13 = 서냉점 · T10^7.6 = 리틀턴 연화점) — 조건축이 원문 표기 그대로다. ⚠ 같은 상자의 `AT` 는 팽창계 굴복(새그) 온도라 다른 키다(`thermal.dilatometric_softening_point`, 601 °C). 순서 검산: Tg 539 < T10^13 546 < AT 601 < T10^7.6 663 °C. **변형점(10^14.5)은 이 시트에 인쇄되지 않았다.**"
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 936.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 7.6,
+      "determination": "viscosity printed on the sheet"
+     },
+     "notes": "SCHOTT 광학유리 데이터시트 P-SF67 상자 verbatim: `T107.6 [°C] 663`. 663 + 273.15 = 936.15 K. **SCHOTT 는 기준점을 점도로 직접 표기한다**(T10^13 = 서냉점 · T10^7.6 = 리틀턴 연화점) — 조건축이 원문 표기 그대로다. ⚠ 같은 상자의 `AT` 는 팽창계 굴복(새그) 온도라 다른 키다(`thermal.dilatometric_softening_point`, 601 °C). 순서 검산: Tg 539 < T10^13 546 < AT 601 < T10^7.6 663 °C. **변형점(10^14.5)은 이 시트에 인쇄되지 않았다.**"
+    }
+   ]
+  }
+ ]
+}

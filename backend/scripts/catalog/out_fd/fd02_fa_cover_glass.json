@@ -1,0 +1,417 @@
+{
+ "batch": "FD-2 44차 · 44차 FA 가 키 부재로 못 넣은 점도 기준온도 (커버글라스 8종)",
+ "materials": [
+  {
+   "match_name": "Corning Gorilla Glass 5",
+   "source": {
+    "kind": "datasheet",
+    "title": "Corning(R) Gorilla(R) Glass 5 Product Information Sheet (April 2018_rev. C)",
+    "url": "https://www.corning.com/microsites/csm/gorillaglass/PI_Sheets/Corning%20Gorilla%20Glass%205_PI%20Sheet_Rev_C.pdf",
+    "authors": "Corning Incorporated",
+    "year": 2018,
+    "publisher": "Corning Incorporated",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/Corning_GorillaGlass5_PISheet_RevC_2018-04.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 844.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 14.7,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "Corning Gorilla PI 시트 `Viscosity` 블록 verbatim: `Strain Point (1014.7 poises) 571 ˚C`. 571 °C + 273.15 = 844.15 K. ⚠ **고릴라 계열은 기준 점도가 기판유리와 다르다** — 서냉점을 10^13.2, 변형점을 10^14.7 P 로 인쇄한다(EAGLE XG 는 10^13 · 10^14.5). 조건축이 수치라 두 규약이 한 키에서 공존한다 — 이것이 파라미터를 조건축으로 올린 이유다(브리프 453). 순서 검산: 변형점 571 < 서냉점 623 < 연화점 884 °C."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 896.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.2,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "Corning Gorilla PI 시트 `Viscosity` 블록 verbatim: `Annealing Point (1013.2 poises) 623 ˚C`. 623 °C + 273.15 = 896.15 K. ⚠ **고릴라 계열은 기준 점도가 기판유리와 다르다** — 서냉점을 10^13.2, 변형점을 10^14.7 P 로 인쇄한다(EAGLE XG 는 10^13 · 10^14.5). 조건축이 수치라 두 규약이 한 키에서 공존한다 — 이것이 파라미터를 조건축으로 올린 이유다(브리프 453). 순서 검산: 변형점 571 < 서냉점 623 < 연화점 884 °C."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1157.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 7.6,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C338"
+     },
+     "notes": "Corning Gorilla PI 시트 `Viscosity` 블록 verbatim: `Softening Point (107.6 poises) 884 ˚C`. 884 °C + 273.15 = 1157.15 K. ⚠ **고릴라 계열은 기준 점도가 기판유리와 다르다** — 서냉점을 10^13.2, 변형점을 10^14.7 P 로 인쇄한다(EAGLE XG 는 10^13 · 10^14.5). 조건축이 수치라 두 규약이 한 키에서 공존한다 — 이것이 파라미터를 조건축으로 올린 이유다(브리프 453). 순서 검산: 변형점 571 < 서냉점 623 < 연화점 884 °C."
+    }
+   ]
+  },
+  {
+   "match_name": "Corning Gorilla Glass 6",
+   "source": {
+    "kind": "datasheet",
+    "title": "Corning(R) Gorilla(R) Glass 6 Product Information Sheet (Rev 1_September 2018)",
+    "url": "https://www.corning.com/microsites/csm/gorillaglass/PI_Sheets/Corning_Gorilla_Glass_6_PI_Sheet.pdf",
+    "authors": "Corning Incorporated",
+    "year": 2018,
+    "publisher": "Corning Incorporated",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/Corning_GorillaGlass6_PISheet_Rev1_2018-09.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 845.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 14.7,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "Corning Gorilla PI 시트 `Viscosity` 블록 verbatim: `Strain Point (1014.7 poises) 572 °C`. 572 °C + 273.15 = 845.15 K. ⚠ **고릴라 계열은 기준 점도가 기판유리와 다르다** — 서냉점을 10^13.2, 변형점을 10^14.7 P 로 인쇄한다(EAGLE XG 는 10^13 · 10^14.5). 조건축이 수치라 두 규약이 한 키에서 공존한다 — 이것이 파라미터를 조건축으로 올린 이유다(브리프 453). 순서 검산: 변형점 572 < 서냉점 624 < 연화점 884.9 °C."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 897.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.2,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "Corning Gorilla PI 시트 `Viscosity` 블록 verbatim: `Annealing Point (1013.2 poises) 624 °C`. 624 °C + 273.15 = 897.15 K. ⚠ **고릴라 계열은 기준 점도가 기판유리와 다르다** — 서냉점을 10^13.2, 변형점을 10^14.7 P 로 인쇄한다(EAGLE XG 는 10^13 · 10^14.5). 조건축이 수치라 두 규약이 한 키에서 공존한다 — 이것이 파라미터를 조건축으로 올린 이유다(브리프 453). 순서 검산: 변형점 572 < 서냉점 624 < 연화점 884.9 °C."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1158.05,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 7.6,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C338"
+     },
+     "notes": "Corning Gorilla PI 시트 `Viscosity` 블록 verbatim: `Softening Point (107.6 poises) 884.9 °C`. 884.9 °C + 273.15 = 1158.05 K. ⚠ **고릴라 계열은 기준 점도가 기판유리와 다르다** — 서냉점을 10^13.2, 변형점을 10^14.7 P 로 인쇄한다(EAGLE XG 는 10^13 · 10^14.5). 조건축이 수치라 두 규약이 한 키에서 공존한다 — 이것이 파라미터를 조건축으로 올린 이유다(브리프 453). 순서 검산: 변형점 572 < 서냉점 624 < 연화점 884.9 °C."
+    }
+   ]
+  },
+  {
+   "match_name": "Corning Gorilla Glass 7i",
+   "source": {
+    "kind": "datasheet",
+    "title": "Corning(R) Gorilla(R) Glass 7i Product Information Sheet (c)2024",
+    "url": "https://www.corning.com/microsites/csm/gorillaglass/PI_Sheets/Corning_Gorilla_Glass_7i_PI%20Sheet.pdf",
+    "authors": "Corning Incorporated",
+    "year": 2024,
+    "publisher": "Corning Incorporated",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/Corning_GorillaGlass7i_PISheet_2024.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 849.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 14.7,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "Corning Gorilla PI 시트 `Viscosity` 블록 verbatim: `Strain Point (1014.7 poises) 576 °C`. 576 °C + 273.15 = 849.15 K. ⚠ **고릴라 계열은 기준 점도가 기판유리와 다르다** — 서냉점을 10^13.2, 변형점을 10^14.7 P 로 인쇄한다(EAGLE XG 는 10^13 · 10^14.5). 조건축이 수치라 두 규약이 한 키에서 공존한다 — 이것이 파라미터를 조건축으로 올린 이유다(브리프 453). 순서 검산: 변형점 576 < 서냉점 627 < 연화점 880 °C."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 900.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.2,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "Corning Gorilla PI 시트 `Viscosity` 블록 verbatim: `Annealing Point (1013.2 poises) 627 °C`. 627 °C + 273.15 = 900.15 K. ⚠ **고릴라 계열은 기준 점도가 기판유리와 다르다** — 서냉점을 10^13.2, 변형점을 10^14.7 P 로 인쇄한다(EAGLE XG 는 10^13 · 10^14.5). 조건축이 수치라 두 규약이 한 키에서 공존한다 — 이것이 파라미터를 조건축으로 올린 이유다(브리프 453). 순서 검산: 변형점 576 < 서냉점 627 < 연화점 880 °C."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1153.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 7.6,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C338"
+     },
+     "notes": "Corning Gorilla PI 시트 `Viscosity` 블록 verbatim: `Softening Point (107.6 poises) 880 °C`. 880 °C + 273.15 = 1153.15 K. ⚠ **고릴라 계열은 기준 점도가 기판유리와 다르다** — 서냉점을 10^13.2, 변형점을 10^14.7 P 로 인쇄한다(EAGLE XG 는 10^13 · 10^14.5). 조건축이 수치라 두 규약이 한 키에서 공존한다 — 이것이 파라미터를 조건축으로 올린 이유다(브리프 453). 순서 검산: 변형점 576 < 서냉점 627 < 연화점 880 °C."
+    }
+   ]
+  },
+  {
+   "match_name": "AGC Dragontrail",
+   "source": {
+    "kind": "other",
+    "title": "Dragontrail(TM): Novel Damage-Resistant Glass for Chemical Strengthening, Res. Reports Asahi Glass Co., Ltd., 61 (2011) 11-16",
+    "url": "https://www.agc.com/innovation/library/pdf/61-03.pdf",
+    "authors": "Hayashi",
+    "year": 2011,
+    "publisher": "Asahi Glass Co., Ltd. (AGC Inc.)",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/AGC_ResReports61_2011_Dragontrail_Hayashi.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 829.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 14.5,
+      "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "AGC 사내 연구보고 61호 Table 1 `Typical properties of Dragontrail` verbatim: `Strain point (˚C) 556` (Dragontrail 열). 556 + 273.15 = 829.15 K. 이미지 표라 pdftoppm -r 250 렌더로 읽었다. **소다라임 열이 같이 인쇄돼 표 전체가 검산된다**(§129·173·206) — 소다라임 Softening 733 · Annealing 554 · Strain 511 은 전부 교과서값이고, AGC 연구보고 57호 Table 2 의 소다라임(AS) 歪点 511 · 徐冷点 554 와 글자 단위로 같다. **표가 점도값을 인쇄하지 않는다** — 용어의 ASTM 정의를 조건축에 적었다. 순서 검산은 점도 세 점끼리만 한다 — 556 < 606 < 831 °C 로 성립한다. 같은 표의 Tg 604 °C 는 팽창계 전이점이라 이 축이 아니고 `thermal.glass_transition` 에 따로 들어가 있다."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 879.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.0,
+      "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "AGC 사내 연구보고 61호 Table 1 `Typical properties of Dragontrail` verbatim: `Annealing point (˚C) 606` (Dragontrail 열). 606 + 273.15 = 879.15 K. 이미지 표라 pdftoppm -r 250 렌더로 읽었다. **소다라임 열이 같이 인쇄돼 표 전체가 검산된다**(§129·173·206) — 소다라임 Softening 733 · Annealing 554 · Strain 511 은 전부 교과서값이고, AGC 연구보고 57호 Table 2 의 소다라임(AS) 歪点 511 · 徐冷点 554 와 글자 단위로 같다. **표가 점도값을 인쇄하지 않는다** — 용어의 ASTM 정의를 조건축에 적었다. 순서 검산은 점도 세 점끼리만 한다 — 556 < 606 < 831 °C 로 성립한다. 같은 표의 Tg 604 °C 는 팽창계 전이점이라 이 축이 아니고 `thermal.glass_transition` 에 따로 들어가 있다."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1104.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 7.6,
+      "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+      "test_standard": "ASTM C338"
+     },
+     "notes": "AGC 사내 연구보고 61호 Table 1 `Typical properties of Dragontrail` verbatim: `Softening point (˚C) 831` (Dragontrail 열). 831 + 273.15 = 1104.15 K. 이미지 표라 pdftoppm -r 250 렌더로 읽었다. **소다라임 열이 같이 인쇄돼 표 전체가 검산된다**(§129·173·206) — 소다라임 Softening 733 · Annealing 554 · Strain 511 은 전부 교과서값이고, AGC 연구보고 57호 Table 2 의 소다라임(AS) 歪点 511 · 徐冷点 554 와 글자 단위로 같다. **표가 점도값을 인쇄하지 않는다** — 용어의 ASTM 정의를 조건축에 적었다. 순서 검산은 점도 세 점끼리만 한다 — 556 < 606 < 831 °C 로 성립한다. 같은 표의 Tg 604 °C 는 팽창계 전이점이라 이 축이 아니고 `thermal.glass_transition` 에 따로 들어가 있다."
+    }
+   ]
+  },
+  {
+   "match_name": "SCHOTT Xensation alpha",
+   "source": {
+    "kind": "datasheet",
+    "title": "SCHOTT Xensation(R) alpha Datasheet (ENGLISH 07/2022 kn/nino)",
+    "url": "https://media.schott.com/api/public/content/6f52fc32c02b4dcbb4f997dc7955be9c?v=4244e005&download=true",
+    "authors": "SCHOTT Technical Glass Solutions GmbH",
+    "year": 2022,
+    "publisher": "SCHOTT AG",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/SCHOTT_Xensation_Alpha_Datasheet_EN_2022-07.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 862.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.0,
+      "determination": "viscosity printed on the sheet"
+     },
+     "notes": "SCHOTT Xensation alpha 데이터시트 `Viscosity` 블록 verbatim: `Annealing point at 10^13 dPas 589 °C`. 589 + 273.15 = 862.15 K. **1 dPa*s = 1 P 라 조건축의 수가 원문 표기 그대로다.** [렌더 검증] 이 PDF 는 텍스트 레이어가 둘이고 값이 서로 다르다 — pdftoppm -r 170 으로 2쪽을 렌더해 육안으로 읽은 값만 옮겼다(44차 FA 가 같은 방식으로 Tg 를 읽었다). **변형점(10^14.5)은 이 시트에 인쇄되지 않았다.** 순서 검산: 서냉점 589 < 연화점 840 < 작업점 1233 °C."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1113.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 7.6,
+      "determination": "viscosity printed on the sheet"
+     },
+     "notes": "SCHOTT Xensation alpha 데이터시트 `Viscosity` 블록 verbatim: `Softening point 10^7.6 dPas 840 °C`. 840 + 273.15 = 1113.15 K. **1 dPa*s = 1 P 라 조건축의 수가 원문 표기 그대로다.** [렌더 검증] 이 PDF 는 텍스트 레이어가 둘이고 값이 서로 다르다 — pdftoppm -r 170 으로 2쪽을 렌더해 육안으로 읽은 값만 옮겼다(44차 FA 가 같은 방식으로 Tg 를 읽었다). **변형점(10^14.5)은 이 시트에 인쇄되지 않았다.** 순서 검산: 서냉점 589 < 연화점 840 < 작업점 1233 °C."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1506.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 4.0,
+      "determination": "viscosity printed on the sheet"
+     },
+     "notes": "SCHOTT Xensation alpha 데이터시트 `Viscosity` 블록 verbatim: `Working point 10^4 dPas 1233 °C`. 1233 + 273.15 = 1506.15 K. **1 dPa*s = 1 P 라 조건축의 수가 원문 표기 그대로다.** [렌더 검증] 이 PDF 는 텍스트 레이어가 둘이고 값이 서로 다르다 — pdftoppm -r 170 으로 2쪽을 렌더해 육안으로 읽은 값만 옮겼다(44차 FA 가 같은 방식으로 Tg 를 읽었다). **변형점(10^14.5)은 이 시트에 인쇄되지 않았다.** 순서 검산: 서냉점 589 < 연화점 840 < 작업점 1233 °C."
+    }
+   ]
+  },
+  {
+   "match_name": "SCHOTT Xensation Up",
+   "source": {
+    "kind": "datasheet",
+    "title": "SCHOTT Xensation(R) Up. Datasheet (ENGLISH 07/2022 kn/nino)",
+    "url": "https://media.schott.com/api/public/content/c0d211c84b8b463ca47a171b2750e9c4?v=03ac7b85&download=true",
+    "authors": "SCHOTT Technical Glass Solutions GmbH",
+    "year": 2022,
+    "publisher": "SCHOTT AG",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/SCHOTT_Xensation_Up_Datasheet_EN_2022-07.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 813.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.0,
+      "determination": "viscosity printed on the sheet"
+     },
+     "notes": "SCHOTT Xensation Up 데이터시트 `Viscosity` 블록 verbatim: `Annealing point at 10^13 dPas 540 °C`. 540 + 273.15 = 813.15 K. **1 dPa*s = 1 P 라 조건축의 수가 원문 표기 그대로다.** [렌더 검증] 이 PDF 는 텍스트 레이어가 둘이고 값이 서로 다르다 — pdftoppm -r 170 으로 2쪽을 렌더해 육안으로 읽은 값만 옮겼다(44차 FA 가 같은 방식으로 Tg 를 읽었다). **변형점(10^14.5)은 이 시트에 인쇄되지 않았다.** 순서 검산: 서냉점 540 < 연화점 760 < 작업점 1120 °C."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1033.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 7.6,
+      "determination": "viscosity printed on the sheet"
+     },
+     "notes": "SCHOTT Xensation Up 데이터시트 `Viscosity` 블록 verbatim: `Softening point 10^7.6 dPas 760 °C`. 760 + 273.15 = 1033.15 K. **1 dPa*s = 1 P 라 조건축의 수가 원문 표기 그대로다.** [렌더 검증] 이 PDF 는 텍스트 레이어가 둘이고 값이 서로 다르다 — pdftoppm -r 170 으로 2쪽을 렌더해 육안으로 읽은 값만 옮겼다(44차 FA 가 같은 방식으로 Tg 를 읽었다). **변형점(10^14.5)은 이 시트에 인쇄되지 않았다.** 순서 검산: 서냉점 540 < 연화점 760 < 작업점 1120 °C."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1393.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 4.0,
+      "determination": "viscosity printed on the sheet"
+     },
+     "notes": "SCHOTT Xensation Up 데이터시트 `Viscosity` 블록 verbatim: `Working point 10^4 dPas 1120 °C`. 1120 + 273.15 = 1393.15 K. **1 dPa*s = 1 P 라 조건축의 수가 원문 표기 그대로다.** [렌더 검증] 이 PDF 는 텍스트 레이어가 둘이고 값이 서로 다르다 — pdftoppm -r 170 으로 2쪽을 렌더해 육안으로 읽은 값만 옮겼다(44차 FA 가 같은 방식으로 Tg 를 읽었다). **변형점(10^14.5)은 이 시트에 인쇄되지 않았다.** 순서 검산: 서냉점 540 < 연화점 760 < 작업점 1120 °C."
+    }
+   ]
+  },
+  {
+   "match_name": "SCHOTT Xensation Core",
+   "source": {
+    "kind": "datasheet",
+    "title": "SCHOTT Xensation(R) Core Datasheet (ENGLISH 07/2022 kn/nino; PDF created 2025-03-27)",
+    "url": "https://media.schott.com/api/public/content/ca522d1ccb51450f883ef715896f921d?v=8ee53595&download=true",
+    "authors": "SCHOTT Technical Glass Solutions GmbH",
+    "year": 2025,
+    "publisher": "SCHOTT AG",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/SCHOTT_Xensation_Core_Datasheet_EN_2022-07.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 863.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.0,
+      "determination": "viscosity printed on the sheet"
+     },
+     "notes": "SCHOTT Xensation Core 데이터시트 `Viscosity` 블록 verbatim: `Annealing point at 10^13 dPas 590 °C`. 590 + 273.15 = 863.15 K. **1 dPa*s = 1 P 라 조건축의 수가 원문 표기 그대로다.** [렌더 검증] 이 PDF 는 텍스트 레이어가 둘이고 값이 서로 다르다 — pdftoppm -r 170 으로 2쪽을 렌더해 육안으로 읽은 값만 옮겼다(44차 FA 가 같은 방식으로 Tg 를 읽었다). **변형점(10^14.5)은 이 시트에 인쇄되지 않았다.** 순서 검산: 서냉점 590 < 연화점 820 < 작업점 1190 °C."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1093.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 7.6,
+      "determination": "viscosity printed on the sheet"
+     },
+     "notes": "SCHOTT Xensation Core 데이터시트 `Viscosity` 블록 verbatim: `Softening point 10^7.6 dPas 820 °C`. 820 + 273.15 = 1093.15 K. **1 dPa*s = 1 P 라 조건축의 수가 원문 표기 그대로다.** [렌더 검증] 이 PDF 는 텍스트 레이어가 둘이고 값이 서로 다르다 — pdftoppm -r 170 으로 2쪽을 렌더해 육안으로 읽은 값만 옮겼다(44차 FA 가 같은 방식으로 Tg 를 읽었다). **변형점(10^14.5)은 이 시트에 인쇄되지 않았다.** 순서 검산: 서냉점 590 < 연화점 820 < 작업점 1190 °C."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1463.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 4.0,
+      "determination": "viscosity printed on the sheet"
+     },
+     "notes": "SCHOTT Xensation Core 데이터시트 `Viscosity` 블록 verbatim: `Working point 10^4 dPas 1190 °C`. 1190 + 273.15 = 1463.15 K. **1 dPa*s = 1 P 라 조건축의 수가 원문 표기 그대로다.** [렌더 검증] 이 PDF 는 텍스트 레이어가 둘이고 값이 서로 다르다 — pdftoppm -r 170 으로 2쪽을 렌더해 육안으로 읽은 값만 옮겼다(44차 FA 가 같은 방식으로 Tg 를 읽었다). **변형점(10^14.5)은 이 시트에 인쇄되지 않았다.** 순서 검산: 서냉점 590 < 연화점 820 < 작업점 1190 °C."
+    }
+   ]
+  },
+  {
+   "match_name": "SCHOTT AS 87 neo (ultra-thin glass, UTG)",
+   "source": {
+    "kind": "datasheet",
+    "title": "SCHOTT AS 87 neo - Specification physical and chemical properties",
+    "url": "https://media.schott.com/api/public/content/c878ac9dfab046139178ed07613db8c4?v=67ee5365&download=true",
+    "authors": "SCHOTT AG",
+    "year": 2024,
+    "publisher": "SCHOTT AG",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/SCHOTT_AS87neo_Specification_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 850.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 14.5,
+      "determination": "viscosity printed on the sheet"
+     },
+     "notes": "SCHOTT AS 87 neo `Specification physical and chemical properties` 시트의 `Viscosities` 표 verbatim: `Strain point | 14.5 | 577` (열 머리글이 `Viscosity in dPas` · `Temperature in °C` 라 점도와 온도가 한 쌍으로 인쇄된다). 577 + 273.15 = 850.15 K. **이 시트가 이 키의 표준형이다** — 기준점 이름과 점도값과 온도가 한 행에 다 있어 조건축이 원문 그대로다. 순서 검산은 점도 세 점끼리만 한다 — 577 < 616 < 855 °C 로 성립한다. 같은 시트의 Tg 598 °C 는 팽창계 전이점이라 이 축이 아니다."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 889.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.0,
+      "determination": "viscosity printed on the sheet"
+     },
+     "notes": "SCHOTT AS 87 neo `Specification physical and chemical properties` 시트의 `Viscosities` 표 verbatim: `Annealing point | 13.0 | 616` (열 머리글이 `Viscosity in dPas` · `Temperature in °C` 라 점도와 온도가 한 쌍으로 인쇄된다). 616 + 273.15 = 889.15 K. **이 시트가 이 키의 표준형이다** — 기준점 이름과 점도값과 온도가 한 행에 다 있어 조건축이 원문 그대로다. 순서 검산은 점도 세 점끼리만 한다 — 577 < 616 < 855 °C 로 성립한다. 같은 시트의 Tg 598 °C 는 팽창계 전이점이라 이 축이 아니다."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1128.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 7.6,
+      "determination": "viscosity printed on the sheet"
+     },
+     "notes": "SCHOTT AS 87 neo `Specification physical and chemical properties` 시트의 `Viscosities` 표 verbatim: `Softening point | 7.6 | 855` (열 머리글이 `Viscosity in dPas` · `Temperature in °C` 라 점도와 온도가 한 쌍으로 인쇄된다). 855 + 273.15 = 1128.15 K. **이 시트가 이 키의 표준형이다** — 기준점 이름과 점도값과 온도가 한 행에 다 있어 조건축이 원문 그대로다. 순서 검산은 점도 세 점끼리만 한다 — 577 < 616 < 855 °C 로 성립한다. 같은 시트의 Tg 598 °C 는 팽창계 전이점이라 이 축이 아니다."
+    }
+   ]
+  }
+ ]
+}
