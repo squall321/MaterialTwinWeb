@@ -1580,8 +1580,15 @@ def how_to_measure(property_key: str) -> dict:
              "instruments": items}
             for t, items in sorted(groups.items())
         ],
-        "note": ("잴 수단이 등록돼 있지 않다 — 외주·신규 도입 대상이다."
-                 if not groups else None),
+        # ⚠ '키를 못 찾음' 과 '수단이 없음' 은 다른 사실이다. 둘을 같은 답으로 내면 오타 하나가
+        # "인장강도는 사내에 잴 수단이 없다 — 외주 대상" 이라는 확정 판정으로 나간다(실측:
+        # tensile_strength 는 오타이고 실제 키는 mechanical.tensile_strength, 기법 5종·능력
+        # 59건이 있다). REST 쌍둥이는 미정의 키를 404 로 거절하는데 MCP 로 옮기며 빠졌다.
+        "note": (None if groups else
+                 ("그런 물성 key 가 없다 — 오타이거나 아직 정의되지 않았다. "
+                  "list_property_definitions 로 정확한 key 를 확인하라. "
+                  "'잴 수단이 없다'는 뜻이 아니다." if d is None else
+                  "잴 수단이 등록돼 있지 않다 — 외주·신규 도입 대상이다.")),
     }
 
 
@@ -1705,7 +1712,11 @@ def test_plan_for_material(material_id: int | None = None, name: str | None = No
 @mcp.tool()
 def set_instrument_ownership(instrument_id: int | None = None,
                             vendor: str | None = None, model: str | None = None,
-                            owned: bool = True,
+                            # ⚠ 기본값은 None 이다. True 로 두면 담당자만 적으려는 호출이
+                            # 보유 선언으로 승격된다 — 이 커밋 계열이 지키려던 불변식
+                            # ("확인되지 않은 것을 보유로 세면 안 된다")이 기본값에서
+                            # 뒤집힌다. 나머지 인자와 같이 '안 주면 안 건드린다' 로 맞춘다.
+                            owned: bool | None = None,
                             owner_name: str | None = None,
                             owner_contact: str | None = None,
                             note: str | None = None) -> dict:
@@ -1739,7 +1750,8 @@ def set_instrument_ownership(instrument_id: int | None = None,
             return {"error": "장비를 찾지 못했다 — vendor·model 은 정확히 일치해야 한다. "
                              "list_instruments(query=...) 로 확인하라."}
 
-        inst.owned = bool(owned)
+        if owned is not None:
+            inst.owned = bool(owned)
         if owner_name is not None:
             inst.owner_name = owner_name.strip() or None
         if owner_contact is not None:
