@@ -16,6 +16,33 @@ from app.unit_systems import UnitSystem, get_system
 K_RHO = "physical.density"
 K_E = "mechanical.youngs_modulus"
 K_NU = "mechanical.poisson_ratio"
+
+
+def _direction(pv) -> str:
+    """행의 방향 조건. 없으면 빈 문자열."""
+    import json as _j
+    try:
+        d = _j.loads(pv.conditions) if isinstance(pv.conditions, str) else (pv.conditions or {})
+    except (TypeError, ValueError):
+        return ""
+    return str((d or {}).get("direction") or "") if isinstance(d, dict) else ""
+
+
+def _direction_clash(rows, mid) -> str | None:
+    """탄성계수와 포아송비가 **서로 다른 방향**에서 뽑혔으면 그 사실을 낸다.
+
+    대표값 선택(`representative_numeric`)은 등급만 보고 **방향을 안 본다.**
+    이방성 재료에서는 면내 E 에 두께방향 nu 가 짝지어질 수 있다 —
+    42차 DA 가 열분해 흑연(basal E 20 GPa · z nu 0.3 · basal nu -0.1)에서 짚었다.
+    등방 카드는 한 방향의 짝으로만 성립하므로 섞이면 카드가 물리적으로 틀린다.
+    """
+    e_row, nu_row = rows.get((mid, K_E)), rows.get((mid, K_NU))
+    if not e_row or not nu_row:
+        return None
+    de, dn = _direction(e_row), _direction(nu_row)
+    if de and dn and de != dn:
+        return f"E 는 `{de}`, PR 은 `{dn}` 에서 뽑혔다"
+    return None
 K_SIGY = "mechanical.yield_strength"
 K_UTS = "mechanical.tensile_strength"
 K_ELONG = "mechanical.elongation_at_break"
@@ -894,6 +921,11 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
                     lines.append(f"$   PR  {nu_v} (기본값 — 포아송비 미보유)")
                 else:
                     lines.append(f"$   PR  {nu_v}   <- {prov.get((i, K_NU), '출처미상')}")
+                    _clash = _direction_clash(rep_rows, i)
+                    if _clash:
+                        lines.append(f"$   **주의: 방향이 섞였다** — {_clash}.")
+                        lines.append("$     등방 카드는 한 방향의 짝으로만 성립한다. "
+                                     "이방성 재료면 *MAT_ORTHOTROPIC 계열을 쓰거나 방향을 정해서 다시 뽑아라.")
                 if sigy is not None:
                     # 항복 있으면 탄소성(*MAT_024). ETAN은 UTS·연신율로 근사(없으면 0=완전소성).
                     etan = 0.0
