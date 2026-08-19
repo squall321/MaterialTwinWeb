@@ -1,0 +1,640 @@
+<title>낙하 해석 물성 정비</title>
+<style>
+:root{
+  --ground:#f5f4f0; --surface:#fffefb; --sunken:#eceae4;
+  --ink:#15171b; --ink-2:#484d55; --ink-3:#767c85;
+  --rule:#dbd8d0; --rule-2:#c4c0b5;
+  --accent:#2f4b6b; --accent-soft:#e3e9f1; --accent-ink:#2f4b6b;
+  --ok:#1f6449; --ok-soft:#e0ede7;
+  --warn:#835913; --warn-soft:#f3ebd9;
+  --kill:#93332a; --kill-soft:#f6e3e0;
+  --serif:"Nanum Myeongjo","Batang",Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",Pretendard,"Malgun Gothic","Noto Sans KR","Segoe UI",sans-serif;
+  --mono:"JetBrains Mono","SFMono-Regular",D2Coding,Consolas,"Courier New",monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#0f1115; --surface:#161920; --sunken:#1b1f26;
+  --ink:#e7e9ec; --ink-2:#a7aeb8; --ink-3:#79818c;
+  --rule:#282d36; --rule-2:#39404b;
+  --accent:#8fb4dd; --accent-soft:#1b2634; --accent-ink:#a8c6e6;
+  --ok:#5fb48f; --ok-soft:#152520;
+  --warn:#c9a049; --warn-soft:#262014;
+  --kill:#d97b6c; --kill-soft:#291815;
+}}
+:root[data-theme="dark"]{
+  --ground:#0f1115; --surface:#161920; --sunken:#1b1f26;
+  --ink:#e7e9ec; --ink-2:#a7aeb8; --ink-3:#79818c;
+  --rule:#282d36; --rule-2:#39404b;
+  --accent:#8fb4dd; --accent-soft:#1b2634; --accent-ink:#a8c6e6;
+  --ok:#5fb48f; --ok-soft:#152520;
+  --warn:#c9a049; --warn-soft:#262014;
+  --kill:#d97b6c; --kill-soft:#291815;
+}
+:root[data-theme="light"]{
+  --ground:#f5f4f0; --surface:#fffefb; --sunken:#eceae4;
+  --ink:#15171b; --ink-2:#484d55; --ink-3:#767c85;
+  --rule:#dbd8d0; --rule-2:#c4c0b5;
+  --accent:#2f4b6b; --accent-soft:#e3e9f1; --accent-ink:#2f4b6b;
+  --ok:#1f6449; --ok-soft:#e0ede7;
+  --warn:#835913; --warn-soft:#f3ebd9;
+  --kill:#93332a; --kill-soft:#f6e3e0;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--ground); color:var(--ink); font-family:var(--sans);
+  font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased;
+  word-break:keep-all; overflow-wrap:break-word}
+.wrap{max-width:72rem; margin:0 auto; padding:0 clamp(1rem,4vw,2.5rem)}
+.narrow{max-width:60rem}
+
+.masthead{background:var(--surface); border-bottom:1px solid var(--rule)}
+.masthead .wrap{padding:clamp(2.2rem,5vw,3.6rem) clamp(1rem,4vw,2.5rem) clamp(1.8rem,4vw,2.6rem)}
+.eyebrow{font-family:var(--mono); font-size:.72rem; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--ink-3); margin:0 0 .9rem}
+h1{font-family:var(--serif); font-weight:700; font-size:clamp(1.9rem,4.6vw,2.9rem); line-height:1.2;
+  margin:0 0 .9rem; text-wrap:balance; letter-spacing:-.01em}
+.standfirst{font-size:clamp(1rem,2vw,1.12rem); color:var(--ink-2); max-width:46rem; margin:0 0 1.8rem}
+.standfirst strong{color:var(--ink); font-weight:600}
+.tally{display:grid; grid-template-columns:repeat(auto-fit,minmax(10.5rem,1fr)); gap:1px;
+  background:var(--rule); border:1px solid var(--rule)}
+.tally div{background:var(--surface); padding:.85rem 1rem}
+.tally dt{font-family:var(--sans); font-size:.74rem; letter-spacing:.01em;
+  color:var(--ink-3); margin:0 0 .25rem; white-space:nowrap}
+.tally dd{margin:0; font-family:var(--serif); font-size:1.6rem; font-weight:700;
+  font-variant-numeric:tabular-nums; line-height:1.15}
+.tally dd small{font-family:var(--sans); font-size:.74rem; font-weight:400; color:var(--ink-3); margin-left:.25rem}
+
+main{padding:clamp(2rem,5vw,3.2rem) 0 5rem}
+/* 목차 — 6절이 넘어가면 위치 감각이 필요하다. */
+.toc{border:1px solid var(--rule); background:var(--surface); padding:1rem 1.2rem; margin:0 0 2.4rem}
+.toc h2{font-family:var(--mono); font-size:.7rem; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--ink-3); margin:0 0 .7rem; font-weight:500}
+.toc ol{list-style:none; margin:0; padding:0; display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(15rem,1fr)); gap:.35rem 1.4rem}
+.toc li{display:block}
+.toc a{display:block; color:var(--ink-2); text-decoration:none; padding:.25rem .35rem;
+  border-radius:2px; font-size:.9rem}
+.toc a:hover,.toc a:focus-visible{background:var(--accent-soft); color:var(--accent-ink)}
+.toc a:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
+.toc .n{font-family:var(--mono); font-size:.76rem; color:var(--ink-3); margin-right:.5rem}
+section{margin:0 0 clamp(2.6rem,6vw,4rem); scroll-margin-top:1.5rem}
+h2.sec{font-family:var(--serif); font-size:clamp(1.35rem,3vw,1.75rem); font-weight:700; line-height:1.28;
+  margin:0 0 1.1rem; text-wrap:balance; padding-bottom:.45rem; border-bottom:1px solid var(--rule-2)}
+h2.sec .num{font-family:var(--mono); font-size:.72rem; font-weight:400; color:var(--accent-ink);
+  letter-spacing:.12em; display:block; margin-bottom:.45rem}
+h3{font-size:1.02rem; font-weight:650; margin:2rem 0 .65rem; letter-spacing:-.003em;
+  padding-bottom:.3rem; border-bottom:1px solid var(--rule)}
+h3 .tag{font-family:var(--mono); font-size:.68rem; color:var(--ink-3); font-weight:400; margin-left:.5rem}
+p{max-width:64ch; margin:0 0 .9rem}
+strong{font-weight:650}
+code{font-family:var(--mono); font-size:.87em; background:var(--sunken); padding:.1em .32em;
+  border-radius:2px; overflow-wrap:anywhere}
+
+/* 그리드로 짜지 않는다 — 그리드는 자식마다 칸을 배정하므로 <span> 뒤의 맨 텍스트가
+   다음 줄 첫 칸(0.85rem)으로 떨어져 한 글자씩 세로로 쌓인다. 실제로 그렇게 됐다.
+   불릿은 absolute 로 빼고 본문은 통짜 블록으로 흐르게 한다. */
+ul.k{list-style:none; margin:0 0 1.25rem; padding:0; display:flex; flex-direction:column; gap:.62rem}
+ul.k > li{display:block; position:relative; padding-left:1.35rem; max-width:66ch}
+ul.k > li::before{content:"—"; position:absolute; left:0; top:0; color:var(--ink-3);
+  font-family:var(--mono); font-size:.8rem; line-height:1.7}
+ul.k ul{list-style:none; margin:.45rem 0 0; padding:0; display:flex; flex-direction:column; gap:.32rem}
+ul.k ul li{display:block; position:relative; padding-left:.85rem; color:var(--ink-2); font-size:.94rem}
+ul.k ul li::before{content:"·"; position:absolute; left:.1rem; top:0; color:var(--ink-3)}
+.lead-in{font-weight:650}
+
+.tbl{overflow-x:auto; margin:0 0 1.1rem; border:1px solid var(--rule); background:var(--surface);
+  -webkit-overflow-scrolling:touch}
+table{border-collapse:collapse; width:100%; font-size:.88rem; word-break:keep-all}
+tbody tr:hover td{background:var(--sunken)}
+/* 좁은 화면에서 칸이 뭉개져 한글이 세로로 쌓이는 것을 막는다 — 줄이지 말고 스크롤한다. */
+table:not(.matrix){min-width:32rem}
+/* 8열 대조표 — 폭이 모자라면 칸을 줄이지 말고 스크롤한다. */
+table.matrix{min-width:62rem; table-layout:fixed}
+table.matrix col.c-nm{width:9.5rem}
+table.matrix col.c-e{width:6.2rem}
+table.matrix col.c-nu{width:4.2rem}
+table.matrix col.c-sy{width:5rem}
+table.matrix col.c-et{width:5rem}
+table.matrix col.c-src{width:12rem}
+table.matrix col.c-tier{width:4rem}
+table.matrix col.c-note{width:auto}
+th,td{text-align:left; padding:.55rem .8rem; border-bottom:1px solid var(--rule); vertical-align:top}
+thead th{font-family:var(--mono); font-size:.68rem; letter-spacing:.07em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:500; background:var(--sunken); white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right; font-variant-numeric:tabular-nums; font-family:var(--mono);
+  font-size:.83rem; white-space:nowrap}
+td.nm{font-family:var(--mono); font-size:.78rem; overflow-wrap:anywhere; line-height:1.45}
+td.src{font-size:.8rem; color:var(--ink-2); line-height:1.5}
+tbody th{font-weight:650; font-size:.86rem; background:var(--sunken); font-family:var(--sans);
+  letter-spacing:0; color:var(--ink-2); text-transform:none}
+.grp td{background:var(--sunken); font-weight:650; font-size:.82rem; letter-spacing:.02em;
+  color:var(--ink-2); padding-top:.65rem; padding-bottom:.4rem}
+.tbl.sticky thead th{position:sticky; top:0; z-index:1}
+td.note-c{font-size:.79rem; color:var(--ink-3); line-height:1.5}
+.legend{display:flex; flex-wrap:wrap; gap:.5rem 1.1rem; font-size:.82rem; color:var(--ink-2);
+  margin:0 0 1.1rem; align-items:center}
+.legend b{font-weight:650; color:var(--ink)}
+
+.chip{font-family:var(--mono); font-size:.66rem; letter-spacing:.05em; padding:.1rem .38rem;
+  border:1px solid currentColor; border-radius:2px; white-space:nowrap}
+.c-ok{color:var(--ok)} .c-warn{color:var(--warn)} .c-kill{color:var(--kill)} .c-acc{color:var(--accent-ink)}
+
+.callout{border-left:3px solid var(--accent); background:var(--accent-soft); padding:.8rem 1rem; margin:1.2rem 0}
+.callout p{margin:0; max-width:62ch; font-size:.94rem}
+.callout p + p{margin-top:.55rem}
+.callout.warn{border-color:var(--warn); background:var(--warn-soft)}
+.callout.ok{border-color:var(--ok); background:var(--ok-soft)}
+
+.verbatim{font-family:var(--mono); font-size:.79rem; line-height:1.6; background:var(--sunken);
+  border-left:2px solid var(--rule-2); padding:.7rem .85rem; margin:0 0 .9rem; overflow-x:auto;
+  white-space:pre-wrap; overflow-wrap:anywhere; color:var(--ink-2)}
+
+.case{border:1px solid var(--rule); background:var(--surface); margin:0 0 1.1rem}
+.case > header{padding:.7rem 1rem; border-bottom:1px solid var(--rule); background:var(--sunken);
+  display:flex; flex-wrap:wrap; gap:.5rem .9rem; align-items:baseline}
+.case h4{margin:0; font-size:.95rem; font-weight:650}
+.case .src{font-family:var(--mono); font-size:.73rem; color:var(--ink-3)}
+.case .body{padding:1rem}
+.case p{margin:0 0 .7rem; font-size:.95rem}
+.case p:last-child{margin-bottom:0}
+
+footer{border-top:1px solid var(--rule); padding:1.8rem 0 3rem; color:var(--ink-3); font-size:.84rem}
+@media (prefers-reduced-motion:reduce){*{animation:none !important; transition:none !important}}
+</style>
+
+<div class="masthead">
+  <div class="wrap">
+    <p class="eyebrow">MaterialTwin · 해석물성 정비 보고</p>
+    <h1>해석물성 카탈로그 구축과<br>낙하 모델 적용 결과</h1>
+    <p class="standfirst">
+      스마트폰 낙하 해석 18개 파일의 재질 26종이 탄성 물성만 보유. 항복 이후 거동이 정의되지 않아
+      응력 과대·변형 과소 예측이 발생. 문헌·규격·제조사 시트에서 물성을 수집해 카탈로그를 구축하고,
+      해당 카탈로그로 26종 전량을 대조·교체했다. <strong>본 보고는 확보 현황과 적용 결과를 정리한 것이다.</strong>
+    </p>
+    <dl class="tally">
+      <div><dt>교체 재질</dt><dd>26<small>종</small></dd></div>
+      <div><dt>탄소성 전환</dt><dd>25<small>종</small></dd></div>
+      <div><dt>점탄성 전환</dt><dd>1<small>종</small></dd></div>
+      <div><dt>입력값 오류 정정</dt><dd>3<small>건</small></dd></div>
+      <div><dt>물성 카탈로그</dt><dd>35,722<small>행</small></dd></div>
+    </dl>
+  </div>
+</div>
+
+<main>
+<div class="wrap">
+
+<div class="toc">
+  <h2>목차</h2>
+  <ol>
+    <li><a href="#a"><span class="n">1</span>배경 및 필요성</a></li>
+    <li><a href="#s"><span class="n">2</span>확보 현황</a></li>
+    <li><a href="#b"><span class="n">3</span>수집 및 검증 절차</a></li>
+    <li><a href="#c"><span class="n">4</span>검증 사례</a></li>
+    <li><a href="#d"><span class="n">5</span>낙하 모델 적용 — 전수 대조</a></li>
+    <li><a href="#x"><span class="n">6</span>해석 코드 출력</a></li>
+    <li><a href="#w"><span class="n">7</span>운용 — 웹 조회 체계</a></li>
+    <li><a href="#e"><span class="n">8</span>결과 및 후속</a></li>
+  </ol>
+</div>
+
+<section id="a">
+  <h2 class="sec"><span class="num">1</span>배경 및 필요성</h2>
+
+  <h3>현상</h3>
+  <ul class="k">
+    <li>낙하 해석 18개 파일에서 재질 <b>26종이 <code>*MAT_ELASTIC</code></b> 단독 적용 상태.</li>
+    <li>탄성계수·포아송비만 정의되고 <b>항복강도·가공경화율 미정의</b>.</li>
+  </ul>
+
+  <h3>해석상 영향</h3>
+  <ul class="k">
+    <li><span class="lead-in">응력 과대 예측</span> — 항복점 없이 응력이 선형 상승. 실제 항복 이후 구간에서 발산.</li>
+    <li><span class="lead-in">변형·파손 과소 예측</span> — 영구 변형 경로 부재로 소성 변형량이 계산되지 않음.</li>
+    <li><span class="lead-in">에너지 분배 왜곡</span> — 흡수되지 않은 충격 에너지가 인접 부품으로 전가.</li>
+  </ul>
+
+  <h3>제약 조건</h3>
+  <ul class="k">
+    <li>사내 시험 성적서 부재. 재질명이 사내 코드 또는 등급명만 존재
+      (<code>SUZY_1520M</code> · <code>Kalix9950</code> · <code>C7701_1_2H</code>).</li>
+    <li>입력값 자체의 신뢰도 불명. 동일 파일 내 <code>zRO2 = 179</code>와 <code>zr02 = 179,000</code> 병존.</li>
+  </ul>
+
+  <h3>수행 범위</h3>
+  <ul class="k">
+    <li><span class="lead-in">물성 카탈로그 구축</span> — 문헌·규격·제조사 시트에서 수집. 재사용 가능한 형태로 축적.</li>
+    <li><span class="lead-in">측정 가능성 확보</span> — 시험 장비 카탈로그를 병행 구축. 사내 측정 가능 여부를 물성 단위로 판정.</li>
+    <li><span class="lead-in">낙하 모델 적용</span> — 26종 전량 대조. 근거가 성립하는 항목만 교체.</li>
+  </ul>
+</section>
+
+<section id="s">
+  <h2 class="sec"><span class="num">2</span>확보 현황</h2>
+  <p style="max-width:66ch">
+    물성값 <b>35,722행</b> · 재료 <b>2,401종</b> · 참조 <b>2,776건</b> · 물성 항목 <b>243종</b>.
+    아래는 분야별 확보량과 근거 구성이다.
+  </p>
+
+  <h3>분야별 확보량 <span class="tag">1차 근거 = t1(제품 실측) + t2(규격·핸드북)</span></h3>
+  <div class="tbl"><table>
+    <thead><tr>
+      <th>분야</th><th class="num">값</th><th class="num">물성 항목</th><th class="num">재료</th>
+      <th class="num">1차 근거</th><th>주요 물성</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>기계</td><td class="num">16,506</td><td class="num">92</td><td class="num">1,261</td><td class="num">62%</td><td class="src">탄성계수 2,187 · Prony 완화 1,906 · 상대완화계수 1,679</td></tr>
+      <tr><td>열</td><td class="num">6,023</td><td class="num">19</td><td class="num">1,291</td><td class="num">73%</td><td class="src">선팽창계수 1,709 · 열전도율 1,176 · 유리전이온도 1,010</td></tr>
+      <tr><td>물리</td><td class="num">3,233</td><td class="num">23</td><td class="num">1,122</td><td class="num">60%</td><td class="src">밀도 1,102 · 접촉각 529 · 표면에너지 457</td></tr>
+      <tr><td>전기</td><td class="num">2,628</td><td class="num">16</td><td class="num">933</td><td class="num">75%</td><td class="src">유전율 787 · 체적저항률 519 · 유전정접 349</td></tr>
+      <tr><td>광학</td><td class="num">1,905</td><td class="num">22</td><td class="num">427</td><td class="num">71%</td><td class="src">굴절률 372 · 투과율 245 · 전방사율 237</td></tr>
+      <tr><td>계면</td><td class="num">1,859</td><td class="num">14</td><td class="num">450</td><td class="num">92%</td><td class="src">박리강도 914 · 중첩전단 258 · 다이전단 165</td></tr>
+      <tr><td>화학</td><td class="num">1,330</td><td class="num">21</td><td class="num">602</td><td class="num">69%</td><td class="src">활성화에너지 292 · 흡습률 255 · 포화흡습 155</td></tr>
+      <tr><td>구조</td><td class="num">1,281</td><td class="num">12</td><td class="num">717</td><td class="num">96%</td><td class="src">격자상수 248 · 층두께 230 · 충전율 225</td></tr>
+      <tr><td>유변</td><td class="num">440</td><td class="num">9</td><td class="num">222</td><td class="num">88%</td><td class="src">점도 226 · 성형수축 79 · 겔타임 41</td></tr>
+      <tr><td>자기</td><td class="num">201</td><td class="num">5</td><td class="num">38</td><td class="num">95%</td><td class="src">비투자율 56 · 큐리온도 40 · 보자력 40</td></tr>
+      <tr><td>표면</td><td class="num">166</td><td class="num">4</td><td class="num">39</td><td class="num">96%</td><td class="src">조도 Ra 60 · Rq 56 · Sq 32</td></tr>
+      <tr><td>음향</td><td class="num">150</td><td class="num">4</td><td class="num">61</td><td class="num">69%</td><td class="src">음향임피던스 64 · 음속 53 · 흡음계수 21</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="k">
+    <li><span class="lead-in">기계 분야가 전체의 46%.</span> 해석 직접 입력 물성이라 우선 확보.
+      점탄성 Prony 계수가 3,585행으로 이 중 상당수를 차지.</li>
+    <li><span class="lead-in">계면·구조 분야의 1차 근거 비율이 92~96%로 높음.</span>
+      박리강도·층두께는 제조사 시트에 직접 인쇄되는 항목.</li>
+    <li><span class="lead-in">물리 분야가 60%로 가장 낮음.</span> 밀도·접촉각에 클래스 대표값 전이가 많음.</li>
+  </ul>
+
+  <h3>근거의 정확도 구성</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>등급</th><th>정의</th><th class="num">값</th><th class="num">비중</th><th>해석 적용 시 취급</th></tr></thead>
+    <tbody>
+      <tr><td><span class="chip c-ok">t1</span></td><td>해당 제품·재료에 인쇄된 실측</td><td class="num">21,148</td><td class="num">59.2%</td><td class="src">그대로 사용</td></tr>
+      <tr><td><span class="chip c-acc">t2</span></td><td>규격·핸드북·인증 DB</td><td class="num">3,389</td><td class="num">9.5%</td><td class="src">그대로 사용</td></tr>
+      <tr><td><span class="chip c-warn">t3</span></td><td>클래스 대표값·2차 인용·해석 입력표</td><td class="num">6,690</td><td class="num">18.7%</td><td class="src">대리값. 실측 확보 시 교체</td></tr>
+      <tr><td><span class="chip c-warn">t4</span></td><td>계산·추정·가정</td><td class="num">4,495</td><td class="num">12.6%</td><td class="src">가정 표기 의무. 민감도 확인 필요</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>참조 구성</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>종류</th><th class="num">출처</th><th class="num">값</th><th>비고</th></tr></thead>
+    <tbody>
+      <tr><td>학술 문헌</td><td class="num">1,231</td><td class="num">20,333</td><td class="src">구조화 코퍼스 20,692편 중 물성표 보유 2,453편에서 선별</td></tr>
+      <tr><td>제조사 데이터시트</td><td class="num">985</td><td class="num">8,482</td><td class="src">BASF · SABIC · DuPont · 3M · Uddeholm 등 공식 시트만 채택</td></tr>
+      <tr><td>물성 DB</td><td class="num">313</td><td class="num">2,105</td><td class="src">공개 물성 데이터베이스</td></tr>
+      <tr><td>단행본</td><td class="num">77</td><td class="num">2,042</td><td class="src">핸드북·전문서적</td></tr>
+      <tr><td>규격 표준</td><td class="num">25</td><td class="num">189</td><td class="src">NADCA · ASTM · IPC · NEMA. 문헌 부재 계통을 여기서 확보</td></tr>
+      <tr><td>기타</td><td class="num">145</td><td class="num">2,571</td><td class="src">기술 자료·웹 공개 자료</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>조건축 부여 현황 <span class="tag">조건이 없으면 해석에 사용 불가</span></h3>
+  <ul class="k">
+    <li><span class="lead-in">온도 64%</span> — 22,833행. 대부분의 물성이 온도 의존이므로 최우선 부여.</li>
+    <li><span class="lead-in">변형률속도 8% · 방향 8% · 주파수 7% · 파장 3%</span> —
+      해당 물성에 한해 부여. 점탄성은 기준온도와 모델형, 이방성 재료는 방향, 유전 물성은 주파수가 필수.</li>
+    <li><span class="lead-in">조건 미기재 값은 적재 단계에서 거부.</span>
+      원문에 조건이 없으면 값이 있어도 등록하지 않음.</li>
+  </ul>
+
+  <h3>측정 가능성 검증 <span class="tag">시험 장비 카탈로그 병행 구축</span></h3>
+  <ul class="k">
+    <li>물성을 확보하는 것과 <b>사내에서 잴 수 있는 것</b>은 별개 문제. 제조사 장비 카탈로그
+      <b>80편</b>을 분석해 장비별 측정 가능 물성을 등록.</li>
+    <li>장비 <b>218종</b> · 벤더 <b>42개사</b> · 측정 능력 <b>532건</b>.
+      기계 103 · 신뢰성 24 · 화학 22 · 표면 21 · 입자 17 · 열 12 · 전기 8 · 광학 6.</li>
+    <li>능력 등록 단위는 <b>장비 × 물성 × 기법</b>. 동일 장비가 같은 물성을 두 기법으로 측정하는 사례가
+      실재하므로 기법을 키에 포함(예: 열전도율의 레이저 플래시법 대 핫디스크법).</li>
+  </ul>
+  <div class="tbl"><table>
+    <thead><tr><th>구분</th><th class="num">물성 항목</th><th>판정</th></tr></thead>
+    <tbody>
+      <tr><td>사내 측정 가능</td><td class="num">80</td><td class="src">등록된 장비로 직접 측정 가능</td></tr>
+      <tr><td>값은 보유, 장비 없음</td><td class="num">161</td><td class="src">문헌·시트로만 확보. 자체 검증 불가</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout warn">
+    <p><strong>장비가 없는 항목 중 다수는 장비 문제가 아니다.</strong>
+    Prony 완화계수(1,906행) · 상대완화계수(1,679행) · 초탄성 계수(450행) · Anand 상수(449행)는
+    <b>원곡선을 측정한 뒤 모델을 피팅해 얻는 값</b>이다. 측정 장비는 있고 <b>피팅 절차가 필요한 항목</b>으로 분류해야 한다.</p>
+    <p>반면 <b>유전율 787행</b>은 실제 공백이다. LCR·임피던스 분석기 카탈로그가 확보돼 있지 않다.</p>
+  </div>
+
+  <h3>재료 분류</h3>
+  <ul class="k">
+    <li><span class="lead-in">product 701종</span> — 해석 대상 부품에 직접 대응하는 재료.</li>
+    <li><span class="lead-in">evidence 1,680종</span> — 대조·검증용 근거 재료. 시편·공정 조건별 데이터 포함.</li>
+    <li><span class="lead-in">out_of_scope 19종</span> — 수집 과정에서 부수적으로 확보. 스마트폰 적용 대상 아님.</li>
+  </ul>
+</section>
+
+<section id="b">
+  <h2 class="sec"><span class="num">3</span>수집 및 검증 절차</h2>
+  <h3>수집 원칙</h3>
+  <ul class="k">
+    <li><span class="lead-in">공식 출처만 채택.</span> 유통사 전재본은 단위가 계통적으로 붕괴된 사례가 확인되어 배제.</li>
+    <li><span class="lead-in">문헌 부재 계통은 규격·제조사 시트로 대체.</span>
+      유리매트 폴리에스터 적층판(GPO-3)·아연 다이캐스팅은 코퍼스 내 <b>0편</b>으로 확정 후
+      NADCA 규격표와 제조사 시트로 확보.</li>
+    <li><span class="lead-in">부재 확정 결과도 기록.</span> 재조회 반복을 방지.</li>
+  </ul>
+
+  <h3>표를 열면 넷 중 하나다 <span class="tag">이 판정이 작업의 핵심이다</span></h3>
+  <div class="tbl"><table>
+    <thead><tr><th>표의 정체</th><th>알아보는 법</th><th>처리</th></tr></thead>
+    <tbody>
+      <tr><td><b>저자 실측</b></td><td>측정법·장비·규격·시편이 인쇄돼 있다</td><td><span class="chip c-ok">채택</span></td></tr>
+      <tr><td><b>남의 값 재인용</b></td><td>캡션·앞 문장에 인용번호, 또는 <code>Ref.</code> 열</td><td><span class="chip c-kill">폐기</span></td></tr>
+      <tr><td><b>해석 입력표</b></td><td>“material properties used … are listed in Table”</td><td><span class="chip c-warn">등급 강등 또는 폐기</span></td></tr>
+      <tr><td><b>데이터시트 전재</b></td><td>출처 표시가 없다. 본문에 등급명이 있다</td><td><span class="chip c-warn">원 시트로 간다</span></td></tr>
+    </tbody>
+  </table></div>
+  <ul class="k">
+    <li>물성표 보유가 채택 요건은 아님. <b>재인용을 실측으로 등록하면 출처가 세탁된다.</b></li>
+    <li>패키징·신뢰성 계통은 재인용 비율이 특히 높음. 검토 6편 전량이 재인용으로 판정된 사례 존재.</li>
+  </ul>
+
+  <h3>검증 절차 <span class="tag">최소 2중 확인</span></h3>
+  <ul class="k">
+    <li><span class="lead-in">단위쌍 검산</span> — MPa·psi 병기 시 환산 일치 여부 확인.
+      단일 칸 이탈은 오식, 열 전체의 계통적 이탈은 반올림으로 판별.</li>
+    <li><span class="lead-in">저자 서술 대조</span> — 본문의 평균·배수 서술로 표 값 역검증.</li>
+    <li><span class="lead-in">물리 상한 검사</span> — 등방재 포아송비 0.5 초과, 순물질 밀도·저항률 이탈 등.</li>
+    <li><span class="lead-in">원문 대조</span> — 추출본의 부호·자릿수 손실 확인.
+      필요 시 PDF 원문 및 300~400 dpi 렌더까지 확인.</li>
+    <li><span class="lead-in">역산 지문 확인</span> — <code>G = E/2(1+ν)</code> 등이 소수점까지 재현되면
+      측정값이 아니라 계산 산출로 판정.</li>
+  </ul>
+</section>
+
+<section id="c">
+  <h2 class="sec"><span class="num">4</span>검증 사례</h2>
+
+  <div class="case">
+    <header><h4>초록의 “1200배”가 깨진 표를 복원했다</h4><span class="src">Yao 2003 · 열분해 흑연</span></header>
+    <div class="body">
+      <p>추출된 표 셀이 깨져 두 가지로 읽힌다. 지수 부호가 제어문자로 바뀐 탓이다.</p>
+      <div class="verbatim">셀 원문   "2 : 5 \x02 10 \x00 6"
+후보 A    2.5 × 10⁻⁶ Ω·m
+후보 B    2.5 × 10⁶  Ω·m</div>
+      <p>초록이 <code>a factor of 1200 in electrical resistivity</code>라 적는다.
+      면직 값 0.003을 후보 A로 나누면 <b>정확히 1200.0</b>이다. 열전도율도 <b>346 ÷ 1.73 = 200.0</b>으로
+      같은 문장의 “200배”와 맞는다.</p>
+      <p class="lead-in">판정 — 항등식 1건으로 소수점 해독·지수 부호·열 배정을 동시 확정.</p>
+    </div>
+  </div>
+
+  <div class="case">
+    <header><h4>단위쌍이 한 칸만 깨졌을 때 어느 쪽을 살릴지</h4><span class="src">Uddeholm 금형강 시트</span></header>
+    <div class="body">
+      <div class="verbatim">20 °C 인장강도   1 150 MPa / 163 800 psi   →  -1.8%   ← 이 칸만 튄다
+같은 표 나머지 네 쌍                        →  ±0.06%
+
+Rm  온도비   MPa 기준 1.085 · psi 기준 1.066   ← 갈린다
+Rp0,2 온도비 두 단위 모두 1.097                ← 안 갈린다
+⇒ psi 칸이 틀렸다</div>
+      <p class="lead-in">판정 — MPa 채택, psi 칸만 폐기. 표 전체는 유효.</p>
+    </div>
+  </div>
+
+  <div class="case">
+    <header><h4>포아송비 한 칸이 표 전체를 폐기시켰다</h4><span class="src">Wang 2017 · 티타늄 합금</span></header>
+    <div class="body">
+      <div class="verbatim">Poisson ratio  1073 K → 0.50 · 1173 K → 0.53   ← 등방재에서 불가능하다
+Thermal cond.   673 K → 1.4                    ← 단조성을 혼자 깬다</div>
+      <p>등방재의 포아송비는 0.5를 넘을 수 없다. PDF 원문도 같은 값이라 추출 오류가 아니고,
+      <strong>두 열이 독립으로 깨졌으니 칸이 아니라 표 전체</strong>다.</p>
+      <p class="lead-in">판정 — 표 전체 폐기. 사유를 대장에 기록해 재검토 중복을 방지.</p>
+    </div>
+  </div>
+</section>
+
+<section id="d">
+  <h2 class="sec"><span class="num">5</span>낙하 모델 입력 — 전수 대조</h2>
+  <ul class="k">
+    <li><span class="lead-in">전(前)은 26종 모두 <code>*MAT_ELASTIC</code>이었다.</span>
+      탄성계수와 포아송비만 있고 <b>항복강도·경화율이 없다.</b></li>
+    <li><span class="lead-in">후(後)는 <code>*MAT_024</code>(탄소성) 또는 <code>*MAT_076</code>(점탄성)이다.</span>
+      항복강도 SIGY와 접선계수 ETAN이 들어가 항복 이후 거동이 생긴다.</li>
+    <li><span class="lead-in">탄성계수·포아송비는 그대로 뒀다.</span>
+      확정된 값이라 바꿀 근거가 없다. 카탈로그에서 가져온 것은 <b>항복강도·접선계수·밀도뿐</b>이다.</li>
+  </ul>
+  <div class="legend">
+    <span><b>SIGY</b> 항복강도 MPa</span>
+    <span><b>ETAN</b> 접선계수 MPa</span>
+    <span><span class="chip c-ok">t1</span> 제품 실측</span>
+    <span><span class="chip c-acc">t2</span> 규격·핸드북</span>
+    <span><span class="chip c-warn">하한</span> 실제보다 낮게 잡음</span>
+  </div>
+
+  <div class="tbl sticky"><table class="matrix">
+    <colgroup>
+      <col class="c-nm"><col class="c-e"><col class="c-nu"><col class="c-sy">
+      <col class="c-et"><col class="c-src"><col class="c-tier"><col class="c-note">
+    </colgroup>
+    <thead><tr>
+      <th>재질</th><th class="num">E</th><th class="num">ν</th>
+      <th class="num">SIGY</th><th class="num">ETAN</th>
+      <th>근거 재료</th><th>등급</th><th>비고</th>
+    </tr></thead>
+    <tbody>
+      <tr class="grp"><td colspan="8">금속 — 항복이 명확한 계통</td></tr>
+      <tr><td class="nm">Ground</td><td class="num">207,000</td><td class="num">0.288</td><td class="num"><b>250</b></td><td class="num">372</td><td class="src">SPCC 연강</td><td><span class="chip c-acc">t2</span></td><td class="note-c">E 차 0.5% — 거의 정확히 일치</td></tr>
+      <tr><td class="nm">Cu-Alloy</td><td class="num">105,356</td><td class="num">0.31</td><td class="num"><b>340</b></td><td class="num">244</td><td class="src">C26000 카트리지황동</td><td><span class="chip c-acc">t2</span></td><td class="note-c">E 차 4.4%</td></tr>
+      <tr><td class="nm">C7701_1_2H</td><td class="num">124,000</td><td class="num">0.28</td><td class="num"><b>552</b></td><td class="num">412</td><td class="src">C51000 인청동</td><td><span class="chip c-ok">t1</span></td><td class="note-c">양백 실측 확보 시 교체</td></tr>
+      <tr><td class="nm">Cu</td><td class="num">114,000</td><td class="num">0.31</td><td class="num"><b>74.6</b></td><td class="num">2,068</td><td class="src">TSV 전해동</td><td><span class="chip c-ok">t1</span></td><td class="note-c">연질이라 보수적 하한. 압연 반경질이면 200~250</td></tr>
+      <tr><td class="nm">ZNDC</td><td class="num">82,000</td><td class="num">0.26</td><td class="num"><b>221</b></td><td class="num">637</td><td class="src">ZAMAK 3</td><td><span class="chip c-acc">t2</span></td><td class="note-c">E 차 4.3% · ν 0.27 대 0.26</td></tr>
+
+      <tr class="grp"><td colspan="8">유리섬유 강화 수지 — 항복과 파단이 붙어 있는 계통</td></tr>
+      <tr><td class="nm">PA-GF30%</td><td class="num">9,300</td><td class="num">0.40</td><td class="num"><b>185</b></td><td class="num">9.3</td><td class="src">Ultramid B3WG6</td><td><span class="chip c-ok">t1</span></td><td class="note-c">E 차 2% — 최상 매칭</td></tr>
+      <tr><td class="nm">Kalix9950</td><td class="num">18,000</td><td class="num">0.35</td><td class="num"><b>259</b></td><td class="num">18</td><td class="src">Amodel A-1145 HS (PPA-GF45)</td><td><span class="chip c-ok">t1</span></td><td class="note-c">E 차 4.4% · 같은 폴리머·충전율대</td></tr>
+      <tr><td class="nm">PBT-GF45</td><td class="num">12,400</td><td class="num">0.358</td><td class="num"><b>140</b></td><td class="num">12.4</td><td class="src">Ultradur B4300 G6 (GF30)</td><td><span class="chip c-warn">하한</span></td><td class="note-c">GF45 등급 미보유 — 실제는 더 강하다</td></tr>
+      <tr><td class="nm">PC-GF50%</td><td class="num">12,000</td><td class="num">0.43</td><td class="num"><b>110</b></td><td class="num">12</td><td class="src">LEXAN 3412R (GF20)</td><td><span class="chip c-warn">하한</span></td><td class="note-c">보유 최고 충전율이 GF20 — 교체 1순위</td></tr>
+      <tr><td class="nm">LCP</td><td class="num">7,100</td><td class="num">0.30</td><td class="num"><b>148</b></td><td class="num">7.1</td><td class="src">LCP neat</td><td><span class="chip c-ok">t1</span></td><td class="note-c">E 차 9%</td></tr>
+
+      <tr class="grp"><td colspan="8">필름 · 도포 수지 · 적층판</td></tr>
+      <tr><td class="nm">POL-PI</td><td class="num">2,000</td><td class="num">0.30</td><td class="num"><b>69</b></td><td class="num">236</td><td class="src">Kapton HN</td><td><span class="chip c-ok">t1</span></td><td class="note-c">표준 PI 필름</td></tr>
+      <tr><td class="nm">PI</td><td class="num">1,490</td><td class="num">0.30</td><td class="num"><b>69</b></td><td class="num">241</td><td class="src">Kapton PI 점착테이프</td><td><span class="chip c-warn">t4</span></td><td class="note-c">E 대역이 필름이 아니라 테이프다</td></tr>
+      <tr><td class="nm">Panel_1187M</td><td class="num">1,187</td><td class="num">0.30</td><td class="num"><b>85</b></td><td class="num">1.19</td><td class="src">투명 PI 필름</td><td><span class="chip c-ok">t1</span></td><td class="note-c">E 차 7%</td></tr>
+      <tr><td class="nm">SUZY_1520M</td><td class="num">1,520</td><td class="num">0.40</td><td class="num"><b>46</b></td><td class="num">1.52</td><td class="src">Dexter FP4527 언더필</td><td><span class="chip c-ok">t1</span></td><td class="note-c">낙하 보강 도포 수지 — 기능이 일치한다</td></tr>
+      <tr><td class="nm">FPCB_CTC_13.4G</td><td class="num">13,400</td><td class="num">0.40</td><td class="num"><b>504</b></td><td class="num">13.4</td><td class="src">TAIFLEX 2L FCCL</td><td><span class="chip c-ok">t1</span></td><td class="note-c">동박 비율 차 — 낙하에서 사실상 탄성 거동</td></tr>
+      <tr><td class="nm">PCB_10G_1</td><td class="num">10,000</td><td class="num">0.275</td><td class="num"><b>310</b></td><td class="num">10</td><td class="src">FR4 유리에폭시</td><td><span class="chip c-warn">t4</span></td><td class="note-c">수지 비율 높은 다층 균질화 값으로 보인다</td></tr>
+
+      <tr class="grp"><td colspan="8">입력값 자체를 정정한 것 — 원본 대조 권고</td></tr>
+      <tr><td class="nm">zRO2</td><td class="num"><b>179,000</b><br><span style="color:var(--ink-3);font-size:.76rem">← 179</span></td><td class="num">0.31</td><td class="num">—</td><td class="num">—</td><td class="src">지르코니아</td><td><span class="chip c-acc">t2</span></td><td class="note-c">같은 파일 <code>zr02</code>가 179,000. <b>1000배 오타</b>. 취성이라 탄성 유지</td></tr>
+      <tr><td class="nm">PCB_30G_1</td><td class="num"><b>30,000</b><br><span style="color:var(--ink-3);font-size:.76rem">← 10,000</span></td><td class="num">0.275</td><td class="num"><b>270</b></td><td class="num">30</td><td class="src">BT 수지</td><td><span class="chip c-ok">t1</span></td><td class="note-c">명명규칙 <code>G</code>=GPa가 6/6 성립. 복사 후 미수정으로 보인다</td></tr>
+      <tr><td class="nm">Glastic</td><td class="num"><b>11,721</b><br><span style="color:var(--ink-3);font-size:.76rem">← 1,258</span></td><td class="num">0.25<br><span style="color:var(--ink-3);font-size:.76rem">← 0.40</span></td><td class="num"><b>62</b></td><td class="num">11.7</td><td class="src">GPO-3 적층판</td><td><span class="chip c-ok">t1</span></td><td class="note-c">GPO-3 상표명인데 기존 값은 <b>판재가 아니라 필름</b> 대역이었다</td></tr>
+
+      <tr class="grp"><td colspan="8">점탄성으로 전환</td></tr>
+      <tr><td class="nm">TAPE_1620MPa</td><td class="num">1,620</td><td class="num">0.45</td><td class="num" colspan="2">G₀ 574.6 · Prony 3항</td><td class="src">OCA 아크릴 (DMA 5 Hz)</td><td><span class="chip c-ok">t1</span></td><td class="note-c">기존 E는 유리상과 2.9% 차로 <b>맞았다</b>. 빠져 있던 것은 완화다</td></tr>
+
+      <tr class="grp"><td colspan="8">탄성 유지 — 취성재라 소성이 물리적으로 틀린다</td></tr>
+      <tr><td class="nm">sensor</td><td class="num">80,000</td><td class="num">0.21</td><td class="num">—</td><td class="num">—</td><td class="src">고릴라 글래스 (E 차 1.3%)</td><td><span class="chip c-acc">t2</span></td><td class="note-c">파손은 <b>최대주응력</b>으로 판정</td></tr>
+
+      <tr class="grp"><td colspan="8">이름만 정리 — 모델 내 검증값 유지, 카탈로그로 덮지 않음</td></tr>
+      <tr><td class="nm">SUS_127 · SUS_127G</td><td class="num">127,000</td><td class="num">0.29</td><td class="num">450</td><td class="num">2,000</td><td class="src" colspan="3">MIDSUS_127G의 검증값</td></tr>
+      <tr><td class="nm">BGA40G.1.1</td><td class="num">40,000</td><td class="num">0.36</td><td class="num">200</td><td class="num">2,000</td><td class="src" colspan="3">BGA40G의 검증값</td></tr>
+      <tr><td class="nm">Solder-50G</td><td class="num">50,000</td><td class="num">0.36</td><td class="num">35</td><td class="num">500</td><td class="src" colspan="3">SOLDER_50G의 검증값</td></tr>
+      <tr><td class="nm">ZNDC_1</td><td class="num">19,000</td><td class="num">0.26</td><td class="num">200</td><td class="num">1,500</td><td class="src" colspan="3">ZNDC_19G의 검증값</td></tr>
+      <tr><td class="nm">Panel-MAT1</td><td class="num">7,500</td><td class="num">0.30</td><td class="num">100</td><td class="num">500</td><td class="src" colspan="3">Panel의 검증값</td></tr>
+      <tr><td class="nm">Epoxy_1000M.1.1</td><td class="num">1,000</td><td class="num">0.35</td><td class="num">30</td><td class="num">100</td><td class="src" colspan="3">Epoxy_1000M의 검증값</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>표를 읽을 때 유의할 점</h3>
+  <ul class="k">
+    <li><span class="lead-in">GF 수지의 ETAN이 작은 것은 의도한 것이다.</span>
+      항복과 파단이 붙어 있어 인장강도를 항복강도로 쓰고 접선계수를 <code>E/1000</code>으로 뒀다 —
+      그 값에 도달하면 응력이 더 오르지 않는다는 뜻이다.</li>
+    <li><span class="lead-in">파단은 기본으로 껐다.</span>
+      요소 조기 소거가 에너지 경로를 바꾼다. 파단변형률은 카드 주석에 남겨 필요할 때 켠다.</li>
+    <li><span class="lead-in">테이프의 점탄성은 낙하 시간대 전용이다.</span>
+      완화시간 τ = 2.19e−4 ~ 0.091초로 낙하 창에 맞췄다. <b>크리프·장기하중에는 쓸 수 없다.</b></li>
+  </ul>
+</section>
+
+<section id="x">
+  <h2 class="sec"><span class="num">6</span>해석 코드 출력</h2>
+  <p style="max-width:66ch">
+    카탈로그 값을 LS-DYNA 카드로 직접 생성한다. 수기 전사 과정을 제거해 단위 환산·오타 오류를 차단한다.
+  </p>
+
+  <h3>지원 카드</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>카드</th><th>용도</th><th>필요 물성</th><th class="num">생성 가능 재료</th></tr></thead>
+    <tbody>
+      <tr><td class="nm">*MAT_ELASTIC</td><td class="src">선형 탄성</td><td class="src">탄성계수 · 포아송비 · 밀도</td><td class="num">587</td></tr>
+      <tr><td class="nm">*MAT_024</td><td class="src">구간선형 소성 — 금속·열가소성</td><td class="src">위 + 항복강도 (+인장강도·연신율)</td><td class="num">181</td></tr>
+      <tr><td class="nm">*MAT_076</td><td class="src">일반 점탄성 — 테이프·언더필·EMC</td><td class="src">Prony 급수 (최대 18항) + 체적탄성률</td><td class="num">174</td></tr>
+      <tr><td class="nm">*MAT_006</td><td class="src">단일항 점탄성</td><td class="src">완화시험 곡선</td><td class="num">업로드 시험 기준</td></tr>
+      <tr><td class="nm">*MAT_ADD_THERMAL_EXPANSION</td><td class="src">열팽창 부가</td><td class="src">선팽창계수</td><td class="num">791</td></tr>
+      <tr><td class="nm">*MAT_THERMAL_ISOTROPIC</td><td class="src">열해석</td><td class="src">열전도율 · 비열 · 밀도</td><td class="num">561</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>단위계</h3>
+  <ul class="k">
+    <li>모델 단위계를 지정하면 환산해 출력. <b>ton-mm-s</b>(기본) · <b>kg-m-s</b> · <b>g-mm-ms</b> · <b>kg-mm-ms</b> 지원.</li>
+    <li>DB는 SI 단일 단위로 보관. 환산은 출력 시점에만 수행하므로 <b>보관값과 출력값이 어긋나지 않는다.</b></li>
+  </ul>
+
+  <h3>카드에 동반 출력되는 정보</h3>
+  <ul class="k">
+    <li><span class="lead-in">근거 재료·등급</span> — 어느 재료의 몇 등급 값을 썼는지.</li>
+    <li><span class="lead-in">모델 대비 물성 차이</span> — 대리재 적용 시 탄성계수 편차를 백분율로 표기.</li>
+    <li><span class="lead-in">유도식</span> — 접선계수 산출식과 대입값.</li>
+    <li><span class="lead-in">적용 한계</span> — 하한 적용·보수적 근사·유효 시간대 등.</li>
+  </ul>
+  <div class="verbatim">$ Ground   (E=207000 MPa · PR=0.288)
+$   근거: [11] SPCC_mild_steel Bilinear  (metal)
+$          DB E = 206000 MPa (모델 대비 -0.5%, t2)
+$   SIGY  = 250 MPa   [yield t2]
+$   ETAN  = 372 MPa   [(UTS 350 - SIGY 250)/(eps_u 0.270 - eps_y 0.0012)]
+$   FAIL  = 0 (비활성). 파단을 켜려면 0.27 를 넣어라 — DB 파단연신이다.
+$   RO    = 7.87e-09 ton/mm^3  [t2]
+*MAT_PIECEWISE_LINEAR_PLASTICITY_TITLE
+Ground
+$#     mid        ro         e        pr      sigy      etan      fail      tdel
+    900003  7.87e-09    207000     0.288       250    372.03         0         0</div>
+
+  <h3>생성 불가 시 처리</h3>
+  <ul class="k">
+    <li>값이 부족하면 카드를 만들지 않고 <b>사유를 명시</b>한다. 임의값으로 채우지 않는다.</li>
+    <li>사유 예 — Prony 항이 18항 초과(자동 절삭 시 완화 스펙트럼 변형) · 체적탄성률 산출 불가 ·
+      선팽창계수 부재.</li>
+  </ul>
+</section>
+
+<section id="w">
+  <h2 class="sec"><span class="num">7</span>운용 — 웹 조회 체계</h2>
+  <p style="max-width:66ch">
+    카탈로그는 사내 포털에 배포돼 있다. 해석 담당자가 재료·물성·측정 가능성을 직접 조회한다.
+  </p>
+
+  <h3>화면 구성</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>화면</th><th>기능</th><th>사용 시점</th></tr></thead>
+    <tbody>
+      <tr><td><b>물성 카탈로그</b></td><td class="src">재료 검색, 도메인·서브시스템별 필터, 등급 표시</td><td class="src">해석 전 재료 확보 여부 확인</td></tr>
+      <tr><td><b>재료 상세</b></td><td class="src">물성 전량, 조건축, 출처, 등급, 측정법 링크</td><td class="src">값 채택 전 근거 확인</td></tr>
+      <tr><td><b>재료 비교</b></td><td class="src">복수 재료의 물성 대조</td><td class="src">대리재 선정</td></tr>
+      <tr><td><b>Ashby 선도</b></td><td class="src">두 물성 축의 산포도</td><td class="src">재료 계통 파악, 이상값 탐지</td></tr>
+      <tr><td><b>DYNA 카드</b></td><td class="src">재료 선택 → 카드 종류·단위계 지정 → 출력</td><td class="src">해석 입력 생성</td></tr>
+      <tr><td><b>측정법</b></td><td class="src">물성별 측정 가능 장비·기법·범위·정확도</td><td class="src">사내 측정 계획 수립</td></tr>
+      <tr><td><b>시험 데이터 업로드</b></td><td class="src">인장·완화 시험 원곡선 등록, 물성 자동 산출</td><td class="src">자체 시험 결과 반영</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>물성 현황 표시 방식</h3>
+  <ul class="k">
+    <li><span class="lead-in">값과 함께 등급·조건·출처를 항상 노출.</span>
+      숫자만 보고 쓰지 않도록 t1~t4 배지와 조건축을 같은 행에 표시.</li>
+    <li><span class="lead-in">취득 방식을 구분 표기.</span>
+      측정 · 핸드북 · 데이터시트 · 계산 · 추정 · <b>그림 판독</b>.
+      그림에서 읽은 값은 인쇄 실측과 구별해 표시한다.</li>
+    <li><span class="lead-in">측정법으로 연결.</span>
+      물성 행에서 해당 물성을 잴 수 있는 장비·기법으로 바로 이동.</li>
+  </ul>
+
+  <h3>측정법 화면의 판정</h3>
+  <ul class="k">
+    <li>물성 목록을 <b>「잴 수 있다」와 「장비 없음」</b>으로 나누어 제시.</li>
+    <li>선택 시 <b>기법별로 묶어</b> 장비·측정범위·시편온도·정확도를 표시.
+      같은 기법을 수행하는 장비 복수는 선택지이지 서로 다른 답이 아니므로 기법이 답의 단위.</li>
+    <li>미기재 항목은 대시로 표시. <b>추정해서 채우지 않는다.</b></li>
+  </ul>
+
+  <h3>해석 도구 연동</h3>
+  <ul class="k">
+    <li>MCP 인터페이스로 외부 도구에서 직접 조회·출력 가능.
+      재료 검색 · 물성 조회 · 재료 비교 · 커버리지 조회 · <b>DYNA 카드 출력</b> 제공.</li>
+    <li>웹 화면을 거치지 않고 해석 전처리 스크립트에서 카드를 받아 쓸 수 있다.</li>
+  </ul>
+</section>
+
+<section id="e">
+  <h2 class="sec"><span class="num">8</span>결과 및 후속</h2>
+
+  <h3>확보 결과</h3>
+  <ul class="k">
+    <li><span class="lead-in">낙하 해석 26종 전량 교체 완료.</span>
+      각 값의 출처 문헌·시트, 검증 내역, 적용 한계를 카드 주석에 행 단위로 기록.</li>
+    <li><span class="lead-in">입력값 오류 3건 발견·정정.</span> 물성 대조 과정에서 확인.</li>
+    <li><span class="lead-in">재사용 가능 카탈로그 확보.</span> 물성값 35,722행 · 재료 2,401종 ·
+      물성 항목 243종. 후속 해석에서 동일 작업 반복 불요.</li>
+    <li><span class="lead-in">측정 가능성 판정 체계 확보.</span> 장비 218종 · 능력 532건 등록.
+      물성별로 사내 측정 가능 여부 조회 가능.</li>
+  </ul>
+
+  <h3>확인 요청 사항</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>항목</th><th>대상</th><th>필요 조치</th></tr></thead>
+    <tbody>
+      <tr><td>입력값 오류 3건</td><td class="src"><code>zRO2</code> · <code>PCB_30G_1</code> · <code>Glastic</code></td>
+        <td class="src">설계 스펙 대조 후 확정. 확정 시 카드 최종 고정</td></tr>
+      <tr><td>사내 코드명 재질</td><td class="src"><code>Kalix9950</code> · <code>SUZY_1520M</code> · <code>C7701_1_2H</code></td>
+        <td class="src">실제 등급 확인. 확인 시 대리재를 실측값으로 교체</td></tr>
+      <tr><td>하한 적용 2종</td><td class="src"><code>PBT-GF45</code> · <code>PC-GF50%</code></td>
+        <td class="src">해당 충전율 등급 미보유. 보수적이나 강도 과소평가</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>시사점</h3>
+  <ul class="k">
+    <li><span class="lead-in">보유량 지표로는 공백이 식별되지 않음.</span>
+      물성 항목은 243종 전량 확보, 1차 근거 비율 69%인 상태에서 낙하 모델 적용 시
+      <b>아연 다이캐스팅 0종 · GPO-3 적층판 0종</b>이 확인됨.
+      미확보 대상은 물성 항목이 아니라 <b>재료 계통</b>이었음.</li>
+    <li><span class="lead-in">수집과 적용을 교대 수행할 것.</span>
+      실제 해석에 적용하기 전에는 미확보 계통이 드러나지 않음.</li>
+    <li><span class="lead-in">측정 가능 여부를 물성 확보와 동시에 관리할 것.</span>
+      값은 있으나 자체 검증이 불가능한 항목이 161종. 이 중 유전율 계통은 장비 카탈로그 확보가 필요.</li>
+  </ul>
+</section>
+</div>
+</main>
+
+<footer><div class="wrap">
+  <p>수치는 작성 시점 기준. 각 카드의 근거 재료·검산 내역·적용 한계는 <code>docs/drop_materials.k</code> 주석에 행 단위로 기록돼 있다.</p>
+</div></footer>
