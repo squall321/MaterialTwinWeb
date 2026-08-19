@@ -156,3 +156,19 @@
 - [x] 구 스키마 볼륨 DB 재생성 + 포트 9118 재배정 + caddy 등록 (백엔드 재시작 없이 launcher 재호출)
 - [x] Drive 병합으로 70종 시드 → 포털에서 조회·인사이트·곡선 전부 렌더 검증
 - [x] (후속) 앱 부팅 create_all→alembic 관리(빈DB create_all+stamp head, 버전DB upgrade head) — 구버전 볼륨 자동 마이그레이션, 배포 볼륨 stamp head
+
+### 43차 EE — 물성키 열 개를 열고 버려졌던 값 52행을 넣는다 (2026-08-19)
+- [x] 도메인 어휘 확인 — `magnetic.*` 5키에 (BH)max 없음 · 246개 정의 전수 대조로 열 자리 확정
+- [x] taxonomy 10키 추가(`app/property_taxonomy.py`) → 246 → 256, 시드 멱등 검증
+- [x] 적재기 범위 가드 10개(`ingest_agent_json.py`) — 하한 0 원칙(브리프 161)
+- [x] Alembic `f7a8b9c0d1e2` — 정의 행 삽입, 전제 없음(b2c3d4e5f6a7 함정 회피)
+- [x] `integrity_check` 에 (BH)max ≤ Br²/(4µ₀) 상시 검사 추가(브리프 431·339 반올림 구간)
+- [x] 값 52행 적재 — (BH)max 24 · 분리막 6 · 광학 13 · 전지계면 7 · 짝 Br 2
+- [x] 물리 상한 검산 — NdFeB 16칸 + 페라이트 7칸 전부 통과(비 0.90~0.97), MGOe 병기 검산 ±1%
+- [x] **로더 결함 발견·수정** — 451 중앙값 가드가 부정문("만들지 않았다")에 걸려 실측을 강등
+- [x] `integrity_check` 중앙값 항목을 SQL → 파이썬(적재기와 같은 판정), 옛 SQL 이 놓친 1건 교정
+- [x] 마이그레이션 예행 4종 — 운영head 사본·구버전(w40) 사본·멱등 재적용·downgrade 양방향
+- [x] `integrity_check` 이상 0 · `verdicts_check` 이상 0 · `pytest` 190 passed
+- [ ] (인계) SmCo 421·422 · Alnico 423 의 (BH)max — Recoma·ChenYang 시트가 손에 없어 미적재
+- [ ] (인계) 하드페라이트 나머지 ~20등급 · PC 광학등급 — **재료가 없다.** 새 재료 승인 필요
+- [ ] (인계) 중앙값 가드가 강등했을 수 있는 기존 441행 — 표시가 없어 되돌릴 수 없다
