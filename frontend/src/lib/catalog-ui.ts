@@ -88,10 +88,13 @@ export function formatConditions(c: Record<string, unknown> | null): string {
 
 export const SUBSYSTEM_LABEL: Record<string, string> = {
   camera: "카메라", display: "디스플레이", battery: "배터리", packaging: "패키지",
-  magnetics: "자성/모터", speaker: "스피커", audio: "음향", rf: "RF",
+  magnetics: "자성/모터", acoustics: "음향", rf: "RF",
   passive: "수동소자", sensor: "센서", thermal: "방열", pcb: "PCB",
   housing: "하우징", coating: "코팅", emi: "EMI", semiconductor: "반도체",
-  soc: "SoC", 기타: "일반 엔지니어링재",
+  wlp: "웨이퍼레벨패키지", 기타: "일반 엔지니어링재",
+  // 옛 값 — `fix_subsystem_vocab.py` 가 acoustics·pcb·wlp 로 합쳤다. 그 스크립트를
+  // 아직 안 돌린 DB 를 붙여도 라벨이 깨지지 않게 남겨 둔다.
+  speaker: "음향", audio: "음향", fpcb: "PCB", soc: "웨이퍼레벨패키지",
 };
 
 export function subsystemLabel(s: string | null | undefined): string {
