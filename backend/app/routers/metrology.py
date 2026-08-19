@@ -55,8 +55,17 @@ def summary(db: Session = Depends(get_db)) -> dict:
             .order_by(func.count(Instrument.id).desc())
         ).all()
     )
+    # ⚠ instruments 는 '카탈로그를 확보한 장비 수' 이지 보유 대수가 아니다. 이 구분이
+    # MCP 도구에서는 01bcaa5 로 바로잡혔는데 REST/웹 UI 는 그대로여서, 같은 숫자가 화면에서
+    # 여전히 '보유 역량' 으로 읽혔다. 이름과 보유 대수를 함께 내 오해를 없앤다.
+    n_owned = db.scalar(
+        select(func.count(Instrument.id)).where(Instrument.owned.is_(True))) or 0
     return {
         "instruments": n_inst,
+        "catalog_instruments": n_inst,   # 이름으로 뜻을 분명히 한다
+        "owned_instruments": n_owned,
+        "ownership_note": ("장비 표는 카탈로그를 확보한 목록이지 보유 목록이 아니다. "
+                           "사내 보유는 owned_instruments 만 센다."),
         "capabilities": n_cap,
         "measurable_properties": n_key,
         "total_properties": n_def,

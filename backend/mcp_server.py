@@ -1648,8 +1648,18 @@ def test_plan_for_material(material_id: int | None = None, name: str | None = No
     """
     with SessionLocal() as s:
         q = s.query(Material)
-        m = (q.filter(Material.id == int(material_id)).first() if material_id
-             else q.filter(Material.name.ilike(f"%{name}%")).first() if name else None)
+        # 이름은 부분일치가 편하지만 여러 건이면 조용히 하나를 고르면 안 된다 — 엉뚱한
+        # 재료의 시험 계획이 나가고 읽는 쪽은 그 사실을 모른다. 같은 계열의
+        # set_instrument_ownership 이 정확일치를 강제하는 것과 같은 이유다.
+        m = None
+        if material_id:
+            m = q.filter(Material.id == int(material_id)).first()
+        elif name:
+            cands = q.filter(Material.name.ilike(f"%{name}%")).limit(6).all()
+            if len(cands) > 1:
+                return {"error": f"'{name}' 에 {len(cands)}건이 걸린다 — 하나로 좁혀라.",
+                        "candidates": [{"id": c.id, "name": c.name} for c in cands]}
+            m = cands[0] if cands else None
         if m is None:
             return {"error": "재료를 찾지 못했다 — material_id 또는 name 을 확인하라(list_materials)."}
 
