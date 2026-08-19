@@ -26,6 +26,13 @@ CHECKS = [
     # `digitized` = 그림에서 읽은 값(40차 BF). `datasheet` 는 로더가 measured 로 정규화하므로 여기 없다.
     ("method 어휘 밖", "select count(*) from property_value where method not in "
                     "('measured','handbook','computed','estimated','digitized')"),
+    # **구간의 중앙값은 우리가 만든 계산값이다** — 실측·핸드북으로 표기하면 안 된다(41차 CD 가 짚었다).
+    # 인쇄된 것은 구간이고 중앙값은 우리 산술이라, `assumed → estimated` 를 가른 것과 같은 부류다.
+    # 실측 당시 143행이 measured/handbook 이었다. 값은 그대로 두고 method 만 computed 로 옮겼다.
+    # **본래는 상·하한 두 행으로 갈라야 한다**(브리프 76) — 원문 구간이 있어야 하므로 배치 몫이다.
+    ("중앙값인데 실측·핸드북 표기",
+     "select count(*) from property_value where (notes like '%중간값%' or notes like '%중앙값%') "
+     "and method in ('measured','handbook')"),
     ("출처 kind 어휘 밖", """select count(*) from source where kind not in
         ('journal','book','database','datasheet','computed','standard','web','other')"""),
     ("category 어휘 밖", """select count(*) from material where category not in
