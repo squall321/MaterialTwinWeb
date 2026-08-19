@@ -1,0 +1,933 @@
+{
+ "batch": "FE-4 44차 · AGY 2006 Table 1/2/3 잔여 5등급(A · C · AR · R · ECRGlas) 신규 재료",
+ "materials": [
+  {
+   "new_material": {
+    "name": "A-glass high-alkali soda-lime-silicate glass fibre (AGY compilation grade)",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "pcb",
+     "material_class": "A glass — 고알칼리 소다석회규산염 유리섬유(ASTM/IPC 'A' 계열명, 특정 제조사 등급이 아니라 조성 계열명)",
+     "process": "continuous glass filament / woven fabric",
+     "composition": "SiO2 63-72, Al2O3 0-6, B2O3 0-6, CaO 6-10, MgO 0-4, Na2O+K2O 14-16, TiO2 0-0.6, Fe2O3 0-0.5, F2 0-0.4 wt% (AGY Table 1). 검산: 구간 중앙값 합 99.25 wt%, 하한합 83 / 상한합 115.5 이라 100 을 걸친다.",
+     "role_reason": "AGY 편찬표가 등급 단위로 물성을 인쇄하고, 같은 표의 D·E·S-2 열이 이미 카탈로그 재료로 서 있다(2617·199·2365)",
+     "role_confidence": "medium",
+     "viscosity_reference_points_not_loadable": "점도 기준점(연화·어닐링·스트레인)은 키가 아직 없어 못 넣었다 — 44차 FD 가 그 키를 여는 중이라 값만 여기 남긴다(§468).",
+     "softening_point_c_not_loadable": 705,
+     "softening_point_f_printed": 1300
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "AGY - High Strength Glass Fibers (technical paper), Pub. No. LIT-2006-111 R2 (02/06); 값은 AGY Technical Product Guide, Pub. No. LIT-2009-351 R1 (1/09) p.38 각주가 측정법까지 밝혀 재확인한다",
+    "url": "https://web.archive.org/web/20060313225542id_/http://www.agy.com/technical_info/graphics_PDFs/HighStrengthTechPaperEng.pdf",
+    "authors": "AGY (AGY Holding Corp.)",
+    "year": 2006,
+    "publisher": "AGY (AGY Holding Corp.)",
+    "manufacturer": "AGY (AGY Holding Corp.)",
+    "local_path": "standards_appnotes/pcb/AGY_High_Strength_Glass_Fibers_TechPaper_LIT-2006-111R2.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2440.0,
+     "unit": "kg/m^3",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 A GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature": "not printed"
+     },
+     "notes": "AGY 2006 Table 2 PHYSICAL PROPERTIES `Density, gm/cc` 행 A 칸 verbatim `2.44`. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3310/68.9 = 4.80% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.538,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 A GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "wavelength": "not printed",
+      "temperature": "not printed"
+     },
+     "notes": "AGY 2006 Table 2 `Refractive Index` 행 A 칸 verbatim `1.538`. **파장이 인쇄돼 있지 않다** — 시트가 밝히지 않은 것을 지어내지 않고 조건에 미인쇄로 남긴다. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3310/68.9 = 4.80% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 3310000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 A GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature_c": 23,
+      "specimen_form": "pristine single filament (본문: 'Tensile strength of glass fibers is usually reported as the pristine ...')"
+     },
+     "notes": "AGY 2006 Table 2 `Tensile Strength, MPa / 23 degC` 행 A 칸 verbatim `3310`. 온도가 조건축으로 인쇄된 격자다. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3310/68.9 = 4.80% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 68900000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 A GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature_c": 23,
+      "specimen_form": "fibre (unannealed)"
+     },
+     "notes": "AGY 2006 Table 2 `Young's Modulus, GPa / 23 degC` 행 A 칸 verbatim `68.9`. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3310/68.9 = 4.80% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "mechanical.elongation_at_break",
+     "value": 0.048,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 A GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature": "not printed",
+      "specimen_form": "fibre"
+     },
+     "notes": "AGY 2006 Table 2 `Elongation %` 행 A 칸 verbatim `4.8` -> 0.048. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3310/68.9 = 4.80% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 6.2,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 A GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "frequency_hz": 1000000.0,
+      "temperature": "not printed"
+     },
+     "notes": "AGY 2006 Table 3 ELECTRICAL PROPERTIES `Dielectric Constant 1 MHz` 행 A 칸 verbatim `6.2`. **주파수가 조건축으로 인쇄돼 있다**(§144). 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3310/68.9 = 4.80% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 100000000.0,
+     "unit": "ohm*m",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 A GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature": "not printed"
+     },
+     "notes": "AGY 2006 Table 3 `Volume Resistivity (ohm-cm)` 행 A 칸 verbatim `1.00E+10` -> x0.01 = 1.000E+08 ohm*m. A 열만 1e10 으로 나머지(E 4.02e14 · ECR 3.84e14 · R 2.03e14)보다 네 자릿수 낮다 — **알칼리 14-16 wt% 인 소다석회 조성과 정합한다**(§443 아는 값 대조).  이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3310/68.9 = 4.80% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 796.0,
+     "unit": "J/(kg*K)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 A GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature_c": 23,
+      "test_method": "high-temperature differential scanning calorimetry (본문)"
+     },
+     "notes": "AGY 2006 Table 3 THERMAL PROPERTIES `Specific Heat J/g degC (BTU/lb degF) / 23 degC` 행 A 칸 verbatim `0.796` -> 796 J/(kg*K). 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3310/68.9 = 4.80% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 7.3e-06,
+     "unit": "1/K",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 A GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature_range_c": "-30 to 250"
+     },
+     "notes": "AGY 2006 Table 3 `Thermal Expansion Coefficient (x10-7) / -30degC to 250degC` 행 A 칸 verbatim `73` -> 7.2999999999999996e-06/K. **구간이 인쇄돼 있다.** 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3310/68.9 = 4.80% 로 인쇄된 신율 4.8% 와 맞는다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "C-glass corrosion-resistant borosilicate glass fibre (AGY compilation grade)",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "pcb",
+     "material_class": "C glass — 내약품성 붕규산 유리섬유(조성 계열명)",
+     "process": "continuous glass filament / woven fabric",
+     "composition": "SiO2 64-68, Al2O3 3-5, B2O3 4-6, CaO 11-15, MgO 2-4, BaO 0-1, Na2O+K2O 7-10, Fe2O3 0-0.8 wt% (AGY Table 1). 검산: 구간 중앙값 합 100.4 wt%.",
+     "role_reason": "AGY 편찬표가 등급 단위로 물성을 인쇄하고, 같은 표의 D·E·S-2 열이 이미 카탈로그 재료로 서 있다(2617·199·2365)",
+     "role_confidence": "medium",
+     "viscosity_reference_points_not_loadable": "점도 기준점(연화·어닐링·스트레인)은 키가 아직 없어 못 넣었다 — 44차 FD 가 그 키를 여는 중이라 값만 여기 남긴다(§468).",
+     "softening_point_c_not_loadable": 750,
+     "softening_point_f_printed": 1382,
+     "annealing_point_c_not_loadable": 588,
+     "annealing_point_f_printed": 1090,
+     "strain_point_c_not_loadable": 522,
+     "strain_point_f_printed": 1025,
+     "strain_point_unit_roundtrip_fails": "522 degC -> 971.6 degF 인데 표는 1025 degF 를 인쇄한다(1025 degF -> 551.7 degC). 같은 열의 연화(750/1382)·어닐링(588/1090)은 왕복이 맞고 다른 열의 스트레인점(D 477/890 · E 615/1140 · R 736/1357 · S-2 766/1410)도 전부 맞는다 — **이 한 칸만 어긋난다**(§141). 어느 쪽이 오식인지 원문이 정하지 못해 두 값을 다 남긴다."
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "AGY - High Strength Glass Fibers (technical paper), Pub. No. LIT-2006-111 R2 (02/06); 값은 AGY Technical Product Guide, Pub. No. LIT-2009-351 R1 (1/09) p.38 각주가 측정법까지 밝혀 재확인한다",
+    "url": "https://web.archive.org/web/20060313225542id_/http://www.agy.com/technical_info/graphics_PDFs/HighStrengthTechPaperEng.pdf",
+    "authors": "AGY (AGY Holding Corp.)",
+    "year": 2006,
+    "publisher": "AGY (AGY Holding Corp.)",
+    "manufacturer": "AGY (AGY Holding Corp.)",
+    "local_path": "standards_appnotes/pcb/AGY_High_Strength_Glass_Fibers_TechPaper_LIT-2006-111R2.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2520.0,
+     "unit": "kg/m^3",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 C GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature": "not printed"
+     },
+     "notes": "AGY 2006 Table 2 PHYSICAL PROPERTIES `Density, gm/cc` 행 C 칸 verbatim `2.52`. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3310/68.9 = 4.80% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.533,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 C GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "wavelength": "not printed",
+      "temperature": "not printed"
+     },
+     "notes": "AGY 2006 Table 2 `Refractive Index` 행 C 칸 verbatim `1.533`. **파장이 인쇄돼 있지 않다** — 시트가 밝히지 않은 것을 지어내지 않고 조건에 미인쇄로 남긴다. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3310/68.9 = 4.80% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 5380000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 C GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature_c": -196,
+      "specimen_form": "pristine single filament (본문: 'Tensile strength of glass fibers is usually reported as the pristine ...')"
+     },
+     "notes": "AGY 2006 Table 2 `Tensile Strength, MPa / -196 degC` 행 C 칸 verbatim `5380`. 온도가 조건축으로 인쇄된 격자다. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3310/68.9 = 4.80% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 3310000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 C GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature_c": 23,
+      "specimen_form": "pristine single filament (본문: 'Tensile strength of glass fibers is usually reported as the pristine ...')"
+     },
+     "notes": "AGY 2006 Table 2 `Tensile Strength, MPa / 23 degC` 행 C 칸 verbatim `3310`. 온도가 조건축으로 인쇄된 격자다. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3310/68.9 = 4.80% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 68900000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 C GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature_c": 23,
+      "specimen_form": "fibre (unannealed)"
+     },
+     "notes": "AGY 2006 Table 2 `Young's Modulus, GPa / 23 degC` 행 C 칸 verbatim `68.9`. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3310/68.9 = 4.80% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "mechanical.elongation_at_break",
+     "value": 0.048,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 C GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature": "not printed",
+      "specimen_form": "fibre"
+     },
+     "notes": "AGY 2006 Table 2 `Elongation %` 행 C 칸 verbatim `4.8` -> 0.048. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3310/68.9 = 4.80% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 6.9,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 C GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "frequency_hz": 1000000.0,
+      "temperature": "not printed"
+     },
+     "notes": "AGY 2006 Table 3 ELECTRICAL PROPERTIES `Dielectric Constant 1 MHz` 행 C 칸 verbatim `6.9`. **주파수가 조건축으로 인쇄돼 있다**(§144). 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3310/68.9 = 4.80% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.0085,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 C GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "frequency_hz": 1000000.0,
+      "temperature": "not printed"
+     },
+     "notes": "AGY 2006 Table 3 `Dissipation Factor 1 MHz` 행 C 칸 verbatim `0.0085`. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3310/68.9 = 4.80% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 787.0,
+     "unit": "J/(kg*K)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 C GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature_c": 23,
+      "test_method": "high-temperature differential scanning calorimetry (본문)"
+     },
+     "notes": "AGY 2006 Table 3 THERMAL PROPERTIES `Specific Heat J/g degC (BTU/lb degF) / 23 degC` 행 C 칸 verbatim `0.787` -> 787 J/(kg*K). 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3310/68.9 = 4.80% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 900.0,
+     "unit": "J/(kg*K)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 C GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature_c": 200,
+      "test_method": "high-temperature differential scanning calorimetry (본문)"
+     },
+     "notes": "AGY 2006 Table 3 THERMAL PROPERTIES `Specific Heat J/g degC (BTU/lb degF) / 200 degC` 행 C 칸 verbatim `0.9` -> 900 J/(kg*K). 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3310/68.9 = 4.80% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 6.3e-06,
+     "unit": "1/K",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 C GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature_range_c": "-30 to 250"
+     },
+     "notes": "AGY 2006 Table 3 `Thermal Expansion Coefficient (x10-7) / -30degC to 250degC` 행 C 칸 verbatim `63` -> 6.3e-06/K. **구간이 인쇄돼 있다.** 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3310/68.9 = 4.80% 로 인쇄된 신율 4.8% 와 맞는다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "AR-glass alkali-resistant zirconia-bearing glass fibre (AGY compilation grade)",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "pcb",
+     "material_class": "AR glass — 내알칼리(ZrO2 함유) 유리섬유(조성 계열명)",
+     "process": "continuous glass filament / woven fabric",
+     "composition": "SiO2 55-75, Al2O3 0-5, B2O3 0-8, CaO 1-10, Li2O 0-1.5, Na2O+K2O 11-21, TiO2 0-12, ZrO2 1-18, Fe2O3 0-5, F2 0-5 wt% (AGY Table 1). 구간이 매우 넓다 — 하한합 68 / 상한합 160.5 라 100 을 걸치기는 하나 **이 열은 계열 전체를 덮는 폭이라 조성으로 등급을 특정할 수 없다.**",
+     "role_reason": "AGY 편찬표가 등급 단위로 물성을 인쇄하고, 같은 표의 D·E·S-2 열이 이미 카탈로그 재료로 서 있다(2617·199·2365)",
+     "role_confidence": "medium",
+     "viscosity_reference_points_not_loadable": "점도 기준점(연화·어닐링·스트레인)은 키가 아직 없어 못 넣었다 — 44차 FD 가 그 키를 여는 중이라 값만 여기 남긴다(§468).",
+     "softening_point_c_not_loadable": 773,
+     "softening_point_f_printed": 1424
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "AGY - High Strength Glass Fibers (technical paper), Pub. No. LIT-2006-111 R2 (02/06); 값은 AGY Technical Product Guide, Pub. No. LIT-2009-351 R1 (1/09) p.38 각주가 측정법까지 밝혀 재확인한다",
+    "url": "https://web.archive.org/web/20060313225542id_/http://www.agy.com/technical_info/graphics_PDFs/HighStrengthTechPaperEng.pdf",
+    "authors": "AGY (AGY Holding Corp.)",
+    "year": 2006,
+    "publisher": "AGY (AGY Holding Corp.)",
+    "manufacturer": "AGY (AGY Holding Corp.)",
+    "local_path": "standards_appnotes/pcb/AGY_High_Strength_Glass_Fibers_TechPaper_LIT-2006-111R2.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2700.0,
+     "unit": "kg/m^3",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 AR GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature": "not printed"
+     },
+     "notes": "AGY 2006 Table 2 PHYSICAL PROPERTIES `Density, gm/cc` 행 AR 칸 verbatim `2.7`. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3241/73.1 = 4.43% 로 인쇄된 신율 4.4% 와 맞는다."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.562,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 AR GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "wavelength": "not printed",
+      "temperature": "not printed"
+     },
+     "notes": "AGY 2006 Table 2 `Refractive Index` 행 AR 칸 verbatim `1.562`. **파장이 인쇄돼 있지 않다** — 시트가 밝히지 않은 것을 지어내지 않고 조건에 미인쇄로 남긴다. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3241/73.1 = 4.43% 로 인쇄된 신율 4.4% 와 맞는다."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 3241000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 AR GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature_c": 23,
+      "specimen_form": "pristine single filament (본문: 'Tensile strength of glass fibers is usually reported as the pristine ...')"
+     },
+     "notes": "AGY 2006 Table 2 `Tensile Strength, MPa / 23 degC` 행 AR 칸 verbatim `3241`. 온도가 조건축으로 인쇄된 격자다. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3241/73.1 = 4.43% 로 인쇄된 신율 4.4% 와 맞는다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 73100000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 AR GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature_c": 23,
+      "specimen_form": "fibre (unannealed)"
+     },
+     "notes": "AGY 2006 Table 2 `Young's Modulus, GPa / 23 degC` 행 AR 칸 verbatim `73.1`. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3241/73.1 = 4.43% 로 인쇄된 신율 4.4% 와 맞는다."
+    },
+    {
+     "key": "mechanical.elongation_at_break",
+     "value": 0.044,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 AR GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature": "not printed",
+      "specimen_form": "fibre"
+     },
+     "notes": "AGY 2006 Table 2 `Elongation %` 행 AR 칸 verbatim `4.4` -> 0.044000000000000004. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3241/73.1 = 4.43% 로 인쇄된 신율 4.4% 와 맞는다."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 8.1,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 AR GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "frequency_hz": 1000000.0,
+      "temperature": "not printed"
+     },
+     "notes": "AGY 2006 Table 3 ELECTRICAL PROPERTIES `Dielectric Constant 1 MHz` 행 AR 칸 verbatim `8.1`. **주파수가 조건축으로 인쇄돼 있다**(§144). 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3241/73.1 = 4.43% 로 인쇄된 신율 4.4% 와 맞는다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 6.5e-06,
+     "unit": "1/K",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 AR GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature_range_c": "-30 to 250"
+     },
+     "notes": "AGY 2006 Table 3 `Thermal Expansion Coefficient (x10-7) / -30degC to 250degC` 행 AR 칸 verbatim `65` -> 6.5e-06/K. **구간이 인쇄돼 있다.** 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 3241/73.1 = 4.43% 로 인쇄된 신율 4.4% 와 맞는다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "R-glass high-strength alumino-silicate glass fibre (composite and PCB reinforcement)",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "pcb",
+     "material_class": "R glass — 고강도 알루미노실리케이트 유리섬유(조성 계열명, S-2 Glass 와 같은 고강도 갈래)",
+     "process": "continuous glass filament / woven fabric",
+     "composition": "SiO2 55-60, Al2O3 23-28, B2O3 0-0.35, CaO 8-15, MgO 4-7, Na2O+K2O 0-1, Fe2O3 0-0.5, F2 0-0.3 wt% (AGY Table 1). 검산: 구간 중앙값 합 101.1 wt%.",
+     "role_reason": "AGY 편찬표가 등급 단위로 물성을 인쇄하고, 같은 표의 D·E·S-2 열이 이미 카탈로그 재료로 서 있다(2617·199·2365)",
+     "role_confidence": "medium",
+     "viscosity_reference_points_not_loadable": "점도 기준점(연화·어닐링·스트레인)은 키가 아직 없어 못 넣었다 — 44차 FD 가 그 키를 여는 중이라 값만 여기 남긴다(§468).",
+     "softening_point_c_not_loadable": 952,
+     "softening_point_f_printed": 1745,
+     "strain_point_c_not_loadable": 736,
+     "strain_point_f_printed": 1357
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "AGY - High Strength Glass Fibers (technical paper), Pub. No. LIT-2006-111 R2 (02/06); 값은 AGY Technical Product Guide, Pub. No. LIT-2009-351 R1 (1/09) p.38 각주가 측정법까지 밝혀 재확인한다",
+    "url": "https://web.archive.org/web/20060313225542id_/http://www.agy.com/technical_info/graphics_PDFs/HighStrengthTechPaperEng.pdf",
+    "authors": "AGY (AGY Holding Corp.)",
+    "year": 2006,
+    "publisher": "AGY (AGY Holding Corp.)",
+    "manufacturer": "AGY (AGY Holding Corp.)",
+    "local_path": "standards_appnotes/pcb/AGY_High_Strength_Glass_Fibers_TechPaper_LIT-2006-111R2.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2540.0,
+     "unit": "kg/m^3",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 R GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature": "not printed"
+     },
+     "notes": "AGY 2006 Table 2 PHYSICAL PROPERTIES `Density, gm/cc` 행 R 칸 verbatim `2.54`. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 4135/85.5 = 4.84% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.546,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 R GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "wavelength": "not printed",
+      "temperature": "not printed"
+     },
+     "notes": "AGY 2006 Table 2 `Refractive Index` 행 R 칸 verbatim `1.546`. **파장이 인쇄돼 있지 않다** — 시트가 밝히지 않은 것을 지어내지 않고 조건에 미인쇄로 남긴다. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 4135/85.5 = 4.84% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 4135000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 R GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature_c": 23,
+      "specimen_form": "pristine single filament (본문: 'Tensile strength of glass fibers is usually reported as the pristine ...')"
+     },
+     "notes": "AGY 2006 Table 2 `Tensile Strength, MPa / 23 degC` 행 R 칸 verbatim `4135`. 온도가 조건축으로 인쇄된 격자다. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 4135/85.5 = 4.84% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 2930000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 R GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature_c": 371,
+      "specimen_form": "pristine single filament (본문: 'Tensile strength of glass fibers is usually reported as the pristine ...')"
+     },
+     "notes": "AGY 2006 Table 2 `Tensile Strength, MPa / 371 degC` 행 R 칸 verbatim `2930`. 온도가 조건축으로 인쇄된 격자다. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 4135/85.5 = 4.84% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 2140000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 R GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature_c": 538,
+      "specimen_form": "pristine single filament (본문: 'Tensile strength of glass fibers is usually reported as the pristine ...')"
+     },
+     "notes": "AGY 2006 Table 2 `Tensile Strength, MPa / 538 degC` 행 R 칸 verbatim `2140`. 온도가 조건축으로 인쇄된 격자다. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 4135/85.5 = 4.84% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 85500000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 R GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature_c": 23,
+      "specimen_form": "fibre (unannealed)"
+     },
+     "notes": "AGY 2006 Table 2 `Young's Modulus, GPa / 23 degC` 행 R 칸 verbatim `85.5`. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 4135/85.5 = 4.84% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "mechanical.elongation_at_break",
+     "value": 0.048,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 R GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature": "not printed",
+      "specimen_form": "fibre"
+     },
+     "notes": "AGY 2006 Table 2 `Elongation %` 행 R 칸 verbatim `4.8` -> 0.048. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 4135/85.5 = 4.84% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 6.4,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 R GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "frequency_hz": 1000000.0,
+      "temperature": "not printed"
+     },
+     "notes": "AGY 2006 Table 3 ELECTRICAL PROPERTIES `Dielectric Constant 1 MHz` 행 R 칸 verbatim `6.4`. **주파수가 조건축으로 인쇄돼 있다**(§144). 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 4135/85.5 = 4.84% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.0034,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 R GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "frequency_hz": 1000000.0,
+      "temperature": "not printed"
+     },
+     "notes": "AGY 2006 Table 3 `Dissipation Factor 1 MHz` 행 R 칸 verbatim `0.0034`. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 4135/85.5 = 4.84% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.0051,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 R GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "frequency_hz": 10000000000.0,
+      "temperature": "not printed"
+     },
+     "notes": "AGY 2006 Table 3 `Dissipation Factor 10 GHz` 행 R 칸 verbatim `0.0051`. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 4135/85.5 = 4.84% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 2030000000000.0,
+     "unit": "ohm*m",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 R GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature": "not printed"
+     },
+     "notes": "AGY 2006 Table 3 `Volume Resistivity (ohm-cm)` 행 R 칸 verbatim `2.03E+14` -> x0.01 = 2.030E+12 ohm*m.  이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 4135/85.5 = 4.84% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 732.0,
+     "unit": "J/(kg*K)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 R GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature_c": 23,
+      "test_method": "high-temperature differential scanning calorimetry (본문)"
+     },
+     "notes": "AGY 2006 Table 3 THERMAL PROPERTIES `Specific Heat J/g degC (BTU/lb degF) / 23 degC` 행 R 칸 verbatim `0.732` -> 732 J/(kg*K). 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 4135/85.5 = 4.84% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 938.0,
+     "unit": "J/(kg*K)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 R GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature_c": 200,
+      "test_method": "high-temperature differential scanning calorimetry (본문)"
+     },
+     "notes": "AGY 2006 Table 3 THERMAL PROPERTIES `Specific Heat J/g degC (BTU/lb degF) / 200 degC` 행 R 칸 verbatim `0.938` -> 938 J/(kg*K). 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 4135/85.5 = 4.84% 로 인쇄된 신율 4.8% 와 맞는다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 3.3e-06,
+     "unit": "1/K",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 R GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "temperature_range_c": "-30 to 250"
+     },
+     "notes": "AGY 2006 Table 3 `Thermal Expansion Coefficient (x10-7) / -30degC to 250degC` 행 R 칸 verbatim `33` -> 3.2999999999999997e-06/K. **구간이 인쇄돼 있다.** 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). 4135/85.5 = 4.84% 로 인쇄된 신율 4.8% 와 맞는다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "AGY ECRGLAS boron-free corrosion-resistant glass fibre (E-CR type reinforcement)",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "pcb",
+     "material_class": "ECRGLAS(R) — 무붕소 내부식 E-CR 유리섬유(AGY 등록상표 등급)",
+     "process": "continuous glass filament / woven fabric",
+     "composition": "SiO2 54-62, Al2O3 9-15, CaO 17-25, MgO 0-4, ZnO 2-5, Na2O+K2O 0-2, TiO2 0-4, Fe2O3 0-0.8 wt% (AGY Table 1). 검산: 구간 중앙값 합 99.9 wt%. **B2O3 열이 비어 있다** — 무붕소(boron-free) E-CR 계임과 정합한다.",
+     "role_reason": "AGY 편찬표가 등급 단위로 물성을 인쇄하고, 같은 표의 D·E·S-2 열이 이미 카탈로그 재료로 서 있다(2617·199·2365)",
+     "role_confidence": "high",
+     "viscosity_reference_points_not_loadable": "점도 기준점(연화·어닐링·스트레인)은 키가 아직 없어 못 넣었다 — 44차 FD 가 그 키를 여는 중이라 값만 여기 남긴다(§468).",
+     "softening_point_c_not_loadable": 882,
+     "softening_point_f_printed": 1619
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "AGY - High Strength Glass Fibers (technical paper), Pub. No. LIT-2006-111 R2 (02/06); 값은 AGY Technical Product Guide, Pub. No. LIT-2009-351 R1 (1/09) p.38 각주가 측정법까지 밝혀 재확인한다",
+    "url": "https://web.archive.org/web/20060313225542id_/http://www.agy.com/technical_info/graphics_PDFs/HighStrengthTechPaperEng.pdf",
+    "authors": "AGY (AGY Holding Corp.)",
+    "year": 2006,
+    "publisher": "AGY (AGY Holding Corp.)",
+    "manufacturer": "AGY (AGY Holding Corp.)",
+    "local_path": "standards_appnotes/pcb/AGY_High_Strength_Glass_Fibers_TechPaper_LIT-2006-111R2.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2720.0,
+     "unit": "kg/m^3",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 ECRGlas(R) 열 — AGY 등록상표 등급이다",
+      "temperature": "not printed"
+     },
+     "notes": "AGY 2006 Table 2 PHYSICAL PROPERTIES `Density, gm/cc` 행 ECR 칸 verbatim `2.72`. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). **후크 항등식이 이 열에서만 깨진다** — 3445/80.3 = 4.29% 인데 인쇄된 신율은 4.8% 다. 그리고 그 4.8 은 옆 E GLASS 열의 값과 같다(인장 3445 · 5310 · 1725, 538 degC 모듈러스 81.3 도 E 열과 같다) — 셀 복제 의심이다. **어느 칸이 틀렸는지 원문이 정하지 못하므로 신율만 빼고 인장·모듈러스는 넣었다**(§141).."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.579,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 ECRGlas(R) 열 — AGY 등록상표 등급이다",
+      "wavelength": "not printed",
+      "temperature": "not printed"
+     },
+     "notes": "AGY 2006 Table 2 `Refractive Index` 행 ECR 칸 verbatim `1.579`. **파장이 인쇄돼 있지 않다** — 시트가 밝히지 않은 것을 지어내지 않고 조건에 미인쇄로 남긴다. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). **후크 항등식이 이 열에서만 깨진다** — 3445/80.3 = 4.29% 인데 인쇄된 신율은 4.8% 다. 그리고 그 4.8 은 옆 E GLASS 열의 값과 같다(인장 3445 · 5310 · 1725, 538 degC 모듈러스 81.3 도 E 열과 같다) — 셀 복제 의심이다. **어느 칸이 틀렸는지 원문이 정하지 못하므로 신율만 빼고 인장·모듈러스는 넣었다**(§141).."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 5310000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 ECRGlas(R) 열 — AGY 등록상표 등급이다",
+      "temperature_c": -196,
+      "specimen_form": "pristine single filament (본문: 'Tensile strength of glass fibers is usually reported as the pristine ...')"
+     },
+     "notes": "AGY 2006 Table 2 `Tensile Strength, MPa / -196 degC` 행 ECR 칸 verbatim `5310`. 온도가 조건축으로 인쇄된 격자다. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). **후크 항등식이 이 열에서만 깨진다** — 3445/80.3 = 4.29% 인데 인쇄된 신율은 4.8% 다. 그리고 그 4.8 은 옆 E GLASS 열의 값과 같다(인장 3445 · 5310 · 1725, 538 degC 모듈러스 81.3 도 E 열과 같다) — 셀 복제 의심이다. **어느 칸이 틀렸는지 원문이 정하지 못하므로 신율만 빼고 인장·모듈러스는 넣었다**(§141).."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 3445000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 ECRGlas(R) 열 — AGY 등록상표 등급이다",
+      "temperature_c": 23,
+      "specimen_form": "pristine single filament (본문: 'Tensile strength of glass fibers is usually reported as the pristine ...')"
+     },
+     "notes": "AGY 2006 Table 2 `Tensile Strength, MPa / 23 degC` 행 ECR 칸 verbatim `3445`. 온도가 조건축으로 인쇄된 격자다. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). **후크 항등식이 이 열에서만 깨진다** — 3445/80.3 = 4.29% 인데 인쇄된 신율은 4.8% 다. 그리고 그 4.8 은 옆 E GLASS 열의 값과 같다(인장 3445 · 5310 · 1725, 538 degC 모듈러스 81.3 도 E 열과 같다) — 셀 복제 의심이다. **어느 칸이 틀렸는지 원문이 정하지 못하므로 신율만 빼고 인장·모듈러스는 넣었다**(§141).."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 2165000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 ECRGlas(R) 열 — AGY 등록상표 등급이다",
+      "temperature_c": 371,
+      "specimen_form": "pristine single filament (본문: 'Tensile strength of glass fibers is usually reported as the pristine ...')"
+     },
+     "notes": "AGY 2006 Table 2 `Tensile Strength, MPa / 371 degC` 행 ECR 칸 verbatim `2165`. 온도가 조건축으로 인쇄된 격자다. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). **후크 항등식이 이 열에서만 깨진다** — 3445/80.3 = 4.29% 인데 인쇄된 신율은 4.8% 다. 그리고 그 4.8 은 옆 E GLASS 열의 값과 같다(인장 3445 · 5310 · 1725, 538 degC 모듈러스 81.3 도 E 열과 같다) — 셀 복제 의심이다. **어느 칸이 틀렸는지 원문이 정하지 못하므로 신율만 빼고 인장·모듈러스는 넣었다**(§141).."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 1725000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 ECRGlas(R) 열 — AGY 등록상표 등급이다",
+      "temperature_c": 538,
+      "specimen_form": "pristine single filament (본문: 'Tensile strength of glass fibers is usually reported as the pristine ...')"
+     },
+     "notes": "AGY 2006 Table 2 `Tensile Strength, MPa / 538 degC` 행 ECR 칸 verbatim `1725`. 온도가 조건축으로 인쇄된 격자다. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). **후크 항등식이 이 열에서만 깨진다** — 3445/80.3 = 4.29% 인데 인쇄된 신율은 4.8% 다. 그리고 그 4.8 은 옆 E GLASS 열의 값과 같다(인장 3445 · 5310 · 1725, 538 degC 모듈러스 81.3 도 E 열과 같다) — 셀 복제 의심이다. **어느 칸이 틀렸는지 원문이 정하지 못하므로 신율만 빼고 인장·모듈러스는 넣었다**(§141).."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 80300000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 ECRGlas(R) 열 — AGY 등록상표 등급이다",
+      "temperature_c": 23,
+      "specimen_form": "fibre (unannealed)"
+     },
+     "notes": "AGY 2006 Table 2 `Young's Modulus, GPa / 23 degC` 행 ECR 칸 verbatim `80.3`. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). **후크 항등식이 이 열에서만 깨진다** — 3445/80.3 = 4.29% 인데 인쇄된 신율은 4.8% 다. 그리고 그 4.8 은 옆 E GLASS 열의 값과 같다(인장 3445 · 5310 · 1725, 538 degC 모듈러스 81.3 도 E 열과 같다) — 셀 복제 의심이다. **어느 칸이 틀렸는지 원문이 정하지 못하므로 신율만 빼고 인장·모듈러스는 넣었다**(§141).."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 81300000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 ECRGlas(R) 열 — AGY 등록상표 등급이다",
+      "temperature_c": 538,
+      "specimen_form": "fibre (unannealed)"
+     },
+     "notes": "AGY 2006 Table 2 `Young's Modulus, GPa / 538 degC` 행 ECR 칸 verbatim `81.3`. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). **후크 항등식이 이 열에서만 깨진다** — 3445/80.3 = 4.29% 인데 인쇄된 신율은 4.8% 다. 그리고 그 4.8 은 옆 E GLASS 열의 값과 같다(인장 3445 · 5310 · 1725, 538 degC 모듈러스 81.3 도 E 열과 같다) — 셀 복제 의심이다. **어느 칸이 틀렸는지 원문이 정하지 못하므로 신율만 빼고 인장·모듈러스는 넣었다**(§141).."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 6.9,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 ECRGlas(R) 열 — AGY 등록상표 등급이다",
+      "frequency_hz": 1000000.0,
+      "temperature": "not printed"
+     },
+     "notes": "AGY 2006 Table 3 ELECTRICAL PROPERTIES `Dielectric Constant 1 MHz` 행 ECR 칸 verbatim `6.9`. **주파수가 조건축으로 인쇄돼 있다**(§144). 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). **후크 항등식이 이 열에서만 깨진다** — 3445/80.3 = 4.29% 인데 인쇄된 신율은 4.8% 다. 그리고 그 4.8 은 옆 E GLASS 열의 값과 같다(인장 3445 · 5310 · 1725, 538 degC 모듈러스 81.3 도 E 열과 같다) — 셀 복제 의심이다. **어느 칸이 틀렸는지 원문이 정하지 못하므로 신율만 빼고 인장·모듈러스는 넣었다**(§141).."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 7.0,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 ECRGlas(R) 열 — AGY 등록상표 등급이다",
+      "frequency_hz": 10000000000.0,
+      "temperature": "not printed"
+     },
+     "notes": "AGY 2006 Table 3 ELECTRICAL PROPERTIES `Dielectric Constant 10 GHz` 행 ECR 칸 verbatim `7.0`. **주파수가 조건축으로 인쇄돼 있다**(§144). 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). **후크 항등식이 이 열에서만 깨진다** — 3445/80.3 = 4.29% 인데 인쇄된 신율은 4.8% 다. 그리고 그 4.8 은 옆 E GLASS 열의 값과 같다(인장 3445 · 5310 · 1725, 538 degC 모듈러스 81.3 도 E 열과 같다) — 셀 복제 의심이다. **어느 칸이 틀렸는지 원문이 정하지 못하므로 신율만 빼고 인장·모듈러스는 넣었다**(§141).."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.0028,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 ECRGlas(R) 열 — AGY 등록상표 등급이다",
+      "frequency_hz": 1000000.0,
+      "temperature": "not printed"
+     },
+     "notes": "AGY 2006 Table 3 `Dissipation Factor 1 MHz` 행 ECR 칸 verbatim `0.0028`. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). **후크 항등식이 이 열에서만 깨진다** — 3445/80.3 = 4.29% 인데 인쇄된 신율은 4.8% 다. 그리고 그 4.8 은 옆 E GLASS 열의 값과 같다(인장 3445 · 5310 · 1725, 538 degC 모듈러스 81.3 도 E 열과 같다) — 셀 복제 의심이다. **어느 칸이 틀렸는지 원문이 정하지 못하므로 신율만 빼고 인장·모듈러스는 넣었다**(§141).."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.0031,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 ECRGlas(R) 열 — AGY 등록상표 등급이다",
+      "frequency_hz": 10000000000.0,
+      "temperature": "not printed"
+     },
+     "notes": "AGY 2006 Table 3 `Dissipation Factor 10 GHz` 행 ECR 칸 verbatim `0.0031`. 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). **후크 항등식이 이 열에서만 깨진다** — 3445/80.3 = 4.29% 인데 인쇄된 신율은 4.8% 다. 그리고 그 4.8 은 옆 E GLASS 열의 값과 같다(인장 3445 · 5310 · 1725, 538 degC 모듈러스 81.3 도 E 열과 같다) — 셀 복제 의심이다. **어느 칸이 틀렸는지 원문이 정하지 못하므로 신율만 빼고 인장·모듈러스는 넣었다**(§141).."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 3840000000000.0,
+     "unit": "ohm*m",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 ECRGlas(R) 열 — AGY 등록상표 등급이다",
+      "temperature": "not printed"
+     },
+     "notes": "AGY 2006 Table 3 `Volume Resistivity (ohm-cm)` 행 ECR 칸 verbatim `3.84E+14` -> x0.01 = 3.840E+12 ohm*m.  이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). **후크 항등식이 이 열에서만 깨진다** — 3445/80.3 = 4.29% 인데 인쇄된 신율은 4.8% 다. 그리고 그 4.8 은 옆 E GLASS 열의 값과 같다(인장 3445 · 5310 · 1725, 538 degC 모듈러스 81.3 도 E 열과 같다) — 셀 복제 의심이다. **어느 칸이 틀렸는지 원문이 정하지 못하므로 신율만 빼고 인장·모듈러스는 넣었다**(§141).."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 970.0,
+     "unit": "J/(kg*K)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 ECRGlas(R) 열 — AGY 등록상표 등급이다",
+      "temperature_c": 200,
+      "test_method": "high-temperature differential scanning calorimetry (본문)"
+     },
+     "notes": "AGY 2006 Table 3 THERMAL PROPERTIES `Specific Heat J/g degC (BTU/lb degF) / 200 degC` 행 ECR 칸 verbatim `0.97` -> 970 J/(kg*K). 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). **후크 항등식이 이 열에서만 깨진다** — 3445/80.3 = 4.29% 인데 인쇄된 신율은 4.8% 다. 그리고 그 4.8 은 옆 E GLASS 열의 값과 같다(인장 3445 · 5310 · 1725, 538 degC 모듈러스 81.3 도 E 열과 같다) — 셀 복제 의심이다. **어느 칸이 틀렸는지 원문이 정하지 못하므로 신율만 빼고 인장·모듈러스는 넣었다**(§141).."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 5.9e-06,
+     "unit": "1/K",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 ECRGlas(R) 열 — AGY 등록상표 등급이다",
+      "temperature_range_c": "-30 to 250"
+     },
+     "notes": "AGY 2006 Table 3 `Thermal Expansion Coefficient (x10-7) / -30degC to 250degC` 행 ECR 칸 verbatim `59` -> 5.899999999999999e-06/K. **구간이 인쇄돼 있다.** 이 표 전체에 건 검산 넷 — (a) 연화/어닐링/스트레인점의 degC/degF 왕복(x9/5+32), (b) 비열 J/(g*degC) <-> BTU/(lb*degF) (1 BTU/(lb*degF) = 4.1868), (c) 조성 wt% 구간이 100 을 걸치는지, (d) 후크 항등식 sigma/E = epsilon(23 degC). **후크 항등식이 이 열에서만 깨진다** — 3445/80.3 = 4.29% 인데 인쇄된 신율은 4.8% 다. 그리고 그 4.8 은 옆 E GLASS 열의 값과 같다(인장 3445 · 5310 · 1725, 538 degC 모듈러스 81.3 도 E 열과 같다) — 셀 복제 의심이다. **어느 칸이 틀렸는지 원문이 정하지 못하므로 신율만 빼고 인장·모듈러스는 넣었다**(§141).."
+    }
+   ]
+  }
+ ]
+}

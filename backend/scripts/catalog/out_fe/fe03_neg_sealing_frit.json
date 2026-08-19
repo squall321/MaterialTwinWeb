@@ -1,0 +1,1039 @@
+{
+ "batch": "FE-3 44차 · NEG 봉지 프릿 10등급(LS-1401S·LS-2010·LS-3051S·LS-1301·BF-0901·LS-3081·LS-0118·LS-0206·LS-7105·BF-0606) 신규 재료",
+ "materials": [
+  {
+   "new_material": {
+    "name": "NEG LS-1401S Low-Temperature Sealing Glass (frit for quartz-oscillator SMD packages)",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "packaging",
+     "manufacturer": "Nippon Electric Glass Co., Ltd.",
+     "material_class": "PbO-B2O3 composite (COM) low-melting sealing glass frit (matrix powder glass + synthesized ceramic filler)",
+     "composition": "PbO-B2O3 composite (COM) — 표 `Glass type` 행 verbatim",
+     "application": "SMD packages for quartz oscillators (catalogue prose); `Usage` header column group = Alumina",
+     "process_parameter_sealing_temperature_c": 380,
+     "process_parameter_prefiring_c": "T1 250 / T2 350",
+     "colour": "Black",
+     "softening_point_c_not_loadable": 355,
+     "softening_point_note": "표 `Softening point` 행. 점도 기준점 키가 아직 없어 못 넣었다 — 44차 FD 가 그 키를 여는 중이라 여기 남긴다(§468).",
+     "role_reason": "적용이 DIP/QFP·석영진동자·AlN·Si·창유리·Fe-Ni 봉착합금이라 디스플레이가 아니라 패키지 봉지재다",
+     "role_confidence": "high"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Powder Glass — Low Temperature Sealing Glass 1 (Nippon Electric Glass powder glass catalogue, Ref. No. 2410-18E)",
+    "url": "https://www.neg.co.jp/en/assets/Powder%20Glass_en.pdf",
+    "authors": "Nippon Electric Glass Co., Ltd. (corporate author)",
+    "year": 2024,
+    "publisher": "Nippon Electric Glass Co., Ltd.",
+    "manufacturer": "Nippon Electric Glass Co., Ltd.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/NEG_Powder_Glass_Catalog_en_2410.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 7.1e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "30-200"
+     },
+     "notes": "표 verbatim `Coefficient of thermal expansion 30-250degC x10-7/K 71.0` (이 열의 실제 구간은 30-200 degC 다). **구간 없는 CTE 는 넣지 않는다.** Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-1401S 열. CTE 71e-7 은 알루미나 70e-7 과 1.4% 안에서 맞는다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "physical.density",
+     "value": 7020.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Density x10^3 kg/m^3 7.02`. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-1401S 열. CTE 71e-7 은 알루미나 70e-7 과 1.4% 안에서 맞는다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 531.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "transformation point (dilatometric Tg), heating rate not printed"
+     },
+     "notes": "표 verbatim `Transformation point degC 258`. 팽창계 곡선의 전이점이다 — 같은 표가 `Softening point`(및 표2 는 `Deformation point`)를 따로 인쇄하므로 별개 물리량임이 원문에서 확정된다. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-1401S 열. CTE 71e-7 은 알루미나 70e-7 과 1.4% 안에서 맞는다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 15848.931924611143,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 150
+     },
+     "notes": "표 verbatim `Volume resistivity Log rho 150degC ohm*cm 6.2` — log 값. 10^6.2 ohm*cm x 0.01 = 1.585e+04 ohm*m. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-1401S 열. CTE 71e-7 은 알루미나 70e-7 과 1.4% 안에서 맞는다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다. **이 표에서 유독 낮은 칸이다**(6.2 대 12.0-13.3). 다만 LS-1401S 는 전이점 258 degC 로 이 표에서 가장 낮아 150 degC 측정온도가 Tg 에 가장 가깝다 — Tg 258/313/303/315/430 과 log rho 6.2/12.4/12.7/12.0/13.3 이 같은 방향으로 움직인다. 표 안에서 정합하는 값이다."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 45.0,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "temperature_c": 25
+     },
+     "notes": "표 verbatim `Dielectric constant 1MHz, 25degC 45.0`. **조건이 둘 다 인쇄돼 있다**(§144). Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-1401S 열. CTE 71e-7 은 알루미나 70e-7 과 1.4% 안에서 맞는다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다. **주의 — 이 표에서 유독 높은 칸이다**(LS-1401S 45.0 · LS-1301 45.5 대 나머지 11.1-16). PbO-B2O3 복합 프릿의 저CTE 충전재(PbTiO3 계)가 고유전율이라 물리적으로 가능한 대역이고, 같은 열의 tan delta 도 함께 높다(38 · 60 x10-4 대 19-41) — 표 안에서 서로 정합한다. 인쇄값 그대로 옮겼다."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.0038,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "temperature_c": 25
+     },
+     "notes": "표 verbatim `tan delta 1MHz, 25degC x10-4 38` -> 0.0038. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-1401S 열. CTE 71e-7 은 알루미나 70e-7 과 1.4% 안에서 맞는다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.98,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Thermal conductivity W/m*K 0.98`. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-1401S 열. CTE 71e-7 은 알루미나 70e-7 과 1.4% 안에서 맞는다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 340.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Specific heat x10^3 J/kg*K 0.34` -> 340 J/(kg*K). Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-1401S 열. CTE 71e-7 은 알루미나 70e-7 과 1.4% 안에서 맞는다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "NEG LS-2010 Low-Temperature Sealing Glass (frit for alumina DIP and QFP packages)",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "packaging",
+     "manufacturer": "Nippon Electric Glass Co., Ltd.",
+     "material_class": "PbO-B2O3 composite (COM) low-melting sealing glass frit (matrix powder glass + synthesized ceramic filler)",
+     "composition": "PbO-B2O3 composite (COM) — 표 `Glass type` 행 verbatim",
+     "application": "DIP and QFP made of alumina (catalogue prose)",
+     "process_parameter_sealing_temperature_c": 435,
+     "process_parameter_prefiring_c": "T1 320 / T2 390",
+     "colour": "Dark brown",
+     "softening_point_c_not_loadable": 400,
+     "softening_point_note": "표 `Softening point` 행. 점도 기준점 키가 아직 없어 못 넣었다 — 44차 FD 가 그 키를 여는 중이라 여기 남긴다(§468).",
+     "role_reason": "적용이 DIP/QFP·석영진동자·AlN·Si·창유리·Fe-Ni 봉착합금이라 디스플레이가 아니라 패키지 봉지재다",
+     "role_confidence": "high"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Powder Glass — Low Temperature Sealing Glass 1 (Nippon Electric Glass powder glass catalogue, Ref. No. 2410-18E)",
+    "url": "https://www.neg.co.jp/en/assets/Powder%20Glass_en.pdf",
+    "authors": "Nippon Electric Glass Co., Ltd. (corporate author)",
+    "year": 2024,
+    "publisher": "Nippon Electric Glass Co., Ltd.",
+    "manufacturer": "Nippon Electric Glass Co., Ltd.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/NEG_Powder_Glass_Catalog_en_2410.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 6.5e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "30-250"
+     },
+     "notes": "표 verbatim `Coefficient of thermal expansion 30-250degC x10-7/K 65.0` (이 열의 실제 구간은 30-250 degC 다). **구간 없는 CTE 는 넣지 않는다.** Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-2010 열. CTE 65e-7 은 알루미나 70e-7 보다 살짝 낮다 — 프릿을 압축에 두는 통상 설계다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "physical.density",
+     "value": 5670.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Density x10^3 kg/m^3 5.67`. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-2010 열. CTE 65e-7 은 알루미나 70e-7 보다 살짝 낮다 — 프릿을 압축에 두는 통상 설계다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 586.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "transformation point (dilatometric Tg), heating rate not printed"
+     },
+     "notes": "표 verbatim `Transformation point degC 313`. 팽창계 곡선의 전이점이다 — 같은 표가 `Softening point`(및 표2 는 `Deformation point`)를 따로 인쇄하므로 별개 물리량임이 원문에서 확정된다. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-2010 열. CTE 65e-7 은 알루미나 70e-7 보다 살짝 낮다 — 프릿을 압축에 두는 통상 설계다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 25118864315.09582,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 150
+     },
+     "notes": "표 verbatim `Volume resistivity Log rho 150degC ohm*cm 12.4` — log 값. 10^12.4 ohm*cm x 0.01 = 2.512e+10 ohm*m. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-2010 열. CTE 65e-7 은 알루미나 70e-7 보다 살짝 낮다 — 프릿을 압축에 두는 통상 설계다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 12.5,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "temperature_c": 25
+     },
+     "notes": "표 verbatim `Dielectric constant 1MHz, 25degC 12.5`. **조건이 둘 다 인쇄돼 있다**(§144). Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-2010 열. CTE 65e-7 은 알루미나 70e-7 보다 살짝 낮다 — 프릿을 압축에 두는 통상 설계다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.0034,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "temperature_c": 25
+     },
+     "notes": "표 verbatim `tan delta 1MHz, 25degC x10-4 34` -> 0.0034000000000000002. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-2010 열. CTE 65e-7 은 알루미나 70e-7 보다 살짝 낮다 — 프릿을 압축에 두는 통상 설계다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.45,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Thermal conductivity W/m*K 1.45`. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-2010 열. CTE 65e-7 은 알루미나 70e-7 보다 살짝 낮다 — 프릿을 압축에 두는 통상 설계다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 410.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Specific heat x10^3 J/kg*K 0.41` -> 410 J/(kg*K). Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-2010 열. CTE 65e-7 은 알루미나 70e-7 보다 살짝 낮다 — 프릿을 압축에 두는 통상 설계다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "NEG LS-3051S Low-Temperature Sealing Glass (frit for AlN and mullite low-expansion ceramics)",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "packaging",
+     "manufacturer": "Nippon Electric Glass Co., Ltd.",
+     "material_class": "PbO-B2O3 composite (COM) low-melting sealing glass frit (matrix powder glass + synthesized ceramic filler)",
+     "composition": "PbO-B2O3 composite (COM) — 표 `Glass type` 행 verbatim",
+     "application": "sealing low-expansion ceramics such as AIN (catalogue prose); `Usage` header column group = AIN, Mullite, Silicon",
+     "process_parameter_sealing_temperature_c": 430,
+     "process_parameter_prefiring_c": "T1 310 / T2 380",
+     "colour": "Black",
+     "softening_point_c_not_loadable": 390,
+     "softening_point_note": "표 `Softening point` 행. 점도 기준점 키가 아직 없어 못 넣었다 — 44차 FD 가 그 키를 여는 중이라 여기 남긴다(§468).",
+     "role_reason": "적용이 DIP/QFP·석영진동자·AlN·Si·창유리·Fe-Ni 봉착합금이라 디스플레이가 아니라 패키지 봉지재다",
+     "role_confidence": "high"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Powder Glass — Low Temperature Sealing Glass 1 (Nippon Electric Glass powder glass catalogue, Ref. No. 2410-18E)",
+    "url": "https://www.neg.co.jp/en/assets/Powder%20Glass_en.pdf",
+    "authors": "Nippon Electric Glass Co., Ltd. (corporate author)",
+    "year": 2024,
+    "publisher": "Nippon Electric Glass Co., Ltd.",
+    "manufacturer": "Nippon Electric Glass Co., Ltd.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/NEG_Powder_Glass_Catalog_en_2410.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 5.1e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "30-250"
+     },
+     "notes": "표 verbatim `Coefficient of thermal expansion 30-250degC x10-7/K 51.0` (이 열의 실제 구간은 30-250 degC 다). **구간 없는 CTE 는 넣지 않는다.** Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-3051S 열. CTE 51e-7 은 AlN 45e-7 에 맞춘 것이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "physical.density",
+     "value": 5950.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Density x10^3 kg/m^3 5.95`. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-3051S 열. CTE 51e-7 은 AlN 45e-7 에 맞춘 것이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 576.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "transformation point (dilatometric Tg), heating rate not printed"
+     },
+     "notes": "표 verbatim `Transformation point degC 303`. 팽창계 곡선의 전이점이다 — 같은 표가 `Softening point`(및 표2 는 `Deformation point`)를 따로 인쇄하므로 별개 물리량임이 원문에서 확정된다. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-3051S 열. CTE 51e-7 은 AlN 45e-7 에 맞춘 것이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 50118723362.72715,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 150
+     },
+     "notes": "표 verbatim `Volume resistivity Log rho 150degC ohm*cm 12.7` — log 값. 10^12.7 ohm*cm x 0.01 = 5.012e+10 ohm*m. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-3051S 열. CTE 51e-7 은 AlN 45e-7 에 맞춘 것이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 16.0,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "temperature_c": 25
+     },
+     "notes": "표 verbatim `Dielectric constant 1MHz, 25degC 16.0`. **조건이 둘 다 인쇄돼 있다**(§144). Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-3051S 열. CTE 51e-7 은 AlN 45e-7 에 맞춘 것이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.0041,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "temperature_c": 25
+     },
+     "notes": "표 verbatim `tan delta 1MHz, 25degC x10-4 41` -> 0.0041. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-3051S 열. CTE 51e-7 은 AlN 45e-7 에 맞춘 것이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.24,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Thermal conductivity W/m*K 1.24`. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-3051S 열. CTE 51e-7 은 AlN 45e-7 에 맞춘 것이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 380.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Specific heat x10^3 J/kg*K 0.38` -> 380 J/(kg*K). Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-3051S 열. CTE 51e-7 은 AlN 45e-7 에 맞춘 것이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "NEG LS-1301 Low-Temperature Sealing Glass (frit for silicon)",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "packaging",
+     "manufacturer": "Nippon Electric Glass Co., Ltd.",
+     "material_class": "PbO-B2O3 composite (COM) low-melting sealing glass frit (matrix powder glass + synthesized ceramic filler)",
+     "composition": "PbO-B2O3 composite (COM) — 표 `Glass type` 행 verbatim",
+     "application": "sealing silicon (catalogue prose)",
+     "process_parameter_sealing_temperature_c": 450,
+     "process_parameter_prefiring_c": "T1 310 / T2 400",
+     "colour": "Black",
+     "softening_point_c_not_loadable": 390,
+     "softening_point_note": "표 `Softening point` 행. 점도 기준점 키가 아직 없어 못 넣었다 — 44차 FD 가 그 키를 여는 중이라 여기 남긴다(§468).",
+     "role_reason": "적용이 DIP/QFP·석영진동자·AlN·Si·창유리·Fe-Ni 봉착합금이라 디스플레이가 아니라 패키지 봉지재다",
+     "role_confidence": "high"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Powder Glass — Low Temperature Sealing Glass 1 (Nippon Electric Glass powder glass catalogue, Ref. No. 2410-18E)",
+    "url": "https://www.neg.co.jp/en/assets/Powder%20Glass_en.pdf",
+    "authors": "Nippon Electric Glass Co., Ltd. (corporate author)",
+    "year": 2024,
+    "publisher": "Nippon Electric Glass Co., Ltd.",
+    "manufacturer": "Nippon Electric Glass Co., Ltd.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/NEG_Powder_Glass_Catalog_en_2410.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 4.1e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "30-250"
+     },
+     "notes": "표 verbatim `Coefficient of thermal expansion 30-250degC x10-7/K 41.0` (이 열의 실제 구간은 30-250 degC 다). **구간 없는 CTE 는 넣지 않는다.** Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-1301 열. CTE 41e-7 은 실리콘 35e-7 에 맞춘 것이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "physical.density",
+     "value": 6770.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Density x10^3 kg/m^3 6.77`. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-1301 열. CTE 41e-7 은 실리콘 35e-7 에 맞춘 것이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 588.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "transformation point (dilatometric Tg), heating rate not printed"
+     },
+     "notes": "표 verbatim `Transformation point degC 315`. 팽창계 곡선의 전이점이다 — 같은 표가 `Softening point`(및 표2 는 `Deformation point`)를 따로 인쇄하므로 별개 물리량임이 원문에서 확정된다. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-1301 열. CTE 41e-7 은 실리콘 35e-7 에 맞춘 것이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 10000000000.0,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 150
+     },
+     "notes": "표 verbatim `Volume resistivity Log rho 150degC ohm*cm 12.0` — log 값. 10^12.0 ohm*cm x 0.01 = 1.000e+10 ohm*m. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-1301 열. CTE 41e-7 은 실리콘 35e-7 에 맞춘 것이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 45.5,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "temperature_c": 25
+     },
+     "notes": "표 verbatim `Dielectric constant 1MHz, 25degC 45.5`. **조건이 둘 다 인쇄돼 있다**(§144). Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-1301 열. CTE 41e-7 은 실리콘 35e-7 에 맞춘 것이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다. **주의 — 이 표에서 유독 높은 칸이다**(LS-1401S 45.0 · LS-1301 45.5 대 나머지 11.1-16). PbO-B2O3 복합 프릿의 저CTE 충전재(PbTiO3 계)가 고유전율이라 물리적으로 가능한 대역이고, 같은 열의 tan delta 도 함께 높다(38 · 60 x10-4 대 19-41) — 표 안에서 서로 정합한다. 인쇄값 그대로 옮겼다."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.006,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "temperature_c": 25
+     },
+     "notes": "표 verbatim `tan delta 1MHz, 25degC x10-4 60` -> 0.006. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-1301 열. CTE 41e-7 은 실리콘 35e-7 에 맞춘 것이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.84,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Thermal conductivity W/m*K 0.84`. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-1301 열. CTE 41e-7 은 실리콘 35e-7 에 맞춘 것이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 350.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Specific heat x10^3 J/kg*K 0.35` -> 350 J/(kg*K). Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 LS-1301 열. CTE 41e-7 은 실리콘 35e-7 에 맞춘 것이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "NEG BF-0901 Low-Temperature Sealing Glass (Bi2O3-B2O3 frit for silicon)",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "packaging",
+     "manufacturer": "Nippon Electric Glass Co., Ltd.",
+     "material_class": "Bi2O3-B2O3 composite (COM) low-melting sealing glass frit (matrix powder glass + synthesized ceramic filler)",
+     "composition": "Bi2O3-B2O3 composite (COM) — 표 `Glass type` 행 verbatim",
+     "application": "sealing silicon (catalogue prose)",
+     "process_parameter_sealing_temperature_c": 560,
+     "process_parameter_prefiring_c": "T1 350 / T2 530",
+     "colour": "Green",
+     "softening_point_c_not_loadable": 528,
+     "softening_point_note": "표 `Softening point` 행. 점도 기준점 키가 아직 없어 못 넣었다 — 44차 FD 가 그 키를 여는 중이라 여기 남긴다(§468).",
+     "role_reason": "적용이 DIP/QFP·석영진동자·AlN·Si·창유리·Fe-Ni 봉착합금이라 디스플레이가 아니라 패키지 봉지재다",
+     "role_confidence": "high"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Powder Glass — Low Temperature Sealing Glass 1 (Nippon Electric Glass powder glass catalogue, Ref. No. 2410-18E)",
+    "url": "https://www.neg.co.jp/en/assets/Powder%20Glass_en.pdf",
+    "authors": "Nippon Electric Glass Co., Ltd. (corporate author)",
+    "year": 2024,
+    "publisher": "Nippon Electric Glass Co., Ltd.",
+    "manufacturer": "Nippon Electric Glass Co., Ltd.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/NEG_Powder_Glass_Catalog_en_2410.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 4.9e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "30-300"
+     },
+     "notes": "표 verbatim `Coefficient of thermal expansion 30-250degC x10-7/K 49.0` (이 열의 실제 구간은 30-300 degC 다). **구간 없는 CTE 는 넣지 않는다.** Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 BF-0901 열. CTE 49e-7 은 30-300 degC 구간 값이라(각주 *2) 다른 열과 구간이 다르다. 밀도 4.69 는 이 표에서 가장 낮다 — 납계가 아니라 Bi2O3-B2O3 계임과 정합한다(§443). **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "physical.density",
+     "value": 4690.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Density x10^3 kg/m^3 4.69`. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 BF-0901 열. CTE 49e-7 은 30-300 degC 구간 값이라(각주 *2) 다른 열과 구간이 다르다. 밀도 4.69 는 이 표에서 가장 낮다 — 납계가 아니라 Bi2O3-B2O3 계임과 정합한다(§443). **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 703.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "transformation point (dilatometric Tg), heating rate not printed"
+     },
+     "notes": "표 verbatim `Transformation point degC 430`. 팽창계 곡선의 전이점이다 — 같은 표가 `Softening point`(및 표2 는 `Deformation point`)를 따로 인쇄하므로 별개 물리량임이 원문에서 확정된다. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 BF-0901 열. CTE 49e-7 은 30-300 degC 구간 값이라(각주 *2) 다른 열과 구간이 다르다. 밀도 4.69 는 이 표에서 가장 낮다 — 납계가 아니라 Bi2O3-B2O3 계임과 정합한다(§443). **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 199526231496.88828,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 150
+     },
+     "notes": "표 verbatim `Volume resistivity Log rho 150degC ohm*cm 13.3` — log 값. 10^13.3 ohm*cm x 0.01 = 1.995e+11 ohm*m. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 BF-0901 열. CTE 49e-7 은 30-300 degC 구간 값이라(각주 *2) 다른 열과 구간이 다르다. 밀도 4.69 는 이 표에서 가장 낮다 — 납계가 아니라 Bi2O3-B2O3 계임과 정합한다(§443). **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 11.1,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "temperature_c": 25
+     },
+     "notes": "표 verbatim `Dielectric constant 1MHz, 25degC 11.1`. **조건이 둘 다 인쇄돼 있다**(§144). Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 BF-0901 열. CTE 49e-7 은 30-300 degC 구간 값이라(각주 *2) 다른 열과 구간이 다르다. 밀도 4.69 는 이 표에서 가장 낮다 — 납계가 아니라 Bi2O3-B2O3 계임과 정합한다(§443). **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.0019,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "temperature_c": 25
+     },
+     "notes": "표 verbatim `tan delta 1MHz, 25degC x10-4 19` -> 0.0019. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 BF-0901 열. CTE 49e-7 은 30-300 degC 구간 값이라(각주 *2) 다른 열과 구간이 다르다. 밀도 4.69 는 이 표에서 가장 낮다 — 납계가 아니라 Bi2O3-B2O3 계임과 정합한다(§443). **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.47,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Thermal conductivity W/m*K 1.47`. Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 BF-0901 열. CTE 49e-7 은 30-300 degC 구간 값이라(각주 *2) 다른 열과 구간이 다르다. 밀도 4.69 는 이 표에서 가장 낮다 — 납계가 아니라 Bi2O3-B2O3 계임과 정합한다(§443). **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 460.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Specific heat x10^3 J/kg*K 0.46` -> 460 J/(kg*K). Low Temperature Sealing Glass 1 표(Ref. 2410-18E)의 BF-0901 열. CTE 49e-7 은 30-300 degC 구간 값이라(각주 *2) 다른 열과 구간이 다르다. 밀도 4.69 는 이 표에서 가장 낮다 — 납계가 아니라 Bi2O3-B2O3 계임과 정합한다(§443). **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "NEG LS-3081 Low-Temperature Sealing Glass (frit for window glass and 50/426 alloy)",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "packaging",
+     "manufacturer": "Nippon Electric Glass Co., Ltd.",
+     "material_class": "PbO-B2O3 composite (COM) low-melting sealing glass frit (matrix powder glass + synthesized ceramic filler)",
+     "composition": "PbO-B2O3 composite (COM) — 표 `Glass type` 행 verbatim",
+     "application": "Window glass, 50 Alloy, 426 Alloy (`Application` row)",
+     "process_parameter_sealing_temperature_c": 410,
+     "process_parameter_prefiring_c": "T1 320 / T2 380",
+     "colour": "Black",
+     "softening_point_c_not_loadable": 365,
+     "softening_point_note": "표 `Softening point` 행. 점도 기준점 키가 아직 없어 못 넣었다 — 44차 FD 가 그 키를 여는 중이라 여기 남긴다(§468).",
+     "role_reason": "적용이 DIP/QFP·석영진동자·AlN·Si·창유리·Fe-Ni 봉착합금이라 디스플레이가 아니라 패키지 봉지재다",
+     "role_confidence": "high"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Powder Glass — Low Temperature Sealing Glass 2 (Nippon Electric Glass powder glass catalogue, Ref. No. 2410-19E)",
+    "url": "https://www.neg.co.jp/en/assets/Powder%20Glass_en.pdf",
+    "authors": "Nippon Electric Glass Co., Ltd. (corporate author)",
+    "year": 2024,
+    "publisher": "Nippon Electric Glass Co., Ltd.",
+    "manufacturer": "Nippon Electric Glass Co., Ltd.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/NEG_Powder_Glass_Catalog_en_2410.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 7.4e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "30-250"
+     },
+     "notes": "표 verbatim `Coefficient of thermal expansion 30-250degC x10-7/K 74.0` (이 열의 실제 구간은 30-250 degC 다). **구간 없는 CTE 는 넣지 않는다.** Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 LS-3081 열. CTE 74e-7 은 소다석회 창유리·Fe-Ni 봉착합금 대역이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "physical.density",
+     "value": 6890.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Density x10^3 kg/m^3 6.89`. Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 LS-3081 열. CTE 74e-7 은 소다석회 창유리·Fe-Ni 봉착합금 대역이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 573.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "transformation point (dilatometric Tg), heating rate not printed"
+     },
+     "notes": "표 verbatim `Transformation point degC 300`. 팽창계 곡선의 전이점이다 — 같은 표가 `Softening point`(및 표2 는 `Deformation point`)를 따로 인쇄하므로 별개 물리량임이 원문에서 확정된다. Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 LS-3081 열. CTE 74e-7 은 소다석회 창유리·Fe-Ni 봉착합금 대역이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "thermal.dilatometric_softening_point",
+     "value": 593.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "deformation point (dilatometric yield point At), heating rate not printed"
+     },
+     "notes": "표 verbatim `Deformation point degC 320`. 팽창계 곡선의 굴복점(At) — 새그온도다. Tg 300 보다 20 K 위이고 `Softening point` 365 아래다. Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 LS-3081 열. CTE 74e-7 은 소다석회 창유리·Fe-Ni 봉착합금 대역이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 15848931924.611109,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 150
+     },
+     "notes": "표 verbatim `Volume resistivity Log rho 150degC ohm*cm 12.2` — log 값. 10^12.2 ohm*cm x 0.01 = 1.585e+10 ohm*m. Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 LS-3081 열. CTE 74e-7 은 소다석회 창유리·Fe-Ni 봉착합금 대역이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "NEG LS-0118 Low-Temperature Sealing Glass (frit for window glass and 50/426 alloy)",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "packaging",
+     "manufacturer": "Nippon Electric Glass Co., Ltd.",
+     "material_class": "PbO-B2O3 composite (COM) low-melting sealing glass frit (matrix powder glass + synthesized ceramic filler)",
+     "composition": "PbO-B2O3 composite (COM) — 표 `Glass type` 행 verbatim",
+     "application": "Window glass, 50 Alloy, 426 Alloy (`Application` row); 별표 `Window glass - LS-0118` 조합이 부록 대조표에도 있다",
+     "process_parameter_sealing_temperature_c": 430,
+     "process_parameter_prefiring_c": "T1 320 / T2 380",
+     "colour": "Black",
+     "softening_point_c_not_loadable": 390,
+     "softening_point_note": "표 `Softening point` 행. 점도 기준점 키가 아직 없어 못 넣었다 — 44차 FD 가 그 키를 여는 중이라 여기 남긴다(§468).",
+     "role_reason": "적용이 DIP/QFP·석영진동자·AlN·Si·창유리·Fe-Ni 봉착합금이라 디스플레이가 아니라 패키지 봉지재다",
+     "role_confidence": "high"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Powder Glass — Low Temperature Sealing Glass 2 (Nippon Electric Glass powder glass catalogue, Ref. No. 2410-19E)",
+    "url": "https://www.neg.co.jp/en/assets/Powder%20Glass_en.pdf",
+    "authors": "Nippon Electric Glass Co., Ltd. (corporate author)",
+    "year": 2024,
+    "publisher": "Nippon Electric Glass Co., Ltd.",
+    "manufacturer": "Nippon Electric Glass Co., Ltd.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/NEG_Powder_Glass_Catalog_en_2410.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 7.25e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "30-250"
+     },
+     "notes": "표 verbatim `Coefficient of thermal expansion 30-250degC x10-7/K 72.5` (이 열의 실제 구간은 30-250 degC 다). **구간 없는 CTE 는 넣지 않는다.** Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 LS-0118 열. CTE 72.5e-7 은 소다석회 창유리 대역이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "physical.density",
+     "value": 7050.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Density x10^3 kg/m^3 7.05`. Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 LS-0118 열. CTE 72.5e-7 은 소다석회 창유리 대역이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 590.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "transformation point (dilatometric Tg), heating rate not printed"
+     },
+     "notes": "표 verbatim `Transformation point degC 317`. 팽창계 곡선의 전이점이다 — 같은 표가 `Softening point`(및 표2 는 `Deformation point`)를 따로 인쇄하므로 별개 물리량임이 원문에서 확정된다. Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 LS-0118 열. CTE 72.5e-7 은 소다석회 창유리 대역이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "thermal.dilatometric_softening_point",
+     "value": 610.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "deformation point (dilatometric yield point At), heating rate not printed"
+     },
+     "notes": "표 verbatim `Deformation point degC 337`. 팽창계 곡선의 굴복점(At) — 새그온도다. Tg 317 보다 20 K 위이고 `Softening point` 390 아래다. Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 LS-0118 열. CTE 72.5e-7 은 소다석회 창유리 대역이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 1584893192.4611108,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 150
+     },
+     "notes": "표 verbatim `Volume resistivity Log rho 150degC ohm*cm 11.2` — log 값. 10^11.2 ohm*cm x 0.01 = 1.585e+09 ohm*m. Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 LS-0118 열. CTE 72.5e-7 은 소다석회 창유리 대역이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "NEG LS-0206 Low-Temperature Sealing Glass (frit for window glass and 50/426 alloy)",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "packaging",
+     "manufacturer": "Nippon Electric Glass Co., Ltd.",
+     "material_class": "PbO-B2O3 composite (COM) low-melting sealing glass frit (matrix powder glass + synthesized ceramic filler)",
+     "composition": "PbO-B2O3 composite (COM) — 표 `Glass type` 행 verbatim",
+     "application": "Window glass, 50 Alloy, 426 Alloy (`Application` row)",
+     "process_parameter_sealing_temperature_c": 450,
+     "process_parameter_prefiring_c": "T1 320 / T2 400",
+     "colour": "Black",
+     "softening_point_c_not_loadable": 410,
+     "softening_point_note": "표 `Softening point` 행. 점도 기준점 키가 아직 없어 못 넣었다 — 44차 FD 가 그 키를 여는 중이라 여기 남긴다(§468).",
+     "role_reason": "적용이 DIP/QFP·석영진동자·AlN·Si·창유리·Fe-Ni 봉착합금이라 디스플레이가 아니라 패키지 봉지재다",
+     "role_confidence": "high"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Powder Glass — Low Temperature Sealing Glass 2 (Nippon Electric Glass powder glass catalogue, Ref. No. 2410-19E)",
+    "url": "https://www.neg.co.jp/en/assets/Powder%20Glass_en.pdf",
+    "authors": "Nippon Electric Glass Co., Ltd. (corporate author)",
+    "year": 2024,
+    "publisher": "Nippon Electric Glass Co., Ltd.",
+    "manufacturer": "Nippon Electric Glass Co., Ltd.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/NEG_Powder_Glass_Catalog_en_2410.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 7.2e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "30-250"
+     },
+     "notes": "표 verbatim `Coefficient of thermal expansion 30-250degC x10-7/K 72.0` (이 열의 실제 구간은 30-250 degC 다). **구간 없는 CTE 는 넣지 않는다.** Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 LS-0206 열. CTE 72e-7 은 소다석회 창유리 대역이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "physical.density",
+     "value": 6820.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Density x10^3 kg/m^3 6.82`. Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 LS-0206 열. CTE 72e-7 은 소다석회 창유리 대역이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 598.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "transformation point (dilatometric Tg), heating rate not printed"
+     },
+     "notes": "표 verbatim `Transformation point degC 325`. 팽창계 곡선의 전이점이다 — 같은 표가 `Softening point`(및 표2 는 `Deformation point`)를 따로 인쇄하므로 별개 물리량임이 원문에서 확정된다. Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 LS-0206 열. CTE 72e-7 은 소다석회 창유리 대역이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "thermal.dilatometric_softening_point",
+     "value": 626.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "deformation point (dilatometric yield point At), heating rate not printed"
+     },
+     "notes": "표 verbatim `Deformation point degC 353`. 팽창계 곡선의 굴복점(At) — 새그온도다. Tg 325 보다 28 K 위이고 `Softening point` 410 아래다. Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 LS-0206 열. CTE 72e-7 은 소다석회 창유리 대역이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 158489319246.11108,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 150
+     },
+     "notes": "표 verbatim `Volume resistivity Log rho 150degC ohm*cm 13.2` — log 값. 10^13.2 ohm*cm x 0.01 = 1.585e+11 ohm*m. Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 LS-0206 열. CTE 72e-7 은 소다석회 창유리 대역이다. **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "NEG LS-7105 Devitrifiable Low-Temperature Sealing Glass (frit for window glass and 50/426 alloy)",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "packaging",
+     "manufacturer": "Nippon Electric Glass Co., Ltd.",
+     "material_class": "PbO-ZnO-B2O3 devitrifiable (DEV) low-melting sealing glass frit (matrix powder glass + synthesized ceramic filler)",
+     "composition": "PbO-ZnO-B2O3 devitrifiable (DEV) — 표 `Glass type` 행 verbatim",
+     "application": "Window glass, 50 Alloy, 426 Alloy (`Application` row)",
+     "process_parameter_sealing_temperature_c": 450,
+     "process_parameter_prefiring_c": "T1 320 / T2 390",
+     "colour": "Black",
+     "softening_point_c_not_loadable": 400,
+     "softening_point_note": "표 `Softening point` 행. 점도 기준점 키가 아직 없어 못 넣었다 — 44차 FD 가 그 키를 여는 중이라 여기 남긴다(§468).",
+     "role_reason": "적용이 DIP/QFP·석영진동자·AlN·Si·창유리·Fe-Ni 봉착합금이라 디스플레이가 아니라 패키지 봉지재다",
+     "role_confidence": "high",
+     "deformation_point_not_printed": true
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Powder Glass — Low Temperature Sealing Glass 2 (Nippon Electric Glass powder glass catalogue, Ref. No. 2410-19E)",
+    "url": "https://www.neg.co.jp/en/assets/Powder%20Glass_en.pdf",
+    "authors": "Nippon Electric Glass Co., Ltd. (corporate author)",
+    "year": 2024,
+    "publisher": "Nippon Electric Glass Co., Ltd.",
+    "manufacturer": "Nippon Electric Glass Co., Ltd.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/NEG_Powder_Glass_Catalog_en_2410.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 8.5e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "30-300"
+     },
+     "notes": "표 verbatim `Coefficient of thermal expansion 30-250degC x10-7/K 85.0` (이 열의 실제 구간은 30-300 degC 다). **구간 없는 CTE 는 넣지 않는다.** Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 LS-7105 열. **실투(devitrifiable) 계라 전이점·굴복점이 `-` 로 미인쇄다** — 결정화하면 팽창계 곡선의 전이·굴복이 정의되지 않는다. CTE 85e-7 은 30-300 degC 구간 값이다(각주 *1). **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "physical.density",
+     "value": 6370.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Density x10^3 kg/m^3 6.37`. Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 LS-7105 열. **실투(devitrifiable) 계라 전이점·굴복점이 `-` 로 미인쇄다** — 결정화하면 팽창계 곡선의 전이·굴복이 정의되지 않는다. CTE 85e-7 은 30-300 degC 구간 값이다(각주 *1). **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 251188643.1509582,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 150
+     },
+     "notes": "표 verbatim `Volume resistivity Log rho 150degC ohm*cm 10.4` — log 값. 10^10.4 ohm*cm x 0.01 = 2.512e+08 ohm*m. Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 LS-7105 열. **실투(devitrifiable) 계라 전이점·굴복점이 `-` 로 미인쇄다** — 결정화하면 팽창계 곡선의 전이·굴복이 정의되지 않는다. CTE 85e-7 은 30-300 degC 구간 값이다(각주 *1). **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "NEG BF-0606 Low-Temperature Sealing Glass (Bi2O3-B2O3 frit for window glass and 50/426 alloy)",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "packaging",
+     "manufacturer": "Nippon Electric Glass Co., Ltd.",
+     "material_class": "Bi2O3-B2O3 composite (COM) low-melting sealing glass frit (matrix powder glass + synthesized ceramic filler)",
+     "composition": "Bi2O3-B2O3 composite (COM) — 표 `Glass type` 행 verbatim",
+     "application": "Window glass, 50 Alloy, 426 Alloy (`Application` row)",
+     "process_parameter_sealing_temperature_c": 485,
+     "process_parameter_prefiring_c": "T1 350 / T2 450",
+     "colour": "Green",
+     "softening_point_c_not_loadable": 450,
+     "softening_point_note": "표 `Softening point` 행. 점도 기준점 키가 아직 없어 못 넣었다 — 44차 FD 가 그 키를 여는 중이라 여기 남긴다(§468).",
+     "role_reason": "적용이 DIP/QFP·석영진동자·AlN·Si·창유리·Fe-Ni 봉착합금이라 디스플레이가 아니라 패키지 봉지재다",
+     "role_confidence": "high"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Powder Glass — Low Temperature Sealing Glass 2 (Nippon Electric Glass powder glass catalogue, Ref. No. 2410-19E)",
+    "url": "https://www.neg.co.jp/en/assets/Powder%20Glass_en.pdf",
+    "authors": "Nippon Electric Glass Co., Ltd. (corporate author)",
+    "year": 2024,
+    "publisher": "Nippon Electric Glass Co., Ltd.",
+    "manufacturer": "Nippon Electric Glass Co., Ltd.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/NEG_Powder_Glass_Catalog_en_2410.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 7.3e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_range_c": "30-300"
+     },
+     "notes": "표 verbatim `Coefficient of thermal expansion 30-250degC x10-7/K 73.0` (이 열의 실제 구간은 30-300 degC 다). **구간 없는 CTE 는 넣지 않는다.** Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 BF-0606 열. CTE 73e-7 은 30-300 degC 구간 값이다(각주 *1). **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "physical.density",
+     "value": 6050.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": "not printed"
+     },
+     "notes": "표 verbatim `Density x10^3 kg/m^3 6.05`. Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 BF-0606 열. CTE 73e-7 은 30-300 degC 구간 값이다(각주 *1). **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 638.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "transformation point (dilatometric Tg), heating rate not printed"
+     },
+     "notes": "표 verbatim `Transformation point degC 365`. 팽창계 곡선의 전이점이다 — 같은 표가 `Softening point`(및 표2 는 `Deformation point`)를 따로 인쇄하므로 별개 물리량임이 원문에서 확정된다. Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 BF-0606 열. CTE 73e-7 은 30-300 degC 구간 값이다(각주 *1). **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "thermal.dilatometric_softening_point",
+     "value": 666.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "determination": "deformation point (dilatometric yield point At), heating rate not printed"
+     },
+     "notes": "표 verbatim `Deformation point degC 393`. 팽창계 곡선의 굴복점(At) — 새그온도다. Tg 365 보다 28 K 위이고 `Softening point` 450 아래다. Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 BF-0606 열. CTE 73e-7 은 30-300 degC 구간 값이다(각주 *1). **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 10000000000.0,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 150
+     },
+     "notes": "표 verbatim `Volume resistivity Log rho 150degC ohm*cm 12.0` — log 값. 10^12.0 ohm*cm x 0.01 = 1.000e+10 ohm*m. Low Temperature Sealing Glass 2 표(Ref. 2410-19E)의 BF-0606 열. CTE 73e-7 은 30-300 degC 구간 값이다(각주 *1). **프릿의 값어치는 기판·피착재와의 CTE 정합이다.** 같은 파동에 넣은 무알칼리 기판유리는 EAGLE XG 32 · Lotus NXT 35 · OA-11 37 · OA-31 39 (전부 x1e-7/K)이고, 이 프릿은 그보다 훨씬 높다 — 디스플레이 기판용이 아니라 패키지용이다. 카탈로그가 스스로 피착재의 CTE 를 인쇄한다 — verbatim `alumina (CTE: approximately 70 x 10-7/K)` · `AIN (CTE: approximately 45 x10-7/K)` · `silicon (CTE: approximately 35 x10-7/K)`. 그것이 이 등급들의 CTE 배정을 확정한다."
+    }
+   ]
+  }
+ ]
+}
