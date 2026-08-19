@@ -361,6 +361,36 @@ _cte = c.execute("""select count(*) from property_value
       and instr(coalesce(conditions,''),'magnitude_suspect')=0""").fetchone()[0]
 if _cte:
     print(f"\n  [주의] **Tg 위 CTE 가 1000 ppm/K 를 넘는데 표식이 없는 값: {_cte}건**")
+
+
+# **항복 > 인장은 물리적으로 불가능하다** — 42차 DB 가 PV 백시트에서 19배 역전을 찾았다.
+# 다만 **자동 판정은 못 한다.** 조건을 안 맞추면 27종이 걸리는데 대부분 정상이다 —
+# Uddeholm 강은 경도 등급별로, 21-6-9 은 4.2 K 대 상온으로 서로 다른 조건의 값이 나란히 있다.
+# 온도·경도·방향을 맞추면 그중 상당수가 걸러지고, 조건축 전체를 맞추면 11종이 남는다.
+# 남는 것도 **출처가 갈린 경우가 많다**(t4 추정 항복 대 t1 실측 인장) — 사람이 볼 목록이다.
+_yt = c.execute("""
+    select y.material_id, m.name, y.id, y.value_num, y.quality_tier, t.value_num, t.quality_tier
+      from property_value y
+      join property_value t on t.material_id = y.material_id
+       and ifnull(json_extract(t.conditions,'$.temperature_k'),-1)
+         = ifnull(json_extract(y.conditions,'$.temperature_k'),-1)
+       and ifnull(json_extract(t.conditions,'$.hardness_hrc'),-1)
+         = ifnull(json_extract(y.conditions,'$.hardness_hrc'),-1)
+       and ifnull(json_extract(t.conditions,'$.direction'),'')
+         = ifnull(json_extract(y.conditions,'$.direction'),'')
+      join material m on m.id = y.material_id
+     where y.property_key='mechanical.yield_strength'
+       and t.property_key='mechanical.tensile_strength'
+       and y.value_num > t.value_num*1.02
+     group by y.material_id""").fetchall()
+if _yt:
+    print(f"\n  [주의] **항복강도가 인장강도보다 큰 재료: {len(_yt)}종**")
+    print("         조건축(온도·경도·방향)을 맞춘 뒤에도 역전인 것이다.")
+    print("         물리적으로 불가능하므로 한쪽이 틀렸다 — 대개 t4 추정 항복이 t1 실측 인장을 넘는다.")
+    for _m, _n, _i, _yv, _yq, _tv, _tq in _yt[:6]:
+        print(f"           재료{_m} {_n[:38]:40s} 항복 {_yv/1e6:>8.4g}(t{_yq}) > 인장 {_tv/1e6:>8.4g}(t{_tq})")
+    if len(_yt) > 6:
+        print(f"           … 외 {len(_yt)-6}종")
     print("         고분자 고무상 CTE 는 대개 50~400 ppm/K 다. TMA 팽창모드에서 연화된 시편이")
     print("         프로브 하중에 눌리면 겉보기 CTE 가 크게 나온다 — **인쇄값이어도 해석 입력으로")
     print("         바로 쓰면 안 된다.** conditions 에 `magnitude_suspect` 를 달아라.")
