@@ -789,6 +789,90 @@ _DEFS: list[tuple] = [
      ["load_n", "dwell_s", "environment", "temperature_c"], None),
     ("mechanical.depth_of_layer", "mechanical", "이온교환 깊이(DOL)", "DOL", "m", "numeric",
      None, "ASTM C1422"),
+
+    # ── 43차 EE — **값은 손에 있는데 키가 없어 버린 것 열 가지** ────────────────────
+    # 키를 가른 기준은 전부 브리프 453(차원이 정한다)이다. 차원이 같아도 **측정량이 다르면**
+    # 별개 키다 — 이 taxonomy 는 이미 그렇게 되어 있다(cure_shrinkage · mold_shrinkage ·
+    # compression_set · elongation_at_break 가 전부 무차원 변형률인데 키가 넷이다).
+    #
+    # 최대자기에너지적 (BH)max. **기존 자기 키가 전부 SI 기본단위라 J/m^3 로 통일한다**
+    # (remanence T · coercivity A/m). 시트는 kJ/m^3 로 인쇄하므로 x1000 해서 넣어라 —
+    # mT→T · kA/m→A/m 와 같은 접두어 처리다.
+    # ⚠ **MGOe 를 환산해 넣지 마라.** 1 MGOe = 7.957747 kJ/m^3 인데, kJ/m^3 열이 같이
+    # 인쇄된 표에서는 그 열이 정본이다(브리프 136·225). MGOe 만 인쇄된 표를 만나면
+    # 그때 규칙을 다시 정해라 — 43차 EE 가 연 두 표는 둘 다 kJ/m^3 을 인쇄한다.
+    # ⚠ **물리 상한은 (BH)max <= Br^2/(4*mu0) 다**(브리프 431). 실측 격자에서 실제 비는
+    # 0.90~0.97 이고 1 을 넘으면 표가 죽는다. integrity_check 가 상시로 본다.
+    ("magnetic.energy_product_max", "magnetic", "최대자기에너지적 (BH)max", "(BH)max", "J/m^3",
+     "numeric", ["temperature_k", "value_type", "grade"], "IEC 60404-5"),
+
+    # 관통강도 — 분리막·필름을 바늘로 뚫는 힘. **단위가 힘이다**(브리프 109·117).
+    # 시트가 gf 로 인쇄하는데 gf 는 힘 단위이고 1 gf = 9.80665e-3 N 이 **정의값**이라
+    # (CGPM 1901 표준중력) 환산이 가정을 만들지 않는다. 질량으로 읽지 마라.
+    # 응력(Pa)으로 바꾸려면 바늘 끝 면적이 필요한데 시트가 안 찍는다 — 힘으로 남긴다.
+    ("mechanical.puncture_strength", "mechanical", "관통강도", None, "N", "numeric",
+     ["thickness_um", "probe", "test_speed_mm_min", "value_type", "test_standard"], None),
+
+    # 열수축률 — **`thermal.expansion_total` 과 측정량이 다르다.** 저쪽은 구간을 승온하는
+    # 동안의 가역 팽창이고, 이쪽은 유지 후 상온에 돌려놨을 때 남는 **비가역 치수변화**다.
+    # 부호 규약: **양수 = 수축**. 가열로 오히려 늘어나는 필름이 있어 하한은 -1 로 둔다
+    # (인쇄된 값을 가드로 막는 사고가 여섯 번 났다 — 브리프 150·161).
+    # ⚠ 온도·시간·방향이 없으면 값이 아니다. Celgard 2325 는 TD 0% · MD 3.0% 를 같은
+    # 90 °C/1h 에서 인쇄한다 — 방향을 빼면 한 재료가 자기모순이 된다.
+    ("thermal.heat_shrinkage", "thermal", "열수축률", None, "1", "numeric",
+     ["temperature_k", "time_s", "direction", "value_type"], None),
+
+    # 걸리 투기도 — 정해진 부피의 공기가 정해진 압력에서 통과하는 데 걸리는 **시간**이다.
+    # 시트가 인쇄하는 단위가 그냥 `Seconds` 라 si_unit 도 s 로 둔다(브리프 136 정본은
+    # 원문 단위다). **부피 100 cm^3 · 압력 · 시험면적은 시험 파라미터라 조건축이다** —
+    # `s/100cm^3` 같은 합성단위로 굳히면 50 cc 판이나 ASTM D726 판이 들어올 자리가 없다.
+    # ⚠ `physical.gas_permeability_*` 로 환산하지 마라 — 두께·면적·압력이 필요하고
+    # 그건 역산이다(브리프 345 투과는 물리량이 셋이다).
+    ("physical.air_permeability_gurley", "physical", "걸리 투기도", None, "s", "numeric",
+     ["air_volume_cm3", "pressure_pa", "test_area_mm2", "test_standard"], "JIS P8117"),
+
+    # 광탄성계수(응력광학계수) C = Δn/σ. **저복굴절 렌즈 수지의 핵심 지표다.**
+    # ⚠ 원문이 CGS(cm^2/dyne)로 인쇄하는 분야다. **1 cm^2/dyne = 10 Pa^-1** 이므로
+    # x10 해서 넣어라(1e-4 m^2 / 1e-5 N). 1 Brewster = 1e-12 Pa^-1 = 1e-13 cm^2/dyne.
+    # 부호가 음수인 수지가 있어(폴리스티렌) 하한을 음수로 둔다.
+    # ⚠ `optical.birefringence`(무차원 Δn)와 다른 양이다 — 이쪽은 응력으로 나눈 것이다.
+    ("optical.stress_optical_coefficient", "optical", "광탄성계수(응력광학계수)", "C", "1/Pa",
+     "numeric", ["wavelength_m", "temperature_k"], None),
+
+    # 직각인장(풀오프) 접착강도 — 계면에 **수직으로** 당겨 떼는 응력이다.
+    # ⚠ `interface.peel_strength` 는 N/m 라 **차원이 다르다**(브리프 453). 저자가 이걸
+    # "peel strength" 라 불러도 정의가 sigma = Fmax/S 면 이 키다 — 이름이 아니라 식을 봐라.
+    # ⚠ `interface.cohesive_strength` 는 Pa 로 같지만 **응집영역 모델의 최대 트랙션**이라
+    # 피팅 항이다. 실측 접착강도를 거기 넣으면 모델 상수와 섞인다.
+    # ⚠ `lap_shear`·`die_shear` 는 전단이다. 하중 모드가 다르면 값이 몇 배로 갈린다.
+    ("interface.tensile_adhesion_strength", "interface", "직각인장 접착강도(풀오프)", None, "Pa",
+     "numeric", ["adherend", "substrate", "test_method", "temperature_k"], "ASTM D4541"),
+
+    # Lankford r값 = 폭변형/두께변형. 판재 이방소성(Hill48)의 입력이고 무차원이다.
+    # **방향이 없으면 값이 아니다** — 같은 Al 집전체가 MD 0.2 · DD 1.5 로 7 배 갈린다.
+    ("mechanical.lankford_r_value", "mechanical", "Lankford r값(소성변형비)", "r", "1", "numeric",
+     ["direction", "strain_level", "temperature_k"], "ISO 10113"),
+
+    # 팽창계 연화점(새그온도 Ts) — 열팽창곡선에서 팽창이 멎는 온도. 점도 약 1e10~1e11 dPa*s.
+    # ⚠ `thermal.glass_transition` 과 **측정량이 다르다.** HOYA 카탈로그가 같은 행에 Tg 와
+    # Ts 를 나란히 인쇄하고 Ts > Tg 가 4유리 전부에서 성립한다 — 한 키에 넣으면 그 쌍이 깨진다.
+    # ⚠ **값 자체가 온도다** — 시험온도 조건을 달지 마라(브리프 199·266).
+    ("thermal.dilatometric_softening_point", "thermal", "팽창계 연화점(새그온도 Ts)", "Ts", "K",
+     "numeric", ["heating_rate_k_min", "test_standard"], "ISO 7884-8"),
+
+    # 연마도 FA — 표준시료(BSC7) 대비 연마 속도의 상대값이고 **정의상 BSC7 = 100** 이다.
+    # 비율이지만 0~1 이 아니다(FA=(m/d)/(m0/d0)x100). 인쇄된 수를 그대로 넣어라.
+    # 기준시료를 조건에 반드시 적어라 — 기준이 바뀌면 같은 유리가 다른 수가 된다.
+    ("mechanical.abrasion_factor", "mechanical", "연마도 FA(BSC7=100 기준)", "FA", "1", "numeric",
+     ["reference_specimen", "test_standard"], "JOGIS 10"),
+
+    # 볼압입경도(ISO 2039-1) H = F/(pi*D*h) — **구면 압입자국의 곡면적** 기준이다.
+    # 이 taxonomy 는 경도를 **면적 규약으로** 가른다: Meyer 는 투영면적, Martens 는 접촉표면적,
+    # H_IT 는 투영접촉면적. 규약 간 환산은 우리가 곱하면 역산이라 키를 따로 둔다
+    # (hardness_meyer 주석과 같은 판단). 로크웰처럼 스케일만 다른 것이 아니다.
+    # 단위는 N/mm^2 로 인쇄되고 1 N/mm^2 = 1e6 Pa 다.
+    ("mechanical.hardness_ball_indentation", "mechanical", "볼압입경도 H", "H", "Pa", "numeric",
+     ["load_n", "dwell_s", "temperature_k"], "ISO 2039-1"),
 ]
 # fmt: on
 
