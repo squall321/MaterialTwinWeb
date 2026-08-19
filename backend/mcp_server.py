@@ -1655,9 +1655,13 @@ def test_plan_for_material(material_id: int | None = None, name: str | None = No
         if material_id:
             m = q.filter(Material.id == int(material_id)).first()
         elif name:
+            # 총 건수는 따로 센다. limit 로 자른 개수를 총 건수로 말하면 실제와 다른
+            # 숫자를 사실처럼 내게 된다(실측: 67건 매칭인데 '6건' 이라고 답했다).
+            total = q.filter(Material.name.ilike(f"%{name}%")).count()
             cands = q.filter(Material.name.ilike(f"%{name}%")).limit(6).all()
-            if len(cands) > 1:
-                return {"error": f"'{name}' 에 {len(cands)}건이 걸린다 — 하나로 좁혀라.",
+            if total > 1:
+                return {"error": f"'{name}' 에 {total}건이 걸린다 — 하나로 좁혀라.",
+                        "shown": len(cands), "total": total,
                         "candidates": [{"id": c.id, "name": c.name} for c in cands]}
             m = cands[0] if cands else None
         if m is None:

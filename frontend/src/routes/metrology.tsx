@@ -52,7 +52,18 @@ export function MetrologyScreen() {
 
       {s && (
         <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-          <Tile icon={<Microscope className="size-4" />} label="장비" value={s.instruments} />
+          {/* '장비 218대' 를 그냥 두면 보유 역량으로 읽힌다 — 이 표는 카탈로그를 확보한
+              목록이지 보유 목록이 아니다. 두 숫자를 나란히 보여 오해를 없앤다. */}
+          <Tile
+            icon={<Microscope className="size-4" />}
+            label="장비 카탈로그"
+            value={s.catalog_instruments ?? s.instruments}
+          />
+          <Tile
+            icon={<Microscope className="size-4" />}
+            label="사내 보유 확인"
+            value={s.owned_instruments ?? 0}
+          />
           <Tile icon={<Ruler className="size-4" />} label="측정 능력" value={s.capabilities} />
           <Tile
             icon={<FileText className="size-4" />}

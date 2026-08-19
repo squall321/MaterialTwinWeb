@@ -39,7 +39,12 @@ export type Instrument = {
 };
 
 export type MetrologySummary = {
+  /** 카탈로그를 확보한 장비 수 — '우리가 가진 수'가 아니다. */
   instruments: number;
+  catalog_instruments?: number;
+  /** 사내 보유로 확인된 수. 확인 전에는 0 이다. */
+  owned_instruments?: number;
+  ownership_note?: string;
   capabilities: number;
   measurable_properties: number;
   total_properties: number;
