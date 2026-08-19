@@ -8,7 +8,9 @@ OPT = "('optical.refractive_index','optical.reflectance','optical.extinction_coe
 TEMP_VALUED = ("('thermal.melting_point','thermal.glass_transition','thermal.max_service_temp',"
                "'thermal.min_service_temp','thermal.decomposition_temp','thermal.heat_deflection_temp',"
                # 43차 EE 신규. 새그온도 Ts 도 **값 자체가 온도**다(브리프 199·266, 세 번째 재발).
-               "'thermal.vicat_softening','thermal.dilatometric_softening_point')")
+               "'thermal.vicat_softening','thermal.dilatometric_softening_point',"
+               # 44차 FD 신규. 점도 기준온도도 **값 자체가 온도**다(브리프 199·266, 네 번째 재발).
+               "'thermal.viscosity_reference_temperature')")
 
 CHECKS = [
     ("출처 없는 값", "select count(*) from property_value where source_id is null"),
@@ -307,6 +309,65 @@ def bad_energy_product() -> list:
     return out
 
 
+def bad_viscosity_order() -> list:
+    """한 유리 안에서 점도 기준온도의 순서가 뒤집힌 재료 목록(브리프 431).
+
+    유리의 점도는 온도가 오르면 **단조로 내려간다.** 따라서 지정 점도가 높을수록
+    그 점도에 이르는 온도는 낮다 — 변형점(10^14.5) < 서냉점(10^13) <
+    리틀턴 연화점(10^7.6) < 작업점(10^4). 뒤집히면 **열 배정이 틀린 것**이다.
+
+    적재기(``ingest_agent_json.viscosity_order_violations``)와 **같은 판정**을 쓴다.
+    둘이 서로를 import 하지 않고 각자 standalone 이라 나란히 둔다 —
+    **한쪽만 고치면 안 된다**(중앙값 판정과 같은 규율).
+
+    조건축이 없는 행(``viscosity_log10_poise`` 미기재)은 어느 기준점인지 모르므로
+    검산 대상이 아니다 — 그건 아래 ``visc_missing_axis`` 가 따로 센다.
+    """
+    import json as _json
+    con = sqlite3.connect(DB)
+    pts: dict = {}
+    for mid, v, cond in con.execute(
+            "select material_id, value_num, conditions from property_value "
+            "where property_key='thermal.viscosity_reference_temperature' "
+            "and value_num is not null"):
+        try:
+            d = _json.loads(cond) if cond else {}
+        except (TypeError, ValueError):
+            d = {}
+        lg = d.get("viscosity_log10_poise") if isinstance(d, dict) else None
+        if lg is None:
+            continue
+        try:
+            pts.setdefault(mid, []).append((float(lg), float(v)))
+        except (TypeError, ValueError):
+            continue
+    out = []
+    for mid, rows in pts.items():
+        for i, (lg_a, t_a) in enumerate(rows):
+            for lg_b, t_b in rows[i + 1:]:
+                if lg_a == lg_b:
+                    continue
+                hi, lo = ((lg_a, t_a), (lg_b, t_b)) if lg_a > lg_b else ((lg_b, t_b), (lg_a, t_a))
+                if hi[1] >= lo[1]:
+                    name = (con.execute("select name from material where id=?", (mid,)).fetchone()
+                            or ["?"])[0]
+                    out.append((mid, name, hi, lo))
+    return out
+
+
+def visc_missing_axis() -> int:
+    """점도 기준온도인데 어느 기준점인지 안 적힌 값의 수.
+
+    **기준점이 없으면 값이 아니다** — 같은 유리의 변형점과 작업점이 300 K 넘게 갈린다.
+    조건축 하나가 물성의 정체를 정하는 자리라 파장 없는 광학값과 같은 부류다.
+    """
+    con = sqlite3.connect(DB)
+    return con.execute(
+        "select count(*) from property_value "
+        "where property_key='thermal.viscosity_reference_temperature' "
+        "and json_extract(conditions,'$.viscosity_log10_poise') is null").fetchone()[0]
+
+
 def k_missing_direction() -> int:
     """열적 이방성이 입증됐는데 열전도율에 방향이 없는 값의 수.
 
@@ -395,6 +456,15 @@ print(f"  {'(BH)max > Br^2/(4mu0)':28s} {len(_bh)}{'  ←' if _bh else ''}")
 for _mid, _nm, _v2, _cap, _ in _bh[:5]:
     print(f"      재료{_mid} {str(_nm)[:44]:46s} {_v2/1e3:.1f} > {_cap/1e3:.1f} kJ/m^3"
           f" (비 {_v2/_cap:.3f})")
+_vo = bad_viscosity_order()
+bad += 1 if _vo else 0
+print(f"  {'점도 기준점 순서 역전':28s} {len(_vo)}{'  ←' if _vo else ''}")
+for _mid, _nm, _hi, _lo in _vo[:5]:
+    print(f"      재료{_mid} {str(_nm)[:40]:42s} log10eta {_hi[0]} {_hi[1]:.1f} K "
+          f">= log10eta {_lo[0]} {_lo[1]:.1f} K")
+_va = visc_missing_axis()
+bad += 1 if _va else 0
+print(f"  {'점도 기준온도에 기준점 없음':28s} {_va}{'  ←' if _va else ''}")
 
 # 주의 항목 — 결함은 아니지만 쓰는 사람이 알아야 하는 것. bad에 세지 않는다.
 # 방향을 지어내서 검사를 통과시키는 것도, 아는 위험을 안 알리는 것도 안 된다.

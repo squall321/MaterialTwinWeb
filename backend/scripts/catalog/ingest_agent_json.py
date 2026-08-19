@@ -147,6 +147,11 @@ RANGE = {
     "thermal.dilatometric_softening_point": (200.0, 3000.0),   # K (섭씨 원값이면 걸린다)
     "mechanical.abrasion_factor": (0.0, 1e4),            # BSC7 = 100 기준 상대값
     "mechanical.hardness_ball_indentation": (1e3, 1e11),  # Pa (N/mm^2 원값이면 걸린다)
+    # ── 44차 FD 신규 키 ──────────────────────────────────────────────────────
+    # 점도 기준온도는 K 다. **섭씨 원값이면 걸린다** — 이 갈래는 원문이 예외 없이 °C 로
+    # 인쇄하므로(467~1700 °C) 환산을 빼먹는 사고가 정확히 여기서 난다.
+    # 하한 300 K 는 상온 아래를 막고, 상한 3000 K 는 석영(작업점 ~2200 K)까지 통과시킨다.
+    "thermal.viscosity_reference_temperature": (300.0, 3000.0),
 }
 # Material.category도 고정 어휘 — 에이전트 표기를 매핑한다.
 CAT_OK = {"metal", "polymer", "rubber", "composite", "ceramic", "foam"}
@@ -229,6 +234,44 @@ def force_computed_if_midpoint(method: str, notes) -> tuple[str, bool]:
     if method in ("measured", "handbook") and asserts_midpoint(notes):
         return "computed", True
     return method, False
+
+
+VISCOSITY_KEY = "thermal.viscosity_reference_temperature"
+
+
+def viscosity_order_violations(props: list) -> list:
+    """한 재료 항목 안의 점도 기준온도가 물리 순서를 어기는지 본다(브리프 431).
+
+    유리의 점도는 온도가 오르면 **단조로 내려간다.** 그래서 지정 점도가 높을수록
+    그 점도에 도달하는 온도는 낮다 — 변형점(10^14.5) < 서냉점(10^13) <
+    리틀턴 연화점(10^7.6) < 작업점(10^4). 한 유리 안에서 이 순서가 뒤집히면
+    **열 배정이 틀린 것**이지 값이 아니다(EAGLE XG 는 669 < 722 < 972 로 성립한다).
+
+    반환은 위반 쌍의 설명 문자열 목록. 비어 있으면 통과다.
+    **검사기로 잡을 것을 적재기로 막는다**(브리프 455) — 사후 검사는 이미 들어온 것만 본다.
+    """
+    pts = []
+    for pr in props:
+        if pr.get("key") != VISCOSITY_KEY or pr.get("value") is None:
+            continue
+        cond = as_cond(pr.get("conditions"))
+        lg = cond.get("viscosity_log10_poise")
+        if lg is None:
+            continue
+        try:
+            pts.append((float(lg), float(pr["value"])))
+        except (TypeError, ValueError):
+            continue
+    out = []
+    for i, (lg_a, t_a) in enumerate(pts):
+        for lg_b, t_b in pts[i + 1:]:
+            if lg_a == lg_b:
+                continue
+            hi, lo = ((lg_a, t_a), (lg_b, t_b)) if lg_a > lg_b else ((lg_b, t_b), (lg_a, t_a))
+            if hi[1] >= lo[1]:
+                out.append(f"log10eta {hi[0]} 에서 {hi[1]:.2f} K 인데 "
+                           f"log10eta {lo[0]} 에서 {lo[1]:.2f} K — 점도가 높은 쪽이 더 뜨겁다")
+    return out
 
 
 def norm_method(raw) -> tuple[str, str | None]:
@@ -372,7 +415,7 @@ def main() -> int:
 
     stats = {"ok": 0, "no_source": 0, "bad_key": 0, "bad_unit": 0, "out_of_range": 0,
              "pct_suspect": 0, "kept_better": 0, "new_mat": 0, "no_mat": 0, "cond_clash": 0,
-             "mat_fail": 0, "skipped_rows": 0}
+             "mat_fail": 0, "skipped_rows": 0, "visc_order": 0}
     # 적재는 (재료·물성·출처·조건)에 멱등이다. 조건이 같은데 값이 다르면 나중 것이
     # 앞의 것을 조용히 덮어 측정 하나가 사라진다(3M 112P02/112P05가 그렇게 사라졌다).
     seen_cond: dict[tuple, float] = {}
@@ -453,8 +496,20 @@ def main() -> int:
                     # 같은 것으로 판정돼 조건 충돌이 거짓으로 뜨지 않는다.
                     mid = -(abs(hash(nm["name"])) % 10**9 + 1)
 
+            # **점도 기준온도는 한 유리 안에서 순서가 정해져 있다**(브리프 431).
+            # 뒤집혀 있으면 그 항목의 점도 행 전체를 버린다 — 어느 칸이 틀렸는지
+            # 우리가 고르면 그건 우리 값이 된다(브리프 443).
+            _visc_bad = viscosity_order_violations(entry.get("properties", []))
+            if _visc_bad:
+                print(f"  ✗ 점도 기준점 순서 위반 — {name or (entry.get('new_material') or {}).get('name')}")
+                for _m in _visc_bad:
+                    print(f"      {_m}")
+
             for pr in entry.get("properties", []):
                 key, val, unit = pr.get("key"), pr.get("value"), pr.get("unit")
+                if key == VISCOSITY_KEY and _visc_bad:
+                    stats["visc_order"] += 1
+                    continue
                 # 에이전트가 value_text 필드를 따로 쓰는 경우도 받는다.
                 if pr.get("value_text") and (val is None or str(val).lower() in ("none", "null", "")):
                     val = pr["value_text"]

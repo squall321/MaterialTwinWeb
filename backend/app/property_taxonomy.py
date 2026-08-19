@@ -873,6 +873,35 @@ _DEFS: list[tuple] = [
     # 단위는 N/mm^2 로 인쇄되고 1 N/mm^2 = 1e6 Pa 다.
     ("mechanical.hardness_ball_indentation", "mechanical", "볼압입경도 H", "H", "Pa", "numeric",
      ["load_n", "dwell_s", "temperature_k"], "ISO 2039-1"),
+
+    # ── 44차 FD — **유리 점도 기준온도 하나로 세 배치가 막혀 있던 자리** ─────────────
+    # 44차 FA(커버글라스) 23칸 · FB(기판·광학유리) 31칸 · FC(유리섬유) 12행이
+    # 이 키 하나가 없어 못 들어왔다. 변형점·서냉점·리틀턴 연화점·작업점은 **유리 시트의
+    # 표제 물성**이라, 등급을 아무리 더 캐도 반쪽이었다(브리프 468).
+    #
+    # **넷을 한 키로 담는 근거는 차원이다**(브리프 453). 넷 다 K 이고 정의가 하나다 —
+    # "전단점도가 지정된 값이 되는 온도". 다른 것은 **지정된 점도값뿐**이라 파라미터이고,
+    # 파라미터는 조건축으로 올린다(로크웰 스케일 · T-260 유지온도 · d31/d33 성분 선례).
+    #   14.5 = 변형점(strain point, ASTM C336/C598 · JOGIS StP)
+    #   13.0 = 서냉점(annealing point, 동)
+    #    7.6 = 리틀턴 연화점(softening point, ASTM C338)
+    #    4.0 = 작업점(working point)
+    # 시트가 P(poise)와 dPa*s 를 섞어 쓰는데 **1 P = 1 dPa*s 라 수가 같다** —
+    # 축 이름을 `viscosity_log10_poise` 로 고정해 둘을 한 축에 담는다.
+    #
+    # ⚠ **`thermal.dilatometric_softening_point`(새그온도 Ts)와 합치지 않았다.**
+    #   Ts 는 **팽창계가 관측한 온도**다 — 시편이 프로브 하중에 눌려 팽창곡선이 꺾이는 점이고,
+    #   점도로 *정의된* 값이 아니다(대략 1e10~1e11 dPa*s 근처에 놓일 뿐 지정값이 없다).
+    #   정의가 다르면 다른 키다. 실제로 **원문이 둘을 같은 표에 나란히 인쇄한다** —
+    #   OHARA 시트는 `Yield Point At` 와 `Softening Point SP` 를 각각 찍고
+    #   (L-BAL42: At 551 · SP 607), SCHOTT 는 `AT` 와 `T10^7.6` 을 각각 찍는다
+    #   (P-SF67: AT 601 · T10^7.6 663). 한 키에 넣으면 그 쌍이 깨진다.
+    # ⚠ **값 자체가 온도다** — 시험온도 조건을 달지 마라(브리프 199·266).
+    # ⚠ **물리 순서 검산**(브리프 431): 한 유리 안에서 점도가 높을수록 온도가 낮아야 한다.
+    #   14.5 < 13 < 7.6 < 4 순으로 온도가 커야 하고, 뒤집히면 열 배정이 틀린 것이다.
+    #   적재기(`viscosity_order_violations`)와 `integrity_check` 가 둘 다 본다.
+    ("thermal.viscosity_reference_temperature", "thermal", "점도 기준온도", None, "K", "numeric",
+     ["viscosity_log10_poise", "test_standard", "determination"], "ASTM C338"),
 ]
 # fmt: on
 
