@@ -405,6 +405,33 @@ if _w:
     print("         (0.81~1.06 vs 0.29~0.34 W/mK) 등방으로 쓰면 크게 틀린다.")
     print("         원문에 방향이 없으면 지어내지 말고, 해석에서 이 값을 등방으로 쓰지 말 것.")
 
+# 소자 유효열전도율이 재료 열전도율과 같은 키에 들어 있다 — **43차 EC 가 열면서 생긴 자리다.**
+# 베이퍼챔버·히트파이프는 상변화로 열을 옮기므로 유효값이 재료 상한을 훌쩍 넘는다
+# (Yang 2021 의 200 µm 챔버가 면내 유효 11,914.9 W/(m·K) — 다이아몬드의 3.6배).
+#
+# **이름만으로도, 값만으로도 못 가른다.**
+#   · 이름 — 소자든 부품이든 전부 `wick` 이 들어간다. 소자는 그 윅으로 서술되기 때문이다
+#     (`Ultrathin vapor chamber … mesh wick` 는 소자, `Vapor chamber condenser wick` 는 재료).
+#   · 값 — Fujikura 모듈 2,468 이 흑연 면내(1,950)와 다이아몬드(3,320) 사이에 그대로 앉는다.
+# 둘을 겹쳐야 갈린다. **다공성 윅은 순동(400)을 못 넘고 상변화 소자는 넘는다** — 이건 물리다.
+# 그리고 순동을 넘는 진짜 재료(흑연·다이아몬드)는 이름에 베이퍼챔버가 없다.
+#
+# 이상이 아니라 주의다 — 인쇄된 값이고 소자 해석에는 정당하게 쓰인다.
+# 다만 Ashby 순위·재료 비교·MAT_THERMAL 카드에서 **재료로 섞이면 틀린다.**
+_dev = c.execute(
+    """select m.id, m.name, max(v.value_num) mx
+         from property_value v join material m on m.id = v.material_id
+        where v.property_key = 'thermal.conductivity' and v.value_num is not null
+          and (m.name like '%heat pipe%' or m.name like '%vapor chamber%'
+               or m.name like '%heat spreader module%' or m.name like '%cooling module%')
+        group by m.id having mx > 400 order by mx desc""").fetchall()
+if _dev:
+    print(f"\n  [주의] 소자 유효열전도율을 재료 열전도율 키에 담은 재료: {len(_dev)}종")
+    for _i, _n, _mx in _dev[:5]:
+        print(f"         재료{_i} {str(_n)[:46]:48s} 최대 {_mx:,.0f} W/(m*K)")
+    print("         상변화 소자라 재료 상한(다이아몬드 3,320)을 넘는 것이 정상이다.")
+    print("         소자 해석 입력으로는 정당하지만 **재료로 비교·순위·카드추출하면 틀린다.**")
+
 # 같은 출처에 값이 완전히 같은 재료쌍 — **중복 적재일 수도, 정당한 클래스 전이일 수도 있다.**
 # 30차 AB 가 이걸로 ZrB2 10종·Cr2O3 1종의 실제 중복을 찾았지만, 같은 질의가
 # 등급 다른 대리값(SUS316/316L 같은 것)도 함께 잡는다. **그래서 이상이 아니라 주의다.**
