@@ -921,7 +921,8 @@ def _validate_arrays(x: list[float], y: list[float], xname: str, yname: str,
 
 @mcp.tool()
 def register_material(name: str, category: str = "metal", material_code: str | None = None,
-                      description: str | None = None, attributes: dict | None = None) -> dict:
+                      description: str | None = None, attributes: dict | None = None,
+                      dry_run: bool = False) -> dict:
     """새 재료를 등록한다. category: metal/polymer/rubber/composite/ceramic/foam. material_code 는 전사 고유코드(중복 시 에러), attributes 로 자유형 JSON(포아송비 nu 등)을 함께 저장한다. 등록 후 카탈로그 물성은 register_property 로 붙이고(시험 없이도 가능), 곡선 시험이 있으면 register_tensile_test/register_relaxation_test 를 쓴다.
 
     material_code는 전사 고유코드(중복 시 에러). attributes로 자유형 JSON(포아송비 nu,
@@ -936,6 +937,13 @@ def register_material(name: str, category: str = "metal", material_code: str | N
     if attributes is not None and not isinstance(attributes, dict):
         return {"error": "attributes는 객체(dict)여야 합니다."}
     attrs = {"source": "mcp", **(attributes or {})}
+    if dry_run:
+        # 저장 없이 검증만 — 위 검증(이름·카테고리·attributes)을 다 통과한 상태다.
+        # material_code 중복은 실제 커밋 때만 알 수 있어 여기선 검사하지 않는다(안내만).
+        return {"dry_run": True, "name": name, "category": category,
+                "material_code": material_code or None, "attributes": attrs,
+                "message": "미리보기(저장 안 함). material_code 중복 여부는 확정 시 검사됩니다. "
+                           "확정하려면 dry_run=False 로 다시 호출하세요."}
     from sqlalchemy.exc import IntegrityError
     with SessionLocal() as s:
         mat = Material(name=name, material_code=material_code or None, category=category,
@@ -958,7 +966,8 @@ def register_tensile_test(material_id: int, strain: list[float], stress_mpa: lis
                           width_mm: float = _DEF_WIDTH_MM,
                           thickness_mm: float = _DEF_THICK_MM,
                           strain_source: str = "extensometer",
-                          orientation: str | None = None) -> dict:
+                          orientation: str | None = None,
+                          dry_run: bool = False) -> dict:
     """인장시험 곡선(공칭 변형률[무차원]·공칭 응력[MPa])을 등록하고 물성·피팅까지 자동 계산.
 
     시편을 자동 생성(치수 mm)하고 곡선 저장 → E·항복·UTS·연신 계산 →
@@ -989,6 +998,61 @@ def register_tensile_test(material_id: int, strain: list[float], stress_mpa: lis
         if float(np.nanmax(en)) > strain_cap:
             return {"error": f"strain 최대값 {np.nanmax(en):.3g} > {strain_cap}"
                              f"({mat.category or 'metal'} 상한) — 무차원 변형률이어야 합니다(% 아님)."}
+        # dry_run — 저장 없이 물성·피팅만 계산해 미리보기 반환. 실경로와 **같은 순수
+        # 함수를 같은 순서로** 부른다(analysis.compute_all → 저항복 보정 → _plastic_true+fit_all).
+        # 이 두 경로의 동치는 회귀 테스트(test_tensile_dry_run_equiv)가 강제한다 — 한쪽 로직만
+        # 바꾸면 그 테스트가 깨진다.
+        if dry_run:
+            import pandas as pd
+            _n = en.size
+            _df = pd.DataFrame({"time": np.full(_n, np.nan), "force_N": stress_pa * A0,
+                                "disp_m": en * L0, "extenso_strain": en,
+                                "eng_stress_Pa": stress_pa, "eng_strain": en})
+            _metrics = None; _best = None
+            for _er in ((0.0005, 0.0025), (0.0002, 0.0015), (0.0001, 0.001)):
+                _m = analysis.compute_all(en, stress_pa, A0=A0, e_range=_er, category=mat.category)
+                _r2 = getattr(_m["params"], "r2", None)
+                if _best is None or ((_r2 or 0) > (getattr(_best["params"], "r2", None) or 0)):
+                    _best = _m
+                if _m["youngs_modulus_pa"] and _r2 is not None and _r2 >= 0.995:
+                    _metrics = _m; break
+            if _metrics is None:
+                _metrics = _best
+            _warn = []
+            _E, _sy = _metrics["youngs_modulus_pa"], _metrics["yield_strength_pa"]
+            if _E and _sy and np.isfinite(_E) and np.isfinite(_sy) and _E > 0:
+                _ey = _sy / _E
+                if _ey < 0.0036:
+                    _lo, _hi = max(1e-4, 0.15 * _ey), max(2e-4, 0.7 * _ey)
+                    _nw = int(np.sum((en >= _lo) & (en <= _hi)))
+                    _m2 = (analysis.compute_all(en, stress_pa, A0=A0, e_range=(_lo, _hi), category=mat.category)
+                           if _nw >= 5 else {"youngs_modulus_pa": None})
+                    _E2 = _m2["youngs_modulus_pa"]
+                    if (_E2 and np.isfinite(_E2) and abs(_E2 - _E) / _E > 0.005 and 0.5 <= _E2 / _E <= 2.0):
+                        # 실경로와 동일 — E·항복·n·K·params 4+1 필드만 교체, 나머지(uts·연신·extra)는 유지.
+                        _metrics = {**_metrics, "youngs_modulus_pa": _m2["youngs_modulus_pa"],
+                                    "yield_strength_pa": _m2["yield_strength_pa"],
+                                    "strain_hardening_n": _m2["strain_hardening_n"],
+                                    "strength_coeff_k_pa": _m2["strength_coeff_k_pa"],
+                                    "params": _m2["params"]}
+                        _warn.append("저항복 재료 — 탄성창을 항복변형률 기준으로 자동 보정했습니다.")
+            _fits = []
+            if _metrics["youngs_modulus_pa"] and _metrics["youngs_modulus_pa"] > 0:
+                _ep, _st = _plastic_true(_df, _metrics["youngs_modulus_pa"])
+                for _r in fitting.fit_all(_ep, _st):
+                    if _r.get("params") is None:
+                        continue
+                    _fits.append({"model": _r["model"], "r2": round(_r["r2"], 4) if _r.get("r2") else None})
+            else:
+                _warn.append("영률 계산 실패 — 탄성 구간 데이터가 부족합니다. 카드 생성 불가.")
+            return {"dry_run": True, "material_id": material_id,
+                    "properties": {"E_GPa": _gpa(_metrics["youngs_modulus_pa"]),
+                                   "yield_MPa": _mpa(_metrics["yield_strength_pa"]),
+                                   "UTS_MPa": _mpa(_metrics["uts_pa"]),
+                                   "elong_pct": round((_metrics["fracture_elongation"] or 0) * 100, 1)},
+                    "fits": _fits, "warnings": _warn,
+                    "message": "미리보기(저장 안 함). 확정하려면 dry_run=False 로 다시 호출하세요."}
+
         spec = _add_specimen(s, material_id, label=specimen_label,
                              geometry_type="flat", gauge_length_m=L0, width_m=W0, thickness_m=T0,
                              area0_m2=A0, standard="mcp", orientation=orientation)
@@ -1094,7 +1158,8 @@ def register_relaxation_test(material_id: int,
                              time_s: list[float] | None = None,
                              modulus_mpa: list[float] | None = None,
                              nu: float = 0.45, bulk_mpa: float | None = None,
-                             rho_t_mm3: float | None = None) -> dict:
+                             rho_t_mm3: float | None = None,
+                             dry_run: bool = False) -> dict:
     """점탄성 완화시험을 등록한다. 두 입력 모드 중 하나를 사용.
 
     (A) Prony 파라미터: G0_mpa·Ginf_mpa·beta_per_s (LS-DYNA *MAT_VISCOELASTIC 정의,
@@ -1160,6 +1225,14 @@ def register_relaxation_test(material_id: int,
         pl = {k: v for k, v in prony_src.items() if v is not None}
         if rho_t_mm3:
             pl["RHO"] = rho_t_mm3
+
+        if dry_run:
+            # 계산은 위에서 다 끝났다(fit_prony 등 순수 함수). material 존재만 확인한 상태다.
+            return {"dry_run": True, "material_id": material_id,
+                    "E0_MPa": _mpa(E0_pa), "Einf_MPa": _mpa(Einf_pa), "tau_s": round(tau_s, 6),
+                    "prony_r2": round(fit["r2"], 4) if fit.get("r2") is not None else None,
+                    "lsdyna_prony": pl,
+                    "message": "미리보기(저장 안 함). 확정하려면 dry_run=False 로 다시 호출하세요."}
 
         spec = _add_specimen(s, material_id,
                              geometry_type="flat", gauge_length_m=_DEF_GAUGE_MM * 1e-3,
