@@ -34,6 +34,12 @@ def classify(name: str, category: str | None) -> tuple[str, str]:
     """(클래스 표시명, 계열) 반환. 미분류는 (기타-카테고리, category). category=None 안전."""
     nm = name or ""
     cat = category or "unclassified"
+    # **`molecular` 은 고분자 클래스표를 태우면 안 된다**(48차 JC).
+    # 이 표의 정규식은 이름 조각을 잡는다 — `EAR`·`bond`·`thermal` 은 유기 소분자 이름
+    # 안에서도 흔히 걸려서, OLED 발광체가 `Damping Polymer`·`Adhesive Tape` 로 뜬다.
+    # 분자 재료는 계열을 나눌 축(발광색·호스트/도판트)이 이 표와 아예 다르므로 통째로 둔다.
+    if cat == "molecular":
+        return "Molecular / Organometallic", "molecular"
     table = _METAL_CLASSES if cat == "metal" else _POLYMER_CLASSES
     for label, family, pat in table:
         if pat.search(nm):

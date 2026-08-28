@@ -38,8 +38,13 @@ CHECKS = [
     # 지킨 배치를 오히려 벌준다. 적재기(ingest_agent_json.asserts_midpoint)와 **같은 판정**을 쓴다.
     ("출처 kind 어휘 밖", """select count(*) from source where kind not in
         ('journal','book','database','datasheet','computed','standard','web','other')"""),
+    # **`molecular` 는 48차 JC 가 열었다** — Ashby 구조재 계통수 여섯에는 분자로 특성화되는
+    # 기능재(OLED 발광체·호스트·전하수송체, 사이클로메탈화 Ir/Pt/Pd/Cu 착체, 포르피린 색소,
+    # 분자결정)의 집이 없었다. 172종이 `polymer`·`composite` 에 잘못 들어 있었다.
+    # **어휘를 늘리면 세 곳을 같이 고쳐야 한다**(§466) — 여기 · 적재기 `CAT_OK` · 프런트 선택지.
+    # 하나라도 빠지면 적재가 죽거나 옛 값이 되살아난다.
     ("category 어휘 밖", """select count(*) from material where category not in
-        ('metal','polymer','rubber','composite','ceramic','foam')"""),
+        ('metal','polymer','rubber','composite','ceramic','foam','molecular')"""),
     ("물성값 0인 재료", "select count(*) from material m where not exists(select 1 from property_value where material_id=m.id)"),
     ("추정만 있는 재료", """select count(*) from (select m.id from material m join property_value pv on pv.material_id=m.id
         group by m.id having min(pv.quality_tier)>=4)"""),

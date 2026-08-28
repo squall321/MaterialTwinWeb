@@ -75,7 +75,9 @@ type SpecimenView = {
   curveError: boolean;
 };
 
-const CATEGORY_OPTIONS = ["metal", "polymer", "rubber", "composite", "ceramic", "foam"] as const;
+// 백엔드 어휘와 값이 일치해야 한다 — 적재기 `CAT_OK` · `integrity_check` 의 "category 어휘 밖".
+// `molecular`(분자로 특성화되는 기능재: OLED 발광체·유기금속 착체·색소·분자결정)은 48차 JC 가 열었다.
+const CATEGORY_OPTIONS = ["metal", "polymer", "rubber", "composite", "ceramic", "foam", "molecular"] as const;
 
 /** 테마 토글 시 재렌더 신호(레전드·시리즈 색 재계산용). */
 function useThemeVersion(): number {
