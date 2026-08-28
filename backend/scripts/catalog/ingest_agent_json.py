@@ -194,11 +194,25 @@ RANGE = {
     "mechanical.tensile_stress_at_strain": (0.0, 1e11),
 }
 # Material.category도 고정 어휘 — 에이전트 표기를 매핑한다.
-CAT_OK = {"metal", "polymer", "rubber", "composite", "ceramic", "foam"}
+# **`molecular` 은 48차 JC 가 열었다.** Ashby 구조재 계통수 여섯에는 *분자로 특성화되는*
+# 기능재의 집이 없었다 — OLED 발광체·호스트·전하수송체, 사이클로메탈화 Ir/Pt/Pd/Cu 착체,
+# 포르피린 색소, 분자결정. 물성이 HOMO/LUMO·삼중항·PLQY·발광파장이지 E·sigma 가 아니다.
+# 172종이 `polymer`(164)·`composite`(10) 에 들어 있었다(migration a5b6c7d8e9f0).
+#
+# **경계** — 레코드가 *분자*를 말하면 `molecular`, *층/필름*을 말하면 그 층의 벌크 어휘다.
+# `OLED Emitter Layer` 처럼 E·인장·밀도를 가진 균질층 대표값은 `polymer` 로 남는다.
+# 원소 탄소(흑연·CNT·그래핀·카본블랙·탄소섬유)는 `ceramic` 이다 — 단상이라 복합재가 아니고,
+# Ashby 계통수가 탄소를 두는 자리다. **`carbon` 이라는 값은 만들지 않았다**(§419).
+# 어휘를 늘리면 세 곳을 같이 고쳐야 한다(§466) — 여기 · `integrity_check` · 프런트 선택지.
+CAT_OK = {"metal", "polymer", "rubber", "composite", "ceramic", "foam", "molecular"}
 CAT_MAP = {"ceramics": "ceramic", "glass": "ceramic", "semiconductor": "ceramic",
            "organic": "polymer", "plastic": "polymer", "resin": "polymer",
            "elastomer": "rubber", "alloy": "metal", "adhesive": "polymer",
-           "film": "polymer", "laminate": "composite", "liquid": "polymer"}
+           "film": "polymer", "laminate": "composite", "liquid": "polymer",
+           # `organic` 은 여기 못 넣는다 — 유기 고분자도 organic 이라 뜻이 갈린다.
+           "small_molecule": "molecular", "organometallic": "molecular",
+           "molecule": "molecular", "complex": "molecular", "dye": "molecular",
+           "carbon": "ceramic", "graphite": "ceramic"}
 
 
 def norm_cat(c: str | None) -> str:
@@ -424,6 +438,279 @@ def cond_sig(cond) -> str:
     return json.dumps({k: str(v) for k, v in sorted(cond.items())}, ensure_ascii=False)
 
 
+# ══════════════════════════════════════════════════════════════════════════════
+# 명시적 정정 경로 (48차 JA) — **적재기가 기존 행을 고칠 수 있는 유일한 길**
+# ══════════════════════════════════════════════════════════════════════════════
+# 브리프 314 가 남긴 제약이다 — *"적재기는 UPDATE 를 못 한다"*. 그래서 배치가 **이미 든 값이
+# 틀렸음을 증명해도** notes 나 브리프에 적어 두고 지나갔다(47차 IB 의 Cai Fig.14 93행,
+# 44차 FC 의 재료 199 두 행, 46차 HC 의 2290 세트). 한 파동에만 세 번 걸렸다.
+#
+# **"덮어쓰지 않는다" 는 보호장치를 없애지 않는다.** 같은 재료·같은 키에 값이 또 오면
+# 지금처럼 삽입하거나 건너뛴다 — 그 경로는 손대지 않았다. 정정은 JSON 이 **`corrections`
+# 배열로 정정임을 선언**했을 때만 일어난다. 암묵적 정정은 없다.
+#
+# 선언 형식 ────────────────────────────────────────────────────────────────────
+#   {"corrections": [
+#     {"target": {"property_value_id": 1499},          ← 행 id 로 못박거나
+#      "target": {"material_id": 199, "property_key": "electrical.dielectric_constant",
+#                 "conditions": null, "value": 6.6},   ← 재료+키+조건으로 유일하게 걸거나
+#      "reason": "왜 고치는지 — 없으면 거부한다",
+#      "evidence": "등급을 올릴 때만 추가로 요구한다",
+#      "set": {"quality_tier": 4, "conditions": {...}, "notes": "..."}}]}
+#
+# 거부 조건 ────────────────────────────────────────────────────────────────────
+#   · 대상 미지정 · 대상 0건 · **대상 2건 이상**(어느 행인지 우리가 고르면 그건 우리 판정이다)
+#   · 사유 없음(10자 미만) · 고칠 것 없음 · 정정 불가 필드(아래)
+#   · 새 값이 단위·범위·퍼센트 가드를 못 넘음 — **삽입과 같은 가드를 통과해야 한다**
+#   · 정정 후 같은 (재료·키·출처·조건) 행이 이미 있음(중복 생성 방지)
+#
+# 되돌리기 ─────────────────────────────────────────────────────────────────────
+#   옛 값을 지우지 않는다. 바뀐 칸마다 `<칸>_before_correction` 을 조건에 남긴다.
+#   선례 — 43차 EE 의 `method_restored`, 44차 FD 의 `tier_before_correction`·
+#   `wavelength_nm_before_correction`. 그리고 `correction_reason`·`corrected_by` 로
+#   **왜·누가**를 값과 함께 남긴다. 이게 있어야 병합기가 운영 행을 찾을 수 있다(아래 참조).
+
+# 정정할 수 있는 칸. **`property_key` 와 `material_id` 는 여기 없다** —
+# 그건 정정이 아니라 **이동**이고, 물성 0행이 되는 재료를 검사기가 어떻게 볼지(묘비 규약)가
+# 먼저 정해져야 한다(46차 HC 의 2290→36). 이동 경로는 이 배치에서 만들지 않는다.
+CORRECTABLE = {"value", "value_text", "unit", "method", "quality_tier", "conditions", "notes"}
+# 정정 사유는 한 줄이라도 문장이어야 한다. "수정"·"fix" 한 단어는 사유가 아니다.
+REASON_MIN = 10
+
+
+def _num_eq(a, b) -> bool:
+    """부동소수 비교. 인쇄 자릿수 차이가 아니라 **같은 수인가**만 본다."""
+    if a is None or b is None:
+        return a is b
+    a, b = float(a), float(b)
+    return abs(a - b) <= 1e-9 * max(1.0, abs(a), abs(b))
+
+
+def match_targets(s, tgt: dict, by_name: dict) -> list:
+    """정정 대상 행을 찾는다. 주어진 축을 전부 AND 로 건다.
+
+    **여러 행에 걸리면 부르는 쪽이 거부한다** — 여기서는 걸린 것을 다 돌려준다.
+    """
+    from app.models import Source          # 지역 임포트: 이 함수만 쓴다
+    if tgt.get("property_value_id") is not None:
+        return s.query(PropertyValue).filter(
+            PropertyValue.id == int(tgt["property_value_id"])).all()
+
+    q = s.query(PropertyValue)
+    mid = tgt.get("material_id")
+    if mid is None and tgt.get("material_name"):
+        mid = by_name.get(tgt["material_name"])
+        if mid is None:
+            return []                       # 이름이 DB 에 없으면 대상 0건이다
+    if mid is not None:
+        q = q.filter(PropertyValue.material_id == int(mid))
+    if tgt.get("property_key"):
+        q = q.filter(PropertyValue.property_key == tgt["property_key"])
+    if tgt.get("source_id") is not None:
+        q = q.filter(PropertyValue.source_id == int(tgt["source_id"]))
+    if tgt.get("method"):
+        q = q.filter(PropertyValue.method == tgt["method"])
+    if tgt.get("quality_tier") is not None:
+        q = q.filter(PropertyValue.quality_tier == int(tgt["quality_tier"]))
+    rows = q.all()
+
+    # 출처를 doi·url·title 로 좁힌다(출처 id 를 모르는 배치가 대부분이다).
+    for fld, col in (("source_doi", "doi"), ("source_url", "url"), ("source_title", "title")):
+        want = tgt.get(fld)
+        if not want:
+            continue
+        ids = {r[0] for r in s.query(Source.id).filter(getattr(Source, col) == want).all()}
+        rows = [pv for pv in rows if pv.source_id in ids]
+
+    # 조건은 **키가 있으면**(값이 null 이어도) 건다 — "조건이 비어 있는 행" 을 못박기 위해서다.
+    if "conditions" in tgt:
+        want = cond_sig(tgt["conditions"])
+        rows = [pv for pv in rows if cond_sig(pv.conditions) == want]
+    if "value" in tgt and tgt["value"] is not None:
+        rows = [pv for pv in rows if _num_eq(pv.value_num, tgt["value"])]
+    if "value_text" in tgt and tgt["value_text"] is not None:
+        rows = [pv for pv in rows if (pv.value_text or "") == str(tgt["value_text"])]
+    return rows
+
+
+def plan_correction(pv, setv: dict, defs: dict) -> tuple[dict, dict, list]:
+    """(바뀔 칸, 조건에 남길 되돌리기 표시, 거부사유 목록).
+
+    바뀌지 않는 칸은 결과에 담지 않는다 — "고칠 것이 없는 정정" 을 거부하기 위해서다.
+    """
+    bad: list[str] = []
+    unknown = set(setv) - CORRECTABLE
+    if unknown:
+        # `property_key`·`material_id` 를 여기서 잡는다. 이동은 정정이 아니다.
+        bad.append(f"정정할 수 없는 칸 {sorted(unknown)} — 키·재료 이동은 이 경로가 아니다"
+                   f"(묘비 규약이 먼저다)")
+    chg: dict = {}
+    back: dict = {}
+
+    if "value" in setv and not _num_eq(pv.value_num, setv["value"]):
+        chg["value_num"] = None if setv["value"] is None else float(setv["value"])
+        back["value_before_correction"] = pv.value_num
+    if "value_text" in setv and (pv.value_text or None) != (setv["value_text"] or None):
+        chg["value_text"] = setv["value_text"]
+        back["value_text_before_correction"] = pv.value_text
+    if "unit" in setv and (pv.unit or None) != (setv["unit"] or None):
+        chg["unit"] = setv["unit"]
+        back["unit_before_correction"] = pv.unit
+    if "method" in setv:
+        meth, detail = norm_method(setv["method"])
+        if detail:
+            bad.append(f"method 는 어휘여야 한다 — '{setv['method']}' 는 서술이다")
+        elif meth != pv.method:
+            chg["method"] = meth
+            back["method_before_correction"] = pv.method
+    if "quality_tier" in setv:
+        t = norm_tier(setv["quality_tier"])
+        if t != pv.quality_tier:
+            chg["quality_tier"] = t
+            back["tier_before_correction"] = pv.quality_tier
+    if "notes" in setv and (pv.notes or None) != (setv["notes"] or None):
+        chg["notes"] = setv["notes"]
+        back["notes_before_correction"] = pv.notes
+
+    if "conditions" in setv:
+        old = as_cond(pv.conditions)
+        new = as_cond(setv["conditions"])
+        if cond_sig(old) != cond_sig(new):
+            # **바뀐 조건 칸마다 개별로 남긴다**(44차 FD 의 `wavelength_nm_before_correction`).
+            # 통째로 문자열에 말아 넣으면 grep 이 안 되고 되돌리기가 눈으로 안 읽힌다.
+            for k in set(old) | set(new):
+                if k.endswith("_before_correction") or k in ("correction_reason", "corrected_by"):
+                    continue
+                if old.get(k) != new.get(k):
+                    back[f"{k}_before_correction"] = old.get(k)
+            chg["conditions"] = new
+    # 새 값이 삽입과 **같은 가드**를 통과하는지 본다. 정정이 우회로가 되면 안 된다.
+    v = chg.get("value_num", pv.value_num)
+    key = pv.property_key
+    d = defs.get(key)
+    u = chg.get("unit", pv.unit)
+    if v is not None and d is not None and d.si_unit and u and unit_key(u) != unit_key(d.si_unit):
+        bad.append(f"단위 불일치 {u} ≠ {d.si_unit}")
+    lo, hi = RANGE.get(key, (None, None))
+    if v is not None and lo is not None and not (lo <= float(v) <= hi):
+        bad.append(f"범위 밖 {v} (허용 {lo}~{hi})")
+    if v is not None and key in PCT_SUSPECT and float(v) > 1.0:
+        bad.append(f"퍼센트 오입력 의심 {v} (비율이어야 함)")
+    return chg, back, bad
+
+
+def check_tier_upgrade(pv, chg: dict, corr: dict) -> list:
+    """등급을 **올리는**(숫자가 작아지는) 정정은 더 엄격하다.
+
+    등급은 "이 값을 얼마나 믿을 수 있나" 이고, 올린다는 것은 **근거가 더 세졌다**는 주장이다.
+    사유만으로는 안 된다 — 무엇이 근거를 세게 만들었는지가 있어야 한다.
+
+    · 상향이면 `evidence` 를 따로 요구한다(사유와 별개다. 사유는 '왜 고치나', 근거는 '무엇이 그것을 증명하나').
+    · **t1 로 올리려면 method 가 `measured`·`digitized` 여야 한다** — 브리프 3번이
+      *"측정 방법이 적힌 값만 tier1이다"* 라 못박았다. handbook·computed·estimated 를 t1 로
+      올리는 것은 등급 체계를 무의미하게 만든다.
+    """
+    if "quality_tier" not in chg or chg["quality_tier"] >= pv.quality_tier:
+        return []
+    bad = []
+    ev = str(corr.get("evidence") or "").strip()
+    if len(ev) < REASON_MIN:
+        bad.append(f"등급 상향(t{pv.quality_tier}→t{chg['quality_tier']})인데 `evidence` 가 없다 "
+                   f"— 무엇이 근거를 세게 만들었는지를 사유와 별도로 적어라")
+    if chg["quality_tier"] == 1 and chg.get("method", pv.method) not in ("measured", "digitized"):
+        bad.append(f"t1 로 올리려면 method 가 measured·digitized 여야 한다 "
+                   f"(지금 {chg.get('method', pv.method)}) — 브리프 3번")
+    return bad
+
+
+def apply_corrections(docs: list, apply: bool) -> dict:
+    """선언된 정정을 검증하고(그리고 `--apply` 면) 적용한다. 통계 dict 를 돌려준다."""
+    st = {"corr_ok": 0, "corr_no_target": 0, "corr_no_reason": 0, "corr_no_match": 0,
+          "corr_multi_match": 0, "corr_no_change": 0, "corr_rejected": 0,
+          "corr_would_duplicate": 0}
+    todo = [(f, c) for f, doc in docs for c in (doc.get("corrections") or [])]
+    if not todo:
+        return st
+    print(f"\n{'=' * 70}\n정정 선언 {len(todo)}건 — "
+          f"{'적용한다' if apply else '**드라이런: 무엇을 고칠지만 출력한다**'}")
+    with SessionLocal() as s:
+        defs = {d.key: d for d in s.query(PropertyDefinition).all()}
+        by_name = {m.name: m.id for m in s.query(Material).all()}
+        for fname, corr in todo:
+            tgt = corr.get("target") or {}
+            head = f"  [{fname}]"
+            if not isinstance(tgt, dict) or not tgt:
+                st["corr_no_target"] += 1
+                print(f"{head} ✗ 대상 미지정 — 행 id 또는 재료+키+조건으로 못박아라")
+                continue
+            reason = str(corr.get("reason") or "").strip()
+            if len(reason) < REASON_MIN:
+                st["corr_no_reason"] += 1
+                print(f"{head} ✗ 사유 없음 — 왜 고치는지가 값과 함께 남아야 한다 (target={tgt})")
+                continue
+            rows = match_targets(s, tgt, by_name)
+            if not rows:
+                st["corr_no_match"] += 1
+                print(f"{head} ✗ 대상 0건 — {tgt}")
+                continue
+            if len(rows) > 1:
+                st["corr_multi_match"] += 1
+                print(f"{head} ✗ 대상 {len(rows)}건에 걸린다(id {[r.id for r in rows][:8]}) — "
+                      f"어느 행인지 우리가 고르면 그건 우리 판정이다. 조건을 더 걸어 유일하게 만들어라")
+                continue
+            pv = rows[0]
+            setv = corr.get("set")
+            if not isinstance(setv, dict) or not setv:
+                st["corr_no_change"] += 1
+                print(f"{head} ✗ pv{pv.id}: `set` 이 비었다")
+                continue
+            chg, back, bad = plan_correction(pv, setv, defs)
+            bad += check_tier_upgrade(pv, chg, corr)
+            if bad:
+                st["corr_rejected"] += 1
+                print(f"{head} ✗ pv{pv.id} 거부 — " + " / ".join(bad))
+                continue
+            if not chg:
+                st["corr_no_change"] += 1
+                print(f"{head} · pv{pv.id}: 이미 그 값이다 — 고칠 것이 없다")
+                continue
+            # 정정 결과가 같은 (재료·키·출처·조건) 의 다른 행과 겹치면 중복이 된다.
+            new_sig = cond_sig(chg.get("conditions", as_cond(pv.conditions)))
+            twin = [o for o in s.query(PropertyValue).filter(
+                        PropertyValue.material_id == pv.material_id,
+                        PropertyValue.property_key == pv.property_key).all()
+                    if o.id != pv.id and o.source_id == pv.source_id
+                    and cond_sig(o.conditions) == new_sig]
+            if twin:
+                st["corr_would_duplicate"] += 1
+                print(f"{head} ✗ pv{pv.id}: 정정하면 pv{twin[0].id} 와 "
+                      f"(재료·키·출처·조건)이 같아진다 — 중복이 된다")
+                continue
+
+            shown = {k: (getattr(pv, k) if k != "conditions" else pv.conditions) for k in chg}
+            print(f"{head} {'✔' if apply else '(dry)'} pv{pv.id} "
+                  f"[{pv.material_id}] {pv.property_key}")
+            for k, v in chg.items():
+                print(f"       {k}: {str(shown[k])[:90]} → {str(v)[:90]}")
+            print(f"       사유: {reason[:160]}")
+            if apply:
+                cond = dict(chg.get("conditions", as_cond(pv.conditions)))
+                cond.update(back)
+                cond["correction_reason"] = reason
+                cond["corrected_by"] = str(corr.get("by") or "unspecified")
+                if corr.get("evidence"):
+                    cond["correction_evidence"] = str(corr["evidence"])
+                for k, v in chg.items():
+                    if k != "conditions":
+                        setattr(pv, k, v)
+                pv.conditions = cond
+                s.flush()
+            st["corr_ok"] += 1
+        if apply:
+            s.commit()
+    return st
+
+
 def load(paths: list[str]) -> list[tuple[str, dict]]:
     out = []
     for p in paths:
@@ -440,8 +727,10 @@ def load(paths: list[str]) -> list[tuple[str, dict]]:
             # **배치가 산출 디렉터리에 값 JSON 아닌 것을 같이 둔다.**
             # 23차에 `targets_v2.json` · `key_proposal.json` · `next_targets.json` 이 섞여 있었고,
             # 디렉터리째 넘기면 로더가 통째로 죽을 뻔했다. 값 문서만 골라 쓰고 나머지는 건너뛴다.
-            if not (isinstance(doc, dict) and isinstance(doc.get("materials"), list)):
-                print(f"  · {f.name}: 값 문서가 아니다(`materials` 배열 없음) — 건너뛴다")
+            # 48차 JA — **정정 전용 문서**는 `materials` 가 없어도 값 문서다.
+            if not (isinstance(doc, dict) and (isinstance(doc.get("materials"), list)
+                                               or isinstance(doc.get("corrections"), list))):
+                print(f"  · {f.name}: 값 문서가 아니다(`materials`·`corrections` 배열 없음) — 건너뛴다")
                 continue
             out.append((f.name, doc))
     return out
@@ -489,7 +778,8 @@ def main() -> int:
         print(f"  · 기채굴 조회 건너뜀({str(_e)[:60]})")
     _warned: set = set()
 
-    for fname, doc in load(a.paths):
+    docs = load(a.paths)
+    for fname, doc in docs:
         print(f"\n=== {fname} ===")
         for entry in doc.get("materials", []):
             src = entry.get("source") or {}
@@ -658,6 +948,8 @@ def main() -> int:
                         print(f"    ✗ {key}: {r['error']}")
                         continue
                 stats["ok"] += 1
+    # **정정은 삽입이 다 끝난 뒤에 돈다** — 같은 파일이 새 행을 넣고 옛 행을 고칠 수 있다.
+    stats.update(apply_corrections(docs, a.apply))
     print(f"\n{'[APPLY]' if a.apply else '[DRY-RUN]'} " +
           " / ".join(f"{k} {v}" for k, v in stats.items() if v))
     # **조용한 유실을 요약 밖으로 끌어낸다.** 18차에 재료명이 202자라 등록이 거부되고

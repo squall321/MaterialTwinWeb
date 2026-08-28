@@ -1,0 +1,48 @@
+{
+  "_comment": "48차 JA — 44차 FC 가 재료 199(E-Glass Cloth)에서 짚고 고치지 못한 두 행. 적재기의 명시적 정정 경로로 고친다. 값은 지우지 않는다(브리프 393·463) — 옛 값·옛 등급·옛 method 는 conditions 의 *_before_correction 에 남는다.",
+  "corrections": [
+    {
+      "target": {
+        "material_id": 199,
+        "material_name": "E-Glass Cloth (reinforcement)",
+        "property_key": "electrical.dielectric_constant",
+        "conditions": null,
+        "value": 6.6,
+        "source_title": "Fiberglass & E-glass properties (Nittobo/AGY handbook)"
+      },
+      "by": "48차 JA",
+      "reason": "조건축(주파수)이 비어 있어 값으로 쓸 수 없다(브리프 373). 유전율은 주파수로 갈리는데(같은 재료 AGY 2006 표가 1 MHz 6.6 · 10 GHz 6.1 을 인쇄한다) 이 행에는 주파수가 없다. 인용 출처에 URL·DOI·경로가 하나도 없어 원문에서 주파수를 되찾을 수 없고, 다른 문서(AGY 2006 Table 3)의 주파수를 빌려 붙이는 것은 조건을 빌리는 것이라 금지다(브리프 328). 값은 지우지 않고 계열 대표값(t3)으로 내려 조건이 붙은 행에 밀리게 한다.",
+      "set": {
+        "quality_tier": 3,
+        "conditions": {
+          "frequency": "미기재 — 이 행에 주파수가 없고 인용 출처에 URL·DOI·경로가 없어 되찾을 수 없다. 다른 문서의 주파수를 빌려 붙이지 않았다(브리프 328)",
+          "class_value": true,
+          "grade_scope": "E-glass 계열 대표값 — 특정 제품 등급이 아니다"
+        },
+        "notes": "[48차 JA 정정] 원래 t2 로 들어 있던 조건 없는 Dk 6.6 이다. **주파수가 없어 값으로 쓸 수 없다**(브리프 373). 같은 재료에 조건이 붙은 행이 둘 있다 — pv 5684 (6.8 @ 1 GHz, Nittobo 시트, t1 measured) 와 pv 41129 (6.6 @ 1 MHz, AGY 2006 Table 3, t3 handbook, 원본 PDF 경로 보유). 44차 FC 가 41129 를 넣으면서 *\"값이 글자 단위로 같아 그 행의 출처가 바로 이 AGY 표일 가능성이 매우 높다\"* 고 적었고 정정을 다음 배치에 넘겼다(적재기가 UPDATE 를 못 했다, 브리프 314). **다만 '가능성이 매우 높다' 는 증명이 아니다** — 출처 588 은 URL·DOI·경로가 없어 열 수 없으므로 두 행을 합치거나 41129 의 1 MHz 를 이 행에 옮겨 붙이지 않았다. 값은 그대로 두고 등급만 t2→t3(계열 대표값)으로 내려, 조건이 닫힌 두 행에 대표값 선택에서 밀리게 했다. 원래 notes 는 conditions.notes_before_correction 에 있다."
+      }
+    },
+    {
+      "target": {
+        "material_id": 199,
+        "material_name": "E-Glass Cloth (reinforcement)",
+        "property_key": "thermal.max_service_temp",
+        "conditions": null,
+        "value": 1113.0
+      },
+      "by": "48차 JA",
+      "reason": "이 값은 최대사용온도가 아니라 연화점이다 — 이 행의 notes('연화점 ~840℃')와 인용 출처의 제목('E-glass softening ~846℃')이 스스로 그렇게 밝힌다. E-glass 연화점(~846 °C)을 최대사용온도 칸에 넣으면 300 °C 넘게 과대평가된다. 지우지 않고(브리프 393·463) tier4·estimated·assumption 으로 내려 대표값 선택에서 실측에 밀리게 하고, 무엇이 어긋났는지를 값에 붙여 둔다.",
+      "set": {
+        "quality_tier": 4,
+        "method": "estimated",
+        "conditions": {
+          "assumption": true,
+          "magnitude_suspect": true,
+          "internal_contradiction": "이 행의 notes 는 '연화점 ~840℃'(=1113.15 K, 값 1113 과 일치)인데 인용 출처의 제목은 'E-glass softening ~846℃'(=1119.15 K, 값과 불일치)다. 두 숫자가 6 °C 어긋난다. 그리고 어느 쪽이든 연화점이지 최대사용온도가 아니다.",
+          "key_mismatch": "값이 thermal.max_service_temp 가 아니라 연화점이다. 키 이동은 하지 않았다 — 이 숫자가 리틀턴 연화점(log10eta 7.6)인지 팽창계 연화점인지를 확정하려면 실제 출처를 열어야 하는데 출처 594 는 URL·DOI·ISBN·경로가 전부 없어 열 수 없다."
+        },
+        "notes": "[48차 JA 정정] **이 값은 최대사용온도가 아니라 연화점이다.** 근거는 이 행 자신에게 있다 — 원래 notes 가 '연화점 ~840℃' 이고, 인용 출처 594 의 제목이 아예 'E-glass softening ~846℃' 다(출처가 문서 이름이 아니라 메모다: kind=book 인데 URL·DOI·ISBN·경로가 전부 없다). **인계 검산(브리프 505)** — 조정자는 '846 °C = 1119.15 K 인데 1113 이다' 라고 넘겼는데, 실제로 값 1113 과 맞는 것은 notes 의 840 °C(=1113.15 K)이고 출처 제목의 846 °C(=1119.15 K)는 안 맞는다. 즉 이 행은 스스로도 6 °C 어긋나 있다. E-glass 는 연화점이 ~846 °C 이고 연속사용온도는 그보다 300 °C 넘게 낮으므로, 이 값을 최대사용온도로 쓰면 해석이 위험한 쪽으로 틀린다. 지우지 않고(브리프 393·463 — 인쇄된 것을 우리가 없애면 그것도 원문 훼손이다) tier2→tier4·handbook→estimated·assumption=true 로 내려 실측이 들어오면 자동으로 대체되게 했다. **키 이동은 하지 않았다** — 그건 정정이 아니라 이동이고, 이 숫자가 어느 연화점인지 확정할 출처가 손에 없다. 제대로 닫으려면 E-glass 연화점을 실제 벤더 시트·핸드북에서 다시 캐 thermal.viscosity_reference_temperature(log10eta 7.6)에 넣어야 한다."
+      }
+    }
+  ]
+}
