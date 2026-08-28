@@ -845,3 +845,30 @@ Wayback을 0.6초 간격으로 돌려 55건 중 42건이 실패했다. **아카�
 | **NEG OA-11/20/31 의 compaction** | 〃 | **그래프로만 있다**(Thermal Shrinkage, 350~650 degC, 1 h). E절(디지타이즈 가능) 성격이다 — 350·400·…·650 의 6점을 `method: "digitized"` 로 뽑을 수 있다 |
 | **NEG 레이저실링 프릿(Ref. 2410-26E)** | OLED 봉지 프릿의 Tg·연화점·CTE | **카탈로그 그 쪽에 물성표가 없다** — 공정도·적용예뿐이고 *"Customers can select the optimal glass lid ... from our various glass lids with a wide CTE range"* 라고만 적는다. **정성 서술 확정(§124)** |
 | **전 벤더의 파괴인성·액상온도** | K_IC, liquidus | **디스플레이 기판유리 시트 8장 어디에도 없다.** 구조적 부재로 본다 |
+
+---
+
+## AC. 조달 전용 배치의 실측 — "접근 부재" 열 건을 다시 두드렸다 (2026-08-28 · 47차 IC)
+
+파동들이 접근 부재로 남긴 것만 골라 다시 열었다. **여섯이 열리고 다섯이 그대로다.**
+
+### 열린 것
+
+| 대상 | 앞 판정 | 실제 경로 | 결과 |
+|---|---|---|---|
+| **AGY L Glass 제품시트** `AGY_LGlass_SS_v6.pdf` | 44차 FD "디스크에 사본 없음, URL 만" | 출처 4713 의 그 URL 이 그대로 `200 · application/pdf · 1.18 MB` | L/L2/L-HDI **연화점 3칸 적재**. 사본 `standards_appnotes/pcb/AGY_LGlass_Yarn_Product_Information_SS_v6_2024.pdf` |
+| **AGC Res. Reports 62호 이후** | 44차 FA "61호까지만" | `www.agc.com/innovation/library/pdf/<권>-<nn>.pdf` — **62~72호 전부 200**(132편 확인) | 접근은 열렸으나 **Dragontrail X/Pro 물성표는 없다**(65-05 는 적용사례 서술) |
+| **Landesfeind & Gasteiger 2019 SI** `10.1149/2.0571912jes` | 43차 ED "SI 막힘" | iopscience 기사페이지는 Radware 봇차단이지만 **`/article/<DOI>/data` 가 presigned S3 URL 을 노출** | `0899.docx` 확보 → `standards_appnotes/battery/`. **표가 아니라 3파라미터 회귀식뿐**(키 없어 미적재, 상수 9개는 재료 111 attributes) |
+| **Logan 2018** `10.1149/2.0271802jes` | 43차 ED "본문 받음, SI 막힘" | **OSTI 무료** `osti.gov/servlets/purl/1469344` | **점도 격자는 SI 가 아니라 본문 Table II~V.** EC:EMC 30:70 행 **16칸 적재** |
+| **Corning Willow 팩트시트 심판** | 44차 FA "두 쪽 모순, 재료 보류"(§476) | corning.com 403 → **Wayback `id_`** 와 **가공업체 미러 coresix.com** 둘 다 성공 | 2013 Willow 전용 팩트시트 + 2015 Thin Sheet PI 로 갈랐다. **재료 신설 + 8행**(§519) |
+| **AGC AL-X 1차 출처** | 46차 HD "AGC 공개 시트 없음" | **imapsource.org REST** `GET /api/v1/articles?search=<질의>`(`?q=` 는 404) → `/article/<id>-<slug>.pdf` | AGC 자사 IMAPS DPC 2010 발표자료 `10.4071/2010DPC-tp34` 확보. **Huffman 2009 Table 1 의 원본이다.** 경화수축 1칸 적재 |
+
+### 그대로인 것 — 재검증 후 접근 부재 확정
+
+| 대상 | 두드린 경로 | 판정 |
+|---|---|---|
+| **Resonac(구 Hitachi Chemical) ANISOLM AC-7106-25 시트** | 웹검색 4회(영·일·한) · 유통사 파일호스트 `storage.ua.prom.st` 의 ANISOLM PDF **두 파일을 다 받았는데 둘 다 동일한 AC-7206U-18** · Wayback CDX 로 `hitachi-chem.co.jp`·`hitachi-chemical.com`·`mc.showadenko.com` 세 도메인 PDF 전수 → ACF 매칭 **0건** | **고객 한정 배포 확정.** 자매 AC-7206U-18 이 `Elastic modules 40 C = 1.2 GPa` 를 찍어 **벤더 관행은 확인**됐지만 수지계가 다른 별개 등급이라 이전 금지(§140) |
+| **Eftekhari & Fatemi, Composites Part B 97 (2016) 68-83** | 실제 제목·DOI 확정 `10.1016/j.compositesb.2016.04.043` · Unpaywall `is_oa false` · OpenAlex `closed` · academia.edu 403 · digitalcommons.memphis.edu(Fatemi 현 소속)는 **초록만** | **Elsevier 유료.** 부수 발견 — 코퍼스의 `Eftekhari - 2016` 은 이 논문이 아니라 **Int. J. Fatigue 판**이다(§22) |
+| **Powell and Kirayohlu (1997)** | Ehrler 2002 참고문헌에서 완전 서지 확보 — `D. J. Powell, B. Kirayohlu, M. Weinhold, "New Applications for Nonwoven Aramid Reinforcement Which Demand Advanced Physical Properties", **IPC Printed Circuits Expo, San Jose CA, March 1997**`(DuPont Advanced Fiber Systems) | **DOI 없음 · IPC 가 1997년 예稿집을 공개하지 않음.** 재료 2364 의 t3 4칸이 여기 묶여 있다. 다음 수는 DuPont/Teijin Thermount 단종 제품자료의 Wayback |
+| **IPC-4412C / IPC-4103** | `shop.ipc.org` · ANSI webstore · IHS · techstreet 전부 유료 판매 | **유료 규격 — 우회하지 않는다.** 유리포 스타일별 면밀도는 여전히 막혀 있다(A·C절) |
+| **Kim et al. 2009, Int. J. Thermophys. 30, 1234-1241** `10.1007/s10765-009-0603-5` | Crossref 로 서지 확정(Sn-xAg-0.5Cu 5종, 상온~150 C 열확산도·비열) · Unpaywall/OpenAlex **closed** · 리포지터리 사본 없음 · 코퍼스 부재 | **Springer 유료.** SAC105(재료 572) 비열 온도축은 계속 닫혀 있다 |
