@@ -1,0 +1,294 @@
+{
+ "batch": "JB-1 48차 · Cai 2010 Figure 28(a)(b) — SACX0307 영률·항복응력 시효격자(100 °C)",
+ "materials": [
+  {
+   "match_name": "SACX0307 Solder Alloy (Sn-0.3Ag-0.7Cu-0.1Bi, Cookson SACX, Bi-doped low-Ag SAC)",
+   "source": {
+    "title": "Reduction of lead free solder aging effects using doped SAC alloys",
+    "doi": "10.1109/ectc.2010.5490796",
+    "url": "https://doi.org/10.1109/ectc.2010.5490796",
+    "kind": "journal",
+    "authors": "Zijie Cai, Yifei Zhang, Jeffrey C. Suhling, Pradeep Lall, R. Wayne Johnson, Michael J. Bozack",
+    "year": "2010",
+    "publisher": "IEEE (60th Electronic Components and Technology Conference)",
+    "local_path": "/data/paper_patent_corpus/snowball_papers/from_cae/Cai - 2010 - Reduction of lead free solder aging effects using doped SAC alloys.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 31879113451.2,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_time_days": 0,
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm, reflowed (RF) solidification profile",
+      "digitized": true,
+      "figure": "Figure 28(a) Effective Elastic Modulus (p.14) — Variation of SAC-X Material Properties with Aging at 100 oC, and Comparisons to SAC105 and SAC205",
+      "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 verbatim: 'The notation E is taken to be the effective elastic modulus, which is the initial slope of the stress-strain curve. Since solder is viscoplastic, this effective modulus will be rate dependent'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 마커 중심은 **꼭짓점 평균**이고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514) — 이 그림의 초록 정사각 마커는 한 모서리를 두 번 더 찍는다. 세로 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). **마커 오프셋은 없다**(브리프 495) — 가로축이 인쇄된 시효일수 격자(0/5/10/20/30/45/60)라 되읽으면 산포 ±0.016 pt(= 0.005 일)이고 계통 성분이 없다. Cai 는 Acrobat Distiller 조판이다.",
+      "reading_uncertainty": "±0.05 GPa — 같은 파이프라인으로 읽은 SAC205 비교선 7칸이 같은 논문 Figure 14(a) 100 °C 계열과 최대 0.013 GPa 로 일치한다.",
+      "aging": "none (non-aged; tested immediately after reflow solidification and cool down)"
+     },
+     "notes": "Cai 2010 Figure 28 의 SAC-X(SACX0307) 계열. **이 그림은 시효 100 °C 판 하나뿐이다** — SAC-X 의 E·YS 는 다른 시효온도가 인쇄되지 않는다(UTS 만 Figure 29 로 25/50/75/125 °C 가 더 있다). 그래서 47차 IB 인계의 `E·YS 격자 각 26칸` 은 재현되지 않는다. Figure 28(a)(b) 의 마커를 전수로 세면 SAC-X 6개(0/5/10/20/30/60일) · SAC105 7개 · SAC205 7개이고, **SAC-X 는 6칸씩이다**(브리프 479·496). SAC-X 에 45일 점이 없는 것은 IB 가 UTS 에서 확인한 것과 같다. 시험조건 본문 verbatim: 'All uniaxial stress-strain and creep tests were conducted on the aged samples at room temperature (25 °C).' · 'The strain rate for the stress-strain testing was e = 0.001 sec-1.' · 'The lead free solder test results presented in this paper are all for samples solidified with the reflowed (Figure 3a) cooling profile'. 시편 verbatim: 'we formed uniaxial samples with nominal dimensions of 80 x 3 x 0.5 mm' · 'gage length of the specimens in this study was 60 mm'. [교차검증 — 브리프 516] 같은 그림에 SAC105·SAC205 비교선이 함께 그려져 있다. SAC205 계열을 같은 파이프라인으로 되읽어 같은 논문 Figure 14(a)(b) 의 100 °C 계열(꼭짓점 평균 판독)과 대조하면 14칸이 E 최대 0.013 GPa · YS 최대 0.023 MPa 로 일치한다 — 서로 다른 두 그림이 서로를 확인한다. **비교선은 값으로 세지 않았다**(브리프 456) — SAC205 는 이미 DB 에 Figure 14 로 들어와 있고, SAC105 의 E·YS 는 같은 논문 Figure 25(SACN05 네 합금 · 시효 100 °C)가 더 큰 격자로 인쇄하므로 그쪽을 통째로 캐는 배치가 넣는 것이 맞다(이 배치의 표적은 재료 2677 이다). [Ag 단조 대조] SAC-X 는 Bi 도핑이라 Ag 단조 순서에서 빠진다 — Ag 0.3 %인데 60일 시점 E 22.00 GPa · YS 15.46 MPa 로 SAC105(17.49 GPa · 10.86 MPa)보다 높다. 저자가 결론에 그렇게 적는다: 'The strength properties of SAC-X exceed those of SAC105 for all aging times, while a cross-over occurs for the elastic modulus variation at the 20 day point.' — 판독이 이 두 문장을 그대로 재현한다: YS 는 여섯 시점 전부 SAC-X > SAC105 이고, E 는 20일까지 SAC-X < SAC105(22.92 대 23.18) 이다가 30일에 뒤집힌다(22.69 대 20.03). 비교선 SAC105 < SAC205 는 E·YS 열네 칸 모두 성립한다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 23265988475.5,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_time_days": 5,
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm, reflowed (RF) solidification profile",
+      "digitized": true,
+      "figure": "Figure 28(a) Effective Elastic Modulus (p.14) — Variation of SAC-X Material Properties with Aging at 100 oC, and Comparisons to SAC105 and SAC205",
+      "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 verbatim: 'The notation E is taken to be the effective elastic modulus, which is the initial slope of the stress-strain curve. Since solder is viscoplastic, this effective modulus will be rate dependent'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 마커 중심은 **꼭짓점 평균**이고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514) — 이 그림의 초록 정사각 마커는 한 모서리를 두 번 더 찍는다. 세로 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). **마커 오프셋은 없다**(브리프 495) — 가로축이 인쇄된 시효일수 격자(0/5/10/20/30/45/60)라 되읽으면 산포 ±0.016 pt(= 0.005 일)이고 계통 성분이 없다. Cai 는 Acrobat Distiller 조판이다.",
+      "reading_uncertainty": "±0.05 GPa — 같은 파이프라인으로 읽은 SAC205 비교선 7칸이 같은 논문 Figure 14(a) 100 °C 계열과 최대 0.013 GPa 로 일치한다.",
+      "aging_temperature_k": 373.15,
+      "aging_temperature_c": 100
+     },
+     "notes": "Cai 2010 Figure 28 의 SAC-X(SACX0307) 계열. **이 그림은 시효 100 °C 판 하나뿐이다** — SAC-X 의 E·YS 는 다른 시효온도가 인쇄되지 않는다(UTS 만 Figure 29 로 25/50/75/125 °C 가 더 있다). 그래서 47차 IB 인계의 `E·YS 격자 각 26칸` 은 재현되지 않는다. Figure 28(a)(b) 의 마커를 전수로 세면 SAC-X 6개(0/5/10/20/30/60일) · SAC105 7개 · SAC205 7개이고, **SAC-X 는 6칸씩이다**(브리프 479·496). SAC-X 에 45일 점이 없는 것은 IB 가 UTS 에서 확인한 것과 같다. 시험조건 본문 verbatim: 'All uniaxial stress-strain and creep tests were conducted on the aged samples at room temperature (25 °C).' · 'The strain rate for the stress-strain testing was e = 0.001 sec-1.' · 'The lead free solder test results presented in this paper are all for samples solidified with the reflowed (Figure 3a) cooling profile'. 시편 verbatim: 'we formed uniaxial samples with nominal dimensions of 80 x 3 x 0.5 mm' · 'gage length of the specimens in this study was 60 mm'. [교차검증 — 브리프 516] 같은 그림에 SAC105·SAC205 비교선이 함께 그려져 있다. SAC205 계열을 같은 파이프라인으로 되읽어 같은 논문 Figure 14(a)(b) 의 100 °C 계열(꼭짓점 평균 판독)과 대조하면 14칸이 E 최대 0.013 GPa · YS 최대 0.023 MPa 로 일치한다 — 서로 다른 두 그림이 서로를 확인한다. **비교선은 값으로 세지 않았다**(브리프 456) — SAC205 는 이미 DB 에 Figure 14 로 들어와 있고, SAC105 의 E·YS 는 같은 논문 Figure 25(SACN05 네 합금 · 시효 100 °C)가 더 큰 격자로 인쇄하므로 그쪽을 통째로 캐는 배치가 넣는 것이 맞다(이 배치의 표적은 재료 2677 이다). [Ag 단조 대조] SAC-X 는 Bi 도핑이라 Ag 단조 순서에서 빠진다 — Ag 0.3 %인데 60일 시점 E 22.00 GPa · YS 15.46 MPa 로 SAC105(17.49 GPa · 10.86 MPa)보다 높다. 저자가 결론에 그렇게 적는다: 'The strength properties of SAC-X exceed those of SAC105 for all aging times, while a cross-over occurs for the elastic modulus variation at the 20 day point.' — 판독이 이 두 문장을 그대로 재현한다: YS 는 여섯 시점 전부 SAC-X > SAC105 이고, E 는 20일까지 SAC-X < SAC105(22.92 대 23.18) 이다가 30일에 뒤집힌다(22.69 대 20.03). 비교선 SAC105 < SAC205 는 E·YS 열네 칸 모두 성립한다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 22872234473.9,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_time_days": 10,
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm, reflowed (RF) solidification profile",
+      "digitized": true,
+      "figure": "Figure 28(a) Effective Elastic Modulus (p.14) — Variation of SAC-X Material Properties with Aging at 100 oC, and Comparisons to SAC105 and SAC205",
+      "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 verbatim: 'The notation E is taken to be the effective elastic modulus, which is the initial slope of the stress-strain curve. Since solder is viscoplastic, this effective modulus will be rate dependent'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 마커 중심은 **꼭짓점 평균**이고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514) — 이 그림의 초록 정사각 마커는 한 모서리를 두 번 더 찍는다. 세로 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). **마커 오프셋은 없다**(브리프 495) — 가로축이 인쇄된 시효일수 격자(0/5/10/20/30/45/60)라 되읽으면 산포 ±0.016 pt(= 0.005 일)이고 계통 성분이 없다. Cai 는 Acrobat Distiller 조판이다.",
+      "reading_uncertainty": "±0.05 GPa — 같은 파이프라인으로 읽은 SAC205 비교선 7칸이 같은 논문 Figure 14(a) 100 °C 계열과 최대 0.013 GPa 로 일치한다.",
+      "aging_temperature_k": 373.15,
+      "aging_temperature_c": 100
+     },
+     "notes": "Cai 2010 Figure 28 의 SAC-X(SACX0307) 계열. **이 그림은 시효 100 °C 판 하나뿐이다** — SAC-X 의 E·YS 는 다른 시효온도가 인쇄되지 않는다(UTS 만 Figure 29 로 25/50/75/125 °C 가 더 있다). 그래서 47차 IB 인계의 `E·YS 격자 각 26칸` 은 재현되지 않는다. Figure 28(a)(b) 의 마커를 전수로 세면 SAC-X 6개(0/5/10/20/30/60일) · SAC105 7개 · SAC205 7개이고, **SAC-X 는 6칸씩이다**(브리프 479·496). SAC-X 에 45일 점이 없는 것은 IB 가 UTS 에서 확인한 것과 같다. 시험조건 본문 verbatim: 'All uniaxial stress-strain and creep tests were conducted on the aged samples at room temperature (25 °C).' · 'The strain rate for the stress-strain testing was e = 0.001 sec-1.' · 'The lead free solder test results presented in this paper are all for samples solidified with the reflowed (Figure 3a) cooling profile'. 시편 verbatim: 'we formed uniaxial samples with nominal dimensions of 80 x 3 x 0.5 mm' · 'gage length of the specimens in this study was 60 mm'. [교차검증 — 브리프 516] 같은 그림에 SAC105·SAC205 비교선이 함께 그려져 있다. SAC205 계열을 같은 파이프라인으로 되읽어 같은 논문 Figure 14(a)(b) 의 100 °C 계열(꼭짓점 평균 판독)과 대조하면 14칸이 E 최대 0.013 GPa · YS 최대 0.023 MPa 로 일치한다 — 서로 다른 두 그림이 서로를 확인한다. **비교선은 값으로 세지 않았다**(브리프 456) — SAC205 는 이미 DB 에 Figure 14 로 들어와 있고, SAC105 의 E·YS 는 같은 논문 Figure 25(SACN05 네 합금 · 시효 100 °C)가 더 큰 격자로 인쇄하므로 그쪽을 통째로 캐는 배치가 넣는 것이 맞다(이 배치의 표적은 재료 2677 이다). [Ag 단조 대조] SAC-X 는 Bi 도핑이라 Ag 단조 순서에서 빠진다 — Ag 0.3 %인데 60일 시점 E 22.00 GPa · YS 15.46 MPa 로 SAC105(17.49 GPa · 10.86 MPa)보다 높다. 저자가 결론에 그렇게 적는다: 'The strength properties of SAC-X exceed those of SAC105 for all aging times, while a cross-over occurs for the elastic modulus variation at the 20 day point.' — 판독이 이 두 문장을 그대로 재현한다: YS 는 여섯 시점 전부 SAC-X > SAC105 이고, E 는 20일까지 SAC-X < SAC105(22.92 대 23.18) 이다가 30일에 뒤집힌다(22.69 대 20.03). 비교선 SAC105 < SAC205 는 E·YS 열네 칸 모두 성립한다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 22919186170.6,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_time_days": 20,
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm, reflowed (RF) solidification profile",
+      "digitized": true,
+      "figure": "Figure 28(a) Effective Elastic Modulus (p.14) — Variation of SAC-X Material Properties with Aging at 100 oC, and Comparisons to SAC105 and SAC205",
+      "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 verbatim: 'The notation E is taken to be the effective elastic modulus, which is the initial slope of the stress-strain curve. Since solder is viscoplastic, this effective modulus will be rate dependent'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 마커 중심은 **꼭짓점 평균**이고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514) — 이 그림의 초록 정사각 마커는 한 모서리를 두 번 더 찍는다. 세로 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). **마커 오프셋은 없다**(브리프 495) — 가로축이 인쇄된 시효일수 격자(0/5/10/20/30/45/60)라 되읽으면 산포 ±0.016 pt(= 0.005 일)이고 계통 성분이 없다. Cai 는 Acrobat Distiller 조판이다.",
+      "reading_uncertainty": "±0.05 GPa — 같은 파이프라인으로 읽은 SAC205 비교선 7칸이 같은 논문 Figure 14(a) 100 °C 계열과 최대 0.013 GPa 로 일치한다.",
+      "aging_temperature_k": 373.15,
+      "aging_temperature_c": 100
+     },
+     "notes": "Cai 2010 Figure 28 의 SAC-X(SACX0307) 계열. **이 그림은 시효 100 °C 판 하나뿐이다** — SAC-X 의 E·YS 는 다른 시효온도가 인쇄되지 않는다(UTS 만 Figure 29 로 25/50/75/125 °C 가 더 있다). 그래서 47차 IB 인계의 `E·YS 격자 각 26칸` 은 재현되지 않는다. Figure 28(a)(b) 의 마커를 전수로 세면 SAC-X 6개(0/5/10/20/30/60일) · SAC105 7개 · SAC205 7개이고, **SAC-X 는 6칸씩이다**(브리프 479·496). SAC-X 에 45일 점이 없는 것은 IB 가 UTS 에서 확인한 것과 같다. 시험조건 본문 verbatim: 'All uniaxial stress-strain and creep tests were conducted on the aged samples at room temperature (25 °C).' · 'The strain rate for the stress-strain testing was e = 0.001 sec-1.' · 'The lead free solder test results presented in this paper are all for samples solidified with the reflowed (Figure 3a) cooling profile'. 시편 verbatim: 'we formed uniaxial samples with nominal dimensions of 80 x 3 x 0.5 mm' · 'gage length of the specimens in this study was 60 mm'. [교차검증 — 브리프 516] 같은 그림에 SAC105·SAC205 비교선이 함께 그려져 있다. SAC205 계열을 같은 파이프라인으로 되읽어 같은 논문 Figure 14(a)(b) 의 100 °C 계열(꼭짓점 평균 판독)과 대조하면 14칸이 E 최대 0.013 GPa · YS 최대 0.023 MPa 로 일치한다 — 서로 다른 두 그림이 서로를 확인한다. **비교선은 값으로 세지 않았다**(브리프 456) — SAC205 는 이미 DB 에 Figure 14 로 들어와 있고, SAC105 의 E·YS 는 같은 논문 Figure 25(SACN05 네 합금 · 시효 100 °C)가 더 큰 격자로 인쇄하므로 그쪽을 통째로 캐는 배치가 넣는 것이 맞다(이 배치의 표적은 재료 2677 이다). [Ag 단조 대조] SAC-X 는 Bi 도핑이라 Ag 단조 순서에서 빠진다 — Ag 0.3 %인데 60일 시점 E 22.00 GPa · YS 15.46 MPa 로 SAC105(17.49 GPa · 10.86 MPa)보다 높다. 저자가 결론에 그렇게 적는다: 'The strength properties of SAC-X exceed those of SAC105 for all aging times, while a cross-over occurs for the elastic modulus variation at the 20 day point.' — 판독이 이 두 문장을 그대로 재현한다: YS 는 여섯 시점 전부 SAC-X > SAC105 이고, E 는 20일까지 SAC-X < SAC105(22.92 대 23.18) 이다가 30일에 뒤집힌다(22.69 대 20.03). 비교선 SAC105 < SAC205 는 E·YS 열네 칸 모두 성립한다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 22691541580.7,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_time_days": 30,
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm, reflowed (RF) solidification profile",
+      "digitized": true,
+      "figure": "Figure 28(a) Effective Elastic Modulus (p.14) — Variation of SAC-X Material Properties with Aging at 100 oC, and Comparisons to SAC105 and SAC205",
+      "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 verbatim: 'The notation E is taken to be the effective elastic modulus, which is the initial slope of the stress-strain curve. Since solder is viscoplastic, this effective modulus will be rate dependent'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 마커 중심은 **꼭짓점 평균**이고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514) — 이 그림의 초록 정사각 마커는 한 모서리를 두 번 더 찍는다. 세로 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). **마커 오프셋은 없다**(브리프 495) — 가로축이 인쇄된 시효일수 격자(0/5/10/20/30/45/60)라 되읽으면 산포 ±0.016 pt(= 0.005 일)이고 계통 성분이 없다. Cai 는 Acrobat Distiller 조판이다.",
+      "reading_uncertainty": "±0.05 GPa — 같은 파이프라인으로 읽은 SAC205 비교선 7칸이 같은 논문 Figure 14(a) 100 °C 계열과 최대 0.013 GPa 로 일치한다.",
+      "aging_temperature_k": 373.15,
+      "aging_temperature_c": 100
+     },
+     "notes": "Cai 2010 Figure 28 의 SAC-X(SACX0307) 계열. **이 그림은 시효 100 °C 판 하나뿐이다** — SAC-X 의 E·YS 는 다른 시효온도가 인쇄되지 않는다(UTS 만 Figure 29 로 25/50/75/125 °C 가 더 있다). 그래서 47차 IB 인계의 `E·YS 격자 각 26칸` 은 재현되지 않는다. Figure 28(a)(b) 의 마커를 전수로 세면 SAC-X 6개(0/5/10/20/30/60일) · SAC105 7개 · SAC205 7개이고, **SAC-X 는 6칸씩이다**(브리프 479·496). SAC-X 에 45일 점이 없는 것은 IB 가 UTS 에서 확인한 것과 같다. 시험조건 본문 verbatim: 'All uniaxial stress-strain and creep tests were conducted on the aged samples at room temperature (25 °C).' · 'The strain rate for the stress-strain testing was e = 0.001 sec-1.' · 'The lead free solder test results presented in this paper are all for samples solidified with the reflowed (Figure 3a) cooling profile'. 시편 verbatim: 'we formed uniaxial samples with nominal dimensions of 80 x 3 x 0.5 mm' · 'gage length of the specimens in this study was 60 mm'. [교차검증 — 브리프 516] 같은 그림에 SAC105·SAC205 비교선이 함께 그려져 있다. SAC205 계열을 같은 파이프라인으로 되읽어 같은 논문 Figure 14(a)(b) 의 100 °C 계열(꼭짓점 평균 판독)과 대조하면 14칸이 E 최대 0.013 GPa · YS 최대 0.023 MPa 로 일치한다 — 서로 다른 두 그림이 서로를 확인한다. **비교선은 값으로 세지 않았다**(브리프 456) — SAC205 는 이미 DB 에 Figure 14 로 들어와 있고, SAC105 의 E·YS 는 같은 논문 Figure 25(SACN05 네 합금 · 시효 100 °C)가 더 큰 격자로 인쇄하므로 그쪽을 통째로 캐는 배치가 넣는 것이 맞다(이 배치의 표적은 재료 2677 이다). [Ag 단조 대조] SAC-X 는 Bi 도핑이라 Ag 단조 순서에서 빠진다 — Ag 0.3 %인데 60일 시점 E 22.00 GPa · YS 15.46 MPa 로 SAC105(17.49 GPa · 10.86 MPa)보다 높다. 저자가 결론에 그렇게 적는다: 'The strength properties of SAC-X exceed those of SAC105 for all aging times, while a cross-over occurs for the elastic modulus variation at the 20 day point.' — 판독이 이 두 문장을 그대로 재현한다: YS 는 여섯 시점 전부 SAC-X > SAC105 이고, E 는 20일까지 SAC-X < SAC105(22.92 대 23.18) 이다가 30일에 뒤집힌다(22.69 대 20.03). 비교선 SAC105 < SAC205 는 E·YS 열네 칸 모두 성립한다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 22003983780.3,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_time_days": 60,
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm, reflowed (RF) solidification profile",
+      "digitized": true,
+      "figure": "Figure 28(a) Effective Elastic Modulus (p.14) — Variation of SAC-X Material Properties with Aging at 100 oC, and Comparisons to SAC105 and SAC205",
+      "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 verbatim: 'The notation E is taken to be the effective elastic modulus, which is the initial slope of the stress-strain curve. Since solder is viscoplastic, this effective modulus will be rate dependent'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 마커 중심은 **꼭짓점 평균**이고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514) — 이 그림의 초록 정사각 마커는 한 모서리를 두 번 더 찍는다. 세로 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). **마커 오프셋은 없다**(브리프 495) — 가로축이 인쇄된 시효일수 격자(0/5/10/20/30/45/60)라 되읽으면 산포 ±0.016 pt(= 0.005 일)이고 계통 성분이 없다. Cai 는 Acrobat Distiller 조판이다.",
+      "reading_uncertainty": "±0.05 GPa — 같은 파이프라인으로 읽은 SAC205 비교선 7칸이 같은 논문 Figure 14(a) 100 °C 계열과 최대 0.013 GPa 로 일치한다.",
+      "aging_temperature_k": 373.15,
+      "aging_temperature_c": 100
+     },
+     "notes": "Cai 2010 Figure 28 의 SAC-X(SACX0307) 계열. **이 그림은 시효 100 °C 판 하나뿐이다** — SAC-X 의 E·YS 는 다른 시효온도가 인쇄되지 않는다(UTS 만 Figure 29 로 25/50/75/125 °C 가 더 있다). 그래서 47차 IB 인계의 `E·YS 격자 각 26칸` 은 재현되지 않는다. Figure 28(a)(b) 의 마커를 전수로 세면 SAC-X 6개(0/5/10/20/30/60일) · SAC105 7개 · SAC205 7개이고, **SAC-X 는 6칸씩이다**(브리프 479·496). SAC-X 에 45일 점이 없는 것은 IB 가 UTS 에서 확인한 것과 같다. 시험조건 본문 verbatim: 'All uniaxial stress-strain and creep tests were conducted on the aged samples at room temperature (25 °C).' · 'The strain rate for the stress-strain testing was e = 0.001 sec-1.' · 'The lead free solder test results presented in this paper are all for samples solidified with the reflowed (Figure 3a) cooling profile'. 시편 verbatim: 'we formed uniaxial samples with nominal dimensions of 80 x 3 x 0.5 mm' · 'gage length of the specimens in this study was 60 mm'. [교차검증 — 브리프 516] 같은 그림에 SAC105·SAC205 비교선이 함께 그려져 있다. SAC205 계열을 같은 파이프라인으로 되읽어 같은 논문 Figure 14(a)(b) 의 100 °C 계열(꼭짓점 평균 판독)과 대조하면 14칸이 E 최대 0.013 GPa · YS 최대 0.023 MPa 로 일치한다 — 서로 다른 두 그림이 서로를 확인한다. **비교선은 값으로 세지 않았다**(브리프 456) — SAC205 는 이미 DB 에 Figure 14 로 들어와 있고, SAC105 의 E·YS 는 같은 논문 Figure 25(SACN05 네 합금 · 시효 100 °C)가 더 큰 격자로 인쇄하므로 그쪽을 통째로 캐는 배치가 넣는 것이 맞다(이 배치의 표적은 재료 2677 이다). [Ag 단조 대조] SAC-X 는 Bi 도핑이라 Ag 단조 순서에서 빠진다 — Ag 0.3 %인데 60일 시점 E 22.00 GPa · YS 15.46 MPa 로 SAC105(17.49 GPa · 10.86 MPa)보다 높다. 저자가 결론에 그렇게 적는다: 'The strength properties of SAC-X exceed those of SAC105 for all aging times, while a cross-over occurs for the elastic modulus variation at the 20 day point.' — 판독이 이 두 문장을 그대로 재현한다: YS 는 여섯 시점 전부 SAC-X > SAC105 이고, E 는 20일까지 SAC-X < SAC105(22.92 대 23.18) 이다가 30일에 뒤집힌다(22.69 대 20.03). 비교선 SAC105 < SAC205 는 E·YS 열네 칸 모두 성립한다."
+    },
+    {
+     "key": "mechanical.yield_strength_at_rate",
+     "value": 26733819.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_time_days": 0,
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm, reflowed (RF) solidification profile",
+      "digitized": true,
+      "figure": "Figure 28(b) Yield Stress (p.15) — Variation of SAC-X Material Properties with Aging at 100 oC, and Comparisons to SAC105 and SAC205",
+      "property_definition": "yield stress (YS) taken from the 0.2 % offset construction on the stress-strain curve at strain rate 0.001 /s. 원문 Figure 7 캡션이 E·YS·UTS 정의를 한 그림에 싣는다.",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 마커 중심은 **꼭짓점 평균**이고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514) — 이 그림의 초록 정사각 마커는 한 모서리를 두 번 더 찍는다. 세로 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). **마커 오프셋은 없다**(브리프 495) — 가로축이 인쇄된 시효일수 격자(0/5/10/20/30/45/60)라 되읽으면 산포 ±0.016 pt(= 0.005 일)이고 계통 성분이 없다. Cai 는 Acrobat Distiller 조판이다.",
+      "reading_uncertainty": "±0.05 MPa — 같은 파이프라인으로 읽은 SAC205 비교선 7칸이 같은 논문 Figure 14(b) 100 °C 계열과 최대 0.023 MPa 로 일치한다.",
+      "aging": "none (non-aged; tested immediately after reflow solidification and cool down)"
+     },
+     "notes": "Cai 2010 Figure 28 의 SAC-X(SACX0307) 계열. **이 그림은 시효 100 °C 판 하나뿐이다** — SAC-X 의 E·YS 는 다른 시효온도가 인쇄되지 않는다(UTS 만 Figure 29 로 25/50/75/125 °C 가 더 있다). 그래서 47차 IB 인계의 `E·YS 격자 각 26칸` 은 재현되지 않는다. Figure 28(a)(b) 의 마커를 전수로 세면 SAC-X 6개(0/5/10/20/30/60일) · SAC105 7개 · SAC205 7개이고, **SAC-X 는 6칸씩이다**(브리프 479·496). SAC-X 에 45일 점이 없는 것은 IB 가 UTS 에서 확인한 것과 같다. 시험조건 본문 verbatim: 'All uniaxial stress-strain and creep tests were conducted on the aged samples at room temperature (25 °C).' · 'The strain rate for the stress-strain testing was e = 0.001 sec-1.' · 'The lead free solder test results presented in this paper are all for samples solidified with the reflowed (Figure 3a) cooling profile'. 시편 verbatim: 'we formed uniaxial samples with nominal dimensions of 80 x 3 x 0.5 mm' · 'gage length of the specimens in this study was 60 mm'. [교차검증 — 브리프 516] 같은 그림에 SAC105·SAC205 비교선이 함께 그려져 있다. SAC205 계열을 같은 파이프라인으로 되읽어 같은 논문 Figure 14(a)(b) 의 100 °C 계열(꼭짓점 평균 판독)과 대조하면 14칸이 E 최대 0.013 GPa · YS 최대 0.023 MPa 로 일치한다 — 서로 다른 두 그림이 서로를 확인한다. **비교선은 값으로 세지 않았다**(브리프 456) — SAC205 는 이미 DB 에 Figure 14 로 들어와 있고, SAC105 의 E·YS 는 같은 논문 Figure 25(SACN05 네 합금 · 시효 100 °C)가 더 큰 격자로 인쇄하므로 그쪽을 통째로 캐는 배치가 넣는 것이 맞다(이 배치의 표적은 재료 2677 이다). [Ag 단조 대조] SAC-X 는 Bi 도핑이라 Ag 단조 순서에서 빠진다 — Ag 0.3 %인데 60일 시점 E 22.00 GPa · YS 15.46 MPa 로 SAC105(17.49 GPa · 10.86 MPa)보다 높다. 저자가 결론에 그렇게 적는다: 'The strength properties of SAC-X exceed those of SAC105 for all aging times, while a cross-over occurs for the elastic modulus variation at the 20 day point.' — 판독이 이 두 문장을 그대로 재현한다: YS 는 여섯 시점 전부 SAC-X > SAC105 이고, E 는 20일까지 SAC-X < SAC105(22.92 대 23.18) 이다가 30일에 뒤집힌다(22.69 대 20.03). 비교선 SAC105 < SAC205 는 E·YS 열네 칸 모두 성립한다."
+    },
+    {
+     "key": "mechanical.yield_strength_at_rate",
+     "value": 18437064.4,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_time_days": 5,
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm, reflowed (RF) solidification profile",
+      "digitized": true,
+      "figure": "Figure 28(b) Yield Stress (p.15) — Variation of SAC-X Material Properties with Aging at 100 oC, and Comparisons to SAC105 and SAC205",
+      "property_definition": "yield stress (YS) taken from the 0.2 % offset construction on the stress-strain curve at strain rate 0.001 /s. 원문 Figure 7 캡션이 E·YS·UTS 정의를 한 그림에 싣는다.",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 마커 중심은 **꼭짓점 평균**이고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514) — 이 그림의 초록 정사각 마커는 한 모서리를 두 번 더 찍는다. 세로 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). **마커 오프셋은 없다**(브리프 495) — 가로축이 인쇄된 시효일수 격자(0/5/10/20/30/45/60)라 되읽으면 산포 ±0.016 pt(= 0.005 일)이고 계통 성분이 없다. Cai 는 Acrobat Distiller 조판이다.",
+      "reading_uncertainty": "±0.05 MPa — 같은 파이프라인으로 읽은 SAC205 비교선 7칸이 같은 논문 Figure 14(b) 100 °C 계열과 최대 0.023 MPa 로 일치한다.",
+      "aging_temperature_k": 373.15,
+      "aging_temperature_c": 100
+     },
+     "notes": "Cai 2010 Figure 28 의 SAC-X(SACX0307) 계열. **이 그림은 시효 100 °C 판 하나뿐이다** — SAC-X 의 E·YS 는 다른 시효온도가 인쇄되지 않는다(UTS 만 Figure 29 로 25/50/75/125 °C 가 더 있다). 그래서 47차 IB 인계의 `E·YS 격자 각 26칸` 은 재현되지 않는다. Figure 28(a)(b) 의 마커를 전수로 세면 SAC-X 6개(0/5/10/20/30/60일) · SAC105 7개 · SAC205 7개이고, **SAC-X 는 6칸씩이다**(브리프 479·496). SAC-X 에 45일 점이 없는 것은 IB 가 UTS 에서 확인한 것과 같다. 시험조건 본문 verbatim: 'All uniaxial stress-strain and creep tests were conducted on the aged samples at room temperature (25 °C).' · 'The strain rate for the stress-strain testing was e = 0.001 sec-1.' · 'The lead free solder test results presented in this paper are all for samples solidified with the reflowed (Figure 3a) cooling profile'. 시편 verbatim: 'we formed uniaxial samples with nominal dimensions of 80 x 3 x 0.5 mm' · 'gage length of the specimens in this study was 60 mm'. [교차검증 — 브리프 516] 같은 그림에 SAC105·SAC205 비교선이 함께 그려져 있다. SAC205 계열을 같은 파이프라인으로 되읽어 같은 논문 Figure 14(a)(b) 의 100 °C 계열(꼭짓점 평균 판독)과 대조하면 14칸이 E 최대 0.013 GPa · YS 최대 0.023 MPa 로 일치한다 — 서로 다른 두 그림이 서로를 확인한다. **비교선은 값으로 세지 않았다**(브리프 456) — SAC205 는 이미 DB 에 Figure 14 로 들어와 있고, SAC105 의 E·YS 는 같은 논문 Figure 25(SACN05 네 합금 · 시효 100 °C)가 더 큰 격자로 인쇄하므로 그쪽을 통째로 캐는 배치가 넣는 것이 맞다(이 배치의 표적은 재료 2677 이다). [Ag 단조 대조] SAC-X 는 Bi 도핑이라 Ag 단조 순서에서 빠진다 — Ag 0.3 %인데 60일 시점 E 22.00 GPa · YS 15.46 MPa 로 SAC105(17.49 GPa · 10.86 MPa)보다 높다. 저자가 결론에 그렇게 적는다: 'The strength properties of SAC-X exceed those of SAC105 for all aging times, while a cross-over occurs for the elastic modulus variation at the 20 day point.' — 판독이 이 두 문장을 그대로 재현한다: YS 는 여섯 시점 전부 SAC-X > SAC105 이고, E 는 20일까지 SAC-X < SAC105(22.92 대 23.18) 이다가 30일에 뒤집힌다(22.69 대 20.03). 비교선 SAC105 < SAC205 는 E·YS 열네 칸 모두 성립한다."
+    },
+    {
+     "key": "mechanical.yield_strength_at_rate",
+     "value": 17073459.7,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_time_days": 10,
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm, reflowed (RF) solidification profile",
+      "digitized": true,
+      "figure": "Figure 28(b) Yield Stress (p.15) — Variation of SAC-X Material Properties with Aging at 100 oC, and Comparisons to SAC105 and SAC205",
+      "property_definition": "yield stress (YS) taken from the 0.2 % offset construction on the stress-strain curve at strain rate 0.001 /s. 원문 Figure 7 캡션이 E·YS·UTS 정의를 한 그림에 싣는다.",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 마커 중심은 **꼭짓점 평균**이고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514) — 이 그림의 초록 정사각 마커는 한 모서리를 두 번 더 찍는다. 세로 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). **마커 오프셋은 없다**(브리프 495) — 가로축이 인쇄된 시효일수 격자(0/5/10/20/30/45/60)라 되읽으면 산포 ±0.016 pt(= 0.005 일)이고 계통 성분이 없다. Cai 는 Acrobat Distiller 조판이다.",
+      "reading_uncertainty": "±0.05 MPa — 같은 파이프라인으로 읽은 SAC205 비교선 7칸이 같은 논문 Figure 14(b) 100 °C 계열과 최대 0.023 MPa 로 일치한다.",
+      "aging_temperature_k": 373.15,
+      "aging_temperature_c": 100
+     },
+     "notes": "Cai 2010 Figure 28 의 SAC-X(SACX0307) 계열. **이 그림은 시효 100 °C 판 하나뿐이다** — SAC-X 의 E·YS 는 다른 시효온도가 인쇄되지 않는다(UTS 만 Figure 29 로 25/50/75/125 °C 가 더 있다). 그래서 47차 IB 인계의 `E·YS 격자 각 26칸` 은 재현되지 않는다. Figure 28(a)(b) 의 마커를 전수로 세면 SAC-X 6개(0/5/10/20/30/60일) · SAC105 7개 · SAC205 7개이고, **SAC-X 는 6칸씩이다**(브리프 479·496). SAC-X 에 45일 점이 없는 것은 IB 가 UTS 에서 확인한 것과 같다. 시험조건 본문 verbatim: 'All uniaxial stress-strain and creep tests were conducted on the aged samples at room temperature (25 °C).' · 'The strain rate for the stress-strain testing was e = 0.001 sec-1.' · 'The lead free solder test results presented in this paper are all for samples solidified with the reflowed (Figure 3a) cooling profile'. 시편 verbatim: 'we formed uniaxial samples with nominal dimensions of 80 x 3 x 0.5 mm' · 'gage length of the specimens in this study was 60 mm'. [교차검증 — 브리프 516] 같은 그림에 SAC105·SAC205 비교선이 함께 그려져 있다. SAC205 계열을 같은 파이프라인으로 되읽어 같은 논문 Figure 14(a)(b) 의 100 °C 계열(꼭짓점 평균 판독)과 대조하면 14칸이 E 최대 0.013 GPa · YS 최대 0.023 MPa 로 일치한다 — 서로 다른 두 그림이 서로를 확인한다. **비교선은 값으로 세지 않았다**(브리프 456) — SAC205 는 이미 DB 에 Figure 14 로 들어와 있고, SAC105 의 E·YS 는 같은 논문 Figure 25(SACN05 네 합금 · 시효 100 °C)가 더 큰 격자로 인쇄하므로 그쪽을 통째로 캐는 배치가 넣는 것이 맞다(이 배치의 표적은 재료 2677 이다). [Ag 단조 대조] SAC-X 는 Bi 도핑이라 Ag 단조 순서에서 빠진다 — Ag 0.3 %인데 60일 시점 E 22.00 GPa · YS 15.46 MPa 로 SAC105(17.49 GPa · 10.86 MPa)보다 높다. 저자가 결론에 그렇게 적는다: 'The strength properties of SAC-X exceed those of SAC105 for all aging times, while a cross-over occurs for the elastic modulus variation at the 20 day point.' — 판독이 이 두 문장을 그대로 재현한다: YS 는 여섯 시점 전부 SAC-X > SAC105 이고, E 는 20일까지 SAC-X < SAC105(22.92 대 23.18) 이다가 30일에 뒤집힌다(22.69 대 20.03). 비교선 SAC105 < SAC205 는 E·YS 열네 칸 모두 성립한다."
+    },
+    {
+     "key": "mechanical.yield_strength_at_rate",
+     "value": 16896083.1,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_time_days": 20,
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm, reflowed (RF) solidification profile",
+      "digitized": true,
+      "figure": "Figure 28(b) Yield Stress (p.15) — Variation of SAC-X Material Properties with Aging at 100 oC, and Comparisons to SAC105 and SAC205",
+      "property_definition": "yield stress (YS) taken from the 0.2 % offset construction on the stress-strain curve at strain rate 0.001 /s. 원문 Figure 7 캡션이 E·YS·UTS 정의를 한 그림에 싣는다.",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 마커 중심은 **꼭짓점 평균**이고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514) — 이 그림의 초록 정사각 마커는 한 모서리를 두 번 더 찍는다. 세로 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). **마커 오프셋은 없다**(브리프 495) — 가로축이 인쇄된 시효일수 격자(0/5/10/20/30/45/60)라 되읽으면 산포 ±0.016 pt(= 0.005 일)이고 계통 성분이 없다. Cai 는 Acrobat Distiller 조판이다.",
+      "reading_uncertainty": "±0.05 MPa — 같은 파이프라인으로 읽은 SAC205 비교선 7칸이 같은 논문 Figure 14(b) 100 °C 계열과 최대 0.023 MPa 로 일치한다.",
+      "aging_temperature_k": 373.15,
+      "aging_temperature_c": 100
+     },
+     "notes": "Cai 2010 Figure 28 의 SAC-X(SACX0307) 계열. **이 그림은 시효 100 °C 판 하나뿐이다** — SAC-X 의 E·YS 는 다른 시효온도가 인쇄되지 않는다(UTS 만 Figure 29 로 25/50/75/125 °C 가 더 있다). 그래서 47차 IB 인계의 `E·YS 격자 각 26칸` 은 재현되지 않는다. Figure 28(a)(b) 의 마커를 전수로 세면 SAC-X 6개(0/5/10/20/30/60일) · SAC105 7개 · SAC205 7개이고, **SAC-X 는 6칸씩이다**(브리프 479·496). SAC-X 에 45일 점이 없는 것은 IB 가 UTS 에서 확인한 것과 같다. 시험조건 본문 verbatim: 'All uniaxial stress-strain and creep tests were conducted on the aged samples at room temperature (25 °C).' · 'The strain rate for the stress-strain testing was e = 0.001 sec-1.' · 'The lead free solder test results presented in this paper are all for samples solidified with the reflowed (Figure 3a) cooling profile'. 시편 verbatim: 'we formed uniaxial samples with nominal dimensions of 80 x 3 x 0.5 mm' · 'gage length of the specimens in this study was 60 mm'. [교차검증 — 브리프 516] 같은 그림에 SAC105·SAC205 비교선이 함께 그려져 있다. SAC205 계열을 같은 파이프라인으로 되읽어 같은 논문 Figure 14(a)(b) 의 100 °C 계열(꼭짓점 평균 판독)과 대조하면 14칸이 E 최대 0.013 GPa · YS 최대 0.023 MPa 로 일치한다 — 서로 다른 두 그림이 서로를 확인한다. **비교선은 값으로 세지 않았다**(브리프 456) — SAC205 는 이미 DB 에 Figure 14 로 들어와 있고, SAC105 의 E·YS 는 같은 논문 Figure 25(SACN05 네 합금 · 시효 100 °C)가 더 큰 격자로 인쇄하므로 그쪽을 통째로 캐는 배치가 넣는 것이 맞다(이 배치의 표적은 재료 2677 이다). [Ag 단조 대조] SAC-X 는 Bi 도핑이라 Ag 단조 순서에서 빠진다 — Ag 0.3 %인데 60일 시점 E 22.00 GPa · YS 15.46 MPa 로 SAC105(17.49 GPa · 10.86 MPa)보다 높다. 저자가 결론에 그렇게 적는다: 'The strength properties of SAC-X exceed those of SAC105 for all aging times, while a cross-over occurs for the elastic modulus variation at the 20 day point.' — 판독이 이 두 문장을 그대로 재현한다: YS 는 여섯 시점 전부 SAC-X > SAC105 이고, E 는 20일까지 SAC-X < SAC105(22.92 대 23.18) 이다가 30일에 뒤집힌다(22.69 대 20.03). 비교선 SAC105 < SAC205 는 E·YS 열네 칸 모두 성립한다."
+    },
+    {
+     "key": "mechanical.yield_strength_at_rate",
+     "value": 15496933.4,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_time_days": 30,
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm, reflowed (RF) solidification profile",
+      "digitized": true,
+      "figure": "Figure 28(b) Yield Stress (p.15) — Variation of SAC-X Material Properties with Aging at 100 oC, and Comparisons to SAC105 and SAC205",
+      "property_definition": "yield stress (YS) taken from the 0.2 % offset construction on the stress-strain curve at strain rate 0.001 /s. 원문 Figure 7 캡션이 E·YS·UTS 정의를 한 그림에 싣는다.",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 마커 중심은 **꼭짓점 평균**이고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514) — 이 그림의 초록 정사각 마커는 한 모서리를 두 번 더 찍는다. 세로 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). **마커 오프셋은 없다**(브리프 495) — 가로축이 인쇄된 시효일수 격자(0/5/10/20/30/45/60)라 되읽으면 산포 ±0.016 pt(= 0.005 일)이고 계통 성분이 없다. Cai 는 Acrobat Distiller 조판이다.",
+      "reading_uncertainty": "±0.05 MPa — 같은 파이프라인으로 읽은 SAC205 비교선 7칸이 같은 논문 Figure 14(b) 100 °C 계열과 최대 0.023 MPa 로 일치한다.",
+      "aging_temperature_k": 373.15,
+      "aging_temperature_c": 100
+     },
+     "notes": "Cai 2010 Figure 28 의 SAC-X(SACX0307) 계열. **이 그림은 시효 100 °C 판 하나뿐이다** — SAC-X 의 E·YS 는 다른 시효온도가 인쇄되지 않는다(UTS 만 Figure 29 로 25/50/75/125 °C 가 더 있다). 그래서 47차 IB 인계의 `E·YS 격자 각 26칸` 은 재현되지 않는다. Figure 28(a)(b) 의 마커를 전수로 세면 SAC-X 6개(0/5/10/20/30/60일) · SAC105 7개 · SAC205 7개이고, **SAC-X 는 6칸씩이다**(브리프 479·496). SAC-X 에 45일 점이 없는 것은 IB 가 UTS 에서 확인한 것과 같다. 시험조건 본문 verbatim: 'All uniaxial stress-strain and creep tests were conducted on the aged samples at room temperature (25 °C).' · 'The strain rate for the stress-strain testing was e = 0.001 sec-1.' · 'The lead free solder test results presented in this paper are all for samples solidified with the reflowed (Figure 3a) cooling profile'. 시편 verbatim: 'we formed uniaxial samples with nominal dimensions of 80 x 3 x 0.5 mm' · 'gage length of the specimens in this study was 60 mm'. [교차검증 — 브리프 516] 같은 그림에 SAC105·SAC205 비교선이 함께 그려져 있다. SAC205 계열을 같은 파이프라인으로 되읽어 같은 논문 Figure 14(a)(b) 의 100 °C 계열(꼭짓점 평균 판독)과 대조하면 14칸이 E 최대 0.013 GPa · YS 최대 0.023 MPa 로 일치한다 — 서로 다른 두 그림이 서로를 확인한다. **비교선은 값으로 세지 않았다**(브리프 456) — SAC205 는 이미 DB 에 Figure 14 로 들어와 있고, SAC105 의 E·YS 는 같은 논문 Figure 25(SACN05 네 합금 · 시효 100 °C)가 더 큰 격자로 인쇄하므로 그쪽을 통째로 캐는 배치가 넣는 것이 맞다(이 배치의 표적은 재료 2677 이다). [Ag 단조 대조] SAC-X 는 Bi 도핑이라 Ag 단조 순서에서 빠진다 — Ag 0.3 %인데 60일 시점 E 22.00 GPa · YS 15.46 MPa 로 SAC105(17.49 GPa · 10.86 MPa)보다 높다. 저자가 결론에 그렇게 적는다: 'The strength properties of SAC-X exceed those of SAC105 for all aging times, while a cross-over occurs for the elastic modulus variation at the 20 day point.' — 판독이 이 두 문장을 그대로 재현한다: YS 는 여섯 시점 전부 SAC-X > SAC105 이고, E 는 20일까지 SAC-X < SAC105(22.92 대 23.18) 이다가 30일에 뒤집힌다(22.69 대 20.03). 비교선 SAC105 < SAC205 는 E·YS 열네 칸 모두 성립한다."
+    },
+    {
+     "key": "mechanical.yield_strength_at_rate",
+     "value": 15455812.7,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_time_days": 60,
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm, reflowed (RF) solidification profile",
+      "digitized": true,
+      "figure": "Figure 28(b) Yield Stress (p.15) — Variation of SAC-X Material Properties with Aging at 100 oC, and Comparisons to SAC105 and SAC205",
+      "property_definition": "yield stress (YS) taken from the 0.2 % offset construction on the stress-strain curve at strain rate 0.001 /s. 원문 Figure 7 캡션이 E·YS·UTS 정의를 한 그림에 싣는다.",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 마커 중심은 **꼭짓점 평균**이고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514) — 이 그림의 초록 정사각 마커는 한 모서리를 두 번 더 찍는다. 세로 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). **마커 오프셋은 없다**(브리프 495) — 가로축이 인쇄된 시효일수 격자(0/5/10/20/30/45/60)라 되읽으면 산포 ±0.016 pt(= 0.005 일)이고 계통 성분이 없다. Cai 는 Acrobat Distiller 조판이다.",
+      "reading_uncertainty": "±0.05 MPa — 같은 파이프라인으로 읽은 SAC205 비교선 7칸이 같은 논문 Figure 14(b) 100 °C 계열과 최대 0.023 MPa 로 일치한다.",
+      "aging_temperature_k": 373.15,
+      "aging_temperature_c": 100
+     },
+     "notes": "Cai 2010 Figure 28 의 SAC-X(SACX0307) 계열. **이 그림은 시효 100 °C 판 하나뿐이다** — SAC-X 의 E·YS 는 다른 시효온도가 인쇄되지 않는다(UTS 만 Figure 29 로 25/50/75/125 °C 가 더 있다). 그래서 47차 IB 인계의 `E·YS 격자 각 26칸` 은 재현되지 않는다. Figure 28(a)(b) 의 마커를 전수로 세면 SAC-X 6개(0/5/10/20/30/60일) · SAC105 7개 · SAC205 7개이고, **SAC-X 는 6칸씩이다**(브리프 479·496). SAC-X 에 45일 점이 없는 것은 IB 가 UTS 에서 확인한 것과 같다. 시험조건 본문 verbatim: 'All uniaxial stress-strain and creep tests were conducted on the aged samples at room temperature (25 °C).' · 'The strain rate for the stress-strain testing was e = 0.001 sec-1.' · 'The lead free solder test results presented in this paper are all for samples solidified with the reflowed (Figure 3a) cooling profile'. 시편 verbatim: 'we formed uniaxial samples with nominal dimensions of 80 x 3 x 0.5 mm' · 'gage length of the specimens in this study was 60 mm'. [교차검증 — 브리프 516] 같은 그림에 SAC105·SAC205 비교선이 함께 그려져 있다. SAC205 계열을 같은 파이프라인으로 되읽어 같은 논문 Figure 14(a)(b) 의 100 °C 계열(꼭짓점 평균 판독)과 대조하면 14칸이 E 최대 0.013 GPa · YS 최대 0.023 MPa 로 일치한다 — 서로 다른 두 그림이 서로를 확인한다. **비교선은 값으로 세지 않았다**(브리프 456) — SAC205 는 이미 DB 에 Figure 14 로 들어와 있고, SAC105 의 E·YS 는 같은 논문 Figure 25(SACN05 네 합금 · 시효 100 °C)가 더 큰 격자로 인쇄하므로 그쪽을 통째로 캐는 배치가 넣는 것이 맞다(이 배치의 표적은 재료 2677 이다). [Ag 단조 대조] SAC-X 는 Bi 도핑이라 Ag 단조 순서에서 빠진다 — Ag 0.3 %인데 60일 시점 E 22.00 GPa · YS 15.46 MPa 로 SAC105(17.49 GPa · 10.86 MPa)보다 높다. 저자가 결론에 그렇게 적는다: 'The strength properties of SAC-X exceed those of SAC105 for all aging times, while a cross-over occurs for the elastic modulus variation at the 20 day point.' — 판독이 이 두 문장을 그대로 재현한다: YS 는 여섯 시점 전부 SAC-X > SAC105 이고, E 는 20일까지 SAC-X < SAC105(22.92 대 23.18) 이다가 30일에 뒤집힌다(22.69 대 20.03). 비교선 SAC105 < SAC205 는 E·YS 열네 칸 모두 성립한다."
+    }
+   ]
+  }
+ ]
+}
