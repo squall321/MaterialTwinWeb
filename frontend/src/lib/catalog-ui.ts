@@ -102,6 +102,8 @@ export const SUBSYSTEM_LABEL: Record<string, string> = {
 };
 
 export function subsystemLabel(s: string | null | undefined): string {
-  if (!s) return "일반";
+  // 위와 같은 이유로 "일반" 이 아니라 "미분류" 다 — 계통이 비었다는 것은
+  // '일반 재료' 라는 판정이 아니라 **아직 판정하지 않았다** 는 뜻이다.
+  if (!s) return "미분류";
   return SUBSYSTEM_LABEL[s] ?? s;
 }
