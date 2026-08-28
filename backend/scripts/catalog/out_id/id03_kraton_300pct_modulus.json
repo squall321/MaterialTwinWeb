@@ -1,0 +1,58 @@
+{
+ "batch": "ID 47차 · 300 % 모듈러스 키가 없어 막혀 있던 Kraton 2행 — D1102(가이드 tier2) · D1161(북미판 PDS tier1). 새로 캐지 않았다",
+ "materials": [
+  {
+   "match_name": "Kraton D1102 SBS triblock copolymer, 30 wt% PS, 0.14 wt% BHT (Phillips 2007 fullerene-PSA)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Kraton Polymers Product Guide (24-04) — KRATON D SBS Polymer Grades",
+    "url": "https://kraton.com/wp-content/uploads/2024/05/24-04-al-final-polymer-product-guide-interactive-web.pdf",
+    "year": 2024,
+    "publisher": "Kraton Corporation",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/poly/Kraton_Polymers_Product_Guide_24-04.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tensile_stress_at_strain",
+     "value": 4000000.0,
+     "unit": "Pa",
+     "tier": 2,
+     "method": "measured",
+     "conditions": {
+      "strain_pct": 300,
+      "test_standard": "ASTM D412",
+      "specimen": "film cast from toluene solution",
+      "grade_scope": "class value — 등급 D1102 대표값. 지역판마다 값이 갈린다(E 3.9 MPa · J 2.9 MPa)"
+     },
+     "notes": "제품 가이드 `KRATON D SBS POLYMER GRADES` 표의 D1102 열 verbatim: `300% Modulus, MPa1,2  4` — 각주 1 `ASTM method D412`, 각주 2 `Typical properties determined on film cast from toluene solution`. x1e6 -> Pa. 46차 HC 가 이 표를 열고 **키가 없어 못 넣는다**고 attributes 에 적어 둔 칸이다. **왜 새 키인가** — `300% Modulus` 는 이름만 모듈러스다. ASTM D412 · ISO 37 의 정의는 **300 % 신장 시점의 응력(원단면 기준)** 이라 Pa 이고 응력/변형이 아니다(브리프 471). `youngs_modulus` 에 넣으면 물리량이 바뀌고, `tensile_strength`(파단점)와도 다르다 — 이 등급들은 파단연신이 1,100~1,300 % 라 두 값이 한 자릿수 벌어진다. **이름에 `300` 을 박지 않았다**(브리프 478) — 변형률을 조건축 `strain_pct` 로 올려 100 % · 500 % 모듈러스가 와도 키가 갈리지 않게 했다. 축 이름은 새로 만들지 않았다(DB 실측 `strain_pct` 172행 사용 중, 브리프 419). **tier2 인 이유는 HC 가 이 재료의 밀도·인장강도에 쓴 것과 같다** — ① 표 머리가 `Data in tables is representative of each grade and not the guaranteed specification` 라고 밝힌다. ② **지역판이 특정되지 않는다**: 원논문은 Belpre, Ohio(북미)라 적는데 북미판 개별 PDS 가 없고, 지역판 둘이 갈린다 — D1102 E(유럽 2023-02-15, ISO 37, PS 28.5 %) **3.9 MPa** · D1102 J(일본 2023-02-15, ISO 37, PS 30 %) **2.9 MPa**. 가이드의 4 는 그 사이다. **같은 열의 인장강도가 같은 방식으로 갈리는 것이 이 판정을 검산한다**(브리프 426·147) — 가이드 26 · E 24 · J 33 MPa 이고, 이미 tier2 로 들어와 있다."
+    }
+   ]
+  },
+  {
+   "match_name": "Kraton D1161 SIS triblock copolymer, 15 wt% PS, 0.14 wt% Irganox 565 (Phillips 2007 fullerene-PSA)",
+   "source": {
+    "kind": "datasheet",
+    "title": "KRATON D1161 K Polymer — Product Data Sheet, North America (6/3/2021)",
+    "url": "https://sds.kraton.com/product-sds/shared-files/94695/KratonD1161K-1.pdf",
+    "year": 2021,
+    "publisher": "Kraton Corporation",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/poly/Kraton_D1161_K_Polymer_PDS_NorthAmerica_2021-06-03.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tensile_stress_at_strain",
+     "value": 689475.7,
+     "unit": "Pa",
+     "tier": 1,
+     "method": "measured",
+     "conditions": {
+      "strain_pct": 300,
+      "test_standard": "ASTM D-412",
+      "specimen": "film cast from toluene solution"
+     },
+     "notes": "시트 verbatim: `300% Modulus  ASTM D-412  psi  100` — 각주 b `Typical properties determined on film cast from toluene solution`. 100 psi x 6894.757 Pa/psi = 6.894757e5 Pa. **왜 새 키인가** — `300% Modulus` 는 이름만 모듈러스다. ASTM D412 · ISO 37 의 정의는 **300 % 신장 시점의 응력(원단면 기준)** 이라 Pa 이고 응력/변형이 아니다(브리프 471). `youngs_modulus` 에 넣으면 물리량이 바뀌고, `tensile_strength`(파단점)와도 다르다 — 이 등급들은 파단연신이 1,100~1,300 % 라 두 값이 한 자릿수 벌어진다. **이름에 `300` 을 박지 않았다**(브리프 478) — 변형률을 조건축 `strain_pct` 로 올려 100 % · 500 % 모듈러스가 와도 키가 갈리지 않게 했다. 축 이름은 새로 만들지 않았다(DB 실측 `strain_pct` 172행 사용 중, 브리프 419). **지역판이 닫혀 있어 tier1 이다**(46차 HC 가 §140 으로 확정) — 원논문 Phillips 2007 이 `Kraton Polymers, Inc. (Belpre, Ohio)` 와 `~15 wt% polystyrene` 을 인쇄하고, D1161 K 시트가 `supplied from North America` + `polystyrene content of 15%` 라 일치한다. 이 재료의 밀도·인장강도·연신·경도·MFR 이 모두 이 시트에서 왔다. **문서 간 대조 검산(브리프 423)** — 제품 가이드 24-04 의 D1161 열은 같은 칸을 `300% Modulus, MPa1,2  1` 로 인쇄한다. 0.689 MPa 의 한 자리 반올림이고, 같은 열의 인장강도도 3100 psi = 21.37 -> `21` 로 같은 방식으로 반올림돼 **두 칸이 같은 규칙으로 닫힌다.** 일본판 D1161 J(ISO 37)는 0.9 MPa · 인장 28 MPa 로 갈리지만 산지가 북미라 이쪽이 정본이다. **MPa 로 인쇄한 가이드 값(1)을 쓰지 않은 이유** — 정본은 원문이 인쇄한 단위다(브리프 136). psi 쪽이 유효숫자가 더 살아 있다."
+    }
+   ]
+  }
+ ]
+}

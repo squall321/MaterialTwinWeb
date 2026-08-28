@@ -1,0 +1,55 @@
+{
+ "batch": "ID 47차 · 압축탄성계수 키가 없어 막혀 있던 벤더시트 2행 — Torlon 4301(46차 HC 인계) · Rogers CLTE-AT(DB 노트에서 회수). 새로 캐지 않았다",
+ "materials": [
+  {
+   "match_name": "Torlon 4301 — 폴리아미드이미드 PAI (Böhm 1990)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Torlon 4301 polyamide-imide — Technical Data Sheet (Revised: 11/18/2014)",
+    "url": "https://drakeplastics.com/wp-content/uploads/2020/01/Torlon-4301.pdf",
+    "year": 2014,
+    "publisher": "Solvay Specialty Polymers",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/poly/Solvay_Torlon_4301_PAI_TechnicalDataSheet_2014-11-18.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.compressive_modulus",
+     "value": 5310000000.0,
+     "unit": "Pa",
+     "tier": 1,
+     "method": "measured",
+     "conditions": {
+      "test_standard": "ASTM D695",
+      "temperature_k": 296.15
+     },
+     "notes": "시트 verbatim: `Compressive Modulus  5310 MPa  ASTM D695`. x1e6 -> Pa. 46차 HC 가 이 시트를 열고 **키가 없어 못 넣는다**고 attributes 에 적어 둔 칸이다 (브리프 468·479). 같은 표의 `Compressive Strength 166 MPa ASTM D695` 는 이미 tier1 로 들어와 있다. **왜 `youngs_modulus` 가 아닌가** — 그 키는 ASTM E111 · D638 **인장**이다. 압축은 강도(`compressive_strength`)와 항복(`compressive_yield_strength`)이 이미 인장과 갈려 있는데 모듈러스만 빠져 있었다(46차 HA 의 율속 갈래와 같은 비대칭). **같은 시트가 셋을 나란히 인쇄해 서로를 검산한다**(브리프 470) — 인장 6830(D638) · 굽힘 6890(D790) · **압축 5310** MPa. 세 값이 같은 자릿수이고 압축이 인장보다 낮아 물리적으로 앞뒤가 맞는다. 단위 오입력이면 이 관계가 깨진다. 온도는 시트 상단의 `73 degF (23 degC)` 규약을 따른 296.15 K 로, 같은 시트에서 온 형제 행(인장·굽힘)과 같은 값이다."
+    }
+   ]
+  },
+  {
+   "match_name": "Rogers CLTE-AT Ceramic-PTFE Woven Glass Laminate",
+   "source": {
+    "kind": "datasheet",
+    "title": "CLTE-AT Series Laminates Data Sheet",
+    "url": "https://www.rogerscorp.com/-/media/project/rogerscorp/documents/advanced-electronics-solutions/english/data-sheets/clte-at-laminates-data-sheet.pdf",
+    "publisher": "Rogers Corporation",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/poly/Rogers_CLTE-AT_Series_Laminates_DataSheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.compressive_modulus",
+     "value": 1682320000.0,
+     "unit": "Pa",
+     "tier": 1,
+     "method": "measured",
+     "conditions": {
+      "test_standard": "ASTM D-3410",
+      "temperature_k": 296.15,
+      "direction_status": "미인쇄 — 같은 블록의 인장·굽힘은 `(MD, CMD)` 를 인쇄하는데 이 행만 방향 칸이 비어 있다. 지어내지 않았다(브리프 467)"
+     },
+     "notes": "시트 `Mechanical Properties` 블록 verbatim: `Compressive Modulus | 244 | ksi | - | ASTM-D-3410`. 244 ksi x 6.894757e6 Pa/ksi = 1.68232e9 Pa. **이 값은 인계에 없었다 — DB 에서 찾았다.** 42차 배치가 같은 시트의 인장강도를 넣으면서 노트에 블록 전체를 verbatim 으로 옮겨 뒀는데 그 안에 이 칸이 들어 있었다 (브리프 479 — 막힌 값을 넘길 때는 남겨 둬라. 남겨 뒀기 때문에 회수됐다). **원본 시트를 다시 열어 확인했다**(브리프 485·127) — pdftotext -layout 로 위 줄을 그대로 재현했고 시트를 코퍼스에 보관했다. **왜 `youngs_modulus` 가 아닌가** — 그 키는 ASTM E111 · D638 **인장**이다. 압축은 강도(`compressive_strength`)와 항복(`compressive_yield_strength`)이 이미 인장과 갈려 있는데 모듈러스만 빠져 있었다(46차 HA 의 율속 갈래와 같은 비대칭). **규격이 Torlon 과 다르다** — 열가소성은 ASTM D695, 적층판은 ASTM D3410 이다. 그래서 `test_standard` 가 이 키의 조건축에 있다. **검산(브리프 470)** — 같은 블록의 `Young's Modulus 1790 (260) MPa (ksi)` 가 이미 tier1 로 들어와 있고, 압축 1682 < 인장 1790 이라 자릿수·부등호가 맞는다. ksi 를 MPa 로 오독했으면 244 MPa 가 되어 인장의 1/7 이 됐을 것이다."
+    }
+   ]
+  }
+ ]
+}

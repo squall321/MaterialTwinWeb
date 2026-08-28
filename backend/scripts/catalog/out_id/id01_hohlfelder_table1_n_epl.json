@@ -1,0 +1,199 @@
+{
+ "batch": "ID 47차 · Hohlfelder 2001 TABLE I 에서 키가 없어 막혀 있던 두 열 — 단조 경화지수 n 4행 + 소성 파단변형률 e_pl 4행. 새로 캐지 않았다",
+ "materials": [
+  {
+   "match_name": "Underfill Dexter FP4527, silica-filled epoxy 68 wt% (flip-chip capillary underfill, Hohlfelder 2001)",
+   "source": {
+    "kind": "journal",
+    "title": "Adhesion of benzocyclobutene-passivated silicon in epoxy layered structures",
+    "doi": "10.1557/jmr.2001.0037",
+    "url": "https://doi.org/10.1557/jmr.2001.0037",
+    "authors": "Hohlfelder",
+    "year": 2001,
+    "publisher": "Journal of Materials Research (Cambridge University Press)",
+    "local_path": "/data/paper_patent_corpus/structured/snowball_papers/from_cae/Hohlfelder - 2001 - Adhesion of benzocyclobutene-passivated silicon in epoxy layered structures/Hohlfelder - 2001 - Adhesion of benzocyclobutene-passivated silicon in epoxy layered structures.md"
+   },
+   "properties": [
+    {
+     "key": "mechanical.monotonic_strain_hardening_exponent",
+     "value": 0.77,
+     "unit": "1",
+     "tier": 1,
+     "method": "measured",
+     "conditions": {
+      "model_form": "원문이 식을 인쇄하지 않는다 — 인쇄된 것은 서술뿐이다(브리프 66 · 이 키의 taxonomy 주석). §V verbatim: \"The ductile layer was characterized with an elastic/power-law hardening relationship with strain hardening exponent n.\" 즉 **탄성 + 멱함수 경화**(sigma = K*eps_p^n 꼴)이고 순환 Ramberg-Osgood n'(Delta_sigma = A*Delta_eps_p^beta)이 아니다. ⚠ 이 문장은 EPZ 시뮬레이션 문단에 있고 거기서 'the ductile layer' 는 BCB 층이다 — **표의 n 열은 네 행(BCB-hard/Zymet/Dexter)이 같은 기호를 공유**하고, 언더필 두 행의 출처는 §V-A 의 단조 인장시험이다(verbatim: \"The true stress versus strain behavior of the underfill materials were assessed using tension tests on bulk underfill specimens ... and summarized in Table I.\"). 저자가 K 도 식 번호도 인쇄하지 않으므로 우리가 Hollomon/Ludwik 중 하나를 고르지 않는다 — 고르면 그것은 우리 값이다.",
+      "temperature_k": 298.15,
+      "temperature_basis": "미인쇄 — ASTM D-638-98 표준 실험실 조건 규약(같은 논문의 형제 행 E·sigma_ys·sigma_UTS 와 같은 처리)",
+      "specimen_basis": "bulk cured underfill specimen (dogbone), **접합부가 아니다** — 같은 논문의 interface.cohesive_energy_mode1 행은 Si/BCB 샌드위치 접합부다(브리프 69·93)",
+      "test_standard": "ASTM D-638-98 (본문 verbatim: \"in general accordance with the ... ASTM D-638-98 standard\")",
+      "test_method": "uniaxial tension on miniature dogbone (gauge length 25 mm), MTS Bionix 200 with 1 kN load cell, constant displacement rate 25 um/s, system-compliance corrected, plotted as true stress vs true strain (§V-A). ⚠ **변형률속도는 넣지 않았다** — 25 um/s / 25 mm = 1e-3 /s 는 우리가 만든 수다. 원문은 변위속도만 인쇄한다."
+     },
+     "notes": "TABLE I. Salient mechanical properties for the BCB and underfill materials. 머리글 verbatim: `| | s ys (MPa) | s UTS (MPa) | E (GPa) | n | e pl (%) | K lc (MPam 1/2 ) |`. 행 verbatim: `BCB-hard 48 90 2.9 0.68 5.7 0.36` · `Zymet UF 36 65 4 0.62 1.5` · `Dexter UF 46 51 2 0.77 0.5`. `n` 열 `Dexter UF` 행 = 0.77. 무차원이라 환산 없다. **왜 `cyclic_strain_hardening_exponent` 가 아닌가** — 그 키는 안정화 히스테리시스 루프의 Ramberg-Osgood n' 이고(DB 실측 24행 전부 `model: cyclic_stress_strain`), 이 값은 단조 인장곡선 하나에서 나온다. 정의식과 하중이력이 둘 다 다르다(브리프 471). **BCB-hard 행의 n = 0.68 은 넣지 않았다** — 그 재료(Dow Cyclotene 3022, hard cure 250 degC/1 h)가 카탈로그에 없다. 재료 1360 은 Cyclotene **4000 계열 photo-BCB**(Huffman 2009)라 다른 등급·다른 논문이다."
+    },
+    {
+     "key": "mechanical.plastic_strain_at_break",
+     "value": 0.005,
+     "unit": "1",
+     "tier": 1,
+     "method": "measured",
+     "conditions": {
+      "temperature_k": 298.15,
+      "temperature_basis": "미인쇄 — ASTM D-638-98 표준 실험실 조건 규약(같은 논문의 형제 행 E·sigma_ys·sigma_UTS 와 같은 처리)",
+      "test_standard": "ASTM D-638-98 (본문 verbatim: \"in general accordance with the ... ASTM D-638-98 standard\")",
+      "specimen": "miniature dogbone, gauge length 25 mm, bulk cured underfill (접합부가 아니다)",
+      "test_method": "uniaxial tension on miniature dogbone (gauge length 25 mm), MTS Bionix 200 with 1 kN load cell, constant displacement rate 25 um/s, system-compliance corrected, plotted as true stress vs true strain (§V-A). ⚠ **변형률속도는 넣지 않았다** — 25 um/s / 25 mm = 1e-3 /s 는 우리가 만든 수다. 원문은 변위속도만 인쇄한다.",
+      "definition": "표 머리글 `e pl (%)` — 파단 시점의 **소성분**. 총 연신이 아니다"
+     },
+     "notes": "TABLE I. Salient mechanical properties for the BCB and underfill materials. 머리글 verbatim: `| | s ys (MPa) | s UTS (MPa) | E (GPa) | n | e pl (%) | K lc (MPam 1/2 ) |`. 행 verbatim: `BCB-hard 48 90 2.9 0.68 5.7 0.36` · `Zymet UF 36 65 4 0.62 1.5` · `Dexter UF 46 51 2 0.77 0.5`. `e pl (%)` 열 `Dexter UF` 행 = 0.5 %. /100 -> 무차원 0.005. **원문 자신의 산술 검산(브리프 237)** — 같은 표의 E·sigma_UTS 로 탄성분을 계산해 e_pl 을 더하면 본문의 파단변형 서술과 닫힌다: Zymet 65 MPa / 4 GPa = 1.63 % + 1.5 % = 3.13 %, Dexter 51 MPa / 2 GPa = 2.55 % + 0.5 % = 3.05 %. 본문 verbatim: \"All specimens exhibited similar work hardening behavior and failed by brittle fracture at strains of approximately 3-4%.\" 둘 다 3~4 % 안이다. **이 검산이 곧 e_pl 이 총 연신이 아니라 소성분임의 증거다** — 이 유리질 에폭시는 탄성분이 소성분보다 크다. **왜 `elongation_at_break` 가 아닌가** — 그 키는 총 연신(탄성 + 소성)이다. 여기 넣으면 Dexter 가 0.5 % 로 앉아 실제 파단변형 3.05 %의 1/6 이 된다. **총 연신은 넣지 않았다** — 3.13/3.05 % 는 우리가 계산한 값이라 역산이고, 본문의 `approximately 3-4%` 는 구간 서술이라 값이 아니다(브리프 76·451). **BCB-hard 행의 5.7 % 는 넣지 않았다** — 그 재료가 카탈로그에 없다."
+    }
+   ]
+  },
+  {
+   "match_name": "Underfill Zymet X6-82-5, silica-filled epoxy 62 wt% (flip-chip capillary underfill, Hohlfelder 2001)",
+   "source": {
+    "kind": "journal",
+    "title": "Adhesion of benzocyclobutene-passivated silicon in epoxy layered structures",
+    "doi": "10.1557/jmr.2001.0037",
+    "url": "https://doi.org/10.1557/jmr.2001.0037",
+    "authors": "Hohlfelder",
+    "year": 2001,
+    "publisher": "Journal of Materials Research (Cambridge University Press)",
+    "local_path": "/data/paper_patent_corpus/structured/snowball_papers/from_cae/Hohlfelder - 2001 - Adhesion of benzocyclobutene-passivated silicon in epoxy layered structures/Hohlfelder - 2001 - Adhesion of benzocyclobutene-passivated silicon in epoxy layered structures.md"
+   },
+   "properties": [
+    {
+     "key": "mechanical.monotonic_strain_hardening_exponent",
+     "value": 0.62,
+     "unit": "1",
+     "tier": 1,
+     "method": "measured",
+     "conditions": {
+      "model_form": "원문이 식을 인쇄하지 않는다 — 인쇄된 것은 서술뿐이다(브리프 66 · 이 키의 taxonomy 주석). §V verbatim: \"The ductile layer was characterized with an elastic/power-law hardening relationship with strain hardening exponent n.\" 즉 **탄성 + 멱함수 경화**(sigma = K*eps_p^n 꼴)이고 순환 Ramberg-Osgood n'(Delta_sigma = A*Delta_eps_p^beta)이 아니다. ⚠ 이 문장은 EPZ 시뮬레이션 문단에 있고 거기서 'the ductile layer' 는 BCB 층이다 — **표의 n 열은 네 행(BCB-hard/Zymet/Dexter)이 같은 기호를 공유**하고, 언더필 두 행의 출처는 §V-A 의 단조 인장시험이다(verbatim: \"The true stress versus strain behavior of the underfill materials were assessed using tension tests on bulk underfill specimens ... and summarized in Table I.\"). 저자가 K 도 식 번호도 인쇄하지 않으므로 우리가 Hollomon/Ludwik 중 하나를 고르지 않는다 — 고르면 그것은 우리 값이다.",
+      "temperature_k": 298.15,
+      "temperature_basis": "미인쇄 — ASTM D-638-98 표준 실험실 조건 규약(같은 논문의 형제 행 E·sigma_ys·sigma_UTS 와 같은 처리)",
+      "specimen_basis": "bulk cured underfill specimen (dogbone), **접합부가 아니다** — 같은 논문의 interface.cohesive_energy_mode1 행은 Si/BCB 샌드위치 접합부다(브리프 69·93)",
+      "test_standard": "ASTM D-638-98 (본문 verbatim: \"in general accordance with the ... ASTM D-638-98 standard\")",
+      "test_method": "uniaxial tension on miniature dogbone (gauge length 25 mm), MTS Bionix 200 with 1 kN load cell, constant displacement rate 25 um/s, system-compliance corrected, plotted as true stress vs true strain (§V-A). ⚠ **변형률속도는 넣지 않았다** — 25 um/s / 25 mm = 1e-3 /s 는 우리가 만든 수다. 원문은 변위속도만 인쇄한다.",
+      "grade_scope": "TABLE I 는 Zymet-5/-8 을 `Zymet UF` 한 행으로 묶어 인쇄한다. 본문 verbatim: \"No discernible differences were apparent for the Zymet-5 and Zymet-8 compositions.\" — 저자가 두 조성을 한 행으로 묶은 것을 명시했으므로 tier1 이다(형제 행과 같은 처리)."
+     },
+     "notes": "TABLE I. Salient mechanical properties for the BCB and underfill materials. 머리글 verbatim: `| | s ys (MPa) | s UTS (MPa) | E (GPa) | n | e pl (%) | K lc (MPam 1/2 ) |`. 행 verbatim: `BCB-hard 48 90 2.9 0.68 5.7 0.36` · `Zymet UF 36 65 4 0.62 1.5` · `Dexter UF 46 51 2 0.77 0.5`. `n` 열 `Zymet UF` 행 = 0.62. 무차원이라 환산 없다. **왜 `cyclic_strain_hardening_exponent` 가 아닌가** — 그 키는 안정화 히스테리시스 루프의 Ramberg-Osgood n' 이고(DB 실측 24행 전부 `model: cyclic_stress_strain`), 이 값은 단조 인장곡선 하나에서 나온다. 정의식과 하중이력이 둘 다 다르다(브리프 471). **BCB-hard 행의 n = 0.68 은 넣지 않았다** — 그 재료(Dow Cyclotene 3022, hard cure 250 degC/1 h)가 카탈로그에 없다. 재료 1360 은 Cyclotene **4000 계열 photo-BCB**(Huffman 2009)라 다른 등급·다른 논문이다."
+    },
+    {
+     "key": "mechanical.plastic_strain_at_break",
+     "value": 0.015,
+     "unit": "1",
+     "tier": 1,
+     "method": "measured",
+     "conditions": {
+      "temperature_k": 298.15,
+      "temperature_basis": "미인쇄 — ASTM D-638-98 표준 실험실 조건 규약(같은 논문의 형제 행 E·sigma_ys·sigma_UTS 와 같은 처리)",
+      "test_standard": "ASTM D-638-98 (본문 verbatim: \"in general accordance with the ... ASTM D-638-98 standard\")",
+      "specimen": "miniature dogbone, gauge length 25 mm, bulk cured underfill (접합부가 아니다)",
+      "test_method": "uniaxial tension on miniature dogbone (gauge length 25 mm), MTS Bionix 200 with 1 kN load cell, constant displacement rate 25 um/s, system-compliance corrected, plotted as true stress vs true strain (§V-A). ⚠ **변형률속도는 넣지 않았다** — 25 um/s / 25 mm = 1e-3 /s 는 우리가 만든 수다. 원문은 변위속도만 인쇄한다.",
+      "definition": "표 머리글 `e pl (%)` — 파단 시점의 **소성분**. 총 연신이 아니다",
+      "grade_scope": "TABLE I 는 Zymet-5/-8 을 `Zymet UF` 한 행으로 묶어 인쇄한다. 본문 verbatim: \"No discernible differences were apparent for the Zymet-5 and Zymet-8 compositions.\" — 저자가 두 조성을 한 행으로 묶은 것을 명시했으므로 tier1 이다(형제 행과 같은 처리)."
+     },
+     "notes": "TABLE I. Salient mechanical properties for the BCB and underfill materials. 머리글 verbatim: `| | s ys (MPa) | s UTS (MPa) | E (GPa) | n | e pl (%) | K lc (MPam 1/2 ) |`. 행 verbatim: `BCB-hard 48 90 2.9 0.68 5.7 0.36` · `Zymet UF 36 65 4 0.62 1.5` · `Dexter UF 46 51 2 0.77 0.5`. `e pl (%)` 열 `Zymet UF` 행 = 1.5 %. /100 -> 무차원 0.015. **원문 자신의 산술 검산(브리프 237)** — 같은 표의 E·sigma_UTS 로 탄성분을 계산해 e_pl 을 더하면 본문의 파단변형 서술과 닫힌다: Zymet 65 MPa / 4 GPa = 1.63 % + 1.5 % = 3.13 %, Dexter 51 MPa / 2 GPa = 2.55 % + 0.5 % = 3.05 %. 본문 verbatim: \"All specimens exhibited similar work hardening behavior and failed by brittle fracture at strains of approximately 3-4%.\" 둘 다 3~4 % 안이다. **이 검산이 곧 e_pl 이 총 연신이 아니라 소성분임의 증거다** — 이 유리질 에폭시는 탄성분이 소성분보다 크다. **왜 `elongation_at_break` 가 아닌가** — 그 키는 총 연신(탄성 + 소성)이다. 여기 넣으면 Dexter 가 0.5 % 로 앉아 실제 파단변형 3.05 %의 1/6 이 된다. **총 연신은 넣지 않았다** — 3.13/3.05 % 는 우리가 계산한 값이라 역산이고, 본문의 `approximately 3-4%` 는 구간 서술이라 값이 아니다(브리프 76·451). **BCB-hard 행의 5.7 % 는 넣지 않았다** — 그 재료가 카탈로그에 없다."
+    }
+   ]
+  },
+  {
+   "match_name": "Underfill Zymet X6-82-8, silica-filled epoxy 62 wt% + extra adhesion promoter (Hohlfelder 2001)",
+   "source": {
+    "kind": "journal",
+    "title": "Adhesion of benzocyclobutene-passivated silicon in epoxy layered structures",
+    "doi": "10.1557/jmr.2001.0037",
+    "url": "https://doi.org/10.1557/jmr.2001.0037",
+    "authors": "Hohlfelder",
+    "year": 2001,
+    "publisher": "Journal of Materials Research (Cambridge University Press)",
+    "local_path": "/data/paper_patent_corpus/structured/snowball_papers/from_cae/Hohlfelder - 2001 - Adhesion of benzocyclobutene-passivated silicon in epoxy layered structures/Hohlfelder - 2001 - Adhesion of benzocyclobutene-passivated silicon in epoxy layered structures.md"
+   },
+   "properties": [
+    {
+     "key": "mechanical.monotonic_strain_hardening_exponent",
+     "value": 0.62,
+     "unit": "1",
+     "tier": 1,
+     "method": "measured",
+     "conditions": {
+      "model_form": "원문이 식을 인쇄하지 않는다 — 인쇄된 것은 서술뿐이다(브리프 66 · 이 키의 taxonomy 주석). §V verbatim: \"The ductile layer was characterized with an elastic/power-law hardening relationship with strain hardening exponent n.\" 즉 **탄성 + 멱함수 경화**(sigma = K*eps_p^n 꼴)이고 순환 Ramberg-Osgood n'(Delta_sigma = A*Delta_eps_p^beta)이 아니다. ⚠ 이 문장은 EPZ 시뮬레이션 문단에 있고 거기서 'the ductile layer' 는 BCB 층이다 — **표의 n 열은 네 행(BCB-hard/Zymet/Dexter)이 같은 기호를 공유**하고, 언더필 두 행의 출처는 §V-A 의 단조 인장시험이다(verbatim: \"The true stress versus strain behavior of the underfill materials were assessed using tension tests on bulk underfill specimens ... and summarized in Table I.\"). 저자가 K 도 식 번호도 인쇄하지 않으므로 우리가 Hollomon/Ludwik 중 하나를 고르지 않는다 — 고르면 그것은 우리 값이다.",
+      "temperature_k": 298.15,
+      "temperature_basis": "미인쇄 — ASTM D-638-98 표준 실험실 조건 규약(같은 논문의 형제 행 E·sigma_ys·sigma_UTS 와 같은 처리)",
+      "specimen_basis": "bulk cured underfill specimen (dogbone), **접합부가 아니다** — 같은 논문의 interface.cohesive_energy_mode1 행은 Si/BCB 샌드위치 접합부다(브리프 69·93)",
+      "test_standard": "ASTM D-638-98 (본문 verbatim: \"in general accordance with the ... ASTM D-638-98 standard\")",
+      "test_method": "uniaxial tension on miniature dogbone (gauge length 25 mm), MTS Bionix 200 with 1 kN load cell, constant displacement rate 25 um/s, system-compliance corrected, plotted as true stress vs true strain (§V-A). ⚠ **변형률속도는 넣지 않았다** — 25 um/s / 25 mm = 1e-3 /s 는 우리가 만든 수다. 원문은 변위속도만 인쇄한다.",
+      "grade_scope": "TABLE I 는 Zymet-5/-8 을 `Zymet UF` 한 행으로 묶어 인쇄한다. 본문 verbatim: \"No discernible differences were apparent for the Zymet-5 and Zymet-8 compositions.\" — 저자가 두 조성을 한 행으로 묶은 것을 명시했으므로 tier1 이다(형제 행과 같은 처리)."
+     },
+     "notes": "TABLE I. Salient mechanical properties for the BCB and underfill materials. 머리글 verbatim: `| | s ys (MPa) | s UTS (MPa) | E (GPa) | n | e pl (%) | K lc (MPam 1/2 ) |`. 행 verbatim: `BCB-hard 48 90 2.9 0.68 5.7 0.36` · `Zymet UF 36 65 4 0.62 1.5` · `Dexter UF 46 51 2 0.77 0.5`. `n` 열 `Zymet UF` 행 = 0.62. 무차원이라 환산 없다. **왜 `cyclic_strain_hardening_exponent` 가 아닌가** — 그 키는 안정화 히스테리시스 루프의 Ramberg-Osgood n' 이고(DB 실측 24행 전부 `model: cyclic_stress_strain`), 이 값은 단조 인장곡선 하나에서 나온다. 정의식과 하중이력이 둘 다 다르다(브리프 471). **BCB-hard 행의 n = 0.68 은 넣지 않았다** — 그 재료(Dow Cyclotene 3022, hard cure 250 degC/1 h)가 카탈로그에 없다. 재료 1360 은 Cyclotene **4000 계열 photo-BCB**(Huffman 2009)라 다른 등급·다른 논문이다."
+    },
+    {
+     "key": "mechanical.plastic_strain_at_break",
+     "value": 0.015,
+     "unit": "1",
+     "tier": 1,
+     "method": "measured",
+     "conditions": {
+      "temperature_k": 298.15,
+      "temperature_basis": "미인쇄 — ASTM D-638-98 표준 실험실 조건 규약(같은 논문의 형제 행 E·sigma_ys·sigma_UTS 와 같은 처리)",
+      "test_standard": "ASTM D-638-98 (본문 verbatim: \"in general accordance with the ... ASTM D-638-98 standard\")",
+      "specimen": "miniature dogbone, gauge length 25 mm, bulk cured underfill (접합부가 아니다)",
+      "test_method": "uniaxial tension on miniature dogbone (gauge length 25 mm), MTS Bionix 200 with 1 kN load cell, constant displacement rate 25 um/s, system-compliance corrected, plotted as true stress vs true strain (§V-A). ⚠ **변형률속도는 넣지 않았다** — 25 um/s / 25 mm = 1e-3 /s 는 우리가 만든 수다. 원문은 변위속도만 인쇄한다.",
+      "definition": "표 머리글 `e pl (%)` — 파단 시점의 **소성분**. 총 연신이 아니다",
+      "grade_scope": "TABLE I 는 Zymet-5/-8 을 `Zymet UF` 한 행으로 묶어 인쇄한다. 본문 verbatim: \"No discernible differences were apparent for the Zymet-5 and Zymet-8 compositions.\" — 저자가 두 조성을 한 행으로 묶은 것을 명시했으므로 tier1 이다(형제 행과 같은 처리)."
+     },
+     "notes": "TABLE I. Salient mechanical properties for the BCB and underfill materials. 머리글 verbatim: `| | s ys (MPa) | s UTS (MPa) | E (GPa) | n | e pl (%) | K lc (MPam 1/2 ) |`. 행 verbatim: `BCB-hard 48 90 2.9 0.68 5.7 0.36` · `Zymet UF 36 65 4 0.62 1.5` · `Dexter UF 46 51 2 0.77 0.5`. `e pl (%)` 열 `Zymet UF` 행 = 1.5 %. /100 -> 무차원 0.015. **원문 자신의 산술 검산(브리프 237)** — 같은 표의 E·sigma_UTS 로 탄성분을 계산해 e_pl 을 더하면 본문의 파단변형 서술과 닫힌다: Zymet 65 MPa / 4 GPa = 1.63 % + 1.5 % = 3.13 %, Dexter 51 MPa / 2 GPa = 2.55 % + 0.5 % = 3.05 %. 본문 verbatim: \"All specimens exhibited similar work hardening behavior and failed by brittle fracture at strains of approximately 3-4%.\" 둘 다 3~4 % 안이다. **이 검산이 곧 e_pl 이 총 연신이 아니라 소성분임의 증거다** — 이 유리질 에폭시는 탄성분이 소성분보다 크다. **왜 `elongation_at_break` 가 아닌가** — 그 키는 총 연신(탄성 + 소성)이다. 여기 넣으면 Dexter 가 0.5 % 로 앉아 실제 파단변형 3.05 %의 1/6 이 된다. **총 연신은 넣지 않았다** — 3.13/3.05 % 는 우리가 계산한 값이라 역산이고, 본문의 `approximately 3-4%` 는 구간 서술이라 값이 아니다(브리프 76·451). **BCB-hard 행의 5.7 % 는 넣지 않았다** — 그 재료가 카탈로그에 없다."
+    }
+   ]
+  },
+  {
+   "match_name": "Underfill Zymet X6-82-0, silica-filled epoxy 62 wt% with no adhesion promoter (Hohlfelder 2001)",
+   "source": {
+    "kind": "journal",
+    "title": "Adhesion of benzocyclobutene-passivated silicon in epoxy layered structures",
+    "doi": "10.1557/jmr.2001.0037",
+    "url": "https://doi.org/10.1557/jmr.2001.0037",
+    "authors": "Hohlfelder",
+    "year": 2001,
+    "publisher": "Journal of Materials Research (Cambridge University Press)",
+    "local_path": "/data/paper_patent_corpus/structured/snowball_papers/from_cae/Hohlfelder - 2001 - Adhesion of benzocyclobutene-passivated silicon in epoxy layered structures/Hohlfelder - 2001 - Adhesion of benzocyclobutene-passivated silicon in epoxy layered structures.md"
+   },
+   "properties": [
+    {
+     "key": "mechanical.monotonic_strain_hardening_exponent",
+     "value": 0.62,
+     "unit": "1",
+     "tier": 3,
+     "method": "measured",
+     "conditions": {
+      "model_form": "원문이 식을 인쇄하지 않는다 — 인쇄된 것은 서술뿐이다(브리프 66 · 이 키의 taxonomy 주석). §V verbatim: \"The ductile layer was characterized with an elastic/power-law hardening relationship with strain hardening exponent n.\" 즉 **탄성 + 멱함수 경화**(sigma = K*eps_p^n 꼴)이고 순환 Ramberg-Osgood n'(Delta_sigma = A*Delta_eps_p^beta)이 아니다. ⚠ 이 문장은 EPZ 시뮬레이션 문단에 있고 거기서 'the ductile layer' 는 BCB 층이다 — **표의 n 열은 네 행(BCB-hard/Zymet/Dexter)이 같은 기호를 공유**하고, 언더필 두 행의 출처는 §V-A 의 단조 인장시험이다(verbatim: \"The true stress versus strain behavior of the underfill materials were assessed using tension tests on bulk underfill specimens ... and summarized in Table I.\"). 저자가 K 도 식 번호도 인쇄하지 않으므로 우리가 Hollomon/Ludwik 중 하나를 고르지 않는다 — 고르면 그것은 우리 값이다.",
+      "temperature_k": 298.15,
+      "temperature_basis": "미인쇄 — ASTM D-638-98 표준 실험실 조건 규약(같은 논문의 형제 행 E·sigma_ys·sigma_UTS 와 같은 처리)",
+      "specimen_basis": "bulk cured underfill specimen (dogbone), **접합부가 아니다** — 같은 논문의 interface.cohesive_energy_mode1 행은 Si/BCB 샌드위치 접합부다(브리프 69·93)",
+      "test_standard": "ASTM D-638-98 (본문 verbatim: \"in general accordance with the ... ASTM D-638-98 standard\")",
+      "test_method": "uniaxial tension on miniature dogbone (gauge length 25 mm), MTS Bionix 200 with 1 kN load cell, constant displacement rate 25 um/s, system-compliance corrected, plotted as true stress vs true strain (§V-A). ⚠ **변형률속도는 넣지 않았다** — 25 um/s / 25 mm = 1e-3 /s 는 우리가 만든 수다. 원문은 변위속도만 인쇄한다.",
+      "grade_scope": "class value — TABLE I 는 Zymet-5/-8 을 `Zymet UF` 한 행으로 묶어 인쇄하고 Zymet-0 은 측정 대상이 아니었다. 대상은 X6-82-0. 형제 행(E·sigma_ys·sigma_UTS)이 같은 이유로 tier3 이라 같은 등급을 쓴다."
+     },
+     "notes": "TABLE I. Salient mechanical properties for the BCB and underfill materials. 머리글 verbatim: `| | s ys (MPa) | s UTS (MPa) | E (GPa) | n | e pl (%) | K lc (MPam 1/2 ) |`. 행 verbatim: `BCB-hard 48 90 2.9 0.68 5.7 0.36` · `Zymet UF 36 65 4 0.62 1.5` · `Dexter UF 46 51 2 0.77 0.5`. `n` 열 `Zymet UF` 행 = 0.62. 무차원이라 환산 없다. **왜 `cyclic_strain_hardening_exponent` 가 아닌가** — 그 키는 안정화 히스테리시스 루프의 Ramberg-Osgood n' 이고(DB 실측 24행 전부 `model: cyclic_stress_strain`), 이 값은 단조 인장곡선 하나에서 나온다. 정의식과 하중이력이 둘 다 다르다(브리프 471). **BCB-hard 행의 n = 0.68 은 넣지 않았다** — 그 재료(Dow Cyclotene 3022, hard cure 250 degC/1 h)가 카탈로그에 없다. 재료 1360 은 Cyclotene **4000 계열 photo-BCB**(Huffman 2009)라 다른 등급·다른 논문이다."
+    },
+    {
+     "key": "mechanical.plastic_strain_at_break",
+     "value": 0.015,
+     "unit": "1",
+     "tier": 3,
+     "method": "measured",
+     "conditions": {
+      "temperature_k": 298.15,
+      "temperature_basis": "미인쇄 — ASTM D-638-98 표준 실험실 조건 규약(같은 논문의 형제 행 E·sigma_ys·sigma_UTS 와 같은 처리)",
+      "test_standard": "ASTM D-638-98 (본문 verbatim: \"in general accordance with the ... ASTM D-638-98 standard\")",
+      "specimen": "miniature dogbone, gauge length 25 mm, bulk cured underfill (접합부가 아니다)",
+      "test_method": "uniaxial tension on miniature dogbone (gauge length 25 mm), MTS Bionix 200 with 1 kN load cell, constant displacement rate 25 um/s, system-compliance corrected, plotted as true stress vs true strain (§V-A). ⚠ **변형률속도는 넣지 않았다** — 25 um/s / 25 mm = 1e-3 /s 는 우리가 만든 수다. 원문은 변위속도만 인쇄한다.",
+      "definition": "표 머리글 `e pl (%)` — 파단 시점의 **소성분**. 총 연신이 아니다",
+      "grade_scope": "class value — TABLE I 는 Zymet-5/-8 을 `Zymet UF` 한 행으로 묶어 인쇄하고 Zymet-0 은 측정 대상이 아니었다. 대상은 X6-82-0. 형제 행(E·sigma_ys·sigma_UTS)이 같은 이유로 tier3 이라 같은 등급을 쓴다."
+     },
+     "notes": "TABLE I. Salient mechanical properties for the BCB and underfill materials. 머리글 verbatim: `| | s ys (MPa) | s UTS (MPa) | E (GPa) | n | e pl (%) | K lc (MPam 1/2 ) |`. 행 verbatim: `BCB-hard 48 90 2.9 0.68 5.7 0.36` · `Zymet UF 36 65 4 0.62 1.5` · `Dexter UF 46 51 2 0.77 0.5`. `e pl (%)` 열 `Zymet UF` 행 = 1.5 %. /100 -> 무차원 0.015. **원문 자신의 산술 검산(브리프 237)** — 같은 표의 E·sigma_UTS 로 탄성분을 계산해 e_pl 을 더하면 본문의 파단변형 서술과 닫힌다: Zymet 65 MPa / 4 GPa = 1.63 % + 1.5 % = 3.13 %, Dexter 51 MPa / 2 GPa = 2.55 % + 0.5 % = 3.05 %. 본문 verbatim: \"All specimens exhibited similar work hardening behavior and failed by brittle fracture at strains of approximately 3-4%.\" 둘 다 3~4 % 안이다. **이 검산이 곧 e_pl 이 총 연신이 아니라 소성분임의 증거다** — 이 유리질 에폭시는 탄성분이 소성분보다 크다. **왜 `elongation_at_break` 가 아닌가** — 그 키는 총 연신(탄성 + 소성)이다. 여기 넣으면 Dexter 가 0.5 % 로 앉아 실제 파단변형 3.05 %의 1/6 이 된다. **총 연신은 넣지 않았다** — 3.13/3.05 % 는 우리가 계산한 값이라 역산이고, 본문의 `approximately 3-4%` 는 구간 서술이라 값이 아니다(브리프 76·451). **BCB-hard 행의 5.7 % 는 넣지 않았다** — 그 재료가 카탈로그에 없다."
+    }
+   ]
+  }
+ ]
+}
