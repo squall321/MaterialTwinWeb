@@ -19,8 +19,20 @@ def db(tmp_path, monkeypatch):
     importlib.reload(cfg)
     import app.db as _db
     importlib.reload(_db)
-    import app.models  # noqa: F401 — 모델 등록
+    # **plain import 로는 모델이 등록되지 않는다** — 앞선 테스트가 `app.models` 를 이미
+    # 임포트해 두면 sys.modules 에 있어 그 줄이 무의미하고, 클래스는 **옛 Base** 에 묶인 채
+    # 남는다. `reload(_db)` 가 만든 새 Base 는 표가 0개라 `create_all` 이 아무것도 안 만들고
+    # `no such table: material` 로 죽는다(단독 실행은 통과하고 전체 스위트에서만 깨졌다).
+    # **낡은 Base 에 묶여 있을 때만** 다시 읽는다. 무조건 reload 하면 반대로 깨진다 —
+    # 이 파일만 단독 실행하면 바로 위 import 가 새 Base 에 표를 갓 등록한 참이라
+    # reload 가 같은 metadata 에 표를 두 번 정의하려다 죽는다.
+    import app.models
+    if app.models.Material.metadata is not _db.Base.metadata:
+        importlib.reload(app.models)
     _db.Base.metadata.create_all(_db.engine)
+    # mcp_server 도 옛 세션·옛 모델 클래스를 들고 있다. 새 임시 DB 를 보게 다시 읽는다.
+    if "mcp_server" in sys.modules:
+        importlib.reload(sys.modules["mcp_server"])
     return _db
 
 
