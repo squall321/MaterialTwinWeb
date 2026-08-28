@@ -1,0 +1,195 @@
+{
+ "batch": "GC-4 45차 · 43차 EE 가 '시트가 손에 없다' 며 남긴 (BH)max 셋 — 조달이 됐다",
+ "materials": [
+  {
+   "match_name": "Recoma 28 Sintered SmCo Magnet (Sm2Co17)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Recoma Sintered Samarium Cobalt Magnets - Combined Datasheets (Rev. 160301)",
+    "url": "https://www.arnoldmagnetics.com/wp-content/uploads/2017/10/Recoma-Combined-160301.pdf",
+    "publisher": "Arnold Magnetic Technologies",
+    "manufacturer": "Arnold Magnetic Technologies",
+    "authors": "Arnold Magnetic Technologies Corp. (corporate author)",
+    "local_path": "standards_appnotes/passive/Arnold_Recoma_Sintered_SmCo_Combined_Rev160301.pdf"
+   },
+   "properties": [
+    {
+     "key": "magnetic.energy_product_max",
+     "value": 225000.0,
+     "unit": "J/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "Recoma 28 (Sintered Sm2Co17)",
+      "temperature_C": 20,
+      "value_type": "typical"
+     },
+     "notes": "Arnold Recoma 요약표 `Recoma 28  (195/120) T` 행 verbatim — (BH)max 225/195 kJ/m3 (28.3/24.5 MGOe) · Br 1.1/1.04 T (11/10.4 kG) · Hcb 800/700 kA/m (10.1/8.8 kOe) · Hcj 2000/1200 kA/m (25/15 kOe), 열은 `typ`/`min` 이다. 물리 상한 검산(브리프 431) — typ 끼리 225 <= 240.7 (비 0.935), min 끼리 195 <= 215.2 (비 0.906). MGOe 왕복(브리프 225) — 225/7.957747 = 28.27 대 인쇄 28.3 · 195/7.957747 = 24.50 대 인쇄 24.5. kOe 왕복 — 800/79.57747 = 10.05 대 10.1 · 2000/79.57747 = 25.1 대 25. **짝이 되는 칸을 같이 넣었다**(브리프 470). 이 표는 모든 물성을 `typ`/`min` 두 칸으로 인쇄하는데 앞선 파동이 **min 만** 넣어 뒀다. (BH)max 의 typ 만 더하면 물리 상한 `(BH)max <= Br^2/(4mu0)` 를 **DB 에 있는 Br min 으로** 재게 되어 **없는 위반이 만들어진다** — Recoma 28 은 225 kJ/m^3 대 Br min 1.04 T 의 상한 215.2 로 4.6% 초과가 뜬다. 그래서 Br·Hcb·Hcj 의 typ 칸도 같이 넣어 검산이 닫히게 했다(부수 효과로 브리프 76·110 의 반쪽 구간도 닫힌다). 43차 EE 가 *'Recoma 시트가 손에 없다'* 며 남긴 칸이다 — 공식 도메인에서 조달해 디스크에 남기고 출처의 빈 `local_path` 를 채웠다(브리프 145·127·429)."
+    },
+    {
+     "key": "magnetic.energy_product_max",
+     "value": 195000.0,
+     "unit": "J/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "Recoma 28 (Sintered Sm2Co17)",
+      "temperature_C": 20,
+      "value_type": "minimum"
+     },
+     "notes": "Arnold Recoma 요약표 `Recoma 28  (195/120) T` 행 verbatim — (BH)max 225/195 kJ/m3 (28.3/24.5 MGOe) · Br 1.1/1.04 T (11/10.4 kG) · Hcb 800/700 kA/m (10.1/8.8 kOe) · Hcj 2000/1200 kA/m (25/15 kOe), 열은 `typ`/`min` 이다. 물리 상한 검산(브리프 431) — typ 끼리 225 <= 240.7 (비 0.935), min 끼리 195 <= 215.2 (비 0.906). MGOe 왕복(브리프 225) — 225/7.957747 = 28.27 대 인쇄 28.3 · 195/7.957747 = 24.50 대 인쇄 24.5. kOe 왕복 — 800/79.57747 = 10.05 대 10.1 · 2000/79.57747 = 25.1 대 25. **짝이 되는 칸을 같이 넣었다**(브리프 470). 이 표는 모든 물성을 `typ`/`min` 두 칸으로 인쇄하는데 앞선 파동이 **min 만** 넣어 뒀다. (BH)max 의 typ 만 더하면 물리 상한 `(BH)max <= Br^2/(4mu0)` 를 **DB 에 있는 Br min 으로** 재게 되어 **없는 위반이 만들어진다** — Recoma 28 은 225 kJ/m^3 대 Br min 1.04 T 의 상한 215.2 로 4.6% 초과가 뜬다. 그래서 Br·Hcb·Hcj 의 typ 칸도 같이 넣어 검산이 닫히게 했다(부수 효과로 브리프 76·110 의 반쪽 구간도 닫힌다). 43차 EE 가 *'Recoma 시트가 손에 없다'* 며 남긴 칸이다 — 공식 도메인에서 조달해 디스크에 남기고 출처의 빈 `local_path` 를 채웠다(브리프 145·127·429)."
+    },
+    {
+     "key": "magnetic.remanence",
+     "value": 1.1,
+     "unit": "T",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "Recoma 28 (Sintered Sm2Co17)",
+      "temperature_C": 20,
+      "value_type": "typical"
+     },
+     "notes": "Arnold Recoma 요약표 `Recoma 28  (195/120) T` 행 verbatim — (BH)max 225/195 kJ/m3 (28.3/24.5 MGOe) · Br 1.1/1.04 T (11/10.4 kG) · Hcb 800/700 kA/m (10.1/8.8 kOe) · Hcj 2000/1200 kA/m (25/15 kOe), 열은 `typ`/`min` 이다. 물리 상한 검산(브리프 431) — typ 끼리 225 <= 240.7 (비 0.935), min 끼리 195 <= 215.2 (비 0.906). MGOe 왕복(브리프 225) — 225/7.957747 = 28.27 대 인쇄 28.3 · 195/7.957747 = 24.50 대 인쇄 24.5. kOe 왕복 — 800/79.57747 = 10.05 대 10.1 · 2000/79.57747 = 25.1 대 25. **짝이 되는 칸을 같이 넣었다**(브리프 470). 이 표는 모든 물성을 `typ`/`min` 두 칸으로 인쇄하는데 앞선 파동이 **min 만** 넣어 뒀다. (BH)max 의 typ 만 더하면 물리 상한 `(BH)max <= Br^2/(4mu0)` 를 **DB 에 있는 Br min 으로** 재게 되어 **없는 위반이 만들어진다** — Recoma 28 은 225 kJ/m^3 대 Br min 1.04 T 의 상한 215.2 로 4.6% 초과가 뜬다. 그래서 Br·Hcb·Hcj 의 typ 칸도 같이 넣어 검산이 닫히게 했다(부수 효과로 브리프 76·110 의 반쪽 구간도 닫힌다). 43차 EE 가 *'Recoma 시트가 손에 없다'* 며 남긴 칸이다 — 공식 도메인에서 조달해 디스크에 남기고 출처의 빈 `local_path` 를 채웠다(브리프 145·127·429)."
+    },
+    {
+     "key": "magnetic.coercivity",
+     "value": 800000.0,
+     "unit": "A/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "Recoma 28 (Sintered Sm2Co17)",
+      "temperature_C": 20,
+      "value_type": "typical",
+      "quantity": "HcB (normal coercivity)"
+     },
+     "notes": "Arnold Recoma 요약표 `Recoma 28  (195/120) T` 행 verbatim — (BH)max 225/195 kJ/m3 (28.3/24.5 MGOe) · Br 1.1/1.04 T (11/10.4 kG) · Hcb 800/700 kA/m (10.1/8.8 kOe) · Hcj 2000/1200 kA/m (25/15 kOe), 열은 `typ`/`min` 이다. 물리 상한 검산(브리프 431) — typ 끼리 225 <= 240.7 (비 0.935), min 끼리 195 <= 215.2 (비 0.906). MGOe 왕복(브리프 225) — 225/7.957747 = 28.27 대 인쇄 28.3 · 195/7.957747 = 24.50 대 인쇄 24.5. kOe 왕복 — 800/79.57747 = 10.05 대 10.1 · 2000/79.57747 = 25.1 대 25. **짝이 되는 칸을 같이 넣었다**(브리프 470). 이 표는 모든 물성을 `typ`/`min` 두 칸으로 인쇄하는데 앞선 파동이 **min 만** 넣어 뒀다. (BH)max 의 typ 만 더하면 물리 상한 `(BH)max <= Br^2/(4mu0)` 를 **DB 에 있는 Br min 으로** 재게 되어 **없는 위반이 만들어진다** — Recoma 28 은 225 kJ/m^3 대 Br min 1.04 T 의 상한 215.2 로 4.6% 초과가 뜬다. 그래서 Br·Hcb·Hcj 의 typ 칸도 같이 넣어 검산이 닫히게 했다(부수 효과로 브리프 76·110 의 반쪽 구간도 닫힌다). 43차 EE 가 *'Recoma 시트가 손에 없다'* 며 남긴 칸이다 — 공식 도메인에서 조달해 디스크에 남기고 출처의 빈 `local_path` 를 채웠다(브리프 145·127·429)."
+    },
+    {
+     "key": "magnetic.coercivity",
+     "value": 2000000.0,
+     "unit": "A/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "Recoma 28 (Sintered Sm2Co17)",
+      "temperature_C": 20,
+      "value_type": "typical",
+      "quantity": "HcJ (intrinsic coercivity)"
+     },
+     "notes": "Arnold Recoma 요약표 `Recoma 28  (195/120) T` 행 verbatim — (BH)max 225/195 kJ/m3 (28.3/24.5 MGOe) · Br 1.1/1.04 T (11/10.4 kG) · Hcb 800/700 kA/m (10.1/8.8 kOe) · Hcj 2000/1200 kA/m (25/15 kOe), 열은 `typ`/`min` 이다. 물리 상한 검산(브리프 431) — typ 끼리 225 <= 240.7 (비 0.935), min 끼리 195 <= 215.2 (비 0.906). MGOe 왕복(브리프 225) — 225/7.957747 = 28.27 대 인쇄 28.3 · 195/7.957747 = 24.50 대 인쇄 24.5. kOe 왕복 — 800/79.57747 = 10.05 대 10.1 · 2000/79.57747 = 25.1 대 25. **짝이 되는 칸을 같이 넣었다**(브리프 470). 이 표는 모든 물성을 `typ`/`min` 두 칸으로 인쇄하는데 앞선 파동이 **min 만** 넣어 뒀다. (BH)max 의 typ 만 더하면 물리 상한 `(BH)max <= Br^2/(4mu0)` 를 **DB 에 있는 Br min 으로** 재게 되어 **없는 위반이 만들어진다** — Recoma 28 은 225 kJ/m^3 대 Br min 1.04 T 의 상한 215.2 로 4.6% 초과가 뜬다. 그래서 Br·Hcb·Hcj 의 typ 칸도 같이 넣어 검산이 닫히게 했다(부수 효과로 브리프 76·110 의 반쪽 구간도 닫힌다). 43차 EE 가 *'Recoma 시트가 손에 없다'* 며 남긴 칸이다 — 공식 도메인에서 조달해 디스크에 남기고 출처의 빈 `local_path` 를 채웠다(브리프 145·127·429)."
+    }
+   ]
+  },
+  {
+   "match_name": "Recoma 20 Sintered SmCo Magnet (SmCo5)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Recoma Sintered Samarium Cobalt Magnets - Combined Datasheets (Rev. 160301)",
+    "url": "https://www.arnoldmagnetics.com/wp-content/uploads/2017/10/Recoma-Combined-160301.pdf",
+    "publisher": "Arnold Magnetic Technologies",
+    "manufacturer": "Arnold Magnetic Technologies",
+    "authors": "Arnold Magnetic Technologies Corp. (corporate author)",
+    "local_path": "standards_appnotes/passive/Arnold_Recoma_Sintered_SmCo_Combined_Rev160301.pdf"
+   },
+   "properties": [
+    {
+     "key": "magnetic.energy_product_max",
+     "value": 160000.0,
+     "unit": "J/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "Recoma 20 (Sintered SmCo5)",
+      "temperature_C": 20,
+      "value_type": "typical"
+     },
+     "notes": "Arnold Recoma 요약표 `Recoma 20  (140/200) A` 행 verbatim — (BH)max 160/140 kJ/m3 (20.1/17.6 MGOe) · Br 0.9/0.85 T (9/8.5 kG) · Hcb 700/640 kA/m (8.8/8.0 kOe) · Hcj 2400/2000 kA/m (30/25 kOe), 열은 `typ`/`min` 이다. 물리 상한 검산(브리프 431) — typ 끼리 160 <= 161.1 (비 0.993), min 끼리 140 <= 143.7 (비 0.974). MGOe 왕복(브리프 225) — 160/7.957747 = 20.11 대 인쇄 20.1 · 140/7.957747 = 17.59 대 인쇄 17.6. kOe 왕복 — 700/79.57747 = 8.80 대 8.8 · 2400/79.57747 = 30.2 대 30. **짝이 되는 칸을 같이 넣었다**(브리프 470). 이 표는 모든 물성을 `typ`/`min` 두 칸으로 인쇄하는데 앞선 파동이 **min 만** 넣어 뒀다. (BH)max 의 typ 만 더하면 물리 상한 `(BH)max <= Br^2/(4mu0)` 를 **DB 에 있는 Br min 으로** 재게 되어 **없는 위반이 만들어진다** — Recoma 28 은 225 kJ/m^3 대 Br min 1.04 T 의 상한 215.2 로 4.6% 초과가 뜬다. 그래서 Br·Hcb·Hcj 의 typ 칸도 같이 넣어 검산이 닫히게 했다(부수 효과로 브리프 76·110 의 반쪽 구간도 닫힌다). 43차 EE 가 *'Recoma 시트가 손에 없다'* 며 남긴 칸이다 — 공식 도메인에서 조달해 디스크에 남기고 출처의 빈 `local_path` 를 채웠다(브리프 145·127·429)."
+    },
+    {
+     "key": "magnetic.energy_product_max",
+     "value": 140000.0,
+     "unit": "J/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "Recoma 20 (Sintered SmCo5)",
+      "temperature_C": 20,
+      "value_type": "minimum"
+     },
+     "notes": "Arnold Recoma 요약표 `Recoma 20  (140/200) A` 행 verbatim — (BH)max 160/140 kJ/m3 (20.1/17.6 MGOe) · Br 0.9/0.85 T (9/8.5 kG) · Hcb 700/640 kA/m (8.8/8.0 kOe) · Hcj 2400/2000 kA/m (30/25 kOe), 열은 `typ`/`min` 이다. 물리 상한 검산(브리프 431) — typ 끼리 160 <= 161.1 (비 0.993), min 끼리 140 <= 143.7 (비 0.974). MGOe 왕복(브리프 225) — 160/7.957747 = 20.11 대 인쇄 20.1 · 140/7.957747 = 17.59 대 인쇄 17.6. kOe 왕복 — 700/79.57747 = 8.80 대 8.8 · 2400/79.57747 = 30.2 대 30. **짝이 되는 칸을 같이 넣었다**(브리프 470). 이 표는 모든 물성을 `typ`/`min` 두 칸으로 인쇄하는데 앞선 파동이 **min 만** 넣어 뒀다. (BH)max 의 typ 만 더하면 물리 상한 `(BH)max <= Br^2/(4mu0)` 를 **DB 에 있는 Br min 으로** 재게 되어 **없는 위반이 만들어진다** — Recoma 28 은 225 kJ/m^3 대 Br min 1.04 T 의 상한 215.2 로 4.6% 초과가 뜬다. 그래서 Br·Hcb·Hcj 의 typ 칸도 같이 넣어 검산이 닫히게 했다(부수 효과로 브리프 76·110 의 반쪽 구간도 닫힌다). 43차 EE 가 *'Recoma 시트가 손에 없다'* 며 남긴 칸이다 — 공식 도메인에서 조달해 디스크에 남기고 출처의 빈 `local_path` 를 채웠다(브리프 145·127·429)."
+    },
+    {
+     "key": "magnetic.remanence",
+     "value": 0.9,
+     "unit": "T",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "Recoma 20 (Sintered SmCo5)",
+      "temperature_C": 20,
+      "value_type": "typical"
+     },
+     "notes": "Arnold Recoma 요약표 `Recoma 20  (140/200) A` 행 verbatim — (BH)max 160/140 kJ/m3 (20.1/17.6 MGOe) · Br 0.9/0.85 T (9/8.5 kG) · Hcb 700/640 kA/m (8.8/8.0 kOe) · Hcj 2400/2000 kA/m (30/25 kOe), 열은 `typ`/`min` 이다. 물리 상한 검산(브리프 431) — typ 끼리 160 <= 161.1 (비 0.993), min 끼리 140 <= 143.7 (비 0.974). MGOe 왕복(브리프 225) — 160/7.957747 = 20.11 대 인쇄 20.1 · 140/7.957747 = 17.59 대 인쇄 17.6. kOe 왕복 — 700/79.57747 = 8.80 대 8.8 · 2400/79.57747 = 30.2 대 30. **짝이 되는 칸을 같이 넣었다**(브리프 470). 이 표는 모든 물성을 `typ`/`min` 두 칸으로 인쇄하는데 앞선 파동이 **min 만** 넣어 뒀다. (BH)max 의 typ 만 더하면 물리 상한 `(BH)max <= Br^2/(4mu0)` 를 **DB 에 있는 Br min 으로** 재게 되어 **없는 위반이 만들어진다** — Recoma 28 은 225 kJ/m^3 대 Br min 1.04 T 의 상한 215.2 로 4.6% 초과가 뜬다. 그래서 Br·Hcb·Hcj 의 typ 칸도 같이 넣어 검산이 닫히게 했다(부수 효과로 브리프 76·110 의 반쪽 구간도 닫힌다). 43차 EE 가 *'Recoma 시트가 손에 없다'* 며 남긴 칸이다 — 공식 도메인에서 조달해 디스크에 남기고 출처의 빈 `local_path` 를 채웠다(브리프 145·127·429)."
+    },
+    {
+     "key": "magnetic.coercivity",
+     "value": 700000.0,
+     "unit": "A/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "Recoma 20 (Sintered SmCo5)",
+      "temperature_C": 20,
+      "value_type": "typical",
+      "quantity": "HcB (normal coercivity)"
+     },
+     "notes": "Arnold Recoma 요약표 `Recoma 20  (140/200) A` 행 verbatim — (BH)max 160/140 kJ/m3 (20.1/17.6 MGOe) · Br 0.9/0.85 T (9/8.5 kG) · Hcb 700/640 kA/m (8.8/8.0 kOe) · Hcj 2400/2000 kA/m (30/25 kOe), 열은 `typ`/`min` 이다. 물리 상한 검산(브리프 431) — typ 끼리 160 <= 161.1 (비 0.993), min 끼리 140 <= 143.7 (비 0.974). MGOe 왕복(브리프 225) — 160/7.957747 = 20.11 대 인쇄 20.1 · 140/7.957747 = 17.59 대 인쇄 17.6. kOe 왕복 — 700/79.57747 = 8.80 대 8.8 · 2400/79.57747 = 30.2 대 30. **짝이 되는 칸을 같이 넣었다**(브리프 470). 이 표는 모든 물성을 `typ`/`min` 두 칸으로 인쇄하는데 앞선 파동이 **min 만** 넣어 뒀다. (BH)max 의 typ 만 더하면 물리 상한 `(BH)max <= Br^2/(4mu0)` 를 **DB 에 있는 Br min 으로** 재게 되어 **없는 위반이 만들어진다** — Recoma 28 은 225 kJ/m^3 대 Br min 1.04 T 의 상한 215.2 로 4.6% 초과가 뜬다. 그래서 Br·Hcb·Hcj 의 typ 칸도 같이 넣어 검산이 닫히게 했다(부수 효과로 브리프 76·110 의 반쪽 구간도 닫힌다). 43차 EE 가 *'Recoma 시트가 손에 없다'* 며 남긴 칸이다 — 공식 도메인에서 조달해 디스크에 남기고 출처의 빈 `local_path` 를 채웠다(브리프 145·127·429)."
+    },
+    {
+     "key": "magnetic.coercivity",
+     "value": 2400000.0,
+     "unit": "A/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "Recoma 20 (Sintered SmCo5)",
+      "temperature_C": 20,
+      "value_type": "typical",
+      "quantity": "HcJ (intrinsic coercivity)"
+     },
+     "notes": "Arnold Recoma 요약표 `Recoma 20  (140/200) A` 행 verbatim — (BH)max 160/140 kJ/m3 (20.1/17.6 MGOe) · Br 0.9/0.85 T (9/8.5 kG) · Hcb 700/640 kA/m (8.8/8.0 kOe) · Hcj 2400/2000 kA/m (30/25 kOe), 열은 `typ`/`min` 이다. 물리 상한 검산(브리프 431) — typ 끼리 160 <= 161.1 (비 0.993), min 끼리 140 <= 143.7 (비 0.974). MGOe 왕복(브리프 225) — 160/7.957747 = 20.11 대 인쇄 20.1 · 140/7.957747 = 17.59 대 인쇄 17.6. kOe 왕복 — 700/79.57747 = 8.80 대 8.8 · 2400/79.57747 = 30.2 대 30. **짝이 되는 칸을 같이 넣었다**(브리프 470). 이 표는 모든 물성을 `typ`/`min` 두 칸으로 인쇄하는데 앞선 파동이 **min 만** 넣어 뒀다. (BH)max 의 typ 만 더하면 물리 상한 `(BH)max <= Br^2/(4mu0)` 를 **DB 에 있는 Br min 으로** 재게 되어 **없는 위반이 만들어진다** — Recoma 28 은 225 kJ/m^3 대 Br min 1.04 T 의 상한 215.2 로 4.6% 초과가 뜬다. 그래서 Br·Hcb·Hcj 의 typ 칸도 같이 넣어 검산이 닫히게 했다(부수 효과로 브리프 76·110 의 반쪽 구간도 닫힌다). 43차 EE 가 *'Recoma 시트가 손에 없다'* 며 남긴 칸이다 — 공식 도메인에서 조달해 디스크에 남기고 출처의 빈 `local_path` 를 채웠다(브리프 145·127·429)."
+    }
+   ]
+  },
+  {
+   "match_name": "Alnico 5 Cast Magnet (LNG40)",
+   "source": {
+    "kind": "datasheet",
+    "title": "ChenYang Alnico Magnets - Aluminium-Nickel-Cobalt Magnets (2021 catalogue)",
+    "url": "https://www.alnicomagnets.de/CY-Mag-Alnico.pdf",
+    "publisher": "ChenYang Technologies GmbH & Co. KG",
+    "manufacturer": "ChenYang Technologies GmbH & Co. KG",
+    "authors": "ChenYang Technologies GmbH & Co. KG (corporate author)",
+    "local_path": "standards_appnotes/passive/ChenYang_Alnico_Magnets_Catalogue.pdf"
+   },
+   "properties": [
+    {
+     "key": "magnetic.energy_product_max",
+     "value": 40000.0,
+     "unit": "J/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "Alnico 5 / LNG40 (cast)",
+      "temperature_C": 20,
+      "value_type": "typical",
+      "process": "cast"
+     },
+     "notes": "ChenYang `Magnetic Properties of Casted Alnico` 표 `Alnico 5 / LNG40` 행 verbatim — Br 1250 mT (12.5 kGs) · iHc 48.0 kA/m (0.60 kOe) · (BH)max **40.0 KJ/m3 (5.0 MGOe)**. **행 배정이 DB 로 닫힌다**(브리프 129 의 반대 방향) — 이 재료의 기존 t1 Br 1.25 T 와 iHc 48 kA/m 이 같은 출처(2370)에서 왔고 소수점까지 이 행과 같다. 물리 상한 검산 — Br^2/(4mu0) = 311 kJ/m^3 이고 40.0 은 그 12.9% 다. **알니코는 비가 낮은 것이 정상이다** — 보자력이 48 kA/m 로 페라이트의 1/5 이라 감자곡선이 사각형과 멀다(같은 표의 알니코 15등급 전부 0.10~0.22 대역이다). MGOe 왕복(브리프 225) — 40.0/7.957747 = 5.026 대 인쇄 `5.0`. kGs 왕복 — 1250 mT = 12.5 kGs. kOe 왕복 — 48.0/79.57747 = 0.603 대 인쇄 `0.60`. **표 전수 MGOe 왕복 — 16행 중 14행이 맞고 두 행이 어긋난다**(LN10 10.0 kJ/m3 대 1.20 MGOe = 1.257 이 맞다 · LNGT18 18.0 대 2.2 = 2.262). 우리 행은 그 둘이 아니다. 43차 EE 가 *'ChenYang 시트가 손에 없다'* 며 남긴 칸이다 — 공식 도메인에서 조달해 디스크에 남기고 출처의 빈 `local_path` 를 채웠다(브리프 145·127·429)."
+    }
+   ]
+  }
+ ]
+}
