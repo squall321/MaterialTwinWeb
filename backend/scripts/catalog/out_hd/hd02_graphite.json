@@ -1,0 +1,68 @@
+{
+ "batch": "HD-2 46차 · TIMREX 흑연 3등급의 자일렌 밀도(Imerys 계열 SDS)",
+ "materials": [
+  {
+   "match_name": "Timcal SFG-75 synthetic flake graphite — MacNeil 1999",
+   "source": {
+    "kind": "datasheet",
+    "title": "Imerys Graphite & Carbon — Safety Data Sheet, TIMREX(R) KS, SFG, SLP, SLS, T, T-SLC, MX, MB, KC, MK, F, KL, MAA / C-NERGY(TM) KS-L, SFG-L (GB_EN V-2.0.4), section 9 'Density  Value appr. 2.2 g/cm3  Method DIN 51901'",
+    "url": "https://web.archive.org/web/20211205134738id_/https://www.imerys-graphite-and-carbon.com/data/TIMREX-KS-SFG-SLP-SLS-T-MX-MB-KC-MK-F-KL-MAA_GB_EN_V-2_0_4_SDB.pdf",
+    "publisher": "Imerys Graphite & Carbon Switzerland Ltd.",
+    "authors": "Imerys Graphite & Carbon Switzerland Ltd.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/battery/Imerys_TIMREX_KS_SFG_family_SDS_GB_EN_V2-0-4.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density", "value": 2200.0, "unit": "kg/m^3",
+     "method": "measured", "tier": 3,
+     "conditions": {"method_detail": "DIN 51901 (자일렌 치환 밀도)", "material": "graphite",
+                    "grade_scope": "family value — SDS 가 표제에 TIMREX KS·SFG 계열을 통째로 걸고 있다. SFG-75 전용 시트가 아니다",
+                    "value_qualifier": "원문이 'appr.' 로 인쇄"},
+     "notes": "원문 SDS 9절 verbatim: 'Density | Value  appr.  2.2  g/cm³ | Method  DIN 51901'. x1000 -> 2200 kg/m^3. **DIN 51901 이 곧 자일렌법이다**(탄소재의 밀도를 자일렌 치환으로 잰다) — 45차 GD 가 지목한 '자일렌 밀도' 가 이것이다. **아는 값 대조(브리프 443)** — 흑연 이론밀도 2.26 g/cm³ 와 자릿수·유효숫자 안에서 일치한다. **자매 등급 시트로 교차확인(브리프 147)** — 같은 제조사의 TIMREX SFG15 기술자료(2018-06)가 'Density | Scott 0.09 g/cm³ | **Xylene 2.26 g/cm³**' 를 인쇄한다. SFG 계열은 입도만 다른 같은 흑연이라 자일렌 밀도가 이전 가능한 칸이다. SDS 의 2.2 는 계열 반올림값이고 SFG15 시트의 2.26 이 등급값이다 — **어느 쪽도 우리가 만든 수가 아니므로 SDS 값(우리 등급을 직접 덮는 문서)을 넣고 2.26 을 근거에 남긴다.** **넣지 않은 것 — Scott(벌크) 밀도.** Imerys 폴리머용 브로슈어가 SFG44 0.19 · KS44 0.19 · SFG150 0.29 g/cm³ 를 인쇄하지만 **벌크밀도는 재료밀도가 아니다**(브리프 241·245)."
+    }
+   ]
+  },
+  {
+   "match_name": "Timcal SFG-44 synthetic flake graphite — MacNeil 1999",
+   "source": {
+    "kind": "datasheet",
+    "title": "Imerys Graphite & Carbon — Safety Data Sheet, TIMREX(R) KS, SFG, SLP, SLS, T, T-SLC, MX, MB, KC, MK, F, KL, MAA / C-NERGY(TM) KS-L, SFG-L (GB_EN V-2.0.4), section 9 'Density  Value appr. 2.2 g/cm3  Method DIN 51901'",
+    "url": "https://web.archive.org/web/20211205134738id_/https://www.imerys-graphite-and-carbon.com/data/TIMREX-KS-SFG-SLP-SLS-T-MX-MB-KC-MK-F-KL-MAA_GB_EN_V-2_0_4_SDB.pdf",
+    "publisher": "Imerys Graphite & Carbon Switzerland Ltd.",
+    "authors": "Imerys Graphite & Carbon Switzerland Ltd.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/battery/Imerys_TIMREX_KS_SFG_family_SDS_GB_EN_V2-0-4.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density", "value": 2200.0, "unit": "kg/m^3",
+     "method": "measured", "tier": 3,
+     "conditions": {"method_detail": "DIN 51901 (자일렌 치환 밀도)", "material": "graphite",
+                    "grade_scope": "family value — SDS 표제가 TIMREX KS·SFG 계열 전체를 건다",
+                    "value_qualifier": "원문이 'appr.' 로 인쇄"},
+     "notes": "원문 SDS 9절 verbatim: 'Density | Value  appr.  2.2  g/cm³ | Method  DIN 51901'. x1000 -> 2200 kg/m^3. 아는 값 대조(브리프 443) — 흑연 이론밀도 2.26 과 일치. 자매등급 TIMREX SFG15 기술자료가 'Xylene 2.26 g/cm³' 를 인쇄한다(브리프 147). **비표면적은 이미 DB 에 있다** — MacNeil 1999 의 실측 4.3 m²/g(4300 m²/kg, tier1). 참고로 Imerys 폴리머 브로슈어의 SFG44 typical BET 는 5.0 m²/g 로 같은 대역이다. **벌크(Scott) 밀도 0.19 g/cm³ 는 넣지 않았다**(브리프 241)."
+    }
+   ]
+  },
+  {
+   "match_name": "Timcal KS-75 synthetic flake graphite — MacNeil 1999",
+   "source": {
+    "kind": "datasheet",
+    "title": "Imerys Graphite & Carbon — Safety Data Sheet, TIMREX(R) KS, SFG, SLP, SLS, T, T-SLC, MX, MB, KC, MK, F, KL, MAA / C-NERGY(TM) KS-L, SFG-L (GB_EN V-2.0.4), section 9 'Density  Value appr. 2.2 g/cm3  Method DIN 51901'",
+    "url": "https://web.archive.org/web/20211205134738id_/https://www.imerys-graphite-and-carbon.com/data/TIMREX-KS-SFG-SLP-SLS-T-MX-MB-KC-MK-F-KL-MAA_GB_EN_V-2_0_4_SDB.pdf",
+    "publisher": "Imerys Graphite & Carbon Switzerland Ltd.",
+    "authors": "Imerys Graphite & Carbon Switzerland Ltd.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/battery/Imerys_TIMREX_KS_SFG_family_SDS_GB_EN_V2-0-4.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density", "value": 2200.0, "unit": "kg/m^3",
+     "method": "measured", "tier": 3,
+     "conditions": {"method_detail": "DIN 51901 (자일렌 치환 밀도)", "material": "graphite",
+                    "grade_scope": "family value — SDS 표제가 TIMREX KS·SFG 계열 전체를 건다",
+                    "value_qualifier": "원문이 'appr.' 로 인쇄"},
+     "notes": "원문 SDS 9절 verbatim: 'Density | Value  appr.  2.2  g/cm³ | Method  DIN 51901'. x1000 -> 2200 kg/m^3. 아는 값 대조(브리프 443) — 흑연 이론밀도 2.26 과 일치. KS 계열도 SFG 와 같은 1차 합성흑연이라 자일렌 밀도는 같은 칸이다(SDS 표제가 KS 를 명시적으로 건다). **입도는 넣지 않았다** — 유일하게 손에 잡힌 KS75 카드가 유통사 전재(MatWeb 계열)인데 **같은 계열 카드의 SFG44 회분이 0.70 %(typical)와 <=0.10 %(guaranteed)로 자기모순**이고 제조사 브로슈어는 0.07 % 다. 한 칸이 자릿수로 깨진 문서라 나머지 칸도 못 믿는다(브리프 228·415·25). **벌크(Scott) 밀도 0.240 g/cm³ 도 넣지 않았다**(브리프 241)."
+    }
+   ]
+  }
+ ]
+}

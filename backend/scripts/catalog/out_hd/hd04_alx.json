@@ -1,0 +1,122 @@
+{
+ "batch": "HD-4 46차 · AGC AL-X (ALX-211 · ALX-215) — 벤더 시트는 안 열리고 논문이 벤더표를 전재한다",
+ "materials": [
+  {
+   "match_name": "ALX-211 photoimageable fluorinated aromatic polymer dielectric (Asahi Glass AL-X, negative tone, 190 C / 2 h N2 cure, Huffman 2009)",
+   "source": {
+    "kind": "journal",
+    "title": "Application and Evaluation of AL-X Polymer Dielectric For Flip Chip and Wafer Level Package Bumping",
+    "doi": "10.1109/ectc.2009.5074241",
+    "authors": "Huffman",
+    "year": "2009",
+    "publisher": "IEEE (59th Electronic Components and Technology Conference)",
+    "local_path": "/data/paper_patent_corpus/structured/materials_papers/pkg_abf_buildup_film/Huffman - 2009 - Application and evaluation of AL-X polymer dielectric for flip chip and wafer level package bumping/Huffman - 2009 - Application and evaluation of AL-X polymer dielectric for flip chip and wafer level package bumping.md"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus", "value": 1300000000.0, "unit": "Pa",
+     "method": "measured", "tier": 3,
+     "conditions": {"cure": "190 C / 2 h in nitrogen", "form": "spin-coated cured film", "temperature": "미인쇄",
+                    "lineage": "AGC 제공값을 Huffman 2009 가 Table 1 로 전재"},
+     "notes": "Table 1 'Physical Properties of BCB and ALX-211' verbatim: '| Modulus (GPa) | 2.9 | 1.3 |' (BCB | ALX-211). 1.3 GPa -> 1.3e9 Pa. **계보(브리프 51·209·456)** — 본문 verbatim: 'An updated set of the mechanical, thermal, and electrical properties of ALX-211 in comparison to those of BCB are shown in Table 1, **based on information from AGC** and published information on BCB [6].' 즉 **1차 출처는 AGC 이고 이 논문은 전재다.** 그래서 tier3 이다. **표 자체의 검산(브리프 129·173)** — 나란한 BCB 열이 Dow Cyclotene 4000 시리즈 자료와 칸마다 일치한다(Modulus 2.9 GPa · Elongation 8 % · Tensile 87 MPa · CTE 42 ppm/°C · Dk 2.6 · Breakdown 5.3 MV/cm · Resistivity 1e19 ohm·cm · 흡습 0.2 %). **순물질 행 대신 알려진 제품 열로 표 전체가 검증된다.** **접근 부재(브리프 145)** — AGC AL-X 공개 데이터시트는 웹에 없다(제한 배포). 1차 출처를 특정했다 — T. Eriguchi et al., 'Low Temperature Curable Photosensitive Polymer Dielectric for Wafer Level Packaging Applications', Proc. 2007 IMAPS International Conference and Exhibition on Device Packaging, Scottsdale AZ, March 19-22, 2007 (Huffman 참고문헌 [5]). **재조사 대상이 아니라 조달 대상이다.**"
+    },
+    {
+     "key": "mechanical.tensile_strength", "value": 90000000.0, "unit": "Pa",
+     "method": "measured", "tier": 3,
+     "conditions": {"cure": "190 C / 2 h in nitrogen", "form": "spin-coated cured film", "temperature": "미인쇄",
+                    "lineage": "AGC 제공값을 Huffman 2009 가 Table 1 로 전재"},
+     "notes": "Table 1 verbatim: '| Tensile Strength (MPa) | 87 | 90 |'. ALX-211 = 90 MPa -> 9.0e7 Pa. 나란한 BCB 87 MPa 가 Dow Cyclotene 시트값과 같아 열 배정이 닫힌다. 본문이 ALX 를 'a mechanically brittle material' 인 BCB 보다 '2X+ higher elongation' 이라고 서술하는 것과도 일관된다. 계보·tier3 사유는 탄성률 행 notes 참조."
+    },
+    {
+     "key": "thermal.expansion_linear", "value": 6.0e-05, "unit": "1/K",
+     "method": "measured", "tier": 3,
+     "conditions": {"temperature_c": 25, "cure": "190 C / 2 h in nitrogen", "form": "spin-coated cured film",
+                    "lineage": "AGC 제공값을 Huffman 2009 가 Table 1 로 전재"},
+     "notes": "Table 1 verbatim: '| CTE (ppm/°C @ 25°C) | 42 | 60 |'. ALX-211 = 60 ppm/°C -> 6.0e-5 1/K. 온도조건 25 °C 가 머리글에 인쇄돼 있다. 나란한 BCB 42 ppm/°C 가 Cyclotene 시트값과 같다. 계보·tier3 사유는 탄성률 행 notes 참조."
+    },
+    {
+     "key": "mechanical.elongation_at_break", "value": 0.20, "unit": "1",
+     "method": "measured", "tier": 3,
+     "conditions": {"cure": "190 C / 2 h in nitrogen", "form": "spin-coated cured film",
+                    "lineage": "AGC 제공값을 Huffman 2009 가 Table 1 로 전재"},
+     "notes": "Table 1 verbatim: '| Elongation (%) | 8 | 20 |'. 20 % -> 0.20. 본문의 'It also has ... 2X+ higher elongation than BCB' 와 표가 서로 검산한다(20/8 = 2.5배). 계보·tier3 사유는 탄성률 행 notes 참조."
+    },
+    {
+     "key": "electrical.dielectric_constant", "value": 2.6, "unit": "1",
+     "method": "measured", "tier": 3,
+     "conditions": {"frequency_range": "1 kHz - 1 GHz", "cure": "190 C / 2 h in nitrogen",
+                    "lineage": "AGC 제공값을 Huffman 2009 가 Table 1 로 전재"},
+     "notes": "Table 1 verbatim: '| Dielectric Const. (1KHz- 1GHz) | 2.6 | 2.6 |'. 주파수 구간이 머리글에 인쇄돼 있다. 계보·tier3 사유는 탄성률 행 notes 참조."
+    },
+    {
+     "key": "electrical.dielectric_strength", "value": 550000000.0, "unit": "V/m",
+     "method": "measured", "tier": 3,
+     "conditions": {"cure": "190 C / 2 h in nitrogen", "film_thickness": "미인쇄",
+                    "lineage": "AGC 제공값을 Huffman 2009 가 Table 1 로 전재"},
+     "notes": "Table 1 verbatim: '| Breakdown Voltage (MV/cm) | 5.3 | 5.5 |'. 5.5 MV/cm = 5.5e6 V/cm = 5.5e8 V/m. 나란한 BCB 5.3 MV/cm 가 Cyclotene 시트값과 같다. 계보·tier3 사유는 탄성률 행 notes 참조."
+    },
+    {
+     "key": "chemical.water_absorption_saturation", "value": 0.004, "unit": "1",
+     "method": "measured", "tier": 3,
+     "conditions": {"temperature_c": 85, "humidity_pct": 85, "cure": "190 C / 2 h in nitrogen",
+                    "lineage": "AGC 제공값을 Huffman 2009 가 Table 1 로 전재"},
+     "notes": "Table 1 verbatim: '| Water Absorption (% @ 85°C/85%RH) | 0.2 | 0.4 |'. 0.4 % -> 비율 0.004. 조건(85 °C/85 %RH)이 머리글에 인쇄돼 있다. 본문이 'the water absorption for ALX is reported as 2X the BCB number' 라고 적어 표를 검산한다. 계보·tier3 사유는 탄성률 행 notes 참조."
+    },
+    {
+     "key": "mechanical.residual_stress", "value": 32000000.0, "unit": "Pa",
+     "method": "measured", "tier": 3,
+     "conditions": {"quantity": "cured film stress on Si (박막 잔류응력)", "cure": "190 C / 2 h in nitrogen",
+                    "film_thickness": "미인쇄", "substrate": "미인쇄",
+                    "lineage": "AGC 제공값을 Huffman 2009 가 Table 1 로 전재"},
+     "notes": "Table 1 verbatim: '| Stress (MPa) | 28 | 32 |'. 32 MPa -> 3.2e7 Pa. 이 표에서 'Stress' 는 경화 박막의 잔류응력이다(나란한 BCB 28 MPa 가 Cyclotene 시트의 film stress 값과 같다). 두께·기판이 인쇄돼 있지 않아 조건에 미인쇄로 남긴다(브리프 365). 계보·tier3 사유는 탄성률 행 notes 참조."
+    }
+   ]
+  },
+  {
+   "match_name": "ALX-215 photoimageable fluorinated aromatic polymer dielectric, high-viscosity ALX-211 formulation (Asahi Glass AL-X, 190 C / 2 h N2 cure, Huffman 2009)",
+   "source": {
+    "kind": "journal",
+    "title": "Application and Evaluation of AL-X Polymer Dielectric For Flip Chip and Wafer Level Package Bumping",
+    "doi": "10.1109/ectc.2009.5074241",
+    "authors": "Huffman",
+    "year": "2009",
+    "publisher": "IEEE (59th Electronic Components and Technology Conference)",
+    "local_path": "/data/paper_patent_corpus/structured/materials_papers/pkg_abf_buildup_film/Huffman - 2009 - Application and evaluation of AL-X polymer dielectric for flip chip and wafer level package bumping/Huffman - 2009 - Application and evaluation of AL-X polymer dielectric for flip chip and wafer level package bumping.md"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus", "value": 1300000000.0, "unit": "Pa",
+     "method": "measured", "tier": 3,
+     "conditions": {"grade_measured": "ALX-211", "grade_target": "ALX-215",
+                    "grade_scope": "sibling-grade value — 원문이 ALX-215 를 'a higher viscosity formulation of ALX-211' 로 못박고 같은 190 C / 2 h 경화를 쓴다",
+                    "cure": "190 C / 2 h in nitrogen", "form": "spin-coated cured film"},
+     "notes": "Huffman 2009 Table 1 은 **ALX-211 열만** 인쇄한다(ALX-215 열이 없다). 전재 근거는 본문 verbatim: '**ALX-215, a higher viscosity formulation of ALX-211**, was used to achieve the required thickness of the polymer bumps in a single spin coating, since ALX-215 can be spun in thicknesses > 20 µm in a single spin coating. ... **The same 190°C/2 hour cure process was used for the ALX-215.**' 즉 같은 고분자의 점도 배합 차이이고 경화 이력이 같으므로 **경화막의 고유 물성(탄성률·인장강도·CTE·연신)은 이전 가능한 칸이다**(브리프 147). 공정·두께에 딸린 칸(막 잔류응력 32 MPa)은 **옮기지 않았다.** 45차 GB 의 Mylar 92A -> Mylar D 선례와 같은 처리(tier3 + grade_scope). ALX-215 전용 값이 확보되면 그 값이 대표가 된다. 값의 계보·검산은 재료 1358 의 같은 키 notes 참조(BCB 열이 Dow Cyclotene 시트와 칸마다 일치)."
+    },
+    {
+     "key": "mechanical.tensile_strength", "value": 90000000.0, "unit": "Pa",
+     "method": "measured", "tier": 3,
+     "conditions": {"grade_measured": "ALX-211", "grade_target": "ALX-215",
+                    "grade_scope": "sibling-grade value — ALX-215 는 ALX-211 의 고점도 배합이고 경화조건이 같다",
+                    "cure": "190 C / 2 h in nitrogen", "form": "spin-coated cured film"},
+     "notes": "Table 1 verbatim: '| Tensile Strength (MPa) | 87 | 90 |' 의 ALX-211 열. 이전 근거는 같은 재료의 탄성률 행 notes 참조."
+    },
+    {
+     "key": "thermal.expansion_linear", "value": 6.0e-05, "unit": "1/K",
+     "method": "measured", "tier": 3,
+     "conditions": {"temperature_c": 25, "grade_measured": "ALX-211", "grade_target": "ALX-215",
+                    "grade_scope": "sibling-grade value — ALX-215 는 ALX-211 의 고점도 배합이고 경화조건이 같다",
+                    "cure": "190 C / 2 h in nitrogen", "form": "spin-coated cured film"},
+     "notes": "Table 1 verbatim: '| CTE (ppm/°C @ 25°C) | 42 | 60 |' 의 ALX-211 열. 이전 근거는 같은 재료의 탄성률 행 notes 참조."
+    },
+    {
+     "key": "mechanical.elongation_at_break", "value": 0.20, "unit": "1",
+     "method": "measured", "tier": 3,
+     "conditions": {"grade_measured": "ALX-211", "grade_target": "ALX-215",
+                    "grade_scope": "sibling-grade value — ALX-215 는 ALX-211 의 고점도 배합이고 경화조건이 같다",
+                    "cure": "190 C / 2 h in nitrogen", "form": "spin-coated cured film"},
+     "notes": "Table 1 verbatim: '| Elongation (%) | 8 | 20 |' 의 ALX-211 열. 이전 근거는 같은 재료의 탄성률 행 notes 참조."
+    }
+   ]
+  }
+ ]
+}

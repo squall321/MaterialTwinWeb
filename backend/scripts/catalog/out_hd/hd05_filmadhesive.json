@@ -1,0 +1,156 @@
+{
+ "batch": "HD-5 46차 · FM 300K · FM 73 — 시트가 인쇄하는 것은 E 가 아니라 전단이다(브리프 131 확장)",
+ "materials": [
+  {
+   "match_name": "FM300K epoxy film adhesive (Cytec Engineered Materials, aerospace structural bonding film)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Solvay Composite Materials — TECHNICAL DATA SHEET FM(R) 300 ADHESIVE FILM (TDS FM 300_2018_06_14), Table 8 'KGR-1 Stress Strain Data for FM(R) 300K Adhesive Film, 0.06 psf (293 gsm) with BR(R) 127 Primer, ASTM D 5656'",
+    "url": "https://www.integralproducts.com/Asset/FM_300_CM_EN--1-.pdf",
+    "publisher": "Solvay (Cytec Engineered Materials)",
+    "authors": "Solvay Composite Materials",
+    "year": "2018",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Solvay_FM300_AdhesiveFilm_TDS_2018-06-14.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.shear_modulus", "value": 907500000.0, "unit": "Pa",
+     "method": "measured", "tier": 1,
+     "conditions": {"temperature_k": 297.15, "test_standard": "ASTM D 5656 (KGR-1 thick-adherend extensometer)",
+                    "regime": "linear limit (LL)", "areal_weight_gsm": 293, "primer": "BR 127",
+                    "exposure": "none"},
+     "notes": "Table 8 verbatim: '75 (24) | 2060 (14.2) | 0.0156 | **131,500 (907.5)** | 6100 (42.1) | 0.0932 | 7210 (49.8) | 0.5446'. 머리글 verbatim: '[ƒ = Shear Stress, psi (MPa), Σ = Shear Strain, in/in, **G = Shear Modulus, psi (Mpa)**]'. 907.5 MPa -> 9.075e8 Pa. 병기 검산(브리프 225) — 131,500 psi x 0.0068948 = 906.7 MPa, 인쇄된 907.5 와 0.1 % 안. **이 시트에는 인장탄성률(E)도 인장강도도 없다** — 45차 GD 의 인계 'E·인장강도는 인쇄된다' 는 틀렸다. 시트가 인쇄하는 기계물성은 랩전단(ASTM D1002) · 플로팅롤러 박리(D3167) · 허니콤 샌드위치 박리(D1781) · **플랫와이즈 인장(ASTM C297 — 이건 샌드위치 조립체의 강도지 접착제의 인장강도가 아니다)** · 그리고 이 KGR-1 전단 응력-변형 표뿐이다. **G 를 E 로 환산하지 않았다** — 포아송비가 인쇄돼 있지 않아 E = 2G(1+ν) 를 쓰면 우리 산술이 된다(브리프 10·469). 등급은 FM 300K 로 정확히 맞고 면적중량만 0.06 psf(제품표는 0.05·0.08 psf 를 싣는다)라 조건에 남겼다."
+    },
+    {
+     "key": "mechanical.shear_modulus", "value": 446200000.0, "unit": "Pa",
+     "method": "measured", "tier": 1,
+     "conditions": {"temperature_k": 377.15, "test_standard": "ASTM D 5656 (KGR-1 thick-adherend extensometer)",
+                    "regime": "linear limit (LL)", "areal_weight_gsm": 293, "primer": "BR 127",
+                    "exposure": "none"},
+     "notes": "Table 8 verbatim: '220 (104) | 916 (6.32) | 0.0150 | **64,700 (446.2)** | 3000 (20.8) | 0.0835 | 5190 (35.8) | 1.2073'. 446.2 MPa -> 4.462e8 Pa. 병기 검산 — 64,700 psi x 0.0068948 = 446.1 MPa. 온도가 오르면 G 가 내려가는 단조성이 성립한다(907.5 -> 446.2)."
+    },
+    {
+     "key": "mechanical.shear_modulus", "value": 189800000.0, "unit": "Pa",
+     "method": "measured", "tier": 1,
+     "conditions": {"temperature_k": 377.15, "test_standard": "ASTM D 5656 (KGR-1 thick-adherend extensometer)",
+                    "regime": "linear limit (LL)", "areal_weight_gsm": 293, "primer": "BR 127",
+                    "exposure": "postbond 100% RH at 140 F (60 C) until saturated"},
+     "notes": "Table 8 세 번째 행 verbatim: '220 (104)¹ | 745 (5.14) | 0.0273 | **27,500 (189.8)** | 1880 (13.0) | 0.1047 | 3100 (21.4) | 1.0744', 각주 1 verbatim: 'Postbond exposure to 100% RH at 140°F (60°C) until saturated'. 189.8 MPa -> 1.898e8 Pa. **앞 행과 시험온도가 같아 조건축은 노출이력이 가른다**(브리프 133)."
+    },
+    {
+     "key": "mechanical.shear_strength", "value": 49800000.0, "unit": "Pa",
+     "method": "measured", "tier": 1,
+     "conditions": {"temperature_k": 297.15, "test_standard": "ASTM D 5656 (KGR-1 thick-adherend extensometer)",
+                    "regime": "ultimate failure (UL)", "areal_weight_gsm": 293, "primer": "BR 127",
+                    "exposure": "none", "failure_strain": "0.5446 in/in"},
+     "notes": "Table 8 verbatim, 75 (24) 행의 Ultimate Failure 열: 'ƒ 7210 (**49.8**), Σ 0.5446'. 49.8 MPa -> 4.98e7 Pa. 병기 검산 — 7210 psi x 0.0068948 = 49.71 MPa. 파단전단변형 0.5446 in/in 은 조건에 남겼다(키가 없다)."
+    },
+    {
+     "key": "mechanical.shear_strength", "value": 35800000.0, "unit": "Pa",
+     "method": "measured", "tier": 1,
+     "conditions": {"temperature_k": 377.15, "test_standard": "ASTM D 5656 (KGR-1 thick-adherend extensometer)",
+                    "regime": "ultimate failure (UL)", "areal_weight_gsm": 293, "primer": "BR 127",
+                    "exposure": "none", "failure_strain": "1.2073 in/in"},
+     "notes": "Table 8 verbatim, 220 (104) 행: 'ƒ 5190 (**35.8**), Σ 1.2073'. 35.8 MPa -> 3.58e7 Pa. 병기 검산 — 5190 x 0.0068948 = 35.78 MPa."
+    },
+    {
+     "key": "mechanical.shear_strength", "value": 21400000.0, "unit": "Pa",
+     "method": "measured", "tier": 1,
+     "conditions": {"temperature_k": 377.15, "test_standard": "ASTM D 5656 (KGR-1 thick-adherend extensometer)",
+                    "regime": "ultimate failure (UL)", "areal_weight_gsm": 293, "primer": "BR 127",
+                    "exposure": "postbond 100% RH at 140 F (60 C) until saturated", "failure_strain": "1.0744 in/in"},
+     "notes": "Table 8 verbatim, 220 (104)¹ 행: 'ƒ 3100 (**21.4**), Σ 1.0744'. 21.4 MPa -> 2.14e7 Pa. 병기 검산 — 3100 x 0.0068948 = 21.37 MPa."
+    }
+   ]
+  },
+  {
+   "match_name": "FM-73 structural film adhesive (American Cyanamid, rubber-modified epoxy, 121 C/60 min cure, Thiedmanu 1987)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Solvay Composite Materials — TECHNICAL DATA SHEET FM(R) 73 FILM ADHESIVE, Table 9 'Metal Bonding: Mechanical Properties: KGR-1 Stress Strain Data For FM(R) 73M Film Adhesive, 0.06 psf (300 gsm) with BR 127 Corrosion Inhibiting Primer with no Prebond or Postbond Exposure ASTM D 5656'",
+    "url": "https://www.integralproducts.com/Asset/FM-73_CM_EN--1-.pdf",
+    "publisher": "Solvay (Cytec Engineered Materials)",
+    "authors": "Solvay Composite Materials",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Solvay_FM73_FilmAdhesive_TDS.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.shear_modulus", "value": 904000000.0, "unit": "Pa",
+     "method": "measured", "tier": 3,
+     "conditions": {"temperature_k": 218.15, "test_standard": "ASTM D 5656 (KGR-1 thick-adherend extensometer)",
+                    "regime": "linear limit (LL)", "areal_weight_gsm": 300, "primer": "BR 127", "exposure": "none",
+                    "grade_measured": "FM 73M (polyester mat carrier)", "grade_target": "FM 73 (polyester knit carrier)",
+                    "grade_scope": "sibling-grade value — 같은 수지, 캐리어만 다르다"},
+     "notes": "Table 9 verbatim: '-67 (-55) | 3350 (23.1) | 0.026 | **131,000 (904)** | 7220 (49.8) | 0.097 | 8080 (55.7) | 0.447'. 904 MPa -> 9.04e8 Pa. 병기 검산 — 131,000 psi x 0.0068948 = 903.2 MPa. **등급 주의(브리프 140)** — 이 KGR 표는 FM 73**M**(폴리에스터 매트 캐리어)이고 카탈로그 재료는 FM 73(폴리에스터 니트 캐리어)이다. 같은 시트 Table 2 가 두 제품폼을 따로 싣는다. 수지는 같고 캐리어가 다르므로 자매등급 이전(tier3)으로 둔다. **밀도는 이 시트에 없다(브리프 131 재확인).** 시트의 유일한 `Density 7.3 lb/gal (875 g/L)` 는 **Table 3 'Product Description: BR(R) 127 Corrosion Inhibiting Primer' 행이라 별개 제품(프라이머)의 밀도다** — 면적당 무게가 아니다(지시문의 서술은 틀렸고 브리프 131 이 맞다). 면적중량은 Table 2 의 `Nominal Weight psf (gsm)` 열에 따로 있고 두께로 나누면 우리 산술이 된다(브리프 10)."
+    },
+    {
+     "key": "mechanical.shear_modulus", "value": 842000000.0, "unit": "Pa",
+     "method": "measured", "tier": 3,
+     "conditions": {"temperature_k": 297.15, "test_standard": "ASTM D 5656 (KGR-1 thick-adherend extensometer)",
+                    "regime": "linear limit (LL)", "areal_weight_gsm": 300, "primer": "BR 127", "exposure": "none",
+                    "grade_measured": "FM 73M (polyester mat carrier)", "grade_target": "FM 73 (polyester knit carrier)",
+                    "grade_scope": "sibling-grade value — 같은 수지, 캐리어만 다르다"},
+     "notes": "Table 9 verbatim: '75 (24) | 2510 (17.3) | 0.021 | **122,000 (842)** | 4690 (32.4) | 0.062 | 5930 (40.9) | 0.873'. 842 MPa -> 8.42e8 Pa. 병기 검산 — 122,000 x 0.0068948 = 841.2 MPa. 등급 주의는 -55 °C 행 notes 참조."
+    },
+    {
+     "key": "mechanical.shear_modulus", "value": 455000000.0, "unit": "Pa",
+     "method": "measured", "tier": 3,
+     "conditions": {"temperature_k": 333.15, "test_standard": "ASTM D 5656 (KGR-1 thick-adherend extensometer)",
+                    "regime": "linear limit (LL)", "areal_weight_gsm": 300, "primer": "BR 127", "exposure": "none",
+                    "grade_measured": "FM 73M (polyester mat carrier)", "grade_target": "FM 73 (polyester knit carrier)",
+                    "grade_scope": "sibling-grade value — 같은 수지, 캐리어만 다르다"},
+     "notes": "Table 9 verbatim: '140 (60) | 1460 (10.1) | 0.022 | **65,900 (455)** | 2620 (18.1) | 0.073 | 5060 (34.9) | 1.430'. 455 MPa -> 4.55e8 Pa. 병기 검산 — 65,900 x 0.0068948 = 454.4 MPa."
+    },
+    {
+     "key": "mechanical.shear_modulus", "value": 261000000.0, "unit": "Pa",
+     "method": "measured", "tier": 3,
+     "conditions": {"temperature_k": 355.15, "test_standard": "ASTM D 5656 (KGR-1 thick-adherend extensometer)",
+                    "regime": "linear limit (LL)", "areal_weight_gsm": 300, "primer": "BR 127", "exposure": "none",
+                    "grade_measured": "FM 73M (polyester mat carrier)", "grade_target": "FM 73 (polyester knit carrier)",
+                    "grade_scope": "sibling-grade value — 같은 수지, 캐리어만 다르다"},
+     "notes": "Table 9 verbatim: '180 (82) | 980 (6.8) | 0.028 | **37,800 (261)** | 1600 (11.0) | 0.064 | 5150 (35.5) | 1.623'. 261 MPa -> 2.61e8 Pa. 병기 검산 — 37,800 x 0.0068948 = 260.6 MPa. **네 온도의 단조성 검산** — 904 > 842 > 455 > 261 로 -55 -> 82 °C 에서 단조 감소한다."
+    },
+    {
+     "key": "mechanical.shear_strength", "value": 55700000.0, "unit": "Pa",
+     "method": "measured", "tier": 3,
+     "conditions": {"temperature_k": 218.15, "test_standard": "ASTM D 5656 (KGR-1 thick-adherend extensometer)",
+                    "regime": "ultimate failure (UL)", "areal_weight_gsm": 300, "primer": "BR 127", "exposure": "none",
+                    "failure_strain": "0.447 in/in",
+                    "grade_measured": "FM 73M (polyester mat carrier)", "grade_target": "FM 73 (polyester knit carrier)",
+                    "grade_scope": "sibling-grade value — 같은 수지, 캐리어만 다르다"},
+     "notes": "Table 9 verbatim, -67 (-55) 행의 Ultimate Failure: 'ƒ 8080 (**55.7**), Σ 0.447'. 55.7 MPa -> 5.57e7 Pa. 병기 검산 — 8080 x 0.0068948 = 55.71 MPa."
+    },
+    {
+     "key": "mechanical.shear_strength", "value": 40900000.0, "unit": "Pa",
+     "method": "measured", "tier": 3,
+     "conditions": {"temperature_k": 297.15, "test_standard": "ASTM D 5656 (KGR-1 thick-adherend extensometer)",
+                    "regime": "ultimate failure (UL)", "areal_weight_gsm": 300, "primer": "BR 127", "exposure": "none",
+                    "failure_strain": "0.873 in/in",
+                    "grade_measured": "FM 73M (polyester mat carrier)", "grade_target": "FM 73 (polyester knit carrier)",
+                    "grade_scope": "sibling-grade value — 같은 수지, 캐리어만 다르다"},
+     "notes": "Table 9 verbatim, 75 (24) 행: 'ƒ 5930 (**40.9**), Σ 0.873'. 40.9 MPa -> 4.09e7 Pa. 병기 검산 — 5930 x 0.0068948 = 40.88 MPa."
+    },
+    {
+     "key": "mechanical.shear_strength", "value": 34900000.0, "unit": "Pa",
+     "method": "measured", "tier": 3,
+     "conditions": {"temperature_k": 333.15, "test_standard": "ASTM D 5656 (KGR-1 thick-adherend extensometer)",
+                    "regime": "ultimate failure (UL)", "areal_weight_gsm": 300, "primer": "BR 127", "exposure": "none",
+                    "failure_strain": "1.430 in/in",
+                    "grade_measured": "FM 73M (polyester mat carrier)", "grade_target": "FM 73 (polyester knit carrier)",
+                    "grade_scope": "sibling-grade value — 같은 수지, 캐리어만 다르다"},
+     "notes": "Table 9 verbatim, 140 (60) 행: 'ƒ 5060 (**34.9**), Σ 1.430'. 34.9 MPa -> 3.49e7 Pa. 병기 검산 — 5060 x 0.0068948 = 34.89 MPa."
+    },
+    {
+     "key": "mechanical.shear_strength", "value": 35500000.0, "unit": "Pa",
+     "method": "measured", "tier": 3,
+     "conditions": {"temperature_k": 355.15, "test_standard": "ASTM D 5656 (KGR-1 thick-adherend extensometer)",
+                    "regime": "ultimate failure (UL)", "areal_weight_gsm": 300, "primer": "BR 127", "exposure": "none",
+                    "failure_strain": "1.623 in/in",
+                    "grade_measured": "FM 73M (polyester mat carrier)", "grade_target": "FM 73 (polyester knit carrier)",
+                    "grade_scope": "sibling-grade value — 같은 수지, 캐리어만 다르다"},
+     "notes": "Table 9 verbatim, 180 (82) 행: 'ƒ 5150 (**35.5**), Σ 1.623'. 35.5 MPa -> 3.55e7 Pa. 병기 검산 — 5150 x 0.0068948 = 35.51 MPa. **60 -> 82 °C 에서 파단전단응력이 34.9 -> 35.5 로 살짝 오른다** — 오식이 아니라 이 갈래의 알려진 거동이다(고온에서 변형이 크게 늘어 파단응력이 유지된다: 파단변형 1.430 -> 1.623). 같은 시트 Table 10(습윤 노출판)도 같은 방향을 보인다."
+    }
+   ]
+  }
+ ]
+}

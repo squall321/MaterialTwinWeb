@@ -1,0 +1,74 @@
+{
+ "batch": "HD-1 46차 · Die-cast AE44 마그네슘 (Meridian 합금 물성표)",
+ "materials": [
+  {
+   "match_name": "Die-cast AE44 magnesium alloy (Mg-4Al-4RE), as-cast — Rzychoń 2009",
+   "source": {
+    "kind": "datasheet",
+    "title": "Meridian Lightweight Technologies — Material Properties (die casting alloys: AZ91D · AM50A · AM60B · AM20 · AE42 · AE44 · MRI 153M · MRI 230D · AS21 · AJ62 · A380 · A383 · AG40A · ZA27), 'Sources: Hydro Magnesium September 2005, ASM Handbook; Magnesium & Magnesium Alloys, Dead Sea Magnesium, Noranda Magnesium Data'",
+    "url": "https://www.meridian-mag.com/magnesium-die-casting/lightweight-alloys/datasheet.pdf",
+    "publisher": "Meridian Lightweight Technologies",
+    "authors": "Meridian Lightweight Technologies",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/mech/Meridian_DieCasting_Alloys_MaterialProperties.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density", "value": 1820.0, "unit": "kg/m^3",
+     "method": "measured", "tier": 3,
+     "conditions": {"alloy": "AE44 (Mg-4Al-4RE)", "process": "die cast", "temperature": "미인쇄"},
+     "notes": "원문 `Physical Properties` 표 AE44 열 verbatim: 'Density (g / cm³) | AE44 | 1.82'. x1000 -> 1820 kg/m^3. **아는 값 대조(브리프 443) — 지시문이 준 'AE44 1.77' 은 틀렸다.** 1.77 은 같은 표의 **AM50A** 값이다. 조성 혼합칙으로 독립 검산했다 — AE44 = 91.55 Mg / 3.98 Al / 0.35 Mn / 0.20 Zn / 3.95 RE(Ce·La) wt%, 1/rho = Σ w_i/rho_i = 0.9155/1.738 + 0.0398/2.70 + 0.0035/7.43 + 0.0020/7.14 + 0.0395/6.5 = 0.5483 -> **1.824 g/cm³**. 같은 검산을 형제 AE42(RE 2 wt%)에 걸면 1.796 이고 표는 1.79 다 — **두 열이 동시에 맞는다.** 벤더 편찬표 검산(브리프 129·173) — 같은 표의 A380 알루미늄 2.74 · AG40A(ZAMAK 3) 6.60 · ZA27 5.00 · A380 비열 0.963 kJ/kg·K · A380 열전도율 96 · AG40A 열전도율 113 이 전부 교과서값과 일치한다. **계보(브리프 456·209)** — 표 하단이 'Sources: Hydro Magnesium September 2005, ASM Handbook; Magnesium & Magnesium Alloys, Dead Sea Magnesium, Noranda Magnesium Data' 라고 밝힌 **편찬표**다. 그래서 tier3 이고, 브리프 129 의 '벤더 편찬표는 밀도만 믿어라' 에 정확히 해당하는 칸이다."
+    },
+    {
+     "key": "thermal.expansion_linear", "value": 2.52e-05, "unit": "1/K",
+     "method": "measured", "tier": 3,
+     "conditions": {"alloy": "AE44", "process": "die cast", "temperature_range": "미인쇄"},
+     "notes": "원문 verbatim: 'Coefficient of Thermal Expansion (um / m - k) | AE44 | 25.2'. 25.2 um/(m·K) = 25.2e-6 1/K. **이 열은 등급마다 갈린다**(AZ91D/AM50A/AM60B/AM20 26.0 · AE42 26.1 · AE44 25.2 · MRI 153M 25.9 · MRI 230D 25.1 · AS21 26.1 · AJ62 27.3) — 브리프 218 의 '공통 가정' 신호가 아니다. **온도 구간이 인쇄돼 있지 않다**(브리프 365) — 조건에 미인쇄로 남긴다. 계보는 편찬표(밀도 행 notes 참조)라 tier3."
+    },
+    {
+     "key": "thermal.conductivity", "value": 85.0, "unit": "W/(m*K)",
+     "method": "measured", "tier": 3,
+     "conditions": {"alloy": "AE44", "process": "die cast", "temperature": "미인쇄"},
+     "notes": "원문 verbatim: 'Thermal Conductivity (W / m - k ) | AE44 | 85'. **등급마다 갈리는 열이다**(AZ91D 51 · AM50A 65 · AM60B 61 · AM20 94 · AE42 84 · AE44 85 · MRI 153M 64). 같은 표의 A380 96 · AG40A 113 · ZA27 123 이 교과서값과 맞아 표 자체가 검산된다(브리프 129). 편찬표라 tier3."
+    },
+    {
+     "key": "thermal.specific_heat", "value": 1020.0, "unit": "J/(kg*K)",
+     "method": "measured", "tier": 3,
+     "conditions": {"alloy": "AE44", "process": "die cast", "temperature": "미인쇄",
+                    "grade_scope": "class value — 표가 AZ91D·AM50A·AM60B·AM20·AE42·AE44·AS21 일곱 열에 1.02 를 똑같이 인쇄한다"},
+     "notes": "원문 verbatim: 'Specific Heat (kJ/kg k) | AE44 | 1.02'. x1000 -> 1020 J/(kg·K). **브리프 218 경고 — 이 값은 AE44 의 측정이 아니라 마그네슘 합금 공통값이다.** 같은 표에서 일곱 열이 소수점까지 1.02 로 같고, 그 1.02 는 순 마그네슘의 비열이다. 다만 이 표에도 갈린 열이 있다(MRI 153M 1.09 · MRI 230D 1.04 · AJ62 1.15) — 즉 표가 열마다 값을 넣을 수는 있는데 이 일곱에는 같은 값을 넣었다는 뜻이다. **그래서 tier3(클래스 값)으로 넣고 grade_scope 로 표시한다.**"
+    },
+    {
+     "key": "mechanical.youngs_modulus", "value": 45000000000.0, "unit": "Pa",
+     "method": "measured", "tier": 3,
+     "conditions": {"alloy": "AE44", "process": "die cast", "direction": "isotropic (미인쇄)",
+                    "grade_scope": "class value — 표의 마그네슘 아홉 열(AZ91D·AM50A·AM60B·AM20·AE42·AE44·MRI 153M·MRI 230D·AS21·AJ62)이 전부 45 다"},
+     "notes": "원문 verbatim: 'Elastic Modulus (Gpa) | AE44 | 45'. **브리프 218 — 한 표에서 열들이 같은 값이면 측정이 아니라 공통값이다.** 여기서는 마그네슘 **열 개가 전부 45** 이고, 알루미늄 두 열은 71, 아연 ZA27 은 78 로 갈린다. 즉 45 GPa 는 '마그네슘 합금 공칭 탄성률' 이지 AE44 의 측정이 아니다. 브리프 413(포아송비가 한 표에서 전부 같으면 그 표를 쓰지 마라)의 탄성률판이다. **그래도 버리지 않고 tier3 + grade_scope 로 넣는다** — 마그네슘 합금의 실제 분산이 42~45 GPa 로 좁아(브리프 171: 물성의 물리적 상자 크기가 가정의 오차폭을 정한다) 클래스 대체가 성립하는 갈래다(브리프 59). AE44 의 실측 E 가 확보되면 그 값이 대표가 된다."
+    },
+    {
+     "key": "mechanical.tensile_strength", "value": 245000000.0, "unit": "Pa",
+     "method": "measured", "tier": 3,
+     "conditions": {"alloy": "AE44", "process": "die cast", "state": "as-cast", "temperature_c": 23},
+     "notes": "원문 `Mechanical Properties` 표 verbatim: 'Ultimate Tensile Strength (Mpa) | AE44 | 245'. **등급마다 갈리는 열이다**(AZ91D 240 · AM50A 210 · AM60B 225 · AM20 190 · AE42 230 · AE44 245). 표 하단 주기 verbatim: 'The mechanical properties of a die cast alloy depend strongly on the fabrication variables involved, as well as on the alloy composition.' — 그래서 시험온도는 상온으로만 두고 시편 규격은 미인쇄다. 편찬표(밀도 행 notes 참조)라 tier3."
+    },
+    {
+     "key": "mechanical.yield_strength", "value": 142000000.0, "unit": "Pa",
+     "method": "measured", "tier": 3,
+     "conditions": {"alloy": "AE44", "process": "die cast", "state": "as-cast", "temperature_c": 23, "offset": "미인쇄"},
+     "notes": "원문 verbatim: 'Yield Strength (Mpa) | AE44 | 142'. **항복 < 인장(142 < 245) 이라 역전이 없다**(42차 DB 가 넣은 주의 항목). offset 규약(0.2% 등)은 표가 인쇄하지 않는다 — 조건에 미인쇄로 남긴다. 편찬표라 tier3."
+    },
+    {
+     "key": "mechanical.elongation_at_break", "value": 0.10, "unit": "1",
+     "method": "measured", "tier": 3,
+     "conditions": {"alloy": "AE44", "process": "die cast", "state": "as-cast", "gauge_length": "2 in (51 mm)"},
+     "notes": "원문 verbatim: 'Elongation % ub 2 in (51mm) | AE44 | 10'. 10 % -> 비율 0.10. 표준거리 2 in 이 표 머리글에 인쇄돼 있어 조건으로 옮겼다. 편찬표라 tier3."
+    },
+    {
+     "key": "mechanical.hardness_brinell", "value": 62.0, "unit": "HBW",
+     "method": "measured", "tier": 3,
+     "conditions": {"alloy": "AE44", "process": "die cast", "state": "as-cast", "load_and_indenter": "미인쇄"},
+     "notes": "원문 verbatim: 'Hardness Brinell | AE44 | 62'. 하중·압자 지름이 인쇄되지 않았다(브리프 365) — 조건에 미인쇄로 남긴다. 등급마다 갈리는 열이다(AZ91D 70 · AM50A 60 · AM60B 65 · AM20 45 · AE42 60 · AE44 62). 편찬표라 tier3."
+    }
+   ]
+  }
+ ]
+}

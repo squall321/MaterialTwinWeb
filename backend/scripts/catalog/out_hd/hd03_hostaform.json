@@ -1,0 +1,44 @@
+{
+ "batch": "HD-3 46차 · Hostaform POM-C — 등급은 안 닫히지만 원 논문이 코어 넷을 인쇄한다",
+ "materials": [
+  {
+   "match_name": "Hostaform — 폴리아세탈 코폴리머 POM-C (Böhm 1990)",
+   "source": {
+    "kind": "journal",
+    "title": "The wear resistance of polymers",
+    "doi": "10.1016/0301-679x(90)90055-t",
+    "authors": "Böhm, Betz & Ball",
+    "year": "1990",
+    "publisher": "Tribology International",
+    "local_path": "/data/paper_patent_corpus/structured/mech_papers/08_tribology_wear/Böhm - 1990 - The wear resistance of polymers/Böhm - 1990 - The wear resistance of polymers.md"
+   },
+   "properties": [
+    {
+     "key": "physical.density", "value": 1410.0, "unit": "kg/m^3",
+     "method": "measured", "tier": 3,
+     "conditions": {"polymer": "Polyacetal copolymer (POM-C)", "trade_name": "Hostaform", "temperature": "미인쇄"},
+     "notes": "Table 1 'Summary of the properties and results for the polymeric materials tested' 의 Hostaform 행 verbatim(**PDF 렌더로 확인 — 브리프 88·386**): 'Polyacetal copolymer | Hostaform | -- | 160 | 74.73 | 64.2 | 73 | 83 | 1,41 | 38.50 | 0.64 | 14,33 | 1.17x10⁻⁵ | 4'. 열 순서는 머리글이 정한다 — Tg(°C) | Melting point(°C) | uts(MPa) | El(%) | R | Shore D | **Density(g mm⁻³ 로 오식, 실제 g cm⁻³)** | Particle | Cavitation | Abrasion | Sliding Wear | No. **행 배정 검산(브리프 139)** — 같은 행의 Sliding Wear 1.17x10⁻⁵ mm³/(N·m) 이 DB 에 이미 들어 있는 이 재료의 tier1 비마모율 1.17e-14 m³/(N·m) 와 소수점까지 같다. md 는 이 행을 PAS-LX 와 뭉개 놓았고(브리프 41·262) 렌더가 갈랐다. **아는 값 대조(브리프 443)** — POM 코폴리머 밀도 1.41 g/cm³ 와 글자 그대로 일치한다(지시문이 준 대조값과도 같다). 단위 머리글 'g mm⁻³' 은 물리적으로 불가능하므로(1.41 g/mm³ = 1410 g/cm³) g cm⁻³ 의 오식이다(브리프 165). **tier3 인 이유** — 본문이 'The results of the four tests performed are shown in Table I **together with selected material properties** of the polymers' 라고 적어 물성 열의 출처를 밝히지 않는다. 저자가 잰 것은 네 가지 마모시험이고 물성 열은 편찬으로 읽는 것이 안전하다(브리프 3)."
+    },
+    {
+     "key": "mechanical.tensile_strength", "value": 74730000.0, "unit": "Pa",
+     "method": "measured", "tier": 3,
+     "conditions": {"polymer": "Polyacetal copolymer (POM-C)", "trade_name": "Hostaform",
+                    "temperature": "미인쇄", "strain_rate": "미인쇄"},
+     "notes": "같은 Table 1 Hostaform 행, uts 열 verbatim: '74.73'. 각주 verbatim: '**uts, ultimate tensile strength'. MPa -> 74.73e6 Pa. **주의 — 이 칸은 상식과 어긋난다.** 같은 표의 Delrin 500(폴리아세탈 **호모**폴리머)이 65.65 MPa 인데 Hostaform(코폴리머)이 74.73 으로 더 높다. 실제로는 호모폴리머가 코폴리머보다 강하고, 상용 POM-C 시트의 인장강도는 62~66 MPa 대다. **그래도 버리지 않고 tier3 로 표시해 둔다** — 같은 행의 밀도·쇼어D 는 아는 값과 맞아 행 전체가 깨진 것은 아니고(브리프 141), 모순이 이 칸 하나에서 닫히지 않아 '어느 쪽이 옳다'를 우리가 고를 수 없다(브리프 112: 둘 다 남겨라). **같은 표의 융점 열은 넣지 않았다** — Delrin 500 을 165 °C(실제 175~178)로, Hostaform 을 160(실제 165)으로 인쇄해 열 전체가 계통적으로 낮다(브리프 141)."
+    },
+    {
+     "key": "mechanical.elongation_at_break", "value": 0.642, "unit": "1",
+     "method": "measured", "tier": 3,
+     "conditions": {"polymer": "Polyacetal copolymer (POM-C)", "trade_name": "Hostaform", "temperature": "미인쇄"},
+     "notes": "같은 Table 1 Hostaform 행, El 열 verbatim: '64.2'. 각주 verbatim: '†El, elongation to tensile fracture'. 64.2 % -> 비율 0.642. 상용 POM-C 의 파단연신은 등급에 따라 25~70 % 라 대역 안이다. tier3 사유는 밀도 행 notes 참조."
+    },
+    {
+     "key": "mechanical.hardness_shore_d", "value": 83.0, "unit": "ShoreD",
+     "method": "measured", "tier": 3,
+     "conditions": {"polymer": "Polyacetal copolymer (POM-C)", "trade_name": "Hostaform", "dwell": "미인쇄"},
+     "notes": "같은 Table 1 Hostaform 행, Shore D 열 verbatim: '83'. **아는 값 대조(브리프 443)** — POM-C 의 쇼어 D 80~82 와 일치한다. 같은 표에서 폴리우레탄 24~38, UHMWPE 66~68, 폴리아세탈 81~86, 테플론 4301 93 으로 물리적으로 옳은 순서를 인쇄한다. tier3 사유는 밀도 행 notes 참조."
+    }
+   ]
+  }
+ ]
+}
