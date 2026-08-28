@@ -45,7 +45,39 @@ CHECKS = [
     # 하나라도 빠지면 적재가 죽거나 옛 값이 되살아난다.
     ("category 어휘 밖", """select count(*) from material where category not in
         ('metal','polymer','rubber','composite','ceramic','foam','molecular')"""),
-    ("물성값 0인 재료", "select count(*) from material m where not exists(select 1 from property_value where material_id=m.id)"),
+    # ── 묘비(tombstone) 규약 — 49차 KC 가 48차 JA 의 §523 제안을 실행하며 넣었다 ──────────
+    # **값을 옮기면 옛 재료가 0행이 된다.** 규약이 없으면 정상적인 정리가 여기 신규 위반으로 보이고,
+    # 다음 파동은 둘 중 하나를 한다 — 위반을 무시하거나(검사기가 죽는다), 재료를 지운다(계보가 끊긴다).
+    # 그래서 **의도된 빈 재료**를 뺀다. 판정은 `attributes.merge_verdict = 'moved'` 다.
+    # 뺀 만큼 아래 두 항목이 대신 지킨다 — 묘비는 면제가 아니라 **다른 계약**이다.
+    ("물성값 0인 재료", """select count(*) from material m
+        where not exists(select 1 from property_value where material_id=m.id)
+        and coalesce(json_extract(m.attributes,'$.merge_verdict'),'') <> 'moved'"""),
+    # **`merge_moved_to` 에는 재료 id 가 아니라 이름을 적어야 한다.**
+    # §523 제안은 id 였는데 그러면 운영에서 엉뚱한 재료를 가리킨다 — 병합기 머리말 그대로
+    # *"id 는 정수 autoincrement 라 dev/cae00 에서 같은 id 가 다른 행일 수 있다"* 이고,
+    # `merge_` 접두어는 큐레이션이라 **dev 값이 운영에 그대로 덮인다.** 이름이 재료의 자연키다.
+    # 그래서 정수로 적힌 것 자체를 위반으로 잡는다(`json_type <> 'text'`).
+    # 반대쪽 반쪽도 잡는다 — 이동 대상만 적고 묘비를 선언하지 않으면 그 재료는 여전히
+    # `물성값 0인 재료` 로 세어져야 하는데, 다음 파동이 "묘비다" 라고 오독한다.
+    ("묘비 선언이 깨졌다", """select count(*) from material m where
+        (json_extract(m.attributes,'$.merge_verdict')='moved' and (
+             json_extract(m.attributes,'$.merge_moved_to') is null
+          or json_type(m.attributes,'$.merge_moved_to') <> 'text'
+          or json_extract(m.attributes,'$.merge_moved_to') = m.name
+          or not exists(select 1 from material t
+                        where t.name = json_extract(m.attributes,'$.merge_moved_to'))))
+        or (json_extract(m.attributes,'$.merge_moved_to') is not null
+            and coalesce(json_extract(m.attributes,'$.merge_verdict'),'') <> 'moved')"""),
+    # 묘비가 "이 키들을 옮겼다" 고 적었는데 **대상 재료에 그 키가 없으면 값이 사라진 것이다.**
+    # 464·522 가 가르친 병이다 — 옮긴 것이 운영까지 갔는지는 아무도 안 물어서 조용히 죽는다.
+    # 이 항목이 그 질문을 매번 대신 한다.
+    ("묘비가 옮겼다는 키가 대상에 없다", """select count(*) from material m
+        join material t on t.name = json_extract(m.attributes,'$.merge_moved_to')
+        join json_each(m.attributes,'$.merge_moved_keys') k
+        where json_extract(m.attributes,'$.merge_verdict')='moved'
+        and not exists(select 1 from property_value pv
+                       where pv.material_id=t.id and pv.property_key=k.value)"""),
     ("추정만 있는 재료", """select count(*) from (select m.id from material m join property_value pv on pv.material_id=m.id
         group by m.id having min(pv.quality_tier)>=4)"""),
     ("제목 없는 출처", "select count(*) from source where coalesce(title,'')=''"),

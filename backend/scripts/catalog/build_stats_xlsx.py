@@ -294,8 +294,12 @@ def main():
             and (conditions is null or conditions not like '%term%')""", "항번호 없으면 세트 복원 불가"),
         ("journal인데 DOI 없음", "select count(*) from source where kind='journal' and coalesce(doi,'')=''",
          "논문은 DOI로 재확인 가능해야 한다"),
-        ("물성값 0인 재료", "select count(*) from material m where not exists(select 1 from property_value where material_id=m.id)",
-         "빈 재료"),
+        # 묘비(값을 다른 재료로 옮기고 계보만 남긴 재료)는 빼고 센다 — `integrity_check` 와 **같은 판정**이다.
+        # 한쪽만 고치면 이 보고서가 정상적인 정리를 '확인 필요' 로 띄운다(49차 KC, 브리프 523).
+        ("물성값 0인 재료", """select count(*) from material m
+            where not exists(select 1 from property_value where material_id=m.id)
+            and coalesce(json_extract(m.attributes,'$.merge_verdict'),'') <> 'moved'""",
+         "빈 재료(묘비 제외)"),
     ]
     body(ws, 5, [(lbl, q1(sql), "OK" if q1(sql) == 0 else "확인 필요", why) for lbl, sql, why in CHECKS],
          [34, 9, 12, 44])
