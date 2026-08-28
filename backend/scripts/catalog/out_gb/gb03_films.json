@@ -1,0 +1,304 @@
+{
+ "batch": "GB-3 45차 · 광학·구조 PET 등급시트(Mylar D · Ertalyte)",
+ "materials": [
+  {
+   "match_name": "PET film, DuPont Mylar D 1 mil biaxially oriented (Tropsha 1997 barrier control)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Mylar Polyester Film — Product Information: Physical-Thermal Properties (DuPont Teijin Films), 'Coefficients of Thermal Expansion 1.7 x 10-5 in/in/degC, ASTM D 696'",
+    "url": "https://web.archive.org/web/2019id_/http://usa.dupontteijinfilms.com/wp-content/uploads/2017/01/Mylar_Physical_Properties.pdf",
+    "publisher": "DuPont Teijin Films",
+    "authors": "DuPont Teijin Films"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1390.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "film_type_measured": "Mylar 92A (Table 1 열)",
+      "film_type_target": "Mylar D, 1 mil (25 um)",
+      "grade_scope": "class value — DuPont Teijin Films Mylar(R) 회보 Table 1 의 92A 열. 대상은 Mylar D 1 mil",
+      "test_standard": "ASTM D 1505",
+      "temperature_c": "미인쇄"
+     },
+     "notes": "Table 1 `Density 1.390 g/cm3 ASTM D 1505`. x1000 -> 1390 kg/m^3. 아는 값 대조(브리프 443) — 이축연신 PET 밀도 1.38~1.40 과 일치. **등급 불일치(정본 규칙 5)** — Table 1 의 `Gauge and Type` 칸이 `92A`(0.92 mil = 23 um, Type A)다. 본 재료는 Tropsha 1997 이 밝힌 `biaxially oriented Mylar D (1 mil) from DuPont Chemicals, Inc.` — **같은 제조사 같은 Mylar 계열의 자매 타입**이지 다른 폴리머가 아니다(Type A 는 안티블록 입자로 헤이즈가 있고 Type D 는 입자가 사실상 없는 투명판). 두께도 23 um 대 25 um 로 가깝다. 그래도 타입·게이지가 다르므로 tier3 + grade_scope 로 둔다. **같은 회보의 Type S 회보(h37231-2)가 5~50 um 전 게이지에서 MD 인장강도를 20 kg/mm^2 로 동일하게 인쇄한다** — 이 계열의 인장물성이 게이지에 둔감하다는 근거다. **판 대조(브리프 426·439)** — 같은 회보의 2004년판(www.dupontteijinfilms.com/datasheets/mylar/productinfo/properties/h37232-3.pdf, Wayback 20040507052443)과 2017년판(이 URL)을 나란히 열어 Table 1 전 칸이 글자 단위로 같음을 확인했다. 브랜드는 현재 Mylar Specialty Films 로 넘어갔고 mylar.com 의 현행 브로슈어에는 Type D 가 없다(단종 등급) — 이 회보가 남아 있는 1차 문서다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 4805300000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "film_type_measured": "Mylar 92A (Table 1 열)",
+      "film_type_target": "Mylar D, 1 mil (25 um)",
+      "grade_scope": "class value — DuPont Teijin Films Mylar(R) 회보 Table 1 의 92A 열. 대상은 Mylar D 1 mil",
+      "direction": "MD (machine direction)",
+      "test_standard": "ASTM D 882",
+      "axis": "in-plane",
+      "temperature_c": "미인쇄"
+     },
+     "notes": "Table 1 `Modulus, MD 490 (710) kg/mm2 (kpsi) ASTM D 882`. 490 kgf/mm^2 x 9.80665 = 4805.3 MPa -> 4.8053e9 Pa. **단위쌍 검산(브리프 225)** — 괄호의 710 kpsi 는 4895.8 MPa 로 정본(kg/mm^2)과 1.9% 차이며, 이는 괄호값이 10 kpsi 단위로 반올림된 탓이다(710 -> 4896, 705 -> 4862, 715 -> 4930). 정본은 앞의 kg/mm^2 다(브리프 153). **MD/TD 를 갈라 넣었다** — 이축연신 필름의 이방성이 실제로 4% 있다. **등급 불일치(정본 규칙 5)** — Table 1 의 `Gauge and Type` 칸이 `92A`(0.92 mil = 23 um, Type A)다. 본 재료는 Tropsha 1997 이 밝힌 `biaxially oriented Mylar D (1 mil) from DuPont Chemicals, Inc.` — **같은 제조사 같은 Mylar 계열의 자매 타입**이지 다른 폴리머가 아니다(Type A 는 안티블록 입자로 헤이즈가 있고 Type D 는 입자가 사실상 없는 투명판). 두께도 23 um 대 25 um 로 가깝다. 그래도 타입·게이지가 다르므로 tier3 + grade_scope 로 둔다. **같은 회보의 Type S 회보(h37231-2)가 5~50 um 전 게이지에서 MD 인장강도를 20 kg/mm^2 로 동일하게 인쇄한다** — 이 계열의 인장물성이 게이지에 둔감하다는 근거다. **판 대조(브리프 426·439)** — 같은 회보의 2004년판(www.dupontteijinfilms.com/datasheets/mylar/productinfo/properties/h37232-3.pdf, Wayback 20040507052443)과 2017년판(이 URL)을 나란히 열어 Table 1 전 칸이 글자 단위로 같음을 확인했다. 브랜드는 현재 Mylar Specialty Films 로 넘어갔고 mylar.com 의 현행 브로슈어에는 Type D 가 없다(단종 등급) — 이 회보가 남아 있는 1차 문서다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 5001400000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "film_type_measured": "Mylar 92A (Table 1 열)",
+      "film_type_target": "Mylar D, 1 mil (25 um)",
+      "grade_scope": "class value — DuPont Teijin Films Mylar(R) 회보 Table 1 의 92A 열. 대상은 Mylar D 1 mil",
+      "direction": "TD (transverse direction)",
+      "test_standard": "ASTM D 882",
+      "axis": "in-plane",
+      "temperature_c": "미인쇄"
+     },
+     "notes": "Table 1 `Modulus, TD 510 (740) kg/mm2 (kpsi) ASTM D 882`. 510 x 9.80665 = 5001.4 MPa -> 5.0014e9 Pa. 괄호 740 kpsi = 5102.6 MPa(2.0% 차, 반올림). MD 4805 대 TD 5001 로 TD 가 4% 크다. **등급 불일치(정본 규칙 5)** — Table 1 의 `Gauge and Type` 칸이 `92A`(0.92 mil = 23 um, Type A)다. 본 재료는 Tropsha 1997 이 밝힌 `biaxially oriented Mylar D (1 mil) from DuPont Chemicals, Inc.` — **같은 제조사 같은 Mylar 계열의 자매 타입**이지 다른 폴리머가 아니다(Type A 는 안티블록 입자로 헤이즈가 있고 Type D 는 입자가 사실상 없는 투명판). 두께도 23 um 대 25 um 로 가깝다. 그래도 타입·게이지가 다르므로 tier3 + grade_scope 로 둔다. **같은 회보의 Type S 회보(h37231-2)가 5~50 um 전 게이지에서 MD 인장강도를 20 kg/mm^2 로 동일하게 인쇄한다** — 이 계열의 인장물성이 게이지에 둔감하다는 근거다. **판 대조(브리프 426·439)** — 같은 회보의 2004년판(www.dupontteijinfilms.com/datasheets/mylar/productinfo/properties/h37232-3.pdf, Wayback 20040507052443)과 2017년판(이 URL)을 나란히 열어 Table 1 전 칸이 글자 단위로 같음을 확인했다. 브랜드는 현재 Mylar Specialty Films 로 넘어갔고 mylar.com 의 현행 브로슈어에는 Type D 가 없다(단종 등급) — 이 회보가 남아 있는 1차 문서다."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 196130000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "film_type_measured": "Mylar 92A (Table 1 열)",
+      "film_type_target": "Mylar D, 1 mil (25 um)",
+      "grade_scope": "class value — DuPont Teijin Films Mylar(R) 회보 Table 1 의 92A 열. 대상은 Mylar D 1 mil",
+      "direction": "MD (machine direction)",
+      "test_standard": "ASTM D 882",
+      "definition": "ultimate tensile strength",
+      "temperature_c": "미인쇄"
+     },
+     "notes": "Table 1 `Ultimate Tensile Strength, MD 20 (29) kg/mm2 (kpsi) ASTM D 882`. 20 x 9.80665 = 196.13 MPa -> 1.9613e8 Pa. 괄호 29 kpsi = 199.9 MPa (2% 차, 1 kpsi 반올림). **등급 불일치(정본 규칙 5)** — Table 1 의 `Gauge and Type` 칸이 `92A`(0.92 mil = 23 um, Type A)다. 본 재료는 Tropsha 1997 이 밝힌 `biaxially oriented Mylar D (1 mil) from DuPont Chemicals, Inc.` — **같은 제조사 같은 Mylar 계열의 자매 타입**이지 다른 폴리머가 아니다(Type A 는 안티블록 입자로 헤이즈가 있고 Type D 는 입자가 사실상 없는 투명판). 두께도 23 um 대 25 um 로 가깝다. 그래도 타입·게이지가 다르므로 tier3 + grade_scope 로 둔다. **같은 회보의 Type S 회보(h37231-2)가 5~50 um 전 게이지에서 MD 인장강도를 20 kg/mm^2 로 동일하게 인쇄한다** — 이 계열의 인장물성이 게이지에 둔감하다는 근거다. **판 대조(브리프 426·439)** — 같은 회보의 2004년판(www.dupontteijinfilms.com/datasheets/mylar/productinfo/properties/h37232-3.pdf, Wayback 20040507052443)과 2017년판(이 URL)을 나란히 열어 Table 1 전 칸이 글자 단위로 같음을 확인했다. 브랜드는 현재 Mylar Specialty Films 로 넘어갔고 mylar.com 의 현행 브로슈어에는 Type D 가 없다(단종 등급) — 이 회보가 남아 있는 1차 문서다."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 235360000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "film_type_measured": "Mylar 92A (Table 1 열)",
+      "film_type_target": "Mylar D, 1 mil (25 um)",
+      "grade_scope": "class value — DuPont Teijin Films Mylar(R) 회보 Table 1 의 92A 열. 대상은 Mylar D 1 mil",
+      "direction": "TD (transverse direction)",
+      "test_standard": "ASTM D 882",
+      "definition": "ultimate tensile strength",
+      "temperature_c": "미인쇄"
+     },
+     "notes": "Table 1 `Ultimate Tensile Strength, TD 24 (34) kg/mm2 (kpsi)`. 24 x 9.80665 = 235.36 MPa -> 2.3536e8 Pa. 괄호 34 kpsi = 234.4 MPa (0.4% 차) — MD 쪽보다 잘 맞는다. **등급 불일치(정본 규칙 5)** — Table 1 의 `Gauge and Type` 칸이 `92A`(0.92 mil = 23 um, Type A)다. 본 재료는 Tropsha 1997 이 밝힌 `biaxially oriented Mylar D (1 mil) from DuPont Chemicals, Inc.` — **같은 제조사 같은 Mylar 계열의 자매 타입**이지 다른 폴리머가 아니다(Type A 는 안티블록 입자로 헤이즈가 있고 Type D 는 입자가 사실상 없는 투명판). 두께도 23 um 대 25 um 로 가깝다. 그래도 타입·게이지가 다르므로 tier3 + grade_scope 로 둔다. **같은 회보의 Type S 회보(h37231-2)가 5~50 um 전 게이지에서 MD 인장강도를 20 kg/mm^2 로 동일하게 인쇄한다** — 이 계열의 인장물성이 게이지에 둔감하다는 근거다. **판 대조(브리프 426·439)** — 같은 회보의 2004년판(www.dupontteijinfilms.com/datasheets/mylar/productinfo/properties/h37232-3.pdf, Wayback 20040507052443)과 2017년판(이 URL)을 나란히 열어 Table 1 전 칸이 글자 단위로 같음을 확인했다. 브랜드는 현재 Mylar Specialty Films 로 넘어갔고 mylar.com 의 현행 브로슈어에는 Type D 가 없다(단종 등급) — 이 회보가 남아 있는 1차 문서다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1171.52,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "film_type_measured": "Mylar 92A (Table 1 열)",
+      "film_type_target": "Mylar D, 1 mil (25 um)",
+      "grade_scope": "class value — DuPont Teijin Films Mylar(R) 회보 Table 1 의 92A 열. 대상은 Mylar D 1 mil",
+      "temperature_c": "미인쇄"
+     },
+     "notes": "Table 1 `Specific Heat 0.28 cal/g/degC`. x4184 (열화학 칼로리) -> 1171.52 J/(kg*K). 아는 값 대조 — PET 비열 1000~1300 J/(kg*K) 대역과 일치. **등급 불일치(정본 규칙 5)** — Table 1 의 `Gauge and Type` 칸이 `92A`(0.92 mil = 23 um, Type A)다. 본 재료는 Tropsha 1997 이 밝힌 `biaxially oriented Mylar D (1 mil) from DuPont Chemicals, Inc.` — **같은 제조사 같은 Mylar 계열의 자매 타입**이지 다른 폴리머가 아니다(Type A 는 안티블록 입자로 헤이즈가 있고 Type D 는 입자가 사실상 없는 투명판). 두께도 23 um 대 25 um 로 가깝다. 그래도 타입·게이지가 다르므로 tier3 + grade_scope 로 둔다. **같은 회보의 Type S 회보(h37231-2)가 5~50 um 전 게이지에서 MD 인장강도를 20 kg/mm^2 로 동일하게 인쇄한다** — 이 계열의 인장물성이 게이지에 둔감하다는 근거다. **판 대조(브리프 426·439)** — 같은 회보의 2004년판(www.dupontteijinfilms.com/datasheets/mylar/productinfo/properties/h37232-3.pdf, Wayback 20040507052443)과 2017년판(이 URL)을 나란히 열어 Table 1 전 칸이 글자 단위로 같음을 확인했다. 브랜드는 현재 Mylar Specialty Films 로 넘어갔고 mylar.com 의 현행 브로슈어에는 Type D 가 없다(단종 등급) — 이 회보가 남아 있는 1차 문서다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.154808,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "film_type_measured": "Mylar 1000A (이 행만 별도 표기)",
+      "film_type_target": "Mylar D, 1 mil (25 um)",
+      "grade_scope": "class value — DuPont Teijin Films Mylar(R) 회보 Table 1 의 92A 열. 대상은 Mylar D 1 mil",
+      "temperature_range_c": "ambiguous — 시트가 같은 행에 `30-50 degC (86-122 degF)` 와 `25-75 degC (77-167 degF)` 두 구간을 인쇄한다. 어느 쪽인지 문서 안에서 안 닫힌다",
+      "direction": "미인쇄"
+     },
+     "notes": "Table 1 `Thermal Conductivity 3.7 x 10-4 cal*cm/(cm^2*sec*degC)`, 행 라벨 `(Mylar 1000A)`. 3.7e-4 x 4.184 = 1.548e-3 W/(cm*K) -> x100 -> 0.154808 W/(m*K). **구간이 둘이라 조건을 하나로 못 정했다** — 브리프 117 의 `ambiguous` 처리대로 후보를 둘 다 적었다. 둘 다 상온 부근이라 값 자체는 흔들리지 않는다. 아는 값 대조 — Toray Lumirror 실측 0.1406, 핸드북 0.15~0.24 대역. 행 라벨이 92A 가 아니라 1000A(10 mil Type A)라 게이지 차이가 더 크다. **등급 불일치(정본 규칙 5)** — Table 1 의 `Gauge and Type` 칸이 `92A`(0.92 mil = 23 um, Type A)다. 본 재료는 Tropsha 1997 이 밝힌 `biaxially oriented Mylar D (1 mil) from DuPont Chemicals, Inc.` — **같은 제조사 같은 Mylar 계열의 자매 타입**이지 다른 폴리머가 아니다(Type A 는 안티블록 입자로 헤이즈가 있고 Type D 는 입자가 사실상 없는 투명판). 두께도 23 um 대 25 um 로 가깝다. 그래도 타입·게이지가 다르므로 tier3 + grade_scope 로 둔다. **같은 회보의 Type S 회보(h37231-2)가 5~50 um 전 게이지에서 MD 인장강도를 20 kg/mm^2 로 동일하게 인쇄한다** — 이 계열의 인장물성이 게이지에 둔감하다는 근거다. **판 대조(브리프 426·439)** — 같은 회보의 2004년판(www.dupontteijinfilms.com/datasheets/mylar/productinfo/properties/h37232-3.pdf, Wayback 20040507052443)과 2017년판(이 URL)을 나란히 열어 Table 1 전 칸이 글자 단위로 같음을 확인했다. 브랜드는 현재 Mylar Specialty Films 로 넘어갔고 mylar.com 의 현행 브로슈어에는 Type D 가 없다(단종 등급) — 이 회보가 남아 있는 1차 문서다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.7e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D 696",
+      "axis": "in-plane (MD/TD 구분 없이 인쇄)",
+      "temperature_range_c": "미인쇄 (ASTM D 696 표준 구간)",
+      "film_type_target": "Mylar D, 1 mil (25 um)",
+      "grade_scope": "타입 구분 없음 — 회보 본문이 `of Mylar(R)` 로 계열 전체를 스코프로 인쇄했다"
+     },
+     "notes": "**Table 1 이 아니라 본문 산문**이 근거다 — verbatim: `The thermal coefficient of linear expansion of Mylar(R) is 1.7 x 10-5 in/in/degC (9.5 x 10-6 in/in/degF).` **단위쌍 자체검산(브리프 225)** — 1.7e-5/degC x 5/9 = 9.44e-6/degF, 인쇄된 9.5e-6 과 맞는다. in/in/degC = 1/K 이므로 환산 없음. 이 문장은 92A 열이 아니라 **Mylar 계열 전체**를 스코프로 하므로 Mylar D 에 그대로 해당한다 — 그래서 tier1 이다(다른 칸은 92A 열이라 tier3). **판 대조(브리프 426·439)** — 같은 회보의 2004년판(www.dupontteijinfilms.com/datasheets/mylar/productinfo/properties/h37232-3.pdf, Wayback 20040507052443)과 2017년판(이 URL)을 나란히 열어 Table 1 전 칸이 글자 단위로 같음을 확인했다. 브랜드는 현재 Mylar Specialty Films 로 넘어갔고 mylar.com 의 현행 브로슈어에는 Type D 가 없다(단종 등급) — 이 회보가 남아 있는 1차 문서다."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.38,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "regime": "before yield (항복 전)",
+      "temperature_c": "미인쇄",
+      "film_type_target": "Mylar D, 1 mil (25 um)",
+      "grade_scope": "타입 구분 없음 — 회보 본문이 `Mylar(R) polyester film` 계열로 인쇄했다",
+      "also_printed": "after yield 0.58 (탄성 포아송비가 아니라 소성 수축비라 따로 넣지 않았다)"
+     },
+     "notes": "본문 verbatim: `Poisson's ratio is typically 0.38 before yield and 0.58 after yield.` **항복 후 0.58 은 넣지 않았다** — 등방 탄성의 열역학 상한 0.5 를 넘으므로 탄성 포아송비가 아니라 소성 영역의 겉보기 수축비다(브리프 443 의 물리 상한 검산). 적재기 가드도 0.5 상한이라 막힌다. 항복 전 0.38 만 조건 `regime: before yield` 로 못박아 넣었다. 브리프 6 이 '측정법 없는 포아송비는 표적에서 내렸다'고 했으나, 이 값은 논문의 FEA 입력 가정이 아니라 **제조사가 자기 제품에 대해 인쇄한 값이고 항복 전/후를 갈라 인쇄**한다는 점에서 관용값 대입과 다르다. **판 대조(브리프 426·439)** — 같은 회보의 2004년판(www.dupontteijinfilms.com/datasheets/mylar/productinfo/properties/h37232-3.pdf, Wayback 20040507052443)과 2017년판(이 URL)을 나란히 열어 Table 1 전 칸이 글자 단위로 같음을 확인했다. 브랜드는 현재 Mylar Specialty Films 로 넘어갔고 mylar.com 의 현행 브로슈어에는 Type D 가 없다(단종 등급) — 이 회보가 남아 있는 1차 문서다."
+    }
+   ]
+  },
+  {
+   "match_name": "Ertalyte — 폴리에틸렌 테레프탈레이트 PET (Böhm 1990)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Ertalyte(TM) PET (Polyethylene Terephthalate) — Product Datasheet, Mitsubishi Chemical Advanced Materials (rev. 04/12/2024)",
+    "url": "https://www.mcam.com/mam/49643/GEP-Ertalyte%C2%AE%20PET-P_en_US.pdf",
+    "publisher": "Mitsubishi Chemical Advanced Materials",
+    "authors": "Mitsubishi Chemical Advanced Materials",
+    "year": 2024
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1390.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ISO 1183-1",
+      "temperature_c": "미인쇄",
+      "grade": "Ertalyte PET (무충전 반결정 PET-P)"
+     },
+     "notes": "`Miscellaneous / Density ISO 1183-1 g/cm3 1.39`. x1000 -> 1390 kg/m^3. 아는 값 대조(브리프 443) — 반결정 PET 1.38~1.40 과 일치. 시트가 ISO 열과 ASTM 열을 나란히 인쇄한다. **규격이 다르면 다른 행이다**(브리프 242·136) — 시편·속도가 달라 값이 갈리므로 둘 다 남기고 `test_standard` 로 구분했다. **연대 주의** — Böhm 1990 이 시험한 것은 1990년 당시 Erta NV(벨기에)의 Ertalyte 이고, 이 시트는 그 상표를 승계한 Mitsubishi Chemical Advanced Materials 의 2024년판이다(Erta -> Quadrant -> MCAM). 상표와 재료 정의(무충전 반결정 PET-P 압출 스톡)는 연속이지만 34년 간격이 있다(브리프 426). **Böhm Table I 의 대조 결과** — 그 표의 Ertalyte 밀도 `1.31`, UTS `78.83 MPa` 는 시트의 1.39/1.41 · 90/85.5 MPa 와 각각 6% · 12~13% 어긋난다. 같은 표의 PP 0.91 · PSU 1.24 · PVDF 1.77 은 주지의 값과 맞는데 **Ertalyte(1.31, 실제 1.38~1.40)와 Polycarbonate(1.14, 실제 1.20) 두 칸만 5~6% 낮다**(브리프 141·443). 게다가 그 표는 저자 본문이 `selected material properties of the polymers` 라 밝힌 편찬 열이다(브리프 3·195). 그래서 Böhm 의 물성 열은 옮기지 않고 벤더 시트만 썼다."
+    },
+    {
+     "key": "physical.density",
+     "value": 1410.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D792 (Specific Gravity 행)",
+      "temperature_c": "미인쇄",
+      "grade": "Ertalyte PET"
+     },
+     "notes": "`Specific Gravity ASTM D792 1.41`. 비중 x 1000 kg/m^3 -> 1410. ISO 1183-1 의 1.39 와 1.4% 차 — 같은 시트가 두 규격을 다르게 인쇄한 것이라 둘 다 남긴다(브리프 112). **연대 주의** — Böhm 1990 이 시험한 것은 1990년 당시 Erta NV(벨기에)의 Ertalyte 이고, 이 시트는 그 상표를 승계한 Mitsubishi Chemical Advanced Materials 의 2024년판이다(Erta -> Quadrant -> MCAM). 상표와 재료 정의(무충전 반결정 PET-P 압출 스톡)는 연속이지만 34년 간격이 있다(브리프 426). **Böhm Table I 의 대조 결과** — 그 표의 Ertalyte 밀도 `1.31`, UTS `78.83 MPa` 는 시트의 1.39/1.41 · 90/85.5 MPa 와 각각 6% · 12~13% 어긋난다. 같은 표의 PP 0.91 · PSU 1.24 · PVDF 1.77 은 주지의 값과 맞는데 **Ertalyte(1.31, 실제 1.38~1.40)와 Polycarbonate(1.14, 실제 1.20) 두 칸만 5~6% 낮다**(브리프 141·443). 게다가 그 표는 저자 본문이 `selected material properties of the polymers` 라 밝힌 편찬 열이다(브리프 3·195). 그래서 Böhm 의 물성 열은 옮기지 않고 벤더 시트만 썼다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 3500000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ISO 527-1/-2",
+      "definition": "tensile modulus of elasticity",
+      "temperature_c": "미인쇄 (건조 상태 dry)",
+      "grade": "Ertalyte PET"
+     },
+     "notes": "`Tensile modulus of elasticity ISO 527-1/-2 MPa 3500`. x1e6 -> 3.5e9 Pa. 같은 시트의 굽힘탄성률 3300 MPa(ISO 178)와 6% 안에서 정합. 시트가 ISO 열과 ASTM 열을 나란히 인쇄한다. **규격이 다르면 다른 행이다**(브리프 242·136) — 시편·속도가 달라 값이 갈리므로 둘 다 남기고 `test_standard` 로 구분했다. **연대 주의** — Böhm 1990 이 시험한 것은 1990년 당시 Erta NV(벨기에)의 Ertalyte 이고, 이 시트는 그 상표를 승계한 Mitsubishi Chemical Advanced Materials 의 2024년판이다(Erta -> Quadrant -> MCAM). 상표와 재료 정의(무충전 반결정 PET-P 압출 스톡)는 연속이지만 34년 간격이 있다(브리프 426). **Böhm Table I 의 대조 결과** — 그 표의 Ertalyte 밀도 `1.31`, UTS `78.83 MPa` 는 시트의 1.39/1.41 · 90/85.5 MPa 와 각각 6% · 12~13% 어긋난다. 같은 표의 PP 0.91 · PSU 1.24 · PVDF 1.77 은 주지의 값과 맞는데 **Ertalyte(1.31, 실제 1.38~1.40)와 Polycarbonate(1.14, 실제 1.20) 두 칸만 5~6% 낮다**(브리프 141·443). 게다가 그 표는 저자 본문이 `selected material properties of the polymers` 라 밝힌 편찬 열이다(브리프 3·195). 그래서 Böhm 의 물성 열은 옮기지 않고 벤더 시트만 썼다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 3171600000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D638",
+      "definition": "tensile modulus of elasticity",
+      "temperature_c": "미인쇄 (건조 상태 dry)",
+      "grade": "Ertalyte PET"
+     },
+     "notes": "`Tensile modulus of elasticity ASTM D638 KSI 460`. 460,000 psi x 6894.757 = 3.1716e9 Pa. ISO 3500 MPa 와 9% 차 — 규격 차(시편·속도)다. 시트가 ISO 열과 ASTM 열을 나란히 인쇄한다. **규격이 다르면 다른 행이다**(브리프 242·136) — 시편·속도가 달라 값이 갈리므로 둘 다 남기고 `test_standard` 로 구분했다. **연대 주의** — Böhm 1990 이 시험한 것은 1990년 당시 Erta NV(벨기에)의 Ertalyte 이고, 이 시트는 그 상표를 승계한 Mitsubishi Chemical Advanced Materials 의 2024년판이다(Erta -> Quadrant -> MCAM). 상표와 재료 정의(무충전 반결정 PET-P 압출 스톡)는 연속이지만 34년 간격이 있다(브리프 426). **Böhm Table I 의 대조 결과** — 그 표의 Ertalyte 밀도 `1.31`, UTS `78.83 MPa` 는 시트의 1.39/1.41 · 90/85.5 MPa 와 각각 6% · 12~13% 어긋난다. 같은 표의 PP 0.91 · PSU 1.24 · PVDF 1.77 은 주지의 값과 맞는데 **Ertalyte(1.31, 실제 1.38~1.40)와 Polycarbonate(1.14, 실제 1.20) 두 칸만 5~6% 낮다**(브리프 141·443). 게다가 그 표는 저자 본문이 `selected material properties of the polymers` 라 밝힌 편찬 열이다(브리프 3·195). 그래서 Böhm 의 물성 열은 옮기지 않고 벤더 시트만 썼다."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 90000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ISO 527-1/-2",
+      "definition": "tensile strength",
+      "temperature_c": "미인쇄 (건조 상태 dry)",
+      "grade": "Ertalyte PET"
+     },
+     "notes": "`Tensile strength ISO 527-1/-2 MPa 90`. x1e6 -> 9.0e7 Pa. 같은 시트가 항복변형 4% · 파단변형 15%(ISO)를 인쇄해 연성 파단 순서와 맞는다. 시트가 ISO 열과 ASTM 열을 나란히 인쇄한다. **규격이 다르면 다른 행이다**(브리프 242·136) — 시편·속도가 달라 값이 갈리므로 둘 다 남기고 `test_standard` 로 구분했다. **연대 주의** — Böhm 1990 이 시험한 것은 1990년 당시 Erta NV(벨기에)의 Ertalyte 이고, 이 시트는 그 상표를 승계한 Mitsubishi Chemical Advanced Materials 의 2024년판이다(Erta -> Quadrant -> MCAM). 상표와 재료 정의(무충전 반결정 PET-P 압출 스톡)는 연속이지만 34년 간격이 있다(브리프 426). **Böhm Table I 의 대조 결과** — 그 표의 Ertalyte 밀도 `1.31`, UTS `78.83 MPa` 는 시트의 1.39/1.41 · 90/85.5 MPa 와 각각 6% · 12~13% 어긋난다. 같은 표의 PP 0.91 · PSU 1.24 · PVDF 1.77 은 주지의 값과 맞는데 **Ertalyte(1.31, 실제 1.38~1.40)와 Polycarbonate(1.14, 실제 1.20) 두 칸만 5~6% 낮다**(브리프 141·443). 게다가 그 표는 저자 본문이 `selected material properties of the polymers` 라 밝힌 편찬 열이다(브리프 3·195). 그래서 Böhm 의 물성 열은 옮기지 않고 벤더 시트만 썼다."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 85490000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D638",
+      "definition": "tensile strength",
+      "temperature_c": "미인쇄 (건조 상태 dry)",
+      "grade": "Ertalyte PET"
+     },
+     "notes": "`Tensile strength ASTM D638 PSI 12,400`. 12,400 x 6894.757 = 8.549e7 Pa. ISO 90 MPa 와 5% 차. 시트가 ISO 열과 ASTM 열을 나란히 인쇄한다. **규격이 다르면 다른 행이다**(브리프 242·136) — 시편·속도가 달라 값이 갈리므로 둘 다 남기고 `test_standard` 로 구분했다. **연대 주의** — Böhm 1990 이 시험한 것은 1990년 당시 Erta NV(벨기에)의 Ertalyte 이고, 이 시트는 그 상표를 승계한 Mitsubishi Chemical Advanced Materials 의 2024년판이다(Erta -> Quadrant -> MCAM). 상표와 재료 정의(무충전 반결정 PET-P 압출 스톡)는 연속이지만 34년 간격이 있다(브리프 426). **Böhm Table I 의 대조 결과** — 그 표의 Ertalyte 밀도 `1.31`, UTS `78.83 MPa` 는 시트의 1.39/1.41 · 90/85.5 MPa 와 각각 6% · 12~13% 어긋난다. 같은 표의 PP 0.91 · PSU 1.24 · PVDF 1.77 은 주지의 값과 맞는데 **Ertalyte(1.31, 실제 1.38~1.40)와 Polycarbonate(1.14, 실제 1.20) 두 칸만 5~6% 낮다**(브리프 141·443). 게다가 그 표는 저자 본문이 `selected material properties of the polymers` 라 밝힌 편찬 열이다(브리프 3·195). 그래서 Böhm 의 물성 열은 옮기지 않고 벤더 시트만 썼다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.29,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 23,
+      "temperature_k": 296.15,
+      "grade": "Ertalyte PET"
+     },
+     "notes": "`Thermal conductivity at 23 degC (73 degF) W/(K.m) 0.29`. 단위가 이미 SI. **단위쌍 검산(브리프 225)** — 같은 행 ASTM 열 `2 BTU in./(hr.ft^2.degF)` x 0.144228 = 0.2885 W/(m*K), 맞는다. **연대 주의** — Böhm 1990 이 시험한 것은 1990년 당시 Erta NV(벨기에)의 Ertalyte 이고, 이 시트는 그 상표를 승계한 Mitsubishi Chemical Advanced Materials 의 2024년판이다(Erta -> Quadrant -> MCAM). 상표와 재료 정의(무충전 반결정 PET-P 압출 스톡)는 연속이지만 34년 간격이 있다(브리프 426). **Böhm Table I 의 대조 결과** — 그 표의 Ertalyte 밀도 `1.31`, UTS `78.83 MPa` 는 시트의 1.39/1.41 · 90/85.5 MPa 와 각각 6% · 12~13% 어긋난다. 같은 표의 PP 0.91 · PSU 1.24 · PVDF 1.77 은 주지의 값과 맞는데 **Ertalyte(1.31, 실제 1.38~1.40)와 Polycarbonate(1.14, 실제 1.20) 두 칸만 5~6% 낮다**(브리프 141·443). 게다가 그 표는 저자 본문이 `selected material properties of the polymers` 라 밝힌 편찬 열이다(브리프 3·195). 그래서 Böhm 의 물성 열은 옮기지 않고 벤더 시트만 썼다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 6e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_range_c": "23-60",
+      "grade": "Ertalyte PET"
+     },
+     "notes": "`Coefficient of linear thermal expansion (23 to 60 degC) um/(m.K) 60`. x1e-6 -> 6.0e-5 /K. **구간을 조건에 못박았다** — 같은 시트가 세 구간을 따로 인쇄한다(브리프 9). **연대 주의** — Böhm 1990 이 시험한 것은 1990년 당시 Erta NV(벨기에)의 Ertalyte 이고, 이 시트는 그 상표를 승계한 Mitsubishi Chemical Advanced Materials 의 2024년판이다(Erta -> Quadrant -> MCAM). 상표와 재료 정의(무충전 반결정 PET-P 압출 스톡)는 연속이지만 34년 간격이 있다(브리프 426). **Böhm Table I 의 대조 결과** — 그 표의 Ertalyte 밀도 `1.31`, UTS `78.83 MPa` 는 시트의 1.39/1.41 · 90/85.5 MPa 와 각각 6% · 12~13% 어긋난다. 같은 표의 PP 0.91 · PSU 1.24 · PVDF 1.77 은 주지의 값과 맞는데 **Ertalyte(1.31, 실제 1.38~1.40)와 Polycarbonate(1.14, 실제 1.20) 두 칸만 5~6% 낮다**(브리프 141·443). 게다가 그 표는 저자 본문이 `selected material properties of the polymers` 라 밝힌 편찬 열이다(브리프 3·195). 그래서 Böhm 의 물성 열은 옮기지 않고 벤더 시트만 썼다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 8e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_range_c": "23-100",
+      "grade": "Ertalyte PET"
+     },
+     "notes": "`Coefficient of linear thermal expansion (23 to 100 degC) um/(m.K) 80`. x1e-6 -> 8.0e-5 /K. 23-60 구간의 6.0e-5 보다 크다 — Tg(PET 약 80 degC)를 걸치므로 물리적으로 맞는 방향이다. **연대 주의** — Böhm 1990 이 시험한 것은 1990년 당시 Erta NV(벨기에)의 Ertalyte 이고, 이 시트는 그 상표를 승계한 Mitsubishi Chemical Advanced Materials 의 2024년판이다(Erta -> Quadrant -> MCAM). 상표와 재료 정의(무충전 반결정 PET-P 압출 스톡)는 연속이지만 34년 간격이 있다(브리프 426). **Böhm Table I 의 대조 결과** — 그 표의 Ertalyte 밀도 `1.31`, UTS `78.83 MPa` 는 시트의 1.39/1.41 · 90/85.5 MPa 와 각각 6% · 12~13% 어긋난다. 같은 표의 PP 0.91 · PSU 1.24 · PVDF 1.77 은 주지의 값과 맞는데 **Ertalyte(1.31, 실제 1.38~1.40)와 Polycarbonate(1.14, 실제 1.20) 두 칸만 5~6% 낮다**(브리프 141·443). 게다가 그 표는 저자 본문이 `selected material properties of the polymers` 라 밝힌 편찬 열이다(브리프 3·195). 그래서 Böhm 의 물성 열은 옮기지 않고 벤더 시트만 썼다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 5.94e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_range_c": "-40 ~ 150",
+      "test_standard": "ASTM E-831 (TMA)",
+      "grade": "Ertalyte PET"
+     },
+     "notes": "`Coefficient of linear thermal expansion (-40 to 150 degC) ASTM E-831 (TMA) uin./in./degF 33`. 33 uin/(in*degF) x 1.8 degF/degC = 59.4 um/(m*K) -> 5.94e-5 /K. ISO 열의 23-60 구간 6.0e-5 와 1% 안에서 일치한다 — 두 열이 서로를 검산한다. **연대 주의** — Böhm 1990 이 시험한 것은 1990년 당시 Erta NV(벨기에)의 Ertalyte 이고, 이 시트는 그 상표를 승계한 Mitsubishi Chemical Advanced Materials 의 2024년판이다(Erta -> Quadrant -> MCAM). 상표와 재료 정의(무충전 반결정 PET-P 압출 스톡)는 연속이지만 34년 간격이 있다(브리프 426). **Böhm Table I 의 대조 결과** — 그 표의 Ertalyte 밀도 `1.31`, UTS `78.83 MPa` 는 시트의 1.39/1.41 · 90/85.5 MPa 와 각각 6% · 12~13% 어긋난다. 같은 표의 PP 0.91 · PSU 1.24 · PVDF 1.77 은 주지의 값과 맞는데 **Ertalyte(1.31, 실제 1.38~1.40)와 Polycarbonate(1.14, 실제 1.20) 두 칸만 5~6% 낮다**(브리프 141·443). 게다가 그 표는 저자 본문이 `selected material properties of the polymers` 라 밝힌 편찬 열이다(브리프 3·195). 그래서 Böhm 의 물성 열은 옮기지 않고 벤더 시트만 썼다."
+    }
+   ]
+  }
+ ]
+}

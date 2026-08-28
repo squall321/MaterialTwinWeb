@@ -1,0 +1,222 @@
+{
+ "batch": "GB-1 45차 · 언더필·다이어태치 코어물성(벤더 TDS + 논문 표)",
+ "materials": [
+  {
+   "match_name": "Ablebond 965-1L silver-filled epoxy die attach adhesive (Ablestik) - Hsiung 2003",
+   "source": {
+    "kind": "datasheet",
+    "title": "Technical Data Sheet — LOCTITE ABLESTIK 965-1L (formerly ABLEBOND 965-1L), October-2014",
+    "url": "https://datasheets.tdx.henkel.com/LOCTITE-ABLESTIK-965-1L-en_GL.pdf",
+    "publisher": "Henkel Corporation",
+    "authors": "Henkel Corporation (Loctite Ablestik)",
+    "year": 2014
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 5800000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 208.15,
+      "temperature_c": -65,
+      "regime": "below_tg",
+      "glass_transition_c": 72,
+      "test_method": "DMTA (시트 표기 'Tensile Modulus, DMTA'), 주파수 미인쇄",
+      "grade": "LOCTITE ABLESTIK 965-1L (= ABLEBOND 965-1L)",
+      "cure": "1 h @ 150 degC (시트 권장 경화)"
+     },
+     "notes": "`Tensile Modulus, DMTA` 블록. 시트가 N/mm^2 와 (psi) 를 병기해 **자체 검산이 된다**(브리프 225) — 5,800/(840,000) · 4,800/(700,000) · 290/(42,000) · 300/(44,000) 이 x145.038 로 각각 841k·696k·42.1k·43.5k psi, 인쇄된 유효자릿수 안에서 맞는다. N/mm^2 = MPa 이므로 x1e6 -> Pa. Tg 72 degC(TMA penetration, 같은 시트) 기준으로 -65·25 degC 는 Tg 아래, 150·250 degC 는 Tg 위다. 키 선택은 선례를 따랐다 — 카탈로그의 재료 144(Conductive Silver Epoxy)가 LOCTITE ABLESTIK 84-1LMISR4 의 같은 `DMTA tensile modulus` 를 `mechanical.youngs_modulus` 에 넣고 있다(브리프 136·471: 원문이 인쇄한 이름과 단위가 정본)."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 4800000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 298.15,
+      "temperature_c": 25,
+      "regime": "below_tg",
+      "glass_transition_c": 72,
+      "test_method": "DMTA (시트 표기 'Tensile Modulus, DMTA'), 주파수 미인쇄",
+      "grade": "LOCTITE ABLESTIK 965-1L (= ABLEBOND 965-1L)",
+      "cure": "1 h @ 150 degC (시트 권장 경화)"
+     },
+     "notes": "`Tensile Modulus, DMTA` 블록. 시트가 N/mm^2 와 (psi) 를 병기해 **자체 검산이 된다**(브리프 225) — 5,800/(840,000) · 4,800/(700,000) · 290/(42,000) · 300/(44,000) 이 x145.038 로 각각 841k·696k·42.1k·43.5k psi, 인쇄된 유효자릿수 안에서 맞는다. N/mm^2 = MPa 이므로 x1e6 -> Pa. Tg 72 degC(TMA penetration, 같은 시트) 기준으로 -65·25 degC 는 Tg 아래, 150·250 degC 는 Tg 위다. 키 선택은 선례를 따랐다 — 카탈로그의 재료 144(Conductive Silver Epoxy)가 LOCTITE ABLESTIK 84-1LMISR4 의 같은 `DMTA tensile modulus` 를 `mechanical.youngs_modulus` 에 넣고 있다(브리프 136·471: 원문이 인쇄한 이름과 단위가 정본)."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 290000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 423.15,
+      "temperature_c": 150,
+      "regime": "above_tg",
+      "glass_transition_c": 72,
+      "test_method": "DMTA (시트 표기 'Tensile Modulus, DMTA'), 주파수 미인쇄",
+      "grade": "LOCTITE ABLESTIK 965-1L (= ABLEBOND 965-1L)",
+      "cure": "1 h @ 150 degC (시트 권장 경화)"
+     },
+     "notes": "`Tensile Modulus, DMTA` 블록. 시트가 N/mm^2 와 (psi) 를 병기해 **자체 검산이 된다**(브리프 225) — 5,800/(840,000) · 4,800/(700,000) · 290/(42,000) · 300/(44,000) 이 x145.038 로 각각 841k·696k·42.1k·43.5k psi, 인쇄된 유효자릿수 안에서 맞는다. N/mm^2 = MPa 이므로 x1e6 -> Pa. Tg 72 degC(TMA penetration, 같은 시트) 기준으로 -65·25 degC 는 Tg 아래, 150·250 degC 는 Tg 위다. 키 선택은 선례를 따랐다 — 카탈로그의 재료 144(Conductive Silver Epoxy)가 LOCTITE ABLESTIK 84-1LMISR4 의 같은 `DMTA tensile modulus` 를 `mechanical.youngs_modulus` 에 넣고 있다(브리프 136·471: 원문이 인쇄한 이름과 단위가 정본)."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 300000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 523.15,
+      "temperature_c": 250,
+      "regime": "above_tg",
+      "glass_transition_c": 72,
+      "test_method": "DMTA (시트 표기 'Tensile Modulus, DMTA'), 주파수 미인쇄",
+      "grade": "LOCTITE ABLESTIK 965-1L (= ABLEBOND 965-1L)",
+      "cure": "1 h @ 150 degC (시트 권장 경화)"
+     },
+     "notes": "`Tensile Modulus, DMTA` 블록. 시트가 N/mm^2 와 (psi) 를 병기해 **자체 검산이 된다**(브리프 225) — 5,800/(840,000) · 4,800/(700,000) · 290/(42,000) · 300/(44,000) 이 x145.038 로 각각 841k·696k·42.1k·43.5k psi, 인쇄된 유효자릿수 안에서 맞는다. N/mm^2 = MPa 이므로 x1e6 -> Pa. Tg 72 degC(TMA penetration, 같은 시트) 기준으로 -65·25 degC 는 Tg 아래, 150·250 degC 는 Tg 위다. 키 선택은 선례를 따랐다 — 카탈로그의 재료 144(Conductive Silver Epoxy)가 LOCTITE ABLESTIK 84-1LMISR4 의 같은 `DMTA tensile modulus` 를 `mechanical.youngs_modulus` 에 넣고 있다(브리프 136·471: 원문이 인쇄한 이름과 단위가 정본)."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 5e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "regime": "below_tg",
+      "glass_transition_c": 72,
+      "test_method": "TMA expansion",
+      "grade": "LOCTITE ABLESTIK 965-1L (= ABLEBOND 965-1L)",
+      "cure": "1 h @ 150 degC",
+      "temperature_range_c": "미인쇄 — 시트는 Tg 를 경계로만 가른다"
+     },
+     "notes": "인쇄값 `Coefficient of Thermal Expansion , TMA expansion: Below Tg 50`. 시트가 CTE 행에 단위를 인쇄하지 않는다(브리프 257). 같은 Henkel Ablestik TDS 계열의 자매 시트가 **같은 행 구조에 단위를 명기**해 닫았다(브리프 146·147) — LOCTITE ABLESTIK 84-1LMIT: `Coefficient of Thermal Expansion, : Below Tg, ppm/degC 52 / Above Tg, ppm/degC 200`, LOCTITE ABLESTIK 85-1: `Coefficient of Thermal Expansion, ppm/degC: Below Tg 52 / Above Tg 200`. 따라서 965-1L 의 50·190 도 ppm/degC 다. x1e-6 -> 1/K."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 0.00019,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "regime": "above_tg",
+      "glass_transition_c": 72,
+      "test_method": "TMA expansion",
+      "grade": "LOCTITE ABLESTIK 965-1L (= ABLEBOND 965-1L)",
+      "cure": "1 h @ 150 degC",
+      "temperature_range_c": "미인쇄 — 시트는 Tg 를 경계로만 가른다"
+     },
+     "notes": "인쇄값 `Above Tg 190`. 시트가 CTE 행에 단위를 인쇄하지 않는다(브리프 257). 같은 Henkel Ablestik TDS 계열의 자매 시트가 **같은 행 구조에 단위를 명기**해 닫았다(브리프 146·147) — LOCTITE ABLESTIK 84-1LMIT: `Coefficient of Thermal Expansion, : Below Tg, ppm/degC 52 / Above Tg, ppm/degC 200`, LOCTITE ABLESTIK 85-1: `Coefficient of Thermal Expansion, ppm/degC: Below Tg 52 / Above Tg 200`. 따라서 965-1L 의 50·190 도 ppm/degC 다. x1e-6 -> 1/K. CTE2/CTE1 = 3.8 배로 이 갈래의 전형과 맞는다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 3.0,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": "미인쇄 (시트가 열전도율에 온도를 인쇄하지 않는다)",
+      "direction": "미인쇄 (은충전 페이스트 벌크값)",
+      "grade": "LOCTITE ABLESTIK 965-1L (= ABLEBOND 965-1L)",
+      "cure": "1 h @ 150 degC"
+     },
+     "notes": "인쇄값 `Thermal Conductivity, W/(m-K) 3.0`. 단위가 이미 SI라 환산 없음. 은충전 다이어태치의 전형 대역(2~5)에 든다 — 자매 시트 84-1LMIT 4.3 · 85-1 2.07 과 같은 대역."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 345.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "TMA penetration (시트 표기)",
+      "temperature_c": 72,
+      "grade": "LOCTITE ABLESTIK 965-1L (= ABLEBOND 965-1L)",
+      "cure": "1 h @ 150 degC"
+     },
+     "notes": "인쇄값 `Glass Transition Temperature, TMA penetration, degC 72`. +273.15 -> 345.15 K. 이 행이 같은 시트의 CTE1/CTE2·모듈러스 네 점의 Tg 구간 배정을 확정한다."
+    }
+   ]
+  },
+  {
+   "match_name": "Underfill Zymet X6-82-0, silica-filled epoxy 62 wt% with no adhesion promoter (Hohlfelder 2001)",
+   "source": {
+    "kind": "journal",
+    "title": "Adhesion of benzocyclobutene-passivated silicon in epoxy layered structures",
+    "doi": "10.1557/jmr.2001.0037",
+    "url": "https://doi.org/10.1557/jmr.2001.0037",
+    "authors": "Robert J. Hohlfelder, Daniel A. Maidenberg, Reinhold H. Dauskardt, Yueguang Wei, John W. Hutchinson",
+    "year": 2001,
+    "publisher": "Journal of Materials Research (Cambridge University Press)",
+    "local_path": "/data/paper_patent_corpus/structured/snowball_papers/from_cae/Hohlfelder - 2001 - Adhesion of benzocyclobutene-passivated silicon in epoxy layered structures/Hohlfelder - 2001 - Adhesion of benzocyclobutene-passivated silicon in epoxy layered structures.md"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 4000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_k": 298.15,
+      "temperature_basis": "미인쇄 — ASTM D-638-98 표준 실험실 조건 규약(형제 행 1106/1107 과 동일)",
+      "regime": "below_tg",
+      "regime_basis": "논문이 Tg 를 인쇄하지 않는다. 4 GPa 는 유리상 값이고 고무상은 자릿수가 다르므로 유리상 구간으로 읽었다 — 이 라벨은 우리 판정이다",
+      "test_standard": "ASTM D-638-98",
+      "test_method": "uniaxial tension, miniature dogbone (gauge 25 mm), MTS Bionix 200, 25 um/s, true stress-true strain",
+      "grade_scope": "class value — TABLE I `Zymet UF` 행(측정 시편은 X6-82-5/-8). 대상은 X6-82-0",
+      "filler": "silica 62 wt%, <=10 um",
+      "cure": "165 degC / 5 min",
+      "state": "cured per manufacturer schedule"
+     },
+     "notes": "TABLE I `E (GPa)` 열 `Zymet UF` 행 = 4. x1e9 -> Pa. **본문이 표를 다시 인쇄해 열 배정이 닫힌다(브리프 207)** — verbatim: *\"The Young's modulus of the Zymet underfill (4 GPa) was significantly higher than that of the Dexter underfill (2 GPa)\"*, 그리고 EPZ 시뮬레이션 절이 *\"E_UF = 2 and 4 GPa for the Dexter and Zymet, respectively\"* 로 세 번째로 인쇄한다. **등급 전이다(정본 규칙 5)** — TABLE I `Zymet UF` 행의 인장 시편은 본문상 **Zymet-5·-8** 이다: *\"No discernible differences were apparent for the Zymet-5 and Zymet-8 compositions. This was anticipated since the only difference between the two compositions was the presence of an additional adhesion promoter in the Zymet-8 which was not expected to impact bulk mechanical properties.\"* 본 재료 X6-82-0 는 2.A절 verbatim 으로 *\"containing no adhesion promoters but otherwise identical to the -5 and -8 formulations\"* 다. 즉 **-0/-5 의 차이도 접착촉진제(약 1 wt%)뿐이고, 저자 자신이 그 성분은 벌크 기계물성을 안 움직인다고 못박았다.** 그래서 옮기되 tier3 + grade_scope 로 둔다. 같은 표에서 온 형제 행이 카탈로그 1106(X6-82-5)·1107(X6-82-8)에 tier1 로 이미 들어 있다 — 그 둘이 원 측정이고 이 행은 전이다. 2.B절 `Underfill mechanical testing` 이 측정법을 밝힌다 — 미니어처 도그본(게이지길이 25 mm), ASTM D-638-98 준거, MTS Bionix 200(1 kN 로드셀), 변위속도 25 um/s, true stress-true strain. **시험온도는 인쇄되지 않았다**(방법절에도 없다 — 브리프 365). 조건의 298.15 K 는 ASTM D-638-98 표준 실험실 조건 규약이며, 같은 표에서 온 1106·1107 행이 쓴 규약과 맞춘 것이다. md 추출의 열 머리글 `n` 은 포아송비가 아니라 **가공경화지수**다 — 0.62/0.68/0.77 이 물리 상한 0.5 를 넘고(브리프 443), 본문 verbatim 이 *\"an elastic/power-law hardening relationship with strain hardening exponent n\"* 이다. 이 표에서 포아송비는 나오지 않는다."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 65000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_k": 298.15,
+      "temperature_basis": "미인쇄 — ASTM D-638-98 표준 실험실 조건 규약(형제 행 1106/1107 과 동일)",
+      "regime": "below_tg",
+      "regime_basis": "논문이 Tg 를 인쇄하지 않는다. 4 GPa 는 유리상 값이고 고무상은 자릿수가 다르므로 유리상 구간으로 읽었다 — 이 라벨은 우리 판정이다",
+      "test_standard": "ASTM D-638-98",
+      "test_method": "uniaxial tension, miniature dogbone (gauge 25 mm), MTS Bionix 200, 25 um/s, true stress-true strain",
+      "grade_scope": "class value — TABLE I `Zymet UF` 행(측정 시편은 X6-82-5/-8). 대상은 X6-82-0",
+      "filler": "silica 62 wt%, <=10 um",
+      "cure": "165 degC / 5 min",
+      "definition": "ultimate tensile strength (표 머리글 sigma_UTS)",
+      "failure_mode": "brittle fracture at ~3-4% strain (본문)"
+     },
+     "notes": "TABLE I `sigma_UTS (MPa)` 열 `Zymet UF` 행 = 65. x1e6 -> Pa. **자기 검산(정본 규칙 8)** — 본문이 *\"specimens exhibited linear elastic behavior to applied strains of approximately 0.8% ... for the Zymet\"* 라고 인쇄하는데, E 4 GPa x 0.8% = 32 MPa 로 같은 표의 항복 36 MPa 와 12% 안에서 맞는다. 파단은 *\"brittle fracture at strains of approximately 3-4%\"* 로 UTS 65 MPa 와 순서가 맞는다. **등급 전이다(정본 규칙 5)** — TABLE I `Zymet UF` 행의 인장 시편은 본문상 **Zymet-5·-8** 이다: *\"No discernible differences were apparent for the Zymet-5 and Zymet-8 compositions. This was anticipated since the only difference between the two compositions was the presence of an additional adhesion promoter in the Zymet-8 which was not expected to impact bulk mechanical properties.\"* 본 재료 X6-82-0 는 2.A절 verbatim 으로 *\"containing no adhesion promoters but otherwise identical to the -5 and -8 formulations\"* 다. 즉 **-0/-5 의 차이도 접착촉진제(약 1 wt%)뿐이고, 저자 자신이 그 성분은 벌크 기계물성을 안 움직인다고 못박았다.** 그래서 옮기되 tier3 + grade_scope 로 둔다. 같은 표에서 온 형제 행이 카탈로그 1106(X6-82-5)·1107(X6-82-8)에 tier1 로 이미 들어 있다 — 그 둘이 원 측정이고 이 행은 전이다. 2.B절 `Underfill mechanical testing` 이 측정법을 밝힌다 — 미니어처 도그본(게이지길이 25 mm), ASTM D-638-98 준거, MTS Bionix 200(1 kN 로드셀), 변위속도 25 um/s, true stress-true strain. **시험온도는 인쇄되지 않았다**(방법절에도 없다 — 브리프 365). 조건의 298.15 K 는 ASTM D-638-98 표준 실험실 조건 규약이며, 같은 표에서 온 1106·1107 행이 쓴 규약과 맞춘 것이다. md 추출의 열 머리글 `n` 은 포아송비가 아니라 **가공경화지수**다 — 0.62/0.68/0.77 이 물리 상한 0.5 를 넘고(브리프 443), 본문 verbatim 이 *\"an elastic/power-law hardening relationship with strain hardening exponent n\"* 이다. 이 표에서 포아송비는 나오지 않는다."
+    },
+    {
+     "key": "mechanical.yield_strength",
+     "value": 36000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_k": 298.15,
+      "temperature_basis": "미인쇄 — ASTM D-638-98 표준 실험실 조건 규약(형제 행 1106/1107 과 동일)",
+      "regime": "below_tg",
+      "regime_basis": "논문이 Tg 를 인쇄하지 않는다. 4 GPa 는 유리상 값이고 고무상은 자릿수가 다르므로 유리상 구간으로 읽었다 — 이 라벨은 우리 판정이다",
+      "test_standard": "ASTM D-638-98",
+      "test_method": "uniaxial tension, miniature dogbone (gauge 25 mm), MTS Bionix 200, 25 um/s, true stress-true strain",
+      "grade_scope": "class value — TABLE I `Zymet UF` 행(측정 시편은 X6-82-5/-8). 대상은 X6-82-0",
+      "filler": "silica 62 wt%, <=10 um",
+      "cure": "165 degC / 5 min",
+      "definition": "0.2% offset yield stress (본문이 명시)"
+     },
+     "notes": "TABLE I `sigma_ys (MPa)` 열 `Zymet UF` 행 = 36. x1e6 -> Pa. **정의는 본문이 정한다(브리프 471)** — verbatim: *\"The 0.2% offset yield stress, sigma_ys, of the Zymet underfill (36 MPa) was lower than the Dexter yield stress (46 MPa)\"*. 본문 재인쇄가 열 배정도 닫는다(브리프 207). **등급 전이다(정본 규칙 5)** — TABLE I `Zymet UF` 행의 인장 시편은 본문상 **Zymet-5·-8** 이다: *\"No discernible differences were apparent for the Zymet-5 and Zymet-8 compositions. This was anticipated since the only difference between the two compositions was the presence of an additional adhesion promoter in the Zymet-8 which was not expected to impact bulk mechanical properties.\"* 본 재료 X6-82-0 는 2.A절 verbatim 으로 *\"containing no adhesion promoters but otherwise identical to the -5 and -8 formulations\"* 다. 즉 **-0/-5 의 차이도 접착촉진제(약 1 wt%)뿐이고, 저자 자신이 그 성분은 벌크 기계물성을 안 움직인다고 못박았다.** 그래서 옮기되 tier3 + grade_scope 로 둔다. 같은 표에서 온 형제 행이 카탈로그 1106(X6-82-5)·1107(X6-82-8)에 tier1 로 이미 들어 있다 — 그 둘이 원 측정이고 이 행은 전이다. 2.B절 `Underfill mechanical testing` 이 측정법을 밝힌다 — 미니어처 도그본(게이지길이 25 mm), ASTM D-638-98 준거, MTS Bionix 200(1 kN 로드셀), 변위속도 25 um/s, true stress-true strain. **시험온도는 인쇄되지 않았다**(방법절에도 없다 — 브리프 365). 조건의 298.15 K 는 ASTM D-638-98 표준 실험실 조건 규약이며, 같은 표에서 온 1106·1107 행이 쓴 규약과 맞춘 것이다. md 추출의 열 머리글 `n` 은 포아송비가 아니라 **가공경화지수**다 — 0.62/0.68/0.77 이 물리 상한 0.5 를 넘고(브리프 443), 본문 verbatim 이 *\"an elastic/power-law hardening relationship with strain hardening exponent n\"* 이다. 이 표에서 포아송비는 나오지 않는다."
+    }
+   ]
+  }
+ ]
+}
