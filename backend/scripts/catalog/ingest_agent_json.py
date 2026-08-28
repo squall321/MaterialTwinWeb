@@ -191,6 +191,22 @@ def norm_kind(k: str | None) -> str:
     return k if k in KIND_OK else KIND_MAP.get(k, "other")
 
 
+def pick_publisher(src: dict) -> str | None:
+    """출처의 발행처. `publisher` 와 `manufacturer` 둘 다 받는다.
+
+    45차 GB 가 짚었다 — 로더가 `manufacturer` 만 읽는데, 배치 지시문은 `publisher` 라 적으라
+    했다. **그래서 JSON 에 적어도 조용히 사라졌다.** DB 컬럼 이름이 `source.publisher` 라
+    배치가 그쪽을 쓰는 것이 자연스럽고, MCP 인자 이름이 `source_manufacturer` 라 그쪽도 맞다.
+    어느 쪽이 옳으냐를 정하는 대신 **둘 다 받는다** — 이 갈림이 값을 버리게 둘 이유가 없다.
+    실측(2026-08-22) — datasheet 출처 1,100건 중 434건이 publisher 가 비어 있다.
+    """
+    for k in ("publisher", "manufacturer"):
+        v = src.get(k)
+        if isinstance(v, str) and v.strip():
+            return v.strip()
+    return None
+
+
 # 비율 물성인데 1을 넘으면 퍼센트 오입력 의심(엘라스토머 연신율은 예외로 20까지 허용).
 PCT_SUSPECT = {"chemical.water_absorption_24h", "chemical.water_absorption_saturation",
                "optical.transmittance", "optical.haze", "optical.emissivity_total"}
@@ -554,7 +570,7 @@ def main() -> int:
                             source_authors=src.get("authors"), source_year=src.get("year"),
                             source_local_path=src.get("local_path"),
                             source_kind=norm_kind(src.get("kind")),
-                            source_manufacturer=src.get("manufacturer"))
+                            source_manufacturer=pick_publisher(src))
                         if "error" in r:
                             print(f"    ✗ {key}: {r['error']}")
                             continue
@@ -608,7 +624,7 @@ def main() -> int:
                         source_authors=src.get("authors"), source_year=src.get("year"),
                             source_local_path=src.get("local_path"),
                         source_kind=norm_kind(src.get("kind")),
-                        source_manufacturer=src.get("manufacturer"))
+                        source_manufacturer=pick_publisher(src))
                     if "error" in r:
                         print(f"    ✗ {key}: {r['error']}")
                         continue
