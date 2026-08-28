@@ -28,6 +28,14 @@ from app.models import Material, PropertyDefinition, PropertyValue  # noqa: E402
 RANGE = {
     "physical.density": (1.0, 25000.0),
     "mechanical.youngs_modulus": (1e3, 1.5e12),
+    # [2026-08-28 · 46차 HA] 율속별 영률. **상한은 youngs_modulus 와 같게 두고 하한은 0 이다.**
+    # 인쇄된 값을 하한 가드가 막은 사고가 일곱 번 났다(브리프 150·161 — Prony 두 번,
+    # peel_strength, tack/static_shear_holding, lap/die_shear_strength, 포아송비, 열전도율).
+    # 그때마다 결론이 같았다 — **새 키는 하한 0 으로 시작해라.** 율속 모듈러스는 특히 그렇다:
+    # Tg 위 고무상에서 값이 두 자릿수 kPa 로 떨어지고(같은 논문 Fig7 의 130 °C 가 2.52 GPa 인데
+    # 폼·엘라스토머 율속 계열은 1e5 Pa 대다), MPa 원값 오입력을 잡겠다고 1e3 을 두면
+    # 그 대역을 통째로 자른다. 단위 오입력은 조건·notes 대조로 잡는다.
+    "mechanical.youngs_modulus_at_rate": (0.0, 1.5e12),
     # [2026-08-19 · 42차 DA] 하한 0.0 → -1.0. **인쇄된 값을 범위 가드가 막는 사고 — 여섯 번째다**
     # (17·19차 Prony 상·하한, 21차 peel_strength·tack, 40차 인쇄된 0, 그리고 여기).
     # 포아송비는 **무차원이라 하한 0 이 단위 오입력을 하나도 못 잡는다** — 막는 것은 auxetic 재료뿐이다.

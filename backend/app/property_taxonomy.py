@@ -241,6 +241,22 @@ _DEFS: list[tuple] = [
     # 항복이 그림뿐이고 UTS만 표로 인쇄되는 경우가 드물지 않다.
     ("mechanical.tensile_strength_at_rate", "mechanical", "변형률속도별 인장강도", None, "Pa", "numeric",
      ["strain_rate_s", "temperature_k"], None),
+    # [2026-08-28 · 46차 HA] 율속 계열에 **모듈러스만 없었다.** 45차 GB 가 Chhanda 2012
+    # Fig10(5온도 x 4변형률속도 = 20칸)을 벡터 좌표까지 다 읽어 놓고 담을 키가 없어 버렸다
+    # (브리프 468 — 키 부재는 값 하나가 아니라 갈래 전체를 막는다).
+    #
+    # **왜 `mechanical.youngs_modulus` 로는 안 되는가** — 안 되는 게 아니라, 이 키는
+    # 위 두 형제와 같은 자리다. 율속 계열은 **한 재료에서 같은 온도에 값이 여럿 서는 격자**라
+    # 온도축 하나뿐인 `youngs_modulus` 에 부으면 대표값 선택이 격자의 아무 칸이나 집는다.
+    # 항복·인장강도가 이미 그 이유로 갈려 있으니 **모듈러스만 남기면 세트가 깨진다** —
+    # 같은 그림 묶음(Fig10 E · Fig11 UTS)이 두 키로 흩어져 LCSR 원자료로 못 쓰인다.
+    # 이름·조건축·단위를 형제 둘에 **글자 단위로 맞춘다**(브리프 487 — 나란히 지어라).
+    #
+    # ⚠ 새 이름을 만들지 않았다. 조건축 `strain_rate_s` 는 형제 둘이 이미 쓰는 이름이다
+    # (DB 실측: yield 415행 · tensile 349행 전부 `strain_rate_s`). `strain_rate_1/s` 는
+    # 다른 키들이 쓰는 별개 표기라 여기 끌어오지 않는다.
+    ("mechanical.youngs_modulus_at_rate", "mechanical", "변형률속도별 영률", None, "Pa", "numeric",
+     ["strain_rate_s", "temperature_k"], None),
     # ── 피로·손상 ─────────────────────────────────────────────────────────────
     # 지금까지 fatigue_strength(단일 피로한도)만 있어 "무한수명 판정"밖에 못 했다.
     # 아래 계수쌍이 있어야 "몇 사이클에 깨지는가"를 답한다.
