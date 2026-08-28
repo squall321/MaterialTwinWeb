@@ -41,6 +41,39 @@ _DEFS: list[tuple] = [
     # ⚠ 단위는 무차원 0~1(% 를 100 으로 나눈다). 축은 **OR 로 읽어라**(287번).
     ("mechanical.elongation_at_yield", "mechanical", "항복연신율", "e_y", "1", "numeric",
      ["temperature_k", "test_standard", "specimen"], "ASTM D638"),
+    # [2026-08-28 · 47차 ID] **소성 파단변형률은 파단연신율의 일부이지 같은 양이 아니다.**
+    # `elongation_at_break`(A)는 **총 연신**(탄성 + 소성)이고 이 키는 **소성분만**이다.
+    # 46차 HA 가 Hohlfelder 2001 TABLE I 의 `e pl (%)` 열을 눈으로 보고도 담을 키가 없어 버렸다.
+    #
+    # **원문 자신의 산술이 둘이 다른 양임을 보인다**(§237 · 정본 규칙 8). 같은 표의 E·σ_UTS 로
+    # 탄성분을 계산해 소성분과 더하면 본문이 인쇄한 파단변형과 닫힌다 —
+    #   Zymet  65 MPa / 4 GPa = 1.63 % + ε_pl 1.5 % = **3.13 %**
+    #   Dexter 51 MPa / 2 GPa = 2.55 % + ε_pl 0.5 % = **3.05 %**
+    # 둘 다 본문 verbatim *"failed by brittle fracture at strains of approximately 3-4%"* 안에 든다.
+    # **이 유리질 에폭시는 탄성분이 소성분보다 크다** — 그래서 소성분을 총 연신 키에 부으면
+    # Dexter 가 0.5 % 로 앉아 실제 파단변형의 1/6 이 된다.
+    #
+    # ⚠ 단위는 무차원 0~1 이다(% 를 100 으로 나눈다 — `elongation_at_break` 와 같은 규약).
+    # ⚠ **`elongation_at_break` 에서 이 값을 빼서 만들지 마라**(역산 금지). 인쇄된 쪽만 넣는다.
+    # 조건축은 `elongation_at_yield`·`reduction_of_area` 와 **글자 단위로 같게** 뒀다(§487).
+    ("mechanical.plastic_strain_at_break", "mechanical", "소성 파단변형률", "eps_pl", "1", "numeric",
+     ["temperature_k", "test_standard", "specimen"], None),
+    # [2026-08-28 · 47차 ID] **`300% 모듈러스` 는 모듈러스가 아니라 지정 변형률에서의 응력이다.**
+    # ASTM D412 · ISO 37 이 `Modulus at 300% elongation` 이라 부르는데, 정의는
+    # **300 % 신장 시점의 응력(원단면 기준)** 이라 Pa 다 — 응력/변형이 아니다(§471 —
+    # 저자가 부르는 이름이 아니라 정의가 키를 정한다). `youngs_modulus` 에 넣으면 안 된다.
+    #
+    # **이름에 `300` 을 박지 않았다**(§478). 100 % · 500 % 모듈러스가 같은 시트에 실리고
+    # (Kraton 은 300 만 찍지만 라텍스·타이어 갈래는 100/200/300 을 나란히 찍는다),
+    # 박으면 키가 변형률마다 갈린다 — `_littleton` 처럼 **한정어가 필요한 이름은 조건축이
+    # 빠진 신호다.** 차원이 같고 파라미터만 다르니 **변형률을 조건축으로 올린다**(§453·478).
+    #
+    # ⚠ **`strain_pct` 없이는 값이 아니다.** 축 이름은 새로 만들지 않았다 —
+    # DB 실측으로 `strain_pct` 가 이미 172 행에서 쓰이는 어휘다(§419 — 어휘를 늘리지 마라).
+    # ⚠ `tensile_strength`(파단점)와 다르다. SBC 는 파단연신이 1,100~1,300 % 라
+    # 300 % 응력(0.7~4 MPa)과 인장강도(21~26 MPa)가 한 자릿수 벌어진다.
+    ("mechanical.tensile_stress_at_strain", "mechanical", "지정 변형률에서의 인장응력", None, "Pa",
+     "numeric", ["strain_pct", "test_standard", "specimen", "temperature_k"], "ASTM D412"),
     ("mechanical.poisson_ratio", "mechanical", "포아송비", "nu", "1", "numeric", ["temperature_k"], "ASTM E132"),
     ("mechanical.shear_modulus", "mechanical", "전단탄성계수", "G", "Pa", "numeric", ["temperature_k"], None),
     ("mechanical.bulk_modulus", "mechanical", "체적탄성계수", "K", "Pa", "numeric", ["temperature_k"], None),
@@ -112,6 +145,25 @@ _DEFS: list[tuple] = [
     # 구별이 안 되니 반드시 채워라(예: "0.1%" · "0.2%").
     ("mechanical.compressive_yield_strength", "mechanical", "압축항복강도", "Rpc", "Pa", "numeric",
      ["offset", "test_standard", "strain_rate_s", "temperature_k"], None),
+    # [2026-08-28 · 47차 ID] **압축 갈래에 모듈러스만 없었다.** 강도는 `compressive_strength`,
+    # 항복은 `compressive_yield_strength` 가 이미 인장과 갈려 있는데 탄성계수만 인장 키에
+    # 얹혀 있었다 — 46차 HA 가 율속 갈래에서 만난 것과 같은 비대칭이다.
+    #
+    # **왜 `youngs_modulus` 로는 안 되는가.** 그 키는 ASTM E111 · D638 **인장** 이다.
+    # 하중 방향이 바뀌면 값이 갈린다(Torlon 4301: 인장 6830 · 굽힘 6890 · **압축 5310 MPa**;
+    # Rogers CLTE-AT: 인장 1790 · **압축 1682 MPa**). 이미 `flexural_modulus` 가 같은 이유로
+    # 갈려 있으므로 **인장·굽힘·압축 삼형제 중 하나만 빠져 있던 것**이다.
+    # 차원이 같으니 조건축으로 담자는 반론이 있는데(§453·478), 하중방식은 **한 시험의
+    # 파라미터가 아니라 다른 시험**이다 — 로크웰 스케일·점도 기준점과 갈리는 지점이고,
+    # 그래서 강도·항복 쪽은 이 taxonomy 가 이미 키로 갈라 뒀다.
+    #
+    # ⚠ **규격이 갈래마다 다르다.** 엔지니어링 열가소성은 ASTM D695, 적층판은 ASTM D3410 이다.
+    # `test_standard` 없이 두 값을 나란히 놓지 마라.
+    # ⚠ **폼·엘라스토머는 이 키로 옮기지 않았다.** 그쪽은 원문이 `Young's modulus`·`탄성계수`로
+    # 인쇄하고 인장 대응값이 아예 없다 — 옮기면 DYNA 카드(`dyna_export.K_E`)가 E 를 잃는다.
+    # **원문이 `Compressive Modulus` 라고 인쇄한 것만** 이 키에 온다(§471 · §480 의 좁힌 매처).
+    ("mechanical.compressive_modulus", "mechanical", "압축탄성계수", "Ec", "Pa", "numeric",
+     ["test_standard", "temperature_k", "strain_rate_s", "direction"], "ASTM D695"),
     ("mechanical.flexural_modulus", "mechanical", "굽힘탄성계수", None, "Pa", "numeric", None, "ISO 178"),
     ("mechanical.flexural_strength", "mechanical", "굽힘강도", None, "Pa", "numeric", None, "ISO 178"),
     ("mechanical.impact_strength_izod", "mechanical", "아이조드 충격강도", None, "J/m", "numeric", ["temperature_k"], "ASTM D256"),
@@ -390,6 +442,21 @@ _DEFS: list[tuple] = [
      ["model_form", "unit_of_term", "temperature_k", "frequency_hz", "specimen_basis"], None),
     ("mechanical.cyclic_strain_hardening_exponent", "mechanical", "순환변형경화지수", "beta", "1",
      "numeric", ["model_form", "temperature_k", "frequency_hz", "specimen_basis"], None),
+    # [2026-08-28 · 47차 ID] **단조 경화지수는 순환 경화지수와 다른 양이다** — 형제로 나란히 둔다(§487).
+    # 위 `cyclic_*` 는 **안정화된 히스테리시스 루프**에서 나오는 Ramberg-Osgood n′
+    # (Δσ = A·Δεp^β · Δτ = A·Δγp^n′)이고, 이 키는 **단조 인장곡선 한 줄**에서 나오는
+    # 멱함수 경화지수(σ = K·εp^n)다. 정의식도 하중이력도 다르다(§471).
+    # DB 실측 — `cyclic_*` 24 행이 **전부** `model: cyclic_stress_strain` 이고 값이 0.02~0.91 이다.
+    # 벌크와 접합부에서 지수가 두 배 갈리는 갈래라(§69·93) 하중이력을 섞으면 그 위에서 또 갈린다.
+    #
+    # ⚠ **`johnson_cook_n` 과도 다르다.** JC 는 σ = (A + B·εp^n)(…) 의 **덧셈형**이라
+    # 같은 곡선에서도 n 이 다른 수로 나온다 — 그래서 `model_form` 을 verbatim 으로 요구한다(§66).
+    # 원문이 식을 인쇄하지 않는 경우가 흔하다(Hohlfelder 2001 은 본문 서술만 인쇄한다).
+    # 그때는 **저자 문장을 그대로** `model_form` 에 박아라. 우리가 식을 고르면 그건 우리 값이다.
+    # ⚠ 조건축은 형제와 맞추되 `frequency_hz` 대신 `strain_rate_s` 다 — 단조시험에 주파수는 없다.
+    ("mechanical.monotonic_strain_hardening_exponent", "mechanical", "단조 변형경화지수", "n", "1",
+     "numeric", ["model_form", "temperature_k", "strain_rate_s", "specimen_basis", "test_standard"],
+     None),
     # Arrhenius 전지수인자 — 활성화에너지의 짝인데 담을 곳이 없어 notes 에만 적혀 있었다.
     # **`physical.diffusion_coefficient` 에 D₀ 를 넣으면 tier1 확산계수와 6자릿수 충돌**한다.
     # 그래서 상수 번들로 둔다 — `lnA (ln s⁻¹)` · `A (min⁻¹)` · `A₀ (h⁻¹atm⁻¹·³¹⁴)` · `η₀ (Pa·s)`
