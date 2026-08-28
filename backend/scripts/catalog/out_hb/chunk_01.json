@@ -1,0 +1,313 @@
+{
+ "materials": [
+  {
+   "match_name": "SAC205 Solder Alloy",
+   "source": {
+    "title": "Viscoplastic Constitutive Model for Lead-Free Solder Including Effects of Silver Content, Solidification Profile, and Severe Aging",
+    "doi": "10.1115/ipack2015-48619",
+    "url": "https://doi.org/10.1115/ipack2015-48619",
+    "kind": "journal",
+    "authors": "Munshi Basit, Mohammad Motalab, Jeffrey C. Suhling, Pradeep Lall",
+    "year": "2015",
+    "publisher": "ASME (Proc. InterPACK/ICNMM2015, IPACK2015-48619)",
+    "local_path": "/data/paper_patent_corpus/structured/cae_papers/04_solder_fatigue_models/Basit - 2015 - Viscoplastic Constitutive Model for Lead-Free Solder Including Effects of Silver Content, Solidification Profile, and Severe Aging/Basit - 2015 - Viscoplastic Constitutive Model for Lead-Free Solder Including Effects of Silver Content, Solidification Profile, and Severe Aging.md"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 43050000000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "water quenched (WQ)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 13(a) Elastic Modulus (p.10)",
+      "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 verbatim: 'the effective elastic modulus E (initial slope of the stress-strain curve). This effective modulus is rate dependent since solder behavior is viscoplastic.'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). x 눈금 간격 편차 0.25%, y 0.29%.",
+      "reading_uncertainty": "±0.1 GPa. 축 보정 검산 — 같은 그림 (c) 에서 본문이 인쇄한 8개 값(SAC305 5온도 74.1/60.2/52.5/45.5/36.3 MPa + 25 °C 의 SAC105 47.2 · SAC205 65.0 · SAC405 81.7)을 되읽어 최대 오차 0.09 MPa 였다. 가로축 되읽기는 인쇄 격자 25/50/75/100/125 °C 에 대해 최대 0.24 °C 다."
+     },
+     "notes": "Basit 2015 Figure 13 의 SAC205(파랑) 계열 25 °C 점을 벡터 좌표로 읽었다(브리프 452 — 픽셀 추적이 아니라 pdftocairo -svg 폴리라인/마커 좌표). 캡션 verbatim: 'Figure 13 - Variation of Material Properties of Different SAC Alloys with Temperature (a) Elastic Modulus, (b) Yield Strength, and (c) Ultimate Strength [No Aging]'. 조건은 본문 verbatim 이 정한다: 'Figure 13 illustrates the variations of the material properties (E, YS, UTS) with temperature for the water quenched SACN05 alloys testing at the strain rate of 0.001 sec-1.' [축 보정 검산] 인쇄된 눈금선을 전수 검출해 np.interp 로 보정했고, 마커 배치에 페이지좌표 -0.20 pt(x) / -0.25 pt(y) 의 계통 오프셋이 있어 보정했다 — x 오프셋은 인쇄 온도격자(25/50/75/100/125)로, y 오프셋은 본문이 인쇄한 8개 UTS 값으로 각각 독립 확정했고 두 값이 0.05 pt 안에서 일치한다. 보정 후 본문 인쇄값 8개를 되읽으니 최대 오차 0.09 MPa 다. [격자 검산] 같은 그림의 SAC105/205/305/405 네 계열이 5온도 x 3물성 = 15칸 전부에서 Ag 함량 순으로 단조다 — SAC205 는 SAC105 와 SAC305 사이에 온다(브리프 443). 온도 단조감소·YS<UTS 도 전 칸 성립한다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 39310000000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 323.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "water quenched (WQ)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 13(a) Elastic Modulus (p.10)",
+      "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 verbatim: 'the effective elastic modulus E (initial slope of the stress-strain curve). This effective modulus is rate dependent since solder behavior is viscoplastic.'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). x 눈금 간격 편차 0.25%, y 0.29%.",
+      "reading_uncertainty": "±0.1 GPa. 축 보정 검산 — 같은 그림 (c) 에서 본문이 인쇄한 8개 값(SAC305 5온도 74.1/60.2/52.5/45.5/36.3 MPa + 25 °C 의 SAC105 47.2 · SAC205 65.0 · SAC405 81.7)을 되읽어 최대 오차 0.09 MPa 였다. 가로축 되읽기는 인쇄 격자 25/50/75/100/125 °C 에 대해 최대 0.24 °C 다."
+     },
+     "notes": "Basit 2015 Figure 13 의 SAC205(파랑) 계열 50 °C 점을 벡터 좌표로 읽었다(브리프 452 — 픽셀 추적이 아니라 pdftocairo -svg 폴리라인/마커 좌표). 캡션 verbatim: 'Figure 13 - Variation of Material Properties of Different SAC Alloys with Temperature (a) Elastic Modulus, (b) Yield Strength, and (c) Ultimate Strength [No Aging]'. 조건은 본문 verbatim 이 정한다: 'Figure 13 illustrates the variations of the material properties (E, YS, UTS) with temperature for the water quenched SACN05 alloys testing at the strain rate of 0.001 sec-1.' [축 보정 검산] 인쇄된 눈금선을 전수 검출해 np.interp 로 보정했고, 마커 배치에 페이지좌표 -0.20 pt(x) / -0.25 pt(y) 의 계통 오프셋이 있어 보정했다 — x 오프셋은 인쇄 온도격자(25/50/75/100/125)로, y 오프셋은 본문이 인쇄한 8개 UTS 값으로 각각 독립 확정했고 두 값이 0.05 pt 안에서 일치한다. 보정 후 본문 인쇄값 8개를 되읽으니 최대 오차 0.09 MPa 다. [격자 검산] 같은 그림의 SAC105/205/305/405 네 계열이 5온도 x 3물성 = 15칸 전부에서 Ag 함량 순으로 단조다 — SAC205 는 SAC105 와 SAC305 사이에 온다(브리프 443). 온도 단조감소·YS<UTS 도 전 칸 성립한다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 36450000000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 348.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "water quenched (WQ)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 13(a) Elastic Modulus (p.10)",
+      "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 verbatim: 'the effective elastic modulus E (initial slope of the stress-strain curve). This effective modulus is rate dependent since solder behavior is viscoplastic.'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). x 눈금 간격 편차 0.25%, y 0.29%.",
+      "reading_uncertainty": "±0.1 GPa. 축 보정 검산 — 같은 그림 (c) 에서 본문이 인쇄한 8개 값(SAC305 5온도 74.1/60.2/52.5/45.5/36.3 MPa + 25 °C 의 SAC105 47.2 · SAC205 65.0 · SAC405 81.7)을 되읽어 최대 오차 0.09 MPa 였다. 가로축 되읽기는 인쇄 격자 25/50/75/100/125 °C 에 대해 최대 0.24 °C 다."
+     },
+     "notes": "Basit 2015 Figure 13 의 SAC205(파랑) 계열 75 °C 점을 벡터 좌표로 읽었다(브리프 452 — 픽셀 추적이 아니라 pdftocairo -svg 폴리라인/마커 좌표). 캡션 verbatim: 'Figure 13 - Variation of Material Properties of Different SAC Alloys with Temperature (a) Elastic Modulus, (b) Yield Strength, and (c) Ultimate Strength [No Aging]'. 조건은 본문 verbatim 이 정한다: 'Figure 13 illustrates the variations of the material properties (E, YS, UTS) with temperature for the water quenched SACN05 alloys testing at the strain rate of 0.001 sec-1.' [축 보정 검산] 인쇄된 눈금선을 전수 검출해 np.interp 로 보정했고, 마커 배치에 페이지좌표 -0.20 pt(x) / -0.25 pt(y) 의 계통 오프셋이 있어 보정했다 — x 오프셋은 인쇄 온도격자(25/50/75/100/125)로, y 오프셋은 본문이 인쇄한 8개 UTS 값으로 각각 독립 확정했고 두 값이 0.05 pt 안에서 일치한다. 보정 후 본문 인쇄값 8개를 되읽으니 최대 오차 0.09 MPa 다. [격자 검산] 같은 그림의 SAC105/205/305/405 네 계열이 5온도 x 3물성 = 15칸 전부에서 Ag 함량 순으로 단조다 — SAC205 는 SAC105 와 SAC305 사이에 온다(브리프 443). 온도 단조감소·YS<UTS 도 전 칸 성립한다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 34530000000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 373.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "water quenched (WQ)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 13(a) Elastic Modulus (p.10)",
+      "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 verbatim: 'the effective elastic modulus E (initial slope of the stress-strain curve). This effective modulus is rate dependent since solder behavior is viscoplastic.'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). x 눈금 간격 편차 0.25%, y 0.29%.",
+      "reading_uncertainty": "±0.1 GPa. 축 보정 검산 — 같은 그림 (c) 에서 본문이 인쇄한 8개 값(SAC305 5온도 74.1/60.2/52.5/45.5/36.3 MPa + 25 °C 의 SAC105 47.2 · SAC205 65.0 · SAC405 81.7)을 되읽어 최대 오차 0.09 MPa 였다. 가로축 되읽기는 인쇄 격자 25/50/75/100/125 °C 에 대해 최대 0.24 °C 다."
+     },
+     "notes": "Basit 2015 Figure 13 의 SAC205(파랑) 계열 100 °C 점을 벡터 좌표로 읽었다(브리프 452 — 픽셀 추적이 아니라 pdftocairo -svg 폴리라인/마커 좌표). 캡션 verbatim: 'Figure 13 - Variation of Material Properties of Different SAC Alloys with Temperature (a) Elastic Modulus, (b) Yield Strength, and (c) Ultimate Strength [No Aging]'. 조건은 본문 verbatim 이 정한다: 'Figure 13 illustrates the variations of the material properties (E, YS, UTS) with temperature for the water quenched SACN05 alloys testing at the strain rate of 0.001 sec-1.' [축 보정 검산] 인쇄된 눈금선을 전수 검출해 np.interp 로 보정했고, 마커 배치에 페이지좌표 -0.20 pt(x) / -0.25 pt(y) 의 계통 오프셋이 있어 보정했다 — x 오프셋은 인쇄 온도격자(25/50/75/100/125)로, y 오프셋은 본문이 인쇄한 8개 UTS 값으로 각각 독립 확정했고 두 값이 0.05 pt 안에서 일치한다. 보정 후 본문 인쇄값 8개를 되읽으니 최대 오차 0.09 MPa 다. [격자 검산] 같은 그림의 SAC105/205/305/405 네 계열이 5온도 x 3물성 = 15칸 전부에서 Ag 함량 순으로 단조다 — SAC205 는 SAC105 와 SAC305 사이에 온다(브리프 443). 온도 단조감소·YS<UTS 도 전 칸 성립한다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 30660000000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 398.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "water quenched (WQ)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 13(a) Elastic Modulus (p.10)",
+      "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 verbatim: 'the effective elastic modulus E (initial slope of the stress-strain curve). This effective modulus is rate dependent since solder behavior is viscoplastic.'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). x 눈금 간격 편차 0.25%, y 0.29%.",
+      "reading_uncertainty": "±0.1 GPa. 축 보정 검산 — 같은 그림 (c) 에서 본문이 인쇄한 8개 값(SAC305 5온도 74.1/60.2/52.5/45.5/36.3 MPa + 25 °C 의 SAC105 47.2 · SAC205 65.0 · SAC405 81.7)을 되읽어 최대 오차 0.09 MPa 였다. 가로축 되읽기는 인쇄 격자 25/50/75/100/125 °C 에 대해 최대 0.24 °C 다."
+     },
+     "notes": "Basit 2015 Figure 13 의 SAC205(파랑) 계열 125 °C 점을 벡터 좌표로 읽었다(브리프 452 — 픽셀 추적이 아니라 pdftocairo -svg 폴리라인/마커 좌표). 캡션 verbatim: 'Figure 13 - Variation of Material Properties of Different SAC Alloys with Temperature (a) Elastic Modulus, (b) Yield Strength, and (c) Ultimate Strength [No Aging]'. 조건은 본문 verbatim 이 정한다: 'Figure 13 illustrates the variations of the material properties (E, YS, UTS) with temperature for the water quenched SACN05 alloys testing at the strain rate of 0.001 sec-1.' [축 보정 검산] 인쇄된 눈금선을 전수 검출해 np.interp 로 보정했고, 마커 배치에 페이지좌표 -0.20 pt(x) / -0.25 pt(y) 의 계통 오프셋이 있어 보정했다 — x 오프셋은 인쇄 온도격자(25/50/75/100/125)로, y 오프셋은 본문이 인쇄한 8개 UTS 값으로 각각 독립 확정했고 두 값이 0.05 pt 안에서 일치한다. 보정 후 본문 인쇄값 8개를 되읽으니 최대 오차 0.09 MPa 다. [격자 검산] 같은 그림의 SAC105/205/305/405 네 계열이 5온도 x 3물성 = 15칸 전부에서 Ag 함량 순으로 단조다 — SAC205 는 SAC105 와 SAC305 사이에 온다(브리프 443). 온도 단조감소·YS<UTS 도 전 칸 성립한다."
+    },
+    {
+     "key": "mechanical.yield_strength_at_rate",
+     "value": 58960000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "water quenched (WQ)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 13(b) Yield Strength (p.10)",
+      "property_definition": "0.2% offset yield stress. 원문 verbatim: 'The yield stress Y (YS) is defined using the typical definition of the stress level that results in a permanent strain of .002 = .2% upon unloading.'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). x 눈금 간격 편차 0.25%, y 0.29%.",
+      "reading_uncertainty": "±0.15 MPa. (a)(b)(c) 세 부그림이 같은 마커 배치 오프셋을 쓰므로 (c) 에서 확정한 보정을 그대로 적용했다. (c) 의 되읽기 잔차는 최대 0.09 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 13 의 SAC205(파랑) 계열 25 °C 점을 벡터 좌표로 읽었다(브리프 452 — 픽셀 추적이 아니라 pdftocairo -svg 폴리라인/마커 좌표). 캡션 verbatim: 'Figure 13 - Variation of Material Properties of Different SAC Alloys with Temperature (a) Elastic Modulus, (b) Yield Strength, and (c) Ultimate Strength [No Aging]'. 조건은 본문 verbatim 이 정한다: 'Figure 13 illustrates the variations of the material properties (E, YS, UTS) with temperature for the water quenched SACN05 alloys testing at the strain rate of 0.001 sec-1.' [축 보정 검산] 인쇄된 눈금선을 전수 검출해 np.interp 로 보정했고, 마커 배치에 페이지좌표 -0.20 pt(x) / -0.25 pt(y) 의 계통 오프셋이 있어 보정했다 — x 오프셋은 인쇄 온도격자(25/50/75/100/125)로, y 오프셋은 본문이 인쇄한 8개 UTS 값으로 각각 독립 확정했고 두 값이 0.05 pt 안에서 일치한다. 보정 후 본문 인쇄값 8개를 되읽으니 최대 오차 0.09 MPa 다. [격자 검산] 같은 그림의 SAC105/205/305/405 네 계열이 5온도 x 3물성 = 15칸 전부에서 Ag 함량 순으로 단조다 — SAC205 는 SAC105 와 SAC305 사이에 온다(브리프 443). 온도 단조감소·YS<UTS 도 전 칸 성립한다."
+    },
+    {
+     "key": "mechanical.yield_strength_at_rate",
+     "value": 49490000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 323.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "water quenched (WQ)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 13(b) Yield Strength (p.10)",
+      "property_definition": "0.2% offset yield stress. 원문 verbatim: 'The yield stress Y (YS) is defined using the typical definition of the stress level that results in a permanent strain of .002 = .2% upon unloading.'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). x 눈금 간격 편차 0.25%, y 0.29%.",
+      "reading_uncertainty": "±0.15 MPa. (a)(b)(c) 세 부그림이 같은 마커 배치 오프셋을 쓰므로 (c) 에서 확정한 보정을 그대로 적용했다. (c) 의 되읽기 잔차는 최대 0.09 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 13 의 SAC205(파랑) 계열 50 °C 점을 벡터 좌표로 읽었다(브리프 452 — 픽셀 추적이 아니라 pdftocairo -svg 폴리라인/마커 좌표). 캡션 verbatim: 'Figure 13 - Variation of Material Properties of Different SAC Alloys with Temperature (a) Elastic Modulus, (b) Yield Strength, and (c) Ultimate Strength [No Aging]'. 조건은 본문 verbatim 이 정한다: 'Figure 13 illustrates the variations of the material properties (E, YS, UTS) with temperature for the water quenched SACN05 alloys testing at the strain rate of 0.001 sec-1.' [축 보정 검산] 인쇄된 눈금선을 전수 검출해 np.interp 로 보정했고, 마커 배치에 페이지좌표 -0.20 pt(x) / -0.25 pt(y) 의 계통 오프셋이 있어 보정했다 — x 오프셋은 인쇄 온도격자(25/50/75/100/125)로, y 오프셋은 본문이 인쇄한 8개 UTS 값으로 각각 독립 확정했고 두 값이 0.05 pt 안에서 일치한다. 보정 후 본문 인쇄값 8개를 되읽으니 최대 오차 0.09 MPa 다. [격자 검산] 같은 그림의 SAC105/205/305/405 네 계열이 5온도 x 3물성 = 15칸 전부에서 Ag 함량 순으로 단조다 — SAC205 는 SAC105 와 SAC305 사이에 온다(브리프 443). 온도 단조감소·YS<UTS 도 전 칸 성립한다."
+    },
+    {
+     "key": "mechanical.yield_strength_at_rate",
+     "value": 44510000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 348.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "water quenched (WQ)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 13(b) Yield Strength (p.10)",
+      "property_definition": "0.2% offset yield stress. 원문 verbatim: 'The yield stress Y (YS) is defined using the typical definition of the stress level that results in a permanent strain of .002 = .2% upon unloading.'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). x 눈금 간격 편차 0.25%, y 0.29%.",
+      "reading_uncertainty": "±0.15 MPa. (a)(b)(c) 세 부그림이 같은 마커 배치 오프셋을 쓰므로 (c) 에서 확정한 보정을 그대로 적용했다. (c) 의 되읽기 잔차는 최대 0.09 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 13 의 SAC205(파랑) 계열 75 °C 점을 벡터 좌표로 읽었다(브리프 452 — 픽셀 추적이 아니라 pdftocairo -svg 폴리라인/마커 좌표). 캡션 verbatim: 'Figure 13 - Variation of Material Properties of Different SAC Alloys with Temperature (a) Elastic Modulus, (b) Yield Strength, and (c) Ultimate Strength [No Aging]'. 조건은 본문 verbatim 이 정한다: 'Figure 13 illustrates the variations of the material properties (E, YS, UTS) with temperature for the water quenched SACN05 alloys testing at the strain rate of 0.001 sec-1.' [축 보정 검산] 인쇄된 눈금선을 전수 검출해 np.interp 로 보정했고, 마커 배치에 페이지좌표 -0.20 pt(x) / -0.25 pt(y) 의 계통 오프셋이 있어 보정했다 — x 오프셋은 인쇄 온도격자(25/50/75/100/125)로, y 오프셋은 본문이 인쇄한 8개 UTS 값으로 각각 독립 확정했고 두 값이 0.05 pt 안에서 일치한다. 보정 후 본문 인쇄값 8개를 되읽으니 최대 오차 0.09 MPa 다. [격자 검산] 같은 그림의 SAC105/205/305/405 네 계열이 5온도 x 3물성 = 15칸 전부에서 Ag 함량 순으로 단조다 — SAC205 는 SAC105 와 SAC305 사이에 온다(브리프 443). 온도 단조감소·YS<UTS 도 전 칸 성립한다."
+    },
+    {
+     "key": "mechanical.yield_strength_at_rate",
+     "value": 36880000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 373.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "water quenched (WQ)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 13(b) Yield Strength (p.10)",
+      "property_definition": "0.2% offset yield stress. 원문 verbatim: 'The yield stress Y (YS) is defined using the typical definition of the stress level that results in a permanent strain of .002 = .2% upon unloading.'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). x 눈금 간격 편차 0.25%, y 0.29%.",
+      "reading_uncertainty": "±0.15 MPa. (a)(b)(c) 세 부그림이 같은 마커 배치 오프셋을 쓰므로 (c) 에서 확정한 보정을 그대로 적용했다. (c) 의 되읽기 잔차는 최대 0.09 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 13 의 SAC205(파랑) 계열 100 °C 점을 벡터 좌표로 읽었다(브리프 452 — 픽셀 추적이 아니라 pdftocairo -svg 폴리라인/마커 좌표). 캡션 verbatim: 'Figure 13 - Variation of Material Properties of Different SAC Alloys with Temperature (a) Elastic Modulus, (b) Yield Strength, and (c) Ultimate Strength [No Aging]'. 조건은 본문 verbatim 이 정한다: 'Figure 13 illustrates the variations of the material properties (E, YS, UTS) with temperature for the water quenched SACN05 alloys testing at the strain rate of 0.001 sec-1.' [축 보정 검산] 인쇄된 눈금선을 전수 검출해 np.interp 로 보정했고, 마커 배치에 페이지좌표 -0.20 pt(x) / -0.25 pt(y) 의 계통 오프셋이 있어 보정했다 — x 오프셋은 인쇄 온도격자(25/50/75/100/125)로, y 오프셋은 본문이 인쇄한 8개 UTS 값으로 각각 독립 확정했고 두 값이 0.05 pt 안에서 일치한다. 보정 후 본문 인쇄값 8개를 되읽으니 최대 오차 0.09 MPa 다. [격자 검산] 같은 그림의 SAC105/205/305/405 네 계열이 5온도 x 3물성 = 15칸 전부에서 Ag 함량 순으로 단조다 — SAC205 는 SAC105 와 SAC305 사이에 온다(브리프 443). 온도 단조감소·YS<UTS 도 전 칸 성립한다."
+    },
+    {
+     "key": "mechanical.yield_strength_at_rate",
+     "value": 32430000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 398.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "water quenched (WQ)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 13(b) Yield Strength (p.10)",
+      "property_definition": "0.2% offset yield stress. 원문 verbatim: 'The yield stress Y (YS) is defined using the typical definition of the stress level that results in a permanent strain of .002 = .2% upon unloading.'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). x 눈금 간격 편차 0.25%, y 0.29%.",
+      "reading_uncertainty": "±0.15 MPa. (a)(b)(c) 세 부그림이 같은 마커 배치 오프셋을 쓰므로 (c) 에서 확정한 보정을 그대로 적용했다. (c) 의 되읽기 잔차는 최대 0.09 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 13 의 SAC205(파랑) 계열 125 °C 점을 벡터 좌표로 읽었다(브리프 452 — 픽셀 추적이 아니라 pdftocairo -svg 폴리라인/마커 좌표). 캡션 verbatim: 'Figure 13 - Variation of Material Properties of Different SAC Alloys with Temperature (a) Elastic Modulus, (b) Yield Strength, and (c) Ultimate Strength [No Aging]'. 조건은 본문 verbatim 이 정한다: 'Figure 13 illustrates the variations of the material properties (E, YS, UTS) with temperature for the water quenched SACN05 alloys testing at the strain rate of 0.001 sec-1.' [축 보정 검산] 인쇄된 눈금선을 전수 검출해 np.interp 로 보정했고, 마커 배치에 페이지좌표 -0.20 pt(x) / -0.25 pt(y) 의 계통 오프셋이 있어 보정했다 — x 오프셋은 인쇄 온도격자(25/50/75/100/125)로, y 오프셋은 본문이 인쇄한 8개 UTS 값으로 각각 독립 확정했고 두 값이 0.05 pt 안에서 일치한다. 보정 후 본문 인쇄값 8개를 되읽으니 최대 오차 0.09 MPa 다. [격자 검산] 같은 그림의 SAC105/205/305/405 네 계열이 5온도 x 3물성 = 15칸 전부에서 Ag 함량 순으로 단조다 — SAC205 는 SAC105 와 SAC305 사이에 온다(브리프 443). 온도 단조감소·YS<UTS 도 전 칸 성립한다."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 53850000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 323.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "water quenched (WQ)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 13(c) Ultimate Strength (p.10)",
+      "property_definition": "saturation (maximum) stress. 원문 verbatim: 'The maximum (saturation) stress on the stress-strain curve is the ultimate tensile strength u (UTS).'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). x 눈금 간격 편차 0.25%, y 0.29%.",
+      "reading_uncertainty": "±0.10 MPa. 본문이 인쇄한 8개 값을 되읽어 최대 오차 0.09 MPa 였다."
+     },
+     "notes": "Basit 2015 Figure 13 의 SAC205(파랑) 계열 50 °C 점을 벡터 좌표로 읽었다(브리프 452 — 픽셀 추적이 아니라 pdftocairo -svg 폴리라인/마커 좌표). 캡션 verbatim: 'Figure 13 - Variation of Material Properties of Different SAC Alloys with Temperature (a) Elastic Modulus, (b) Yield Strength, and (c) Ultimate Strength [No Aging]'. 조건은 본문 verbatim 이 정한다: 'Figure 13 illustrates the variations of the material properties (E, YS, UTS) with temperature for the water quenched SACN05 alloys testing at the strain rate of 0.001 sec-1.' [축 보정 검산] 인쇄된 눈금선을 전수 검출해 np.interp 로 보정했고, 마커 배치에 페이지좌표 -0.20 pt(x) / -0.25 pt(y) 의 계통 오프셋이 있어 보정했다 — x 오프셋은 인쇄 온도격자(25/50/75/100/125)로, y 오프셋은 본문이 인쇄한 8개 UTS 값으로 각각 독립 확정했고 두 값이 0.05 pt 안에서 일치한다. 보정 후 본문 인쇄값 8개를 되읽으니 최대 오차 0.09 MPa 다. [격자 검산] 같은 그림의 SAC105/205/305/405 네 계열이 5온도 x 3물성 = 15칸 전부에서 Ag 함량 순으로 단조다 — SAC205 는 SAC105 와 SAC305 사이에 온다(브리프 443). 온도 단조감소·YS<UTS 도 전 칸 성립한다."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 46610000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 348.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "water quenched (WQ)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 13(c) Ultimate Strength (p.10)",
+      "property_definition": "saturation (maximum) stress. 원문 verbatim: 'The maximum (saturation) stress on the stress-strain curve is the ultimate tensile strength u (UTS).'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). x 눈금 간격 편차 0.25%, y 0.29%.",
+      "reading_uncertainty": "±0.10 MPa. 본문이 인쇄한 8개 값을 되읽어 최대 오차 0.09 MPa 였다."
+     },
+     "notes": "Basit 2015 Figure 13 의 SAC205(파랑) 계열 75 °C 점을 벡터 좌표로 읽었다(브리프 452 — 픽셀 추적이 아니라 pdftocairo -svg 폴리라인/마커 좌표). 캡션 verbatim: 'Figure 13 - Variation of Material Properties of Different SAC Alloys with Temperature (a) Elastic Modulus, (b) Yield Strength, and (c) Ultimate Strength [No Aging]'. 조건은 본문 verbatim 이 정한다: 'Figure 13 illustrates the variations of the material properties (E, YS, UTS) with temperature for the water quenched SACN05 alloys testing at the strain rate of 0.001 sec-1.' [축 보정 검산] 인쇄된 눈금선을 전수 검출해 np.interp 로 보정했고, 마커 배치에 페이지좌표 -0.20 pt(x) / -0.25 pt(y) 의 계통 오프셋이 있어 보정했다 — x 오프셋은 인쇄 온도격자(25/50/75/100/125)로, y 오프셋은 본문이 인쇄한 8개 UTS 값으로 각각 독립 확정했고 두 값이 0.05 pt 안에서 일치한다. 보정 후 본문 인쇄값 8개를 되읽으니 최대 오차 0.09 MPa 다. [격자 검산] 같은 그림의 SAC105/205/305/405 네 계열이 5온도 x 3물성 = 15칸 전부에서 Ag 함량 순으로 단조다 — SAC205 는 SAC105 와 SAC305 사이에 온다(브리프 443). 온도 단조감소·YS<UTS 도 전 칸 성립한다."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 37860000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 373.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "water quenched (WQ)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 13(c) Ultimate Strength (p.10)",
+      "property_definition": "saturation (maximum) stress. 원문 verbatim: 'The maximum (saturation) stress on the stress-strain curve is the ultimate tensile strength u (UTS).'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). x 눈금 간격 편차 0.25%, y 0.29%.",
+      "reading_uncertainty": "±0.10 MPa. 본문이 인쇄한 8개 값을 되읽어 최대 오차 0.09 MPa 였다."
+     },
+     "notes": "Basit 2015 Figure 13 의 SAC205(파랑) 계열 100 °C 점을 벡터 좌표로 읽었다(브리프 452 — 픽셀 추적이 아니라 pdftocairo -svg 폴리라인/마커 좌표). 캡션 verbatim: 'Figure 13 - Variation of Material Properties of Different SAC Alloys with Temperature (a) Elastic Modulus, (b) Yield Strength, and (c) Ultimate Strength [No Aging]'. 조건은 본문 verbatim 이 정한다: 'Figure 13 illustrates the variations of the material properties (E, YS, UTS) with temperature for the water quenched SACN05 alloys testing at the strain rate of 0.001 sec-1.' [축 보정 검산] 인쇄된 눈금선을 전수 검출해 np.interp 로 보정했고, 마커 배치에 페이지좌표 -0.20 pt(x) / -0.25 pt(y) 의 계통 오프셋이 있어 보정했다 — x 오프셋은 인쇄 온도격자(25/50/75/100/125)로, y 오프셋은 본문이 인쇄한 8개 UTS 값으로 각각 독립 확정했고 두 값이 0.05 pt 안에서 일치한다. 보정 후 본문 인쇄값 8개를 되읽으니 최대 오차 0.09 MPa 다. [격자 검산] 같은 그림의 SAC105/205/305/405 네 계열이 5온도 x 3물성 = 15칸 전부에서 Ag 함량 순으로 단조다 — SAC205 는 SAC105 와 SAC305 사이에 온다(브리프 443). 온도 단조감소·YS<UTS 도 전 칸 성립한다."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 32600000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 398.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "water quenched (WQ)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 13(c) Ultimate Strength (p.10)",
+      "property_definition": "saturation (maximum) stress. 원문 verbatim: 'The maximum (saturation) stress on the stress-strain curve is the ultimate tensile strength u (UTS).'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). x 눈금 간격 편차 0.25%, y 0.29%.",
+      "reading_uncertainty": "±0.10 MPa. 본문이 인쇄한 8개 값을 되읽어 최대 오차 0.09 MPa 였다."
+     },
+     "notes": "Basit 2015 Figure 13 의 SAC205(파랑) 계열 125 °C 점을 벡터 좌표로 읽었다(브리프 452 — 픽셀 추적이 아니라 pdftocairo -svg 폴리라인/마커 좌표). 캡션 verbatim: 'Figure 13 - Variation of Material Properties of Different SAC Alloys with Temperature (a) Elastic Modulus, (b) Yield Strength, and (c) Ultimate Strength [No Aging]'. 조건은 본문 verbatim 이 정한다: 'Figure 13 illustrates the variations of the material properties (E, YS, UTS) with temperature for the water quenched SACN05 alloys testing at the strain rate of 0.001 sec-1.' [축 보정 검산] 인쇄된 눈금선을 전수 검출해 np.interp 로 보정했고, 마커 배치에 페이지좌표 -0.20 pt(x) / -0.25 pt(y) 의 계통 오프셋이 있어 보정했다 — x 오프셋은 인쇄 온도격자(25/50/75/100/125)로, y 오프셋은 본문이 인쇄한 8개 UTS 값으로 각각 독립 확정했고 두 값이 0.05 pt 안에서 일치한다. 보정 후 본문 인쇄값 8개를 되읽으니 최대 오차 0.09 MPa 다. [격자 검산] 같은 그림의 SAC105/205/305/405 네 계열이 5온도 x 3물성 = 15칸 전부에서 Ag 함량 순으로 단조다 — SAC205 는 SAC105 와 SAC305 사이에 온다(브리프 443). 온도 단조감소·YS<UTS 도 전 칸 성립한다."
+    }
+   ]
+  }
+ ]
+}
