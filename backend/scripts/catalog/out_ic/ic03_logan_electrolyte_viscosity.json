@@ -1,0 +1,260 @@
+{
+ "batch": "IC-3 47차 · Logan 2018 (JES 165 A21) 전해액 점도 온도-농도 격자 — 43차 ED 표적",
+ "materials": [
+  {
+   "match_name": "Liquid Electrolyte (LiPF6 carbonate)",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1149/2.0271802jes",
+    "title": "A Study of the Physical Properties of Li-Ion Battery Electrolytes Containing Esters",
+    "url": "https://iopscience.iop.org/article/10.1149/2.0271802jes",
+    "authors": "Logan; Tonita; Gering; Li; Ma; Beaulieu; Dahn",
+    "year": 2018,
+    "publisher": "The Electrochemical Society (J. Electrochem. Soc. 165 (2) A21-A30)",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/battery/Logan_2018_JES_165_A21_Physical_Properties_Li-ion_Electrolytes_Esters.pdf"
+   },
+   "properties": [
+    {
+     "key": "rheological.viscosity",
+     "value": 0.00233,
+     "unit": "Pa*s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 283.15,
+      "temperature_c": 10,
+      "solvent_blend": "EC:EMC = 30:70 wt% (no ester co-solvent)",
+      "lipf6_molality_mol_kg": 0.5,
+      "shear_rate_1/s": "not printed (Ostwald capillary viscometer)"
+     },
+     "notes": "Logan 2018 Table II `Viscosity at 10 C for the different solvent blends studied for LiPF6 concentrations between 0 m and 2.0 m` 의 **EC | EMC | MA = 30 | 70 | 0 wt% 행** verbatim: `0.5 m: 2.33 | 1.0 m: 3.88 | 1.5 m: 8.73 | 2.0 m: 16.58`. 2.33 cP = 2.33 mPa*s -> 0.00233 Pa*s. **측정법이 인쇄돼 있다**(브리프 3) — 2절 verbatim: `Viscosity was measured using an Ostwald viscometer (Sibata Scientific Technology, Japan). Two different sized viscometers were used ... capillary diameters of 0.5 mm and 0.75 mm ... The temperature of the electrolyte in the viscometer was controlled by a circulating bath (Thermo Scientific) ... A resistance temperature detector (RTD) attached to the surface of the viscometer measured the temperature of the electrolyte.` 그래서 tier1 · measured 다. **모세관 점도계라 전단속도가 인쇄되지 않는다** — 조건에 미인쇄로 남긴다(뉴턴 유체 가정의 저점도 액체다). **격자 자체가 검산이다**(브리프 143) — 이 행의 16칸이 온도축에서 단조 감소(283->313 K)하고 농도축에서 단조 증가(0.5->2.0 m)하며 예외가 없다. 같은 표의 나란한 `EC|EMC|MA 30|60|10` 행보다 항상 높은 것도 방향이 맞다(MA 공용매가 점도를 낮춘다는 본문 서술과 일치). **조성 범위 주의** — 이 재료(111 `Liquid Electrolyte (LiPF6 carbonate)`)는 material_class 가 `LiPF6 EC/EMC/DEC` 인 총칭 재료다. 옮긴 것은 **EC:EMC = 30:70 wt%% 이성분 카보네이트계, MA 무첨가** 행뿐이고 조건에 `solvent_blend` 와 `lipf6_molality_mol_kg` 를 박았다. 같은 표의 MA 함유 3행(30:60:10 · 30:50:20 · 30:40:30)과 EC:DMC 계열 4행은 **조성이 다른 별개 재료**라 옮기지 않았다 — 그쪽은 재료를 새로 세워야 한다(다음 배치 인계). 43차 ED 가 이 논문을 `본문은 받았고 SI 가 막혔다` 로 남겼는데, **점도 격자는 SI 가 아니라 본문 Table II~V 에 있다** — 출처 조회로 확인하니 이 논문은 DB 에 출처로 등록조차 돼 있지 않았다(0행). "
+    },
+    {
+     "key": "rheological.viscosity",
+     "value": 0.00388,
+     "unit": "Pa*s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 283.15,
+      "temperature_c": 10,
+      "solvent_blend": "EC:EMC = 30:70 wt% (no ester co-solvent)",
+      "lipf6_molality_mol_kg": 1.0,
+      "shear_rate_1/s": "not printed (Ostwald capillary viscometer)"
+     },
+     "notes": "Logan 2018 Table II `Viscosity at 10 C for the different solvent blends studied for LiPF6 concentrations between 0 m and 2.0 m` 의 **EC | EMC | MA = 30 | 70 | 0 wt% 행** verbatim: `0.5 m: 2.33 | 1.0 m: 3.88 | 1.5 m: 8.73 | 2.0 m: 16.58`. 3.88 cP = 3.88 mPa*s -> 0.00388 Pa*s. **측정법이 인쇄돼 있다**(브리프 3) — 2절 verbatim: `Viscosity was measured using an Ostwald viscometer (Sibata Scientific Technology, Japan). Two different sized viscometers were used ... capillary diameters of 0.5 mm and 0.75 mm ... The temperature of the electrolyte in the viscometer was controlled by a circulating bath (Thermo Scientific) ... A resistance temperature detector (RTD) attached to the surface of the viscometer measured the temperature of the electrolyte.` 그래서 tier1 · measured 다. **모세관 점도계라 전단속도가 인쇄되지 않는다** — 조건에 미인쇄로 남긴다(뉴턴 유체 가정의 저점도 액체다). **격자 자체가 검산이다**(브리프 143) — 이 행의 16칸이 온도축에서 단조 감소(283->313 K)하고 농도축에서 단조 증가(0.5->2.0 m)하며 예외가 없다. 같은 표의 나란한 `EC|EMC|MA 30|60|10` 행보다 항상 높은 것도 방향이 맞다(MA 공용매가 점도를 낮춘다는 본문 서술과 일치). **조성 범위 주의** — 이 재료(111 `Liquid Electrolyte (LiPF6 carbonate)`)는 material_class 가 `LiPF6 EC/EMC/DEC` 인 총칭 재료다. 옮긴 것은 **EC:EMC = 30:70 wt%% 이성분 카보네이트계, MA 무첨가** 행뿐이고 조건에 `solvent_blend` 와 `lipf6_molality_mol_kg` 를 박았다. 같은 표의 MA 함유 3행(30:60:10 · 30:50:20 · 30:40:30)과 EC:DMC 계열 4행은 **조성이 다른 별개 재료**라 옮기지 않았다 — 그쪽은 재료를 새로 세워야 한다(다음 배치 인계). 43차 ED 가 이 논문을 `본문은 받았고 SI 가 막혔다` 로 남겼는데, **점도 격자는 SI 가 아니라 본문 Table II~V 에 있다** — 출처 조회로 확인하니 이 논문은 DB 에 출처로 등록조차 돼 있지 않았다(0행). "
+    },
+    {
+     "key": "rheological.viscosity",
+     "value": 0.00873,
+     "unit": "Pa*s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 283.15,
+      "temperature_c": 10,
+      "solvent_blend": "EC:EMC = 30:70 wt% (no ester co-solvent)",
+      "lipf6_molality_mol_kg": 1.5,
+      "shear_rate_1/s": "not printed (Ostwald capillary viscometer)"
+     },
+     "notes": "Logan 2018 Table II `Viscosity at 10 C for the different solvent blends studied for LiPF6 concentrations between 0 m and 2.0 m` 의 **EC | EMC | MA = 30 | 70 | 0 wt% 행** verbatim: `0.5 m: 2.33 | 1.0 m: 3.88 | 1.5 m: 8.73 | 2.0 m: 16.58`. 8.73 cP = 8.73 mPa*s -> 0.00873 Pa*s. **측정법이 인쇄돼 있다**(브리프 3) — 2절 verbatim: `Viscosity was measured using an Ostwald viscometer (Sibata Scientific Technology, Japan). Two different sized viscometers were used ... capillary diameters of 0.5 mm and 0.75 mm ... The temperature of the electrolyte in the viscometer was controlled by a circulating bath (Thermo Scientific) ... A resistance temperature detector (RTD) attached to the surface of the viscometer measured the temperature of the electrolyte.` 그래서 tier1 · measured 다. **모세관 점도계라 전단속도가 인쇄되지 않는다** — 조건에 미인쇄로 남긴다(뉴턴 유체 가정의 저점도 액체다). **격자 자체가 검산이다**(브리프 143) — 이 행의 16칸이 온도축에서 단조 감소(283->313 K)하고 농도축에서 단조 증가(0.5->2.0 m)하며 예외가 없다. 같은 표의 나란한 `EC|EMC|MA 30|60|10` 행보다 항상 높은 것도 방향이 맞다(MA 공용매가 점도를 낮춘다는 본문 서술과 일치). **조성 범위 주의** — 이 재료(111 `Liquid Electrolyte (LiPF6 carbonate)`)는 material_class 가 `LiPF6 EC/EMC/DEC` 인 총칭 재료다. 옮긴 것은 **EC:EMC = 30:70 wt%% 이성분 카보네이트계, MA 무첨가** 행뿐이고 조건에 `solvent_blend` 와 `lipf6_molality_mol_kg` 를 박았다. 같은 표의 MA 함유 3행(30:60:10 · 30:50:20 · 30:40:30)과 EC:DMC 계열 4행은 **조성이 다른 별개 재료**라 옮기지 않았다 — 그쪽은 재료를 새로 세워야 한다(다음 배치 인계). 43차 ED 가 이 논문을 `본문은 받았고 SI 가 막혔다` 로 남겼는데, **점도 격자는 SI 가 아니라 본문 Table II~V 에 있다** — 출처 조회로 확인하니 이 논문은 DB 에 출처로 등록조차 돼 있지 않았다(0행). "
+    },
+    {
+     "key": "rheological.viscosity",
+     "value": 0.01658,
+     "unit": "Pa*s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 283.15,
+      "temperature_c": 10,
+      "solvent_blend": "EC:EMC = 30:70 wt% (no ester co-solvent)",
+      "lipf6_molality_mol_kg": 2.0,
+      "shear_rate_1/s": "not printed (Ostwald capillary viscometer)"
+     },
+     "notes": "Logan 2018 Table II `Viscosity at 10 C for the different solvent blends studied for LiPF6 concentrations between 0 m and 2.0 m` 의 **EC | EMC | MA = 30 | 70 | 0 wt% 행** verbatim: `0.5 m: 2.33 | 1.0 m: 3.88 | 1.5 m: 8.73 | 2.0 m: 16.58`. 16.58 cP = 16.58 mPa*s -> 0.01658 Pa*s. **측정법이 인쇄돼 있다**(브리프 3) — 2절 verbatim: `Viscosity was measured using an Ostwald viscometer (Sibata Scientific Technology, Japan). Two different sized viscometers were used ... capillary diameters of 0.5 mm and 0.75 mm ... The temperature of the electrolyte in the viscometer was controlled by a circulating bath (Thermo Scientific) ... A resistance temperature detector (RTD) attached to the surface of the viscometer measured the temperature of the electrolyte.` 그래서 tier1 · measured 다. **모세관 점도계라 전단속도가 인쇄되지 않는다** — 조건에 미인쇄로 남긴다(뉴턴 유체 가정의 저점도 액체다). **격자 자체가 검산이다**(브리프 143) — 이 행의 16칸이 온도축에서 단조 감소(283->313 K)하고 농도축에서 단조 증가(0.5->2.0 m)하며 예외가 없다. 같은 표의 나란한 `EC|EMC|MA 30|60|10` 행보다 항상 높은 것도 방향이 맞다(MA 공용매가 점도를 낮춘다는 본문 서술과 일치). **조성 범위 주의** — 이 재료(111 `Liquid Electrolyte (LiPF6 carbonate)`)는 material_class 가 `LiPF6 EC/EMC/DEC` 인 총칭 재료다. 옮긴 것은 **EC:EMC = 30:70 wt%% 이성분 카보네이트계, MA 무첨가** 행뿐이고 조건에 `solvent_blend` 와 `lipf6_molality_mol_kg` 를 박았다. 같은 표의 MA 함유 3행(30:60:10 · 30:50:20 · 30:40:30)과 EC:DMC 계열 4행은 **조성이 다른 별개 재료**라 옮기지 않았다 — 그쪽은 재료를 새로 세워야 한다(다음 배치 인계). 43차 ED 가 이 논문을 `본문은 받았고 SI 가 막혔다` 로 남겼는데, **점도 격자는 SI 가 아니라 본문 Table II~V 에 있다** — 출처 조회로 확인하니 이 논문은 DB 에 출처로 등록조차 돼 있지 않았다(0행). "
+    },
+    {
+     "key": "rheological.viscosity",
+     "value": 0.00191,
+     "unit": "Pa*s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 293.15,
+      "temperature_c": 20,
+      "solvent_blend": "EC:EMC = 30:70 wt% (no ester co-solvent)",
+      "lipf6_molality_mol_kg": 0.5,
+      "shear_rate_1/s": "not printed (Ostwald capillary viscometer)"
+     },
+     "notes": "Logan 2018 Table III `Viscosity at 20 C for the different solvent blends studied for LiPF6 concentrations between 0 m and 2.0 m` 의 **EC | EMC | MA = 30 | 70 | 0 wt% 행** verbatim: `0.5 m: 1.91 | 1.0 m: 3.05 | 1.5 m: 6.25 | 2.0 m: 11.4`. 1.91 cP = 1.91 mPa*s -> 0.00191 Pa*s. **측정법이 인쇄돼 있다**(브리프 3) — 2절 verbatim: `Viscosity was measured using an Ostwald viscometer (Sibata Scientific Technology, Japan). Two different sized viscometers were used ... capillary diameters of 0.5 mm and 0.75 mm ... The temperature of the electrolyte in the viscometer was controlled by a circulating bath (Thermo Scientific) ... A resistance temperature detector (RTD) attached to the surface of the viscometer measured the temperature of the electrolyte.` 그래서 tier1 · measured 다. **모세관 점도계라 전단속도가 인쇄되지 않는다** — 조건에 미인쇄로 남긴다(뉴턴 유체 가정의 저점도 액체다). **격자 자체가 검산이다**(브리프 143) — 이 행의 16칸이 온도축에서 단조 감소(283->313 K)하고 농도축에서 단조 증가(0.5->2.0 m)하며 예외가 없다. 같은 표의 나란한 `EC|EMC|MA 30|60|10` 행보다 항상 높은 것도 방향이 맞다(MA 공용매가 점도를 낮춘다는 본문 서술과 일치). **조성 범위 주의** — 이 재료(111 `Liquid Electrolyte (LiPF6 carbonate)`)는 material_class 가 `LiPF6 EC/EMC/DEC` 인 총칭 재료다. 옮긴 것은 **EC:EMC = 30:70 wt%% 이성분 카보네이트계, MA 무첨가** 행뿐이고 조건에 `solvent_blend` 와 `lipf6_molality_mol_kg` 를 박았다. 같은 표의 MA 함유 3행(30:60:10 · 30:50:20 · 30:40:30)과 EC:DMC 계열 4행은 **조성이 다른 별개 재료**라 옮기지 않았다 — 그쪽은 재료를 새로 세워야 한다(다음 배치 인계). 43차 ED 가 이 논문을 `본문은 받았고 SI 가 막혔다` 로 남겼는데, **점도 격자는 SI 가 아니라 본문 Table II~V 에 있다** — 출처 조회로 확인하니 이 논문은 DB 에 출처로 등록조차 돼 있지 않았다(0행). "
+    },
+    {
+     "key": "rheological.viscosity",
+     "value": 0.00305,
+     "unit": "Pa*s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 293.15,
+      "temperature_c": 20,
+      "solvent_blend": "EC:EMC = 30:70 wt% (no ester co-solvent)",
+      "lipf6_molality_mol_kg": 1.0,
+      "shear_rate_1/s": "not printed (Ostwald capillary viscometer)"
+     },
+     "notes": "Logan 2018 Table III `Viscosity at 20 C for the different solvent blends studied for LiPF6 concentrations between 0 m and 2.0 m` 의 **EC | EMC | MA = 30 | 70 | 0 wt% 행** verbatim: `0.5 m: 1.91 | 1.0 m: 3.05 | 1.5 m: 6.25 | 2.0 m: 11.4`. 3.05 cP = 3.05 mPa*s -> 0.00305 Pa*s. **측정법이 인쇄돼 있다**(브리프 3) — 2절 verbatim: `Viscosity was measured using an Ostwald viscometer (Sibata Scientific Technology, Japan). Two different sized viscometers were used ... capillary diameters of 0.5 mm and 0.75 mm ... The temperature of the electrolyte in the viscometer was controlled by a circulating bath (Thermo Scientific) ... A resistance temperature detector (RTD) attached to the surface of the viscometer measured the temperature of the electrolyte.` 그래서 tier1 · measured 다. **모세관 점도계라 전단속도가 인쇄되지 않는다** — 조건에 미인쇄로 남긴다(뉴턴 유체 가정의 저점도 액체다). **격자 자체가 검산이다**(브리프 143) — 이 행의 16칸이 온도축에서 단조 감소(283->313 K)하고 농도축에서 단조 증가(0.5->2.0 m)하며 예외가 없다. 같은 표의 나란한 `EC|EMC|MA 30|60|10` 행보다 항상 높은 것도 방향이 맞다(MA 공용매가 점도를 낮춘다는 본문 서술과 일치). **조성 범위 주의** — 이 재료(111 `Liquid Electrolyte (LiPF6 carbonate)`)는 material_class 가 `LiPF6 EC/EMC/DEC` 인 총칭 재료다. 옮긴 것은 **EC:EMC = 30:70 wt%% 이성분 카보네이트계, MA 무첨가** 행뿐이고 조건에 `solvent_blend` 와 `lipf6_molality_mol_kg` 를 박았다. 같은 표의 MA 함유 3행(30:60:10 · 30:50:20 · 30:40:30)과 EC:DMC 계열 4행은 **조성이 다른 별개 재료**라 옮기지 않았다 — 그쪽은 재료를 새로 세워야 한다(다음 배치 인계). 43차 ED 가 이 논문을 `본문은 받았고 SI 가 막혔다` 로 남겼는데, **점도 격자는 SI 가 아니라 본문 Table II~V 에 있다** — 출처 조회로 확인하니 이 논문은 DB 에 출처로 등록조차 돼 있지 않았다(0행). "
+    },
+    {
+     "key": "rheological.viscosity",
+     "value": 0.00625,
+     "unit": "Pa*s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 293.15,
+      "temperature_c": 20,
+      "solvent_blend": "EC:EMC = 30:70 wt% (no ester co-solvent)",
+      "lipf6_molality_mol_kg": 1.5,
+      "shear_rate_1/s": "not printed (Ostwald capillary viscometer)"
+     },
+     "notes": "Logan 2018 Table III `Viscosity at 20 C for the different solvent blends studied for LiPF6 concentrations between 0 m and 2.0 m` 의 **EC | EMC | MA = 30 | 70 | 0 wt% 행** verbatim: `0.5 m: 1.91 | 1.0 m: 3.05 | 1.5 m: 6.25 | 2.0 m: 11.4`. 6.25 cP = 6.25 mPa*s -> 0.00625 Pa*s. **측정법이 인쇄돼 있다**(브리프 3) — 2절 verbatim: `Viscosity was measured using an Ostwald viscometer (Sibata Scientific Technology, Japan). Two different sized viscometers were used ... capillary diameters of 0.5 mm and 0.75 mm ... The temperature of the electrolyte in the viscometer was controlled by a circulating bath (Thermo Scientific) ... A resistance temperature detector (RTD) attached to the surface of the viscometer measured the temperature of the electrolyte.` 그래서 tier1 · measured 다. **모세관 점도계라 전단속도가 인쇄되지 않는다** — 조건에 미인쇄로 남긴다(뉴턴 유체 가정의 저점도 액체다). **격자 자체가 검산이다**(브리프 143) — 이 행의 16칸이 온도축에서 단조 감소(283->313 K)하고 농도축에서 단조 증가(0.5->2.0 m)하며 예외가 없다. 같은 표의 나란한 `EC|EMC|MA 30|60|10` 행보다 항상 높은 것도 방향이 맞다(MA 공용매가 점도를 낮춘다는 본문 서술과 일치). **조성 범위 주의** — 이 재료(111 `Liquid Electrolyte (LiPF6 carbonate)`)는 material_class 가 `LiPF6 EC/EMC/DEC` 인 총칭 재료다. 옮긴 것은 **EC:EMC = 30:70 wt%% 이성분 카보네이트계, MA 무첨가** 행뿐이고 조건에 `solvent_blend` 와 `lipf6_molality_mol_kg` 를 박았다. 같은 표의 MA 함유 3행(30:60:10 · 30:50:20 · 30:40:30)과 EC:DMC 계열 4행은 **조성이 다른 별개 재료**라 옮기지 않았다 — 그쪽은 재료를 새로 세워야 한다(다음 배치 인계). 43차 ED 가 이 논문을 `본문은 받았고 SI 가 막혔다` 로 남겼는데, **점도 격자는 SI 가 아니라 본문 Table II~V 에 있다** — 출처 조회로 확인하니 이 논문은 DB 에 출처로 등록조차 돼 있지 않았다(0행). "
+    },
+    {
+     "key": "rheological.viscosity",
+     "value": 0.0114,
+     "unit": "Pa*s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 293.15,
+      "temperature_c": 20,
+      "solvent_blend": "EC:EMC = 30:70 wt% (no ester co-solvent)",
+      "lipf6_molality_mol_kg": 2.0,
+      "shear_rate_1/s": "not printed (Ostwald capillary viscometer)"
+     },
+     "notes": "Logan 2018 Table III `Viscosity at 20 C for the different solvent blends studied for LiPF6 concentrations between 0 m and 2.0 m` 의 **EC | EMC | MA = 30 | 70 | 0 wt% 행** verbatim: `0.5 m: 1.91 | 1.0 m: 3.05 | 1.5 m: 6.25 | 2.0 m: 11.4`. 11.40 cP = 11.40 mPa*s -> 0.0114 Pa*s. **측정법이 인쇄돼 있다**(브리프 3) — 2절 verbatim: `Viscosity was measured using an Ostwald viscometer (Sibata Scientific Technology, Japan). Two different sized viscometers were used ... capillary diameters of 0.5 mm and 0.75 mm ... The temperature of the electrolyte in the viscometer was controlled by a circulating bath (Thermo Scientific) ... A resistance temperature detector (RTD) attached to the surface of the viscometer measured the temperature of the electrolyte.` 그래서 tier1 · measured 다. **모세관 점도계라 전단속도가 인쇄되지 않는다** — 조건에 미인쇄로 남긴다(뉴턴 유체 가정의 저점도 액체다). **격자 자체가 검산이다**(브리프 143) — 이 행의 16칸이 온도축에서 단조 감소(283->313 K)하고 농도축에서 단조 증가(0.5->2.0 m)하며 예외가 없다. 같은 표의 나란한 `EC|EMC|MA 30|60|10` 행보다 항상 높은 것도 방향이 맞다(MA 공용매가 점도를 낮춘다는 본문 서술과 일치). **조성 범위 주의** — 이 재료(111 `Liquid Electrolyte (LiPF6 carbonate)`)는 material_class 가 `LiPF6 EC/EMC/DEC` 인 총칭 재료다. 옮긴 것은 **EC:EMC = 30:70 wt%% 이성분 카보네이트계, MA 무첨가** 행뿐이고 조건에 `solvent_blend` 와 `lipf6_molality_mol_kg` 를 박았다. 같은 표의 MA 함유 3행(30:60:10 · 30:50:20 · 30:40:30)과 EC:DMC 계열 4행은 **조성이 다른 별개 재료**라 옮기지 않았다 — 그쪽은 재료를 새로 세워야 한다(다음 배치 인계). 43차 ED 가 이 논문을 `본문은 받았고 SI 가 막혔다` 로 남겼는데, **점도 격자는 SI 가 아니라 본문 Table II~V 에 있다** — 출처 조회로 확인하니 이 논문은 DB 에 출처로 등록조차 돼 있지 않았다(0행). "
+    },
+    {
+     "key": "rheological.viscosity",
+     "value": 0.0016,
+     "unit": "Pa*s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 303.15,
+      "temperature_c": 30,
+      "solvent_blend": "EC:EMC = 30:70 wt% (no ester co-solvent)",
+      "lipf6_molality_mol_kg": 0.5,
+      "shear_rate_1/s": "not printed (Ostwald capillary viscometer)"
+     },
+     "notes": "Logan 2018 Table IV `Viscosity at 30 C for the different solvent blends studied for LiPF6 concentrations between 0 m and 2.0 m` 의 **EC | EMC | MA = 30 | 70 | 0 wt% 행** verbatim: `0.5 m: 1.6 | 1.0 m: 2.47 | 1.5 m: 4.75 | 2.0 m: 8.18`. 1.60 cP = 1.60 mPa*s -> 0.0016 Pa*s. **측정법이 인쇄돼 있다**(브리프 3) — 2절 verbatim: `Viscosity was measured using an Ostwald viscometer (Sibata Scientific Technology, Japan). Two different sized viscometers were used ... capillary diameters of 0.5 mm and 0.75 mm ... The temperature of the electrolyte in the viscometer was controlled by a circulating bath (Thermo Scientific) ... A resistance temperature detector (RTD) attached to the surface of the viscometer measured the temperature of the electrolyte.` 그래서 tier1 · measured 다. **모세관 점도계라 전단속도가 인쇄되지 않는다** — 조건에 미인쇄로 남긴다(뉴턴 유체 가정의 저점도 액체다). **격자 자체가 검산이다**(브리프 143) — 이 행의 16칸이 온도축에서 단조 감소(283->313 K)하고 농도축에서 단조 증가(0.5->2.0 m)하며 예외가 없다. 같은 표의 나란한 `EC|EMC|MA 30|60|10` 행보다 항상 높은 것도 방향이 맞다(MA 공용매가 점도를 낮춘다는 본문 서술과 일치). **조성 범위 주의** — 이 재료(111 `Liquid Electrolyte (LiPF6 carbonate)`)는 material_class 가 `LiPF6 EC/EMC/DEC` 인 총칭 재료다. 옮긴 것은 **EC:EMC = 30:70 wt%% 이성분 카보네이트계, MA 무첨가** 행뿐이고 조건에 `solvent_blend` 와 `lipf6_molality_mol_kg` 를 박았다. 같은 표의 MA 함유 3행(30:60:10 · 30:50:20 · 30:40:30)과 EC:DMC 계열 4행은 **조성이 다른 별개 재료**라 옮기지 않았다 — 그쪽은 재료를 새로 세워야 한다(다음 배치 인계). 43차 ED 가 이 논문을 `본문은 받았고 SI 가 막혔다` 로 남겼는데, **점도 격자는 SI 가 아니라 본문 Table II~V 에 있다** — 출처 조회로 확인하니 이 논문은 DB 에 출처로 등록조차 돼 있지 않았다(0행). "
+    },
+    {
+     "key": "rheological.viscosity",
+     "value": 0.00247,
+     "unit": "Pa*s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 303.15,
+      "temperature_c": 30,
+      "solvent_blend": "EC:EMC = 30:70 wt% (no ester co-solvent)",
+      "lipf6_molality_mol_kg": 1.0,
+      "shear_rate_1/s": "not printed (Ostwald capillary viscometer)"
+     },
+     "notes": "Logan 2018 Table IV `Viscosity at 30 C for the different solvent blends studied for LiPF6 concentrations between 0 m and 2.0 m` 의 **EC | EMC | MA = 30 | 70 | 0 wt% 행** verbatim: `0.5 m: 1.6 | 1.0 m: 2.47 | 1.5 m: 4.75 | 2.0 m: 8.18`. 2.47 cP = 2.47 mPa*s -> 0.00247 Pa*s. **측정법이 인쇄돼 있다**(브리프 3) — 2절 verbatim: `Viscosity was measured using an Ostwald viscometer (Sibata Scientific Technology, Japan). Two different sized viscometers were used ... capillary diameters of 0.5 mm and 0.75 mm ... The temperature of the electrolyte in the viscometer was controlled by a circulating bath (Thermo Scientific) ... A resistance temperature detector (RTD) attached to the surface of the viscometer measured the temperature of the electrolyte.` 그래서 tier1 · measured 다. **모세관 점도계라 전단속도가 인쇄되지 않는다** — 조건에 미인쇄로 남긴다(뉴턴 유체 가정의 저점도 액체다). **격자 자체가 검산이다**(브리프 143) — 이 행의 16칸이 온도축에서 단조 감소(283->313 K)하고 농도축에서 단조 증가(0.5->2.0 m)하며 예외가 없다. 같은 표의 나란한 `EC|EMC|MA 30|60|10` 행보다 항상 높은 것도 방향이 맞다(MA 공용매가 점도를 낮춘다는 본문 서술과 일치). **조성 범위 주의** — 이 재료(111 `Liquid Electrolyte (LiPF6 carbonate)`)는 material_class 가 `LiPF6 EC/EMC/DEC` 인 총칭 재료다. 옮긴 것은 **EC:EMC = 30:70 wt%% 이성분 카보네이트계, MA 무첨가** 행뿐이고 조건에 `solvent_blend` 와 `lipf6_molality_mol_kg` 를 박았다. 같은 표의 MA 함유 3행(30:60:10 · 30:50:20 · 30:40:30)과 EC:DMC 계열 4행은 **조성이 다른 별개 재료**라 옮기지 않았다 — 그쪽은 재료를 새로 세워야 한다(다음 배치 인계). 43차 ED 가 이 논문을 `본문은 받았고 SI 가 막혔다` 로 남겼는데, **점도 격자는 SI 가 아니라 본문 Table II~V 에 있다** — 출처 조회로 확인하니 이 논문은 DB 에 출처로 등록조차 돼 있지 않았다(0행). "
+    },
+    {
+     "key": "rheological.viscosity",
+     "value": 0.00475,
+     "unit": "Pa*s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 303.15,
+      "temperature_c": 30,
+      "solvent_blend": "EC:EMC = 30:70 wt% (no ester co-solvent)",
+      "lipf6_molality_mol_kg": 1.5,
+      "shear_rate_1/s": "not printed (Ostwald capillary viscometer)"
+     },
+     "notes": "Logan 2018 Table IV `Viscosity at 30 C for the different solvent blends studied for LiPF6 concentrations between 0 m and 2.0 m` 의 **EC | EMC | MA = 30 | 70 | 0 wt% 행** verbatim: `0.5 m: 1.6 | 1.0 m: 2.47 | 1.5 m: 4.75 | 2.0 m: 8.18`. 4.75 cP = 4.75 mPa*s -> 0.00475 Pa*s. **측정법이 인쇄돼 있다**(브리프 3) — 2절 verbatim: `Viscosity was measured using an Ostwald viscometer (Sibata Scientific Technology, Japan). Two different sized viscometers were used ... capillary diameters of 0.5 mm and 0.75 mm ... The temperature of the electrolyte in the viscometer was controlled by a circulating bath (Thermo Scientific) ... A resistance temperature detector (RTD) attached to the surface of the viscometer measured the temperature of the electrolyte.` 그래서 tier1 · measured 다. **모세관 점도계라 전단속도가 인쇄되지 않는다** — 조건에 미인쇄로 남긴다(뉴턴 유체 가정의 저점도 액체다). **격자 자체가 검산이다**(브리프 143) — 이 행의 16칸이 온도축에서 단조 감소(283->313 K)하고 농도축에서 단조 증가(0.5->2.0 m)하며 예외가 없다. 같은 표의 나란한 `EC|EMC|MA 30|60|10` 행보다 항상 높은 것도 방향이 맞다(MA 공용매가 점도를 낮춘다는 본문 서술과 일치). **조성 범위 주의** — 이 재료(111 `Liquid Electrolyte (LiPF6 carbonate)`)는 material_class 가 `LiPF6 EC/EMC/DEC` 인 총칭 재료다. 옮긴 것은 **EC:EMC = 30:70 wt%% 이성분 카보네이트계, MA 무첨가** 행뿐이고 조건에 `solvent_blend` 와 `lipf6_molality_mol_kg` 를 박았다. 같은 표의 MA 함유 3행(30:60:10 · 30:50:20 · 30:40:30)과 EC:DMC 계열 4행은 **조성이 다른 별개 재료**라 옮기지 않았다 — 그쪽은 재료를 새로 세워야 한다(다음 배치 인계). 43차 ED 가 이 논문을 `본문은 받았고 SI 가 막혔다` 로 남겼는데, **점도 격자는 SI 가 아니라 본문 Table II~V 에 있다** — 출처 조회로 확인하니 이 논문은 DB 에 출처로 등록조차 돼 있지 않았다(0행). "
+    },
+    {
+     "key": "rheological.viscosity",
+     "value": 0.00818,
+     "unit": "Pa*s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 303.15,
+      "temperature_c": 30,
+      "solvent_blend": "EC:EMC = 30:70 wt% (no ester co-solvent)",
+      "lipf6_molality_mol_kg": 2.0,
+      "shear_rate_1/s": "not printed (Ostwald capillary viscometer)"
+     },
+     "notes": "Logan 2018 Table IV `Viscosity at 30 C for the different solvent blends studied for LiPF6 concentrations between 0 m and 2.0 m` 의 **EC | EMC | MA = 30 | 70 | 0 wt% 행** verbatim: `0.5 m: 1.6 | 1.0 m: 2.47 | 1.5 m: 4.75 | 2.0 m: 8.18`. 8.18 cP = 8.18 mPa*s -> 0.00818 Pa*s. **측정법이 인쇄돼 있다**(브리프 3) — 2절 verbatim: `Viscosity was measured using an Ostwald viscometer (Sibata Scientific Technology, Japan). Two different sized viscometers were used ... capillary diameters of 0.5 mm and 0.75 mm ... The temperature of the electrolyte in the viscometer was controlled by a circulating bath (Thermo Scientific) ... A resistance temperature detector (RTD) attached to the surface of the viscometer measured the temperature of the electrolyte.` 그래서 tier1 · measured 다. **모세관 점도계라 전단속도가 인쇄되지 않는다** — 조건에 미인쇄로 남긴다(뉴턴 유체 가정의 저점도 액체다). **격자 자체가 검산이다**(브리프 143) — 이 행의 16칸이 온도축에서 단조 감소(283->313 K)하고 농도축에서 단조 증가(0.5->2.0 m)하며 예외가 없다. 같은 표의 나란한 `EC|EMC|MA 30|60|10` 행보다 항상 높은 것도 방향이 맞다(MA 공용매가 점도를 낮춘다는 본문 서술과 일치). **조성 범위 주의** — 이 재료(111 `Liquid Electrolyte (LiPF6 carbonate)`)는 material_class 가 `LiPF6 EC/EMC/DEC` 인 총칭 재료다. 옮긴 것은 **EC:EMC = 30:70 wt%% 이성분 카보네이트계, MA 무첨가** 행뿐이고 조건에 `solvent_blend` 와 `lipf6_molality_mol_kg` 를 박았다. 같은 표의 MA 함유 3행(30:60:10 · 30:50:20 · 30:40:30)과 EC:DMC 계열 4행은 **조성이 다른 별개 재료**라 옮기지 않았다 — 그쪽은 재료를 새로 세워야 한다(다음 배치 인계). 43차 ED 가 이 논문을 `본문은 받았고 SI 가 막혔다` 로 남겼는데, **점도 격자는 SI 가 아니라 본문 Table II~V 에 있다** — 출처 조회로 확인하니 이 논문은 DB 에 출처로 등록조차 돼 있지 않았다(0행). "
+    },
+    {
+     "key": "rheological.viscosity",
+     "value": 0.00136,
+     "unit": "Pa*s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 313.15,
+      "temperature_c": 40,
+      "solvent_blend": "EC:EMC = 30:70 wt% (no ester co-solvent)",
+      "lipf6_molality_mol_kg": 0.5,
+      "shear_rate_1/s": "not printed (Ostwald capillary viscometer)"
+     },
+     "notes": "Logan 2018 Table V `Viscosity at 40 C for the different solvent blends studied for LiPF6 concentrations between 0 m and 2.0 m` 의 **EC | EMC | MA = 30 | 70 | 0 wt% 행** verbatim: `0.5 m: 1.36 | 1.0 m: 2.06 | 1.5 m: 3.75 | 2.0 m: 6.25`. 1.36 cP = 1.36 mPa*s -> 0.00136 Pa*s. **측정법이 인쇄돼 있다**(브리프 3) — 2절 verbatim: `Viscosity was measured using an Ostwald viscometer (Sibata Scientific Technology, Japan). Two different sized viscometers were used ... capillary diameters of 0.5 mm and 0.75 mm ... The temperature of the electrolyte in the viscometer was controlled by a circulating bath (Thermo Scientific) ... A resistance temperature detector (RTD) attached to the surface of the viscometer measured the temperature of the electrolyte.` 그래서 tier1 · measured 다. **모세관 점도계라 전단속도가 인쇄되지 않는다** — 조건에 미인쇄로 남긴다(뉴턴 유체 가정의 저점도 액체다). **격자 자체가 검산이다**(브리프 143) — 이 행의 16칸이 온도축에서 단조 감소(283->313 K)하고 농도축에서 단조 증가(0.5->2.0 m)하며 예외가 없다. 같은 표의 나란한 `EC|EMC|MA 30|60|10` 행보다 항상 높은 것도 방향이 맞다(MA 공용매가 점도를 낮춘다는 본문 서술과 일치). **조성 범위 주의** — 이 재료(111 `Liquid Electrolyte (LiPF6 carbonate)`)는 material_class 가 `LiPF6 EC/EMC/DEC` 인 총칭 재료다. 옮긴 것은 **EC:EMC = 30:70 wt%% 이성분 카보네이트계, MA 무첨가** 행뿐이고 조건에 `solvent_blend` 와 `lipf6_molality_mol_kg` 를 박았다. 같은 표의 MA 함유 3행(30:60:10 · 30:50:20 · 30:40:30)과 EC:DMC 계열 4행은 **조성이 다른 별개 재료**라 옮기지 않았다 — 그쪽은 재료를 새로 세워야 한다(다음 배치 인계). 43차 ED 가 이 논문을 `본문은 받았고 SI 가 막혔다` 로 남겼는데, **점도 격자는 SI 가 아니라 본문 Table II~V 에 있다** — 출처 조회로 확인하니 이 논문은 DB 에 출처로 등록조차 돼 있지 않았다(0행). "
+    },
+    {
+     "key": "rheological.viscosity",
+     "value": 0.00206,
+     "unit": "Pa*s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 313.15,
+      "temperature_c": 40,
+      "solvent_blend": "EC:EMC = 30:70 wt% (no ester co-solvent)",
+      "lipf6_molality_mol_kg": 1.0,
+      "shear_rate_1/s": "not printed (Ostwald capillary viscometer)"
+     },
+     "notes": "Logan 2018 Table V `Viscosity at 40 C for the different solvent blends studied for LiPF6 concentrations between 0 m and 2.0 m` 의 **EC | EMC | MA = 30 | 70 | 0 wt% 행** verbatim: `0.5 m: 1.36 | 1.0 m: 2.06 | 1.5 m: 3.75 | 2.0 m: 6.25`. 2.06 cP = 2.06 mPa*s -> 0.00206 Pa*s. **측정법이 인쇄돼 있다**(브리프 3) — 2절 verbatim: `Viscosity was measured using an Ostwald viscometer (Sibata Scientific Technology, Japan). Two different sized viscometers were used ... capillary diameters of 0.5 mm and 0.75 mm ... The temperature of the electrolyte in the viscometer was controlled by a circulating bath (Thermo Scientific) ... A resistance temperature detector (RTD) attached to the surface of the viscometer measured the temperature of the electrolyte.` 그래서 tier1 · measured 다. **모세관 점도계라 전단속도가 인쇄되지 않는다** — 조건에 미인쇄로 남긴다(뉴턴 유체 가정의 저점도 액체다). **격자 자체가 검산이다**(브리프 143) — 이 행의 16칸이 온도축에서 단조 감소(283->313 K)하고 농도축에서 단조 증가(0.5->2.0 m)하며 예외가 없다. 같은 표의 나란한 `EC|EMC|MA 30|60|10` 행보다 항상 높은 것도 방향이 맞다(MA 공용매가 점도를 낮춘다는 본문 서술과 일치). **조성 범위 주의** — 이 재료(111 `Liquid Electrolyte (LiPF6 carbonate)`)는 material_class 가 `LiPF6 EC/EMC/DEC` 인 총칭 재료다. 옮긴 것은 **EC:EMC = 30:70 wt%% 이성분 카보네이트계, MA 무첨가** 행뿐이고 조건에 `solvent_blend` 와 `lipf6_molality_mol_kg` 를 박았다. 같은 표의 MA 함유 3행(30:60:10 · 30:50:20 · 30:40:30)과 EC:DMC 계열 4행은 **조성이 다른 별개 재료**라 옮기지 않았다 — 그쪽은 재료를 새로 세워야 한다(다음 배치 인계). 43차 ED 가 이 논문을 `본문은 받았고 SI 가 막혔다` 로 남겼는데, **점도 격자는 SI 가 아니라 본문 Table II~V 에 있다** — 출처 조회로 확인하니 이 논문은 DB 에 출처로 등록조차 돼 있지 않았다(0행). "
+    },
+    {
+     "key": "rheological.viscosity",
+     "value": 0.00375,
+     "unit": "Pa*s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 313.15,
+      "temperature_c": 40,
+      "solvent_blend": "EC:EMC = 30:70 wt% (no ester co-solvent)",
+      "lipf6_molality_mol_kg": 1.5,
+      "shear_rate_1/s": "not printed (Ostwald capillary viscometer)"
+     },
+     "notes": "Logan 2018 Table V `Viscosity at 40 C for the different solvent blends studied for LiPF6 concentrations between 0 m and 2.0 m` 의 **EC | EMC | MA = 30 | 70 | 0 wt% 행** verbatim: `0.5 m: 1.36 | 1.0 m: 2.06 | 1.5 m: 3.75 | 2.0 m: 6.25`. 3.75 cP = 3.75 mPa*s -> 0.00375 Pa*s. **측정법이 인쇄돼 있다**(브리프 3) — 2절 verbatim: `Viscosity was measured using an Ostwald viscometer (Sibata Scientific Technology, Japan). Two different sized viscometers were used ... capillary diameters of 0.5 mm and 0.75 mm ... The temperature of the electrolyte in the viscometer was controlled by a circulating bath (Thermo Scientific) ... A resistance temperature detector (RTD) attached to the surface of the viscometer measured the temperature of the electrolyte.` 그래서 tier1 · measured 다. **모세관 점도계라 전단속도가 인쇄되지 않는다** — 조건에 미인쇄로 남긴다(뉴턴 유체 가정의 저점도 액체다). **격자 자체가 검산이다**(브리프 143) — 이 행의 16칸이 온도축에서 단조 감소(283->313 K)하고 농도축에서 단조 증가(0.5->2.0 m)하며 예외가 없다. 같은 표의 나란한 `EC|EMC|MA 30|60|10` 행보다 항상 높은 것도 방향이 맞다(MA 공용매가 점도를 낮춘다는 본문 서술과 일치). **조성 범위 주의** — 이 재료(111 `Liquid Electrolyte (LiPF6 carbonate)`)는 material_class 가 `LiPF6 EC/EMC/DEC` 인 총칭 재료다. 옮긴 것은 **EC:EMC = 30:70 wt%% 이성분 카보네이트계, MA 무첨가** 행뿐이고 조건에 `solvent_blend` 와 `lipf6_molality_mol_kg` 를 박았다. 같은 표의 MA 함유 3행(30:60:10 · 30:50:20 · 30:40:30)과 EC:DMC 계열 4행은 **조성이 다른 별개 재료**라 옮기지 않았다 — 그쪽은 재료를 새로 세워야 한다(다음 배치 인계). 43차 ED 가 이 논문을 `본문은 받았고 SI 가 막혔다` 로 남겼는데, **점도 격자는 SI 가 아니라 본문 Table II~V 에 있다** — 출처 조회로 확인하니 이 논문은 DB 에 출처로 등록조차 돼 있지 않았다(0행). "
+    },
+    {
+     "key": "rheological.viscosity",
+     "value": 0.00625,
+     "unit": "Pa*s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 313.15,
+      "temperature_c": 40,
+      "solvent_blend": "EC:EMC = 30:70 wt% (no ester co-solvent)",
+      "lipf6_molality_mol_kg": 2.0,
+      "shear_rate_1/s": "not printed (Ostwald capillary viscometer)"
+     },
+     "notes": "Logan 2018 Table V `Viscosity at 40 C for the different solvent blends studied for LiPF6 concentrations between 0 m and 2.0 m` 의 **EC | EMC | MA = 30 | 70 | 0 wt% 행** verbatim: `0.5 m: 1.36 | 1.0 m: 2.06 | 1.5 m: 3.75 | 2.0 m: 6.25`. 6.25 cP = 6.25 mPa*s -> 0.00625 Pa*s. **측정법이 인쇄돼 있다**(브리프 3) — 2절 verbatim: `Viscosity was measured using an Ostwald viscometer (Sibata Scientific Technology, Japan). Two different sized viscometers were used ... capillary diameters of 0.5 mm and 0.75 mm ... The temperature of the electrolyte in the viscometer was controlled by a circulating bath (Thermo Scientific) ... A resistance temperature detector (RTD) attached to the surface of the viscometer measured the temperature of the electrolyte.` 그래서 tier1 · measured 다. **모세관 점도계라 전단속도가 인쇄되지 않는다** — 조건에 미인쇄로 남긴다(뉴턴 유체 가정의 저점도 액체다). **격자 자체가 검산이다**(브리프 143) — 이 행의 16칸이 온도축에서 단조 감소(283->313 K)하고 농도축에서 단조 증가(0.5->2.0 m)하며 예외가 없다. 같은 표의 나란한 `EC|EMC|MA 30|60|10` 행보다 항상 높은 것도 방향이 맞다(MA 공용매가 점도를 낮춘다는 본문 서술과 일치). **조성 범위 주의** — 이 재료(111 `Liquid Electrolyte (LiPF6 carbonate)`)는 material_class 가 `LiPF6 EC/EMC/DEC` 인 총칭 재료다. 옮긴 것은 **EC:EMC = 30:70 wt%% 이성분 카보네이트계, MA 무첨가** 행뿐이고 조건에 `solvent_blend` 와 `lipf6_molality_mol_kg` 를 박았다. 같은 표의 MA 함유 3행(30:60:10 · 30:50:20 · 30:40:30)과 EC:DMC 계열 4행은 **조성이 다른 별개 재료**라 옮기지 않았다 — 그쪽은 재료를 새로 세워야 한다(다음 배치 인계). 43차 ED 가 이 논문을 `본문은 받았고 SI 가 막혔다` 로 남겼는데, **점도 격자는 SI 가 아니라 본문 Table II~V 에 있다** — 출처 조회로 확인하니 이 논문은 DB 에 출처로 등록조차 돼 있지 않았다(0행). "
+    }
+   ]
+  }
+ ]
+}

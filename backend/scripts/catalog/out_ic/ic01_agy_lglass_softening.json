@@ -1,0 +1,86 @@
+{
+  "batch": "IC-1 47차 · AGY L/L2/L-HDI 연화점 — 44차 FC/FD 가 접근 부재로 남긴 3칸",
+  "materials": [
+    {
+      "match_name": "AGY L Glass fibre yarn (low-Dk/Df PCB reinforcement)",
+      "source": {
+        "kind": "datasheet",
+        "title": "AGY L Glass fiber Yarn - Product Information (AGY_LGlass_SS_v6, (c)2024 AGY)",
+        "url": "https://www.agy.com/wp-content/uploads/2026/07/AGY_LGlass_SS_v6.pdf",
+        "authors": "AGY (AGY Holding Corp.)",
+        "year": 2024,
+        "publisher": "AGY (AGY Holding Corp.)",
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/AGY_LGlass_Yarn_Product_Information_SS_v6_2024.pdf"
+      },
+      "properties": [
+        {
+          "key": "thermal.viscosity_reference_temperature",
+          "value": 1134.15,
+          "unit": "K",
+          "method": "datasheet",
+          "tier": 1,
+          "conditions": {
+            "viscosity_log10_poise": 7.6,
+            "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+            "test_standard": "ASTM C338"
+          },
+          "notes": "AGY L Glass 제품시트 `Product information` 표 verbatim 행: `Softening Point | C | L Glass 861 | L2 Glass 930 | L-HDI 1045 | E Glass 846`. 861 + 273.15 = 1134.15 K. **44차 FD 가 이 3칸을 접근 부재로 남겼다(브리프 479) — 시트가 디스크에 없고 agy.com URL 만 있다고 적었다. 판정이 틀렸다: 같은 URL 이 지금 200 + application/pdf 로 1,179,822 바이트를 준다.** 시트는 점도값을 인쇄하지 않는다 — `Softening Point` 라는 용어 자체가 ASTM C338 에서 10^7.6 P 로 정의된 온도이므로 조건축에 7.6 을 적고 `determination` 에 그 사실을 밝혔다(브리프 481 · 같은 파일의 NEG 처리와 동형). **문서 간 대조로 열 정체가 닫힌다(브리프 177)** — 이 표의 `E Glass` 열이 연화점 846 · 10 GHz Dk 6.1 인데, 이미 DB 에 있는 AGY 기술논문(출처 4661)의 Table 2 가 `Softening Point,C(F) | ... | E 846`, Table 3 이 `10 GHz | ... | E 6.1` 을 인쇄한다. **두 열이 소수점까지 같으므로 이 시트의 `Softening Point` 는 AGY 기술논문과 같은 리틀턴 연화점이다.** 순서 검산: L-HDI 1045 > L2 930 > L 861 > E 846 로 단조이고, 같은 시트의 탄성률 순서(L-HDI 88 > L 51 > L2 47)와는 독립이다."
+        }
+      ]
+    },
+    {
+      "match_name": "AGY L2 Glass fibre yarn (ultra-low-Dk/Df PCB reinforcement)",
+      "source": {
+        "kind": "datasheet",
+        "title": "AGY L Glass fiber Yarn - Product Information (AGY_LGlass_SS_v6, (c)2024 AGY)",
+        "url": "https://www.agy.com/wp-content/uploads/2026/07/AGY_LGlass_SS_v6.pdf",
+        "authors": "AGY (AGY Holding Corp.)",
+        "year": 2024,
+        "publisher": "AGY (AGY Holding Corp.)",
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/AGY_LGlass_Yarn_Product_Information_SS_v6_2024.pdf"
+      },
+      "properties": [
+        {
+          "key": "thermal.viscosity_reference_temperature",
+          "value": 1203.15,
+          "unit": "K",
+          "method": "datasheet",
+          "tier": 1,
+          "conditions": {
+            "viscosity_log10_poise": 7.6,
+            "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+            "test_standard": "ASTM C338"
+          },
+          "notes": "AGY L Glass 제품시트 `Product information` 표 verbatim 행: `Softening Point | C | L Glass 861 | L2 Glass 930 | L-HDI 1045 | E Glass 846` 의 L2 열. 930 + 273.15 = 1203.15 K. 열 정체 확정 근거·접근 부재 정정은 같은 시트 L Glass 행 notes 참조."
+        }
+      ]
+    },
+    {
+      "match_name": "AGY L-HDI Glass fibre yarn (low-CTE high-modulus IC substrate reinforcement)",
+      "source": {
+        "kind": "datasheet",
+        "title": "AGY L Glass fiber Yarn - Product Information (AGY_LGlass_SS_v6, (c)2024 AGY)",
+        "url": "https://www.agy.com/wp-content/uploads/2026/07/AGY_LGlass_SS_v6.pdf",
+        "authors": "AGY (AGY Holding Corp.)",
+        "year": 2024,
+        "publisher": "AGY (AGY Holding Corp.)",
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/AGY_LGlass_Yarn_Product_Information_SS_v6_2024.pdf"
+      },
+      "properties": [
+        {
+          "key": "thermal.viscosity_reference_temperature",
+          "value": 1318.15,
+          "unit": "K",
+          "method": "datasheet",
+          "tier": 1,
+          "conditions": {
+            "viscosity_log10_poise": 7.6,
+            "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+            "test_standard": "ASTM C338"
+          },
+          "notes": "AGY L Glass 제품시트 `Product information` 표 verbatim 행: `Softening Point | C | L Glass 861 | L2 Glass 930 | L-HDI 1045 | E Glass 846` 의 L-HDI 열. 1045 + 273.15 = 1318.15 K. 열 정체 확정 근거·접근 부재 정정은 같은 시트 L Glass 행 notes 참조. **이 등급만 조성이 다르다** — 같은 표에서 L-HDI 는 밀도 2.5 · CTE 28e-7 · 탄성률 88 GPa 로 L/L2 와 갈리고 연화점도 1045 로 100 K 이상 높다(고탄성·저CTE IC 기판용)."
+        }
+      ]
+    }
+  ]
+}

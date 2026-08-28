@@ -1,0 +1,136 @@
+{
+ "batch": "IC-2 47차 · Corning Willow Glass — §476 의 두 쪽 모순을 Corning 자사 문서 둘로 갈랐다",
+ "materials": [
+  {
+   "new_material": {
+    "name": "Corning Willow Glass (flexible alkali-free boro-aluminosilicate, 100/200 um roll, 250 um sheet)",
+    "category": "ceramic",
+    "attributes": {
+     "source": "mcp",
+     "role": "product",
+     "role_confidence": "high",
+     "role_reason": "제조사 등록상표 제품명이고 출처가 그 제조사의 팩트시트다",
+     "subsystem": "display",
+     "subsystem_basis": "플렉시블 OLED·전자종이·터치 기판용 초박 롤투롤 유리",
+     "manufacturer": "Corning Incorporated",
+     "material_class": "fusion-drawn ultrathin flexible glass; sheet prints 'Alkali-free Borosilicate' (p.2) / 'Alkaline Earth Boro-Aluminosilicate' (p.1, 2015 PI)",
+     "process": "fusion draw, 100/200 um roll (1.3 m x 300 m spool) and 250 um sheet; patented edge tab for R2R",
+     "document_conflict_resolved_47ic": "**§476 의 심판을 찾았다 — 2쪽이 Willow 다.** Aug-2019 팩트시트는 두 쪽이 같은 머리글 `Willow Glass Characteristics / Nominal Values` 아래 다른 값을 인쇄한다 — 1쪽 `2.56 g/cc · 34.6e-7/C · 78.7 GPa · 0.23 · 725 C · 781 C · 5.95 · Hardness 588(2000 g, 15 s)`, 2쪽 `2.38 g/cc · 31.7e-7/C · 73.6 GPa · 0.23 · 669 C · 722 C · 5.27 · Hardness 640(2000 g, 25 s)`. 44차 FA 는 심판이 없어 재료를 통째로 보류했다. 47차 IC 가 **Corning 자사 문서 둘을 조달해 갈랐다.** ① **Willow 전용 2013 팩트시트**(coresix.com 미러, (c)2013 Corning) 가 `Nominal Values` 를 구간으로 인쇄한다 — `Density 2.3-2.5 · CTE 3-5 ppm/C · Young's Modulus 70-80 GPa · Poisson 0.20-0.25 · Strain Point 650-700 · Annealing Point 700-750 · Dielectric Constant 5-6`. **2쪽 값 일곱 칸이 전부 구간 안이고, 1쪽은 밀도(2.56)·변형점(725)·서냉점(781) 세 칸이 구간 밖이다.** ② **Corning Thin Sheet Glass Products Product Information(Oct-2015)** 은 표제가 Eagle XG · Eagle XG Slim · **Willow 를 한 표로** 묶는데 `Density 2.3-2.5 · Strain Point 650-700 · Anneal Point 700-750 · Vicker's Hardness (200 g load, 25 sec dwell) 640` 이다 — 다시 2쪽 편이고, **경도 640 과 dwell 25 s 가 2쪽과 글자 단위로 같다**(1쪽은 588 · 15 s). → 서로 다른 두 Corning 문서가 같은 세 칸에서 1쪽을 배제한다. **1쪽은 Willow 표가 아니다.** ③ FA 의 우려(2쪽 수치가 EAGLE XG 공표값과 같다)는 **기각 사유가 되지 않는다** — 2015 PI 가 Corning 스스로 세 제품을 한 물성표로 묶은 문서이고, Willow 는 같은 융합인상 알칼리프리 보로알루미노실리케이트를 얇게 뽑은 것이다. 오히려 자릿수가 갈린다 — DB 의 EAGLE XG(2023 PI, 재료 2618)는 `74 GPa · 3.2e-6 · 5.3` 으로 반올림해 인쇄하는데 2쪽은 `73.6 · 31.7e-7 · 5.27` 로 더 정밀하다. 단순 복사라면 반올림까지 같아야 한다. ④ 1쪽의 정체 — **Corning Astra Glass PI 시트**(2.52 g/cc · 81 GPa · 0.23 · 34e-7 · 변형점 **725** · 서냉점 778) 와 변형점이 정확히 같고 나머지도 한 자리 안에서 겹친다. 즉 1쪽은 Corning 고변형점 계열의 표가 잘못 붙은 것이다. **그래서 tier2 다** — 벤더 시트가 자기모순이고 우리가 다른 문서로 편을 갈랐으므로 exact-grade 시트의 tier1 을 주지 않는다.",
+     "not_loadable_47ic": "같은 시트의 미적재 칸 — Surface Roughness `Ra < 0.5 nm` · `Rpv < 20 nm`(부등호 상한, 브리프 110·132) · WVTR `Below Detection Limits`(값이 아님) · Minimum bend radius `100 um = 90 mm · 200 um = 180 mm`(형상 사양이라 물성키 없음). 1쪽(기각한 표)의 값도 남긴다 — `2.56 g/cc · 34.6e-7/C · 78.7 GPa · 0.23 · 725 C · 781 C · 5.95 · Hardness 588 (2000 g, 15 s)`."
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Corning Willow Glass - Fact Sheet (2 pages, August 2019, (C) 2019 Corning Incorporated)",
+    "url": "https://www.corning.com/media/worldwide/Innovation/documents/WillowGlass/Corning%20Willow%20Glass%20Fact%20Sheets_August2019.pdf",
+    "authors": "Corning Incorporated",
+    "year": 2019,
+    "publisher": "Corning Incorporated",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/Corning_Willow_Glass_Fact_Sheets_August2019.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2380.0,
+     "unit": "kg/m^3",
+     "method": "datasheet",
+     "tier": 2,
+     "conditions": {
+      "temperature": "not printed",
+      "document_conflict": "Aug-2019 fact sheet p.1 prints 2.56 g/cc; p.2 value adopted"
+     },
+     "notes": "Aug-2019 팩트시트 2쪽 `Willow Glass Characteristics` verbatim: `Density | g/cc | 2.38`. x1000 -> 2380 kg/m^3. **§476 의 심판을 찾았다 — 2쪽이 Willow 다.** Aug-2019 팩트시트는 두 쪽이 같은 머리글 `Willow Glass Characteristics / Nominal Values` 아래 다른 값을 인쇄한다 — 1쪽 `2.56 g/cc · 34.6e-7/C · 78.7 GPa · 0.23 · 725 C · 781 C · 5.95 · Hardness 588(2000 g, 15 s)`, 2쪽 `2.38 g/cc · 31.7e-7/C · 73.6 GPa · 0.23 · 669 C · 722 C · 5.27 · Hardness 640(2000 g, 25 s)`. 44차 FA 는 심판이 없어 재료를 통째로 보류했다. 47차 IC 가 **Corning 자사 문서 둘을 조달해 갈랐다.** ① **Willow 전용 2013 팩트시트**(coresix.com 미러, (c)2013 Corning) 가 `Nominal Values` 를 구간으로 인쇄한다 — `Density 2.3-2.5 · CTE 3-5 ppm/C · Young's Modulus 70-80 GPa · Poisson 0.20-0.25 · Strain Point 650-700 · Annealing Point 700-750 · Dielectric Constant 5-6`. **2쪽 값 일곱 칸이 전부 구간 안이고, 1쪽은 밀도(2.56)·변형점(725)·서냉점(781) 세 칸이 구간 밖이다.** ② **Corning Thin Sheet Glass Products Product Information(Oct-2015)** 은 표제가 Eagle XG · Eagle XG Slim · **Willow 를 한 표로** 묶는데 `Density 2.3-2.5 · Strain Point 650-700 · Anneal Point 700-750 · Vicker's Hardness (200 g load, 25 sec dwell) 640` 이다 — 다시 2쪽 편이고, **경도 640 과 dwell 25 s 가 2쪽과 글자 단위로 같다**(1쪽은 588 · 15 s). → 서로 다른 두 Corning 문서가 같은 세 칸에서 1쪽을 배제한다. **1쪽은 Willow 표가 아니다.** ③ FA 의 우려(2쪽 수치가 EAGLE XG 공표값과 같다)는 **기각 사유가 되지 않는다** — 2015 PI 가 Corning 스스로 세 제품을 한 물성표로 묶은 문서이고, Willow 는 같은 융합인상 알칼리프리 보로알루미노실리케이트를 얇게 뽑은 것이다. 오히려 자릿수가 갈린다 — DB 의 EAGLE XG(2023 PI, 재료 2618)는 `74 GPa · 3.2e-6 · 5.3` 으로 반올림해 인쇄하는데 2쪽은 `73.6 · 31.7e-7 · 5.27` 로 더 정밀하다. 단순 복사라면 반올림까지 같아야 한다. ④ 1쪽의 정체 — **Corning Astra Glass PI 시트**(2.52 g/cc · 81 GPa · 0.23 · 34e-7 · 변형점 **725** · 서냉점 778) 와 변형점이 정확히 같고 나머지도 한 자리 안에서 겹친다. 즉 1쪽은 Corning 고변형점 계열의 표가 잘못 붙은 것이다. **그래서 tier2 다** — 벤더 시트가 자기모순이고 우리가 다른 문서로 편을 갈랐으므로 exact-grade 시트의 tier1 을 주지 않는다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 73600000000.0,
+     "unit": "Pa",
+     "method": "datasheet",
+     "tier": 2,
+     "conditions": {
+      "temperature": "not printed",
+      "document_conflict": "p.1 prints 78.7 GPa; p.2 value adopted"
+     },
+     "notes": "2쪽 verbatim: `Young's Modulus | GPa | 73.6`. 73.6 GPa -> 7.36e10 Pa. 2013 Willow 팩트시트의 구간 `70-80 GPa` 는 **두 쪽 값을 다 담아 이 칸만으로는 못 가른다** — 갈림은 밀도·변형점·서냉점이 냈다. 판정 근거 전문은 이 재료의 밀도 행 notes 참조."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.23,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 2,
+     "conditions": {
+      "temperature": "not printed"
+     },
+     "notes": "2쪽 verbatim: `Poisson Ratio | - | 0.23`. **이 칸은 두 쪽이 같다** — 모순이 아니다. 2013 팩트시트 구간 `0.20-0.25` 안이다. 판정 근거 전문은 이 재료의 밀도 행 notes 참조."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 3.17e-06,
+     "unit": "1/K",
+     "method": "datasheet",
+     "tier": 2,
+     "conditions": {
+      "temperature_range_c": "0-300",
+      "document_conflict": "p.1 prints 34.6 x10-7/C; p.2 value adopted"
+     },
+     "notes": "2쪽 verbatim: `CTE (0C to 300C) | x 10-7/C | 31.7`. 31.7e-7 = 3.17e-6 1/K. 온도구간이 머리글에 인쇄돼 있다. 판정 근거 전문은 이 재료의 밀도 행 notes 참조."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.27,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 2,
+     "conditions": {
+      "frequency": "not printed",
+      "temperature": "not printed",
+      "document_conflict": "p.1 prints 5.95; p.2 value adopted"
+     },
+     "notes": "2쪽 verbatim: `Dielectric Constant (k=Eo/E) | - | 5.27`. **주파수가 인쇄돼 있지 않다** — 시트가 조건을 안 밝히므로 조건에 미인쇄로 남긴다(브리프 138). 참고로 DB 의 EAGLE XG(2618)는 같은 값을 `1 kHz · 23 C · 20 %RH` 로 인쇄한 2023 PI 시트에서 5.3 으로 받았다. 판정 근거 전문은 이 재료의 밀도 행 notes 참조."
+    },
+    {
+     "key": "mechanical.hardness_vickers",
+     "value": 640.0,
+     "unit": "HV",
+     "method": "datasheet",
+     "tier": 2,
+     "conditions": {
+      "load_g": 2000,
+      "dwell_s": 25,
+      "document_conflict": "p.1 prints 588 at 2000 g / 15 s; p.2 value adopted"
+     },
+     "notes": "2쪽 verbatim: `Hardness | 2000 g load 15 second dwell -> (2쪽은) 2000 g load 25 second dwell | 640`. **하중이 문서 사이에서 어긋난다** — Corning Thin Sheet Glass Products PI(Oct-2015)는 같은 640 을 `Vicker's Hardness (200 g load, 25 sec dwell)` 로 인쇄한다. 값과 dwell(25 s)은 같고 하중만 200 g 대 2000 g 로 다르다. **인쇄된 조건을 그대로 남기고 어긋남을 적어 둔다**(브리프 112·177) — 유리의 비커스는 하중의존(ISE)이 있어 두 하중에서 같은 값이 나오는 것은 이상하지만, 어느 쪽이 오식인지 가릴 제3의 문서가 없다. 판정 근거 전문은 이 재료의 밀도 행 notes 참조."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 942.15,
+     "unit": "K",
+     "method": "datasheet",
+     "tier": 2,
+     "conditions": {
+      "viscosity_log10_poise": 14.5,
+      "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+      "test_standard": "ASTM C336",
+      "document_conflict": "p.1 prints Strain Point 725 C; p.2 value adopted"
+     },
+     "notes": "2쪽 verbatim: `Strain Point | C | 669`. 669 + 273.15 = 942.15 K. **시트는 점도값을 인쇄하지 않는다** — `Strain Point` 라는 용어가 ASTM C336 에서 10^14.5 P 로 정의된 온도이므로 조건축에 14.5 를 적고 `determination` 에 밝혔다(브리프 481). **이 칸이 갈림을 낸 셋 중 하나다** — 2013 Willow 팩트시트 구간 `650-700 C` 가 669 는 담고 1쪽의 725 는 배제한다. 판정 근거 전문은 이 재료의 밀도 행 notes 참조."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 995.15,
+     "unit": "K",
+     "method": "datasheet",
+     "tier": 2,
+     "conditions": {
+      "viscosity_log10_poise": 13.0,
+      "determination": "viscosity from the ASTM/JOGIS definition of the printed term",
+      "test_standard": "ASTM C336",
+      "document_conflict": "p.1 prints Annealing Point 781 C; p.2 value adopted"
+     },
+     "notes": "2쪽 verbatim: `Annealing Point | C | 722`. 722 + 273.15 = 995.15 K. **이 칸이 갈림을 낸 셋 중 하나다** — 2013 Willow 팩트시트 구간 `700-750 C` 가 722 는 담고 1쪽의 781 은 배제한다. 순서 검산: 변형점 669 < 서냉점 722 (브리프 431). 판정 근거 전문은 이 재료의 밀도 행 notes 참조."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,33 @@
+{
+ "batch": "IC-4 47차 · AGC AL-X 1차 출처 조달(IMAPS DPC 2010) — 46차 HD 표적",
+ "materials": [
+  {
+   "match_name": "ALX-211 photoimageable fluorinated aromatic polymer dielectric (Asahi Glass AL-X, negative tone, 190 C / 2 h N2 cure, Huffman 2009)",
+   "source": {
+    "kind": "journal",
+    "doi": "10.4071/2010DPC-tp34",
+    "title": "ALX Polymer for Wafer Level Packaging: Mechanical Property Evaluation After Multiple Lead-Free Solder Reflows (IMAPS International Conference and Exhibition on Device Packaging, March 9 2010, pp. 1054-1079)",
+    "url": "https://imapsource.org/article/67482-alx-polymer-for-wafer-level-packaging-mechanical-property-evaluation-after-multiple-lead-free-solder-reflows",
+    "authors": "Eriguchi; Wang; Tsuruoka; Ishibashi; Zhang (Asahi Glass Co., Ltd.)",
+    "year": 2010,
+    "publisher": "IMAPS (IMAPSource Proceedings)",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pkg/Eriguchi_2010_IMAPS_DPC_ALX_Polymer_WLP_Mechanical_Property_Multiple_Reflows.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.cure_shrinkage",
+     "value": 0.05,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 2,
+     "conditions": {
+      "cure_schedule": "190 C / 2 h in nitrogen",
+      "printed_as": "~5 %",
+      "form": "spin-coated film"
+     },
+     "notes": "AGC 자사 발표자료 슬라이드 `Polymer Dielectrics for WLP` 표 verbatim 행: `Shrinkage (%) | ALX ~5 | BCB ~5 | PI 30-60`. ~5 % -> 0.05. **이 표가 Huffman 2009 Table 1 의 1차 출처다**(46차 HD 가 조달 대상으로 특정한 자리, 브리프 145). AGC(Asahi Glass Co., Ltd.) 저자 다섯이 IMAPS Device Packaging 2010 에서 발표한 자기 제품 표이고, **여덟 칸이 Huffman 2009 Table 1 과 글자 단위로 같다** — `Modulus 1.3 GPa · Tensile 90 MPa · CTE 60 ppm/C @25C · Stress 28 MPa · Dielectric Const. 2.6 (1KHz-1GHz) · Breakdown 5.5 MV/cm · Resistivity >10^16 ohm-cm · Water Absorption 0.4 % @85C/85%RH`. 같은 자료의 사사(Acknowledgement)가 verbatim 으로 `We gratefully acknowledge Dr. Philip Garrou ... and Mr. Alan Huffman (RTI International) for the evaluation data` 라고 밝혀 **두 문서의 계보가 하나임을 저자들이 인쇄한다**(브리프 456). 그래서 이 재료의 기존 tier3 행(출처 4190 Huffman 2009)을 **복제하지 않았다** — 같은 값의 두 번째 사본은 교차확인이 아니다. 새로 들어오는 것은 이 `Shrinkage` 칸 하나뿐이다(Huffman 이 옮기지 않은 열이다). **연신 열만 두 문서가 갈린다** — AGC 판은 BCB 9 %, Huffman 판은 BCB 8 % 다(ALX 는 양쪽 20 %). 우리 재료의 값에는 영향이 없다. `~` 가 붙은 근사값이고 학회 슬라이드라 tier2 로 둔다. 같은 표의 `Resistivity > 10^16 ohm-cm` 은 **부등호 하한이라 값이 아니다**(브리프 110·132) — 넣지 않았다. 같은 자료의 Isothermal TGA 표(`250 C: <0.5 · 300 C: <0.5 · 350 C: ~2 %/hr`)도 부등호라 넣지 않았다. **밀도·포아송비·열전도율·비열은 AGC 자사 발표자료에도 없다** — 46차 HD 가 Huffman 2009 에 없다고 적은 네 칸이 1차 출처에서도 비어 있다. 접근 부재가 아니라 **구조적 부재**로 확정한다(브리프 145)."
+    }
+   ]
+  }
+ ]
+}
