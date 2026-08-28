@@ -1,0 +1,60 @@
+{
+ "classification": [
+  {
+   "material_id": 2417,
+   "name": "Thermocomp MEV-1006 PP/GF 30 wt% (LNP Engineering Plastics)",
+   "role": "product",
+   "reason": "상용 컴파운드 그레이드명 + 제조사(LNP Thermocomp MEV-1006, PP/GF 30 wt%). 논문(Lee 2010)이 그 상용품을 측정했다 — 브리프 115 의 'commercial product measured by a paper'.",
+   "confidence": "high"
+  },
+  {
+   "material_id": 2444,
+   "name": "PZT-PSN 압전세라믹 0.96Pb(Zr,Ti)O3-0.04Pb(Sb1/2Nb1/2)O3 + 0.4 wt% MnO2 + 0.6 wt% WO3 (Kim 2002)",
+   "role": "evidence",
+   "reason": "이름에 조성비와 도판트 wt% 가 박혀 있다 — 0.96Pb(Zr,Ti)O3-0.04Pb(Sb,Nb)O3 + 0.4 wt% MnO2 + 0.6 wt% WO3. MEMS 용으로 저자가 배합한 실험실 조성이다(브리프 115).",
+   "confidence": "high"
+  },
+  {
+   "material_id": 2445,
+   "name": "(1-x)(Na0.535K0.48)NbO3-xLiNbO3 무연 압전세라믹 KNN-LN, 저온소결 (Wang 2010)",
+   "role": "evidence",
+   "reason": "조성 파라미터 시리즈의 한 점이다 — (1-x)(Na,K)NbO3-xLiNbO3 의 x. 저온소결 조건까지 이름에 있다(브리프 115).",
+   "confidence": "high"
+  },
+  {
+   "material_id": 2446,
+   "name": "Pb(Zn1/3Nb2/3)O3 (PZN) 릴랙서 강유전 단결정, 능면정 상 (Park 1997)",
+   "role": "product",
+   "reason": "Pb(Zn1/3Nb2/3)O3(PZN) 은 표준 화합물명이고 릴랙서 단결정은 상용 등급으로 유통된다. 조성비가 아니라 화학식이라 5:5 이면 product(브리프 115).",
+   "confidence": "medium"
+  },
+  {
+   "material_id": 2447,
+   "name": "0.92Pb(Zn1/3Nb2/3)O3-0.08PbTiO3 (PZN-8%PT) 릴랙서 강유전 단결정 (Park 1997)",
+   "role": "product",
+   "reason": "PZN-8%PT 는 릴랙서 단결정의 표준 등급 표기다(0.92PZN-0.08PT). 조성 시리즈의 한 점이 아니라 그 자체가 유통 등급이다 — 5:5 이면 product.",
+   "confidence": "medium"
+  },
+  {
+   "material_id": 2448,
+   "name": "AlN 압전 박막, pulsed DC 마그네트론 스퍼터, Pt 시드층 (Stoeckel 2014)",
+   "role": "product",
+   "reason": "AlN 압전 박막은 스퍼터 증착으로만 존재하는 재료라 이름의 공정 서술은 시료 라벨이 아니라 재료 정의다. 카탈로그에 130 'Piezo MEMS (AlN thin-film)' 이 이미 product 로 있다(브리프 116 의 반대 방향 — 대표가 있으니 같은 값으로 붙인다).",
+   "confidence": "medium"
+  },
+  {
+   "material_id": 2649,
+   "name": "업로드시험강",
+   "role": "out_of_scope",
+   "reason": "MCP 업로드 시험으로 만든 껍데기다 — 물성 0행·출처 0건. 실재 재료가 아니라 격자에서 빼야 한다. role 어휘 셋 중 격자를 비우는 것은 out_of_scope 뿐이라 그것을 쓴다.",
+   "confidence": "high"
+  },
+  {
+   "material_id": 2650,
+   "name": "삭제확인강",
+   "role": "out_of_scope",
+   "reason": "MCP 삭제 확인 시험으로 만든 껍데기다 — 물성 0행·출처 0건. 2649 와 같다.",
+   "confidence": "high"
+  }
+ ]
+}
