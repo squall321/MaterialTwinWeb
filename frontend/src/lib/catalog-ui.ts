@@ -91,7 +91,11 @@ export const SUBSYSTEM_LABEL: Record<string, string> = {
   magnetics: "자성/모터", acoustics: "음향", rf: "RF",
   passive: "수동소자", sensor: "센서", thermal: "방열", pcb: "PCB",
   housing: "하우징", coating: "코팅", emi: "EMI", semiconductor: "반도체",
-  wlp: "웨이퍼레벨패키지", 기타: "일반 엔지니어링재",
+  // `기타` 는 계통이 아니라 **계통을 아직 안 정한 재료가 모이는 칸**이다.
+  // 옛 라벨 "일반 엔지니어링재" 는 의도된 분류처럼 읽혀서, 실제로 읽는 사람이
+  // 그 칸을 세지 않고 지나쳤다 — 49차 KA·48차 JC 가 같은 오독을 각각 겪었다(§528).
+  // 미분류임을 라벨이 스스로 말하게 한다.
+  wlp: "웨이퍼레벨패키지", 기타: "미분류",
   // 옛 값 — `fix_subsystem_vocab.py` 가 acoustics·pcb·wlp 로 합쳤다. 그 스크립트를
   // 아직 안 돌린 DB 를 붙여도 라벨이 깨지지 않게 남겨 둔다.
   speaker: "음향", audio: "음향", fpcb: "PCB", soc: "웨이퍼레벨패키지",
