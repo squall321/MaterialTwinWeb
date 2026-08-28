@@ -1,0 +1,1373 @@
+{
+ "_comment": "49차 KB — 46차 HB 가 Cai 2010 Fig.14(a)(b)(c) 를 bbox 마커중심으로 읽어 넣은 93행 중, **삼각형으로 그려진 두 계열(100 °C ▲ · 125 °C ▼) 36행**을 꼭짓점 평균 판독으로 정정한다. 원·정사각·마름모 세 계열 54행과 t=0 겹침 3행은 두 규약이 같아 손대지 않았다(브리프 514·524·531). 값 외에는 조건 두 칸(reading_uncertainty·marker_center)만 바뀐다 — 축 보정·출처·등급·method 는 그대로다.",
+ "corrections": [
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.tensile_strength_at_rate",
+    "value": 24528179.0,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 +0.1397 MPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 UTS 축 배율로 +0.1397 MPa 다(실측 편차 +0.1397 MPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2736 MPa 로 벌어지는데 꼭짓점 평균이면 0.0262 MPa 로 모인다(10배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 24388507.0,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 5,
+     "aging_temperature_k": 373.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(c) Ultimate Tensile Strength (p.8)",
+     "property_definition": "maximum stress. 원문 verbatim: 'the ultimate tensile strength u (UTS) is taken to be the maximum stress realized in the stress-strain data.'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.026 MPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0262 MPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2736 MPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.15 MPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42358,
+    "series": "100 C",
+    "day": 5,
+    "old_MPa": 24.5282,
+    "new_MPa": 24.3885,
+    "delta_MPa": 0.1397
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.tensile_strength_at_rate",
+    "value": 22840694.8,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 +0.1441 MPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 UTS 축 배율로 +0.1441 MPa 다(실측 편차 +0.1441 MPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2736 MPa 로 벌어지는데 꼭짓점 평균이면 0.0262 MPa 로 모인다(10배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 22696630.5,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 10,
+     "aging_temperature_k": 373.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(c) Ultimate Tensile Strength (p.8)",
+     "property_definition": "maximum stress. 원문 verbatim: 'the ultimate tensile strength u (UTS) is taken to be the maximum stress realized in the stress-strain data.'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.026 MPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0262 MPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2736 MPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.15 MPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42359,
+    "series": "100 C",
+    "day": 10,
+    "old_MPa": 22.8407,
+    "new_MPa": 22.6966,
+    "delta_MPa": 0.1441
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.tensile_strength_at_rate",
+    "value": 21531817.9,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 +0.1441 MPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 UTS 축 배율로 +0.1441 MPa 다(실측 편차 +0.1441 MPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2736 MPa 로 벌어지는데 꼭짓점 평균이면 0.0262 MPa 로 모인다(10배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 21387753.6,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 20,
+     "aging_temperature_k": 373.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(c) Ultimate Tensile Strength (p.8)",
+     "property_definition": "maximum stress. 원문 verbatim: 'the ultimate tensile strength u (UTS) is taken to be the maximum stress realized in the stress-strain data.'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.026 MPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0262 MPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2736 MPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.15 MPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42360,
+    "series": "100 C",
+    "day": 20,
+    "old_MPa": 21.5318,
+    "new_MPa": 21.3878,
+    "delta_MPa": 0.1441
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.tensile_strength_at_rate",
+    "value": 20851026.5,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 +0.1438 MPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 UTS 축 배율로 +0.1438 MPa 다(실측 편차 +0.1438 MPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2736 MPa 로 벌어지는데 꼭짓점 평균이면 0.0262 MPa 로 모인다(10배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 20707255.0,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 30,
+     "aging_temperature_k": 373.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(c) Ultimate Tensile Strength (p.8)",
+     "property_definition": "maximum stress. 원문 verbatim: 'the ultimate tensile strength u (UTS) is taken to be the maximum stress realized in the stress-strain data.'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.026 MPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0262 MPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2736 MPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.15 MPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42361,
+    "series": "100 C",
+    "day": 30,
+    "old_MPa": 20.851,
+    "new_MPa": 20.7073,
+    "delta_MPa": 0.1438
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.tensile_strength_at_rate",
+    "value": 19479719.2,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 +0.1390 MPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 UTS 축 배율로 +0.1390 MPa 다(실측 편차 +0.1390 MPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2736 MPa 로 벌어지는데 꼭짓점 평균이면 0.0262 MPa 로 모인다(10배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 19340734.7,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 45,
+     "aging_temperature_k": 373.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(c) Ultimate Tensile Strength (p.8)",
+     "property_definition": "maximum stress. 원문 verbatim: 'the ultimate tensile strength u (UTS) is taken to be the maximum stress realized in the stress-strain data.'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.026 MPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0262 MPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2736 MPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.15 MPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42362,
+    "series": "100 C",
+    "day": 45,
+    "old_MPa": 19.4797,
+    "new_MPa": 19.3407,
+    "delta_MPa": 0.139
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.tensile_strength_at_rate",
+    "value": 19127450.4,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 +0.1434 MPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 UTS 축 배율로 +0.1434 MPa 다(실측 편차 +0.1434 MPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2736 MPa 로 벌어지는데 꼭짓점 평균이면 0.0262 MPa 로 모인다(10배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 18984095.4,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 60,
+     "aging_temperature_k": 373.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(c) Ultimate Tensile Strength (p.8)",
+     "property_definition": "maximum stress. 원문 verbatim: 'the ultimate tensile strength u (UTS) is taken to be the maximum stress realized in the stress-strain data.'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.026 MPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0262 MPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2736 MPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.15 MPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42363,
+    "series": "100 C",
+    "day": 60,
+    "old_MPa": 19.1275,
+    "new_MPa": 18.9841,
+    "delta_MPa": 0.1434
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.tensile_strength_at_rate",
+    "value": 22552566.0,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 -0.1441 MPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 UTS 축 배율로 -0.1441 MPa 다(실측 편차 -0.1441 MPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2736 MPa 로 벌어지는데 꼭짓점 평균이면 0.0262 MPa 로 모인다(10배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 22696630.2,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 5,
+     "aging_temperature_k": 398.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(c) Ultimate Tensile Strength (p.8)",
+     "property_definition": "maximum stress. 원문 verbatim: 'the ultimate tensile strength u (UTS) is taken to be the maximum stress realized in the stress-strain data.'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.026 MPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0262 MPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2736 MPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.15 MPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42364,
+    "series": "125 C",
+    "day": 5,
+    "old_MPa": 22.5526,
+    "new_MPa": 22.6966,
+    "delta_MPa": -0.1441
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.tensile_strength_at_rate",
+    "value": 21243689.3,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 -0.1441 MPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 UTS 축 배율로 -0.1441 MPa 다(실측 편차 -0.1441 MPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2736 MPa 로 벌어지는데 꼭짓점 평균이면 0.0262 MPa 로 모인다(10배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 21387753.6,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 10,
+     "aging_temperature_k": 398.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(c) Ultimate Tensile Strength (p.8)",
+     "property_definition": "maximum stress. 원문 verbatim: 'the ultimate tensile strength u (UTS) is taken to be the maximum stress realized in the stress-strain data.'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.026 MPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0262 MPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2736 MPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.15 MPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42365,
+    "series": "125 C",
+    "day": 10,
+    "old_MPa": 21.2437,
+    "new_MPa": 21.3878,
+    "delta_MPa": -0.1441
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.tensile_strength_at_rate",
+    "value": 20092053.4,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 -0.1438 MPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 UTS 축 배율로 -0.1438 MPa 다(실측 편차 -0.1438 MPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2736 MPa 로 벌어지는데 꼭짓점 평균이면 0.0262 MPa 로 모인다(10배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 20235824.8,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 20,
+     "aging_temperature_k": 398.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(c) Ultimate Tensile Strength (p.8)",
+     "property_definition": "maximum stress. 원문 verbatim: 'the ultimate tensile strength u (UTS) is taken to be the maximum stress realized in the stress-strain data.'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.026 MPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0262 MPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2736 MPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.15 MPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42366,
+    "series": "125 C",
+    "day": 20,
+    "old_MPa": 20.0921,
+    "new_MPa": 20.2358,
+    "delta_MPa": -0.1438
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.tensile_strength_at_rate",
+    "value": 19179897.3,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 -0.1434 MPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 UTS 축 배율로 -0.1434 MPa 다(실측 편차 -0.1434 MPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2736 MPa 로 벌어지는데 꼭짓점 평균이면 0.0262 MPa 로 모인다(10배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 19323252.4,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 30,
+     "aging_temperature_k": 398.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(c) Ultimate Tensile Strength (p.8)",
+     "property_definition": "maximum stress. 원문 verbatim: 'the ultimate tensile strength u (UTS) is taken to be the maximum stress realized in the stress-strain data.'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.026 MPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0262 MPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2736 MPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.15 MPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42367,
+    "series": "125 C",
+    "day": 30,
+    "old_MPa": 19.1799,
+    "new_MPa": 19.3233,
+    "delta_MPa": -0.1434
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.tensile_strength_at_rate",
+    "value": 18164174.3,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 -0.1434 MPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 UTS 축 배율로 -0.1434 MPa 다(실측 편차 -0.1434 MPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2736 MPa 로 벌어지는데 꼭짓점 평균이면 0.0262 MPa 로 모인다(10배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 18307529.4,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 45,
+     "aging_temperature_k": 398.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(c) Ultimate Tensile Strength (p.8)",
+     "property_definition": "maximum stress. 원문 verbatim: 'the ultimate tensile strength u (UTS) is taken to be the maximum stress realized in the stress-strain data.'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.026 MPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0262 MPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2736 MPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.15 MPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42368,
+    "series": "125 C",
+    "day": 45,
+    "old_MPa": 18.1642,
+    "new_MPa": 18.3075,
+    "delta_MPa": -0.1434
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.tensile_strength_at_rate",
+    "value": 17969246.6,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 -0.1390 MPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 UTS 축 배율로 -0.1390 MPa 다(실측 편차 -0.1390 MPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2736 MPa 로 벌어지는데 꼭짓점 평균이면 0.0262 MPa 로 모인다(10배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 18108231.1,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 60,
+     "aging_temperature_k": 398.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(c) Ultimate Tensile Strength (p.8)",
+     "property_definition": "maximum stress. 원문 verbatim: 'the ultimate tensile strength u (UTS) is taken to be the maximum stress realized in the stress-strain data.'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.026 MPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0262 MPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2736 MPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.15 MPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42369,
+    "series": "125 C",
+    "day": 60,
+    "old_MPa": 17.9692,
+    "new_MPa": 18.1082,
+    "delta_MPa": -0.139
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.yield_strength_at_rate",
+    "value": 21140631.8,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 +0.1126 MPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 YS 축 배율로 +0.1126 MPa 다(실측 편차 +0.1126 MPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2331 MPa 로 벌어지는데 꼭짓점 평균이면 0.0107 MPa 로 모인다(22배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 21028057.7,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 5,
+     "aging_temperature_k": 373.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(b) Yield Stress (p.8)",
+     "property_definition": "0.2% offset yield stress. 원문 verbatim: 'The yield stress Y (YS) is taken to be the standard .2% yield stress (upon unloading, the permanent strain is equal to .002).'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.011 MPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0107 MPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2331 MPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.14 MPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42327,
+    "series": "100 C",
+    "day": 5,
+    "old_MPa": 21.1406,
+    "new_MPa": 21.0281,
+    "delta_MPa": 0.1126
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.yield_strength_at_rate",
+    "value": 18957119.3,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 +0.1159 MPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 YS 축 배율로 +0.1159 MPa 다(실측 편차 +0.1159 MPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2331 MPa 로 벌어지는데 꼭짓점 평균이면 0.0107 MPa 로 모인다(22배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 18841241.1,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 10,
+     "aging_temperature_k": 373.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(b) Yield Stress (p.8)",
+     "property_definition": "0.2% offset yield stress. 원문 verbatim: 'The yield stress Y (YS) is taken to be the standard .2% yield stress (upon unloading, the permanent strain is equal to .002).'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.011 MPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0107 MPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2331 MPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.14 MPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42328,
+    "series": "100 C",
+    "day": 10,
+    "old_MPa": 18.9571,
+    "new_MPa": 18.8412,
+    "delta_MPa": 0.1159
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.yield_strength_at_rate",
+    "value": 17807306.0,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 +0.1126 MPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 YS 축 배율로 +0.1126 MPa 다(실측 편차 +0.1126 MPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2331 MPa 로 벌어지는데 꼭짓점 평균이면 0.0107 MPa 로 모인다(22배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 17694731.9,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 20,
+     "aging_temperature_k": 373.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(b) Yield Stress (p.8)",
+     "property_definition": "0.2% offset yield stress. 원문 verbatim: 'The yield stress Y (YS) is taken to be the standard .2% yield stress (upon unloading, the permanent strain is equal to .002).'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.011 MPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0107 MPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2331 MPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.14 MPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42329,
+    "series": "100 C",
+    "day": 20,
+    "old_MPa": 17.8073,
+    "new_MPa": 17.6947,
+    "delta_MPa": 0.1126
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.yield_strength_at_rate",
+    "value": 17269216.0,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 +0.1159 MPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 YS 축 배율로 +0.1159 MPa 다(실측 편차 +0.1159 MPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2331 MPa 로 벌어지는데 꼭짓점 평균이면 0.0107 MPa 로 모인다(22배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 17153337.8,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 30,
+     "aging_temperature_k": 373.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(b) Yield Stress (p.8)",
+     "property_definition": "0.2% offset yield stress. 원문 verbatim: 'The yield stress Y (YS) is taken to be the standard .2% yield stress (upon unloading, the permanent strain is equal to .002).'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.011 MPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0107 MPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2331 MPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.14 MPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42330,
+    "series": "100 C",
+    "day": 30,
+    "old_MPa": 17.2692,
+    "new_MPa": 17.1533,
+    "delta_MPa": 0.1159
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.yield_strength_at_rate",
+    "value": 16636252.1,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 +0.1159 MPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 YS 축 배율로 +0.1159 MPa 다(실측 편차 +0.1159 MPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2331 MPa 로 벌어지는데 꼭짓점 평균이면 0.0107 MPa 로 모인다(22배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 16520373.9,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 45,
+     "aging_temperature_k": 373.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(b) Yield Stress (p.8)",
+     "property_definition": "0.2% offset yield stress. 원문 verbatim: 'The yield stress Y (YS) is taken to be the standard .2% yield stress (upon unloading, the permanent strain is equal to .002).'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.011 MPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0107 MPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2331 MPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.14 MPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42331,
+    "series": "100 C",
+    "day": 45,
+    "old_MPa": 16.6363,
+    "new_MPa": 16.5204,
+    "delta_MPa": 0.1159
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.yield_strength_at_rate",
+    "value": 16351630.9,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 +0.1126 MPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 YS 축 배율로 +0.1126 MPa 다(실측 편차 +0.1126 MPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2331 MPa 로 벌어지는데 꼭짓점 평균이면 0.0107 MPa 로 모인다(22배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 16239056.8,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 60,
+     "aging_temperature_k": 373.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(b) Yield Stress (p.8)",
+     "property_definition": "0.2% offset yield stress. 원문 verbatim: 'The yield stress Y (YS) is taken to be the standard .2% yield stress (upon unloading, the permanent strain is equal to .002).'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.011 MPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0107 MPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2331 MPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.14 MPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42332,
+    "series": "100 C",
+    "day": 60,
+    "old_MPa": 16.3516,
+    "new_MPa": 16.2391,
+    "delta_MPa": 0.1126
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.yield_strength_at_rate",
+    "value": 19030753.0,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 -0.1126 MPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 YS 축 배율로 -0.1126 MPa 다(실측 편차 -0.1126 MPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2331 MPa 로 벌어지는데 꼭짓점 평균이면 0.0107 MPa 로 모인다(22배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 19143327.1,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 5,
+     "aging_temperature_k": 398.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(b) Yield Stress (p.8)",
+     "property_definition": "0.2% offset yield stress. 원문 verbatim: 'The yield stress Y (YS) is taken to be the standard .2% yield stress (upon unloading, the permanent strain is equal to .002).'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.011 MPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0107 MPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2331 MPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.14 MPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42333,
+    "series": "125 C",
+    "day": 5,
+    "old_MPa": 19.0308,
+    "new_MPa": 19.1433,
+    "delta_MPa": -0.1126
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.yield_strength_at_rate",
+    "value": 17891559.8,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 -0.1123 MPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 YS 축 배율로 -0.1123 MPa 다(실측 편차 -0.1123 MPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2331 MPa 로 벌어지는데 꼭짓점 평균이면 0.0107 MPa 로 모인다(22배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 18003897.9,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 10,
+     "aging_temperature_k": 398.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(b) Yield Stress (p.8)",
+     "property_definition": "0.2% offset yield stress. 원문 verbatim: 'The yield stress Y (YS) is taken to be the standard .2% yield stress (upon unloading, the permanent strain is equal to .002).'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.011 MPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0107 MPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2331 MPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.14 MPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42334,
+    "series": "125 C",
+    "day": 10,
+    "old_MPa": 17.8916,
+    "new_MPa": 18.0039,
+    "delta_MPa": -0.1123
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.yield_strength_at_rate",
+    "value": 17005127.3,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 -0.1123 MPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 YS 축 배율로 -0.1123 MPa 다(실측 편차 -0.1123 MPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2331 MPa 로 벌어지는데 꼭짓점 평균이면 0.0107 MPa 로 모인다(22배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 17117465.4,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 20,
+     "aging_temperature_k": 398.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(b) Yield Stress (p.8)",
+     "property_definition": "0.2% offset yield stress. 원문 verbatim: 'The yield stress Y (YS) is taken to be the standard .2% yield stress (upon unloading, the permanent strain is equal to .002).'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.011 MPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0107 MPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2331 MPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.14 MPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42335,
+    "series": "125 C",
+    "day": 20,
+    "old_MPa": 17.0051,
+    "new_MPa": 17.1175,
+    "delta_MPa": -0.1123
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.yield_strength_at_rate",
+    "value": 16161883.6,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 -0.1126 MPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 YS 축 배율로 -0.1126 MPa 다(실측 편차 -0.1126 MPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2331 MPa 로 벌어지는데 꼭짓점 평균이면 0.0107 MPa 로 모인다(22배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 16274457.7,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 30,
+     "aging_temperature_k": 398.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(b) Yield Stress (p.8)",
+     "property_definition": "0.2% offset yield stress. 원문 verbatim: 'The yield stress Y (YS) is taken to be the standard .2% yield stress (upon unloading, the permanent strain is equal to .002).'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.011 MPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0107 MPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2331 MPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.14 MPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42336,
+    "series": "125 C",
+    "day": 30,
+    "old_MPa": 16.1619,
+    "new_MPa": 16.2745,
+    "delta_MPa": -0.1126
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.yield_strength_at_rate",
+    "value": 15760440.4,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 -0.1123 MPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 YS 축 배율로 -0.1123 MPa 다(실측 편차 -0.1123 MPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2331 MPa 로 벌어지는데 꼭짓점 평균이면 0.0107 MPa 로 모인다(22배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 15872778.6,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 45,
+     "aging_temperature_k": 398.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(b) Yield Stress (p.8)",
+     "property_definition": "0.2% offset yield stress. 원문 verbatim: 'The yield stress Y (YS) is taken to be the standard .2% yield stress (upon unloading, the permanent strain is equal to .002).'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.011 MPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0107 MPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2331 MPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.14 MPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42337,
+    "series": "125 C",
+    "day": 45,
+    "old_MPa": 15.7604,
+    "new_MPa": 15.8728,
+    "delta_MPa": -0.1123
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.yield_strength_at_rate",
+    "value": 15433338.1,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 -0.1161 MPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 YS 축 배율로 -0.1161 MPa 다(실측 편차 -0.1161 MPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2331 MPa 로 벌어지는데 꼭짓점 평균이면 0.0107 MPa 로 모인다(22배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 15549452.3,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 60,
+     "aging_temperature_k": 398.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(b) Yield Stress (p.8)",
+     "property_definition": "0.2% offset yield stress. 원문 verbatim: 'The yield stress Y (YS) is taken to be the standard .2% yield stress (upon unloading, the permanent strain is equal to .002).'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.011 MPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0107 MPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2331 MPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.14 MPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42338,
+    "series": "125 C",
+    "day": 60,
+    "old_MPa": 15.4333,
+    "new_MPa": 15.5495,
+    "delta_MPa": -0.1161
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.youngs_modulus",
+    "value": 35826400722.2,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 +0.1149 GPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 E 축 배율로 +0.1149 GPa 다(실측 편차 +0.1149 GPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2295 GPa 로 벌어지는데 꼭짓점 평균이면 0.0126 GPa 로 모인다(18배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 35711497211.1,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 5,
+     "aging_temperature_k": 373.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(a) Elastic Modulus (p.8)",
+     "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 verbatim: 'The notation E is taken to be the effective elastic modulus, which is the initial slope of the stress-strain curve. Since solder is viscoplastic, this effective modulus will be rate dependent'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.013 GPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0126 GPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2295 GPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.12 GPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42296,
+    "series": "100 C",
+    "day": 5,
+    "old_GPa": 35.8264,
+    "new_GPa": 35.7115,
+    "delta_GPa": 0.1149
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.youngs_modulus",
+    "value": 33490037994.2,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 +0.1147 GPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 E 축 배율로 +0.1147 GPa 다(실측 편차 +0.1147 GPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2295 GPa 로 벌어지는데 꼭짓점 평균이면 0.0126 GPa 로 모인다(18배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 33375386779.8,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 10,
+     "aging_temperature_k": 373.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(a) Elastic Modulus (p.8)",
+     "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 verbatim: 'The notation E is taken to be the effective elastic modulus, which is the initial slope of the stress-strain curve. Since solder is viscoplastic, this effective modulus will be rate dependent'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.013 GPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0126 GPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2295 GPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.12 GPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42297,
+    "series": "100 C",
+    "day": 10,
+    "old_GPa": 33.49,
+    "new_GPa": 33.3754,
+    "delta_GPa": 0.1147
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.youngs_modulus",
+    "value": 31145980350.3,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 +0.1112 GPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 E 축 배율로 +0.1112 GPa 다(실측 편차 +0.1112 GPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2295 GPa 로 벌어지는데 꼭짓점 평균이면 0.0126 GPa 로 모인다(18배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 31034824594.6,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 20,
+     "aging_temperature_k": 373.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(a) Elastic Modulus (p.8)",
+     "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 verbatim: 'The notation E is taken to be the effective elastic modulus, which is the initial slope of the stress-strain curve. Since solder is viscoplastic, this effective modulus will be rate dependent'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.013 GPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0126 GPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2295 GPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.12 GPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42298,
+    "series": "100 C",
+    "day": 20,
+    "old_GPa": 31.146,
+    "new_GPa": 31.0348,
+    "delta_GPa": 0.1112
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.youngs_modulus",
+    "value": 29676519709.0,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 +0.1149 GPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 E 축 배율로 +0.1149 GPa 다(실측 편차 +0.1149 GPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2295 GPa 로 벌어지는데 꼭짓점 평균이면 0.0126 GPa 로 모인다(18배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 29561616205.3,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 30,
+     "aging_temperature_k": 373.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(a) Elastic Modulus (p.8)",
+     "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 verbatim: 'The notation E is taken to be the effective elastic modulus, which is the initial slope of the stress-strain curve. Since solder is viscoplastic, this effective modulus will be rate dependent'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.013 GPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0126 GPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2295 GPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.12 GPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42299,
+    "series": "100 C",
+    "day": 30,
+    "old_GPa": 29.6765,
+    "new_GPa": 29.5616,
+    "delta_GPa": 0.1149
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.youngs_modulus",
+    "value": 27511373186.9,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 +0.1116 GPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 E 축 배율로 +0.1116 GPa 다(실측 편차 +0.1116 GPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2295 GPa 로 벌어지는데 꼭짓점 평균이면 0.0126 GPa 로 모인다(18배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 27399745980.2,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 45,
+     "aging_temperature_k": 373.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(a) Elastic Modulus (p.8)",
+     "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 verbatim: 'The notation E is taken to be the effective elastic modulus, which is the initial slope of the stress-strain curve. Since solder is viscoplastic, this effective modulus will be rate dependent'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.013 GPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0126 GPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2295 GPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.12 GPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42300,
+    "series": "100 C",
+    "day": 45,
+    "old_GPa": 27.5114,
+    "new_GPa": 27.3997,
+    "delta_GPa": 0.1116
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.youngs_modulus",
+    "value": 26852140813.7,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 +0.1151 GPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 E 축 배율로 +0.1151 GPa 다(실측 편차 +0.1151 GPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2295 GPa 로 벌어지는데 꼭짓점 평균이면 0.0126 GPa 로 모인다(18배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 26737003271.9,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 60,
+     "aging_temperature_k": 373.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(a) Elastic Modulus (p.8)",
+     "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 verbatim: 'The notation E is taken to be the effective elastic modulus, which is the initial slope of the stress-strain curve. Since solder is viscoplastic, this effective modulus will be rate dependent'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.013 GPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0126 GPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2295 GPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.12 GPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42301,
+    "series": "100 C",
+    "day": 60,
+    "old_GPa": 26.8521,
+    "new_GPa": 26.737,
+    "delta_GPa": 0.1151
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.youngs_modulus",
+    "value": 35345491361.6,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 -0.1151 GPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 E 축 배율로 -0.1151 GPa 다(실측 편차 -0.1151 GPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2295 GPa 로 벌어지는데 꼭짓점 평균이면 0.0126 GPa 로 모인다(18배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 35460628893.4,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 5,
+     "aging_temperature_k": 398.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(a) Elastic Modulus (p.8)",
+     "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 verbatim: 'The notation E is taken to be the effective elastic modulus, which is the initial slope of the stress-strain curve. Since solder is viscoplastic, this effective modulus will be rate dependent'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.013 GPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0126 GPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2295 GPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.12 GPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42302,
+    "series": "125 C",
+    "day": 5,
+    "old_GPa": 35.3455,
+    "new_GPa": 35.4606,
+    "delta_GPa": -0.1151
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.youngs_modulus",
+    "value": 32781857604.7,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 -0.1144 GPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 E 축 배율로 -0.1144 GPa 다(실측 편차 -0.1144 GPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2295 GPa 로 벌어지는데 꼭짓점 평균이면 0.0126 GPa 로 모인다(18배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 32896275788.6,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 10,
+     "aging_temperature_k": 398.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(a) Elastic Modulus (p.8)",
+     "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 verbatim: 'The notation E is taken to be the effective elastic modulus, which is the initial slope of the stress-strain curve. Since solder is viscoplastic, this effective modulus will be rate dependent'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.013 GPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0126 GPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2295 GPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.12 GPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42303,
+    "series": "125 C",
+    "day": 10,
+    "old_GPa": 32.7819,
+    "new_GPa": 32.8963,
+    "delta_GPa": -0.1144
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.youngs_modulus",
+    "value": 30302175874.1,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 -0.1147 GPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 E 축 배율로 -0.1147 GPa 다(실측 편차 -0.1147 GPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2295 GPa 로 벌어지는데 꼭짓점 평균이면 0.0126 GPa 로 모인다(18배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 30416827118.9,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 20,
+     "aging_temperature_k": 398.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(a) Elastic Modulus (p.8)",
+     "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 verbatim: 'The notation E is taken to be the effective elastic modulus, which is the initial slope of the stress-strain curve. Since solder is viscoplastic, this effective modulus will be rate dependent'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.013 GPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0126 GPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2295 GPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.12 GPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42304,
+    "series": "125 C",
+    "day": 20,
+    "old_GPa": 30.3022,
+    "new_GPa": 30.4168,
+    "delta_GPa": -0.1147
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.youngs_modulus",
+    "value": 27647572487.5,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 -0.1149 GPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 E 축 배율로 -0.1149 GPa 다(실측 편차 -0.1149 GPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2295 GPa 로 벌어지는데 꼭짓점 평균이면 0.0126 GPa 로 모인다(18배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 27762475965.8,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 30,
+     "aging_temperature_k": 398.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(a) Elastic Modulus (p.8)",
+     "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 verbatim: 'The notation E is taken to be the effective elastic modulus, which is the initial slope of the stress-strain curve. Since solder is viscoplastic, this effective modulus will be rate dependent'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.013 GPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0126 GPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2295 GPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.12 GPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42305,
+    "series": "125 C",
+    "day": 30,
+    "old_GPa": 27.6476,
+    "new_GPa": 27.7625,
+    "delta_GPa": -0.1149
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.youngs_modulus",
+    "value": 25890321680.3,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 -0.1151 GPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 E 축 배율로 -0.1151 GPa 다(실측 편차 -0.1151 GPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2295 GPa 로 벌어지는데 꼭짓점 평균이면 0.0126 GPa 로 모인다(18배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 26005459214.9,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 45,
+     "aging_temperature_k": 398.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(a) Elastic Modulus (p.8)",
+     "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 verbatim: 'The notation E is taken to be the effective elastic modulus, which is the initial slope of the stress-strain curve. Since solder is viscoplastic, this effective modulus will be rate dependent'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.013 GPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0126 GPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2295 GPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.12 GPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42306,
+    "series": "125 C",
+    "day": 45,
+    "old_GPa": 25.8903,
+    "new_GPa": 26.0055,
+    "delta_GPa": -0.1151
+   }
+  },
+  {
+   "target": {
+    "material_id": 573,
+    "material_name": "SAC205 Solder Alloy",
+    "property_key": "mechanical.youngs_modulus",
+    "value": 24990321827.1,
+    "source_doi": "10.1109/ectc.2010.5490796"
+   },
+   "by": "49차 KB",
+   "reason": "마커 중심을 bbox 로 잡아 -0.1151 GPa 만큼 밀린 값이다. Cai 2010 Fig.14 는 시효온도 다섯 계열을 **마커 모양으로** 가르는데(범례 400 dpi 확인: 25 °C ● 원 · 50 °C ■ 정사각 · 75 °C ◆ 마름모 · 100 °C ▲ 위삼각 · 125 °C ▼ 아래삼각), 삼각형만 bbox 중심이 무게중심에서 h/6 어긋난다 — 위삼각은 위로, 아래삼각은 아래로 반대 방향이다. 이 그림의 h/6 = 0.320 pt 이고 E 축 배율로 -0.1151 GPa 다(실측 편차 -0.1151 GPa 와 일치). 원·정사각·마름모 세 계열은 두 방식이 같아 고치지 않았다(편차 ≤0.006). 새 값은 같은 SVG 벡터 좌표를 꼭짓점 평균으로 다시 읽은 것이고, 축 보정·출처·조건은 그대로다.",
+   "evidence": "① 겹침점 심판 — t=0 은 다섯 계열이 같은 비시효 시편 한 점을 다섯 모양으로 그린 자리다. bbox 중심으로 읽으면 다섯 판독이 0.2295 GPa 로 벌어지는데 꼭짓점 평균이면 0.0126 GPa 로 모인다(18배). 같은 물리점이 한 점으로 모이는 규약이 옳은 규약이다. ② DB 기존 93행이 내 bbox 재현값과 상대오차 3e-6 이내로 일치한다 — 즉 옛 값과 새 값의 차이는 마커중심 규약 하나뿐이고 축 보정 차이가 아니다. ③ 가로축 되읽기 — 인쇄 격자 0/5/10/20/30/45/60 일에 최대 0.020 일(브리프 495: 이 PDF 는 마커 오프셋이 없다). ④ 다른 그림이 증인 — 같은 SAC205 UTS 격자가 Fig.15(b)·Fig.16(b) 에 다시 그려져 있고, 세 그림의 꼭짓점 평균 판독이 최대 0.032 MPa 안에서 만난다(브리프 516). ⑤ 48차 JB 의 독립 감사와 계열별 오프셋이 재현된다(E +0.115/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143 대 내 실측 E +0.114/−0.115 · YS +0.114/−0.113 · UTS +0.142/−0.143).",
+   "set": {
+    "value": 25105421087.9,
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.001,
+     "loading": "uniaxial tension",
+     "microstructure": "reflowed (RF)",
+     "aging_time_days": 60,
+     "aging_temperature_k": 398.15,
+     "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+     "digitized": true,
+     "figure": "Figure 14(a) Elastic Modulus (p.8)",
+     "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 verbatim: 'The notation E is taken to be the effective elastic modulus, which is the initial slope of the stress-strain curve. Since solder is viscoplastic, this effective modulus will be rate dependent'",
+     "axis_calibration": "pdftocairo -svg 벡터 좌표. 인쇄 눈금선 전수 검출 후 np.interp 구간별 선형(브리프 446). 가로축 되읽기가 인쇄 시효시간 격자 0/5/10/20/30/45/60 일에 대해 최대 0.02 일 오차다 — 마커 오프셋 없음.",
+     "reading_uncertainty": "±0.013 GPa — 같은 비시효 시편을 다섯 계열이 t=0 에 겹쳐 그리는데, 꼭짓점 평균으로 읽은 다섯 판독의 산포가 0.0126 GPa 다(같은 다섯 점을 bbox 중심으로 읽으면 0.2295 GPa 로 벌어진다). **정정 전 이 칸에 적혀 있던 '±0.12 GPa' 는 바로 그 bbox 산포의 절반이라, 지금 고치는 오차가 스스로 불확도를 부풀려 자기를 가리고 있었다.**",
+     "marker_center": "꼭짓점 평균(중복 꼭짓점을 0.03 pt 허용오차로 제거한 뒤 평균) — 브리프 514·531. pdftocairo SVG 는 마커를 `M … Z M <꼭짓점>` 으로 내보내 한 꼭짓점이 두 번 찍히므로 그대로 평균하면 무게중심이 끌린다(이 그림 실측: 정사각 −0.308 pt, 마름모 −0.256 pt). 원(25 °C)만은 베지어 끝점이 4개뿐이라 bbox 중심을 쓴다(두 방식 차 0.006 pt)."
+    }
+   },
+   "_check": {
+    "expect_pv_id": 42307,
+    "series": "125 C",
+    "day": 60,
+    "old_GPa": 24.9903,
+    "new_GPa": 25.1054,
+    "delta_GPa": -0.1151
+   }
+  }
+ ]
+}
