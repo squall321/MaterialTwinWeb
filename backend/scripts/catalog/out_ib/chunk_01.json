@@ -1,0 +1,439 @@
+{
+ "materials": [
+  {
+   "match_name": "SAC305 Solder Alloy",
+   "source": {
+    "title": "Viscoplastic Constitutive Model for Lead-Free Solder Including Effects of Silver Content, Solidification Profile, and Severe Aging",
+    "doi": "10.1115/ipack2015-48619",
+    "url": "https://doi.org/10.1115/ipack2015-48619",
+    "kind": "journal",
+    "authors": "Munshi Basit, Mohammad Motalab, Jeffrey C. Suhling, Pradeep Lall",
+    "year": "2015",
+    "publisher": "ASME (Proc. InterPACK/ICNMM2015, IPACK2015-48619)",
+    "local_path": "/data/paper_patent_corpus/structured/cae_papers/04_solder_fatigue_models/Basit - 2015 - Viscoplastic Constitutive Model for Lead-Free Solder Including Effects of Silver Content, Solidification Profile, and Severe Aging/Basit - 2015 - Viscoplastic Constitutive Model for Lead-Free Solder Including Effects of Silver Content, Solidification Profile, and Severe Aging.md"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 63390000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.0001,
+      "loading": "uniaxial tension",
+      "microstructure": "water quenched (WQ)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 10(b) (p.8) — 0.0001 sec^-1",
+      "property_definition": "maximum (saturation) stress on the stress-strain curve. 원문 verbatim: 'The maximum (saturation) stress on the stress-strain curve is the ultimate tensile strength u (UTS).'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 세로 눈금선 5개(0/20/40/60/80 MPa)를 전수 검출해 np.interp 구간별 선형 보정(브리프 446) — 눈금 간격이 26.520/26.461/26.519/26.457 pt 로 0.24% 불균일하다. 가로축은 25/50/75/100/125 °C 의 이산 격자라 그 자체가 검산기다(브리프 495): 막대쌍 중심의 되읽기 오차가 최대 0.03 pt(=0.01 °C) 다. **마커 오프셋 보정은 하지 않았다** — 같은 그림 (a) 의 막대 10개를 본문 인쇄값 10개와 대조하니 무보정 잔차가 최대 0.032 MPa 이고, 0.18 pt 를 보정하면 오히려 -0.14 MPa 로 계통 편향이 생긴다. Fig.13(마커)의 -0.20/-0.25 pt 오프셋(브리프 495)은 이 그림에 없다.",
+      "reading_uncertainty": "±0.05 MPa. 같은 그림 (a) 의 막대 10개로 본문 인쇄값을 되읽은 잔차가 최대 0.032 MPa 이고, 독립인 Figure 9 곡선 극대점과의 차이가 20칸 최대 0.10 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 10(b) (p.8) — 0.0001 sec^-1 의 막대 그림에서 WQ · 25 °C 막대 상단을 벡터 좌표로 읽었다(브리프 452 · 448 — 그림 판독이므로 method=digitized). 캡션 verbatim: 'Figure 10 - Comparison between Water Quenched (WQ) and Reflowed Ultimate Strength, Testing at Strain Rates of (a) 0.001 sec-1, (b) 0.0001 sec-1, and (c) 0.00001 sec-1'. 조건은 본문 verbatim 이 정한다: 'Analogous results were obtained for the other two strain rates of e = 0.0001 sec-1 and e = 0.00001 sec-1. The comparisons between the UTS values of WQ and RF specimens are plotted in Figure 10.' [검산 1 — 인쇄값] 같은 그림 (a)(0.001/s) 의 막대 10개가 본문 인쇄값 74.1/60.2/52.5/45.5/36.3(WQ) · 38.5/33.1/26.8/20.5/19.1(RF) 을 최대 0.032 MPa 로 재현한다. 그 (a) 10칸은 이미 DB 에 있어 넣지 않았다(브리프 314·435). [검산 2 — 다른 그림] 같은 페이지 Figure 9(b) 응력-변형 곡선의 극대점이 63.33 MPa 로 이 값과 0.06 MPa 안에서 일치한다 — 20칸 전부 0.10 MPa 이내다. **주의: 0.001/s 판(Fig.9(a)=Fig.12(c))만은 RF 에서 인쇄값보다 최대 +17% 어긋난다(브리프 494). 0.0001/s·0.00001/s 판은 어긋나지 않는다 — 494 번의 범위를 좁힌다.** [검산 3 — 단조] 율속 0.001>0.0001>0.00001, 온도 단조감소, WQ>RF 가 20칸 전부에서 성립한다. [인계 대조] 46차 HB 인계값은 WQ 0.0001/s 25 °C 에서 63.25 MPa 였다 — 20칸 전부가 이 판독보다 0.11~0.14 MPa 낮다(계통). 인계값을 (a) 에 적용하면 인쇄값 대비 -0.13~-0.16 MPa 로 밀리므로 인계 쪽이 틀렸다고 판정하고 이 판독을 넣는다(브리프 479·496)."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 50660000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 323.15,
+      "strain_rate_s": 0.0001,
+      "loading": "uniaxial tension",
+      "microstructure": "water quenched (WQ)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 10(b) (p.8) — 0.0001 sec^-1",
+      "property_definition": "maximum (saturation) stress on the stress-strain curve. 원문 verbatim: 'The maximum (saturation) stress on the stress-strain curve is the ultimate tensile strength u (UTS).'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 세로 눈금선 5개(0/20/40/60/80 MPa)를 전수 검출해 np.interp 구간별 선형 보정(브리프 446) — 눈금 간격이 26.520/26.461/26.519/26.457 pt 로 0.24% 불균일하다. 가로축은 25/50/75/100/125 °C 의 이산 격자라 그 자체가 검산기다(브리프 495): 막대쌍 중심의 되읽기 오차가 최대 0.03 pt(=0.01 °C) 다. **마커 오프셋 보정은 하지 않았다** — 같은 그림 (a) 의 막대 10개를 본문 인쇄값 10개와 대조하니 무보정 잔차가 최대 0.032 MPa 이고, 0.18 pt 를 보정하면 오히려 -0.14 MPa 로 계통 편향이 생긴다. Fig.13(마커)의 -0.20/-0.25 pt 오프셋(브리프 495)은 이 그림에 없다.",
+      "reading_uncertainty": "±0.05 MPa. 같은 그림 (a) 의 막대 10개로 본문 인쇄값을 되읽은 잔차가 최대 0.032 MPa 이고, 독립인 Figure 9 곡선 극대점과의 차이가 20칸 최대 0.10 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 10(b) (p.8) — 0.0001 sec^-1 의 막대 그림에서 WQ · 50 °C 막대 상단을 벡터 좌표로 읽었다(브리프 452 · 448 — 그림 판독이므로 method=digitized). 캡션 verbatim: 'Figure 10 - Comparison between Water Quenched (WQ) and Reflowed Ultimate Strength, Testing at Strain Rates of (a) 0.001 sec-1, (b) 0.0001 sec-1, and (c) 0.00001 sec-1'. 조건은 본문 verbatim 이 정한다: 'Analogous results were obtained for the other two strain rates of e = 0.0001 sec-1 and e = 0.00001 sec-1. The comparisons between the UTS values of WQ and RF specimens are plotted in Figure 10.' [검산 1 — 인쇄값] 같은 그림 (a)(0.001/s) 의 막대 10개가 본문 인쇄값 74.1/60.2/52.5/45.5/36.3(WQ) · 38.5/33.1/26.8/20.5/19.1(RF) 을 최대 0.032 MPa 로 재현한다. 그 (a) 10칸은 이미 DB 에 있어 넣지 않았다(브리프 314·435). [검산 2 — 다른 그림] 같은 페이지 Figure 9(b) 응력-변형 곡선의 극대점이 50.73 MPa 로 이 값과 0.07 MPa 안에서 일치한다 — 20칸 전부 0.10 MPa 이내다. **주의: 0.001/s 판(Fig.9(a)=Fig.12(c))만은 RF 에서 인쇄값보다 최대 +17% 어긋난다(브리프 494). 0.0001/s·0.00001/s 판은 어긋나지 않는다 — 494 번의 범위를 좁힌다.** [검산 3 — 단조] 율속 0.001>0.0001>0.00001, 온도 단조감소, WQ>RF 가 20칸 전부에서 성립한다. [인계 대조] 46차 HB 인계값은 WQ 0.0001/s 50 °C 에서 50.53 MPa 였다 — 20칸 전부가 이 판독보다 0.11~0.14 MPa 낮다(계통). 인계값을 (a) 에 적용하면 인쇄값 대비 -0.13~-0.16 MPa 로 밀리므로 인계 쪽이 틀렸다고 판정하고 이 판독을 넣는다(브리프 479·496)."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 42270000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 348.15,
+      "strain_rate_s": 0.0001,
+      "loading": "uniaxial tension",
+      "microstructure": "water quenched (WQ)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 10(b) (p.8) — 0.0001 sec^-1",
+      "property_definition": "maximum (saturation) stress on the stress-strain curve. 원문 verbatim: 'The maximum (saturation) stress on the stress-strain curve is the ultimate tensile strength u (UTS).'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 세로 눈금선 5개(0/20/40/60/80 MPa)를 전수 검출해 np.interp 구간별 선형 보정(브리프 446) — 눈금 간격이 26.520/26.461/26.519/26.457 pt 로 0.24% 불균일하다. 가로축은 25/50/75/100/125 °C 의 이산 격자라 그 자체가 검산기다(브리프 495): 막대쌍 중심의 되읽기 오차가 최대 0.03 pt(=0.01 °C) 다. **마커 오프셋 보정은 하지 않았다** — 같은 그림 (a) 의 막대 10개를 본문 인쇄값 10개와 대조하니 무보정 잔차가 최대 0.032 MPa 이고, 0.18 pt 를 보정하면 오히려 -0.14 MPa 로 계통 편향이 생긴다. Fig.13(마커)의 -0.20/-0.25 pt 오프셋(브리프 495)은 이 그림에 없다.",
+      "reading_uncertainty": "±0.05 MPa. 같은 그림 (a) 의 막대 10개로 본문 인쇄값을 되읽은 잔차가 최대 0.032 MPa 이고, 독립인 Figure 9 곡선 극대점과의 차이가 20칸 최대 0.10 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 10(b) (p.8) — 0.0001 sec^-1 의 막대 그림에서 WQ · 75 °C 막대 상단을 벡터 좌표로 읽었다(브리프 452 · 448 — 그림 판독이므로 method=digitized). 캡션 verbatim: 'Figure 10 - Comparison between Water Quenched (WQ) and Reflowed Ultimate Strength, Testing at Strain Rates of (a) 0.001 sec-1, (b) 0.0001 sec-1, and (c) 0.00001 sec-1'. 조건은 본문 verbatim 이 정한다: 'Analogous results were obtained for the other two strain rates of e = 0.0001 sec-1 and e = 0.00001 sec-1. The comparisons between the UTS values of WQ and RF specimens are plotted in Figure 10.' [검산 1 — 인쇄값] 같은 그림 (a)(0.001/s) 의 막대 10개가 본문 인쇄값 74.1/60.2/52.5/45.5/36.3(WQ) · 38.5/33.1/26.8/20.5/19.1(RF) 을 최대 0.032 MPa 로 재현한다. 그 (a) 10칸은 이미 DB 에 있어 넣지 않았다(브리프 314·435). [검산 2 — 다른 그림] 같은 페이지 Figure 9(b) 응력-변형 곡선의 극대점이 42.37 MPa 로 이 값과 0.10 MPa 안에서 일치한다 — 20칸 전부 0.10 MPa 이내다. **주의: 0.001/s 판(Fig.9(a)=Fig.12(c))만은 RF 에서 인쇄값보다 최대 +17% 어긋난다(브리프 494). 0.0001/s·0.00001/s 판은 어긋나지 않는다 — 494 번의 범위를 좁힌다.** [검산 3 — 단조] 율속 0.001>0.0001>0.00001, 온도 단조감소, WQ>RF 가 20칸 전부에서 성립한다. [인계 대조] 46차 HB 인계값은 WQ 0.0001/s 75 °C 에서 42.15 MPa 였다 — 20칸 전부가 이 판독보다 0.11~0.14 MPa 낮다(계통). 인계값을 (a) 에 적용하면 인쇄값 대비 -0.13~-0.16 MPa 로 밀리므로 인계 쪽이 틀렸다고 판정하고 이 판독을 넣는다(브리프 479·496)."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 37010000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 373.15,
+      "strain_rate_s": 0.0001,
+      "loading": "uniaxial tension",
+      "microstructure": "water quenched (WQ)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 10(b) (p.8) — 0.0001 sec^-1",
+      "property_definition": "maximum (saturation) stress on the stress-strain curve. 원문 verbatim: 'The maximum (saturation) stress on the stress-strain curve is the ultimate tensile strength u (UTS).'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 세로 눈금선 5개(0/20/40/60/80 MPa)를 전수 검출해 np.interp 구간별 선형 보정(브리프 446) — 눈금 간격이 26.520/26.461/26.519/26.457 pt 로 0.24% 불균일하다. 가로축은 25/50/75/100/125 °C 의 이산 격자라 그 자체가 검산기다(브리프 495): 막대쌍 중심의 되읽기 오차가 최대 0.03 pt(=0.01 °C) 다. **마커 오프셋 보정은 하지 않았다** — 같은 그림 (a) 의 막대 10개를 본문 인쇄값 10개와 대조하니 무보정 잔차가 최대 0.032 MPa 이고, 0.18 pt 를 보정하면 오히려 -0.14 MPa 로 계통 편향이 생긴다. Fig.13(마커)의 -0.20/-0.25 pt 오프셋(브리프 495)은 이 그림에 없다.",
+      "reading_uncertainty": "±0.05 MPa. 같은 그림 (a) 의 막대 10개로 본문 인쇄값을 되읽은 잔차가 최대 0.032 MPa 이고, 독립인 Figure 9 곡선 극대점과의 차이가 20칸 최대 0.10 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 10(b) (p.8) — 0.0001 sec^-1 의 막대 그림에서 WQ · 100 °C 막대 상단을 벡터 좌표로 읽었다(브리프 452 · 448 — 그림 판독이므로 method=digitized). 캡션 verbatim: 'Figure 10 - Comparison between Water Quenched (WQ) and Reflowed Ultimate Strength, Testing at Strain Rates of (a) 0.001 sec-1, (b) 0.0001 sec-1, and (c) 0.00001 sec-1'. 조건은 본문 verbatim 이 정한다: 'Analogous results were obtained for the other two strain rates of e = 0.0001 sec-1 and e = 0.00001 sec-1. The comparisons between the UTS values of WQ and RF specimens are plotted in Figure 10.' [검산 1 — 인쇄값] 같은 그림 (a)(0.001/s) 의 막대 10개가 본문 인쇄값 74.1/60.2/52.5/45.5/36.3(WQ) · 38.5/33.1/26.8/20.5/19.1(RF) 을 최대 0.032 MPa 로 재현한다. 그 (a) 10칸은 이미 DB 에 있어 넣지 않았다(브리프 314·435). [검산 2 — 다른 그림] 같은 페이지 Figure 9(b) 응력-변형 곡선의 극대점이 37.02 MPa 로 이 값과 0.01 MPa 안에서 일치한다 — 20칸 전부 0.10 MPa 이내다. **주의: 0.001/s 판(Fig.9(a)=Fig.12(c))만은 RF 에서 인쇄값보다 최대 +17% 어긋난다(브리프 494). 0.0001/s·0.00001/s 판은 어긋나지 않는다 — 494 번의 범위를 좁힌다.** [검산 3 — 단조] 율속 0.001>0.0001>0.00001, 온도 단조감소, WQ>RF 가 20칸 전부에서 성립한다. [인계 대조] 46차 HB 인계값은 WQ 0.0001/s 100 °C 에서 36.90 MPa 였다 — 20칸 전부가 이 판독보다 0.11~0.14 MPa 낮다(계통). 인계값을 (a) 에 적용하면 인쇄값 대비 -0.13~-0.16 MPa 로 밀리므로 인계 쪽이 틀렸다고 판정하고 이 판독을 넣는다(브리프 479·496)."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 31270000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 398.15,
+      "strain_rate_s": 0.0001,
+      "loading": "uniaxial tension",
+      "microstructure": "water quenched (WQ)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 10(b) (p.8) — 0.0001 sec^-1",
+      "property_definition": "maximum (saturation) stress on the stress-strain curve. 원문 verbatim: 'The maximum (saturation) stress on the stress-strain curve is the ultimate tensile strength u (UTS).'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 세로 눈금선 5개(0/20/40/60/80 MPa)를 전수 검출해 np.interp 구간별 선형 보정(브리프 446) — 눈금 간격이 26.520/26.461/26.519/26.457 pt 로 0.24% 불균일하다. 가로축은 25/50/75/100/125 °C 의 이산 격자라 그 자체가 검산기다(브리프 495): 막대쌍 중심의 되읽기 오차가 최대 0.03 pt(=0.01 °C) 다. **마커 오프셋 보정은 하지 않았다** — 같은 그림 (a) 의 막대 10개를 본문 인쇄값 10개와 대조하니 무보정 잔차가 최대 0.032 MPa 이고, 0.18 pt 를 보정하면 오히려 -0.14 MPa 로 계통 편향이 생긴다. Fig.13(마커)의 -0.20/-0.25 pt 오프셋(브리프 495)은 이 그림에 없다.",
+      "reading_uncertainty": "±0.05 MPa. 같은 그림 (a) 의 막대 10개로 본문 인쇄값을 되읽은 잔차가 최대 0.032 MPa 이고, 독립인 Figure 9 곡선 극대점과의 차이가 20칸 최대 0.10 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 10(b) (p.8) — 0.0001 sec^-1 의 막대 그림에서 WQ · 125 °C 막대 상단을 벡터 좌표로 읽었다(브리프 452 · 448 — 그림 판독이므로 method=digitized). 캡션 verbatim: 'Figure 10 - Comparison between Water Quenched (WQ) and Reflowed Ultimate Strength, Testing at Strain Rates of (a) 0.001 sec-1, (b) 0.0001 sec-1, and (c) 0.00001 sec-1'. 조건은 본문 verbatim 이 정한다: 'Analogous results were obtained for the other two strain rates of e = 0.0001 sec-1 and e = 0.00001 sec-1. The comparisons between the UTS values of WQ and RF specimens are plotted in Figure 10.' [검산 1 — 인쇄값] 같은 그림 (a)(0.001/s) 의 막대 10개가 본문 인쇄값 74.1/60.2/52.5/45.5/36.3(WQ) · 38.5/33.1/26.8/20.5/19.1(RF) 을 최대 0.032 MPa 로 재현한다. 그 (a) 10칸은 이미 DB 에 있어 넣지 않았다(브리프 314·435). [검산 2 — 다른 그림] 같은 페이지 Figure 9(b) 응력-변형 곡선의 극대점이 31.25 MPa 로 이 값과 0.02 MPa 안에서 일치한다 — 20칸 전부 0.10 MPa 이내다. **주의: 0.001/s 판(Fig.9(a)=Fig.12(c))만은 RF 에서 인쇄값보다 최대 +17% 어긋난다(브리프 494). 0.0001/s·0.00001/s 판은 어긋나지 않는다 — 494 번의 범위를 좁힌다.** [검산 3 — 단조] 율속 0.001>0.0001>0.00001, 온도 단조감소, WQ>RF 가 20칸 전부에서 성립한다. [인계 대조] 46차 HB 인계값은 WQ 0.0001/s 125 °C 에서 31.15 MPa 였다 — 20칸 전부가 이 판독보다 0.11~0.14 MPa 낮다(계통). 인계값을 (a) 에 적용하면 인쇄값 대비 -0.13~-0.16 MPa 로 밀리므로 인계 쪽이 틀렸다고 판정하고 이 판독을 넣는다(브리프 479·496)."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 35570000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.0001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 10(b) (p.8) — 0.0001 sec^-1",
+      "property_definition": "maximum (saturation) stress on the stress-strain curve. 원문 verbatim: 'The maximum (saturation) stress on the stress-strain curve is the ultimate tensile strength u (UTS).'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 세로 눈금선 5개(0/20/40/60/80 MPa)를 전수 검출해 np.interp 구간별 선형 보정(브리프 446) — 눈금 간격이 26.520/26.461/26.519/26.457 pt 로 0.24% 불균일하다. 가로축은 25/50/75/100/125 °C 의 이산 격자라 그 자체가 검산기다(브리프 495): 막대쌍 중심의 되읽기 오차가 최대 0.03 pt(=0.01 °C) 다. **마커 오프셋 보정은 하지 않았다** — 같은 그림 (a) 의 막대 10개를 본문 인쇄값 10개와 대조하니 무보정 잔차가 최대 0.032 MPa 이고, 0.18 pt 를 보정하면 오히려 -0.14 MPa 로 계통 편향이 생긴다. Fig.13(마커)의 -0.20/-0.25 pt 오프셋(브리프 495)은 이 그림에 없다.",
+      "reading_uncertainty": "±0.05 MPa. 같은 그림 (a) 의 막대 10개로 본문 인쇄값을 되읽은 잔차가 최대 0.032 MPa 이고, 독립인 Figure 9 곡선 극대점과의 차이가 20칸 최대 0.10 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 10(b) (p.8) — 0.0001 sec^-1 의 막대 그림에서 RF · 25 °C 막대 상단을 벡터 좌표로 읽었다(브리프 452 · 448 — 그림 판독이므로 method=digitized). 캡션 verbatim: 'Figure 10 - Comparison between Water Quenched (WQ) and Reflowed Ultimate Strength, Testing at Strain Rates of (a) 0.001 sec-1, (b) 0.0001 sec-1, and (c) 0.00001 sec-1'. 조건은 본문 verbatim 이 정한다: 'Analogous results were obtained for the other two strain rates of e = 0.0001 sec-1 and e = 0.00001 sec-1. The comparisons between the UTS values of WQ and RF specimens are plotted in Figure 10.' [검산 1 — 인쇄값] 같은 그림 (a)(0.001/s) 의 막대 10개가 본문 인쇄값 74.1/60.2/52.5/45.5/36.3(WQ) · 38.5/33.1/26.8/20.5/19.1(RF) 을 최대 0.032 MPa 로 재현한다. 그 (a) 10칸은 이미 DB 에 있어 넣지 않았다(브리프 314·435). [검산 2 — 다른 그림] 같은 페이지 Figure 9(b) 응력-변형 곡선의 극대점이 35.63 MPa 로 이 값과 0.06 MPa 안에서 일치한다 — 20칸 전부 0.10 MPa 이내다. **주의: 0.001/s 판(Fig.9(a)=Fig.12(c))만은 RF 에서 인쇄값보다 최대 +17% 어긋난다(브리프 494). 0.0001/s·0.00001/s 판은 어긋나지 않는다 — 494 번의 범위를 좁힌다.** [검산 3 — 단조] 율속 0.001>0.0001>0.00001, 온도 단조감소, WQ>RF 가 20칸 전부에서 성립한다. [인계 대조] 46차 HB 인계값은 RF 0.0001/s 25 °C 에서 35.45 MPa 였다 — 20칸 전부가 이 판독보다 0.11~0.14 MPa 낮다(계통). 인계값을 (a) 에 적용하면 인쇄값 대비 -0.13~-0.16 MPa 로 밀리므로 인계 쪽이 틀렸다고 판정하고 이 판독을 넣는다(브리프 479·496)."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 29590000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 323.15,
+      "strain_rate_s": 0.0001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 10(b) (p.8) — 0.0001 sec^-1",
+      "property_definition": "maximum (saturation) stress on the stress-strain curve. 원문 verbatim: 'The maximum (saturation) stress on the stress-strain curve is the ultimate tensile strength u (UTS).'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 세로 눈금선 5개(0/20/40/60/80 MPa)를 전수 검출해 np.interp 구간별 선형 보정(브리프 446) — 눈금 간격이 26.520/26.461/26.519/26.457 pt 로 0.24% 불균일하다. 가로축은 25/50/75/100/125 °C 의 이산 격자라 그 자체가 검산기다(브리프 495): 막대쌍 중심의 되읽기 오차가 최대 0.03 pt(=0.01 °C) 다. **마커 오프셋 보정은 하지 않았다** — 같은 그림 (a) 의 막대 10개를 본문 인쇄값 10개와 대조하니 무보정 잔차가 최대 0.032 MPa 이고, 0.18 pt 를 보정하면 오히려 -0.14 MPa 로 계통 편향이 생긴다. Fig.13(마커)의 -0.20/-0.25 pt 오프셋(브리프 495)은 이 그림에 없다.",
+      "reading_uncertainty": "±0.05 MPa. 같은 그림 (a) 의 막대 10개로 본문 인쇄값을 되읽은 잔차가 최대 0.032 MPa 이고, 독립인 Figure 9 곡선 극대점과의 차이가 20칸 최대 0.10 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 10(b) (p.8) — 0.0001 sec^-1 의 막대 그림에서 RF · 50 °C 막대 상단을 벡터 좌표로 읽었다(브리프 452 · 448 — 그림 판독이므로 method=digitized). 캡션 verbatim: 'Figure 10 - Comparison between Water Quenched (WQ) and Reflowed Ultimate Strength, Testing at Strain Rates of (a) 0.001 sec-1, (b) 0.0001 sec-1, and (c) 0.00001 sec-1'. 조건은 본문 verbatim 이 정한다: 'Analogous results were obtained for the other two strain rates of e = 0.0001 sec-1 and e = 0.00001 sec-1. The comparisons between the UTS values of WQ and RF specimens are plotted in Figure 10.' [검산 1 — 인쇄값] 같은 그림 (a)(0.001/s) 의 막대 10개가 본문 인쇄값 74.1/60.2/52.5/45.5/36.3(WQ) · 38.5/33.1/26.8/20.5/19.1(RF) 을 최대 0.032 MPa 로 재현한다. 그 (a) 10칸은 이미 DB 에 있어 넣지 않았다(브리프 314·435). [검산 2 — 다른 그림] 같은 페이지 Figure 9(b) 응력-변형 곡선의 극대점이 29.61 MPa 로 이 값과 0.02 MPa 안에서 일치한다 — 20칸 전부 0.10 MPa 이내다. **주의: 0.001/s 판(Fig.9(a)=Fig.12(c))만은 RF 에서 인쇄값보다 최대 +17% 어긋난다(브리프 494). 0.0001/s·0.00001/s 판은 어긋나지 않는다 — 494 번의 범위를 좁힌다.** [검산 3 — 단조] 율속 0.001>0.0001>0.00001, 온도 단조감소, WQ>RF 가 20칸 전부에서 성립한다. [인계 대조] 46차 HB 인계값은 RF 0.0001/s 50 °C 에서 29.47 MPa 였다 — 20칸 전부가 이 판독보다 0.11~0.14 MPa 낮다(계통). 인계값을 (a) 에 적용하면 인쇄값 대비 -0.13~-0.16 MPa 로 밀리므로 인계 쪽이 틀렸다고 판정하고 이 판독을 넣는다(브리프 479·496)."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 24660000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 348.15,
+      "strain_rate_s": 0.0001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 10(b) (p.8) — 0.0001 sec^-1",
+      "property_definition": "maximum (saturation) stress on the stress-strain curve. 원문 verbatim: 'The maximum (saturation) stress on the stress-strain curve is the ultimate tensile strength u (UTS).'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 세로 눈금선 5개(0/20/40/60/80 MPa)를 전수 검출해 np.interp 구간별 선형 보정(브리프 446) — 눈금 간격이 26.520/26.461/26.519/26.457 pt 로 0.24% 불균일하다. 가로축은 25/50/75/100/125 °C 의 이산 격자라 그 자체가 검산기다(브리프 495): 막대쌍 중심의 되읽기 오차가 최대 0.03 pt(=0.01 °C) 다. **마커 오프셋 보정은 하지 않았다** — 같은 그림 (a) 의 막대 10개를 본문 인쇄값 10개와 대조하니 무보정 잔차가 최대 0.032 MPa 이고, 0.18 pt 를 보정하면 오히려 -0.14 MPa 로 계통 편향이 생긴다. Fig.13(마커)의 -0.20/-0.25 pt 오프셋(브리프 495)은 이 그림에 없다.",
+      "reading_uncertainty": "±0.05 MPa. 같은 그림 (a) 의 막대 10개로 본문 인쇄값을 되읽은 잔차가 최대 0.032 MPa 이고, 독립인 Figure 9 곡선 극대점과의 차이가 20칸 최대 0.10 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 10(b) (p.8) — 0.0001 sec^-1 의 막대 그림에서 RF · 75 °C 막대 상단을 벡터 좌표로 읽었다(브리프 452 · 448 — 그림 판독이므로 method=digitized). 캡션 verbatim: 'Figure 10 - Comparison between Water Quenched (WQ) and Reflowed Ultimate Strength, Testing at Strain Rates of (a) 0.001 sec-1, (b) 0.0001 sec-1, and (c) 0.00001 sec-1'. 조건은 본문 verbatim 이 정한다: 'Analogous results were obtained for the other two strain rates of e = 0.0001 sec-1 and e = 0.00001 sec-1. The comparisons between the UTS values of WQ and RF specimens are plotted in Figure 10.' [검산 1 — 인쇄값] 같은 그림 (a)(0.001/s) 의 막대 10개가 본문 인쇄값 74.1/60.2/52.5/45.5/36.3(WQ) · 38.5/33.1/26.8/20.5/19.1(RF) 을 최대 0.032 MPa 로 재현한다. 그 (a) 10칸은 이미 DB 에 있어 넣지 않았다(브리프 314·435). [검산 2 — 다른 그림] 같은 페이지 Figure 9(b) 응력-변형 곡선의 극대점이 24.68 MPa 로 이 값과 0.02 MPa 안에서 일치한다 — 20칸 전부 0.10 MPa 이내다. **주의: 0.001/s 판(Fig.9(a)=Fig.12(c))만은 RF 에서 인쇄값보다 최대 +17% 어긋난다(브리프 494). 0.0001/s·0.00001/s 판은 어긋나지 않는다 — 494 번의 범위를 좁힌다.** [검산 3 — 단조] 율속 0.001>0.0001>0.00001, 온도 단조감소, WQ>RF 가 20칸 전부에서 성립한다. [인계 대조] 46차 HB 인계값은 RF 0.0001/s 75 °C 에서 24.54 MPa 였다 — 20칸 전부가 이 판독보다 0.11~0.14 MPa 낮다(계통). 인계값을 (a) 에 적용하면 인쇄값 대비 -0.13~-0.16 MPa 로 밀리므로 인계 쪽이 틀렸다고 판정하고 이 판독을 넣는다(브리프 479·496)."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 21360000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 373.15,
+      "strain_rate_s": 0.0001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 10(b) (p.8) — 0.0001 sec^-1",
+      "property_definition": "maximum (saturation) stress on the stress-strain curve. 원문 verbatim: 'The maximum (saturation) stress on the stress-strain curve is the ultimate tensile strength u (UTS).'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 세로 눈금선 5개(0/20/40/60/80 MPa)를 전수 검출해 np.interp 구간별 선형 보정(브리프 446) — 눈금 간격이 26.520/26.461/26.519/26.457 pt 로 0.24% 불균일하다. 가로축은 25/50/75/100/125 °C 의 이산 격자라 그 자체가 검산기다(브리프 495): 막대쌍 중심의 되읽기 오차가 최대 0.03 pt(=0.01 °C) 다. **마커 오프셋 보정은 하지 않았다** — 같은 그림 (a) 의 막대 10개를 본문 인쇄값 10개와 대조하니 무보정 잔차가 최대 0.032 MPa 이고, 0.18 pt 를 보정하면 오히려 -0.14 MPa 로 계통 편향이 생긴다. Fig.13(마커)의 -0.20/-0.25 pt 오프셋(브리프 495)은 이 그림에 없다.",
+      "reading_uncertainty": "±0.05 MPa. 같은 그림 (a) 의 막대 10개로 본문 인쇄값을 되읽은 잔차가 최대 0.032 MPa 이고, 독립인 Figure 9 곡선 극대점과의 차이가 20칸 최대 0.10 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 10(b) (p.8) — 0.0001 sec^-1 의 막대 그림에서 RF · 100 °C 막대 상단을 벡터 좌표로 읽었다(브리프 452 · 448 — 그림 판독이므로 method=digitized). 캡션 verbatim: 'Figure 10 - Comparison between Water Quenched (WQ) and Reflowed Ultimate Strength, Testing at Strain Rates of (a) 0.001 sec-1, (b) 0.0001 sec-1, and (c) 0.00001 sec-1'. 조건은 본문 verbatim 이 정한다: 'Analogous results were obtained for the other two strain rates of e = 0.0001 sec-1 and e = 0.00001 sec-1. The comparisons between the UTS values of WQ and RF specimens are plotted in Figure 10.' [검산 1 — 인쇄값] 같은 그림 (a)(0.001/s) 의 막대 10개가 본문 인쇄값 74.1/60.2/52.5/45.5/36.3(WQ) · 38.5/33.1/26.8/20.5/19.1(RF) 을 최대 0.032 MPa 로 재현한다. 그 (a) 10칸은 이미 DB 에 있어 넣지 않았다(브리프 314·435). [검산 2 — 다른 그림] 같은 페이지 Figure 9(b) 응력-변형 곡선의 극대점이 21.34 MPa 로 이 값과 0.02 MPa 안에서 일치한다 — 20칸 전부 0.10 MPa 이내다. **주의: 0.001/s 판(Fig.9(a)=Fig.12(c))만은 RF 에서 인쇄값보다 최대 +17% 어긋난다(브리프 494). 0.0001/s·0.00001/s 판은 어긋나지 않는다 — 494 번의 범위를 좁힌다.** [검산 3 — 단조] 율속 0.001>0.0001>0.00001, 온도 단조감소, WQ>RF 가 20칸 전부에서 성립한다. [인계 대조] 46차 HB 인계값은 RF 0.0001/s 100 °C 에서 21.23 MPa 였다 — 20칸 전부가 이 판독보다 0.11~0.14 MPa 낮다(계통). 인계값을 (a) 에 적용하면 인쇄값 대비 -0.13~-0.16 MPa 로 밀리므로 인계 쪽이 틀렸다고 판정하고 이 판독을 넣는다(브리프 479·496)."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 17100000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 398.15,
+      "strain_rate_s": 0.0001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 10(b) (p.8) — 0.0001 sec^-1",
+      "property_definition": "maximum (saturation) stress on the stress-strain curve. 원문 verbatim: 'The maximum (saturation) stress on the stress-strain curve is the ultimate tensile strength u (UTS).'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 세로 눈금선 5개(0/20/40/60/80 MPa)를 전수 검출해 np.interp 구간별 선형 보정(브리프 446) — 눈금 간격이 26.520/26.461/26.519/26.457 pt 로 0.24% 불균일하다. 가로축은 25/50/75/100/125 °C 의 이산 격자라 그 자체가 검산기다(브리프 495): 막대쌍 중심의 되읽기 오차가 최대 0.03 pt(=0.01 °C) 다. **마커 오프셋 보정은 하지 않았다** — 같은 그림 (a) 의 막대 10개를 본문 인쇄값 10개와 대조하니 무보정 잔차가 최대 0.032 MPa 이고, 0.18 pt 를 보정하면 오히려 -0.14 MPa 로 계통 편향이 생긴다. Fig.13(마커)의 -0.20/-0.25 pt 오프셋(브리프 495)은 이 그림에 없다.",
+      "reading_uncertainty": "±0.05 MPa. 같은 그림 (a) 의 막대 10개로 본문 인쇄값을 되읽은 잔차가 최대 0.032 MPa 이고, 독립인 Figure 9 곡선 극대점과의 차이가 20칸 최대 0.10 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 10(b) (p.8) — 0.0001 sec^-1 의 막대 그림에서 RF · 125 °C 막대 상단을 벡터 좌표로 읽었다(브리프 452 · 448 — 그림 판독이므로 method=digitized). 캡션 verbatim: 'Figure 10 - Comparison between Water Quenched (WQ) and Reflowed Ultimate Strength, Testing at Strain Rates of (a) 0.001 sec-1, (b) 0.0001 sec-1, and (c) 0.00001 sec-1'. 조건은 본문 verbatim 이 정한다: 'Analogous results were obtained for the other two strain rates of e = 0.0001 sec-1 and e = 0.00001 sec-1. The comparisons between the UTS values of WQ and RF specimens are plotted in Figure 10.' [검산 1 — 인쇄값] 같은 그림 (a)(0.001/s) 의 막대 10개가 본문 인쇄값 74.1/60.2/52.5/45.5/36.3(WQ) · 38.5/33.1/26.8/20.5/19.1(RF) 을 최대 0.032 MPa 로 재현한다. 그 (a) 10칸은 이미 DB 에 있어 넣지 않았다(브리프 314·435). [검산 2 — 다른 그림] 같은 페이지 Figure 9(b) 응력-변형 곡선의 극대점이 17.09 MPa 로 이 값과 0.01 MPa 안에서 일치한다 — 20칸 전부 0.10 MPa 이내다. **주의: 0.001/s 판(Fig.9(a)=Fig.12(c))만은 RF 에서 인쇄값보다 최대 +17% 어긋난다(브리프 494). 0.0001/s·0.00001/s 판은 어긋나지 않는다 — 494 번의 범위를 좁힌다.** [검산 3 — 단조] 율속 0.001>0.0001>0.00001, 온도 단조감소, WQ>RF 가 20칸 전부에서 성립한다. [인계 대조] 46차 HB 인계값은 RF 0.0001/s 125 °C 에서 16.98 MPa 였다 — 20칸 전부가 이 판독보다 0.11~0.14 MPa 낮다(계통). 인계값을 (a) 에 적용하면 인쇄값 대비 -0.13~-0.16 MPa 로 밀리므로 인계 쪽이 틀렸다고 판정하고 이 판독을 넣는다(브리프 479·496)."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 54980000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 1e-05,
+      "loading": "uniaxial tension",
+      "microstructure": "water quenched (WQ)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 10(c) (p.8) — 0.00001 sec^-1",
+      "property_definition": "maximum (saturation) stress on the stress-strain curve. 원문 verbatim: 'The maximum (saturation) stress on the stress-strain curve is the ultimate tensile strength u (UTS).'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 세로 눈금선 5개(0/20/40/60/80 MPa)를 전수 검출해 np.interp 구간별 선형 보정(브리프 446) — 눈금 간격이 26.520/26.461/26.519/26.457 pt 로 0.24% 불균일하다. 가로축은 25/50/75/100/125 °C 의 이산 격자라 그 자체가 검산기다(브리프 495): 막대쌍 중심의 되읽기 오차가 최대 0.03 pt(=0.01 °C) 다. **마커 오프셋 보정은 하지 않았다** — 같은 그림 (a) 의 막대 10개를 본문 인쇄값 10개와 대조하니 무보정 잔차가 최대 0.032 MPa 이고, 0.18 pt 를 보정하면 오히려 -0.14 MPa 로 계통 편향이 생긴다. Fig.13(마커)의 -0.20/-0.25 pt 오프셋(브리프 495)은 이 그림에 없다.",
+      "reading_uncertainty": "±0.05 MPa. 같은 그림 (a) 의 막대 10개로 본문 인쇄값을 되읽은 잔차가 최대 0.032 MPa 이고, 독립인 Figure 9 곡선 극대점과의 차이가 20칸 최대 0.10 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 10(c) (p.8) — 0.00001 sec^-1 의 막대 그림에서 WQ · 25 °C 막대 상단을 벡터 좌표로 읽었다(브리프 452 · 448 — 그림 판독이므로 method=digitized). 캡션 verbatim: 'Figure 10 - Comparison between Water Quenched (WQ) and Reflowed Ultimate Strength, Testing at Strain Rates of (a) 0.001 sec-1, (b) 0.0001 sec-1, and (c) 0.00001 sec-1'. 조건은 본문 verbatim 이 정한다: 'Analogous results were obtained for the other two strain rates of e = 0.0001 sec-1 and e = 0.00001 sec-1. The comparisons between the UTS values of WQ and RF specimens are plotted in Figure 10.' [검산 1 — 인쇄값] 같은 그림 (a)(0.001/s) 의 막대 10개가 본문 인쇄값 74.1/60.2/52.5/45.5/36.3(WQ) · 38.5/33.1/26.8/20.5/19.1(RF) 을 최대 0.032 MPa 로 재현한다. 그 (a) 10칸은 이미 DB 에 있어 넣지 않았다(브리프 314·435). [검산 2 — 다른 그림] 같은 페이지 Figure 9(c) 응력-변형 곡선의 극대점이 54.97 MPa 로 이 값과 0.01 MPa 안에서 일치한다 — 20칸 전부 0.10 MPa 이내다. **주의: 0.001/s 판(Fig.9(a)=Fig.12(c))만은 RF 에서 인쇄값보다 최대 +17% 어긋난다(브리프 494). 0.0001/s·0.00001/s 판은 어긋나지 않는다 — 494 번의 범위를 좁힌다.** [검산 3 — 단조] 율속 0.001>0.0001>0.00001, 온도 단조감소, WQ>RF 가 20칸 전부에서 성립한다. [인계 대조] 46차 HB 인계값은 WQ 1e-05/s 25 °C 에서 54.86 MPa 였다 — 20칸 전부가 이 판독보다 0.11~0.14 MPa 낮다(계통). 인계값을 (a) 에 적용하면 인쇄값 대비 -0.13~-0.16 MPa 로 밀리므로 인계 쪽이 틀렸다고 판정하고 이 판독을 넣는다(브리프 479·496)."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 45340000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 323.15,
+      "strain_rate_s": 1e-05,
+      "loading": "uniaxial tension",
+      "microstructure": "water quenched (WQ)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 10(c) (p.8) — 0.00001 sec^-1",
+      "property_definition": "maximum (saturation) stress on the stress-strain curve. 원문 verbatim: 'The maximum (saturation) stress on the stress-strain curve is the ultimate tensile strength u (UTS).'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 세로 눈금선 5개(0/20/40/60/80 MPa)를 전수 검출해 np.interp 구간별 선형 보정(브리프 446) — 눈금 간격이 26.520/26.461/26.519/26.457 pt 로 0.24% 불균일하다. 가로축은 25/50/75/100/125 °C 의 이산 격자라 그 자체가 검산기다(브리프 495): 막대쌍 중심의 되읽기 오차가 최대 0.03 pt(=0.01 °C) 다. **마커 오프셋 보정은 하지 않았다** — 같은 그림 (a) 의 막대 10개를 본문 인쇄값 10개와 대조하니 무보정 잔차가 최대 0.032 MPa 이고, 0.18 pt 를 보정하면 오히려 -0.14 MPa 로 계통 편향이 생긴다. Fig.13(마커)의 -0.20/-0.25 pt 오프셋(브리프 495)은 이 그림에 없다.",
+      "reading_uncertainty": "±0.05 MPa. 같은 그림 (a) 의 막대 10개로 본문 인쇄값을 되읽은 잔차가 최대 0.032 MPa 이고, 독립인 Figure 9 곡선 극대점과의 차이가 20칸 최대 0.10 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 10(c) (p.8) — 0.00001 sec^-1 의 막대 그림에서 WQ · 50 °C 막대 상단을 벡터 좌표로 읽었다(브리프 452 · 448 — 그림 판독이므로 method=digitized). 캡션 verbatim: 'Figure 10 - Comparison between Water Quenched (WQ) and Reflowed Ultimate Strength, Testing at Strain Rates of (a) 0.001 sec-1, (b) 0.0001 sec-1, and (c) 0.00001 sec-1'. 조건은 본문 verbatim 이 정한다: 'Analogous results were obtained for the other two strain rates of e = 0.0001 sec-1 and e = 0.00001 sec-1. The comparisons between the UTS values of WQ and RF specimens are plotted in Figure 10.' [검산 1 — 인쇄값] 같은 그림 (a)(0.001/s) 의 막대 10개가 본문 인쇄값 74.1/60.2/52.5/45.5/36.3(WQ) · 38.5/33.1/26.8/20.5/19.1(RF) 을 최대 0.032 MPa 로 재현한다. 그 (a) 10칸은 이미 DB 에 있어 넣지 않았다(브리프 314·435). [검산 2 — 다른 그림] 같은 페이지 Figure 9(c) 응력-변형 곡선의 극대점이 45.33 MPa 로 이 값과 0.01 MPa 안에서 일치한다 — 20칸 전부 0.10 MPa 이내다. **주의: 0.001/s 판(Fig.9(a)=Fig.12(c))만은 RF 에서 인쇄값보다 최대 +17% 어긋난다(브리프 494). 0.0001/s·0.00001/s 판은 어긋나지 않는다 — 494 번의 범위를 좁힌다.** [검산 3 — 단조] 율속 0.001>0.0001>0.00001, 온도 단조감소, WQ>RF 가 20칸 전부에서 성립한다. [인계 대조] 46차 HB 인계값은 WQ 1e-05/s 50 °C 에서 45.21 MPa 였다 — 20칸 전부가 이 판독보다 0.11~0.14 MPa 낮다(계통). 인계값을 (a) 에 적용하면 인쇄값 대비 -0.13~-0.16 MPa 로 밀리므로 인계 쪽이 틀렸다고 판정하고 이 판독을 넣는다(브리프 479·496)."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 37190000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 348.15,
+      "strain_rate_s": 1e-05,
+      "loading": "uniaxial tension",
+      "microstructure": "water quenched (WQ)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 10(c) (p.8) — 0.00001 sec^-1",
+      "property_definition": "maximum (saturation) stress on the stress-strain curve. 원문 verbatim: 'The maximum (saturation) stress on the stress-strain curve is the ultimate tensile strength u (UTS).'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 세로 눈금선 5개(0/20/40/60/80 MPa)를 전수 검출해 np.interp 구간별 선형 보정(브리프 446) — 눈금 간격이 26.520/26.461/26.519/26.457 pt 로 0.24% 불균일하다. 가로축은 25/50/75/100/125 °C 의 이산 격자라 그 자체가 검산기다(브리프 495): 막대쌍 중심의 되읽기 오차가 최대 0.03 pt(=0.01 °C) 다. **마커 오프셋 보정은 하지 않았다** — 같은 그림 (a) 의 막대 10개를 본문 인쇄값 10개와 대조하니 무보정 잔차가 최대 0.032 MPa 이고, 0.18 pt 를 보정하면 오히려 -0.14 MPa 로 계통 편향이 생긴다. Fig.13(마커)의 -0.20/-0.25 pt 오프셋(브리프 495)은 이 그림에 없다.",
+      "reading_uncertainty": "±0.05 MPa. 같은 그림 (a) 의 막대 10개로 본문 인쇄값을 되읽은 잔차가 최대 0.032 MPa 이고, 독립인 Figure 9 곡선 극대점과의 차이가 20칸 최대 0.10 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 10(c) (p.8) — 0.00001 sec^-1 의 막대 그림에서 WQ · 75 °C 막대 상단을 벡터 좌표로 읽었다(브리프 452 · 448 — 그림 판독이므로 method=digitized). 캡션 verbatim: 'Figure 10 - Comparison between Water Quenched (WQ) and Reflowed Ultimate Strength, Testing at Strain Rates of (a) 0.001 sec-1, (b) 0.0001 sec-1, and (c) 0.00001 sec-1'. 조건은 본문 verbatim 이 정한다: 'Analogous results were obtained for the other two strain rates of e = 0.0001 sec-1 and e = 0.00001 sec-1. The comparisons between the UTS values of WQ and RF specimens are plotted in Figure 10.' [검산 1 — 인쇄값] 같은 그림 (a)(0.001/s) 의 막대 10개가 본문 인쇄값 74.1/60.2/52.5/45.5/36.3(WQ) · 38.5/33.1/26.8/20.5/19.1(RF) 을 최대 0.032 MPa 로 재현한다. 그 (a) 10칸은 이미 DB 에 있어 넣지 않았다(브리프 314·435). [검산 2 — 다른 그림] 같은 페이지 Figure 9(c) 응력-변형 곡선의 극대점이 37.21 MPa 로 이 값과 0.02 MPa 안에서 일치한다 — 20칸 전부 0.10 MPa 이내다. **주의: 0.001/s 판(Fig.9(a)=Fig.12(c))만은 RF 에서 인쇄값보다 최대 +17% 어긋난다(브리프 494). 0.0001/s·0.00001/s 판은 어긋나지 않는다 — 494 번의 범위를 좁힌다.** [검산 3 — 단조] 율속 0.001>0.0001>0.00001, 온도 단조감소, WQ>RF 가 20칸 전부에서 성립한다. [인계 대조] 46차 HB 인계값은 WQ 1e-05/s 75 °C 에서 37.06 MPa 였다 — 20칸 전부가 이 판독보다 0.11~0.14 MPa 낮다(계통). 인계값을 (a) 에 적용하면 인쇄값 대비 -0.13~-0.16 MPa 로 밀리므로 인계 쪽이 틀렸다고 판정하고 이 판독을 넣는다(브리프 479·496)."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 30340000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 373.15,
+      "strain_rate_s": 1e-05,
+      "loading": "uniaxial tension",
+      "microstructure": "water quenched (WQ)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 10(c) (p.8) — 0.00001 sec^-1",
+      "property_definition": "maximum (saturation) stress on the stress-strain curve. 원문 verbatim: 'The maximum (saturation) stress on the stress-strain curve is the ultimate tensile strength u (UTS).'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 세로 눈금선 5개(0/20/40/60/80 MPa)를 전수 검출해 np.interp 구간별 선형 보정(브리프 446) — 눈금 간격이 26.520/26.461/26.519/26.457 pt 로 0.24% 불균일하다. 가로축은 25/50/75/100/125 °C 의 이산 격자라 그 자체가 검산기다(브리프 495): 막대쌍 중심의 되읽기 오차가 최대 0.03 pt(=0.01 °C) 다. **마커 오프셋 보정은 하지 않았다** — 같은 그림 (a) 의 막대 10개를 본문 인쇄값 10개와 대조하니 무보정 잔차가 최대 0.032 MPa 이고, 0.18 pt 를 보정하면 오히려 -0.14 MPa 로 계통 편향이 생긴다. Fig.13(마커)의 -0.20/-0.25 pt 오프셋(브리프 495)은 이 그림에 없다.",
+      "reading_uncertainty": "±0.05 MPa. 같은 그림 (a) 의 막대 10개로 본문 인쇄값을 되읽은 잔차가 최대 0.032 MPa 이고, 독립인 Figure 9 곡선 극대점과의 차이가 20칸 최대 0.10 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 10(c) (p.8) — 0.00001 sec^-1 의 막대 그림에서 WQ · 100 °C 막대 상단을 벡터 좌표로 읽었다(브리프 452 · 448 — 그림 판독이므로 method=digitized). 캡션 verbatim: 'Figure 10 - Comparison between Water Quenched (WQ) and Reflowed Ultimate Strength, Testing at Strain Rates of (a) 0.001 sec-1, (b) 0.0001 sec-1, and (c) 0.00001 sec-1'. 조건은 본문 verbatim 이 정한다: 'Analogous results were obtained for the other two strain rates of e = 0.0001 sec-1 and e = 0.00001 sec-1. The comparisons between the UTS values of WQ and RF specimens are plotted in Figure 10.' [검산 1 — 인쇄값] 같은 그림 (a)(0.001/s) 의 막대 10개가 본문 인쇄값 74.1/60.2/52.5/45.5/36.3(WQ) · 38.5/33.1/26.8/20.5/19.1(RF) 을 최대 0.032 MPa 로 재현한다. 그 (a) 10칸은 이미 DB 에 있어 넣지 않았다(브리프 314·435). [검산 2 — 다른 그림] 같은 페이지 Figure 9(c) 응력-변형 곡선의 극대점이 30.36 MPa 로 이 값과 0.02 MPa 안에서 일치한다 — 20칸 전부 0.10 MPa 이내다. **주의: 0.001/s 판(Fig.9(a)=Fig.12(c))만은 RF 에서 인쇄값보다 최대 +17% 어긋난다(브리프 494). 0.0001/s·0.00001/s 판은 어긋나지 않는다 — 494 번의 범위를 좁힌다.** [검산 3 — 단조] 율속 0.001>0.0001>0.00001, 온도 단조감소, WQ>RF 가 20칸 전부에서 성립한다. [인계 대조] 46차 HB 인계값은 WQ 1e-05/s 100 °C 에서 30.21 MPa 였다 — 20칸 전부가 이 판독보다 0.11~0.14 MPa 낮다(계통). 인계값을 (a) 에 적용하면 인쇄값 대비 -0.13~-0.16 MPa 로 밀리므로 인계 쪽이 틀렸다고 판정하고 이 판독을 넣는다(브리프 479·496)."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 24670000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 398.15,
+      "strain_rate_s": 1e-05,
+      "loading": "uniaxial tension",
+      "microstructure": "water quenched (WQ)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 10(c) (p.8) — 0.00001 sec^-1",
+      "property_definition": "maximum (saturation) stress on the stress-strain curve. 원문 verbatim: 'The maximum (saturation) stress on the stress-strain curve is the ultimate tensile strength u (UTS).'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 세로 눈금선 5개(0/20/40/60/80 MPa)를 전수 검출해 np.interp 구간별 선형 보정(브리프 446) — 눈금 간격이 26.520/26.461/26.519/26.457 pt 로 0.24% 불균일하다. 가로축은 25/50/75/100/125 °C 의 이산 격자라 그 자체가 검산기다(브리프 495): 막대쌍 중심의 되읽기 오차가 최대 0.03 pt(=0.01 °C) 다. **마커 오프셋 보정은 하지 않았다** — 같은 그림 (a) 의 막대 10개를 본문 인쇄값 10개와 대조하니 무보정 잔차가 최대 0.032 MPa 이고, 0.18 pt 를 보정하면 오히려 -0.14 MPa 로 계통 편향이 생긴다. Fig.13(마커)의 -0.20/-0.25 pt 오프셋(브리프 495)은 이 그림에 없다.",
+      "reading_uncertainty": "±0.05 MPa. 같은 그림 (a) 의 막대 10개로 본문 인쇄값을 되읽은 잔차가 최대 0.032 MPa 이고, 독립인 Figure 9 곡선 극대점과의 차이가 20칸 최대 0.10 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 10(c) (p.8) — 0.00001 sec^-1 의 막대 그림에서 WQ · 125 °C 막대 상단을 벡터 좌표로 읽었다(브리프 452 · 448 — 그림 판독이므로 method=digitized). 캡션 verbatim: 'Figure 10 - Comparison between Water Quenched (WQ) and Reflowed Ultimate Strength, Testing at Strain Rates of (a) 0.001 sec-1, (b) 0.0001 sec-1, and (c) 0.00001 sec-1'. 조건은 본문 verbatim 이 정한다: 'Analogous results were obtained for the other two strain rates of e = 0.0001 sec-1 and e = 0.00001 sec-1. The comparisons between the UTS values of WQ and RF specimens are plotted in Figure 10.' [검산 1 — 인쇄값] 같은 그림 (a)(0.001/s) 의 막대 10개가 본문 인쇄값 74.1/60.2/52.5/45.5/36.3(WQ) · 38.5/33.1/26.8/20.5/19.1(RF) 을 최대 0.032 MPa 로 재현한다. 그 (a) 10칸은 이미 DB 에 있어 넣지 않았다(브리프 314·435). [검산 2 — 다른 그림] 같은 페이지 Figure 9(c) 응력-변형 곡선의 극대점이 24.67 MPa 로 이 값과 0.00 MPa 안에서 일치한다 — 20칸 전부 0.10 MPa 이내다. **주의: 0.001/s 판(Fig.9(a)=Fig.12(c))만은 RF 에서 인쇄값보다 최대 +17% 어긋난다(브리프 494). 0.0001/s·0.00001/s 판은 어긋나지 않는다 — 494 번의 범위를 좁힌다.** [검산 3 — 단조] 율속 0.001>0.0001>0.00001, 온도 단조감소, WQ>RF 가 20칸 전부에서 성립한다. [인계 대조] 46차 HB 인계값은 WQ 1e-05/s 125 °C 에서 24.55 MPa 였다 — 20칸 전부가 이 판독보다 0.11~0.14 MPa 낮다(계통). 인계값을 (a) 에 적용하면 인쇄값 대비 -0.13~-0.16 MPa 로 밀리므로 인계 쪽이 틀렸다고 판정하고 이 판독을 넣는다(브리프 479·496)."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 29250000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 1e-05,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 10(c) (p.8) — 0.00001 sec^-1",
+      "property_definition": "maximum (saturation) stress on the stress-strain curve. 원문 verbatim: 'The maximum (saturation) stress on the stress-strain curve is the ultimate tensile strength u (UTS).'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 세로 눈금선 5개(0/20/40/60/80 MPa)를 전수 검출해 np.interp 구간별 선형 보정(브리프 446) — 눈금 간격이 26.520/26.461/26.519/26.457 pt 로 0.24% 불균일하다. 가로축은 25/50/75/100/125 °C 의 이산 격자라 그 자체가 검산기다(브리프 495): 막대쌍 중심의 되읽기 오차가 최대 0.03 pt(=0.01 °C) 다. **마커 오프셋 보정은 하지 않았다** — 같은 그림 (a) 의 막대 10개를 본문 인쇄값 10개와 대조하니 무보정 잔차가 최대 0.032 MPa 이고, 0.18 pt 를 보정하면 오히려 -0.14 MPa 로 계통 편향이 생긴다. Fig.13(마커)의 -0.20/-0.25 pt 오프셋(브리프 495)은 이 그림에 없다.",
+      "reading_uncertainty": "±0.05 MPa. 같은 그림 (a) 의 막대 10개로 본문 인쇄값을 되읽은 잔차가 최대 0.032 MPa 이고, 독립인 Figure 9 곡선 극대점과의 차이가 20칸 최대 0.10 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 10(c) (p.8) — 0.00001 sec^-1 의 막대 그림에서 RF · 25 °C 막대 상단을 벡터 좌표로 읽었다(브리프 452 · 448 — 그림 판독이므로 method=digitized). 캡션 verbatim: 'Figure 10 - Comparison between Water Quenched (WQ) and Reflowed Ultimate Strength, Testing at Strain Rates of (a) 0.001 sec-1, (b) 0.0001 sec-1, and (c) 0.00001 sec-1'. 조건은 본문 verbatim 이 정한다: 'Analogous results were obtained for the other two strain rates of e = 0.0001 sec-1 and e = 0.00001 sec-1. The comparisons between the UTS values of WQ and RF specimens are plotted in Figure 10.' [검산 1 — 인쇄값] 같은 그림 (a)(0.001/s) 의 막대 10개가 본문 인쇄값 74.1/60.2/52.5/45.5/36.3(WQ) · 38.5/33.1/26.8/20.5/19.1(RF) 을 최대 0.032 MPa 로 재현한다. 그 (a) 10칸은 이미 DB 에 있어 넣지 않았다(브리프 314·435). [검산 2 — 다른 그림] 같은 페이지 Figure 9(c) 응력-변형 곡선의 극대점이 29.27 MPa 로 이 값과 0.02 MPa 안에서 일치한다 — 20칸 전부 0.10 MPa 이내다. **주의: 0.001/s 판(Fig.9(a)=Fig.12(c))만은 RF 에서 인쇄값보다 최대 +17% 어긋난다(브리프 494). 0.0001/s·0.00001/s 판은 어긋나지 않는다 — 494 번의 범위를 좁힌다.** [검산 3 — 단조] 율속 0.001>0.0001>0.00001, 온도 단조감소, WQ>RF 가 20칸 전부에서 성립한다. [인계 대조] 46차 HB 인계값은 RF 1e-05/s 25 °C 에서 29.13 MPa 였다 — 20칸 전부가 이 판독보다 0.11~0.14 MPa 낮다(계통). 인계값을 (a) 에 적용하면 인쇄값 대비 -0.13~-0.16 MPa 로 밀리므로 인계 쪽이 틀렸다고 판정하고 이 판독을 넣는다(브리프 479·496)."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 24450000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 323.15,
+      "strain_rate_s": 1e-05,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 10(c) (p.8) — 0.00001 sec^-1",
+      "property_definition": "maximum (saturation) stress on the stress-strain curve. 원문 verbatim: 'The maximum (saturation) stress on the stress-strain curve is the ultimate tensile strength u (UTS).'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 세로 눈금선 5개(0/20/40/60/80 MPa)를 전수 검출해 np.interp 구간별 선형 보정(브리프 446) — 눈금 간격이 26.520/26.461/26.519/26.457 pt 로 0.24% 불균일하다. 가로축은 25/50/75/100/125 °C 의 이산 격자라 그 자체가 검산기다(브리프 495): 막대쌍 중심의 되읽기 오차가 최대 0.03 pt(=0.01 °C) 다. **마커 오프셋 보정은 하지 않았다** — 같은 그림 (a) 의 막대 10개를 본문 인쇄값 10개와 대조하니 무보정 잔차가 최대 0.032 MPa 이고, 0.18 pt 를 보정하면 오히려 -0.14 MPa 로 계통 편향이 생긴다. Fig.13(마커)의 -0.20/-0.25 pt 오프셋(브리프 495)은 이 그림에 없다.",
+      "reading_uncertainty": "±0.05 MPa. 같은 그림 (a) 의 막대 10개로 본문 인쇄값을 되읽은 잔차가 최대 0.032 MPa 이고, 독립인 Figure 9 곡선 극대점과의 차이가 20칸 최대 0.10 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 10(c) (p.8) — 0.00001 sec^-1 의 막대 그림에서 RF · 50 °C 막대 상단을 벡터 좌표로 읽었다(브리프 452 · 448 — 그림 판독이므로 method=digitized). 캡션 verbatim: 'Figure 10 - Comparison between Water Quenched (WQ) and Reflowed Ultimate Strength, Testing at Strain Rates of (a) 0.001 sec-1, (b) 0.0001 sec-1, and (c) 0.00001 sec-1'. 조건은 본문 verbatim 이 정한다: 'Analogous results were obtained for the other two strain rates of e = 0.0001 sec-1 and e = 0.00001 sec-1. The comparisons between the UTS values of WQ and RF specimens are plotted in Figure 10.' [검산 1 — 인쇄값] 같은 그림 (a)(0.001/s) 의 막대 10개가 본문 인쇄값 74.1/60.2/52.5/45.5/36.3(WQ) · 38.5/33.1/26.8/20.5/19.1(RF) 을 최대 0.032 MPa 로 재현한다. 그 (a) 10칸은 이미 DB 에 있어 넣지 않았다(브리프 314·435). [검산 2 — 다른 그림] 같은 페이지 Figure 9(c) 응력-변형 곡선의 극대점이 24.49 MPa 로 이 값과 0.04 MPa 안에서 일치한다 — 20칸 전부 0.10 MPa 이내다. **주의: 0.001/s 판(Fig.9(a)=Fig.12(c))만은 RF 에서 인쇄값보다 최대 +17% 어긋난다(브리프 494). 0.0001/s·0.00001/s 판은 어긋나지 않는다 — 494 번의 범위를 좁힌다.** [검산 3 — 단조] 율속 0.001>0.0001>0.00001, 온도 단조감소, WQ>RF 가 20칸 전부에서 성립한다. [인계 대조] 46차 HB 인계값은 RF 1e-05/s 50 °C 에서 24.33 MPa 였다 — 20칸 전부가 이 판독보다 0.11~0.14 MPa 낮다(계통). 인계값을 (a) 에 적용하면 인쇄값 대비 -0.13~-0.16 MPa 로 밀리므로 인계 쪽이 틀렸다고 판정하고 이 판독을 넣는다(브리프 479·496)."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 20140000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 348.15,
+      "strain_rate_s": 1e-05,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 10(c) (p.8) — 0.00001 sec^-1",
+      "property_definition": "maximum (saturation) stress on the stress-strain curve. 원문 verbatim: 'The maximum (saturation) stress on the stress-strain curve is the ultimate tensile strength u (UTS).'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 세로 눈금선 5개(0/20/40/60/80 MPa)를 전수 검출해 np.interp 구간별 선형 보정(브리프 446) — 눈금 간격이 26.520/26.461/26.519/26.457 pt 로 0.24% 불균일하다. 가로축은 25/50/75/100/125 °C 의 이산 격자라 그 자체가 검산기다(브리프 495): 막대쌍 중심의 되읽기 오차가 최대 0.03 pt(=0.01 °C) 다. **마커 오프셋 보정은 하지 않았다** — 같은 그림 (a) 의 막대 10개를 본문 인쇄값 10개와 대조하니 무보정 잔차가 최대 0.032 MPa 이고, 0.18 pt 를 보정하면 오히려 -0.14 MPa 로 계통 편향이 생긴다. Fig.13(마커)의 -0.20/-0.25 pt 오프셋(브리프 495)은 이 그림에 없다.",
+      "reading_uncertainty": "±0.05 MPa. 같은 그림 (a) 의 막대 10개로 본문 인쇄값을 되읽은 잔차가 최대 0.032 MPa 이고, 독립인 Figure 9 곡선 극대점과의 차이가 20칸 최대 0.10 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 10(c) (p.8) — 0.00001 sec^-1 의 막대 그림에서 RF · 75 °C 막대 상단을 벡터 좌표로 읽었다(브리프 452 · 448 — 그림 판독이므로 method=digitized). 캡션 verbatim: 'Figure 10 - Comparison between Water Quenched (WQ) and Reflowed Ultimate Strength, Testing at Strain Rates of (a) 0.001 sec-1, (b) 0.0001 sec-1, and (c) 0.00001 sec-1'. 조건은 본문 verbatim 이 정한다: 'Analogous results were obtained for the other two strain rates of e = 0.0001 sec-1 and e = 0.00001 sec-1. The comparisons between the UTS values of WQ and RF specimens are plotted in Figure 10.' [검산 1 — 인쇄값] 같은 그림 (a)(0.001/s) 의 막대 10개가 본문 인쇄값 74.1/60.2/52.5/45.5/36.3(WQ) · 38.5/33.1/26.8/20.5/19.1(RF) 을 최대 0.032 MPa 로 재현한다. 그 (a) 10칸은 이미 DB 에 있어 넣지 않았다(브리프 314·435). [검산 2 — 다른 그림] 같은 페이지 Figure 9(c) 응력-변형 곡선의 극대점이 20.18 MPa 로 이 값과 0.04 MPa 안에서 일치한다 — 20칸 전부 0.10 MPa 이내다. **주의: 0.001/s 판(Fig.9(a)=Fig.12(c))만은 RF 에서 인쇄값보다 최대 +17% 어긋난다(브리프 494). 0.0001/s·0.00001/s 판은 어긋나지 않는다 — 494 번의 범위를 좁힌다.** [검산 3 — 단조] 율속 0.001>0.0001>0.00001, 온도 단조감소, WQ>RF 가 20칸 전부에서 성립한다. [인계 대조] 46차 HB 인계값은 RF 1e-05/s 75 °C 에서 20.02 MPa 였다 — 20칸 전부가 이 판독보다 0.11~0.14 MPa 낮다(계통). 인계값을 (a) 에 적용하면 인쇄값 대비 -0.13~-0.16 MPa 로 밀리므로 인계 쪽이 틀렸다고 판정하고 이 판독을 넣는다(브리프 479·496)."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 17150000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 373.15,
+      "strain_rate_s": 1e-05,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 10(c) (p.8) — 0.00001 sec^-1",
+      "property_definition": "maximum (saturation) stress on the stress-strain curve. 원문 verbatim: 'The maximum (saturation) stress on the stress-strain curve is the ultimate tensile strength u (UTS).'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 세로 눈금선 5개(0/20/40/60/80 MPa)를 전수 검출해 np.interp 구간별 선형 보정(브리프 446) — 눈금 간격이 26.520/26.461/26.519/26.457 pt 로 0.24% 불균일하다. 가로축은 25/50/75/100/125 °C 의 이산 격자라 그 자체가 검산기다(브리프 495): 막대쌍 중심의 되읽기 오차가 최대 0.03 pt(=0.01 °C) 다. **마커 오프셋 보정은 하지 않았다** — 같은 그림 (a) 의 막대 10개를 본문 인쇄값 10개와 대조하니 무보정 잔차가 최대 0.032 MPa 이고, 0.18 pt 를 보정하면 오히려 -0.14 MPa 로 계통 편향이 생긴다. Fig.13(마커)의 -0.20/-0.25 pt 오프셋(브리프 495)은 이 그림에 없다.",
+      "reading_uncertainty": "±0.05 MPa. 같은 그림 (a) 의 막대 10개로 본문 인쇄값을 되읽은 잔차가 최대 0.032 MPa 이고, 독립인 Figure 9 곡선 극대점과의 차이가 20칸 최대 0.10 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 10(c) (p.8) — 0.00001 sec^-1 의 막대 그림에서 RF · 100 °C 막대 상단을 벡터 좌표로 읽었다(브리프 452 · 448 — 그림 판독이므로 method=digitized). 캡션 verbatim: 'Figure 10 - Comparison between Water Quenched (WQ) and Reflowed Ultimate Strength, Testing at Strain Rates of (a) 0.001 sec-1, (b) 0.0001 sec-1, and (c) 0.00001 sec-1'. 조건은 본문 verbatim 이 정한다: 'Analogous results were obtained for the other two strain rates of e = 0.0001 sec-1 and e = 0.00001 sec-1. The comparisons between the UTS values of WQ and RF specimens are plotted in Figure 10.' [검산 1 — 인쇄값] 같은 그림 (a)(0.001/s) 의 막대 10개가 본문 인쇄값 74.1/60.2/52.5/45.5/36.3(WQ) · 38.5/33.1/26.8/20.5/19.1(RF) 을 최대 0.032 MPa 로 재현한다. 그 (a) 10칸은 이미 DB 에 있어 넣지 않았다(브리프 314·435). [검산 2 — 다른 그림] 같은 페이지 Figure 9(c) 응력-변형 곡선의 극대점이 17.14 MPa 로 이 값과 0.01 MPa 안에서 일치한다 — 20칸 전부 0.10 MPa 이내다. **주의: 0.001/s 판(Fig.9(a)=Fig.12(c))만은 RF 에서 인쇄값보다 최대 +17% 어긋난다(브리프 494). 0.0001/s·0.00001/s 판은 어긋나지 않는다 — 494 번의 범위를 좁힌다.** [검산 3 — 단조] 율속 0.001>0.0001>0.00001, 온도 단조감소, WQ>RF 가 20칸 전부에서 성립한다. [인계 대조] 46차 HB 인계값은 RF 1e-05/s 100 °C 에서 17.03 MPa 였다 — 20칸 전부가 이 판독보다 0.11~0.14 MPa 낮다(계통). 인계값을 (a) 에 적용하면 인쇄값 대비 -0.13~-0.16 MPa 로 밀리므로 인계 쪽이 틀렸다고 판정하고 이 판독을 넣는다(브리프 479·496)."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 15430000.0,
+     "unit": "Pa",
+     "quality_tier": 1,
+     "method": "digitized",
+     "conditions": {
+      "temperature_k": 398.15,
+      "strain_rate_s": 1e-05,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging": "none (no aging; tested immediately after preparation and cooling)",
+      "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm, gage length 60 mm (Wisdom Technology MT-200)",
+      "digitized": true,
+      "figure": "Figure 10(c) (p.8) — 0.00001 sec^-1",
+      "property_definition": "maximum (saturation) stress on the stress-strain curve. 원문 verbatim: 'The maximum (saturation) stress on the stress-strain curve is the ultimate tensile strength u (UTS).'",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). 세로 눈금선 5개(0/20/40/60/80 MPa)를 전수 검출해 np.interp 구간별 선형 보정(브리프 446) — 눈금 간격이 26.520/26.461/26.519/26.457 pt 로 0.24% 불균일하다. 가로축은 25/50/75/100/125 °C 의 이산 격자라 그 자체가 검산기다(브리프 495): 막대쌍 중심의 되읽기 오차가 최대 0.03 pt(=0.01 °C) 다. **마커 오프셋 보정은 하지 않았다** — 같은 그림 (a) 의 막대 10개를 본문 인쇄값 10개와 대조하니 무보정 잔차가 최대 0.032 MPa 이고, 0.18 pt 를 보정하면 오히려 -0.14 MPa 로 계통 편향이 생긴다. Fig.13(마커)의 -0.20/-0.25 pt 오프셋(브리프 495)은 이 그림에 없다.",
+      "reading_uncertainty": "±0.05 MPa. 같은 그림 (a) 의 막대 10개로 본문 인쇄값을 되읽은 잔차가 최대 0.032 MPa 이고, 독립인 Figure 9 곡선 극대점과의 차이가 20칸 최대 0.10 MPa 다."
+     },
+     "notes": "Basit 2015 Figure 10(c) (p.8) — 0.00001 sec^-1 의 막대 그림에서 RF · 125 °C 막대 상단을 벡터 좌표로 읽었다(브리프 452 · 448 — 그림 판독이므로 method=digitized). 캡션 verbatim: 'Figure 10 - Comparison between Water Quenched (WQ) and Reflowed Ultimate Strength, Testing at Strain Rates of (a) 0.001 sec-1, (b) 0.0001 sec-1, and (c) 0.00001 sec-1'. 조건은 본문 verbatim 이 정한다: 'Analogous results were obtained for the other two strain rates of e = 0.0001 sec-1 and e = 0.00001 sec-1. The comparisons between the UTS values of WQ and RF specimens are plotted in Figure 10.' [검산 1 — 인쇄값] 같은 그림 (a)(0.001/s) 의 막대 10개가 본문 인쇄값 74.1/60.2/52.5/45.5/36.3(WQ) · 38.5/33.1/26.8/20.5/19.1(RF) 을 최대 0.032 MPa 로 재현한다. 그 (a) 10칸은 이미 DB 에 있어 넣지 않았다(브리프 314·435). [검산 2 — 다른 그림] 같은 페이지 Figure 9(c) 응력-변형 곡선의 극대점이 15.44 MPa 로 이 값과 0.01 MPa 안에서 일치한다 — 20칸 전부 0.10 MPa 이내다. **주의: 0.001/s 판(Fig.9(a)=Fig.12(c))만은 RF 에서 인쇄값보다 최대 +17% 어긋난다(브리프 494). 0.0001/s·0.00001/s 판은 어긋나지 않는다 — 494 번의 범위를 좁힌다.** [검산 3 — 단조] 율속 0.001>0.0001>0.00001, 온도 단조감소, WQ>RF 가 20칸 전부에서 성립한다. [인계 대조] 46차 HB 인계값은 RF 1e-05/s 125 °C 에서 15.31 MPa 였다 — 20칸 전부가 이 판독보다 0.11~0.14 MPa 낮다(계통). 인계값을 (a) 에 적용하면 인쇄값 대비 -0.13~-0.16 MPa 로 밀리므로 인계 쪽이 틀렸다고 판정하고 이 판독을 넣는다(브리프 479·496)."
+    }
+   ]
+  }
+ ]
+}
