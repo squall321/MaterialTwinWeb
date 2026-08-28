@@ -1,4 +1,4 @@
-# 카탈로그 정합성 37항목 + 주의 1항목 일괄 점검 — 0이 아니면 결함이다. 배포 전 반드시 통과시킬 것.
+# 카탈로그 정합성 37항목 + 주의 6항목 일괄 점검 — 0이 아니면 결함이다. 배포 전 반드시 통과시킬 것.
 import sqlite3
 import sys
 
@@ -601,6 +601,45 @@ if _yt:
     print("         고분자 고무상 CTE 는 대개 50~400 ppm/K 다. TMA 팽창모드에서 연화된 시편이")
     print("         프로브 하중에 눌리면 겉보기 CTE 가 크게 나온다 — **인쇄값이어도 해석 입력으로")
     print("         바로 쓰면 안 된다.** conditions 에 `magnitude_suspect` 를 달아라.")
+
+# 계통 판정이 안 된 재료 — **값 결함이 아니라 조사 사각지대다. 그래서 주의다**(49차 KA).
+# 48차 JC 가 증명했다(브리프 528) — OLED 소분자 172종 중 `subsystem` 이 있는 8종만 화면에 떠서
+# 앞선 배치 둘이 **8종으로 세고 넘어갔다**. 값은 멀쩡한데 조사가 19배 틀렸다.
+# 계통 패싯은 태그 없는 재료를 전부 `기타` 한 칸(1,800여 종)에 몰아 넣는다 — 못 찾는 것과 같다.
+#
+# **이미 판정한 것까지 세면 매번 뜨는 소음이 된다.** 49차 KA 가 207종을 훑어 122종에 계통을
+# 붙이고 85종은 "붙일 수 없다/못 가른다" 를 `verdict_subsystem` + `subsystem_basis` 로 남겼다.
+# 그래서 여기서 세는 것은 **아직 아무도 안 본 것**뿐이다 — 다음 파동이 재료를 늘리면 여기서 뜬다.
+#
+# `role` 자체가 없는 것도 같이 본다. 없으면 커버리지 격자가 **조용히 product 로 센다**
+# (`coverage_report.py` 는 evidence·out_of_scope 만 뺀다). 브리프 115 가 21차에 겪은 지표 왜곡이다.
+_norole = c.execute(
+    "select count(*) from material where json_extract(attributes,'$.role') is null").fetchone()[0]
+_nosub = c.execute(
+    """select count(*) from material
+        where json_extract(attributes,'$.role') = 'product'
+          and coalesce(json_extract(attributes,'$.subsystem'),'') = ''
+          and json_extract(attributes,'$.verdict_subsystem') is null""").fetchone()[0]
+if _norole or _nosub:
+    print(f"\n  [주의] 계통 판정이 안 된 재료: role 없음 {_norole}종 · "
+          f"role=product 인데 계통도 사유도 없음 {_nosub}종")
+    if _norole:
+        for _i, _n in c.execute(
+                "select id,name from material where json_extract(attributes,'$.role') is null "
+                "order by id limit 5"):
+            print(f"           재료{_i} {str(_n)[:60]}")
+        print("         role 이 없으면 커버리지 격자가 조용히 product 로 센다 — 붙여라(브리프 115).")
+    if _nosub:
+        for _i, _n in c.execute(
+                """select id,name from material
+                    where json_extract(attributes,'$.role') = 'product'
+                      and coalesce(json_extract(attributes,'$.subsystem'),'') = ''
+                      and json_extract(attributes,'$.verdict_subsystem') is null
+                    order by id limit 5"""):
+            print(f"           재료{_i} {str(_n)[:60]}")
+        print("         계통을 못 붙이겠으면 비워 두되 `verdict_subsystem`(not_applicable|undetermined)과")
+        print("         `subsystem_basis` 에 사유를 남겨라 — 둘 다 병합기가 운영으로 전파한다.")
+        print("         사유 없이 비어 있으면 다음 파동이 화면으로 세다가 또 틀린다(브리프 528).")
 
 q = lambda s: c.execute(s).fetchone()[0]
 print(f"\n재료 {q('select count(*) from material')} · 물성값 {q('select count(*) from property_value')}"
