@@ -88,6 +88,11 @@ def _rep_rank(pv: PropertyValue) -> tuple:
     """대표값 우선순위: 고체 우선 → 신뢰등급↑ → 수치 보유 → **지배 조건에 가까움** → 조건 적음 → id.
 
     지배 조건은 물성마다 다르다. 광학은 파장, 그 외는 온도(상온)를 본다.
+
+    **`method` 는 일부러 안 본다**(50차 LA). `method` 는 등급과 다른 축이지만 이 DB 에서는
+    품질 축이 아니다 — 같은 `midpoint_of_range` 행 211개가 computed 124 · measured 63 ·
+    handbook 24 로 갈려 있어(451·472번 가드가 다시 쓴 결과다) 계보가 같은 행이 라벨만으로
+    순위가 갈린다. 넣어 보니 26쌍이 뒤집혔고 그중 개선은 2건뿐이었다.
     """
     key = pv.property_key or ""
     primary = (_wavelength_distance(pv.conditions) if key.startswith("optical.")
@@ -95,6 +100,54 @@ def _rep_rank(pv: PropertyValue) -> tuple:
     return (1 if is_non_solid(pv.conditions) else 0,
             pv.quality_tier or 9, 0 if pv.value_num is not None else 1,
             primary, len(pv.conditions or {}), pv.id)
+
+
+def _tie_key(pv: PropertyValue) -> tuple:
+    """`_rep_rank` 에서 마지막 id 만 뺀 것. 이게 같은 두 행은 **선택기가 못 가른다.**"""
+    return _rep_rank(pv)[:-1]
+
+
+# 동률 후보의 값이 이만큼 넘게 벌어지면 "임의로 골랐다" 를 드러낸다.
+# 반올림 쌍둥이(7.85 대 7.8)까지 주의로 세면 소음이 된다.
+_TIE_REL_TOL = 0.01
+
+
+def representative_ties(db: Session, keys: list[str],
+                        material_ids: list[int] | None = None) -> dict[tuple, list[PropertyValue]]:
+    """(재료,키) → 대표값과 **순위가 완전히 같은데 값이 다른** 경쟁행들. 없으면 키가 없다.
+
+    선택기는 등급·지배조건·조건수까지 보고 그래도 갈리지 않으면 **id 로 고른다** — 즉 적재 순서다.
+    실측(50차 LA, 라이브 41,368행) — 후보가 둘 이상인 (재료,물성키) 6,306쌍 중 **3,975쌍이
+    id 로만 갈렸고** 그중 2,510쌍은 값이 10% 넘게 다르다. 갈라야 할 축(방향 §462 · 율속 47차 IA ·
+    열처리 §537 · `term`/`set_id`)이 순위에 없어서다.
+
+    **순위를 더 만들지 않는다** — 축을 더 넣어 보니(method·온도축) 개선보다 개악이 많았다.
+    대신 §462 가 방향에서 한 것과 같이 **드러낸다**: 어느 쪽을 쓸지는 해석자가 정할 일이다.
+    """
+    stmt = select(PropertyValue).where(PropertyValue.property_key.in_(keys))
+    if material_ids is not None:
+        stmt = stmt.where(PropertyValue.material_id.in_(material_ids))
+    groups: dict[tuple, list[PropertyValue]] = defaultdict(list)
+    for pv in db.execute(stmt).scalars().all():
+        groups[(pv.material_id, pv.property_key)].append(pv)
+    out: dict[tuple, list[PropertyValue]] = {}
+    for k, rows in groups.items():
+        rows.sort(key=_rep_rank)
+        head = rows[0]
+        tk = _tie_key(head)
+        rivals = [pv for pv in rows[1:] if _tie_key(pv) == tk
+                  and _differs(head.value_num, pv.value_num)]
+        if rivals:
+            out[k] = rivals
+    return out
+
+
+def _differs(a, b) -> bool:
+    """두 대표 후보의 값이 실질적으로 다른가(반올림 쌍둥이는 같다고 본다)."""
+    if a is None or b is None:
+        return a is not b
+    m = max(abs(a), abs(b))
+    return m > 0 and abs(a - b) / m > _TIE_REL_TOL
 
 
 def resolve_material_ids(db: Session, tokens: list) -> tuple[list[int], list[str]]:

@@ -8,7 +8,8 @@ import re
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
-from app.catalog_compare import is_non_solid, representative_numeric, representative_rows
+from app.catalog_compare import (is_non_solid, representative_numeric, representative_rows,
+                                 representative_ties)
 from app.models import Material, ProcessedResult, PropertyValue, Specimen, Test
 from app.unit_systems import UnitSystem, get_system
 
@@ -43,6 +44,22 @@ def _direction_clash(rows, mid) -> str | None:
     if de and dn and de != dn:
         return f"E 는 `{de}`, PR 은 `{dn}` 에서 뽑혔다"
     return None
+
+
+def _tie_note(ties: dict, mid: int, key: str, label: str, scale: float = 1.0) -> str | None:
+    """그 칸의 대표값이 **동률에서 임의로 뽑혔으면** 진 후보를 카드에 적는다.
+
+    `_direction_clash` 와 같은 방식이다 — 자동으로 고르지 않고 드러낸다(§462).
+    선택기가 등급·지배조건·조건수까지 봐도 안 갈리면 마지막은 `id`(적재 순서)다.
+    라이브에서 그런 (재료,물성키) 쌍이 3,975개이고 그중 2,510개는 값이 10% 넘게 다르다(50차 LA).
+    """
+    rivals = ties.get((mid, key))
+    if not rivals:
+        return None
+    shown = ", ".join(f"{_fmt(r.value_num * scale)}{_cond_tag(r.conditions)}" for r in rivals[:2])
+    more = f" 외 {len(rivals) - 2}건" if len(rivals) > 2 else ""
+    return (f"{label} 는 순위가 같은 후보 {len(rivals) + 1}개에서 적재 순서로 골랐다"
+            f" (진 쪽 {shown}{more})")
 K_SIGY = "mechanical.yield_strength"
 K_UTS = "mechanical.tensile_strength"
 K_ELONG = "mechanical.elongation_at_break"
@@ -728,6 +745,8 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
     # 출처(프로비넌스) — 반드시 **대표값으로 뽑힌 그 행**의 출처를 쓴다.
     # (예전엔 아무 행이나 먼저 걸린 것을 달아, 값과 출처가 어긋날 수 있었다.)
     rep_rows = representative_rows(db, list(keys), material_ids=ids)
+    # 카드에 실제로 박히는 네 칸만 동률을 본다 — 전 키를 훑으면 비용만 늘고 카드에 안 쓰인다.
+    rep_ties = representative_ties(db, [K_RHO, K_E, K_NU, K_SIGY], material_ids=ids)
     # 완화시험이 있는 재료는 *MAT_VISCOELASTIC이 맞다 — 테이프·접착제를 탄성으로 내보내면
     # 하중률 의존이 통째로 빠진다. Prony 피팅 결과(lsdyna_prony)를 그대로 쓴다.
     visco: dict[int, dict] = {}
@@ -929,6 +948,14 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
                         lines.append(f"$   **주의: 방향이 섞였다** — {_clash}.")
                         lines.append("$     등방 카드는 한 방향의 짝으로만 성립한다. "
                                      "이방성 재료면 *MAT_ORTHOTROPIC 계열을 쓰거나 방향을 정해서 다시 뽑아라.")
+                # 선택기가 못 가른 칸을 드러낸다 — 자동으로 고르지 않는다(§462 와 같은 방식).
+                for _k, _lab, _v, _sc in ((K_RHO, "RO", rho, u.f_density), (K_E, "E", E, u.f_stress),
+                                          (K_NU, "PR", nu, 1.0), (K_SIGY, "SIGY", sigy, u.f_stress)):
+                    _tie = _tie_note(rep_ties, i, _k, _lab, _sc) if _v is not None else None
+                    if _tie:
+                        lines.append(f"$   **주의: 대표값이 동률이다** — {_tie}.")
+                        lines.append("$     선택기가 등급·조건까지 봐도 안 갈렸다는 뜻이다. "
+                                     "값이 중요하면 조회에서 조건을 보고 직접 골라라.")
                 if sigy is not None:
                     # 항복 있으면 탄소성(*MAT_024). ETAN은 UTS·연신율로 근사(없으면 0=완전소성).
                     etan = 0.0
