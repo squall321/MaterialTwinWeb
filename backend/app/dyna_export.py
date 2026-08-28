@@ -163,7 +163,10 @@ def _fmt(v: float) -> str:
 
 
 # 해석 결과를 좌우하는 조건만 골라 짧게 붙인다(전부 붙이면 주석이 못 읽게 길어진다).
-_COND_SHOW = (("strain_rate_1/s", "ε̇", "/s"), ("temperature_C", "T", "°C"),
+# 율속 축은 표기가 둘이다 — `strain_rate_s` 를 빠뜨려 SAC105 카드가 10/s 값을 율속 표시
+# 없이 싣고 있었다(47차 IA). 카탈로그 실측 어휘는 `strain_rate_s` 쪽이 더 많다.
+_COND_SHOW = (("strain_rate_1/s", "ε̇", "/s"), ("strain_rate_s", "ε̇", "/s"),
+              ("temperature_C", "T", "°C"),
               ("temperature_K", "T", "K"), ("temperature_k", "T", "K"),
               ("axis", "", ""), ("regime", "", ""), ("grade", "", ""))
 

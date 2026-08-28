@@ -113,6 +113,20 @@ def test_representative_conditions_appear_in_card(mcp_env):
     e_line = [l for l in deck["keyword"].splitlines() if l.startswith("$   E ")][0]
     assert "ε̇" in e_line, f"어느 변형률속도의 값인지 안 나온다: {e_line}"
 
+    # 율속 축 표기가 둘이다 — `strain_rate_s` 쪽도 같이 보여야 한다(47차 IA).
+    # 이 표기를 빠뜨려 SAC105 카드가 10/s 영률을 율속 표시 없이 싣고 있었다.
+    mid2 = M.register_material(name="RateSolder", category="metal")["material_id"]
+    M.register_property(mid2, "physical.density", value=7320.0, unit="kg/m^3",
+                        quality_tier=1, source_title="Ref", source_kind="journal", source_doi="10.1/x")
+    for rate, E in ((10.0, 3.5e10), (75.0, 4.2e10)):
+        M.register_property(mid2, "mechanical.youngs_modulus", value=E, unit="Pa",
+                            quality_tier=1, conditions={"strain_rate_s": rate, "temperature_k": 298.15},
+                            source_title="Ref", source_kind="journal", source_doi="10.1/x")
+    with SessionLocal() as s:
+        deck2 = DX.build_cards(s, ["1, RateSolder"], card="mechanical", units="ton_mm_s")
+    e2 = [l for l in deck2["keyword"].splitlines() if l.startswith("$   E ")][0]
+    assert "ε̇" in e2, f"strain_rate_s 표기가 카드에 안 나온다: {e2}"
+
 
 def test_viscoelastic_card_flags_unused_rate_data(mcp_env):
     """MAT_006에는 율속 항이 없다 — 데이터가 있으면 반영 안 된다고 알려야 한다."""
