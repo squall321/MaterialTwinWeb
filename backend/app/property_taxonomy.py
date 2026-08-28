@@ -902,6 +902,37 @@ _DEFS: list[tuple] = [
     #   적재기(`viscosity_order_violations`)와 `integrity_check` 가 둘 다 본다.
     ("thermal.viscosity_reference_temperature", "thermal", "점도 기준온도", None, "K", "numeric",
      ["viscosity_log10_poise", "test_standard", "determination"], "ASTM C338"),
+
+    # ── 45차 GC — 화학 내구성(부식 침지 후 감소량) 두 키 ──────────────────────
+    # 44차 FE 가 두 표를 손에 쥐고도 담을 키가 없어 45칸을 버렸다(§468 — 막힌 양을 세어라).
+    #   AGY 2006 Table 3 `Durability (% weight loss)` — 유리섬유 8계열 x 4매질 x 2노출 59칸
+    #   NEG Powder Glass `Acid durability` — 봉지 프릿 3등급 x 4조건 12칸
+    #
+    # **한 키로 합치지 않은 이유는 차원이다**(브리프 453 — 물리적 의미가 아니라 차원이 정한다).
+    #   AGY 는 시편 **전체 질량**에 대한 감소 **비율**이라 무차원이고,
+    #   NEG 는 **단위면적당 감소 질량**이라 kg/m^2 다.
+    # 둘을 잇는 환산은 시편의 비표면적(섬유 지름·형상)이 필요한데 두 시트 다 안 찍는다 —
+    # 환산하면 그건 역산이다(§10). taxonomy 는 키마다 si_unit 이 하나이고 무결성 검사·
+    # 범위 가드·Ashby 축이 전부 그것을 읽으므로, 차원이 갈리면 키가 갈려야 한다.
+    # **이름을 나란히 지어** 같은 갈래임이 드러나게 했다(`durability_mass_loss_*`).
+    #
+    # 조건축 — `medium`(증류수 · 10% HCl · 10% H2SO4 · 10% Na2CO3 · 10% HNO3 · 20% H2SO4) ·
+    # `duration_h` · `temperature_c` 가 없으면 값이 아니다. AGY 는 96 degC/24·168 h 이고
+    # NEG 는 20~70 degC/1~10 min 이라 **같은 매질이라도 값이 두 자릿수 갈린다.**
+    # `specimen_form` 도 조건이다 — AGY 본문 verbatim `10 micron diameter glass fibers,
+    # without binders or sizes` 이고, 지름이 바뀌면 비표면적이 바뀌어 감소율이 바뀐다.
+    # ⚠ **시험 규격은 두 시트 다 안 찍는다.** AGY 가 인용하는 ASTM C162/C693/C338/C336/
+    # C598/D696 은 전부 다른 물성의 것이다 — 내구성표에는 규격 번호가 없다. 지어내지 마라.
+    #   (인쇄된 시트를 만나면 `test_standard` 조건축에 verbatim 으로 박아라 — 유리 내구성은
+    #    규격마다 값이 다르다.)
+    # ⚠ **부호는 감소가 양수다.** 알칼리 환경에서는 금속산화물이 재석출해 질량이 늘 수 있어
+    # (AGY 본문 verbatim `the alkali affects the network and reprecipitates the metal oxides`)
+    # 하한을 음수로 둔다 — 인쇄된 값을 가드가 막은 사고가 일곱 번 났다(§150·161).
+    ("chemical.durability_mass_loss_fraction", "chemical", "화학 내구성 중량감소율", None, "1",
+     "numeric", ["medium", "duration_h", "temperature_c", "specimen_form", "test_standard"], None),
+    ("chemical.durability_mass_loss_per_area", "chemical", "화학 내구성 단위면적당 감소량", None,
+     "kg/m^2", "numeric",
+     ["medium", "duration_h", "temperature_c", "specimen_form", "test_standard"], None),
 ]
 # fmt: on
 
