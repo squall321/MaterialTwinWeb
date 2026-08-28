@@ -444,3 +444,77 @@ Recoma 28 이 225 대 215.2 로 4.6% 초과가 뜬다. Br·Hcb·Hcj 의 typ 칸�
 
 ### 검사
 `integrity_check` 이상 1개(= 기존 `물성값 0인 재료 2`, 신규 위반 0) · `verdicts_check` 이상 0 · `pytest -q` 193 passed.
+
+## 2026-08-28 — 47차 ID · 물성키 넷 개설(단조 경화지수 · 소성 파단변형률 · 압축탄성계수 · 지정변형률 응력)
+
+### 무엇을 했나
+45·46차가 **값을 손에 들고도 담을 키가 없어** 못 넣은 넷을 열고, 이미 확보된 값만 넣었다.
+새 논문·새 시트를 캐지 않았다. 마이그레이션 `f3a4b5c6d7e8`(down `e2f3a4b5c6d7`).
+
+| 키 | 단위 | 조건축 | 행 |
+|---|---|---|---|
+| `mechanical.monotonic_strain_hardening_exponent` | 1 | model_form · temperature_k · strain_rate_s · specimen_basis · test_standard | 4 |
+| `mechanical.plastic_strain_at_break` | 1 | temperature_k · test_standard · specimen | 4 |
+| `mechanical.compressive_modulus` | Pa | test_standard · temperature_k · strain_rate_s · direction | 2 신규 + 4 이관 |
+| `mechanical.tensile_stress_at_strain` | Pa | **strain_pct** · test_standard · specimen · temperature_k | 2 |
+
+### 왜 기존 키로는 안 되는가 — 넷 다 근거를 따로 확인했다
+
+- **① vs `cyclic_strain_hardening_exponent`** — 기존 키는 안정화 히스테리시스 루프의
+  Ramberg-Osgood n′ 이다. DB 실측으로 24행 **전부** `model: cyclic_stress_strain` 이었다.
+  Hohlfelder 의 n 은 단조 인장곡선 하나에서 나온 멱함수 지수다. 정의식·하중이력이 둘 다 다르다.
+  `johnson_cook_n` 과도 다르다(JC 는 σ = (A + B·εp^n) 덧셈형이라 같은 곡선에서 다른 수가 나온다).
+  **원문이 식을 인쇄하지 않아** `model_form` 에 저자 문장을 verbatim 으로 박았다(§66).
+  ⚠ 그 문장(*"The ductile layer was characterized with an elastic/power-law hardening
+  relationship with strain hardening exponent n"*)은 EPZ 시뮬레이션 문단에 있고 거기서
+  'ductile layer' 는 BCB 다. 표의 n 열은 네 행이 같은 기호를 쓰고, 언더필 두 행의 출처는
+  §V-A 의 단조 인장시험이다(*"...tension tests on bulk underfill specimens ... summarized in
+  Table I"*). **둘 다 조건에 적었다** — 우리가 식을 고르지 않는다.
+- **② vs `elongation_at_break`** — 총 연신(탄성+소성) 대 소성분. **표가 스스로 증명한다**:
+  65/4000 = 1.63 % + 1.5 % = 3.13 %, 51/2000 = 2.55 % + 0.5 % = 3.05 %, 본문의
+  *"brittle fracture at strains of approximately 3-4%"* 안이다. 이 유리질 에폭시는
+  **탄성분이 소성분보다 크다** — 총 연신 키에 부으면 Dexter 가 실제의 1/6 로 앉는다.
+  총 연신 3.13/3.05 는 **우리 계산이라 넣지 않았다**(역산 금지). 브리프 510 으로 남겼다.
+- **③ vs `youngs_modulus`** — 그 키는 인장(E111·D638)이다. 값이 실제로 갈린다:
+  Torlon 4301 인장 6830 / 굽힘 6890 / **압축 5310** MPa, Rogers CLTE-AT 인장 1790 / **압축 1682**.
+  강도·항복은 이미 압축이 갈려 있었고 **모듈러스만 빠져 있었다**(46차 HA 의 율속 비대칭과 같은 모양).
+- **④ vs `youngs_modulus`·`tensile_strength`** — `300% Modulus` 는 이름만 모듈러스고
+  정의는 300 % 신장 시점의 **응력**이라 Pa 다(§471). 파단점도 아니다 — SBC 는 파단연신이
+  1,100~1,300 % 라 두 값이 한 자릿수 벌어진다(0.69~4 MPa 대 21~26 MPa).
+
+### 453 을 반대 방향으로 두 번 적용했다 — 갈림의 자
+③은 **키를 갈랐고** ④는 **조건축으로 올렸다**. 판별은 *"한 시험의 파라미터인가, 다른 시험인가"* 다.
+신장률 300 %는 ASTM D412 한 시험 안의 눈금이라 파라미터고(→ `strain_pct`),
+인장/굽힘/압축은 규격도 값도 갈리는 다른 시험이다(→ 키). 브리프 508 로 남겼다.
+**이름에 `300` 을 박지 않은 것이 이 판단의 실행형이다**(§478 — 한정어가 필요하면 조건축이 빠진 신호).
+
+### 인계 검증 결과 — 넷 중 둘은 맞았고 하나는 여섯 배였다
+- ① 4행 · ② 4행 — 직접 세도 4행. **인계가 맞았다.**
+- ③ 인계 1행 → **6행**. 신규 2행(Torlon + **Rogers CLTE-AT 244 ksi**) + 이관 4행(재료 435).
+  Rogers 는 인계에 없었다 — 42차 배치가 시트 블록을 노트에 verbatim 으로 남겨 둔 덕에 회수됐다(§479).
+  **원본 시트를 다시 열어 확인했고**(§485·127) `pdftotext -layout` 로
+  `Compressive Modulus | 244 | ksi | - | ASTM-D-3410` 을 재현한 뒤 시트를 코퍼스에 보관했다.
+- ④ 2행. Kraton 가이드 한 문서가 25행을 막는다는 HC 의 보고는 맞지만 **그 25 등급은 카탈로그에 없다** —
+  키가 열려도 지금 들어오는 것은 2행이다. 등급을 세우는 것은 채굴이라 이 배치가 안 했다.
+
+### 이관 매처를 좁힌 근거(§480)
+`youngs_modulus` 중 조건이 압축이라고 말하는 행이 **42행**(재료 13종)인데,
+지문 셋(`loading_mode == compression` **AND** notes 에 `Compressive modulus`/`압축탄성률`)으로
+좁혀 **4행만** 옮겼다. 나머지 37행은 폼·엘라스토머로, 원문이 `Young's modulus`·`탄성계수`·
+구성모델 `E` 로 인쇄하고 **인장 대응값이 없다** — 옮기면 `dyna_export.K_E` 가 E 를 잃는다.
+검토하고 남긴 둘을 특정해 뒀다(pv7071 ISODAMP 10 % 시컨트 · pv20220 빌린 tier4 접선계수).
+→ 재료 435 는 그 결과 `youngs_modulus` 0행이 됐다. **그것이 정직한 상태다** — 이 재료는
+압축계수만 가진 재료이고, 압축값을 인장 키에 두는 것이 카드를 만들어 주는 대신 거짓을 만든다.
+
+### 등급 판정을 앞 배치와 맞췄다
+- 1108 Zymet-0 은 tier3(TABLE I 이 `Zymet UF` 한 행으로 -5/-8 만 인쇄) — 형제 행 E·σ_ys·σ_UTS 와 같다.
+- 1107 Zymet-8 은 tier1 — 본문이 *"No discernible differences were apparent for the Zymet-5 and
+  Zymet-8 compositions"* 로 한 행에 묶은 것을 명시한다. 역시 형제 행과 같다.
+- 2341 D1102 는 tier2(지역판 미특정: E 3.9 · J 2.9 · 가이드 4 MPa), 2342 D1161 은 tier1
+  (북미판이 산지·PS 함량으로 닫힌다). **46차 HC 가 같은 시트의 밀도·인장강도에 쓴 등급 그대로다.**
+  D1161 은 psi 원값(100 psi)을 정본으로 썼다 — 가이드의 `1 MPa` 는 한 자리 반올림이다(§136).
+
+### 병렬 배치와의 충돌 관리
+같은 파동에서 IA(`youngs_modulus` 율속 격자 336행 이관 · `dyna_export` 수정)·IB 가 돌았다.
+IA 의 마이그레이션 `a4b5c6d7e8f9` 가 내 `f3a4b5c6d7e8` 위에 사슬로 붙어 분기는 없다.
+`app/property_taxonomy.py` 는 **두 배치가 같이 만진다** — §504 대로 경로 제한 커밋을 썼다.
