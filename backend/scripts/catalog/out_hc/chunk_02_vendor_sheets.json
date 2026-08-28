@@ -1,0 +1,291 @@
+{
+  "_comment": "46차 HC — 코어 채우기 ①. 2397 SABIC PP 570P · 2317 Delrin 500 NC010 · 2318 Torlon 4301 · 2341 Kraton D1102 · 2342 Kraton D1161.",
+  "materials": [
+    {
+      "match_name": "SABIC LADENE PP570P polypropylene homopolymer, injection moulding grade",
+      "source": {
+        "title": "SABIC PP 570P — Polypropylene Homopolymer for Injection Molding, Typical Property Values (Revision 20181012)",
+        "kind": "datasheet",
+        "publisher": "SABIC",
+        "authors": "SABIC",
+        "year": "2018",
+        "url": "https://iigc.mx/Fichas/IMHPP-570P-SABIC.pdf",
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/poly/SABIC_PP_570P_TypicalPropertyValues_Rev20181012.pdf"
+      },
+      "properties": [
+        {
+          "key": "physical.density", "value": 905.0, "unit": "kg/m^3",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"temperature_k": 296.15, "test_standard": "ASTM D792"},
+          "notes": "시트 verbatim: 'Density / at 23°C  905  kg/m³  ASTM D792'. §443 아는 값 대조 — PP 호모폴리머 0.90~0.91 g/cm3, 0.905 는 정확히 대역 안이다. §51 동정 검산 — 이 재료를 만든 논문 Abu-Sharkh 2004 의 Table 1('Product data for LADENE PP570P')과 이 시트가 세 칸에서 글자 그대로 일치한다: Flow rate 8 g/10 min(ASTM D1238) · Flexural modulus (1% secant) 1630 MPa(ASTM D790 A) · Rockwell R 102(ASTM D785). 밀도는 논문 Table 1 에 없던 칸이다(논문의 0.93 g/ml 는 Table 2 의 Epolene E-43 왁스 것이지 PP 가 아니다 — §55 첨가제 혼동 주의)."
+        },
+        {
+          "key": "thermal.vicat_softening", "value": 428.15, "unit": "K",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"test_standard": "ASTM D1525"},
+          "notes": "시트 verbatim: 'Vicat Softening Temperature  155  °C  ASTM D1525'. 155 + 273.15 = 428.15 K. 논문 Table 1 에 없던 칸이다."
+        }
+      ]
+    },
+    {
+      "match_name": "Delrin 500 — 폴리아세탈 호모폴리머 POM-H (Böhm 1990)",
+      "source": {
+        "title": "DuPont Delrin acetal resin — Delrin 500 NC010, Medium Viscosity Acetal (Product Information, 990420/991021)",
+        "kind": "datasheet",
+        "publisher": "DuPont",
+        "authors": "DuPont Engineering Polymers",
+        "year": "1999",
+        "url": "https://www.picoplast.nl/uploads/Delrin%20500%20NC010%20-%20MDS%20-%20EN.pdf",
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/poly/DuPont_Delrin_500_NC010_ProductInformation_990420-991021.pdf"
+      },
+      "properties": [
+        {
+          "key": "physical.density", "value": 1420.0, "unit": "kg/m^3",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"test_standard": "ISO 1183"},
+          "notes": "시트 verbatim: 'Density  ISO 1183  kg/m3  1420'. §443 아는 값 대조 — POM 호모폴리머 1.41 g/cm3, 1.42 는 대역 안이다. §140 등급 확인 — 원문 Böhm 1990 Table I 이 상표 'Delrin' + 등급 '500' 을 인쇄하므로 자매등급 500P(NC010) 가 아니라 **Delrin 500 NC010 시트**를 열었다. 두 시트를 나란히 보면 갈린다(§147): 밀도 1420 = 1420 이지만 인장탄성률 3200 vs 3100 · 항복응력 72 vs 70 MPa · MFR 14 vs 15 로 값이 다르다. 500P 시트에만 있는 CLTE(1.0~1.6 E-4/°C)와 Rockwell M92 는 **다른 등급의 값이라 옮기지 않았다.**"
+        },
+        {
+          "key": "mechanical.youngs_modulus", "value": 3.2e9, "unit": "Pa",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"temperature_k": 296.15, "test_standard": "ISO 527-1/-2", "quantity": "Tensile Modulus"},
+          "notes": "시트 verbatim: 'Tensile Modulus  ISO 527-1/-2  MPa  3200'. 시트 각주 'Mechanical properties measured at 23°C (73°F) unless otherwise stated'. **굽힘탄성률 3000 MPa(ISO 178)은 별개 키(mechanical.flexural_modulus)로 따로 넣었고 이 키에 섞지 않았다.** 자매등급 500P 는 3100 MPa 이다."
+        },
+        {
+          "key": "mechanical.yield_strength", "value": 7.2e7, "unit": "Pa",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"temperature_k": 296.15, "test_standard": "ISO 527-1/-2", "quantity": "Yield Stress"},
+          "notes": "시트 verbatim: 'Yield Stress  ISO 527-1/-2  MPa  72'. §454 의 반대편 — Delrin 500 은 미충전 POM-H 라 항복이 실제로 일어나고(항복변형 15%, 파단변형 45%) 시트가 항복응력을 인쇄한다. **인장강도(tensile_strength) 로는 넣지 않았다** — 시트가 그 이름의 행을 인쇄하지 않으므로 이름을 바꿔 쓰면 우리가 만든 값이 된다."
+        },
+        {
+          "key": "mechanical.elongation_at_break", "value": 0.45, "unit": "1",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"temperature_k": 296.15, "test_standard": "ISO 527-1/-2", "quantity": "Strain at Break"},
+          "notes": "시트 verbatim: 'Strain at Break  ISO 527-1/-2  %  45'. 같은 표의 'Nominal Strain at Break 30' 은 **별개 양**이라 넣지 않았다(§118 — 저자/제조사가 정의를 가른 양은 섞지 않는다)."
+        },
+        {
+          "key": "mechanical.flexural_modulus", "value": 3.0e9, "unit": "Pa",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"temperature_k": 296.15, "test_standard": "ISO 178"},
+          "notes": "시트 verbatim: 'Flexural Modulus  ISO 178  MPa  3000'. 인장탄성률(3200 MPa, ISO 527)과 다른 시험이라 별개 키에 넣는다."
+        },
+        {
+          "key": "thermal.heat_deflection_temp", "value": 438.15, "unit": "K",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"load_pa": 450000, "test_standard": "ISO 75-1/-2"},
+          "notes": "시트 verbatim: 'Deflection Temperature  ISO 75-1/-2  °C  0.45MPa  165'. 165 + 273.15 = 438.15 K."
+        },
+        {
+          "key": "thermal.heat_deflection_temp", "value": 373.15, "unit": "K",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"load_pa": 1800000, "test_standard": "ISO 75-1/-2"},
+          "notes": "시트 verbatim: 'Deflection Temperature  ISO 75-1/-2  °C  1.80MPa  100'. 100 + 273.15 = 373.15 K."
+        },
+        {
+          "key": "thermal.melting_point", "value": 451.15, "unit": "K",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"test_standard": "ISO 3146C"},
+          "notes": "시트 verbatim: 'Melting Temperature  ISO 3146C  °C  178'. 178 + 273.15 = 451.15 K."
+        },
+        {
+          "key": "rheological.melt_flow_index", "value": 14.0, "unit": "g/600s",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"temperature_k": 463.15, "load_kg": 2.16, "test_standard": "ISO 1133"},
+          "notes": "시트 verbatim: 'Melt Flow Rate  ISO 1133  g/10 min  190C, 2.16kg  14'. 키 단위가 g/600s 이고 10 min = 600 s 라 숫자는 그대로다. 자매등급 500P 는 15 다."
+        },
+        {
+          "key": "mechanical.hardness_rockwell", "value": 120.0, "unit": "HR",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"scale": "R", "test_standard": "ISO 2039/2", "temperature_k": 296.15},
+          "notes": "시트 verbatim: 'Hardness, Rockwell  ISO 2039/2  R120'. 자매등급 500P 는 **M 스케일 92** 로 스케일 자체가 달라 비교 대상이 아니다(§253 — 경도는 갈래가 나뉘고 갈래를 넘어 환산하지 않는다)."
+        },
+        {
+          "key": "chemical.moisture_absorption_equilibrium", "value": 0.0022, "unit": "1",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"relative_humidity_pct": 50, "test_standard": "ISO 62, Similar to"},
+          "notes": "시트 verbatim: 'Humidity Absorption  ISO 62, Similar to  %  Equilibrium 50%RH  0.22'. 0.22% -> 0.0022 비율. 침지 흡수(water_absorption_24h)가 아니라 평형 흡습이라 이 키다."
+        }
+      ]
+    },
+    {
+      "match_name": "Torlon 4301 — 폴리아미드이미드 PAI (Böhm 1990)",
+      "source": {
+        "title": "Torlon 4301 polyamide-imide — Technical Data Sheet (Revised: 11/18/2014)",
+        "kind": "datasheet",
+        "publisher": "Solvay Specialty Polymers",
+        "authors": "Solvay Specialty Polymers",
+        "year": "2014",
+        "url": "https://drakeplastics.com/wp-content/uploads/2020/01/Torlon-4301.pdf",
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/poly/Solvay_Torlon_4301_PAI_TechnicalDataSheet_2014-11-18.pdf"
+      },
+      "properties": [
+        {
+          "key": "physical.density", "value": 1460.0, "unit": "kg/m^3",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"test_standard": "ASTM D792", "quantity": "Specific Gravity"},
+          "notes": "시트 verbatim: 'Physical | Specific Gravity  1.46  ASTM D792'. §443 아는 값 대조 — 미충전 PAI 는 1.42 인데 4301 은 **PTFE + 흑연 윤활제 충전 등급**('Additive • PTFE + Graphite Lubricant')이라 충전제가 밀도를 올린 1.46 이 맞다. §140 등급 확인 — 원문 Böhm 1990 의 Fig. 15 캡션이 'polyamide-imide (Torlon 4301)' 라 등급까지 인쇄돼 있다."
+        },
+        {
+          "key": "mechanical.youngs_modulus", "value": 6.83e9, "unit": "Pa",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"temperature_k": 296.15, "test_standard": "ASTM D638", "quantity": "Tensile Modulus"},
+          "notes": "시트 verbatim: 'Tensile Modulus  6830 MPa  ASTM D638'. 같은 행의 ASTM D1708 값 6550 MPa 은 **넣지 않았다** — 시트 각주 2 verbatim: 'These D1708 values are included for historical purposes and they should not be compared to the D638 values.' 제조사가 직접 비교 금지를 못박은 값이다(§90·§136 — 같은 측정을 두 키/두 행에 중복으로 넣지 않는다). 굽힘탄성률 6890 MPa(ASTM D790)은 별개 키에 따로 넣었다."
+        },
+        {
+          "key": "mechanical.tensile_strength", "value": 1.13e8, "unit": "Pa",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"temperature_k": 296.15, "test_standard": "ASTM D638"},
+          "notes": "시트 verbatim: 'Tensile Strength  113 MPa  ASTM D638'. D1708 의 163 MPa 은 각주 3 의 같은 이유로 제외. §454 — 4301 은 PTFE/흑연 충전 등급이고 파단변형이 3.3% 라 **인장 항복이 인쇄되지 않는다.** 항복강도 칸은 지어내지 않고 비워 둔다."
+        },
+        {
+          "key": "mechanical.elongation_at_break", "value": 0.033, "unit": "1",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"temperature_k": 296.15, "test_standard": "ASTM D638", "quantity": "Tensile Elongation, Break"},
+          "notes": "시트 verbatim: 'Tensile Elongation | Break  3.3 %  ASTM D638'. D1708 의 7.0% 는 각주 2·3 의 비교 금지 때문에 제외. 3.3% 는 §454 의 파단변형 대역(1.2~3.0%)의 바로 위로, 이 등급이 항복 전에 깨진다는 것을 확인해 준다."
+        },
+        {
+          "key": "thermal.expansion_linear", "value": 2.5e-5, "unit": "1/K",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"test_standard": "ASTM D696"},
+          "notes": "시트 verbatim: 'Coefficient of Linear Thermal Expansion  2.5E-5  cm/cm/°C  ASTM D696'. cm/cm/°C = 1/°C 이고 구간 크기라 1/K 과 같다."
+        },
+        {
+          "key": "thermal.conductivity", "value": 0.53, "unit": "W/(m*K)",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"test_standard": "ASTM C177"},
+          "notes": "시트 verbatim: 'Thermal Conductivity  0.53  W/m/K  ASTM C177'. 시트가 이 행에 시험온도를 인쇄하지 않아 temperature_k 를 비웠다(§467 — 안 적힌 것을 지어내지 않는다)."
+        },
+        {
+          "key": "mechanical.flexural_modulus", "value": 6.89e9, "unit": "Pa",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"temperature_k": 296.15, "test_standard": "ASTM D790"},
+          "notes": "시트 verbatim: 'Flexural Modulus  ASTM D790 | 23°C  6890 MPa'. 인장탄성률(6830 MPa)과 다른 시험이라 별개 키다."
+        },
+        {
+          "key": "mechanical.flexural_modulus", "value": 4.96e9, "unit": "Pa",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"temperature_k": 505.15, "test_standard": "ASTM D790"},
+          "notes": "시트 verbatim: 'Flexural Modulus  ASTM D790 | 232°C  4960 MPa'. 232 + 273.15 = 505.15 K."
+        },
+        {
+          "key": "mechanical.flexural_strength", "value": 2.15e8, "unit": "Pa",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"temperature_k": 296.15, "test_standard": "ASTM D790"},
+          "notes": "시트 verbatim: 'Flexural Strength  ASTM D790 | 23°C  215 MPa'."
+        },
+        {
+          "key": "mechanical.flexural_strength", "value": 1.12e8, "unit": "Pa",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"temperature_k": 505.15, "test_standard": "ASTM D790"},
+          "notes": "시트 verbatim: 'Flexural Strength  ASTM D790 | 232°C  112 MPa'. 232 °C 에서 굽힘강도가 215 -> 112 로, 굽힘탄성률이 6890 -> 4960 으로 함께 내려간다 — 두 열의 단조성이 서로를 검산한다."
+        },
+        {
+          "key": "mechanical.compressive_strength", "value": 1.66e8, "unit": "Pa",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"temperature_k": 296.15, "test_standard": "ASTM D695"},
+          "notes": "시트 verbatim: 'Compressive Strength  166 MPa  ASTM D695'. 같은 표의 'Compressive Modulus 5310 MPa' 은 **우리 taxonomy 에 mechanical.compressive_modulus 키가 없어 못 넣었다**(신설하지 않고 보고한다)."
+        },
+        {
+          "key": "thermal.heat_deflection_temp", "value": 552.15, "unit": "K",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"load_pa": 1800000, "condition": "unannealed", "test_standard": "ASTM D648"},
+          "notes": "시트 verbatim: 'Deflection Temperature Under Load  ASTM D648 | 1.8 MPa, Unannealed  279 °C'. 279 + 273.15 = 552.15 K. 시트는 'Molded parts must be post cured' 를 따로 적으므로 unannealed 조건을 조건축에 남긴다."
+        },
+        {
+          "key": "chemical.water_absorption_24h", "value": 0.0028, "unit": "1",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"test_standard": "ASTM D570"},
+          "notes": "시트 verbatim: 'Water Absorption (24 hr)  0.28 %  ASTM D570'. 0.28% -> 0.0028 비율."
+        }
+      ]
+    },
+    {
+      "match_name": "Kraton D1102 SBS triblock copolymer, 30 wt% PS, 0.14 wt% BHT (Phillips 2007 fullerene-PSA)",
+      "source": {
+        "title": "Kraton Polymers Product Guide (24-04) — KRATON D SBS Polymer Grades",
+        "kind": "datasheet",
+        "publisher": "Kraton Corporation",
+        "authors": "Kraton Corporation",
+        "year": "2024",
+        "url": "https://kraton.com/wp-content/uploads/2024/05/24-04-al-final-polymer-product-guide-interactive-web.pdf",
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/poly/Kraton_Polymers_Product_Guide_24-04.pdf"
+      },
+      "properties": [
+        {
+          "key": "physical.density", "value": 940.0, "unit": "kg/m^3",
+          "quality_tier": 2, "method": "measured",
+          "conditions": {"quantity": "Specific Gravity", "grade_scope": "class value — 등급 D1102 의 대표값. 원문이 지역판 접미(A/E/J/K)를 인쇄하지 않아 지역판을 특정하지 못했다"},
+          "notes": "제품 가이드 'KRATON D SBS POLYMER GRADES' 표의 D1102 열 verbatim: 'Specific Gravity  0.94'. §443 아는 값 대조 — SBS 0.94 g/cm3 와 정확히 일치. §426·§147 지역판 대조 — 이 칸은 지역판 셋이 모두 같다: D1102 E(유럽, 2/15/2023, ISO 2781) 0.94 · D1102 J(일본, 2/15/2023, ISO 2781) 0.94 · 가이드 0.94. 밀도는 지역판 사이에서 흔들리지 않는 칸이다. 원논문 Phillips 2007 은 'SBS (Kraton D1102) ... provided by Kraton Polymers, Inc. (Belpre, Ohio)' 라 북미판인데 북미판 개별 PDS 를 찾지 못해 tier2 로 둔다. 같은 표의 'Bulk Density' 는 벌크밀도라 재료밀도가 아니다(§241·245) — 넣지 않았다(D1102 E 시트 0.4 kg/dm3)."
+        },
+        {
+          "key": "mechanical.tensile_strength", "value": 2.6e7, "unit": "Pa",
+          "quality_tier": 2, "method": "measured",
+          "conditions": {"test_standard": "ASTM D412", "specimen": "film cast from toluene solution", "grade_scope": "class value — 등급 D1102 대표값. 지역판마다 값이 갈린다(E 24 MPa · J 33 MPa)"},
+          "notes": "제품 가이드 D1102 열 verbatim: 'Tensile Strength, MPa 1,2  26' — 각주 1 'ASTM method D412', 각주 2 'Typical properties determined on film cast from toluene solution'. 표 머리에 'Data in tables is representative of each grade and not the guaranteed specification' 이 인쇄돼 있어 tier2 다. **§59 분산 확인** — 지역판 개별 PDS 가 D1102 E(유럽) 24 MPa · D1102 J(일본) 33 MPa 로 갈린다(각각 ISO 37). 자릿수 차이가 아니라 ±17% 대역이고, 26 은 제조사 자신이 등급 대표로 인쇄한 값이지 우리가 만든 평균이 아니다. 원논문이 지역판 접미를 안 적어 어느 판인지 못 닫는다 — **그래서 대표값(tier2)이고 지역판 값을 골라 넣지 않았다.**"
+        },
+        {
+          "key": "mechanical.elongation_at_break", "value": 11.0, "unit": "1",
+          "quality_tier": 2, "method": "measured",
+          "conditions": {"test_standard": "ASTM D412", "specimen": "film cast from toluene solution", "grade_scope": "class value — 등급 D1102 대표값(지역판 E 1150% · J 880%)"},
+          "notes": "제품 가이드 D1102 열 verbatim: 'Elongation at Break, %1,2  1,100'. 1100% -> 11.0 비율."
+        },
+        {
+          "key": "mechanical.hardness_shore_a", "value": 63.0, "unit": "ShoreA",
+          "quality_tier": 2, "method": "measured",
+          "conditions": {"dwell_time_s": 10, "specimen": "polymer compression molded at 170-200 C", "grade_scope": "class value — 등급 D1102 대표값"},
+          "notes": "제품 가이드 D1102 열 verbatim: 'Hardness (10 sec), Shore A3  63' — 각주 3 'Typical values on polymer compression molded at 170-200˚C'. D1102 E 시트(ISO 868, 30 s)도 63 으로 같다. D1102 J(ISO 7619, 30 s)는 70 이다."
+        },
+        {
+          "key": "rheological.melt_flow_index", "value": 14.0, "unit": "g/600s",
+          "quality_tier": 2, "method": "measured",
+          "conditions": {"temperature_k": 473.15, "load_kg": 5.0, "grade_scope": "class value — 등급 D1102 대표값"},
+          "notes": "제품 가이드 D1102 열 verbatim: 'Melt Flow Rate (MFR), g/10 min (200°C/5kg)  14'. 키 단위 g/600s 는 g/10 min 과 같다. D1102 E 시트의 판매규격 대역 11~17 g/10 min 안에 들어간다 — 대역이 이 대표값을 검산해 준다."
+        }
+      ]
+    },
+    {
+      "match_name": "Kraton D1161 SIS triblock copolymer, 15 wt% PS, 0.14 wt% Irganox 565 (Phillips 2007 fullerene-PSA)",
+      "source": {
+        "title": "KRATON D1161 K Polymer — Product Data Sheet, North America (6/3/2021)",
+        "kind": "datasheet",
+        "publisher": "Kraton Corporation",
+        "authors": "Kraton Corporation",
+        "year": "2021",
+        "url": "https://sds.kraton.com/product-sds/shared-files/94695/KratonD1161K-1.pdf",
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/poly/Kraton_D1161_K_Polymer_PDS_NorthAmerica_2021-06-03.pdf"
+      },
+      "properties": [
+        {
+          "key": "physical.density", "value": 920.0, "unit": "kg/m^3",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"test_standard": "ASTM D 792", "quantity": "Specific Gravity"},
+          "notes": "시트 verbatim: 'Specific Gravity  ASTM D 792  0.92'. §140 지역판 동정 — 원논문 Phillips 2007 이 'SIS (Kraton D1161) ... provided by Kraton Polymers, Inc. (Belpre, Ohio)' 와 '~15 wt% polystyrene' 을 인쇄하는데, D1161 K 시트가 'supplied from North America' 이고 'polystyrene content of 15%' 라 지역판이 닫힌다. §423 문서 간 대조 — Kraton 제품 가이드(24-04)의 D1161 열이 이 시트와 일곱 칸에서 일치한다: SG 0.92 · 연신 1300% · Shore A 32 · MFR 12 · 스티렌/고무 15/85 · 디블록 19% · 용액점도 1200. 일본판 D1161 J(ISO 2781)도 0.92 다. §443 — SIS 0.92 g/cm3."
+        },
+        {
+          "key": "mechanical.tensile_strength", "value": 2.137e7, "unit": "Pa",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"test_standard": "ASTM D-412", "specimen": "film cast from toluene solution"},
+          "notes": "시트 verbatim: 'Tensile strength  ASTM D-412  psi  3100' — 각주 b 'Typical properties determined on film cast from toluene solution'. 3100 psi x 6894.757 Pa/psi = 2.1374e7 Pa. 제품 가이드의 D1161 열이 같은 값을 MPa 로 반올림해 '21' 로 인쇄한다 — 두 문서가 서로를 검산한다. 일본판 D1161 J(ISO 37)는 28 MPa 로 다르지만, 원논문의 산지(Belpre, Ohio)가 북미라 **이 북미판 시트가 정본**이다."
+        },
+        {
+          "key": "mechanical.elongation_at_break", "value": 13.0, "unit": "1",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"test_standard": "ASTM D-412", "specimen": "film cast from toluene solution"},
+          "notes": "시트 verbatim: 'Elongation at break  ASTM D-412  %  1300'. 1300% -> 13.0 비율. 제품 가이드 D1161 열도 1300 이고 일본판 J 도 1300 이다."
+        },
+        {
+          "key": "mechanical.hardness_shore_a", "value": 32.0, "unit": "ShoreA",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"dwell_time_s": 10, "test_standard": "ASTM 2240", "specimen": "polymer compression molded at 300 F"},
+          "notes": "시트 verbatim: 'Hardness  ASTM 2240  Shore A (10s)  32' — 각주 c 'Typical values on polymer compression molded at 300F'. 제품 가이드 D1161 열도 32 다. 일본판 J(ISO 7619, 30 s)는 37 로, 측정 시간과 규격이 달라 비교 대상이 아니다."
+        },
+        {
+          "key": "rheological.melt_flow_index", "value": 12.0, "unit": "g/600s",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"temperature_k": 473.15, "load_kg": 5.0, "test_standard": "ASTM D 1238"},
+          "notes": "시트 verbatim: 'Melt Index 200C, 5 kg  ASTM D 1238  gms/10 min.  12'. 키 단위 g/600s 는 g/10 min 과 같다. 제품 가이드 D1161 열도 12 다."
+        }
+      ]
+    }
+  ]
+}

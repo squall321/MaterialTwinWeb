@@ -1,0 +1,133 @@
+{
+  "_comment": "46차 HC — 코어 채우기 ①. 1360 Photo-BCB(Dow CYCLOTENE 4000 시트) · 1753/1756 GST(Lyeo 2006 원문 재개봉).",
+  "materials": [
+    {
+      "match_name": "Photo-BCB benzocyclobutene repassivation dielectric (Dow Cyclotene 4000 series, RTI standard process, Huffman 2009)",
+      "source": {
+        "title": "Processing Procedures for CYCLOTENE 4000 Series Photo BCB Resins — DS2100 Puddle Develop Process (Revised: March 2009)",
+        "kind": "datasheet",
+        "publisher": "The Dow Chemical Company",
+        "authors": "The Dow Chemical Company",
+        "year": "2009",
+        "url": "https://wiki.nanofab.ucsb.edu/w/images/a/ad/BCB-cyclotene-4000-revA.pdf",
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/pkg/Dow_CYCLOTENE_4000_Series_PhotoBCB_ProcessingProcedures_DS2100_PuddleDevelop_2009-03.pdf"
+      },
+      "properties": [
+        {
+          "key": "mechanical.youngs_modulus", "value": 2.9e9, "unit": "Pa",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"quantity": "Tensile modulus", "grade_scope": "CYCLOTENE 4000 resin series (4022-25 / 4022-35 / 4024-40 / 4026-46 / XUS35078) 공통 경화막 물성", "film_state": "cured photo-BCB film"},
+          "notes": "Table 3 (Mechanical Properties of Photo-BCB, CYCLOTENE 4000 resin series) verbatim: 'Tensile modulus  2.9 ± 0.2 GPa'. 산포 ±0.2 GPa 는 로더가 uncertainty 를 안 받아 여기 적는다. §51 동정 검산 — 이 재료를 만든 논문 Huffman 2009 Table 1 의 BCB 열이 Modulus 2.9 GPa · Tensile Strength 87 MPa · Elongation 8% · CTE 42 ppm/°C · Stress 28 MPa · Breakdown 5.3 MV/cm · Resistivity 1e19 ohm-cm 로 이 시트와 여섯 칸이 글자 그대로 일치한다(논문 본문은 그 열을 'published information on BCB [6]' 이라 밝혀 재인용이다 — 정본은 이 벤더 문서다). §426 판 대조 — Dow 09/2012 Rev.0 판(문서번호 888-00007-0912)이 Table 2·3 을 한 칸도 다르지 않게 인쇄한다."
+        },
+        {
+          "key": "mechanical.tensile_strength", "value": 8.7e7, "unit": "Pa",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"grade_scope": "CYCLOTENE 4000 resin series 공통 경화막 물성", "film_state": "cured photo-BCB film"},
+          "notes": "Table 3 verbatim: 'Tensile strength  87 ± 9 MPa'. 산포 ±9 MPa. Huffman 2009 Table 1 의 BCB 열 87 MPa 과 일치. 09/2012 Rev.0 판도 동일."
+        },
+        {
+          "key": "mechanical.poisson_ratio", "value": 0.34, "unit": "1",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"grade_scope": "CYCLOTENE 4000 resin series 공통 경화막 물성", "film_state": "cured photo-BCB film"},
+          "notes": "Table 3 verbatim: 'Poisson ratio  0.34'. §6 예외 확인 — 0.3/0.33/0.35 같은 관용값이 아니고 FEA 입력표가 아니라 제조사가 자기 제품에 인쇄한 값이다. §469 역산 지문 검사 — 이 표는 E·ν 만 인쇄하고 G·K 를 인쇄하지 않으므로 역산 중복이 없다. 09/2012 Rev.0 판도 동일."
+        },
+        {
+          "key": "thermal.expansion_linear", "value": 4.2e-5, "unit": "1/K",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"temperature_k": 298.15, "grade_scope": "CYCLOTENE 4000 resin series 공통 경화막 물성"},
+          "notes": "Table 3 verbatim: 'CTE  42 ppm/°C at 25°C'. 42e-6 /°C = 4.2e-5 1/K (구간 크기라 °C↔K 환산 불필요). Huffman 2009 Table 1 의 'CTE (ppm/°C @ 25°C) 42' 와 일치. 09/2012 Rev.0 판도 동일."
+        },
+        {
+          "key": "thermal.conductivity", "value": 0.29, "unit": "W/(m*K)",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"temperature_k": 297.15, "grade_scope": "CYCLOTENE 4000 resin series 공통 경화막 물성"},
+          "notes": "Table 2 (Electrical and Thermal Properties of Photo-BCB) verbatim: 'Thermal conductivity  0.29 W/m°K at 24°C'. 24 °C = 297.15 K. 09/2012 Rev.0 판도 0.29 로 동일."
+        },
+        {
+          "key": "mechanical.elongation_at_break", "value": 0.08, "unit": "1",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"grade_scope": "CYCLOTENE 4000 resin series 공통 경화막 물성"},
+          "notes": "Table 3 verbatim: 'Elongation at break  8 ± 2.5%'. 비율로 0.08(산포 ±0.025). Huffman 2009 Table 1 의 'Elongation (%) 8' 과 일치. 본문이 BCB 를 'relatively low elongation' 이라 부르는 근거가 이 칸이다."
+        },
+        {
+          "key": "electrical.dielectric_constant", "value": 2.65, "unit": "1",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"frequency_hz": "1e3 to 2e10", "grade_scope": "CYCLOTENE 4000 resin series 공통 경화막 물성"},
+          "notes": "Table 2 verbatim: 'Dielectric constant (1kHz – 20GHz)  2.65'. 시트가 단일 주파수가 아니라 1 kHz~20 GHz 대역 전체에 같은 값을 인쇄하므로 조건축에 구간을 그대로 적는다 — 한 점을 고르면 그 숫자는 우리가 만든 것이 된다."
+        },
+        {
+          "key": "electrical.dissipation_factor", "value": 0.0008, "unit": "1",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"frequency_hz": "1e3 to 2e10", "grade_scope": "CYCLOTENE 4000 resin series 공통 경화막 물성"},
+          "notes": "Table 2 verbatim: 'Dissipation factor  0.0008'. 시트가 주파수를 이 행에 따로 인쇄하지 않는다 — 바로 위 유전율 행의 '1kHz – 20GHz' 를 같은 블록 머리로 보고 구간을 적었다(§75 블록 머리글). 단일 점을 고르지 않았다."
+        },
+        {
+          "key": "electrical.resistivity_volume", "value": 1.0e17, "unit": "ohm*m",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"grade_scope": "CYCLOTENE 4000 resin series 공통 경화막 물성"},
+          "notes": "Table 2 verbatim: 'Volume resistivity  1 x 10^19 Ω-cm'. 1e19 ohm·cm x 0.01 = 1e17 ohm·m. Huffman 2009 Table 1 의 'Resistivity (Ω·cm) 10^19' 과 일치."
+        },
+        {
+          "key": "electrical.dielectric_strength", "value": 5.3e8, "unit": "V/m",
+          "quality_tier": 1, "method": "measured",
+          "conditions": {"grade_scope": "CYCLOTENE 4000 resin series 공통 경화막 물성"},
+          "notes": "Table 2 verbatim: 'Breakdown voltage  5.3 MV/cm'. 5.3e6 V/cm x 100 = 5.3e8 V/m. Huffman 2009 Table 1 의 'Breakdown Voltage (MV/cm) 5.3' 과 일치. 시트가 시편 두께를 인쇄하지 않아 thickness_m 조건축은 비운다(§467 — 안 적힌 것을 지어내지 않는다)."
+        }
+      ]
+    },
+    {
+      "match_name": "Ge2Sb2Te5 (GST) phase-change film, sputtered ~270 nm on glass, annealed 200 C / 5 min - fcc (cubic, c-GST) (Lyeo 2006)",
+      "source": {
+        "title": "Lyeo et al. (2006), Thermal conductivity of phase-change material Ge2Sb2Te5, Applied Physics Letters 89(15):151904, Table I",
+        "kind": "journal",
+        "doi": "10.1063/1.2359354",
+        "authors": "Lyeo",
+        "year": "2006",
+        "local_path": "/data/paper_patent_corpus/structured/snowball_papers/from_elec/Lyeo - 2006 - Thermal conductivity of phase-change material Ge2Sb2Te5/Lyeo - 2006 - Thermal conductivity of phase-change material Ge2Sb2Te5.md"
+      },
+      "properties": [
+        {
+          "key": "thermal.conductivity", "value": 0.57, "unit": "W/(m*K)",
+          "quality_tier": 3, "method": "measured",
+          "conditions": {
+            "temperature_k": 300.15,
+            "structural_phase": "cubic (fcc), c-GST",
+            "specimen_anneal": "as-deposited a-GST annealed 20 min at 180 C (Fig. 1 시편)",
+            "substrate": "Si(100)",
+            "film_thickness_m": 2.52e-7,
+            "test_method": "time-domain thermoreflectance (TDTR), pump-probe, lambda 770 nm, Al 80 nm transducer",
+            "specimen_mismatch": "이 재료명이 적은 어닐(200 C / 5 min, 유리기판)은 Table I 의 Hall 시편이고, 이 열전도율은 Si 기판 위 180 C / 20 min 어닐 시편에서 잰 값이다"
+          },
+          "notes": "본문 verbatim: 'c-GST and h-GST were prepared by annealing as-deposited a-GST for 20 min at 180 and 360 °C, respectively. ... we measure ~0.57 W m-1 K-1 for Lambda c-GST and ~1.58 W m-1 K-1 for Lambda h-GST.' — 표가 아니라 산문에 있다(§324·360). **조건이 재료명과 어긋난다는 것을 조건축과 여기에 명시한다** — 재료 1753 의 이름은 Table I 의 어닐(200 C / 5 min, 유리기판)이고 이 값의 시편은 Fig. 1 의 Si 기판 180 C / 20 min 어닐 시편이다. 같은 논문·같은 상(fcc)이지만 시편이 다르므로 tier1 이 아니라 tier3(등급/시편 대체)으로 넣는다. 저자 자신이 Lambda_c-GST 가 열이력에 크게 의존함을 인쇄한다 — 'Lambda c-GST encompass the entire range of 0.45 < Lambda c-GST < 0.95 W m-1 K-1 at 130 °C < T < 310 °C'(Fig. 2 승온 데이터). Table I 의 Lambda_WF 열(0.015/0.033/0.07/1.1)은 **총 열전도율이 아니라 Wiedemann-Franz 로 저항률에서 계산한 전자 기여분**이라 이 키에 넣지 않았다(§471 정의식이 키를 정한다 · §469 이미 DB 에 있는 저항률의 역산이라 같은 측정을 두 번 세는 것이 된다)."
+        }
+      ]
+    },
+    {
+      "match_name": "Ge2Sb2Te5 (GST) phase-change film, sputtered ~270 nm on glass, annealed 400 C / 5 min - hexagonal (h-GST) (Lyeo 2006)",
+      "source": {
+        "title": "Lyeo et al. (2006), Thermal conductivity of phase-change material Ge2Sb2Te5, Applied Physics Letters 89(15):151904, Table I",
+        "kind": "journal",
+        "doi": "10.1063/1.2359354",
+        "authors": "Lyeo",
+        "year": "2006",
+        "local_path": "/data/paper_patent_corpus/structured/snowball_papers/from_elec/Lyeo - 2006 - Thermal conductivity of phase-change material Ge2Sb2Te5/Lyeo - 2006 - Thermal conductivity of phase-change material Ge2Sb2Te5.md"
+      },
+      "properties": [
+        {
+          "key": "thermal.conductivity", "value": 1.58, "unit": "W/(m*K)",
+          "quality_tier": 3, "method": "measured",
+          "conditions": {
+            "temperature_k": 300.15,
+            "structural_phase": "hexagonal, h-GST",
+            "specimen_anneal": "as-deposited a-GST annealed 20 min at 360 C (Fig. 1 시편)",
+            "substrate": "Si(100)",
+            "film_thickness_m": 2.48e-7,
+            "test_method": "time-domain thermoreflectance (TDTR), pump-probe, lambda 770 nm, Al 80 nm transducer",
+            "specimen_mismatch": "이 재료명이 적은 어닐(400 C / 5 min, 유리기판)은 Table I 의 Hall 시편이고, 이 열전도율은 Si 기판 위 360 C / 20 min 어닐 시편에서 잰 값이다"
+          },
+          "notes": "본문 verbatim: '...we measure ~0.57 W m-1 K-1 for Lambda c-GST and ~1.58 W m-1 K-1 for Lambda h-GST.' 시편 준비는 'annealing as-deposited a-GST for 20 min at 180 and 360 °C, respectively'. 재료 1756 의 이름은 Table I 의 400 C / 5 min(유리기판) 어닐이라 시편이 다르므로 tier3 이다. 저자가 인쇄한 h-GST 대역은 '1.4 < Lambda h-GST < 1.53 W m-1 K-1 at 340 °C < T < 400 °C'(승온 중 측정) — 27 °C 로 식힌 값 1.58 은 그 대역 밖이며, 저자는 c->h 전이가 비가역이라고 밝힌다. Table I 의 400 C 행 Lambda_WF = 1.1 은 전자 기여분(전체의 약 70%)이지 총 열전도율이 아니라 이 키에 넣지 않았다."
+        }
+      ]
+    }
+  ]
+}
