@@ -12,7 +12,7 @@ from app.catalog_alternatives import (annotate_comparison, annotate_scatter,
                                       candidate_index, index_from_rows, separated_by)
 from app.catalog_compare import (build_comparison, numeric_property_options,
                                  representative_numeric, scatter_dataset)
-from app.dyna_export import build_cards, match_rows
+from app.dyna_export import ChoiceError, build_cards, match_rows, parse_choice_query
 from app.db import get_db
 from app.models import (Material, ProcessedResult, PropertyDefinition, PropertyValue,
                         Source, Specimen, Test)
@@ -305,10 +305,17 @@ def dyna_match(body: DynaMatchIn, db: Session = Depends(get_db)) -> dict:
 
 
 class DynaBuildIn(BaseModel):
-    """확정된 (MID, material_id) 쌍으로 덱 생성."""
-    picks: list[dict]            # [{"mid":101,"material_id":73}, ...]
+    """확정된 (MID, material_id) 쌍으로 덱 생성.
+
+    `picks[].choices` 로 **그 재료의 칸마다 다른 후보**를 고를 수 있다(51차 MC) —
+    `{"mid":101,"material_id":2361,"choices":{"thermal.conductivity":"direction=through"}}`.
+    안 주면 지금과 같이 대표값을 쓴다.
+    """
+    picks: list[dict]            # [{"mid":101,"material_id":73,"choices":{...}}, ...]
     card: str = "mechanical"
     units: str = "ton_mm_s"
+    choices: dict | None = None      # 이 덱의 모든 재료에 걸리는 지정(픽별 지정이 덮는다)
+    list_choices: bool = False       # 응답에 후보 목록(candidates)을 함께 낼지
 
 
 @router.post("/dyna/build")
@@ -322,10 +329,17 @@ def dyna_build(body: DynaBuildIn, db: Session = Depends(get_db)) -> dict:
         if mid is None or mat is None:
             continue
         # pids를 함께 넘겨야 CTE(*MAT_ADD_THERMAL_EXPANSION)가 생성된다.
-        items.append({"mid": int(mid), "material": int(mat), "pids": p.get("pids") or []})
+        items.append({"mid": int(mid), "material": int(mat), "pids": p.get("pids") or [],
+                      "choices": p.get("choices") or {}})
     if not items:
         raise HTTPException(status_code=400, detail="선택된 재료가 없습니다")
-    return build_cards(db, items, card=body.card, units=body.units)
+    try:
+        return build_cards(db, items, card=body.card, units=body.units,
+                           choices=body.choices, list_choices=body.list_choices)
+    except ChoiceError as exc:
+        # 없는 후보는 **거부한다** — 대표값으로 조용히 떨어지면 해석자가 자기가 고른
+        # 값을 쓴 줄 안다. 메시지에 실제 후보 목록이 들어 있다.
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
 @router.get("/dyna")
@@ -334,6 +348,13 @@ def dyna_cards(
     card: str = Query(default="mechanical", description="mechanical|thermal|both"),
     units: str = Query(default="ton_mm_s"),
     mid_start: int = Query(default=1),
+    choose: str | None = Query(
+        default=None,
+        description="칸별 후보 지정 — '물성키:선택자' 를 ';' 로 잇는다. "
+                    "선택자는 '#행번호' 또는 '조건키=값'. 예: "
+                    "'mechanical.poisson_ratio:#38167;thermal.conductivity:direction=through'. "
+                    "이 질의의 **모든 재료**에 걸린다(재료마다 다르게 주려면 POST /dyna/build)."),
+    list_choices: bool = Query(default=False, description="응답에 후보 목록을 함께 낼지"),
     db: Session = Depends(get_db),
 ) -> dict:
     """재료 리스트 → LS-DYNA 재료카드 덱(MID 자동배정·출처 주석). 웹/MCP 공용 코어."""
@@ -342,7 +363,11 @@ def dyna_cards(
     toks = [t.strip() for t in materials.split(",") if t.strip()]
     if not toks:
         raise HTTPException(status_code=400, detail="materials가 비었습니다")
-    return build_cards(db, toks, card=card, units=units, mid_start=mid_start)
+    try:
+        return build_cards(db, toks, card=card, units=units, mid_start=mid_start,
+                           choices=parse_choice_query(choose), list_choices=list_choices)
+    except ChoiceError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
 @router.get("/coverage")

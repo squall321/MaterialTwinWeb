@@ -56,6 +56,7 @@ from app.catalog_compare import (
     scatter_dataset,
 )
 from app.curve_synth import KIND_MEASURED, KIND_SYNTHETIC, synth_for_material
+from app.dyna_export import ChoiceError as DynaChoiceError
 from app.dyna_export import build_cards as build_dyna_cards
 from app.db import SessionLocal
 from app.models import (
@@ -783,7 +784,8 @@ def find_materials_in_property_range(
 @mcp.tool()
 def export_dyna_cards(materials: list, card: str = "mechanical",
                       units: str = "ton_mm_s", mid_start: int = 1,
-                      lcid_start: int = 990001) -> dict:
+                      lcid_start: int = 990001, choices: dict | None = None,
+                      list_choices: bool = False) -> dict:
     """재료 리스트를 LS-DYNA 재료카드 덱으로 대량 출력한다 — 이름만 줘도 유사검색+MID 자동배정, 시험이 없고 카탈로그 물성만 있는 재료까지 포함해 재료 544건 전체가 대상이다. card='mechanical' 은 보유 물성에 따라 *MAT_ELASTIC(001)·*MAT_PIECEWISE_LINEAR_PLASTICITY(024, SIGY+ETAN 이선형 근사로 측정 곡선 LCSS 는 넣지 않음)·*MAT_VISCOELASTIC(006)·*MAT_GENERAL_VISCOELASTIC(076)을 자동 선택한다. 측정 σ-ε 곡선을 그대로 담은 단일 카드는 get_mat_card.
 
     materials: 재료 이름 또는 ID 리스트(수십 개 한 번에 가능). 이름은 정확→부분→유사(오타)
@@ -798,6 +800,13 @@ def export_dyna_cards(materials: list, card: str = "mechanical",
     mid_start: MID/TMID 시작번호(1,2,3… 순차 자동 배정).
 
     lcid_start: CTE 곡선 LCID 시작번호(기존 모델 곡선과 충돌 피하려 큰 번호 기본).
+    choices: 칸별 후보 지정 {물성키: 선택자} — 이 호출의 모든 재료에 걸린다. 재료마다 다르게
+      주려면 materials 항목을 dict 로 주고 그 안에 "choices" 를 넣는다
+      ({"material": 2361, "choices": {"thermal.conductivity": "direction=through-thickness"}}).
+      선택자는 "#행번호"(카드 주석의 #id) 또는 "조건키=값"(부분일치)이다.
+      **안 주면 지금과 같이 대표값을 쓴다.** 없는 후보를 주면 후보 목록과 함께 error 를 낸다 —
+      대표값으로 조용히 떨어지지 않는다. 고른 것은 카드 주석(`※ 후보 지정`)에 남는다.
+    list_choices: True 면 응답에 candidates(재료 → 슬롯 → 후보목록)를 함께 낸다.
     반환: keyword(붙여넣기 가능한 전체 덱), materials(MID↔재료 매핑표), parts(PID↔MID↔LCID↔CTE),
     skipped(물성 부족으로 생성 못한 것과 사유), resolution_errors.
     각 물성 값 옆에 출처를 $ 주석으로 남긴다.
@@ -805,8 +814,12 @@ def export_dyna_cards(materials: list, card: str = "mechanical",
     if card not in ("mechanical", "thermal", "both"):
         return {"error": "card는 mechanical|thermal|both 중 하나"}
     with SessionLocal() as s:
-        return build_dyna_cards(s, list(materials or []), card=card, units=units,
-                                mid_start=int(mid_start), lcid_start=int(lcid_start))
+        try:
+            return build_dyna_cards(s, list(materials or []), card=card, units=units,
+                                    mid_start=int(mid_start), lcid_start=int(lcid_start),
+                                    choices=choices, list_choices=bool(list_choices))
+        except DynaChoiceError as exc:
+            return {"error": str(exc)}
 
 
 @mcp.tool()
