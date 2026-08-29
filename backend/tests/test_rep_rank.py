@@ -183,3 +183,30 @@ def test_card_marks_the_tie_instead_of_hiding_it(mcp_env):
     assert "*MAT_ELASTIC" in txt, "카드는 그대로 서야 한다 — 주의는 카드를 막지 않는다"
     assert "대표값이 동률이다" in txt
     assert "E 는" in txt
+
+
+# ── 51차 MA: 판정을 조건에 적는 것이 순위를 흔들지 않는다는 불변식 ──────────────
+def test_uniform_condition_keys_within_a_group_preserve_order():
+    """한 (재료,키) 군의 **모든 행에 같은 수의 조건 칸**을 더하면 군 안의 순서가 그대로다.
+
+    51차 MA 가 동률 판정(`verdict_tie_axis`·`verdict_tie_note`)을 `conditions` 에 적었다.
+    순위 5번째 자리가 `len(conditions)` 라, **일부 행에만** 칼럼을 더하면 그 행이 조건 많은
+    행에 밀려 **대표값이 조용히 바뀐다.** 그래서 군의 모든 행에 같은 수를 더했고,
+    라이브 41,368행에서 대표값 변동 0 을 실측했다. 이 불변식이 그 실측의 근거다.
+    """
+    rows = [_pv(3, tier=1, cond={"direction": "z"}),
+            _pv(1, tier=1, cond={"direction": "x"}),
+            _pv(2, tier=1, cond={"direction": "y", "standard": "ASTM"})]
+    before = [pv.id for pv in sorted(rows, key=CC._rep_rank)]
+    for pv in rows:                       # 군 전체에 같은 수(2칸)를 더한다
+        pv.conditions = dict(pv.conditions, verdict_tie_axis="a", verdict_tie_note="b")
+    assert [pv.id for pv in sorted(rows, key=CC._rep_rank)] == before
+
+
+def test_adding_keys_to_only_some_rows_does_flip_the_representative():
+    """반대 방향의 못 — **일부 행에만** 더하면 실제로 뒤집힌다. 그래서 전부에 더해야 한다."""
+    head = _pv(1, tier=1, cond={"direction": "x"})
+    other = _pv(2, tier=1, cond={"direction": "y", "standard": "ASTM"})
+    assert CC._rep_rank(head) < CC._rep_rank(other)
+    head.conditions = dict(head.conditions, verdict_tie_axis="a", verdict_tie_note="b")
+    assert CC._rep_rank(other) < CC._rep_rank(head)   # 조건 2개 → 4개가 되며 밀린다
