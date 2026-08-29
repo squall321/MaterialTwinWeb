@@ -200,3 +200,28 @@ def test_verdict_does_not_overwrite_the_value(tmp_path):
         "where json_extract(conditions,'$.direction')='Z'").fetchone()
     c.close()
     assert (tier, notes) == (2, "운영 메모")     # 판정만 얹고 나머지는 그대로다
+
+
+def test_verdict_declared_through_the_correction_path_makes_no_noise(tmp_path):
+    """**판정을 §521 의 `corrections` 경로로 넣은 행은 ③ 이 맡는다 — ②-b 가 손대면 안 된다.**
+
+    그 경로는 `correction_reason`·`corrected_by` 를 반드시 남기는데 그 둘은 판정 키가 아니라
+    dev 쪽에만 있다. ②-b 가 조건 사전을 대조하면 전건이 안 맞아 **결과는 옳은데(③ 이 다
+    받아낸다) 경고만 수천 건** 뜬다 — 실측 52차 NC, 판정 3,400행.
+    **매번 뜨는 같은 경고는 무시하는 법을 가르친다**(§546). 그래서 아예 안 들어오게 막았다.
+    """
+    # 정정 경로가 **돌 수 있는** 모양으로 둔다 — (재료·키·출처·값)이 유일해야 한다(§548).
+    prod = _make_db(tmp_path, "prod8.db")
+    _seed(prod, [DUP], filler=2)
+    dev = _make_db(tmp_path, "dev8.db")
+    # 51차 MA·52차 NC 가 실제로 넣은 모양 — 판정 + 정정 선언 + 칸 단위 되돌리기 표시.
+    via_corrections = dict(DUP, verdict_tie_axis="방향축이 갈렸다",
+                           verdict_tie_axis_before_correction=None,
+                           correction_reason="동률 사유를 남긴다", corrected_by="52차 NC")
+    _seed(dev, [via_corrections])
+
+    out = _merge(dev, prod)
+    assert out["summary"]["property_value"]["added"] == 0    # ③ 이 받아낸다
+    assert out["value_corrections_total"] == 1
+    assert out.get("verdict_misses_total") is None           # ②-b 가 경고를 안 만든다
+    assert _conds(prod) == [via_corrections]                 # 정정 선언까지 통째로 간다
