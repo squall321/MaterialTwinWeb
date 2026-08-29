@@ -142,7 +142,13 @@ CHECKS = [
                sum(pv.value_num) s, count(*) n
         from property_value pv
         where pv.property_key='mechanical.hyperelastic_coefficient'
-          and pv.conditions like '%mooney_rivlin_2%'
+          -- 53차 OB 고침 — 예전엔 `conditions like '%mooney_rivlin_2%'` 였다.
+          -- 조건 JSON 을 **통째로 문자열 검색**하면 우리가 조건에 적은 글이 그 안에 걸린다.
+          -- 동률 판정문(`verdict_tie_note`)은 경쟁행의 조건을 그대로 인쇄하므로,
+          -- `model='mooney_rivlin_3'` 인 행의 판정문에 경쟁행의 `mooney_rivlin_2` 가 실린다.
+          -- 실측 — 재료407 의 C10·C01(3항 모델, C20 이 따로 있어 C10+C01<0 이 정상)이
+          -- 그렇게 걸려 **없던 위반 1건**이 생겼다. 칸을 읽으면 안 걸린다(브리프 557 의 세 번째 얼굴).
+          and json_extract(pv.conditions,'$.model')='mooney_rivlin_2'
           and json_extract(pv.conditions,'$.term') in ('C10','C01')
         group by pv.material_id, r having n=2 and s<=0)"""),
     # Stromeyer는 (계수, 지수, 점근응력) **셋이 한 세트**다. 하나만 있으면 곡선이 안 선다.
