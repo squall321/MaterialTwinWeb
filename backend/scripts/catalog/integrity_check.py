@@ -1,8 +1,17 @@
 # 카탈로그 정합성 37항목 + 주의 6항목 일괄 점검 — 0이 아니면 결함이다. 배포 전 반드시 통과시킬 것.
+import os
 import sqlite3
 import sys
 
-DB = '/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web/materialtwin.db'
+# **경로를 박아 두면 스냅샷 대조가 원리적으로 불가능하다.**
+# 53차 OB 가 적용 전 백업과 적용 후 라이브로 이 검사기를 각각 돌려 diff 를 떴는데
+# **두 출력이 글자까지 같았다** — 환경변수를 무시하고 둘 다 라이브를 쳤기 때문이다.
+# 하마터면 "내가 깬 것이 없다" 로 넘어갈 뻔했다. **검사기가 스냅샷을 못 치면
+# 배치는 자기가 무엇을 깼는지 모른다.** 기본값은 그대로라 기존 호출은 안 변한다.
+DB = os.path.join(
+    os.environ.get("MATERIALTWIN_DATA_DIR",
+                   "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web"),
+    "materialtwin.db")
 OPT = "('optical.refractive_index','optical.reflectance','optical.extinction_coefficient','optical.birefringence')"
 # 값 자체가 온도인 물성 — 여기에 temperature_C 조건이 붙으면 대표값 선택이 무너진다(문서 19장).
 TEMP_VALUED = ("('thermal.melting_point','thermal.glass_transition','thermal.max_service_temp',"

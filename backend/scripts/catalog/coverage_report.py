@@ -10,12 +10,17 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import sqlite3
 import sys
 from collections import Counter, defaultdict
 
-DB = "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web/materialtwin.db"
+# `integrity_check.py` 와 같은 이유로 환경변수를 본다 — 박아 두면 스냅샷 대조가 안 된다(53차 OB).
+DB = os.path.join(
+    os.environ.get("MATERIALTWIN_DATA_DIR",
+                   "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web"),
+    "materialtwin.db")
 
 E = "mechanical.youngs_modulus"
 NU = "mechanical.poisson_ratio"
