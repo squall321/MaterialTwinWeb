@@ -47,6 +47,7 @@ from sqlalchemy import func
 
 from app import analysis, curve_store, fitting, insights, viscoelastic
 from app.cards import lsdyna_mat024_card, lsdyna_mat098_card, poisson_from_attributes
+from app.catalog_alternatives import annotate_comparison, annotate_ranking
 from app.catalog_compare import (
     build_comparison,
     property_ranking,
@@ -302,7 +303,7 @@ def compare_materials(materials: list[str]) -> dict:
         ids, errors = resolve_material_ids(s, materials[:12])
         if len(ids) < 2:
             return {"error": "비교하려면 유효한 재료 2개 이상 필요", "resolution_errors": errors}
-        data = build_comparison(s, ids)
+        data = annotate_comparison(s, build_comparison(s, ids))
         name_by_id = {m["id"]: m["name"] for m in data["materials"]}
         rows = []
         for dom in data["domains"]:
@@ -318,6 +319,13 @@ def compare_materials(materials: list[str]) -> dict:
                         "conditions": c["conditions"],
                         "source": (c["source"] or {}).get("manufacturer") or (c["source"] or {}).get("title"),
                     }
+                    # 대표값 하나만 내보내면 "다른 후보가 있다" 가 비교에서 사라진다(§545).
+                    # 평범한 칸은 형태가 그대로여야 하므로 **있을 때만** 붙인다.
+                    if c.get("n_candidates", 1) > 1:
+                        values[nm]["candidates"] = c["n_candidates"]
+                        values[nm]["alternatives"] = c["alternatives"]
+                    if c.get("tie"):
+                        values[nm]["tie"] = c["tie"]
                 rows.append({
                     "domain": p["domain"], "property": p["name"], "symbol": p["symbol"],
                     "unit": p["unit"], "standard": p["standard"], "values": values,
@@ -818,7 +826,7 @@ def search_catalog_property(property_key: str, min_value: float | None = None,
         if rk is None:
             return {"error": f"알 수 없는 property_key '{property_key}'. "
                              "list_property_definitions로 key 확인."}
-        return rk
+        return annotate_ranking(s, rk)
 
 
 @mcp.tool()

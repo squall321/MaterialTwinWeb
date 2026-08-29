@@ -107,3 +107,57 @@ export function subsystemLabel(s: string | null | undefined): string {
   if (!s) return "미분류";
   return SUBSYSTEM_LABEL[s] ?? s;
 }
+
+// ── 대표값의 "다른 후보" 표시(51차 MB) ──────────────────────────────────────
+// 대표값 하나만 보여주면 "다른 후보가 있다" 가 화면에서 통째로 사라진다. 값을 감추지 않는다.
+
+/** 후보가 진 자리 — `_rep_rank` 튜플에서 대표값과 처음 어긋난 칸의 이름. */
+export const SEPARATED_BY_LABEL: Record<string, string> = {
+  state: "고체가 아님",
+  tier: "신뢰등급이 낮음",
+  numeric: "수치값이 없음",
+  temperature: "상온에서 더 멂",
+  wavelength: "기준 파장에서 더 멂",
+  n_conditions: "조건을 더 많이 적음",
+  load_order: "순위가 못 가름",
+};
+
+export function separatedByLabel(s: string | null | undefined): string {
+  if (!s) return "";
+  return SEPARATED_BY_LABEL[s] ?? s;
+}
+
+/**
+ * 동률 안내 문구. **갈래마다 다르게 적는다.**
+ *
+ * "동률이면 적재 순서로 골랐다" 를 일률로 띄우면 라이브 3,642건 중 3,607건이 틀린 설명이 되고,
+ * 매번 뜨는 같은 경고는 무시하는 법을 가르친다(49차 KA). 원인을 이름으로 갈라야 경고가 산다.
+ */
+export function tieMessage(kind: string, nTied: number, condKeys: string[]): string {
+  const keys = condKeys.length ? condKeys.join(" · ") : "";
+  if (kind === "multi_term")
+    return `이 물성 키에는 항이 ${nTied}개 산다 — 대표값 하나는 이 재료의 ${keys || "그 항들"} 중 하나일 뿐이다`;
+  if (kind === "indistinguishable")
+    return `순위가 같은 후보 ${nTied}개를 가를 조건이 없다 — 적재 순서로 골랐다`;
+  return `순위가 같은 후보 ${nTied}개가 ${keys} 에서 갈린다 — 선택기는 이 축을 안 본다`;
+}
+
+/** 두 조건 dict에서 다른 칸만. 상세 화면은 전 행을 이미 들고 있어 서버가 안 보내 준다. */
+export function conditionDelta(
+  rep: Record<string, unknown> | null,
+  alt: Record<string, unknown> | null,
+): { key: string; rep: unknown; alt: unknown }[] {
+  const a = rep ?? {};
+  const b = alt ?? {};
+  const keys = Array.from(new Set([...Object.keys(a), ...Object.keys(b)])).sort();
+  return keys
+    .filter((k) => JSON.stringify(a[k]) !== JSON.stringify(b[k]))
+    .map((k) => ({ key: k, rep: a[k], alt: b[k] }));
+}
+
+export function condValue(v: unknown): string {
+  if (v === null || v === undefined) return "없음";
+  if (typeof v === "number" || typeof v === "boolean") return String(v);
+  if (typeof v === "string") return v;
+  return JSON.stringify(v);
+}

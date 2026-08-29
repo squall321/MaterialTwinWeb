@@ -25,6 +25,9 @@ export type CatalogMaterial = {
   id: number;
   /** prop 필터를 걸었을 때만 실린다 — 그 물성의 대표값. */
   prop_value?: number | null;
+  /** 목록은 **수만** 낸다(값은 상세·비교에서). 후보 수와 동률 여부. */
+  prop_candidates?: number;
+  prop_tie?: boolean;
   name: string;
   material_code: string | null;
   category: string | null;
@@ -37,6 +40,35 @@ export type CatalogMaterial = {
   process?: string | null;
   subsystem?: string | null;
 };
+
+// ── 대표값의 "다른 후보" (51차 MB) ──────────────────────────────────────────
+// 선택기는 (재료,물성키)당 한 행만 낸다. 라이브 41,368행에서 후보가 둘 이상인 쌍이 6,330개이고
+// 그중 3,642쌍은 **순위가 같은데 값이 1% 넘게 다르다**. 그 사실을 화면이 감추면 안 된다.
+
+/** 대표값과 이 후보의 순위가 **처음 어긋난 자리**. `load_order` 면 순위가 못 갈랐다는 뜻이다. */
+export type SeparatedBy =
+  | "state"
+  | "tier"
+  | "numeric"
+  | "temperature"
+  | "wavelength"
+  | "n_conditions"
+  | "load_order";
+
+/** 대표값과 순위가 완전히 같은데 값이 다른 후보가 있을 때만 붙는다. */
+export type RepTie = {
+  /**
+   * `condition_axis` 조건이 다른데 선택기에 그 축이 없다(라이브 3,213건) ·
+   * `multi_term` 한 키에 여러 항이 산다(394건) ·
+   * `indistinguishable` 구분할 조건조차 없다(35건) — **이때만 "적재 순서" 가 맞는 말이다.**
+   */
+  kind: "condition_axis" | "multi_term" | "indistinguishable";
+  n_tied: number;
+  max_rel_diff: number | null;
+  condition_keys: string[];
+};
+
+export type ConditionDiff = Record<string, { rep: unknown; alt: unknown }>;
 
 export type PropertySource = {
   title: string | null;
@@ -61,6 +93,14 @@ export type PropertyValueRow = {
   standard: string | null;
   notes: string | null;
   source: PropertySource | null;
+  /** 이 행이 목록·비교·Ashby·DYNA 카드가 쓰는 그 값인가. */
+  representative: boolean;
+  /** 이 재료·물성키의 후보 행 수(자기 자신 포함). */
+  n_candidates: number;
+  /** 대표행에만 붙는다 — 형제 행마다 반복하면 소음이 된다. */
+  tie: RepTie | null;
+  /** 진 행에만 붙는다. 조건 차이는 응답에 이미 전 행이 있으므로 화면이 직접 견준다. */
+  separated_by: SeparatedBy | null;
 };
 
 export type CatalogMaterialDetail = {
@@ -73,6 +113,8 @@ export type CatalogMaterialDetail = {
   attributes: Record<string, unknown>;
   n_values: number;
   domains: Record<string, PropertyValueRow[]>;
+  /** 후보가 둘 이상인 물성 수 · 그중 동률로 갈린 수. */
+  alternatives: { keys: number; ties: number };
 };
 
 export type CatalogFilters = {
@@ -128,6 +170,23 @@ export type CompareCell = {
   conditions: Record<string, unknown> | null;
   source: PropertySource | null;
   rel?: number;
+  /** 후보가 둘 이상일 때만 붙는다. 없으면 1개로 본다. */
+  n_candidates?: number;
+  /** 값이 실질적으로 다른 후보만, 최대 2건. */
+  alternatives?: CompareAlternative[];
+  tie?: RepTie;
+};
+
+/** 비교표의 진 후보 한 건. 조건 dict 전체가 아니라 **다른 칸만** 실린다. */
+export type CompareAlternative = {
+  value: number | null;
+  value_text: string | null;
+  unit: string | null;
+  tier: number;
+  method: string;
+  separated_by: SeparatedBy;
+  condition_diff: ConditionDiff;
+  source_title: string | null;
 };
 
 export type CompareProperty = {
@@ -196,6 +255,11 @@ export type AshbyPoint = {
   material_class: string | null;
   x: number;
   y: number;
+  /** 점이 738개라 후보가 둘 이상일 때만 붙는다. 없으면 1개·동률 없음. */
+  x_candidates?: number;
+  y_candidates?: number;
+  x_tie?: boolean;
+  y_tie?: boolean;
 };
 
 export type AshbyData = {

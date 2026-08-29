@@ -3,7 +3,7 @@ import { Link, useParams } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import {
   ChevronLeft, ExternalLink, Factory, FileText, Beaker, SearchX, Info, GitCompare, FlaskConical,
-  Ruler,
+  Ruler, Layers, TriangleAlert,
 } from "lucide-react";
 import { getCatalogMaterial, type PropertyValueRow, type PropertySource } from "../api/catalog";
 import { ApiError } from "../api/client";
@@ -15,6 +15,7 @@ import { EmptyState } from "../components/states/EmptyState";
 import { ErrorState } from "../components/states/ErrorState";
 import {
   domainMeta, tierMeta, tierBadge, METHOD_LABEL, formatValue, formatConditions, subsystemLabel,
+  separatedByLabel, tieMessage, conditionDelta, condValue,
 } from "../lib/catalog-ui";
 import { cn } from "../lib/utils";
 
@@ -114,6 +115,13 @@ export function CatalogMaterialScreen() {
                     <Stat label="도메인" value={domainKeys.length} />
                     <div className="h-8 w-px bg-border-subtle" />
                     <Stat label="출처" value={nSources} />
+                    {/* 대표값 하나만 세면 "후보가 더 있다" 가 화면 어디에도 안 남는다. */}
+                    <div className="h-8 w-px bg-border-subtle" />
+                    <Stat
+                      label="대안 있음"
+                      value={d?.alternatives?.keys}
+                      hint={`후보가 둘 이상인 물성 ${d?.alternatives?.keys ?? 0}개 · 그중 순위가 동률인 것 ${d?.alternatives?.ties ?? 0}개`}
+                    />
                   </div>
                 </div>
               )}
@@ -201,9 +209,9 @@ function orderIdx(d: string): number {
   return i === -1 ? DOMAIN_ORDER.length : i;
 }
 
-function Stat({ label, value }: { label: string; value?: number }) {
+function Stat({ label, value, hint }: { label: string; value?: number; hint?: string }) {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" title={hint}>
       <span className="text-[0.6875rem] font-medium text-text-tertiary">{label}</span>
       <span className="font-mono text-lg font-semibold leading-tight tabular-nums text-text-primary">
         {value ?? "—"}
@@ -254,14 +262,63 @@ function DomainSection({ domain, rows }: { domain: string; rows: PropertyValueRo
         </div>
 
         <div className="divide-y divide-border-subtle">
-          {rows.map((r, i) => <PropRow key={`${r.key}-${i}`} r={r} />)}
+          {groupByKey(rows).map((g) => (
+            <PropGroup key={g.key} rows={g.rows} />
+          ))}
         </div>
       </Card>
     </section>
   );
 }
 
-function PropRow({ r }: { r: PropertyValueRow }) {
+/** 같은 물성키의 행을 한 덩어리로 묶는다 — 응답은 이미 인접해 있지만 순서에 기대지 않는다. */
+function groupByKey(rows: PropertyValueRow[]): { key: string; rows: PropertyValueRow[] }[] {
+  const out: { key: string; rows: PropertyValueRow[] }[] = [];
+  const at = new Map<string, PropertyValueRow[]>();
+  for (const r of rows) {
+    let bucket = at.get(r.key);
+    if (!bucket) {
+      bucket = [];
+      at.set(r.key, bucket);
+      out.push({ key: r.key, rows: bucket });
+    }
+    bucket.push(r);
+  }
+  // 대표값을 덩어리 맨 앞으로. 진 행은 뒤에 그대로 남는다 — 감추지 않는다.
+  for (const g of out) g.rows.sort((a, b) => Number(b.representative) - Number(a.representative));
+  return out;
+}
+
+/**
+ * 한 물성키의 후보 전부. 대표값을 표시하고, 진 행에는 **대표값과 무엇이 다른지**를 적는다.
+ *
+ * 행을 접지 않는다(§ "값을 숨기지 마라"). 원래도 상세는 전 행을 보여 주고 있었다 —
+ * 빠져 있던 것은 "이 중 어느 것이 카드·비교·Ashby 로 나가는 값인가" 였다.
+ */
+function PropGroup({ rows }: { rows: PropertyValueRow[] }) {
+  const rep = rows.find((r) => r.representative) ?? rows[0];
+  const multi = rows.length > 1 || (rep?.n_candidates ?? 1) > 1;
+  return (
+    <div>
+      {rows.map((r, i) => (
+        <PropRow
+          key={`${r.key}-${i}`}
+          r={r}
+          multi={multi}
+          repConditions={r.representative ? null : (rep?.conditions ?? null)}
+        />
+      ))}
+    </div>
+  );
+}
+
+function PropRow({
+  r, multi = false, repConditions = null,
+}: {
+  r: PropertyValueRow;
+  multi?: boolean;
+  repConditions?: Record<string, unknown> | null;
+}) {
   const tm = tierBadge(r.tier, r.conditions);
   const cond = formatConditions(r.conditions);
   const valueText =
@@ -271,9 +328,26 @@ function PropRow({ r }: { r: PropertyValueRow }) {
       <div className="grid grid-cols-1 gap-x-4 gap-y-2 md:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)_minmax(0,1.1fr)_minmax(0,1.2fr)]">
         {/* 물성 이름 + 기호 + 표준 */}
         <div className="min-w-0">
-          <div className="flex items-baseline gap-1.5">
+          <div className="flex flex-wrap items-baseline gap-1.5">
             <span className="text-sm font-medium text-text-primary">{r.name}</span>
             {r.symbol && <span className="font-mono text-xs text-text-tertiary">{r.symbol}</span>}
+            {/* 후보가 둘 이상일 때만 표시한다 — 대부분의 물성에는 후보가 하나뿐이다. */}
+            {multi && r.representative && (
+              <span
+                title={`목록·비교·Ashby·DYNA 카드가 쓰는 값이다. 이 재료·물성의 후보는 ${r.n_candidates}개.`}
+                className="inline-flex items-center gap-1 rounded-sm border border-[color:var(--accent)] px-1.5 py-0.5 text-[0.625rem] font-medium text-accent"
+              >
+                <Layers className="size-3" /> 대표값 · 후보 {r.n_candidates}
+              </span>
+            )}
+            {multi && !r.representative && (
+              <span
+                title="이 값도 그대로 쓸 수 있다 — 대표값으로 뽑히지 않았을 뿐이다."
+                className="rounded-sm border border-border-default px-1.5 py-0.5 text-[0.625rem] text-text-tertiary"
+              >
+                대안값{r.separated_by ? ` · ${separatedByLabel(r.separated_by)}` : ""}
+              </span>
+            )}
           </div>
           {r.standard && (
             <div className="mt-0.5 text-[0.6875rem] text-text-tertiary">{r.standard}</div>
@@ -323,6 +397,27 @@ function PropRow({ r }: { r: PropertyValueRow }) {
         </div>
       </div>
 
+      {/* 동률 안내 — 대표행에만. 값이 1% 넘게 갈릴 때만 서버가 붙인다(반올림 쌍둥이 제외). */}
+      {r.tie && (
+        <p className="mt-2 flex max-w-[80ch] items-start gap-1.5 border-l-2 border-[color:var(--warning)] pl-2.5 text-[0.6875rem] leading-relaxed text-text-secondary">
+          <TriangleAlert className="mt-0.5 size-3 shrink-0 text-warning" />
+          <span>
+            {tieMessage(r.tie.kind, r.tie.n_tied, r.tie.condition_keys)}
+            {r.tie.max_rel_diff != null && (
+              <span className="text-text-tertiary">
+                {" "}(값 차이 최대 {Math.round(r.tie.max_rel_diff * 100)}%)
+              </span>
+            )}
+            . 아래 후보를 보고 직접 고를 수 있다.
+          </span>
+        </p>
+      )}
+
+      {/* 대표값과 무엇이 다른가 — 진 행에만. 조건이 안 보이면 대안이 무의미하다. */}
+      {!r.representative && repConditions !== null && (
+        <ConditionDelta rep={repConditions} alt={r.conditions} />
+      )}
+
       {/* 근거 노트(전폭) */}
       {r.notes && (
         <p className="mt-2 max-w-[80ch] border-l-2 border-border-default pl-2.5 text-[0.6875rem] leading-relaxed text-text-tertiary">
@@ -330,6 +425,29 @@ function PropRow({ r }: { r: PropertyValueRow }) {
         </p>
       )}
     </div>
+  );
+}
+
+/** 대표값 행과의 조건 차이. 응답에 전 행이 있으므로 화면이 직접 견준다(서버 응답을 안 불린다). */
+function ConditionDelta({
+  rep, alt,
+}: {
+  rep: Record<string, unknown> | null;
+  alt: Record<string, unknown> | null;
+}) {
+  const delta = conditionDelta(rep, alt);
+  if (delta.length === 0) return null;
+  return (
+    <p className="mt-1.5 max-w-[80ch] border-l-2 border-border-default pl-2.5 text-[0.6875rem] leading-relaxed text-text-tertiary">
+      <span className="text-text-secondary">대표값과 다른 조건</span>{" "}
+      {delta.map((d, i) => (
+        <span key={d.key}>
+          {i > 0 && " · "}
+          <span className="font-mono">{d.key}</span> {condValue(d.rep)} →{" "}
+          <span className="text-text-secondary">{condValue(d.alt)}</span>
+        </span>
+      ))}
+    </p>
   );
 }
 

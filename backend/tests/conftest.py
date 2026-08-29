@@ -29,6 +29,7 @@ def mcp_env(tmp_path, monkeypatch):
     import app.insights as insights_mod
     import app.routers.properties as r_properties
     import app.catalog_compare as catalog_compare_mod
+    import app.catalog_alternatives as catalog_alt_mod
     import app.dyna_export as dyna_export_mod
     import app.curve_synth as curve_synth_mod
 
@@ -39,6 +40,9 @@ def mcp_env(tmp_path, monkeypatch):
     importlib.reload(insights_mod)  # 모델 클래스 재바인딩(taxonomy 리소스가 사용).
     importlib.reload(r_properties)
     importlib.reload(catalog_compare_mod)  # 모델 클래스 재바인딩(compare_materials가 사용).
+    # 대안값 주석기도 PropertyValue 를 직접 들고 있다 — 빼먹으면 낡은 모델 클래스로 질의해
+    # `RawCurveRef` 매퍼를 못 찾는다(51차 MB 가 실제로 밟았다). catalog_compare 뒤에 온다.
+    importlib.reload(catalog_alt_mod)
     importlib.reload(dyna_export_mod)      # 모델 클래스 재바인딩(export_dyna_cards가 사용).
     importlib.reload(curve_synth_mod)      # 모델 클래스 재바인딩(곡선 합성이 사용).
     import app.routers.hub_export as r_hub_export

@@ -4,6 +4,7 @@ import { Link, useNavigate, useSearch } from "@tanstack/react-router";
 import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import {
   ChevronLeft, Plus, X, Search, Factory, Info, ChevronUp, ChevronDown, ExternalLink, GitCompare,
+  TriangleAlert,
 } from "lucide-react";
 import {
   compareMaterials, listCatalogMaterials,
@@ -21,6 +22,7 @@ import { ErrorState } from "../components/states/ErrorState";
 import { Skeleton } from "../components/ui/skeleton";
 import {
   domainMeta, tierMeta, formatValue, formatConditions, subsystemLabel,
+  separatedByLabel, tieMessage, condValue,
 } from "../lib/catalog-ui";
 
 const MAX_COLS = 8;
@@ -336,6 +338,10 @@ function Cell({
           {cell.tier}·{tm.label}
         </span>
         {cond && <span title={cond} className="max-w-[110px] truncate">{cond}</span>}
+        {/* 대표값 하나만 보여 주면 "다른 후보가 있다" 가 비교표에서 통째로 사라진다(51차 MB).
+            비교표는 칸이 좁아 값을 펼치지 않는다 — 개수만 띄우고 값·이유는 툴팁에 담는다.
+            자세히 고르는 자리는 재료 상세다. */}
+        {(cell.n_candidates ?? 1) > 1 && <AltChip cell={cell} unit={row.unit} />}
         {srcLabel && (
           href ? (
             <a href={href} target="_blank" rel="noopener noreferrer" title={cell.source?.title || undefined}
@@ -348,6 +354,40 @@ function Cell({
         )}
       </div>
     </div>
+  );
+}
+
+/** 후보 수 칩. 동률(순위가 못 가른 것)이면 경고색으로 띄운다. */
+function AltChip({ cell, unit }: { cell: CompareCell; unit: string | null }) {
+  const alts = cell.alternatives ?? [];
+  const lines = alts.map((a) => {
+    const v = a.value !== null ? formatValue(a.value, unit) : (a.value_text ?? "—");
+    const why = separatedByLabel(a.separated_by);
+    const diff = Object.entries(a.condition_diff)
+      .map(([k, d]) => `${k} ${condValue(d.rep)}→${condValue(d.alt)}`)
+      .join(" · ");
+    return `· ${v} (T${a.tier}${why ? `, ${why}` : ""})${diff ? ` — ${diff}` : ""}` +
+      (a.source_title ? ` [${a.source_title}]` : "");
+  });
+  const head = cell.tie
+    ? tieMessage(cell.tie.kind, cell.tie.n_tied, cell.tie.condition_keys)
+    : `후보 ${cell.n_candidates}개 중 대표값 하나만 표시된다`;
+  const more = (cell.n_candidates ?? 1) - 1 - alts.length;
+  const title = [head, ...lines, more > 0 ? `· 그 밖에 ${more}건` : ""]
+    .filter(Boolean).join("\n");
+  return (
+    <span
+      title={title}
+      className={cn(
+        "inline-flex cursor-help items-center gap-0.5 rounded-sm border px-1 py-px",
+        cell.tie
+          ? "border-[color:var(--warning)] text-warning"
+          : "border-border-default text-text-tertiary",
+      )}
+    >
+      {cell.tie && <TriangleAlert className="size-2.5" />}
+      후보 {cell.n_candidates}
+    </span>
   );
 }
 

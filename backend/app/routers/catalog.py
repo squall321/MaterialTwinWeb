@@ -8,6 +8,8 @@ from pydantic import BaseModel
 from sqlalchemy import func, or_, select
 from sqlalchemy.orm import Session
 
+from app.catalog_alternatives import (annotate_comparison, annotate_scatter,
+                                      candidate_index, index_from_rows, separated_by)
 from app.catalog_compare import (build_comparison, numeric_property_options,
                                  representative_numeric, scatter_dataset)
 from app.dyna_export import build_cards, match_rows
@@ -133,6 +135,9 @@ def catalog_materials(
         if prop not in key_domain:
             raise HTTPException(status_code=400, detail=f"알 수 없는 물성 키: {prop}")
         prop_vals = representative_numeric(db, [prop]).get(prop, {})
+        # 대표값 하나만 내보내면 "다른 후보가 있다" 가 목록에서 통째로 사라진다(§545).
+        # 목록은 **수만** 낸다 — 값까지 실으면 2,654행 응답이 배로 뛴다. 값은 상세·비교에서 본다.
+        prop_cands = candidate_index(db, [prop], numeric_only=True)
 
     out = []
     for m in mats:
@@ -161,6 +166,9 @@ def catalog_materials(
         }
         if prop:
             row["prop_value"] = prop_vals.get(m.id)
+            ent = prop_cands.get((m.id, prop))
+            row["prop_candidates"] = ent["n"] if ent else 1
+            row["prop_tie"] = bool(ent and ent["tie"])
         out.append(row)
     if sort == "name":
         out.sort(key=lambda x: (x["name"] or "").lower())
@@ -200,9 +208,16 @@ def catalog_material_detail(mid: int, db: Session = Depends(get_db)) -> dict:
         .where(PropertyValue.material_id == mid)
         .order_by(PropertyDefinition.domain, PropertyDefinition.name, PropertyValue.quality_tier)
     ).all())
+    # 상세는 예전부터 **모든 행**을 냈다 — 값을 감춘 적은 없다.
+    # 빠져 있던 것은 "이 중 어느 것이 대표값인가" 와 "진 행은 왜 졌는가" 다.
+    # 여기서는 이미 읽어 온 행으로 색인을 만든다(추가 질의 없음).
+    idx = index_from_rows([pv for pv, _ in rows])
     domains: dict[str, list] = defaultdict(list)
     for pv, d in rows:
         src = pv.source
+        ent = idx.get((pv.material_id, pv.property_key))
+        head = ent["ranked"][0] if ent else pv
+        is_rep = head.id == pv.id
         domains[d.domain].append({
             "key": pv.property_key, "name": d.name, "symbol": d.symbol,
             "value": pv.value_num, "value_text": pv.value_text, "unit": pv.unit,
@@ -212,12 +227,28 @@ def catalog_material_detail(mid: int, db: Session = Depends(get_db)) -> dict:
             "source": ({"title": src.title, "url": src.url, "doi": src.doi,
                         "manufacturer": src.publisher, "kind": src.kind,
                         "detail": pv.source_detail} if src else None),
+            "representative": is_rep,
+            "n_candidates": ent["n"] if ent else 1,
+            # 동률은 대표행에만 붙인다 — 같은 경고를 형제 행마다 반복하면 소음이 된다.
+            "tie": (ent["tie"] if (ent and is_rep) else None),
+            # 진 행에만 붙인다 — 대표행은 자기 자신과 비교할 것이 없다.
+            #
+            # **조건 차이는 여기서 안 낸다.** 상세는 그 물성의 *모든 행*을 이미 싣고 있어
+            # 화면이 대표행의 `conditions` 와 직접 견주면 된다. 서버가 같이 실으면
+            # 조건이 많은 재료(재료 92 = 535행)에서 응답이 634 KB → 797 KB 로 뛴다.
+            # 반면 `separated_by` 는 순위 규칙을 아는 서버만 낼 수 있어 여기서 낸다.
+            # (진 행이 응답에 없는 **비교**는 `condition_diff` 를 서버가 낸다.)
+            "separated_by": (None if is_rep else separated_by(head, pv)),
         })
+    n_multi = sum(1 for e in idx.values() if e["n"] > 1)
+    n_tie = sum(1 for e in idx.values() if e["tie"])
     return {
         "id": mat.id, "name": mat.name, "material_code": mat.material_code,
         "category": mat.category, "description": mat.description,
         "metadata": _meta(mat), "attributes": mat.attributes or {},
         "n_values": len(rows), "domains": domains,
+        # 화면 머리에 "대안값이 있는 물성 N개" 를 띄우기 위한 집계.
+        "alternatives": {"keys": n_multi, "ties": n_tie},
     }
 
 
@@ -236,7 +267,8 @@ def compare(
     data = build_comparison(db, mids)
     if len(data["materials"]) < 2:
         raise HTTPException(status_code=404, detail="유효한 재료가 2개 미만입니다")
-    return data
+    # 칸마다 후보 수·대안값·동률을 붙인다. 비교는 12종 이하라 질의 한 번이면 끝난다.
+    return annotate_comparison(db, data)
 
 
 @router.get("/axes")
@@ -255,7 +287,7 @@ def ashby(
     data = scatter_dataset(db, x, y)
     if data is None:
         raise HTTPException(status_code=400, detail="알 수 없는 물성 key(x 또는 y)")
-    return data
+    return annotate_scatter(db, data)
 
 
 class DynaMatchIn(BaseModel):
