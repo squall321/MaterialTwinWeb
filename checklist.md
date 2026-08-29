@@ -233,3 +233,31 @@
       Sandia OSTI 1213488 에 인장 탄성계수 열이 있는지 확인하면 §470 의 짝이 닫힌다
 - [ ] (인계) 폼·엘라스토머 37행은 옮기지 않았다(§507) — 그쪽을 정리하려면 **키가 아니라
       `youngs_modulus` 의 오염 조사**가 먼저다(47차 IA 가 같은 자리에서 66행을 셌다)
+
+## 53차 OC — packaging 코어 7물성 채굴 (2026-08-29)
+
+- [x] 브리프 0·1·2·5·8·51·58·117·127·129·131·140·145·195·410·429·431·435·438·443·451·454·456·467·468·479·505·559·561 읽기
+- [x] **조정자 실측 검증**(§479·505) — `subsystem='packaging'` 전수 재집계.
+      인계 `재료 112 · 5,891행 · 코어 44%` → 실측 **재료 115 · 5,955행 · 코어 43.6%**(같은 파동 병렬 배치의 증분)
+- [x] 재료별 빈 코어 칸 전수 census + 계열별 결손표 작성
+- [x] **`attributes.core_fill_sheet` 확인**(45차 GD 인계) — packaging 5종 전부 **"없음"**.
+      616(등급·공급사 미인쇄) · 2305~2308(Palaniappan 2000 A/B/C/D 익명, §58) — **열 문서가 없다**
+- [x] 벤더 시트 **실제로 열기**(§127) — EPO-TEK 353ND(Rev XXIX)·H20E(Rev VIII/IX/XVIII 셋) ·
+      Henkel LOCTITE ECCOBOND FP4526(2014-12)·FP4527(2018-11)·ABLESTIK 2025D(2014-04)·965-1L(2014-10) ·
+      NEG Powder Glass 카탈로그(표 1·2) · Solder Connection 편찬표 · Xianyi Product Manual · Zymet X6-82-5LV
+- [x] §506 행 단위 재조회 — 이미 쓴 벤더표에서 **안 옮긴 칸**을 찾았다(SAC105 k · Xianyi CTE 열)
+- [x] §138 경계 적용 — CTE·열전도율은 옮기고 **솔더 인장강도·연신 열은 옮기지 않았다**
+- [x] §133 적용 — Sn96.5Ag3.5 열전도율(55 대 33)·FP4526 CTE(25 대 33) 모순 처리
+- [x] `ingest_agent_json.py --apply` **15행 · 거부 0** (코어 칸 +10)
+- [x] `integrity_check.py` 신규 위반 0(기존 `물성값 0인 재료 2` 만) · `verdicts_check.py` 이상 0 · `pytest -q` **350 passed**
+- [ ] (인계) NEG 분말유리 `Softening point` 10칸 — **키는 열렸는데 여전히 못 넣는다.**
+      `thermal.viscosity_reference_temperature` 는 `viscosity_log10_poise` 가 조건축인데
+      NEG 카탈로그는 점도값도 시험법도 안 찍는다. 분말유리 연화점은 DTA 흡열피크지 리틀턴점이 아니다 —
+      log η 7.6 을 우리가 배정하면 그건 우리 값이다(§10). **재료 2634~2643 의 낡은 notes 를 갱신해야 한다(§89)**
+- [ ] (인계) **재료 576 열전도율 26 W/(m·K) 의 `source_id` 가 3641(Solder Connection)인데
+      그 행의 notes 자신이 "이 행만 출처가 Xianyi 다"라고 적는다.** Solder Connection 표는 이 합금 k 를 `-` 로 둔다.
+      정정 경로(`corrections`)가 `source_id` 를 못 고친다 — 로더에 없는 필드다
+- [ ] (인계) NEG 카탈로그 표 2 의 **LS-3075 행이 카탈로그에 없다**(형제 5종은 있다).
+      `Application` 이 `Alkali-free glass` 라 display 계통일 수 있어 packaging 배치가 계통을 정하지 않았다
+- [ ] (인계) FP4527 시트의 코어 밖 값 — 굽힘강도 17,000 psi · 굽힘탄성계수 10.3 GPa ·
+      `Modulus @ 23ºC` 5.5 GPa · 파단연신 1.39 % · 선수축 0.135 %

@@ -1,0 +1,114 @@
+{
+  "materials": [
+    {
+      "match_name": "Dexter Hysol FP4526 flip-chip underfill, silica-filled epoxy (Liu 2011)",
+      "source": {
+        "kind": "datasheet",
+        "title": "Technical Data Sheet — LOCTITE ECCOBOND FP4526 (formerly Dexter Hysol FP4526 capillary flip-chip underfill), December-2014",
+        "url": "https://datasheets.tdx.henkel.com/LOCTITE-ECCOBOND-FP4526-en_GL.pdf",
+        "authors": "Henkel Corporation",
+        "year": 2014,
+        "manufacturer": "Henkel Corporation (LOCTITE ECCOBOND)"
+      },
+      "properties": [
+        {
+          "key": "physical.density",
+          "value": 1700.0,
+          "unit": "kg/m^3",
+          "method": "datasheet",
+          "tier": 1,
+          "conditions": {
+            "cure_state": "uncured",
+            "basis": "Specific Gravity 1.7 — 시트의 `TYPICAL PROPERTIES OF UNCURED MATERIAL` 블록",
+            "temperature_c": "not printed"
+          },
+          "notes": "LOCTITE ECCOBOND FP4526 TDS(December-2014) `TYPICAL PROPERTIES OF UNCURED MATERIAL` verbatim: 'Specific Gravity 1.7'. **경화 상태 밀도는 시트에 없다** — 미경화 블록의 값임을 조건에 박았다(EPO-TEK 353ND 기존 밀도 행과 같은 규약). [등급이 닫힌다] 논문(Liu 2011)이 제품명 'Hysol FP4526' 을 인쇄하고 Henkel 이 같은 제품코드로 TDS 를 낸다(브리프 51). [행 배정 확인 — DB 역대조] TDS 의 'Glass Transition Temperature (Tg) by TMA, °C 133' 이 카탈로그의 이 재료 기존 Tg t3 행 406.15 K = 133 °C 와 **글자 그대로 같다**. 'Filler Weight, % 63' · 'Particle Size, µm, maximum 27' 도 카탈로그 기존 입자경 t1 행 2.7e-5 m 와 같다(브리프 129 의 DB 역대조 방향). [같은 시트의 확정 부재] 열전도율·비열·포아송비·인장강도 행이 시트에 없다. 굽힘탄성계수 8,500 N/mm2 는 있으나 인장 영률이 아니다(브리프 454 — 굽힘을 인장으로 옮겨 쓰지 마라)."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 3.3e-05,
+          "unit": "1/K",
+          "method": "datasheet",
+          "tier": 1,
+          "conditions": {
+            "regime": "below_tg",
+            "temperature_range_c": "40-90",
+            "glass_transition_c": 133,
+            "method_detail": "TMA (시트가 Tg 를 TMA 로 표기)"
+          },
+          "notes": "같은 TDS `TYPICAL PROPERTIES OF CURED MATERIAL` verbatim: 'Coefficient of Thermal Expansion, ppm/°C: Below Tg (40 to 90°C) 33 / Above Tg (190 to 220°C) 101', 'Glass Transition Temperature (Tg) by TMA, °C 133'. **시트가 Tg 구간뿐 아니라 측정 온도구간까지 인쇄한다** — 둘 다 조건축에 박았다. [벤더 문서 간 불일치 — 무엇을 골랐는지] 구판 선별표(Loctite 'Hysol Semiconductor Liquid Encapsulants', Package Level Underfills)는 같은 제품에 Tg 133 · 'CTE (1)' 25 를 인쇄한다. **CTE 가 25 대 33 으로 32 % 갈린다.** 선별표의 각주 (1) 은 본문에 정의가 없어 어느 구간인지 읽을 수 없고, 이쪽 TDS 는 구간과 측정 온도구간을 둘 다 인쇄한다 — **1차 문서(TDS)를 택하고 구판 선별표 값은 넣지 않았다**(브리프 127·148). 두 문서의 Tg(133)·점도(4,700 cps)·필러(63 %)는 같다."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 0.000101,
+          "unit": "1/K",
+          "method": "datasheet",
+          "tier": 1,
+          "conditions": {
+            "regime": "above_tg",
+            "temperature_range_c": "190-220",
+            "glass_transition_c": 133,
+            "method_detail": "TMA (시트가 Tg 를 TMA 로 표기)"
+          },
+          "notes": "같은 표 'Above Tg (190 to 220°C) 101'. alpha1 과 3.1 배 갈린다 — 언더필은 Tg 를 경계로 CTE 가 3~4 배 갈리므로 구간 없이 한 값으로 넣으면 안 된다. 나머지 근거는 alpha1 행과 같다."
+        }
+      ]
+    },
+    {
+      "match_name": "Underfill Dexter FP4527, silica-filled epoxy 68 wt% (flip-chip capillary underfill, Hohlfelder 2001)",
+      "source": {
+        "kind": "datasheet",
+        "title": "Technical Data Sheet — LOCTITE ECCOBOND FP4527 (formerly Dexter Hysol FP4527 capillary flip-chip underfill), November-2018",
+        "url": "https://datasheets.tdx.henkel.com/LOCTITE-ECCOBOND-FP4527-en_GL.pdf",
+        "authors": "Henkel Corporation",
+        "year": 2018,
+        "manufacturer": "Henkel Corporation (LOCTITE ECCOBOND)"
+      },
+      "properties": [
+        {
+          "key": "thermal.expansion_linear",
+          "value": 2.6e-05,
+          "unit": "1/K",
+          "method": "datasheet",
+          "tier": 1,
+          "conditions": {
+            "regime": "below_tg",
+            "temperature_range_c": "not printed",
+            "glass_transition_c": 158,
+            "method_detail": "Tg by TMA 158 C (같은 시트가 Tg by DSC 140 C 도 함께 인쇄한다)"
+          },
+          "notes": "LOCTITE ECCOBOND FP4527 TDS(November-2018) `TYPICAL PROPERTIES OF CURED MATERIAL` verbatim: 'Coefficient of Thermal Expansion, ppm/°C: Below Tg 26 / Above Tg 87'. Tg 는 같은 시트가 두 방법을 나란히 인쇄한다 — '(Tg) by TMA 158 / (Tg) by DSC 140'. [등급·행 배정이 닫힌다] 시트의 'Filler Content % 68' 이 카탈로그의 이 재료 이름·기존 filler_content t1 행 0.68 과 **정확히 같다**(브리프 129 의 DB 역대조). 점도 12,000 cP 도 구판 선별표와 같다. [벤더 문서 간 Tg 불일치가 여기서 닫힌다] 구판 Loctite 선별표는 FP4527 의 Tg 를 140 으로, CTE 를 26 으로 인쇄한다 — **140 은 DSC 값이고 158 은 TMA 값이라 두 문서가 모순이 아니다**(브리프 80·102). CTE 26 은 두 문서가 같다. [같은 시트의 확정 부재] 밀도·비중 행이 아예 없고(FP4526 시트에는 있다 — 브리프 147 의 자매시트 대조), 열전도율·비열·포아송비 행도 없다."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 8.7e-05,
+          "unit": "1/K",
+          "method": "datasheet",
+          "tier": 1,
+          "conditions": {
+            "regime": "above_tg",
+            "temperature_range_c": "not printed",
+            "glass_transition_c": 158,
+            "method_detail": "Tg by TMA 158 C (같은 시트가 Tg by DSC 140 C 도 함께 인쇄한다)"
+          },
+          "notes": "같은 표 'Above Tg 87'. alpha1 과 3.3 배 갈린다. 나머지 근거는 alpha1 행과 같다."
+        },
+        {
+          "key": "mechanical.tensile_strength",
+          "value": 68950000.0,
+          "unit": "Pa",
+          "method": "datasheet",
+          "tier": 1,
+          "conditions": {
+            "temperature_c": 23,
+            "temperature_k": 296.15,
+            "strain_rate_s": "not printed",
+            "cure": "15 min @ 165 C (hot plate) / 30 min @ 165 C (convection oven) — 시트의 권장 경화",
+            "source_of_value": "vendor TDS 'TYPICAL PERFORMANCE OF CURED MATERIAL — Tensile Strength @ 23ºC, psi 10,000'"
+          },
+          "notes": "같은 TDS verbatim: 'Tensile Strength @ 23ºC , psi 10,000'. 10,000 psi x 6894.757 = 68.95 MPa. 카탈로그에 이미 있는 51 MPa(Hohlfelder 2001, 단축인장 실측)와 **다른 측정이고 조건이 다르다** — 벤더 시트 값이라 별도 행으로 둔다. 같은 시트의 'Elongation @ break, % 1.39' · 'Flexural Strength, 3 points bend, psi 17,000' · 'Flexural Modulus 10.3 GPa' · 'Modulus @ 23ºC 5.5 GPa' 는 코어 7물성 밖이라 이 배치에서 넣지 않았다 — **다음 배치가 캘 수 있게 여기 적어 둔다**(브리프 151)."
+        }
+      ]
+    }
+  ]
+}

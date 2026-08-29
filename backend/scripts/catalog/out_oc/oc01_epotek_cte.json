@@ -1,0 +1,94 @@
+{
+  "materials": [
+    {
+      "match_name": "EPO-TEK 353ND epoxy adhesive matrix, cured 100 C / 2 h (Nguyen 2011)",
+      "source": {
+        "kind": "datasheet",
+        "title": "EPO-TEK® 353ND Technical Data Sheet, High Temperature Epoxy, Rev XXIX, September 2017",
+        "url": "https://focenter.com/media/wysiwyg/2020/08/353ND_TDS.pdf",
+        "authors": "Epoxy Technology, Inc.",
+        "year": 2017,
+        "manufacturer": "Epoxy Technology, Inc. (Billerica, MA — A Meridian Adhesives Group Company)"
+      },
+      "properties": [
+        {
+          "key": "thermal.expansion_linear",
+          "value": 5.4e-05,
+          "unit": "1/K",
+          "method": "datasheet",
+          "tier": 3,
+          "conditions": {
+            "regime": "below_tg",
+            "glass_transition_c": 90,
+            "glass_transition_bound": "lower — 시트가 `>= 90 degC` 로 인쇄한다(부등호, 브리프 132)",
+            "temperature_range_c": "not printed",
+            "cure_schedule": "150 C / 1 h (TDS 'Typical Properties: Cure condition: 150°C / 1 Hour')",
+            "grade_scope": "class value — 시트의 경화조건은 150 C / 1 h 이고 이 재료 레코드의 경화조건(100 C / 2 h)과 다르다"
+          },
+          "notes": "EPO-TEK 353ND TDS(Rev XXIX, 2017-09) `PHYSICAL PROPERTIES` 블록 verbatim: 'Coefficient of Thermal Expansion (CTE): Below Tg: 54 x 10-6 in/in°C / Above Tg: 206 x 10-6 in/in°C'. in/in/degC = 1/K 이므로 환산 없이 5.4e-5. **Tg 구간을 조건축에 박았다** — 같은 블록이 'Glass Transition Temp: >= 90 °C (Dynamic Cure: 20-200°C/ISO 25 Min; Ramp -10-200°C @20°C/Min)' 를 인쇄한다. [행 배정 확인] 같은 시트의 Dielectric Constant 3.17 / Dissipation Factor 0.005 (1KHz) 가 카탈로그의 이 재료 기존 t1 행과 소수점까지 같다(브리프 129 의 DB 역대조). [tier 근거] 시트의 경화조건(150 C/1 h)이 이 재료 레코드의 경화조건(100 C/2 h)과 달라 기존 s3549 행들과 같은 규약으로 class value t3 로 둔다. [같은 시트의 확정 부재] 'Thermal Conductivity: N/A' 가 **인쇄돼 있다** — 열전도율은 벤더가 값을 내지 않는다(브리프 127). 인장강도·포아송비·비열 행은 시트에 아예 없고, 경화 상태 밀도도 없다(기존 밀도 행 notes 가 이미 그렇게 적어 두었다)."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 0.000206,
+          "unit": "1/K",
+          "method": "datasheet",
+          "tier": 3,
+          "conditions": {
+            "regime": "above_tg",
+            "glass_transition_c": 90,
+            "glass_transition_bound": "lower — 시트가 `>= 90 degC` 로 인쇄한다",
+            "temperature_range_c": "not printed",
+            "cure_schedule": "150 C / 1 h (TDS 'Typical Properties: Cure condition: 150°C / 1 Hour')",
+            "grade_scope": "class value — 시트의 경화조건은 150 C / 1 h 이고 이 재료 레코드의 경화조건(100 C / 2 h)과 다르다"
+          },
+          "notes": "같은 표 'Above Tg: 206 x 10-6 in/in°C'. Tg 위 구간이라 alpha1 과 3.8 배 갈린다 — 구간 없이 한 값으로 넣으면 안 되는 이유가 이것이다. 나머지 근거는 alpha1 행과 같다."
+        }
+      ]
+    },
+    {
+      "match_name": "ICA-2 isotropic conductive adhesive: EPO-TEK H20E Ag-filled epoxy, cured 100 C / 3 h (Nguyen 2011)",
+      "source": {
+        "kind": "datasheet",
+        "title": "EPO-TEK H20E Technical Data Sheet, February 2021, Rev. XVIII (Electrically Conductive, Silver Epoxy)",
+        "url": "https://www.tedpella.com/technote_html/16014_H20E_TN.pdf",
+        "authors": "Epoxy Technology, Inc.",
+        "year": 2021,
+        "manufacturer": "Epoxy Technology, Inc. (Billerica, MA — A Meridian Adhesives Group Company)"
+      },
+      "properties": [
+        {
+          "key": "thermal.expansion_linear",
+          "value": 3.1e-05,
+          "unit": "1/K",
+          "method": "datasheet",
+          "tier": 3,
+          "conditions": {
+            "regime": "below_tg",
+            "glass_transition_c": 80,
+            "glass_transition_bound": "lower — 시트가 `>= 80 degC` 로 인쇄한다(부등호, 브리프 132)",
+            "temperature_range_c": "not printed",
+            "cure_schedule": "150 C / 1 h (TDS 'Typical Properties: Cure condition: 150°C / 1 Hour')",
+            "grade_scope": "class value — 시트의 경화조건은 150 C / 1 h 이고 이 재료 레코드의 경화조건(100 C / 3 h)과 다르다"
+          },
+          "notes": "EPO-TEK H20E TDS(Rev XVIII, 2021-02) `PHYSICAL PROPERTIES` verbatim: 'Coefficient of Thermal Expansion (CTE): Below Tg: 31 x 10-6 in/in°C / Above Tg: 158 x 10-6 in/in°C', 'Glass Transition Temp: >= 80 °C (Dynamic Cure: 20-200°C/ISO 25 Min; Ramp -10-200°C @20°C/Min)'. [개정판 대조 — 셋이 같다] Rev VIII·Rev IX(bondingsource·qptechnologies 사본)도 31/158 과 Tg >= 80 을 똑같이 인쇄한다. **다만 이건 독립 확인이 아니라 같은 문서의 개정판 일치다**(브리프 456). [주의 — 웹 요약을 믿지 마라] 검색엔진 요약은 이 제품의 CTE 를 '53 / 233' 으로 답했는데 **세 개정판 어디에도 그런 값이 없다**(브리프 505·148 — 시트를 실제로 열어야 한다). [행 배정 확인] 같은 시트의 'Storage Modulus 808,700 psi' = 5.576 GPa 가 카탈로그의 이 재료 기존 저장탄성률 t3 행 5.6 GPa 와 맞고, 'Thermal Conductivity 2.5 W/mK (Laser Flash)' 도 기존 t3 행과 같다. [같은 시트의 확정 부재] 인장강도·포아송비·비열 행이 시트에 없다. 밀도는 'Specific Gravity Syringe 2.67' 만 있고 그건 이미 미경화 상태로 들어가 있다."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 0.000158,
+          "unit": "1/K",
+          "method": "datasheet",
+          "tier": 3,
+          "conditions": {
+            "regime": "above_tg",
+            "glass_transition_c": 80,
+            "glass_transition_bound": "lower — 시트가 `>= 80 degC` 로 인쇄한다",
+            "temperature_range_c": "not printed",
+            "cure_schedule": "150 C / 1 h (TDS 'Typical Properties: Cure condition: 150°C / 1 Hour')",
+            "grade_scope": "class value — 시트의 경화조건은 150 C / 1 h 이고 이 재료 레코드의 경화조건(100 C / 3 h)과 다르다"
+          },
+          "notes": "같은 표 'Above Tg: 158 x 10-6 in/in°C'. alpha1 과 5.1 배 갈린다. 나머지 근거는 alpha1 행과 같다."
+        }
+      ]
+    }
+  ]
+}
