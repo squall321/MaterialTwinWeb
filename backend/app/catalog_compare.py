@@ -112,8 +112,19 @@ def is_non_solid(cond) -> bool:
 #   뺀 뒤   : 이동 전 라이브 변동 0군 · 이동 표시 193행을 얹어도 변동 0군
 # §563 이 "값이 같은 중복군은 한쪽에만 더한다" 로 풀 수 있었던 것은 그 군의 값이 같아서였다.
 # 출처 병합이 옮기는 193행은 중복군이 아니라 DB 전역에 흩어져 있어 그 길이 없다.
+# **`direction_verbatim` 도 조건이 아니다**(54차 PA). 그것은 `direction` 의 **원문**이지
+# 별개의 축이 아니다 — 한 축을 두 칸으로 세면 방향을 가진 행만 군 안에서 밀린다.
+# 52차 NA 는 *"`direction` 을 가진 행은 전부 정확히 한 칸 늘어난다"* 로 상쇄했는데,
+# 그 상쇄는 **군의 모든 행이 `direction` 을 가질 때만** 성립한다. 방향 행과 무방향 행이
+# 섞인 군에서는 안 성립한다 — 실측(라이브 41,383행, 잔여 4,455행 정정):
+#   빼기 전 : 대표 행 **4군** 변동 · 그중 **값까지 바뀌는 것 1군**
+#             (재료108 열전도율 pv4217 면직 15 → pv1051 면내 700 W/mK)
+#   뺀 뒤   : 변동 **0군**
+# 그리고 **지금 라이브만 놓고 빼도 변동 0군**이다(NA 가 이미 얹은 5천여 행 포함 전수 대조) —
+# 순위를 흔들지 않고 상쇄를 조건 없는 규칙으로 바꾸는 자리라 넣었다.
+# `direction` 이 미배정이라 `null` 인 행도 키는 남아 있어(§561 ㉡) 양쪽 다 한 칸으로 세어진다.
 _NOT_A_CONDITION = ("correction_reason", "corrected_by", "correction_evidence",
-                    "moved_from_material", "moved_from_source")
+                    "moved_from_material", "moved_from_source", "direction_verbatim")
 
 
 def _condition_axis_count(cond) -> int:
