@@ -108,22 +108,29 @@ def test_verdict_lands_on_the_operational_row_instead_of_inserting(tmp_path):
     assert after[1] == dict(DUP, **VERDICT)                    # 중복에만 판정이 얹혔다
 
 
-def test_the_correction_path_could_not_do_this(tmp_path):
-    """§548 의 함정 — 한 군에 `(출처, 값)` 이 같은 행이 둘이라 정정 경로는 옛 행을 특정 못 한다.
+def test_the_correction_path_now_reaches_this_too(tmp_path):
+    """**54차 PA 가 이 자리를 열었다.** 전에는 정정 경로가 옛 행을 특정 못 했다(§548).
 
-    같은 상황에서 **판정 경로는 조건 전체로 좁히므로 유일하게 찾는다.** 그것이 이 분기의 존재 이유다.
+    옛 모습 — `(재료·키·출처·값)` 만으로 좁혀 두 행에 걸리고, 값이 운영에 **새 행**으로
+    들어갔다(`added 1 · correction_misses 1`). 그것이 51차 MA 가 128군을, 52차 NA 가
+    691군을 포기한 이유다. 지금은 값으로 안 갈리면 **정정 전 조건을 표시로 되돌려
+    사전으로 대조**하므로 유일하게 찾는다(§579 의 방식을 분기 ③ 에 준 것이다).
+
+    **판정 경로(②-b)가 없어도 된다는 뜻은 아니다.** 그쪽은 `correction_reason` 을 남기지
+    않는 판정 — 즉 정정으로 선언되지 않은 행 — 을 맡는다. 아래 테스트들이 그 자리를 지킨다.
     """
     prod = _make_db(tmp_path, "prod2.db")
     _seed(prod, [CANON, DUP])
     dev = _make_db(tmp_path, "dev2.db")
-    # 정정으로 선언해 보면(§521 의 표시 그대로) 두 행에 걸려 실패한다.
+    # 정정으로 선언한다(§521 의 표시 그대로).
     corrected = dict(DUP, correction_reason="중복이라 표시한다",
                      value_before_correction=VAL)
     _seed(dev, [CANON, corrected])
     out = _merge(dev, prod)
-    assert out["summary"]["property_value"]["added"] == 1      # 사본이 생긴다 — 이게 §548 이다
-    assert out["correction_misses_total"] == 1
-    assert "운영행 2건에 걸린다" in out["correction_misses"][0]["사유"]
+    assert out["summary"]["property_value"]["added"] == 0      # 사본이 안 생긴다
+    assert out["value_corrections_total"] == 1
+    assert out.get("correction_misses_total") is None
+    assert _conds(prod)[0] == CANON                            # 정본은 한 칸도 안 건드린다
 
 
 def test_remerge_is_idempotent(tmp_path):
