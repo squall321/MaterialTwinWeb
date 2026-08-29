@@ -202,9 +202,18 @@ TEXT_AXES = [
     (r"(alpha ?1|alpha ?2|below tg|above tg|glassy|rubbery|α1|α2)", "온도·상태영역"),
     (r"(\d+\s*nm\b|wavelength|passband|stop-?band)", "율속·주파수·파장"),
     (r"(\d+\s*(°|deg)?\s*C\b|room temperature|\bK\b)", "온도·상태영역"),
-    (r"(\d+(\.\d+)?\s*(M|wt%|vol%|wt\.%|mol%)\b)", "시편·조성"),
+    # 52차 NC 고침 — `wt%\b` 는 **한 번도 안 걸린다.** `%` 뒤에 오는 것이 공백이라
+    # 둘 다 비단어 문자여서 `\b` 가 성립하지 않는다(`'15 wt% CB'` → 0건, 실측).
+    # 그리고 몰농도 `M` 이 `re.I` 라 `'1270 m^2/g'`·`'50 min'` 을 조성으로 오인했다.
+    # 전수 대조 — 이 둘을 고치니 2군이 서술차이 → 서술축으로 옮겨갔고(재료138 AgNW 1.9 대
+    # 1.1 vol%, 재료147 카본블랙 15 대 3 wt%) 다른 군은 하나도 안 바뀌었다.
+    (r"(\d+(\.\d+)?\s*(?:wt\.?\s?%|vol\.?\s?%|mol\s?%|at\.?\s?%|phr\b)"
+     r"|\d+(\.\d+)?\s*M(?![A-Za-z]))", "시편·조성"),
     (r"(\d+(\.\d+)?\s*(mil|um|µm|mm)\b)", "시편·조성"),
     (r"(\d+(\.\d+)?\s*(Hz|kHz|MHz|GHz)\b|/min\b|mm/min)", "율속·주파수·파장"),
+    # 52차 NC 추가 — 서술 안의 **공정 시간**. 재료191 NiCr 은 RTA 가 60 s 대 600 s 인데
+    # 그것이 `detail` 안에만 있어 "서술만 다르다" 로 분류됐다. 전수 대조 1군 이동·0군 부작용.
+    (r"(\d+(\.\d+)?\s*(?:s|sec|seconds?|min|minutes?|h|hr|hours?|d|days?)\b)", "열이력·공정"),
 ]
 _TX = [(re.compile(p, re.I), lab) for p, lab in TEXT_AXES]
 
@@ -266,6 +275,71 @@ def synonym_pairs(head, rivals):
     return sorted(set(out))
 
 
+# 52차 NC — MA 의 온도 가드는 **짝을 버리기만 하고 그 다음을 정하지 않았다.**
+# `temperature_C 20` 대 `temperature_K 77` 은 짝에서 빠진 뒤 "한쪽에만 있는 축" 으로 남아
+# **조건미기재**로 판정됐다. 그런데 두 행 모두 온도를 인쇄했다 — 축은 닫혀 있고 값이 다르다.
+# 판정문이 *"이 축이 한쪽에만 적혀 있다"* 라고 말하는데 그것이 사실이 아니다(브리프 505 —
+# 틀린 주의는 표적이 틀린 것보다 나쁘다). 라이브 전수에서 5군(재료508~512 Pt(II) 인광체,
+# 20 °C 톨루엔 용액 대 77 K 2-MeTHF 유리)이 여기 걸렸고 다른 군은 하나도 안 움직였다.
+_TEMP_IN_TEXT = re.compile(r"(-?\d+(?:\.\d+)?)\s*(?:°|deg\s*)?\s*([CKF])\b", re.I)
+
+
+def temp_c(key, val):
+    """(조건키, 값) 에서 °C 를 읽는다. **못 읽으면 None** — 지어내지 않는다."""
+    kl = key.lower()
+    if isinstance(val, bool) or val is None:
+        return None
+    if isinstance(val, (int, float)):
+        if kl.endswith(("_k", "_kelvin")):
+            return float(val) - 273.15
+        if kl.endswith(("_c", "_celsius")):
+            return float(val)
+        if kl.endswith("_f"):
+            return (float(val) - 32) / 1.8
+        return None
+    if isinstance(val, str):
+        m = _TEMP_IN_TEXT.search(val)
+        if m:
+            v, u = float(m.group(1)), m.group(2).upper()
+            return v if u == "C" else v - 273.15 if u == "K" else (v - 32) / 1.8
+    return None
+
+
+def norm_pairs(head, rivals):
+    """`synonym_pairs` 와 같은 짝인데 **값 비교 없이 전부** 돌려준다. (키, 값, 키, 값)."""
+    out = []
+    ca = head.conditions or {}
+    for b in rivals:
+        cb = b.conditions or {}
+        oa, ob = set(ca) - set(cb), set(cb) - set(ca)
+        for x in sorted(oa):
+            for y in sorted(ob):
+                if norm_key(x) == norm_key(y):
+                    out.append((x, ca.get(x), y, cb.get(y)))
+    return out
+
+
+def _axis_closed_by_other_name(head, rivals, only_axis):
+    """한쪽에만 있는 축 키가 **상대쪽의 다른 이름 같은 축**과 전부 짝이 되는가.
+
+    돌려주는 것 — (같은 값 짝, 다른 값 짝). 둘 다 비면 축이 안 닫혔다는 뜻이다.
+    온도는 실제로 읽어서 비교한다. **못 읽는 온도는 판단을 미룬다**(짝으로 안 센다).
+    """
+    same, diff = [], []
+    for x, vx, y, vy in norm_pairs(head, rivals):
+        tx, ty = temp_c(x, vx), temp_c(y, vy)
+        if tx is not None and ty is not None:
+            (same if abs(tx - ty) <= 1.0 else diff).append((x, y))
+        elif norm_key(x).startswith("temperature"):
+            continue
+        else:
+            same.append((x, y))
+    covered = {x for x, y in same + diff} | {y for x, y in same + diff}
+    if only_axis - covered:
+        return [], []          # 안 닫힌 축이 남아 있다
+    return sorted(set(same)), sorted(set(diff))
+
+
 # 우리가 조건에 적는 살림살이 — **조건이 아니다.** 분류에서 빼지 않으면 이 도구가
 # 자기가 적은 판정을 "갈린 축" 으로 다시 읽는다(51차 MA 가 두 번째 실행에서 확인했다).
 def _is_bookkeeping(k: str) -> bool:
@@ -312,7 +386,14 @@ def classify(head, rivals):
     if f["term"]:
         return "다른항", labs, f["all"]
     if f["axis"]:
-        if set(f["axis"]) & set(f["only"]):
+        only_axis = set(f["axis"]) & set(f["only"])
+        if only_axis:
+            # 52차 NC — 표기가 달라 한쪽에만 있는 것처럼 보이는 축을 먼저 닫는다.
+            same, diff = _axis_closed_by_other_name(head, rivals, only_axis)
+            if diff:
+                return "다른조건", labs, f["all"]      # 축은 양쪽에 있고 **값이 다르다**
+            if same:
+                return "키표기흔들림", [f"{x}↔{y}" for x, y in same] + labs, f["all"]
             syn = synonym_pairs(head, rivals)
             if syn:
                 return "키표기흔들림", [f"{x}↔{y}" for x, y in syn] + labs, f["all"]
