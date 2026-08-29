@@ -50,6 +50,32 @@ def test_condition_diff_reports_only_the_columns_that_differ():
     assert d == {"direction": {"rep": "in-plane", "alt": "through-thickness"}}
 
 
+def test_condition_diff_ignores_our_own_bookkeeping_cells():
+    """**우리가 조건에 적은 판정·정정 살림살이는 조건이 아니다**(52차 NC).
+
+    51차 MA 가 동률 사유를 `conditions.verdict_tie_*` 에 적으면서 적재기의
+    `correction_reason`·`corrected_by`·`<칸>_before_correction` 도 같이 들어왔다(§521·548).
+    `verdict_tie_note` 는 행마다 다른 글이라, 이것을 세면 **조건이 하나도 안 다른 두 행이
+    "조건이 다르다" 로 보인다.** 라이브 실측 — 판정 4,911행을 박은 뒤 `indistinguishable`
+    35 → 22 · `multi_term` 394 → 370 으로 §546 의 세 갈래가 무너졌다. 여기서 빼면
+    **판정을 몇 행에 박든 이 세 수가 안 변한다.**
+    """
+    book = {"verdict_tie_axis": "52차 NC — 의견차",
+            "verdict_tie_note": "긴 판정문 A", "verdict_tie_note_before_correction": None,
+            "correction_reason": "동률 판정", "corrected_by": "52차 NC"}
+    rep = _pv(1, cond=dict(book, temperature_C=23.0))
+    alt = _pv(2, cond=dict(book, verdict_tie_note="긴 판정문 B", temperature_C=23.0))
+    assert CA.condition_diff(rep, alt) == {}
+    # 그리고 그 군은 "구분할 조건조차 없다" 로 남아야 한다 — 판정이 축을 만들어내면 안 된다.
+    ti = CA.tie_info(CA.rank_group([rep, _pv(2, value=2.0,
+                                             cond=dict(book, verdict_tie_note="긴 판정문 B",
+                                                       temperature_C=23.0))]))
+    assert ti["kind"] == "indistinguishable" and ti["condition_keys"] == []
+    # 진짜 조건이 같이 갈리면 그건 그대로 잡힌다(살림살이만 빼는 것이지 다 빼는 게 아니다).
+    alt2 = _pv(3, cond=dict(book, temperature_C=200.0))
+    assert set(CA.condition_diff(rep, alt2)) == {"temperature_C"}
+
+
 def test_condition_diff_clips_long_values_for_list_like_responses():
     rep = _pv(1, cond={"note": "x" * 200})
     alt = _pv(2, cond={"note": "y" * 200})

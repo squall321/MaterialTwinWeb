@@ -34,9 +34,24 @@ _COMPARE_ALTERNATIVES = 2
 _MAX_DIFF_KEYS = 6
 
 
+# **우리가 조건에 적어 둔 살림살이는 조건이 아니다.** 51차 MA 가 대표값 동률의 사유를
+# `conditions.verdict_tie_*` 에 적으면서 적재기의 `correction_reason`·`corrected_by`·
+# `<칸>_before_correction` 도 같이 들어왔다(§521·548). 그런데 `verdict_tie_note` 는 행마다
+# 다른 글이라 **조건이 하나도 안 다른 두 행이 "조건이 다르다" 로 보인다.**
+# 실측(라이브 41,368행) — 판정을 박기 전 `indistinguishable` 35 · `multi_term` 394 였는데
+# 판정 4,911행을 박은 뒤 **22 · 370** 이 됐다. 즉 §546 이 세운 세 갈래를 **우리 주석이 무너뜨린다.**
+# 그리고 비교 응답의 `condition_diff` 에 판정문 40자 토막이 조건인 양 실린다.
+# 값은 그대로 두고 **여기서만 뺀다** — 상세 화면은 여전히 조건 전체를 보여준다(§552).
+def _is_bookkeeping(k: str) -> bool:
+    return (k.startswith("verdict_") or k.endswith("_before_correction")
+            or k in ("correction_reason", "corrected_by", "correction_evidence"))
+
+
 def _cond(pv) -> dict:
     c = getattr(pv, "conditions", None)
-    return c if isinstance(c, dict) else {}
+    if not isinstance(c, dict):
+        return {}
+    return {k: v for k, v in c.items() if not _is_bookkeeping(k)}
 
 
 def rank_group(rows: list) -> list:
