@@ -1,1136 +1,1491 @@
-[
- [
+{
+ "규율": "**지우지 않는다. 확실한 것만 합친다.** 합친 출처 행도 그대로 남아 있고(§565 — dev 에서 지운 것은 운영에 영원히 남는다), 값은 한 칸도 안 고쳤다. 참조(`property_value.source_id`)만 옮겼다.",
+ "만든 곳": "backend/scripts/catalog/source_duplicates.py — DOI(대소문자 무시)·URL 전문(쿼리 유지)·정규화 제목·content_hash·local_path+제목·제목+연도+발행처·벤더 문서번호(EI/QE) 일곱 지문. 합친 것은 마이그레이션 d5e6f7a8b9c0.",
+ "언제": "53차 OA · 라이브 41,383행 · 출처 2,945행",
+ "지문별 검출(라이브 실측)": {
+  "DOI 동일": "3군 · 출처 6행 · 물성값 10",
+  "URL 전문 동일": "7군 · 출처 14행 · 물성값 110",
+  "정규화 제목 동일": "26군 · 출처 52행 · 물성값 621",
+  "content_hash 동일": "0군 — 2,945행이 **전부 NULL** 이라 지문이 못 된다",
+  "local_path + 제목": "5군 · 출처 10행 · 물성값 222",
+  "제목+연도+발행처": "17군 · 출처 34행 · 물성값 295",
+  "벤더 문서번호(EI/QE)": "5군 · 출처 12행 · 물성값 143 — 이 배치가 새로 판 지문",
+  "local_path 단독": "6군 · 출처 65행 · 물성값 1,860 — **오탐이다. 쓰지 마라**(Doosan 55행)"
+ },
+ "부류": {
+  "확실": "20군 · 출처 21행 · 물성값 193. **합쳤다.** 아래 `정리한 군`.",
+  "의심": "23군. **표시만 하고 넘긴다.** 아래 `의심`.",
+  "정당하게 다른 문헌": "12갈래(개별 쌍으로 25쌍 이상). **건드리지 않는다.** 아래 `정당하게 다르다`."
+ },
+ "손확인에서 배운 것": [
+  "**DOI 가 다르다고 다른 문헌이 아니다 — 열어 봐야 한다.** 제목이 글자까지 같은데 DOI 가 갈린 군이 여섯인데, Crossref 로 전부 열어 보니 **다섯은 한쪽 DOI 가 엉뚱한 논문**이었고 진짜 별개 문헌은 Andersson 하나뿐이었다.",
+  "**판(edition)이 같다는 것을 증명하는 지문이 있다 — 벤더 문서번호.** DuPont 은 Qnity 분사 뒤 같은 시트를 `EI-#####`/`QE-#####` 두 번호로 낸다. §426 의 뒷면이다.",
+  "**`local_path` 는 혼자서는 지문이 아니다.** Doosan CCL 편찬 PDF 한 경로가 55개 제품 페이지에 찍혀 있다. `local_path + 정규화 제목` 으로만 써라.",
+  "**URL 쿼리를 떼면 안 된다**(§568). 스킴·`www.`·끝 슬래시만 정규화했다.",
+  "**표를 지목한 제목은 합치면 그 축이 사라진다.** 그 문서 안의 어느 표인가가 `conditions` 에 없고 제목에만 있으면(EI-10142 셋 · ACS Omega Cooper) 합치지 마라 — `docs/value_duplicates.json` 이 못박은 축이다.",
+  "**벤더 웹페이지와 PDF 는 같은 문서가 아니다**(§148). Lohmann 6군·Heraeus·SCS 가 그 부류다.",
+  "**같은 문서인데 제목이 딴 제품을 담고 있을 수 있다.** Uddeholm Dievar Ed.15 로 들어온 src4593 의 96행 중 **60행은 Corrax·Impax·Orvar·Unimax·Vidar** 값이다. 출처 행으로서는 중복이 맞아 합쳤지만, **그 60행은 다른 시트를 인용해야 한다** — 아래 `넘기는 결함`."
+ ],
+ "정리한 군": [
   {
-   "id": 3,
-   "title": "Preparation and properties of a high temperature, flexible and colorless ITO coated polyimide substrate",
-   "doi": "10.1016/j.eurpolymj.2007.04.039",
-   "url": null,
-   "kind": "journal",
-   "rows": 6
+   "남긴 출처": {
+    "id": 4571,
+    "kind": "datasheet",
+    "doi": null,
+    "url": "https://www.uddeholm.com/app/uploads/sites/216/productdb/api/tech_uddeholm-dievar_en.pdf",
+    "title": "Uddeholm Dievar — product datasheet, Edition 15 (10.2025)",
+    "현재 물성값": 188
+   },
+   "합친 출처": [
+    {
+     "id": 4593,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.uddeholm.com/",
+     "title": "Uddeholm Dievar — product datasheet, Edition 15 (10.2025)",
+     "현재 물성값": 0
+    }
+   ],
+   "근거": "같은 local_path(Uddeholm_Dievar_Tech_Ed15_2025-10.pdf) · 제목에 판(Edition 15, 10.2025)까지 동일 · year·authors 동일. 합칠 쪽은 url 이 벤더 최상위이고 publisher 가 비어 있다"
   },
   {
-   "id": 273,
-   "title": "Preparation and properties of a high temperature, flexible and colorless ITO coated polyimide substrate (Li 2007)",
-   "doi": "10.1016/j.eurpolymj.2007.06.017",
-   "url": "https://doi.org/10.1016/j.eurpolymj.2007.06.017",
-   "kind": "journal",
-   "rows": 4
+   "남긴 출처": {
+    "id": 2016,
+    "kind": "datasheet",
+    "doi": null,
+    "url": "https://www.qnityelectronics.com/content/dam/electronics/amer/us/en/electronics/public/documents/en/QE-10172-Kapton-EN-A,EN-CandEN-ZData-Sheet.pdf",
+    "title": "Kapton® EN-A, EN-C and EN-Z Polyimide Film — Technical Data Sheet (QE-10172)",
+    "현재 물성값": 48
+   },
+   "합친 출처": [
+    {
+     "id": 1740,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.qnityelectronics.com/content/dam/electronics/amer/us/en/electronics/public/documents/en/EI-10172-Kapton-EN-A-C-Z-Data-Sheet.pdf",
+     "title": "DuPont™ Kapton® EN-A, EN-C and EN-Z Polyimide Film — Data Sheet (EI-10172 / QE-10172)",
+     "현재 물성값": 0
+    }
+   ],
+   "근거": "DuPont 문서번호 EI-10172 = QE-10172 — 합칠 행의 제목이 스스로 두 번호를 함께 선언한다. §568 이 지목한 Kapton 150EN-A pv3172 의 출처 갈림이 바로 이 쌍이다"
+  },
+  {
+   "남긴 출처": {
+    "id": 2144,
+    "kind": "datasheet",
+    "doi": null,
+    "url": "https://www.qnityelectronics.com/content/dam/electronics/amer/us/en/electronics/public/documents/en/QE-10206-Kapton-HN-Data-Sheet.pdf",
+    "title": "DuPont Kapton HN Polyimide Film Technical Data Sheet (QE-10206)",
+    "현재 물성값": 48
+   },
+   "합친 출처": [
+    {
+     "id": 2157,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.qnityelectronics.com/content/dam/electronics/amer/us/en/electronics/public/documents/en/EI-10206-Kapton-HN-Data-Sheet.pdf",
+     "title": "DuPont Kapton HN Polyimide Film — Technical Data Sheet (EI-10206)",
+     "현재 물성값": 0
+    }
+   ],
+   "근거": "DuPont 문서번호 QE-10206 = EI-10206 · 같은 qnity 경로의 같은 시트"
+  },
+  {
+   "남긴 출처": {
+    "id": 1739,
+    "kind": "datasheet",
+    "doi": null,
+    "url": "https://www.pp.qnityelectronics.com/content/dam/electronics/amer/us/en/electronics/public/documents/en/EI-10207-Kapton-HPP-ST-Data-Sheet.pdf",
+    "title": "DuPont™ Kapton® HPP-ST Polyimide Film — Data Sheet (EI-10207 / QE-10207)",
+    "현재 물성값": 16
+   },
+   "합친 출처": [
+    {
+     "id": 3139,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.qnityelectronics.com/content/dam/electronics/amer/us/en/electronics/public/documents/en/EI-10207-Kapton-HPP-ST-Data-Sheet.pdf",
+     "title": "Kapton® HPP-ST Polyimide Film — Technical Data Sheet (QE-10207, 04/26)",
+     "현재 물성값": 0
+    }
+   ],
+   "근거": "문서번호 EI-10207 / QE-10207 · **URL 파일명이 같다**(EI-10207-Kapton-HPP-ST-Data-Sheet.pdf), 서브도메인만 pp. 가 붙고 안 붙는다"
+  },
+  {
+   "남긴 출처": {
+    "id": 2141,
+    "kind": "datasheet",
+    "doi": null,
+    "url": "https://www.qnityelectronics.com/content/dam/electronics/amer/us/en/electronics/public/documents/en/EI-10118-Pyralux-LF-CL-Data-Sheet.pdf",
+    "title": "DuPont Pyralux LF Acrylic-Based Coverlay - Flexible Circuit Materials data sheet (EI-10118)",
+    "현재 물성값": 11
+   },
+   "합친 출처": [
+    {
+     "id": 1736,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://insulectro.com/wp-content/uploads/2021/09/EI-10118-Pyralux-LF-CL-Data-Sheet.pdf",
+     "title": "DuPont Pyralux LF Acrylic-Based Coverlay Flexible Circuit Materials Data Sheet (EI-10118)",
+     "현재 물성값": 0
+    }
+   ],
+   "근거": "문서번호 EI-10118 · **URL 파일명이 같다**(EI-10118-Pyralux-LF-CL-Data-Sheet.pdf). 남기는 쪽이 벤더 자기 호스트다"
+  },
+  {
+   "남긴 출처": {
+    "id": 2541,
+    "kind": "journal",
+    "doi": "10.3390/ma15113880",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9181996/",
+    "title": "Numerical Simulation Study on Factors Influencing Anti-Explosion Performance of Steel Structure Protective Doors under Chemical Explosion Conditions",
+    "현재 물성값": 26
+   },
+   "합친 출처": [
+    {
+     "id": 3280,
+     "kind": "journal",
+     "doi": "10.3390/ma15103880",
+     "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9181996/fullTextXML",
+     "title": "Numerical Simulation Study on Factors Influencing Anti-Explosion Performance of Steel Structure Protective Doors under Chemical Explosion Conditions",
+     "현재 물성값": 0
+    }
+   ],
+   "근거": "같은 PMC9181996(EuropePMC 가 이 PMC 의 DOI 로 ma15113880 을 돌려준다) · 합칠 쪽 DOI `10.3390/ma15103880` 은 **Crossref 에 없는 DOI** 다"
+  },
+  {
+   "남긴 출처": {
+    "id": 2915,
+    "kind": "journal",
+    "doi": "10.3390/ma15207047",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9605540/fullTextXML",
+    "title": "Influence of Loading Directions on Dynamic Compressive Properties of Mill-Annealed Ti-6Al-4V Thick Plate",
+    "현재 물성값": 6
+   },
+   "합친 출처": [
+    {
+     "id": 2779,
+     "kind": "journal",
+     "doi": "10.3390/ma15207112",
+     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9605540/",
+     "title": "Influence of Loading Directions on Dynamic Compressive Properties of Mill-Annealed Ti-6Al-4V Thick Plate",
+     "현재 물성값": 0
+    }
+   ],
+   "근거": "같은 PMC9605540 · 합칠 쪽 DOI `10.3390/ma15207112` 는 **다른 논문**(폐폴리에스터 활성탄 열분해·흡착)이다"
+  },
+  {
+   "남긴 출처": {
+    "id": 2797,
+    "kind": "journal",
+    "doi": "10.3390/polym12102327",
+    "url": "https://res.mdpi.com/d_attachment/polymers/polymers-12-02327/article_deploy/polymers-12-02327.pdf",
+    "title": "Reliability-Based Evaluation of the Suitability of Polymers for Additive Manufacturing Intended to Injection Molding — Table 4 'Analysis of parameters related to materials processability [48,56-67]'",
+    "현재 물성값": 25
+   },
+   "합친 출처": [
+    {
+     "id": 2768,
+     "kind": "other",
+     "doi": null,
+     "url": "https://res.mdpi.com/d_attachment/polymers/polymers-12-02327/article_deploy/polymers-12-02327.pdf",
+     "title": "Reliability-Based Evaluation of the Suitability of Polymers for Additive Manufacturing Intended to Injection Molding — Table 4 'Analysis of parameters related to materials processability [48,56-67]'",
+     "현재 물성값": 0
+    }
+   ],
+   "근거": "URL 전문 동일 · 제목도 표 이름까지 동일 · 합칠 쪽은 kind 가 other 이고 DOI 가 없다"
+  },
+  {
+   "남긴 출처": {
+    "id": 1965,
+    "kind": "journal",
+    "doi": "10.3390/ma18102261",
+    "url": "https://doi.org/10.3390/ma18102261",
+    "title": "Probing Phase Transitions and Interfacial Reorganization in TAPC/CBP/BPhen Organic Light-Emitting Diode Stacks by In Situ Ellipsometry",
+    "현재 물성값": 57
+   },
+   "합친 출처": [
+    {
+     "id": 504,
+     "kind": "database",
+     "doi": null,
+     "url": "https://doi.org/10.3390/ma18102261",
+     "title": "Probing Phase Transitions in TAPC/CBP/BPhen OLED Stacks by In Situ Ellipsometry",
+     "현재 물성값": 0
+    }
+   ],
+   "근거": "URL 전문 동일(같은 DOI 링크) · 합칠 쪽은 제목 축약본이고 DOI 칸이 비어 있다"
+  },
+  {
+   "남긴 출처": {
+    "id": 1883,
+    "kind": "journal",
+    "doi": "10.1109/JMEMS.2009.2039697",
+    "url": "https://doi.org/10.1109/JMEMS.2009.2039697",
+    "title": "What is the Young's Modulus of Silicon?",
+    "현재 물성값": 20
+   },
+   "합친 출처": [
+    {
+     "id": 379,
+     "kind": "database",
+     "doi": null,
+     "url": "https://ieeexplore.ieee.org/document/5430873",
+     "title": "What is the Young's Modulus of Silicon?",
+     "현재 물성값": 0
+    }
+   ],
+   "근거": "Crossref 가 이 DOI 의 전문 링크로 `arnumber=5430873` 을 명시한다 = 합칠 쪽의 ieeexplore/document/5430873. 제목도 동일"
+  },
+  {
+   "남긴 출처": {
+    "id": 4669,
+    "kind": "journal",
+    "doi": "10.1117/12.749910",
+    "url": "https://doi.org/10.1117/12.749910",
+    "title": "High Performance Optical Materials Cyclo Olefin Polymer ZEONEX (Obuchi et al., Proc. SPIE 6671, 66711I, 2007)",
+    "현재 물성값": 27
+   },
+   "합친 출처": [
+    {
+     "id": 224,
+     "kind": "datasheet",
+     "doi": null,
+     "url": null,
+     "title": "High Performance Optical Materials Cyclo Olefin Polymer ZEONEX (Obuchi et al., Proc. SPIE 6671, 66711I, 2007)",
+     "현재 물성값": 0
+    },
+    {
+     "id": 225,
+     "kind": "datasheet",
+     "doi": null,
+     "url": null,
+     "title": "High Performance Optical Materials Cyclo Olefin Polymer ZEONEX (Obuchi et al., Proc. SPIE 6671, 2007)",
+     "현재 물성값": 0
+    }
+   ],
+   "근거": "제목이 인용문 그대로다(Obuchi et al., Proc. SPIE 6671, 66711I, 2007) · 합칠 두 행은 DOI·URL·local_path 가 **전무**하다(§185 의 '식별자가 하나도 없을 때만 제목으로 합친다')"
+  },
+  {
+   "남긴 출처": {
+    "id": 4347,
+    "kind": "journal",
+    "doi": "10.1016/j.est.2021.102302",
+    "url": null,
+    "title": "CoMn2O4 Nanoparticles Decorated on 2D MoS2 Frame: A Synergetic Energy Storage Composite Material for Sustainable Supercapacitor Application",
+    "현재 물성값": 12
+   },
+   "합친 출처": [
+    {
+     "id": 4419,
+     "kind": "journal",
+     "doi": "10.1016/j.jallcom.2021.160204",
+     "url": null,
+     "title": "CoMn2O4 Nanoparticles Decorated on 2D MoS2 Frame: A Synergetic Energy Storage Composite Material for Sustainable Supercapacitor Application",
+     "현재 물성값": 0
+    }
+   ],
+   "근거": "제목 verbatim 동일 · 합칠 쪽 DOI 는 **다른 논문**(Pt/a-Ta2O5/TiN 저항변화 소자)이다. 값도 같은 세 시료의 서로 다른 물성(격자상수·기공 대 BET·기공부피)이라 상보적이다"
+  },
+  {
+   "남긴 출처": {
+    "id": 3,
+    "kind": "journal",
+    "doi": "10.1016/j.eurpolymj.2007.04.039",
+    "url": null,
+    "title": "Preparation and properties of a high temperature, flexible and colorless ITO coated polyimide substrate",
+    "현재 물성값": 10
+   },
+   "합친 출처": [
+    {
+     "id": 273,
+     "kind": "journal",
+     "doi": "10.1016/j.eurpolymj.2007.06.017",
+     "url": "https://doi.org/10.1016/j.eurpolymj.2007.06.017",
+     "title": "Preparation and properties of a high temperature, flexible and colorless ITO coated polyimide substrate (Li 2007)",
+     "현재 물성값": 0
+    }
+   ],
+   "근거": "제목 동일 · 합칠 쪽 DOI 는 **다른 논문**(N-비닐프탈이미드 공중합체, Chikhaoui-Grioune)이다. 옛 `docs/source_duplicates.json` 이 'DOI 가 다르니 다른 논문' 으로 남겨 둔 쌍인데 열어 보니 반대였다"
+  },
+  {
+   "남긴 출처": {
+    "id": 1954,
+    "kind": "datasheet",
+    "doi": null,
+    "url": "https://www.nitto.com/us/en/others/products/file/datasheet/NBE_SWT_10+R_EN.pdf",
+    "title": "Nitto Semiconductor Wafer Processing Tape SWT 10+R datasheet (Jan 2019)",
+    "현재 물성값": 11
+   },
+   "합친 출처": [
+    {
+     "id": 3368,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www-origin.nitto.com/us/en/others/products/file/datasheet/NBE_SWT_10+R_EN.pdf",
+     "title": "Nitto Semiconductor Wafer Processing Tape SWT 10+R datasheet (Jan 2019)",
+     "현재 물성값": 0
+    }
+   ],
+   "근거": "URL 이 `www` / `www-origin` 서브도메인만 다르다(경로·파일명 동일) · 제목에 판(Jan 2019)까지 동일"
+  },
+  {
+   "남긴 출처": {
+    "id": 395,
+    "kind": "database",
+    "doi": null,
+    "url": "https://www.ioffe.ru/SVA/NSM/Semicond/AlN/mechanic.html",
+    "title": "NSM Archive - Aluminium Nitride (AlN) - Mechanical properties",
+    "현재 물성값": 5
+   },
+   "합친 출처": [
+    {
+     "id": 3164,
+     "kind": "database",
+     "doi": null,
+     "url": "http://www.ioffe.ru/SVA/NSM/Semicond/AlN/mechanic.html",
+     "title": "Aluminium Nitride (AlN) - Mechanical properties, elastic constants, lattice vibrations (Ioffe Institute NSM Archive)",
+     "현재 물성값": 0
+    }
+   ],
+   "근거": "URL 이 http/https 만 다른 같은 페이지다"
+  },
+  {
+   "남긴 출처": {
+    "id": 393,
+    "kind": "database",
+    "doi": null,
+    "url": "https://www.ioffe.ru/SVA/NSM/Semicond/Si/mechanic.html",
+    "title": "NSM Archive - Silicon (Si) - Mechanical properties",
+    "현재 물성값": 6
+   },
+   "합친 출처": [
+    {
+     "id": 3163,
+     "kind": "database",
+     "doi": null,
+     "url": "http://www.ioffe.ru/SVA/NSM/Semicond/Si/mechanic.html",
+     "title": "Silicon - Mechanical properties, elastic constants, lattice vibrations (Ioffe Institute NSM Archive)",
+     "현재 물성값": 0
+    }
+   ],
+   "근거": "URL 이 http/https 만 다른 같은 페이지다"
+  },
+  {
+   "남긴 출처": {
+    "id": 353,
+    "kind": "database",
+    "doi": null,
+    "url": "http://www.ioffe.ru/SVA/NSM/Semicond/GaAs/basic.html",
+    "title": "GaAs - Basic Parameters at 300 K (NSM Archive)",
+    "현재 물성값": 4
+   },
+   "합친 출처": [
+    {
+     "id": 2442,
+     "kind": "book",
+     "doi": null,
+     "url": "https://www.ioffe.ru/SVA/NSM/Semicond/GaAs/basic.html",
+     "title": "NSM Archive - Gallium Arsenide (GaAs) - Basic Parameters",
+     "현재 물성값": 0
+    }
+   ],
+   "근거": "URL 이 http/https 만 다른 같은 페이지다. 남기는 쪽이 kind=database 이고 publisher 가 차 있다 — 합칠 쪽은 kind 가 book 으로 잘못 적혀 있다"
+  },
+  {
+   "남긴 출처": {
+    "id": 3628,
+    "kind": "journal",
+    "doi": "10.1007/BF02692566",
+    "url": "https://doi.org/10.1007/BF02692566",
+    "title": "Creep-constitutive behavior of Sn-3.8Ag-0.7Cu solder using an internal stress approach",
+    "현재 물성값": 6
+   },
+   "합친 출처": [
+    {
+     "id": 3639,
+     "kind": "journal",
+     "doi": "10.1007/bf02692566",
+     "url": "https://doi.org/10.1007/bf02692566",
+     "title": "Creep-constitutive behavior of Sn-3.8Ag-0.7Cu solder using an internal stress approach",
+     "현재 물성값": 0
+    }
+   ],
+   "근거": "DOI 가 대소문자만 다르다 — DOI 는 규격상 대소문자를 구분하지 않는다 · local_path 동일"
+  },
+  {
+   "남긴 출처": {
+    "id": 3584,
+    "kind": "journal",
+    "doi": "10.4028/www.scientific.net/MSF.926.73",
+    "url": "https://doi.org/10.4028/www.scientific.net/MSF.926.73",
+    "title": "Parylene-Coated Cellulose Nanofiber Films with Improved Oxygen Barrier and Water Resistance",
+    "현재 물성값": 2
+   },
+   "합친 출처": [
+    {
+     "id": 4517,
+     "kind": "journal",
+     "doi": "10.4028/www.scientific.net/msf.926.73",
+     "url": null,
+     "title": "Parylene-Coated Cellulose Nanofiber Films with Improved Oxygen Barrier and Water Resistance",
+     "현재 물성값": 0
+    }
+   ],
+   "근거": "DOI 가 대소문자만 다르다 · local_path 동일"
+  },
+  {
+   "남긴 출처": {
+    "id": 3631,
+    "kind": "journal",
+    "doi": "10.1007/BF01133338",
+    "url": "https://doi.org/10.1007/BF01133338",
+    "title": "Creep-fatigue interaction in eutectic lead-tin solder alloy",
+    "현재 물성값": 2
+   },
+   "합친 출처": [
+    {
+     "id": 4539,
+     "kind": "journal",
+     "doi": "10.1007/bf01133338",
+     "url": null,
+     "title": "Creep-fatigue interaction in eutectic lead-tin solder alloy",
+     "현재 물성값": 0
+    }
+   ],
+   "근거": "DOI 가 대소문자만 다르다 · local_path 동일"
   }
  ],
- [
+ "의심": [
   {
-   "id": 25,
-   "title": "Nitto No.5000NS Re-Peelable Strong Adhesive Double-Sided Tape - Product Data (nitto.com)",
-   "doi": null,
-   "url": "https://www.nitto.com/us/en/others/products/file/datasheet/NJ_No.5000NS_EN.pdf",
-   "kind": "datasheet",
-   "rows": 11
+   "이름": "Lohmann DuploCOLL 330",
+   "행": [
+    {
+     "id": 2221,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.lohmann-tapes.us/files_db/1642579726,921__6.pdf",
+     "title": "Lohmann DuploCOLL 330 technical data sheet",
+     "publisher": "Lohmann",
+     "물성값": 21
+    },
+    {
+     "id": 2362,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.lohmann-tapes.com/en/products/duplocoll-330/",
+     "title": "Lohmann DuploCOLL 330 technical data sheet",
+     "publisher": "Lohmann",
+     "물성값": 1
+    }
+   ],
+   "사유": "미러 PDF 대 벤더 제품페이지 — §148(벤더도 웹페이지와 PDF가 어긋난다). 제품페이지 쪽은 층두께 1행뿐이고 값은 일치한다"
   },
   {
-   "id": 120,
-   "title": "Nitto No.5000NS Re-Peelable Strong Adhesive Double Sided Tape datasheet",
-   "doi": null,
-   "url": "https://www.nitto.com/us/en/products/double/008/",
-   "kind": "datasheet",
-   "rows": 2
+   "이름": "Lohmann DuploCOLL 56003",
+   "행": [
+    {
+     "id": 2237,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://klebex.eu/wp-content/uploads/2023/03/DuploCOLL-56003.pdf",
+     "title": "Lohmann DuploCOLL 56003 technical data sheet",
+     "publisher": "Lohmann",
+     "물성값": 11
+    },
+    {
+     "id": 2364,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.lohmann-tapes.com/en/products/duplocoll-56003/",
+     "title": "Lohmann DuploCOLL 56003 technical data sheet",
+     "publisher": "Lohmann",
+     "물성값": 1
+    }
+   ],
+   "사유": "같은 부류. 층두께 0.0021 대 0.0021000000000000003 로 부동소수 표기까지 다르다"
+  },
+  {
+   "이름": "Lohmann DuploCOLL 918",
+   "행": [
+    {
+     "id": 2234,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://devtec.co.il/wp-content/uploads/2016/09/TDS_Lohmann918_devtec.pdf",
+     "title": "Lohmann DuploCOLL 918 technical data sheet",
+     "publisher": "Lohmann",
+     "물성값": 6
+    },
+    {
+     "id": 2366,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.lohmann-tapes.com/en/products/duplocoll-918/",
+     "title": "Lohmann DuploCOLL 918 technical data sheet",
+     "publisher": "Lohmann",
+     "물성값": 1
+    }
+   ],
+   "사유": "같은 부류"
+  },
+  {
+   "이름": "Lohmann DuploCOLL 9042",
+   "행": [
+    {
+     "id": 2235,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.lohmann-tapes.in.th/files_db/1563793322,0065__6.pdf",
+     "title": "Lohmann DuploCOLL 9042 technical data sheet",
+     "publisher": "Lohmann",
+     "물성값": 6
+    },
+    {
+     "id": 2365,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.lohmann-tapes.com/en/products/duplocoll-9042/",
+     "title": "Lohmann DuploCOLL 9042 technical data sheet",
+     "publisher": "Lohmann",
+     "물성값": 1
+    }
+   ],
+   "사유": "같은 부류"
+  },
+  {
+   "이름": "Lohmann DuploCOLL 200",
+   "행": [
+    {
+     "id": 2236,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "http://www.himtehprom.com.ua/upload/file/duplocoll_200.pdf",
+     "title": "Lohmann DuploCOLL 200 technical data sheet",
+     "publisher": "Lohmann",
+     "물성값": 6
+    },
+    {
+     "id": 2360,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.lohmann-tapes.com/en/products/duplocoll-200/",
+     "title": "Lohmann DuploCOLL 200 technical data sheet",
+     "publisher": "Lohmann",
+     "물성값": 1
+    }
+   ],
+   "사유": "같은 부류"
+  },
+  {
+   "이름": "Lohmann DuploCOLL 2501",
+   "행": [
+    {
+     "id": 2245,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://flexografica.com/wp-content/uploads/2024/05/Lohmann-DuploCOLL-2501.pdf",
+     "title": "Lohmann DuploCOLL 2501 technical data sheet",
+     "publisher": "Lohmann",
+     "물성값": 5
+    },
+    {
+     "id": 2368,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.lohmann-tapes.com/en/products/duplocoll-2501/",
+     "title": "Lohmann DuploCOLL 2501 technical data sheet",
+     "publisher": "Lohmann",
+     "물성값": 1
+    }
+   ],
+   "사유": "같은 부류"
+  },
+  {
+   "이름": "DuPont Kapton HN TDS",
+   "행": [
+    {
+     "id": 32,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.epectec.com/downloads/DuPont-Kapton-HN-Polyimide-Film.pdf",
+     "title": "DuPont Kapton HN Polyimide Film Technical Data Sheet",
+     "publisher": "DuPont",
+     "물성값": 15
+    },
+    {
+     "id": 2596,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://cshyde.com/Asset/Data%20Sheet%2018-__F%20Dupont%20Kapton%C2%AE%20HN%20Film.pdf",
+     "title": "DuPont Kapton HN polyimide film Technical Data Sheet",
+     "publisher": null,
+     "물성값": 2
+    }
+   ],
+   "사유": "제3자 미러 둘(epectec 대 cshyde). **개정을 알 수 없다**(§426). EI-/QE-10206 군(2144·2157)과는 별개로 남긴다"
+  },
+  {
+   "이름": "Rogers RO4835",
+   "행": [
+    {
+     "id": 2261,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.csesolutions.com.au/wp-content/uploads/2023/08/Rogers_RO4835.pdf",
+     "title": "RO4835 Laminate Data Sheet - High Frequency Circuit Materials",
+     "publisher": "Rogers Corporation",
+     "물성값": 13
+    },
+    {
+     "id": 2562,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.pcbapeak.com/wp-content/uploads/2023/12/RO4835.pdf",
+     "title": "RO4835 Laminate Data Sheet — High Frequency Circuit Materials",
+     "publisher": null,
+     "물성값": 1
+    }
+   ],
+   "사유": "제3자 미러 둘. 열전도율 0.66 이 겹쳐 합치면 값 중복 1군이 열린다 — 그래도 개정 불명"
+  },
+  {
+   "이름": "Heraeus Quartz Glass for Optics (HQS-SO)",
+   "행": [
+    {
+     "id": 3620,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.heraeus-covantics.com/knowlegde-base/properties",
+     "title": "Quartz Glass for Optics - Data and Properties (HQS-SO)",
+     "publisher": null,
+     "물성값": 9
+    },
+    {
+     "id": 3681,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://sydor.com/wp-content/uploads/Heraeus_Data_and_Properties_Optics_Fused_Silica_EN.pdf",
+     "title": "Quartz Glass for Optics - Data and Properties (HQS-SO)",
+     "publisher": null,
+     "물성값": 9
+    }
+   ],
+   "사유": "벤더 지식베이스 페이지 대 제3자 미러 PDF. 값은 상보적(열 대 전기)"
+  },
+  {
+   "이름": "SCS Parylene Properties",
+   "행": [
+    {
+     "id": 432,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://scscoatings.com/parylene-coatings/properties/",
+     "title": "SCS Parylene Properties",
+     "publisher": "Specialty Coating Systems (SCS)",
+     "물성값": 1
+    },
+    {
+     "id": 3701,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.physics.rutgers.edu/~podzorov/parylene%20properties.pdf",
+     "title": "SCS Parylene Properties",
+     "publisher": null,
+     "물성값": 1
+    }
+   ],
+   "사유": "벤더 페이지 대 대학 서버 PDF"
+  },
+  {
+   "이름": "Rogers ULTRALAM 3850HT",
+   "행": [
+    {
+     "id": 1802,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.cirexx.com/wp-content/uploads/ULTRALAM-3850HT-Laminates-Data-Sheet.pdf",
+     "title": "ULTRALAM 3850HT Liquid Crystalline Polymer Circuit Material, Data Sheet Pub #92-163",
+     "publisher": "Rogers Corporation",
+     "물성값": 24
+    },
+    {
+     "id": 2559,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://pwcircuits.co.uk/wp-content/uploads/2024/08/ULTRALAM-38501.pdf",
+     "title": "ULTRALAM 3850HT Liquid Crystalline Polymer Circuit Material Data Sheet",
+     "publisher": null,
+     "물성값": 1
+    },
+    {
+     "id": 3020,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.rogerscorp.com/-/media/project/rogerscorp/documents/advanced-electronics-solutions/english/data-sheets/ultralam-3850ht-data-sheet.pdf",
+     "title": "ULTRALAM 3850HT Liquid Crystalline Polymer Circuit Material Data Sheet",
+     "publisher": null,
+     "물성값": 2
+    }
+   ],
+   "사유": "`Pub #92-163` 이 한쪽에만 있다. 2559 의 미러 파일명이 `ULTRALAM-38501.pdf` 라 3850 인지 3850HT 인지도 불확실하다"
+  },
+  {
+   "이름": "Sci Rep PEEK 압축",
+   "행": [
+    {
+     "id": 2828,
+     "kind": "journal",
+     "doi": "10.1038/s41598-023-46078-z",
+     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10628305/",
+     "title": "Compression properties and constitutive model of short glass fiber reinforced poly-ether-ether-ketone (PEEK)",
+     "publisher": null,
+     "물성값": 115
+    },
+    {
+     "id": 2919,
+     "kind": "journal",
+     "doi": "10.1038/s41598-023-46330-6",
+     "url": "https://europepmc.org/article/MED/37932378",
+     "title": "Compression properties and constitutive model of short glass fiber reinforced poly-ether-ether-ketone (PEEK)",
+     "publisher": null,
+     "물성값": 8
+    }
+   ],
+   "사유": "2919 의 **URL 도 DOI 도 둘 다 다른 논문**을 가리킨다(URL→PMID 37932378 Hsp70, DOI→어류 텔레메트리). 제목만 맞다 — 원문을 열기 전에는 못 올린다"
+  },
+  {
+   "이름": "ABYC 해수 갈바닉 계열표",
+   "행": [
+    {
+     "id": 2109,
+     "kind": "standard",
+     "doi": null,
+     "url": "https://archive.nordhavn.com/tech/images/Galvanic_Series.pdf",
+     "title": "Galvanic Series of Metals in Seawater — Corrosion Potential (volts DC ref. Ag/AgCl), Ref. ABYC",
+     "publisher": "ABYC (American Boat & Yacht Council)",
+     "물성값": 6
+    },
+    {
+     "id": 2303,
+     "kind": "book",
+     "doi": null,
+     "url": null,
+     "title": "Galvanic Series of Metals in Seawater — corrosion potential (volts DC ref. Ag/AgCl), Ref. ABYC",
+     "publisher": null,
+     "물성값": 25
+    }
+   ],
+   "사유": "`kind` 가 standard 대 book 이고 2303 은 URL·DOI 가 전무하다. 값은 같은 표로 정합하지만 재료가 겹치지 않아 합쳐도 여는 것이 없다"
+  },
+  {
+   "이름": "DuPont Kapton EN-A/EN-C/EN-Z",
+   "행": [
+    {
+     "id": 1740,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.qnityelectronics.com/content/dam/electronics/amer/us/en/electronics/public/documents/en/EI-10172-Kapton-EN-A-C-Z-Data-Sheet.pdf",
+     "title": "DuPont™ Kapton® EN-A, EN-C and EN-Z Polyimide Film — Data Sheet (EI-10172 / QE-10172)",
+     "publisher": "DuPont",
+     "물성값": 0
+    },
+    {
+     "id": 2016,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.qnityelectronics.com/content/dam/electronics/amer/us/en/electronics/public/documents/en/QE-10172-Kapton-EN-A,EN-CandEN-ZData-Sheet.pdf",
+     "title": "Kapton® EN-A, EN-C and EN-Z Polyimide Film — Technical Data Sheet (QE-10172)",
+     "publisher": "DuPont (Qnity Electronics)",
+     "물성값": 48
+    },
+    {
+     "id": 2740,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.fralock.com/wp-content/uploads/2023/10/Kapton-EN-A-C-Z-Data-Sheet.pdf",
+     "title": "DuPont™ Kapton® EN-A, EN-C and EN-Z Polyimide Film — Data Sheet (EI-10172, 9/21)",
+     "publisher": null,
+     "물성값": 6
+    }
+   ],
+   "사유": "1740·2016 은 합쳤다(EI-10172 = QE-10172). **2740 은 남긴다** — 제3자 미러이고 제목에 개정일 `9/21` 이 한쪽에만 찍혀 있다(§426)"
+  },
+  {
+   "이름": "DuPont Kapton Summary of Properties (EI-10142)",
+   "행": [
+    {
+     "id": 3077,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://web.archive.org/web/20230403204808id_/https://www.dupont.com/content/dam/dupont/amer/us/en/ei-transformation/public/documents/en/EI-10142_Kapton-Summary-of-Properties.pdf",
+     "title": "DuPont Kapton Summary of Properties (document EI-10142 (1/22)), Table 10 — Chemical Properties of Kapton Type HN Film, 25 um (1 mil)",
+     "publisher": null,
+     "물성값": 3
+    },
+    {
+     "id": 3227,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://web.archive.org/web/20230403204808id_/https://www.dupont.com/content/dam/dupont/amer/us/en/ei-transformation/public/documents/en/EI-10142-Kapton-Summary-of-Properties.pdf",
+     "title": "DuPont Kapton Summary of Properties (EI-10142) — Table 2 (Thermal Properties, Type 100 HN) 및 Table 5 (Thermal Coefficient of Expansion, Type HN, thermally exposed)",
+     "publisher": null,
+     "물성값": 3
+    },
+    {
+     "id": 3257,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.qnityelectronics.com/content/dam/electronics/amer/us/en/electronics/public/documents/en/EI-10142-Kapton-Summary-of-Properties.pdf",
+     "title": "DuPont Kapton Summary of Properties (EI-10142) — Typical Thermal Properties, 'Specific Heat, J/g•K (cal/g•°C) 1.09 (0.261)', Differential Calorimetry",
+     "publisher": null,
+     "물성값": 8
+    }
+   ],
+   "사유": "문서번호는 같지만 **어느 표인가가 제목에만 있고 conditions 에는 없다**(Table 10 · Table 2/3 · Typical Thermal). 합치면 그 축이 사라진다"
+  },
+  {
+   "이름": "ACS Omega Cooper (TADF)",
+   "행": [
+    {
+     "id": 2875,
+     "kind": "journal",
+     "doi": "10.1021/acsomega.8b01979",
+     "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6644085/fullTextXML",
+     "title": "Cooper et al., Control of Singlet Emission Energy in a Diphenyloxadiazole Containing Fluorophore Leading To Thermally Activated Delayed Fluorescence, ACS Omega 3 (2018), Table 1 (columns 'phi_fl', 'tau_PF /ns', 'tau_DF /us') and body text",
+     "publisher": null,
+     "물성값": 6
+    },
+    {
+     "id": 3119,
+     "kind": "journal",
+     "doi": "10.1021/acsomega.9b00825",
+     "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6644085/fullTextXML",
+     "title": "Cooper et al., Control of Singlet Emission Energy in a Diphenyloxadiazole Containing Fluorophore Leading To Thermally Activated Delayed Fluorescence",
+     "publisher": null,
+     "물성값": 1
+    }
+   ],
+   "사유": "URL 이 글자까지 같고 3119 의 DOI 는 다른 논문이다. 그런데 **남길 쪽 제목이 `Table 1 …` 로 표를 지목**한다 — 합치면 3119 의 1행이 Table 1 출신이라고 주장하게 된다"
+  },
+  {
+   "이름": "Rajamalli 2016 TADF",
+   "행": [
+    {
+     "id": 4340,
+     "kind": "journal",
+     "doi": "10.1021/acsami.6b10678",
+     "url": null,
+     "title": "Rajamalli et al. (2016), A Method for Reducing the Singlet-Triplet Energy Gaps of TADF Materials for Improving the Blue OLED Efficiency, ACS Applied Materials & Interfaces, Table 1",
+     "publisher": null,
+     "물성값": 19
+    },
+    {
+     "id": 4531,
+     "kind": "journal",
+     "doi": "10.1021/acsami.6b09975",
+     "url": null,
+     "title": "Rajamalli et al. (2016), A Method for Reducing the Singlet-Triplet Energy Gaps of TADF Materials for Improving the Blue OLED Efficiency",
+     "publisher": null,
+     "물성값": 8
+    }
+   ],
+   "사유": "4531 의 DOI `10.1021/acsami.6b09975` 는 다른 논문(구리 전기촉매)이다. 다만 제목에 `Table 1` 이 붙어 위와 같은 표 축 문제가 있다"
+  },
+  {
+   "이름": "Rogers RO4000 Series",
+   "행": [
+    {
+     "id": 1773,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.mclpcb.com/wp-content/uploads/2021/05/Rogers-ro4000-laminates-ro4003c-and-ro4350b-data-sheet.pdf",
+     "title": "RO4000 Series High Frequency Circuit Materials Data Sheet (RO4003C / RO4350B, 2018)",
+     "publisher": "Rogers Corporation",
+     "물성값": 77
+    },
+    {
+     "id": 2737,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.leiton.de/formulare/Datasheet%20-%20Rogers%20RO4003C%20and%20RO4350B%20-%20Rev%201.0.pdf",
+     "title": "RO4000 Series High Frequency Circuit Materials Data Sheet (RO4003C / RO4350B), Rev 1.0",
+     "publisher": null,
+     "물성값": 6
+    },
+    {
+     "id": 3018,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.rogerscorp.com/-/media/project/rogerscorp/documents/advanced-electronics-solutions/english/data-sheets/ro4000-laminates---data-sheet.pdf",
+     "title": "RO4000 Series High Frequency Circuit Materials Data Sheet (RO4003C / RO4350B)",
+     "publisher": null,
+     "물성값": 2
+    }
+   ],
+   "사유": "제목의 판 표기가 `2018` · `Rev 1.0` · 무표기로 셋이다(§426)"
+  },
+  {
+   "이름": "3M OCA 8171/8172",
+   "행": [
+    {
+     "id": 100,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://parafix.com/wp-content/uploads/2019/01/3m-8172-optically-clear-tape-parafix.pdf",
+     "title": "3M Optically Clear Adhesives 8171/8172 Technical Data (Jul 2008)",
+     "publisher": "3M",
+     "물성값": 4
+    },
+    {
+     "id": 1734,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://parafix.com/wp-content/uploads/2019/01/3m-8171-optically-clear-tape-parafix.pdf",
+     "title": "3M Optically Clear Adhesives 8171 · 8172 Technical Data Sheet",
+     "publisher": "3M",
+     "물성값": 8
+    }
+   ],
+   "사유": "`(Jul 2008)` 이 한쪽에만 있다"
+  },
+  {
+   "이름": "3M VHB 4910",
+   "행": [
+    {
+     "id": 2539,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.marianinc.com/wp-content/uploads/2019/03/2019-03-18-DataSheet-3MVHBTape4910.pdf",
+     "title": "3M VHB Tape - Specialty Tape 4910, Technical Data Sheet (August 2018 revision)",
+     "publisher": null,
+     "물성값": 4
+    },
+    {
+     "id": 2804,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://multimedia.3m.com/mws/media/2369649O/3m-vhb-tape-specialty-tape-4910-technical-data-sheet.pdf",
+     "title": "3M VHB Tape — Specialty Tape 4910 Technical Data Sheet",
+     "publisher": null,
+     "물성값": 14
+    }
+   ],
+   "사유": "`(August 2018 revision)` 이 한쪽에만 있다"
+  },
+  {
+   "이름": "Amodel PPA Design Guide Table 3.17",
+   "행": [
+    {
+     "id": 2811,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.solvay.com/sites/g/files/srpend616/files/tridion/documents/Amodel-PPA-Design-Guide_EN.pdf",
+     "title": "Amodel® PPA Design Guide (Version 5.0), Table 3.17 Thermal conductivity of Amodel® PPA resins",
+     "publisher": null,
+     "물성값": 4
+    },
+    {
+     "id": 2901,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.syensqo.com/en/product/amodel-ppa",
+     "title": "Amodel® PPA Design Guide, Table 3.17 — Thermal conductivity of Amodel® PPA resins",
+     "publisher": null,
+     "물성값": 1
+    }
+   ],
+   "사유": "`(Version 5.0)` 이 한쪽에만 있다"
+  },
+  {
+   "이름": "Rogers PORON 4701-40",
+   "행": [
+    {
+     "id": 28,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.rogerscorp.com/-/media/project/rogerscorp/documents/elastomeric-material-solutions/poron/english/data-sheets/17-007-poron-4701-40-soft.pdf",
+     "title": "Rogers PORON 4701-40 Soft Product Data Sheet",
+     "publisher": "Rogers",
+     "물성값": 24
+    },
+    {
+     "id": 130,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.stockwell.com/data-sheets/poron-4701-40-soft.pdf",
+     "title": "Rogers PORON 4701-40 Soft Data Sheet",
+     "publisher": "Rogers",
+     "물성값": 17
+    }
+   ],
+   "사유": "`Soft Product Data Sheet` 대 `Soft Data Sheet` — 문서번호가 없어 판을 못 가른다"
+  },
+  {
+   "이름": "3M 8805/8810/8815/8820",
+   "행": [
+    {
+     "id": 37,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://multimedia.3m.com/mws/media/122119O/3m-thermally-conductive-adhesive-transfer-tapes-8800-series.pdf",
+     "title": "3M Thermally Conductive Adhesive Transfer Tapes 8805/8810/8815/8820 Technical Data",
+     "publisher": "3M",
+     "물성값": 64
+    },
+    {
+     "id": 2328,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.3m.com/electronics",
+     "title": "3M Thermally Conductive Adhesive Transfer Tapes 8805 - 8810 - 8815 - 8820, Technical Data Sheet",
+     "publisher": "3M",
+     "물성값": 3
+    }
+   ],
+   "사유": "`Technical Data` 대 `Technical Data Sheet` — 같은 부류"
   }
  ],
- [
+ "정당하게 다르다": [
   {
-   "id": 32,
-   "title": "DuPont Kapton HN Polyimide Film Technical Data Sheet",
-   "doi": null,
-   "url": "https://www.epectec.com/downloads/DuPont-Kapton-HN-Polyimide-Film.pdf",
-   "kind": "datasheet",
-   "rows": 15
+   "이름": "Andersson 무등온 기계피로",
+   "행": [
+    {
+     "id": 3655,
+     "kind": "journal",
+     "doi": "10.1016/j.msea.2004.10.043",
+     "url": "https://doi.org/10.1016/j.msea.2004.10.043",
+     "title": "Comparison of isothermal mechanical fatigue properties of lead-free solder joints and bulk solders",
+     "publisher": null,
+     "물성값": 12
+    },
+    {
+     "id": 4493,
+     "kind": "journal",
+     "doi": "10.1109/eptc.2003.1298763",
+     "url": null,
+     "title": "Comparison of isothermal mechanical fatigue properties of lead free solder joints and bulk solders",
+     "publisher": null,
+     "물성값": 12
+    }
+   ],
+   "사유": "**Crossref 로 두 DOI 를 다 열었다** — `10.1016/j.msea.2004.10.043`(MSEA 2005)와 `10.1109/eptc.2003.1298763`(ICEPT 2003)이 **둘 다 실재**하고 저자가 같다. §196 그대로 — 같은 표가 학회·저널에 두 번 실렸다. 값 12행이 자릿수까지 같은 것은 §456 의 '계보가 하나' 이지 출처 중복이 아니다"
   },
   {
-   "id": 2144,
-   "title": "DuPont Kapton HN Polyimide Film Technical Data Sheet (QE-10206)",
-   "doi": null,
-   "url": "https://www.qnityelectronics.com/content/dam/electronics/amer/us/en/electronics/public/documents/en/QE-10206-Kapton-HN-Data-Sheet.pdf",
-   "kind": "datasheet",
-   "rows": 35
+   "이름": "Doosan CCL — 한 편찬 PDF 경로가 55개 제품 페이지에 찍혀 있다",
+   "행": [
+    {
+     "id": 4586,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.doosanelectromaterials.com/download/product/kr/CCL_All_Properties_PDF_240930_v9.pdf",
+     "title": "Doosan Corporation Electro-Materials — Copper Clad Laminate (CCL) Technical Data Sheet, all products (ver. 2024.09.30, v9)",
+     "publisher": "Doosan Corporation Electro-Materials",
+     "물성값": 338
+    },
+    {
+     "id": 4615,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DS-7409HG",
+     "title": "Doosan Corporation Electro-Materials — DS-7409HG CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+     "publisher": null,
+     "물성값": 25
+    },
+    {
+     "id": 4616,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DS-7409HG_FQ",
+     "title": "Doosan Corporation Electro-Materials — DS-7409HG (FQ) CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+     "publisher": null,
+     "물성값": 23
+    },
+    {
+     "id": 4617,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DS-7409HG_FU",
+     "title": "Doosan Corporation Electro-Materials — DS-7409HG (FU) CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+     "publisher": null,
+     "물성값": 21
+    },
+    {
+     "id": 4618,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DS-7409HG_IQ",
+     "title": "Doosan Corporation Electro-Materials — DS-7409HG (IQ) CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+     "publisher": null,
+     "물성값": 25
+    },
+    {
+     "id": 4619,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DS-7409HG_KNF",
+     "title": "Doosan Corporation Electro-Materials — DS-7409HG (KNF) CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+     "publisher": null,
+     "물성값": 25
+    },
+    {
+     "id": 4620,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DS-7409HG_LE",
+     "title": "Doosan Corporation Electro-Materials — DS-7409HG (LE) CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+     "publisher": null,
+     "물성값": 23
+    },
+    {
+     "id": 4621,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DS-7409HG_X",
+     "title": "Doosan Corporation Electro-Materials — DS-7409HG (X) CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+     "publisher": null,
+     "물성값": 23
+    },
+    {
+     "id": 4622,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DS-7409HG_Z",
+     "title": "Doosan Corporation Electro-Materials — DS-7409HG (Z) CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+     "publisher": null,
+     "물성값": 23
+    },
+    {
+     "id": 4623,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DS-7409HG_ZL",
+     "title": "Doosan Corporation Electro-Materials — DS-7409HG (ZL) CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+     "publisher": null,
+     "물성값": 23
+    },
+    {
+     "id": 4624,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DS-7409HG_ZS",
+     "title": "Doosan Corporation Electro-Materials — DS-7409HG (ZS) CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+     "publisher": null,
+     "물성값": 23
+    },
+    {
+     "id": 4625,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DS-7409HG_ZU",
+     "title": "Doosan Corporation Electro-Materials — DS-7409HG (ZU) CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+     "publisher": null,
+     "물성값": 21
+    }
+   ],
+   "사유": "`local_path` 가 전부 `Doosan_CCL_All_Properties_TDS_v9_2024-09-30.pdf` 로 같지만 **제품이 다르다**. DS-7409HG 와 그 등급 접미 (FQ)/(FU)/(IQ)/(KNF)/(LE)/(X)/(Z)/(ZL)/(ZS)/(ZU) 는 각각 다른 등급이다(§426). **`local_path` 단독을 지문으로 쓰면 55행이 한 군이 된다**"
   },
   {
-   "id": 2157,
-   "title": "DuPont Kapton HN Polyimide Film — Technical Data Sheet (EI-10206)",
-   "doi": null,
-   "url": "https://www.qnityelectronics.com/content/dam/electronics/amer/us/en/electronics/public/documents/en/EI-10206-Kapton-HN-Data-Sheet.pdf",
-   "kind": "datasheet",
-   "rows": 13
+   "이름": "Doosan DS-7402BS (DF) 대 (DFM)",
+   "행": [
+    {
+     "id": 4600,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DS-7402BS_DF",
+     "title": "Doosan Corporation Electro-Materials — DS-7402BS (DF) CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+     "publisher": null,
+     "물성값": 43
+    },
+    {
+     "id": 4601,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DS-7402BS_DFM",
+     "title": "Doosan Corporation Electro-Materials — DS-7402BS (DFM) CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+     "publisher": null,
+     "물성값": 32
+    }
+   ],
+   "사유": "등급 접미가 다르다"
   },
   {
-   "id": 2596,
-   "title": "DuPont Kapton HN polyimide film Technical Data Sheet",
-   "doi": null,
-   "url": "https://cshyde.com/Asset/Data%20Sheet%2018-__F%20Dupont%20Kapton%C2%AE%20HN%20Film.pdf",
-   "kind": "datasheet",
-   "rows": 2
+   "이름": "Doosan DS-7409DJG 대 (N)",
+   "행": [
+    {
+     "id": 4604,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DS-7409DJG",
+     "title": "Doosan Corporation Electro-Materials — DS-7409DJG CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+     "publisher": null,
+     "물성값": 30
+    },
+    {
+     "id": 4605,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DS-7409DJG_N",
+     "title": "Doosan Corporation Electro-Materials — DS-7409DJG (N) CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+     "publisher": null,
+     "물성값": 31
+    }
+   ],
+   "사유": "등급 접미가 다르다"
+  },
+  {
+   "이름": "Doosan DS-7409DV (C) 대 (N)",
+   "행": [
+    {
+     "id": 4609,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DS-7409DV_C",
+     "title": "Doosan Corporation Electro-Materials — DS-7409DV (C) CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+     "publisher": null,
+     "물성값": 27
+    },
+    {
+     "id": 4610,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DS-7409DV_N",
+     "title": "Doosan Corporation Electro-Materials — DS-7409DV (N) CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+     "publisher": null,
+     "물성값": 31
+    }
+   ],
+   "사유": "등급 접미가 다르다"
+  },
+  {
+   "이름": "Doosan RAPIDON-10W 대 (N)",
+   "행": [
+    {
+     "id": 4650,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/RAPIDON_10W",
+     "title": "Doosan Corporation Electro-Materials — RAPIDON-10W CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+     "publisher": null,
+     "물성값": 25
+    },
+    {
+     "id": 4651,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/RAPIDON_10W_N",
+     "title": "Doosan Corporation Electro-Materials — RAPIDON-10W (N) CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+     "publisher": null,
+     "물성값": 25
+    }
+   ],
+   "사유": "등급 접미가 다르다"
+  },
+  {
+   "이름": "SCHOTT BG60 대 BG61",
+   "행": [
+    {
+     "id": 1970,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.sydor.com/wp-content/uploads/SCHOTT-BG60-Bandpass-Filter.pdf",
+     "title": "SCHOTT Data Sheet BG60 (ionically colored bandpass / IR cut filter glass), status 01.12.2014",
+     "publisher": "SCHOTT",
+     "물성값": 13
+    },
+    {
+     "id": 1971,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://sydor.com/wp-content/uploads/SCHOTT-BG61-Bandpass-Filter.pdf",
+     "title": "SCHOTT Data Sheet BG61 (ionically colored bandpass / IR cut filter glass), status 01.12.2014",
+     "publisher": "SCHOTT",
+     "물성값": 13
+    }
+   ],
+   "사유": "다른 필터 유리다"
+  },
+  {
+   "이름": "Corning Gorilla Glass 3 · Victus · Victus 2",
+   "행": [
+    {
+     "id": 443,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.corning.com/microsites/csm/gorillaglass/PI_Sheets/2020/Gorilla_Glass_3_ProdSheet.pdf",
+     "title": "Corning Gorilla Glass 3 Product Information Sheet",
+     "publisher": "Corning",
+     "물성값": 3
+    },
+    {
+     "id": 1951,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.corning.com/microsites/csm/gorillaglass/PI_Sheets/Gorilla_Glass_Victus_2_PI_Sheet.pdf",
+     "title": "Corning Gorilla Glass Victus 2 Product Information Sheet",
+     "publisher": "Corning",
+     "물성값": 15
+    },
+    {
+     "id": 1952,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.corning.com/microsites/csm/gorillaglass/PI_Sheets/Gorilla_Glass_Victus_PI_Sheet.pdf",
+     "title": "Corning Gorilla Glass Victus Product Information Sheet",
+     "publisher": "Corning",
+     "물성값": 32
+    }
+   ],
+   "사유": "다른 제품이다"
+  },
+  {
+   "이름": "EMC EM-370(Z) 대 EM-370(5)",
+   "행": [
+    {
+     "id": 4581,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.emctw.com/upload/website/item/EM-370(Z)%20Datasheet-20240716_24081911567.pdf",
+     "title": "Elite Material Co., Ltd. EM-370(Z) / EM-37B(Z) Datasheet (Rev. 2024 July)",
+     "publisher": "Elite Material Co., Ltd.",
+     "물성값": 35
+    },
+    {
+     "id": 4582,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://www.emctw.com/upload/website/item/EM-370(5)%20Datasheet%2020240716_24081911374.pdf",
+     "title": "Elite Material Co., Ltd. EM-370(5) / EM-37B(5) Datasheet (Rev. 2024 July)",
+     "publisher": "Elite Material Co., Ltd.",
+     "물성값": 31
+    }
+   ],
+   "사유": "같은 Rev 2024 July 의 다른 등급이다"
+  },
+  {
+   "이름": "Norland NOA 61 대 NOA 65",
+   "행": [
+    {
+     "id": 2253,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://norlandproducts.com/wp-content/uploads/2025/02/Norland-Products-NOA-61-TDS.pdf",
+     "title": "Norland Optical Adhesive 61 Technical Data Sheet, REV. 0",
+     "publisher": "Norland Products Inc.",
+     "물성값": 28
+    },
+    {
+     "id": 2254,
+     "kind": "datasheet",
+     "doi": null,
+     "url": "https://norlandproducts.com/wp-content/uploads/2025/02/NOA-65-TDS.pdf",
+     "title": "Norland Optical Adhesive 65 Technical Data Sheet, REV. 0",
+     "publisher": "Norland Products Inc.",
+     "물성값": 16
+    }
+   ],
+   "사유": "다른 접착제다"
+  },
+  {
+   "이름": "ATHAS poly(methyl acrylate) 대 poly(ethyl acrylate)",
+   "행": [
+    {
+     "id": 3176,
+     "kind": "database",
+     "doi": null,
+     "url": "http://web.archive.org/web/19990826134737/http://web.utk.edu/~athas/databank/acryl/pma/pmaexpam.html",
+     "title": "ATHAS Data Bank (Advanced THermal AnalysiS laboratory, B. Wunderlich / M. Pyda) — Poly(methyl acrylate), Amorphous Heat Capacity Data (experimental column)",
+     "publisher": null,
+     "물성값": 1
+    },
+    {
+     "id": 3177,
+     "kind": "database",
+     "doi": null,
+     "url": "http://web.archive.org/web/19990826120936/http://web.utk.edu/~athas/databank/acryl/pea/peaexpam.html",
+     "title": "ATHAS Data Bank (Advanced THermal AnalysiS laboratory, B. Wunderlich / M. Pyda) — Poly(ethyl acrylate), Amorphous Heat Capacity Data (experimental column)",
+     "publisher": null,
+     "물성값": 1
+    }
+   ],
+   "사유": "다른 고분자다"
+  },
+  {
+   "이름": "AccuDyne 폴리머별 표면에너지 페이지 5종",
+   "행": [
+    {
+     "id": 3001,
+     "kind": "database",
+     "doi": null,
+     "url": "https://www.accudynetest.com/polymer_surface_data/polyimide_kapton.pdf",
+     "title": "Surface Energy Data for Polyimide - AccuDyne Test polymer surface data compilation (Diversified Enterprises, 2009)",
+     "publisher": null,
+     "물성값": 18
+    },
+    {
+     "id": 3002,
+     "kind": "database",
+     "doi": null,
+     "url": "https://www.accudynetest.com/polymer_surface_data/polycarbonate.pdf",
+     "title": "Surface Energy Data for Polycarbonate - AccuDyne Test polymer surface data compilation (Diversified Enterprises, 2009)",
+     "publisher": null,
+     "물성값": 8
+    },
+    {
+     "id": 3003,
+     "kind": "database",
+     "doi": null,
+     "url": "https://www.accudynetest.com/polymer_surface_data/polydimethylsiloxane.pdf",
+     "title": "Surface Energy Data for PDMS: Polydimethylsiloxane - AccuDyne Test polymer surface data compilation (Diversified Enterprises, 2009)",
+     "publisher": null,
+     "물성값": 31
+    },
+    {
+     "id": 3004,
+     "kind": "database",
+     "doi": null,
+     "url": "https://www.accudynetest.com/polymer_surface_data/polyurethane.pdf",
+     "title": "Surface Energy Data for PUR: Polyurethanes - AccuDyne Test polymer surface data compilation (Diversified Enterprises, 2009)",
+     "publisher": null,
+     "물성값": 23
+    },
+    {
+     "id": 3006,
+     "kind": "database",
+     "doi": null,
+     "url": "https://www.accudynetest.com/polymer_surface_data/nylon66.pdf",
+     "title": "Surface Energy Data for Nylon 6,6 - AccuDyne Test polymer surface data compilation (Diversified Enterprises, 2009)",
+     "publisher": null,
+     "물성값": 7
+    }
+   ],
+   "사유": "폴리이미드·PC·PDMS·PUR·나일론6,6 — 다른 고분자다"
   }
  ],
- [
+ "넘기는 결함": [
   {
-   "id": 37,
-   "title": "3M Thermally Conductive Adhesive Transfer Tapes 8805/8810/8815/8820 Technical Data",
-   "doi": null,
-   "url": "https://multimedia.3m.com/mws/media/122119O/3m-thermally-conductive-adhesive-transfer-tapes-8800-series.pdf",
-   "kind": "datasheet",
-   "rows": 64
+   "무엇": "출처가 딴 제품 시트를 가리키는 값 60행",
+   "어디": "합친 뒤 src4571(Uddeholm Dievar Ed.15) 밑, `conditions.moved_from_source` 가 붙은 96행 중 Dievar 가 아닌 재료의 것",
+   "왜": "src4593 이 Dievar 시트 제목·경로로 들어왔는데 Corrax 6 · Impax Supreme 12 · Orvar Supreme 10 · Unimax 10 · Vidar Superior 22 행을 들고 있었다. 각 제품의 Uddeholm 시트로 출처를 갈라야 한다",
+   "규모": "60행"
   },
   {
-   "id": 2328,
-   "title": "3M Thermally Conductive Adhesive Transfer Tapes 8805 - 8810 - 8815 - 8820, Technical Data Sheet",
-   "doi": null,
-   "url": "https://www.3m.com/electronics",
-   "kind": "datasheet",
-   "rows": 3
-  }
- ],
- [
-  {
-   "id": 100,
-   "title": "3M Optically Clear Adhesives 8171/8172 Technical Data (Jul 2008)",
-   "doi": null,
-   "url": "https://parafix.com/wp-content/uploads/2019/01/3m-8172-optically-clear-tape-parafix.pdf",
-   "kind": "datasheet",
-   "rows": 4
+   "무엇": "출처가 딴 제품 시트를 가리키는 값 6행",
+   "어디": "합친 뒤 src1954(Nitto SWT 10+R) 밑",
+   "왜": "src3368 의 6행은 ELEP HOLDER V-8AR·WS-01·WS-02T 값이다",
+   "규모": "6행"
   },
   {
-   "id": 1734,
-   "title": "3M Optically Clear Adhesives 8171 · 8172 Technical Data Sheet",
-   "doi": null,
-   "url": "https://parafix.com/wp-content/uploads/2019/01/3m-8171-optically-clear-tape-parafix.pdf",
-   "kind": "datasheet",
-   "rows": 8
-  }
- ],
- [
-  {
-   "id": 137,
-   "title": "점탄성 연질 PU 폼 물성(문헌 클래스)",
-   "doi": null,
-   "url": null,
-   "kind": "other",
-   "rows": 1
+   "무엇": "틀린 DOI 다섯",
+   "어디": "src3280 · src2779 · src3119 · src4419 · src273",
+   "왜": "Crossref 대조로 확정했다(하나는 존재하지 않는 DOI, 넷은 다른 논문의 DOI). **이 배치는 출처 메타를 한 칸도 안 고쳤다** — 정정은 별개 판단이다",
+   "규모": "5행"
   },
   {
-   "id": 138,
-   "title": "연질 PU 폼 물성(문헌 클래스)",
-   "doi": null,
-   "url": null,
-   "kind": "other",
-   "rows": 2
-  },
-  {
-   "id": 139,
-   "title": "PU 폼 물성(문헌 클래스)",
-   "doi": null,
-   "url": null,
-   "kind": "other",
-   "rows": 1
-  }
- ],
- [
-  {
-   "id": 142,
-   "title": "점탄성 제진재 대표물성(Sorbothane/EAR 클래스)",
-   "doi": null,
-   "url": null,
-   "kind": "other",
-   "rows": 1
-  },
-  {
-   "id": 145,
-   "title": "점탄성 제진 마운트 대표물성(Sorbothane/EAR 클래스)",
-   "doi": null,
-   "url": null,
-   "kind": "other",
-   "rows": 1
-  },
-  {
-   "id": 147,
-   "title": "점탄성 제진 아이솔레이터 대표물성(Sorbothane/EAR 클래스)",
-   "doi": null,
-   "url": null,
-   "kind": "other",
-   "rows": 1
-  }
- ],
- [
-  {
-   "id": 143,
-   "title": "점탄성 제진재 대표물성(Sorbothane 클래스)",
-   "doi": null,
-   "url": null,
-   "kind": "other",
-   "rows": 2
-  },
-  {
-   "id": 146,
-   "title": "점탄성 제진 마운트 대표물성(Sorbothane 클래스)",
-   "doi": null,
-   "url": null,
-   "kind": "other",
-   "rows": 1
-  },
-  {
-   "id": 148,
-   "title": "점탄성 제진 아이솔레이터 대표물성(Sorbothane 클래스)",
-   "doi": null,
-   "url": null,
-   "kind": "other",
-   "rows": 1
-  }
- ],
- [
-  {
-   "id": 224,
-   "title": "High Performance Optical Materials Cyclo Olefin Polymer ZEONEX (Obuchi et al., Proc. SPIE 6671, 66711I, 2007)",
-   "doi": null,
-   "url": null,
-   "kind": "datasheet",
-   "rows": 1
-  },
-  {
-   "id": 225,
-   "title": "High Performance Optical Materials Cyclo Olefin Polymer ZEONEX (Obuchi et al., Proc. SPIE 6671, 2007)",
-   "doi": null,
-   "url": null,
-   "kind": "datasheet",
-   "rows": 8
-  }
- ],
- [
-  {
-   "id": 229,
-   "title": "Industrialization and application development of cyclo-olefin polymer (Yamazaki, J. Mol. Catal. A 213 (2004) 81-87)",
-   "doi": null,
-   "url": null,
-   "kind": "datasheet",
-   "rows": 4
-  },
-  {
-   "id": 4170,
-   "title": "Industrialization and application development of cyclo-olefin polymer",
-   "doi": "10.1016/j.molcata.2003.10.058",
-   "url": null,
-   "kind": "journal",
-   "rows": 32
-  }
- ],
- [
-  {
-   "id": 377,
-   "title": "NSM Archive - Physical Properties of Semiconductors: Silicon - Basic Parameters",
-   "doi": null,
-   "url": "https://www.ioffe.ru/SVA/NSM/Semicond/Si/basic.html",
-   "kind": "database",
-   "rows": 7
-  },
-  {
-   "id": 378,
-   "title": "NSM Archive - Physical Properties of Semiconductors: Silicon - Thermal Properties",
-   "doi": null,
-   "url": "https://www.ioffe.ru/SVA/NSM/Semicond/Si/thermal.html",
-   "kind": "database",
-   "rows": 5
-  }
- ],
- [
-  {
-   "id": 379,
-   "title": "What is the Young's Modulus of Silicon?",
-   "doi": null,
-   "url": "https://ieeexplore.ieee.org/document/5430873",
-   "kind": "database",
-   "rows": 1
-  },
-  {
-   "id": 1883,
-   "title": "What is the Young's Modulus of Silicon?",
-   "doi": "10.1109/JMEMS.2009.2039697",
-   "url": "https://doi.org/10.1109/JMEMS.2009.2039697",
-   "kind": "journal",
-   "rows": 19
-  }
- ],
- [
-  {
-   "id": 432,
-   "title": "SCS Parylene Properties",
-   "doi": null,
-   "url": "https://scscoatings.com/parylene-coatings/properties/",
-   "kind": "datasheet",
-   "rows": 1
-  },
-  {
-   "id": 3701,
-   "title": "SCS Parylene Properties",
-   "doi": null,
-   "url": "https://www.physics.rutgers.edu/~podzorov/parylene%20properties.pdf",
-   "kind": "datasheet",
-   "rows": 1
-  }
- ],
- [
-  {
-   "id": 435,
-   "title": "Physical Properties of Titanium Nitride (TiN) Coatings",
-   "doi": null,
-   "url": "https://www.tomoevalveusa.com/Assets/tini-coating-properties.pdf",
-   "kind": "datasheet",
-   "rows": 5
-  },
-  {
-   "id": 2992,
-   "title": "Physical Properties of Titanium Nitride (TiN) Coatings — BryCoat Inc.",
-   "doi": null,
-   "url": "https://brycoat.com/surface-engineering/brycoat-pvd-coating-solutions/brycoat-titanium-nitride-tin-coatings/brycoat-titanium-nitride-tin-coatings/",
-   "kind": "datasheet",
-   "rows": 1
-  }
- ],
- [
-  {
-   "id": 607,
-   "title": "[추정 라벨] 아크릴/에폭시 접착 복합 추정 — 벤더 데이터시트에서 읽은 값이 아니다",
-   "doi": null,
-   "url": null,
-   "kind": "other",
-   "rows": 4
-  },
-  {
-   "id": 613,
-   "title": "[추정 라벨] 금속층 포함 복합 추정 — 벤더 데이터시트에서 읽은 값이 아니다",
-   "doi": null,
-   "url": null,
-   "kind": "other",
-   "rows": 4
-  }
- ],
- [
-  {
-   "id": 1736,
-   "title": "DuPont Pyralux LF Acrylic-Based Coverlay Flexible Circuit Materials Data Sheet (EI-10118)",
-   "doi": null,
-   "url": "https://insulectro.com/wp-content/uploads/2021/09/EI-10118-Pyralux-LF-CL-Data-Sheet.pdf",
-   "kind": "datasheet",
-   "rows": 7
-  },
-  {
-   "id": 2141,
-   "title": "DuPont Pyralux LF Acrylic-Based Coverlay - Flexible Circuit Materials data sheet (EI-10118)",
-   "doi": null,
-   "url": "https://www.qnityelectronics.com/content/dam/electronics/amer/us/en/electronics/public/documents/en/EI-10118-Pyralux-LF-CL-Data-Sheet.pdf",
-   "kind": "datasheet",
-   "rows": 4
-  }
- ],
- [
-  {
-   "id": 1740,
-   "title": "DuPont™ Kapton® EN-A, EN-C and EN-Z Polyimide Film — Data Sheet (EI-10172 / QE-10172)",
-   "doi": null,
-   "url": "https://www.qnityelectronics.com/content/dam/electronics/amer/us/en/electronics/public/documents/en/EI-10172-Kapton-EN-A-C-Z-Data-Sheet.pdf",
-   "kind": "datasheet",
-   "rows": 18
-  },
-  {
-   "id": 2740,
-   "title": "DuPont™ Kapton® EN-A, EN-C and EN-Z Polyimide Film — Data Sheet (EI-10172, 9/21)",
-   "doi": null,
-   "url": "https://www.fralock.com/wp-content/uploads/2023/10/Kapton-EN-A-C-Z-Data-Sheet.pdf",
-   "kind": "datasheet",
-   "rows": 6
-  }
- ],
- [
-  {
-   "id": 1767,
-   "title": "IT-180A High Tg / Lead Free / High Reliability Laminate & Prepreg (REV 1.0-19)",
-   "doi": null,
-   "url": "https://bayareacircuits.com/wp-content/uploads/2020/05/MDS_Iteq_IT180A.pdf",
-   "kind": "datasheet",
-   "rows": 20
-  },
-  {
-   "id": 2784,
-   "title": "IT-180A High Tg / Lead Free / High Reliability Laminate & Prepreg — 'Laminate properties'",
-   "doi": null,
-   "url": "https://www.iteqcorp.com/wp-content/uploads/2026/05/W-CTE-1002-34C_Data-sheet-IT-180A.pdf",
-   "kind": "datasheet",
-   "rows": 2
-  }
- ],
- [
-  {
-   "id": 1768,
-   "title": "IT-968 High Tg / Lead Free / Ultra Low Loss Laminate & Prepreg (DRAFT REV 1.0-17)",
-   "doi": null,
-   "url": "https://www.mclpcb.com/wp-content/uploads/2021/05/ITEQ-IT-968-Data-sheet-rev-1.0-17-Data-Sheet.pdf",
-   "kind": "datasheet",
-   "rows": 31
-  },
-  {
-   "id": 2785,
-   "title": "IT-968 High Tg / Lead Free / Ultra Low Loss Laminate & Prepreg — 'Laminate properties'",
-   "doi": null,
-   "url": "https://www.iteqcorp.com/wp-content/uploads/2026/05/W-CTE-1002-01B_Data-sheet-IT-968.pdf",
-   "kind": "datasheet",
-   "rows": 2
-  }
- ],
- [
-  {
-   "id": 1773,
-   "title": "RO4000 Series High Frequency Circuit Materials Data Sheet (RO4003C / RO4350B, 2018)",
-   "doi": null,
-   "url": "https://www.mclpcb.com/wp-content/uploads/2021/05/Rogers-ro4000-laminates-ro4003c-and-ro4350b-data-sheet.pdf",
-   "kind": "datasheet",
-   "rows": 77
-  },
-  {
-   "id": 2737,
-   "title": "RO4000 Series High Frequency Circuit Materials Data Sheet (RO4003C / RO4350B), Rev 1.0",
-   "doi": null,
-   "url": "https://www.leiton.de/formulare/Datasheet%20-%20Rogers%20RO4003C%20and%20RO4350B%20-%20Rev%201.0.pdf",
-   "kind": "datasheet",
-   "rows": 6
-  },
-  {
-   "id": 3018,
-   "title": "RO4000 Series High Frequency Circuit Materials Data Sheet (RO4003C / RO4350B)",
-   "doi": null,
-   "url": "https://www.rogerscorp.com/-/media/project/rogerscorp/documents/advanced-electronics-solutions/english/data-sheets/ro4000-laminates---data-sheet.pdf",
-   "kind": "datasheet",
-   "rows": 2
-  }
- ],
- [
-  {
-   "id": 1802,
-   "title": "ULTRALAM 3850HT Liquid Crystalline Polymer Circuit Material, Data Sheet Pub #92-163",
-   "doi": null,
-   "url": "https://www.cirexx.com/wp-content/uploads/ULTRALAM-3850HT-Laminates-Data-Sheet.pdf",
-   "kind": "datasheet",
-   "rows": 24
-  },
-  {
-   "id": 2559,
-   "title": "ULTRALAM 3850HT Liquid Crystalline Polymer Circuit Material Data Sheet",
-   "doi": null,
-   "url": "https://pwcircuits.co.uk/wp-content/uploads/2024/08/ULTRALAM-38501.pdf",
-   "kind": "datasheet",
-   "rows": 1
-  },
-  {
-   "id": 3020,
-   "title": "ULTRALAM 3850HT Liquid Crystalline Polymer Circuit Material Data Sheet",
-   "doi": null,
-   "url": "https://www.rogerscorp.com/-/media/project/rogerscorp/documents/advanced-electronics-solutions/english/data-sheets/ultralam-3850ht-data-sheet.pdf",
-   "kind": "datasheet",
-   "rows": 2
-  }
- ],
- [
-  {
-   "id": 1951,
-   "title": "Corning Gorilla Glass Victus 2 Product Information Sheet",
-   "doi": null,
-   "url": "https://www.corning.com/microsites/csm/gorillaglass/PI_Sheets/Gorilla_Glass_Victus_2_PI_Sheet.pdf",
-   "kind": "datasheet",
-   "rows": 15
-  },
-  {
-   "id": 3015,
-   "title": "Corning® Gorilla® Glass Victus® 2 — Product Information Sheet (Electrical section)",
-   "doi": null,
-   "url": "http://web.archive.org/web/20221130154323id_/https://www.corning.com/microsites/csm/gorillaglass/PI_Sheets/Gorilla_Glass_Victus_2_PI_Sheet.pdf",
-   "kind": "datasheet",
-   "rows": 6
-  }
- ],
- [
-  {
-   "id": 1954,
-   "title": "Nitto Semiconductor Wafer Processing Tape SWT 10+R datasheet (Jan 2019)",
-   "doi": null,
-   "url": "https://www.nitto.com/us/en/others/products/file/datasheet/NBE_SWT_10+R_EN.pdf",
-   "kind": "datasheet",
-   "rows": 5
-  },
-  {
-   "id": 3368,
-   "title": "Nitto Semiconductor Wafer Processing Tape SWT 10+R datasheet (Jan 2019)",
-   "doi": null,
-   "url": "https://www-origin.nitto.com/us/en/others/products/file/datasheet/NBE_SWT_10+R_EN.pdf",
-   "kind": "datasheet",
-   "rows": 6
-  }
- ],
- [
-  {
-   "id": 2109,
-   "title": "Galvanic Series of Metals in Seawater — Corrosion Potential (volts DC ref. Ag/AgCl), Ref. ABYC",
-   "doi": null,
-   "url": "https://archive.nordhavn.com/tech/images/Galvanic_Series.pdf",
-   "kind": "standard",
-   "rows": 6
-  },
-  {
-   "id": 2303,
-   "title": "Galvanic Series of Metals in Seawater — corrosion potential (volts DC ref. Ag/AgCl), Ref. ABYC",
-   "doi": null,
-   "url": null,
-   "kind": "book",
-   "rows": 25
-  }
- ],
- [
-  {
-   "id": 2159,
-   "title": "Mylar Polyester Film — Product Information: Physical-Thermal Properties (Table 1, gauge/type 92A)",
-   "doi": null,
-   "url": "https://orionind.com/wp-content/uploads/2024/01/Mylar_Physical_Properties.pdf",
-   "kind": "datasheet",
-   "rows": 13
-  },
-  {
-   "id": 3229,
-   "title": "Mylar Polyester Film — Product Information: Physical-Thermal Properties (DuPont Teijin Films), 'Coefficients of Thermal Expansion 1.7 x 10-5 in/in/degC, ASTM D 696'",
-   "doi": null,
-   "url": "https://web.archive.org/web/2019id_/http://usa.dupontteijinfilms.com/wp-content/uploads/2017/01/Mylar_Physical_Properties.pdf",
-   "kind": "datasheet",
-   "rows": 14
-  }
- ],
- [
-  {
-   "id": 2221,
-   "title": "Lohmann DuploCOLL 330 technical data sheet",
-   "doi": null,
-   "url": "https://www.lohmann-tapes.us/files_db/1642579726,921__6.pdf",
-   "kind": "datasheet",
-   "rows": 21
-  },
-  {
-   "id": 2362,
-   "title": "Lohmann DuploCOLL 330 technical data sheet",
-   "doi": null,
-   "url": "https://www.lohmann-tapes.com/en/products/duplocoll-330/",
-   "kind": "datasheet",
-   "rows": 1
-  }
- ],
- [
-  {
-   "id": 2234,
-   "title": "Lohmann DuploCOLL 918 technical data sheet",
-   "doi": null,
-   "url": "https://devtec.co.il/wp-content/uploads/2016/09/TDS_Lohmann918_devtec.pdf",
-   "kind": "datasheet",
-   "rows": 6
-  },
-  {
-   "id": 2366,
-   "title": "Lohmann DuploCOLL 918 technical data sheet",
-   "doi": null,
-   "url": "https://www.lohmann-tapes.com/en/products/duplocoll-918/",
-   "kind": "datasheet",
-   "rows": 1
-  }
- ],
- [
-  {
-   "id": 2235,
-   "title": "Lohmann DuploCOLL 9042 technical data sheet",
-   "doi": null,
-   "url": "https://www.lohmann-tapes.in.th/files_db/1563793322,0065__6.pdf",
-   "kind": "datasheet",
-   "rows": 6
-  },
-  {
-   "id": 2365,
-   "title": "Lohmann DuploCOLL 9042 technical data sheet",
-   "doi": null,
-   "url": "https://www.lohmann-tapes.com/en/products/duplocoll-9042/",
-   "kind": "datasheet",
-   "rows": 1
-  }
- ],
- [
-  {
-   "id": 2236,
-   "title": "Lohmann DuploCOLL 200 technical data sheet",
-   "doi": null,
-   "url": "http://www.himtehprom.com.ua/upload/file/duplocoll_200.pdf",
-   "kind": "datasheet",
-   "rows": 6
-  },
-  {
-   "id": 2360,
-   "title": "Lohmann DuploCOLL 200 technical data sheet",
-   "doi": null,
-   "url": "https://www.lohmann-tapes.com/en/products/duplocoll-200/",
-   "kind": "datasheet",
-   "rows": 1
-  }
- ],
- [
-  {
-   "id": 2237,
-   "title": "Lohmann DuploCOLL 56003 technical data sheet",
-   "doi": null,
-   "url": "https://klebex.eu/wp-content/uploads/2023/03/DuploCOLL-56003.pdf",
-   "kind": "datasheet",
-   "rows": 11
-  },
-  {
-   "id": 2364,
-   "title": "Lohmann DuploCOLL 56003 technical data sheet",
-   "doi": null,
-   "url": "https://www.lohmann-tapes.com/en/products/duplocoll-56003/",
-   "kind": "datasheet",
-   "rows": 1
-  }
- ],
- [
-  {
-   "id": 2245,
-   "title": "Lohmann DuploCOLL 2501 technical data sheet",
-   "doi": null,
-   "url": "https://flexografica.com/wp-content/uploads/2024/05/Lohmann-DuploCOLL-2501.pdf",
-   "kind": "datasheet",
-   "rows": 5
-  },
-  {
-   "id": 2368,
-   "title": "Lohmann DuploCOLL 2501 technical data sheet",
-   "doi": null,
-   "url": "https://www.lohmann-tapes.com/en/products/duplocoll-2501/",
-   "kind": "datasheet",
-   "rows": 1
-  }
- ],
- [
-  {
-   "id": 2261,
-   "title": "RO4835 Laminate Data Sheet - High Frequency Circuit Materials",
-   "doi": null,
-   "url": "https://www.csesolutions.com.au/wp-content/uploads/2023/08/Rogers_RO4835.pdf",
-   "kind": "datasheet",
-   "rows": 13
-  },
-  {
-   "id": 2562,
-   "title": "RO4835 Laminate Data Sheet — High Frequency Circuit Materials",
-   "doi": null,
-   "url": "https://www.pcbapeak.com/wp-content/uploads/2023/12/RO4835.pdf",
-   "kind": "datasheet",
-   "rows": 1
-  }
- ],
- [
-  {
-   "id": 2343,
-   "title": "Technical Data Sheet SYLGARD 184 Silicone Elastomer (Form No. 11-3184-01-0224 S2D) - used only as the PDMS family analogue for the density estimate",
-   "doi": null,
-   "url": "https://www.wpi-europe.com/downloads/content/11-3184-01-sylgard-184-elastomer.pdf",
-   "kind": "datasheet",
-   "rows": 66
-  },
-  {
-   "id": 2563,
-   "title": "Technical Data Sheet SYLGARD 184 Silicone Elastomer",
-   "doi": null,
-   "url": "https://www.conro.com/downloads/Manuals/Dowsil-sylgard-184-elastomer-TDS.pdf",
-   "kind": "datasheet",
-   "rows": 1
-  },
-  {
-   "id": 2733,
-   "title": "Technical Data Sheet — SYLGARD 184 Silicone Elastomer, 'TYPICAL PROPERTIES (Continued)' table",
-   "doi": null,
-   "url": "https://www.farnell.com/datasheets/3154500.pdf",
-   "kind": "datasheet",
-   "rows": 7
-  }
- ],
- [
-  {
-   "id": 2541,
-   "title": "Numerical Simulation Study on Factors Influencing Anti-Explosion Performance of Steel Structure Protective Doors under Chemical Explosion Conditions",
-   "doi": "10.3390/ma15113880",
-   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9181996/",
-   "kind": "journal",
-   "rows": 12
-  },
-  {
-   "id": 3280,
-   "title": "Numerical Simulation Study on Factors Influencing Anti-Explosion Performance of Steel Structure Protective Doors under Chemical Explosion Conditions",
-   "doi": "10.3390/ma15103880",
-   "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9181996/fullTextXML",
-   "kind": "journal",
-   "rows": 14
-  }
- ],
- [
-  {
-   "id": 2555,
-   "title": "Product Information Ultramid® B3EG3 02/2026 PA6-GF15 BASF SE",
-   "doi": null,
-   "url": "https://download.basf.com/p1/8a8081c57fd4b609017fd657af286bc2/en/ULTRAMID%C2%AE_B3EG3",
-   "kind": "datasheet",
-   "rows": 2
-  },
-  {
-   "id": 2729,
-   "title": "Product Information Ultramid® B3EG3 02/2026 PA6-GF15 — BASF SE (Mechanical properties 표)",
-   "doi": null,
-   "url": "https://download.basf.com/p1/8a8081c57fd4b609017fd657af286bc2/en/ULTRAMID%3Csup%3E%C2%AE%3Csup%3E_B3EG3",
-   "kind": "datasheet",
-   "rows": 4
-  }
- ],
- [
-  {
-   "id": 2616,
-   "title": "Influence of deposition temperature on microstructure and gas-barrier properties of Al2O3 prepared by plasma-enhanced atomic layer deposition on a polycarbonate substrate",
-   "doi": "10.1039/D2RA07546A",
-   "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9890669/fullTextXML",
-   "kind": "journal",
-   "rows": 1
-  },
-  {
-   "id": 2852,
-   "title": "Influence of deposition temperature on microstructure and gas-barrier properties of Al2O3 prepared by plasma-enhanced atomic layer deposition on a polycarbonate substrate (Ren Y, Sun X, Chen L, Wei H, Feng B, Chen J.)",
-   "doi": "10.1039/d3ra00121k",
-   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9890669/",
-   "kind": "journal",
-   "rows": 3
-  }
- ],
- [
-  {
-   "id": 2768,
-   "title": "Reliability-Based Evaluation of the Suitability of Polymers for Additive Manufacturing Intended to Injection Molding — Table 4 'Analysis of parameters related to materials processability [48,56-67]'",
-   "doi": null,
-   "url": "https://res.mdpi.com/d_attachment/polymers/polymers-12-02327/article_deploy/polymers-12-02327.pdf",
-   "kind": "other",
-   "rows": 6
-  },
-  {
-   "id": 2797,
-   "title": "Reliability-Based Evaluation of the Suitability of Polymers for Additive Manufacturing Intended to Injection Molding — Table 4 'Analysis of parameters related to materials processability [48,56-67]'",
-   "doi": "10.3390/polym12102327",
-   "url": "https://res.mdpi.com/d_attachment/polymers/polymers-12-02327/article_deploy/polymers-12-02327.pdf",
-   "kind": "journal",
-   "rows": 19
-  }
- ],
- [
-  {
-   "id": 2779,
-   "title": "Influence of Loading Directions on Dynamic Compressive Properties of Mill-Annealed Ti-6Al-4V Thick Plate",
-   "doi": "10.3390/ma15207112",
-   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9605540/",
-   "kind": "journal",
-   "rows": 3
-  },
-  {
-   "id": 2915,
-   "title": "Influence of Loading Directions on Dynamic Compressive Properties of Mill-Annealed Ti-6Al-4V Thick Plate",
-   "doi": "10.3390/ma15207047",
-   "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9605540/fullTextXML",
-   "kind": "journal",
-   "rows": 3
-  }
- ],
- [
-  {
-   "id": 2816,
-   "title": "Thermal-Mechanical Elastic-Plastic and Ductile Failure Model Calibrations for 304L Stainless Steel Alloy (SAND2021-1752)",
-   "doi": null,
-   "url": "https://www.osti.gov/servlets/purl/1769256",
-   "kind": "other",
-   "rows": 4
-  },
-  {
-   "id": 2819,
-   "title": "Thermal-Mechanical Elastic-Plastic and Ductile Failure Model Calibrations for 6061-T651 Aluminum Alloy from Plate (SAND2021-2983)",
-   "doi": null,
-   "url": "https://www.osti.gov/servlets/purl/1772885",
-   "kind": "other",
-   "rows": 4
-  }
- ],
- [
-  {
-   "id": 2826,
-   "title": "JSP — Material Physical Property Information for ARPLANK Products: ARPAK Expanded Polyethylene (EPE), 20 to 74 g/l, ver. 8/24",
-   "doi": null,
-   "url": "https://arplankdirect.com/wp-content/uploads/2025/12/PhysicalPropertyInformation_EPEproducts_ARPLANK_AUG2024.pdf",
-   "kind": "datasheet",
-   "rows": 12
-  },
-  {
-   "id": 3228,
-   "title": "JSP — Material Physical Property Information for ARPLANK Products: ARPAK Expanded Polyethylene (EPE) 물성표, 'Coeff. of Lin. Thermal Expansion' 행 (ASTM D-696)",
-   "doi": null,
-   "url": "https://www.arplankdirect.com/",
-   "kind": "datasheet",
-   "rows": 1
-  }
- ],
- [
-  {
-   "id": 2828,
-   "title": "Compression properties and constitutive model of short glass fiber reinforced poly-ether-ether-ketone (PEEK)",
-   "doi": "10.1038/s41598-023-46078-z",
-   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10628305/",
-   "kind": "journal",
-   "rows": 115
-  },
-  {
-   "id": 2919,
-   "title": "Compression properties and constitutive model of short glass fiber reinforced poly-ether-ether-ketone (PEEK)",
-   "doi": "10.1038/s41598-023-46330-6",
-   "url": "https://europepmc.org/article/MED/37932378",
-   "kind": "journal",
-   "rows": 8
-  }
- ],
- [
-  {
-   "id": 2929,
-   "title": "SAE 4140 Quenched and Tempered Steel, Iteration #68 - Fatigue Behavior, Monotonic Properties and Microstructural Data (AISI Bar Steel Applications Group)",
-   "doi": null,
-   "url": "https://www.autosteel.org",
-   "kind": "book",
-   "rows": 2
-  },
-  {
-   "id": 2937,
-   "title": "SAE 4140 Quenched and Tempered Steel, Iteration #68 - Fatigue Behavior, Monotonic Properties and Microstructural Data (A.A. Rteil, T.H. Topper, Univ. of Waterloo, prepared for the AISI Bar Steel Applications Group)",
-   "doi": null,
-   "url": "https://fde.uwaterloo.ca/Fde/Materials/SMDIdbase/Steel/FatigueReports/Iter_068.pdf",
-   "kind": "other",
-   "rows": 2
-  }
- ],
- [
-  {
-   "id": 2996,
-   "title": "Dynamic Mechanical Properties and Constitutive Modeling of Polyurethane Microporous Elastomers",
-   "doi": "10.3390/polym16213056",
-   "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11548374/fullTextXML",
-   "kind": "journal",
-   "rows": 15
-  },
-  {
-   "id": 3364,
-   "title": "Dynamic Mechanical Properties and Constitutive Model of Polyvinyl Chloride Elastomers with Different Shore Hardness, Shock and Vibration 2021, 8887242 — 3.1절 본문 및 Table 1 'Changes in dynamic tensile parameters'",
-   "doi": "10.1155/2021/8887242",
-   "url": "https://web.archive.org/web/2022id_/https://downloads.hindawi.com/journals/sv/2021/8887242.pdf",
-   "kind": "journal",
-   "rows": 2
-  }
- ],
- [
-  {
-   "id": 3176,
-   "title": "ATHAS Data Bank (Advanced THermal AnalysiS laboratory, B. Wunderlich / M. Pyda) — Poly(methyl acrylate), Amorphous Heat Capacity Data (experimental column)",
-   "doi": null,
-   "url": "http://web.archive.org/web/19990826134737/http://web.utk.edu/~athas/databank/acryl/pma/pmaexpam.html",
-   "kind": "database",
-   "rows": 1
-  },
-  {
-   "id": 3177,
-   "title": "ATHAS Data Bank (Advanced THermal AnalysiS laboratory, B. Wunderlich / M. Pyda) — Poly(ethyl acrylate), Amorphous Heat Capacity Data (experimental column)",
-   "doi": null,
-   "url": "http://web.archive.org/web/19990826120936/http://web.utk.edu/~athas/databank/acryl/pea/peaexpam.html",
-   "kind": "database",
-   "rows": 1
-  },
-  {
-   "id": 3310,
-   "title": "ATHAS Data Bank (Advanced THermal AnalysiS Laboratory, B. Wunderlich, Univ. of Tennessee) — Poly(methyl methacrylate), Amorphous Heat Capacity Data (PMMA-AA), 'T / Exp. / Calc.' 표",
-   "doi": null,
-   "url": "https://web.archive.org/web/20010425114949id_/http://web.utk.edu/~athas/databank/acryl/pmma/pmmexpam.html",
-   "kind": "database",
-   "rows": 5
-  }
- ],
- [
-  {
-   "id": 3321,
-   "title": "TAICA alpha-GEL Silicone OCA (K120E / K95E) Physical Property Data - Optical Bonding products",
-   "doi": null,
-   "url": "https://taica.co.jp/gel/en/product/optical_bonding/silicone_oca.html",
-   "kind": "datasheet",
-   "rows": 1
-  },
-  {
-   "id": 3332,
-   "title": "TAICA alpha-GEL Silicone OCA (K120E / K95E) 物性表 / Physical Property Data",
-   "doi": null,
-   "url": "https://taica.co.jp/gel/product/optical_bonding/silicone_oca.html",
-   "kind": "datasheet",
-   "rows": 5
-  }
- ],
- [
-  {
-   "id": 3445,
-   "title": "Strengthening mechanism of cover glass by Sol-Gel SiO2 coating",
-   "doi": "10.1111/ijag.14774",
-   "url": null,
-   "kind": "journal",
-   "rows": 2
-  },
-  {
-   "id": 4372,
-   "title": "Li, Zhou, Cao, Zheng, Wang, Huang & Shen (2019), Strengthening mechanism of cover glass by Sol-Gel SiO2 coating, International Journal of Applied Glass Science",
-   "doi": "10.1111/ijag.14136",
-   "url": null,
-   "kind": "journal",
-   "rows": 6
-  }
- ],
- [
-  {
-   "id": 3584,
-   "title": "Parylene-Coated Cellulose Nanofiber Films with Improved Oxygen Barrier and Water Resistance",
-   "doi": "10.4028/www.scientific.net/MSF.926.73",
-   "url": "https://doi.org/10.4028/www.scientific.net/MSF.926.73",
-   "kind": "journal",
-   "rows": 1
-  },
-  {
-   "id": 4517,
-   "title": "Parylene-Coated Cellulose Nanofiber Films with Improved Oxygen Barrier and Water Resistance",
-   "doi": "10.4028/www.scientific.net/msf.926.73",
-   "url": null,
-   "kind": "journal",
-   "rows": 1
-  }
- ],
- [
-  {
-   "id": 3585,
-   "title": "Class-II-type nanosilica-epoxy hybrid coating with high moisture barrier performance and mechanical robustness",
-   "doi": "10.1016/j.porgcoat.2018.10.010",
-   "url": "https://doi.org/10.1016/j.porgcoat.2018.10.010",
-   "kind": "journal",
-   "rows": 1
-  },
-  {
-   "id": 4477,
-   "title": "Im, Park & Kang (2019), Class-II-type nanosilica-epoxy hybrid coating with high moisture barrier performance and mechanical robustness, Progress in Organic Coatings 127, 234-240",
-   "doi": "10.1016/j.porgcoat.2018.11.026",
-   "url": "https://doi.org/10.1016/j.porgcoat.2018.11.026",
-   "kind": "journal",
-   "rows": 16
-  }
- ],
- [
-  {
-   "id": 3600,
-   "title": "Mechanical properties of sintered Ag-Cu die-attach nanopaste for application on SiC device",
-   "doi": "10.1016/j.matdes.2014.07.033",
-   "url": "https://doi.org/10.1016/j.matdes.2014.07.033",
-   "kind": "journal",
-   "rows": 16
-  },
-  {
-   "id": 4219,
-   "title": "K. S. Tan, K. Y. Cheong (2014), Mechanical properties of sintered Ag-Cu die-attach nanopaste for application on SiC device, Materials and Design 64:166-176 — Table 1",
-   "doi": "10.1016/j.matdes.2014.07.045",
-   "url": null,
-   "kind": "journal",
-   "rows": 6
-  }
- ],
- [
-  {
-   "id": 3620,
-   "title": "Quartz Glass for Optics - Data and Properties (HQS-SO)",
-   "doi": null,
-   "url": "https://www.heraeus-covantics.com/knowlegde-base/properties",
-   "kind": "datasheet",
-   "rows": 9
-  },
-  {
-   "id": 3681,
-   "title": "Quartz Glass for Optics - Data and Properties (HQS-SO)",
-   "doi": null,
-   "url": "https://sydor.com/wp-content/uploads/Heraeus_Data_and_Properties_Optics_Fused_Silica_EN.pdf",
-   "kind": "datasheet",
-   "rows": 9
-  }
- ],
- [
-  {
-   "id": 3628,
-   "title": "Creep-constitutive behavior of Sn-3.8Ag-0.7Cu solder using an internal stress approach",
-   "doi": "10.1007/BF02692566",
-   "url": "https://doi.org/10.1007/BF02692566",
-   "kind": "journal",
-   "rows": 5
-  },
-  {
-   "id": 3639,
-   "title": "Creep-constitutive behavior of Sn-3.8Ag-0.7Cu solder using an internal stress approach",
-   "doi": "10.1007/bf02692566",
-   "url": "https://doi.org/10.1007/bf02692566",
-   "kind": "journal",
-   "rows": 1
-  }
- ],
- [
-  {
-   "id": 3631,
-   "title": "Creep-fatigue interaction in eutectic lead-tin solder alloy",
-   "doi": "10.1007/BF01133338",
-   "url": "https://doi.org/10.1007/BF01133338",
-   "kind": "journal",
-   "rows": 1
-  },
-  {
-   "id": 4539,
-   "title": "Creep-fatigue interaction in eutectic lead-tin solder alloy",
-   "doi": "10.1007/bf01133338",
-   "url": null,
-   "kind": "journal",
-   "rows": 1
-  }
- ],
- [
-  {
-   "id": 3655,
-   "title": "Comparison of isothermal mechanical fatigue properties of lead-free solder joints and bulk solders",
-   "doi": "10.1016/j.msea.2004.10.043",
-   "url": "https://doi.org/10.1016/j.msea.2004.10.043",
-   "kind": "journal",
-   "rows": 12
-  },
-  {
-   "id": 4493,
-   "title": "Comparison of isothermal mechanical fatigue properties of lead free solder joints and bulk solders",
-   "doi": "10.1109/eptc.2003.1298763",
-   "url": null,
-   "kind": "journal",
-   "rows": 12
-  }
- ],
- [
-  {
-   "id": 3657,
-   "title": "A study of degradation of cellulosic insulation materials in a power transformer. Part 2: tensile strength of cellulose insulation paper",
-   "doi": "10.1016/0141-3910(95)00100-z",
-   "url": "https://doi.org/10.1016/0141-3910(95)00100-z",
-   "kind": "journal",
-   "rows": 32
-  },
-  {
-   "id": 3658,
-   "title": "A study of degradation of cellulosic insulation materials in a power transformer, part 1. Molecular weight study of cellulose insulation",
-   "doi": "10.1016/0141-3910(95)00023-f",
-   "url": "https://doi.org/10.1016/0141-3910(95)00023-f",
-   "kind": "journal",
-   "rows": 1
-  }
- ],
- [
-  {
-   "id": 4340,
-   "title": "Rajamalli et al. (2016), A Method for Reducing the Singlet-Triplet Energy Gaps of TADF Materials for Improving the Blue OLED Efficiency, ACS Applied Materials & Interfaces, Table 1",
-   "doi": "10.1021/acsami.6b10678",
-   "url": null,
-   "kind": "journal",
-   "rows": 19
-  },
-  {
-   "id": 4531,
-   "title": "Rajamalli et al. (2016), A Method for Reducing the Singlet-Triplet Energy Gaps of TADF Materials for Improving the Blue OLED Efficiency",
-   "doi": "10.1021/acsami.6b09975",
-   "url": null,
-   "kind": "journal",
-   "rows": 8
-  }
- ],
- [
-  {
-   "id": 4347,
-   "title": "CoMn2O4 Nanoparticles Decorated on 2D MoS2 Frame: A Synergetic Energy Storage Composite Material for Sustainable Supercapacitor Application",
-   "doi": "10.1016/j.est.2021.102302",
-   "url": null,
-   "kind": "journal",
-   "rows": 6
-  },
-  {
-   "id": 4419,
-   "title": "CoMn2O4 Nanoparticles Decorated on 2D MoS2 Frame: A Synergetic Energy Storage Composite Material for Sustainable Supercapacitor Application",
-   "doi": "10.1016/j.jallcom.2021.160204",
-   "url": null,
-   "kind": "journal",
-   "rows": 6
-  }
- ],
- [
-  {
-   "id": 4432,
-   "title": "Novel bis- and tris-cyclometalated iridium(III) complexes bearing a benzoyl group on each fluorinated 2-phenylpyridinate ligand: their photophysical properties and applications to OLED",
-   "doi": "10.1039/C6RA09385J",
-   "url": null,
-   "kind": "journal",
-   "rows": 54
-  },
-  {
-   "id": 4534,
-   "title": "Okamura et al. (2016), Novel bis- and tris-cyclometalated iridium(III) complexes bearing a benzoyl group on each 2-phenylpyridinato ligand aimed at the development of blue phosphorescent materials",
-   "doi": "10.1039/C6DT01198E",
-   "url": null,
-   "kind": "journal",
-   "rows": 7
-  }
- ],
- [
-  {
-   "id": 4513,
-   "title": "Non-Conductive Films (NCFs) with Multi-Functional Epoxies and Silica Fillers for Reliable Flip Chip on Organic Board Assemblies",
-   "doi": null,
-   "url": null,
-   "kind": "other",
-   "rows": 12
-  },
-  {
-   "id": 4527,
-   "title": "Non-Conductive Films (NCFs) with Multi-Functional Epoxies and Silica Fillers for Reliable NCFs Flip Chip On Organic Boards (FCOB)",
-   "doi": "10.1109/ectc.2007.374046",
-   "url": null,
-   "kind": "journal",
-   "rows": 6
-  }
- ],
- [
-  {
-   "id": 4519,
-   "title": "Analysis of long term reliability of plated-through holes in multilayer interconnection boards Part A: Stress analyses and material characterization",
-   "doi": "10.1016/0026-2714(86)90016-8",
-   "url": null,
-   "kind": "journal",
-   "rows": 36
-  },
-  {
-   "id": 4520,
-   "title": "Analysis of long term reliability of plated-through holes in multilayer interconnection boards Part B: Fatigue results and fracture mechanisms",
-   "doi": "10.1016/0026-2714(86)90017-x",
-   "url": null,
-   "kind": "journal",
-   "rows": 2
+   "무엇": "src2919 는 URL 과 DOI 가 둘 다 딴 논문",
+   "어디": "Sci Rep PEEK 압축",
+   "왜": "URL→PMID 37932378(Hsp70 X선 반사), DOI→어류 텔레메트리. 제목만 PEEK 이다. 원문을 열어야 8행의 정체가 확정된다",
+   "규모": "8행"
   }
  ]
-]
+}
