@@ -111,11 +111,14 @@ DOI 를 열어 보니 반대였다. **틀린 DOI 는 이 마이그레이션이 �
 §536 이 `material_id` 에서 만난 것의 **다섯 번째 얼굴**이다. 실측 예행 —
 
 ```
-고치기 전  property_value added **181** · correction_misses **65**
-고친 뒤    added 0 · matched 41368 · source_moves 116 · value_corrections 77
-           · correction_misses 0 · verdict_misses 0 · source_move_misses 0 · fk_violations 0
-재병합     added 0 · source_moves 0            ← 자연키가 먼저라 멱등하다
+src=라이브(병합 후) 대 dst=병합 직전 백업(pre-w53oa-20260829-025038Z)
+  고치기 전  property_value added **181** · correction_misses **65**
+  고친 뒤    added 0 · matched 41383 · source_moves 103 · value_corrections 90
+             · correction_misses 0 · verdict_misses 0 · source_move_misses 0 · fk_violations 0
+  재병합     added 0 · source_moves 0          ← 자연키가 먼저라 멱등하다
 ```
+(`source_moves` 와 `value_corrections` 의 갈림은 그 행이 정정을 함께 선언했는지에 달렸다 —
+합은 언제나 옮긴 193행이다.)
 
 `_materialtwin_merge.py` 에 분기 ⑤(`moved_from_source`)를 넣어 닫았다. 조회축 치환(②-c)도
 같이 필요했다 — 옮긴 193행 중 **78행이 정정을, 9행이 판정을 함께 달고 있어서**
