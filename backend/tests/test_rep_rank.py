@@ -238,3 +238,22 @@ def test_verdict_keys_are_still_counted():
     assert CC._rep_rank(a) < CC._rep_rank(b)
     a.conditions = dict(a.conditions, verdict_tie_axis="a", verdict_tie_note="b")
     assert CC._rep_rank(b) < CC._rep_rank(a)
+
+
+# ── 53차 OA: 이동 표시도 조건이 아니다 ───────────────────────────────────────
+def test_move_trail_is_not_counted_as_a_condition():
+    """이동 표시(`moved_from_material`·`moved_from_source`)를 조건으로 세면 **옮긴 행이 밀린다.**
+
+    §536 의 재료 이동과 53차 OA 의 출처 병합이 되돌리기·전파용으로 남기는 흔적이지 시험
+    조건이 아니다. 그리고 §563 이 값 중복군에서 쓴 "한쪽에만 더한다" 는 여기서 못 쓴다 —
+    출처 병합이 옮기는 193행은 중복군이 아니라 DB 전역에 흩어져 있다.
+    실측(53차 OA, 라이브 41,368행 · 20,041군) — 세면 **대표 20군이 뒤집히고 6군은 값까지
+    바뀐다**(Zeonex 굴곡강도 120 → 115 MPa). 안 세면 0군이다.
+    """
+    a = _pv(9, tier=1, cond={"temperature_c": 23.0})
+    b = _pv(1, tier=1, cond={"temperature_c": 23.0, "direction": "MD"})
+    assert CC._rep_rank(a) < CC._rep_rank(b)          # 조건 1칸 대 2칸
+    a.conditions = dict(a.conditions,
+                        moved_from_source={"kind": "datasheet", "title": "옛 시트"},
+                        moved_from_material="Carbon Steel 45")
+    assert CC._rep_rank(a) < CC._rep_rank(b)          # 표시를 2칸 더해도 그대로다

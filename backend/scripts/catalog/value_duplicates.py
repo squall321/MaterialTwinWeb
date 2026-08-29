@@ -26,8 +26,13 @@ DB = os.environ.get(
 # **`source_table`·`figure` 는 여기 넣지 마라.** 그건 그 문서 안의 **어느 표/그림인가**라
 # 측정을 가르는 축이다. 넣었더니 BIO-PSA 66군이 "조건 동일" 로 올라왔는데, 같은 논리면
 # `Table 3` 과 `Table 5` 도 같아진다 — 그 66군은 손확인으로 올려야지 규칙으로 올릴 것이 아니다.
+# **이동 표시도 여기 든다**(53차 OA). `moved_from_material`(§536)·`moved_from_source`(53차 OA)
+# 는 옛 재료·옛 출처를 되돌리기 위한 흔적이지 측정 조건이 아니다. 안 넣으면 이 검출기가
+# **출처를 합쳐 놓고도 그 군을 못 본다** — 표시가 한쪽에만 붙어 조건이 갈리기 때문이다.
+# 실측(53차 OA) — 병합 전 61군, 병합 뒤 안 넣으면 61군 그대로, 넣으면 **70군**이 된다.
 ANNOTATION_KEYS = {"correction_reason", "corrected_by", "migrated_from", "method_restored",
-                   "duplicate_of", "duplicate_group", "duplicate_note"}
+                   "duplicate_of", "duplicate_group", "duplicate_note",
+                   "moved_from_material", "moved_from_source", "move_reason"}
 ANNOTATION_PREFIXES = ("verdict_", "merge_", "core_", "same_alloy_")
 
 

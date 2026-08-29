@@ -104,7 +104,16 @@ def is_non_solid(cond) -> bool:
 # **`verdict_*` 는 빼지 않는다.** 그것도 판정이지 조건이 아니지만, 빼면 재료255 가
 # 한 군 더 뒤집힌다 — 51차 MA·MC 가 군 전체에 같은 수로 달아 둔 것이라 지금 상태가
 # 정합적이다. 재고 안 넣었다(브리프 543·544 의 규율).
-_NOT_A_CONDITION = ("correction_reason", "corrected_by", "correction_evidence")
+#
+# **이동 표시도 조건이 아니다**(53차 OA). `moved_from_material`(§536, 재료 이동) 과
+# `moved_from_source`(53차 OA, 출처 병합)는 되돌리기·전파용 표시이지 측정 조건이 아니다.
+# 넣어 두면 위와 똑같이 무너진다 — 실측(라이브 41,368행 · 20,041군, 이동 193행 예행):
+#   빼기 전 : 대표 변동 **20군** · 그중 **값까지 바뀌는 것 6군**(Zeonex 굴곡강도 120→115 MPa 등)
+#   뺀 뒤   : 이동 전 라이브 변동 0군 · 이동 표시 193행을 얹어도 변동 0군
+# §563 이 "값이 같은 중복군은 한쪽에만 더한다" 로 풀 수 있었던 것은 그 군의 값이 같아서였다.
+# 출처 병합이 옮기는 193행은 중복군이 아니라 DB 전역에 흩어져 있어 그 길이 없다.
+_NOT_A_CONDITION = ("correction_reason", "corrected_by", "correction_evidence",
+                    "moved_from_material", "moved_from_source")
 
 
 def _condition_axis_count(cond) -> int:
