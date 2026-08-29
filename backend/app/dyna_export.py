@@ -4,12 +4,13 @@ from __future__ import annotations
 import difflib
 import json
 import re
+from collections import defaultdict
 
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
-from app.catalog_compare import (is_non_solid, representative_numeric, representative_rows,
-                                 representative_ties)
+from app.catalog_compare import (_rep_rank, is_non_solid, representative_numeric,
+                                 representative_rows, representative_ties)
 from app.models import Material, ProcessedResult, PropertyValue, Specimen, Test
 from app.unit_systems import UnitSystem, get_system
 
@@ -19,14 +20,20 @@ K_E = "mechanical.youngs_modulus"
 K_NU = "mechanical.poisson_ratio"
 
 
+def _cond_dict(pv) -> dict:
+    """행의 조건을 dict 로. 문자열로 저장된 경우(옛 적재분)도 받는다."""
+    c = getattr(pv, "conditions", None)
+    if isinstance(c, str):
+        try:
+            c = json.loads(c)
+        except (TypeError, ValueError):
+            return {}
+    return c if isinstance(c, dict) else {}
+
+
 def _direction(pv) -> str:
     """행의 방향 조건. 없으면 빈 문자열."""
-    import json as _j
-    try:
-        d = _j.loads(pv.conditions) if isinstance(pv.conditions, str) else (pv.conditions or {})
-    except (TypeError, ValueError):
-        return ""
-    return str((d or {}).get("direction") or "") if isinstance(d, dict) else ""
+    return str(_cond_dict(pv).get("direction") or "")
 
 
 def _direction_clash(rows, mid) -> str | None:
@@ -56,7 +63,8 @@ def _tie_note(ties: dict, mid: int, key: str, label: str, scale: float = 1.0) ->
     rivals = ties.get((mid, key))
     if not rivals:
         return None
-    shown = ", ".join(f"{_fmt(r.value_num * scale)}{_cond_tag(r.conditions)}" for r in rivals[:2])
+    shown = ", ".join(f"{_fmt(r.value_num * scale)} #{r.id}{_cond_tag(r.conditions)}"
+                      for r in rivals[:2])
     more = f" 외 {len(rivals) - 2}건" if len(rivals) > 2 else ""
     return (f"{label} 는 순위가 같은 후보 {len(rivals) + 1}개에서 적재 순서로 골랐다"
             f" (진 쪽 {shown}{more})")
@@ -78,6 +86,256 @@ K_SIGY_RATE = "mechanical.yield_strength_at_rate"
 MECH_KEYS = (K_RHO, K_E, K_NU, K_SIGY, K_UTS, K_ELONG, K_CS_C, K_CS_P,
              K_JC_A, K_JC_B, K_JC_N, K_JC_C)
 THERM_KEYS = (K_RHO, K_HC, K_TC, K_CTE)
+
+
+# ── 후보 선택 — 카드 슬롯마다 "나머지 한쪽" 을 쓸 수 있게 연다 ─────────────────────
+#
+# 왜 있는가(51차 MC). 카드의 각 칸은 `representative_*` 가 고른 **한 행**만 썼다.
+# 그런데 라이브 41,368행에서 대표값의 63%(3,975쌍)가 순위로 안 갈려 **적재 순서**로 정해지고,
+# 그중 2,510쌍은 값이 10% 넘게 다르다(§545). 방향(§462)·율속(47차 IA)·열처리(§537)는
+# 선택기에 없는 축이라 순위로는 영원히 못 가른다 — 그리고 §543·544 가 축을 더하는 두 시도를
+# 전수로 재고 둘 다 버렸다(개악 26쌍 중 개선 4 · 67쌍 중 1).
+#
+# **그래서 순위를 고치지 않고 고를 수 있게 한다.** 기본 동작은 그대로 대표값이고,
+# 고른 것은 카드 주석에 남으며, 없는 후보를 고르면 **대표값으로 떨어지지 않고 거부한다.**
+#
+# **슬롯마다 따로 고른다.** 라이브 실측이 그래야 한다고 말한다 — 카드 슬롯의 대표값 방향이
+# 서로 갈린 재료 212종에서 가장 흔한 쌍이 (열전도율, 선팽창) 146종이고, (영률, 열전도율) 49 ·
+# (영률, 선팽창) 42다. 한 재료에 방향을 하나로 강제하면 그 방향 값이 없는 칸이 통째로 빈다.
+
+
+class ChoiceError(ValueError):
+    """호출자가 지정한 후보를 못 찾았다. **조용히 대표값으로 떨어지지 않는다.**
+
+    지정이 빗나갔는데 대표값이 나오면 카드는 서지만 해석자는 자기가 고른 값을 쓴 줄 안다 —
+    §505 가 말한 "틀린 주의가 멀쩡한 값을 버린다" 의 반대 얼굴이다.
+    """
+
+
+# 고를 수 있는 슬롯. 카드에 실제로 박히는 칸만 연다.
+CHOOSABLE_KEYS = tuple(sorted(set(MECH_KEYS + THERM_KEYS)))
+
+# 카드에서 부르는 이름. 주석은 카드 문법의 필드명으로 읽히는 게 낫다.
+_SLOT_LABEL = {K_RHO: "RO", K_E: "E", K_NU: "PR", K_SIGY: "SIGY", K_UTS: "UTS",
+               K_ELONG: "FAIL", K_HC: "HC", K_TC: "TC", K_CTE: "CTE",
+               K_CS_C: "C", K_CS_P: "p"}
+# 열 카드에서 `$` 값 줄이 따로 나가는 칸 — 방향 후보 주석을 그 옆에 붙인다.
+# (기계 카드 쪽은 동률 주석 루프가 같은 목록을 이미 돌고 있어 거기 얹었다.)
+_THERM_SLOTS = (K_RHO, K_HC, K_TC, K_CTE)
+
+_SEL_ID = re.compile(r"^#?(\d+)$")
+
+
+def slot_scale(key: str, u: UnitSystem) -> tuple[float, str]:
+    """슬롯의 SI→카드 단위 환산계수와 단위 표기. 주석 값을 카드와 같은 단위로 적기 위한 것."""
+    if key == K_RHO:
+        return u.f_density, u.density_unit
+    if key in (K_E, K_SIGY, K_UTS, K_JC_A, K_JC_B):
+        return u.f_stress, u.stress_unit
+    if key == K_HC:
+        return f_specific_heat(u), hc_unit(u)
+    if key == K_TC:
+        return f_conductivity(u), tc_unit(u)
+    return 1.0, ""
+
+
+def candidate_rows(db: Session, material_ids: list[int],
+                   keys: tuple | list = CHOOSABLE_KEYS) -> dict[tuple, list]:
+    """(재료,키) → 후보 행들, **대표값 순서**로. 질의 한 번.
+
+    수치행만 본다 — 카드는 수치만 쓰고 `representative_numeric` 도 그렇게 고른다.
+    맨 앞이 지금 카드에 들어가는 그 행이다.
+    """
+    if not material_ids:
+        return {}
+    rows = db.execute(select(PropertyValue).where(
+        PropertyValue.material_id.in_(list(material_ids)),
+        PropertyValue.property_key.in_(list(keys)),
+        PropertyValue.value_num.isnot(None))).scalars().all()
+    out: dict[tuple, list] = defaultdict(list)
+    for pv in rows:
+        out[(pv.material_id, pv.property_key)].append(pv)
+    for v in out.values():
+        v.sort(key=_rep_rank)
+    return dict(out)
+
+
+def parse_selector(sel) -> tuple[int | None, dict]:
+    """후보 선택자 → (property_value.id, 조건 제약).
+
+    받는 형태 —
+      `4711` · `"#4711"`          그 행을 쓴다(가장 정확하다. 카드 주석이 이 번호를 적어 준다)
+      `"direction=through-plane"` 조건이 그렇게 적힌 후보 중에서 대표 규칙으로 고른다
+      `"direction=Z,temperature_C=23"` · `{"direction": "Z"}`
+    """
+    if isinstance(sel, bool):
+        raise ChoiceError(f"선택자가 참/거짓이다: {sel!r}")
+    if isinstance(sel, int):
+        return sel, {}
+    if isinstance(sel, dict):
+        cons = {str(k): sel[k] for k in sel}
+        if not cons:
+            raise ChoiceError("빈 선택자")
+        return None, cons
+    s = str(sel).strip()
+    if not s:
+        raise ChoiceError("빈 선택자")
+    m = _SEL_ID.match(s)
+    if m:
+        return int(m.group(1)), {}
+    cons = {}
+    for part in s.split(","):
+        if "=" not in part:
+            raise ChoiceError(f"알 수 없는 선택자 '{part.strip()}' — "
+                              "'#행번호' 또는 '조건키=값' 형태여야 한다")
+        k, _, v = part.partition("=")
+        if not k.strip():
+            raise ChoiceError(f"조건키가 비었다: '{part.strip()}'")
+        cons[k.strip()] = v.strip()
+    return None, cons
+
+
+def parse_choice_query(text: str | None) -> dict:
+    """질의문자열 한 줄 → `{물성키: 선택자}`. GET 진입점용.
+
+    `"mechanical.poisson_ratio:#38167;thermal.conductivity:direction=through-plane"`
+    키와 선택자는 `:` 로, 항목은 `;` 로 가른다 — 선택자 안에 `=` 와 `,` 가 들어가기 때문이다.
+    """
+    out: dict = {}
+    for item in (text or "").split(";"):
+        item = item.strip()
+        if not item:
+            continue
+        if ":" not in item:
+            raise ChoiceError(f"choose 항목 '{item}' 에 `:` 가 없다 — "
+                              "'물성키:선택자' 형태여야 한다")
+        k, _, v = item.partition(":")
+        if not k.strip() or not v.strip():
+            raise ChoiceError(f"choose 항목 '{item}' 이 비었다")
+        out[k.strip()] = v.strip()
+    return out
+
+
+def _matches(pv, cons: dict) -> bool:
+    """조건 제약을 만족하는가. **부분일치·대소문자 무시**다.
+
+    방향 문자열이 자유형식이라 정확일치는 못 쓴다 — 라이브의 카드 슬롯 9칸에 `direction`
+    값이 **255종**이고 그중 54종은 40자가 넘는 산문이다
+    (`'through-thickness (basis measured cross-plane by the 3-omega method on a …'`).
+    `direction=through` 로 그 행을 집을 수 있어야 쓸모가 있다.
+    """
+    c = _cond_dict(pv)
+    for k, want in cons.items():
+        got = c.get(k)
+        if got is None:
+            return False
+        if str(want).strip().lower() not in str(got).strip().lower():
+            return False
+    return True
+
+
+def _avail(cands: list, u: UnitSystem, limit: int = 6) -> str:
+    """거부 메시지에 붙일 후보 목록 — 무엇을 고를 수 있었는지 말해 주지 않으면 못 고친다."""
+    f, unit = slot_scale(cands[0].property_key, u) if cands else (1.0, "")
+    bits = [f"#{pv.id} {_fmt((pv.value_num or 0) * f)}{(' ' + unit) if unit else ''}"
+            f"{_cond_tag(pv.conditions)}" for pv in cands[:limit]]
+    more = f" 외 {len(cands) - limit}건" if len(cands) > limit else ""
+    return (" · ".join(bits) + more) if bits else "(후보 없음)"
+
+
+def resolve_choice(cands: list, key: str, sel, u: UnitSystem, where: str):
+    """선택자 → 실제 행. 못 찾으면 `ChoiceError` — 대표값으로 떨어지지 않는다."""
+    pid, cons = parse_selector(sel)
+    if not cands:
+        raise ChoiceError(f"{where}: `{key}` 에 수치 후보가 하나도 없다 — 고를 것이 없다")
+    if pid is not None:
+        hit = [pv for pv in cands if pv.id == pid]
+        if not hit:
+            raise ChoiceError(f"{where}: `{key}` 에 행 #{pid} 가 없다. 후보 — {_avail(cands, u)}")
+        return hit[0]
+    hit = [pv for pv in cands if _matches(pv, cons)]
+    if not hit:
+        shown = ", ".join(f"{k}={v}" for k, v in cons.items())
+        raise ChoiceError(f"{where}: `{key}` 에 `{shown}` 를 만족하는 후보가 없다. "
+                          f"후보 — {_avail(cands, u)}")
+    return hit[0]          # 좁힌 안에서 다시 대표 규칙(cands 가 이미 그 순서다)
+
+
+def choice_note(key: str, pv, default_pv, sel, u: UnitSystem) -> str:
+    """고른 것을 카드에 남긴다 — **무엇을 왜 골랐는지가 카드에 있어야 재현된다.**"""
+    f, unit = slot_scale(key, u)
+    lab = _SLOT_LABEL.get(key, key)
+    unit_s = f" {unit}" if unit else ""
+    was = (f"기본 {_fmt(default_pv.value_num * f)}{unit_s} #{default_pv.id}"
+           if default_pv is not None else "기본 대표값 없음")
+    return (f"{lab} ← `{_clip(str(sel), 46)}` : {_fmt(pv.value_num * f)}{unit_s} "
+            f"#{pv.id} ({was})")
+
+
+def direction_options(cands: list, chosen, u: UnitSystem, limit: int = 2) -> str | None:
+    """같은 칸에 **방향이 다른 후보**가 있으면 값과 손잡이(#행번호)를 낸다.
+
+    §462 는 E 와 PR 의 방향이 어긋났을 때 경고를 박았다. 그런데 라이브에서 그 검사가
+    걸리는 39종 중 방향이 **실제로 다른 것은 1종뿐**이다(2361 열분해 흑연: 면내 basal E 대
+    두께방향 c축 PR). 나머지 38종은 같은 방향을 다르게 적은 것이다 —
+    `'MD'` 대 `'in-plane (biaxially oriented film; MD/TD not distinguished by the source)'`,
+    `'not stated in source (bulk)'` 대 `'not stated in source (bulk, isotropic assumption)'`.
+    255종의 자유형식 문자열을 분류하는 대신 **후보를 그대로 보여준다** — 판단은 해석자가 한다.
+    """
+    if chosen is None:
+        return None
+    mine = _direction(chosen).strip().lower()
+    alts = [pv for pv in cands
+            if pv.id != chosen.id and _direction(pv).strip().lower() != mine
+            and _differs_rel(chosen.value_num, pv.value_num)]
+    if not alts:
+        return None
+    f, unit = slot_scale(chosen.property_key, u)
+    unit_s = f" {unit}" if unit else ""
+    bits = [f"`{_clip(_direction(pv) or '(방향 미표기)', 30)}` "
+            f"{_fmt((pv.value_num or 0) * f)}{unit_s} #{pv.id}" for pv in alts[:limit]]
+    more = f" 외 {len(alts) - limit}건" if len(alts) > limit else ""
+    return " · ".join(bits) + more
+
+
+# 방향 후보를 셀 때 반올림 쌍둥이는 세지 않는다(`catalog_compare._TIE_REL_TOL` 과 같은 잣대).
+_ALT_REL_TOL = 0.01
+
+
+def _differs_rel(a, b) -> bool:
+    if a is None or b is None:
+        return a is not b
+    m = max(abs(a), abs(b))
+    return m > 0 and abs(a - b) / m > _ALT_REL_TOL
+
+
+def choice_catalog(cands: dict[tuple, list], material_ids: list[int],
+                   u: UnitSystem, limit: int = 8) -> dict:
+    """후보가 둘 이상인 칸만 골라 (재료 → 슬롯 → 후보목록)으로 낸다.
+
+    **덱을 뽑은 그 호출이 "무엇을 더 고를 수 있었는지" 를 같이 돌려준다** — 그래야
+    새 조회 경로 없이 두 걸음(기본으로 뽑고 → 후보를 보고 → 지정해 다시 뽑기)이 닫힌다.
+    """
+    out: dict[str, dict] = {}
+    for mid in material_ids:
+        slots: dict[str, list] = {}
+        for key in CHOOSABLE_KEYS:
+            rows = cands.get((mid, key)) or []
+            if len(rows) < 2:
+                continue
+            f, unit = slot_scale(key, u)
+            slots[key] = [{
+                "id": pv.id, "slot": _SLOT_LABEL.get(key, key),
+                "value_si": pv.value_num, "value_card": pv.value_num * f,
+                "unit_card": unit or pv.unit, "tier": pv.quality_tier,
+                "method": pv.method, "conditions": pv.conditions,
+                "representative": pv.id == rows[0].id,
+                "select": f"#{pv.id}",
+            } for pv in rows[:limit]]
+        if slots:
+            out[str(mid)] = slots
+    return out
+
 
 _DEFAULT_NU = 0.3
 # 점탄성 카드에서 포아송비도 저장 BULK도 없을 때. 엘라스토머 기준(폼이면 더 낮다).
@@ -182,9 +440,13 @@ def _fmt(v: float) -> str:
 # 해석 결과를 좌우하는 조건만 골라 짧게 붙인다(전부 붙이면 주석이 못 읽게 길어진다).
 # 율속 축은 표기가 둘이다 — `strain_rate_s` 를 빠뜨려 SAC105 카드가 10/s 값을 율속 표시
 # 없이 싣고 있었다(47차 IA). 카탈로그 실측 어휘는 `strain_rate_s` 쪽이 더 많다.
+# `direction` 이 빠져 있었다(51차 MC). 카드 슬롯 9칸의 조건 중 `direction` 이 1,546행으로
+# 온도(temperature_c 1,569) 다음이고 `axis`(983)보다 많은데, 출처 태그에도 동률 주석에도
+# 안 나갔다 — §462 가 경고를 박은 바로 그 축이 정작 카드에서 안 보였다.
 _COND_SHOW = (("strain_rate_1/s", "ε̇", "/s"), ("strain_rate_s", "ε̇", "/s"),
               ("temperature_C", "T", "°C"),
               ("temperature_K", "T", "K"), ("temperature_k", "T", "K"),
+              ("direction", "", ""),
               ("axis", "", ""), ("regime", "", ""), ("grade", "", ""))
 
 
@@ -288,17 +550,23 @@ def _rows(items) -> list:
     return out
 
 
-def parse_items(items: list) -> tuple[list, list[int | None], list[list[int]], list[str]]:
-    """입력 항목에서 (재료토큰, 지정 MID, PID 목록)을 뽑는다. 미지정은 None/빈 리스트.
+def parse_items(items: list) -> tuple[list, list[int | None], list[list[int]], list[dict], list[str]]:
+    """입력 항목에서 (재료토큰, 지정 MID, PID 목록, 후보 지정)을 뽑는다. 미지정은 None/빈 것.
 
     지원 형식 — "이름" / 12(카탈로그 id) / "101, 이름" / "101:이름" / "101=이름" /
     "101, 5, 이름"(MID·PID·이름) / "101, 5;6;7, 이름"(여러 PID) /
     {"mid":101,"pid":5,"material":"이름"} / 여러 줄 문자열(표 붙여넣기).
     지정한 MID는 그대로 카드에 쓰이고, PID가 있으면 CTE(*MAT_ADD_THERMAL_EXPANSION)를 만든다.
+
+    **후보 지정은 dict 항목에만 붙는다** — `{"material": 73, "choices": {"mechanical.
+    youngs_modulus": "direction=in-plane"}}`. 붙여넣기 텍스트에는 문법을 만들지 않았다:
+    행 문법("101, 5;6;7, 이름")에 조건식을 끼우면 재료 이름의 콤마와 구별이 안 된다.
+    여러 재료에 같은 지정을 걸려면 `build_cards(choices=…)` 를 쓴다.
     """
     toks: list = []
     mids: list[int | None] = []
     pids: list[list[int]] = []
+    chs: list[dict] = []
     errs: list[str] = []
     for it in _rows(items):
         if isinstance(it, dict):
@@ -312,7 +580,11 @@ def parse_items(items: list) -> tuple[list, list[int | None], list[list[int]], l
             except (TypeError, ValueError):
                 errs.append(f"{it}: mid가 정수가 아님")
                 continue
+            ch = it.get("choices") or {}
+            if not isinstance(ch, dict):
+                raise ChoiceError(f"{t}: choices 는 {{물성키: 선택자}} 형태여야 한다 — {ch!r}")
             pids.append(_parse_pids(it.get("pids", it.get("pid", it.get("PID")))))
+            chs.append(dict(ch))
             toks.append(t)
             continue
         s = str(it).strip()
@@ -323,6 +595,7 @@ def parse_items(items: list) -> tuple[list, list[int | None], list[list[int]], l
         if m3:
             mids.append(int(m3.group(1)))
             pids.append(_parse_pids(m3.group(2)))
+            chs.append({})
             toks.append(m3.group(3).strip())
             continue
         # "101, 이름" / "101:이름" / "101=이름" — 앞이 정수면 MID 지정으로 해석.
@@ -330,12 +603,14 @@ def parse_items(items: list) -> tuple[list, list[int | None], list[list[int]], l
         if m:
             mids.append(int(m.group(1)))
             pids.append([])
+            chs.append({})
             toks.append(m.group(2).strip())
         else:
             mids.append(None)
             pids.append([])
+            chs.append({})
             toks.append(s)
-    return toks, mids, pids, errs
+    return toks, mids, pids, chs, errs
 
 
 def assign_mids(explicit: list[int | None], mid_start: int) -> tuple[list[int], list[str]]:
@@ -368,7 +643,7 @@ def match_rows(db: Session, tokens: list, mid_start: int = 1, limit: int = 6) ->
     반환: {rows:[{mid, mid_source, query, candidates:[{material_id,name,score,matched_by,
     manufacturer,n_properties,has_mechanical,has_thermal}]}], errors}
     """
-    toks, explicit, pid_lists, errs = parse_items(list(tokens or []))
+    toks, explicit, pid_lists, _chs, errs = parse_items(list(tokens or []))
     mid_list, warns = assign_mids(explicit, mid_start)
     all_mats = db.execute(select(Material)).scalars().all()
 
@@ -711,26 +986,41 @@ def rate_scale_points(db: Session, mid: int) -> tuple[list[tuple[float, float]],
 
 def build_cards(db: Session, tokens: list, card: str = "mechanical",
                 units: str = "ton_mm_s", mid_start: int = 1,
-                lcid_start: int = CTE_LCID_BASE) -> dict:
+                lcid_start: int = CTE_LCID_BASE, choices: dict | None = None,
+                list_choices: bool = False) -> dict:
     """재료 리스트 → LS-DYNA 키워드 덱. card: mechanical|thermal|both.
 
     MID는 mid_start부터 순차 자동 배정. 각 카드에 출처(프로비넌스)를 $ 주석으로 남긴다.
     필수 물성이 없어 카드를 만들 수 없으면 조용히 기본값으로 채우지 않고 skipped에 보고한다.
+
+    **후보 지정**(51차 MC) — `choices={물성키: 선택자}` 는 이 호출의 **모든 재료**에 걸리고,
+    항목 dict 의 `"choices"` 는 그 재료에만 걸리며 앞의 것을 덮는다.
+    선택자는 `"#4711"`(행번호) 또는 `"direction=in-plane"`(조건 부분일치)이다.
+    **안 주면 지금과 똑같이 대표값을 쓴다.** 없는 후보를 주면 `ChoiceError` 로 거부한다 —
+    대표값으로 조용히 떨어지지 않는다. 고른 것은 카드 주석(`※ 후보 지정`)에 남는다.
+
+    지정은 **카드에 박히는 슬롯**(`CHOOSABLE_KEYS`)에만 건다. Prony(076)가 G0·K0 를
+    유도할 때 쓰는 `shear_modulus`·`bulk_modulus` 는 대상이 아니다.
+
+    `list_choices=True` 면 응답에 `candidates`(재료 → 슬롯 → 후보목록)를 함께 낸다 —
+    기본으로 한 번 뽑고, 후보를 보고, 지정해 다시 뽑는 두 걸음이 새 조회 경로 없이 닫힌다.
     """
     u = get_system(units)
-    toks, explicit, pid_lists, parse_errs = parse_items(list(tokens or []))
+    toks, explicit, pid_lists, item_choices, parse_errs = parse_items(list(tokens or []))
     # 토큰별 개별 해석 — 같은 재료를 다른 MID로 중복 지정하는 경우를 허용(순서·중복 보존).
     mats: list[dict] = []
     keep_mid: list[int | None] = []
     keep_pids: list[list[int]] = []
+    keep_choices: list[dict] = []
     errors: list[str] = list(parse_errs)
-    for t, em, pl in zip(toks, explicit, pid_lists):
+    for t, em, pl, ch in zip(toks, explicit, pid_lists, item_choices):
         got, errs = resolve_materials_fuzzy(db, [t])
         errors.extend(errs)
         if got:
             mats.append(got[0])
             keep_mid.append(em)
             keep_pids.append(pl)
+            keep_choices.append({**(choices or {}), **ch})
     if not mats:
         return {"error": "해석할 재료가 없습니다", "resolution_errors": errors,
                 "keyword": "", "materials": [], "skipped": []}
@@ -761,11 +1051,12 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
     refs: list[dict] = []              # 덱 끝에 붙일 번호 매긴 참고문헌
     ref_no: dict[int, int] = {}        # source.id → 번호
     prov: dict[tuple, str] = {}        # (mid, key) → "[n] 업체" 짧은 태그
-    for (mid_, key_), pv in rep_rows.items():
+
+    def _prov_tag(pv) -> str:
+        """그 행의 출처를 참고문헌에 등록하고 짧은 태그를 만든다."""
         src = pv.source
         if src is None:
-            prov[(mid_, key_)] = "출처미상"
-            continue
+            return "출처미상"
         if src.id not in ref_no:
             ref_no[src.id] = len(refs) + 1
             refs.append({"n": len(refs) + 1, "publisher": src.publisher,
@@ -773,11 +1064,49 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
                          "kind": src.kind})
         short = (src.publisher or src.title or "").strip()
         tag = f"[{ref_no[src.id]}] {_clip(short, 40)}" if short else f"[{ref_no[src.id]}]"
-        cond_tag = _cond_tag(pv.conditions)
-        prov[(mid_, key_)] = f"{tag}{cond_tag}"
+        return f"{tag}{_cond_tag(pv.conditions)}"
+
+    for (mid_, key_), pv in rep_rows.items():
+        prov[(mid_, key_)] = _prov_tag(pv)
+
+    # 후보 목록 — 지정을 해석하고, 방향이 갈린 칸을 카드에 드러내는 데 둘 다 쓴다(질의 한 번).
+    cands: dict[tuple, list] = candidate_rows(db, ids)
+    # 지정을 실제 행으로 해석한다. 항목마다 따로 — 같은 재료를 두 MID로 넣고
+    # 한쪽은 면내, 한쪽은 두께방향으로 뽑는 쓰임이 실재한다(등방 카드 둘로 이방을 근사).
+    picked: list[dict] = []
+    for m, ch in zip(mats, keep_choices):
+        one: dict = {}
+        for key, sel in (ch or {}).items():
+            if key not in CHOOSABLE_KEYS:
+                raise ChoiceError(
+                    f"{m['name']}: `{key}` 는 카드 슬롯이 아니다 — 고를 수 있는 키는 "
+                    + ", ".join(CHOOSABLE_KEYS))
+            pv = resolve_choice(cands.get((m["id"], key)) or [], key, sel, u, m["name"])
+            one[key] = {"pv": pv, "selector": sel,
+                        "default": rep_rows.get((m["id"], key))}
+        picked.append(one)
 
     def val(mid: int, key: str):
-        return reps.get(key, {}).get(mid)
+        pv = cur_choice.get(key)
+        return pv["pv"].value_num if pv else reps.get(key, {}).get(mid)
+
+    def slot_notes(i: int, key: str) -> list[str]:
+        """한 칸에 붙는 주석 — 고른 것(지정)과 **방향이 다른 후보**를 드러낸다.
+
+        둘 다 자동으로 고르지 않는다(§462 와 같은 방식). 카드는 그대로 선다.
+        """
+        if key in noted:
+            return []            # card="both" 면 RO 가 두 카드에 다 나온다 — 주석은 한 번만
+        noted.add(key)
+        out: list[str] = []
+        ent = cur_choice.get(key)
+        if ent is not None:
+            out.append("$   ※ 후보 지정 — " + choice_note(key, ent["pv"], ent["default"],
+                                                       ent["selector"], u))
+        alt = direction_options(cands.get((i, key)) or [], rep_rows.get((i, key)), u)
+        if alt:
+            out.append(f"$   ※ {_SLOT_LABEL.get(key, key)} 의 다른 방향 후보 — {alt}")
+        return out
 
     want_mech = card in ("mechanical", "both")
     want_therm = card in ("thermal", "both")
@@ -788,14 +1117,38 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
                         f"$ 단위계: {u.label}  (응력 {u.stress_unit}, 밀도 {u.density_unit})",
                         f"$ 카드종류: {card}",
                         "$ 각 물성 아래 $ 주석은 출처(프로비넌스)입니다.",
+                        "$ 후보가 여럿인 칸은 `※` 주석에 다른 후보와 행번호(#id)를 적었습니다 —",
+                        "$ 그 후보로 다시 뽑으려면 choices 에 {'mechanical.youngs_modulus': '#4711'}"
+                        " 처럼 지정하세요.",
                         "$" + "=" * 78]
     table: list[dict] = []
     skipped: list[dict] = []
     parts: list[dict] = []
     lcid_next = [int(lcid_start)]
     lcid_by_mat: dict[int, int] = {}
-    for m, mid, pids in zip(mats, mid_list, keep_pids):
+    cur_choice: dict = {}
+    noted: set = set()
+    prov_restore: list[tuple] = []
+    for m, mid, pids, cur_choice in zip(mats, mid_list, keep_pids, picked):
         i = m["id"]
+        noted = set()
+        # 앞 항목의 지정을 되돌린다 — 같은 재료가 다른 지정으로 두 번 올 수 있다.
+        for _k, _p, _r in prov_restore:
+            if _p is None:
+                prov.pop(_k, None)
+            else:
+                prov[_k] = _p
+            if _r is None:
+                rep_rows.pop(_k, None)
+            else:
+                rep_rows[_k] = _r
+        prov_restore = []
+        # 고른 행이 값·출처·방향 검사 **전부**의 원천이 되게 갈아 끼운다.
+        # 값만 바꾸고 출처를 그대로 두면 값과 출처가 어긋나는 옛 사고가 재발한다.
+        for _key, _ent in cur_choice.items():
+            prov_restore.append(((i, _key), prov.get((i, _key)), rep_rows.get((i, _key))))
+            prov[(i, _key)] = _prov_tag(_ent["pv"])
+            rep_rows[(i, _key)] = _ent["pv"]
         rho, E, nu = val(i, K_RHO), val(i, K_E), val(i, K_NU)
         sigy, uts, elong = val(i, K_SIGY), val(i, K_UTS), val(i, K_ELONG)
         hc, tc, cte = val(i, K_HC), val(i, K_TC), val(i, K_CTE)
@@ -848,6 +1201,7 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
                 lines.append(f"$   BULK {_fmt(bulk * u.f_stress)} {u.stress_unit} — {bulk_why}")
                 lines.append(f"$   RO   {_fmt(rho * u.f_density)} {u.density_unit}"
                              f" (= {_fmt(rho)} kg/m^3)   <- {prov.get((i, K_RHO), '출처미상')}")
+                lines += slot_notes(i, K_RHO)
                 lines.append(f"$   출처 {prov.get((i, K_PR_TAU), '출처미상')}")
                 lines.append("*MAT_GENERAL_VISCOELASTIC_TITLE")
                 lines.append(title)
@@ -886,6 +1240,9 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
                             " (포아송비 미보유 — 저장값 그대로. 폼·패드면 비압축으로 과대평가될 수 있다)"))
             lines.append(f"$   RO   {_fmt(rho * u.f_density)} {u.density_unit}"
                          f" (= {_fmt(rho)} kg/m^3)   <- {prov.get((i, K_RHO), '출처미상')}")
+            for _k in (K_RHO, K_NU):
+                if val(i, _k) is not None:
+                    lines += slot_notes(i, _k)
             lines.append(f"$   G0   {_fmt(si['G0'] * u.f_stress)} {u.stress_unit}"
                          f"   GI {_fmt(si['GI'] * u.f_stress)} {u.stress_unit}"
                          f"   BETA {_fmt(si['BETA'] * u.f_rate)} 1/{u.key.rsplit('_', 1)[-1]}")
@@ -951,6 +1308,8 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
                 # 선택기가 못 가른 칸을 드러낸다 — 자동으로 고르지 않는다(§462 와 같은 방식).
                 for _k, _lab, _v, _sc in ((K_RHO, "RO", rho, u.f_density), (K_E, "E", E, u.f_stress),
                                           (K_NU, "PR", nu, 1.0), (K_SIGY, "SIGY", sigy, u.f_stress)):
+                    if _v is not None:
+                        lines += slot_notes(i, _k)
                     _tie = _tie_note(rep_ties, i, _k, _lab, _sc) if _v is not None else None
                     if _tie:
                         lines.append(f"$   **주의: 대표값이 동률이다** — {_tie}.")
@@ -1055,6 +1414,9 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
                              f" (= {_fmt(tc)} W/(m*K))   <- {prov.get((i, K_TC), '출처미상')}")
                 if cte is not None:
                     lines.append(f"$   (참고) CTE {_fmt(cte)} 1/K   <- {prov.get((i, K_CTE), '출처미상')}")
+                for _k in _THERM_SLOTS:
+                    if val(i, _k) is not None:
+                        lines += slot_notes(i, _k)
                 lines.append("*MAT_THERMAL_ISOTROPIC_TITLE")
                 lines.append(title)
                 lines.append("$#    tmid       tro     tgrlc    tgmult      tlat     hlat")
@@ -1078,6 +1440,7 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
                     lines.append("$")
                     lines.append(f"$ --- CTE 곡선 (LCID {lcid}): {title} ---")
                     lines.append(f"$   CTE {_fmt(cte)} 1/K   <- {prov.get((i, K_CTE), '출처미상')}")
+                    lines += slot_notes(i, K_CTE)
                     lines.append("$   (온도 무관 상수 — 2점 곡선. 온도의존 CTE는 이 곡선을 교체하세요)")
                     lines.append("*DEFINE_CURVE_TITLE")
                     lines.append(f"CTE {title}"[:70])
@@ -1096,10 +1459,16 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
                                   "material": m["name"], "cte": cte})
 
         if made:
-            table.append({"mid": mid, "material_id": i, "name": m["name"],
-                          "matched_by": m["matched_by"], "query": m["query"],
-                          "mid_source": "지정" if mid in explicit_set else "자동",
-                          "pids": pids, "cards": made})
+            row = {"mid": mid, "material_id": i, "name": m["name"],
+                   "matched_by": m["matched_by"], "query": m["query"],
+                   "mid_source": "지정" if mid in explicit_set else "자동",
+                   "pids": pids, "cards": made}
+            if cur_choice:
+                row["choices"] = {k: {"selector": e["selector"], "id": e["pv"].id,
+                                      "value_si": e["pv"].value_num,
+                                      "default_id": e["default"].id if e["default"] else None}
+                                  for k, e in cur_choice.items()}
+            table.append(row)
 
     if refs:
         lines += ["$", "$" + "=" * 78,
@@ -1113,7 +1482,7 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
             if loc:
                 lines.append("$      " + loc)        # URL·DOI는 자르지 않는다(복사해 열어야 한다)
     lines.append("*END")
-    return {
+    out = {
         "keyword": "\n".join(lines),
         "units": {"key": u.key, "label": u.label, "stress": u.stress_unit,
                   "density": u.density_unit},
@@ -1125,3 +1494,6 @@ def build_cards(db: Session, tokens: list, card: str = "mechanical",
         "resolution_errors": errors,
         "mid_warnings": mid_warns,
     }
+    if list_choices:
+        out["candidates"] = choice_catalog(cands, ids, u)
+    return out
