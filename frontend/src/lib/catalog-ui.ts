@@ -73,13 +73,16 @@ export function formatConditions(c: Record<string, unknown> | null): string {
   };
   push("temperature_k", "T", " K");
   push("temperature_C", "T", " °C");
+  // 52차 NA — 조건 어휘를 소문자로 통일하면서 `temperature_c` 를 같이 읽는다.
+  // 옛 표기(`temperature_C`)도 남겨 둔다: 정정이 막힌 군(§548)은 아직 대문자다.
+  push("temperature_c", "T", " °C");
   push("humidity_rh", "RH", "%");
   push("frequency_hz", "f", " Hz");
   push("frequency_kHz", "f", " kHz");
   push("wavelength_nm", "λ", " nm");
   // 나머지 키는 key=value로.
   for (const [k, v] of Object.entries(c)) {
-    if (["temperature_k", "temperature_C", "humidity_rh", "frequency_hz", "frequency_kHz", "wavelength_nm"].includes(k)) continue;
+    if (["temperature_k", "temperature_C", "temperature_c", "humidity_rh", "frequency_hz", "frequency_kHz", "wavelength_nm"].includes(k)) continue;
     if (v === null || v === undefined) continue;
     parts.push(`${k}=${typeof v === "number" ? v : String(v)}`);
   }

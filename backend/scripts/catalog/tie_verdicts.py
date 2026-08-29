@@ -147,7 +147,9 @@ BOOK = {"figure","source_figure","table","source_table","source_page","line","da
 
 # ⑥ 구조화된 조건축 — 정규식으로 받는다(꼬리가 550키다)
 AXIS_PATTERNS = [
-    (r"^(direction|axis|orientation|plane|crystal_orientation|side|angle|angle_deg|"
+    # 52차 NA — `direction_verbatim` 을 같이 받는다. `direction` 이 정규값이 되면서
+    # 원문이 그리로 갔다. 안 받으면 방향으로 갈린 두 행이 "기록만 다르다" 로 분류된다.
+    (r"^(direction|direction_verbatim|axis|orientation|plane|crystal_orientation|side|angle|angle_deg|"
      r"orientation_deg_to_RD|ray|reflection|fracture_plane|crack_direction|incident_angle_deg|"
      r"peel_arm|measurement_region|measured_layer|location|hole)$", "방향"),
     (r"(strain_rate|shear_rate|rate_mm|crosshead_speed|loading_speed|test_speed|peel_rate|"

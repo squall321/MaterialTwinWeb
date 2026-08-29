@@ -11,6 +11,7 @@ from sqlalchemy.orm import Session
 
 from app.catalog_compare import (_rep_rank, is_non_solid, representative_numeric,
                                  representative_rows, representative_ties)
+from app.direction_vocab import plane as _dir_plane
 from app.models import Material, ProcessedResult, PropertyValue, Specimen, Test
 from app.unit_systems import UnitSystem, get_system
 
@@ -43,13 +44,23 @@ def _direction_clash(rows, mid) -> str | None:
     이방성 재료에서는 면내 E 에 두께방향 nu 가 짝지어질 수 있다 —
     42차 DA 가 열분해 흑연(basal E 20 GPa · z nu 0.3 · basal nu -0.1)에서 짚었다.
     등방 카드는 한 방향의 짝으로만 성립하므로 섞이면 카드가 물리적으로 틀린다.
+
+    **비교하는 것은 문자열이 아니라 '면' 이다**(52차 NA). 문자열로 재면 라이브에서 39종이
+    걸리는데 방향이 실제로 다른 것은 1종뿐이었다 — 나머지 38종은 `'MD'` 대
+    `'in-plane (biaxially oriented film; MD/TD not distinguished by the source)'` 처럼
+    **같은 면의 다른 표기**다(브리프 551). 카드가 물리적으로 깨지는 것은 면내 E 에
+    두께방향 nu 를 짝지었을 때이고, MD 와 면내(미분해)는 같은 면이라 깨지지 않는다.
+    면을 못 정하는 값(등방·축방향·미기재)은 **비교하지 않는다** — 51차 MC 가 재고 버린
+    "비교 방식을 좁히는" 휴리스틱과 다르다. 여기서는 `direction_vocab` 이 원문을 접은
+    정규값을 쓰므로 비교가 정확하다. 실측 — 39종 → **1종**(재료2361 열분해 흑연).
     """
     e_row, nu_row = rows.get((mid, K_E)), rows.get((mid, K_NU))
     if not e_row or not nu_row:
         return None
     de, dn = _direction(e_row), _direction(nu_row)
-    if de and dn and de != dn:
-        return f"E 는 `{de}`, PR 은 `{dn}` 에서 뽑혔다"
+    pe, pn = _dir_plane(de), _dir_plane(dn)
+    if pe and pn and pe != pn:
+        return f"E 는 `{de}`(면 {pe}), PR 은 `{dn}`(면 {pn}) 에서 뽑혔다"
     return None
 
 
@@ -443,8 +454,11 @@ def _fmt(v: float) -> str:
 # `direction` 이 빠져 있었다(51차 MC). 카드 슬롯 9칸의 조건 중 `direction` 이 1,546행으로
 # 온도(temperature_c 1,569) 다음이고 `axis`(983)보다 많은데, 출처 태그에도 동률 주석에도
 # 안 나갔다 — §462 가 경고를 박은 바로 그 축이 정작 카드에서 안 보였다.
+# `temperature_c` 가 빠져 있었다(52차 NA). 같은 목록이 `temperature_K`·`temperature_k` 를
+# **둘 다** 읽는데 섭씨만 대문자 판이 빠져 5,171행이 카드 태그에서 통째로 안 보였다 —
+# 선택이 아니라 누락이다. 조건 어휘를 `temperature_c` 로 통일하면서 같이 넣는다.
 _COND_SHOW = (("strain_rate_1/s", "ε̇", "/s"), ("strain_rate_s", "ε̇", "/s"),
-              ("temperature_C", "T", "°C"),
+              ("temperature_C", "T", "°C"), ("temperature_c", "T", "°C"),
               ("temperature_K", "T", "K"), ("temperature_k", "T", "K"),
               ("direction", "", ""),
               ("axis", "", ""), ("regime", "", ""), ("grade", "", ""))
