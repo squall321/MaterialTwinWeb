@@ -114,3 +114,32 @@ def test_value_fingerprint_absorbs_float_noise():
     assert vd.val_key(1e-05, None, "1/K") == vd.val_key(9.999999999999999e-06, None, "1/K")
     assert vd.val_key(1e-05, None, "1/K") != vd.val_key(1.2e-05, None, "1/K")
     assert vd.val_key(1e-05, None, "1/K") != vd.val_key(1e-05, None, "1/m")
+
+
+# ── 표시가 대표값에서 실제로 밀어내는지 ──────────────────────────────────────
+def test_marked_duplicate_never_wins_over_its_canonical():
+    """**이 시험이 규약의 못이다.** 표시는 `_rep_rank` 를 고치지 않고 그 안에서 푼다 —
+    다섯째 자리가 `len(conditions)` 오름차순이라 중복 쪽에 두 칸을 더하면 정본이 이긴다
+    (§543·544 가 두 번 재고 버린 *순위 변경* 을 안 한다).
+
+    **그래서 `_rep_rank` 가 살림살이 키를 세지 않게 되면 이 규약이 조용히 죽는다.**
+    52차 NC 가 `catalog_alternatives._cond` 에서 살림살이를 뺐고(§546 세 갈래가 무너져서다),
+    같은 손질이 `_rep_rank` 로 번지면 표시된 중복이 다시 대표값이 된다.
+    여기서 잡는다 — 순위가 조건 수를 세는 한 이 시험은 통과한다.
+    """
+    from app.catalog_compare import _rep_rank
+
+    class Row:
+        def __init__(self, pid, conditions):
+            self.id, self.conditions = pid, conditions
+            self.property_key, self.value_num, self.quality_tier = "thermal.expansion_linear", 1.92e-05, 1
+
+    canon = Row(6164, {"axis": "MD", "direction": "MD", "range": "25-200C"})
+    # 중복은 원래 조건이 **더 적어서** 표시 전에는 이겼다 — 실제 라이브의 재료 255 다.
+    dup = Row(4207, {"direction": "MD", "temperature_range_c": "25-200"})
+    assert _rep_rank(dup) < _rep_rank(canon)
+
+    dup.conditions = dict(dup.conditions,
+                          verdict_duplicate_of='axis="MD" | direction="MD" | range="25-200C"',
+                          verdict_duplicate_note="52차 NB")
+    assert _rep_rank(canon) < _rep_rank(dup)      # 표시 뒤에는 정본이 이긴다
