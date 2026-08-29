@@ -264,3 +264,48 @@ def test_target_by_material_key_conditions_pins_one_row(ing, tmp_path):
         "set": {"quality_tier": 4},
     }]}, apply=True)
     assert st["corr_ok"] == 1 and _row(ing, pvid)["tier"] == 4
+
+
+# ── 52차 NA: 되돌리기 표시가 병합기까지 살아 있어야 한다 ────────────────────────
+# 표시가 없거나 컬럼 표시와 이름이 겹치면 **병합기가 정정을 못 알아보고 운영에 새 행을
+# 만든다**(§522 가 막으려던 사고 그대로). 실측 — 조건 어휘 통일 12,049행을 예행했더니
+# 574행이 그렇게 새 행이 됐다(값이 null 인 칸 91 · `conditions.method` 483).
+
+def test_renaming_a_null_valued_condition_key_still_leaves_a_marker(ing, tmp_path):
+    """값이 `null` 인 칸의 **이름만** 바꿔도 표시가 남아야 한다.
+
+    `old.get(k) != new.get(k)` 로만 보면 "칸이 없다" 와 "칸이 null 이다" 가 같아져
+    표시가 하나도 안 남는다. 표시가 없으면 병합기의 `correction_prior` 가 None 을 돌려
+    **정정 전파 분기가 아예 안 돈다.**
+    """
+    mid, pvid = _seed(ing, conditions={"temperature_C": None, "grade": "A"})
+    st = _run(ing, tmp_path, {"corrections": [{
+        "target": {"property_value_id": pvid},
+        "reason": "조건 어휘 통일 — temperature_C 를 정본 temperature_c 로 옮긴다",
+        "set": {"conditions": {"temperature_c": None, "grade": "A"}},
+    }]}, apply=True)
+    assert st["corr_ok"] == 1
+    cond = _row(ing, pvid)["conditions"]
+    assert "temperature_C" not in cond and "temperature_c" in cond
+    assert "temperature_C_before_correction" in cond
+    assert cond["correction_reason"]
+
+
+def test_condition_cell_named_like_a_column_gets_its_own_namespace(ing, tmp_path):
+    """조건 칸 이름이 컬럼 이름과 겹치면 `conditions.` 를 붙인다.
+
+    안 붙이면 `conditions.method` 를 고칠 때 `method_before_correction` 이 남고,
+    병합기가 그것을 **컬럼 `method` 의 옛 값**으로 읽어 `where method='DMA tan-delta'`
+    로 운영행을 찾는다 — 0건이라 정정이 통째로 miss 가 된다(실측 483행).
+    """
+    mid, pvid = _seed(ing, conditions={"method": "DMA tan-delta"})
+    st = _run(ing, tmp_path, {"corrections": [{
+        "target": {"property_value_id": pvid},
+        "reason": "조건 어휘 통일 — conditions.method 는 method_detail 이 정본이다",
+        "set": {"conditions": {"method_detail": "DMA tan-delta"}},
+    }]}, apply=True)
+    assert st["corr_ok"] == 1
+    cond = _row(ing, pvid)["conditions"]
+    assert cond["conditions.method_before_correction"] == "DMA tan-delta"
+    assert "method_before_correction" not in cond      # 컬럼 표시와 겹치지 않는다
+    assert _row(ing, pvid)["method"] == "handbook"     # 컬럼은 그대로다

@@ -136,3 +136,42 @@ def test_midpoint_guard_marker_is_not_treated_as_a_correction(tmp_path):
     assert out["summary"]["property_value"]["added"] == 1   # 평범한 삽입이다
     assert out.get("value_corrections_total") is None
     assert out.get("correction_misses_total") is None
+
+
+# ── 52차 NA: 조건 칸 이름이 컬럼과 겹치면 병합기가 오독한다 ─────────────────────
+def test_condition_cell_marker_must_not_collide_with_a_column_marker(tmp_path):
+    """`conditions.method` 를 고친 표시가 컬럼 `method` 의 옛 값으로 읽히면 안 된다.
+
+    적재기가 `method_before_correction` 을 남기면 병합기는 그것을 **컬럼**의 옛 값으로
+    읽어 `where method='DMA tan-delta'` 로 운영행을 찾는다 — 0건이라 정정이 miss 가 되고
+    운영에 **새 행**이 생긴다(실측 483행). 적재기가 `conditions.` 를 붙여 네임스페이스를
+    가르므로 여기서는 정상적으로 갱신돼야 한다.
+    """
+    prod = _make_db(tmp_path, "prod5.db")
+    _seed(prod, pv_id=500, value=6.6, method="handbook", tier=2,
+          conditions={"method": "DMA tan-delta"})
+    dev = _make_db(tmp_path, "dev5.db")
+    _seed(dev, pv_id=10, value=6.6, method="handbook", tier=2,
+          conditions={"method_detail": "DMA tan-delta",
+                      "conditions.method_before_correction": "DMA tan-delta",
+                      "method_detail_before_correction": None,
+                      "correction_reason": "조건 어휘 통일 — method_detail 이 정본이다",
+                      "corrected_by": "52차 NA"})
+    out = _merge(dev, prod)
+    assert out["summary"]["property_value"]["added"] == 0
+    assert out["value_corrections_total"] == 1
+    assert out.get("correction_misses_total") is None
+
+
+def test_column_marker_still_narrows_the_search(tmp_path):
+    """반대 못 — 컬럼 `method` 를 실제로 고친 정정은 **옛 method 로 찾아야** 한다."""
+    prod = _make_db(tmp_path, "prod6.db")
+    _seed(prod, pv_id=500, value=6.6, method="handbook", tier=2, conditions=None)
+    dev = _make_db(tmp_path, "dev6.db")
+    _seed(dev, pv_id=10, value=6.6, method="measured", tier=2,
+          conditions={"method_before_correction": "handbook",
+                      "correction_reason": "원문이 실측이라고 밝힌다",
+                      "corrected_by": "52차 NA"})
+    out = _merge(dev, prod)
+    assert out["summary"]["property_value"]["added"] == 0
+    assert _pvs(prod) == [(6.6, "measured", 2)]

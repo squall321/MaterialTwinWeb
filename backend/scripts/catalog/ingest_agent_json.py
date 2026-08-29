@@ -474,6 +474,10 @@ def cond_sig(cond) -> str:
 # 그건 정정이 아니라 **이동**이고, 물성 0행이 되는 재료를 검사기가 어떻게 볼지(묘비 규약)가
 # 먼저 정해져야 한다(46차 HC 의 2290→36). 이동 경로는 이 배치에서 만들지 않는다.
 CORRECTABLE = {"value", "value_text", "unit", "method", "quality_tier", "conditions", "notes"}
+# 되돌리기 표시가 **컬럼용과 조건칸용으로 같은 이름 공간**을 쓴다. 이 이름들이 조건 칸으로도
+# 쓰이면(라이브에 `conditions.method` 가 639행 있다) 병합기가 조건 칸의 표시를 컬럼의 옛 값으로
+# 읽는다 — 그러면 정정을 못 찾고 운영에 새 행을 만든다(52차 NA 실측 483행).
+COLUMN_MARKER_NAMES = {"value", "value_text", "unit", "method", "tier", "notes"}
 # 정정 사유는 한 줄이라도 문장이어야 한다. "수정"·"fix" 한 단어는 사유가 아니다.
 REASON_MIN = 10
 
@@ -578,11 +582,25 @@ def plan_correction(pv, setv: dict, defs: dict) -> tuple[dict, dict, list]:
         if cond_sig(old) != cond_sig(new):
             # **바뀐 조건 칸마다 개별로 남긴다**(44차 FD 의 `wavelength_nm_before_correction`).
             # 통째로 문자열에 말아 넣으면 grep 이 안 되고 되돌리기가 눈으로 안 읽힌다.
+            #
+            # 52차 NA 가 여기서 결함 둘을 만났다. 둘 다 **병합기가 정정을 못 알아보고 운영에
+            # 새 행을 만든다** — §522 가 막으려던 바로 그 사고다(실측 574행).
+            #   ① `old.get(k) != new.get(k)` 는 **"칸이 없다" 와 "칸이 null 이다" 를 못 가른다.**
+            #      값이 null 인 칸의 이름만 바꾸면 표시가 **하나도 안 남고**, 표시가 없으면
+            #      `correction_prior` 가 None 을 돌려 정정 전파 분기가 아예 안 돈다(91행).
+            #      → 있고 없음(`k in`)을 먼저 본다.
+            #   ② 조건 칸 이름이 **컬럼 이름과 같으면 표시가 충돌한다.** `conditions.method`
+            #      를 고치면 `method_before_correction` 이 남는데, 병합기는 그것을 **컬럼**
+            #      `method` 의 옛 값으로 읽어 `where method='DMA tan-delta'` 로 찾는다 —
+            #      0건이라 정정이 통째로 miss 가 된다(483행).
+            #      → 겹치는 이름만 `conditions.` 로 네임스페이스를 붙인다. 병합기는 그 접두어를
+            #        모르므로 컬럼으로 오독하지 않고, 되돌리기 정보는 그대로 남는다.
             for k in set(old) | set(new):
                 if k.endswith("_before_correction") or k in ("correction_reason", "corrected_by"):
                     continue
-                if old.get(k) != new.get(k):
-                    back[f"{k}_before_correction"] = old.get(k)
+                if (k in old) != (k in new) or old.get(k) != new.get(k):
+                    nm = f"conditions.{k}" if k in COLUMN_MARKER_NAMES else k
+                    back[f"{nm}_before_correction"] = old.get(k)
             chg["conditions"] = new
     # 새 값이 삽입과 **같은 가드**를 통과하는지 본다. 정정이 우회로가 되면 안 된다.
     v = chg.get("value_num", pv.value_num)
