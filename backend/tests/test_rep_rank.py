@@ -210,3 +210,31 @@ def test_adding_keys_to_only_some_rows_does_flip_the_representative():
     assert CC._rep_rank(head) < CC._rep_rank(other)
     head.conditions = dict(head.conditions, verdict_tie_axis="a", verdict_tie_note="b")
     assert CC._rep_rank(other) < CC._rep_rank(head)   # 조건 2개 → 4개가 되며 밀린다
+
+
+# ── 52차 NA: 되돌리기 표시는 조건이 아니다 ────────────────────────────────────
+def test_correction_trail_is_not_counted_as_a_condition():
+    """정정 경로(§521)가 남기는 표시를 조건으로 세면 **정정한 행이 밀린다.**
+
+    `<칸>_before_correction`·`correction_reason`·`corrected_by` 는 값을 되돌리기 위한
+    감사 흔적이지 시험 조건이 아니다. 세면 §548 이 배치에 지운 제약("군의 모든 행에 같은
+    수를 더해라")이 생기는데, 정정이 바꾸는 칸 수가 행마다 다르면 그 제약은 지킬 수 없다.
+    실측(52차 NA, 라이브 41,368행) — 세면 102군의 대표행이 바뀌고, 안 세면 0군이다.
+    """
+    a = _pv(9, tier=1, cond={"temperature_c": 23.0})
+    b = _pv(1, tier=1, cond={"temperature_c": 23.0, "direction": "MD"})
+    assert CC._rep_rank(a) < CC._rep_rank(b)          # 조건 1칸 대 2칸
+    a.conditions = dict(a.conditions, temperature_C_before_correction=23.0,
+                        temperature_c_before_correction=None,
+                        correction_reason="조건 어휘 통일", corrected_by="52차 NA")
+    assert CC._rep_rank(a) < CC._rep_rank(b)          # 표시를 4칸 더해도 그대로다
+
+
+def test_verdict_keys_are_still_counted():
+    """`verdict_*` 는 계속 센다 — 51차 MA·MC 가 **군 전체에 같은 수**로 달아 둔 것이라
+    지금 상태가 정합적이다. 빼면 재료255 가 뒤집힌다(전수로 재고 안 넣었다)."""
+    a = _pv(1, tier=1, cond={"direction": "x"})
+    b = _pv(2, tier=1, cond={"direction": "y", "standard": "ASTM"})
+    assert CC._rep_rank(a) < CC._rep_rank(b)
+    a.conditions = dict(a.conditions, verdict_tie_axis="a", verdict_tie_note="b")
+    assert CC._rep_rank(b) < CC._rep_rank(a)

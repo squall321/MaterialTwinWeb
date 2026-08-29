@@ -84,6 +84,37 @@ def is_non_solid(cond) -> bool:
     return any(w in s for w in _NON_SOLID_STATES)
 
 
+# 되돌리기 표시는 **조건이 아니다.** 적재기의 정정 경로(§521)가 바뀐 칸마다
+# `<칸>_before_correction` 을, 그리고 `correction_reason`·`corrected_by`·`correction_evidence`
+# 를 조건에 남긴다. 그것을 조건 수로 세면 **정정한 행이 정정 안 한 행에 밀린다** —
+# 순위 5번째 자리가 조건 수이기 때문이다(§548 이 배치에 지운 "군의 모든 행에 같은 수를
+# 더해라" 라는 제약이 여기서 나왔다).
+#
+# 그런데 그 제약은 지킬 수 없는 경우가 있다. 정정이 바꾸는 칸 수가 행마다 다르면
+# 적재기가 남기는 표시 수도 행마다 다르다 — 52차 NA 의 조건 어휘 통일이 그랬다
+# (어떤 행은 키 하나, 어떤 행은 셋을 고친다). 실측 — 12,049행을 고치고 나니 라이브
+# 20,041군 중 **102군의 대표행이 바뀌었고 73군은 값까지 바뀌었다.** 전부 축이 아니라
+# **우리가 적은 살림살이가 조건으로 세어진** 결과다.
+#
+# 그래서 조건 수에서 그것을 뺀다. 전수 대조(라이브 41,368행 · 20,041군) —
+# 이 규칙을 양쪽에 걸면 정정 전후 대표값 변동 **0**, 정정 전 라이브에 걸면 변동 **1군**
+# (재료140 LOCA 점도 — 그 한 군은 `method_before_correction` 이 동률을 우연히 갈라 주고
+# 있었다. 규칙을 고치면 진짜 동률로 드러나 `representative_ties` 가 그 사실을 낸다).
+#
+# **`verdict_*` 는 빼지 않는다.** 그것도 판정이지 조건이 아니지만, 빼면 재료255 가
+# 한 군 더 뒤집힌다 — 51차 MA·MC 가 군 전체에 같은 수로 달아 둔 것이라 지금 상태가
+# 정합적이다. 재고 안 넣었다(브리프 543·544 의 규율).
+_NOT_A_CONDITION = ("correction_reason", "corrected_by", "correction_evidence")
+
+
+def _condition_axis_count(cond) -> int:
+    """조건 칸 수 — **되돌리기 표시는 빼고** 센다."""
+    if not isinstance(cond, dict):
+        return 0
+    return sum(1 for k in cond
+               if not (k.endswith("_before_correction") or k in _NOT_A_CONDITION))
+
+
 def _rep_rank(pv: PropertyValue) -> tuple:
     """대표값 우선순위: 고체 우선 → 신뢰등급↑ → 수치 보유 → **지배 조건에 가까움** → 조건 적음 → id.
 
@@ -99,7 +130,7 @@ def _rep_rank(pv: PropertyValue) -> tuple:
                else _temp_distance(pv.conditions))
     return (1 if is_non_solid(pv.conditions) else 0,
             pv.quality_tier or 9, 0 if pv.value_num is not None else 1,
-            primary, len(pv.conditions or {}), pv.id)
+            primary, _condition_axis_count(pv.conditions), pv.id)
 
 
 def _tie_key(pv: PropertyValue) -> tuple:
