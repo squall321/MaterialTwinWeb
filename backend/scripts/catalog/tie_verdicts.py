@@ -349,6 +349,25 @@ def _is_bookkeeping(k: str) -> bool:
             or k in ("correction_reason", "corrected_by", "correction_evidence"))
 
 
+# 53차 OB — `basis` 는 TERM 이지만 **값이 통계 낱말일 때가 있다.** 51차 MA 가 손확인한
+# `basis` 는 shear 대 tensile · T5% 대 T50% 였고 그건 다른 물리량이 맞다. 그런데 라이브에는
+# `basis: "minimum"` 대 `"typical"` 도 산다 — 그건 한 값의 산포지 다른 항이 아니다.
+# 그대로 두면 판정문이 *"이 (재료,키)의 대표값 자체가 뜻이 없다 — `set_id`·`term` 으로 묶어
+# 읽어라"* 라고 말하는데 그 군에는 세트도 항도 없다(브리프 505·556 — 거짓 판정문).
+# **값을 읽어서 정한다**(556 의 규율). 전수 실측 — 걸리는 군은 3군(재료2560 Al 6013 의
+# 인장·항복·연신)뿐이고 셋 다 진짜 축은 `temper`(T4 대 T6)다. `quantity: "average peel
+# force — …"` 처럼 **낱말로 시작만 하는 서술은 안 걸린다**(전체 일치를 본다).
+_PURE_STAT = {"min", "max", "minimum", "maximum", "typical", "typ", "average", "avg",
+              "mean", "nominal", "median", "guaranteed"}
+
+
+def _is_pure_stat(key, rows) -> bool:
+    vs = [(pv.conditions or {}).get(key) for pv in rows]
+    vs = [v for v in vs if v is not None]
+    return bool(vs) and all(isinstance(v, str) and v.strip().lower() in _PURE_STAT
+                            for v in vs)
+
+
 def facets(head, rivals):
     """갈린 조건키를 **면(facet)별로** 모은다. 한 군이 여러 면에서 갈릴 수 있다."""
     only, common = set(), set()
@@ -362,15 +381,23 @@ def facets(head, rivals):
     only = {k for k in only if not _is_bookkeeping(k)}
     common = {k for k in common if not _is_bookkeeping(k)}
     d = only | common
-    ax = {k: axis_label(k) for k in d if k not in (BOOK | FREE | REPLICATE | TERM | SPREAD)}
+    rows = [head] + rivals
+    term = d & TERM
+    stat_like = {k for k in term if _is_pure_stat(k, rows)}
+    term -= stat_like
+    spread = (d & SPREAD) | stat_like
+    ax = {k: axis_label(k) for k in d
+          if k not in (BOOK | FREE | REPLICATE | SPREAD) and k not in term
+          and k not in stat_like}
     ax = {k: v for k, v in ax.items() if v}
     txt = []
     for k in sorted(d & FREE):
-        txt += _text_axis([(pv.conditions or {}).get(k) for pv in [head] + rivals])
-    return {"term": sorted(d & TERM), "spread": sorted(d & SPREAD), "axis": ax,
+        txt += _text_axis([(pv.conditions or {}).get(k) for pv in rows])
+    return {"term": sorted(term), "spread": sorted(spread), "axis": ax,
             "replicate": sorted(d & REPLICATE), "free": sorted(d & FREE),
             "text_axis": sorted(set(txt)), "book": sorted(d & BOOK),
-            "only": sorted(only), "all": sorted(d), "same_src": same_src}
+            "only": sorted(only), "common": sorted(common),
+            "all": sorted(d), "same_src": same_src}
 
 
 def classify(head, rivals):
@@ -399,6 +426,16 @@ def classify(head, rivals):
             syn = synonym_pairs(head, rivals)
             if syn:
                 return "키표기흔들림", [f"{x}↔{y}" for x, y in syn] + labs, f["all"]
+            # 53차 OB — **한쪽에만 있는 축이 남았다고 조건미기재가 아니다.** 그 군에
+            # *다른* 축이 양쪽에 다 적혀 있고 값까지 다르면 축은 닫혀 있다. 그런데도
+            # 판정문이 *"이 축이 한쪽에만 적혀 있다 — 축이 닫히지 않았다"* 라고 말하면
+            # 거짓이다(브리프 505·556 — 틀린 주의는 틀린 표적보다 나쁘다).
+            # 실측 — 라이브 동률 3,963군의 조건미기재 119군 중 **77군**이 그랬다
+            # (재료272 Taconic RF-35 는 direction 이 MD/TD 로 양쪽에 있는데
+            # `test`↔`test_standard` 한 짝 때문에 조건미기재로 떨어져 있었다).
+            # **키표기흔들림 판정은 안 건드린다** — 그 갈래를 앞에 그대로 두었다.
+            if set(f["axis"]) & set(f["common"]):
+                return "다른조건", labs, f["all"]
             return "조건미기재", labs, f["all"]
         return "다른조건", labs, f["all"]
     if f["spread"]:
@@ -471,7 +508,30 @@ def blocked_rows(G, k, cnt):
     return out
 
 
-def gen(out_path, only_priority=True):
+def _judged(rows) -> bool:
+    return any("verdict_tie_axis" in (p.conditions or {}) for p in rows)
+
+
+# 53차 OB — **앞선 정정의 사유를 사유 문장 안에 보존한다.**
+# 적재기는 정정을 적용할 때마다 `correction_reason`·`corrected_by` 를 **덮어쓴다**
+# (`ingest_agent_json.apply_corrections`). 그래서 이미 한 번 정정된 행에 판정을 얹으면
+# 앞 정정이 왜 났는지가 사라진다. 라이브 실측 — 이 배치의 표적 5,996행 중 **2,205행**이
+# 52차 NA 의 조건 어휘 통일 사유를 달고 있었다(그 앞 파동까지는 정정 행과 판정 행이
+# 우연히 겹치지 않아 아무도 안 만났다).
+# **되돌리기 표시(`*_before_correction`)는 안 지워지므로 전파는 멀쩡하다** — 잃는 것은
+# 기록뿐이다. 그런데 §425 가 말한 대로 사유에도 출처가 있어야 다음 사람이 믿는다.
+# 조건 칸을 새로 만들지 않는다 — 칸을 늘리면 `_rep_rank` 의 조건 수가 행마다 달라져
+# §548 의 "군 전체에 같은 수" 를 못 지킨다. **사유 문자열 안에만 담는다.**
+def _reason_with_prior(pv, base: str) -> str:
+    c = pv.conditions or {}
+    prior, who = c.get("correction_reason"), c.get("corrected_by")
+    if not prior:
+        return base
+    return (f"{base} 이 행에는 앞선 정정이 있었다 — 적재기가 사유를 덮어쓰므로 여기 옮겨 둔다: "
+            f"[{who or '미상'}] {str(prior)[:400]}")
+
+
+def gen(out_path, only_priority=True, skip_judged=False, domains=None, min_gap=0.10):
     DB = db_path()
     G = groups(load(DB))
     _all = load(DB, numeric_only=False)
@@ -482,8 +542,17 @@ def gen(out_path, only_priority=True):
     MAT = {r[0]: r[1] for r in con.execute("select id,name from material")}
     SRC = {r[0]: (r[1] or "") for r in con.execute("select id,title from source")}
 
-    sel = [(k, a, riv) for k, a, riv in ties
-           if (not only_priority) or (k[1] in CARD_KEYS and gap(a, riv) > 0.10)]
+    sel = []
+    for k, a, riv in ties:
+        if skip_judged and _judged([a] + riv):
+            continue
+        if domains and k[1].split(".")[0] not in domains:
+            continue
+        if only_priority and k[1] not in CARD_KEYS:
+            continue
+        if gap(a, riv) <= min_gap:
+            continue
+        sel.append((k, a, riv))
     corr, skipped = [], []
     for k, a, riv in sel:
         blk = blocked_rows(G, k, cnt)
@@ -519,8 +588,9 @@ def gen(out_path, only_priority=True):
                            "material_name": MAT.get(pv.material_id),
                            "property_key": pv.property_key},
                 "by": BY,
-                "reason": (f"대표값 동률 판정 — 값·등급·method·출처를 하나도 바꾸지 않고 "
-                           f"**왜 갈렸는지**만 조건에 적는다(브리프 545). 부류 {axis_txt}."),
+                "reason": _reason_with_prior(pv, (
+                    f"대표값 동률 판정 — 값·등급·method·출처를 하나도 바꾸지 않고 "
+                    f"**왜 갈렸는지**만 조건에 적는다(브리프 545). 부류 {axis_txt}.")),
                 "set": {"conditions": dict(pv.conditions or {},
                                            verdict_tie_axis=f"{BY} — {axis_txt}",
                                            verdict_tie_note=note)},
@@ -626,7 +696,12 @@ def main():
     g = sub.add_parser("gen")
     g.add_argument("out")
     g.add_argument("--all", action="store_true",
-                   help="카드 8키·격차 10% 초과 제한을 풀고 동률군 전부를 낸다")
+                   help="카드 8키 제한을 푼다(격차 문턱은 --min-gap 이 정한다)")
+    g.add_argument("--skip-judged", action="store_true",
+                   help="이미 `verdict_tie_axis` 가 박힌 군은 뺀다 — 두 번째 정정은 "
+                        "앞 정정의 되돌리기 표시를 어긋나게 한다(브리프 522)")
+    g.add_argument("--domains", default="", help="쉼표로 구분한 도메인 제한(예: mechanical)")
+    g.add_argument("--min-gap", type=float, default=0.10)
     a = ap.parse_args()
     if a.cmd == "census":
         census()
@@ -635,7 +710,8 @@ def main():
     elif a.cmd == "dump":
         dump(a.kind, a.n, a.card)
     else:
-        gen(a.out, only_priority=not a.all)
+        gen(a.out, only_priority=not a.all, skip_judged=a.skip_judged,
+            domains=set(x for x in a.domains.split(",") if x), min_gap=a.min_gap)
 
 
 if __name__ == "__main__":
