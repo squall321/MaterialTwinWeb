@@ -1,0 +1,54 @@
+{
+ "materials": [
+  {
+   "match_name": "C-glass corrosion-resistant borosilicate glass fibre (AGY compilation grade)",
+   "source": {
+    "kind": "datasheet",
+    "title": "AGY - High Strength Glass Fibers (technical paper), Pub. No. LIT-2006-111 R2 (02/06); 값은 AGY Technical Product Guide, Pub. No. LIT-2009-351 R1 (1/09) p.38 각주가 측정법까지 밝혀 재확인한다",
+    "url": "https://web.archive.org/web/20060313225542id_/http://www.agy.com/technical_info/graphics_PDFs/HighStrengthTechPaperEng.pdf",
+    "local_path": "standards_appnotes/pcb/AGY_High_Strength_Glass_Fibers_TechPaper_LIT-2006-111R2.pdf",
+    "authors": "AGY (AGY Holding Corp.)",
+    "year": 2006,
+    "manufacturer": "AGY (AGY Holding Corp.)"
+   },
+   "properties": [
+    {
+     "key": "thermal.conductivity", "value": 1.1, "unit": "W/(m*K)",
+     "method": "calculated", "tier": 3,
+     "conditions": {
+      "temperature": "near room temperature (원문 표기 그대로 — 숫자 온도는 인쇄되지 않는다)",
+      "class_value": true,
+      "grade_scope": "AGY 2006 편찬표의 C GLASS 열 — 특정 제조사 등급이 아니라 조성 계열 대표값이다",
+      "determination": "저자가 산화물 조성 중량비로 계산했다 — 실측이 아니다"
+     },
+     "notes": "AGY 기술논문 3.4 Thermal Properties verbatim: 'predicting thermal conductivity from the percentage weight compositions of component oxides making up the glass [20]. Using this calculation, it is found that the approximate thermal conductivity of C Glass is 1.1 W/mK, E Glass is 1.3 W/m·K, and S-2 Glass fibers is 1.45 W/m·K near room temperature.' **저자가 계산이라고 못박았으므로 method 는 계산이고 실측이 아니다**(브리프 3·174). [Table 3 에는 열전도율 행이 아예 없다] 표는 화학·전기·비열·선팽창만 싣는다 — 그래서 이 값은 본문 문장에서만 나온다. [부재 확정] 같은 표·본문에 A · D · AR · R · ECRGLAS 의 열전도율은 없고, 포아송비도 E Glass(0.22±0.02, 재인용 [10])와 S-2 Glass(0.23) 두 자리뿐이라 이 여섯 계열은 벤더가 인쇄하지 않는다(브리프 127)."
+    }
+   ]
+  },
+  {
+   "match_name": "S-Glass fibre PCB reinforcement - Ehrler 2002",
+   "source": {
+    "kind": "datasheet",
+    "title": "AGY - High Strength Glass Fibers (technical paper), Pub. No. LIT-2006-111 R2 (02/06); 값은 AGY Technical Product Guide, Pub. No. LIT-2009-351 R1 (1/09) p.38 각주가 측정법까지 밝혀 재확인한다",
+    "url": "https://web.archive.org/web/20060313225542id_/http://www.agy.com/technical_info/graphics_PDFs/HighStrengthTechPaperEng.pdf",
+    "local_path": "standards_appnotes/pcb/AGY_High_Strength_Glass_Fibers_TechPaper_LIT-2006-111R2.pdf",
+    "authors": "AGY (AGY Holding Corp.)",
+    "year": 2006,
+    "manufacturer": "AGY (AGY Holding Corp.)"
+   },
+   "properties": [
+    {
+     "key": "thermal.conductivity", "value": 1.45, "unit": "W/(m*K)",
+     "method": "calculated", "tier": 3,
+     "conditions": {
+      "temperature": "near room temperature (원문 표기 그대로 — 숫자 온도는 인쇄되지 않는다)",
+      "class_value": true,
+      "grade_scope": "AGY S-2 Glass(R). 카탈로그 재료는 Ehrler 2002 Table V 의 일반 'S-Glass' 행이다",
+      "determination": "저자가 산화물 조성 중량비로 계산했다 — 실측이 아니다"
+     },
+     "notes": "AGY 기술논문 3.4 Thermal Properties verbatim: 'Using this calculation, it is found that the approximate thermal conductivity of C Glass is 1.1 W/mK, E Glass is 1.3 W/m·K, and S-2 Glass fibers is 1.45 W/m·K near room temperature.' 앞 문장이 'predicting thermal conductivity from the percentage weight compositions of component oxides making up the glass [20]' 이라 **저자가 계산이라고 밝힌 값**이다(브리프 3·174). grade_scope 는 이 재료의 기존 AGY 유래 행들과 같은 규약을 따랐다 — 시트는 S-2 Glass(R) 이고 카탈로그 재료는 Ehrler 의 일반 S-Glass 다."
+    }
+   ]
+  }
+ ]
+}
