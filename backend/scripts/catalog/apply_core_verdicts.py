@@ -90,6 +90,10 @@ def main() -> int:
             continue
         st["재료"] += 1
         print(f"  · [{mid}] {name[:56]} — {' '.join(changed)}")
+        # 같은 재료에 판정 행이 둘 오면 뒤엣것이 앞엣것을 덮던 자리다(57차 SA).
+        # `have` 를 시작에 한 번만 읽어 두 번째 행이 낡은 스냅샷 위에 병합됐다 —
+        # 조용히 사라지고 도구는 성공을 찍었다. 여기서 되먹여 다음 행이 이어받게 한다.
+        have[mid] = (name, json.dumps(attrs, ensure_ascii=False))
         if a.apply:
             c.execute("update material set attributes=? where id=?",
                       (json.dumps(attrs, ensure_ascii=False), mid))
