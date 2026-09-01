@@ -339,7 +339,7 @@ def main():
     A('<h4>값을 가장 많이 낸 문서</h4><div class="tblwrap"><table class="src"><tbody>')
     for t, kd, n in top_src:
         A(f'<tr><td class="n mono">{n}</td><td class="kind">{esc(kd)}</td>'
-          f'<td>{esc(t[:88])}</td></tr>')
+          f'<td>{esc(clip(t, 88))}</td></tr>')
     A('</tbody></table></div>')
     A('<p class="note">한 문서가 800건 넘게 내는 경우가 있다 — 패키지 워피지 논문 하나가 '
       '재료 수십 종의 물성표를 통째로 싣기 때문이다. '
@@ -587,6 +587,18 @@ DB 위에서는 검사기가 배포를 막고 병합기가 운영 전파를 책�
 </figure>"""
 
 
+def clip(t, n):
+    """낱말 중간에서 자르지 않는다 — 마지막 공백까지만 남기고 말줄임표를 붙인다."""
+    t = t.strip()
+    if len(t) <= n:
+        return t
+    cut = t[:n].rstrip()
+    sp = cut.rfind(" ")
+    if sp > n * 0.6:
+        cut = cut[:sp]
+    return cut.rstrip(" ,;·-") + "\u2026"
+
+
 def sec(i, title, sub):
     return (f'<section id="s{i}"><div class="shead"><span class="sno">{i:02d}</span>'
             f'<h2>{title}</h2><p class="ssub">{sub}</p></div>')
@@ -656,6 +668,7 @@ em{font-style:normal}
 .kpi em{font-size:12px;color:var(--ink3);font-family:var(--mono)}
 
 .toc{position:sticky;top:0;z-index:9;background:var(--paper);border-bottom:1px solid var(--line)}
+section{scroll-margin-top:96px}
 .toc ol{max-width:1080px;margin:0 auto;padding:11px 28px;list-style:none;display:flex;
         flex-wrap:wrap;gap:2px 20px;counter-reset:t}
 .toc li{counter-increment:t}
