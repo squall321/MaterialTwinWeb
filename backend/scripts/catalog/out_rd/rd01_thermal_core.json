@@ -1,0 +1,74 @@
+{"materials": [
+ {"match_name": "Low melting temperature alloy, Indium Corporation alloy 19 (51 In, 32.5 Bi, 16.5 Sn), wet thermal interface material (Roy 2015)",
+  "source": {"title": "INDALLOY Specialty Alloys — alloy chart sorted by Indalloy number (Indium Corporation of America, Europe and Asia)",
+             "kind": "datasheet",
+             "url": "https://web.archive.org/web/20060311125310id_/http://www.indium.com/products/alloy_sorted_by_indalloy_number.pdf",
+             "year": 2006,
+             "authors": "Indium Corporation of America",
+             "publisher": "Indium Corporation of America, Europe and Asia",
+             "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w56rd/Indium_Indalloy_specialty_alloys_sorted_by_indalloy_number_2006.pdf"},
+  "properties": [
+    {"key": "thermal.expansion_linear", "value": 2.2e-05, "unit": "1/K", "tier": 3, "method": "measured",
+     "conditions": {"temperature_c": 20,
+                    "composition_mass_pct": "51.0 In, 32.5 Bi, 16.5 Sn",
+                    "basis": "Indalloy 19 행. 제조사 자사 합금 편찬표라 시험법은 인쇄되지 않는다"},
+     "notes": "1쪽 'Indalloy 19' 행, 'Thermal Coefficient Expansion @ 20 C (PPM/oC)' 열 = 22. 열 배정을 문자 위치로 확인했다(머리글 PPM/oC 204열, 값 207열; 같은 열의 Indalloy 1 = 20, Indalloy 106 Sn63Pb37 = 25). 행 배정은 밀도로 닫힌다 — 표의 7.88 g/cm3 가 카탈로그의 기존 t3 행(7880 kg/m3, Roy 2015 'manufacturer data')과 소수점까지 같다(브리프 129). 표 전체는 순물질 행으로 검산했다 — 100.0 In 밀도 7.31 / E 1.57e6 psi=10.8 GPa, Sn63Pb37 밀도 8.40 / k 0.50 W/cm-C / CTE 25 / UTS 7500 psi=51.7 MPa 가 모두 교과서값이다."},
+    {"key": "mechanical.tensile_strength", "value": 33439573.0, "unit": "Pa", "tier": 3, "method": "measured",
+     "conditions": {"temperature_k": "출처에 인쇄되지 않았다",
+                    "composition_mass_pct": "51.0 In, 32.5 Bi, 16.5 Sn",
+                    "basis": "Indalloy 19 행. 제조사 자사 합금 편찬표라 시험법은 인쇄되지 않는다"},
+     "notes": "1쪽 'Indalloy 19' 행, 'Tensile Strength (PSI)' 열 = 4,850 psi. 4850 x 6894.757 = 33,439,573 Pa. 열 배정은 문자 위치로 확인했다(머리글 219열, 값 218열; 같은 열의 Indalloy 1 = 1720, Indalloy 106 = 7500). 자릿수 검산 — 순 In 273 psi(1.9 MPa)와 Sn63Pb37 7500 psi(51.7 MPa) 사이에 앉는다."}
+  ]},
+
+ {"match_name": "Arctic Silver 5 commercial silicone thermal grease (Warzoha 2017 heat-meter-bar characterisation)",
+  "source": {"title": "High resolution steady-state measurements of thermal contact resistance across thermal interface material junctions",
+             "kind": "journal", "doi": "10.1063/1.5001835", "url": "https://doi.org/10.1063/1.5001835",
+             "year": 2017, "authors": "Ronald J. Warzoha",
+             "publisher": "AIP Publishing (Review of Scientific Instruments 88, 094901)",
+             "local_path": "/data/paper_patent_corpus/structured/mech_papers/11_tim_thermal_physics/Warzoha - 2017 - High resolution steady-state measurements of thermal contact resistance across thermal interface material junctions/"},
+  "properties": [
+    {"key": "thermal.conductivity", "value": 8.9, "unit": "W/(m*K)", "tier": 3, "method": "measured",
+     "conditions": {"temperature_k": "출처에 인쇄되지 않았다",
+                    "basis": "TABLE I 'Manufacturer specified thermal properties of thermal pastes' — 제조사 스펙을 저자가 전재한 값이다"},
+     "notes": "TABLE I 'Arctic Silver 5' 행, 'Thermal conductivity (W/m K)' 열. **저자 실측값이 아니다** — 본문 IV.A 가 *'the values measured in this study are significantly different from those obtained by the manufacturer'* 라고 밝힌다. 저자 실측 k 는 Fig.7 그래프뿐이라 옮기지 못했다(비열도 Fig.6(b) 그래프뿐이다). 같은 표의 비중 열은 이미 카탈로그에 t2 로 들어가 있다(§506 — 표 하나가 논문 하나가 아니다)."}
+  ]},
+
+ {"match_name": "Dimastech HTX commercial silicone thermal grease (Warzoha 2017 heat-meter-bar characterisation)",
+  "source": {"title": "High resolution steady-state measurements of thermal contact resistance across thermal interface material junctions",
+             "kind": "journal", "doi": "10.1063/1.5001835", "url": "https://doi.org/10.1063/1.5001835",
+             "year": 2017, "authors": "Ronald J. Warzoha",
+             "publisher": "AIP Publishing (Review of Scientific Instruments 88, 094901)",
+             "local_path": "/data/paper_patent_corpus/structured/mech_papers/11_tim_thermal_physics/Warzoha - 2017 - High resolution steady-state measurements of thermal contact resistance across thermal interface material junctions/"},
+  "properties": [
+    {"key": "thermal.conductivity", "value": 8.6, "unit": "W/(m*K)", "tier": 3, "method": "measured",
+     "conditions": {"temperature_k": "출처에 인쇄되지 않았다",
+                    "basis": "TABLE I 'Manufacturer specified thermal properties of thermal pastes' — 제조사 스펙을 저자가 전재한 값이다"},
+     "notes": "TABLE I 'Dimastech HTX' 행. 저자 실측값이 아니다 — 본문이 제조사값과 유의하게 다르다고 밝히고, 실측 k 는 Fig.7 그래프뿐이다."}
+  ]},
+
+ {"match_name": "Phobya Nanogrease commercial silicone thermal grease (Warzoha 2017 heat-meter-bar characterisation)",
+  "source": {"title": "High resolution steady-state measurements of thermal contact resistance across thermal interface material junctions",
+             "kind": "journal", "doi": "10.1063/1.5001835", "url": "https://doi.org/10.1063/1.5001835",
+             "year": 2017, "authors": "Ronald J. Warzoha",
+             "publisher": "AIP Publishing (Review of Scientific Instruments 88, 094901)",
+             "local_path": "/data/paper_patent_corpus/structured/mech_papers/11_tim_thermal_physics/Warzoha - 2017 - High resolution steady-state measurements of thermal contact resistance across thermal interface material junctions/"},
+  "properties": [
+    {"key": "thermal.conductivity", "value": 16.0, "unit": "W/(m*K)", "tier": 3, "method": "measured",
+     "conditions": {"temperature_k": "출처에 인쇄되지 않았다",
+                    "basis": "TABLE I 'Manufacturer specified thermal properties of thermal pastes' — 제조사 스펙을 저자가 전재한 값이다"},
+     "notes": "TABLE I 'Phobya Nanogrease' 행. 저자 실측값이 아니다 — 본문이 제조사값과 유의하게 다르다고 밝히고, 실측 k 는 Fig.7 그래프뿐이다."}
+  ]},
+
+ {"match_name": "Shin-Etsu MicroSi commercial silicone thermal grease (Warzoha 2017 heat-meter-bar characterisation)",
+  "source": {"title": "High resolution steady-state measurements of thermal contact resistance across thermal interface material junctions",
+             "kind": "journal", "doi": "10.1063/1.5001835", "url": "https://doi.org/10.1063/1.5001835",
+             "year": 2017, "authors": "Ronald J. Warzoha",
+             "publisher": "AIP Publishing (Review of Scientific Instruments 88, 094901)",
+             "local_path": "/data/paper_patent_corpus/structured/mech_papers/11_tim_thermal_physics/Warzoha - 2017 - High resolution steady-state measurements of thermal contact resistance across thermal interface material junctions/"},
+  "properties": [
+    {"key": "thermal.conductivity", "value": 6.0, "unit": "W/(m*K)", "tier": 3, "method": "measured",
+     "conditions": {"temperature_k": "출처에 인쇄되지 않았다",
+                    "basis": "TABLE I 'Manufacturer specified thermal properties of thermal pastes' — 제조사 스펙을 저자가 전재한 값이다"},
+     "notes": "TABLE I 'ShinEtsu MicroSi' 행. 논문은 등급을 밝히지 않는다 — 카탈로그의 'Shin-Etsu MicroSi G751'(재료 2566, 자사 시트 4.7 W/m-K, hot disc)과 **다른 등급**이므로 그쪽에 옮기지 않았다(§140·§123). 저자 실측 k 는 Fig.7 그래프뿐이다."}
+  ]}
+]}
