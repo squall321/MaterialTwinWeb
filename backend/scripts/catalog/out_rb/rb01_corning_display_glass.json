@@ -1,0 +1,1817 @@
+{
+ "materials": [
+  {
+   "new_material": {
+    "name": "Corning Astra Glass (high-strain-point alkali-free display substrate)",
+    "category": "ceramic",
+    "attributes": {
+     "source": "batch-56-RB",
+     "role": "product",
+     "subsystem": "display",
+     "manufacturer": "Corning Incorporated",
+     "subsystem_basis": "융합인상 알칼리프리 보로알루미노실리케이트 디스플레이 기판이다(EAGLE XG 2618 · Lotus NXT 2620 선례).",
+     "grade": "Astra Glass",
+     "role_reason": "Corning 이 PI 시트를 내는 상용 등급이다.",
+     "role_confidence": "high",
+     "core_absent_from_vendor_sheet": {
+      "mechanical.tensile_strength": "Corning 디스플레이 유리 PI 시트(EAGLE XG · Lotus NXT · Astra 2023년판)는 인장강도 행을 인쇄하지 않는다 — 세 시트를 직접 열어 확인했다(브리프 127). 유리는 흠결 지배 파괴라 벤더가 굽힘강도조차 이 시트에는 안 싣는다."
+     },
+     "provenance_note": "47차 IC 가 Willow 팩트시트 1쪽의 정체를 가리는 심판으로 이 시트를 이미 조달해 뒀는데 재료로는 등록되지 않았다(브리프 506 — '이미 채굴됨' 은 표 하나를 뜻할 수 있다)."
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Corning Astra Glass — Product & Material Information (Product Information Sheet, (C) 2023 Corning Incorporated)",
+    "url": "https://www.corning.com/media/worldwide/cdt/documents/Astra_Glass_PI_Sheet.pdf",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/Corning_Astra_Glass_PI_Sheet.pdf",
+    "authors": "Corning Incorporated",
+    "year": 2023,
+    "publisher": "Corning Incorporated",
+    "manufacturer": "Corning Incorporated"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2520.0,
+     "unit": "kg/m^3",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 20
+     },
+     "notes": "PI 시트 Material Information 블록 verbatim `Density (20°C) | 2.52 g/cm3`. x1000 -> 2520 kg/m^3."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 81000000000.0,
+     "unit": "Pa",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": "room temperature (not printed)"
+     },
+     "notes": "PI 시트 Mechanical Properties verbatim `Young's Modulus | 81 GPa`. [행 배정 확인] 같은 시트의 전단탄성계수 33 GPa 와 포아송비 0.23 이 등방 항등식 G = E/(2(1+nu)) = 81/2.46 = 32.9 GPa 로 인쇄값 33 과 맞는다(브리프 35)."
+    },
+    {
+     "key": "mechanical.shear_modulus",
+     "value": 33000000000.0,
+     "unit": "Pa",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": "room temperature (not printed)"
+     },
+     "notes": "PI 시트 Mechanical Properties verbatim `Shear Modulus | 33 GPa`."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.23,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": "room temperature (not printed)"
+     },
+     "notes": "PI 시트 Mechanical Properties verbatim `Poisson's Ratio | 0.23`."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 3.4e-06,
+     "unit": "1/K",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "temperature_range_c": "0-300"
+     },
+     "notes": "PI 시트 verbatim `Coefficient of Thermal Expansion (0 - 300°C) | 34 x 10-7/°C`. 34e-7 = 3.4e-6 /K."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.8,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000,
+      "temperature_c": 23,
+      "humidity_rh": 20
+     },
+     "notes": "PI 시트 Electrical Properties verbatim `Dielectric Constant (23°C, 20% RH, 1kHz) | 5.8`."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.001,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000,
+      "temperature_c": 23,
+      "humidity_rh": 20
+     },
+     "notes": "PI 시트 Electrical Properties verbatim `Loss Tangent (23°C, 20% RH, 1kHz) | 0.1%`. 0.1% = 1e-3."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.522,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "wavelength_nm": 589.3
+     },
+     "notes": "PI 시트 Optical Properties verbatim `Refractive Index (at 589.3nm) | 1.522`."
+    },
+    {
+     "key": "optical.stress_optical_coefficient",
+     "value": 2.92e-12,
+     "unit": "1/Pa",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "wavelength_nm": "not printed"
+     },
+     "notes": "PI 시트 verbatim `Stress Optical Coefficient | 29.2 (nm/cm/MPa)`. 29.2 nm/cm/MPa = 29.2e-9 m / 1e-2 m / 1e6 Pa = 2.92e-12 /Pa (같은 계열 EAGLE XG 의 33.4 -> 3.34e-12 환산과 같은 규약). **파장은 인쇄되지 않는다**(브리프 144 계열의 조건 미인쇄)."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 6e-07,
+     "unit": "m^2/s",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 25
+     },
+     "notes": "PI 시트 Thermal Conductivity 표 verbatim `25 | 0.006 | 688 | 1.043`(열 머리글 `Temp (°C) | Diffusivity (cm2/s) | Specific Heat (J/kg-°K) | Conductivity (W/m-°K)`). cm^2/s x 1e-4 -> m^2/s."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 688.0,
+     "unit": "J/(kg*K)",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 25
+     },
+     "notes": "PI 시트 Thermal Conductivity 표 verbatim `25 | 0.006 | 688 | 1.043` 의 Specific Heat 열."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.043,
+     "unit": "W/(m*K)",
+     "method": "calculated",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 25,
+      "determination": "sheet states the conductivity column is a calculated value = diffusivity x specific heat x density"
+     },
+     "notes": "PI 시트 Thermal Conductivity 표 verbatim `25 | 0.006 | 688 | 1.043`. **시트가 스스로 계산값이라고 밝힌다** — verbatim `Thermal conductivity is a calculated value and is equal to the product of the thermal diffusivity multiplied by specific heat multiplied by density of the glass`(브리프 3·174). [검산] 0.006 cm2/s x 1e-4 x 688 J/(kg K) x 2520 kg/m3 = 1.040 W/(m K) 로 인쇄값 1.043 와 맞는다(브리프 35)."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.8e-07,
+     "unit": "m^2/s",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100
+     },
+     "notes": "PI 시트 Thermal Conductivity 표 verbatim `100 | 0.0058 | 763 | 1.107`(열 머리글 `Temp (°C) | Diffusivity (cm2/s) | Specific Heat (J/kg-°K) | Conductivity (W/m-°K)`). cm^2/s x 1e-4 -> m^2/s."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 763.0,
+     "unit": "J/(kg*K)",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100
+     },
+     "notes": "PI 시트 Thermal Conductivity 표 verbatim `100 | 0.0058 | 763 | 1.107` 의 Specific Heat 열."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.107,
+     "unit": "W/(m*K)",
+     "method": "calculated",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "determination": "sheet states the conductivity column is a calculated value = diffusivity x specific heat x density"
+     },
+     "notes": "PI 시트 Thermal Conductivity 표 verbatim `100 | 0.0058 | 763 | 1.107`. **시트가 스스로 계산값이라고 밝힌다** — verbatim `Thermal conductivity is a calculated value and is equal to the product of the thermal diffusivity multiplied by specific heat multiplied by density of the glass`(브리프 3·174). [검산] 0.0058 cm2/s x 1e-4 x 763 J/(kg K) x 2520 kg/m3 = 1.115 W/(m K) 로 인쇄값 1.107 와 맞는다(브리프 35)."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.5e-07,
+     "unit": "m^2/s",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 200
+     },
+     "notes": "PI 시트 Thermal Conductivity 표 verbatim `200 | 0.0055 | 904 | 1.255`(열 머리글 `Temp (°C) | Diffusivity (cm2/s) | Specific Heat (J/kg-°K) | Conductivity (W/m-°K)`). cm^2/s x 1e-4 -> m^2/s."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 904.0,
+     "unit": "J/(kg*K)",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 200
+     },
+     "notes": "PI 시트 Thermal Conductivity 표 verbatim `200 | 0.0055 | 904 | 1.255` 의 Specific Heat 열."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.255,
+     "unit": "W/(m*K)",
+     "method": "calculated",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 200,
+      "determination": "sheet states the conductivity column is a calculated value = diffusivity x specific heat x density"
+     },
+     "notes": "PI 시트 Thermal Conductivity 표 verbatim `200 | 0.0055 | 904 | 1.255`. **시트가 스스로 계산값이라고 밝힌다** — verbatim `Thermal conductivity is a calculated value and is equal to the product of the thermal diffusivity multiplied by specific heat multiplied by density of the glass`(브리프 3·174). [검산] 0.0055 cm2/s x 1e-4 x 904 J/(kg K) x 2520 kg/m3 = 1.253 W/(m K) 로 인쇄값 1.255 와 맞는다(브리프 35)."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.4e-07,
+     "unit": "m^2/s",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 300
+     },
+     "notes": "PI 시트 Thermal Conductivity 표 verbatim `300 | 0.0054 | 1017 | 1.372`(열 머리글 `Temp (°C) | Diffusivity (cm2/s) | Specific Heat (J/kg-°K) | Conductivity (W/m-°K)`). cm^2/s x 1e-4 -> m^2/s."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1017.0,
+     "unit": "J/(kg*K)",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 300
+     },
+     "notes": "PI 시트 Thermal Conductivity 표 verbatim `300 | 0.0054 | 1017 | 1.372` 의 Specific Heat 열."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.372,
+     "unit": "W/(m*K)",
+     "method": "calculated",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 300,
+      "determination": "sheet states the conductivity column is a calculated value = diffusivity x specific heat x density"
+     },
+     "notes": "PI 시트 Thermal Conductivity 표 verbatim `300 | 0.0054 | 1017 | 1.372`. **시트가 스스로 계산값이라고 밝힌다** — verbatim `Thermal conductivity is a calculated value and is equal to the product of the thermal diffusivity multiplied by specific heat multiplied by density of the glass`(브리프 3·174). [검산] 0.0054 cm2/s x 1e-4 x 1017 J/(kg K) x 2520 kg/m3 = 1.384 W/(m K) 로 인쇄값 1.372 와 맞는다(브리프 35)."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.3e-07,
+     "unit": "m^2/s",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 400
+     },
+     "notes": "PI 시트 Thermal Conductivity 표 verbatim `400 | 0.0053 | 1021 | 1.391`(열 머리글 `Temp (°C) | Diffusivity (cm2/s) | Specific Heat (J/kg-°K) | Conductivity (W/m-°K)`). cm^2/s x 1e-4 -> m^2/s."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1021.0,
+     "unit": "J/(kg*K)",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 400
+     },
+     "notes": "PI 시트 Thermal Conductivity 표 verbatim `400 | 0.0053 | 1021 | 1.391` 의 Specific Heat 열."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.391,
+     "unit": "W/(m*K)",
+     "method": "calculated",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 400,
+      "determination": "sheet states the conductivity column is a calculated value = diffusivity x specific heat x density"
+     },
+     "notes": "PI 시트 Thermal Conductivity 표 verbatim `400 | 0.0053 | 1021 | 1.391`. **시트가 스스로 계산값이라고 밝힌다** — verbatim `Thermal conductivity is a calculated value and is equal to the product of the thermal diffusivity multiplied by specific heat multiplied by density of the glass`(브리프 3·174). [검산] 0.0053 cm2/s x 1e-4 x 1021 J/(kg K) x 2520 kg/m3 = 1.364 W/(m K) 로 인쇄값 1.391 와 맞는다(브리프 35)."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.2e-07,
+     "unit": "m^2/s",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 500
+     },
+     "notes": "PI 시트 Thermal Conductivity 표 verbatim `500 | 0.0052 | 1071 | 1.409`(열 머리글 `Temp (°C) | Diffusivity (cm2/s) | Specific Heat (J/kg-°K) | Conductivity (W/m-°K)`). cm^2/s x 1e-4 -> m^2/s."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1071.0,
+     "unit": "J/(kg*K)",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 500
+     },
+     "notes": "PI 시트 Thermal Conductivity 표 verbatim `500 | 0.0052 | 1071 | 1.409` 의 Specific Heat 열."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.409,
+     "unit": "W/(m*K)",
+     "method": "calculated",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 500,
+      "determination": "sheet states the conductivity column is a calculated value = diffusivity x specific heat x density"
+     },
+     "notes": "PI 시트 Thermal Conductivity 표 verbatim `500 | 0.0052 | 1071 | 1.409`. **시트가 스스로 계산값이라고 밝힌다** — verbatim `Thermal conductivity is a calculated value and is equal to the product of the thermal diffusivity multiplied by specific heat multiplied by density of the glass`(브리프 3·174). [검산] 0.0052 cm2/s x 1e-4 x 1071 J/(kg K) x 2520 kg/m3 = 1.403 W/(m K) 로 인쇄값 1.409 와 맞는다(브리프 35)."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1286.15,
+     "unit": "K",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 7.6,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C338"
+     },
+     "notes": "PI 시트 Viscosity 블록 verbatim `Softening Point (10^7.6 poises) | 1013°C`. 1013 + 273.15 = 1286.15 K."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1051.15,
+     "unit": "K",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.0,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "PI 시트 Viscosity 블록 verbatim `Annealing Point (10^13.0 poises) | 778°C`. 778 + 273.15 = 1051.15 K."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 998.15,
+     "unit": "K",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 14.5,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "PI 시트 Viscosity 블록 verbatim `Strain Point (10^14.5 poises) | 725°C`. 725 + 273.15 = 998.15 K."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 1.995262314968883e+23,
+     "unit": "ohm*m",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 25
+     },
+     "notes": "PI 시트 verbatim `Log10 Volume Resistivity | at 25°C | 25.3 ohm-cm`. 10^25.3 ohm-cm x 1e-2 -> ohm*m (같은 계열 EAGLE XG 의 23.6 -> 3.98e21 ohm*m 환산과 같은 규약)."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 1584893192461.111,
+     "unit": "ohm*m",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 250
+     },
+     "notes": "PI 시트 verbatim `Log10 Volume Resistivity | at 250°C | 14.2 ohm-cm`. 10^14.2 ohm-cm x 1e-2 -> ohm*m (같은 계열 EAGLE XG 의 23.6 -> 3.98e21 ohm*m 환산과 같은 규약)."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 31622776.601683795,
+     "unit": "ohm*m",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 500
+     },
+     "notes": "PI 시트 verbatim `Log10 Volume Resistivity | at 500°C | 9.5 ohm-cm`. 10^9.5 ohm-cm x 1e-2 -> ohm*m (같은 계열 EAGLE XG 의 23.6 -> 3.98e21 ohm*m 환산과 같은 규약)."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Corning Gorilla Glass 4",
+    "category": "ceramic",
+    "attributes": {
+     "source": "batch-56-RB",
+     "role": "product",
+     "subsystem": "display",
+     "manufacturer": "Corning Incorporated",
+     "subsystem_basis": "모바일 커버유리다(Gorilla Glass 2/3/5/6/7i 선례).",
+     "grade": "Gorilla Glass 4",
+     "role_reason": "Corning 상용 커버유리 등급이고 PI 시트가 있다.",
+     "role_confidence": "high",
+     "core_absent_from_vendor_sheet": {
+      "mechanical.tensile_strength": "Corning Gorilla PI 시트에는 인장강도·연신 행이 없다 — GG3·4·5·6·7i·Victus·Victus 2 일곱 장을 직접 열어 확인했다(브리프 127 재확인).",
+      "thermal.conductivity": "Gorilla 계열 PI 시트에는 열전도율·비열·열확산율 표가 아예 없다 — 같은 Corning 이라도 디스플레이 기판(EAGLE XG·Lotus NXT·Astra) 시트에만 그 표가 실린다.",
+      "thermal.specific_heat": "위와 같다 — Gorilla 계열 PI 시트에 비열 행이 없다."
+     },
+     "excluded_from_sheet": "`Chemical Strengthening: Capability of >850MPa CS, and >50 µm DOL` 은 두께가 없는 부등호라 넣지 않았다(브리프 474·110). 투과율 표(`>91.5% @380nm` 등)도 두께가 없어 뺐다(브리프 328·467)."
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Corning(R) Gorilla(R) Glass 4 Product Information Sheet (doc code 090315_E)",
+    "url": "http://web.archive.org/web/20160706062732id_/http://www.corning.com/microsites/csm/gorillaglass/PI_Sheets/CGG_PI_Sheet_Gorilla%20Glass%204_090315_E.pdf",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/Corning_GorillaGlass4_PISheet_090315E.pdf",
+    "authors": "Corning Incorporated",
+    "year": 2015,
+    "publisher": "Corning Incorporated",
+    "manufacturer": "Corning Incorporated"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2420.0,
+     "unit": "kg/m^3",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {},
+     "notes": "PI 시트 Properties verbatim `Density | 2.42 g/cm3`. x1000 -> 2420 kg/m^3."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 65800000000.0,
+     "unit": "Pa",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {},
+     "notes": "PI 시트 Properties verbatim `Young's Modulus | 65.8 GPa`. [행 배정 확인] 같은 시트의 `Shear Modulus 26.0 GPa` 와 `Poisson's Ratio 0.22` 가 등방 항등식 G = E/(2(1+nu)) = 65.8/2.44 = 26.97 GPa 로 인쇄값 26.0 과 4% 안에서 맞는다(브리프 35)."
+    },
+    {
+     "key": "mechanical.shear_modulus",
+     "value": 26000000000.0,
+     "unit": "Pa",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {},
+     "notes": "PI 시트 Properties verbatim `Shear Modulus | 26.0 GPa`."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.22,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {},
+     "notes": "PI 시트 Properties verbatim `Poisson's Ratio | 0.22`."
+    },
+    {
+     "key": "mechanical.hardness_vickers",
+     "value": 489.0,
+     "unit": "HV",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "load_g": 200,
+      "state": "un-strengthened"
+     },
+     "notes": "PI 시트 verbatim `Vickers Hardness (200 g load) | Un-strengthened | 489 kgf/mm2`."
+    },
+    {
+     "key": "mechanical.hardness_vickers",
+     "value": 596.0,
+     "unit": "HV",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "load_g": 200,
+      "state": "chemically strengthened"
+     },
+     "notes": "PI 시트 verbatim `Vickers Hardness (200 g load) | Strengthened | 596 kgf/mm2`."
+    },
+    {
+     "key": "mechanical.fracture_toughness",
+     "value": 670000.0,
+     "unit": "Pa*m^0.5",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {},
+     "notes": "PI 시트 verbatim `Fracture Toughness | 0.67 MPa m0.5`. 0.67e6 Pa*m^0.5."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 8.69e-06,
+     "unit": "1/K",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "temperature_range_c": "0-300",
+      "direction": "isotropic",
+      "direction_verbatim": "isotropic (alkali-aluminosilicate glass; the sheet prints no direction)"
+     },
+     "notes": "PI 시트 verbatim `Coefficient of Expansion (0 ˚C - 300 ˚C) | 86.9 x 10-7/˚C`. 86.9e-7 = 8.69e-6 /K."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.49,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "wavelength_nm": 590,
+      "layer": "core glass"
+     },
+     "notes": "PI 시트 Optical verbatim `Refractive Index (590 nm) | Core glass** | 1.49`. 각주 verbatim `Core index is used for FSM-based measurements since it is unaffected by ion-exchange conditions`."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.51,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "wavelength_nm": 590,
+      "layer": "compression layer"
+     },
+     "notes": "PI 시트 Optical verbatim `Refractive Index (590 nm) | Compression layer | 1.51`."
+    },
+    {
+     "key": "optical.stress_optical_coefficient",
+     "value": 3.03e-12,
+     "unit": "1/Pa",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "wavelength_nm": "not printed"
+     },
+     "notes": "PI 시트 verbatim `Photo-elastic constant | 30.3 nm/cm/MPa` -> 3.03e-12 /Pa."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1185.15,
+     "unit": "K",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 7.6,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C338"
+     },
+     "notes": "PI 시트 Viscosity 블록 verbatim `Softening Point (10^7.6 poises) | 912 ˚C`."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 919.15,
+     "unit": "K",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.2,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "PI 시트 Viscosity 블록 verbatim `Annealing Point (10^13.2 poises) | 646 ˚C`."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 869.15,
+     "unit": "K",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 14.7,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "PI 시트 Viscosity 블록 verbatim `Strain Point (10^14.7 poises) | 596 ˚C`."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 7.89,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 54,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `54 | 7.89 | 0.026`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.026,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 54,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `54 | 7.89 | 0.026` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 7.77,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 163,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `163 | 7.77 | 0.024`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.024,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 163,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `163 | 7.77 | 0.024` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 7.7,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 272,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `272 | 7.7 | 0.024`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.024,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 272,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `272 | 7.7 | 0.024` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 7.66,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 381,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `381 | 7.66 | 0.024`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.024,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 381,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `381 | 7.66 | 0.024` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 7.63,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 490,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `490 | 7.63 | 0.023`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.023,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 490,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `490 | 7.63 | 0.023` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 7.6,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 599,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `599 | 7.6 | 0.024`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.024,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 599,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `599 | 7.6 | 0.024` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 7.43,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 912,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `912 | 7.43 | 0.024`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.024,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 912,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `912 | 7.43 | 0.024` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 7.39,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 1499,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `1499 | 7.39 | 0.025`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.025,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 1499,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `1499 | 7.39 | 0.025` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 7.37,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 1977,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `1977 | 7.37 | 0.025`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.025,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 1977,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `1977 | 7.37 | 0.025` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 7.34,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 2466,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `2466 | 7.34 | 0.026`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.026,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 2466,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `2466 | 7.34 | 0.026` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 7.33,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 2986,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `2986 | 7.33 | 0.027`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.027,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 2986,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `2986 | 7.33 | 0.027` 의 Loss Tangent 열. "
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Corning Gorilla Glass Ceramic",
+    "category": "ceramic",
+    "attributes": {
+     "source": "batch-56-RB",
+     "role": "product",
+     "subsystem": "display",
+     "manufacturer": "Corning Incorporated",
+     "subsystem_basis": "모바일 커버재다 — 유리가 아니라 투명 결정화유리(glass ceramic)라 Gorilla 유리 계열과 조성군이 다르다.",
+     "grade": "Gorilla Glass Ceramic",
+     "role_reason": "Corning 상용 등급이고 PI 시트가 있다.",
+     "role_confidence": "high",
+     "core_absent_from_vendor_sheet": {
+      "mechanical.tensile_strength": "PI 시트에 인장강도 행이 없다 — 직접 열어 확인했다(브리프 127).",
+      "thermal.conductivity": "PI 시트에 열전도율 행이 없다.",
+      "thermal.specific_heat": "PI 시트에 비열 행이 없다."
+     },
+     "excluded_from_sheet": "`survived 10 repeated drops from one meter` 낙하시험은 완성품(퍽+샌드페이퍼) 시험이라 물성이 아니다(브리프 473). 헤이즈 `≤ 0.20% @0.6 mm` 는 상한 규격이라 뺐다(브리프 110·132)."
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Corning(R) Gorilla(R) Glass Ceramic Product Information Sheet",
+    "url": "http://web.archive.org/web/20250328171712id_/https://www.corning.com/microsites/csm/gorillaglass/PI_Sheets/CGG_Gorilla%20Glass%20Ceramic_PI%20Sheet.pdf",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/Corning_GorillaGlassCeramic_PISheet.pdf",
+    "authors": "Corning Incorporated",
+    "year": 2025,
+    "publisher": "Corning Incorporated",
+    "manufacturer": "Corning Incorporated"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2470.0,
+     "unit": "kg/m^3",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {},
+     "notes": "PI 시트 Properties verbatim `Density | 2.47 g/cm3`. x1000."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 102000000000.0,
+     "unit": "Pa",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {},
+     "notes": "PI 시트 Properties verbatim `Young's Modulus | 102 GPa`. [행 배정 확인] 같은 시트의 `Shear Modulus 42.8 GPa` 와 `Poisson's Ratio 0.19` 가 등방 항등식 G = E/(2(1+nu)) = 102/2.38 = 42.9 GPa 로 인쇄값 42.8 와 맞는다(브리프 35)."
+    },
+    {
+     "key": "mechanical.shear_modulus",
+     "value": 42800000000.0,
+     "unit": "Pa",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {},
+     "notes": "PI 시트 Properties verbatim `Shear Modulus | 42.8 GPa`."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.19,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {},
+     "notes": "PI 시트 Properties verbatim `Poisson's Ratio | 0.19`."
+    },
+    {
+     "key": "mechanical.hardness_knoop",
+     "value": 630.0,
+     "unit": "HK",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "load_g": 200,
+      "state": "un-strengthened"
+     },
+     "notes": "PI 시트 verbatim `Knoop Hardness (200g load) | Unstrengthened | 630 kgf/mm2`. **이 계열은 비커스가 아니라 누프다** — Gorilla Glass 3~7i 시트가 비커스를 인쇄하는 것과 다르다."
+    },
+    {
+     "key": "mechanical.hardness_knoop",
+     "value": 650.0,
+     "unit": "HK",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "load_g": 200,
+      "state": "chemically strengthened"
+     },
+     "notes": "PI 시트 verbatim `Knoop Hardness (200g load) | Strengthened | 650 kgf/mm2`."
+    },
+    {
+     "key": "mechanical.fracture_toughness",
+     "value": 1120000.0,
+     "unit": "Pa*m^0.5",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {},
+     "notes": "PI 시트 verbatim `Fracture Toughness | 1.12 MPa m0.5`."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 7.149999999999999e-06,
+     "unit": "1/K",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "temperature_range_c": "0-300",
+      "direction": "isotropic",
+      "direction_verbatim": "isotropic (glass ceramic; the sheet prints no direction)"
+     },
+     "notes": "PI 시트 verbatim `Coefficient of Expansion (0-300°C) | 71.5 x 10-7/°C`."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.54,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "wavelength_nm": 590,
+      "layer": "core glass"
+     },
+     "notes": "PI 시트 Optical verbatim `Refractive Index (590 nm) | Core Glass* | 1.54`. 각주 verbatim `Core index is used for IOX metrology since it is unaffected by ion-exchanged conditions`."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.54,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "wavelength_nm": 590,
+      "layer": "compression layer"
+     },
+     "notes": "PI 시트 Optical verbatim `Refractive Index (590 nm) | Compression Layer | 1.54` — 시트가 코어와 압축층에 같은 값을 인쇄한다."
+    },
+    {
+     "key": "optical.stress_optical_coefficient",
+     "value": 2.83e-12,
+     "unit": "1/Pa",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "wavelength_nm": "not printed"
+     },
+     "notes": "PI 시트 verbatim `Photo-elastic constant | 28.3 nm/cm/MPa`. 28.3 nm/cm/MPa = 28.3e-9 m / 1e-2 m / 1e6 Pa = 2.83e-12 /Pa (같은 계열 EAGLE XG 의 33.4 -> 3.34e-12 환산과 같은 규약)."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1023.15,
+     "unit": "K",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.2,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "PI 시트 Viscosity 블록 verbatim `Annealing Point (10^13.2 poises) | 750 °C`. **연화점은 이 시트에 인쇄되지 않는다.**"
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 993.15,
+     "unit": "K",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 14.7,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "PI 시트 Viscosity 블록 verbatim `Strain Point (10^14.7 poises) | 720 °C`. **연화점은 이 시트에 인쇄되지 않는다.**"
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.66,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 54,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `54 | 5.66 | 0.002`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.002,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 54,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `54 | 5.66 | 0.002` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.65,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 163,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `163 | 5.65 | 0.002`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.002,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 163,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `163 | 5.65 | 0.002` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.65,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 272,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `272 | 5.65 | 0.002`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.002,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 272,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `272 | 5.65 | 0.002` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.65,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 381,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `381 | 5.65 | 0.002`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.002,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 381,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `381 | 5.65 | 0.002` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.65,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 490,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `490 | 5.65 | 0.002`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.002,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 490,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `490 | 5.65 | 0.002` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.65,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 599,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `599 | 5.65 | 0.002`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.002,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 599,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `599 | 5.65 | 0.002` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.55,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 912,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `912 | 5.55 | 0.003`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.003,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 912,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `912 | 5.55 | 0.003` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.56,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 1499,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `1499 | 5.56 | 0.005`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.005,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 1499,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `1499 | 5.56 | 0.005` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.57,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 1977,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `1977 | 5.57 | 0.003`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.003,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 1977,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `1977 | 5.57 | 0.003` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.57,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 2466,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `2466 | 5.57 | 0.003`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.003,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 2466,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `2466 | 5.57 | 0.003` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.57,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 2986,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `2986 | 5.57 | 0.004`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.004,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 2986,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `2986 | 5.57 | 0.004` 의 Loss Tangent 열. "
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Corning Gorilla Glass Ceramic 2",
+    "category": "ceramic",
+    "attributes": {
+     "source": "batch-56-RB",
+     "role": "product",
+     "subsystem": "display",
+     "manufacturer": "Corning Incorporated",
+     "subsystem_basis": "모바일 커버재다 — 투명 결정화유리(glass ceramic) 2세대.",
+     "grade": "Gorilla Glass Ceramic 2",
+     "role_reason": "Corning 상용 등급이고 PI 시트가 있다.",
+     "role_confidence": "high",
+     "core_absent_from_vendor_sheet": {
+      "mechanical.tensile_strength": "PI 시트에 인장강도 행이 없다 — 직접 열어 확인했다(브리프 127).",
+      "thermal.conductivity": "PI 시트에 열전도율 행이 없다.",
+      "thermal.specific_heat": "PI 시트에 비열 행이 없다."
+     },
+     "excluded_from_sheet": "`up to 1.0 meter on 80-grit` 낙하시험은 소자시험이다(브리프 473). 투과율 `≥88% / ≥90%` 와 헤이즈 `≤0.15%` 는 부등호 규격이라 뺐다(브리프 110·132)."
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Corning(R) Gorilla(R) Glass Ceramic 2 Product Information Sheet",
+    "url": "http://web.archive.org/web/20250509130004id_/https://www.corning.com/microsites/csm/gorillaglass/PI_Sheets/CGG_Corning%20Gorilla%20Glass%20Ceramic%202_PI%20Sheet.pdf",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/Corning_GorillaGlassCeramic2_PISheet.pdf",
+    "authors": "Corning Incorporated",
+    "year": 2025,
+    "publisher": "Corning Incorporated",
+    "manufacturer": "Corning Incorporated"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2480.0,
+     "unit": "kg/m^3",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {},
+     "notes": "PI 시트 Properties verbatim `Density | 2.48 g/cm3`. x1000."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 103000000000.0,
+     "unit": "Pa",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {},
+     "notes": "PI 시트 Properties verbatim `Young's Modulus | 103 GPa`. [행 배정 확인] 같은 시트의 `Shear Modulus 43.1 GPa` 와 `Poisson's Ratio 0.19` 가 등방 항등식 G = E/(2(1+nu)) = 103/2.38 = 43.3 GPa 로 인쇄값 43.1 와 맞는다(브리프 35)."
+    },
+    {
+     "key": "mechanical.shear_modulus",
+     "value": 43100000000.0,
+     "unit": "Pa",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {},
+     "notes": "PI 시트 Properties verbatim `Shear Modulus | 43.1 GPa`."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.19,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {},
+     "notes": "PI 시트 Properties verbatim `Poisson's Ratio | 0.19`."
+    },
+    {
+     "key": "mechanical.hardness_knoop",
+     "value": 640.0,
+     "unit": "HK",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "load_g": 200,
+      "state": "un-strengthened"
+     },
+     "notes": "PI 시트 verbatim `Knoop Hardness (200g load) | Unstrengthened | 640 kgf/mm2`. **이 계열은 비커스가 아니라 누프다** — Gorilla Glass 3~7i 시트가 비커스를 인쇄하는 것과 다르다."
+    },
+    {
+     "key": "mechanical.hardness_knoop",
+     "value": 660.0,
+     "unit": "HK",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "load_g": 200,
+      "state": "chemically strengthened"
+     },
+     "notes": "PI 시트 verbatim `Knoop Hardness (200g load) | Strengthened | 660 kgf/mm2`."
+    },
+    {
+     "key": "mechanical.fracture_toughness",
+     "value": 1150000.0,
+     "unit": "Pa*m^0.5",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {},
+     "notes": "PI 시트 verbatim `Fracture Toughness | 1.15 MPa m0.5`."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 6.5900000000000004e-06,
+     "unit": "1/K",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "temperature_range_c": "0-300",
+      "direction": "isotropic",
+      "direction_verbatim": "isotropic (glass ceramic; the sheet prints no direction)"
+     },
+     "notes": "PI 시트 verbatim `Coefficient of Expansion (0-300°C) | 65.9 x 10-7/°C`."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.54,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "wavelength_nm": 590,
+      "layer": "core glass"
+     },
+     "notes": "PI 시트 Optical verbatim `Refractive Index (590 nm) | Core Glass* | 1.54`. 각주 verbatim `Core index is used for IOX metrology since it is unaffected by ion-exchanged conditions`."
+    },
+    {
+     "key": "optical.refractive_index",
+     "value": 1.54,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "wavelength_nm": 590,
+      "layer": "compression layer"
+     },
+     "notes": "PI 시트 Optical verbatim `Refractive Index (590 nm) | Compression Layer | 1.54` — 시트가 코어와 압축층에 같은 값을 인쇄한다."
+    },
+    {
+     "key": "optical.stress_optical_coefficient",
+     "value": 2.61e-12,
+     "unit": "1/Pa",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "wavelength_nm": "not printed"
+     },
+     "notes": "PI 시트 verbatim `Photo-elastic constant | 26.1 nm/cm/MPa`. 26.1 nm/cm/MPa = 26.1e-9 m / 1e-2 m / 1e6 Pa = 2.61e-12 /Pa (같은 계열 EAGLE XG 의 33.4 -> 3.34e-12 환산과 같은 규약)."
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1054.15,
+     "unit": "K",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 13.2,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "PI 시트 Viscosity 블록 verbatim `Annealing Point (10^13.2 poises) | 781 °C`. **연화점은 이 시트에 인쇄되지 않는다.**"
+    },
+    {
+     "key": "thermal.viscosity_reference_temperature",
+     "value": 1023.15,
+     "unit": "K",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "viscosity_log10_poise": 14.7,
+      "determination": "viscosity printed on the sheet",
+      "test_standard": "ASTM C336"
+     },
+     "notes": "PI 시트 Viscosity 블록 verbatim `Strain Point (10^14.7 poises) | 750 °C`. **연화점은 이 시트에 인쇄되지 않는다.**"
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.49,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 54,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `54 | 5.49 | 0.004`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.004,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 54,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `54 | 5.49 | 0.004` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.48,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 163,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `163 | 5.48 | 0.004`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.004,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 163,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `163 | 5.48 | 0.004` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.48,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 272,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `272 | 5.48 | 0.004`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.004,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 272,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `272 | 5.48 | 0.004` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.48,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 381,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `381 | 5.48 | 0.004`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.004,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 381,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `381 | 5.48 | 0.004` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.47,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 490,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `490 | 5.47 | 0.005`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.005,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 490,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `490 | 5.47 | 0.005` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.47,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 599,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `599 | 5.47 | 0.004`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.004,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 599,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `599 | 5.47 | 0.004` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.58,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 912,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `912 | 5.58 | 0.004`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.004,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 912,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `912 | 5.58 | 0.004` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.57,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 1499,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `1499 | 5.57 | 0.005`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.005,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 1499,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `1499 | 5.57 | 0.005` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.57,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 1977,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `1977 | 5.57 | 0.005`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.005,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 1977,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `1977 | 5.57 | 0.005` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.56,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 2466,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `2466 | 5.56 | 0.005`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.005,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 2466,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `2466 | 5.56 | 0.005` 의 Loss Tangent 열. "
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.56,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 2986,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `2986 | 5.56 | 0.005`(열 머리글 `Frequency (MHz) | Dielectric Constant | Loss Tangent`). 표 각주 verbatim `Terminated coaxial line similar to that outlined in NIST Technical Notes 1520 and 1355-R`. "
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.005,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "frequency_MHz": 2986,
+      "test_standard": "terminated coaxial line similar to NIST Technical Notes 1520 and 1355-R",
+      "test_method": "terminated coaxial line"
+     },
+     "notes": "PI 시트 Electrical 표 verbatim `2986 | 5.56 | 0.005` 의 Loss Tangent 열. "
+    }
+   ]
+  }
+ ]
+}
