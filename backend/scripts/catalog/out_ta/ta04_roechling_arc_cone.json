@@ -1,0 +1,160 @@
+{
+ "batch": "58차 TA",
+ "무엇": "57차 SD 인계 `out_sd/sd04_blocked_by_missing_keys.json` — 내아크성 2행과 콘칼로리미터 ASTM E 1354 세트 5행. 곁가지로 산소지수 2행은 키가 이미 있었다.",
+ "materials": [
+  {
+   "match_name": "GPO-3 glass-mat polyester laminate, Rochling Glastic UTR grade (part 1491-1494-1497, NEMA GPO-3-GPO-3P, IEC UP GM 203)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.roechling.com/fileadmin/assets/Technical%20Data%20Sheet%20Glastic%C2%AE%20UTR%20715322%20EN.pdf",
+    "title": "Technical Data Sheet Glastic(R) UTR, GFK-UP (PIM-ID 715322, Version 5.0, Release 15/12/2023)",
+    "authors": "Roechling Industrial (Roechling Glastic Composites)",
+    "year": 2023,
+    "publisher": "Roechling Industrial",
+    "local_path": "standards_appnotes/mech/Rochling_Glastic_UTR_Technical_Data_Sheet_715322_EN.pdf"
+   },
+   "properties": [
+    {
+     "key": "electrical.arc_resistance",
+     "value": 180.0,
+     "unit": "s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D 495",
+      "thickness_m": 0.0016002,
+      "grade": "Glastic UTR, part numbers 1491 / 1493 / 1494 / 1495 / 1497 (NEMA LI 1-1989 GPO-3)"
+     },
+     "notes": "Dielectrical properties 블록 verbatim `Arc Resistance | ASTM D 495 | sec. | 180`. 시트 각주 verbatim `Typical average values are for 0.063\" thick laminate. Properties vary with material thickness and form.` → 0.063 in x 0.0254 = 0.0016002 m. **CTI 와 다른 시험이다** — 같은 블록이 `IEC Track Resistance (CTI) | UL 746A | V | 600+` 를 따로 인쇄한다(초 대 볼트). 자매 등급 1580 이 181 초로 1 초 차이라 두 시트가 서로 검산이 된다. — 58차 TA"
+    },
+    {
+     "key": "thermal.flammability_loi",
+     "value": 0.35,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D 2863",
+      "thickness_m": 0.0016002,
+      "grade": "Glastic UTR, part numbers 1491 / 1493 / 1494 / 1495 / 1497 (NEMA LI 1-1989 GPO-3)"
+     },
+     "notes": "Flame resistance properties 블록 verbatim `Oxygen Index | ASTM D 2863 | %O2 | 35` → 0.35(무차원 규약 — 기존 LOI 행과 같다). 시트 각주 verbatim `Typical average values are for 0.063\" thick laminate. Properties vary with material thickness and form.` → 0.063 in x 0.0254 = 0.0016002 m. **57차 SD 는 이 행을 '키가 없어 막힘' 으로 넘겼는데 `thermal.flammability_loi` 가 이미 있었다** — 인계의 '키가 없다' 도 늙는다(브리프 89·520). — 58차 TA"
+    },
+    {
+     "key": "thermal.time_to_ignition",
+     "value": 109.0,
+     "unit": "s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM E 1354",
+      "specimen_thickness_m": 0.0016002,
+      "grade": "Glastic UTR, part numbers 1491 / 1493 / 1494 / 1495 / 1497 (NEMA LI 1-1989 GPO-3)",
+      "set_id": "Roechling Glastic UTR — ASTM E 1354 콘칼로리미터 블록(TDS 715322 v5.0, Flame resistance properties)"
+     },
+     "notes": "verbatim `Cone Calorimeter - Time to Ignition | ASTM E 1354 | sec. | 109`. **복사열유속은 시트에 인쇄되지 않았다** — ASTM E 1354 의 관행값(50 kW/m^2)을 우리가 적어 넣지 않는다(브리프 505). 그래서 `heat_flux_kw_m2` 축을 비웠다. 시트 각주 verbatim `Typical average values are for 0.063\" thick laminate. Properties vary with material thickness and form.` → 0.063 in x 0.0254 = 0.0016002 m. 같은 시트의 `Flame Resistance - Ignition Time | ASTM D 229-II | sec. | 85` 는 **다른 시험**(복사가 아니라 화염 접촉)이라 넣지 않았다 — 노출이 다르면 비교할 수 없다. — 58차 TA"
+    },
+    {
+     "key": "thermal.heat_release_rate",
+     "value": 168600.0,
+     "unit": "W/m^2",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "statistic": "peak",
+      "test_standard": "ASTM E 1354",
+      "specimen_thickness_m": 0.0016002,
+      "grade": "Glastic UTR, part numbers 1491 / 1493 / 1494 / 1495 / 1497 (NEMA LI 1-1989 GPO-3)",
+      "set_id": "Roechling Glastic UTR — ASTM E 1354 콘칼로리미터 블록(TDS 715322 v5.0, Flame resistance properties)"
+     },
+     "notes": "verbatim `Cone Calorimeter - Peak Rate of Heat Release | ASTM E 1354 | kW/m2 | 168.6` → 168.6 kW/m^2 x 1000 = 1.686e5 W/m^2. **복사열유속은 시트에 인쇄되지 않았다** — ASTM E 1354 의 관행값(50 kW/m^2)을 우리가 적어 넣지 않는다(브리프 505). 그래서 `heat_flux_kw_m2` 축을 비웠다. 시트 각주 verbatim `Typical average values are for 0.063\" thick laminate. Properties vary with material thickness and form.` → 0.063 in x 0.0254 = 0.0016002 m. **최대치와 300 초 시점을 키로 가르지 않았다**(브리프 478) — 차원이 같고 파라미터만 다르다. `statistic`·`time_s` 로 갈린다. 최대치가 300 초 값의 2.2 배인 것은 초기 수지 연소 뒤 유리매트 차르층이 서는 GPO-3 의 전형적 거동이다. — 58차 TA"
+    },
+    {
+     "key": "thermal.heat_release_rate",
+     "value": 77200.0,
+     "unit": "W/m^2",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "statistic": "instantaneous",
+      "time_s": 300,
+      "test_standard": "ASTM E 1354",
+      "specimen_thickness_m": 0.0016002,
+      "grade": "Glastic UTR, part numbers 1491 / 1493 / 1494 / 1495 / 1497 (NEMA LI 1-1989 GPO-3)",
+      "set_id": "Roechling Glastic UTR — ASTM E 1354 콘칼로리미터 블록(TDS 715322 v5.0, Flame resistance properties)"
+     },
+     "notes": "verbatim `Cone Calorimeter - Heat Release Rate @ 300 sec. | ASTM E 1354 | kW/m2 | 77.2` → 7.72e4 W/m^2. **복사열유속은 시트에 인쇄되지 않았다** — ASTM E 1354 의 관행값(50 kW/m^2)을 우리가 적어 넣지 않는다(브리프 505). 그래서 `heat_flux_kw_m2` 축을 비웠다. 시트 각주 verbatim `Typical average values are for 0.063\" thick laminate. Properties vary with material thickness and form.` → 0.063 in x 0.0254 = 0.0016002 m. 같은 세트의 최대치 168.6 kW/m^2 와 **조건축 `statistic`·`time_s` 로만 갈린다.** — 58차 TA"
+    },
+    {
+     "key": "thermal.heat_of_combustion",
+     "value": 7130000.0,
+     "unit": "J/kg",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM E 1354",
+      "specimen_thickness_m": 0.0016002,
+      "grade": "Glastic UTR, part numbers 1491 / 1493 / 1494 / 1495 / 1497 (NEMA LI 1-1989 GPO-3)",
+      "set_id": "Roechling Glastic UTR — ASTM E 1354 콘칼로리미터 블록(TDS 715322 v5.0, Flame resistance properties)"
+     },
+     "notes": "verbatim `Cone Calorimeter - Caloric Conent | ASTM E 1354 | MJ / kg | 7.13` → 7.13e6 J/kg. `Caloric Conent` 는 시트의 오타이고 ASTM E 1354 에서 이 칸이 내는 양은 **유효연소열**이다(57차 SD 가 같은 판독을 남겼다). **복사열유속은 시트에 인쇄되지 않았다** — ASTM E 1354 의 관행값(50 kW/m^2)을 우리가 적어 넣지 않는다(브리프 505). 그래서 `heat_flux_kw_m2` 축을 비웠다. 시트 각주 verbatim `Typical average values are for 0.063\" thick laminate. Properties vary with material thickness and form.` → 0.063 in x 0.0254 = 0.0016002 m. [자기 검산] 순 불포화폴리에스터의 연소열은 20~25 MJ/kg 인데 이 값은 그 1/3 이다 — GPO-3 는 유리매트·무기충전재가 질량의 대부분이라 **시료 전체 질량 기준의 유효연소열**로 읽어야 자릿수가 맞는다. 그 검산이 이 칸이 수지 고유값이 아님을 확인해 준다. — 58차 TA"
+    },
+    {
+     "key": "thermal.smoke_extinction_area",
+     "value": 336.1,
+     "unit": "m^2/kg",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "statistic": "average",
+      "test_standard": "ASTM E 1354",
+      "specimen_thickness_m": 0.0016002,
+      "grade": "Glastic UTR, part numbers 1491 / 1493 / 1494 / 1495 / 1497 (NEMA LI 1-1989 GPO-3)",
+      "set_id": "Roechling Glastic UTR — ASTM E 1354 콘칼로리미터 블록(TDS 715322 v5.0, Flame resistance properties)"
+     },
+     "notes": "verbatim `Cone Calorimeter - Average Smoke Extinction Area | ASTM E1354 | m2 / kg | 336.1`. **복사열유속은 시트에 인쇄되지 않았다** — ASTM E 1354 의 관행값(50 kW/m^2)을 우리가 적어 넣지 않는다(브리프 505). 그래서 `heat_flux_kw_m2` 축을 비웠다. 시트 각주 verbatim `Typical average values are for 0.063\" thick laminate. Properties vary with material thickness and form.` → 0.063 in x 0.0254 = 0.0016002 m. 시험법 열의 표기가 이 행만 `ASTM E1354`(공백 없음)로 다른데 같은 시험이다 — 조건에는 시트의 다른 네 행과 같은 `ASTM E 1354` 로 통일해 적고 원 표기는 이 노트에 남긴다. — 58차 TA"
+    }
+   ]
+  },
+  {
+   "match_name": "GPO-3 glass-mat polyester laminate, Rochling Glastic 1580 grade (part 1580, NEMA GPO-3, IEC UP GM 203, UL94 V-0)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.roechling.com/fileadmin/assets/715308_technical-data-sheet_en.pdf",
+    "title": "Technical Data Sheet Glastic(R) 1580/1583, GFK-UP (PIM-ID 715308, Version 3.0, Release 11/03/2024)",
+    "authors": "Roechling Industrial (Roechling Glastic Composites)",
+    "year": 2024,
+    "publisher": "Roechling Industrial",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/mech/Rochling_Glastic_1580-1583_Technical_Data_Sheet_715308_EN.pdf"
+   },
+   "properties": [
+    {
+     "key": "electrical.arc_resistance",
+     "value": 181.0,
+     "unit": "s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D 495",
+      "thickness_m": 0.0016002,
+      "grade": "Glastic 1580 (1583), part number 1580, NEMA GPO-3"
+     },
+     "notes": "Dielectrical properties 블록 verbatim `Arc Resistance | ASTM D 495 | sec. | 181`. 시트 각주 verbatim `Typical average values are for 0.063\" thick laminate. Properties vary with material thickness and form.` → 0.063 in x 0.0254 = 0.0016002 m. 같은 블록이 `IEC Track Resistance (CTI) | UL 746A | V | 500+` 를 따로 인쇄한다 — 다른 시험이다. — 58차 TA"
+    },
+    {
+     "key": "thermal.flammability_loi",
+     "value": 0.39,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D 2863",
+      "thickness_m": 0.0016002,
+      "grade": "Glastic 1580 (1583), part number 1580, NEMA GPO-3"
+     },
+     "notes": "Flame resistance properties 블록 verbatim `Oxygen Index | ASTM D 2863 | %O2 | 39` → 0.39. 시트 각주 verbatim `Typical average values are for 0.063\" thick laminate. Properties vary with material thickness and form.` → 0.063 in x 0.0254 = 0.0016002 m. UTR 등급의 35 보다 높다 — 시트 첫 장이 1580 을 `Flame retardant` 로, UTR 을 `Highly Flame Resistant, Low Smoke & Smoke Toxicity` 로 달리 소개하므로 등급 차이는 정당하다. — 58차 TA"
+    }
+   ]
+  }
+ ]
+}

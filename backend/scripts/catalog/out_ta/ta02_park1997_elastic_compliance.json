@@ -1,0 +1,96 @@
+{
+ "batch": "58차 TA",
+ "무엇": "57차 SC 인계 — `mechanical.elastic_compliance` 키가 없어 통째로 막혀 있던 Park 1997 TABLE I 의 s33^E 4행.",
+ "materials": [
+  {
+   "match_name": "Pb(Zn1/3Nb2/3)O3 (PZN) 릴랙서 강유전 단결정, 능면정 상 (Park 1997)",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1063/1.365983",
+    "title": "Ultrahigh strain and piezoelectric behavior in relaxor based ferroelectric single crystals",
+    "authors": "Park",
+    "year": 1997,
+    "local_path": "/data/paper_patent_corpus/structured/snowball_papers/from_cae/Park - 1997 - Ultrahigh strain and piezoelectric behavior in relaxor based ferroelectric single crystals/Park - 1997 - Ultrahigh strain and piezoelectric behavior in relaxor based ferroelectric single crystals.md"
+   },
+   "properties": [
+    {
+     "key": "mechanical.elastic_compliance",
+     "value": 7.4e-12,
+     "unit": "1/Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "component": "s33^E — 세로방향 33 성분, **위첨자 E 는 전기장 일정(constant electric field) 조건**이다. 원문 표기 verbatim `S 33 E`",
+      "crystal_orientation": "<111>",
+      "poling": "field cooling 10 kV/cm (Tmax 위에서) 또는 상온 40 kV/cm",
+      "measurement": "low-field IEEE resonance technique",
+      "temperature_c": 23,
+      "temperature_note": "원문 미기재 — 저온·고온 언급 없이 상온 측정으로 서술된다"
+     },
+     "notes": "TABLE I verbatim — `Crystal orientation 111` 행 `S 33 E` 칸 = 7.4. 표 머리글 verbatim `S 33 E (10 2 12 m 2 /N)` — **지수 부호가 추출에서 죽었다**(브리프 9). `10^-12 m^2/N` 이 맞다는 것은 물리로 닫힌다: 10^+12 로 읽으면 s = 7.4e12 1/Pa 가 되어 탄성률이 1.35e-13 Pa 라 재료가 아니다. 10^-12 로 읽으면 1/7.4e-12 = 135 GPa · 1/4.8e-11 = 20.8 GPa 로 릴랙서 단결정의 알려진 대역이다. **역수(E33 = 1/s33)는 만들지 않았다** — 원문이 인쇄한 것은 컴플라이언스뿐이다(브리프 10·469). 열 배정 검산 — 같은 표의 `d 33` 열이 ⟨111⟩ 83/84 pC/N · ⟨001⟩ 1100/2500 pC/N 이고, 본문 verbatim `d33 of ; 1100 pC/N ~ PZN ! up to 2500 pC/N ~ PZN-8% PT !` 와 맞아 두 조성 열의 좌우가 뒤바뀌지 않았음을 확인했다(브리프 23). 방법절 verbatim: `low-field resonance technique`. — 58차 TA"
+    },
+    {
+     "key": "mechanical.elastic_compliance",
+     "value": 4.8e-11,
+     "unit": "1/Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "component": "s33^E — 세로방향 33 성분, **위첨자 E 는 전기장 일정(constant electric field) 조건**이다. 원문 표기 verbatim `S 33 E`",
+      "crystal_orientation": "<001>",
+      "poling": "field cooling 10 kV/cm (Tmax 위에서) 또는 상온 40 kV/cm",
+      "measurement": "low-field IEEE resonance technique",
+      "temperature_c": 23,
+      "temperature_note": "원문 미기재 — 저온·고온 언급 없이 상온 측정으로 서술된다"
+     },
+     "notes": "TABLE I verbatim — `Crystal orientation 001` 행 `S 33 E` 칸 = 48. 표 머리글 verbatim `S 33 E (10 2 12 m 2 /N)` — **지수 부호가 추출에서 죽었다**(브리프 9). `10^-12 m^2/N` 이 맞다는 것은 물리로 닫힌다: 10^+12 로 읽으면 s = 7.4e12 1/Pa 가 되어 탄성률이 1.35e-13 Pa 라 재료가 아니다. 10^-12 로 읽으면 1/7.4e-12 = 135 GPa · 1/4.8e-11 = 20.8 GPa 로 릴랙서 단결정의 알려진 대역이다. **역수(E33 = 1/s33)는 만들지 않았다** — 원문이 인쇄한 것은 컴플라이언스뿐이다(브리프 10·469). 열 배정 검산 — 같은 표의 `d 33` 열이 ⟨111⟩ 83/84 pC/N · ⟨001⟩ 1100/2500 pC/N 이고, 본문 verbatim `d33 of ; 1100 pC/N ~ PZN ! up to 2500 pC/N ~ PZN-8% PT !` 와 맞아 두 조성 열의 좌우가 뒤바뀌지 않았음을 확인했다(브리프 23). 방법절 verbatim: `low-field resonance technique`. — 58차 TA"
+    }
+   ]
+  },
+  {
+   "match_name": "0.92Pb(Zn1/3Nb2/3)O3-0.08PbTiO3 (PZN-8%PT) 릴랙서 강유전 단결정 (Park 1997)",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1063/1.365983",
+    "title": "Ultrahigh strain and piezoelectric behavior in relaxor based ferroelectric single crystals",
+    "authors": "Park",
+    "year": 1997,
+    "local_path": "/data/paper_patent_corpus/structured/snowball_papers/from_cae/Park - 1997 - Ultrahigh strain and piezoelectric behavior in relaxor based ferroelectric single crystals/Park - 1997 - Ultrahigh strain and piezoelectric behavior in relaxor based ferroelectric single crystals.md"
+   },
+   "properties": [
+    {
+     "key": "mechanical.elastic_compliance",
+     "value": 7.4e-12,
+     "unit": "1/Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "component": "s33^E — 세로방향 33 성분, **위첨자 E 는 전기장 일정(constant electric field) 조건**이다. 원문 표기 verbatim `S 33 E`",
+      "crystal_orientation": "<111>",
+      "poling": "field cooling 10 kV/cm (Tmax 위에서) 또는 상온 40 kV/cm",
+      "measurement": "low-field IEEE resonance technique",
+      "temperature_c": 23,
+      "temperature_note": "원문 미기재 — 저온·고온 언급 없이 상온 측정으로 서술된다"
+     },
+     "notes": "TABLE I verbatim — `Crystal orientation 111` 행 `S 33 E` 칸 = 7.4. 표 머리글 verbatim `S 33 E (10 2 12 m 2 /N)` — **지수 부호가 추출에서 죽었다**(브리프 9). `10^-12 m^2/N` 이 맞다는 것은 물리로 닫힌다: 10^+12 로 읽으면 s = 7.4e12 1/Pa 가 되어 탄성률이 1.35e-13 Pa 라 재료가 아니다. 10^-12 로 읽으면 1/7.4e-12 = 135 GPa · 1/4.8e-11 = 20.8 GPa 로 릴랙서 단결정의 알려진 대역이다. **역수(E33 = 1/s33)는 만들지 않았다** — 원문이 인쇄한 것은 컴플라이언스뿐이다(브리프 10·469). 열 배정 검산 — 같은 표의 `d 33` 열이 ⟨111⟩ 83/84 pC/N · ⟨001⟩ 1100/2500 pC/N 이고, 본문 verbatim `d33 of ; 1100 pC/N ~ PZN ! up to 2500 pC/N ~ PZN-8% PT !` 와 맞아 두 조성 열의 좌우가 뒤바뀌지 않았음을 확인했다(브리프 23). 방법절 verbatim: `low-field resonance technique`. — 58차 TA"
+    },
+    {
+     "key": "mechanical.elastic_compliance",
+     "value": 1.3e-10,
+     "unit": "1/Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "component": "s33^E — 세로방향 33 성분, **위첨자 E 는 전기장 일정(constant electric field) 조건**이다. 원문 표기 verbatim `S 33 E`",
+      "crystal_orientation": "<001>",
+      "poling": "field cooling 10 kV/cm (Tmax 위에서) 또는 상온 40 kV/cm",
+      "measurement": "low-field IEEE resonance technique",
+      "temperature_c": 23,
+      "temperature_note": "원문 미기재 — 저온·고온 언급 없이 상온 측정으로 서술된다"
+     },
+     "notes": "TABLE I verbatim — `Crystal orientation 001` 행 `S 33 E` 칸 = 130. 표 머리글 verbatim `S 33 E (10 2 12 m 2 /N)` — **지수 부호가 추출에서 죽었다**(브리프 9). `10^-12 m^2/N` 이 맞다는 것은 물리로 닫힌다: 10^+12 로 읽으면 s = 7.4e12 1/Pa 가 되어 탄성률이 1.35e-13 Pa 라 재료가 아니다. 10^-12 로 읽으면 1/7.4e-12 = 135 GPa · 1/4.8e-11 = 20.8 GPa 로 릴랙서 단결정의 알려진 대역이다. **역수(E33 = 1/s33)는 만들지 않았다** — 원문이 인쇄한 것은 컴플라이언스뿐이다(브리프 10·469). 열 배정 검산 — 같은 표의 `d 33` 열이 ⟨111⟩ 83/84 pC/N · ⟨001⟩ 1100/2500 pC/N 이고, 본문 verbatim `d33 of ; 1100 pC/N ~ PZN ! up to 2500 pC/N ~ PZN-8% PT !` 와 맞아 두 조성 열의 좌우가 뒤바뀌지 않았음을 확인했다(브리프 23). 방법절 verbatim: `low-field resonance technique`. — 58차 TA"
+    }
+   ]
+  }
+ ]
+}

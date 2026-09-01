@@ -407,6 +407,18 @@ _DEFS: list[tuple] = [
     # PSA·점탄성 갈래는 크리프를 컴플라이언스로 보고한다. **어느 시점의 값인지가 필수다.**
     ("mechanical.creep_compliance", "mechanical", "크리프 컴플라이언스", "J(t)", "1/Pa", "numeric",
      ["temperature_k", "stress_pa", "time_s", "component", "set_id"], None),
+    # [2026-09-01 · 58차 TA] **단결정 압전재는 강성이 아니라 컴플라이언스로 인쇄된다.**
+    # `youngs_modulus`(E)의 역수라서 같은 키에 넣고 싶어지는데, **역수를 취하는 것은 우리 산술이다**
+    # (브리프 10·469 의 역산 금지). 57차 SC 가 Park 1997 TABLE I 의 `s33^E` 4행을 눈으로 보고도
+    # `E33 = 1/s33` 을 만들지 않고 통째로 넘긴 자리다(브리프 468 — 키 부재는 갈래 전체를 막는다).
+    #
+    # ⚠ **위첨자가 값의 정체다.** `s^E`(전기장 일정)와 `s^D`(전기변위 일정)는 압전 결합만큼 다르고,
+    # 릴랙서 단결정은 그 차이가 배 단위다. 새 조건축을 만들지 않고 **`component` 에 verbatim 으로 적는다**
+    # (브리프 419 — 어휘를 늘리지 마라). `component` 는 이미 411행에서 `33`·`shear` 같은 정체를 담고 있다.
+    # ⚠ 압전 단결정은 방향이 값을 정한다 — Park 1997 의 PZN 은 ⟨111⟩ 7.4 대 ⟨001⟩ 48 (10^-12 m^2/N)로
+    # 6.5 배다. `crystal_orientation` 은 이 재료들의 d33·k33 행이 이미 쓰는 축이다.
+    ("mechanical.elastic_compliance", "mechanical", "탄성 컴플라이언스", "s", "1/Pa", "numeric",
+     ["component", "crystal_orientation", "poling", "temperature_k"], "IEEE 176"),
     # G'-G" 교차점 — **점탄성 전이점이지 계수가 아니다.** 온도판과 주파수판을 따로 둔다.
     # 지금까지는 교차 온도가 `conditions.temperature_k` 안에 갇혀 검색이 안 됐다.
     ("rheological.crossover_temperature", "rheological", "G'-G\" 교차온도", "T_x", "K", "numeric",
@@ -517,6 +529,28 @@ _DEFS: list[tuple] = [
     ("thermal.flammability_loi", "thermal", "산소지수(LOI)", "LOI", "1", "numeric", None, "ISO 4589"),
     ("thermal.flammability_ul94", "thermal", "난연등급(UL94)", None, None, "categorical", ["thickness_m"], "UL 94"),
     ("thermal.latent_heat_fusion", "thermal", "융해잠열", None, "J/kg", "numeric", None, None),
+    # [2026-09-01 · 58차 TA] **콘칼로리미터(ASTM E 1354)는 키 하나가 아니라 한 세트다.**
+    # 57차 SD 가 Roechling Glastic UTR 시트에서 다섯 칸을 보고 넘겼는데, 낱개로 세우면
+    # 한 시험의 결과가 흩어져 어느 것이 같은 시험에서 나왔는지 알 수 없다 —
+    # **다섯 칸이 한 시험의 한 세트라 갈래 전체가 막혀 있었다**(브리프 468).
+    # 그래서 넷 다 `test_standard`·`heat_flux_kw_m2`·`set_id` 를 공유 축으로 갖는다.
+    #
+    # ⚠ **열방출률은 키를 둘로 가르지 않았다**(브리프 478). 최대치와 300 초 시점은 차원이 같고
+    # 파라미터만 다르다 — 이름에 `peak` 를 박으면 `@60s`·`@180s` 가 올 때마다 키가 갈린다.
+    # `statistic`(356행 사용 중)과 `time_s`(115행)로 올린다. 둘 다 기존 어휘다(브리프 419).
+    # ⚠ **연소열은 `effective heat of combustion` 이다** — 시료 전체 질량 기준이라
+    # 수지 자체의 연소열이 아니다. GPO-3 는 유리·충전재가 대부분이라 7.13 MJ/kg 로
+    # 순 폴리에스터(~20 MJ/kg)의 1/3 이다. 그 검산이 이 값이 유효연소열임을 확인해 준다.
+    ("thermal.time_to_ignition", "thermal", "착화시간(콘칼로리미터)", "t_ig", "s", "numeric",
+     ["test_standard", "heat_flux_kw_m2", "specimen_thickness_m", "set_id"], "ASTM E1354"),
+    ("thermal.heat_release_rate", "thermal", "열방출률(콘칼로리미터)", "HRR", "W/m^2", "numeric",
+     ["statistic", "time_s", "test_standard", "heat_flux_kw_m2", "specimen_thickness_m", "set_id"],
+     "ASTM E1354"),
+    ("thermal.heat_of_combustion", "thermal", "유효연소열(콘칼로리미터)", "EHC", "J/kg", "numeric",
+     ["test_standard", "heat_flux_kw_m2", "specimen_thickness_m", "set_id"], "ASTM E1354"),
+    ("thermal.smoke_extinction_area", "thermal", "평균 연기소멸면적(콘칼로리미터)", "SEA", "m^2/kg",
+     "numeric", ["statistic", "test_standard", "heat_flux_kw_m2", "specimen_thickness_m", "set_id"],
+     "ASTM E1354"),
     # ── 전기 ──────────────────────────────────────────────────────────────────
     ("electrical.resistivity_volume", "electrical", "체적저항률", "rho", "ohm*m", "numeric", ["temperature_k"], "ASTM D257"),
     ("electrical.conductivity", "electrical", "전기전도율", "sigma", "S/m", "numeric", ["temperature_k"], None),
@@ -525,6 +559,13 @@ _DEFS: list[tuple] = [
     ("electrical.dielectric_strength", "electrical", "유전강도", None, "V/m", "numeric", ["thickness_m"], "ASTM D149"),
     ("electrical.dissipation_factor", "electrical", "손실계수", "tan_d", "1", "numeric", ["frequency_hz"], "ASTM D150"),
     ("electrical.comparative_tracking_index", "electrical", "비교트래킹지수(CTI)", "CTI", "V", "numeric", None, "IEC 60112"),
+    # [2026-09-01 · 58차 TA] **내아크성은 CTI 가 아니다.** 둘 다 "표면이 전기적으로 얼마나 버티나"
+    # 를 재지만 시험도 단위도 다르다 — ASTM D 495 는 시편 위 두 전극 사이에 고전압 아크를 걸어
+    # **표면이 도전로를 만들 때까지의 초**를 재고(초), IEC 60112 CTI 는 오염액을 떨어뜨리며
+    # **트래킹이 생기는 전압**을 찾는다(V). 같은 키에 넣으면 안 된다(브리프 471 — 정의가 키를 정한다).
+    # GPO-3 유리매트 폴리에스터는 내아크성이 팔리는 이유라 이 계열에서 중요한 축이다.
+    ("electrical.arc_resistance", "electrical", "내아크성", None, "s", "numeric",
+     ["test_standard", "thickness_m", "electrode", "temperature_k"], "ASTM D495"),
     # **홀측정 갈래가 통째로 막혀 있었다**(24차 R — LakeShore 5대). 반도체·투명전극
     # (IGZO·ITO)에 필수인데 이동도 키가 없었다. 세 값은 한 측정에서 함께 나온다.
     # 부호가 캐리어 종류를 정한다 — **홀계수가 음수면 n형**이라 부호를 지우면 안 된다.
@@ -835,6 +876,19 @@ _DEFS: list[tuple] = [
     # 흡습 확산 모델 상수(전지수인자 D0 등). 확산계수 자체는 physical.diffusion_coefficient 다.
     ("physical.moisture_diffusion_constant", "physical", "흡습확산 모델 상수", None, "1", "numeric",
      ["term", "unit_of_term", "model", "temperature_range_k", "set_id"], None),
+    # [2026-09-01 · 58차 TA] 밀도 회귀 모델 상수 — 47차 IC → 56차 RA 인계.
+    # **뚫린 SI 에 값이 없을 수도 있다**(브리프 520). Landesfeind & Gasteiger 2019 SI 는
+    # 전해액 밀도를 표가 아니라 3파라미터 회귀식 `rho(c,T) = p1 + p2*c + p3*T [g/cm^3]` 으로만 싣는다.
+    # **회귀를 임의의 (c,T) 에서 평가하면 그 점을 우리가 고른 것이 된다**(브리프 76·184) —
+    # 그래서 `physical.density` 행이 아니라 상수 행으로 들어간다.
+    #
+    # ⚠ 항마다 단위가 다르다(p1 g/cm^3 · p2 g/(cm^3·M) · p3 g/(cm^3·K)) — `viscosity_model_constant`·
+    # `moisture_diffusion_constant` 선례대로 si_unit 을 1 로 두고 `unit_of_term` 에 정체를 적는다.
+    # ⚠ **상수 하나는 값이 아니다** — 세 개가 한 회귀라 `set_id` 로 묶고, 유효 구간
+    # (`temperature_range_k`·`concentration_range_mol_l`)을 벗어나면 쓰면 안 된다.
+    ("physical.density_model_constant", "physical", "밀도 모델 상수", None, "1", "numeric",
+     ["term", "unit_of_term", "model", "solvent_blend", "temperature_range_k",
+      "concentration_range_mol_l", "fit_r2", "set_id"], None),
     # 점도 모델 상수 다발 — Cross-WLF · Carreau-Yasuda · 멱법칙 등(39차 BA).
     # **항마다 단위가 달라**(무차원 n · Pa 인 τ* · Pa·s 인 D1) si_unit 을 1 로 두고
     # `term`·`unit_of_term` 에 정체를 적는다(darveaux_constant 선례). 세트가 깨지면 곡선이
