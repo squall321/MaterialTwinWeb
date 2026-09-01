@@ -1,0 +1,147 @@
+{
+ "batch": "57차 SD",
+ "materials": [
+  {
+   "match_id": 2677,
+   "match_name": "SACX0307 Solder Alloy (Sn-0.3Ag-0.7Cu-0.1Bi, Cookson SACX, Bi-doped low-Ag SAC)",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1109/itherm.2012.6231521",
+    "url": "https://doi.org/10.1109/itherm.2012.6231521",
+    "title": "Mitigation of Lead Free Solder Aging Effects using Doped SAC-X Alloys",
+    "authors": "Zijie Cai, Jeffrey C. Suhling, Pradeep Lall, Michael J. Bozack",
+    "year": 2012,
+    "publisher": "IEEE (13th InterSociety Conference on Thermal and Thermomechanical Phenomena in Electronic Systems, ITherm 2012)",
+    "local_path": "/data/paper_patent_corpus/rel_papers/10_tin_whisker/Cai - 2012 - Mitigation of lead free solder aging effects using doped SAC-X alloys.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.yield_strength_at_rate",
+     "value": 21876000.0,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_temperature_k": 373.15,
+      "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+      "digitized": true,
+      "figure": "Figure 13(b) Yield Stress (p.8) — Evolution of SAC-X Material Properties [Aging at 100 oC for 12 Months]",
+      "property_definition": "0.2% offset yield stress(Cai 2010 verbatim: 'The yield stress Y (YS) is taken to be the standard .2% yield stress').",
+      "reading_uncertainty": "±0.05 MPa",
+      "aging_time_days": 0
+     },
+     "notes": "Cai 2012 Figure 13(b) 를 벡터 좌표로 읽었다(56차 RC 판독값 그대로다). 그림 안 주석 verbatim: 'SACX0307, RF' / 'T = 25 oC' / 'Aging at 100 oC'. **시효 100 °C 는 시효 조건이지 시험온도가 아니다** — 시험은 전부 상온 25 °C 다(Cai 2010 verbatim: 'All uniaxial stress-strain and creep tests in this paper were conducted at room temperature (25 °C). The strain rate for the stress-strain testing was 0.001 sec-1'). **[왜 지금 들어오나]** 56차 RC 가 이 여섯 점을 재료 2677 의 Cai 2010 판독과 어긋난다는 이유로 **넣지 않고** 넘겼다. **[57차 SD 판정 — Cai 2010 과 Cai 2012 의 SAC-X 항복강도가 18~20% 어긋난 것을 응력-변형 곡선 재판독으로 갈랐다]** 56차 RC 가 겹치는 여섯 점을 넣지 않고 넘겼다(어느 쪽이 맞는지 안 닫혔다). 57차 SD 가 두 논문의 **응력-변형 곡선 자체를**(Cai 2010 Figure 27 p.14 `Stress-Strain Curves for SAC-X for Aging at 100 oC for 0-2 Months` · Cai 2012 Figure 12 p.7 `Stress-Strain Curves for SACX0307 [Aging at 100 oC for 0-12 Months]`) pdftocairo -svg 벡터로 뽑아 같은 좌표에 겹쳤다. **① 두 논문의 비시효 곡선은 같은 곡선이다** — 범례 색으로 계열을 확정한 뒤(2010 `As Reflowed` = 빨강 · 2012 `0 day` = 빨강) 변형률 0.0005~0.0200 을 0.0005 간격으로 되읽으니 **RMS 차 0.062 MPa · ε>=0.002 구간 최대 0.068 MPa** 다. 인쇄된 값도 같은 시편을 가리킨다 — E(0) 31.879 대 31.860 GPa(0.06%) · UTS(0) 29.588 대 29.596 MPa(0.03%). **한 번 잰 시편을 두 논문이 다시 그린 것이다.** **② 그 공통 곡선의 0.2% offset 항복은 20.9 MPa 다** — 그 논문 자신이 같은 점에 인쇄한 E(0)=31.879 GPa 로 offset 선 sigma = E(eps-0.002) 를 그으면 교점이 2010 곡선 20.913 · 2012 곡선 20.869 MPa 다. **2012 의 21.876 은 1.0 MPa 안에서 재현되고 2010 의 26.734 는 5.8 MPa 어긋난다.** 26.734 를 내려면 E 를 **3.0 GPa**(논문 자신의 값의 1/10)로 두거나 offset 을 **1.01%** 로 두어야 한다. 26.734 는 그 곡선의 eps=0.0109 지점 응력(26.736)이라 UTS 의 90% 자리다. **③ 다른 고정 offset 으로도 2010 계열은 설명되지 않는다** — 여섯 점을 내려면 offset 이 1.01%/0.83%/0.52% 로 제각각이고 20·30·60 일은 아예 해가 없다. **④ 정의는 2010 자신이 적어 두었다** — verbatim `The yield stress Y (YS) is taken to be the standard .2% yield stress`. **판정 — Cai 2010 Figure 28(b) 의 SAC-X 항복강도 계열은 그 논문 자신의 응력-변형 곡선에서 0.2% offset 으로 재현되지 않고, Cai 2012 Figure 13(b) 계열은 재현된다.** **2010 의 행은 지우지 않았다**(브리프 565 — 삭제는 dev 에서만 사라진다). 두 값을 다 살려 두고 이 판정을 값 옆에 적는다. **[판독기 검산]** 이 판정에 쓴 파이프라인을 같은 그림의 이미 적재된 계열로 고정했다 — Figure 13(b) 의 120/180/270/360 일을 되읽으니 12.885/13.225/12.738/12.679 로 DB 의 56차 RC 판독(12.897/13.236/12.751/12.692)과 **최대 0.015 MPa** 로 같고, Figure 28(b) 의 SAC205·SAC105 비시효점을 되읽으니 28.549/20.439 로 DB 의 28.562/20.465 와 **최대 0.026 MPa** 로 같다(브리프 513 · 56차 RC 초안 B — 이미 판정된 계열이 파이프라인의 심판이다). 마커는 꼭짓점 평균이고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514)."
+    },
+    {
+     "key": "mechanical.yield_strength_at_rate",
+     "value": 14878000.0,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_temperature_k": 373.15,
+      "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+      "digitized": true,
+      "figure": "Figure 13(b) Yield Stress (p.8) — Evolution of SAC-X Material Properties [Aging at 100 oC for 12 Months]",
+      "property_definition": "0.2% offset yield stress(Cai 2010 verbatim: 'The yield stress Y (YS) is taken to be the standard .2% yield stress').",
+      "reading_uncertainty": "±0.05 MPa",
+      "aging_time_days": 5
+     },
+     "notes": "Cai 2012 Figure 13(b) 를 벡터 좌표로 읽었다(56차 RC 판독값 그대로다). 그림 안 주석 verbatim: 'SACX0307, RF' / 'T = 25 oC' / 'Aging at 100 oC'. **시효 100 °C 는 시효 조건이지 시험온도가 아니다** — 시험은 전부 상온 25 °C 다(Cai 2010 verbatim: 'All uniaxial stress-strain and creep tests in this paper were conducted at room temperature (25 °C). The strain rate for the stress-strain testing was 0.001 sec-1'). **[왜 지금 들어오나]** 56차 RC 가 이 여섯 점을 재료 2677 의 Cai 2010 판독과 어긋난다는 이유로 **넣지 않고** 넘겼다. **[57차 SD 판정 — Cai 2010 과 Cai 2012 의 SAC-X 항복강도가 18~20% 어긋난 것을 응력-변형 곡선 재판독으로 갈랐다]** 56차 RC 가 겹치는 여섯 점을 넣지 않고 넘겼다(어느 쪽이 맞는지 안 닫혔다). 57차 SD 가 두 논문의 **응력-변형 곡선 자체를**(Cai 2010 Figure 27 p.14 `Stress-Strain Curves for SAC-X for Aging at 100 oC for 0-2 Months` · Cai 2012 Figure 12 p.7 `Stress-Strain Curves for SACX0307 [Aging at 100 oC for 0-12 Months]`) pdftocairo -svg 벡터로 뽑아 같은 좌표에 겹쳤다. **① 두 논문의 비시효 곡선은 같은 곡선이다** — 범례 색으로 계열을 확정한 뒤(2010 `As Reflowed` = 빨강 · 2012 `0 day` = 빨강) 변형률 0.0005~0.0200 을 0.0005 간격으로 되읽으니 **RMS 차 0.062 MPa · ε>=0.002 구간 최대 0.068 MPa** 다. 인쇄된 값도 같은 시편을 가리킨다 — E(0) 31.879 대 31.860 GPa(0.06%) · UTS(0) 29.588 대 29.596 MPa(0.03%). **한 번 잰 시편을 두 논문이 다시 그린 것이다.** **② 그 공통 곡선의 0.2% offset 항복은 20.9 MPa 다** — 그 논문 자신이 같은 점에 인쇄한 E(0)=31.879 GPa 로 offset 선 sigma = E(eps-0.002) 를 그으면 교점이 2010 곡선 20.913 · 2012 곡선 20.869 MPa 다. **2012 의 21.876 은 1.0 MPa 안에서 재현되고 2010 의 26.734 는 5.8 MPa 어긋난다.** 26.734 를 내려면 E 를 **3.0 GPa**(논문 자신의 값의 1/10)로 두거나 offset 을 **1.01%** 로 두어야 한다. 26.734 는 그 곡선의 eps=0.0109 지점 응력(26.736)이라 UTS 의 90% 자리다. **③ 다른 고정 offset 으로도 2010 계열은 설명되지 않는다** — 여섯 점을 내려면 offset 이 1.01%/0.83%/0.52% 로 제각각이고 20·30·60 일은 아예 해가 없다. **④ 정의는 2010 자신이 적어 두었다** — verbatim `The yield stress Y (YS) is taken to be the standard .2% yield stress`. **판정 — Cai 2010 Figure 28(b) 의 SAC-X 항복강도 계열은 그 논문 자신의 응력-변형 곡선에서 0.2% offset 으로 재현되지 않고, Cai 2012 Figure 13(b) 계열은 재현된다.** **2010 의 행은 지우지 않았다**(브리프 565 — 삭제는 dev 에서만 사라진다). 두 값을 다 살려 두고 이 판정을 값 옆에 적는다. **[판독기 검산]** 이 판정에 쓴 파이프라인을 같은 그림의 이미 적재된 계열로 고정했다 — Figure 13(b) 의 120/180/270/360 일을 되읽으니 12.885/13.225/12.738/12.679 로 DB 의 56차 RC 판독(12.897/13.236/12.751/12.692)과 **최대 0.015 MPa** 로 같고, Figure 28(b) 의 SAC205·SAC105 비시효점을 되읽으니 28.549/20.439 로 DB 의 28.562/20.465 와 **최대 0.026 MPa** 로 같다(브리프 513 · 56차 RC 초안 B — 이미 판정된 계열이 파이프라인의 심판이다). 마커는 꼭짓점 평균이고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514)."
+    },
+    {
+     "key": "mechanical.yield_strength_at_rate",
+     "value": 14548000.0,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_temperature_k": 373.15,
+      "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+      "digitized": true,
+      "figure": "Figure 13(b) Yield Stress (p.8) — Evolution of SAC-X Material Properties [Aging at 100 oC for 12 Months]",
+      "property_definition": "0.2% offset yield stress(Cai 2010 verbatim: 'The yield stress Y (YS) is taken to be the standard .2% yield stress').",
+      "reading_uncertainty": "±0.05 MPa",
+      "aging_time_days": 10
+     },
+     "notes": "Cai 2012 Figure 13(b) 를 벡터 좌표로 읽었다(56차 RC 판독값 그대로다). 그림 안 주석 verbatim: 'SACX0307, RF' / 'T = 25 oC' / 'Aging at 100 oC'. **시효 100 °C 는 시효 조건이지 시험온도가 아니다** — 시험은 전부 상온 25 °C 다(Cai 2010 verbatim: 'All uniaxial stress-strain and creep tests in this paper were conducted at room temperature (25 °C). The strain rate for the stress-strain testing was 0.001 sec-1'). **[왜 지금 들어오나]** 56차 RC 가 이 여섯 점을 재료 2677 의 Cai 2010 판독과 어긋난다는 이유로 **넣지 않고** 넘겼다. **[57차 SD 판정 — Cai 2010 과 Cai 2012 의 SAC-X 항복강도가 18~20% 어긋난 것을 응력-변형 곡선 재판독으로 갈랐다]** 56차 RC 가 겹치는 여섯 점을 넣지 않고 넘겼다(어느 쪽이 맞는지 안 닫혔다). 57차 SD 가 두 논문의 **응력-변형 곡선 자체를**(Cai 2010 Figure 27 p.14 `Stress-Strain Curves for SAC-X for Aging at 100 oC for 0-2 Months` · Cai 2012 Figure 12 p.7 `Stress-Strain Curves for SACX0307 [Aging at 100 oC for 0-12 Months]`) pdftocairo -svg 벡터로 뽑아 같은 좌표에 겹쳤다. **① 두 논문의 비시효 곡선은 같은 곡선이다** — 범례 색으로 계열을 확정한 뒤(2010 `As Reflowed` = 빨강 · 2012 `0 day` = 빨강) 변형률 0.0005~0.0200 을 0.0005 간격으로 되읽으니 **RMS 차 0.062 MPa · ε>=0.002 구간 최대 0.068 MPa** 다. 인쇄된 값도 같은 시편을 가리킨다 — E(0) 31.879 대 31.860 GPa(0.06%) · UTS(0) 29.588 대 29.596 MPa(0.03%). **한 번 잰 시편을 두 논문이 다시 그린 것이다.** **② 그 공통 곡선의 0.2% offset 항복은 20.9 MPa 다** — 그 논문 자신이 같은 점에 인쇄한 E(0)=31.879 GPa 로 offset 선 sigma = E(eps-0.002) 를 그으면 교점이 2010 곡선 20.913 · 2012 곡선 20.869 MPa 다. **2012 의 21.876 은 1.0 MPa 안에서 재현되고 2010 의 26.734 는 5.8 MPa 어긋난다.** 26.734 를 내려면 E 를 **3.0 GPa**(논문 자신의 값의 1/10)로 두거나 offset 을 **1.01%** 로 두어야 한다. 26.734 는 그 곡선의 eps=0.0109 지점 응력(26.736)이라 UTS 의 90% 자리다. **③ 다른 고정 offset 으로도 2010 계열은 설명되지 않는다** — 여섯 점을 내려면 offset 이 1.01%/0.83%/0.52% 로 제각각이고 20·30·60 일은 아예 해가 없다. **④ 정의는 2010 자신이 적어 두었다** — verbatim `The yield stress Y (YS) is taken to be the standard .2% yield stress`. **판정 — Cai 2010 Figure 28(b) 의 SAC-X 항복강도 계열은 그 논문 자신의 응력-변형 곡선에서 0.2% offset 으로 재현되지 않고, Cai 2012 Figure 13(b) 계열은 재현된다.** **2010 의 행은 지우지 않았다**(브리프 565 — 삭제는 dev 에서만 사라진다). 두 값을 다 살려 두고 이 판정을 값 옆에 적는다. **[판독기 검산]** 이 판정에 쓴 파이프라인을 같은 그림의 이미 적재된 계열로 고정했다 — Figure 13(b) 의 120/180/270/360 일을 되읽으니 12.885/13.225/12.738/12.679 로 DB 의 56차 RC 판독(12.897/13.236/12.751/12.692)과 **최대 0.015 MPa** 로 같고, Figure 28(b) 의 SAC205·SAC105 비시효점을 되읽으니 28.549/20.439 로 DB 의 28.562/20.465 와 **최대 0.026 MPa** 로 같다(브리프 513 · 56차 RC 초안 B — 이미 판정된 계열이 파이프라인의 심판이다). 마커는 꼭짓점 평균이고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514)."
+    },
+    {
+     "key": "mechanical.yield_strength_at_rate",
+     "value": 14489000.0,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_temperature_k": 373.15,
+      "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+      "digitized": true,
+      "figure": "Figure 13(b) Yield Stress (p.8) — Evolution of SAC-X Material Properties [Aging at 100 oC for 12 Months]",
+      "property_definition": "0.2% offset yield stress(Cai 2010 verbatim: 'The yield stress Y (YS) is taken to be the standard .2% yield stress').",
+      "reading_uncertainty": "±0.05 MPa",
+      "aging_time_days": 20
+     },
+     "notes": "Cai 2012 Figure 13(b) 를 벡터 좌표로 읽었다(56차 RC 판독값 그대로다). 그림 안 주석 verbatim: 'SACX0307, RF' / 'T = 25 oC' / 'Aging at 100 oC'. **시효 100 °C 는 시효 조건이지 시험온도가 아니다** — 시험은 전부 상온 25 °C 다(Cai 2010 verbatim: 'All uniaxial stress-strain and creep tests in this paper were conducted at room temperature (25 °C). The strain rate for the stress-strain testing was 0.001 sec-1'). **[왜 지금 들어오나]** 56차 RC 가 이 여섯 점을 재료 2677 의 Cai 2010 판독과 어긋난다는 이유로 **넣지 않고** 넘겼다. **[57차 SD 판정 — Cai 2010 과 Cai 2012 의 SAC-X 항복강도가 18~20% 어긋난 것을 응력-변형 곡선 재판독으로 갈랐다]** 56차 RC 가 겹치는 여섯 점을 넣지 않고 넘겼다(어느 쪽이 맞는지 안 닫혔다). 57차 SD 가 두 논문의 **응력-변형 곡선 자체를**(Cai 2010 Figure 27 p.14 `Stress-Strain Curves for SAC-X for Aging at 100 oC for 0-2 Months` · Cai 2012 Figure 12 p.7 `Stress-Strain Curves for SACX0307 [Aging at 100 oC for 0-12 Months]`) pdftocairo -svg 벡터로 뽑아 같은 좌표에 겹쳤다. **① 두 논문의 비시효 곡선은 같은 곡선이다** — 범례 색으로 계열을 확정한 뒤(2010 `As Reflowed` = 빨강 · 2012 `0 day` = 빨강) 변형률 0.0005~0.0200 을 0.0005 간격으로 되읽으니 **RMS 차 0.062 MPa · ε>=0.002 구간 최대 0.068 MPa** 다. 인쇄된 값도 같은 시편을 가리킨다 — E(0) 31.879 대 31.860 GPa(0.06%) · UTS(0) 29.588 대 29.596 MPa(0.03%). **한 번 잰 시편을 두 논문이 다시 그린 것이다.** **② 그 공통 곡선의 0.2% offset 항복은 20.9 MPa 다** — 그 논문 자신이 같은 점에 인쇄한 E(0)=31.879 GPa 로 offset 선 sigma = E(eps-0.002) 를 그으면 교점이 2010 곡선 20.913 · 2012 곡선 20.869 MPa 다. **2012 의 21.876 은 1.0 MPa 안에서 재현되고 2010 의 26.734 는 5.8 MPa 어긋난다.** 26.734 를 내려면 E 를 **3.0 GPa**(논문 자신의 값의 1/10)로 두거나 offset 을 **1.01%** 로 두어야 한다. 26.734 는 그 곡선의 eps=0.0109 지점 응력(26.736)이라 UTS 의 90% 자리다. **③ 다른 고정 offset 으로도 2010 계열은 설명되지 않는다** — 여섯 점을 내려면 offset 이 1.01%/0.83%/0.52% 로 제각각이고 20·30·60 일은 아예 해가 없다. **④ 정의는 2010 자신이 적어 두었다** — verbatim `The yield stress Y (YS) is taken to be the standard .2% yield stress`. **판정 — Cai 2010 Figure 28(b) 의 SAC-X 항복강도 계열은 그 논문 자신의 응력-변형 곡선에서 0.2% offset 으로 재현되지 않고, Cai 2012 Figure 13(b) 계열은 재현된다.** **2010 의 행은 지우지 않았다**(브리프 565 — 삭제는 dev 에서만 사라진다). 두 값을 다 살려 두고 이 판정을 값 옆에 적는다. **[판독기 검산]** 이 판정에 쓴 파이프라인을 같은 그림의 이미 적재된 계열로 고정했다 — Figure 13(b) 의 120/180/270/360 일을 되읽으니 12.885/13.225/12.738/12.679 로 DB 의 56차 RC 판독(12.897/13.236/12.751/12.692)과 **최대 0.015 MPa** 로 같고, Figure 28(b) 의 SAC205·SAC105 비시효점을 되읽으니 28.549/20.439 로 DB 의 28.562/20.465 와 **최대 0.026 MPa** 로 같다(브리프 513 · 56차 RC 초안 B — 이미 판정된 계열이 파이프라인의 심판이다). 마커는 꼭짓점 평균이고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514)."
+    },
+    {
+     "key": "mechanical.yield_strength_at_rate",
+     "value": 13567000.0,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_temperature_k": 373.15,
+      "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+      "digitized": true,
+      "figure": "Figure 13(b) Yield Stress (p.8) — Evolution of SAC-X Material Properties [Aging at 100 oC for 12 Months]",
+      "property_definition": "0.2% offset yield stress(Cai 2010 verbatim: 'The yield stress Y (YS) is taken to be the standard .2% yield stress').",
+      "reading_uncertainty": "±0.05 MPa",
+      "aging_time_days": 30
+     },
+     "notes": "Cai 2012 Figure 13(b) 를 벡터 좌표로 읽었다(56차 RC 판독값 그대로다). 그림 안 주석 verbatim: 'SACX0307, RF' / 'T = 25 oC' / 'Aging at 100 oC'. **시효 100 °C 는 시효 조건이지 시험온도가 아니다** — 시험은 전부 상온 25 °C 다(Cai 2010 verbatim: 'All uniaxial stress-strain and creep tests in this paper were conducted at room temperature (25 °C). The strain rate for the stress-strain testing was 0.001 sec-1'). **[왜 지금 들어오나]** 56차 RC 가 이 여섯 점을 재료 2677 의 Cai 2010 판독과 어긋난다는 이유로 **넣지 않고** 넘겼다. **[57차 SD 판정 — Cai 2010 과 Cai 2012 의 SAC-X 항복강도가 18~20% 어긋난 것을 응력-변형 곡선 재판독으로 갈랐다]** 56차 RC 가 겹치는 여섯 점을 넣지 않고 넘겼다(어느 쪽이 맞는지 안 닫혔다). 57차 SD 가 두 논문의 **응력-변형 곡선 자체를**(Cai 2010 Figure 27 p.14 `Stress-Strain Curves for SAC-X for Aging at 100 oC for 0-2 Months` · Cai 2012 Figure 12 p.7 `Stress-Strain Curves for SACX0307 [Aging at 100 oC for 0-12 Months]`) pdftocairo -svg 벡터로 뽑아 같은 좌표에 겹쳤다. **① 두 논문의 비시효 곡선은 같은 곡선이다** — 범례 색으로 계열을 확정한 뒤(2010 `As Reflowed` = 빨강 · 2012 `0 day` = 빨강) 변형률 0.0005~0.0200 을 0.0005 간격으로 되읽으니 **RMS 차 0.062 MPa · ε>=0.002 구간 최대 0.068 MPa** 다. 인쇄된 값도 같은 시편을 가리킨다 — E(0) 31.879 대 31.860 GPa(0.06%) · UTS(0) 29.588 대 29.596 MPa(0.03%). **한 번 잰 시편을 두 논문이 다시 그린 것이다.** **② 그 공통 곡선의 0.2% offset 항복은 20.9 MPa 다** — 그 논문 자신이 같은 점에 인쇄한 E(0)=31.879 GPa 로 offset 선 sigma = E(eps-0.002) 를 그으면 교점이 2010 곡선 20.913 · 2012 곡선 20.869 MPa 다. **2012 의 21.876 은 1.0 MPa 안에서 재현되고 2010 의 26.734 는 5.8 MPa 어긋난다.** 26.734 를 내려면 E 를 **3.0 GPa**(논문 자신의 값의 1/10)로 두거나 offset 을 **1.01%** 로 두어야 한다. 26.734 는 그 곡선의 eps=0.0109 지점 응력(26.736)이라 UTS 의 90% 자리다. **③ 다른 고정 offset 으로도 2010 계열은 설명되지 않는다** — 여섯 점을 내려면 offset 이 1.01%/0.83%/0.52% 로 제각각이고 20·30·60 일은 아예 해가 없다. **④ 정의는 2010 자신이 적어 두었다** — verbatim `The yield stress Y (YS) is taken to be the standard .2% yield stress`. **판정 — Cai 2010 Figure 28(b) 의 SAC-X 항복강도 계열은 그 논문 자신의 응력-변형 곡선에서 0.2% offset 으로 재현되지 않고, Cai 2012 Figure 13(b) 계열은 재현된다.** **2010 의 행은 지우지 않았다**(브리프 565 — 삭제는 dev 에서만 사라진다). 두 값을 다 살려 두고 이 판정을 값 옆에 적는다. **[판독기 검산]** 이 판정에 쓴 파이프라인을 같은 그림의 이미 적재된 계열로 고정했다 — Figure 13(b) 의 120/180/270/360 일을 되읽으니 12.885/13.225/12.738/12.679 로 DB 의 56차 RC 판독(12.897/13.236/12.751/12.692)과 **최대 0.015 MPa** 로 같고, Figure 28(b) 의 SAC205·SAC105 비시효점을 되읽으니 28.549/20.439 로 DB 의 28.562/20.465 와 **최대 0.026 MPa** 로 같다(브리프 513 · 56차 RC 초안 B — 이미 판정된 계열이 파이프라인의 심판이다). 마커는 꼭짓점 평균이고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514)."
+    },
+    {
+     "key": "mechanical.yield_strength_at_rate",
+     "value": 13149000.0,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_temperature_k": 373.15,
+      "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+      "digitized": true,
+      "figure": "Figure 13(b) Yield Stress (p.8) — Evolution of SAC-X Material Properties [Aging at 100 oC for 12 Months]",
+      "property_definition": "0.2% offset yield stress(Cai 2010 verbatim: 'The yield stress Y (YS) is taken to be the standard .2% yield stress').",
+      "reading_uncertainty": "±0.05 MPa",
+      "aging_time_days": 60
+     },
+     "notes": "Cai 2012 Figure 13(b) 를 벡터 좌표로 읽었다(56차 RC 판독값 그대로다). 그림 안 주석 verbatim: 'SACX0307, RF' / 'T = 25 oC' / 'Aging at 100 oC'. **시효 100 °C 는 시효 조건이지 시험온도가 아니다** — 시험은 전부 상온 25 °C 다(Cai 2010 verbatim: 'All uniaxial stress-strain and creep tests in this paper were conducted at room temperature (25 °C). The strain rate for the stress-strain testing was 0.001 sec-1'). **[왜 지금 들어오나]** 56차 RC 가 이 여섯 점을 재료 2677 의 Cai 2010 판독과 어긋난다는 이유로 **넣지 않고** 넘겼다. **[57차 SD 판정 — Cai 2010 과 Cai 2012 의 SAC-X 항복강도가 18~20% 어긋난 것을 응력-변형 곡선 재판독으로 갈랐다]** 56차 RC 가 겹치는 여섯 점을 넣지 않고 넘겼다(어느 쪽이 맞는지 안 닫혔다). 57차 SD 가 두 논문의 **응력-변형 곡선 자체를**(Cai 2010 Figure 27 p.14 `Stress-Strain Curves for SAC-X for Aging at 100 oC for 0-2 Months` · Cai 2012 Figure 12 p.7 `Stress-Strain Curves for SACX0307 [Aging at 100 oC for 0-12 Months]`) pdftocairo -svg 벡터로 뽑아 같은 좌표에 겹쳤다. **① 두 논문의 비시효 곡선은 같은 곡선이다** — 범례 색으로 계열을 확정한 뒤(2010 `As Reflowed` = 빨강 · 2012 `0 day` = 빨강) 변형률 0.0005~0.0200 을 0.0005 간격으로 되읽으니 **RMS 차 0.062 MPa · ε>=0.002 구간 최대 0.068 MPa** 다. 인쇄된 값도 같은 시편을 가리킨다 — E(0) 31.879 대 31.860 GPa(0.06%) · UTS(0) 29.588 대 29.596 MPa(0.03%). **한 번 잰 시편을 두 논문이 다시 그린 것이다.** **② 그 공통 곡선의 0.2% offset 항복은 20.9 MPa 다** — 그 논문 자신이 같은 점에 인쇄한 E(0)=31.879 GPa 로 offset 선 sigma = E(eps-0.002) 를 그으면 교점이 2010 곡선 20.913 · 2012 곡선 20.869 MPa 다. **2012 의 21.876 은 1.0 MPa 안에서 재현되고 2010 의 26.734 는 5.8 MPa 어긋난다.** 26.734 를 내려면 E 를 **3.0 GPa**(논문 자신의 값의 1/10)로 두거나 offset 을 **1.01%** 로 두어야 한다. 26.734 는 그 곡선의 eps=0.0109 지점 응력(26.736)이라 UTS 의 90% 자리다. **③ 다른 고정 offset 으로도 2010 계열은 설명되지 않는다** — 여섯 점을 내려면 offset 이 1.01%/0.83%/0.52% 로 제각각이고 20·30·60 일은 아예 해가 없다. **④ 정의는 2010 자신이 적어 두었다** — verbatim `The yield stress Y (YS) is taken to be the standard .2% yield stress`. **판정 — Cai 2010 Figure 28(b) 의 SAC-X 항복강도 계열은 그 논문 자신의 응력-변형 곡선에서 0.2% offset 으로 재현되지 않고, Cai 2012 Figure 13(b) 계열은 재현된다.** **2010 의 행은 지우지 않았다**(브리프 565 — 삭제는 dev 에서만 사라진다). 두 값을 다 살려 두고 이 판정을 값 옆에 적는다. **[판독기 검산]** 이 판정에 쓴 파이프라인을 같은 그림의 이미 적재된 계열로 고정했다 — Figure 13(b) 의 120/180/270/360 일을 되읽으니 12.885/13.225/12.738/12.679 로 DB 의 56차 RC 판독(12.897/13.236/12.751/12.692)과 **최대 0.015 MPa** 로 같고, Figure 28(b) 의 SAC205·SAC105 비시효점을 되읽으니 28.549/20.439 로 DB 의 28.562/20.465 와 **최대 0.026 MPa** 로 같다(브리프 513 · 56차 RC 초안 B — 이미 판정된 계열이 파이프라인의 심판이다). 마커는 꼭짓점 평균이고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514)."
+    }
+   ]
+  }
+ ]
+}
