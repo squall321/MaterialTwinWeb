@@ -1,0 +1,30 @@
+{
+ "batch": "57차 SC",
+ "verdicts": [
+  {
+   "material_id": 371,
+   "name": "DELO KATIOBOND 4670",
+   "subsystem": "packaging",
+   "verdict_subsystem": "assigned",
+   "subsystem_basis": "**벤더 문서 둘을 실제로 열어 배정했다(§127).** ① TDS(as of 31.07.2024) `Function` 란 verbatim — `Fill for Dam&Fill` · `glob top` · `encapsulant / potting compound`, `Typical area of use` verbatim — `smart card applications` · `encapsulation of chip modules`. ② Technical Information(Revision 42, 07.17) 부제 verbatim — `UV-curing encapsulant for Smart-Card technology, fill for Dam&Fill`, 본문 verbatim — `encapsulation of chip modules in the Dam&Fill method as Fill compound`. Dam&Fill·글롭탑은 반도체 칩모듈 봉지 공법이므로 카탈로그의 `packaging`(반도체 패키지) 축에 정확히 든다. 49차 KA 의 판정(`undetermined` — '카메라 모듈용으로 알려져 있으나 근거 없다')은 문서를 안 열었기 때문이고, 열어 보니 카메라가 아니라 칩 봉지였다. 57차 SC.",
+   "subsystem_assigned_by": "57차 SC — 벤더 TDS·TIDB verbatim(§127)"
+  },
+  {
+   "material_id": 372,
+   "name": "DELO KATIOBOND 4552",
+   "subsystem_basis": "**벤더 문서 둘을 열어 확인했으나 계통이 안 갈렸다(§127).** TDS(as of 07.03.2023) `Function` verbatim — `electronic adhesive` · `electronic encapsulant`, `Typical area of use` verbatim — `bonding of opaque components` · `pin sealing`. Technical Information(Revision 57, 12.17) verbatim — `especially for rigid bondings and sealings for example of relays and switches`, `for the coating, fixing or sealing of electronic components`. **범용 전자용 접착·실링이고 모듈을 지목하지 않는다.** 형제 4670 은 같은 검사로 `packaging` 이 나왔으므로 이 판정은 문서를 안 읽어 미룬 것이 아니라 문서가 갈라 주지 않은 것이다. 57차 SC.",
+   "subsystem_document_checked": "DELO KATIOBOND 4552 TDS(2023-03-07) · TIDB(Rev.57, 12.17) — 57차 SC"
+  },
+  {
+   "material_id": 67,
+   "name": "EAR Isodamp C-1002",
+   "subsystem_basis": "**벤더 문서를 열어 확인했다(§127).** Aearo Technologies(3M) Product Bulletin 196 의 제목이 `Aircraft Damping Composite — ISODAMP™ C-1002` 이고 `Product Description` verbatim — `reduces mechanically or acoustically induced vibrations and dissipates shock and impact energy … ideal for damped isolation and impact control applications`. **항공 제진재이고 용도 서술이 일반 제진·충격제어라 스마트폰 모듈을 지목하지 않는다.** 형제 60(`Speaker Mount`→acoustics)·61(`Haptic motor isolation`→magnetics)은 description 이 부품을 말해 갈렸고 이 재료는 그 문장이 없다. 49차 KA 의 `undetermined` 를 문서로 확인했다. 57차 SC.",
+   "subsystem_document_checked": "Aearo/3M ISODAMP C-1002 Product Bulletin 196 — 57차 SC"
+  },
+  {
+   "material_id": 2391,
+   "name": "Uddeholm Corrax for AM (additive manufacturing powder grade)",
+   "relation_to_bar": "**57차 SC 정정.** Ed.15(11.2025) p.6 이 `ADDITIVE MANUFACTURING` 장을 열고 p.7 전면이 그 장이다 — 왼쪽 위 `Physical data` 표 바로 아래가 `Mechanical data AM  51 HRC (Uddeholm Corrax for AM)` 이고 오른쪽 단이 `Uddeholm Corrax for AM has an excellent wear resistance` 다. **즉 시트가 AM 등급을 위해 그 표를 다시 인쇄한다.** 숫자가 봉재와 같은 것은 시트 스스로 p.6 에서 밝힌 이유 때문이다 — `This powder is a gas atomized Uddeholm Corrax product with physical and mechanical properties within the normal variation as the conventional material`. 53차의 '중복이라 봉재에만 넣었다'는 판정을 뒤집어 밀도 1 · E 3 · CTE 2 · 열전도율 2 행을 이 재료에 넣었고, 계보는 각 행의 조건 `same_as_bar_material: true` 와 `figure: Ed.15(11.2025) p.7 AM 절 Physical data 표` 에 남겼다. **p.6 의 `Apparent 4.3 / Tap 4.7 / True density 7.61 g/cm3` 는 분말 특성이라 넣지 않았다**(§241·245)."
+  }
+ ]
+}
