@@ -25,46 +25,46 @@ OUT = Path("/home/koopark/claude/MaterialTwinWeb/docs/물성카탈로그_현황.
 # 값이 지워졌으므로 카탈로그를 조회해도 나오지 않는다. 그래서 문서가 기억한다.
 BACKCALC_CAUGHT = [
     ("E = 2G(1+ν)", "VHB 점착테이프 14행",
-     "손으로 만든 항등식으로 탄성률을 만들고 출처는 Satas 핸드북을 달았다. "
-     "핸드북이 실제로 인쇄한 0.4 MPa로 되돌렸다."),
+     "수기 항등식으로 탄성률을 산출하고 출처만 Satas 핸드북 표기. "
+     "핸드북 인쇄값 0.4 MPa 로 환원."),
     ("AZoM <code>Shear Modulus</code>", "폴리머·세라믹 전 행",
      "같은 표의 E·ν로 E/(2(1+ν))를 계산하면 마지막 자리까지 일치한다 "
      "(96% 알루미나: 300/(2×1.21) = 123.97 = 인쇄값 124)."),
     ("AZoM <code>Ductility</code>", "세라믹 행",
-     "σts/E 유도값이다. 파단연신율로 옮기면 취성재에 소성 연신을 부여하게 된다."),
+     "σts/E 유도값. 파단연신율로 이관 시 취성재에 소성 연신을 부여하게 됨."),
     ("AZoM <code>Endurance Limit</code>", "폴리머 행",
      "k × Elastic Limit이고 범위 양 끝점이 정확히 같은 배수다"
      "(PET 0.6000/0.6000 · PI 0.5500/0.5500 · LDPE 0.7000/0.7000). "
-     "세라믹 행은 MgO의 내구한도 하한이 같은 표의 탄성한도 하한을 넘는다 — 물리적으로 불가능하다."),
+     "세라믹 행은 MgO 내구한도 하한이 동일 표의 탄성한도 하한을 초과 — 물리적 불성립."),
     ("MakeItFrom 폴리머 <code>G</code>", "전 폴리머 행",
-     "LDPE가 E=0.30 GPa, G=0.21 GPa를 동시에 인쇄하는데 이러면 ν=−0.29가 된다. "
-     "같은 사이트의 금속 값은 정합한다 — 폴리머만 오염됐다."),
+     "LDPE 가 E=0.30 GPa · G=0.21 GPa 를 동시 인쇄, 환산 시 ν=−0.29. "
+     "동일 사이트의 금속 값은 정합 — 폴리머 계열만 오염."),
     ("α = β/3", "액체 전해질",
-     "인쇄된 것은 체적팽창계수뿐이었다. 3으로 나누면 역산이라 칸을 비웠다."),
+     "인쇄분은 체적팽창계수 단독. 3 으로 나누면 역산에 해당하므로 칸을 비움."),
 ]
 
 # 허용되는 계산 — 경계가 어디인지가 이 표의 요지다.
 COMPUTED_OK = [
     ("단위 환산", "psi→Pa, cal/(cm·s·°C)→W/(m·K), Barrer→SI, N/25mm→N/m",
-     "같은 양을 다른 눈금으로 옮기는 것뿐이다. 원문 값과 배율을 notes에 남긴다."),
+     "같은 양을 다른 눈금으로 옮기는 것에 한정. 원문 값과 배율을 notes 에 병기."),
     ("원문이 인쇄한 피팅", "Prony 급수, Ogden·Mooney-Rivlin 계수, Johnson-Cook, Basquin 회귀식",
-     "저자가 자기 데이터에 맞춰 발표한 상수다. 우리가 곡선에서 뽑은 것이 아니다."),
+     "저자가 자기 데이터에 맞춰 발표한 상수. 우리가 곡선에서 추출한 값이 아님."),
     ("공표된 상관식", "Okabe 적층재 S-N, Maekawa 세라믹 피로, Ishiyama 흑연",
-     "누가 그 관계를 보증하느냐가 갈림길이다. 논문이 보증하면 쓰고, 우리가 만들면 안 쓴다."),
+     "관계식의 보증 주체가 판별 기준. 논문 보증분은 인용, 자체 작성분은 배제."),
     ("무차원비 이전", "공여재 정적강도로 나눠 수용재 강도를 곱한다",
-     "입력 두 숫자가 모두 원문 인쇄값이어야 한다. 계보를 notes에 적는다."),
+     "입력 2개가 모두 원문 인쇄값일 것. 계보를 notes 에 명기."),
     ("클래스 중앙값", "카탈로그 내 같은 클래스 실측값의 중앙값",
-     "출처 제목이 그 사실을 그대로 말한다. tier4이고 assumption 표지를 단다."),
+     "출처 제목에 산출 방식 명시. tier4 · assumption 표지 부착."),
 ]
 
 RULES = [
-    ("지어내지 않는다", "빈 칸이 틀린 값보다 낫다. 문서에 실제로 인쇄된 숫자만 넣는다."),
-    ("역산 금지", "다른 물성에서 계산한 값을 저장하지 않는다. 계산은 원문이 했을 때만 옮긴다."),
-    ("그래프에서 읽지 않는다", "축 눈금과 스캔 해상도가 유효숫자를 정한다 — 읽으면 그 자릿수는 우리가 만든 것이다."),
-    ("재인쇄본·2차 인용 불가", "인용된 값은 1차 출처까지 따라가서 확인한다."),
-    ("조건 없는 값은 값이 아니다", "온도·주파수·방향·습도가 없으면 해석 입력이 되지 않는다."),
-    ("자릿수 대조", "그 재료의 상위 tier 값과 자릿수가 어긋나면 넣지 않는다."),
-    ("인접 열 오독 주의", "표는 한 열이 통째로 밀려 있을 수 있다. 대조군 행과 본문 서술로 검산한다."),
+    ("지어내지 않는다", "빈칸이 틀린 값보다 우선. 문서에 실제 인쇄된 숫자만 등재."),
+    ("역산 금지", "타 물성 유도값 저장 금지. 원문이 수행한 계산만 인용."),
+    ("그래프에서 읽지 않는다", "축 눈금과 스캔 해상도가 유효숫자를 결정 — 판독 자릿수는 우리가 만든 값."),
+    ("재인쇄본·2차 인용 불가", "인용값은 1차 출처까지 추적해 확인."),
+    ("조건 없는 값은 값이 아니다", "온도·주파수·방향·습도 미기재 시 해석 입력 불가."),
+    ("자릿수 대조", "동일 재료의 상위 tier 값과 자릿수 불일치 시 등재 보류."),
+    ("인접 열 오독 주의", "표는 한 열이 통째로 밀릴 수 있음. 대조군 행과 본문 서술로 검산."),
 ]
 
 # 검사 항목 수는 **적는 순간 늙는다**(§601) — 오래 "37항목" 이라 적혀 있었는데
@@ -79,16 +79,16 @@ def _count_checks() -> int:
 _N_CHECKS = _count_checks()
 
 CYCLE = [
-    ("빈칸 탐지", "커버리지 격자를 재계산해 (재료 × 물성) 공백을 뽑는다"),
-    ("표적 선정", "칸 수가 아니라 <b>칸/재료</b>와 <b>1칸 부족 재료</b>로 우선순위를 정한다"),
-    ("브리프 전달", "규칙·함정 지도·확정 부재 목록을 그대로 넘긴다"),
-    ("병렬 수집", "재료군별로 배치를 나눠 동시에 원문을 받는다"),
-    ("청크 저장", "10~12종마다 중간 파일을 쓴다 — 끝에 몰아 쓰면 중단 시 전부 잃는다"),
+    ("빈칸 탐지", "커버리지 격자 재계산 후 (재료 × 물성) 공백 추출"),
+    ("표적 선정", "칸 수가 아닌 <b>칸/재료</b>와 <b>1칸 부족 재료</b> 기준으로 우선순위 결정"),
+    ("브리프 전달", "규칙·함정 지도·확정 부재 목록 일괄 인계"),
+    ("병렬 수집", "재료군별 배치 분할 후 원문 동시 확보"),
+    ("청크 저장", "10~12종마다 중간 파일 기록 — 종료 시 일괄 기록하면 중단 시 전량 소실"),
     ("값 검증", "규칙 6 자릿수 대조 · 자기 검산 · 원문 문자열 대조"),
-    ("인제스트", "스키마·단위·조건·tier 규약을 거치지 못하면 거부한다"),
-    ("반례 검증", "부재 선언에 실측 반례가 하나라도 있으면 선언을 자동 은퇴시킨다"),
-    ("무결성 검사", f"{_N_CHECKS}항목이 전부 0이어야 배포한다"),
-    ("기록", "성공보다 <b>실패와 함정</b>을 남긴다 — 다음 파동이 같은 벽에 부딪히지 않도록"),
+    ("인제스트", "스키마·단위·조건·tier 규약 미통과분 거부"),
+    ("반례 검증", "부재 선언에 실측 반례 1건이라도 존재 시 해당 선언 자동 은퇴"),
+    ("무결성 검사", f"{_N_CHECKS}항목 전량 0 이어야 배포"),
+    ("기록", "성공보다 <b>실패와 함정</b>을 기록 — 다음 파동의 동일 벽 재충돌 방지"),
 ]
 
 
@@ -198,22 +198,23 @@ def main():
     A('</div></header>')
 
     A('<nav class="toc"><ol>')
-    for i, t in enumerate(["경로", "격자", "현황", "계통", "등급", "출처", "사이클", "규칙",
-                           "역산 경계", "부재", "검증", "성장", "남은 일"], 1):
+    for i, t in enumerate(["경로", "기준", "해석", "계통", "등급", "출처", "주기", "규정",
+                           "역산", "부재", "검증", "추이", "과제"], 1):
         A(f'<li><a href="#s{i}">{t}</a></li>')
     A('</ol></nav>')
 
     # ── 1. 경로 (그림이 메커니즘을 대신 말한다)
-    A(sec(1, "경로", "값이 어디서 와서 어디로 가는가"))
+    A(sec(1, "수집 경로", "원천에서 해석 카드까지 6단계"))
     A(FLOW_SVG)
     A('</section>')
 
     # ── 2. 격자
-    A(sec(2, "격자", "무엇을 세고 있는가"))
-    A(f'<p>재료 {n_mat}종 × 물성 정의 {n_def}종은 {n_mat * n_def:,}칸이지만 이것을 다 세지 않는다. '
-      f'<b>세라믹에 항복강도를 요구하고 도체에 유전율을 요구하면 분모가 거짓이 된다.</b> '
-      f'그래서 실제 해석 13종이 각각 요구하는 물성만 골라 <b>{tot_cells:,}칸</b>의 격자를 만들고, '
-      f'그 격자만 센다.</p>')
+    A(sec(2, "집계 기준", "해석이 요구하는 칸만 분모로 계상"))
+    A(lead([
+        f'재료 {n_mat}종 × 정의 {n_def}종 = 이론상 {n_mat * n_def:,}칸이나, 전량을 분모로 두지 않음',
+        '세라믹의 항복강도·도체의 유전율처럼 <b>성립하지 않는 요구를 넣으면 분모 자체가 거짓</b>',
+        f'해석 13종이 실제로 요구하는 <b>{tot_cells:,}칸</b>만 격자로 확정, 이 격자만 계상',
+    ]))
     A('<div class="grid4">')
     for v, k in [(f"{tot_cells:,}", "해석이 실제로 요구하는 칸"),
                  (f"{tot_filled:,}", "채워진 칸"),
@@ -231,7 +232,12 @@ def main():
     A('</section>')
 
     # ── 2. 현황
-    A(sec(3, "현황", "해석 13종이 지금 돌아가는가"))
+    A(sec(3, "해석별 충족도", "해석 13종 · 재료 준비율"))
+    A(lead([
+        '해석 13종 각각에 대해 <b>대상 재료·요구 칸·채움률·재료 준비율</b>을 산출',
+        '<b>셀 채움</b>과 <b>실측기반</b>을 나란히 제시 — 한쪽만 보면 가정값을 실측으로 오독',
+        '준비율은 해석이 원리적으로 성립하는 재료만 분모로 계상',
+    ]))
     A('<div class="tblwrap"><table class="cov">')
     A('<thead><tr><th>해석</th><th class="n">대상</th><th class="n">칸</th>'
       '<th>셀 채움</th><th class="n">실측기반 %</th><th class="n">유효채움 %</th>'
@@ -259,14 +265,17 @@ def main():
     A('</section>')
 
     # ── 3. 계통 — 43·49차 태깅이 끝나 이제 계통별로 셀 수 있다.
-    A(sec(4, "계통", "어느 계통이 비었고, 그 빈칸이 무엇인가"))
+    A(sec(4, "계통별 충족도", "코어 7물성 기준 · 계통 17종"))
     A(f'<p>제품 재료 {sc["total"]["n_mat"]}종을 계통으로 태깅했다. 아래는 '
       f'<b>코어 {len(sc["core"])}물성</b>(밀도·영률·포아송비·CTE·열전도율·비열·인장강도) '
       f'{sc["total"]["cells"]:,}칸의 채움률이다 — 해석 격자와 달리 <b>재료 하나가 최소한 이것은 '
       f'있어야 한다</b>는 축이다.</p>')
     A('<div class="tblwrap"><table class="cov">')
-    A('<thead><tr><th>계통</th><th class="n">재료</th><th>코어 채움</th><th class="n">빈칸</th>'
+    # 갈래가 여섯이 되면서 열이 열 개가 된다 — 표가 좁아진다. 그래서 **빈칸 열을 없애지 않고
+    # 채움 칸 안으로 접었다**(빈칸 = 갈래 여섯의 합이라 읽는 사람의 검산 기준점이 사라지면 안 된다).
+    A('<thead><tr><th>계통</th><th class="n">재료</th><th>코어 채움 <span class="hsub">/ 빈칸</span></th>'
       '<th class="n">해당<br>없음</th><th class="n">벤더<br>부재</th>'
+      '<th class="n">인쇄됐으나<br>기각</th>'
       '<th class="n">판정이<br>자유 키에</th><th class="n">등급<br>미확정</th>'
       '<th class="n">진짜<br>남은 것</th></tr></thead><tbody>')
     for r in sc["rows"]:
@@ -274,20 +283,22 @@ def main():
         A(f'<tr><td class="nm">{esc(r["subsystem"])}</td><td class="n">{r["n_mat"]}</td>'
           f'<td class="barcell"><span class="btrack sm"><i class="bfill teal" '
           f'style="width:{r["pct"]:.1f}%"></i></span>'
-          f'<span class="pct">{r["pct"]:.1f}</span></td>'
-          f'<td class="n mono">{r["blank"]}</td>'
+          f'<span class="pct">{r["pct"]:.1f}</span>'
+          f'<span class="blk">/ {r["blank"]}</span></td>'
           f'<td class="n mono">{r["V1"] or "·"}</td><td class="n mono">{r["V2"] or "·"}</td>'
+          f'<td class="n mono">{r["V6"] or "·"}</td>'
           f'<td class="n mono">{r["V3"] or "·"}</td><td class="n mono">{r["V4"] or "·"}</td>'
           f'<td class="n"><span class="pill {cls}">{r["V5"]}</span></td></tr>')
     t = sc["total"]
     A(f'<tr class="tot"><td class="nm">전체</td><td class="n">{t["n_mat"]}</td>'
       f'<td class="barcell"><span class="btrack sm"><i class="bfill teal" '
-      f'style="width:{t["pct"]:.1f}%"></i></span><span class="pct">{t["pct"]:.1f}</span></td>'
-      f'<td class="n mono">{t["blank"]:,}</td><td class="n mono">{t["V1"]}</td>'
-      f'<td class="n mono">{t["V2"]}</td><td class="n mono">{t["V3"]}</td>'
+      f'style="width:{t["pct"]:.1f}%"></i></span><span class="pct">{t["pct"]:.1f}</span>'
+      f'<span class="blk">/ {t["blank"]:,}</span></td><td class="n mono">{t["V1"]}</td>'
+      f'<td class="n mono">{t["V2"]}</td><td class="n mono">{t["V6"]}</td>'
+      f'<td class="n mono">{t["V3"]}</td>'
       f'<td class="n mono">{t["V4"]}</td><td class="n mono">{t["V5"]:,}</td></tr>')
     A('</tbody></table></div>')
-    A('<details class="more"><summary>다섯 갈래가 각각 무슨 뜻인가</summary>'
+    A('<details class="more"><summary>빈칸 갈래 정의</summary>'
       '<div class="tblwrap"><table class="unf"><tbody>'
       + "".join(f'<tr><td class="nm">{esc(lbl)}</td><td>{esc(why)}</td></tr>'
                 for _, lbl, why in CR.VERDICT_LABEL) + '</tbody></table></div></details>')
@@ -295,11 +306,12 @@ def main():
       f'나머지 {t["blank"] - t["V5"]}칸은 판정이 끝났거나 원리적으로 못 닫는다. '
       f'그리고 그중 {t["V3"]}칸은 <b>판정이 자유 키에 적혀 있어 이 표가 스스로 읽지 못한다</b> — '
       f'집계가 읽는 자리(<code>core_not_applicable</code>·'
-      f'<code>core_absent_from_vendor_sheet</code>)로 옮기기 전까지는 다음 파동이 또 센다.</p>')
+      f'<code>core_absent_from_vendor_sheet</code>·'
+      f'<code>core_rejected_printed_value</code>)로 옮기기 전까지는 다음 파동이 또 센다.</p>')
     A('</section>')
 
     # ── 3. 등급
-    A(sec(5, "등급", "tier가 무엇을 뜻하고 왜 가정을 허용하는가"))
+    A(sec(5, "근거 등급", "tier 1~4 판정 기준과 구성비"))
     A('<div class="tiers">')
     tinfo = [(1, "그 제품에 대해 인쇄된 값", "벤더 데이터시트·논문이 이 제품을 시험한 결과"),
              (2, "핸드북·규격·인증 DB", "계열 대표값이지만 권위 있는 기관이 보증한다"),
@@ -311,32 +323,35 @@ def main():
           f'<span class="tp">{n * 100 / n_val:.1f}%</span>'
           f'<p class="tt">{esc(ttl)}</p><p class="td">{esc(desc)}</p></div>')
     A('</div>')
-    A(f'<p>tier4를 <b>허용하되 반드시 표시한다.</b> 빈 칸으로 두면 해석이 아예 안 돌고, '
-      f'표시 없이 채우면 가정이 실측 행세를 한다. 그래서 tier4는 '
-      f'<code>method="estimated"</code> · <code>conditions.assumption=true</code> · '
-      f'notes에 근거를 함께 요구하고, 지표를 <b>셀 채움과 실측기반 두 줄로 나란히</b> 낸다. '
-      f'현재 assumption 표지를 단 값이 {n_assum:,}건이다.</p>')
+    A(lead([
+        'tier4 는 <b>허용하되 표지 필수</b> — 빈칸이면 해석 미가동, 무표지면 가정이 실측 행세',
+        '요건 3종 동시 충족 — <code>method="estimated"</code> · '
+        '<code>conditions.assumption=true</code> · notes 근거',
+        f'현재 assumption 표지 부착 <b>{n_assum:,}건</b>, 지표는 셀 채움·실측기반 2행으로 분리 제시',
+    ]))
     A('<div class="split">')
-    A('<div><h4>method 분포</h4>' + "".join(
+    A('<div><h4>method 구성</h4>' + "".join(
         bar_row(k, v * 100 / n_val, f"{v:,}건") for k, v in
         sorted(methods.items(), key=lambda z: -z[1])) + '</div>')
-    A('<div><h4>도메인 분포</h4>' + "".join(
+    A('<div><h4>도메인 구성</h4>' + "".join(
         bar_row(f"{k} ({dom_defs.get(k, 0)}종)", v * 100 / n_val, f"{v:,}건")
         for k, v in domains[:7]) + '</div>')
     A('</div></section>')
 
     # ── 4. 출처
-    A(sec(6, "출처", "값 하나에 문서 하나"))
-    A(f'<p>스키마가 <b>출처 없는 값의 저장 자체를 거부한다</b> — 등록 API가 DOI·URL·제목 중 하나를 '
-      f'요구한다. 덕분에 {n_val:,}건 전부에 출처가 붙어 있고 끊어진 참조가 0건이다. '
-      f'조건(온도·주파수·방향 등)이 붙은 값은 {n_cond:,}건({n_cond * 100 / n_val:.1f}%)이다.</p>')
+    A(sec(6, "출처 관리", "값 1건당 문서 1건"))
+    A(lead([
+        '스키마가 <b>출처 없는 값의 저장을 거부</b> — 등록 API 가 DOI·URL·제목 중 1건 요구',
+        f'값 <b>{n_val:,}건 전량</b>에 출처 부착, 끊어진 참조 <b>0건</b>',
+        f'조건(온도·주파수·방향 등) 부착 값 {n_cond:,}건 · {n_cond * 100 / n_val:.1f}%',
+    ]))
     A('<div class="split">')
-    A('<div><h4>출처 종류 ' + f'({n_src:,}건)</h4>' + "".join(
+    A('<div><h4>출처 유형 ' + f'({n_src:,}건)</h4>' + "".join(
         bar_row(k, v * 100 / n_src, f"{v}건") for k, v in kinds) + '</div>')
     A('<div><h4>재료 분류 ' + f'({n_mat}종)</h4>' + "".join(
         bar_row(k, v * 100 / n_mat, f"{v}종", "clay") for k, v in cats) + '</div>')
     A('</div>')
-    A('<h4>값을 가장 많이 낸 문서</h4><div class="tblwrap"><table class="src"><tbody>')
+    A('<h4>값 산출 상위 문서</h4><div class="tblwrap"><table class="src"><tbody>')
     for t, kd, n in top_src:
         A(f'<tr><td class="n mono">{n}</td><td class="kind">{esc(kd)}</td>'
           f'<td>{esc(clip(t, 88))}</td></tr>')
@@ -347,7 +362,7 @@ def main():
     A('</section>')
 
     # ── 5. 사이클
-    A(sec(7, "사이클", "한 파동에 무엇을 하는가"))
+    A(sec(7, "수집 주기", f"1파동 {len(CYCLE)}단계"))
     A('<ol class="steps">')
     for i, (t, d) in enumerate(CYCLE, 1):
         A(f'<li><span class="sn">{i:02d}</span><div><b>{esc(t)}</b><p>{d}</p></div></li>')
@@ -358,7 +373,7 @@ def main():
     A('</section>')
 
     # ── 6. 규칙
-    A(sec(8, "규칙", "절대 넘지 않는 선"))
+    A(sec(8, "금지 규정", f"예외 없이 적용하는 {len(RULES)}개 항"))
     A('<ol class="rules">')
     for i, (t, d) in enumerate(RULES, 1):
         A(f'<li><b>{esc(t)}</b><p>{esc(d)}</p></li>')
@@ -369,38 +384,40 @@ def main():
     A('</section>')
 
     # ── 7. 역산
-    A(sec(9, "역산 경계", "무엇이 계산이고 무엇이 조작인가"))
-    A('<p><b>계산이 금지된 것이 아니라, 계산을 <em>누가</em> 했느냐가 갈림길이다.</b> '
-      '원문이 자기 데이터에 피팅한 상수는 옮기고, 우리가 다른 물성에서 만들어낸 값은 넣지 않는다. '
-      '표 위에서 둘은 똑같이 생겼다.</p>')
+    A(sec(9, "역산 판별", "인용 가능한 계산과 배제 대상의 경계"))
+    A(lead([
+        '판별 기준은 계산의 <b>수행 주체</b> — 계산 자체가 금지 대상이 아님',
+        '원문이 자기 데이터에 피팅한 상수는 <b>인용</b>, 우리가 타 물성에서 유도한 값은 <b>배제</b>',
+        '표상으로는 양자 구별 불가 — 근거 검증으로만 갈림',
+    ]))
     A('<div class="two">')
-    A('<div class="box ok"><h4>옮긴다 — 원문이 계산한 것</h4><table class="mini"><tbody>')
+    A('<div class="box ok"><h4>인용 대상 · 원문 산출값</h4><table class="mini"><tbody>')
     for t, ex, why in COMPUTED_OK:
         A(f'<tr><td class="nm">{t}</td><td><span class="ex">{ex}</span>{why}</td></tr>')
     A('</tbody></table></div>')
-    A('<div class="box crit"><h4>넣지 않는다 — 우리가 계산한 것</h4><table class="mini"><tbody>')
+    A('<div class="box crit"><h4>배제 대상 · 자체 산출값</h4><table class="mini"><tbody>')
     for t, where, why in BACKCALC_CAUGHT:
         A(f'<tr><td class="nm">{t}<span class="where">{esc(where)}</span></td><td>{why}</td></tr>')
     A('</tbody></table></div>')
     A('</div>')
-    A('<details class="more"><summary>계산값은 지금 얼마나 있고, 역산은 어떻게 잡아내는가</summary>')
-    A(f'<h4>지금 계산값으로 들어와 있는 것</h4>'
+    A('<details class="more"><summary>등재 현황 및 검출 기준</summary>')
+    A(f'<h4>계산값 등재 현황</h4>'
       f'<p><code>method="computed"</code>는 {methods.get("computed", 0):,}건이다. '
       f'tier 분포가 {" · ".join(f"t{t} {n}" for t, n in sorted(comp_tier.items()))}인데, '
       f'<b>tier1·2에 계산값이 있는 것이 정상</b>이다 — 그 논문이 자기 시편에 피팅해 발표한 '
       f'구성모델 상수이기 때문이다. 반대로 <code>estimated</code>는 '
       f'{methods.get("estimated", 0):,}건 전부가 tier3 이하로 내려가 있다.</p>')
     A('<div class="split">')
-    A('<div><h4>계산값이 많은 물성</h4>' + "".join(
+    A('<div><h4>계산값 상위 물성</h4>' + "".join(
         f'<div class="krow"><span>{esc(defname.get(k, k))}</span>'
         f'<b class="mono">{n}</b></div>' for k, n in comp_keys[:8]) + '</div>')
-    A('<div><h4>역산을 어떻게 잡아내는가</h4>'
+    A('<div><h4>역산 검출 5개 항</h4>'
       '<ul class="tips">'
-      '<li><b>마지막 자리까지 일치하는가.</b> E/(2(1+ν))를 손으로 계산해 인쇄값과 대조한다.</li>'
-      '<li><b>범위 양 끝점이 같은 배수인가.</b> 유도열은 하한·상한이 정확히 같은 계수로 묶인다.</li>'
-      '<li><b>물리적으로 가능한가.</b> 내구한도 하한이 탄성한도 하한을 넘으면 그 열은 유도값이다.</li>'
-      '<li><b>ν가 음수로 나오는가.</b> E와 G를 함께 인쇄하는 표는 이 검산으로 무너진다.</li>'
-      '<li><b>대조군 행이 본문과 같은가.</b> 0 wt% 대조 행이 본문 값과 같으면 그 값은 첨가물의 것이다.</li>'
+      '<li><b>말단 자릿수 일치 여부.</b> E/(2(1+ν))를 손으로 계산해 인쇄값과 대조.</li>'
+      '<li><b>범위 양 끝점의 배수 동일 여부.</b> 유도열은 하한·상한이 같은 계수로 묶임.</li>'
+      '<li><b>물리적 성립 여부.</b> 내구한도 하한이 탄성한도 하한을 초과하면 유도열.</li>'
+      '<li><b>ν 음수 산출 여부.</b> E·G 를 함께 인쇄하는 표는 이 검산에서 무너짐.</li>'
+      '<li><b>대조군 행과 본문의 일치 여부.</b> 0 wt% 대조 행이 본문 값과 같으면 첨가물의 값.</li>'
       '</ul></div>')
     A('</div></details>')
     A('<p class="note"><b>근거를 바꾸는 편집이 값을 바꾸는 편집보다 늦게 발각된다.</b> '
@@ -409,12 +426,13 @@ def main():
     A('</section>')
 
     # ── 8. 부재
-    A(sec(10, "부재", "채울 수 없는 칸을 분모에서 뺀다"))
-    A(f'<p>액체에 항복강도를, 증착 도판트에 투습도를 요구하면 그 칸은 영원히 비어 있다. '
-      f'분모에 남겨 두면 <b>도달할 수 없는 100%를 좇게 된다.</b> '
-      f'그래서 (재료군 × 물성) 쌍 단위로 부재를 선언하고 {tot_unfill:,}칸을 분모에서 뺐다. '
-      f'현재 선언 {len(CR.UNFILLABLE)}건이다.</p>')
-    A(f'<details class="more"><summary>선언 {len(CR.UNFILLABLE)}건 전부 보기</summary>'
+    A(sec(10, "부재 선언", "분모 제외 대상과 반례 검증"))
+    A(lead([
+        '액체의 항복강도·증착 도판트의 투습도 등 <b>원리적으로 성립하지 않는 칸</b>이 대상',
+        '분모 존치 시 <b>도달 불가능한 100%</b>를 목표로 삼게 됨',
+        f'(재료군 × 물성) 쌍 단위 선언 <b>{len(CR.UNFILLABLE)}건</b> · 분모 제외 {tot_unfill:,}칸',
+    ]))
+    A(f'<details class="more"><summary>부재 선언 {len(CR.UNFILLABLE)}건 전문</summary>'
       '<div class="tblwrap"><table class="unf"><tbody>'
       + "".join(f'<tr><td class="n mono">{len(k)}키</td><td>{esc(r)}</td></tr>'
                 for m, k, r in CR.UNFILLABLE) + '</tbody></table></div></details>')
@@ -429,19 +447,19 @@ def main():
     A('</section>')
 
     # ── 9. 검증
-    A(sec(11, "검증", "다섯 겹으로 거른다"))
+    A(sec(11, "검증 체계", "5중 필터"))
     A('<div class="verify">')
     for t, d in [
-        (f"무결성 검사 {_N_CHECKS}항목", "구조를 본다. 출처 없는 값·단위 불일치·쌍이 깨진 모델 상수·"
-                          "조건 없는 확산계수·근거 없는 tier4를 전부 0으로 만들어야 배포한다."),
-        ("반례 검증", "부재 선언에 실측 반례가 하나라도 있으면 선언을 자동 은퇴시킨다. "
-                  "우리가 만든 가정이 우리의 선언을 지우지는 못하게 tier4는 반례로 치지 않는다."),
-        ("자기 검산", "얻은 값으로 그 논문의 다른 값을 예측해 본다. "
-                  "Ogden 계수에서 E₀=2(μ₁+μ₂)를 계산해 같은 논문 실측 탄성률과 맞는지 본다."),
-        ("원문 문자열 대조", "저장한 숫자가 인용 출처에 실제로 있는지 전문을 받아 grep한다. "
-                       "0.176이라는 값이 원문에 0회 나오는 것을 이 방법으로 잡았다."),
-        ("규칙 6 자릿수 대조", "같은 재료의 상위 tier 값과 자릿수가 어긋나면 넣지 않는다. "
-                        "1000배 큰 굽힘강도 두 건이 여기 걸렸다."),
+        (f"무결성 검사 {_N_CHECKS}항목", "구조 점검. 출처 없는 값·단위 불일치·쌍이 깨진 모델 상수·"
+                          "조건 없는 확산계수·근거 없는 tier4 를 전량 0 으로 만들어야 배포."),
+        ("반례 검증", "실측 반례 1건이라도 존재 시 해당 부재 선언 자동 은퇴. "
+                  "자체 가정이 자체 선언을 지우지 못하도록 tier4 는 반례에서 제외."),
+        ("자기 검산", "확보한 값으로 동일 논문의 다른 값을 예측. "
+                  "Ogden 계수에서 E₀=2(μ₁+μ₂) 를 산출해 동일 논문 실측 탄성률과 대조."),
+        ("원문 문자열 대조", "저장 숫자의 인용 출처 실재 여부를 전문 확보 후 grep 으로 확인. "
+                       "값 0.176 이 원문에 0회 출현하는 사례를 이 경로로 적발."),
+        ("규칙 6 자릿수 대조", "동일 재료의 상위 tier 값과 자릿수 불일치 시 등재 보류. "
+                        "1000배 과대 굽힘강도 2건을 이 단계에서 적발."),
     ]:
         A(f'<div class="vcard"><b>{esc(t)}</b><p>{esc(d)}</p></div>')
     A('</div>')
@@ -450,35 +468,38 @@ def main():
     A('</section>')
 
     # ── 10. 성장
-    A(sec(12, "성장", f"{labels[0]} → {labels[-1]}"))
+    A(sec(12, "누적 추이", f"{labels[0]} ~ {labels[-1]}"))
     A(f'<div class="chart"><svg viewBox="0 0 {W} {H}" preserveAspectRatio="none" role="img" '
       f'aria-label="물성값 누적 성장 곡선">'
       f'<polygon points="{area}" class="ar"/><polyline points="{poly}" class="ln"/>'
       f'<g class="dt">{dots}</g></svg>'
       f'<div class="xax"><span>{labels[0]}</span><span>{labels[-1]}</span></div></div>')
-    A(f'<p>{len(growth)}일 동안 {cum:,}건이 쌓였다. 파동을 계속 돌았고, '
-      f'각 파동은 <b>이전 파동이 남긴 함정 지도를 읽고 시작한다.</b> '
-      f'축적되는 것은 값만이 아니라 <b>어디서 속았는지의 목록</b>이다.</p>')
+    A(lead([
+        f'{len(growth)}일간 <b>{cum:,}건</b> 누적',
+        '각 파동은 직전 파동이 남긴 <b>함정 지도를 인계받아</b> 착수',
+        '축적 대상은 값과 <b>오독 이력</b> 양쪽',
+    ]))
     A('</section>')
 
     # ── 11. 남은 일
-    A(sec(13, "남은 일", "무엇이 실제로 남았는가"))
+    A(sec(13, "잔여 과제", "빈칸 소진 이후의 실제 표적"))
     A('<div class="two">')
-    A(f'<div class="box"><h4>빈칸 — 거의 소진됐다</h4>'
-      f'<p class="big">{remain}<em>칸</em></p>'
-      f'<p>구조적 부재를 뺀 유효채움이 {tot_eff_filled * 100 / tot_eff:.1f}%다. '
-      f'남은 칸은 흩어져 있고 하나씩 난이도가 높다 — 앵커 논문에 인장강도는 있는데 '
-      f'변형률이 전문에 0회인 식이다.</p></div>')
-    A(f'<div class="box crit"><h4>가정 대체 — 이것이 진짜 남은 일</h4>'
+    A(f'<div class="box"><h4>미채움 잔량</h4>'
+      f'<p class="big">{remain:,}<em>칸</em></p>'
+      f'<p>구조적 부재 제외 시 유효채움 {tot_eff_filled * 100 / tot_eff:.1f}%. '
+      f'잔여 칸은 분산돼 있고 건당 난도가 높음 — 앵커 논문에 인장강도는 있으나 '
+      f'변형률이 전문에 0회인 유형.</p></div>')
+    A(f'<div class="box crit"><h4>가정값 대체 대상</h4>'
       f'<p class="big">{len(t4_cells):,}<em>칸</em></p>'
       f'<p>(재료 × 물성) {all_cells:,}칸 중 <b>{len(t4_cells) * 100 / all_cells:.1f}%가 '
-      f'가정값으로만 대표된다.</b> 셋 중 하나는 아직 근거가 없다는 뜻이다.</p></div>')
+      f'가정값 단독 대표</b> — 약 {all_cells / len(t4_cells):.0f}칸 중 1칸이 '
+      f'근거 미확보 상태.</p></div>')
     A('</div>')
     A('<div class="split">')
-    A('<div><h4>대체 여지가 큰 물성</h4>' + "".join(
+    A('<div><h4>대체 여지 상위 물성</h4>' + "".join(
         f'<div class="krow"><span>{esc(defname.get(k, k))}</span><b class="mono">{n}</b></div>'
         for k, n in t4_by_key.most_common(8)) + '</div>')
-    A('<div><h4>가정 의존이 큰 재료</h4>' + "".join(
+    A('<div><h4>가정 의존 상위 재료</h4>' + "".join(
         f'<div class="krow"><span>{esc(matname[m][:42])}</span><b class="mono">{n}칸</b></div>'
         for m, n in t4_by_mat.most_common(8)) + '</div>')
     A('</div>')
@@ -502,8 +523,8 @@ def main():
     print(f"  남은 칸 {remain} · tier4 단독 대표 {len(t4_cells):,}/{all_cells:,}")
     _t = sc["total"]
     print(f"  계통 {len(sc['rows'])}개 · 코어7 채움 {_t['pct']}% · 빈칸 {_t['blank']:,} "
-          f"(해당없음 {_t['V1']} · 벤더부재 {_t['V2']} · 자유키판정 {_t['V3']} · "
-          f"등급미확정 {_t['V4']} · 진짜 남은 것 {_t['V5']:,})")
+          f"(해당없음 {_t['V1']} · 벤더부재 {_t['V2']} · 인쇄기각 {_t['V6']} · "
+          f"자유키판정 {_t['V3']} · 등급미확정 {_t['V4']} · 진짜 남은 것 {_t['V5']:,})")
 
 
 FLOW_SVG = """<figure class="flow">
@@ -587,6 +608,11 @@ DB 위에서는 검사기가 배포를 막고 병합기가 운영 전파를 책�
 </figure>"""
 
 
+def lead(items):
+    """개조식 요약 항목. 각 항은 명사형으로 끝낸다 — 서술문을 넣지 마라."""
+    return '<ul class="lead">' + "".join(f"<li>{x}</li>" for x in items) + "</ul>"
+
+
 def clip(t, n):
     """낱말 중간에서 자르지 않는다 — 마지막 공백까지만 남기고 말줄임표를 붙인다."""
     t = t.strip()
@@ -612,7 +638,8 @@ def dl(items):
     return "".join(out)
 
 
-CSS = """<style>
+CSS = """<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600&display=swap">
+<style>
 :root{
   --ink:#14181c; --ink2:#3d474f; --ink3:#6b7780;
   --paper:#f5f6f7; --card:#ffffff; --line:#dfe3e6;
@@ -622,6 +649,7 @@ CSS = """<style>
   --mono:ui-monospace,"SF Mono","Cascadia Mono","Roboto Mono",Menlo,Consolas,monospace;
   --sans:-apple-system,BlinkMacSystemFont,"Pretendard","Segoe UI","Noto Sans KR",
          "Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+  --serif:"Noto Serif KR","Nanum Myeongjo","Apple SD Gothic Neo",Georgia,serif;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --ink:#e8ecee; --ink2:#aab4bb; --ink3:#7c878e;
@@ -655,7 +683,7 @@ em{font-style:normal}
 .hero{max-width:1080px;margin:0 auto;padding:76px 28px 40px}
 .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
          color:var(--teal);margin:0 0 22px}
-.hero h1{font-size:clamp(30px,4.6vw,50px);line-height:1.24;letter-spacing:-.022em;
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(29px,4.4vw,47px);line-height:1.32;letter-spacing:-.014em;
          font-weight:700;margin:0 0 22px;text-wrap:pretty;max-width:26ch}
 .lede{font-size:17.5px;color:var(--ink2);max-width:66ch;margin:0}
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:1px;
@@ -681,11 +709,14 @@ section{max-width:1080px;margin:0 auto;padding:56px 28px 8px;border-top:1px soli
 section:first-of-type{border-top:none}
 .shead{margin-bottom:26px}
 .sno{font-family:var(--mono);font-size:12px;color:var(--teal2);letter-spacing:.1em}
-.shead h2{font-size:clamp(22px,2.7vw,31px);margin:4px 0 4px;letter-spacing:-.018em;font-weight:700}
+.shead h2{font-family:var(--serif);font-weight:600;font-size:clamp(21px,2.5vw,28px);margin:6px 0 5px;letter-spacing:-.012em}
 .ssub{margin:0;color:var(--ink3);font-size:14.5px}
 h4{font-size:13px;font-family:var(--mono);letter-spacing:.05em;text-transform:uppercase;
    color:var(--ink3);margin:30px 0 12px;font-weight:600}
 p{max-width:74ch}
+ul.lead{list-style:none;margin:20px 0 26px;padding:0;display:flex;flex-direction:column;gap:10px;max-width:64ch}
+ul.lead>li{position:relative;padding-left:19px;font-size:15px;line-height:1.66;color:var(--ink)}
+ul.lead>li::before{content:"";position:absolute;left:1px;top:.72em;width:9px;height:1px;background:var(--teal2)}
 .note{background:var(--card);border-left:3px solid var(--teal2);padding:14px 18px;
       border-radius:0 7px 7px 0;font-size:14.5px;color:var(--ink2);max-width:none}
 .note.warn{border-left-color:var(--warn)}
@@ -712,6 +743,8 @@ td.nm{font-weight:600;white-space:nowrap}
 tr.tot td{background:var(--paper);font-weight:650;border-top:2px solid var(--line)}
 .barcell{min-width:150px}
 .pct{font-size:12px;color:var(--ink3);margin-left:8px}
+.blk{font-size:11px;color:var(--ink3);opacity:.7;margin-left:5px}
+.hsub{font-weight:400;color:var(--ink3);opacity:.8}
 .src td.kind{font-family:var(--mono);font-size:11.5px;color:var(--ink3);white-space:nowrap}
 .unf td:first-child{color:var(--teal2);white-space:nowrap}
 
