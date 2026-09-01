@@ -1,4 +1,11 @@
-# 카탈로그 정합성 37항목 + 주의 6항목 일괄 점검 — 0이 아니면 결함이다. 배포 전 반드시 통과시킬 것.
+# 카탈로그 정합성 일괄 점검 — 0이 아니면 결함이다. 배포 전 반드시 통과시킬 것.
+#
+# **항목 수를 여기 적지 마라.** 파동마다 늘어나므로 적는 순간 늙는다 —
+# 실제로 오래 "37항목" 이라 적혀 있었는데 세 보니 SQL 45 · 파이썬 6 · 주의 6 이었다(55차 QC).
+# 세는 법 —
+#   SQL   : grep -c '^    ("' integrity_check.py
+#   파이썬 : grep -c 'bad += 1' integrity_check.py
+#   주의   : grep -c '\[주의\]' integrity_check.py
 import os
 import sqlite3
 import sys
