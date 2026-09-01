@@ -1,0 +1,120 @@
+{
+ "batch": "58차 TC — Cu-Al IMC CTE",
+ "materials": [
+  {
+   "match_name": "CuAl2 (theta) Cu-Al intermetallic compound (Kouters 2013)",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1016/j.microrel.2013.02.020",
+    "title": "Characterization of intermetallic compounds in Cu-Al ball bonds: Mechanical properties, interface delamination and thermal conductivity"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.61e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "phase": "CuAl2 (theta)",
+      "basis": "Kouters 2013 Table 1 (편찬표 · 2차 인용 [11] Wulff & Breach 2004). 원문에 측정법도 온도 구간도 인쇄돼 있지 않다.",
+      "printed_value": "16.1 ppm/degC"
+     },
+     "notes": "Table 1 verbatim: 이 상의 CTE 열 = 16.1 ppm/degC. 원값 16.1e-6 = 1.61e-05 1/K. 출처 Kouters 2013(Microelectron. Reliab. 53(2013) 1068-1075) Table 1 'Physical parameters of Cu-Al intermetallics [11]' 의 `CTE ppm/degC` 열이다. 표 전체 verbatim(400 dpi 렌더로 확인, md·pdftotext 일치) — Al 23.5 · CuAl2 16.1 · CuAl 11.9 · Cu4Al3 16.1 · Cu3Al2 15.1 · Cu9Al4 17.6 · Cu 17.3. **같은 논문 본문이 이 열을 부정하는 것처럼 읽히는 문장을 싣는다** — 'We would like to stress that the thermal expansion, as presented in the work of Wulff, is of a factor of ten in error. Unfortunately this is reproduced in subsequent work [14].' 58차 TC 가 Wulff 원표를 찾아 그 문장이 무엇을 가리키는지 갈랐다. Drozdov M. 석사학위논문(Technion, 2007-09, 지도 W.D. Kaplan, https://kaplaninterfaces.net.technion.ac.il/files/2020/08/Miri-MSc.pdf) p.13 Table 2 가 Wulff/Breach/Stephan/Saraswati/Dittmer/Garnier 2005(= Kouters 의 ref [14])를 그대로 전재하는데 그 CTE 열이 Al 2.35 · Al2Cu 1.61 · AlCu 1.19 · Al3Cu4 1.61 · Al2Cu3 1.51 · Al4Cu9 1.76 · Cu 1.73 ppm/degC 다 — **Kouters Table 1 의 정확히 1/10 이다.** 즉 10배 틀린 것은 Wulff 쪽이고 **Kouters Table 1 은 이미 고쳐 인쇄한 열**이다. **심판은 순물질 두 행이다**(브리프 129 의 순금속 검산을 CTE 열에 적용) — Kouters 의 Al 23.5 와 Cu 17.3 은 교과서값(Al 23.1 · Cu 16.5~17.0 ppm/K)이고, Wulff 의 2.35 와 1.73 은 물리적으로 불가능하다. **외부 독립 확인 하나** — Wang et al., Metals 12(12) 2178 (MDPI, open) 3.4절 verbatim: 'The calculated average LTEC is ~16.2 ppm K-1 from 300 to 800 K, which is similar to the experimental data (~17.2 ppm K-1) [33]' ([33] = Mondolfo, Aluminum Alloys, Structure and Properties, 1976). CuAl2 의 16.1 과 자릿수·값이 맞고 1.61 과는 안 맞는다. **등급 t3 인 이유** — 규칙 4. 이 열은 Kouters 가 [11] Wulff & Breach(IEEE EPT Conf. 2004, p.348)에서 옮긴 2차 인용이고, 1차 출처는 IEEE 유료라 58차 TC 가 조달에 실패했다. Rabkin et al. 1970(Powder Metall. Met. Ceram. 9:695-700, DOI 10.1007/BF00803820 — Kouters 의 ref [10], 본문이 'presented the micro-hardness, tensile strength, electrical resistivity and coefficient of linear expansion' 이라고 밝힌 또 다른 1차 후보)도 Springer 유료이고 Unpaywall `oa_status=closed` · `oa_locations=[]` 라 조달 실패했다. **측정법은 인쇄돼 있지 않고 온도 구간도 인쇄돼 있지 않다.** **같은 표의 밀도 열은 쓰지 않았다**(브리프 141 — 어긋난 칸만 버린다). 그 열은 CuAl 을 2.7 g/cm3 로 인쇄하는데 이는 바로 위 Al 행의 2.70 이 복제된 것이고, 같은 논문 Table 4 의 아르키메데스 실측 5.31 과 정면으로 어긋난다(Cu4Al3·Cu3Al2 는 아예 'na' 다). 밀도는 이미 Table 4 실측값이 카탈로그에 들어와 있다."
+    }
+   ]
+  },
+  {
+   "match_name": "CuAl (gamma) Cu-Al intermetallic compound (Kouters 2013)",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1016/j.microrel.2013.02.020",
+    "title": "Characterization of intermetallic compounds in Cu-Al ball bonds: Mechanical properties, interface delamination and thermal conductivity"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.19e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "phase": "CuAl (eta2 — 원문 Table 2 는 이 상을 eta 로, Drozdov Table 2 는 eta2 로 인쇄한다. 카탈로그 재료명의 '(gamma)' 는 추출 손상이다 — 신고만 하고 이름은 건드리지 않았다)",
+      "basis": "Kouters 2013 Table 1 (편찬표 · 2차 인용 [11] Wulff & Breach 2004). 원문에 측정법도 온도 구간도 인쇄돼 있지 않다.",
+      "printed_value": "11.9 ppm/degC"
+     },
+     "notes": "Table 1 verbatim: 이 상의 CTE 열 = 11.9 ppm/degC. 원값 11.9e-6 = 1.19e-05 1/K. 출처 Kouters 2013(Microelectron. Reliab. 53(2013) 1068-1075) Table 1 'Physical parameters of Cu-Al intermetallics [11]' 의 `CTE ppm/degC` 열이다. 표 전체 verbatim(400 dpi 렌더로 확인, md·pdftotext 일치) — Al 23.5 · CuAl2 16.1 · CuAl 11.9 · Cu4Al3 16.1 · Cu3Al2 15.1 · Cu9Al4 17.6 · Cu 17.3. **같은 논문 본문이 이 열을 부정하는 것처럼 읽히는 문장을 싣는다** — 'We would like to stress that the thermal expansion, as presented in the work of Wulff, is of a factor of ten in error. Unfortunately this is reproduced in subsequent work [14].' 58차 TC 가 Wulff 원표를 찾아 그 문장이 무엇을 가리키는지 갈랐다. Drozdov M. 석사학위논문(Technion, 2007-09, 지도 W.D. Kaplan, https://kaplaninterfaces.net.technion.ac.il/files/2020/08/Miri-MSc.pdf) p.13 Table 2 가 Wulff/Breach/Stephan/Saraswati/Dittmer/Garnier 2005(= Kouters 의 ref [14])를 그대로 전재하는데 그 CTE 열이 Al 2.35 · Al2Cu 1.61 · AlCu 1.19 · Al3Cu4 1.61 · Al2Cu3 1.51 · Al4Cu9 1.76 · Cu 1.73 ppm/degC 다 — **Kouters Table 1 의 정확히 1/10 이다.** 즉 10배 틀린 것은 Wulff 쪽이고 **Kouters Table 1 은 이미 고쳐 인쇄한 열**이다. **심판은 순물질 두 행이다**(브리프 129 의 순금속 검산을 CTE 열에 적용) — Kouters 의 Al 23.5 와 Cu 17.3 은 교과서값(Al 23.1 · Cu 16.5~17.0 ppm/K)이고, Wulff 의 2.35 와 1.73 은 물리적으로 불가능하다. **외부 독립 확인 하나** — Wang et al., Metals 12(12) 2178 (MDPI, open) 3.4절 verbatim: 'The calculated average LTEC is ~16.2 ppm K-1 from 300 to 800 K, which is similar to the experimental data (~17.2 ppm K-1) [33]' ([33] = Mondolfo, Aluminum Alloys, Structure and Properties, 1976). CuAl2 의 16.1 과 자릿수·값이 맞고 1.61 과는 안 맞는다. **등급 t3 인 이유** — 규칙 4. 이 열은 Kouters 가 [11] Wulff & Breach(IEEE EPT Conf. 2004, p.348)에서 옮긴 2차 인용이고, 1차 출처는 IEEE 유료라 58차 TC 가 조달에 실패했다. Rabkin et al. 1970(Powder Metall. Met. Ceram. 9:695-700, DOI 10.1007/BF00803820 — Kouters 의 ref [10], 본문이 'presented the micro-hardness, tensile strength, electrical resistivity and coefficient of linear expansion' 이라고 밝힌 또 다른 1차 후보)도 Springer 유료이고 Unpaywall `oa_status=closed` · `oa_locations=[]` 라 조달 실패했다. **측정법은 인쇄돼 있지 않고 온도 구간도 인쇄돼 있지 않다.** **같은 표의 밀도 열은 쓰지 않았다**(브리프 141 — 어긋난 칸만 버린다). 그 열은 CuAl 을 2.7 g/cm3 로 인쇄하는데 이는 바로 위 Al 행의 2.70 이 복제된 것이고, 같은 논문 Table 4 의 아르키메데스 실측 5.31 과 정면으로 어긋난다(Cu4Al3·Cu3Al2 는 아예 'na' 다). 밀도는 이미 Table 4 실측값이 카탈로그에 들어와 있다."
+    }
+   ]
+  },
+  {
+   "match_name": "Cu4Al3 (zeta) Cu-Al intermetallic compound (Kouters 2013)",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1016/j.microrel.2013.02.020",
+    "title": "Characterization of intermetallic compounds in Cu-Al ball bonds: Mechanical properties, interface delamination and thermal conductivity"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.61e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "phase": "Cu4Al3 (zeta)",
+      "basis": "Kouters 2013 Table 1 (편찬표 · 2차 인용 [11] Wulff & Breach 2004). 원문에 측정법도 온도 구간도 인쇄돼 있지 않다.",
+      "printed_value": "16.1 ppm/degC"
+     },
+     "notes": "Table 1 verbatim: 이 상의 CTE 열 = 16.1 ppm/degC. 원값 16.1e-6 = 1.61e-05 1/K. 출처 Kouters 2013(Microelectron. Reliab. 53(2013) 1068-1075) Table 1 'Physical parameters of Cu-Al intermetallics [11]' 의 `CTE ppm/degC` 열이다. 표 전체 verbatim(400 dpi 렌더로 확인, md·pdftotext 일치) — Al 23.5 · CuAl2 16.1 · CuAl 11.9 · Cu4Al3 16.1 · Cu3Al2 15.1 · Cu9Al4 17.6 · Cu 17.3. **같은 논문 본문이 이 열을 부정하는 것처럼 읽히는 문장을 싣는다** — 'We would like to stress that the thermal expansion, as presented in the work of Wulff, is of a factor of ten in error. Unfortunately this is reproduced in subsequent work [14].' 58차 TC 가 Wulff 원표를 찾아 그 문장이 무엇을 가리키는지 갈랐다. Drozdov M. 석사학위논문(Technion, 2007-09, 지도 W.D. Kaplan, https://kaplaninterfaces.net.technion.ac.il/files/2020/08/Miri-MSc.pdf) p.13 Table 2 가 Wulff/Breach/Stephan/Saraswati/Dittmer/Garnier 2005(= Kouters 의 ref [14])를 그대로 전재하는데 그 CTE 열이 Al 2.35 · Al2Cu 1.61 · AlCu 1.19 · Al3Cu4 1.61 · Al2Cu3 1.51 · Al4Cu9 1.76 · Cu 1.73 ppm/degC 다 — **Kouters Table 1 의 정확히 1/10 이다.** 즉 10배 틀린 것은 Wulff 쪽이고 **Kouters Table 1 은 이미 고쳐 인쇄한 열**이다. **심판은 순물질 두 행이다**(브리프 129 의 순금속 검산을 CTE 열에 적용) — Kouters 의 Al 23.5 와 Cu 17.3 은 교과서값(Al 23.1 · Cu 16.5~17.0 ppm/K)이고, Wulff 의 2.35 와 1.73 은 물리적으로 불가능하다. **외부 독립 확인 하나** — Wang et al., Metals 12(12) 2178 (MDPI, open) 3.4절 verbatim: 'The calculated average LTEC is ~16.2 ppm K-1 from 300 to 800 K, which is similar to the experimental data (~17.2 ppm K-1) [33]' ([33] = Mondolfo, Aluminum Alloys, Structure and Properties, 1976). CuAl2 의 16.1 과 자릿수·값이 맞고 1.61 과는 안 맞는다. **등급 t3 인 이유** — 규칙 4. 이 열은 Kouters 가 [11] Wulff & Breach(IEEE EPT Conf. 2004, p.348)에서 옮긴 2차 인용이고, 1차 출처는 IEEE 유료라 58차 TC 가 조달에 실패했다. Rabkin et al. 1970(Powder Metall. Met. Ceram. 9:695-700, DOI 10.1007/BF00803820 — Kouters 의 ref [10], 본문이 'presented the micro-hardness, tensile strength, electrical resistivity and coefficient of linear expansion' 이라고 밝힌 또 다른 1차 후보)도 Springer 유료이고 Unpaywall `oa_status=closed` · `oa_locations=[]` 라 조달 실패했다. **측정법은 인쇄돼 있지 않고 온도 구간도 인쇄돼 있지 않다.** **같은 표의 밀도 열은 쓰지 않았다**(브리프 141 — 어긋난 칸만 버린다). 그 열은 CuAl 을 2.7 g/cm3 로 인쇄하는데 이는 바로 위 Al 행의 2.70 이 복제된 것이고, 같은 논문 Table 4 의 아르키메데스 실측 5.31 과 정면으로 어긋난다(Cu4Al3·Cu3Al2 는 아예 'na' 다). 밀도는 이미 Table 4 실측값이 카탈로그에 들어와 있다."
+    }
+   ]
+  },
+  {
+   "match_name": "Cu3Al2 (delta) Cu-Al intermetallic compound (Kouters 2013)",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1016/j.microrel.2013.02.020",
+    "title": "Characterization of intermetallic compounds in Cu-Al ball bonds: Mechanical properties, interface delamination and thermal conductivity"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.51e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "phase": "Cu3Al2 (delta)",
+      "basis": "Kouters 2013 Table 1 (편찬표 · 2차 인용 [11] Wulff & Breach 2004). 원문에 측정법도 온도 구간도 인쇄돼 있지 않다.",
+      "printed_value": "15.1 ppm/degC"
+     },
+     "notes": "Table 1 verbatim: 이 상의 CTE 열 = 15.1 ppm/degC. 원값 15.1e-6 = 1.51e-05 1/K. 출처 Kouters 2013(Microelectron. Reliab. 53(2013) 1068-1075) Table 1 'Physical parameters of Cu-Al intermetallics [11]' 의 `CTE ppm/degC` 열이다. 표 전체 verbatim(400 dpi 렌더로 확인, md·pdftotext 일치) — Al 23.5 · CuAl2 16.1 · CuAl 11.9 · Cu4Al3 16.1 · Cu3Al2 15.1 · Cu9Al4 17.6 · Cu 17.3. **같은 논문 본문이 이 열을 부정하는 것처럼 읽히는 문장을 싣는다** — 'We would like to stress that the thermal expansion, as presented in the work of Wulff, is of a factor of ten in error. Unfortunately this is reproduced in subsequent work [14].' 58차 TC 가 Wulff 원표를 찾아 그 문장이 무엇을 가리키는지 갈랐다. Drozdov M. 석사학위논문(Technion, 2007-09, 지도 W.D. Kaplan, https://kaplaninterfaces.net.technion.ac.il/files/2020/08/Miri-MSc.pdf) p.13 Table 2 가 Wulff/Breach/Stephan/Saraswati/Dittmer/Garnier 2005(= Kouters 의 ref [14])를 그대로 전재하는데 그 CTE 열이 Al 2.35 · Al2Cu 1.61 · AlCu 1.19 · Al3Cu4 1.61 · Al2Cu3 1.51 · Al4Cu9 1.76 · Cu 1.73 ppm/degC 다 — **Kouters Table 1 의 정확히 1/10 이다.** 즉 10배 틀린 것은 Wulff 쪽이고 **Kouters Table 1 은 이미 고쳐 인쇄한 열**이다. **심판은 순물질 두 행이다**(브리프 129 의 순금속 검산을 CTE 열에 적용) — Kouters 의 Al 23.5 와 Cu 17.3 은 교과서값(Al 23.1 · Cu 16.5~17.0 ppm/K)이고, Wulff 의 2.35 와 1.73 은 물리적으로 불가능하다. **외부 독립 확인 하나** — Wang et al., Metals 12(12) 2178 (MDPI, open) 3.4절 verbatim: 'The calculated average LTEC is ~16.2 ppm K-1 from 300 to 800 K, which is similar to the experimental data (~17.2 ppm K-1) [33]' ([33] = Mondolfo, Aluminum Alloys, Structure and Properties, 1976). CuAl2 의 16.1 과 자릿수·값이 맞고 1.61 과는 안 맞는다. **등급 t3 인 이유** — 규칙 4. 이 열은 Kouters 가 [11] Wulff & Breach(IEEE EPT Conf. 2004, p.348)에서 옮긴 2차 인용이고, 1차 출처는 IEEE 유료라 58차 TC 가 조달에 실패했다. Rabkin et al. 1970(Powder Metall. Met. Ceram. 9:695-700, DOI 10.1007/BF00803820 — Kouters 의 ref [10], 본문이 'presented the micro-hardness, tensile strength, electrical resistivity and coefficient of linear expansion' 이라고 밝힌 또 다른 1차 후보)도 Springer 유료이고 Unpaywall `oa_status=closed` · `oa_locations=[]` 라 조달 실패했다. **측정법은 인쇄돼 있지 않고 온도 구간도 인쇄돼 있지 않다.** **같은 표의 밀도 열은 쓰지 않았다**(브리프 141 — 어긋난 칸만 버린다). 그 열은 CuAl 을 2.7 g/cm3 로 인쇄하는데 이는 바로 위 Al 행의 2.70 이 복제된 것이고, 같은 논문 Table 4 의 아르키메데스 실측 5.31 과 정면으로 어긋난다(Cu4Al3·Cu3Al2 는 아예 'na' 다). 밀도는 이미 Table 4 실측값이 카탈로그에 들어와 있다."
+    }
+   ]
+  },
+  {
+   "match_name": "Cu9Al4 (gamma2) Cu-Al intermetallic compound (Kouters 2013)",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1016/j.microrel.2013.02.020",
+    "title": "Characterization of intermetallic compounds in Cu-Al ball bonds: Mechanical properties, interface delamination and thermal conductivity"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.76e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "phase": "Cu9Al4 (gamma)",
+      "basis": "Kouters 2013 Table 1 (편찬표 · 2차 인용 [11] Wulff & Breach 2004). 원문에 측정법도 온도 구간도 인쇄돼 있지 않다.",
+      "printed_value": "17.6 ppm/degC"
+     },
+     "notes": "Table 1 verbatim: 이 상의 CTE 열 = 17.6 ppm/degC. 원값 17.6e-6 = 1.76e-05 1/K. 출처 Kouters 2013(Microelectron. Reliab. 53(2013) 1068-1075) Table 1 'Physical parameters of Cu-Al intermetallics [11]' 의 `CTE ppm/degC` 열이다. 표 전체 verbatim(400 dpi 렌더로 확인, md·pdftotext 일치) — Al 23.5 · CuAl2 16.1 · CuAl 11.9 · Cu4Al3 16.1 · Cu3Al2 15.1 · Cu9Al4 17.6 · Cu 17.3. **같은 논문 본문이 이 열을 부정하는 것처럼 읽히는 문장을 싣는다** — 'We would like to stress that the thermal expansion, as presented in the work of Wulff, is of a factor of ten in error. Unfortunately this is reproduced in subsequent work [14].' 58차 TC 가 Wulff 원표를 찾아 그 문장이 무엇을 가리키는지 갈랐다. Drozdov M. 석사학위논문(Technion, 2007-09, 지도 W.D. Kaplan, https://kaplaninterfaces.net.technion.ac.il/files/2020/08/Miri-MSc.pdf) p.13 Table 2 가 Wulff/Breach/Stephan/Saraswati/Dittmer/Garnier 2005(= Kouters 의 ref [14])를 그대로 전재하는데 그 CTE 열이 Al 2.35 · Al2Cu 1.61 · AlCu 1.19 · Al3Cu4 1.61 · Al2Cu3 1.51 · Al4Cu9 1.76 · Cu 1.73 ppm/degC 다 — **Kouters Table 1 의 정확히 1/10 이다.** 즉 10배 틀린 것은 Wulff 쪽이고 **Kouters Table 1 은 이미 고쳐 인쇄한 열**이다. **심판은 순물질 두 행이다**(브리프 129 의 순금속 검산을 CTE 열에 적용) — Kouters 의 Al 23.5 와 Cu 17.3 은 교과서값(Al 23.1 · Cu 16.5~17.0 ppm/K)이고, Wulff 의 2.35 와 1.73 은 물리적으로 불가능하다. **외부 독립 확인 하나** — Wang et al., Metals 12(12) 2178 (MDPI, open) 3.4절 verbatim: 'The calculated average LTEC is ~16.2 ppm K-1 from 300 to 800 K, which is similar to the experimental data (~17.2 ppm K-1) [33]' ([33] = Mondolfo, Aluminum Alloys, Structure and Properties, 1976). CuAl2 의 16.1 과 자릿수·값이 맞고 1.61 과는 안 맞는다. **등급 t3 인 이유** — 규칙 4. 이 열은 Kouters 가 [11] Wulff & Breach(IEEE EPT Conf. 2004, p.348)에서 옮긴 2차 인용이고, 1차 출처는 IEEE 유료라 58차 TC 가 조달에 실패했다. Rabkin et al. 1970(Powder Metall. Met. Ceram. 9:695-700, DOI 10.1007/BF00803820 — Kouters 의 ref [10], 본문이 'presented the micro-hardness, tensile strength, electrical resistivity and coefficient of linear expansion' 이라고 밝힌 또 다른 1차 후보)도 Springer 유료이고 Unpaywall `oa_status=closed` · `oa_locations=[]` 라 조달 실패했다. **측정법은 인쇄돼 있지 않고 온도 구간도 인쇄돼 있지 않다.** **같은 표의 밀도 열은 쓰지 않았다**(브리프 141 — 어긋난 칸만 버린다). 그 열은 CuAl 을 2.7 g/cm3 로 인쇄하는데 이는 바로 위 Al 행의 2.70 이 복제된 것이고, 같은 논문 Table 4 의 아르키메데스 실측 5.31 과 정면으로 어긋난다(Cu4Al3·Cu3Al2 는 아예 'na' 다). 밀도는 이미 Table 4 실측값이 카탈로그에 들어와 있다."
+    }
+   ]
+  }
+ ]
+}

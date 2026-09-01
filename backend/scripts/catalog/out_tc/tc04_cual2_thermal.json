@@ -1,0 +1,66 @@
+{
+ "batch": "58차 TC — CuAl2 열물성(Nazarahari 2026)",
+ "materials": [
+  {
+   "match_name": "CuAl2 (theta) Cu-Al intermetallic compound (Kouters 2013)",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1002/adem.202501357",
+    "url": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adem.202501357",
+    "title": "Exploring Microstructure-Physical Property-Corrosion Response Relationship in Intermetallic Compounds of Al-Cu Bimetallic Interfaces",
+    "authors": "Nazarahari, Blank, Hinte, Ozdemir, Barienti, Klose, Canadinc, Maier",
+    "year": 2026,
+    "publisher": "Wiley-VCH (Advanced Engineering Materials 28, e202501357; CC-BY)",
+    "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w58tc/imc/nazarahari2026.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.specific_heat",
+     "value": 544.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "phase": "CuAl2 (theta)",
+      "temperature": "ambient (원문이 'ambient temperature' 로만 인쇄한다 — 구체 온도값 없음)",
+      "phase_purity": "단상이 아니다 — 결정립계에 Al4Cu9(gamma) 석출물이 있다(원문 초록·결론 verbatim)",
+      "specimen": "induction-cast + gravity die-cast ingot, 550 degC / 48 h homogenization, furnace cooled",
+      "test_method": "DSC (Netzsch 404 C Pegasus), comparative method with sapphire reference, room temperature to 200 degC, 10 K/min, argon 50 mL/min"
+     },
+     "notes": "Nazarahari 2026 Table 3 verbatim: `Theta | 26.9 ± 1.4 | 0.544 ± 0.001 | 62.0 ± 3.2` — 비열 열 머리글이 'Specific heat capacity at ambient temperature [J g-1 K-1]' 다. 0.544 J/(g·K) x 1000 = 544 J/(kg·K), 불확도 ±1 J/(kg·K). **이 칸이 왜 비어 있었나** — 유일 출처였던 Kouters 2013 은 5절에서 'We were able to prepare three usable samples of intermetallics for thermal conductivity measurement: CuAl, Cu3Al2 and Cu9Al4' 라고 밝혀 CuAl2 와 Cu4Al3 의 비열·열전도율을 아예 재지 못했다. **시편 동정** — Table 1 verbatim: `Theta | Θ | Nominal Al 66.67 at% | Nominal Cu 33.33 at% | Measured Al 69.5±1.3 | Measured Cu 30.5±0.7 | Measured density 4.23 g/cm3`. 명목조성 66.67/33.33 at% 는 Al2Cu = CuAl2 이고, 본문이 두 번 'Al2Cu (θ)' 로 못박는다. **밀도가 동정을 검산한다** — 이 표의 아르키메데스 밀도 4.23 g/cm3 는 카탈로그에 이미 있는 Kouters 2013 Table 4 의 아르키메데스 실측 4.27 g/cm3 와 0.9% 안이다(다른 실험실·다른 시편). **상순도 단서를 조건에 박는다** — 초록 verbatim: 'The microstructural and compositional analysis, however, evidenced the precipitation of secondary phases in the ζ2 and θ samples.' 결론절 verbatim: 'the cast sample with the composition of Al2Cu exhibited precipitation of the γ phase within θ grains'. 즉 이 시편은 결정립계에 Al4Cu9(γ) 석출물을 가진 θ 상이다. 저자가 그 석출물의 영향을 명시한 것은 **전기전도도**다 — 'the Al4Cu9 precipitates forming on the grain boundaries significantly reduced the electrical conductivity as compared to the other samples' — 이고, 같은 문단이 열전도도와 전기전도도의 추세가 이 상에서만 갈린다고 적는다. 그래서 열 쪽 값이 같은 정도로 눌렸다는 증거는 없으나, 상순수 CuAl2 가 아니므로 등급을 t3 로 둔다(브리프 123·140). **표 자신의 항등식이 닫힌다**(브리프 603·35) — 캡션 verbatim 'The thermal conductivity of the IMCs was calculated based on the thermal diffusivity, cp, and density values reported in Table 1' 이고 식 (1) 이 kappa = cp·alpha·rho 다. Table 1 의 밀도로 다섯 행을 전부 곱해 보면 Gamma 38.64 대 38.6 · Delta 26.09 대 25.9 · Zeta 57.70 대 57.6 · Eta 73.52 대 73.4 · Theta 61.90 대 62.0 로 **전 행이 0.8% 안에서 재현된다**(다른 문서를 섞지 않은 자기무결성 검사다). **Dulong-Petit 검산** — 원자당 몰질량으로 3R/M 을 내면 Theta 0.637 J/gK 이고 인쇄된 0.544 는 그 85%다. 다섯 상 전부 83~91% 구간이라 300 K 에서 물리적으로 온당하다. **타 실험실 대조** — 이 표와 Kouters 2013 Table 5(20 degC)가 겹치는 세 상에서 Cu3Al2 25.9 대 26 W/mK(0.4% 일치) · CuAl 73.4 대 87(-16%) · Cu9Al4 38.6 대 50(-23%) 이고, 비열은 Nazarahari 쪽이 계통적으로 약 10% 낮다. **한 상이 0.4% 로 맞고 둘이 16~23% 갈린다** — 자릿수 모순은 없으나 절대값은 실험실 간 폭이 있다는 뜻이라 이 값들을 유일 진실로 읽지 마라."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 62.0,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "phase": "CuAl2 (theta)",
+      "temperature": "ambient (원문이 'ambient temperature' 로만 인쇄한다 — 구체 온도값 없음)",
+      "phase_purity": "단상이 아니다 — 결정립계에 Al4Cu9(gamma) 석출물이 있다(원문 초록·결론 verbatim)",
+      "specimen": "induction-cast + gravity die-cast ingot, 550 degC / 48 h homogenization, furnace cooled",
+      "model": "kappa = cp * alpha * rho (원문 식 (1)); rho 는 Table 1 의 아르키메데스 밀도 4.23 g/cm3",
+      "test_method": "Xenon flash pulse (Netzsch LFA447 NanoFlash), graphite-sprayed surfaces, 5 shots x 3 samples = 15 measurements per composition + DSC (Netzsch 404 C Pegasus), comparative method with sapphire reference, room temperature to 200 degC, 10 K/min, argon 50 mL/min"
+     },
+     "notes": "Nazarahari 2026 Table 3 verbatim: `Theta | 26.9 ± 1.4 | 0.544 ± 0.001 | 62.0 ± 3.2`, 단위 [W m-1 K-1]. **측정이 아니라 계산값이다** — 캡션이 확산율·비열·밀도로 계산했다고 밝히므로 method 를 computed 로 둔다(카탈로그의 Kouters 열전도율 행들도 같은 이유로 computed 다). **살아 있는 이견 하나를 같이 신고한다** — Zhang et al. 2023 종설(PMC10144406)이 'At room temperature, the thermal conductivity of Al2Cu is approximately 126 W m-1 K-1' 이라고 적고 Gunduz & Hunt 1985(Acta Metall. 33:1651)과 Ocak 2010(Thin Solid Films 518:4322)을 인용하는데 **둘 다 유료라 58차 TC 가 1차를 못 열었다.** 62.0 과 126 은 약 2배 차이다. 어느 쪽도 고르지 않고 **인쇄값 62.0 을 t3 로 넣고 이견을 여기 적는다** — 종설의 126 은 2차 인용이고, 62.0 은 같은 표 안에서 k=cp·alpha·rho 로 닫히는 직접 측정 계열이다. **시편 동정** — Table 1 verbatim: `Theta | Θ | Nominal Al 66.67 at% | Nominal Cu 33.33 at% | Measured Al 69.5±1.3 | Measured Cu 30.5±0.7 | Measured density 4.23 g/cm3`. 명목조성 66.67/33.33 at% 는 Al2Cu = CuAl2 이고, 본문이 두 번 'Al2Cu (θ)' 로 못박는다. **밀도가 동정을 검산한다** — 이 표의 아르키메데스 밀도 4.23 g/cm3 는 카탈로그에 이미 있는 Kouters 2013 Table 4 의 아르키메데스 실측 4.27 g/cm3 와 0.9% 안이다(다른 실험실·다른 시편). **상순도 단서를 조건에 박는다** — 초록 verbatim: 'The microstructural and compositional analysis, however, evidenced the precipitation of secondary phases in the ζ2 and θ samples.' 결론절 verbatim: 'the cast sample with the composition of Al2Cu exhibited precipitation of the γ phase within θ grains'. 즉 이 시편은 결정립계에 Al4Cu9(γ) 석출물을 가진 θ 상이다. 저자가 그 석출물의 영향을 명시한 것은 **전기전도도**다 — 'the Al4Cu9 precipitates forming on the grain boundaries significantly reduced the electrical conductivity as compared to the other samples' — 이고, 같은 문단이 열전도도와 전기전도도의 추세가 이 상에서만 갈린다고 적는다. 그래서 열 쪽 값이 같은 정도로 눌렸다는 증거는 없으나, 상순수 CuAl2 가 아니므로 등급을 t3 로 둔다(브리프 123·140). **표 자신의 항등식이 닫힌다**(브리프 603·35) — 캡션 verbatim 'The thermal conductivity of the IMCs was calculated based on the thermal diffusivity, cp, and density values reported in Table 1' 이고 식 (1) 이 kappa = cp·alpha·rho 다. Table 1 의 밀도로 다섯 행을 전부 곱해 보면 Gamma 38.64 대 38.6 · Delta 26.09 대 25.9 · Zeta 57.70 대 57.6 · Eta 73.52 대 73.4 · Theta 61.90 대 62.0 로 **전 행이 0.8% 안에서 재현된다**(다른 문서를 섞지 않은 자기무결성 검사다). **Dulong-Petit 검산** — 원자당 몰질량으로 3R/M 을 내면 Theta 0.637 J/gK 이고 인쇄된 0.544 는 그 85%다. 다섯 상 전부 83~91% 구간이라 300 K 에서 물리적으로 온당하다. **타 실험실 대조** — 이 표와 Kouters 2013 Table 5(20 degC)가 겹치는 세 상에서 Cu3Al2 25.9 대 26 W/mK(0.4% 일치) · CuAl 73.4 대 87(-16%) · Cu9Al4 38.6 대 50(-23%) 이고, 비열은 Nazarahari 쪽이 계통적으로 약 10% 낮다. **한 상이 0.4% 로 맞고 둘이 16~23% 갈린다** — 자릿수 모순은 없으나 절대값은 실험실 간 폭이 있다는 뜻이라 이 값들을 유일 진실로 읽지 마라."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 2.69e-05,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "phase": "CuAl2 (theta)",
+      "temperature": "ambient (원문이 'ambient temperature' 로만 인쇄한다 — 구체 온도값 없음)",
+      "phase_purity": "단상이 아니다 — 결정립계에 Al4Cu9(gamma) 석출물이 있다(원문 초록·결론 verbatim)",
+      "specimen": "induction-cast + gravity die-cast ingot, 550 degC / 48 h homogenization, furnace cooled",
+      "test_method": "Xenon flash pulse (Netzsch LFA447 NanoFlash), graphite-sprayed surfaces, 5 shots x 3 samples = 15 measurements per composition"
+     },
+     "notes": "Nazarahari 2026 Table 3 verbatim: `Theta | 26.9 ± 1.4` [mm2 s-1]. 26.9e-6 m2/s, 불확도 ±1.4e-6. **짝이 되는 칸을 같이 넣는다**(브리프 470) — 이 행이 있어야 같은 재료 안에서 k = cp·alpha·rho 를 다시 닫을 수 있다: 26.9e-6 x 4230 x 544 = 61.9 대 인쇄 62.0(0.16%). 밀도는 이 논문의 4.23 g/cm3 가 아니라 카탈로그의 Kouters 실측 4270 kg/m3 를 써도 62.5 로 1% 안이다. **시편 동정** — Table 1 verbatim: `Theta | Θ | Nominal Al 66.67 at% | Nominal Cu 33.33 at% | Measured Al 69.5±1.3 | Measured Cu 30.5±0.7 | Measured density 4.23 g/cm3`. 명목조성 66.67/33.33 at% 는 Al2Cu = CuAl2 이고, 본문이 두 번 'Al2Cu (θ)' 로 못박는다. **밀도가 동정을 검산한다** — 이 표의 아르키메데스 밀도 4.23 g/cm3 는 카탈로그에 이미 있는 Kouters 2013 Table 4 의 아르키메데스 실측 4.27 g/cm3 와 0.9% 안이다(다른 실험실·다른 시편). **상순도 단서를 조건에 박는다** — 초록 verbatim: 'The microstructural and compositional analysis, however, evidenced the precipitation of secondary phases in the ζ2 and θ samples.' 결론절 verbatim: 'the cast sample with the composition of Al2Cu exhibited precipitation of the γ phase within θ grains'. 즉 이 시편은 결정립계에 Al4Cu9(γ) 석출물을 가진 θ 상이다. 저자가 그 석출물의 영향을 명시한 것은 **전기전도도**다 — 'the Al4Cu9 precipitates forming on the grain boundaries significantly reduced the electrical conductivity as compared to the other samples' — 이고, 같은 문단이 열전도도와 전기전도도의 추세가 이 상에서만 갈린다고 적는다. 그래서 열 쪽 값이 같은 정도로 눌렸다는 증거는 없으나, 상순수 CuAl2 가 아니므로 등급을 t3 로 둔다(브리프 123·140)."
+    }
+   ]
+  }
+ ]
+}
