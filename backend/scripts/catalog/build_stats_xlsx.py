@@ -456,13 +456,14 @@ def main():
                "코어 7물성 = 밀도·영률·포아송비·CTE·열전도율·비열·인장강도. 대상은 role=product 재료다. "
                "빈칸을 갈라야 '못 캐는 것'·'캘 게 아닌 것'·'진짜 남은 것'이 갈린다(브리프 582·583·584).")
     head(ws, 4, ["계통", "재료 수", "코어 칸", "채워진 칸", "채움률", "빈칸",
-                 "해당 없음", "벤더 구조적 부재", "판정이 자유 키에", "등급 미확정", "진짜 남은 것"])
+                 "해당 없음", "벤더 구조적 부재", "인쇄됐으나 기각",
+                 "판정이 자유 키에", "등급 미확정", "진짜 남은 것"])
     rows = [(r["subsystem"], r["n_mat"], r["cells"], r["filled"], r["pct"] / 100, r["blank"],
-             r["V1"], r["V2"], r["V3"], r["V4"], r["V5"]) for r in sc["rows"]]
+             r["V1"], r["V2"], r["V6"], r["V3"], r["V4"], r["V5"]) for r in sc["rows"]]
     t = sc["total"]
     rows.append(("전체", t["n_mat"], t["cells"], t["filled"], t["pct"] / 100, t["blank"],
-                 t["V1"], t["V2"], t["V3"], t["V4"], t["V5"]))
-    body(ws, 5, rows, [16, 9, 9, 11, 9, 8, 11, 15, 15, 12, 12], {5: "0.0%"})
+                 t["V1"], t["V2"], t["V6"], t["V3"], t["V4"], t["V5"]))
+    body(ws, 5, rows, [16, 9, 9, 11, 9, 8, 11, 15, 15, 15, 12, 12], {5: "0.0%"})
     for r in range(5, 5 + len(rows)):
         ws.cell(row=r, column=5).number_format = "0.0%"
     ws.cell(row=5 + len(rows) - 1, column=1).font = Font(bold=True)
@@ -472,6 +473,7 @@ def main():
     head(ws, r0 + 1, ["갈래", "뜻", "집계가 읽는 자리"])
     body(ws, r0 + 2, [(lbl, why, {"V1": "attributes.core_not_applicable",
                                   "V2": "attributes.core_absent_from_vendor_sheet",
+                                  "V6": "attributes.core_rejected_printed_value",
                                   "V3": "없다 — 자유 키에 있다(브리프 593)",
                                   "V4": "attributes.anonymised_code · identification_status",
                                   "V5": "—"}[code])

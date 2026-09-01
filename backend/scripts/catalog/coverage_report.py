@@ -727,6 +727,10 @@ CORE7 = [RHO, E, NU, CTE, TC, HC, "mechanical.tensile_strength"]
 # 판정을 *읽을 수 있는* 자리 — §582 가 정한 칸이다.
 VERDICT_ATTR_NA = "core_not_applicable"              # 해당 없음(물리적으로 정의 안 됨)
 VERDICT_ATTR_VENDOR = "core_absent_from_vendor_sheet"  # 벤더가 구조적으로 안 찍는다
+# 원문이 값을 **인쇄하는데** 검산에서 죽어 안 넣은 칸 — 56차 RA 가 자리를 만들고 57차 SD 가 열었다.
+# 이 갈래가 없으면 그런 칸이 V5(진짜 남은 것)로 세어져 **다음 파동이 또 표적으로 집는다**(§593 의 재발).
+# "문서에 없다"(V2)와 정반대다 — 문서에는 있고 **우리가 기각했다.**
+VERDICT_ATTR_REJECT = "core_rejected_printed_value"
 # 판정이 실제로 적혀 있으나 집계가 못 읽는 **자유 키** — §593. 세어서 보고만 한다.
 FREE_VERDICT_ATTRS = ("grade_table_scope", "core_fill_sheet",
                       "core_verdict_axis", "core_verdict_undecided")
@@ -758,9 +762,13 @@ def subsystem_core(db: str | None = None) -> dict:
     빈칸 하나하나를 다섯 갈래로 가른다.
       V1 해당 없음      `attributes.core_not_applicable`  (dict면 그 키만, 문자열이면 그 재료의 코어 전부)
       V2 벤더 구조적 부재 `attributes.core_absent_from_vendor_sheet`
+      V6 인쇄됐으나 기각 `attributes.core_rejected_printed_value` — 원문에 값이 있는데 검산에서 죽었다.
+                        번호는 만든 순서이고 자리는 뜻으로 정한다 — V2 다음에 온다.
       V3 자유 키 판정    판정이 적혀는 있는데 집계가 못 읽는 자리에 있다(§593). **세어서 보고만 한다.**
       V4 등급 미확정     익명 제품코드·`identification_status` 가 '미식별' 로 시작
       V5 남은 것        위 어디에도 안 걸린 칸. **표적은 여기뿐이다.**
+
+    갈래 여섯의 합은 언제나 빈칸 수와 같다 — `check_invariants` 가 그것을 지킨다.
     """
     c = sqlite3.connect(db or DB)
     have = defaultdict(set)
@@ -776,7 +784,7 @@ def subsystem_core(db: str | None = None) -> dict:
             continue
         sub = a.get("subsystem") or "(태깅 없음)"
         row = subs.setdefault(sub, {"subsystem": sub, "n_mat": 0, "filled": 0, "cells": 0,
-                                    "V1": 0, "V2": 0, "V3": 0, "V4": 0, "V5": 0})
+                                    "V1": 0, "V2": 0, "V6": 0, "V3": 0, "V4": 0, "V5": 0})
         if row["n_mat"] == 0:
             order.append(sub)
         row["n_mat"] += 1
@@ -790,6 +798,10 @@ def subsystem_core(db: str | None = None) -> dict:
         na_all = isinstance(na, str)          # 재료 단위 선언 — 그 재료의 코어 전부를 덮는다
         vend = a.get(VERDICT_ATTR_VENDOR)
         vend_keys = set(vend) if isinstance(vend, dict) else set()
+        rej = a.get(VERDICT_ATTR_REJECT)
+        # 기각은 **언제나 키 단위**다 — 어느 값을 왜 버렸는지가 판정의 내용이라
+        # 재료 단위 문자열로는 적을 수 없다(§582 문자열 판정이 범위를 지어낸 것과 같은 자리).
+        rej_keys = set(rej) if isinstance(rej, dict) else set()
         free = any(k in a for k in FREE_VERDICT_ATTRS)
         grade_undet = ("anonymised_code" in a
                        or str(a.get("identification_status", "")).startswith("미식별"))
@@ -798,6 +810,8 @@ def subsystem_core(db: str | None = None) -> dict:
                 row["V1"] += 1
             elif k in vend_keys:
                 row["V2"] += 1
+            elif k in rej_keys:
+                row["V6"] += 1
             elif free:
                 row["V3"] += 1
             elif grade_undet:
@@ -809,7 +823,7 @@ def subsystem_core(db: str | None = None) -> dict:
         r["pct"] = round(r["filled"] * 100 / max(r["cells"], 1), 1)
         r["blank"] = r["cells"] - r["filled"]
     tot = {k: sum(r[k] for r in rows) for k in ("n_mat", "filled", "cells", "blank",
-                                                "V1", "V2", "V3", "V4", "V5")}
+                                                "V1", "V2", "V6", "V3", "V4", "V5")}
     tot["pct"] = round(tot["filled"] * 100 / max(tot["cells"], 1), 1)
     c.close()
     return {"core": CORE7, "rows": rows, "total": tot}
@@ -818,6 +832,10 @@ def subsystem_core(db: str | None = None) -> dict:
 VERDICT_LABEL = [
     ("V1", "해당 없음", "물리적으로 그 물성이 정의되지 않는다 — 분말 원료·증착 박막·전환피막."),
     ("V2", "벤더 구조적 부재", "시트를 실제로 열어 그 열이 없음을 확인했다."),
+    ("V6", "인쇄됐으나 기각",
+     "원문이 값을 인쇄하는데 검산에서 죽어 안 넣었다 — V2 와 정반대다(문서에는 있다). "
+     "사유는 키마다 적혀 있다. 이 갈래가 없으면 그 칸이 '진짜 남은 것' 으로 세어져 "
+     "다음 파동이 같은 값을 또 캐 온다(브리프 593)."),
     ("V3", "판정은 있으나 집계가 못 읽음",
      "사유가 자유 키(grade_table_scope·core_fill_sheet 등)에 적혀 있다. "
      "다음 파동이 같은 칸을 또 표적으로 센다(브리프 593)."),
@@ -826,7 +844,7 @@ VERDICT_LABEL = [
 ]
 
 
-def check_invariants(cov, props) -> list[str]:
+def check_invariants(cov, props, core=None) -> list[str]:
     """비율은 0~100, 잔여 칸은 0 이상. **어기면 수식이 아니라 모집단이 어긋난 것이다.**
 
     이 검사가 없어서 같은 결함이 **세 번** 났다(55차 QB 가 셌다) —
@@ -837,6 +855,10 @@ def check_invariants(cov, props) -> list[str]:
     13차에는 남은 일이 **−309칸**으로 인쇄된 적도 있다.
 
     같은 수식이 여러 자리에 있으면 **수식을 고치는 대신 불변식을 걸어야** 재발이 멈춘다.
+
+    `core` 를 주면 §582 빈칸 분해도 같이 본다 — **갈래의 합은 빈칸 수와 같아야 한다.**
+    갈래를 새로 낼 때(57차 SD 의 V6) 집계 어느 한 곳만 빠뜨리면 칸이 조용히 사라지는데,
+    합만 세면 그 자리에서 걸린다.
     """
     bad: list[str] = []
     for r in cov:
@@ -849,13 +871,22 @@ def check_invariants(cov, props) -> list[str]:
         pct = p.get("pct")
         if pct is not None and not (0.0 <= pct <= 100.0):
             bad.append(f"물성 {p.get('key', '?')}: 보유율 {pct:.1f}% 가 0~100 밖이다")
+    if core:
+        codes = [c for c, _, _ in VERDICT_LABEL]
+        for r in list(core.get("rows", [])) + [core.get("total", {})]:
+            if not r:
+                continue
+            got = sum(r.get(c, 0) for c in codes)
+            if got != r.get("blank", got):
+                bad.append(f"계통 {r.get('subsystem', '전체')}: 갈래 합 {got} 이 "
+                           f"빈칸 {r.get('blank')} 과 다르다 — 갈래 하나가 집계에서 샜다")
     return bad
 
 
 def main():
     c, mat, own, cov = compute()
     props = property_stats(c, mat, own)
-    _bad = check_invariants(cov, props)
+    _bad = check_invariants(cov, props, subsystem_core())
     if _bad:
         print("✗ 지표 불변식 위반 — **수식이 아니라 모집단을 봐라**", file=sys.stderr)
         for b in _bad:

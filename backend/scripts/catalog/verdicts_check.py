@@ -18,8 +18,57 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from coverage_report import (VERDICT_ATTR_NA, VERDICT_ATTR_REJECT,  # noqa: E402
+                             VERDICT_ATTR_VENDOR)
 from mined_index import DB as MT_DB  # noqa: E402
 from scan_targets import CORPUS, VERDICTS, norm_full  # noqa: E402
+
+# 코어 빈칸 판정이 적히는 자리 셋 — `coverage_report.subsystem_core` 가 읽는 칸과 **같은 목록**이다.
+# 여기에 이름을 다시 적지 않는다: 갈래를 늘렸는데 점검기가 옛 목록을 보면 새 갈래가 안 점검된다.
+CORE_VERDICT_ATTRS = (VERDICT_ATTR_NA, VERDICT_ATTR_VENDOR, VERDICT_ATTR_REJECT)
+
+
+def check_core_verdicts(mt: sqlite3.Connection) -> tuple[list[str], list[str]]:
+    """`material.attributes` 의 코어 빈칸 판정이 집계가 읽을 수 있는 꼴인지 본다.
+
+    이상으로 세는 것 둘.
+      · **재료 단위 문자열 판정** — 집계는 그 재료의 코어 7칸을 통째로 덮는 것으로 읽는다.
+        45차 GD 의 탄소 7종이 그렇게 사유 셋을 한 사유로 덮었고 재료 하나는 분류까지 틀려 있었다.
+        판정은 언제나 `{물성키: 사유}` 여야 한다.
+      · **물성 정의에 없는 키** — 오타면 그 칸은 영원히 V5 로 세어진다(§593 의 조용한 얼굴).
+
+    경고로만 내는 것 하나.
+      · **판정을 달았는데 그 칸에 값이 있다** — 선언과 데이터가 어긋난다. 값을 지우는 것이
+        고침이 아니므로(§565) 여기서는 **신고만** 한다.
+    """
+    keys = {k for (k,) in mt.execute("select key from property_definition")}
+    have: dict[int, set[str]] = {}
+    for mid, k in mt.execute("select material_id,property_key from property_value"):
+        have.setdefault(mid, set()).add(k)
+    bad, warn = [], []
+    for mid, name, raw in mt.execute("select id,name,attributes from material"):
+        try:
+            a = json.loads(raw or "{}")
+        except json.JSONDecodeError:
+            bad.append(f"재료 {mid} — attributes JSON 파싱 실패")
+            continue
+        if not isinstance(a, dict):
+            continue
+        for attr in CORE_VERDICT_ATTRS:
+            v = a.get(attr)
+            if v is None:
+                continue
+            if not isinstance(v, dict):
+                bad.append(f"재료 {mid} `{attr}` 가 dict 가 아니다({type(v).__name__}) — "
+                           f"{str(name)[:44]}")
+                continue
+            for k in v:
+                if k not in keys:
+                    bad.append(f"재료 {mid} `{attr}` 의 `{k}` 는 물성 정의에 없다")
+                if k in have.get(mid, ()):
+                    warn.append(f"재료 {mid} `{attr}` 가 `{k}` 를 선언했는데 값이 있다 — "
+                                f"{str(name)[:44]}")
+    return bad, warn
 
 
 def main() -> int:
@@ -79,9 +128,20 @@ def main() -> int:
     if nopath:
         print(f"\n· 제목으로는 걸리지만 `path` 가 없는 줄 {len(nopath)}개 — "
               f"제목 표기가 흔들리면 죽는다. 채워 두는 편이 안전하다")
-    n = len(conflict) + len(bad) + len(stale)
+    cv_bad, cv_warn = check_core_verdicts(mt)
+    print(f"\n코어 빈칸 판정 — 읽는 자리 {len(CORE_VERDICT_ATTRS)}칸")
+    if cv_bad:
+        print(f"\n✗ **판정이 집계가 읽을 수 없는 꼴이다** {len(cv_bad)}건")
+        for x in cv_bad[:8]:
+            print(f"    {x}")
+    if cv_warn:
+        print(f"\n· 선언과 데이터가 어긋난다 {len(cv_warn)}건 — 신고만 한다(브리프 565)")
+        for x in cv_warn[:8]:
+            print(f"    {x}")
+
+    n = len(conflict) + len(bad) + len(stale) + len(cv_bad)
     print(f"\n{'✔ 이상 0개' if n == 0 else f'✗ 이상 {n}개'}")
-    return 1 if conflict or bad else 0
+    return 1 if conflict or bad or cv_bad else 0
 
 
 if __name__ == "__main__":
