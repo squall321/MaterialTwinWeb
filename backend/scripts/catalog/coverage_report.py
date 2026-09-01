@@ -812,10 +812,13 @@ def subsystem_core(db: str | None = None) -> dict:
                 row["V2"] += 1
             elif k in rej_keys:
                 row["V6"] += 1
-            elif free:
-                row["V3"] += 1
+            # V4 를 V3 보다 먼저 본다(57차 SC). V3 의 뜻은 "집계가 못 읽는 자리에 있다"인데,
+            # `identification_status` 는 집계가 읽는다 — 둘 다 달린 재료를 V3 로 세면
+            # 그 갈래의 정의 자체가 거짓이 된다.
             elif grade_undet:
                 row["V4"] += 1
+            elif free:
+                row["V3"] += 1
             else:
                 row["V5"] += 1
     rows = sorted(subs.values(), key=lambda r: -r["filled"] / max(r["cells"], 1))
