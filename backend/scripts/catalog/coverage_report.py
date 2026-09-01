@@ -826,9 +826,40 @@ VERDICT_LABEL = [
 ]
 
 
+def check_invariants(cov, props) -> list[str]:
+    """비율은 0~100, 잔여 칸은 0 이상. **어기면 수식이 아니라 모집단이 어긋난 것이다.**
+
+    이 검사가 없어서 같은 결함이 **세 번** 났다(55차 QB 가 셌다) —
+    12차 해석별 표 · 13차 요약줄 · 54차 물성 보유율 표(영률 1,001종 **115.9%**).
+    셋 다 `role` 필터가 분모에만 걸려 분자가 전 재료를 세고 있었고,
+    셋 다 **"100%를 넘는 수가 인쇄된다"** 는 같은 지문으로 사람 눈에 걸렸다.
+    사람이 세 번 잡았다는 것은 **검사가 잡을 수 있었다** 는 뜻이다.
+    13차에는 남은 일이 **−309칸**으로 인쇄된 적도 있다.
+
+    같은 수식이 여러 자리에 있으면 **수식을 고치는 대신 불변식을 걸어야** 재발이 멈춘다.
+    """
+    bad: list[str] = []
+    for r in cov:
+        n, cells, filled = r.get("scope", "?"), r.get("cells", 0), r.get("filled", 0)
+        if cells and not (0 <= filled <= cells):
+            bad.append(f"{n}: 채움 {filled} 이 대상 {cells} 밖이다")
+        if cells - r.get("unfillable", 0) < 0:
+            bad.append(f"{n}: 유효 분모가 음수다(구조적 부재 {r.get('unfillable')} > 대상 {cells})")
+    for p in props or []:
+        pct = p.get("pct")
+        if pct is not None and not (0.0 <= pct <= 100.0):
+            bad.append(f"물성 {p.get('key', '?')}: 보유율 {pct:.1f}% 가 0~100 밖이다")
+    return bad
+
+
 def main():
     c, mat, own, cov = compute()
     props = property_stats(c, mat, own)
+    _bad = check_invariants(cov, props)
+    if _bad:
+        print("✗ 지표 불변식 위반 — **수식이 아니라 모집단을 봐라**", file=sys.stderr)
+        for b in _bad:
+            print(f"    {b}", file=sys.stderr)
     if "--json" in sys.argv:
         print(json.dumps({"coverage": cov, "properties": props}, ensure_ascii=False, indent=1))
         return
