@@ -1,0 +1,123 @@
+# 58차 TD — housing 판정 JSON 생성기(일회용). 재료마다 한 행으로 합친다(브리프 610).
+import json
+
+RHO="physical.density"; E="mechanical.youngs_modulus"; NU="mechanical.poisson_ratio"
+CTE="thermal.expansion_linear"; K="thermal.conductivity"; CP="thermal.specific_heat"
+UTS="mechanical.tensile_strength"
+CORE7=[RHO,E,NU,CTE,K,CP,UTS]
+V=[]
+
+def add(mid,name,**kw): V.append(dict(material_id=mid,name=name,**kw))
+def spread(keys,reason): return {k:reason for k in keys}
+
+TD="58차 TD"
+
+# ───────────────────────── PART 1 — V3 55칸을 집계가 읽는 자리로 ─────────────────────────
+
+add(740,"KGK-200A50 acrylic PSA transfer tape, 50 um (Kyodo Giken Chemical)",
+ core_absent_from_vendor_sheet=spread(CORE7,
+  "[자리 이동 — 브리프 593·608] 46차 HD 가 교도기연화학(共同技研化学) KGK 200A·300A 시리즈 카탈로그"
+  "(2011-11, 일본어)를 실제로 받아 전수로 읽고 '코어 0/7, 확정 부재' 로 판정했는데 그 사유가 자유 키"
+  "`core_fill_sheet` 에 있어 집계가 못 읽었다(V3). 사유는 지금도 맞다 — 카탈로그가 인쇄하는 것은 "
+  "두께·색·초기점착력(N/25 mm)·승온유지력·연신 그래프뿐이고 밀도·E·ν·인장강도·CTE·열전도율·비열 행이 "
+  "하나도 없다. 제품 동정도 닫혀 있다(제품두께 열 50 µm = DB 의 층두께 5e-5 m). "
+  "`初期粘着力 18.0 N/25mm` 는 발견했으나 표가 피착재를 인쇄하지 않아 안 넣었다(브리프 121·138). "
+  f"58차 TD 가 사유를 `core_fill_sheet` 에서 이 칸으로 옮겼다(원문은 그 키에 그대로 남아 있다). — {TD}"))
+
+_ae44_nu=("[자리 이동 — 브리프 593] 46차 HD 가 Meridian Lightweight Technologies 다이캐스팅 합금 물성표의 "
+ "AE44 열을 열어 코어 6/7 을 닫으면서 '포아송비는 표에 없다(브리프 6)' 고 적었는데 그 사유가 자유 키 "
+ "`core_fill_sheet` 안에 있어 집계가 못 읽었다(V3). 사유는 지금도 맞다. "
+ "58차 TD 가 형제 문서를 하나 더 대 봤다 — NADCA A-3-11(2021) `Typical Material Properties: Mg Alloys` 는 "
+ "AZ91D·AZ81·AM60B·AM50A·AM20·**AE42**·AS41B 일곱 등급에 ν 0.35 를 인쇄하지만 **AE44 열이 없다.** "
+ "AE42 와 AE44 는 RE 함량이 다른 별개 등급이라 옮기지 않았다(브리프 586 — 이름이 비슷하다고 값을 옮기지 마라). "
+ f"— {TD}")
+add(1785,"Die-cast AE44 magnesium alloy (Mg-4Al-4RE), as-cast — Rzychoń 2009",
+    core_absent_from_vendor_sheet={NU:_ae44_nu})
+
+def _ae44_twin(h):
+    return ("[자리 이동 — 브리프 593·623] 이 레코드는 재료 1785 `AE44, as-cast` 의 **시효 시간점 시료**다 — "
+     f"자기 `merge_into` 가 '1785 (as-cast)' 를 가리키고 `core_verdict_axis`(45차 GD)가 "
+     "'AE44 는 한 합금의 시효 조건축이다 — 175 °C 1000/2000/3000 h 는 별개 재료가 아니다' 라고 이미 적어 두었다. "
+     "43차 EA 가 물성키 겹침 1.00 을 확인했고 브리프 435 도 이 쌍을 지목했다. 그런데 그 사유가 자유 키에 있어 "
+     "집계가 못 읽었다(V3 7칸). **사유는 지금도 맞고 근거가 더 세졌다** — 46차 HD 가 1785 에 Meridian 시트로 "
+     "코어 6/7 을 채워 대표 레코드가 실제로 코어를 담게 됐다(ρ 1820 · E 45 GPa · UTS 245 MPa · CTE 25.2e-6 · "
+     "k 85 · Cp 1020). 이 레코드가 담는 것은 Rzychoń 2009 의 XRD 격자상수 5행 + 상분율 3행뿐이고 "
+     f"({h} 시효점) 그것이 존재 이유다 — 코어를 복제하면 이중 계상이다(브리프 116·123·586). "
+     f"병합은 값을 옮기는 일이라 이 배치에서도 하지 않는다. — {TD}")
+
+for mid,h in ((1786,"1000 h"),(1787,"2000 h"),(1788,"3000 h")):
+    add(mid,f"Die-cast AE44 magnesium alloy (Mg-4Al-4RE), annealed 175 C {h} — Rzychoń 2009",
+        core_not_applicable=spread(CORE7,_ae44_twin(h)),
+        catalog_twin=("재료 1785 `Die-cast AE44 magnesium alloy (Mg-4Al-4RE), as-cast` 가 같은 합금의 대표 레코드다"
+                      f"(코어 6/7). 이 레코드는 Rzychoń 2009 의 175 °C {h} 시효점 XRD 8행만 담는다. "
+                      f"`merge_into: 1785` 는 그대로 살아 있다. {TD}."))
+
+add(2274,"Noryl short-glass-fiber modified PPE/PS blend, 20 wt% GF, injection moulded (Eftekhari 2016)",
+ identification_status=("미식별 — 상표명뿐이고 등급이 안 닫힌다. 원문 verbatim: 'a 20 wt% short glass fiber "
+  "reinforced modified polyphenylene ether and polystyrene resin (designated as PPE/PS), **which is known as "
+  "Noryl**'. SABIC NORYL 의 20 %GF 난연 등급이 SE1GFN2 일 개연성은 높지만 개연성은 확정이 아니다(브리프 58). "
+  "47차 IC 가 원논문(10.1016/j.compositesb.2016.04.043, Elsevier 유료) 조달을 전 경로 시도해 실패했다. "
+  "[자리 이동 — 브리프 593·608] 46차 HD 의 이 판정이 자유 키 `core_fill_sheet` 에만 있어 집계가 V3 로 세고 "
+  "있었다. 58차 TD 가 집계와 병합기가 함께 읽는 `identification_status` 로 옮겼다 — 이 키는 57차 SA 이후 "
+  f"`CURATION_KEYS` 에 들어 있어 운영까지 간다(브리프 608 이 지적한 구멍이 메워졌다). — {TD}"))
+
+_cs45=("[자리 이동 + 브리프 599 — 늙어서 거짓이 된 판정] 이 레코드의 자유 키 `core_fill_sheet` 는 "
+ "'36 S45C_medium_carbon 이 같은 합금이다 … **병합 후보**다' 라고 적혀 있는데 **그 문장은 이미 낡았다** — "
+ "49차 KC 가 병합을 실행했고(`merge_verdict: moved` · `merge_moved_to: S45C_medium_carbon Bilinear` · "
+ "`merge_moved_at: 2026-08-28`) 라이브 DB 에서 이 재료의 `property_value` 는 **0행**이다. "
+ "즉 코어 7칸은 미채굴이 아니라 **값이 이미 재료 36 으로 옮겨 간 묘비**다(브리프 435·523 — 이름·출처·판정을 "
+ "남겨 다음 파동이 '이건 이미 옮겼다' 를 알게 한다). 강 45 = GB 45钢 = JIS S45C = AISI/SAE 1045 로 "
+ "`same_alloy_basis` 가 이미 규격 등가를 못박아 두었다. 여기 코어를 채우면 재료 36 과 이중 계상이다"
+ f"(브리프 116·123·586). — {TD}")
+add(2290,"Carbon Steel 45 (Kwofie 2007 zero-mean-stress Basquin fit)",
+    core_not_applicable=spread(CORE7,_cs45),
+    catalog_twin=("재료 36 `S45C_medium_carbon Bilinear` 가 이 합금의 집이다(강 45 = JIS S45C = AISI 1045). "
+                  "49차 KC 가 이 레코드의 2행(Basquin 계수·지수)을 36 으로 옮겼고 여기는 물성 0행인 묘비다. "
+                  f"계보는 옮긴 행의 `conditions.moved_from_material` 로 따라간다. {TD}."))
+
+add(2316,"Hostaform — 폴리아세탈 코폴리머 POM-C (Böhm 1990)",
+ identification_status=("미식별 — 원문 Böhm 1990 이 상표명 `Hostaform` 만 인쇄하고 등급을 안 밝힌다. "
+  "Celanese Hostaform C 9021 일 개연성은 높지만 확정이 아니라 46차 HD 가 **Celanese 시트를 일부러 안 붙였다**"
+  "(브리프 58·140). 대신 원논문 Table 1 을 PDF 렌더로 갈라 밀도 1.41 g/cm³ 와 인장강도를 넣어 코어 2/7 이 "
+  "찼고, 남은 E·ν·CTE·k·비열 다섯 칸은 **등급이 안 닫혀서 비어 있는 것**이다. "
+  "[자리 이동 — 브리프 593·608] 이 판정이 자유 키 `core_fill_sheet` 에만 있어 집계가 V3 로 세고 있었다. "
+  f"58차 TD 가 `identification_status` 로 옮겼다(V4). — {TD}"),
+ single_property_exception=("[58차 TD — 이미 해소된 예외이므로 표시만 정리한다] 이 문장은 '이 재료는 물성이 "
+  "1개뿐이다' 로 시작하는데 46차 HD 가 이미 해소했고(물성 5개) 라이브에서도 참이 아니다. 원문은 "
+  f"`single_property_exception_before_correction` 에 그대로 보존했다(브리프 599·89 — 판정은 값처럼 늙는다). {TD}."))
+
+_delrin=("[자리 이동 — 브리프 593] 46차 HC 가 DuPont `Delrin 500 NC010 (Product Information, 990420/991021)` 를 "
+ "**실제로 열어** 코어 2/7(밀도 1420 kg/m³ ISO 1183 · 인장탄성률 3200 MPa ISO 527)을 닫으면서 "
+ "'ν·CTE·k·비열은 이 시트에 없고, 인장강도는 시트가 항복응력만 인쇄해 이름을 바꿔 넣지 않았다' 고 적었는데 "
+ "그 사유가 자유 키 `core_fill_sheet` 에 있어 집계가 못 읽었다(V3 5칸). **사유는 지금도 맞다.** "
+ "자매등급 주의도 그대로다 — 원문 Böhm 1990 Table I 이 인쇄한 등급은 `Delrin 500` 이고 `500P` 는 별개라 "
+ "**500P 시트에만 있는 CLTE(1.0~1.6 E-4/°C)는 옮기지 않았다**(브리프 140·147·178·586). "
+ "인장강도는 브리프 454 의 자리다 — 시트가 `Stress at yield` 만 인쇄한다. "
+ "⚠ 58차 TD 가 브리프 601 의 층 검사(전제품 TDS 위의 Design Guide)를 시도했으나 DuPont/Solvay 문서 서버가 "
+ f"403·404 를 돌려줘 열지 못했다 — **디자인가이드 층은 아직 안 열린 채로 남는다.** — {TD}")
+add(2317,"Delrin 500 — 폴리아세탈 호모폴리머 POM-H (Böhm 1990)",
+ core_absent_from_vendor_sheet=spread([NU,CTE,K,CP,UTS],_delrin),
+ single_property_exception=("[58차 TD — 늙어서 거짓이 된 표시] 이 문장은 '이 재료는 물성이 1개뿐이다' 라고 "
+  "적혀 있는데 46차 HC 가 밀도·인장탄성률·항복응력·파단변형·굽힘탄성률·HDT·융점·MFR·경도·흡습을 넣어 "
+  "**이미 참이 아니다.** 원문은 `single_property_exception_before_correction` 에 보존했다"
+  f"(브리프 599·89). {TD}."))
+
+_torlon=("[자리 이동 — 브리프 593] 46차 HC 가 Solvay `Torlon 4301 polyamide-imide Technical Data Sheet, "
+ "Revised 11/18/2014` 를 **실제로 열어** 코어 5/7(밀도 1460 · E 6830 MPa · CTE 2.5e-5 · k 0.53 · UTS 113 MPa)을 "
+ "닫으면서 'ν·비열은 이 시트에 없다' 고 적었는데 그 사유가 자유 키 `core_fill_sheet` 에 있어 집계가 못 읽었다"
+ "(V3 2칸). **사유는 지금도 맞다.** 브리프 6·613 과도 맞는다 — 사출 폴리머 시트는 포아송비를 구조적으로 "
+ "안 찍는다(56차 RD·57차 SA·SB 가 시트 27장에서 0장을 확인했다). "
+ "⚠ 58차 TD 가 브리프 601 의 층 검사를 시도했다 — Solvay `Torlon PAI Design Guide` 는 비열을 찍는 것으로 "
+ "알려진 상위 문서인데 solvay.com 이 403, 재판매상 미러 넷이 404/403/타임아웃이었다. "
+ f"**Design Guide 층은 아직 안 열린 채로 남는다 — 다음 파동의 표적이다.** — {TD}")
+add(2318,"Torlon 4301 — 폴리아미드이미드 PAI (Böhm 1990)",
+ core_absent_from_vendor_sheet=spread([NU,CP],_torlon),
+ single_property_exception=("[58차 TD — 늙어서 거짓이 된 표시] '이 재료는 물성이 1개뿐이다' 는 46차 HC(코어 5칸 + "
+  "덤 6칸)와 47차 ID(압축탄성률)로 **이미 참이 아니다.** 원문은 "
+  f"`single_property_exception_before_correction` 에 보존했다(브리프 599·89). {TD}."))
+
+json.dump({"batch":"58차 TD — housing V3 55칸 자리 이동","verdicts":V},
+          open("td02_housing_v3_move.json","w"),ensure_ascii=False,indent=1)
+n=sum(len(r.get("core_not_applicable",{}))+len(r.get("core_absent_from_vendor_sheet",{}))
+      +len(r.get("core_rejected_printed_value",{})) for r in V)
+print("PART1 재료",len(V),"키 단위 판정",n,"(+ V4 재료 2종)")
