@@ -67,6 +67,17 @@ RULES = [
     ("인접 열 오독 주의", "표는 한 열이 통째로 밀려 있을 수 있다. 대조군 행과 본문 서술로 검산한다."),
 ]
 
+# 검사 항목 수는 **적는 순간 늙는다**(§601) — 오래 "37항목" 이라 적혀 있었는데
+# 실제로는 SQL 45 · 파이썬 6 이었다. 검사기 소스에서 직접 센다.
+def _count_checks() -> int:
+    import pathlib
+    src = (pathlib.Path(__file__).with_name("integrity_check.py")).read_text(encoding="utf-8")
+    return sum(1 for ln in src.splitlines()
+               if ln.startswith('    ("') or "bad += 1" in ln)
+
+
+_N_CHECKS = _count_checks()
+
 CYCLE = [
     ("빈칸 탐지", "커버리지 격자를 재계산해 (재료 × 물성) 공백을 뽑는다"),
     ("표적 선정", "칸 수가 아니라 <b>칸/재료</b>와 <b>1칸 부족 재료</b>로 우선순위를 정한다"),
@@ -76,7 +87,7 @@ CYCLE = [
     ("값 검증", "규칙 6 자릿수 대조 · 자기 검산 · 원문 문자열 대조"),
     ("인제스트", "스키마·단위·조건·tier 규약을 거치지 못하면 거부한다"),
     ("반례 검증", "부재 선언에 실측 반례가 하나라도 있으면 선언을 자동 은퇴시킨다"),
-    ("무결성 검사", "37항목이 전부 0이어야 배포한다"),
+    ("무결성 검사", f"{_N_CHECKS}항목이 전부 0이어야 배포한다"),
     ("기록", "성공보다 <b>실패와 함정</b>을 남긴다 — 다음 파동이 같은 벽에 부딪히지 않도록"),
 ]
 
@@ -187,13 +198,18 @@ def main():
     A('</div></header>')
 
     A('<nav class="toc"><ol>')
-    for i, t in enumerate(["격자", "현황", "계통", "등급", "출처", "사이클", "규칙",
+    for i, t in enumerate(["경로", "격자", "현황", "계통", "등급", "출처", "사이클", "규칙",
                            "역산 경계", "부재", "검증", "성장", "남은 일"], 1):
         A(f'<li><a href="#s{i}">{t}</a></li>')
     A('</ol></nav>')
 
-    # ── 1. 격자
-    A(sec(1, "격자", "무엇을 세고 있는가"))
+    # ── 1. 경로 (그림이 메커니즘을 대신 말한다)
+    A(sec(1, "경로", "값이 어디서 와서 어디로 가는가"))
+    A(FLOW_SVG)
+    A('</section>')
+
+    # ── 2. 격자
+    A(sec(2, "격자", "무엇을 세고 있는가"))
     A(f'<p>재료 {n_mat}종 × 물성 정의 {n_def}종은 {n_mat * n_def:,}칸이지만 이것을 다 세지 않는다. '
       f'<b>세라믹에 항복강도를 요구하고 도체에 유전율을 요구하면 분모가 거짓이 된다.</b> '
       f'그래서 실제 해석 13종이 각각 요구하는 물성만 골라 <b>{tot_cells:,}칸</b>의 격자를 만들고, '
@@ -215,7 +231,7 @@ def main():
     A('</section>')
 
     # ── 2. 현황
-    A(sec(2, "현황", "해석 13종이 지금 돌아가는가"))
+    A(sec(3, "현황", "해석 13종이 지금 돌아가는가"))
     A('<div class="tblwrap"><table class="cov">')
     A('<thead><tr><th>해석</th><th class="n">대상</th><th class="n">칸</th>'
       '<th>셀 채움</th><th class="n">실측기반 %</th><th class="n">유효채움 %</th>'
@@ -243,7 +259,7 @@ def main():
     A('</section>')
 
     # ── 3. 계통 — 43·49차 태깅이 끝나 이제 계통별로 셀 수 있다.
-    A(sec(3, "계통", "어느 계통이 비었고, 그 빈칸이 무엇인가"))
+    A(sec(4, "계통", "어느 계통이 비었고, 그 빈칸이 무엇인가"))
     A(f'<p>제품 재료 {sc["total"]["n_mat"]}종을 계통으로 태깅했다. 아래는 '
       f'<b>코어 {len(sc["core"])}물성</b>(밀도·영률·포아송비·CTE·열전도율·비열·인장강도) '
       f'{sc["total"]["cells"]:,}칸의 채움률이다 — 해석 격자와 달리 <b>재료 하나가 최소한 이것은 '
@@ -271,10 +287,10 @@ def main():
       f'<td class="n mono">{t["V2"]}</td><td class="n mono">{t["V3"]}</td>'
       f'<td class="n mono">{t["V4"]}</td><td class="n mono">{t["V5"]:,}</td></tr>')
     A('</tbody></table></div>')
-    A('<p class="note"><b>"빈칸 N개"만 보면 "더 캐면 된다"로 읽힌다 — 그래서 갈랐다.</b></p>')
-    A('<div class="tblwrap"><table class="unf"><tbody>'
+    A('<details class="more"><summary>다섯 갈래가 각각 무슨 뜻인가</summary>'
+      '<div class="tblwrap"><table class="unf"><tbody>'
       + "".join(f'<tr><td class="nm">{esc(lbl)}</td><td>{esc(why)}</td></tr>'
-                for _, lbl, why in CR.VERDICT_LABEL) + '</tbody></table></div>')
+                for _, lbl, why in CR.VERDICT_LABEL) + '</tbody></table></div></details>')
     A(f'<p class="note warn"><b>빈칸 {t["blank"]:,}칸 중 실제로 캘 수 있는 것은 {t["V5"]:,}칸이다.</b> '
       f'나머지 {t["blank"] - t["V5"]}칸은 판정이 끝났거나 원리적으로 못 닫는다. '
       f'그리고 그중 {t["V3"]}칸은 <b>판정이 자유 키에 적혀 있어 이 표가 스스로 읽지 못한다</b> — '
@@ -283,7 +299,7 @@ def main():
     A('</section>')
 
     # ── 3. 등급
-    A(sec(4, "등급", "tier가 무엇을 뜻하고 왜 가정을 허용하는가"))
+    A(sec(5, "등급", "tier가 무엇을 뜻하고 왜 가정을 허용하는가"))
     A('<div class="tiers">')
     tinfo = [(1, "그 제품에 대해 인쇄된 값", "벤더 데이터시트·논문이 이 제품을 시험한 결과"),
              (2, "핸드북·규격·인증 DB", "계열 대표값이지만 권위 있는 기관이 보증한다"),
@@ -310,7 +326,7 @@ def main():
     A('</div></section>')
 
     # ── 4. 출처
-    A(sec(5, "출처", "값 하나에 문서 하나"))
+    A(sec(6, "출처", "값 하나에 문서 하나"))
     A(f'<p>스키마가 <b>출처 없는 값의 저장 자체를 거부한다</b> — 등록 API가 DOI·URL·제목 중 하나를 '
       f'요구한다. 덕분에 {n_val:,}건 전부에 출처가 붙어 있고 끊어진 참조가 0건이다. '
       f'조건(온도·주파수·방향 등)이 붙은 값은 {n_cond:,}건({n_cond * 100 / n_val:.1f}%)이다.</p>')
@@ -331,7 +347,7 @@ def main():
     A('</section>')
 
     # ── 5. 사이클
-    A(sec(6, "사이클", "한 파동에 무엇을 하는가"))
+    A(sec(7, "사이클", "한 파동에 무엇을 하는가"))
     A('<ol class="steps">')
     for i, (t, d) in enumerate(CYCLE, 1):
         A(f'<li><span class="sn">{i:02d}</span><div><b>{esc(t)}</b><p>{d}</p></div></li>')
@@ -342,7 +358,7 @@ def main():
     A('</section>')
 
     # ── 6. 규칙
-    A(sec(7, "규칙", "절대 넘지 않는 선"))
+    A(sec(8, "규칙", "절대 넘지 않는 선"))
     A('<ol class="rules">')
     for i, (t, d) in enumerate(RULES, 1):
         A(f'<li><b>{esc(t)}</b><p>{esc(d)}</p></li>')
@@ -353,11 +369,10 @@ def main():
     A('</section>')
 
     # ── 7. 역산
-    A(sec(8, "역산 경계", "무엇이 계산이고 무엇이 조작인가"))
-    A('<p>이 카탈로그에서 가장 자주 오해받는 선이다. '
-      '<b>계산 자체가 금지된 것이 아니라, 계산을 <em>누가</em> 했느냐가 갈림길이다.</b> '
-      '논문이 자기 데이터에 피팅해 발표한 상수는 옮긴다. 우리가 다른 물성에서 만들어낸 값은 넣지 않는다. '
-      '두 값은 표 위에서 똑같이 생겼기 때문에 <b>근거를 검증하지 않으면 구별되지 않는다.</b></p>')
+    A(sec(9, "역산 경계", "무엇이 계산이고 무엇이 조작인가"))
+    A('<p><b>계산이 금지된 것이 아니라, 계산을 <em>누가</em> 했느냐가 갈림길이다.</b> '
+      '원문이 자기 데이터에 피팅한 상수는 옮기고, 우리가 다른 물성에서 만들어낸 값은 넣지 않는다. '
+      '표 위에서 둘은 똑같이 생겼다.</p>')
     A('<div class="two">')
     A('<div class="box ok"><h4>옮긴다 — 원문이 계산한 것</h4><table class="mini"><tbody>')
     for t, ex, why in COMPUTED_OK:
@@ -368,6 +383,7 @@ def main():
         A(f'<tr><td class="nm">{t}<span class="where">{esc(where)}</span></td><td>{why}</td></tr>')
     A('</tbody></table></div>')
     A('</div>')
+    A('<details class="more"><summary>계산값은 지금 얼마나 있고, 역산은 어떻게 잡아내는가</summary>')
     A(f'<h4>지금 계산값으로 들어와 있는 것</h4>'
       f'<p><code>method="computed"</code>는 {methods.get("computed", 0):,}건이다. '
       f'tier 분포가 {" · ".join(f"t{t} {n}" for t, n in sorted(comp_tier.items()))}인데, '
@@ -386,38 +402,37 @@ def main():
       '<li><b>ν가 음수로 나오는가.</b> E와 G를 함께 인쇄하는 표는 이 검산으로 무너진다.</li>'
       '<li><b>대조군 행이 본문과 같은가.</b> 0 wt% 대조 행이 본문 값과 같으면 그 값은 첨가물의 것이다.</li>'
       '</ul></div>')
-    A('</div>')
+    A('</div></details>')
     A('<p class="note"><b>근거를 바꾸는 편집이 값을 바꾸는 편집보다 늦게 발각된다.</b> '
-      '생성 스크립트가 익명 문자열로 적어 둔 추정 라벨 5건이 "제목 없는 출처" 정리에서 '
-      '실제 벤더·규격 문서 이름으로 바뀌었고, 그 아래 18개 값이 문서 인용처럼 보이게 됐다. '
-      '값은 하나도 안 바뀌었는데 근거만 거짓이 됐다. 지금은 무결성 검사가 이 패턴을 잡는다.</p>')
+      '추정 라벨 5건이 출처 정리 중 실제 벤더 문서 이름으로 바뀌면서, '
+      '값은 하나도 안 바뀐 채 그 아래 18개 값의 근거만 거짓이 됐다. 지금은 검사가 이 패턴을 잡는다.</p>')
     A('</section>')
 
     # ── 8. 부재
-    A(sec(9, "부재", "채울 수 없는 칸을 분모에서 뺀다"))
+    A(sec(10, "부재", "채울 수 없는 칸을 분모에서 뺀다"))
     A(f'<p>액체에 항복강도를, 증착 도판트에 투습도를 요구하면 그 칸은 영원히 비어 있다. '
       f'분모에 남겨 두면 <b>도달할 수 없는 100%를 좇게 된다.</b> '
       f'그래서 (재료군 × 물성) 쌍 단위로 부재를 선언하고 {tot_unfill:,}칸을 분모에서 뺐다. '
       f'현재 선언 {len(CR.UNFILLABLE)}건이다.</p>')
-    A('<div class="tblwrap"><table class="unf"><tbody>')
-    for m, k, r in CR.UNFILLABLE:
-        A(f'<tr><td class="n mono">{len(k)}키</td><td>{esc(r)}</td></tr>')
-    A('</tbody></table></div>')
-    A('<p class="note"><b>선언은 주장이 아니라 반례로 검증된다.</b> 두 조건을 다 만족해야 부재로 친다 — '
-      '(1) 문서에 기록된 사유가 있다, (2) 그 군의 어느 재료도 그 물성을 <b>실측으로</b> 갖고 있지 않다. '
-      '값이 하나라도 들어오면 그 쌍은 자동으로 부재에서 빠진다. '
-      '실제로 "세라믹은 피로계수가 없다"는 선언이 알루미나 S-N 회귀식 하나에 무너졌고, '
-      '"폼엔 박리강도가 없다"는 선언이 VHB 폼테이프 반례 25건에 무너졌다.</p>')
+    A(f'<details class="more"><summary>선언 {len(CR.UNFILLABLE)}건 전부 보기</summary>'
+      '<div class="tblwrap"><table class="unf"><tbody>'
+      + "".join(f'<tr><td class="n mono">{len(k)}키</td><td>{esc(r)}</td></tr>'
+                for m, k, r in CR.UNFILLABLE) + '</tbody></table></div></details>')
+    A('<p class="note"><b>선언은 주장이 아니라 반례로 검증된다.</b> 문서에 기록된 사유가 있고, '
+      '그 군의 어느 재료도 그 물성을 <b>실측으로</b> 갖고 있지 않아야 부재로 친다 — '
+      '값이 하나라도 들어오면 그 쌍은 자동으로 빠진다. '
+      '"세라믹은 피로계수가 없다"가 알루미나 S-N 회귀식 하나에, '
+      '"폼엔 박리강도가 없다"가 VHB 반례 25건에 무너졌다.</p>')
     A('<p class="note warn"><b>전수 검색이 비었다는 것은 검색 실패와 구분되지 않는다.</b> '
-      '출처 281건을 재다운로드해 grep했는데 0건이라는 정량이 나와도, 그것만으로는 부재가 아니다. '
-      '인쇄된 부재 문장이나 기전(機轉) 논거가 있는 군만 선언에 넣고 나머지는 일감으로 남긴다.</p>')
+      '출처를 재다운로드해 grep한 결과가 0건이어도 그것만으로는 부재가 아니다 — '
+      '인쇄된 부재 문장이나 기전(機轉) 논거가 있는 군만 선언에 넣는다.</p>')
     A('</section>')
 
     # ── 9. 검증
-    A(sec(10, "검증", "다섯 겹으로 거른다"))
+    A(sec(11, "검증", "다섯 겹으로 거른다"))
     A('<div class="verify">')
     for t, d in [
-        ("무결성 검사 37항목", "구조를 본다. 출처 없는 값·단위 불일치·쌍이 깨진 모델 상수·"
+        (f"무결성 검사 {_N_CHECKS}항목", "구조를 본다. 출처 없는 값·단위 불일치·쌍이 깨진 모델 상수·"
                           "조건 없는 확산계수·근거 없는 tier4를 전부 0으로 만들어야 배포한다."),
         ("반례 검증", "부재 선언에 실측 반례가 하나라도 있으면 선언을 자동 은퇴시킨다. "
                   "우리가 만든 가정이 우리의 선언을 지우지는 못하게 tier4는 반례로 치지 않는다."),
@@ -430,25 +445,24 @@ def main():
     ]:
         A(f'<div class="vcard"><b>{esc(t)}</b><p>{esc(d)}</p></div>')
     A('</div>')
-    A('<p class="note">검사가 <b>오탐</b>을 냈을 때의 규율도 정해 뒀다. '
-      '장기계수 E∞는 Prony 급수 밖에 있어 항번호가 없는 것이 옳은데 검사가 36건을 결함으로 잡았다. '
-      '이럴 때 값을 고치는 것이 아니라 <b>검사를 고친다</b> — 다만 왜 예외인지를 코드 주석에 남긴다.</p>')
+    A('<p class="note">검사가 <b>오탐</b>을 냈을 때는 값이 아니라 <b>검사를 고친다</b> — '
+      '왜 예외인지를 코드 주석에 남긴다. Prony 급수 밖에 있는 장기계수 E∞ 36건이 그렇게 걸렸다.</p>')
     A('</section>')
 
     # ── 10. 성장
-    A(sec(11, "성장", f"{labels[0]} → {labels[-1]}"))
+    A(sec(12, "성장", f"{labels[0]} → {labels[-1]}"))
     A(f'<div class="chart"><svg viewBox="0 0 {W} {H}" preserveAspectRatio="none" role="img" '
       f'aria-label="물성값 누적 성장 곡선">'
       f'<polygon points="{area}" class="ar"/><polyline points="{poly}" class="ln"/>'
       f'<g class="dt">{dots}</g></svg>'
       f'<div class="xax"><span>{labels[0]}</span><span>{labels[-1]}</span></div></div>')
-    A(f'<p>{len(growth)}일 동안 {cum:,}건이 쌓였다. 파동 13번을 돌았고, '
+    A(f'<p>{len(growth)}일 동안 {cum:,}건이 쌓였다. 파동을 계속 돌았고, '
       f'각 파동은 <b>이전 파동이 남긴 함정 지도를 읽고 시작한다.</b> '
       f'축적되는 것은 값만이 아니라 <b>어디서 속았는지의 목록</b>이다.</p>')
     A('</section>')
 
     # ── 11. 남은 일
-    A(sec(12, "남은 일", "무엇이 실제로 남았는가"))
+    A(sec(13, "남은 일", "무엇이 실제로 남았는가"))
     A('<div class="two">')
     A(f'<div class="box"><h4>빈칸 — 거의 소진됐다</h4>'
       f'<p class="big">{remain}<em>칸</em></p>'
@@ -490,6 +504,87 @@ def main():
     print(f"  계통 {len(sc['rows'])}개 · 코어7 채움 {_t['pct']}% · 빈칸 {_t['blank']:,} "
           f"(해당없음 {_t['V1']} · 벤더부재 {_t['V2']} · 자유키판정 {_t['V3']} · "
           f"등급미확정 {_t['V4']} · 진짜 남은 것 {_t['V5']:,})")
+
+
+FLOW_SVG = """<figure class="flow">
+<svg viewBox="0 0 980 268" role="img" aria-label="원천에서 해석 카드까지 — 관문 둘이 값을 거르고, 검사기와 병합기가 DB 를 지킨다">
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
+<marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="var(--clay)"/></marker>
+</defs>
+
+<!-- 본류 -->
+<g class="fb">
+<rect x="12" y="96" width="128" height="52" rx="7"/>
+<rect x="180" y="96" width="128" height="52" rx="7"/>
+<rect x="348" y="96" width="128" height="52" rx="7"/>
+<rect x="516" y="96" width="128" height="52" rx="7"/>
+<rect x="684" y="96" width="128" height="52" rx="7"/>
+<rect x="852" y="96" width="116" height="52" rx="7"/>
+</g>
+<g class="ft">
+<text x="76" y="117">원천</text><text x="76" y="134" class="sm">논문·시트·규격</text>
+<text x="244" y="117">채굴</text><text x="244" y="134" class="sm">배치가 표를 읽는다</text>
+<text x="412" y="117">적재기</text><text x="412" y="134" class="sm">유일한 쓰기 문</text>
+<text x="580" y="117">DB</text><text x="580" y="134" class="sm">값·출처·조건</text>
+<text x="748" y="117">대표값 선택</text><text x="748" y="134" class="sm">행 여럿 중 하나</text>
+<text x="910" y="117">카드·화면</text><text x="910" y="134" class="sm">해석 입력</text>
+</g>
+
+<!-- 본류 화살표 -->
+<g class="fa">
+<line x1="140" y1="122" x2="176" y2="122" marker-end="url(#ah)"/>
+<line x1="308" y1="122" x2="344" y2="122" marker-end="url(#ah)"/>
+<line x1="476" y1="122" x2="512" y2="122" marker-end="url(#ah)"/>
+<line x1="644" y1="122" x2="680" y2="122" marker-end="url(#ah)"/>
+<line x1="812" y1="122" x2="848" y2="122" marker-end="url(#ah)"/>
+</g>
+<g class="fl">
+<text x="158" y="112">선별</text>
+<text x="326" y="112">JSON</text>
+<text x="494" y="112">저장</text>
+<text x="662" y="112">조회</text>
+<text x="830" y="112">출력</text>
+</g>
+
+<!-- 거르는 곳 둘 -->
+<g class="fa rj">
+<line x1="244" y1="148" x2="244" y2="196" marker-end="url(#ahr)"/>
+<line x1="412" y1="148" x2="412" y2="196" marker-end="url(#ahr)"/>
+</g>
+<g class="fb rj">
+<rect x="176" y="196" width="136" height="44" rx="7"/>
+<rect x="344" y="196" width="136" height="44" rx="7"/>
+</g>
+<g class="ft rj">
+<text x="244" y="215">폐기 대장</text><text x="244" y="231" class="sm">왜 안 쓰는지 남긴다</text>
+<text x="412" y="215">거부</text><text x="412" y="231" class="sm">단위·범위·출처·조건</text>
+</g>
+
+<!-- DB 를 지키는 둘 -->
+<g class="fa gd">
+<line x1="580" y1="96" x2="580" y2="62" marker-end="url(#ah)"/>
+<line x1="612" y1="62" x2="612" y2="92" marker-end="url(#ah)"/>
+</g>
+<g class="fb gd"><rect x="500" y="18" width="192" height="44" rx="7"/></g>
+<g class="ft gd">
+<text x="596" y="37">검사기 · 병합기</text>
+<text x="596" y="53" class="sm">배포 전 관문 · 운영 전파</text>
+</g>
+
+<!-- 대표값이 갈릴 때 -->
+<g class="fa alt"><line x1="748" y1="148" x2="748" y2="196" marker-end="url(#ah)"/></g>
+<g class="fb alt"><rect x="672" y="196" width="152" height="44" rx="7"/></g>
+<g class="ft alt">
+<text x="748" y="215">대안 후보 노출</text><text x="748" y="231" class="sm">진 값도 쓸 수 있다</text>
+</g>
+</svg>
+<figcaption>값은 두 관문을 지나야 DB 에 들어간다 — <b>채굴이 버린 것은 대장에</b>, <b>적재기가 거부한 것은 반려로</b> 남는다.
+DB 위에서는 검사기가 배포를 막고 병합기가 운영 전파를 책임진다. 한 재료·한 물성에 행이 여럿이면
+선택기가 하나를 고르되 <b>진 후보를 지우지 않고 함께 낸다.</b></figcaption>
+</figure>"""
 
 
 def sec(i, title, sub):
@@ -699,6 +794,30 @@ footer .gen{color:var(--ink3);opacity:.8}
   .hero{padding:48px 20px 30px} section{padding:40px 20px 6px} footer{padding:20px 20px 44px}
   .toc ol{padding:9px 20px} .blabel{flex-basis:110px}
 }
+
+.flow{margin:26px 0 8px}
+.flow svg{width:100%;height:auto;display:block;color:var(--ink2)}
+.flow .fb rect{fill:var(--card);stroke:var(--teal2);stroke-width:1.2}
+.flow .fb.rj rect{stroke:var(--clay);stroke-dasharray:4 3}
+.flow .fb.gd rect{stroke:var(--teal);stroke-width:1.6}
+.flow .fb.alt rect{stroke:var(--teal2);stroke-dasharray:4 3}
+.flow .ft text{text-anchor:middle;font-size:13px;font-weight:650;fill:var(--ink)}
+.flow .ft text.sm{font-size:10.5px;font-weight:400;fill:var(--ink3)}
+.flow .ft.rj text{fill:var(--clay)}
+.flow .ft.rj text.sm{fill:var(--ink3)}
+.flow .fa line{stroke:currentColor;stroke-width:1.4}
+.flow .fa.rj line{stroke:var(--clay);stroke-dasharray:4 3}
+.flow .fa.alt line{stroke:var(--teal2);stroke-dasharray:4 3}
+.flow .fl text{text-anchor:middle;font-family:var(--mono);font-size:10.5px;fill:var(--ink3)}
+.flow figcaption{margin-top:12px;font-size:13.5px;color:var(--ink2);max-width:none}
+details.more{margin:18px 0;border:1px solid var(--line);border-radius:9px;background:var(--card)}
+details.more>summary{cursor:pointer;padding:12px 16px;font-size:13.5px;color:var(--teal);
+                     font-weight:600;list-style:none}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary::before{content:"▸ ";color:var(--teal2)}
+details.more[open]>summary::before{content:"▾ "}
+details.more>summary:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+details.more .tblwrap{border:none;border-top:1px solid var(--line);border-radius:0}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>"""
 
