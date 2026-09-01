@@ -1,0 +1,398 @@
+{
+ "batch": "57차 SB",
+ "note": "acoustics — Eclipse NdFeB 등급자료의 공통 물성표에서 CTE·열전도율·비열 세 칸이 52차 NA 때만 빠져 있었다. 같은 표의 나머지 다섯 칸은 이미 7등급에 들어가 있다.",
+ "materials": [
+  {
+   "match_name": "NdFeB Sintered Magnet (N35)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/23180/neodymium_grades_data.pdf",
+    "title": "Sintered Neodymium Iron Boron (NdFeB) Magnets - grades data",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 4e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 2,
+     "conditions": {
+      "grade": "N35",
+      "grade_scope": "class value — 원문 물성표가 등급별이 아니라 소결 NdFeB 공통이다",
+      "temperature_c": 20,
+      "direction": null,
+      "direction_verbatim": "not stated in source (bulk)"
+     },
+     "notes": "원문 verbatim `Coeff. Of Thermal Expansion  4x10-6/°C`. 1/°C = 1/K (환산 없음). 등급표 뒤의 `Physical properties at room temperature (20°C)` 표에서 왔다. **이 표는 등급별이 아니라 소결 NdFeB 공통값**이라 grade_scope 를 class 로 박고 tier2 로 둔다 — 같은 표의 밀도 7.5 g/cm3 · 영률 1.6e11 · 포아송비 0.24 · 인장강도 8.0 kg/mm2 · 비커스 600 이 52차 NA 때 같은 규약으로 이미 7등급에 들어가 있고, 이 세 칸만 빠져 있었다. (브리프 583 의 하드페라이트와 반대 방향의 판정이다 — 거기는 복제하지 않기로 했고 여기는 이미 복제해 둔 계보가 있어 그 계보를 따른다. 섞으면 한 재료 안에서 규약이 갈린다.) ⚠ **방향이 인쇄돼 있지 않다.** 소결 이방성 NdFeB 의 CTE 는 배향축 평행(+3~5e-6)과 수직(음수까지 간다)이 크게 갈리는데 시트는 한 숫자만 찍는다 — 인쇄값 4e-6 은 통용 평행값 대역에 앉는다. 방향을 우리가 배정하지 않고 direction=null 로 두었다(브리프 3·21)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 8.955,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 2,
+     "conditions": {
+      "grade": "N35",
+      "grade_scope": "class value — 원문 물성표가 등급별이 아니라 소결 NdFeB 공통이다",
+      "temperature_c": 20,
+      "direction": null,
+      "direction_verbatim": "not stated in source (bulk)"
+     },
+     "notes": "원문 verbatim `Thermal Conductivity  7.7 kcal/(m.h. °C)`. 7.7 x 4186.8 J/kcal / 3600 s/h = 8.955 W/(m*K) (단위 환산만 했다 — 다른 물성에서 역산하지 않았다). 등급표 뒤의 `Physical properties at room temperature (20°C)` 표에서 왔다. **이 표는 등급별이 아니라 소결 NdFeB 공통값**이라 grade_scope 를 class 로 박고 tier2 로 둔다 — 같은 표의 밀도 7.5 g/cm3 · 영률 1.6e11 · 포아송비 0.24 · 인장강도 8.0 kg/mm2 · 비커스 600 이 52차 NA 때 같은 규약으로 이미 7등급에 들어가 있고, 이 세 칸만 빠져 있었다. (브리프 583 의 하드페라이트와 반대 방향의 판정이다 — 거기는 복제하지 않기로 했고 여기는 이미 복제해 둔 계보가 있어 그 계보를 따른다. 섞으면 한 재료 안에서 규약이 갈린다.) 검산 — 소결 NdFeB 통용 열전도율 7~9 W/(m*K) 안이다. 교차검산 — 세 값이 서로를 지지한다. 열확산율 a = k/(rho*Cp) = 8.955/(7500*502.4) = 2.38e-6 m2/s 로 소결 NdFeB 문헌 통용범위(2.3~2.5e-6)에 든다. rho 는 **같은 표의 7.5 g/cm3** 를 썼다(다른 문서를 섞지 않았다)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 502.4,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 2,
+     "conditions": {
+      "grade": "N35",
+      "grade_scope": "class value — 원문 물성표가 등급별이 아니라 소결 NdFeB 공통이다",
+      "temperature_c": 20
+     },
+     "notes": "원문 verbatim `Specific Heat  0.12 kcal/(kg,°C)`. 0.12 x 4186.8 J/kcal = 502.4 J/(kg*K) (단위 환산만 했다). ⚠ 인쇄값이 유효숫자 2자리라 502.4 의 뒷자리를 정밀도로 읽지 마라 — 약 5.0e2 다. 등급표 뒤의 `Physical properties at room temperature (20°C)` 표에서 왔다. **이 표는 등급별이 아니라 소결 NdFeB 공통값**이라 grade_scope 를 class 로 박고 tier2 로 둔다 — 같은 표의 밀도 7.5 g/cm3 · 영률 1.6e11 · 포아송비 0.24 · 인장강도 8.0 kg/mm2 · 비커스 600 이 52차 NA 때 같은 규약으로 이미 7등급에 들어가 있고, 이 세 칸만 빠져 있었다. (브리프 583 의 하드페라이트와 반대 방향의 판정이다 — 거기는 복제하지 않기로 했고 여기는 이미 복제해 둔 계보가 있어 그 계보를 따른다. 섞으면 한 재료 안에서 규약이 갈린다.) 검산 — 소결 NdFeB 통용 비열 440~510 J/(kg*K) 안이다. 교차검산 — 세 값이 서로를 지지한다. 열확산율 a = k/(rho*Cp) = 8.955/(7500*502.4) = 2.38e-6 m2/s 로 소결 NdFeB 문헌 통용범위(2.3~2.5e-6)에 든다. rho 는 **같은 표의 7.5 g/cm3** 를 썼다(다른 문서를 섞지 않았다)."
+    }
+   ]
+  },
+  {
+   "match_name": "NdFeB Sintered Magnet (N38)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/23180/neodymium_grades_data.pdf",
+    "title": "Sintered Neodymium Iron Boron (NdFeB) Magnets - grades data",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 4e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 2,
+     "conditions": {
+      "grade": "N38",
+      "grade_scope": "class value — 원문 물성표가 등급별이 아니라 소결 NdFeB 공통이다",
+      "temperature_c": 20,
+      "direction": null,
+      "direction_verbatim": "not stated in source (bulk)"
+     },
+     "notes": "원문 verbatim `Coeff. Of Thermal Expansion  4x10-6/°C`. 1/°C = 1/K (환산 없음). 등급표 뒤의 `Physical properties at room temperature (20°C)` 표에서 왔다. **이 표는 등급별이 아니라 소결 NdFeB 공통값**이라 grade_scope 를 class 로 박고 tier2 로 둔다 — 같은 표의 밀도 7.5 g/cm3 · 영률 1.6e11 · 포아송비 0.24 · 인장강도 8.0 kg/mm2 · 비커스 600 이 52차 NA 때 같은 규약으로 이미 7등급에 들어가 있고, 이 세 칸만 빠져 있었다. (브리프 583 의 하드페라이트와 반대 방향의 판정이다 — 거기는 복제하지 않기로 했고 여기는 이미 복제해 둔 계보가 있어 그 계보를 따른다. 섞으면 한 재료 안에서 규약이 갈린다.) ⚠ **방향이 인쇄돼 있지 않다.** 소결 이방성 NdFeB 의 CTE 는 배향축 평행(+3~5e-6)과 수직(음수까지 간다)이 크게 갈리는데 시트는 한 숫자만 찍는다 — 인쇄값 4e-6 은 통용 평행값 대역에 앉는다. 방향을 우리가 배정하지 않고 direction=null 로 두었다(브리프 3·21)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 8.955,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 2,
+     "conditions": {
+      "grade": "N38",
+      "grade_scope": "class value — 원문 물성표가 등급별이 아니라 소결 NdFeB 공통이다",
+      "temperature_c": 20,
+      "direction": null,
+      "direction_verbatim": "not stated in source (bulk)"
+     },
+     "notes": "원문 verbatim `Thermal Conductivity  7.7 kcal/(m.h. °C)`. 7.7 x 4186.8 J/kcal / 3600 s/h = 8.955 W/(m*K) (단위 환산만 했다 — 다른 물성에서 역산하지 않았다). 등급표 뒤의 `Physical properties at room temperature (20°C)` 표에서 왔다. **이 표는 등급별이 아니라 소결 NdFeB 공통값**이라 grade_scope 를 class 로 박고 tier2 로 둔다 — 같은 표의 밀도 7.5 g/cm3 · 영률 1.6e11 · 포아송비 0.24 · 인장강도 8.0 kg/mm2 · 비커스 600 이 52차 NA 때 같은 규약으로 이미 7등급에 들어가 있고, 이 세 칸만 빠져 있었다. (브리프 583 의 하드페라이트와 반대 방향의 판정이다 — 거기는 복제하지 않기로 했고 여기는 이미 복제해 둔 계보가 있어 그 계보를 따른다. 섞으면 한 재료 안에서 규약이 갈린다.) 검산 — 소결 NdFeB 통용 열전도율 7~9 W/(m*K) 안이다. 교차검산 — 세 값이 서로를 지지한다. 열확산율 a = k/(rho*Cp) = 8.955/(7500*502.4) = 2.38e-6 m2/s 로 소결 NdFeB 문헌 통용범위(2.3~2.5e-6)에 든다. rho 는 **같은 표의 7.5 g/cm3** 를 썼다(다른 문서를 섞지 않았다)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 502.4,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 2,
+     "conditions": {
+      "grade": "N38",
+      "grade_scope": "class value — 원문 물성표가 등급별이 아니라 소결 NdFeB 공통이다",
+      "temperature_c": 20
+     },
+     "notes": "원문 verbatim `Specific Heat  0.12 kcal/(kg,°C)`. 0.12 x 4186.8 J/kcal = 502.4 J/(kg*K) (단위 환산만 했다). ⚠ 인쇄값이 유효숫자 2자리라 502.4 의 뒷자리를 정밀도로 읽지 마라 — 약 5.0e2 다. 등급표 뒤의 `Physical properties at room temperature (20°C)` 표에서 왔다. **이 표는 등급별이 아니라 소결 NdFeB 공통값**이라 grade_scope 를 class 로 박고 tier2 로 둔다 — 같은 표의 밀도 7.5 g/cm3 · 영률 1.6e11 · 포아송비 0.24 · 인장강도 8.0 kg/mm2 · 비커스 600 이 52차 NA 때 같은 규약으로 이미 7등급에 들어가 있고, 이 세 칸만 빠져 있었다. (브리프 583 의 하드페라이트와 반대 방향의 판정이다 — 거기는 복제하지 않기로 했고 여기는 이미 복제해 둔 계보가 있어 그 계보를 따른다. 섞으면 한 재료 안에서 규약이 갈린다.) 검산 — 소결 NdFeB 통용 비열 440~510 J/(kg*K) 안이다. 교차검산 — 세 값이 서로를 지지한다. 열확산율 a = k/(rho*Cp) = 8.955/(7500*502.4) = 2.38e-6 m2/s 로 소결 NdFeB 문헌 통용범위(2.3~2.5e-6)에 든다. rho 는 **같은 표의 7.5 g/cm3** 를 썼다(다른 문서를 섞지 않았다)."
+    }
+   ]
+  },
+  {
+   "match_name": "NdFeB Sintered Magnet (N40)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/23180/neodymium_grades_data.pdf",
+    "title": "Sintered Neodymium Iron Boron (NdFeB) Magnets - grades data",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 4e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 2,
+     "conditions": {
+      "grade": "N40",
+      "grade_scope": "class value — 원문 물성표가 등급별이 아니라 소결 NdFeB 공통이다",
+      "temperature_c": 20,
+      "direction": null,
+      "direction_verbatim": "not stated in source (bulk)"
+     },
+     "notes": "원문 verbatim `Coeff. Of Thermal Expansion  4x10-6/°C`. 1/°C = 1/K (환산 없음). 등급표 뒤의 `Physical properties at room temperature (20°C)` 표에서 왔다. **이 표는 등급별이 아니라 소결 NdFeB 공통값**이라 grade_scope 를 class 로 박고 tier2 로 둔다 — 같은 표의 밀도 7.5 g/cm3 · 영률 1.6e11 · 포아송비 0.24 · 인장강도 8.0 kg/mm2 · 비커스 600 이 52차 NA 때 같은 규약으로 이미 7등급에 들어가 있고, 이 세 칸만 빠져 있었다. (브리프 583 의 하드페라이트와 반대 방향의 판정이다 — 거기는 복제하지 않기로 했고 여기는 이미 복제해 둔 계보가 있어 그 계보를 따른다. 섞으면 한 재료 안에서 규약이 갈린다.) ⚠ **방향이 인쇄돼 있지 않다.** 소결 이방성 NdFeB 의 CTE 는 배향축 평행(+3~5e-6)과 수직(음수까지 간다)이 크게 갈리는데 시트는 한 숫자만 찍는다 — 인쇄값 4e-6 은 통용 평행값 대역에 앉는다. 방향을 우리가 배정하지 않고 direction=null 로 두었다(브리프 3·21)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 8.955,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 2,
+     "conditions": {
+      "grade": "N40",
+      "grade_scope": "class value — 원문 물성표가 등급별이 아니라 소결 NdFeB 공통이다",
+      "temperature_c": 20,
+      "direction": null,
+      "direction_verbatim": "not stated in source (bulk)"
+     },
+     "notes": "원문 verbatim `Thermal Conductivity  7.7 kcal/(m.h. °C)`. 7.7 x 4186.8 J/kcal / 3600 s/h = 8.955 W/(m*K) (단위 환산만 했다 — 다른 물성에서 역산하지 않았다). 등급표 뒤의 `Physical properties at room temperature (20°C)` 표에서 왔다. **이 표는 등급별이 아니라 소결 NdFeB 공통값**이라 grade_scope 를 class 로 박고 tier2 로 둔다 — 같은 표의 밀도 7.5 g/cm3 · 영률 1.6e11 · 포아송비 0.24 · 인장강도 8.0 kg/mm2 · 비커스 600 이 52차 NA 때 같은 규약으로 이미 7등급에 들어가 있고, 이 세 칸만 빠져 있었다. (브리프 583 의 하드페라이트와 반대 방향의 판정이다 — 거기는 복제하지 않기로 했고 여기는 이미 복제해 둔 계보가 있어 그 계보를 따른다. 섞으면 한 재료 안에서 규약이 갈린다.) 검산 — 소결 NdFeB 통용 열전도율 7~9 W/(m*K) 안이다. 교차검산 — 세 값이 서로를 지지한다. 열확산율 a = k/(rho*Cp) = 8.955/(7500*502.4) = 2.38e-6 m2/s 로 소결 NdFeB 문헌 통용범위(2.3~2.5e-6)에 든다. rho 는 **같은 표의 7.5 g/cm3** 를 썼다(다른 문서를 섞지 않았다)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 502.4,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 2,
+     "conditions": {
+      "grade": "N40",
+      "grade_scope": "class value — 원문 물성표가 등급별이 아니라 소결 NdFeB 공통이다",
+      "temperature_c": 20
+     },
+     "notes": "원문 verbatim `Specific Heat  0.12 kcal/(kg,°C)`. 0.12 x 4186.8 J/kcal = 502.4 J/(kg*K) (단위 환산만 했다). ⚠ 인쇄값이 유효숫자 2자리라 502.4 의 뒷자리를 정밀도로 읽지 마라 — 약 5.0e2 다. 등급표 뒤의 `Physical properties at room temperature (20°C)` 표에서 왔다. **이 표는 등급별이 아니라 소결 NdFeB 공통값**이라 grade_scope 를 class 로 박고 tier2 로 둔다 — 같은 표의 밀도 7.5 g/cm3 · 영률 1.6e11 · 포아송비 0.24 · 인장강도 8.0 kg/mm2 · 비커스 600 이 52차 NA 때 같은 규약으로 이미 7등급에 들어가 있고, 이 세 칸만 빠져 있었다. (브리프 583 의 하드페라이트와 반대 방향의 판정이다 — 거기는 복제하지 않기로 했고 여기는 이미 복제해 둔 계보가 있어 그 계보를 따른다. 섞으면 한 재료 안에서 규약이 갈린다.) 검산 — 소결 NdFeB 통용 비열 440~510 J/(kg*K) 안이다. 교차검산 — 세 값이 서로를 지지한다. 열확산율 a = k/(rho*Cp) = 8.955/(7500*502.4) = 2.38e-6 m2/s 로 소결 NdFeB 문헌 통용범위(2.3~2.5e-6)에 든다. rho 는 **같은 표의 7.5 g/cm3** 를 썼다(다른 문서를 섞지 않았다)."
+    }
+   ]
+  },
+  {
+   "match_name": "NdFeB Sintered Magnet (N42)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/23180/neodymium_grades_data.pdf",
+    "title": "Sintered Neodymium Iron Boron (NdFeB) Magnets - grades data",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 4e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 2,
+     "conditions": {
+      "grade": "N42",
+      "grade_scope": "class value — 원문 물성표가 등급별이 아니라 소결 NdFeB 공통이다",
+      "temperature_c": 20,
+      "direction": null,
+      "direction_verbatim": "not stated in source (bulk)"
+     },
+     "notes": "원문 verbatim `Coeff. Of Thermal Expansion  4x10-6/°C`. 1/°C = 1/K (환산 없음). 등급표 뒤의 `Physical properties at room temperature (20°C)` 표에서 왔다. **이 표는 등급별이 아니라 소결 NdFeB 공통값**이라 grade_scope 를 class 로 박고 tier2 로 둔다 — 같은 표의 밀도 7.5 g/cm3 · 영률 1.6e11 · 포아송비 0.24 · 인장강도 8.0 kg/mm2 · 비커스 600 이 52차 NA 때 같은 규약으로 이미 7등급에 들어가 있고, 이 세 칸만 빠져 있었다. (브리프 583 의 하드페라이트와 반대 방향의 판정이다 — 거기는 복제하지 않기로 했고 여기는 이미 복제해 둔 계보가 있어 그 계보를 따른다. 섞으면 한 재료 안에서 규약이 갈린다.) ⚠ **방향이 인쇄돼 있지 않다.** 소결 이방성 NdFeB 의 CTE 는 배향축 평행(+3~5e-6)과 수직(음수까지 간다)이 크게 갈리는데 시트는 한 숫자만 찍는다 — 인쇄값 4e-6 은 통용 평행값 대역에 앉는다. 방향을 우리가 배정하지 않고 direction=null 로 두었다(브리프 3·21)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 8.955,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 2,
+     "conditions": {
+      "grade": "N42",
+      "grade_scope": "class value — 원문 물성표가 등급별이 아니라 소결 NdFeB 공통이다",
+      "temperature_c": 20,
+      "direction": null,
+      "direction_verbatim": "not stated in source (bulk)"
+     },
+     "notes": "원문 verbatim `Thermal Conductivity  7.7 kcal/(m.h. °C)`. 7.7 x 4186.8 J/kcal / 3600 s/h = 8.955 W/(m*K) (단위 환산만 했다 — 다른 물성에서 역산하지 않았다). 등급표 뒤의 `Physical properties at room temperature (20°C)` 표에서 왔다. **이 표는 등급별이 아니라 소결 NdFeB 공통값**이라 grade_scope 를 class 로 박고 tier2 로 둔다 — 같은 표의 밀도 7.5 g/cm3 · 영률 1.6e11 · 포아송비 0.24 · 인장강도 8.0 kg/mm2 · 비커스 600 이 52차 NA 때 같은 규약으로 이미 7등급에 들어가 있고, 이 세 칸만 빠져 있었다. (브리프 583 의 하드페라이트와 반대 방향의 판정이다 — 거기는 복제하지 않기로 했고 여기는 이미 복제해 둔 계보가 있어 그 계보를 따른다. 섞으면 한 재료 안에서 규약이 갈린다.) 검산 — 소결 NdFeB 통용 열전도율 7~9 W/(m*K) 안이다. 교차검산 — 세 값이 서로를 지지한다. 열확산율 a = k/(rho*Cp) = 8.955/(7500*502.4) = 2.38e-6 m2/s 로 소결 NdFeB 문헌 통용범위(2.3~2.5e-6)에 든다. rho 는 **같은 표의 7.5 g/cm3** 를 썼다(다른 문서를 섞지 않았다)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 502.4,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 2,
+     "conditions": {
+      "grade": "N42",
+      "grade_scope": "class value — 원문 물성표가 등급별이 아니라 소결 NdFeB 공통이다",
+      "temperature_c": 20
+     },
+     "notes": "원문 verbatim `Specific Heat  0.12 kcal/(kg,°C)`. 0.12 x 4186.8 J/kcal = 502.4 J/(kg*K) (단위 환산만 했다). ⚠ 인쇄값이 유효숫자 2자리라 502.4 의 뒷자리를 정밀도로 읽지 마라 — 약 5.0e2 다. 등급표 뒤의 `Physical properties at room temperature (20°C)` 표에서 왔다. **이 표는 등급별이 아니라 소결 NdFeB 공통값**이라 grade_scope 를 class 로 박고 tier2 로 둔다 — 같은 표의 밀도 7.5 g/cm3 · 영률 1.6e11 · 포아송비 0.24 · 인장강도 8.0 kg/mm2 · 비커스 600 이 52차 NA 때 같은 규약으로 이미 7등급에 들어가 있고, 이 세 칸만 빠져 있었다. (브리프 583 의 하드페라이트와 반대 방향의 판정이다 — 거기는 복제하지 않기로 했고 여기는 이미 복제해 둔 계보가 있어 그 계보를 따른다. 섞으면 한 재료 안에서 규약이 갈린다.) 검산 — 소결 NdFeB 통용 비열 440~510 J/(kg*K) 안이다. 교차검산 — 세 값이 서로를 지지한다. 열확산율 a = k/(rho*Cp) = 8.955/(7500*502.4) = 2.38e-6 m2/s 로 소결 NdFeB 문헌 통용범위(2.3~2.5e-6)에 든다. rho 는 **같은 표의 7.5 g/cm3** 를 썼다(다른 문서를 섞지 않았다)."
+    }
+   ]
+  },
+  {
+   "match_name": "NdFeB Sintered Magnet (N45)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/23180/neodymium_grades_data.pdf",
+    "title": "Sintered Neodymium Iron Boron (NdFeB) Magnets - grades data",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 4e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 2,
+     "conditions": {
+      "grade": "N45",
+      "grade_scope": "class value — 원문 물성표가 등급별이 아니라 소결 NdFeB 공통이다",
+      "temperature_c": 20,
+      "direction": null,
+      "direction_verbatim": "not stated in source (bulk)"
+     },
+     "notes": "원문 verbatim `Coeff. Of Thermal Expansion  4x10-6/°C`. 1/°C = 1/K (환산 없음). 등급표 뒤의 `Physical properties at room temperature (20°C)` 표에서 왔다. **이 표는 등급별이 아니라 소결 NdFeB 공통값**이라 grade_scope 를 class 로 박고 tier2 로 둔다 — 같은 표의 밀도 7.5 g/cm3 · 영률 1.6e11 · 포아송비 0.24 · 인장강도 8.0 kg/mm2 · 비커스 600 이 52차 NA 때 같은 규약으로 이미 7등급에 들어가 있고, 이 세 칸만 빠져 있었다. (브리프 583 의 하드페라이트와 반대 방향의 판정이다 — 거기는 복제하지 않기로 했고 여기는 이미 복제해 둔 계보가 있어 그 계보를 따른다. 섞으면 한 재료 안에서 규약이 갈린다.) ⚠ **방향이 인쇄돼 있지 않다.** 소결 이방성 NdFeB 의 CTE 는 배향축 평행(+3~5e-6)과 수직(음수까지 간다)이 크게 갈리는데 시트는 한 숫자만 찍는다 — 인쇄값 4e-6 은 통용 평행값 대역에 앉는다. 방향을 우리가 배정하지 않고 direction=null 로 두었다(브리프 3·21)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 8.955,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 2,
+     "conditions": {
+      "grade": "N45",
+      "grade_scope": "class value — 원문 물성표가 등급별이 아니라 소결 NdFeB 공통이다",
+      "temperature_c": 20,
+      "direction": null,
+      "direction_verbatim": "not stated in source (bulk)"
+     },
+     "notes": "원문 verbatim `Thermal Conductivity  7.7 kcal/(m.h. °C)`. 7.7 x 4186.8 J/kcal / 3600 s/h = 8.955 W/(m*K) (단위 환산만 했다 — 다른 물성에서 역산하지 않았다). 등급표 뒤의 `Physical properties at room temperature (20°C)` 표에서 왔다. **이 표는 등급별이 아니라 소결 NdFeB 공통값**이라 grade_scope 를 class 로 박고 tier2 로 둔다 — 같은 표의 밀도 7.5 g/cm3 · 영률 1.6e11 · 포아송비 0.24 · 인장강도 8.0 kg/mm2 · 비커스 600 이 52차 NA 때 같은 규약으로 이미 7등급에 들어가 있고, 이 세 칸만 빠져 있었다. (브리프 583 의 하드페라이트와 반대 방향의 판정이다 — 거기는 복제하지 않기로 했고 여기는 이미 복제해 둔 계보가 있어 그 계보를 따른다. 섞으면 한 재료 안에서 규약이 갈린다.) 검산 — 소결 NdFeB 통용 열전도율 7~9 W/(m*K) 안이다. 교차검산 — 세 값이 서로를 지지한다. 열확산율 a = k/(rho*Cp) = 8.955/(7500*502.4) = 2.38e-6 m2/s 로 소결 NdFeB 문헌 통용범위(2.3~2.5e-6)에 든다. rho 는 **같은 표의 7.5 g/cm3** 를 썼다(다른 문서를 섞지 않았다)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 502.4,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 2,
+     "conditions": {
+      "grade": "N45",
+      "grade_scope": "class value — 원문 물성표가 등급별이 아니라 소결 NdFeB 공통이다",
+      "temperature_c": 20
+     },
+     "notes": "원문 verbatim `Specific Heat  0.12 kcal/(kg,°C)`. 0.12 x 4186.8 J/kcal = 502.4 J/(kg*K) (단위 환산만 했다). ⚠ 인쇄값이 유효숫자 2자리라 502.4 의 뒷자리를 정밀도로 읽지 마라 — 약 5.0e2 다. 등급표 뒤의 `Physical properties at room temperature (20°C)` 표에서 왔다. **이 표는 등급별이 아니라 소결 NdFeB 공통값**이라 grade_scope 를 class 로 박고 tier2 로 둔다 — 같은 표의 밀도 7.5 g/cm3 · 영률 1.6e11 · 포아송비 0.24 · 인장강도 8.0 kg/mm2 · 비커스 600 이 52차 NA 때 같은 규약으로 이미 7등급에 들어가 있고, 이 세 칸만 빠져 있었다. (브리프 583 의 하드페라이트와 반대 방향의 판정이다 — 거기는 복제하지 않기로 했고 여기는 이미 복제해 둔 계보가 있어 그 계보를 따른다. 섞으면 한 재료 안에서 규약이 갈린다.) 검산 — 소결 NdFeB 통용 비열 440~510 J/(kg*K) 안이다. 교차검산 — 세 값이 서로를 지지한다. 열확산율 a = k/(rho*Cp) = 8.955/(7500*502.4) = 2.38e-6 m2/s 로 소결 NdFeB 문헌 통용범위(2.3~2.5e-6)에 든다. rho 는 **같은 표의 7.5 g/cm3** 를 썼다(다른 문서를 섞지 않았다)."
+    }
+   ]
+  },
+  {
+   "match_name": "NdFeB Sintered Magnet (N48)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/23180/neodymium_grades_data.pdf",
+    "title": "Sintered Neodymium Iron Boron (NdFeB) Magnets - grades data",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 4e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 2,
+     "conditions": {
+      "grade": "N48",
+      "grade_scope": "class value — 원문 물성표가 등급별이 아니라 소결 NdFeB 공통이다",
+      "temperature_c": 20,
+      "direction": null,
+      "direction_verbatim": "not stated in source (bulk)"
+     },
+     "notes": "원문 verbatim `Coeff. Of Thermal Expansion  4x10-6/°C`. 1/°C = 1/K (환산 없음). 등급표 뒤의 `Physical properties at room temperature (20°C)` 표에서 왔다. **이 표는 등급별이 아니라 소결 NdFeB 공통값**이라 grade_scope 를 class 로 박고 tier2 로 둔다 — 같은 표의 밀도 7.5 g/cm3 · 영률 1.6e11 · 포아송비 0.24 · 인장강도 8.0 kg/mm2 · 비커스 600 이 52차 NA 때 같은 규약으로 이미 7등급에 들어가 있고, 이 세 칸만 빠져 있었다. (브리프 583 의 하드페라이트와 반대 방향의 판정이다 — 거기는 복제하지 않기로 했고 여기는 이미 복제해 둔 계보가 있어 그 계보를 따른다. 섞으면 한 재료 안에서 규약이 갈린다.) ⚠ **방향이 인쇄돼 있지 않다.** 소결 이방성 NdFeB 의 CTE 는 배향축 평행(+3~5e-6)과 수직(음수까지 간다)이 크게 갈리는데 시트는 한 숫자만 찍는다 — 인쇄값 4e-6 은 통용 평행값 대역에 앉는다. 방향을 우리가 배정하지 않고 direction=null 로 두었다(브리프 3·21)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 8.955,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 2,
+     "conditions": {
+      "grade": "N48",
+      "grade_scope": "class value — 원문 물성표가 등급별이 아니라 소결 NdFeB 공통이다",
+      "temperature_c": 20,
+      "direction": null,
+      "direction_verbatim": "not stated in source (bulk)"
+     },
+     "notes": "원문 verbatim `Thermal Conductivity  7.7 kcal/(m.h. °C)`. 7.7 x 4186.8 J/kcal / 3600 s/h = 8.955 W/(m*K) (단위 환산만 했다 — 다른 물성에서 역산하지 않았다). 등급표 뒤의 `Physical properties at room temperature (20°C)` 표에서 왔다. **이 표는 등급별이 아니라 소결 NdFeB 공통값**이라 grade_scope 를 class 로 박고 tier2 로 둔다 — 같은 표의 밀도 7.5 g/cm3 · 영률 1.6e11 · 포아송비 0.24 · 인장강도 8.0 kg/mm2 · 비커스 600 이 52차 NA 때 같은 규약으로 이미 7등급에 들어가 있고, 이 세 칸만 빠져 있었다. (브리프 583 의 하드페라이트와 반대 방향의 판정이다 — 거기는 복제하지 않기로 했고 여기는 이미 복제해 둔 계보가 있어 그 계보를 따른다. 섞으면 한 재료 안에서 규약이 갈린다.) 검산 — 소결 NdFeB 통용 열전도율 7~9 W/(m*K) 안이다. 교차검산 — 세 값이 서로를 지지한다. 열확산율 a = k/(rho*Cp) = 8.955/(7500*502.4) = 2.38e-6 m2/s 로 소결 NdFeB 문헌 통용범위(2.3~2.5e-6)에 든다. rho 는 **같은 표의 7.5 g/cm3** 를 썼다(다른 문서를 섞지 않았다)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 502.4,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 2,
+     "conditions": {
+      "grade": "N48",
+      "grade_scope": "class value — 원문 물성표가 등급별이 아니라 소결 NdFeB 공통이다",
+      "temperature_c": 20
+     },
+     "notes": "원문 verbatim `Specific Heat  0.12 kcal/(kg,°C)`. 0.12 x 4186.8 J/kcal = 502.4 J/(kg*K) (단위 환산만 했다). ⚠ 인쇄값이 유효숫자 2자리라 502.4 의 뒷자리를 정밀도로 읽지 마라 — 약 5.0e2 다. 등급표 뒤의 `Physical properties at room temperature (20°C)` 표에서 왔다. **이 표는 등급별이 아니라 소결 NdFeB 공통값**이라 grade_scope 를 class 로 박고 tier2 로 둔다 — 같은 표의 밀도 7.5 g/cm3 · 영률 1.6e11 · 포아송비 0.24 · 인장강도 8.0 kg/mm2 · 비커스 600 이 52차 NA 때 같은 규약으로 이미 7등급에 들어가 있고, 이 세 칸만 빠져 있었다. (브리프 583 의 하드페라이트와 반대 방향의 판정이다 — 거기는 복제하지 않기로 했고 여기는 이미 복제해 둔 계보가 있어 그 계보를 따른다. 섞으면 한 재료 안에서 규약이 갈린다.) 검산 — 소결 NdFeB 통용 비열 440~510 J/(kg*K) 안이다. 교차검산 — 세 값이 서로를 지지한다. 열확산율 a = k/(rho*Cp) = 8.955/(7500*502.4) = 2.38e-6 m2/s 로 소결 NdFeB 문헌 통용범위(2.3~2.5e-6)에 든다. rho 는 **같은 표의 7.5 g/cm3** 를 썼다(다른 문서를 섞지 않았다)."
+    }
+   ]
+  },
+  {
+   "match_name": "NdFeB Sintered Magnet (N50)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/23180/neodymium_grades_data.pdf",
+    "title": "Sintered Neodymium Iron Boron (NdFeB) Magnets - grades data",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 4e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 2,
+     "conditions": {
+      "grade": "N50",
+      "grade_scope": "class value — 원문 물성표가 등급별이 아니라 소결 NdFeB 공통이다",
+      "temperature_c": 20,
+      "direction": null,
+      "direction_verbatim": "not stated in source (bulk)"
+     },
+     "notes": "원문 verbatim `Coeff. Of Thermal Expansion  4x10-6/°C`. 1/°C = 1/K (환산 없음). 등급표 뒤의 `Physical properties at room temperature (20°C)` 표에서 왔다. **이 표는 등급별이 아니라 소결 NdFeB 공통값**이라 grade_scope 를 class 로 박고 tier2 로 둔다 — 같은 표의 밀도 7.5 g/cm3 · 영률 1.6e11 · 포아송비 0.24 · 인장강도 8.0 kg/mm2 · 비커스 600 이 52차 NA 때 같은 규약으로 이미 7등급에 들어가 있고, 이 세 칸만 빠져 있었다. (브리프 583 의 하드페라이트와 반대 방향의 판정이다 — 거기는 복제하지 않기로 했고 여기는 이미 복제해 둔 계보가 있어 그 계보를 따른다. 섞으면 한 재료 안에서 규약이 갈린다.) ⚠ **방향이 인쇄돼 있지 않다.** 소결 이방성 NdFeB 의 CTE 는 배향축 평행(+3~5e-6)과 수직(음수까지 간다)이 크게 갈리는데 시트는 한 숫자만 찍는다 — 인쇄값 4e-6 은 통용 평행값 대역에 앉는다. 방향을 우리가 배정하지 않고 direction=null 로 두었다(브리프 3·21)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 8.955,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 2,
+     "conditions": {
+      "grade": "N50",
+      "grade_scope": "class value — 원문 물성표가 등급별이 아니라 소결 NdFeB 공통이다",
+      "temperature_c": 20,
+      "direction": null,
+      "direction_verbatim": "not stated in source (bulk)"
+     },
+     "notes": "원문 verbatim `Thermal Conductivity  7.7 kcal/(m.h. °C)`. 7.7 x 4186.8 J/kcal / 3600 s/h = 8.955 W/(m*K) (단위 환산만 했다 — 다른 물성에서 역산하지 않았다). 등급표 뒤의 `Physical properties at room temperature (20°C)` 표에서 왔다. **이 표는 등급별이 아니라 소결 NdFeB 공통값**이라 grade_scope 를 class 로 박고 tier2 로 둔다 — 같은 표의 밀도 7.5 g/cm3 · 영률 1.6e11 · 포아송비 0.24 · 인장강도 8.0 kg/mm2 · 비커스 600 이 52차 NA 때 같은 규약으로 이미 7등급에 들어가 있고, 이 세 칸만 빠져 있었다. (브리프 583 의 하드페라이트와 반대 방향의 판정이다 — 거기는 복제하지 않기로 했고 여기는 이미 복제해 둔 계보가 있어 그 계보를 따른다. 섞으면 한 재료 안에서 규약이 갈린다.) 검산 — 소결 NdFeB 통용 열전도율 7~9 W/(m*K) 안이다. 교차검산 — 세 값이 서로를 지지한다. 열확산율 a = k/(rho*Cp) = 8.955/(7500*502.4) = 2.38e-6 m2/s 로 소결 NdFeB 문헌 통용범위(2.3~2.5e-6)에 든다. rho 는 **같은 표의 7.5 g/cm3** 를 썼다(다른 문서를 섞지 않았다)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 502.4,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 2,
+     "conditions": {
+      "grade": "N50",
+      "grade_scope": "class value — 원문 물성표가 등급별이 아니라 소결 NdFeB 공통이다",
+      "temperature_c": 20
+     },
+     "notes": "원문 verbatim `Specific Heat  0.12 kcal/(kg,°C)`. 0.12 x 4186.8 J/kcal = 502.4 J/(kg*K) (단위 환산만 했다). ⚠ 인쇄값이 유효숫자 2자리라 502.4 의 뒷자리를 정밀도로 읽지 마라 — 약 5.0e2 다. 등급표 뒤의 `Physical properties at room temperature (20°C)` 표에서 왔다. **이 표는 등급별이 아니라 소결 NdFeB 공통값**이라 grade_scope 를 class 로 박고 tier2 로 둔다 — 같은 표의 밀도 7.5 g/cm3 · 영률 1.6e11 · 포아송비 0.24 · 인장강도 8.0 kg/mm2 · 비커스 600 이 52차 NA 때 같은 규약으로 이미 7등급에 들어가 있고, 이 세 칸만 빠져 있었다. (브리프 583 의 하드페라이트와 반대 방향의 판정이다 — 거기는 복제하지 않기로 했고 여기는 이미 복제해 둔 계보가 있어 그 계보를 따른다. 섞으면 한 재료 안에서 규약이 갈린다.) 검산 — 소결 NdFeB 통용 비열 440~510 J/(kg*K) 안이다. 교차검산 — 세 값이 서로를 지지한다. 열확산율 a = k/(rho*Cp) = 8.955/(7500*502.4) = 2.38e-6 m2/s 로 소결 NdFeB 문헌 통용범위(2.3~2.5e-6)에 든다. rho 는 **같은 표의 7.5 g/cm3** 를 썼다(다른 문서를 섞지 않았다)."
+    }
+   ]
+  }
+ ]
+}
