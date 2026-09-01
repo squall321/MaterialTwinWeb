@@ -1,0 +1,114 @@
+{
+"batch": "58차 TB",
+"verdicts": [
+
+{"material_id": 2677, "name": "SACX0307 Solder Alloy",
+ "core_rejected_printed_value": {
+   "thermal.specific_heat": "ALPHA Vaculoy SACX0307 TDS(SM956-1, 2008)와 ALPHA SACX PLUS 0307 TDS(22 May 2023)가 둘 다 'Specific Heat Capacity | J/kg C | 0.17' 로 인쇄한다. 셋으로 기각한다. ① 인쇄된 단위 자체가 틀렸다 — 0.17 J/(kg K)는 물리적으로 불가능하고, 같은 제조사의 뒷판 시트들은 같은 열을 'J/g/C'(SnCX Plus 07 0.198 @100 C) 또는 'J/g/ C'(SACX Plus 0807 0.23 @100 C, DSC)로 쓴다. 어느 해석을 고르든 그것은 우리 판단이 된다(브리프 443). ② 가장 너그러운 해석 0.17 J/g/K = 170 J/(kg K)도 Kopp-Neumann 질량가중(Sn 228 · Ag 235 · Cu 385 · Bi 122 J/kg K, 조성 98.9/0.3/0.7/0.1)의 229.0 J/(kg K)보다 26% 낮다. ③ 같은 제조사의 형제 등급이 반증한다 — SACX Plus 0807(Ag 0.8 · Cu 0.7, Sn 기지가 같다)은 0.23 J/g/C, Sn99.3Cu0.7 은 0.214 J/g K, SAC305 는 0.232, SAC387/405 는 0.236 이다. Ag 0.3 대 0.8 의 차이로 비열이 26% 떨어질 수 없다. 다음 파동은 이 칸을 다시 캐지 마라 — 다른 문서를 찾아야 한다."},
+ "core_absent_from_vendor_sheet": {
+   "mechanical.poisson_ratio": "이 등급을 싣는 벤더 문서 넷을 전부 열었다 — ALPHA Vaculoy SACX0307 HASL TDS(SM956-1, 2008) · ALPHA SACX PLUS 0307,0300 TDS(22 May 2023) · ALPHA SOLDER SPHERES TDS(25 May 2020) · The Solder Connection Solder Alloy Technical Specification(2023, SAC0307 행). 넷 중 포아송비 열이 있는 것이 0장이다. 더 넓게 — 이 배치가 연 솔더 편찬표·TDS 열셋(Indalloy 2006 · Solder Connection 2023 · Kester Technical Data on Soft Solders · AIM Alloy Information · ALPHA VACULOY SAC/SACX0307/SACX Plus 0807/SnCX Plus 07/Sn99.3Cu0.7/Sn60Pb40 Plus/Solder Spheres · Guangzhou Xianyi 편람 · Kapp Alloy 등급 페이지) 어디에도 포아송비 열이 없다. 솔더 벤더는 포아송비를 구조적으로 안 찍는다(브리프 6·582·613).",
+   "thermal.conductivity": "ALPHA Vaculoy SACX0307 TDS(2008)와 SACX PLUS 0307 TDS(2023)의 Material Property 표에 열전도율 행이 없다(고체상 solidus/liquidus · 경도 · 밀도 · 비열 · Stress at MAX Load · 연신 · 열팽창 · Ag/Cu/Pb 함량뿐). The Solder Connection 사양표는 열전도율 열이 있으나 이 등급(SAC0307) 행의 그 칸이 비어 있다 — 같은 표의 SAC105 60 · SAC305 58 · SAC405 62 는 채워져 있으므로 등급 단위 결손이다. 같은 제조사는 다른 등급 시트(Sn99.3Cu0.7 60.5 W/mK · Sn60Pb40 Plus 50 W/mK)에서는 찍는데, 그 두 값은 같은 표의 저항률에서 Wiedemann-Franz 로 0.3% 안에 재현되므로 독립 측정이 아니다."},
+ "core_doors_tried": {
+   "note": "58차 TB — ALPHA(MacDermid) 계열 시트 7장을 Wayback CDX(macdermidalpha.com/sites/default/files/*)로 훑어 받았다. 등급 확정의 열쇠는 ALPHA SOLDER SPHERES TDS 의 합금표였다 — 이 표만이 SACX0307 을 'Sn 98.9 / Ag 0.3 / Cu 0.7 / Bi 0.1' 로 Bi 까지 인쇄한다(제품 TDS 는 Ag·Cu·Pb 만 규정한다)."}},
+
+{"material_id": 966, "name": "Sn0.7Cu Eutectic Solder Alloy",
+ "core_absent_from_vendor_sheet": {
+   "mechanical.poisson_ratio": "ALPHA VACULOY Sn99.3Cu0.7 Solid Solder TB(17 Dec 2021)의 Material Properties 표를 열었다 — 융점·밀도·TCE·비열·열전도율·전기저항률·경도·인장강도 여덟 행뿐이고 포아송비 행이 없다. 이 등급 행을 싣는 다른 표 넷(Indalloy 2006 244행 · The Solder Connection 2023 · Kester Technical Data on Soft Solders · Guangzhou Xianyi 편람)에도 포아송비 열 자체가 없다. 솔더 벤더의 구조적 부재다(브리프 6·582·613)."}},
+
+{"material_id": 574, "name": "SAC405 Solder Alloy",
+ "core_absent_from_vendor_sheet": {
+   "mechanical.poisson_ratio": "ALPHA VACULOY SAC300,305,350,380,387,400,405 TDS(06 Sep 2023)의 Material Properties 표는 융점·밀도·TCE·비열·경도 다섯 행뿐이다(포아송비 없음). The Solder Connection 사양표(2023) · Indalloy 2006(246행) · Kapp Alloy SAC405 페이지에도 포아송비 열이 없다."}},
+
+{"material_id": 584, "name": "Sn3.8Ag0.7Cu Solder Alloy (SAC387)",
+ "core_absent_from_vendor_sheet": {
+   "mechanical.youngs_modulus": "이 등급을 싣는 벤더 표 다섯을 열었다 — ALPHA VACULOY SAC TDS(2023, 5행짜리 표에 탄성계수 없음) · The Solder Connection 2023(탄성계수 열 자체가 없다) · Indalloy 2006(241행: Young's Modulus 열이 이 행에서 비어 있다. 같은 표의 Sn63Pb37 4.35 · Sn100 6.1 은 채워져 있으므로 등급 단위 결손) · Kester Technical Data on Soft Solders(Sn96.5Ag3Cu0.5 행은 있으나 SAC387 행이 없고, 있는 행도 Elastic Modulus 칸이 비어 있다) · Kapp Alloy SAC387 페이지(밀도·TCE·인장강도만). 다섯 중 이 등급의 탄성계수를 인쇄하는 것이 0장이다.",
+   "mechanical.poisson_ratio": "위 다섯 문서 어디에도 포아송비 열이 없다(브리프 6·582·613)."}},
+
+{"material_id": 572, "name": "SAC105 Solder Alloy",
+ "core_absent_from_vendor_sheet": {
+   "mechanical.poisson_ratio": "이 등급 행을 싣는 벤더 표 셋을 열었다 — The Solder Connection 2023(Sn98.5Ag1.0Cu0.5 행) · ALPHA SOLDER SPHERES TDS 2020(SAC105 행) · Kester/AIM 편람(행 없음). 포아송비 열이 있는 것이 0장이다.",
+   "thermal.specific_heat": "이 등급 행을 싣는 The Solder Connection 사양표(2023)와 ALPHA SOLDER SPHERES TDS(2020)에 비열 열 자체가 없다. Indalloy 2006 은 비열 SOLID/LIQUID 열이 있으나 SAC105 행이 표에 없다. ALPHA 는 SAC300~405 TDS 에서 비열을 찍지만 그 시트에 SAC105 열이 없다(SAC105 는 별도 TB 이고 macdermidalpha.com 이 403 을 돌려주며 Wayback 에도 스냅샷이 없다). **남은 문은 ALPHA VACULOY SAC 100,105 Solid Solder TB 다** — 조달에 실패했다."}},
+
+{"material_id": 577, "name": "60Sn40Pb Solder Alloy",
+ "core_absent_from_vendor_sheet": {
+   "mechanical.poisson_ratio": "이 등급 행을 싣는 벤더 표 여섯을 열었다 — Indalloy 2006(109행) · The Solder Connection 2023 · Kester Technical Data on Soft Solders · AIM Alloy Information · ALPHA Sn60Pb40 Plus Solid Solder TB(06 Dec 2019) · Guangzhou Xianyi 편람. 여섯 중 포아송비 열이 있는 것이 0장이다.",
+   "thermal.specific_heat": "Indalloy 2006 은 비열 SOLID/LIQUID 두 열을 갖고 있는데 **109행(60.0 Sn / 40.0 Pb)의 그 칸이 비어 있다** — 같은 표의 106행(63.0 Sn / 37.0 Pb)은 0.167 J/g C 를, 128행(100.0 Sn)은 0.222 를 인쇄하므로 등급 단위 결손이다. 나머지 다섯(Solder Connection · Kester · AIM · ALPHA Sn60Pb40 Plus TB · Xianyi)은 비열 열 자체가 없다."}},
+
+{"material_id": 578, "name": "62Sn36Pb2Ag Solder Alloy",
+ "core_rejected_printed_value": {
+   "mechanical.youngs_modulus": "Kester 'TECHNICAL DATA ON SOFT SOLDERS'(Alloy Properties, kester.com Knowledge Base)의 Sn62Pb36Ag2 행이 Elastic Modulus 3.41 x 10^6 PSI = 23.51 GPa 를 인쇄한다. 혼합물 하한에서 죽는다 — 조성 Sn62/Pb36/Ag2 의 부피분율(Sn 0.716 · Pb 0.268 · Ag 0.016)로 Reuss 하한을 재면 순물질 탄성계수를 **같은 계보의 편찬표값**(Indalloy/Kester 의 순 Sn 6.1e6 psi = 42.1 GPa · 순 Pb 2.61e6 psi = 18.0 GPa · Ag 83 GPa)으로 잡아도 31.17 GPa 이고, 교과서값(Sn 50 · Pb 16)으로 잡아도 31.99 GPa 다. 인쇄값은 하한보다 25% 낮다(브리프 604 의 Indalloy 151 과 같은 위반이며 실제로 그 151 행의 2.00e6 psi 도 이 Kester 표에 Sn5Pb92.5Ag2.5 로 똑같이 인쇄돼 있다 — 두 표는 같은 연납 편람 계보라 재인용은 독립 확인이 아니다). **같은 열의 계통도 이 행을 지목한다** — Sn60Pb40 4.35e6 psi = 29.99 GPa 는 Reuss 하한 30.02 와 0.1% 안에서 겹치고, Sn40Pb60 3.34e6 = 23.0 은 하한 25.4 의 10% 아래, Sn30Pb70 3.05e6 = 21.0 은 하한 23.3 의 10% 아래다. 즉 이 열은 하한 언저리에서 아래로 최대 10% 흩어지는데 이 행만 25% 아래다. **주의 — 솔더는 상온에서 T/Tm ~ 0.65 라 준정적 인장 기울기가 참 탄성계수보다 계통적으로 낮게 나온다. 그래서 하한 위반 자체가 곧 오식은 아니다. 이 칸을 기각한 근거는 위반의 크기가 같은 열의 다른 Sn-Pb 행보다 2.5배 크다는 것이다.** 되살리려면 초음파나 동적 측정으로 잰 독립 출처가 필요하다."},
+ "core_absent_from_vendor_sheet": {
+   "mechanical.poisson_ratio": "이 등급 행을 싣는 벤더 표 넷을 열었다 — Kester Technical Data on Soft Solders · AIM Alloy Information · Guangzhou Xianyi 편람 · The Solder Connection 2023(Sn62.5Pb36.1Ag1.4 근사 등급). 포아송비 열이 있는 것이 0장이다. 곁가지 — Darveaux 1992(IEEE TCHMT, DB 의 기존 출처)는 본문에서 'Assuming a Poisson's ratio of 0.35' 라고 **가정임을 밝히고** 전단탄성률을 만든다. 인쇄된 가정치이지 측정치가 아니므로 t1~t2 로 넣으면 안 된다.",
+   "thermal.specific_heat": "위 넷 중 비열 열을 가진 것이 0장이다. Indalloy 2006 은 비열 열이 있으나 Sn62Pb36Ag2 행이 표에 없다(104행 62.5Sn/36.1Pb/1.4Ag 는 다른 등급이고 그 행의 비열은 0.167 이다)."}},
+
+{"material_id": 579, "name": "Sn-3.5Ag Solder Alloy",
+ "core_absent_from_vendor_sheet": {
+   "mechanical.poisson_ratio": "이 등급 행을 싣는 벤더 표 다섯을 열었다 — Indalloy 2006(121행) · The Solder Connection 2023 · Kester Technical Data on Soft Solders · AIM Alloy Information · Guangzhou Xianyi 편람. 포아송비 열이 있는 것이 0장이다.",
+   "thermal.specific_heat": "Indalloy 2006 은 비열 SOLID/LIQUID 열을 갖는데 **121행(96.5 Sn / 3.5 Ag)의 그 칸이 비어 있다**(같은 표 106·128행은 채워져 있다). 나머지 넷은 비열 열 자체가 없다."}},
+
+{"material_id": 583, "name": "Indium Solder (99.99% In)",
+ "core_absent_from_vendor_sheet": {
+   "mechanical.poisson_ratio": "이 재료의 주 출처인 Indalloy 편찬표(2006) 4행(100.0 In)은 전기전도도·열전도율·CTE·인장강도·전단강도·Young's Modulus·연신·Brinell·융해잠열·비열 SOLID/LIQUID 열을 갖는데 **포아송비 열이 표에 아예 없다**. The Solder Connection 2023 · Kester · AIM · Xianyi 편람도 같다."}},
+
+{"material_id": 576, "name": "92.5Pb5Sn2.5Ag Solder Alloy",
+ "core_absent_from_vendor_sheet": {
+   "mechanical.poisson_ratio": "이 등급 행을 싣는 벤더 표 다섯(Indalloy 2006 151행 · The Solder Connection 2023 Pb92.5Sn05Ag2.5 · Kester Sn5Pb92.5Ag2.5 · AIM Pb93 · Guangzhou Xianyi 편람)에 포아송비 열이 없다."}},
+
+{"material_id": 962, "name": "Sn63Pb37 Eutectic Solder Alloy",
+ "core_absent_from_vendor_sheet": {
+   "mechanical.poisson_ratio": "이 등급 행을 싣는 벤더 표 다섯(Indalloy 2006 106행 · The Solder Connection 2023 · Kester · AIM · Xianyi 편람)에 포아송비 열이 없다."}},
+
+{"material_id": 2293, "name": "90Pb10Sn CCGA column solder with 63Sn37Pb fillets (Perkins 2009)",
+ "core_absent_from_vendor_sheet": {
+   "mechanical.poisson_ratio": "컬럼 본체의 조성(90Pb10Sn) 행을 싣는 벤더 표 넷(Indalloy 2006 · The Solder Connection 2023 Pb90Sn10 · Kester Sn10Pb90 · AIM Sn10 · Xianyi 편람 Pb90Sn10)에 포아송비 열이 없다."}},
+
+{"material_id": 963, "name": "Sn3.9Ag0.6Cu Solder Alloy (SAC396)",
+ "core_absent_from_vendor_sheet": {
+   "mechanical.poisson_ratio": "이 등급 행은 Indalloy 2006 의 252행(95.5 Sn / 3.9 Ag / 0.6 Cu)에만 있는데 그 표에 포아송비 열이 없다. The Solder Connection 2023 · Kester · AIM · ALPHA 계열 시트에는 이 등급 행 자체가 없다."}},
+
+{"material_id": 585, "name": "Sn0.3Ag0.7Cu Solder Alloy",
+ "core_absent_from_vendor_sheet": {
+   "mechanical.poisson_ratio": "이 등급 행을 싣는 The Solder Connection 2023(Sn99Ag0.3Cu0.7 (SAC0307))과 Kapp Alloy SAC0307 페이지에 포아송비가 없다. 나머지 편찬표에는 이 등급 행이 없다.",
+   "thermal.specific_heat": "The Solder Connection 사양표에 비열 열 자체가 없고, Kapp Alloy SAC0307 페이지는 비열을 '~0.21 J/g·K' 로 **물결표(대략값)** 로 찍는다 — 같은 페이지의 인장강도 '~40 MPa' 가 이 조성의 두 독립 벤더 인쇄값(Solder Connection 29.42 · ALPHA SACX0307 29.5 MPa)과 36% 어긋나므로 그 페이지의 물결표 값은 등급별 실측이 아니라 계열 근사다. 넣지 않는다."},
+ "core_doors_tried": {
+   "note": "58차 TB — ALPHA Vaculoy SACX0307 시트는 이 재료가 아니다. ALPHA SOLDER SPHERES TDS 가 SACX0307 을 'Sn 98.9 / Ag 0.3 / Cu 0.7 / **Bi 0.1**' 로 찍으므로 그 시트의 물성은 도핑 등급(재료 2677)의 것이다. 무도핑 SAC0307 의 E·CTE·k·Cp 는 아직 문이 없다."}},
+
+{"material_id": 965, "name": "SAC125Ni Solder Alloy (Sn1.2Ag0.5Cu0.05Ni)",
+ "core_absent_from_vendor_sheet": {
+   "mechanical.poisson_ratio": "이 등급을 싣는 공개 벤더 문서를 이번에 처음 찾았다 — ALPHA SOLDER SPHERES TDS(25 May 2020)의 합금표가 'SAC125 w/Ni | Sn 98.3 | Ag 1.2 | Cu 0.5 | Ni 250-500 ppm | solidus 217 | liquidus 228' 을 인쇄한다. 그러나 **그 표는 조성과 융점만 싣고 물성 열이 하나도 없다.** 다른 벤더 편찬표 다섯(Indalloy 2006 · The Solder Connection 2023 · Kester · AIM · Guangzhou Xianyi)에는 이 등급 행 자체가 없다."},
+ "core_doors_tried": {
+   "note": "58차 TB — 이 합금은 문헌에서 LF35(Sn-1.2Ag-0.5Cu + 0.05Ni)로도 불린다. 연 문서 — ALPHA SOLDER SPHERES TDS 2020(조성·융점만) · Indalloy 2006 · The Solder Connection 2023 · Kester Technical Data on Soft Solders · AIM Alloy Information · Guangzhou Xianyi 편람 여섯. 뒤 다섯에는 행 자체가 없다. DB 의 기존 출처 Darveaux 2011(ECTC)은 크랙 성장 상수만 싣고 물성표가 없다(그 논문의 16.3 GPa / 18.1 ppm 은 **시험보드 적층판**의 값이지 솔더 값이 아니다 — 옮기지 마라). 남은 문 — Nihon Superior · Senju · Nihon Handa 의 일본어 등급 페이지, iNEMI Pb-Free Alloy Characterization Project 보고서."}},
+
+{"material_id": 582, "name": "Sn-8Zn-3Bi Solder Alloy",
+ "core_rejected_printed_value": {
+   "mechanical.tensile_strength": "Duong 2021(JST ETSD 31(5) 075-080, DOI 10.51316/jst.154.etsd.2021.31.5.11)이 본문 3.3 절에 'UTS of Sn-8Zn-3Bi has a value of 36.8 MPa'(크로스헤드 0.1 mm/min)와 '47.8 MPa'(1 mm/min)를 인쇄한다. **벌크 인장강도가 아니라 접합부 강도라 기각한다** — 시편은 두께 1.5 mm 구리 쿠폰 둘을 솔더로 겹친 랩 접합체(Fig.1a)이고, 저자가 'the solder-substrate joint was broken right at the interface' 라고 파단 위치를 밝히며 저자 자신이 'it is difficult to have a meaningful value of tensile strength of solder alloys' 라고 적는다. 같은 논문의 CTE 는 솔더 봉재에서 잘라낸 20x3x3 mm **벌크 시편**이라 넣었다 — 한 논문 안에서 시편이 갈리므로 칸 단위로 판정했다(브리프 141). 이 칸을 채우려면 벌크 시편 인장 출처가 필요하다."}},
+
+{"material_id": 580, "name": "97.5Pb2.5Sn Solder Alloy",
+ "core_rejected_printed_value": {
+   "mechanical.youngs_modulus": "Wang 1998(ASME J. Electron. Packag., DOI 10.1115/1.1371781, DB 의 기존 출처) Table 1 이 97.5Pb2.5Sn 의 'Tensile' 행에 G0(at 0 C) = 2.413 x 10^4 MPa = 24.13 GPa 를 인쇄한다(같은 행의 Shear 는 0.896 x 10^4 = 8.96 GPa). **혼합물 상한 위에서 죽는다** — 조성 Pb 97.5 / Sn 2.5 의 부피분율은 Pb 0.9617 · Sn 0.0383 이고, Voigt 상한을 교과서값(Pb 16 · Sn 50 GPa)으로 재면 17.3 GPa, 편찬표값(Pb 18.0 · Sn 42.1 GPa)으로 재도 18.92 GPa 다. 인쇄값은 상한보다 28~39% **높다**(브리프 604 는 하한 아래를 잡았고 이것은 상한 위다). 전단값도 같다 — 8.96 GPa 는 순 Pb 의 5.6 GPa 보다 60% 높다. 2.5 wt% Sn 고용으로 강성이 그만큼 오를 수 없다. **그리고 이 값은 독립 측정이 아니다** — 논문이 'The Poisson's ratios can also be derived from the relationship between shear modulus and tensile modulus in Table 1' 이라고 밝히며, 실제로 Tensile/Shear 비 2.6931 = 2(1+0.3465)라 Tensile 행은 Shear 행을 가정 포아송비로 환산한 것이다(브리프 43). 이 수는 FE 논문에 널리 재인용되므로 특히 못박아 둔다."},
+ "core_doors_tried": {
+   "note": "58차 TB — 이 등급(Pb 97.5 / Sn 2.5)의 행을 찾아 벤더 편찬표 다섯을 전수로 훑었다. **다섯 다 행이 없다** — Indalloy 2006(가까운 것은 161행 97.5Pb/2.5Ag, 163행 95.5Pb/2.5Ag/2.0Sn, 165행 97.5Pb/1.5Ag/1.0Sn 이고 셋 다 다른 합금이다) · The Solder Connection 2023(Pb97.5Ag1.5Sn01 만) · Kester Technical Data on Soft Solders(Sn1Pb97.5Ag1.5 · Sn5Pb95 만) · AIM Alloy Information(Sn3 = Pb97/Sn3, Ag2.5 = Pb97.5/Ag2.5 만) · Guangzhou Xianyi 편람. DB 의 기존 출처 둘(Wang 1998 · Darveaux 1992)은 Anand/크리프 상수만 싣는다. 남은 문 — 고연 솔더를 파는 Indium Corporation 등급별 제품 페이지, 5N Plus, 반도체 다이본딩용 고연 프리폼 벤더."}},
+
+{"material_id": 573, "name": "SAC205 Solder Alloy",
+ "core_doors_tried": {
+   "note": "58차 TB — Sn97.5/Ag2.0/Cu0.5 행을 찾아 벤더 편찬표·TDS 아홉을 훑었다. **아홉 다 행이 없다** — Indalloy 2006 · The Solder Connection 2023(SAC0107·SAC0307·SAC0807·SAC105·SAC263·SAC305·SAC405·SAC387 은 있고 SAC205 만 없다) · Kester Technical Data on Soft Solders · AIM Alloy Information · ALPHA VACULOY SAC300~405 TDS · ALPHA SOLDER SPHERES TDS(SAC105·SAC125Ni·SAC305·SAC405·SACX0307 만) · ALPHA SACX Plus 0307/0807 TDS · Guangzhou Xianyi 편람 · Kapp Alloy SAC 등급 페이지 넷. **SAC205 는 상용 등급으로 팔리지 않는 것으로 보인다** — DB 의 세 출처(Basit 2015 · Chen 2020 · Cai 2010)가 전부 연구용 주조 시편이다. 다음 문은 벤더가 아니라 논문이다."}},
+
+{"material_id": 575, "name": "SAC-Q Solder Alloy",
+ "core_doors_tried": {
+   "note": "58차 TB — SAC-Q 는 Lall 2018 TABLE 1 의 EDX 조성이 Sn 92.7 / Ag 3.4 / Cu 0.5 / Bi 3.4 다. 상표 계보는 확인했으나 **조성이 갈려 벤더 시트를 못 붙였다** — 공개 자료가 SAC_Q 를 CYCLOMAX 상표와 92.8Sn-3.4Ag-0.5Cu-3.3Bi 로 적고(SMTA 문헌), CapLinq LINQALLOY SACQ 는 Sn/Ag 3.90~4.10/Cu 0.45~0.55/Bi 3.0/Ni 0.05 로 **Ag 가 3.4 대 4.0 으로 다르다**. 브리프 22·586 의 자리다 — 이름이 같아도 등급이 다르면 옮기면 안 된다. macdermidalpha.com 은 HTML 경로에 403 을 돌려주고 Wayback CDX 의 macdermidalpha PDF 570건에 CYCLOMAX 시트가 없다. 남은 문 — ALPHA CYCLOMAX 제품 TDS(판매대리점 미러), SMTA/SMTAI 원논문."}},
+
+{"material_id": 581, "name": "Sn-9Zn-2.5Bi-0.5In-0.01P Solder Alloy",
+ "core_doors_tried": {
+   "note": "58차 TB — Sn-Zn 계 편찬표 행을 훑었다. Indalloy 2006 에 Sn-Zn 계 넷(201행 91.0Sn/9.0Zn · 224행 52.2In/46.0Sn/1.8Zn · 226행 83.6Sn/8.8In/7.6Zn · 231행 86.5Sn/5.5Zn/4.5In/3.5Bi)이 있으나 **이 조성은 없다**. The Solder Connection 2023 은 Sn91Zn09 한 행뿐, Kester·AIM·Xianyi 는 Sn-Zn 행이 없다. DB 의 유일한 출처 Jian-Chun Liu 2014(ICEP, DOI 10.1109/icep.2014.6826681)를 전문으로 다시 열었으나 Anand 상수뿐이고 밀도·CTE·열전도율·비열 표가 없다. **이 합금은 형제 재료 582(Sn-8Zn-3Bi)와 달리 상용 등급이 아니라 논문 개발합금이다** — 다음 문은 벤더가 아니라 같은 연구실 후속 논문이다."}},
+
+{"material_id": 586, "name": "SAC(307)-2In Solder Alloy",
+ "core_doors_tried": {
+   "note": "58차 TB — Sn-3.0Ag-0.7Cu-2.0In 은 Ibrahiem 2019(Microelectron. Reliab., DOI 10.1016/j.microrel.2019.04.020)에서 석영관 용해로 직접 만든 연구용 합금이다(Sn 99.9% + Ag·Cu·In 99.99%, 800 C 1 h). 벤더 등급이 아니므로 편찬표를 뒤질 자리가 아니다 — Indalloy 2006 의 In 함유 Sn-Ag 계 가까운 행(150행 Sn77.2In20Ag2.8)은 조성이 전혀 다르다. **원문을 전문으로 다시 열었고 Table 1~6 에 밀도·CTE·열전도율·비열이 없다**(DSC 융점·pasty range·과냉, 인장 UTS/YS/E/연신, SRT/SRRT 파라미터, 활성화에너지뿐). 곁가지 — 이 재료의 `mechanical.tensile_strength` 빈칸은 미채굴이 아니다. 같은 논문의 UTS 36.18/39.15 MPa 가 이미 `mechanical.tensile_strength_at_rate`(변형률속도 3.4e-3 /s)로 들어가 있다(아래 core_value_at_sibling_key 참조)."},
+ "core_value_at_sibling_key": {
+   "mechanical.tensile_strength": "이 칸의 값은 카탈로그에 이미 있다 — 같은 재료의 `mechanical.tensile_strength_at_rate` 2행(36.18 · 39.15 MPa, 변형률속도 3.4e-3 /s, 무RMF/RMF). 코어 7물성 집계(coverage_report.CORE7)는 `_at_rate` 계열 키를 안 보므로 이 칸이 영원히 V5(진짜 남은 것)로 세어진다. **같은 모양이 솔더 여섯 종에 있다** — 572 SAC105(116행) · 573 SAC205(36행) · 574 SAC405(32행) · 575 SAC-Q(160행) · 586(2행) · 2677 SACX0307(30행). 솔더는 상온 T/Tm ~ 0.65 라 UTS 가 변형률속도 지배이고 그래서 논문이 조건 없는 UTS 를 아예 안 찍는다 — 새 갈래가 필요하다(브리프 609 의 V6 와 같은 자리). 집계를 고치는 것은 공유 도구 수정이라 채굴 배치가 하지 않는다(브리프 468) — 신고만 한다."}},
+
+{"material_id": 986, "name": "SAC107 Solder Alloy",
+ "core_doors_tried": {
+   "note": "58차 TB — Sn-1.0Ag-0.7Cu 행을 찾아 벤더 편찬표·TDS 아홉을 훑었다. **아홉 다 행이 없다** — Indalloy 2006 · The Solder Connection 2023 · Kester Technical Data on Soft Solders · AIM Alloy Information · ALPHA VACULOY SAC300~405 TDS · ALPHA SOLDER SPHERES TDS · ALPHA SACX Plus 0307/0807 TDS · Guangzhou Xianyi 편람 · Kapp Alloy SAC 페이지 넷. **함정 확인(브리프 621)** — The Solder Connection 표의 `Sn99.2Ag0.1Cu0.7 (SAC0107)` 은 Ag 가 0.1 이라 이 재료(Ag 1.0)가 아니다. 그 행은 융점 217/228 과 밀도 7.32 만 있고 그마저 다른 합금 것이다. 남은 문 — Sn-1.0Ag-0.7Cu 를 직접 잰 논문(Si3N4·SnO2·MWCNT 첨가 연구의 기준시편). 벤더 쪽은 Nihon Superior · Senju · Nihon Handa 의 일본어 등급 페이지."}}
+
+]}

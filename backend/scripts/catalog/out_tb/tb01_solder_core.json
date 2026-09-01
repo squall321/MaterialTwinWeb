@@ -1,0 +1,215 @@
+{
+"batch": "58차 TB — packaging 솔더 합금 코어 빈칸",
+"materials": [
+
+{"match_name": "SACX0307 Solder Alloy (Sn-0.3Ag-0.7Cu-0.1Bi, Cookson SACX, Bi-doped low-Ag SAC)",
+ "source": {"kind": "datasheet",
+   "title": "ALPHA(R) Vaculoy(R) SACX 0307, 0300 HASL — Lead Free Hot Air Solder Level Alloy, Technical Data Sheet SM956-1 (Revised 2/15/08), 'TECHNICAL SPECIFICATION' Material Property table",
+   "publisher": "Alpha Metals (MacDermid Alpha Electronics Solutions)",
+   "year": 2008,
+   "url": "http://media.hiscoinc.com/Volume2/d110001/medias/docus/155/Alpha%20Metals-1998_Vaculoy-SACX-0307-TDS_VD.pdf",
+   "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w58tb/sacx0307_hisco.pdf"},
+ "properties": [
+  {"key": "physical.density", "value": 7330.0, "unit": "kg/m^3", "method": "measured", "tier": 2,
+   "conditions": {"composition_wt_pct": "Sn 98.9 / Ag 0.3 / Cu 0.7 / Bi 0.1", "phase": "solid",
+                  "basis": "제조사 TDS 의 Material Property 표 (Vaculoy SACX0307 열)"},
+   "notes": "Density 7.33 g/cc verbatim. 등급 확정 — 이 시트는 Ag 0.3 +0.15/-0.05 · Cu 0.70 +/-0.1 만 찍고 Bi 를 안 밝히는데, 같은 제조사의 ALPHA SOLDER SPHERES TDS(Issue 25 May 2020) 합금표가 SACX0307 을 'Sn 98.9 / Ag 0.3 / Cu 0.7 / Bi 0.1' 로 인쇄한다. 재료명의 조성과 글자 단위로 같다. 교차확인 — The Solder Connection 사양표(2023)의 Sn99Ag0.3Cu0.7 (SAC0307) 행이 7.33 g/cm3 로 같다(무도핑 등급이라 별개 재료 585 지만 0.1 wt% Bi 로는 밀도가 안 갈린다). 주의 — 같은 제조사의 형제 등급 시트(ALPHA SACX Plus 0807, 13Mar20)는 Density 열의 Test Method 를 'Calculated' 로 밝힌다. 이 시트에는 시험법 열이 없으므로 이 값도 계산 밀도일 수 있다. 2023년판 ALPHA SACX PLUS 0307,0300 TDS(Issue 22 May 2023)가 같은 표를 글자까지 똑같이 다시 인쇄한다(재인용이므로 별도 행으로 넣지 않았다)."},
+
+  {"key": "thermal.expansion_linear", "value": 1.79e-05, "unit": "1/K", "method": "measured", "tier": 1,
+   "conditions": {"composition_wt_pct": "Sn 98.9 / Ag 0.3 / Cu 0.7 / Bi 0.1", "temperature_range_c": "30 to 100",
+                  "basis": "제조사 TDS 의 Material Property 표 (Vaculoy SACX0307 열)"},
+   "notes": "'Thermal Expansion Coefficient  (30 - 100C)/C x 10-5  1.79' verbatim -> 1.79e-5 /K. 계열 검산 — Harrison 2001(IDEALS)이 같은 두 구간꼴로 SnAg3.5Cu0.7 을 TMA 로 -50~100 C 20.4 ppm · 100~190 C 22.0 ppm, SnCu0.7Sb0.5 를 17.4 / 22.1 ppm 으로 찍는다. 저온구간이 낮고 고온구간이 22 ppm 대로 오르는 형태가 같다. 2023년판 SACX Plus 0307 TDS 가 같은 두 값을 다시 인쇄한다."},
+
+  {"key": "thermal.expansion_linear", "value": 2.30e-05, "unit": "1/K", "method": "measured", "tier": 1,
+   "conditions": {"composition_wt_pct": "Sn 98.9 / Ag 0.3 / Cu 0.7 / Bi 0.1", "temperature_range_c": "100 to 150",
+                  "basis": "제조사 TDS 의 Material Property 표 (Vaculoy SACX0307 열)"},
+   "notes": "'(100 - 150C)/C x 10-5  2.30' verbatim -> 2.30e-5 /K. 위 30~100 C 행과 한 표의 두 구간이다."},
+
+  {"key": "mechanical.tensile_strength", "value": 29500000.0, "unit": "Pa", "method": "measured", "tier": 1,
+   "conditions": {"composition_wt_pct": "Sn 98.9 / Ag 0.3 / Cu 0.7 / Bi 0.1", "temperature_c": 22,
+                  "basis": "제조사 TDS 의 'Stress at MAX Load (N/mm2)' 행, Mean",
+                  "std_dev_mpa": 0.64},
+   "notes": "'Stress at MAX Load (N/mm2) Mean 29.5 / Std Dev 0.64' verbatim -> 29.5 MPa. 딴 벤더표 독립 확인 — The Solder Connection 사양표(2023)의 SAC0307 행 'Tensile Strength at Break 300 kgf/cm2' = 300 x 98066.5 = 29.42 MPa 로 0.3% 안에서 만난다(브리프 606 의 kgf/cm2 대 SI 교차검산). 시험 변형률속도는 이 시트에 안 찍혀 있다 — 형제 등급 시트(SACX Plus 0807)는 같은 행에 'Strain rate 10-3 per second' 를 붙인다."},
+
+  {"key": "mechanical.elongation_at_break", "value": 0.218, "unit": "1", "method": "measured", "tier": 1,
+   "conditions": {"composition_wt_pct": "Sn 98.9 / Ag 0.3 / Cu 0.7 / Bi 0.1",
+                  "basis": "제조사 TDS 의 'Elongation at failure (%)' 행, Mean", "std_dev_pct": 8.8},
+   "notes": "'Elongation at failure (%) Mean 21.8 / Std Dev 8.8' verbatim -> 0.218 (무차원). 형제 등급 SACX Plus 0807 은 21.0%, The Solder Connection 의 SAC0307 행은 22% 로 같은 대에 있다."},
+
+  {"key": "mechanical.hardness_vickers", "value": 14.1, "unit": "HV", "method": "measured", "tier": 1,
+   "conditions": {"composition_wt_pct": "Sn 98.9 / Ag 0.3 / Cu 0.7 / Bi 0.1", "state": "as cast"},
+   "notes": "'Hardness HV 14.1' verbatim. 형제 등급 SACX Plus 0807 시트는 같은 행을 'Vickers Hardness (as cast) 16.4 HV' 로 시험조건까지 밝힌다."},
+
+  {"key": "thermal.melting_point", "value": 490.15, "unit": "K", "method": "measured", "tier": 1,
+   "conditions": {"composition_wt_pct": "Sn 98.9 / Ag 0.3 / Cu 0.7 / Bi 0.1",
+                  "phase_boundary": "solidus", "temperature_c_printed": 217},
+   "notes": "'Solidus Celsius 217' verbatim. ALPHA SOLDER SPHERES TDS(2020) 합금표도 SACX0307 을 solidus 217 / liquidus 228 로 찍어 두 문서가 일치한다."},
+
+  {"key": "thermal.melting_point", "value": 501.15, "unit": "K", "method": "measured", "tier": 1,
+   "conditions": {"composition_wt_pct": "Sn 98.9 / Ag 0.3 / Cu 0.7 / Bi 0.1",
+                  "phase_boundary": "liquidus", "temperature_c_printed": 228},
+   "notes": "'Liquidus Celsius 228' verbatim."}
+ ]},
+
+{"match_name": "Sn0.7Cu Eutectic Solder Alloy",
+ "source": {"kind": "datasheet",
+   "title": "ALPHA(R) VACULOY(R) Sn99.3Cu0.7 Solid Solder — Technical Bulletin, 17 Dec 2021, 'Material Properties' table",
+   "publisher": "MacDermid Alpha Electronics Solutions",
+   "year": 2021,
+   "url": "https://web.archive.org/web/20250117112040id_/https://www.macdermidalpha.com/sites/default/files/2021-12/ALPHA-VACULOY-Sn99.3Cu0.7-Solid-Solder-EN-17Dec21-TB.pdf",
+   "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w58tb/alpha_sn99cu07.pdf"},
+ "properties": [
+  {"key": "thermal.expansion_linear", "value": 2.05e-05, "unit": "1/K", "method": "measured", "tier": 1,
+   "conditions": {"composition_wt_pct": "Sn balance / Cu 0.7 +/- 0.1 (Ag 0.10 max, Pb 0.07 max)",
+                  "temperature_range_c": "30 to 100",
+                  "basis": "제조사 TB 의 Material Properties 표"},
+   "notes": "'TCE 30 to 100 C (mm/m C) 20.5' verbatim -> 2.05e-5 /K (표 머리글의 mm/m 는 um/m 의 오식이다 — 20.5 mm/m/C 는 물리적으로 불가능하고 같은 제조사의 SAC 시트가 같은 열을 'micrometers / M / C' 로 쓴다). 계열 검산 — 같은 제조사 SAC305 21.9 · SAC387/405 21.4 · SACX0307 17.9(30~100 C) · SnCX Plus 07 23.8 로 Sn 계 무연솔더 20~24 ppm 대 안이다."},
+
+  {"key": "thermal.specific_heat", "value": 214.0, "unit": "J/(kg*K)", "method": "measured", "tier": 1,
+   "conditions": {"composition_wt_pct": "Sn balance / Cu 0.7 +/- 0.1", "phase": "solid",
+                  "basis": "제조사 TB 의 Material Properties 표"},
+   "notes": "'Specific Heat Capacity 0.214 J/g K' verbatim -> 214 J/(kg K). Kopp-Neumann 질량가중(Sn 228 · Cu 385 J/kg K) = 229.1 J/(kg K) 대비 6.6% 아래로 통상 범위 안이다. 같은 제조사 SAC305 232 · SAC387/405 236 · SACX Plus 0807 230 과 같은 대에 있다."},
+
+  {"key": "physical.density", "value": 7420.0, "unit": "kg/m^3", "method": "measured", "tier": 2,
+   "conditions": {"composition_wt_pct": "Sn balance / Cu 0.7 +/- 0.1", "phase": "solid",
+                  "basis": "제조사 TB 의 Material Properties 표"},
+   "notes": "'Density 7.42 g/cm3' verbatim. 기존 값과 갈린다 — Guangzhou Xianyi 편람과 The Solder Connection 사양표는 둘 다 7.31, Indalloy 편찬표(244행)도 7.31 이다. 세 표가 7.31 로 모이고 이 시트만 7.42 라 대표값으로 삼지 마라. 넣는 이유는 제조사 자신의 시트라서다(브리프 129 — 밀도는 표마다 갈릴 수 있다). 형제 시트(SACX Plus 0807)는 같은 열의 시험법을 'Calculated' 로 밝히므로 이 값도 계산 밀도일 수 있다."},
+
+  {"key": "mechanical.tensile_strength", "value": 33800000.0, "unit": "Pa", "method": "measured", "tier": 1,
+   "conditions": {"composition_wt_pct": "Sn balance / Cu 0.7 +/- 0.1", "state": "as cast",
+                  "basis": "제조사 TB 의 'Tensile Strength (As cast)' 행"},
+   "notes": "'Tensile Strength (As cast) 33.8 MPa' verbatim. 계열 산포가 크다 — 같은 합금을 The Solder Connection 은 300 kgf/cm2 = 29.4 MPa, DB 의 기존 t1(Sn0.7Cu 저주기피로 논문, 변형률속도 0.01/s)은 52 MPa 로 찍는다. 솔더 UTS 는 변형률속도 지배라 조건 없는 벤더값끼리 대 보면 안 된다."},
+
+  {"key": "electrical.resistivity_volume", "value": 1.199e-07, "unit": "ohm*m", "method": "measured", "tier": 1,
+   "conditions": {"composition_wt_pct": "Sn balance / Cu 0.7 +/- 0.1", "temperature_c": 22,
+                  "basis": "제조사 TB 의 Material Properties 표"},
+   "notes": "'Electrical Resistivity (uohm-cm) 11.99' verbatim -> 11.99e-8 = 1.199e-7 ohm*m. 순 Sn 교과서값 11.5 uohm-cm 바로 위라 맞다. 기존 t1(The Solder Connection) 1.26e-7 과 5% 안이다. **곁가지 — 이 시트의 열전도율 60.5 W/(m K) 는 독립 측정이 아니다**: Wiedemann-Franz(L=2.44e-8, 298 K)로 이 저항률에서 60.7 W/(m K) 가 나와 0.3% 안에서 맞고, 같은 제조사 Sn60Pb40 Plus TB 도 0.145 uohm-m -> 50.2 대 인쇄 50 으로 같은 관계를 만족한다. 그래서 열전도율 행은 넣지 않았다."}
+ ]},
+
+{"match_name": "SAC405 Solder Alloy",
+ "source": {"kind": "datasheet",
+   "title": "ALPHA VACULOY SAC300,305,350,380,387,400,405 - Technical Data Sheet, Issue 06 September 2023, 'Material Properties' table",
+   "url": "https://www.macdermidalpha.com/sites/default/files/2025-01/ALPHA-VACULOY-SAC-300-305-350-380-387-400-405-SLD-TDS-GL-EN-06Sep2023.pdf",
+   "year": 2023},
+ "properties": [
+  {"key": "thermal.expansion_linear", "value": 2.14e-05, "unit": "1/K", "method": "measured", "tier": 1,
+   "conditions": {"composition_wt_pct": "Sn balance / Ag 4.0 +/- 0.2 / Cu 0.5 +/- 0.1",
+                  "temperature_range_c": "20 to 100",
+                  "basis": "제조사 TDS 의 Material Properties 표 (SAC405 열)"},
+   "notes": "'TCE (Range 20 to 100 C) micrometers / M / C : SAC405 21.4' verbatim -> 2.14e-5 /K. **이 출처는 이미 DB 에 있다** — 57차 SA 가 같은 표에서 비열 236 J/(kg K) 만 가져갔고 옆 칸인 밀도·TCE 는 안 가져갔다(브리프 602). 같은 표의 SAC305 21.9 는 DB 의 Kapp Alloy t1 21.9(20~100 C)와 글자까지 같아 열 배정이 닫힌다."}
+ ]},
+
+{"match_name": "Sn3.8Ag0.7Cu Solder Alloy (SAC387)",
+ "source": {"kind": "datasheet",
+   "title": "ALPHA VACULOY SAC300,305,350,380,387,400,405 - Technical Data Sheet, Issue 06 September 2023, 'Material Properties' table",
+   "url": "https://www.macdermidalpha.com/sites/default/files/2025-01/ALPHA-VACULOY-SAC-300-305-350-380-387-400-405-SLD-TDS-GL-EN-06Sep2023.pdf",
+   "year": 2023},
+ "properties": [
+  {"key": "thermal.expansion_linear", "value": 2.14e-05, "unit": "1/K", "method": "measured", "tier": 1,
+   "conditions": {"composition_wt_pct": "Sn balance / Ag 3.8 +/- 0.2 / Cu 0.7 +/- 0.1",
+                  "temperature_range_c": "20 to 100",
+                  "basis": "제조사 TDS 의 Material Properties 표 (SAC387 열)"},
+   "notes": "'TCE (Range 20 to 100 C) : SAC387 21.4' verbatim -> 2.14e-5 /K. 이 재료에는 이미 Guangzhou Xianyi 편람의 2.2e-5 가 있으나 그 값은 온도구간이 안 찍혀 있다. 이 행은 20~100 C 구간이 명시된 값이라 별개 조건으로 넣는다."}
+ ]},
+
+{"match_name": "SAC105 Solder Alloy",
+ "source": {"kind": "datasheet",
+   "title": "Solder Alloy Technical Specification (The Solder Connection Ltd)",
+   "publisher": "The Solder Connection Ltd",
+   "year": 2023,
+   "url": "https://www.solderconnection.com/wp-content/uploads/2023/03/Solder-Alloy-Technical-Specifications.pdf",
+   "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w57sa/solderconnection.pdf"},
+ "properties": [
+  {"key": "mechanical.tensile_strength", "value": 39226600.0, "unit": "Pa", "method": "measured", "tier": 2,
+   "conditions": {"composition_wt_pct": "Sn 98.5 / Ag 1.0 / Cu 0.5", "phase": "solid",
+                  "basis": "벤더 사양표의 'Tensile Strength at Break (kgf/cm2)' 열"},
+   "notes": "'Sn98.5Ag1.0Cu0.5 (SAC105) ... 400' verbatim (kgf/cm2) -> 400 x 98066.5 = 39.2266 MPa. **이 출처는 이미 DB 에 있다** — 앞 파동이 이 표에서 밀도·저항률·열전도율만 가져가고 인장강도 열은 재료 585 한 종에만 썼다(브리프 602). 환산계수는 585 의 기존 행(300 kgf/cm2 -> 29419950 Pa)과 같다."},
+  {"key": "mechanical.elongation_at_break", "value": 0.13, "unit": "1", "method": "measured", "tier": 2,
+   "conditions": {"composition_wt_pct": "Sn 98.5 / Ag 1.0 / Cu 0.5",
+                  "basis": "벤더 사양표의 'Tensile Elongation at Break (%)' 열"},
+   "notes": "'... 400  13  13' 중 가운데 13% -> 0.13. 오른쪽 13 은 Brinell 경도 열이다."},
+  {"key": "mechanical.hardness_brinell", "value": 13.0, "unit": "HBW", "method": "measured", "tier": 2,
+   "conditions": {"composition_wt_pct": "Sn 98.5 / Ag 1.0 / Cu 0.5",
+                  "basis": "벤더 사양표의 'Brinell Hardness (HB)' 열"},
+   "notes": "표 마지막 열. 같은 표의 SAC305 15 · SAC405 15 · Sn63Pb37 17 과 계열이 맞는다."}
+ ]},
+
+{"match_name": "SAC405 Solder Alloy",
+ "source": {"kind": "datasheet",
+   "title": "Solder Alloy Technical Specification (The Solder Connection Ltd)",
+   "publisher": "The Solder Connection Ltd",
+   "year": 2023,
+   "url": "https://www.solderconnection.com/wp-content/uploads/2023/03/Solder-Alloy-Technical-Specifications.pdf",
+   "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w57sa/solderconnection.pdf"},
+ "properties": [
+  {"key": "mechanical.tensile_strength", "value": 51975245.0, "unit": "Pa", "method": "measured", "tier": 2,
+   "conditions": {"composition_wt_pct": "Sn 95.5 / Ag 4.0 / Cu 0.5", "phase": "solid",
+                  "basis": "벤더 사양표의 'Tensile Strength at Break (kgf/cm2)' 열"},
+   "notes": "'Sn95.5Ag4.0Cu0.5 (SAC405) ... 530' verbatim (kgf/cm2) -> 530 x 98066.5 = 51.975 MPa. 같은 표에서 이미 적재된 밀도 7.44 · 열전도율 62 와 같은 행이다(브리프 602)."},
+  {"key": "mechanical.elongation_at_break", "value": 0.17, "unit": "1", "method": "measured", "tier": 2,
+   "conditions": {"composition_wt_pct": "Sn 95.5 / Ag 4.0 / Cu 0.5",
+                  "basis": "벤더 사양표의 'Tensile Elongation at Break (%)' 열"},
+   "notes": "'... 530  17  15' 중 가운데 17% -> 0.17."},
+  {"key": "mechanical.hardness_brinell", "value": 15.0, "unit": "HBW", "method": "measured", "tier": 2,
+   "conditions": {"composition_wt_pct": "Sn 95.5 / Ag 4.0 / Cu 0.5",
+                  "basis": "벤더 사양표의 'Brinell Hardness (HB)' 열"},
+   "notes": "표 마지막 열."}
+ ]},
+
+{"match_name": "62Sn36Pb2Ag Solder Alloy",
+ "source": {"kind": "datasheet",
+   "title": "AIM Solder — ALLOY INFORMATION (Common & Specialty Alloys), 'TECHNICAL INFORMATION ON COMMON & SPECIALTY ALLOYS' table",
+   "publisher": "AIM Solder (AIM Metals & Alloys LP)",
+   "url": "https://www.aimsolder.com/wp-content/uploads/legacy-files/alloy_information.pdf",
+   "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w58tb/aim_alloy_information.pdf"},
+ "properties": [
+  {"key": "mechanical.tensile_strength", "value": 31026406.0, "unit": "Pa", "method": "measured", "tier": 2,
+   "conditions": {"composition_wt_pct": "Sn 62 / Pb 36 / Ag 2", "phase": "solid",
+                  "basis": "벤더 편람의 'TENSILE STRENGTH (ksi)' 열"},
+   "notes": "'Sn62/Pb36/Ag2 | 179 | 4.50 | 2.57 | 2.06 | 17.9' verbatim -> 4.50 ksi x 6894757 Pa/ksi = 31.03 MPa. 이 표는 변형률속도를 안 찍는다. **표마다 크게 갈린다** — 같은 계열 Sn63Pb37 을 AIM 은 4.92 ksi(33.9 MPa), Kester 편찬표는 6700 psi(46.2 MPa), Indalloy 편찬표는 7500 psi(51.7 MPa)로 찍는다. 솔더 UTS 는 변형률속도 지배라 이 산포가 정상이다 — 조건 없는 값끼리 골라서는 안 된다."},
+  {"key": "mechanical.yield_strength", "value": 17719525.0, "unit": "Pa", "method": "measured", "tier": 2,
+   "conditions": {"composition_wt_pct": "Sn 62 / Pb 36 / Ag 2", "offset_strain": 0.002,
+                  "basis": "벤더 편람의 '0.2% YIELD STRENGTH (ksi)' 열"},
+   "notes": "'2.57' ksi -> 17.72 MPa. 같은 행의 0.01% 항복 2.06 ksi 와 균일연신 17.9% 가 같이 인쇄된다. 항복 < 인장(4.50 ksi)이라 표 자체의 부등식을 만족한다."}
+ ]},
+
+{"match_name": "Sn-8Zn-3Bi Solder Alloy",
+ "source": {"kind": "journal",
+   "doi": "10.51316/jst.154.etsd.2021.31.5.11",
+   "title": "Thermal and Mechanical Properties of Sn-8Zn-3Bi Solder Alloy",
+   "authors": "Duong Ngoc Binh",
+   "year": 2021,
+   "publisher": "JST: Engineering and Technology for Sustainable Development (Hanoi University of Science and Technology), Vol. 31, Issue 5, 075-080",
+   "url": "https://jst.vn/index.php/etsd/article/view/268",
+   "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w58tb/duong2021.pdf"},
+ "properties": [
+  {"key": "thermal.expansion_linear", "value": 2.22e-05, "unit": "1/K", "method": "measured", "tier": 1,
+   "conditions": {"composition_wt_pct": "Sn bal. / Zn 8 / Bi 3", "temperature_range_c": "30 to 130",
+                  "test_method": "dilatometer, bulk bar specimen 20 x 3 x 3 mm cut from Sn-8Zn-3Bi solder bar",
+                  "basis": "본문 3.2 절과 초록의 인쇄값"},
+   "notes": "초록 verbatim: 'the CTE of Sn-8Zn-3Bi was 22.2x10-6 K-1 in the temperature range of 30-130 C'. 본문이 dL = 0.444e-6 x dT 와 L0 = 20 mm 에서 alpha = 0.444e-6/20e-3 = 22.2e-6 /K 를 인쇄하고, 그 평균값으로 dL 을 되계산해 측정선과 겹치는 것을 Fig.6 으로 보인다. 같은 논문이 같은 장치로 잰 Sn-37Pb 는 80 C 에서 최대 18.07e-6, 110 C 에서 15.16e-6 이다 — 대조군이 교과서 대(21~25 ppm)보다 낮게 나오는 계통 편향이 있을 수 있으므로 절대값은 이 논문 안에서만 대 봐라. **벌크 봉재 시편이라 접합부 값이 아니다.**"},
+  {"key": "thermal.melting_point", "value": 468.15, "unit": "K", "method": "measured", "tier": 1,
+   "conditions": {"composition_wt_pct": "Sn bal. / Zn 8 / Bi 3", "phase_boundary": "liquidus",
+                  "test_method": "DSC", "temperature_c_printed": 195},
+   "notes": "초록 verbatim: 'the melting (liquidus) temperature of Sn-8Zn-3Bi was 195 C'. 본문은 'The alloy started melting at a temperature of approx. 190 C. The onset temperature was approx. 195 C ... Thus, the alloy's melting range was from 190 to 195 C' 로 190 을 개시, 195 를 liquidus 로 쓴다(용어가 통상과 반대지만 초록이 195 를 liquidus 로 못박으므로 그대로 적는다). Sn-9Zn 공정점 199 C(Indalloy 201 행)에 Bi 3% 를 넣어 내려간 값이라 방향이 맞는다."}
+ ]},
+
+{"match_name": "SAC125Ni Solder Alloy (Sn1.2Ag0.5Cu0.05Ni)",
+ "source": {"kind": "datasheet",
+   "title": "ALPHA(R) SOLDER SPHERES — Technical Data Sheet, Issue 25 May 2020, 'ALLOY COMPOSITION' table",
+   "publisher": "MacDermid Alpha Electronics Solutions (Semiconductor Solutions)",
+   "year": 2020,
+   "url": "https://web.archive.org/web/20230804051504id_/https://www.macdermidalpha.com/sites/default/files/2022-05/ALPHA-SOLDER-SPHERES-EN-25May2020-TDS.pdf",
+   "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w58tb/alpha_spheres.pdf"},
+ "properties": [
+  {"key": "thermal.melting_point", "value": 490.15, "unit": "K", "method": "measured", "tier": 2,
+   "conditions": {"composition_wt_pct": "Sn 98.3 / Ag 1.2 / Cu 0.5 / Ni 250-500 ppm",
+                  "phase_boundary": "solidus", "temperature_c_printed": 217},
+   "notes": "합금표 verbatim: 'SAC125 w/Ni | 98.3 | - | 1.2 | 0.5 | 250-500 ppm | - | (eutectic blank) | 217 | 228'. 재료명의 Sn1.2Ag0.5Cu0.05Ni 와 조성이 맞는다(0.05 wt% = 500 ppm 으로 벤더 규격 250~500 ppm 의 상단). **이 등급을 싣는 공개 벤더 문서를 처음 찾았다** — 그러나 이 TDS 는 조성과 융점만 찍고 물성 열이 아예 없다."},
+  {"key": "thermal.melting_point", "value": 501.15, "unit": "K", "method": "measured", "tier": 2,
+   "conditions": {"composition_wt_pct": "Sn 98.3 / Ag 1.2 / Cu 0.5 / Ni 250-500 ppm",
+                  "phase_boundary": "liquidus", "temperature_c_printed": 228},
+   "notes": "같은 행의 Liquidus 열. 같은 표의 SAC105 도 217/228 로 같아 저Ag SAC 계열의 통상값이다."}
+ ]}
+
+]}
