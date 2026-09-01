@@ -1,0 +1,192 @@
+{
+ "materials": [
+  {
+   "match_name": "Doosan DSF-900HT Copper Clad Laminate",
+   "source": {
+    "kind": "datasheet",
+    "title": "Doosan Corporation Electro-Materials — DSF-900HT CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+    "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DSF-900HT",
+    "authors": "Doosan Corporation Electro-Materials",
+    "year": 2024,
+    "publisher": "Doosan Corporation Electro-Materials",
+    "local_path": null
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1700.0,
+     "unit": "kg/m^3",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "grade": "DSF-900HT",
+      "bound": "lower"
+     },
+     "notes": "Doosan 제품 페이지(https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DSF-900HT) [Others]/[Mechanical] 표의 `Density | 1.7~1.8 | g/cm³ | - | -` 행 verbatim. ×1000 으로 환산했고 구간 인쇄는 하한·상한을 갈랐다(브리프 76). **[왜 지금 들어오나] 54차 PC 가 이 등급을 `S3b — 전제품 TDS v9 에 행 자체가 없어 확인 못 한다` 로 넘겼는데, 56차 RC 가 그 TDS(55등급)를 직접 열어 이 등급의 행이 정말 없음을 확인하고 **제품 페이지를 따로 열었더니 밀도 행이 거기 있었다**. '전제품 TDS 에 없다' 가 '벤더가 안 찍는다' 를 뜻하지 않는다(브리프 127·479·505). **[출처 함정] 이 출처의 `local_path` 는 전제품 TDS PDF 를 가리키는데 그 PDF 에는 이 등급 행이 없다**(54차 PB 가 15건 314행에서 잡은 결함) — 값의 근거는 URL 의 제품 페이지다. [서식 잔재 아님 확인] Doosan 밀도 열은 등급마다 갈린다(1.42·1.7·1.71·1.87·1.9·1.96·2.03·2.07·2.09·2.1) — DSflex 계열이 공통 1.42 인 것은 같은 폴리이미드 기재를 쓰기 때문이고 전제품 TDS 의 DSflex 8등급도 전부 1.42 다(브리프 467)."
+    },
+    {
+     "key": "physical.density",
+     "value": 1800.0,
+     "unit": "kg/m^3",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "grade": "DSF-900HT",
+      "bound": "upper"
+     },
+     "notes": "Doosan 제품 페이지(https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DSF-900HT) [Others]/[Mechanical] 표의 `Density | 1.7~1.8 | g/cm³ | - | -` 행 verbatim. ×1000 으로 환산했고 구간 인쇄는 하한·상한을 갈랐다(브리프 76). **[왜 지금 들어오나] 54차 PC 가 이 등급을 `S3b — 전제품 TDS v9 에 행 자체가 없어 확인 못 한다` 로 넘겼는데, 56차 RC 가 그 TDS(55등급)를 직접 열어 이 등급의 행이 정말 없음을 확인하고 **제품 페이지를 따로 열었더니 밀도 행이 거기 있었다**. '전제품 TDS 에 없다' 가 '벤더가 안 찍는다' 를 뜻하지 않는다(브리프 127·479·505). **[출처 함정] 이 출처의 `local_path` 는 전제품 TDS PDF 를 가리키는데 그 PDF 에는 이 등급 행이 없다**(54차 PB 가 15건 314행에서 잡은 결함) — 값의 근거는 URL 의 제품 페이지다. [서식 잔재 아님 확인] Doosan 밀도 열은 등급마다 갈린다(1.42·1.7·1.71·1.87·1.9·1.96·2.03·2.07·2.09·2.1) — DSflex 계열이 공통 1.42 인 것은 같은 폴리이미드 기재를 쓰기 때문이고 전제품 TDS 의 DSflex 8등급도 전부 1.42 다(브리프 467)."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DSflex-600G Flexible Copper Clad Laminate",
+   "source": {
+    "kind": "datasheet",
+    "title": "Doosan Corporation Electro-Materials — DSflex-600G CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+    "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DSflex-600G",
+    "authors": "Doosan Corporation Electro-Materials",
+    "year": 2024,
+    "publisher": "Doosan Corporation Electro-Materials",
+    "local_path": null
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1420.0,
+     "unit": "kg/m^3",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "grade": "DSflex-600G"
+     },
+     "notes": "Doosan 제품 페이지(https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DSflex-600G) [Others]/[Mechanical] 표의 `Density | 1.42 | g/cm³ | - | -` 행 verbatim. ×1000 으로 환산했고 구간 인쇄는 하한·상한을 갈랐다(브리프 76). **[왜 지금 들어오나] 54차 PC 가 이 등급을 `S3b — 전제품 TDS v9 에 행 자체가 없어 확인 못 한다` 로 넘겼는데, 56차 RC 가 그 TDS(55등급)를 직접 열어 이 등급의 행이 정말 없음을 확인하고 **제품 페이지를 따로 열었더니 밀도 행이 거기 있었다**. '전제품 TDS 에 없다' 가 '벤더가 안 찍는다' 를 뜻하지 않는다(브리프 127·479·505). **[출처 함정] 이 출처의 `local_path` 는 전제품 TDS PDF 를 가리키는데 그 PDF 에는 이 등급 행이 없다**(54차 PB 가 15건 314행에서 잡은 결함) — 값의 근거는 URL 의 제품 페이지다. [서식 잔재 아님 확인] Doosan 밀도 열은 등급마다 갈린다(1.42·1.7·1.71·1.87·1.9·1.96·2.03·2.07·2.09·2.1) — DSflex 계열이 공통 1.42 인 것은 같은 폴리이미드 기재를 쓰기 때문이고 전제품 TDS 의 DSflex 8등급도 전부 1.42 다(브리프 467)."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DSflex-600H Flexible Copper Clad Laminate",
+   "source": {
+    "kind": "datasheet",
+    "title": "Doosan Corporation Electro-Materials — DSflex-600H CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+    "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DSflex-600H",
+    "authors": "Doosan Corporation Electro-Materials",
+    "year": 2024,
+    "publisher": "Doosan Corporation Electro-Materials",
+    "local_path": null
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1420.0,
+     "unit": "kg/m^3",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "grade": "DSflex-600H"
+     },
+     "notes": "Doosan 제품 페이지(https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DSflex-600H) [Others]/[Mechanical] 표의 `Density | 1.42 | g/cm³ | - | -` 행 verbatim. ×1000 으로 환산했고 구간 인쇄는 하한·상한을 갈랐다(브리프 76). **[왜 지금 들어오나] 54차 PC 가 이 등급을 `S3b — 전제품 TDS v9 에 행 자체가 없어 확인 못 한다` 로 넘겼는데, 56차 RC 가 그 TDS(55등급)를 직접 열어 이 등급의 행이 정말 없음을 확인하고 **제품 페이지를 따로 열었더니 밀도 행이 거기 있었다**. '전제품 TDS 에 없다' 가 '벤더가 안 찍는다' 를 뜻하지 않는다(브리프 127·479·505). **[출처 함정] 이 출처의 `local_path` 는 전제품 TDS PDF 를 가리키는데 그 PDF 에는 이 등급 행이 없다**(54차 PB 가 15건 314행에서 잡은 결함) — 값의 근거는 URL 의 제품 페이지다. [서식 잔재 아님 확인] Doosan 밀도 열은 등급마다 갈린다(1.42·1.7·1.71·1.87·1.9·1.96·2.03·2.07·2.09·2.1) — DSflex 계열이 공통 1.42 인 것은 같은 폴리이미드 기재를 쓰기 때문이고 전제품 TDS 의 DSflex 8등급도 전부 1.42 다(브리프 467)."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DSflex-600HF Flexible Copper Clad Laminate",
+   "source": {
+    "kind": "datasheet",
+    "title": "Doosan Corporation Electro-Materials — DSflex-600HF CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+    "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DSflex-600HF",
+    "authors": "Doosan Corporation Electro-Materials",
+    "year": 2024,
+    "publisher": "Doosan Corporation Electro-Materials",
+    "local_path": null
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1420.0,
+     "unit": "kg/m^3",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "grade": "DSflex-600HF"
+     },
+     "notes": "Doosan 제품 페이지(https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DSflex-600HF) [Others]/[Mechanical] 표의 `Density | 1.42 | g/cm³ | - | -` 행 verbatim. ×1000 으로 환산했고 구간 인쇄는 하한·상한을 갈랐다(브리프 76). **[왜 지금 들어오나] 54차 PC 가 이 등급을 `S3b — 전제품 TDS v9 에 행 자체가 없어 확인 못 한다` 로 넘겼는데, 56차 RC 가 그 TDS(55등급)를 직접 열어 이 등급의 행이 정말 없음을 확인하고 **제품 페이지를 따로 열었더니 밀도 행이 거기 있었다**. '전제품 TDS 에 없다' 가 '벤더가 안 찍는다' 를 뜻하지 않는다(브리프 127·479·505). **[출처 함정] 이 출처의 `local_path` 는 전제품 TDS PDF 를 가리키는데 그 PDF 에는 이 등급 행이 없다**(54차 PB 가 15건 314행에서 잡은 결함) — 값의 근거는 URL 의 제품 페이지다. [서식 잔재 아님 확인] Doosan 밀도 열은 등급마다 갈린다(1.42·1.7·1.71·1.87·1.9·1.96·2.03·2.07·2.09·2.1) — DSflex 계열이 공통 1.42 인 것은 같은 폴리이미드 기재를 쓰기 때문이고 전제품 TDS 의 DSflex 8등급도 전부 1.42 다(브리프 467)."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DSflex-900L Flexible Copper Clad Laminate",
+   "source": {
+    "kind": "datasheet",
+    "title": "Doosan Corporation Electro-Materials — DSflex-900L CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+    "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DSflex-900L",
+    "authors": "Doosan Corporation Electro-Materials",
+    "year": 2024,
+    "publisher": "Doosan Corporation Electro-Materials",
+    "local_path": null
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1420.0,
+     "unit": "kg/m^3",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "grade": "DSflex-900L"
+     },
+     "notes": "Doosan 제품 페이지(https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DSflex-900L) [Others]/[Mechanical] 표의 `Density | 1.42 | g/cm³ | - | -` 행 verbatim. ×1000 으로 환산했고 구간 인쇄는 하한·상한을 갈랐다(브리프 76). **[왜 지금 들어오나] 54차 PC 가 이 등급을 `S3b — 전제품 TDS v9 에 행 자체가 없어 확인 못 한다` 로 넘겼는데, 56차 RC 가 그 TDS(55등급)를 직접 열어 이 등급의 행이 정말 없음을 확인하고 **제품 페이지를 따로 열었더니 밀도 행이 거기 있었다**. '전제품 TDS 에 없다' 가 '벤더가 안 찍는다' 를 뜻하지 않는다(브리프 127·479·505). **[출처 함정] 이 출처의 `local_path` 는 전제품 TDS PDF 를 가리키는데 그 PDF 에는 이 등급 행이 없다**(54차 PB 가 15건 314행에서 잡은 결함) — 값의 근거는 URL 의 제품 페이지다. [서식 잔재 아님 확인] Doosan 밀도 열은 등급마다 갈린다(1.42·1.7·1.71·1.87·1.9·1.96·2.03·2.07·2.09·2.1) — DSflex 계열이 공통 1.42 인 것은 같은 폴리이미드 기재를 쓰기 때문이고 전제품 TDS 의 DSflex 8등급도 전부 1.42 다(브리프 467)."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DSflex-900U Flexible Copper Clad Laminate",
+   "source": {
+    "kind": "datasheet",
+    "title": "Doosan Corporation Electro-Materials — DSflex-900U CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+    "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DSflex-900U",
+    "authors": "Doosan Corporation Electro-Materials",
+    "year": 2024,
+    "publisher": "Doosan Corporation Electro-Materials",
+    "local_path": null
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1420.0,
+     "unit": "kg/m^3",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "grade": "DSflex-900U"
+     },
+     "notes": "Doosan 제품 페이지(https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DSflex-900U) [Others]/[Mechanical] 표의 `Density | 1.42 | g/cm³ | - | -` 행 verbatim. ×1000 으로 환산했고 구간 인쇄는 하한·상한을 갈랐다(브리프 76). **[왜 지금 들어오나] 54차 PC 가 이 등급을 `S3b — 전제품 TDS v9 에 행 자체가 없어 확인 못 한다` 로 넘겼는데, 56차 RC 가 그 TDS(55등급)를 직접 열어 이 등급의 행이 정말 없음을 확인하고 **제품 페이지를 따로 열었더니 밀도 행이 거기 있었다**. '전제품 TDS 에 없다' 가 '벤더가 안 찍는다' 를 뜻하지 않는다(브리프 127·479·505). **[출처 함정] 이 출처의 `local_path` 는 전제품 TDS PDF 를 가리키는데 그 PDF 에는 이 등급 행이 없다**(54차 PB 가 15건 314행에서 잡은 결함) — 값의 근거는 URL 의 제품 페이지다. [서식 잔재 아님 확인] Doosan 밀도 열은 등급마다 갈린다(1.42·1.7·1.71·1.87·1.9·1.96·2.03·2.07·2.09·2.1) — DSflex 계열이 공통 1.42 인 것은 같은 폴리이미드 기재를 쓰기 때문이고 전제품 TDS 의 DSflex 8등급도 전부 1.42 다(브리프 467)."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DSflex-900UM Flexible Copper Clad Laminate",
+   "source": {
+    "kind": "datasheet",
+    "title": "Doosan Corporation Electro-Materials — DSflex-900UM CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+    "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DSflex-900UM",
+    "authors": "Doosan Corporation Electro-Materials",
+    "year": 2024,
+    "publisher": "Doosan Corporation Electro-Materials",
+    "local_path": null
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1420.0,
+     "unit": "kg/m^3",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "grade": "DSflex-900UM"
+     },
+     "notes": "Doosan 제품 페이지(https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DSflex-900UM) [Others]/[Mechanical] 표의 `Density | 1.42 | g/cm³ | - | -` 행 verbatim. ×1000 으로 환산했고 구간 인쇄는 하한·상한을 갈랐다(브리프 76). **[왜 지금 들어오나] 54차 PC 가 이 등급을 `S3b — 전제품 TDS v9 에 행 자체가 없어 확인 못 한다` 로 넘겼는데, 56차 RC 가 그 TDS(55등급)를 직접 열어 이 등급의 행이 정말 없음을 확인하고 **제품 페이지를 따로 열었더니 밀도 행이 거기 있었다**. '전제품 TDS 에 없다' 가 '벤더가 안 찍는다' 를 뜻하지 않는다(브리프 127·479·505). **[출처 함정] 이 출처의 `local_path` 는 전제품 TDS PDF 를 가리키는데 그 PDF 에는 이 등급 행이 없다**(54차 PB 가 15건 314행에서 잡은 결함) — 값의 근거는 URL 의 제품 페이지다. [서식 잔재 아님 확인] Doosan 밀도 열은 등급마다 갈린다(1.42·1.7·1.71·1.87·1.9·1.96·2.03·2.07·2.09·2.1) — DSflex 계열이 공통 1.42 인 것은 같은 폴리이미드 기재를 쓰기 때문이고 전제품 TDS 의 DSflex 8등급도 전부 1.42 다(브리프 467)."
+    }
+   ]
+  }
+ ]
+}

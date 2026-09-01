@@ -1,0 +1,85 @@
+{
+ "materials": [
+  {
+   "match_id": 2378,
+   "match_name": "GPO-3 glass-mat polyester laminate, Rochling Glastic UTR grade (part 1491-1494-1497, NEMA GPO-3-GPO-3P, IEC UP GM 203)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Technical Data Sheet Glastic(R) UTR, GFK-UP (PIM-ID 715322, Version 5.0, Release 15/12/2023)",
+    "url": "https://www.roechling.com/fileadmin/assets/Technical%20Data%20Sheet%20Glastic%C2%AE%20UTR%20715322%20EN.pdf",
+    "local_path": "standards_appnotes/mech/Rochling_Glastic_UTR_Technical_Data_Sheet_715322_EN.pdf",
+    "authors": "Roechling Industrial (Roechling Glastic Composites)",
+    "year": 2023,
+    "publisher": "Roechling Industrial"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 11721087400.0,
+     "unit": "Pa",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "grade": "Glastic UTR, part numbers 1491 / 1493 / 1494 / 1495 / 1497 (NEMA LI 1-1989 GPO-3)",
+      "test_standard": "ASTM D 638"
+     },
+     "notes": "Roechling 자사 공식 TDS 의 Mechanical properties 표 verbatim `Tensile Modulus   ASTM D 638   psi X 106   1.7` 다. 1.7x10^6 psi 를 SI 로 환산해 1.17210874e10 Pa 로 적었다. 같은 표의 Tensile Strength 8,000 psi / Flexural Strength 22,100 psi / Compressive Strength 33,100 psi / Shear Strength 11,600 psi 가 DB 에 이미 들어 있는 Professional Plastics 판 UTR 열(8,000 / 22,100 / 33,100 / 11,600 psi)과 한 자리도 어긋나지 않아 등급이 같은 문서임을 확인했다. Roechling 의 다른 문서인 Durostone(R) Glastic(R) 브로슈어(05/2011) 물성표 UTR 열(부품번호 1494)은 같은 값을 SI 로 `Zugkoeffizient / Tensile Modulus   ASTM D 638   N/mm2   11,720` 라고 인쇄해 교차 검증된다. 찾은 경로는 wave 브리핑이 준 Professional Plastics 배포판 PDF 에 인장탄성률 행이 아예 없어서 Roechling 본사 사이트의 등급별 공식 TDS 를 웹 검색으로 찾아 내려받아 pdftotext -layout 로 연 것이다. 시험 온도는 시트에 인쇄되어 있지 않아 온도 조건을 넣지 않았다."
+    }
+   ]
+  },
+  {
+   "match_id": 2379,
+   "match_name": "GPO-3 glass-mat polyester laminate, Rochling Glastic 1580 grade (part 1580, NEMA GPO-3, IEC UP GM 203, UL94 V-0)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Durostone(R) Glastic(R) - Materialien fuer elektrische Isolierungen / Electrical insulating materials (Broschuere 05/2011), Eigenschaften/Properties table, Durostone(R) Glastic(R) UTR / 1580 / SG-200",
+    "url": "https://www.roechling.com/fileadmin/downloads/Roechling_Industrial/Brochures/EN/Durostone/Durostone-Glastic-Electrical-insulating-materials-EN.pdf",
+    "local_path": "standards_appnotes/mech/Rochling_Durostone_Glastic_Electrical_Insulating_Materials_Brochure_2011-05.pdf",
+    "authors": "Roechling Engineering Plastics KG / Roechling Glastic Composites",
+    "year": 2011,
+    "publisher": "Roechling Engineering Plastics KG"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 12410000000.0,
+     "unit": "Pa",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "grade": "Glastic 1580, part number 1580 (NEMA GPO-3, IEC UPGM203)",
+      "test_standard": "ASTM D 638"
+     },
+     "notes": "브로슈어 물성표의 1580 열 verbatim `Zugkoeffizient / Tensile Modulus   ASTM D 638   N/mm2   12,410` 다. N/mm2 는 MPa 라서 12,410 MPa = 1.241e10 Pa 로 적었고 환산 외에 손대지 않았다. 열 머리글이 `Durostone(R) Glastic(R) ... 1580`, 그 아래 `Part Number 1580`, `NEMA Grade GPO-3`, `IEC Grade UPGM203` 로 박혀 있어 2379 와 같은 등급이다. 같은 열의 Zugfestigkeit 58 N/mm2 · Biegefestigkeit 170 N/mm2 · Druckfestigkeit 215 N/mm2 · Scherfestigkeit 83 N/mm2 가 DB 에 이미 있는 Professional Plastics 판 1580 열(8,400 / 24,600 / 31,200 / 12,000 psi = 57.9 / 169.6 / 215.1 / 82.7 MPa)과 일치해 같은 등급의 같은 데이터셋임을 확인했다. Roechling 자사 공식 TDS `Glastic(R) 1580/1583` (PIM-ID 715308, Version 3.0)도 열어 보았으나 그쪽에는 Tensile Modulus 행이 없어서 브로슈어를 출처로 삼았다. 주의로 적어 두면 이 브로슈어의 열팽창계수 행은 단위를 `10-6/K` 로 인쇄하고 값 2 를 적어 두었는데, 같은 회사 TDS 와 Professional Plastics 표가 모두 `(in./in. C) x 10-5` 로 2 를 적으므로 브로슈어 쪽 단위 표기가 한 자리 틀렸다. 그래서 이 브로슈어에서는 인장탄성률만 가져왔다. **[같은 표의 결함 한 칸 — 그런데 이 칸은 아니다]** 이 브로슈어의 Physical properties 블록은 `Wärmeausdehnungskoeffizient / Coefficient of thermal expansion  ASTM D 696  10-6/K  2` 로 인쇄해 **단위 지수가 한 자릿수 틀렸다**(GPO-3 는 2e-5 /K = 20 ppm/K 이고, 같은 브로슈어의 다른 제품표는 같은 ASTM D 696 을 `10-6/K 20` 으로 옳게 찍는다). 그 칸은 쓰지 않았다 — DB 의 2e-5 가 옳고 여기서 고치지도 않는다(브리프 18·443). 여기서 쓰는 Mechanical properties 블록은 반대로 다섯 칸이 독립 문서로 확증된다 — UTR 의 Tensile Modulus 11,720 이 Roechling 공식 TDS 의 1.7x10^6 psi(=11,721)와 소수점까지 같고, 1580·UTR 의 Zugfestigkeit 58·54 N/mm2 가 Professional Plastics 판 8,400·8,000 psi 와 같다. **표 블록마다 채점한 결과다**(브리프 230)."
+    }
+   ]
+  },
+  {
+   "match_id": 261,
+   "match_name": "HA Rolled Annealed Copper Foil (JX)",
+   "source": {
+    "kind": "web",
+    "title": "Treated Rolled Copper Foil - JX Advanced Metals (Treated Rolled Copper Foil Lineup and Typical Properties > Typical properties > Mechanical properties)",
+    "url": "https://www.jx-nmm.com/english/products/copper_foil_and_alloy/rolled_copper_foil/",
+    "local_path": null,
+    "authors": "JX Advanced Metals Corporation",
+    "year": 2026,
+    "publisher": "JX Advanced Metals Corporation"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 145000000.0,
+     "unit": "Pa",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "grade": "HA (TPC base, Cu at least 99.9%, Ag 190 ppm)",
+      "conditioning": "after annealing"
+     },
+     "notes": "JX 자사 제품 페이지 `Typical properties` 절의 `Mechanical properties` 표 verbatim 이다. 표 머리글이 `Type | TPC | HA | HA-V2 | HG` 이고 행이 `Tensile strength (MPa)` 아래 `Before annealing | 440 | 500 | 500 | 550` 과 `After annealing | 210 | 145 | 150 | 260` 두 줄이다. 재료 261 이 rolled annealed(소둔) 동박이므로 HA 열의 After annealing 값 145 MPa = 1.45e8 Pa 를 골랐다. 같은 페이지 `Physical properties` 표의 `Modulus of elasticity (GPa) (resonance method)` 행 `After annealing | 100 | 70 | 75 | 120` 이 DB 에 이미 있는 261 의 youngs_modulus 70 GPa 와 정확히 일치해 열을 잘못 읽지 않았음을 확인했다. 브리핑이 준 ha.html 상세 페이지에는 인장강도 행이 없고 Young's modulus 비교 도표와 굴곡·진동 수명만 있어서, 한 단계 위 디렉터리 인덱스 페이지(.../rolled_copper_foil/)를 열었더니 등급별 물성표 세 개가 이 페이지에 있었다. 시험 규격·온도·박 두께는 표에 인쇄되어 있지 않아 조건을 넣지 않았다."
+    }
+   ]
+  }
+ ]
+}

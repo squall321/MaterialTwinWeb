@@ -1,0 +1,283 @@
+{
+ "materials": [
+  {
+   "match_name": "SACX0307 Solder Alloy (Sn-0.3Ag-0.7Cu-0.1Bi, Cookson SACX, Bi-doped low-Ag SAC)",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1109/itherm.2012.6231521",
+    "url": "https://doi.org/10.1109/itherm.2012.6231521",
+    "title": "Mitigation of Lead Free Solder Aging Effects using Doped SAC-X Alloys",
+    "authors": "Zijie Cai, Jeffrey C. Suhling, Pradeep Lall, Michael J. Bozack",
+    "year": 2012,
+    "publisher": "IEEE (13th InterSociety Conference on Thermal and Thermomechanical Phenomena in Electronic Systems, ITherm 2012)",
+    "local_path": "/data/paper_patent_corpus/rel_papers/10_tin_whisker/Cai - 2012 - Mitigation of lead free solder aging effects using doped SAC-X alloys.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 20543000000.0,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_time_days": 120,
+      "aging_temperature_k": 373.15,
+      "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+      "digitized": true,
+      "figure": "Figure 13(a) Effective Elastic Modulus (p.8) — Evolution of SAC-X Material Properties [Aging at 100 oC for 12 Months]",
+      "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 eq.(3) verbatim: `E = sigma'(0) = C1*C2 + C3*C4` — 경험식 eq.(2) 를 10개 곡선에 맞춘 뒤 원점 기울기로 뽑은 값이다.",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). **마커가 위삼각형이라 bbox 중심을 쓰면 h/6 만큼 밀린다** — 꼭짓점 평균을 썼고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514). 이 그림의 삼각형 높이가 2.10 pt 이고 세로 눈금이 20.58 pt = 10 MPa 라 bbox 를 썼으면 0.17 MPa 계통오차가 남았을 것이다. 눈금선을 전수 검출해 np.interp 구간별 선형 보정을 했다(브리프 446 — 이 그림 세로 간격은 20.52/20.58/20.58/20.58/20.58 pt 로 균일한 편이다). **[가로축 되읽기 = 인쇄표 검산] 같은 논문 Figure 8 `Aging Test Matrix for the Stress-Strain Tests` 가 시효시간을 0/5/10/20/30/60/120/180/270/360 일로 인쇄한다.** 되읽으니 열 점이 4.94/9.87/19.90/29.93/59.95/120.00/180.00/270.00/360.00 로 **최대 0.13 일(축 전장의 0.036%)** 안에 붙는다 — 마커 오프셋이 없다(브리프 237·495).",
+      "reading_uncertainty": "±0.05 GPa"
+     },
+     "notes": "Cai 2012 Figure 13 을 벡터 좌표로 읽었다. 그림 안 주석 verbatim: 'SACX0307, RF' / 'T = 25 oC' / 'Aging at 100 oC'. **시효 100 °C 는 시효 조건이지 시험온도가 아니다** — 시험은 전부 상온 25 °C 다. 시험 조건은 같은 연구실 앞 논문과 같다(Cai 2010 verbatim: 'All uniaxial stress-strain and creep tests in this paper were conducted at room temperature (25 °C). The strain rate for the stress-strain testing was 0.001 sec-1'). pdftocairo -svg 벡터 좌표(브리프 452). **마커가 위삼각형이라 bbox 중심을 쓰면 h/6 만큼 밀린다** — 꼭짓점 평균을 썼고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514). 이 그림의 삼각형 높이가 2.10 pt 이고 세로 눈금이 20.58 pt = 10 MPa 라 bbox 를 썼으면 0.17 MPa 계통오차가 남았을 것이다. 눈금선을 전수 검출해 np.interp 구간별 선형 보정을 했다(브리프 446 — 이 그림 세로 간격은 20.52/20.58/20.58/20.58/20.58 pt 로 균일한 편이다). **[가로축 되읽기 = 인쇄표 검산] 같은 논문 Figure 8 `Aging Test Matrix for the Stress-Strain Tests` 가 시효시간을 0/5/10/20/30/60/120/180/270/360 일로 인쇄한다.** 되읽으니 열 점이 4.94/9.87/19.90/29.93/59.95/120.00/180.00/270.00/360.00 로 **최대 0.13 일(축 전장의 0.036%)** 안에 붙는다 — 마커 오프셋이 없다(브리프 237·495). **[Cai 2010 격자와의 대조 — 겹치는 여섯 점을 넣지 않은 이유]** 재료 2677 은 같은 연구실의 Cai 2010(10.1109/ectc.2010.5490796) Figure 28 에서 100 °C 시효 0/5/10/20/30/60 일 여섯 점을 이미 갖고 있다. 여기 Figure 13 은 같은 여섯 점을 다시 그리는데 **값이 다르다** — E 2010 [31.879·23.266·22.872·22.919·22.691·22.004] 대 2012 [31.860·22.045·22.352·21.708·21.249·21.095] · UTS 2010 [29.588·20.441·19.393·19.023·17.340·17.381] 대 2012 [29.596·19.899·19.577·19.203·17.960·17.152] · YS 2010 [26.734·18.437·17.074·16.896·15.497·15.456] 대 2012 [21.876·14.878·14.548·14.489·13.567·13.149]. **비시효점만 E·UTS 가 0.02·0.01 안에서 만나고 시효점은 3~5% 어긋나며, YS 는 비시효점부터 18% 어긋난다.** 즉 2012 의 12개월 매트릭스(Figure 8)는 2010 의 2개월 매트릭스와 다른 시험 뭉치다 — 어느 쪽이 맞는지 닫히지 않으므로 정정하지 않고, 겹치는 여섯 점은 다시 넣지 않는다(브리프 122·456·314). **여기 넣는 것은 2010 에 없는 120/180/270/360 일 네 점뿐이다.** [참고] 비시효 YS/UTS 비가 2010 은 0.90 인데 2012 는 0.74 이고, 같은 논문들의 SAC105/205/305/405 는 0.78/0.85/0.71/0.71 이라 0.90 쪽이 계열에서 벗어난다 — 심판으로 쓰기엔 약해 판정하지 않고 적어만 둔다(브리프 516). **[같은 논문의 Figure 14·17 은 재인용이다 — 캐지 않았다]** 캡션이 `Figure 14 - Variation of SAC UTS with Aging **[30-31]**` 이고 본문이 *'analogous results for SAC105 and SAC205 are available from our previous studies for comparison purposes [30-31]'* 다. 실제로 되읽으니 SAC105 [26.293·18.735·17.298·16.485·15.890·15.488·14.827] · SAC205 [33.536·24.389·22.693·21.385·20.696·19.333·18.984] 로 DB 의 Cai 2010 Figure 15 판독과 최대 0.02 MPa 로 같다(가로축은 `Aging Time (Day)` 0~60 이고 캡션이 `[Aging at 100 oC for 2 Months]` 다). 출처가 달라도 계보가 하나면 교차확인이 아니다(브리프 195·456)."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 20114000000.0,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_time_days": 180,
+      "aging_temperature_k": 373.15,
+      "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+      "digitized": true,
+      "figure": "Figure 13(a) Effective Elastic Modulus (p.8) — Evolution of SAC-X Material Properties [Aging at 100 oC for 12 Months]",
+      "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 eq.(3) verbatim: `E = sigma'(0) = C1*C2 + C3*C4` — 경험식 eq.(2) 를 10개 곡선에 맞춘 뒤 원점 기울기로 뽑은 값이다.",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). **마커가 위삼각형이라 bbox 중심을 쓰면 h/6 만큼 밀린다** — 꼭짓점 평균을 썼고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514). 이 그림의 삼각형 높이가 2.10 pt 이고 세로 눈금이 20.58 pt = 10 MPa 라 bbox 를 썼으면 0.17 MPa 계통오차가 남았을 것이다. 눈금선을 전수 검출해 np.interp 구간별 선형 보정을 했다(브리프 446 — 이 그림 세로 간격은 20.52/20.58/20.58/20.58/20.58 pt 로 균일한 편이다). **[가로축 되읽기 = 인쇄표 검산] 같은 논문 Figure 8 `Aging Test Matrix for the Stress-Strain Tests` 가 시효시간을 0/5/10/20/30/60/120/180/270/360 일로 인쇄한다.** 되읽으니 열 점이 4.94/9.87/19.90/29.93/59.95/120.00/180.00/270.00/360.00 로 **최대 0.13 일(축 전장의 0.036%)** 안에 붙는다 — 마커 오프셋이 없다(브리프 237·495).",
+      "reading_uncertainty": "±0.05 GPa"
+     },
+     "notes": "Cai 2012 Figure 13 을 벡터 좌표로 읽었다. 그림 안 주석 verbatim: 'SACX0307, RF' / 'T = 25 oC' / 'Aging at 100 oC'. **시효 100 °C 는 시효 조건이지 시험온도가 아니다** — 시험은 전부 상온 25 °C 다. 시험 조건은 같은 연구실 앞 논문과 같다(Cai 2010 verbatim: 'All uniaxial stress-strain and creep tests in this paper were conducted at room temperature (25 °C). The strain rate for the stress-strain testing was 0.001 sec-1'). pdftocairo -svg 벡터 좌표(브리프 452). **마커가 위삼각형이라 bbox 중심을 쓰면 h/6 만큼 밀린다** — 꼭짓점 평균을 썼고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514). 이 그림의 삼각형 높이가 2.10 pt 이고 세로 눈금이 20.58 pt = 10 MPa 라 bbox 를 썼으면 0.17 MPa 계통오차가 남았을 것이다. 눈금선을 전수 검출해 np.interp 구간별 선형 보정을 했다(브리프 446 — 이 그림 세로 간격은 20.52/20.58/20.58/20.58/20.58 pt 로 균일한 편이다). **[가로축 되읽기 = 인쇄표 검산] 같은 논문 Figure 8 `Aging Test Matrix for the Stress-Strain Tests` 가 시효시간을 0/5/10/20/30/60/120/180/270/360 일로 인쇄한다.** 되읽으니 열 점이 4.94/9.87/19.90/29.93/59.95/120.00/180.00/270.00/360.00 로 **최대 0.13 일(축 전장의 0.036%)** 안에 붙는다 — 마커 오프셋이 없다(브리프 237·495). **[Cai 2010 격자와의 대조 — 겹치는 여섯 점을 넣지 않은 이유]** 재료 2677 은 같은 연구실의 Cai 2010(10.1109/ectc.2010.5490796) Figure 28 에서 100 °C 시효 0/5/10/20/30/60 일 여섯 점을 이미 갖고 있다. 여기 Figure 13 은 같은 여섯 점을 다시 그리는데 **값이 다르다** — E 2010 [31.879·23.266·22.872·22.919·22.691·22.004] 대 2012 [31.860·22.045·22.352·21.708·21.249·21.095] · UTS 2010 [29.588·20.441·19.393·19.023·17.340·17.381] 대 2012 [29.596·19.899·19.577·19.203·17.960·17.152] · YS 2010 [26.734·18.437·17.074·16.896·15.497·15.456] 대 2012 [21.876·14.878·14.548·14.489·13.567·13.149]. **비시효점만 E·UTS 가 0.02·0.01 안에서 만나고 시효점은 3~5% 어긋나며, YS 는 비시효점부터 18% 어긋난다.** 즉 2012 의 12개월 매트릭스(Figure 8)는 2010 의 2개월 매트릭스와 다른 시험 뭉치다 — 어느 쪽이 맞는지 닫히지 않으므로 정정하지 않고, 겹치는 여섯 점은 다시 넣지 않는다(브리프 122·456·314). **여기 넣는 것은 2010 에 없는 120/180/270/360 일 네 점뿐이다.** [참고] 비시효 YS/UTS 비가 2010 은 0.90 인데 2012 는 0.74 이고, 같은 논문들의 SAC105/205/305/405 는 0.78/0.85/0.71/0.71 이라 0.90 쪽이 계열에서 벗어난다 — 심판으로 쓰기엔 약해 판정하지 않고 적어만 둔다(브리프 516). **[같은 논문의 Figure 14·17 은 재인용이다 — 캐지 않았다]** 캡션이 `Figure 14 - Variation of SAC UTS with Aging **[30-31]**` 이고 본문이 *'analogous results for SAC105 and SAC205 are available from our previous studies for comparison purposes [30-31]'* 다. 실제로 되읽으니 SAC105 [26.293·18.735·17.298·16.485·15.890·15.488·14.827] · SAC205 [33.536·24.389·22.693·21.385·20.696·19.333·18.984] 로 DB 의 Cai 2010 Figure 15 판독과 최대 0.02 MPa 로 같다(가로축은 `Aging Time (Day)` 0~60 이고 캡션이 `[Aging at 100 oC for 2 Months]` 다). 출처가 달라도 계보가 하나면 교차확인이 아니다(브리프 195·456)."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 20052000000.0,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_time_days": 270,
+      "aging_temperature_k": 373.15,
+      "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+      "digitized": true,
+      "figure": "Figure 13(a) Effective Elastic Modulus (p.8) — Evolution of SAC-X Material Properties [Aging at 100 oC for 12 Months]",
+      "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 eq.(3) verbatim: `E = sigma'(0) = C1*C2 + C3*C4` — 경험식 eq.(2) 를 10개 곡선에 맞춘 뒤 원점 기울기로 뽑은 값이다.",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). **마커가 위삼각형이라 bbox 중심을 쓰면 h/6 만큼 밀린다** — 꼭짓점 평균을 썼고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514). 이 그림의 삼각형 높이가 2.10 pt 이고 세로 눈금이 20.58 pt = 10 MPa 라 bbox 를 썼으면 0.17 MPa 계통오차가 남았을 것이다. 눈금선을 전수 검출해 np.interp 구간별 선형 보정을 했다(브리프 446 — 이 그림 세로 간격은 20.52/20.58/20.58/20.58/20.58 pt 로 균일한 편이다). **[가로축 되읽기 = 인쇄표 검산] 같은 논문 Figure 8 `Aging Test Matrix for the Stress-Strain Tests` 가 시효시간을 0/5/10/20/30/60/120/180/270/360 일로 인쇄한다.** 되읽으니 열 점이 4.94/9.87/19.90/29.93/59.95/120.00/180.00/270.00/360.00 로 **최대 0.13 일(축 전장의 0.036%)** 안에 붙는다 — 마커 오프셋이 없다(브리프 237·495).",
+      "reading_uncertainty": "±0.05 GPa"
+     },
+     "notes": "Cai 2012 Figure 13 을 벡터 좌표로 읽었다. 그림 안 주석 verbatim: 'SACX0307, RF' / 'T = 25 oC' / 'Aging at 100 oC'. **시효 100 °C 는 시효 조건이지 시험온도가 아니다** — 시험은 전부 상온 25 °C 다. 시험 조건은 같은 연구실 앞 논문과 같다(Cai 2010 verbatim: 'All uniaxial stress-strain and creep tests in this paper were conducted at room temperature (25 °C). The strain rate for the stress-strain testing was 0.001 sec-1'). pdftocairo -svg 벡터 좌표(브리프 452). **마커가 위삼각형이라 bbox 중심을 쓰면 h/6 만큼 밀린다** — 꼭짓점 평균을 썼고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514). 이 그림의 삼각형 높이가 2.10 pt 이고 세로 눈금이 20.58 pt = 10 MPa 라 bbox 를 썼으면 0.17 MPa 계통오차가 남았을 것이다. 눈금선을 전수 검출해 np.interp 구간별 선형 보정을 했다(브리프 446 — 이 그림 세로 간격은 20.52/20.58/20.58/20.58/20.58 pt 로 균일한 편이다). **[가로축 되읽기 = 인쇄표 검산] 같은 논문 Figure 8 `Aging Test Matrix for the Stress-Strain Tests` 가 시효시간을 0/5/10/20/30/60/120/180/270/360 일로 인쇄한다.** 되읽으니 열 점이 4.94/9.87/19.90/29.93/59.95/120.00/180.00/270.00/360.00 로 **최대 0.13 일(축 전장의 0.036%)** 안에 붙는다 — 마커 오프셋이 없다(브리프 237·495). **[Cai 2010 격자와의 대조 — 겹치는 여섯 점을 넣지 않은 이유]** 재료 2677 은 같은 연구실의 Cai 2010(10.1109/ectc.2010.5490796) Figure 28 에서 100 °C 시효 0/5/10/20/30/60 일 여섯 점을 이미 갖고 있다. 여기 Figure 13 은 같은 여섯 점을 다시 그리는데 **값이 다르다** — E 2010 [31.879·23.266·22.872·22.919·22.691·22.004] 대 2012 [31.860·22.045·22.352·21.708·21.249·21.095] · UTS 2010 [29.588·20.441·19.393·19.023·17.340·17.381] 대 2012 [29.596·19.899·19.577·19.203·17.960·17.152] · YS 2010 [26.734·18.437·17.074·16.896·15.497·15.456] 대 2012 [21.876·14.878·14.548·14.489·13.567·13.149]. **비시효점만 E·UTS 가 0.02·0.01 안에서 만나고 시효점은 3~5% 어긋나며, YS 는 비시효점부터 18% 어긋난다.** 즉 2012 의 12개월 매트릭스(Figure 8)는 2010 의 2개월 매트릭스와 다른 시험 뭉치다 — 어느 쪽이 맞는지 닫히지 않으므로 정정하지 않고, 겹치는 여섯 점은 다시 넣지 않는다(브리프 122·456·314). **여기 넣는 것은 2010 에 없는 120/180/270/360 일 네 점뿐이다.** [참고] 비시효 YS/UTS 비가 2010 은 0.90 인데 2012 는 0.74 이고, 같은 논문들의 SAC105/205/305/405 는 0.78/0.85/0.71/0.71 이라 0.90 쪽이 계열에서 벗어난다 — 심판으로 쓰기엔 약해 판정하지 않고 적어만 둔다(브리프 516). **[같은 논문의 Figure 14·17 은 재인용이다 — 캐지 않았다]** 캡션이 `Figure 14 - Variation of SAC UTS with Aging **[30-31]**` 이고 본문이 *'analogous results for SAC105 and SAC205 are available from our previous studies for comparison purposes [30-31]'* 다. 실제로 되읽으니 SAC105 [26.293·18.735·17.298·16.485·15.890·15.488·14.827] · SAC205 [33.536·24.389·22.693·21.385·20.696·19.333·18.984] 로 DB 의 Cai 2010 Figure 15 판독과 최대 0.02 MPa 로 같다(가로축은 `Aging Time (Day)` 0~60 이고 캡션이 `[Aging at 100 oC for 2 Months]` 다). 출처가 달라도 계보가 하나면 교차확인이 아니다(브리프 195·456)."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 20236000000.0,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_time_days": 360,
+      "aging_temperature_k": 373.15,
+      "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+      "digitized": true,
+      "figure": "Figure 13(a) Effective Elastic Modulus (p.8) — Evolution of SAC-X Material Properties [Aging at 100 oC for 12 Months]",
+      "property_definition": "effective elastic modulus E = initial slope of the stress-strain curve. 원문 eq.(3) verbatim: `E = sigma'(0) = C1*C2 + C3*C4` — 경험식 eq.(2) 를 10개 곡선에 맞춘 뒤 원점 기울기로 뽑은 값이다.",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). **마커가 위삼각형이라 bbox 중심을 쓰면 h/6 만큼 밀린다** — 꼭짓점 평균을 썼고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514). 이 그림의 삼각형 높이가 2.10 pt 이고 세로 눈금이 20.58 pt = 10 MPa 라 bbox 를 썼으면 0.17 MPa 계통오차가 남았을 것이다. 눈금선을 전수 검출해 np.interp 구간별 선형 보정을 했다(브리프 446 — 이 그림 세로 간격은 20.52/20.58/20.58/20.58/20.58 pt 로 균일한 편이다). **[가로축 되읽기 = 인쇄표 검산] 같은 논문 Figure 8 `Aging Test Matrix for the Stress-Strain Tests` 가 시효시간을 0/5/10/20/30/60/120/180/270/360 일로 인쇄한다.** 되읽으니 열 점이 4.94/9.87/19.90/29.93/59.95/120.00/180.00/270.00/360.00 로 **최대 0.13 일(축 전장의 0.036%)** 안에 붙는다 — 마커 오프셋이 없다(브리프 237·495).",
+      "reading_uncertainty": "±0.05 GPa"
+     },
+     "notes": "Cai 2012 Figure 13 을 벡터 좌표로 읽었다. 그림 안 주석 verbatim: 'SACX0307, RF' / 'T = 25 oC' / 'Aging at 100 oC'. **시효 100 °C 는 시효 조건이지 시험온도가 아니다** — 시험은 전부 상온 25 °C 다. 시험 조건은 같은 연구실 앞 논문과 같다(Cai 2010 verbatim: 'All uniaxial stress-strain and creep tests in this paper were conducted at room temperature (25 °C). The strain rate for the stress-strain testing was 0.001 sec-1'). pdftocairo -svg 벡터 좌표(브리프 452). **마커가 위삼각형이라 bbox 중심을 쓰면 h/6 만큼 밀린다** — 꼭짓점 평균을 썼고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514). 이 그림의 삼각형 높이가 2.10 pt 이고 세로 눈금이 20.58 pt = 10 MPa 라 bbox 를 썼으면 0.17 MPa 계통오차가 남았을 것이다. 눈금선을 전수 검출해 np.interp 구간별 선형 보정을 했다(브리프 446 — 이 그림 세로 간격은 20.52/20.58/20.58/20.58/20.58 pt 로 균일한 편이다). **[가로축 되읽기 = 인쇄표 검산] 같은 논문 Figure 8 `Aging Test Matrix for the Stress-Strain Tests` 가 시효시간을 0/5/10/20/30/60/120/180/270/360 일로 인쇄한다.** 되읽으니 열 점이 4.94/9.87/19.90/29.93/59.95/120.00/180.00/270.00/360.00 로 **최대 0.13 일(축 전장의 0.036%)** 안에 붙는다 — 마커 오프셋이 없다(브리프 237·495). **[Cai 2010 격자와의 대조 — 겹치는 여섯 점을 넣지 않은 이유]** 재료 2677 은 같은 연구실의 Cai 2010(10.1109/ectc.2010.5490796) Figure 28 에서 100 °C 시효 0/5/10/20/30/60 일 여섯 점을 이미 갖고 있다. 여기 Figure 13 은 같은 여섯 점을 다시 그리는데 **값이 다르다** — E 2010 [31.879·23.266·22.872·22.919·22.691·22.004] 대 2012 [31.860·22.045·22.352·21.708·21.249·21.095] · UTS 2010 [29.588·20.441·19.393·19.023·17.340·17.381] 대 2012 [29.596·19.899·19.577·19.203·17.960·17.152] · YS 2010 [26.734·18.437·17.074·16.896·15.497·15.456] 대 2012 [21.876·14.878·14.548·14.489·13.567·13.149]. **비시효점만 E·UTS 가 0.02·0.01 안에서 만나고 시효점은 3~5% 어긋나며, YS 는 비시효점부터 18% 어긋난다.** 즉 2012 의 12개월 매트릭스(Figure 8)는 2010 의 2개월 매트릭스와 다른 시험 뭉치다 — 어느 쪽이 맞는지 닫히지 않으므로 정정하지 않고, 겹치는 여섯 점은 다시 넣지 않는다(브리프 122·456·314). **여기 넣는 것은 2010 에 없는 120/180/270/360 일 네 점뿐이다.** [참고] 비시효 YS/UTS 비가 2010 은 0.90 인데 2012 는 0.74 이고, 같은 논문들의 SAC105/205/305/405 는 0.78/0.85/0.71/0.71 이라 0.90 쪽이 계열에서 벗어난다 — 심판으로 쓰기엔 약해 판정하지 않고 적어만 둔다(브리프 516). **[같은 논문의 Figure 14·17 은 재인용이다 — 캐지 않았다]** 캡션이 `Figure 14 - Variation of SAC UTS with Aging **[30-31]**` 이고 본문이 *'analogous results for SAC105 and SAC205 are available from our previous studies for comparison purposes [30-31]'* 다. 실제로 되읽으니 SAC105 [26.293·18.735·17.298·16.485·15.890·15.488·14.827] · SAC205 [33.536·24.389·22.693·21.385·20.696·19.333·18.984] 로 DB 의 Cai 2010 Figure 15 판독과 최대 0.02 MPa 로 같다(가로축은 `Aging Time (Day)` 0~60 이고 캡션이 `[Aging at 100 oC for 2 Months]` 다). 출처가 달라도 계보가 하나면 교차확인이 아니다(브리프 195·456)."
+    },
+    {
+     "key": "mechanical.yield_strength_at_rate",
+     "value": 12897000.0,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_time_days": 120,
+      "aging_temperature_k": 373.15,
+      "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+      "digitized": true,
+      "figure": "Figure 13(b) Yield Stress (p.8) — Evolution of SAC-X Material Properties [Aging at 100 oC for 12 Months]",
+      "property_definition": "0.2% offset yield stress(같은 연구실 앞 논문 Cai 2010 verbatim: 'The yield stress Y (YS) is taken to be the standard .2% yield stress').",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). **마커가 위삼각형이라 bbox 중심을 쓰면 h/6 만큼 밀린다** — 꼭짓점 평균을 썼고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514). 이 그림의 삼각형 높이가 2.10 pt 이고 세로 눈금이 20.58 pt = 10 MPa 라 bbox 를 썼으면 0.17 MPa 계통오차가 남았을 것이다. 눈금선을 전수 검출해 np.interp 구간별 선형 보정을 했다(브리프 446 — 이 그림 세로 간격은 20.52/20.58/20.58/20.58/20.58 pt 로 균일한 편이다). **[가로축 되읽기 = 인쇄표 검산] 같은 논문 Figure 8 `Aging Test Matrix for the Stress-Strain Tests` 가 시효시간을 0/5/10/20/30/60/120/180/270/360 일로 인쇄한다.** 되읽으니 열 점이 4.94/9.87/19.90/29.93/59.95/120.00/180.00/270.00/360.00 로 **최대 0.13 일(축 전장의 0.036%)** 안에 붙는다 — 마커 오프셋이 없다(브리프 237·495).",
+      "reading_uncertainty": "±0.05 MPa"
+     },
+     "notes": "Cai 2012 Figure 13 을 벡터 좌표로 읽었다. 그림 안 주석 verbatim: 'SACX0307, RF' / 'T = 25 oC' / 'Aging at 100 oC'. **시효 100 °C 는 시효 조건이지 시험온도가 아니다** — 시험은 전부 상온 25 °C 다. 시험 조건은 같은 연구실 앞 논문과 같다(Cai 2010 verbatim: 'All uniaxial stress-strain and creep tests in this paper were conducted at room temperature (25 °C). The strain rate for the stress-strain testing was 0.001 sec-1'). pdftocairo -svg 벡터 좌표(브리프 452). **마커가 위삼각형이라 bbox 중심을 쓰면 h/6 만큼 밀린다** — 꼭짓점 평균을 썼고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514). 이 그림의 삼각형 높이가 2.10 pt 이고 세로 눈금이 20.58 pt = 10 MPa 라 bbox 를 썼으면 0.17 MPa 계통오차가 남았을 것이다. 눈금선을 전수 검출해 np.interp 구간별 선형 보정을 했다(브리프 446 — 이 그림 세로 간격은 20.52/20.58/20.58/20.58/20.58 pt 로 균일한 편이다). **[가로축 되읽기 = 인쇄표 검산] 같은 논문 Figure 8 `Aging Test Matrix for the Stress-Strain Tests` 가 시효시간을 0/5/10/20/30/60/120/180/270/360 일로 인쇄한다.** 되읽으니 열 점이 4.94/9.87/19.90/29.93/59.95/120.00/180.00/270.00/360.00 로 **최대 0.13 일(축 전장의 0.036%)** 안에 붙는다 — 마커 오프셋이 없다(브리프 237·495). **[Cai 2010 격자와의 대조 — 겹치는 여섯 점을 넣지 않은 이유]** 재료 2677 은 같은 연구실의 Cai 2010(10.1109/ectc.2010.5490796) Figure 28 에서 100 °C 시효 0/5/10/20/30/60 일 여섯 점을 이미 갖고 있다. 여기 Figure 13 은 같은 여섯 점을 다시 그리는데 **값이 다르다** — E 2010 [31.879·23.266·22.872·22.919·22.691·22.004] 대 2012 [31.860·22.045·22.352·21.708·21.249·21.095] · UTS 2010 [29.588·20.441·19.393·19.023·17.340·17.381] 대 2012 [29.596·19.899·19.577·19.203·17.960·17.152] · YS 2010 [26.734·18.437·17.074·16.896·15.497·15.456] 대 2012 [21.876·14.878·14.548·14.489·13.567·13.149]. **비시효점만 E·UTS 가 0.02·0.01 안에서 만나고 시효점은 3~5% 어긋나며, YS 는 비시효점부터 18% 어긋난다.** 즉 2012 의 12개월 매트릭스(Figure 8)는 2010 의 2개월 매트릭스와 다른 시험 뭉치다 — 어느 쪽이 맞는지 닫히지 않으므로 정정하지 않고, 겹치는 여섯 점은 다시 넣지 않는다(브리프 122·456·314). **여기 넣는 것은 2010 에 없는 120/180/270/360 일 네 점뿐이다.** [참고] 비시효 YS/UTS 비가 2010 은 0.90 인데 2012 는 0.74 이고, 같은 논문들의 SAC105/205/305/405 는 0.78/0.85/0.71/0.71 이라 0.90 쪽이 계열에서 벗어난다 — 심판으로 쓰기엔 약해 판정하지 않고 적어만 둔다(브리프 516). **[같은 논문의 Figure 14·17 은 재인용이다 — 캐지 않았다]** 캡션이 `Figure 14 - Variation of SAC UTS with Aging **[30-31]**` 이고 본문이 *'analogous results for SAC105 and SAC205 are available from our previous studies for comparison purposes [30-31]'* 다. 실제로 되읽으니 SAC105 [26.293·18.735·17.298·16.485·15.890·15.488·14.827] · SAC205 [33.536·24.389·22.693·21.385·20.696·19.333·18.984] 로 DB 의 Cai 2010 Figure 15 판독과 최대 0.02 MPa 로 같다(가로축은 `Aging Time (Day)` 0~60 이고 캡션이 `[Aging at 100 oC for 2 Months]` 다). 출처가 달라도 계보가 하나면 교차확인이 아니다(브리프 195·456)."
+    },
+    {
+     "key": "mechanical.yield_strength_at_rate",
+     "value": 13236000.0,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_time_days": 180,
+      "aging_temperature_k": 373.15,
+      "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+      "digitized": true,
+      "figure": "Figure 13(b) Yield Stress (p.8) — Evolution of SAC-X Material Properties [Aging at 100 oC for 12 Months]",
+      "property_definition": "0.2% offset yield stress(같은 연구실 앞 논문 Cai 2010 verbatim: 'The yield stress Y (YS) is taken to be the standard .2% yield stress').",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). **마커가 위삼각형이라 bbox 중심을 쓰면 h/6 만큼 밀린다** — 꼭짓점 평균을 썼고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514). 이 그림의 삼각형 높이가 2.10 pt 이고 세로 눈금이 20.58 pt = 10 MPa 라 bbox 를 썼으면 0.17 MPa 계통오차가 남았을 것이다. 눈금선을 전수 검출해 np.interp 구간별 선형 보정을 했다(브리프 446 — 이 그림 세로 간격은 20.52/20.58/20.58/20.58/20.58 pt 로 균일한 편이다). **[가로축 되읽기 = 인쇄표 검산] 같은 논문 Figure 8 `Aging Test Matrix for the Stress-Strain Tests` 가 시효시간을 0/5/10/20/30/60/120/180/270/360 일로 인쇄한다.** 되읽으니 열 점이 4.94/9.87/19.90/29.93/59.95/120.00/180.00/270.00/360.00 로 **최대 0.13 일(축 전장의 0.036%)** 안에 붙는다 — 마커 오프셋이 없다(브리프 237·495).",
+      "reading_uncertainty": "±0.05 MPa"
+     },
+     "notes": "Cai 2012 Figure 13 을 벡터 좌표로 읽었다. 그림 안 주석 verbatim: 'SACX0307, RF' / 'T = 25 oC' / 'Aging at 100 oC'. **시효 100 °C 는 시효 조건이지 시험온도가 아니다** — 시험은 전부 상온 25 °C 다. 시험 조건은 같은 연구실 앞 논문과 같다(Cai 2010 verbatim: 'All uniaxial stress-strain and creep tests in this paper were conducted at room temperature (25 °C). The strain rate for the stress-strain testing was 0.001 sec-1'). pdftocairo -svg 벡터 좌표(브리프 452). **마커가 위삼각형이라 bbox 중심을 쓰면 h/6 만큼 밀린다** — 꼭짓점 평균을 썼고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514). 이 그림의 삼각형 높이가 2.10 pt 이고 세로 눈금이 20.58 pt = 10 MPa 라 bbox 를 썼으면 0.17 MPa 계통오차가 남았을 것이다. 눈금선을 전수 검출해 np.interp 구간별 선형 보정을 했다(브리프 446 — 이 그림 세로 간격은 20.52/20.58/20.58/20.58/20.58 pt 로 균일한 편이다). **[가로축 되읽기 = 인쇄표 검산] 같은 논문 Figure 8 `Aging Test Matrix for the Stress-Strain Tests` 가 시효시간을 0/5/10/20/30/60/120/180/270/360 일로 인쇄한다.** 되읽으니 열 점이 4.94/9.87/19.90/29.93/59.95/120.00/180.00/270.00/360.00 로 **최대 0.13 일(축 전장의 0.036%)** 안에 붙는다 — 마커 오프셋이 없다(브리프 237·495). **[Cai 2010 격자와의 대조 — 겹치는 여섯 점을 넣지 않은 이유]** 재료 2677 은 같은 연구실의 Cai 2010(10.1109/ectc.2010.5490796) Figure 28 에서 100 °C 시효 0/5/10/20/30/60 일 여섯 점을 이미 갖고 있다. 여기 Figure 13 은 같은 여섯 점을 다시 그리는데 **값이 다르다** — E 2010 [31.879·23.266·22.872·22.919·22.691·22.004] 대 2012 [31.860·22.045·22.352·21.708·21.249·21.095] · UTS 2010 [29.588·20.441·19.393·19.023·17.340·17.381] 대 2012 [29.596·19.899·19.577·19.203·17.960·17.152] · YS 2010 [26.734·18.437·17.074·16.896·15.497·15.456] 대 2012 [21.876·14.878·14.548·14.489·13.567·13.149]. **비시효점만 E·UTS 가 0.02·0.01 안에서 만나고 시효점은 3~5% 어긋나며, YS 는 비시효점부터 18% 어긋난다.** 즉 2012 의 12개월 매트릭스(Figure 8)는 2010 의 2개월 매트릭스와 다른 시험 뭉치다 — 어느 쪽이 맞는지 닫히지 않으므로 정정하지 않고, 겹치는 여섯 점은 다시 넣지 않는다(브리프 122·456·314). **여기 넣는 것은 2010 에 없는 120/180/270/360 일 네 점뿐이다.** [참고] 비시효 YS/UTS 비가 2010 은 0.90 인데 2012 는 0.74 이고, 같은 논문들의 SAC105/205/305/405 는 0.78/0.85/0.71/0.71 이라 0.90 쪽이 계열에서 벗어난다 — 심판으로 쓰기엔 약해 판정하지 않고 적어만 둔다(브리프 516). **[같은 논문의 Figure 14·17 은 재인용이다 — 캐지 않았다]** 캡션이 `Figure 14 - Variation of SAC UTS with Aging **[30-31]**` 이고 본문이 *'analogous results for SAC105 and SAC205 are available from our previous studies for comparison purposes [30-31]'* 다. 실제로 되읽으니 SAC105 [26.293·18.735·17.298·16.485·15.890·15.488·14.827] · SAC205 [33.536·24.389·22.693·21.385·20.696·19.333·18.984] 로 DB 의 Cai 2010 Figure 15 판독과 최대 0.02 MPa 로 같다(가로축은 `Aging Time (Day)` 0~60 이고 캡션이 `[Aging at 100 oC for 2 Months]` 다). 출처가 달라도 계보가 하나면 교차확인이 아니다(브리프 195·456)."
+    },
+    {
+     "key": "mechanical.yield_strength_at_rate",
+     "value": 12751000.0,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_time_days": 270,
+      "aging_temperature_k": 373.15,
+      "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+      "digitized": true,
+      "figure": "Figure 13(b) Yield Stress (p.8) — Evolution of SAC-X Material Properties [Aging at 100 oC for 12 Months]",
+      "property_definition": "0.2% offset yield stress(같은 연구실 앞 논문 Cai 2010 verbatim: 'The yield stress Y (YS) is taken to be the standard .2% yield stress').",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). **마커가 위삼각형이라 bbox 중심을 쓰면 h/6 만큼 밀린다** — 꼭짓점 평균을 썼고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514). 이 그림의 삼각형 높이가 2.10 pt 이고 세로 눈금이 20.58 pt = 10 MPa 라 bbox 를 썼으면 0.17 MPa 계통오차가 남았을 것이다. 눈금선을 전수 검출해 np.interp 구간별 선형 보정을 했다(브리프 446 — 이 그림 세로 간격은 20.52/20.58/20.58/20.58/20.58 pt 로 균일한 편이다). **[가로축 되읽기 = 인쇄표 검산] 같은 논문 Figure 8 `Aging Test Matrix for the Stress-Strain Tests` 가 시효시간을 0/5/10/20/30/60/120/180/270/360 일로 인쇄한다.** 되읽으니 열 점이 4.94/9.87/19.90/29.93/59.95/120.00/180.00/270.00/360.00 로 **최대 0.13 일(축 전장의 0.036%)** 안에 붙는다 — 마커 오프셋이 없다(브리프 237·495).",
+      "reading_uncertainty": "±0.05 MPa"
+     },
+     "notes": "Cai 2012 Figure 13 을 벡터 좌표로 읽었다. 그림 안 주석 verbatim: 'SACX0307, RF' / 'T = 25 oC' / 'Aging at 100 oC'. **시효 100 °C 는 시효 조건이지 시험온도가 아니다** — 시험은 전부 상온 25 °C 다. 시험 조건은 같은 연구실 앞 논문과 같다(Cai 2010 verbatim: 'All uniaxial stress-strain and creep tests in this paper were conducted at room temperature (25 °C). The strain rate for the stress-strain testing was 0.001 sec-1'). pdftocairo -svg 벡터 좌표(브리프 452). **마커가 위삼각형이라 bbox 중심을 쓰면 h/6 만큼 밀린다** — 꼭짓점 평균을 썼고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514). 이 그림의 삼각형 높이가 2.10 pt 이고 세로 눈금이 20.58 pt = 10 MPa 라 bbox 를 썼으면 0.17 MPa 계통오차가 남았을 것이다. 눈금선을 전수 검출해 np.interp 구간별 선형 보정을 했다(브리프 446 — 이 그림 세로 간격은 20.52/20.58/20.58/20.58/20.58 pt 로 균일한 편이다). **[가로축 되읽기 = 인쇄표 검산] 같은 논문 Figure 8 `Aging Test Matrix for the Stress-Strain Tests` 가 시효시간을 0/5/10/20/30/60/120/180/270/360 일로 인쇄한다.** 되읽으니 열 점이 4.94/9.87/19.90/29.93/59.95/120.00/180.00/270.00/360.00 로 **최대 0.13 일(축 전장의 0.036%)** 안에 붙는다 — 마커 오프셋이 없다(브리프 237·495). **[Cai 2010 격자와의 대조 — 겹치는 여섯 점을 넣지 않은 이유]** 재료 2677 은 같은 연구실의 Cai 2010(10.1109/ectc.2010.5490796) Figure 28 에서 100 °C 시효 0/5/10/20/30/60 일 여섯 점을 이미 갖고 있다. 여기 Figure 13 은 같은 여섯 점을 다시 그리는데 **값이 다르다** — E 2010 [31.879·23.266·22.872·22.919·22.691·22.004] 대 2012 [31.860·22.045·22.352·21.708·21.249·21.095] · UTS 2010 [29.588·20.441·19.393·19.023·17.340·17.381] 대 2012 [29.596·19.899·19.577·19.203·17.960·17.152] · YS 2010 [26.734·18.437·17.074·16.896·15.497·15.456] 대 2012 [21.876·14.878·14.548·14.489·13.567·13.149]. **비시효점만 E·UTS 가 0.02·0.01 안에서 만나고 시효점은 3~5% 어긋나며, YS 는 비시효점부터 18% 어긋난다.** 즉 2012 의 12개월 매트릭스(Figure 8)는 2010 의 2개월 매트릭스와 다른 시험 뭉치다 — 어느 쪽이 맞는지 닫히지 않으므로 정정하지 않고, 겹치는 여섯 점은 다시 넣지 않는다(브리프 122·456·314). **여기 넣는 것은 2010 에 없는 120/180/270/360 일 네 점뿐이다.** [참고] 비시효 YS/UTS 비가 2010 은 0.90 인데 2012 는 0.74 이고, 같은 논문들의 SAC105/205/305/405 는 0.78/0.85/0.71/0.71 이라 0.90 쪽이 계열에서 벗어난다 — 심판으로 쓰기엔 약해 판정하지 않고 적어만 둔다(브리프 516). **[같은 논문의 Figure 14·17 은 재인용이다 — 캐지 않았다]** 캡션이 `Figure 14 - Variation of SAC UTS with Aging **[30-31]**` 이고 본문이 *'analogous results for SAC105 and SAC205 are available from our previous studies for comparison purposes [30-31]'* 다. 실제로 되읽으니 SAC105 [26.293·18.735·17.298·16.485·15.890·15.488·14.827] · SAC205 [33.536·24.389·22.693·21.385·20.696·19.333·18.984] 로 DB 의 Cai 2010 Figure 15 판독과 최대 0.02 MPa 로 같다(가로축은 `Aging Time (Day)` 0~60 이고 캡션이 `[Aging at 100 oC for 2 Months]` 다). 출처가 달라도 계보가 하나면 교차확인이 아니다(브리프 195·456)."
+    },
+    {
+     "key": "mechanical.yield_strength_at_rate",
+     "value": 12692000.0,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_time_days": 360,
+      "aging_temperature_k": 373.15,
+      "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+      "digitized": true,
+      "figure": "Figure 13(b) Yield Stress (p.8) — Evolution of SAC-X Material Properties [Aging at 100 oC for 12 Months]",
+      "property_definition": "0.2% offset yield stress(같은 연구실 앞 논문 Cai 2010 verbatim: 'The yield stress Y (YS) is taken to be the standard .2% yield stress').",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). **마커가 위삼각형이라 bbox 중심을 쓰면 h/6 만큼 밀린다** — 꼭짓점 평균을 썼고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514). 이 그림의 삼각형 높이가 2.10 pt 이고 세로 눈금이 20.58 pt = 10 MPa 라 bbox 를 썼으면 0.17 MPa 계통오차가 남았을 것이다. 눈금선을 전수 검출해 np.interp 구간별 선형 보정을 했다(브리프 446 — 이 그림 세로 간격은 20.52/20.58/20.58/20.58/20.58 pt 로 균일한 편이다). **[가로축 되읽기 = 인쇄표 검산] 같은 논문 Figure 8 `Aging Test Matrix for the Stress-Strain Tests` 가 시효시간을 0/5/10/20/30/60/120/180/270/360 일로 인쇄한다.** 되읽으니 열 점이 4.94/9.87/19.90/29.93/59.95/120.00/180.00/270.00/360.00 로 **최대 0.13 일(축 전장의 0.036%)** 안에 붙는다 — 마커 오프셋이 없다(브리프 237·495).",
+      "reading_uncertainty": "±0.05 MPa"
+     },
+     "notes": "Cai 2012 Figure 13 을 벡터 좌표로 읽었다. 그림 안 주석 verbatim: 'SACX0307, RF' / 'T = 25 oC' / 'Aging at 100 oC'. **시효 100 °C 는 시효 조건이지 시험온도가 아니다** — 시험은 전부 상온 25 °C 다. 시험 조건은 같은 연구실 앞 논문과 같다(Cai 2010 verbatim: 'All uniaxial stress-strain and creep tests in this paper were conducted at room temperature (25 °C). The strain rate for the stress-strain testing was 0.001 sec-1'). pdftocairo -svg 벡터 좌표(브리프 452). **마커가 위삼각형이라 bbox 중심을 쓰면 h/6 만큼 밀린다** — 꼭짓점 평균을 썼고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514). 이 그림의 삼각형 높이가 2.10 pt 이고 세로 눈금이 20.58 pt = 10 MPa 라 bbox 를 썼으면 0.17 MPa 계통오차가 남았을 것이다. 눈금선을 전수 검출해 np.interp 구간별 선형 보정을 했다(브리프 446 — 이 그림 세로 간격은 20.52/20.58/20.58/20.58/20.58 pt 로 균일한 편이다). **[가로축 되읽기 = 인쇄표 검산] 같은 논문 Figure 8 `Aging Test Matrix for the Stress-Strain Tests` 가 시효시간을 0/5/10/20/30/60/120/180/270/360 일로 인쇄한다.** 되읽으니 열 점이 4.94/9.87/19.90/29.93/59.95/120.00/180.00/270.00/360.00 로 **최대 0.13 일(축 전장의 0.036%)** 안에 붙는다 — 마커 오프셋이 없다(브리프 237·495). **[Cai 2010 격자와의 대조 — 겹치는 여섯 점을 넣지 않은 이유]** 재료 2677 은 같은 연구실의 Cai 2010(10.1109/ectc.2010.5490796) Figure 28 에서 100 °C 시효 0/5/10/20/30/60 일 여섯 점을 이미 갖고 있다. 여기 Figure 13 은 같은 여섯 점을 다시 그리는데 **값이 다르다** — E 2010 [31.879·23.266·22.872·22.919·22.691·22.004] 대 2012 [31.860·22.045·22.352·21.708·21.249·21.095] · UTS 2010 [29.588·20.441·19.393·19.023·17.340·17.381] 대 2012 [29.596·19.899·19.577·19.203·17.960·17.152] · YS 2010 [26.734·18.437·17.074·16.896·15.497·15.456] 대 2012 [21.876·14.878·14.548·14.489·13.567·13.149]. **비시효점만 E·UTS 가 0.02·0.01 안에서 만나고 시효점은 3~5% 어긋나며, YS 는 비시효점부터 18% 어긋난다.** 즉 2012 의 12개월 매트릭스(Figure 8)는 2010 의 2개월 매트릭스와 다른 시험 뭉치다 — 어느 쪽이 맞는지 닫히지 않으므로 정정하지 않고, 겹치는 여섯 점은 다시 넣지 않는다(브리프 122·456·314). **여기 넣는 것은 2010 에 없는 120/180/270/360 일 네 점뿐이다.** [참고] 비시효 YS/UTS 비가 2010 은 0.90 인데 2012 는 0.74 이고, 같은 논문들의 SAC105/205/305/405 는 0.78/0.85/0.71/0.71 이라 0.90 쪽이 계열에서 벗어난다 — 심판으로 쓰기엔 약해 판정하지 않고 적어만 둔다(브리프 516). **[같은 논문의 Figure 14·17 은 재인용이다 — 캐지 않았다]** 캡션이 `Figure 14 - Variation of SAC UTS with Aging **[30-31]**` 이고 본문이 *'analogous results for SAC105 and SAC205 are available from our previous studies for comparison purposes [30-31]'* 다. 실제로 되읽으니 SAC105 [26.293·18.735·17.298·16.485·15.890·15.488·14.827] · SAC205 [33.536·24.389·22.693·21.385·20.696·19.333·18.984] 로 DB 의 Cai 2010 Figure 15 판독과 최대 0.02 MPa 로 같다(가로축은 `Aging Time (Day)` 0~60 이고 캡션이 `[Aging at 100 oC for 2 Months]` 다). 출처가 달라도 계보가 하나면 교차확인이 아니다(브리프 195·456)."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 17445000.0,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_time_days": 120,
+      "aging_temperature_k": 373.15,
+      "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+      "digitized": true,
+      "figure": "Figure 13(c) Ultimate Tensile Strength (p.8) — Evolution of SAC-X Material Properties [Aging at 100 oC for 12 Months]",
+      "property_definition": "ultimate tensile strength = 응력-변형 곡선의 최대응력.",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). **마커가 위삼각형이라 bbox 중심을 쓰면 h/6 만큼 밀린다** — 꼭짓점 평균을 썼고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514). 이 그림의 삼각형 높이가 2.10 pt 이고 세로 눈금이 20.58 pt = 10 MPa 라 bbox 를 썼으면 0.17 MPa 계통오차가 남았을 것이다. 눈금선을 전수 검출해 np.interp 구간별 선형 보정을 했다(브리프 446 — 이 그림 세로 간격은 20.52/20.58/20.58/20.58/20.58 pt 로 균일한 편이다). **[가로축 되읽기 = 인쇄표 검산] 같은 논문 Figure 8 `Aging Test Matrix for the Stress-Strain Tests` 가 시효시간을 0/5/10/20/30/60/120/180/270/360 일로 인쇄한다.** 되읽으니 열 점이 4.94/9.87/19.90/29.93/59.95/120.00/180.00/270.00/360.00 로 **최대 0.13 일(축 전장의 0.036%)** 안에 붙는다 — 마커 오프셋이 없다(브리프 237·495).",
+      "reading_uncertainty": "±0.05 MPa"
+     },
+     "notes": "Cai 2012 Figure 13 을 벡터 좌표로 읽었다. 그림 안 주석 verbatim: 'SACX0307, RF' / 'T = 25 oC' / 'Aging at 100 oC'. **시효 100 °C 는 시효 조건이지 시험온도가 아니다** — 시험은 전부 상온 25 °C 다. 시험 조건은 같은 연구실 앞 논문과 같다(Cai 2010 verbatim: 'All uniaxial stress-strain and creep tests in this paper were conducted at room temperature (25 °C). The strain rate for the stress-strain testing was 0.001 sec-1'). pdftocairo -svg 벡터 좌표(브리프 452). **마커가 위삼각형이라 bbox 중심을 쓰면 h/6 만큼 밀린다** — 꼭짓점 평균을 썼고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514). 이 그림의 삼각형 높이가 2.10 pt 이고 세로 눈금이 20.58 pt = 10 MPa 라 bbox 를 썼으면 0.17 MPa 계통오차가 남았을 것이다. 눈금선을 전수 검출해 np.interp 구간별 선형 보정을 했다(브리프 446 — 이 그림 세로 간격은 20.52/20.58/20.58/20.58/20.58 pt 로 균일한 편이다). **[가로축 되읽기 = 인쇄표 검산] 같은 논문 Figure 8 `Aging Test Matrix for the Stress-Strain Tests` 가 시효시간을 0/5/10/20/30/60/120/180/270/360 일로 인쇄한다.** 되읽으니 열 점이 4.94/9.87/19.90/29.93/59.95/120.00/180.00/270.00/360.00 로 **최대 0.13 일(축 전장의 0.036%)** 안에 붙는다 — 마커 오프셋이 없다(브리프 237·495). **[Cai 2010 격자와의 대조 — 겹치는 여섯 점을 넣지 않은 이유]** 재료 2677 은 같은 연구실의 Cai 2010(10.1109/ectc.2010.5490796) Figure 28 에서 100 °C 시효 0/5/10/20/30/60 일 여섯 점을 이미 갖고 있다. 여기 Figure 13 은 같은 여섯 점을 다시 그리는데 **값이 다르다** — E 2010 [31.879·23.266·22.872·22.919·22.691·22.004] 대 2012 [31.860·22.045·22.352·21.708·21.249·21.095] · UTS 2010 [29.588·20.441·19.393·19.023·17.340·17.381] 대 2012 [29.596·19.899·19.577·19.203·17.960·17.152] · YS 2010 [26.734·18.437·17.074·16.896·15.497·15.456] 대 2012 [21.876·14.878·14.548·14.489·13.567·13.149]. **비시효점만 E·UTS 가 0.02·0.01 안에서 만나고 시효점은 3~5% 어긋나며, YS 는 비시효점부터 18% 어긋난다.** 즉 2012 의 12개월 매트릭스(Figure 8)는 2010 의 2개월 매트릭스와 다른 시험 뭉치다 — 어느 쪽이 맞는지 닫히지 않으므로 정정하지 않고, 겹치는 여섯 점은 다시 넣지 않는다(브리프 122·456·314). **여기 넣는 것은 2010 에 없는 120/180/270/360 일 네 점뿐이다.** [참고] 비시효 YS/UTS 비가 2010 은 0.90 인데 2012 는 0.74 이고, 같은 논문들의 SAC105/205/305/405 는 0.78/0.85/0.71/0.71 이라 0.90 쪽이 계열에서 벗어난다 — 심판으로 쓰기엔 약해 판정하지 않고 적어만 둔다(브리프 516). **[같은 논문의 Figure 14·17 은 재인용이다 — 캐지 않았다]** 캡션이 `Figure 14 - Variation of SAC UTS with Aging **[30-31]**` 이고 본문이 *'analogous results for SAC105 and SAC205 are available from our previous studies for comparison purposes [30-31]'* 다. 실제로 되읽으니 SAC105 [26.293·18.735·17.298·16.485·15.890·15.488·14.827] · SAC205 [33.536·24.389·22.693·21.385·20.696·19.333·18.984] 로 DB 의 Cai 2010 Figure 15 판독과 최대 0.02 MPa 로 같다(가로축은 `Aging Time (Day)` 0~60 이고 캡션이 `[Aging at 100 oC for 2 Months]` 다). 출처가 달라도 계보가 하나면 교차확인이 아니다(브리프 195·456)."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 17091000.0,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_time_days": 180,
+      "aging_temperature_k": 373.15,
+      "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+      "digitized": true,
+      "figure": "Figure 13(c) Ultimate Tensile Strength (p.8) — Evolution of SAC-X Material Properties [Aging at 100 oC for 12 Months]",
+      "property_definition": "ultimate tensile strength = 응력-변형 곡선의 최대응력.",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). **마커가 위삼각형이라 bbox 중심을 쓰면 h/6 만큼 밀린다** — 꼭짓점 평균을 썼고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514). 이 그림의 삼각형 높이가 2.10 pt 이고 세로 눈금이 20.58 pt = 10 MPa 라 bbox 를 썼으면 0.17 MPa 계통오차가 남았을 것이다. 눈금선을 전수 검출해 np.interp 구간별 선형 보정을 했다(브리프 446 — 이 그림 세로 간격은 20.52/20.58/20.58/20.58/20.58 pt 로 균일한 편이다). **[가로축 되읽기 = 인쇄표 검산] 같은 논문 Figure 8 `Aging Test Matrix for the Stress-Strain Tests` 가 시효시간을 0/5/10/20/30/60/120/180/270/360 일로 인쇄한다.** 되읽으니 열 점이 4.94/9.87/19.90/29.93/59.95/120.00/180.00/270.00/360.00 로 **최대 0.13 일(축 전장의 0.036%)** 안에 붙는다 — 마커 오프셋이 없다(브리프 237·495).",
+      "reading_uncertainty": "±0.05 MPa"
+     },
+     "notes": "Cai 2012 Figure 13 을 벡터 좌표로 읽었다. 그림 안 주석 verbatim: 'SACX0307, RF' / 'T = 25 oC' / 'Aging at 100 oC'. **시효 100 °C 는 시효 조건이지 시험온도가 아니다** — 시험은 전부 상온 25 °C 다. 시험 조건은 같은 연구실 앞 논문과 같다(Cai 2010 verbatim: 'All uniaxial stress-strain and creep tests in this paper were conducted at room temperature (25 °C). The strain rate for the stress-strain testing was 0.001 sec-1'). pdftocairo -svg 벡터 좌표(브리프 452). **마커가 위삼각형이라 bbox 중심을 쓰면 h/6 만큼 밀린다** — 꼭짓점 평균을 썼고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514). 이 그림의 삼각형 높이가 2.10 pt 이고 세로 눈금이 20.58 pt = 10 MPa 라 bbox 를 썼으면 0.17 MPa 계통오차가 남았을 것이다. 눈금선을 전수 검출해 np.interp 구간별 선형 보정을 했다(브리프 446 — 이 그림 세로 간격은 20.52/20.58/20.58/20.58/20.58 pt 로 균일한 편이다). **[가로축 되읽기 = 인쇄표 검산] 같은 논문 Figure 8 `Aging Test Matrix for the Stress-Strain Tests` 가 시효시간을 0/5/10/20/30/60/120/180/270/360 일로 인쇄한다.** 되읽으니 열 점이 4.94/9.87/19.90/29.93/59.95/120.00/180.00/270.00/360.00 로 **최대 0.13 일(축 전장의 0.036%)** 안에 붙는다 — 마커 오프셋이 없다(브리프 237·495). **[Cai 2010 격자와의 대조 — 겹치는 여섯 점을 넣지 않은 이유]** 재료 2677 은 같은 연구실의 Cai 2010(10.1109/ectc.2010.5490796) Figure 28 에서 100 °C 시효 0/5/10/20/30/60 일 여섯 점을 이미 갖고 있다. 여기 Figure 13 은 같은 여섯 점을 다시 그리는데 **값이 다르다** — E 2010 [31.879·23.266·22.872·22.919·22.691·22.004] 대 2012 [31.860·22.045·22.352·21.708·21.249·21.095] · UTS 2010 [29.588·20.441·19.393·19.023·17.340·17.381] 대 2012 [29.596·19.899·19.577·19.203·17.960·17.152] · YS 2010 [26.734·18.437·17.074·16.896·15.497·15.456] 대 2012 [21.876·14.878·14.548·14.489·13.567·13.149]. **비시효점만 E·UTS 가 0.02·0.01 안에서 만나고 시효점은 3~5% 어긋나며, YS 는 비시효점부터 18% 어긋난다.** 즉 2012 의 12개월 매트릭스(Figure 8)는 2010 의 2개월 매트릭스와 다른 시험 뭉치다 — 어느 쪽이 맞는지 닫히지 않으므로 정정하지 않고, 겹치는 여섯 점은 다시 넣지 않는다(브리프 122·456·314). **여기 넣는 것은 2010 에 없는 120/180/270/360 일 네 점뿐이다.** [참고] 비시효 YS/UTS 비가 2010 은 0.90 인데 2012 는 0.74 이고, 같은 논문들의 SAC105/205/305/405 는 0.78/0.85/0.71/0.71 이라 0.90 쪽이 계열에서 벗어난다 — 심판으로 쓰기엔 약해 판정하지 않고 적어만 둔다(브리프 516). **[같은 논문의 Figure 14·17 은 재인용이다 — 캐지 않았다]** 캡션이 `Figure 14 - Variation of SAC UTS with Aging **[30-31]**` 이고 본문이 *'analogous results for SAC105 and SAC205 are available from our previous studies for comparison purposes [30-31]'* 다. 실제로 되읽으니 SAC105 [26.293·18.735·17.298·16.485·15.890·15.488·14.827] · SAC205 [33.536·24.389·22.693·21.385·20.696·19.333·18.984] 로 DB 의 Cai 2010 Figure 15 판독과 최대 0.02 MPa 로 같다(가로축은 `Aging Time (Day)` 0~60 이고 캡션이 `[Aging at 100 oC for 2 Months]` 다). 출처가 달라도 계보가 하나면 교차확인이 아니다(브리프 195·456)."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 16597000.0,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_time_days": 270,
+      "aging_temperature_k": 373.15,
+      "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+      "digitized": true,
+      "figure": "Figure 13(c) Ultimate Tensile Strength (p.8) — Evolution of SAC-X Material Properties [Aging at 100 oC for 12 Months]",
+      "property_definition": "ultimate tensile strength = 응력-변형 곡선의 최대응력.",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). **마커가 위삼각형이라 bbox 중심을 쓰면 h/6 만큼 밀린다** — 꼭짓점 평균을 썼고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514). 이 그림의 삼각형 높이가 2.10 pt 이고 세로 눈금이 20.58 pt = 10 MPa 라 bbox 를 썼으면 0.17 MPa 계통오차가 남았을 것이다. 눈금선을 전수 검출해 np.interp 구간별 선형 보정을 했다(브리프 446 — 이 그림 세로 간격은 20.52/20.58/20.58/20.58/20.58 pt 로 균일한 편이다). **[가로축 되읽기 = 인쇄표 검산] 같은 논문 Figure 8 `Aging Test Matrix for the Stress-Strain Tests` 가 시효시간을 0/5/10/20/30/60/120/180/270/360 일로 인쇄한다.** 되읽으니 열 점이 4.94/9.87/19.90/29.93/59.95/120.00/180.00/270.00/360.00 로 **최대 0.13 일(축 전장의 0.036%)** 안에 붙는다 — 마커 오프셋이 없다(브리프 237·495).",
+      "reading_uncertainty": "±0.05 MPa"
+     },
+     "notes": "Cai 2012 Figure 13 을 벡터 좌표로 읽었다. 그림 안 주석 verbatim: 'SACX0307, RF' / 'T = 25 oC' / 'Aging at 100 oC'. **시효 100 °C 는 시효 조건이지 시험온도가 아니다** — 시험은 전부 상온 25 °C 다. 시험 조건은 같은 연구실 앞 논문과 같다(Cai 2010 verbatim: 'All uniaxial stress-strain and creep tests in this paper were conducted at room temperature (25 °C). The strain rate for the stress-strain testing was 0.001 sec-1'). pdftocairo -svg 벡터 좌표(브리프 452). **마커가 위삼각형이라 bbox 중심을 쓰면 h/6 만큼 밀린다** — 꼭짓점 평균을 썼고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514). 이 그림의 삼각형 높이가 2.10 pt 이고 세로 눈금이 20.58 pt = 10 MPa 라 bbox 를 썼으면 0.17 MPa 계통오차가 남았을 것이다. 눈금선을 전수 검출해 np.interp 구간별 선형 보정을 했다(브리프 446 — 이 그림 세로 간격은 20.52/20.58/20.58/20.58/20.58 pt 로 균일한 편이다). **[가로축 되읽기 = 인쇄표 검산] 같은 논문 Figure 8 `Aging Test Matrix for the Stress-Strain Tests` 가 시효시간을 0/5/10/20/30/60/120/180/270/360 일로 인쇄한다.** 되읽으니 열 점이 4.94/9.87/19.90/29.93/59.95/120.00/180.00/270.00/360.00 로 **최대 0.13 일(축 전장의 0.036%)** 안에 붙는다 — 마커 오프셋이 없다(브리프 237·495). **[Cai 2010 격자와의 대조 — 겹치는 여섯 점을 넣지 않은 이유]** 재료 2677 은 같은 연구실의 Cai 2010(10.1109/ectc.2010.5490796) Figure 28 에서 100 °C 시효 0/5/10/20/30/60 일 여섯 점을 이미 갖고 있다. 여기 Figure 13 은 같은 여섯 점을 다시 그리는데 **값이 다르다** — E 2010 [31.879·23.266·22.872·22.919·22.691·22.004] 대 2012 [31.860·22.045·22.352·21.708·21.249·21.095] · UTS 2010 [29.588·20.441·19.393·19.023·17.340·17.381] 대 2012 [29.596·19.899·19.577·19.203·17.960·17.152] · YS 2010 [26.734·18.437·17.074·16.896·15.497·15.456] 대 2012 [21.876·14.878·14.548·14.489·13.567·13.149]. **비시효점만 E·UTS 가 0.02·0.01 안에서 만나고 시효점은 3~5% 어긋나며, YS 는 비시효점부터 18% 어긋난다.** 즉 2012 의 12개월 매트릭스(Figure 8)는 2010 의 2개월 매트릭스와 다른 시험 뭉치다 — 어느 쪽이 맞는지 닫히지 않으므로 정정하지 않고, 겹치는 여섯 점은 다시 넣지 않는다(브리프 122·456·314). **여기 넣는 것은 2010 에 없는 120/180/270/360 일 네 점뿐이다.** [참고] 비시효 YS/UTS 비가 2010 은 0.90 인데 2012 는 0.74 이고, 같은 논문들의 SAC105/205/305/405 는 0.78/0.85/0.71/0.71 이라 0.90 쪽이 계열에서 벗어난다 — 심판으로 쓰기엔 약해 판정하지 않고 적어만 둔다(브리프 516). **[같은 논문의 Figure 14·17 은 재인용이다 — 캐지 않았다]** 캡션이 `Figure 14 - Variation of SAC UTS with Aging **[30-31]**` 이고 본문이 *'analogous results for SAC105 and SAC205 are available from our previous studies for comparison purposes [30-31]'* 다. 실제로 되읽으니 SAC105 [26.293·18.735·17.298·16.485·15.890·15.488·14.827] · SAC205 [33.536·24.389·22.693·21.385·20.696·19.333·18.984] 로 DB 의 Cai 2010 Figure 15 판독과 최대 0.02 MPa 로 같다(가로축은 `Aging Time (Day)` 0~60 이고 캡션이 `[Aging at 100 oC for 2 Months]` 다). 출처가 달라도 계보가 하나면 교차확인이 아니다(브리프 195·456)."
+    },
+    {
+     "key": "mechanical.tensile_strength_at_rate",
+     "value": 16718000.0,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 298.15,
+      "strain_rate_s": 0.001,
+      "loading": "uniaxial tension",
+      "microstructure": "reflowed (RF)",
+      "aging_time_days": 360,
+      "aging_temperature_k": 373.15,
+      "specimen": "vacuum-suction cast bar, gage length 60 mm, rectangular cross-section",
+      "digitized": true,
+      "figure": "Figure 13(c) Ultimate Tensile Strength (p.8) — Evolution of SAC-X Material Properties [Aging at 100 oC for 12 Months]",
+      "property_definition": "ultimate tensile strength = 응력-변형 곡선의 최대응력.",
+      "axis_calibration": "pdftocairo -svg 벡터 좌표(브리프 452). **마커가 위삼각형이라 bbox 중심을 쓰면 h/6 만큼 밀린다** — 꼭짓점 평균을 썼고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514). 이 그림의 삼각형 높이가 2.10 pt 이고 세로 눈금이 20.58 pt = 10 MPa 라 bbox 를 썼으면 0.17 MPa 계통오차가 남았을 것이다. 눈금선을 전수 검출해 np.interp 구간별 선형 보정을 했다(브리프 446 — 이 그림 세로 간격은 20.52/20.58/20.58/20.58/20.58 pt 로 균일한 편이다). **[가로축 되읽기 = 인쇄표 검산] 같은 논문 Figure 8 `Aging Test Matrix for the Stress-Strain Tests` 가 시효시간을 0/5/10/20/30/60/120/180/270/360 일로 인쇄한다.** 되읽으니 열 점이 4.94/9.87/19.90/29.93/59.95/120.00/180.00/270.00/360.00 로 **최대 0.13 일(축 전장의 0.036%)** 안에 붙는다 — 마커 오프셋이 없다(브리프 237·495).",
+      "reading_uncertainty": "±0.05 MPa"
+     },
+     "notes": "Cai 2012 Figure 13 을 벡터 좌표로 읽었다. 그림 안 주석 verbatim: 'SACX0307, RF' / 'T = 25 oC' / 'Aging at 100 oC'. **시효 100 °C 는 시효 조건이지 시험온도가 아니다** — 시험은 전부 상온 25 °C 다. 시험 조건은 같은 연구실 앞 논문과 같다(Cai 2010 verbatim: 'All uniaxial stress-strain and creep tests in this paper were conducted at room temperature (25 °C). The strain rate for the stress-strain testing was 0.001 sec-1'). pdftocairo -svg 벡터 좌표(브리프 452). **마커가 위삼각형이라 bbox 중심을 쓰면 h/6 만큼 밀린다** — 꼭짓점 평균을 썼고 허용오차 0.03 pt 로 중복 꼭짓점을 먼저 지웠다(브리프 514). 이 그림의 삼각형 높이가 2.10 pt 이고 세로 눈금이 20.58 pt = 10 MPa 라 bbox 를 썼으면 0.17 MPa 계통오차가 남았을 것이다. 눈금선을 전수 검출해 np.interp 구간별 선형 보정을 했다(브리프 446 — 이 그림 세로 간격은 20.52/20.58/20.58/20.58/20.58 pt 로 균일한 편이다). **[가로축 되읽기 = 인쇄표 검산] 같은 논문 Figure 8 `Aging Test Matrix for the Stress-Strain Tests` 가 시효시간을 0/5/10/20/30/60/120/180/270/360 일로 인쇄한다.** 되읽으니 열 점이 4.94/9.87/19.90/29.93/59.95/120.00/180.00/270.00/360.00 로 **최대 0.13 일(축 전장의 0.036%)** 안에 붙는다 — 마커 오프셋이 없다(브리프 237·495). **[Cai 2010 격자와의 대조 — 겹치는 여섯 점을 넣지 않은 이유]** 재료 2677 은 같은 연구실의 Cai 2010(10.1109/ectc.2010.5490796) Figure 28 에서 100 °C 시효 0/5/10/20/30/60 일 여섯 점을 이미 갖고 있다. 여기 Figure 13 은 같은 여섯 점을 다시 그리는데 **값이 다르다** — E 2010 [31.879·23.266·22.872·22.919·22.691·22.004] 대 2012 [31.860·22.045·22.352·21.708·21.249·21.095] · UTS 2010 [29.588·20.441·19.393·19.023·17.340·17.381] 대 2012 [29.596·19.899·19.577·19.203·17.960·17.152] · YS 2010 [26.734·18.437·17.074·16.896·15.497·15.456] 대 2012 [21.876·14.878·14.548·14.489·13.567·13.149]. **비시효점만 E·UTS 가 0.02·0.01 안에서 만나고 시효점은 3~5% 어긋나며, YS 는 비시효점부터 18% 어긋난다.** 즉 2012 의 12개월 매트릭스(Figure 8)는 2010 의 2개월 매트릭스와 다른 시험 뭉치다 — 어느 쪽이 맞는지 닫히지 않으므로 정정하지 않고, 겹치는 여섯 점은 다시 넣지 않는다(브리프 122·456·314). **여기 넣는 것은 2010 에 없는 120/180/270/360 일 네 점뿐이다.** [참고] 비시효 YS/UTS 비가 2010 은 0.90 인데 2012 는 0.74 이고, 같은 논문들의 SAC105/205/305/405 는 0.78/0.85/0.71/0.71 이라 0.90 쪽이 계열에서 벗어난다 — 심판으로 쓰기엔 약해 판정하지 않고 적어만 둔다(브리프 516). **[같은 논문의 Figure 14·17 은 재인용이다 — 캐지 않았다]** 캡션이 `Figure 14 - Variation of SAC UTS with Aging **[30-31]**` 이고 본문이 *'analogous results for SAC105 and SAC205 are available from our previous studies for comparison purposes [30-31]'* 다. 실제로 되읽으니 SAC105 [26.293·18.735·17.298·16.485·15.890·15.488·14.827] · SAC205 [33.536·24.389·22.693·21.385·20.696·19.333·18.984] 로 DB 의 Cai 2010 Figure 15 판독과 최대 0.02 MPa 로 같다(가로축은 `Aging Time (Day)` 0~60 이고 캡션이 `[Aging at 100 oC for 2 Months]` 다). 출처가 달라도 계보가 하나면 교차확인이 아니다(브리프 195·456)."
+    }
+   ]
+  }
+ ]
+}
