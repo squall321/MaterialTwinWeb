@@ -1,0 +1,249 @@
+{
+  "batch": "57차 SA — packaging 코어 빈칸 채굴 (솔더 합금 · EMC)",
+  "materials": [
+    {
+      "match_name": "Indium Solder (99.99% In)",
+      "source": {
+        "title": "INDALLOY Specialty Alloys — alloy chart sorted by Indalloy number (Indium Corporation of America, Europe and Asia)",
+        "kind": "datasheet",
+        "url": "https://web.archive.org/web/20060311125310id_/http://www.indium.com/products/alloy_sorted_by_indalloy_number.pdf",
+        "year": 2006,
+        "authors": "Indium Corporation of America",
+        "publisher": "Indium Corporation of America, Europe and Asia",
+        "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w56rd/Indium_Indalloy_specialty_alloys_sorted_by_indalloy_number_2006.pdf"
+      },
+      "properties": [
+        {
+          "key": "mechanical.youngs_modulus", "value": 10824768490.0, "unit": "Pa",
+          "tier": 3, "method": "datasheet",
+          "conditions": {"composition_mass_pct": "100.0 In", "temperature_k": "출처에 인쇄되지 않았다", "basis": "Indalloy 4 행. 제조사 자사 합금 편찬표라 시험법은 인쇄되지 않는다"},
+          "notes": "1쪽 Indalloy 4 행 'Young's Modulus (PSI x 10^6)' 열 = 1.57. 1.57e6 x 6894.757 = 1.0825e10 Pa = 10.82 GPa. 열 배정은 pdftotext -bbox-layout 의 단어 x좌표로 확인했다(머리글 'Modulus' 중심 x=599, 값 x=603.5; 같은 열의 Indalloy 106 Sn63Pb37 = 4.35, Indalloy 128 순 Sn = 6.1, Indalloy 170 순 Pb = 2.61). 검산 — 순 In 의 교과서 E 는 11 GPa 로 소수 첫째자리까지 맞는다. 재료 583 의 기존 밀도 7310 kg/m3 이 이 표의 7.31 g/cm3 과 일치해 행 배정이 닫힌다(브리프 129)."
+        },
+        {
+          "key": "thermal.expansion_linear", "value": 2.9e-05, "unit": "1/K",
+          "tier": 3, "method": "datasheet",
+          "conditions": {"composition_mass_pct": "100.0 In", "temperature_c": 20, "basis": "Indalloy 4 행. 표 머리글이 'Thermal Coefficient Expansion @ 20 C (PPM/oC)' 라 조건이 인쇄돼 있다"},
+          "notes": "1쪽 Indalloy 4 행 CTE 열 = 29 ppm/degC. 검산 — 순 In 의 교과서 CTE 는 32.1 ppm/K 로 같은 자릿수다. 같은 열의 순 Sn 24 · 순 Pb 29 도 교과서값(22 · 28.9)과 맞는다."
+        },
+        {
+          "key": "thermal.conductivity", "value": 86.0, "unit": "W/(m*K)",
+          "tier": 3, "method": "datasheet",
+          "conditions": {"composition_mass_pct": "100.0 In", "temperature_c": 85, "basis": "Indalloy 4 행. 표 머리글이 'Thermal Conductivity @ 85 C (W/cm-oC)' 라 온도가 인쇄돼 있다"},
+          "notes": "1쪽 Indalloy 4 행 = 0.86 W/(cm*degC) = 86 W/(m*K). 검산 — 순 In 의 교과서 열전도율 81.8 W/(m*K) 와 5% 안이다. 같은 열의 순 Sn 0.73 = 73 (교과서 66.6) · 순 Pb 0.35 = 35 (교과서 35.3) 도 맞는다."
+        },
+        {
+          "key": "thermal.specific_heat", "value": 243.0, "unit": "J/(kg*K)",
+          "tier": 3, "method": "datasheet",
+          "conditions": {"composition_mass_pct": "100.0 In", "phase": "solid", "temperature_k": "출처에 인쇄되지 않았다 (열 이름이 'Specific Heat SOLID' 일 뿐 온도가 없다)"},
+          "notes": "1쪽 Indalloy 4 행 'Specific Heat SOLID (J/g-oC)' 열 = 0.243 → 243 J/(kg*K). SOLID 와 LIQUID 두 열이 나란해 x좌표로 갈랐다(SOLID 머리글 중심 x=706, LIQUID x=726; 이 행의 값은 x=712.3 이라 SOLID 다). 검산 — 순 In 의 교과서 비열 233 J/(kg*K) 와 4% 안이고, 같은 열의 순 Sn 0.222 = 222 (교과서 228) 도 맞는다."
+        },
+        {
+          "key": "mechanical.tensile_strength", "value": 1882268.7, "unit": "Pa",
+          "tier": 3, "method": "datasheet",
+          "conditions": {"composition_mass_pct": "100.0 In", "temperature_k": "출처에 인쇄되지 않았다", "basis": "Indalloy 4 행 'Tensile Strength (PSI)'"},
+          "notes": "1쪽 Indalloy 4 행 = 273 psi. 273 x 6894.757 = 1,882,269 Pa = 1.88 MPa. 검산 — 순 In 은 매우 무른 금속이라 인장강도가 2 MPa 대다(교과서 ~2.2 MPa). 같은 열의 순 Pb 1800 psi = 12.4 MPa · Sn63Pb37 7500 psi = 51.7 MPa 도 교과서값이다. 재료명이 '99.99% In' 이고 표의 행은 공칭 조성 '100.0 In' 이다 — Indium Corporation 의 표준 인듐 순도가 99.99% 라 같은 제품이나, 순도 밴드가 표에 인쇄되지 않은 점은 조건에 남긴다."
+        }
+      ]
+    },
+    {
+      "match_name": "60Sn40Pb Solder Alloy",
+      "source": {
+        "title": "INDALLOY Specialty Alloys — alloy chart sorted by Indalloy number (Indium Corporation of America, Europe and Asia)",
+        "kind": "datasheet",
+        "url": "https://web.archive.org/web/20060311125310id_/http://www.indium.com/products/alloy_sorted_by_indalloy_number.pdf",
+        "year": 2006,
+        "authors": "Indium Corporation of America",
+        "publisher": "Indium Corporation of America, Europe and Asia",
+        "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w56rd/Indium_Indalloy_specialty_alloys_sorted_by_indalloy_number_2006.pdf"
+      },
+      "properties": [
+        {
+          "key": "mechanical.youngs_modulus", "value": 29992192950.0, "unit": "Pa",
+          "tier": 3, "method": "datasheet",
+          "conditions": {"composition_mass_pct": "60.0 Sn, 40.0 Pb", "temperature_k": "출처에 인쇄되지 않았다", "basis": "Indalloy 109 행 'Young's Modulus (PSI x 10^6)'"},
+          "notes": "2쪽 Indalloy 109 행 = 4.35e6 psi = 29.99 GPa. 검산 ① 널리 인용되는 60Sn40Pb 의 E 는 30 GPa 다. 검산 ② 이 표의 Pb-Sn 계열 E 가 Sn 함량에 대해 단조증가한다 — 순 Pb 2.61 / 90Pb10Sn 2.76 / 80Pb20Sn 2.90 / 70Pb30Sn 3.05 / 60Pb40Sn 3.34 / 60Sn40Pb 4.35 / Sn63Pb37 4.35 / 순 Sn 6.1 (x10^6 psi). 행 배정은 재료 577 의 기존 밀도 8500 kg/m3 · 열전도율 49 W/(m*K) 가 이 행의 8.50 g/cm3 · 0.49 W/(cm*degC) 와 일치해 닫힌다."
+        },
+        {
+          "key": "thermal.expansion_linear", "value": 2.5e-05, "unit": "1/K",
+          "tier": 3, "method": "datasheet",
+          "conditions": {"composition_mass_pct": "60.0 Sn, 40.0 Pb", "temperature_c": 20, "basis": "Indalloy 109 행. 표 머리글 'Thermal Coefficient Expansion @ 20 C (PPM/oC)'"},
+          "notes": "2쪽 Indalloy 109 행 = 25 ppm/degC. 검산 — 널리 인용되는 60Sn40Pb 의 CTE 는 24.7 ppm/K 다. 같은 열의 Sn63Pb37 25 · 50Sn50Pb 23 · 순 Sn 24 · 순 Pb 29 도 교과서값이다."
+        },
+        {
+          "key": "mechanical.tensile_strength", "value": 52400153.2, "unit": "Pa",
+          "tier": 3, "method": "datasheet",
+          "conditions": {"composition_mass_pct": "60.0 Sn, 40.0 Pb", "temperature_k": "출처에 인쇄되지 않았다", "basis": "Indalloy 109 행 'Tensile Strength (PSI)'"},
+          "notes": "2쪽 Indalloy 109 행 = 7,600 psi = 52.40 MPa. **딴 벤더표가 독립으로 확인한다** — The Solder Connection 사양표(2023)의 Sn60Pb40 행 'Tensile Strength at Break' 535 kgf/cm2 = 52.5 MPa 로 0.2% 안에서 같다. 같은 방식으로 Sn63Pb37 은 Indalloy 7,500 psi = 51.7 MPa 대 Solder Connection 525 kgf/cm2 = 51.5 MPa 다."
+        }
+      ]
+    },
+    {
+      "match_name": "92.5Pb5Sn2.5Ag Solder Alloy",
+      "source": {
+        "title": "INDALLOY Specialty Alloys — alloy chart sorted by Indalloy number (Indium Corporation of America, Europe and Asia)",
+        "kind": "datasheet",
+        "url": "https://web.archive.org/web/20060311125310id_/http://www.indium.com/products/alloy_sorted_by_indalloy_number.pdf",
+        "year": 2006,
+        "authors": "Indium Corporation of America",
+        "publisher": "Indium Corporation of America, Europe and Asia",
+        "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w56rd/Indium_Indalloy_specialty_alloys_sorted_by_indalloy_number_2006.pdf"
+      },
+      "properties": [
+        {
+          "key": "thermal.specific_heat", "value": 130.0, "unit": "J/(kg*K)",
+          "tier": 3, "method": "datasheet",
+          "conditions": {"composition_mass_pct": "92.5 Pb, 5.0 Sn, 2.5 Ag", "phase": "solid", "temperature_k": "출처에 인쇄되지 않았다"},
+          "notes": "2쪽 Indalloy 151 행 'Specific Heat SOLID (J/g-oC)' 열 = 0.13 → 130 J/(kg*K). x좌표로 SOLID 열임을 확인했다(값 x=712.2, SOLID 머리글 706 · LIQUID 726). 검산 — Kopp-Neumann 질량가중 0.925x129 + 0.05x228 + 0.025x235 = 136.6 J/(kg*K) 로 인쇄값 130 과 5% 안에서 맞는다."
+        },
+        {
+          "key": "mechanical.tensile_strength", "value": 29026927.0, "unit": "Pa",
+          "tier": 3, "method": "datasheet",
+          "conditions": {"composition_mass_pct": "92.5 Pb, 5.0 Sn, 2.5 Ag", "temperature_k": "출처에 인쇄되지 않았다", "basis": "Indalloy 151 행 'Tensile Strength (PSI)'"},
+          "notes": "2쪽 Indalloy 151 행 = 4,210 psi = 29.03 MPa. **딴 벤더표가 독립으로 확인한다** — The Solder Connection 사양표(2023)의 Pb92.5Sn05Ag2.5 행 295 kgf/cm2 = 28.9 MPa 로 0.5% 안에서 같다. 재료 576 의 기존 밀도 11020 kg/m3 이 이 행의 11.02 g/cm3 과 일치해 행 배정이 닫힌다."
+        }
+      ]
+    },
+    {
+      "match_name": "Sn-3.5Ag Solder Alloy",
+      "source": {
+        "title": "INDALLOY Specialty Alloys — alloy chart sorted by Indalloy number (Indium Corporation of America, Europe and Asia)",
+        "kind": "datasheet",
+        "url": "https://web.archive.org/web/20060311125310id_/http://www.indium.com/products/alloy_sorted_by_indalloy_number.pdf",
+        "year": 2006,
+        "authors": "Indium Corporation of America",
+        "publisher": "Indium Corporation of America, Europe and Asia",
+        "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w56rd/Indium_Indalloy_specialty_alloys_sorted_by_indalloy_number_2006.pdf"
+      },
+      "properties": [
+        {
+          "key": "thermal.conductivity", "value": 33.0, "unit": "W/(m*K)",
+          "tier": 3, "method": "datasheet",
+          "conditions": {"composition_mass_pct": "96.5 Sn, 3.5 Ag", "temperature_c": 85, "basis": "Indalloy 121 행. 표 머리글 'Thermal Conductivity @ 85 C (W/cm-oC)'"},
+          "notes": "2쪽 Indalloy 121 행 = 0.33 W/(cm*degC) = 33 W/(m*K), 널리 인용되는 Sn-3.5Ag 값과 같다. **다만 이 칸은 출처가 갈린다** — The Solder Connection 사양표(2023)의 Sn96.5Ag3.5 행은 55 W/(m*K) 를 인쇄한다(그 표는 온도 조건이 없다). 브리프 129 대로 편찬표는 밀도만 재현되므로 제조사 자사 표(Indium Corporation)를 골랐고, 온도 조건(85 degC)이 인쇄된 쪽이 이쪽이다. 같은 열의 Sn63Pb37 0.50 = 50 · 60Sn40Pb 0.49 = 49 는 두 표가 일치한다. 이 표의 Sn96.5Ag3.5 밀도 7.50 g/cm3 은 카탈로그의 기존 7370 kg/m3(Solder Connection 7.37) 과 어긋나므로 이 행의 밀도는 쓰지 않았다."
+        }
+      ]
+    },
+    {
+      "match_name": "Sn3.9Ag0.6Cu Solder Alloy (SAC396)",
+      "source": {
+        "title": "INDALLOY Specialty Alloys — alloy chart sorted by Indalloy number (Indium Corporation of America, Europe and Asia)",
+        "kind": "datasheet",
+        "url": "https://web.archive.org/web/20060311125310id_/http://www.indium.com/products/alloy_sorted_by_indalloy_number.pdf",
+        "year": 2006,
+        "authors": "Indium Corporation of America",
+        "publisher": "Indium Corporation of America, Europe and Asia",
+        "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w56rd/Indium_Indalloy_specialty_alloys_sorted_by_indalloy_number_2006.pdf"
+      },
+      "properties": [
+        {
+          "key": "physical.density", "value": 7400.0, "unit": "kg/m^3",
+          "tier": 3, "method": "datasheet",
+          "conditions": {"composition_mass_pct": "95.5 Sn, 3.9 Ag, 0.6 Cu", "phase": "solid", "temperature_k": "출처에 인쇄되지 않았다"},
+          "notes": "4쪽 Indalloy 252 행(95.5 Sn / 3.9 Ag / 0.6 Cu, 고상선 217 / 액상선 220 degC) = 0.2674 lb/in3 = 7.40 g/cm3. 두 밀도 열이 서로 검산한다 — 0.2674 x 27.6799 = 7.400. 조성이 SAC396 과 글자 단위로 같다. 브리프 129 대로 벤더 편찬표에서 재현성이 가장 높은 칸이 밀도다. 같은 표의 SAC305(256행) · SAC387(241행) · SAC405(246행)도 모두 7.40 이고, 카탈로그의 SAC387/SAC405 기존 밀도 7440 kg/m3(Solder Connection)과 0.5% 안이다."
+        }
+      ]
+    },
+    {
+      "match_name": "Sn3.8Ag0.7Cu Solder Alloy (SAC387)",
+      "source": {
+        "title": "INDALLOY Specialty Alloys — alloy chart sorted by Indalloy number (Indium Corporation of America, Europe and Asia)",
+        "kind": "datasheet",
+        "url": "https://web.archive.org/web/20060311125310id_/http://www.indium.com/products/alloy_sorted_by_indalloy_number.pdf",
+        "year": 2006,
+        "authors": "Indium Corporation of America",
+        "publisher": "Indium Corporation of America, Europe and Asia",
+        "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w56rd/Indium_Indalloy_specialty_alloys_sorted_by_indalloy_number_2006.pdf"
+      },
+      "properties": [
+        {
+          "key": "mechanical.tensile_strength", "value": 48001298.2, "unit": "Pa",
+          "tier": 3, "method": "datasheet",
+          "conditions": {"composition_mass_pct": "95.5 Sn, 3.8 Ag, 0.7 Cu", "temperature_k": "출처에 인쇄되지 않았다", "basis": "Indalloy 241 행 'Tensile Strength (PSI)'"},
+          "notes": "4쪽 Indalloy 241 행 = 6,962 psi = 48.00 MPa. 같은 행이 전단강도 3,916 psi(27.0 MPa) · 연신 36.5% · Brinell 15 를 함께 인쇄해 전단/인장 비 0.56 이 무연솔더의 관용비와 맞는다. 재료 584 의 기존 밀도 7440 kg/m3 이 이 행의 7.40 g/cm3 과 0.5% 안이라 행 배정이 닫힌다. **The Solder Connection 표의 SAC387 600 kgf/cm2 = 58.8 MPa 와는 22% 갈린다** — 브리프 129 의 '밀도만 재현된다' 가 인장강도에도 걸리므로 제조사 자사 표를 골랐다."
+        }
+      ]
+    },
+    {
+      "match_name": "90Pb10Sn CCGA column solder with 63Sn37Pb fillets (Perkins 2009 vibration HCF)",
+      "source": {
+        "title": "INDALLOY Specialty Alloys — alloy chart sorted by Indalloy number (Indium Corporation of America, Europe and Asia)",
+        "kind": "datasheet",
+        "url": "https://web.archive.org/web/20060311125310id_/http://www.indium.com/products/alloy_sorted_by_indalloy_number.pdf",
+        "year": 2006,
+        "authors": "Indium Corporation of America",
+        "publisher": "Indium Corporation of America, Europe and Asia",
+        "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w56rd/Indium_Indalloy_specialty_alloys_sorted_by_indalloy_number_2006.pdf"
+      },
+      "properties": [
+        {
+          "key": "physical.density", "value": 10750.0, "unit": "kg/m^3",
+          "tier": 3, "method": "datasheet",
+          "conditions": {"composition_mass_pct": "90.0 Pb, 10.0 Sn", "component": "CCGA 컬럼 본체의 벌크 합금 (63Sn37Pb 필렛은 별개 합금이며 이 값이 아니다)", "phase": "solid", "temperature_k": "출처에 인쇄되지 않았다"},
+          "notes": "2쪽 Indalloy 159 행(90.0 Pb / 10.0 Sn) = 0.3884 lb/in3 = 10.75 g/cm3. The Solder Connection 사양표(2023)의 Pb90Sn10 행도 10.75 로 같다. 이 재료는 컬럼 본체가 90Pb10Sn 인 CCGA 컬럼이므로 값은 컬럼 본체 벌크에 해당한다 — 필렛(63Sn37Pb)의 값이 아님을 조건에 못박았다."
+        },
+        {
+          "key": "mechanical.youngs_modulus", "value": 19029529320.0, "unit": "Pa",
+          "tier": 3, "method": "datasheet",
+          "conditions": {"composition_mass_pct": "90.0 Pb, 10.0 Sn", "component": "CCGA 컬럼 본체의 벌크 합금 (63Sn37Pb 필렛은 별개 합금이며 이 값이 아니다)", "temperature_k": "출처에 인쇄되지 않았다"},
+          "notes": "2쪽 Indalloy 159 행 = 2.76e6 psi = 19.03 GPa. 검산 — 이 표의 Pb-Sn 계열 E 가 Sn 함량에 단조증가한다(순 Pb 2.61 → 90Pb10Sn 2.76 → 80Pb20Sn 2.90 → 70Pb30Sn 3.05 → 60Pb40Sn 3.34 → 순 Sn 6.1, x10^6 psi). 순 Pb 2.61e6 psi = 18.0 GPa 는 교과서 16 GPa 와 같은 자릿수다."
+        },
+        {
+          "key": "thermal.expansion_linear", "value": 2.9e-05, "unit": "1/K",
+          "tier": 3, "method": "datasheet",
+          "conditions": {"composition_mass_pct": "90.0 Pb, 10.0 Sn", "component": "CCGA 컬럼 본체의 벌크 합금", "temperature_c": 20, "basis": "표 머리글 'Thermal Coefficient Expansion @ 20 C (PPM/oC)'"},
+          "notes": "2쪽 Indalloy 159 행 = 29 ppm/degC. 검산 — 순 Pb 29 ppm(교과서 28.9)과 같고, Sn 10% 로는 유의하게 안 내려가는 것이 이 계열의 계통적 거동이다(95Pb5Sn 30 · 80Pb20Sn 27)."
+        },
+        {
+          "key": "thermal.conductivity", "value": 25.0, "unit": "W/(m*K)",
+          "tier": 3, "method": "datasheet",
+          "conditions": {"composition_mass_pct": "90.0 Pb, 10.0 Sn", "component": "CCGA 컬럼 본체의 벌크 합금", "temperature_c": 85, "basis": "표 머리글 'Thermal Conductivity @ 85 C (W/cm-oC)'"},
+          "notes": "2쪽 Indalloy 159 행 = 0.25 W/(cm*degC) = 25 W/(m*K). **딴 벤더표가 독립으로 확인한다** — The Solder Connection 사양표(2023)의 Pb90Sn10 행도 25 W/(m*K) 다."
+        },
+        {
+          "key": "mechanical.tensile_strength", "value": 30336930.8, "unit": "Pa",
+          "tier": 3, "method": "datasheet",
+          "conditions": {"composition_mass_pct": "90.0 Pb, 10.0 Sn", "component": "CCGA 컬럼 본체의 벌크 합금 (63Sn37Pb 필렛은 별개 합금이며 이 값이 아니다)", "temperature_k": "출처에 인쇄되지 않았다"},
+          "notes": "2쪽 Indalloy 159 행 = 4,400 psi = 30.34 MPa. **딴 벤더표가 독립으로 확인한다** — The Solder Connection 사양표(2023)의 Pb90Sn10 행 310 kgf/cm2 = 30.40 MPa 로 0.2% 안에서 같다."
+        }
+      ]
+    },
+    {
+      "match_name": "Sn0.3Ag0.7Cu Solder Alloy",
+      "source": {
+        "title": "Solder Alloy Technical Specification (The Solder Connection Ltd)",
+        "kind": "datasheet",
+        "publisher": "The Solder Connection Ltd",
+        "url": "https://www.solderconnection.com/wp-content/uploads/2023/03/Solder-Alloy-Technical-Specifications.pdf",
+        "year": 2023,
+        "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w57sa/solderconnection.pdf"
+      },
+      "properties": [
+        {
+          "key": "mechanical.tensile_strength", "value": 29419950.0, "unit": "Pa",
+          "tier": 3, "method": "datasheet",
+          "conditions": {"composition_mass_pct": "Sn 99.0 / Ag 0.3 / Cu 0.7 (SAC0307)", "temperature_k": "출처에 인쇄되지 않았다", "basis": "'Tensile Strength at Break (kgf/cm2)' 열 = 300"},
+          "notes": "1쪽 'Sn99Ag0.3Cu0.7 (SAC0307)' 행 = 300 kgf/cm2. 300 x 98,066.5 = 29,419,950 Pa = 29.42 MPa. 같은 행의 밀도 7.33 g/cm3 이 재료 585 의 기존 밀도 7330 kg/m3 과 일치해 행 배정이 닫힌다(브리프 129). 단위 환산 검산 — 같은 표의 Sn63Pb37 525 kgf/cm2 = 51.5 MPa · Sn60Pb40 535 = 52.5 MPa 가 Indium Corporation 자사 표의 7,500 psi(51.7) · 7,600 psi(52.4)와 각각 0.5% 안에서 같다."
+        }
+      ]
+    },
+    {
+      "match_name": "Epoxy molding compound, 89 wt% silica-filled commercial fan-out WLP compound (Chiu 2018)",
+      "source": {
+        "title": "Warpage simulation for the reconstituted wafer used in fan-out wafer level packaging",
+        "kind": "journal",
+        "doi": "10.1016/j.microrel.2017.11.008",
+        "url": "https://doi.org/10.1016/j.microrel.2017.11.008",
+        "year": 2018,
+        "local_path": "/data/paper_patent_corpus/structured/pkg_papers/08_compression_molding_wlp/Chiu - 2018 - Warpage simulation for the reconstituted wafer used in fan-out wafer level packaging/Chiu - 2018 - Warpage simulation for the reconstituted wafer used in fan-out wafer level packaging.md"
+      },
+      "properties": [
+        {
+          "key": "mechanical.poisson_ratio", "value": 0.371, "unit": "1",
+          "tier": 2, "method": "computed",
+          "conditions": {"regime": "glassy (유리상)", "degree_of_cure": 1.0, "temperature_k": 298.15, "test_method": "DMA 마스터커브 E'(w) 와 G'(w) 의 동시 피팅으로 얻은 Prony 유리상 계수에서 저자가 계산", "basis": "Table 6 'Elastic material properties for the reconstituted wafer' 의 EMC 행"},
+          "notes": "Table 6 이 EMC 의 Poisson's ratio 를 0.371 로 인쇄한다. **원문 자신의 Table 3 이 이 값을 검산한다** — Table 3 의 유리상 계수 Eg = 26.3 GPa · Gg = 9.59 GPa · kappa_g = 34.0 GPa 로 nu = E/(2G) - 1 = 26.3/(2 x 9.59) - 1 = 0.3712 이고 nu = (3K - E)/(6K) = (3x34.0 - 26.3)/(6x34.0) = 0.3711 이다. 세 자리까지 인쇄값과 같다. 즉 FE 입력표의 값이지만 저자 자신의 측정·피팅에서 나온 것이라 브리프 3 의 함정이 아니다 — 다만 저자가 계산한 값이므로 method=computed 로 넣었다. 재료 744 의 기존 영률 26.3 GPa(E0 유리상) 이 같은 Table 3 에서 온 것이라 재료 배정이 닫힌다."
+        }
+      ]
+    }
+  ]
+}
