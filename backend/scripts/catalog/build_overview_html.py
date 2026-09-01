@@ -3,6 +3,7 @@
 # 사용: .venv/bin/python scripts/catalog/build_overview_html.py
 from __future__ import annotations
 
+import os
 import html
 import sqlite3
 import sys
@@ -12,7 +13,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 import coverage_report as CR  # noqa: E402
 
-DB = "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web/materialtwin.db"
+# `integrity_check.py`·`coverage_report.py` 와 같은 이유로 환경변수를 본다 —
+# 박아 두면 스냅샷으로 검증할 수 없다(53차 OB, 브리프 572).
+DB = os.path.join(
+    os.environ.get("MATERIALTWIN_DATA_DIR",
+                   "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web"),
+    "materialtwin.db")
 OUT = Path("/home/koopark/claude/MaterialTwinWeb/docs/물성카탈로그_현황.html")
 
 # 역산을 잡아낸 실제 사건 — DB에서 셀 수 없는 역사라 여기 적는다.
@@ -107,7 +113,11 @@ def main():
         join property_value pv on pv.source_id=s.id group by s.id order by n desc limit 12""")
     n_doi = q(c, "select count(*) from source where coalesce(doi,'')<>''")[0][0]
     n_url = q(c, "select count(*) from source where coalesce(url,'')<>''")[0][0]
-    n_cond = q(c, "select count(*) from property_value where conditions is not null and conditions<>'{}'")[0][0]
+    # 조건 보유는 **살림살이 키를 빼고** 센다 — `verdict_*`·`correction_reason`·`corrected_by`·
+    # `*_before_correction`·`moved_from_*`·`direction_verbatim` 은 우리가 적은 기록이지 조건축이 아니다
+    # (브리프 557·571). 라이브 실측 40,230행 중 31행이 살림살이 키만 갖고 있다.
+    n_cond = sum(1 for (raw,) in q(c, "select conditions from property_value")
+                 if CR.real_conditions(raw))
     n_assum = q(c, """select count(*) from property_value where
         replace(replace(coalesce(conditions,''),' ',''),'"assumption":true','@@') like '%@@%'""")[0][0]
     comp_keys = q(c, """select property_key,count(*) from property_value
@@ -124,7 +134,16 @@ def main():
     matname = dict(q(c, "select id,name from material"))
     defname = dict(q(c, "select key,name from property_definition"))
 
+    def meas_cov(key):
+        """그 물성의 (재료 × 물성) 칸 중 실측(tier<=3)이 있는 칸의 비율."""
+        tot = q(c, "select count(*) from (select 1 from property_value "
+                   "where property_key=? group by material_id)", key)[0][0]
+        ms = q(c, "select count(*) from (select 1 from property_value where property_key=? "
+                  "group by material_id having min(quality_tier)<=3)", key)[0][0]
+        return ms * 100 / max(tot, 1)
+
     _c2, _mat2, _own2, cov = CR.compute()
+    sc = CR.subsystem_core(DB)
     tot_cells = sum(x["cells"] for x in cov)
     tot_filled = sum(x["filled"] for x in cov)
     tot_meas = sum(x["meas_filled"] for x in cov)
@@ -168,7 +187,7 @@ def main():
     A('</div></header>')
 
     A('<nav class="toc"><ol>')
-    for i, t in enumerate(["격자", "현황", "등급", "출처", "사이클", "규칙",
+    for i, t in enumerate(["격자", "현황", "계통", "등급", "출처", "사이클", "규칙",
                            "역산 경계", "부재", "검증", "성장", "남은 일"], 1):
         A(f'<li><a href="#s{i}">{t}</a></li>')
     A('</ol></nav>')
@@ -223,8 +242,48 @@ def main():
       f'채움률이 100%인 해석도 실측기반은 67%일 수 있다.</p>')
     A('</section>')
 
+    # ── 3. 계통 — 43·49차 태깅이 끝나 이제 계통별로 셀 수 있다.
+    A(sec(3, "계통", "어느 계통이 비었고, 그 빈칸이 무엇인가"))
+    A(f'<p>제품 재료 {sc["total"]["n_mat"]}종을 계통으로 태깅했다. 아래는 '
+      f'<b>코어 {len(sc["core"])}물성</b>(밀도·영률·포아송비·CTE·열전도율·비열·인장강도) '
+      f'{sc["total"]["cells"]:,}칸의 채움률이다 — 해석 격자와 달리 <b>재료 하나가 최소한 이것은 '
+      f'있어야 한다</b>는 축이다.</p>')
+    A('<div class="tblwrap"><table class="cov">')
+    A('<thead><tr><th>계통</th><th class="n">재료</th><th>코어 채움</th><th class="n">빈칸</th>'
+      '<th class="n">해당<br>없음</th><th class="n">벤더<br>부재</th>'
+      '<th class="n">판정이<br>자유 키에</th><th class="n">등급<br>미확정</th>'
+      '<th class="n">진짜<br>남은 것</th></tr></thead><tbody>')
+    for r in sc["rows"]:
+        cls = "ok" if r["pct"] >= 90 else ("warn" if r["pct"] >= 70 else "crit")
+        A(f'<tr><td class="nm">{esc(r["subsystem"])}</td><td class="n">{r["n_mat"]}</td>'
+          f'<td class="barcell"><span class="btrack sm"><i class="bfill teal" '
+          f'style="width:{r["pct"]:.1f}%"></i></span>'
+          f'<span class="pct">{r["pct"]:.1f}</span></td>'
+          f'<td class="n mono">{r["blank"]}</td>'
+          f'<td class="n mono">{r["V1"] or "·"}</td><td class="n mono">{r["V2"] or "·"}</td>'
+          f'<td class="n mono">{r["V3"] or "·"}</td><td class="n mono">{r["V4"] or "·"}</td>'
+          f'<td class="n"><span class="pill {cls}">{r["V5"]}</span></td></tr>')
+    t = sc["total"]
+    A(f'<tr class="tot"><td class="nm">전체</td><td class="n">{t["n_mat"]}</td>'
+      f'<td class="barcell"><span class="btrack sm"><i class="bfill teal" '
+      f'style="width:{t["pct"]:.1f}%"></i></span><span class="pct">{t["pct"]:.1f}</span></td>'
+      f'<td class="n mono">{t["blank"]:,}</td><td class="n mono">{t["V1"]}</td>'
+      f'<td class="n mono">{t["V2"]}</td><td class="n mono">{t["V3"]}</td>'
+      f'<td class="n mono">{t["V4"]}</td><td class="n mono">{t["V5"]:,}</td></tr>')
+    A('</tbody></table></div>')
+    A('<p class="note"><b>"빈칸 N개"만 보면 "더 캐면 된다"로 읽힌다 — 그래서 갈랐다.</b></p>')
+    A('<div class="tblwrap"><table class="unf"><tbody>'
+      + "".join(f'<tr><td class="nm">{esc(lbl)}</td><td>{esc(why)}</td></tr>'
+                for _, lbl, why in CR.VERDICT_LABEL) + '</tbody></table></div>')
+    A(f'<p class="note warn"><b>빈칸 {t["blank"]:,}칸 중 실제로 캘 수 있는 것은 {t["V5"]:,}칸이다.</b> '
+      f'나머지 {t["blank"] - t["V5"]}칸은 판정이 끝났거나 원리적으로 못 닫는다. '
+      f'그리고 그중 {t["V3"]}칸은 <b>판정이 자유 키에 적혀 있어 이 표가 스스로 읽지 못한다</b> — '
+      f'집계가 읽는 자리(<code>core_not_applicable</code>·'
+      f'<code>core_absent_from_vendor_sheet</code>)로 옮기기 전까지는 다음 파동이 또 센다.</p>')
+    A('</section>')
+
     # ── 3. 등급
-    A(sec(3, "등급", "tier가 무엇을 뜻하고 왜 가정을 허용하는가"))
+    A(sec(4, "등급", "tier가 무엇을 뜻하고 왜 가정을 허용하는가"))
     A('<div class="tiers">')
     tinfo = [(1, "그 제품에 대해 인쇄된 값", "벤더 데이터시트·논문이 이 제품을 시험한 결과"),
              (2, "핸드북·규격·인증 DB", "계열 대표값이지만 권위 있는 기관이 보증한다"),
@@ -251,7 +310,7 @@ def main():
     A('</div></section>')
 
     # ── 4. 출처
-    A(sec(4, "출처", "값 하나에 문서 하나"))
+    A(sec(5, "출처", "값 하나에 문서 하나"))
     A(f'<p>스키마가 <b>출처 없는 값의 저장 자체를 거부한다</b> — 등록 API가 DOI·URL·제목 중 하나를 '
       f'요구한다. 덕분에 {n_val:,}건 전부에 출처가 붙어 있고 끊어진 참조가 0건이다. '
       f'조건(온도·주파수·방향 등)이 붙은 값은 {n_cond:,}건({n_cond * 100 / n_val:.1f}%)이다.</p>')
@@ -272,7 +331,7 @@ def main():
     A('</section>')
 
     # ── 5. 사이클
-    A(sec(5, "사이클", "한 파동에 무엇을 하는가"))
+    A(sec(6, "사이클", "한 파동에 무엇을 하는가"))
     A('<ol class="steps">')
     for i, (t, d) in enumerate(CYCLE, 1):
         A(f'<li><span class="sn">{i:02d}</span><div><b>{esc(t)}</b><p>{d}</p></div></li>')
@@ -283,7 +342,7 @@ def main():
     A('</section>')
 
     # ── 6. 규칙
-    A(sec(6, "규칙", "절대 넘지 않는 선"))
+    A(sec(7, "규칙", "절대 넘지 않는 선"))
     A('<ol class="rules">')
     for i, (t, d) in enumerate(RULES, 1):
         A(f'<li><b>{esc(t)}</b><p>{esc(d)}</p></li>')
@@ -294,7 +353,7 @@ def main():
     A('</section>')
 
     # ── 7. 역산
-    A(sec(7, "역산 경계", "무엇이 계산이고 무엇이 조작인가"))
+    A(sec(8, "역산 경계", "무엇이 계산이고 무엇이 조작인가"))
     A('<p>이 카탈로그에서 가장 자주 오해받는 선이다. '
       '<b>계산 자체가 금지된 것이 아니라, 계산을 <em>누가</em> 했느냐가 갈림길이다.</b> '
       '논문이 자기 데이터에 피팅해 발표한 상수는 옮긴다. 우리가 다른 물성에서 만들어낸 값은 넣지 않는다. '
@@ -335,7 +394,7 @@ def main():
     A('</section>')
 
     # ── 8. 부재
-    A(sec(8, "부재", "채울 수 없는 칸을 분모에서 뺀다"))
+    A(sec(9, "부재", "채울 수 없는 칸을 분모에서 뺀다"))
     A(f'<p>액체에 항복강도를, 증착 도판트에 투습도를 요구하면 그 칸은 영원히 비어 있다. '
       f'분모에 남겨 두면 <b>도달할 수 없는 100%를 좇게 된다.</b> '
       f'그래서 (재료군 × 물성) 쌍 단위로 부재를 선언하고 {tot_unfill:,}칸을 분모에서 뺐다. '
@@ -355,7 +414,7 @@ def main():
     A('</section>')
 
     # ── 9. 검증
-    A(sec(9, "검증", "다섯 겹으로 거른다"))
+    A(sec(10, "검증", "다섯 겹으로 거른다"))
     A('<div class="verify">')
     for t, d in [
         ("무결성 검사 37항목", "구조를 본다. 출처 없는 값·단위 불일치·쌍이 깨진 모델 상수·"
@@ -377,7 +436,7 @@ def main():
     A('</section>')
 
     # ── 10. 성장
-    A(sec(10, "성장", f"{labels[0]} → {labels[-1]}"))
+    A(sec(11, "성장", f"{labels[0]} → {labels[-1]}"))
     A(f'<div class="chart"><svg viewBox="0 0 {W} {H}" preserveAspectRatio="none" role="img" '
       f'aria-label="물성값 누적 성장 곡선">'
       f'<polygon points="{area}" class="ar"/><polyline points="{poly}" class="ln"/>'
@@ -389,7 +448,7 @@ def main():
     A('</section>')
 
     # ── 11. 남은 일
-    A(sec(11, "남은 일", "무엇이 실제로 남았는가"))
+    A(sec(12, "남은 일", "무엇이 실제로 남았는가"))
     A('<div class="two">')
     A(f'<div class="box"><h4>빈칸 — 거의 소진됐다</h4>'
       f'<p class="big">{remain}<em>칸</em></p>'
@@ -409,14 +468,16 @@ def main():
         f'<div class="krow"><span>{esc(matname[m][:42])}</span><b class="mono">{n}칸</b></div>'
         for m, n in t4_by_mat.most_common(8)) + '</div>')
     A('</div>')
-    A('<p class="note"><b>다만 대체 가능성은 물성마다 다르다.</b> 열전도율은 실측으로 덮인 비율이 '
-      '16%인데 포아송비는 4%뿐이다. CAMPUS 스키마에 포아송비 필드가 없고, Rogers 전 사이트에 '
+    A(f'<p class="note"><b>다만 대체 가능성은 물성마다 다르다.</b> 실측(tier≤3)으로 덮인 칸의 '
+      f'비율이 열전도율은 {meas_cov("thermal.conductivity"):.0f}%인데 '
+      f'포아송비는 {meas_cov("mechanical.poisson_ratio"):.0f}%다. '
+      '<b>CAMPUS 스키마에 포아송비 필드가 없고</b>, Rogers 전 사이트에 '
       '<code>Poisson</code>이 5건이며, MnZn 페라이트 데이터북은 E·인장·경도·파괴인성까지 싣고 ν만 뺀다. '
       '<b>벤더가 아예 발표하지 않는 물성</b>이라 여기는 천장이 낮다.</p>')
     A('</section>')
 
     A(f'<footer><p>라이브 DB 조회 · 재료 {n_mat}종 · 물성값 {n_val:,}건 · 출처 {n_src:,}건 · '
-      f'무결성 37항목 0 · 최종 갱신 {labels[-1]}</p>'
+      f'무결성 검사는 <code>integrity_check.py</code>가 매 파동 돌린다 · 최종 갱신 {labels[-1]}</p>'
       f'<p class="gen">이 페이지는 <code>build_overview_html.py</code>가 매번 다시 생성한다 — '
       f'숫자를 손으로 적지 않는다.</p></footer>')
 
@@ -425,6 +486,10 @@ def main():
     print(f"  재료 {n_mat} · 값 {n_val:,} · 출처 {n_src:,} · 격자 {tot_cells:,}칸 "
           f"· 셀채움 {tot_filled * 100 / tot_cells:.1f}% · 실측기반 {tot_meas * 100 / tot_cells:.1f}%")
     print(f"  남은 칸 {remain} · tier4 단독 대표 {len(t4_cells):,}/{all_cells:,}")
+    _t = sc["total"]
+    print(f"  계통 {len(sc['rows'])}개 · 코어7 채움 {_t['pct']}% · 빈칸 {_t['blank']:,} "
+          f"(해당없음 {_t['V1']} · 벤더부재 {_t['V2']} · 자유키판정 {_t['V3']} · "
+          f"등급미확정 {_t['V4']} · 진짜 남은 것 {_t['V5']:,})")
 
 
 def sec(i, title, sub):

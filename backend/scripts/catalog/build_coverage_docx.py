@@ -3,6 +3,7 @@
 # 사용: .venv/bin/python scripts/catalog/build_coverage_docx.py
 from __future__ import annotations
 
+import os
 import sqlite3
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -16,7 +17,12 @@ from docx.shared import Pt, RGBColor
 from coverage_report import ANALYSES, compute, property_stats  # noqa: E402
 
 OUT = Path("/home/koopark/claude/MaterialTwinWeb/MaterialTwin_물성확보현황_해석가능성.docx")
-DB = "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web/materialtwin.db"
+# `integrity_check.py`·`coverage_report.py` 와 같은 이유로 환경변수를 본다 —
+# 박아 두면 스냅샷으로 검증할 수 없다(53차 OB, 브리프 572).
+DB = os.path.join(
+    os.environ.get("MATERIALTWIN_DATA_DIR",
+                   "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web"),
+    "materialtwin.db")
 
 DOMAIN_KO = {"mechanical": "기계", "thermal": "열", "electrical": "전기", "optical": "광학",
              "physical": "물리", "chemical": "화학", "interface": "계면", "structure": "구조",

@@ -4,6 +4,7 @@
 # 사용: .venv/bin/python scripts/catalog/build_methodology_docx.py
 from __future__ import annotations
 
+import os
 import sqlite3
 from collections import Counter, defaultdict
 from datetime import date
@@ -19,7 +20,12 @@ import coverage_report as CR  # noqa: E402
 from coverage_report import ANALYSES, compute  # noqa: E402
 
 OUT = Path("/home/koopark/claude/MaterialTwinWeb/MaterialTwin_물성수집_방법론.docx")
-DB = "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web/materialtwin.db"
+# `integrity_check.py`·`coverage_report.py` 와 같은 이유로 환경변수를 본다 —
+# 박아 두면 스냅샷으로 검증할 수 없다(53차 OB, 브리프 572).
+DB = os.path.join(
+    os.environ.get("MATERIALTWIN_DATA_DIR",
+                   "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web"),
+    "materialtwin.db")
 
 # method×tier 불변식 — **허용 조합 목록이 아니라 뜻이 어긋나는 것만** 본다.
 # 조합표(7개)는 좁아서 정당한 computed@t1·computed@t2·measured@t2를 결함으로 셌다(225건).

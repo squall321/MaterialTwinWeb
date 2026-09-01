@@ -5,12 +5,15 @@
 # 시트 구성:
 #   01 요약            전체 규모와 신뢰등급 분포
 #   02 출처통계        출처 종류·발행처·DOI 보유·물성값 기여 상위
-#   03 물성정의목록    128개 정의 전체 + 보유 건수·재료수·등급분포
+#   03 물성정의목록    물성 정의 전체 + 보유 건수·재료수·등급분포
 #   04 도메인별통계    11개 도메인 집계
-#   05 재료목록        425종 전체 + 물성수·등급·해석 가능 여부
+#   05 재료목록        재료 전체 + 물성수·등급·해석 가능 여부
 #   06 해석준비도      해석 7종별 완비율과 병목
 #   07 재료물성매트릭스 카테고리 × 주요 물성 커버리지
+#   12 계통별커버리지   계통(subsystem) × 코어 7물성 채움률 + 빈칸 분해(브리프 582)
 #   08 데이터품질      가정값·조건 보유·이상치 점검 결과
+import json
+import os
 import pathlib
 import sqlite3
 import statistics as st
@@ -21,7 +24,15 @@ from openpyxl import Workbook
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
 
-DB = '/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web/materialtwin.db'
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import coverage_report as CR  # noqa: E402
+
+# `integrity_check.py`·`coverage_report.py` 와 같은 이유로 환경변수를 본다 —
+# 박아 두면 스냅샷으로 검증할 수 없다(53차 OB, 브리프 572).
+DB = os.path.join(
+    os.environ.get("MATERIALTWIN_DATA_DIR",
+                   "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web"),
+    "materialtwin.db")
 OUT = sys.argv[1] if len(sys.argv) > 1 else '/home/koopark/claude/MaterialTwinWeb/docs/카탈로그_통계.xlsx'
 
 HDR_FILL = PatternFill("solid", fgColor="1F3864")
@@ -73,6 +84,9 @@ def main():
     n_src = q1("select count(*) from source")
     n_def = q1("select count(*) from property_definition")
     n_used = q1("select count(distinct property_key) from property_value")
+    # 조건 보유 — 살림살이 키만 있는 행은 "조건이 있다"가 아니다(브리프 557·571).
+    n_cond_real = sum(1 for (raw,) in c.execute("select conditions from property_value")
+                      if CR.real_conditions(raw))
 
     # ── 01 요약 ──────────────────────────────────────────────────────────────
     ws = sheet(wb, "01_요약", "MaterialTwin 카탈로그 통계 요약",
@@ -98,10 +112,14 @@ def main():
         ("method=computed", meth.get("computed", 0), "다른 물성에서 계산·피팅"),
         ("method=estimated", meth.get("estimated", 0), "추정·가정"),
         ("", "", ""),
-        ("가정값(assumption 표지)", q1("select count(*) from property_value where instr(coalesce(conditions,''),'assumption')>0"),
+        ("가정값(assumption 표지)", q1("""select count(*) from property_value where
+            instr(replace(coalesce(conditions,''),' ',''),'"assumption":true')>0
+            or instr(replace(coalesce(conditions,''),' ',''),'"assumption":True')>0"""),
          "클래스 대표를 빌려 온 값. UI에 '가정' 배지로 표시되고 실측이 들어오면 대체된다"),
-        ("조건(conditions) 보유", q1("select count(*) from property_value where conditions is not null"),
-         "온도·파장·방향·율속 등 측정 조건이 구조화된 값"),
+        ("조건(conditions) 보유", n_cond_real,
+         "온도·파장·방향·율속 등 측정 조건이 구조화된 값. "
+         "verdict_*·correction_reason·*_before_correction 같은 살림살이 키는 조건이 아니라 "
+         "우리가 적은 기록이라 뺀다(브리프 557·571)"),
         ("DOI 보유 출처", q1("select count(*) from source where coalesce(doi,'')<>''"), "논문 출처의 검증 가능성"),
         ("URL 보유 출처", q1("select count(*) from source where coalesce(url,'')<>''"), "원문 재확인 경로"),
     ]
@@ -268,7 +286,7 @@ def main():
 
     # ── 08 데이터품질 ────────────────────────────────────────────────────────
     ws = sheet(wb, "08_데이터품질", "데이터 품질 점검",
-               "정합성 검사 23항목(integrity_check.py)과 같은 기준이다. 이상은 0이어야 한다.")
+               "integrity_check.py 와 같은 기준이다(항목 수는 그쪽이 정본). 이상은 0이어야 한다.")
     head(ws, 4, ["점검 항목", "건수", "판정", "의미"])
     CHECKS = [
         ("출처 없는 값", "select count(*) from property_value where source_id is null", "근거 없는 값은 저장하지 않는다"),
@@ -280,17 +298,28 @@ def main():
              <> replace(replace(replace(pd.si_unit,'(',''),')',''),' ','')""", "단위 미환산·오입력"),
         ("조건이 dict 아님", "select count(*) from property_value where conditions is not null and conditions not like '{%'",
          "조건이 구조화되지 않으면 조회가 빗나간다"),
+        # integrity_check 와 **글자까지 같은 질의**를 쓴다. 낱말 부분일치는 correction_reason 본문을
+        # 잡는다(라이브 4,524 대 4,404 — 120건이 오탐이었다).
         ("가정값인데 tier4·estimated 아님", """select count(*) from property_value
-            where instr(coalesce(conditions,''),'assumption')>0 and (quality_tier<>4 or method<>'estimated')""",
+            where (instr(replace(coalesce(conditions,''),' ',''),'"assumption":true')>0
+                   or instr(replace(coalesce(conditions,''),' ',''),'"assumption":True')>0)
+            and (quality_tier<>4 or method<>'estimated')""",
          "가정이 실측을 이기면 안 된다"),
         ("파장 없는 광학값(tier<4)", """select count(*) from property_value where property_key in
             ('optical.refractive_index','optical.reflectance','optical.extinction_coefficient','optical.birefringence')
             and quality_tier<4 and (conditions is null or (conditions not like '%wavelength%' and conditions not like '%line%'))""",
          "파장은 광학 물성의 정의 조건"),
+        # `LIKE '%temperature_C%'` 는 `temperature_c_before_correction` 을 같이 잡는다 —
+        # 정정 기록이지 조건축이 아니다(브리프 557·571). integrity_check 처럼 키를 못박는다.
         ("온도가 값인데 온도 조건", """select count(*) from property_value where property_key in
             ('thermal.melting_point','thermal.glass_transition','thermal.max_service_temp')
-            and conditions like '%temperature_C%'""", "융점에 측정온도는 성립하지 않는다"),
+            and (json_extract(conditions,'$.temperature_C') is not null
+                 or json_extract(conditions,'$.temperature_c') is not null
+                 or json_extract(conditions,'$.temperature_K') is not null
+                 or json_extract(conditions,'$.temperature_k') is not null)""",
+         "융점에 측정온도는 성립하지 않는다"),
         ("Prony 항에 항번호 없음", """select count(*) from property_value where property_key like 'mechanical.prony_%'
+            and property_key <> 'mechanical.prony_long_term_modulus'
             and (conditions is null or conditions not like '%term%')""", "항번호 없으면 세트 복원 불가"),
         ("journal인데 DOI 없음", "select count(*) from source where kind='journal' and coalesce(doi,'')=''",
          "논문은 DOI로 재확인 가능해야 한다"),
@@ -310,18 +339,26 @@ def main():
     COND_NEED = ["thermal.conductivity", "optical.refractive_index", "mechanical.shear_modulus",
                  "mechanical.yield_strength_at_rate", "interface.peel_strength",
                  "electrical.dielectric_constant", "mechanical.creep_rate"]
+    def _cond_real(key):
+        """살림살이 키를 뺀 실질 조건축을 하나라도 가진 행 수."""
+        return sum(1 for (raw,) in c.execute(
+            "select conditions from property_value where property_key=?", (key,))
+            if CR.real_conditions(raw))
+
     body(ws, r0 + 2, [(k.split(".", 1)[1],
                        q1("select count(*) from property_value where property_key=?", k),
-                       q1("select count(*) from property_value where property_key=? and conditions is not null", k),
-                       (q1("select count(*) from property_value where property_key=? and conditions is not null", k)
+                       _cond_real(k),
+                       (_cond_real(k)
                         / max(q1("select count(*) from property_value where property_key=?", k), 1)))
                       for k in COND_NEED], [30, 10, 12, 10], {4: "0%"})
 
     # ── 09 전체물성값 ────────────────────────────────────────────────────────
     ws = sheet(wb, "09_전체물성값", "물성값 전체 목록 (원본)",
                "모든 값이 SI 단위로 정규화돼 있다. 조건이 다르면 같은 물성도 별개 행이다 — 그게 이 표가 긴 이유다.")
+    # **조건과 살림살이 기록을 두 열로 가른다**(브리프 557·571). 한 열에 섞어 두면
+    # 조건축을 눈으로 읽는 사람도 정정·판정 문장을 조건으로 읽는다.
     head(ws, 4, ["재료ID", "재료명", "분류", "물성 키", "물성명", "값", "값(텍스트)", "단위",
-                 "등급", "방법", "조건", "출처", "DOI/URL"])
+                 "등급", "방법", "조건", "기록(정정·판정)", "출처", "DOI/URL"])
     rows = c.execute("""select pv.material_id, m.name, m.category, pv.property_key, coalesce(pd.name,''),
             pv.value_num, coalesce(pv.value_text,''), coalesce(pv.unit,''), pv.quality_tier, pv.method,
             coalesce(pv.conditions,''), substr(coalesce(s.title,''),1,80),
@@ -330,8 +367,21 @@ def main():
         left join property_definition pd on pd.key=pv.property_key
         left join source s on s.id=pv.source_id
         order by m.category, m.name, pv.property_key, pv.quality_tier, pv.id""").fetchall()
-    body(ws, 5, rows, [7, 40, 10, 34, 22, 14, 18, 14, 6, 11, 44, 52, 34], {6: "0.0000E+00"})
-    ws.auto_filter.ref = f"A4:M{4 + len(rows)}"
+    split = []
+    for r in rows:
+        raw = r[10]
+        real = CR.real_conditions(raw)
+        try:
+            full = json.loads(raw) if raw else {}
+        except Exception:
+            full = {}
+        house = {k: v for k, v in full.items() if k not in real} if isinstance(full, dict) else {}
+        split.append(r[:10]
+                     + (json.dumps(real, ensure_ascii=False) if real else "",
+                        json.dumps(house, ensure_ascii=False) if house else "")
+                     + r[11:])
+    body(ws, 5, split, [7, 40, 10, 34, 22, 14, 18, 14, 6, 11, 44, 44, 52, 34], {6: "0.0000E+00"})
+    ws.auto_filter.ref = f"A4:N{4 + len(split)}"
 
     # ── 10 해석별필요물성 ────────────────────────────────────────────────────
     ws = sheet(wb, "10_해석별필요물성", "해석별로 무엇이 필요한가 (참조)",
@@ -369,11 +419,8 @@ def main():
                  for a, b, k, why in NEED], [18, 7, 34, 14, 52, 14])
 
     # ── 11 해석 커버리지 — docx와 같은 숫자를 보게 한다 ────────────────────
-    import sys as _sys
-    _sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-    from coverage_report import ANALYSES as _AN
-    from coverage_report import compute as _cov
-    _c, _mat, _own, cov = _cov()
+    _AN = CR.ANALYSES
+    _c, _mat, _own, cov = CR.compute()
     ws = sheet(wb, "11_해석커버리지",
                "해석별 물성 커버리지 — 셀 채움률과 재료 준비율",
                "셀 채움률 = 채워진 (재료 x 필수물성) 칸 / 전체 칸 (수집 진척도). "
@@ -401,6 +448,34 @@ def main():
     ws[f"F{n}"] = tot_f / tot_c
     ws[f"F{n}"].number_format = "0.0%"
     ws[f"F{n}"].font = Font(bold=True)
+
+    # ── 12 계통별커버리지 — 43·49차 태깅이 끝나 이제 계통으로 셀 수 있다 ────────
+    sc = CR.subsystem_core(DB)
+    ws = sheet(wb, "12_계통별커버리지",
+               "계통(subsystem) × 코어 7물성 — 채움률과 빈칸 분해",
+               "코어 7물성 = 밀도·영률·포아송비·CTE·열전도율·비열·인장강도. 대상은 role=product 재료다. "
+               "빈칸을 갈라야 '못 캐는 것'·'캘 게 아닌 것'·'진짜 남은 것'이 갈린다(브리프 582·583·584).")
+    head(ws, 4, ["계통", "재료 수", "코어 칸", "채워진 칸", "채움률", "빈칸",
+                 "해당 없음", "벤더 구조적 부재", "판정이 자유 키에", "등급 미확정", "진짜 남은 것"])
+    rows = [(r["subsystem"], r["n_mat"], r["cells"], r["filled"], r["pct"] / 100, r["blank"],
+             r["V1"], r["V2"], r["V3"], r["V4"], r["V5"]) for r in sc["rows"]]
+    t = sc["total"]
+    rows.append(("전체", t["n_mat"], t["cells"], t["filled"], t["pct"] / 100, t["blank"],
+                 t["V1"], t["V2"], t["V3"], t["V4"], t["V5"]))
+    body(ws, 5, rows, [16, 9, 9, 11, 9, 8, 11, 15, 15, 12, 12], {5: "0.0%"})
+    for r in range(5, 5 + len(rows)):
+        ws.cell(row=r, column=5).number_format = "0.0%"
+    ws.cell(row=5 + len(rows) - 1, column=1).font = Font(bold=True)
+
+    r0 = 5 + len(rows) + 2
+    ws.cell(row=r0, column=1, value="빈칸 갈래가 무엇을 뜻하는가").font = TITLE_FONT
+    head(ws, r0 + 1, ["갈래", "뜻", "집계가 읽는 자리"])
+    body(ws, r0 + 2, [(lbl, why, {"V1": "attributes.core_not_applicable",
+                                  "V2": "attributes.core_absent_from_vendor_sheet",
+                                  "V3": "없다 — 자유 키에 있다(브리프 593)",
+                                  "V4": "attributes.anonymised_code · identification_status",
+                                  "V5": "—"}[code])
+                      for code, lbl, why in CR.VERDICT_LABEL], [24, 78, 46])
 
     wb.save(OUT)
     print(f"저장: {OUT}")

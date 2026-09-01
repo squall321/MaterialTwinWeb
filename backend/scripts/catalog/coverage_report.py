@@ -697,16 +697,133 @@ def compute():
 
 
 def property_stats(c, mat, own):
-    """물성별 보유 재료 수 — 무엇이 채워졌고 무엇이 비었나."""
+    """물성별 보유 재료 수 — 무엇이 채워졌고 무엇이 비었나.
+
+    `n_mat` 은 **격자 안 재료(`mat`)만** 센다. 전 재료를 세고 `len(mat)` 으로 나누면
+    근거재료(evidence)·도메인 밖 제품이 분자에만 들어와 보유율이 100%를 넘는다
+    (실측 — 영률 1001종 / 864종 = 115.9%). 분자와 분모의 모집단을 맞춘다.
+    """
     rows = []
+    n_val_by_key = Counter()
+    for key, cnt in c.execute("select property_key,count(*) from property_value group by 1"):
+        n_val_by_key[key] = cnt
     for key, nm, unit, dom in c.execute(
             "select key,name,si_unit,domain from property_definition order by domain,key"):
-        m = c.execute("select count(distinct material_id) from property_value where property_key=?",
-                      (key,)).fetchone()[0]
-        v = c.execute("select count(*) from property_value where property_key=?", (key,)).fetchone()[0]
+        m = sum(1 for mid in mat if key in own.get(mid, ()))
         rows.append({"key": key, "name": nm, "unit": unit, "domain": dom,
-                     "n_mat": m, "n_val": v, "pct": round(m * 100 / len(mat), 1)})
+                     "n_mat": m, "n_val": n_val_by_key.get(key, 0),
+                     "pct": round(m * 100 / len(mat), 1)})
     return rows
+
+
+# ── 계통(subsystem) 축과 코어 빈칸 분해 ────────────────────────────────────────
+# 43·49차가 계통 태깅을 끝냈고 53차 OC·54차 PC 가 빈칸을 계열로 갈랐다(§582·583·584·593).
+# **채움률만 내면 읽는 사람이 "더 캐면 된다" 로 오해한다** — 빈칸을 갈라서 같이 낸다.
+#
+# 코어 7물성은 54차 PC 가 계통을 고를 때 쓴 축이다. 이 정의로 §583 의 표
+# (magnetics 35.9% · packaging 44.8% · 빈칸 175·444)가 라이브에서 글자까지 재현된다.
+CORE7 = [RHO, E, NU, CTE, TC, HC, "mechanical.tensile_strength"]
+
+# 판정을 *읽을 수 있는* 자리 — §582 가 정한 칸이다.
+VERDICT_ATTR_NA = "core_not_applicable"              # 해당 없음(물리적으로 정의 안 됨)
+VERDICT_ATTR_VENDOR = "core_absent_from_vendor_sheet"  # 벤더가 구조적으로 안 찍는다
+# 판정이 실제로 적혀 있으나 집계가 못 읽는 **자유 키** — §593. 세어서 보고만 한다.
+FREE_VERDICT_ATTRS = ("grade_table_scope", "core_fill_sheet",
+                      "core_verdict_axis", "core_verdict_undecided")
+
+# 살림살이 키 — 조건이 아니라 **우리가 적은 기록**이다(§557·571).
+# 조건을 세거나 문자열로 읽는 자리는 전부 이것을 걷어내야 한다.
+def is_housekeeping_cond(key: str) -> bool:
+    return (key.startswith("verdict_") or key.startswith("moved_from_")
+            or key.endswith("_before_correction")
+            or key in ("correction_reason", "corrected_by", "direction_verbatim"))
+
+
+def real_conditions(raw) -> dict:
+    """조건 JSON 에서 살림살이 키를 걷어낸 실질 조건축만 돌려준다."""
+    if not raw:
+        return {}
+    try:
+        d = json.loads(raw)
+    except Exception:
+        return {}
+    if not isinstance(d, dict):
+        return {}
+    return {k: v for k, v in d.items() if not is_housekeeping_cond(k)}
+
+
+def subsystem_core(db: str | None = None) -> dict:
+    """계통별 코어 7물성 채움률 + §582 빈칸 분해.
+
+    빈칸 하나하나를 다섯 갈래로 가른다.
+      V1 해당 없음      `attributes.core_not_applicable`  (dict면 그 키만, 문자열이면 그 재료의 코어 전부)
+      V2 벤더 구조적 부재 `attributes.core_absent_from_vendor_sheet`
+      V3 자유 키 판정    판정이 적혀는 있는데 집계가 못 읽는 자리에 있다(§593). **세어서 보고만 한다.**
+      V4 등급 미확정     익명 제품코드·`identification_status` 가 '미식별' 로 시작
+      V5 남은 것        위 어디에도 안 걸린 칸. **표적은 여기뿐이다.**
+    """
+    c = sqlite3.connect(db or DB)
+    have = defaultdict(set)
+    for mid, k in c.execute("select material_id,property_key from property_value"):
+        have[mid].add(k)
+    subs, order = {}, []
+    for mid, name, attrs in c.execute("select id,name,attributes from material"):
+        try:
+            a = json.loads(attrs or "{}")
+        except Exception:
+            a = {}
+        if not isinstance(a, dict) or a.get("role") != "product":
+            continue
+        sub = a.get("subsystem") or "(태깅 없음)"
+        row = subs.setdefault(sub, {"subsystem": sub, "n_mat": 0, "filled": 0, "cells": 0,
+                                    "V1": 0, "V2": 0, "V3": 0, "V4": 0, "V5": 0})
+        if row["n_mat"] == 0:
+            order.append(sub)
+        row["n_mat"] += 1
+        row["cells"] += len(CORE7)
+        blank = [k for k in CORE7 if k not in have[mid]]
+        row["filled"] += len(CORE7) - len(blank)
+        if not blank:
+            continue
+        na = a.get(VERDICT_ATTR_NA)
+        na_keys = set(na) if isinstance(na, dict) else set()
+        na_all = isinstance(na, str)          # 재료 단위 선언 — 그 재료의 코어 전부를 덮는다
+        vend = a.get(VERDICT_ATTR_VENDOR)
+        vend_keys = set(vend) if isinstance(vend, dict) else set()
+        free = any(k in a for k in FREE_VERDICT_ATTRS)
+        grade_undet = ("anonymised_code" in a
+                       or str(a.get("identification_status", "")).startswith("미식별"))
+        for k in blank:
+            if na_all or k in na_keys:
+                row["V1"] += 1
+            elif k in vend_keys:
+                row["V2"] += 1
+            elif free:
+                row["V3"] += 1
+            elif grade_undet:
+                row["V4"] += 1
+            else:
+                row["V5"] += 1
+    rows = sorted(subs.values(), key=lambda r: -r["filled"] / max(r["cells"], 1))
+    for r in rows:
+        r["pct"] = round(r["filled"] * 100 / max(r["cells"], 1), 1)
+        r["blank"] = r["cells"] - r["filled"]
+    tot = {k: sum(r[k] for r in rows) for k in ("n_mat", "filled", "cells", "blank",
+                                                "V1", "V2", "V3", "V4", "V5")}
+    tot["pct"] = round(tot["filled"] * 100 / max(tot["cells"], 1), 1)
+    c.close()
+    return {"core": CORE7, "rows": rows, "total": tot}
+
+
+VERDICT_LABEL = [
+    ("V1", "해당 없음", "물리적으로 그 물성이 정의되지 않는다 — 분말 원료·증착 박막·전환피막."),
+    ("V2", "벤더 구조적 부재", "시트를 실제로 열어 그 열이 없음을 확인했다."),
+    ("V3", "판정은 있으나 집계가 못 읽음",
+     "사유가 자유 키(grade_table_scope·core_fill_sheet 등)에 적혀 있다. "
+     "다음 파동이 같은 칸을 또 표적으로 센다(브리프 593)."),
+    ("V4", "등급 미확정", "익명 제품코드·클래스 서술뿐이라 원리적으로 못 닫는다(브리프 58)."),
+    ("V5", "진짜 남은 것", "표적은 여기뿐이다."),
+]
 
 
 def main():
