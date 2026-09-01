@@ -1,0 +1,1007 @@
+{
+ "batch": "58차 TE",
+ "materials": [
+  {
+   "new_material": {
+    "name": "Li-ion positive electrode, LiCoO2 on Al foil, dissected from Sony US-18650 cell (Maleki 1999)",
+    "category": "composite",
+    "attributes": {
+     "role": "product",
+     "subsystem": "battery",
+     "material_class": "coated composite electrode (Al current collector + both-side LixCoO2 composite lamina)",
+     "role_reason": "상용 Sony US-18650 셀(1996년 시카고 매장에서 구입, 1.35 Ah)을 분해해 낸 실부품 전극이다. 활물질 분말이 아니라 집전체+합제층 적층 그 자체다(브리프 160). 브리프 115 — 상용품을 논문이 측정한 것도 product 이고, 이름에 조성비·시료라벨이 없다. 카탈로그의 선례 그대로다 — 재료 2524·2525(18650 NCA 셀 분해 전극)·2553·2554(40 Ah 파우치셀 합제층)가 이미 role=product · subsystem=battery 로 서 있다(브리프 612 — 이미 서 있는 계보를 따른다).",
+     "role_confidence": "high",
+     "manufacturer": "Sony (cell); 전극 제조사·등급은 비공개",
+     "core_absent_from_vendor_sheet": {
+      "mechanical.youngs_modulus": "상용 Sony US-18650 셀(1996년 구입)을 분해해 얻은 시편이라 **붙일 벤더 시트가 원리적으로 없다**(브리프 58 — 제조사·등급이 비공개다). 그 시편을 잰 유일한 문헌이 Maleki 1999 인데 **PDF 전권 낱말 검색이 0건이다**(브리프 613 — 부재 판정의 가장 싼 증거). `Young` 0 · `modulus` 0 · `Poisson` 0 · `tensile` 0 · `strength` 0 · `elastic` 0 · `stress` 0 · `hardness` 0 건이고 `expansion` 1건은 `significant expansion of the c lattice parameter` 라 선팽창계수가 아니다. 이 논문이 인쇄하는 축은 치수·질량(Table I) · 비열(Table II·III) · ρ·Cp·α·k(Table IVa·IVb) · 문헌비교(Table V) 넷뿐이다. 역학·선팽창 행은 표에도 본문에도 아예 없다. — 58차 TE 확인",
+      "mechanical.poisson_ratio": "상용 Sony US-18650 셀(1996년 구입)을 분해해 얻은 시편이라 **붙일 벤더 시트가 원리적으로 없다**(브리프 58 — 제조사·등급이 비공개다). 그 시편을 잰 유일한 문헌이 Maleki 1999 인데 **PDF 전권 낱말 검색이 0건이다**(브리프 613 — 부재 판정의 가장 싼 증거). `Young` 0 · `modulus` 0 · `Poisson` 0 · `tensile` 0 · `strength` 0 · `elastic` 0 · `stress` 0 · `hardness` 0 건이고 `expansion` 1건은 `significant expansion of the c lattice parameter` 라 선팽창계수가 아니다. 이 논문이 인쇄하는 축은 치수·질량(Table I) · 비열(Table II·III) · ρ·Cp·α·k(Table IVa·IVb) · 문헌비교(Table V) 넷뿐이다. 역학·선팽창 행은 표에도 본문에도 아예 없다. — 58차 TE 확인",
+      "mechanical.tensile_strength": "상용 Sony US-18650 셀(1996년 구입)을 분해해 얻은 시편이라 **붙일 벤더 시트가 원리적으로 없다**(브리프 58 — 제조사·등급이 비공개다). 그 시편을 잰 유일한 문헌이 Maleki 1999 인데 **PDF 전권 낱말 검색이 0건이다**(브리프 613 — 부재 판정의 가장 싼 증거). `Young` 0 · `modulus` 0 · `Poisson` 0 · `tensile` 0 · `strength` 0 · `elastic` 0 · `stress` 0 · `hardness` 0 건이고 `expansion` 1건은 `significant expansion of the c lattice parameter` 라 선팽창계수가 아니다. 이 논문이 인쇄하는 축은 치수·질량(Table I) · 비열(Table II·III) · ρ·Cp·α·k(Table IVa·IVb) · 문헌비교(Table V) 넷뿐이다. 역학·선팽창 행은 표에도 본문에도 아예 없다. — 58차 TE 확인",
+      "thermal.expansion_linear": "상용 Sony US-18650 셀(1996년 구입)을 분해해 얻은 시편이라 **붙일 벤더 시트가 원리적으로 없다**(브리프 58 — 제조사·등급이 비공개다). 그 시편을 잰 유일한 문헌이 Maleki 1999 인데 **PDF 전권 낱말 검색이 0건이다**(브리프 613 — 부재 판정의 가장 싼 증거). `Young` 0 · `modulus` 0 · `Poisson` 0 · `tensile` 0 · `strength` 0 · `elastic` 0 · `stress` 0 · `hardness` 0 건이고 `expansion` 1건은 `significant expansion of the c lattice parameter` 라 선팽창계수가 아니다. 이 논문이 인쇄하는 축은 치수·질량(Table I) · 비열(Table II·III) · ρ·Cp·α·k(Table IVa·IVb) · 문헌비교(Table V) 넷뿐이다. 역학·선팽창 행은 표에도 본문에도 아예 없다. — 58차 TE 확인"
+     },
+     "verdict_extraction_damage": "이 논문 PDF 는 md 와 `pdftotext` 가 **똑같이** 틀린다(브리프 603). 숫자 앞뒤 여백이 `1`, `±` 가 `6`, `+` 가 `1`, `=` 가 `5` 로 나온다. 58차 TE 가 Table I·II·III·IVa·IVb·V 여섯을 전부 400 dpi 렌더로 다시 읽었다."
+    }
+   },
+   "source": {
+    "kind": "journal",
+    "doi": "10.1149/1.1391704",
+    "title": "Thermal Properties of Lithium-Ion Battery and Components",
+    "authors": "Hossein Maleki, Said Al Hallaj, J. Robert Selman, Ralph B. Dinwiddie, H. Wang",
+    "year": 1999,
+    "publisher": "The Electrochemical Society (Journal of The Electrochemical Society 146(3) 947-954)",
+    "local_path": "/data/paper_patent_corpus/snowball_papers/from_expert/Maleki - 1999 - Thermal Properties of Lithium‐Ion Battery and Components.pdf"
+   },
+   "properties": [
+    {
+     "key": "structure.layer_thickness",
+     "value": 0.000185,
+     "unit": "m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "layer": "total positive electrode (Al foil + both-side LiCoO2 composite coating)",
+      "measurement_table": "Table I"
+     },
+     "notes": "Table I `Total thickness, mm` — Positive electrode 열 `0.185`. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다. 이 칸은 md·`pdftotext` 가 `110.185` 로 낸다 — 앞자리 `1` 이 붙는 손상이다. 같은 표의 본문 대응 서술 `The NE and PE were each 0.19 ± 0.01 mm thick` 와 맞는다."
+    },
+    {
+     "key": "structure.layer_thickness",
+     "value": 2e-05,
+     "unit": "m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "layer": "aluminum current collector foil only",
+      "measurement_table": "Table I"
+     },
+     "notes": "Table I `Foil thickness, mm` — Positive electrode 열 `0.02`. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다. 추출은 `110.021` 이다. 집전체 부피분율 f_foil = 0.02/0.185 = 0.108 이라 브리프 604 의 적층 하한 검산을 다음 파동이 그대로 돌릴 수 있다."
+    },
+    {
+     "key": "physical.density",
+     "value": 3115.0,
+     "unit": "kg/m^3",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "measurement_table": "Table IVa",
+      "specimen": "XFT cross-plane 시편 — 16 mm 지름 원판을 쌓고 열펄스를 층면에 수직으로 가함 (Fig. 6c)",
+      "basis": "Eq. 6 질량분율 가중 유효값 — 성분값은 Ref. 3(Chen & Evans)·Ref. 8(Kanari) 에서 가져왔다고 원문이 밝힌다"
+     },
+     "notes": "Table IVa `ρ (g cm⁻³)` 열 PE 행 = 3.115 g/cm³ → 3115 kg/m³. **ρ·Cp 는 이 논문의 실측이 아니다.** 6쪽 `Thermal conductivity, method 2` 절 verbatim — `the thermal conductivity may be calculated from the product of α with the effective density ρ and the effective Cp. The latter may be calculated from mass-fraction-weighted values of Cp and ρ for each component (PE, NE, and/or Sp, **taken from Ref. 3 and 8**) as shown in Eq. 6` — Ref. 3 은 Chen & Evans, Ref. 8 은 Kanari 다. 즉 이 두 열은 2차 인용 성분값을 질량분율로 섞은 저자 계산값이라 규칙 4 대로 tier3·computed 로 넣는다. α 만이 이 논문의 XFT 실측이다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다. 검산 — Table I 의 질량·치수로 독립으로 재면 15.2 g / (521.1 x 52.9 x 0.185 mm) = 2.98 g/cm³ 로 인쇄값보다 4.5% 낮다. NE 도 같은 방향으로 5.2% 낮아 계통이므로 한 칸의 손상이 아니다 — XFT 시편은 압축 상태로 재기 때문이다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 601.0,
+     "unit": "J/(kg*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "measurement_table": "Table IVa",
+      "specimen": "XFT cross-plane 시편 — 16 mm 지름 원판을 쌓고 열펄스를 층면에 수직으로 가함 (Fig. 6c)",
+      "basis": "Eq. 6 질량분율 가중 유효값 — 성분값은 Ref. 3(Chen & Evans)·Ref. 8(Kanari) 에서 가져왔다고 원문이 밝힌다"
+     },
+     "notes": "Table IVa `Cp (J g⁻¹ K⁻¹)` 열 PE 행 = 0.601 J/(g·K) → 601 J/(kg·K). **ρ·Cp 는 이 논문의 실측이 아니다.** 6쪽 `Thermal conductivity, method 2` 절 verbatim — `the thermal conductivity may be calculated from the product of α with the effective density ρ and the effective Cp. The latter may be calculated from mass-fraction-weighted values of Cp and ρ for each component (PE, NE, and/or Sp, **taken from Ref. 3 and 8**) as shown in Eq. 6` — Ref. 3 은 Chen & Evans, Ref. 8 은 Kanari 다. 즉 이 두 열은 2차 인용 성분값을 질량분율로 섞은 저자 계산값이라 규칙 4 대로 tier3·computed 로 넣는다. α 만이 이 논문의 XFT 실측이다. **주의 — 이 논문의 Cp 열은 자기 자신과 어긋난다.** 본문이 밝힌 Eq. 6 `Cp = Σ(ρVCp)i / Σ(ρV)i` 에 이 논문 자신의 PE 0.601·NE 0.623 과 본문 두께(PE·NE 각 0.19±0.01 mm, Sp 0.020±0.002 mm)를 넣으면 적층 Cp 상한이 0.64 J/(g·K) 인데 표는 1.088~1.089 를 인쇄한다 — 인쇄값을 내려면 분리막 Cp 가 25 J/(g·K) 여야 해서 물리적으로 불가능하다(혼합률 상하한, 브리프 25·604). 같은 Eq. 6 을 ρ 에 걸면 분리막 ρ 0.8 g/cm³ 에서 2.290 이 정확히 재현되므로 ρ 열은 닫히고 **Cp 열만 안 닫힌다.** 방향도 갈린다 — 이 논문 자신이 단열열량계로 잰 셀 전체 Cp (Table III, 0.96~1.04 J/(g·K))와 Table V 의 Chen(PE 1.134·NE 1.184)·Kanari(0.849·0.867) 셋이 모두 PE 0.601·NE 0.623 보다 높다. 저자도 `Our Cp values are lower than their values` 라고 적는다. 어느 칸이 오염인지 우리가 고르면 그것이 우리 판정이 되므로(브리프 443) 인쇄값을 그대로 두되 **tier3 로 내리고 이 모순을 행마다 적어 둔다.** k 행은 이 Cp 로 계산돼 있으므로 k 도 같은 편향을 물려받는다는 뜻이다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "physical.density",
+     "value": 3121.0,
+     "unit": "kg/m^3",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "measurement_table": "Table IVb",
+      "specimen": "XFT in-plane 시편 — 10 x 7 mm 층을 쌓아 100 mm2 x 7 mm 육면체로 만들고 열펄스를 층면에 나란히 가함 (Fig. 6b)",
+      "basis": "Eq. 6 질량분율 가중 유효값 — 성분값은 Ref. 3(Chen & Evans)·Ref. 8(Kanari) 에서 가져왔다고 원문이 밝힌다"
+     },
+     "notes": "Table IVb `ρ (g cm⁻³)` 열 PE 행 = 3.121 g/cm³ → 3121 kg/m³. **ρ·Cp 는 이 논문의 실측이 아니다.** 6쪽 `Thermal conductivity, method 2` 절 verbatim — `the thermal conductivity may be calculated from the product of α with the effective density ρ and the effective Cp. The latter may be calculated from mass-fraction-weighted values of Cp and ρ for each component (PE, NE, and/or Sp, **taken from Ref. 3 and 8**) as shown in Eq. 6` — Ref. 3 은 Chen & Evans, Ref. 8 은 Kanari 다. 즉 이 두 열은 2차 인용 성분값을 질량분율로 섞은 저자 계산값이라 규칙 4 대로 tier3·computed 로 넣는다. α 만이 이 논문의 XFT 실측이다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다. 검산 — Table I 의 질량·치수로 독립으로 재면 15.2 g / (521.1 x 52.9 x 0.185 mm) = 2.98 g/cm³ 로 인쇄값보다 4.5% 낮다. NE 도 같은 방향으로 5.2% 낮아 계통이므로 한 칸의 손상이 아니다 — XFT 시편은 압축 상태로 재기 때문이다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 602.0,
+     "unit": "J/(kg*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "measurement_table": "Table IVb",
+      "specimen": "XFT in-plane 시편 — 10 x 7 mm 층을 쌓아 100 mm2 x 7 mm 육면체로 만들고 열펄스를 층면에 나란히 가함 (Fig. 6b)",
+      "basis": "Eq. 6 질량분율 가중 유효값 — 성분값은 Ref. 3(Chen & Evans)·Ref. 8(Kanari) 에서 가져왔다고 원문이 밝힌다"
+     },
+     "notes": "Table IVb `Cp (J g⁻¹ K⁻¹)` 열 PE 행 = 0.602 J/(g·K) → 602 J/(kg·K). **ρ·Cp 는 이 논문의 실측이 아니다.** 6쪽 `Thermal conductivity, method 2` 절 verbatim — `the thermal conductivity may be calculated from the product of α with the effective density ρ and the effective Cp. The latter may be calculated from mass-fraction-weighted values of Cp and ρ for each component (PE, NE, and/or Sp, **taken from Ref. 3 and 8**) as shown in Eq. 6` — Ref. 3 은 Chen & Evans, Ref. 8 은 Kanari 다. 즉 이 두 열은 2차 인용 성분값을 질량분율로 섞은 저자 계산값이라 규칙 4 대로 tier3·computed 로 넣는다. α 만이 이 논문의 XFT 실측이다. **주의 — 이 논문의 Cp 열은 자기 자신과 어긋난다.** 본문이 밝힌 Eq. 6 `Cp = Σ(ρVCp)i / Σ(ρV)i` 에 이 논문 자신의 PE 0.601·NE 0.623 과 본문 두께(PE·NE 각 0.19±0.01 mm, Sp 0.020±0.002 mm)를 넣으면 적층 Cp 상한이 0.64 J/(g·K) 인데 표는 1.088~1.089 를 인쇄한다 — 인쇄값을 내려면 분리막 Cp 가 25 J/(g·K) 여야 해서 물리적으로 불가능하다(혼합률 상하한, 브리프 25·604). 같은 Eq. 6 을 ρ 에 걸면 분리막 ρ 0.8 g/cm³ 에서 2.290 이 정확히 재현되므로 ρ 열은 닫히고 **Cp 열만 안 닫힌다.** 방향도 갈린다 — 이 논문 자신이 단열열량계로 잰 셀 전체 Cp (Table III, 0.96~1.04 J/(g·K))와 Table V 의 Chen(PE 1.134·NE 1.184)·Kanari(0.849·0.867) 셋이 모두 PE 0.601·NE 0.623 보다 높다. 저자도 `Our Cp values are lower than their values` 라고 적는다. 어느 칸이 오염인지 우리가 고르면 그것이 우리 판정이 되므로(브리프 443) 인쇄값을 그대로 두되 **tier3 로 내리고 이 모순을 행마다 적어 둔다.** k 행은 이 Cp 로 계산돼 있으므로 k 도 같은 편향을 물려받는다는 뜻이다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 1.24e-06,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "direction": "through-thickness",
+      "direction_verbatim": "cross-plane",
+      "open_circuit_voltage_v": 2.45,
+      "measurement_table": "Table IVa",
+      "specimen": "XFT cross-plane 시편 — 16 mm 지름 원판을 쌓고 열펄스를 층면에 수직으로 가함 (Fig. 6c)",
+      "test_method": "xenon flash technique (XFT), Oak Ridge HTML; α = 1.37 L²/t₁₂ (Eq. 7)",
+      "uncertainty_printed": "sd 4 x 10⁻⁴ cm²/s (표 머리글 공통)"
+     },
+     "notes": "Table IVa `α (cm² s⁻¹) OCV = 2.45 V` PE 행 = 0.0124 cm²/s → 1.24e-06 m²/s (1 cm²/s = 1e-4 m²/s). 이 열만이 이 논문의 직접 실측이다(크세논 플래시). 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 2.33,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "direction": "through-thickness",
+      "direction_verbatim": "cross-plane",
+      "open_circuit_voltage_v": 2.45,
+      "measurement_table": "Table IVa",
+      "specimen": "XFT cross-plane 시편 — 16 mm 지름 원판을 쌓고 열펄스를 층면에 수직으로 가함 (Fig. 6c)",
+      "basis": "k = α·ρ·Cp (초록 verbatim) — α 는 이 논문의 XFT 실측, ρ·Cp 는 Eq. 6 유효값",
+      "test_method": "xenon flash technique (XFT) α 측정 후 k = αρCp"
+     },
+     "notes": "Table IVa `k (W m⁻¹ K⁻¹) OCV = 2.45 V` PE 행 = 2.33. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 이 행도 닫힌다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다. 주의 — 입력 ρ·Cp 가 2차 인용 성분값으로 만든 유효값이라(같은 행의 해당 행 참조) 이 k 는 그만큼의 불확도를 물려받는다. 그래도 이 값이 이 시편에 대해 인쇄된 실험 결과이고 후속 문헌이 인용하는 값이라 tier1 로 둔다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 1.33e-06,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "direction": "through-thickness",
+      "direction_verbatim": "cross-plane",
+      "open_circuit_voltage_v": 3.75,
+      "measurement_table": "Table IVa",
+      "specimen": "XFT cross-plane 시편 — 16 mm 지름 원판을 쌓고 열펄스를 층면에 수직으로 가함 (Fig. 6c)",
+      "test_method": "xenon flash technique (XFT), Oak Ridge HTML; α = 1.37 L²/t₁₂ (Eq. 7)",
+      "uncertainty_printed": "sd 4 x 10⁻⁴ cm²/s (표 머리글 공통)"
+     },
+     "notes": "Table IVa `α (cm² s⁻¹) OCV = 3.75 V` PE 행 = 0.0133 cm²/s → 1.33e-06 m²/s (1 cm²/s = 1e-4 m²/s). 이 열만이 이 논문의 직접 실측이다(크세논 플래시). 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 2.49,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "direction": "through-thickness",
+      "direction_verbatim": "cross-plane",
+      "open_circuit_voltage_v": 3.75,
+      "measurement_table": "Table IVa",
+      "specimen": "XFT cross-plane 시편 — 16 mm 지름 원판을 쌓고 열펄스를 층면에 수직으로 가함 (Fig. 6c)",
+      "basis": "k = α·ρ·Cp (초록 verbatim) — α 는 이 논문의 XFT 실측, ρ·Cp 는 Eq. 6 유효값",
+      "test_method": "xenon flash technique (XFT) α 측정 후 k = αρCp"
+     },
+     "notes": "Table IVa `k (W m⁻¹ K⁻¹) OCV = 3.75 V` PE 행 = 2.49. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 이 행도 닫힌다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다. 주의 — 입력 ρ·Cp 가 2차 인용 성분값으로 만든 유효값이라(같은 행의 해당 행 참조) 이 k 는 그만큼의 불확도를 물려받는다. 그래도 이 값이 이 시편에 대해 인쇄된 실험 결과이고 후속 문헌이 인용하는 값이라 tier1 로 둔다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 1.15e-05,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "direction": "in-plane",
+      "direction_verbatim": "in-plane",
+      "open_circuit_voltage_v": 2.45,
+      "measurement_table": "Table IVb",
+      "specimen": "XFT in-plane 시편 — 10 x 7 mm 층을 쌓아 100 mm2 x 7 mm 육면체로 만들고 열펄스를 층면에 나란히 가함 (Fig. 6b)",
+      "test_method": "xenon flash technique (XFT), Oak Ridge HTML; α = 1.37 L²/t₁₂ (Eq. 7)",
+      "uncertainty_printed": "± 0.0040 cm²/s"
+     },
+     "notes": "Table IVb `α (cm² s⁻¹) OCV = 2.45 V` PE 행 = 0.115 cm²/s → 1.15e-05 m²/s (1 cm²/s = 1e-4 m²/s). 이 열만이 이 논문의 직접 실측이다(크세논 플래시). 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 21.57,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "direction": "in-plane",
+      "direction_verbatim": "in-plane",
+      "open_circuit_voltage_v": 2.45,
+      "measurement_table": "Table IVb",
+      "specimen": "XFT in-plane 시편 — 10 x 7 mm 층을 쌓아 100 mm2 x 7 mm 육면체로 만들고 열펄스를 층면에 나란히 가함 (Fig. 6b)",
+      "basis": "k = α·ρ·Cp (초록 verbatim) — α 는 이 논문의 XFT 실측, ρ·Cp 는 Eq. 6 유효값",
+      "test_method": "xenon flash technique (XFT) α 측정 후 k = αρCp"
+     },
+     "notes": "Table IVb `k (W m⁻¹ K⁻¹) OCV = 2.45 V` PE 행 = 21.57. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 이 행도 닫힌다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다. 주의 — 입력 ρ·Cp 가 2차 인용 성분값으로 만든 유효값이라(같은 행의 해당 행 참조) 이 k 는 그만큼의 불확도를 물려받는다. 그래도 이 값이 이 시편에 대해 인쇄된 실험 결과이고 후속 문헌이 인용하는 값이라 tier1 로 둔다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 1.16e-05,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "direction": "in-plane",
+      "direction_verbatim": "in-plane",
+      "open_circuit_voltage_v": 3.75,
+      "measurement_table": "Table IVb",
+      "specimen": "XFT in-plane 시편 — 10 x 7 mm 층을 쌓아 100 mm2 x 7 mm 육면체로 만들고 열펄스를 층면에 나란히 가함 (Fig. 6b)",
+      "test_method": "xenon flash technique (XFT), Oak Ridge HTML; α = 1.37 L²/t₁₂ (Eq. 7)",
+      "uncertainty_printed": "± 0.0010 cm²/s"
+     },
+     "notes": "Table IVb `α (cm² s⁻¹) OCV = 3.75 V` PE 행 = 0.116 cm²/s → 1.16e-05 m²/s (1 cm²/s = 1e-4 m²/s). 이 열만이 이 논문의 직접 실측이다(크세논 플래시). 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 21.75,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "direction": "in-plane",
+      "direction_verbatim": "in-plane",
+      "open_circuit_voltage_v": 3.75,
+      "measurement_table": "Table IVb",
+      "specimen": "XFT in-plane 시편 — 10 x 7 mm 층을 쌓아 100 mm2 x 7 mm 육면체로 만들고 열펄스를 층면에 나란히 가함 (Fig. 6b)",
+      "basis": "k = α·ρ·Cp (초록 verbatim) — α 는 이 논문의 XFT 실측, ρ·Cp 는 Eq. 6 유효값",
+      "test_method": "xenon flash technique (XFT) α 측정 후 k = αρCp"
+     },
+     "notes": "Table IVb `k (W m⁻¹ K⁻¹) OCV = 3.75 V` PE 행 = 21.75. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 이 행도 닫힌다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다. 주의 — 입력 ρ·Cp 가 2차 인용 성분값으로 만든 유효값이라(같은 행의 해당 행 참조) 이 k 는 그만큼의 불확도를 물려받는다. 그래도 이 값이 이 시편에 대해 인쇄된 실험 결과이고 후속 문헌이 인용하는 값이라 tier1 로 둔다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Li-ion negative electrode, graphitic carbon on Cu foil, dissected from Sony US-18650 cell (Maleki 1999)",
+    "category": "composite",
+    "attributes": {
+     "role": "product",
+     "subsystem": "battery",
+     "material_class": "coated composite electrode (Cu current collector + both-side graphitic hard-carbon composite lamina)",
+     "role_reason": "상용 Sony US-18650 셀을 분해해 낸 실부품 전극이다. 활물질 분말이 아니라 집전체+합제층 적층이다(브리프 160). 상용품을 논문이 측정한 것도 product 다(브리프 115). 재료 2524·2525·2553·2554 와 같은 계보다(브리프 612). 원문 XRD 서술 verbatim — `the NE material is a moderate-range graphitic hard carbon, with graphene layers of lower stacking order than typical graphite`, 입자는 20~45 µm 탄소 플레이크다.",
+     "role_confidence": "high",
+     "manufacturer": "Sony (cell); 전극 제조사·등급은 비공개",
+     "core_absent_from_vendor_sheet": {
+      "mechanical.youngs_modulus": "상용 Sony US-18650 셀(1996년 구입)을 분해해 얻은 시편이라 **붙일 벤더 시트가 원리적으로 없다**(브리프 58 — 제조사·등급이 비공개다). 그 시편을 잰 유일한 문헌이 Maleki 1999 인데 **PDF 전권 낱말 검색이 0건이다**(브리프 613 — 부재 판정의 가장 싼 증거). `Young` 0 · `modulus` 0 · `Poisson` 0 · `tensile` 0 · `strength` 0 · `elastic` 0 · `stress` 0 · `hardness` 0 건이고 `expansion` 1건은 `significant expansion of the c lattice parameter` 라 선팽창계수가 아니다. 이 논문이 인쇄하는 축은 치수·질량(Table I) · 비열(Table II·III) · ρ·Cp·α·k(Table IVa·IVb) · 문헌비교(Table V) 넷뿐이다. 역학·선팽창 행은 표에도 본문에도 아예 없다. — 58차 TE 확인",
+      "mechanical.poisson_ratio": "상용 Sony US-18650 셀(1996년 구입)을 분해해 얻은 시편이라 **붙일 벤더 시트가 원리적으로 없다**(브리프 58 — 제조사·등급이 비공개다). 그 시편을 잰 유일한 문헌이 Maleki 1999 인데 **PDF 전권 낱말 검색이 0건이다**(브리프 613 — 부재 판정의 가장 싼 증거). `Young` 0 · `modulus` 0 · `Poisson` 0 · `tensile` 0 · `strength` 0 · `elastic` 0 · `stress` 0 · `hardness` 0 건이고 `expansion` 1건은 `significant expansion of the c lattice parameter` 라 선팽창계수가 아니다. 이 논문이 인쇄하는 축은 치수·질량(Table I) · 비열(Table II·III) · ρ·Cp·α·k(Table IVa·IVb) · 문헌비교(Table V) 넷뿐이다. 역학·선팽창 행은 표에도 본문에도 아예 없다. — 58차 TE 확인",
+      "mechanical.tensile_strength": "상용 Sony US-18650 셀(1996년 구입)을 분해해 얻은 시편이라 **붙일 벤더 시트가 원리적으로 없다**(브리프 58 — 제조사·등급이 비공개다). 그 시편을 잰 유일한 문헌이 Maleki 1999 인데 **PDF 전권 낱말 검색이 0건이다**(브리프 613 — 부재 판정의 가장 싼 증거). `Young` 0 · `modulus` 0 · `Poisson` 0 · `tensile` 0 · `strength` 0 · `elastic` 0 · `stress` 0 · `hardness` 0 건이고 `expansion` 1건은 `significant expansion of the c lattice parameter` 라 선팽창계수가 아니다. 이 논문이 인쇄하는 축은 치수·질량(Table I) · 비열(Table II·III) · ρ·Cp·α·k(Table IVa·IVb) · 문헌비교(Table V) 넷뿐이다. 역학·선팽창 행은 표에도 본문에도 아예 없다. — 58차 TE 확인",
+      "thermal.expansion_linear": "상용 Sony US-18650 셀(1996년 구입)을 분해해 얻은 시편이라 **붙일 벤더 시트가 원리적으로 없다**(브리프 58 — 제조사·등급이 비공개다). 그 시편을 잰 유일한 문헌이 Maleki 1999 인데 **PDF 전권 낱말 검색이 0건이다**(브리프 613 — 부재 판정의 가장 싼 증거). `Young` 0 · `modulus` 0 · `Poisson` 0 · `tensile` 0 · `strength` 0 · `elastic` 0 · `stress` 0 · `hardness` 0 건이고 `expansion` 1건은 `significant expansion of the c lattice parameter` 라 선팽창계수가 아니다. 이 논문이 인쇄하는 축은 치수·질량(Table I) · 비열(Table II·III) · ρ·Cp·α·k(Table IVa·IVb) · 문헌비교(Table V) 넷뿐이다. 역학·선팽창 행은 표에도 본문에도 아예 없다. — 58차 TE 확인"
+     }
+    }
+   },
+   "source": {
+    "kind": "journal",
+    "doi": "10.1149/1.1391704",
+    "title": "Thermal Properties of Lithium-Ion Battery and Components",
+    "authors": "Hossein Maleki, Said Al Hallaj, J. Robert Selman, Ralph B. Dinwiddie, H. Wang",
+    "year": 1999,
+    "publisher": "The Electrochemical Society (Journal of The Electrochemical Society 146(3) 947-954)",
+    "local_path": "/data/paper_patent_corpus/snowball_papers/from_expert/Maleki - 1999 - Thermal Properties of Lithium‐Ion Battery and Components.pdf"
+   },
+   "properties": [
+    {
+     "key": "structure.layer_thickness",
+     "value": 0.000198,
+     "unit": "m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "layer": "total negative electrode (Cu foil + both-side graphitic carbon composite coating)",
+      "measurement_table": "Table I"
+     },
+     "notes": "Table I `Total thickness, mm` — Negative electrode 열 `0.198`. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다. 추출은 `110.198` 이다. 본문 `The NE and PE were each 0.19 ± 0.01 mm thick` 와 맞는다."
+    },
+    {
+     "key": "structure.layer_thickness",
+     "value": 1.8e-05,
+     "unit": "m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "layer": "copper current collector foil only",
+      "measurement_table": "Table I"
+     },
+     "notes": "Table I `Foil thickness, mm` — Negative electrode 열 `0.018`. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다. 추출은 `110.018` 이다. f_foil = 0.018/0.198 = 0.091."
+    },
+    {
+     "key": "physical.density",
+     "value": 1622.0,
+     "unit": "kg/m^3",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "measurement_table": "Table IVa",
+      "specimen": "XFT cross-plane 시편 — 16 mm 지름 원판을 쌓고 열펄스를 층면에 수직으로 가함 (Fig. 6c)",
+      "basis": "Eq. 6 질량분율 가중 유효값 — 성분값은 Ref. 3(Chen & Evans)·Ref. 8(Kanari) 에서 가져왔다고 원문이 밝힌다"
+     },
+     "notes": "Table IVa `ρ (g cm⁻³)` 열 NE 행 = 1.622 g/cm³. **ρ·Cp 는 이 논문의 실측이 아니다.** 6쪽 `Thermal conductivity, method 2` 절 verbatim — `the thermal conductivity may be calculated from the product of α with the effective density ρ and the effective Cp. The latter may be calculated from mass-fraction-weighted values of Cp and ρ for each component (PE, NE, and/or Sp, **taken from Ref. 3 and 8**) as shown in Eq. 6` — Ref. 3 은 Chen & Evans, Ref. 8 은 Kanari 다. 즉 이 두 열은 2차 인용 성분값을 질량분율로 섞은 저자 계산값이라 규칙 4 대로 tier3·computed 로 넣는다. α 만이 이 논문의 XFT 실측이다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다. 검산 — Table I 질량·치수로 재면 9.10 g / (534.0 x 56.0 x 0.198 mm) = 1.54 g/cm³ 로 5.2% 낮고 PE 와 같은 방향이라 계통 차이다(압축 시편)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 623.0,
+     "unit": "J/(kg*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "measurement_table": "Table IVa",
+      "specimen": "XFT cross-plane 시편 — 16 mm 지름 원판을 쌓고 열펄스를 층면에 수직으로 가함 (Fig. 6c)",
+      "basis": "Eq. 6 질량분율 가중 유효값 — 성분값은 Ref. 3(Chen & Evans)·Ref. 8(Kanari) 에서 가져왔다고 원문이 밝힌다"
+     },
+     "notes": "Table IVa `Cp (J g⁻¹ K⁻¹)` 열 NE 행 = 0.623 J/(g·K). **ρ·Cp 는 이 논문의 실측이 아니다.** 6쪽 `Thermal conductivity, method 2` 절 verbatim — `the thermal conductivity may be calculated from the product of α with the effective density ρ and the effective Cp. The latter may be calculated from mass-fraction-weighted values of Cp and ρ for each component (PE, NE, and/or Sp, **taken from Ref. 3 and 8**) as shown in Eq. 6` — Ref. 3 은 Chen & Evans, Ref. 8 은 Kanari 다. 즉 이 두 열은 2차 인용 성분값을 질량분율로 섞은 저자 계산값이라 규칙 4 대로 tier3·computed 로 넣는다. α 만이 이 논문의 XFT 실측이다. **주의 — 이 논문의 Cp 열은 자기 자신과 어긋난다.** 본문이 밝힌 Eq. 6 `Cp = Σ(ρVCp)i / Σ(ρV)i` 에 이 논문 자신의 PE 0.601·NE 0.623 과 본문 두께(PE·NE 각 0.19±0.01 mm, Sp 0.020±0.002 mm)를 넣으면 적층 Cp 상한이 0.64 J/(g·K) 인데 표는 1.088~1.089 를 인쇄한다 — 인쇄값을 내려면 분리막 Cp 가 25 J/(g·K) 여야 해서 물리적으로 불가능하다(혼합률 상하한, 브리프 25·604). 같은 Eq. 6 을 ρ 에 걸면 분리막 ρ 0.8 g/cm³ 에서 2.290 이 정확히 재현되므로 ρ 열은 닫히고 **Cp 열만 안 닫힌다.** 방향도 갈린다 — 이 논문 자신이 단열열량계로 잰 셀 전체 Cp (Table III, 0.96~1.04 J/(g·K))와 Table V 의 Chen(PE 1.134·NE 1.184)·Kanari(0.849·0.867) 셋이 모두 PE 0.601·NE 0.623 보다 높다. 저자도 `Our Cp values are lower than their values` 라고 적는다. 어느 칸이 오염인지 우리가 고르면 그것이 우리 판정이 되므로(브리프 443) 인쇄값을 그대로 두되 **tier3 로 내리고 이 모순을 행마다 적어 둔다.** k 행은 이 Cp 로 계산돼 있으므로 k 도 같은 편향을 물려받는다는 뜻이다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "physical.density",
+     "value": 1620.0,
+     "unit": "kg/m^3",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "measurement_table": "Table IVb",
+      "specimen": "XFT in-plane 시편 — 10 x 7 mm 층을 쌓아 100 mm2 x 7 mm 육면체로 만들고 열펄스를 층면에 나란히 가함 (Fig. 6b)",
+      "basis": "Eq. 6 질량분율 가중 유효값 — 성분값은 Ref. 3(Chen & Evans)·Ref. 8(Kanari) 에서 가져왔다고 원문이 밝힌다"
+     },
+     "notes": "Table IVb `ρ (g cm⁻³)` 열 NE 행 = 1.620 g/cm³. **ρ·Cp 는 이 논문의 실측이 아니다.** 6쪽 `Thermal conductivity, method 2` 절 verbatim — `the thermal conductivity may be calculated from the product of α with the effective density ρ and the effective Cp. The latter may be calculated from mass-fraction-weighted values of Cp and ρ for each component (PE, NE, and/or Sp, **taken from Ref. 3 and 8**) as shown in Eq. 6` — Ref. 3 은 Chen & Evans, Ref. 8 은 Kanari 다. 즉 이 두 열은 2차 인용 성분값을 질량분율로 섞은 저자 계산값이라 규칙 4 대로 tier3·computed 로 넣는다. α 만이 이 논문의 XFT 실측이다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다. 검산 — Table I 질량·치수로 재면 9.10 g / (534.0 x 56.0 x 0.198 mm) = 1.54 g/cm³ 로 5.2% 낮고 PE 와 같은 방향이라 계통 차이다(압축 시편)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 598.0,
+     "unit": "J/(kg*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "measurement_table": "Table IVb",
+      "specimen": "XFT in-plane 시편 — 10 x 7 mm 층을 쌓아 100 mm2 x 7 mm 육면체로 만들고 열펄스를 층면에 나란히 가함 (Fig. 6b)",
+      "basis": "Eq. 6 질량분율 가중 유효값 — 성분값은 Ref. 3(Chen & Evans)·Ref. 8(Kanari) 에서 가져왔다고 원문이 밝힌다"
+     },
+     "notes": "Table IVb `Cp (J g⁻¹ K⁻¹)` 열 NE 행 = 0.598 J/(g·K). **ρ·Cp 는 이 논문의 실측이 아니다.** 6쪽 `Thermal conductivity, method 2` 절 verbatim — `the thermal conductivity may be calculated from the product of α with the effective density ρ and the effective Cp. The latter may be calculated from mass-fraction-weighted values of Cp and ρ for each component (PE, NE, and/or Sp, **taken from Ref. 3 and 8**) as shown in Eq. 6` — Ref. 3 은 Chen & Evans, Ref. 8 은 Kanari 다. 즉 이 두 열은 2차 인용 성분값을 질량분율로 섞은 저자 계산값이라 규칙 4 대로 tier3·computed 로 넣는다. α 만이 이 논문의 XFT 실측이다. **주의 — 이 논문의 Cp 열은 자기 자신과 어긋난다.** 본문이 밝힌 Eq. 6 `Cp = Σ(ρVCp)i / Σ(ρV)i` 에 이 논문 자신의 PE 0.601·NE 0.623 과 본문 두께(PE·NE 각 0.19±0.01 mm, Sp 0.020±0.002 mm)를 넣으면 적층 Cp 상한이 0.64 J/(g·K) 인데 표는 1.088~1.089 를 인쇄한다 — 인쇄값을 내려면 분리막 Cp 가 25 J/(g·K) 여야 해서 물리적으로 불가능하다(혼합률 상하한, 브리프 25·604). 같은 Eq. 6 을 ρ 에 걸면 분리막 ρ 0.8 g/cm³ 에서 2.290 이 정확히 재현되므로 ρ 열은 닫히고 **Cp 열만 안 닫힌다.** 방향도 갈린다 — 이 논문 자신이 단열열량계로 잰 셀 전체 Cp (Table III, 0.96~1.04 J/(g·K))와 Table V 의 Chen(PE 1.134·NE 1.184)·Kanari(0.849·0.867) 셋이 모두 PE 0.601·NE 0.623 보다 높다. 저자도 `Our Cp values are lower than their values` 라고 적는다. 어느 칸이 오염인지 우리가 고르면 그것이 우리 판정이 되므로(브리프 443) 인쇄값을 그대로 두되 **tier3 로 내리고 이 모순을 행마다 적어 둔다.** k 행은 이 Cp 로 계산돼 있으므로 k 도 같은 편향을 물려받는다는 뜻이다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 8.8e-07,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "direction": "through-thickness",
+      "direction_verbatim": "cross-plane",
+      "open_circuit_voltage_v": 2.45,
+      "measurement_table": "Table IVa",
+      "specimen": "XFT cross-plane 시편 — 16 mm 지름 원판을 쌓고 열펄스를 층면에 수직으로 가함 (Fig. 6c)",
+      "test_method": "xenon flash technique (XFT), Oak Ridge HTML; α = 1.37 L²/t₁₂ (Eq. 7)",
+      "uncertainty_printed": "sd 4 x 10⁻⁴ cm²/s (표 머리글 공통)"
+     },
+     "notes": "Table IVa `α (cm² s⁻¹) OCV = 2.45 V` NE 행 = 0.0088 cm²/s. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다. in-plane 칸은 추출이 `10.090` `0.156` 로 나오는데 렌더는 `0.090 ± 0.00017` `0.156 ± 0.0030` 이다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.89,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "direction": "through-thickness",
+      "direction_verbatim": "cross-plane",
+      "open_circuit_voltage_v": 2.45,
+      "measurement_table": "Table IVa",
+      "specimen": "XFT cross-plane 시편 — 16 mm 지름 원판을 쌓고 열펄스를 층면에 수직으로 가함 (Fig. 6c)",
+      "basis": "k = α·ρ·Cp (초록 verbatim) — α 는 이 논문의 XFT 실측, ρ·Cp 는 Eq. 6 유효값",
+      "test_method": "xenon flash technique (XFT) α 측정 후 k = αρCp"
+     },
+     "notes": "Table IVa `k (W m⁻¹ K⁻¹) OCV = 2.45 V` NE 행 = 0.89. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 1.19e-06,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "direction": "through-thickness",
+      "direction_verbatim": "cross-plane",
+      "open_circuit_voltage_v": 3.75,
+      "measurement_table": "Table IVa",
+      "specimen": "XFT cross-plane 시편 — 16 mm 지름 원판을 쌓고 열펄스를 층면에 수직으로 가함 (Fig. 6c)",
+      "test_method": "xenon flash technique (XFT), Oak Ridge HTML; α = 1.37 L²/t₁₂ (Eq. 7)",
+      "uncertainty_printed": "sd 4 x 10⁻⁴ cm²/s (표 머리글 공통)"
+     },
+     "notes": "Table IVa `α (cm² s⁻¹) OCV = 3.75 V` NE 행 = 0.0119 cm²/s. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다. in-plane 칸은 추출이 `10.090` `0.156` 로 나오는데 렌더는 `0.090 ± 0.00017` `0.156 ± 0.0030` 이다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.2,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "direction": "through-thickness",
+      "direction_verbatim": "cross-plane",
+      "open_circuit_voltage_v": 3.75,
+      "measurement_table": "Table IVa",
+      "specimen": "XFT cross-plane 시편 — 16 mm 지름 원판을 쌓고 열펄스를 층면에 수직으로 가함 (Fig. 6c)",
+      "basis": "k = α·ρ·Cp (초록 verbatim) — α 는 이 논문의 XFT 실측, ρ·Cp 는 Eq. 6 유효값",
+      "test_method": "xenon flash technique (XFT) α 측정 후 k = αρCp"
+     },
+     "notes": "Table IVa `k (W m⁻¹ K⁻¹) OCV = 3.75 V` NE 행 = 1.2. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 9e-06,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "direction": "in-plane",
+      "direction_verbatim": "in-plane",
+      "open_circuit_voltage_v": 2.45,
+      "measurement_table": "Table IVb",
+      "specimen": "XFT in-plane 시편 — 10 x 7 mm 층을 쌓아 100 mm2 x 7 mm 육면체로 만들고 열펄스를 층면에 나란히 가함 (Fig. 6b)",
+      "test_method": "xenon flash technique (XFT), Oak Ridge HTML; α = 1.37 L²/t₁₂ (Eq. 7)",
+      "uncertainty_printed": "± 0.00017 cm²/s"
+     },
+     "notes": "Table IVb `α (cm² s⁻¹) OCV = 2.45 V` NE 행 = 0.09 cm²/s. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다. in-plane 칸은 추출이 `10.090` `0.156` 로 나오는데 렌더는 `0.090 ± 0.00017` `0.156 ± 0.0030` 이다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 8.72,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "direction": "in-plane",
+      "direction_verbatim": "in-plane",
+      "open_circuit_voltage_v": 2.45,
+      "measurement_table": "Table IVb",
+      "specimen": "XFT in-plane 시편 — 10 x 7 mm 층을 쌓아 100 mm2 x 7 mm 육면체로 만들고 열펄스를 층면에 나란히 가함 (Fig. 6b)",
+      "basis": "k = α·ρ·Cp (초록 verbatim) — α 는 이 논문의 XFT 실측, ρ·Cp 는 Eq. 6 유효값",
+      "test_method": "xenon flash technique (XFT) α 측정 후 k = αρCp"
+     },
+     "notes": "Table IVb `k (W m⁻¹ K⁻¹) OCV = 2.45 V` NE 행 = 8.72. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. **이 칸이 이 논문의 핵심 함정이다.** md 와 `pdftotext` 가 둘 다 `18.72` 를 내는데 400 dpi 렌더의 인쇄값은 `8.72` 다. 자릿수가 그럴듯해 범위 가드·단위 검산·물리 상한 어디에도 안 걸린다(브리프 603). 항등식이 8.719 를 내고(오차 0.01%), 초록의 `the in-plane k value is nearly one order of magnitude higher than the cross-plane k` 를 두께방향 0.89 에 대 보면 8.72 는 9.8배(✔)이고 18.72 는 21배(✘)라 본문이 칸을 확정한다(브리프 60·105). 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 1.56e-05,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "direction": "in-plane",
+      "direction_verbatim": "in-plane",
+      "open_circuit_voltage_v": 3.75,
+      "measurement_table": "Table IVb",
+      "specimen": "XFT in-plane 시편 — 10 x 7 mm 층을 쌓아 100 mm2 x 7 mm 육면체로 만들고 열펄스를 층면에 나란히 가함 (Fig. 6b)",
+      "test_method": "xenon flash technique (XFT), Oak Ridge HTML; α = 1.37 L²/t₁₂ (Eq. 7)",
+      "uncertainty_printed": "± 0.0030 cm²/s"
+     },
+     "notes": "Table IVb `α (cm² s⁻¹) OCV = 3.75 V` NE 행 = 0.156 cm²/s. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다. in-plane 칸은 추출이 `10.090` `0.156` 로 나오는데 렌더는 `0.090 ± 0.00017` `0.156 ± 0.0030` 이다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 15.11,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "direction": "in-plane",
+      "direction_verbatim": "in-plane",
+      "open_circuit_voltage_v": 3.75,
+      "measurement_table": "Table IVb",
+      "specimen": "XFT in-plane 시편 — 10 x 7 mm 층을 쌓아 100 mm2 x 7 mm 육면체로 만들고 열펄스를 층면에 나란히 가함 (Fig. 6b)",
+      "basis": "k = α·ρ·Cp (초록 verbatim) — α 는 이 논문의 XFT 실측, ρ·Cp 는 Eq. 6 유효값",
+      "test_method": "xenon flash technique (XFT) α 측정 후 k = αρCp"
+     },
+     "notes": "Table IVb `k (W m⁻¹ K⁻¹) OCV = 3.75 V` NE 행 = 15.11. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Li-ion PE/Sp/NE stacked layer assembly, dissected from Sony US-18650 cell (Maleki 1999)",
+    "category": "composite",
+    "attributes": {
+     "role": "product",
+     "subsystem": "battery",
+     "material_class": "stacked PE/separator/NE laminate (jellyroll section) — assembly-effective ρ·Cp·k",
+     "role_reason": "상용 Sony US-18650 셀을 분해해 다시 쌓은 실부품 적층이다. 이름에 조성비도 시료라벨도 없고 파라미터 시리즈의 한 점도 아니다 — 브리프 115 의 evidence 지문 어느 것에도 안 걸린다. 셀 수준 열해석이 실제로 입력으로 쓰는 것이 바로 이 적층의 방향별 ρ·Cp·k 이라 스마트폰 열전달 해석의 대상이다(브리프 193 — out_of_scope 가 아니다).",
+     "role_confidence": "medium",
+     "manufacturer": "Sony (cell); 구성 부품 제조사·등급은 비공개",
+     "verdict_effective_property_of_assembly": "이 재료의 ρ·Cp·k 는 **단일 소재가 아니라 양극/분리막/음극 적층체의 유효값**이다. 셀 수준 열해석 입력으로는 정당하지만 **재료끼리 비교·순위를 매기거나 단일 소재 카드로 뽑으면 틀린다** — 방법론 §4.3 의 '소자 유효 열전도율을 재료 키에 담았다' 주의와 같은 갈래다. 전해액 유무는 재료를 나누지 않고 조건축 `electrolyte` 로 갈랐다(규칙 5).",
+     "core_rejected_printed_value": {
+      "thermal.diffusivity": "in-plane α 두 칸만 버렸다(행 전체가 아니다 — 브리프 141). ① **전해액 없음·in-plane·OCV 2.45 V — 인쇄 `0.0071 ± 0.0040 cm²/s`.** 항등식이 k = 1.77 을 내는데 같은 행의 인쇄 k 는 17.69 다 — 정확히 10배. 렌더로 확인했으므로 추출 손상이 아니라 **원문 자체의 소수점 오식**이다. 같은 칸의 ± 0.0040 이 0.0071 에 대해는 56%, 0.071 에 대해는 5.6% 라 다른 행들(PE 0.115±0.0040 = 3.5%)과 맞는 쪽은 0.071 이다 — 그래도 그 값을 집어넣지 않는다(규칙 1·2). 같은 행의 ρ·Cp·k 세 칸은 살렸다. ② **전해액 채움·in-plane·OCV 2.45 V — 인쇄 `0.058 ± 0.0010 cm²/s`.** 항등식이 20.61 을 내는데 인쇄 k 는 20.06 이라 2.7% 어긋난다 — 나머지 14칸은 0.9% 안이라 이 한 쌍만 틀었다. 같은 재료의 OCV 3.75 V 행이 0.079 x 2780 x 1278 = 28.07 대 인쇄 28.05 로 0.06% 안에 닫히므로 ρ = 2.78·Cp = 1.278 은 확정이고 남는 용의자는 α 와 k 둘이다. 본문이 갈랐다 — `Addition of electrolyte also increases the ... k of stacked layers PE/Sp/NE recovered from a cell at OCV = 2.45 V, but only by 13%, and similarly for a cell at OCV = 3.75 V (Table IVb)` 에서 20.06/17.69 = 13.4% · 28.05/24.66 = 13.7% 로 'similarly' 가 성립하고, α = 0.058 이 맞다면 16.5% 가 돼 그 문장이 깨진다(브리프 60 — 본문 서술이 표의 오식을 특정한다). 따라서 k = 20.06 을 살리고 α 칸만 버렸다."
+     },
+     "verdict_unregistered_printed_values": "이 논문이 인쇄하지만 **재료를 안 세워 적재하지 않은 값**을 잃지 않게 적어 둔다(브리프 609·623). ① **셀 전체 비열** — Table III, 단열열량계(hot bath/room-temperature cell) 9회 측정. OCV 3.75 V에서 1.04 ± 0.034 J/(g·K)(4회 평균 1.039), OCV 2.75 V에서 0.96 ± 0.018(5회 평균 0.964). 셀은 재료가 아니라 소자라 재료를 세우면 코어 7칸 중 네가 영원히 빈다 — 그래서 안 세우고 여기 적는다. ② **분리막 치수·질량** — Table I, 질량 1.28 g·길이 1192.0 mm·폭 59.2 mm·두께 0.025 mm. **Table IVa·IVb 에는 분리막 행이 없다** — 분리막의 ρ·Cp·k 는 이 논문에 인쇄되지 않는다(56차 RA 인계문의 '분리막도 재다' 는 이 점에서 틀렸다). 치수로 밀도를 계산하면 역산이라 넣지 않았다(규칙 2). ③ **교정용 기준시편 비열** — Table II, 알루미늄 Cp_av = 0.92 · type 416 스테인리스 Cp_av = 0.46 J/(g·K)(CRC 핸드북 0.900·0.460 대조). 열량계 교정 기준시편이고 카탈로그에 그 두 재료가 없어 세우지 않았다. ④ **Table V 의 Chen·Kanari 열** — 2차 인용이라 안 넣었다(규칙 4). Table V 의 `This Work` 열은 Table IVa 의 OCV 3.75 V 두께방향 값과 글자까지 같아 중복이라 다시 넣지 않았다(브리프 456 — 비교표의 재인쇄는 611 의 '장이 달라 다시 인쇄한 선언' 이 아니다).",
+     "core_absent_from_vendor_sheet": {
+      "mechanical.youngs_modulus": "상용 Sony US-18650 셀(1996년 구입)을 분해해 얻은 시편이라 **붙일 벤더 시트가 원리적으로 없다**(브리프 58 — 제조사·등급이 비공개다). 그 시편을 잰 유일한 문헌이 Maleki 1999 인데 **PDF 전권 낱말 검색이 0건이다**(브리프 613 — 부재 판정의 가장 싼 증거). `Young` 0 · `modulus` 0 · `Poisson` 0 · `tensile` 0 · `strength` 0 · `elastic` 0 · `stress` 0 · `hardness` 0 건이고 `expansion` 1건은 `significant expansion of the c lattice parameter` 라 선팽창계수가 아니다. 이 논문이 인쇄하는 축은 치수·질량(Table I) · 비열(Table II·III) · ρ·Cp·α·k(Table IVa·IVb) · 문헌비교(Table V) 넷뿐이다. 역학·선팽창 행은 표에도 본문에도 아예 없다. — 58차 TE 확인",
+      "mechanical.poisson_ratio": "상용 Sony US-18650 셀(1996년 구입)을 분해해 얻은 시편이라 **붙일 벤더 시트가 원리적으로 없다**(브리프 58 — 제조사·등급이 비공개다). 그 시편을 잰 유일한 문헌이 Maleki 1999 인데 **PDF 전권 낱말 검색이 0건이다**(브리프 613 — 부재 판정의 가장 싼 증거). `Young` 0 · `modulus` 0 · `Poisson` 0 · `tensile` 0 · `strength` 0 · `elastic` 0 · `stress` 0 · `hardness` 0 건이고 `expansion` 1건은 `significant expansion of the c lattice parameter` 라 선팽창계수가 아니다. 이 논문이 인쇄하는 축은 치수·질량(Table I) · 비열(Table II·III) · ρ·Cp·α·k(Table IVa·IVb) · 문헌비교(Table V) 넷뿐이다. 역학·선팽창 행은 표에도 본문에도 아예 없다. — 58차 TE 확인",
+      "mechanical.tensile_strength": "상용 Sony US-18650 셀(1996년 구입)을 분해해 얻은 시편이라 **붙일 벤더 시트가 원리적으로 없다**(브리프 58 — 제조사·등급이 비공개다). 그 시편을 잰 유일한 문헌이 Maleki 1999 인데 **PDF 전권 낱말 검색이 0건이다**(브리프 613 — 부재 판정의 가장 싼 증거). `Young` 0 · `modulus` 0 · `Poisson` 0 · `tensile` 0 · `strength` 0 · `elastic` 0 · `stress` 0 · `hardness` 0 건이고 `expansion` 1건은 `significant expansion of the c lattice parameter` 라 선팽창계수가 아니다. 이 논문이 인쇄하는 축은 치수·질량(Table I) · 비열(Table II·III) · ρ·Cp·α·k(Table IVa·IVb) · 문헌비교(Table V) 넷뿐이다. 역학·선팽창 행은 표에도 본문에도 아예 없다. — 58차 TE 확인",
+      "thermal.expansion_linear": "상용 Sony US-18650 셀(1996년 구입)을 분해해 얻은 시편이라 **붙일 벤더 시트가 원리적으로 없다**(브리프 58 — 제조사·등급이 비공개다). 그 시편을 잰 유일한 문헌이 Maleki 1999 인데 **PDF 전권 낱말 검색이 0건이다**(브리프 613 — 부재 판정의 가장 싼 증거). `Young` 0 · `modulus` 0 · `Poisson` 0 · `tensile` 0 · `strength` 0 · `elastic` 0 · `stress` 0 · `hardness` 0 건이고 `expansion` 1건은 `significant expansion of the c lattice parameter` 라 선팽창계수가 아니다. 이 논문이 인쇄하는 축은 치수·질량(Table I) · 비열(Table II·III) · ρ·Cp·α·k(Table IVa·IVb) · 문헌비교(Table V) 넷뿐이다. 역학·선팽창 행은 표에도 본문에도 아예 없다. — 58차 TE 확인"
+     }
+    }
+   },
+   "source": {
+    "kind": "journal",
+    "doi": "10.1149/1.1391704",
+    "title": "Thermal Properties of Lithium-Ion Battery and Components",
+    "authors": "Hossein Maleki, Said Al Hallaj, J. Robert Selman, Ralph B. Dinwiddie, H. Wang",
+    "year": 1999,
+    "publisher": "The Electrochemical Society (Journal of The Electrochemical Society 146(3) 947-954)",
+    "local_path": "/data/paper_patent_corpus/snowball_papers/from_expert/Maleki - 1999 - Thermal Properties of Lithium‐Ion Battery and Components.pdf"
+   },
+   "properties": [
+    {
+     "key": "structure.layer_thickness",
+     "value": 0.00042,
+     "unit": "m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "layer": "one PE/Sp/NE assembly (PE + separator + NE)",
+      "value_qualifier": "원문 표기 `ca.` — 근사치로 인쇄됐다",
+      "measurement_table": "본문 5쪽 `Thermal conductivity measurement` 절"
+     },
+     "notes": "본문 verbatim — `The thickness of a single PE/Sp/NE assembly was ca. 0.42 mm`. Table I 의 0.185 + 0.025 + 0.198 = 0.408 mm 와 3% 안이고 본문의 0.19+0.020+0.19 = 0.40 mm 와도 맞는다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "physical.density",
+     "value": 2290.0,
+     "unit": "kg/m^3",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "electrolyte": "none — 에탄올 세정 후 65 C 24 h 건조, 전해액 없음",
+      "measurement_table": "Table IVa",
+      "specimen": "XFT cross-plane 시편 — 16 mm 지름 원판을 쌓고 열펄스를 층면에 수직으로 가함 (Fig. 6c)",
+      "basis": "Eq. 6 질량분율 가중 유효값 — 성분값은 Ref. 3(Chen & Evans)·Ref. 8(Kanari) 에서 가져왔다고 원문이 밝힌다"
+     },
+     "notes": "Table IVa `ρ (g cm⁻³)` 적층 행(전해액 없음) = 2.290 g/cm³. **ρ·Cp 는 이 논문의 실측이 아니다.** 6쪽 `Thermal conductivity, method 2` 절 verbatim — `the thermal conductivity may be calculated from the product of α with the effective density ρ and the effective Cp. The latter may be calculated from mass-fraction-weighted values of Cp and ρ for each component (PE, NE, and/or Sp, **taken from Ref. 3 and 8**) as shown in Eq. 6` — Ref. 3 은 Chen & Evans, Ref. 8 은 Kanari 다. 즉 이 두 열은 2차 인용 성분값을 질량분율로 섞은 저자 계산값이라 규칙 4 대로 tier3·computed 로 넣는다. α 만이 이 논문의 XFT 실측이다. 검산 — 본문 두께(PE·NE 0.19 mm, Sp 0.020 mm)와 이 논문 자신의 PE 3.115·NE 1.622 를 Eq. 6 에 넣고 분리막 ρ = 0.8 g/cm³(미다공 PE 의 상식 범위)를 가정하면 2.290 이 그대로 나온다 — ρ 열은 닫힌다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1089.0,
+     "unit": "J/(kg*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "electrolyte": "none — 에탄올 세정 후 65 C 24 h 건조, 전해액 없음",
+      "measurement_table": "Table IVa",
+      "specimen": "XFT cross-plane 시편 — 16 mm 지름 원판을 쌓고 열펄스를 층면에 수직으로 가함 (Fig. 6c)",
+      "basis": "Eq. 6 질량분율 가중 유효값 — 성분값은 Ref. 3(Chen & Evans)·Ref. 8(Kanari) 에서 가져왔다고 원문이 밝힌다"
+     },
+     "notes": "Table IVa `Cp (J g⁻¹ K⁻¹)` 적층 행 = 1.089 J/(g·K). **ρ·Cp 는 이 논문의 실측이 아니다.** 6쪽 `Thermal conductivity, method 2` 절 verbatim — `the thermal conductivity may be calculated from the product of α with the effective density ρ and the effective Cp. The latter may be calculated from mass-fraction-weighted values of Cp and ρ for each component (PE, NE, and/or Sp, **taken from Ref. 3 and 8**) as shown in Eq. 6` — Ref. 3 은 Chen & Evans, Ref. 8 은 Kanari 다. 즉 이 두 열은 2차 인용 성분값을 질량분율로 섞은 저자 계산값이라 규칙 4 대로 tier3·computed 로 넣는다. α 만이 이 논문의 XFT 실측이다. **주의 — 이 논문의 Cp 열은 자기 자신과 어긋난다.** 본문이 밝힌 Eq. 6 `Cp = Σ(ρVCp)i / Σ(ρV)i` 에 이 논문 자신의 PE 0.601·NE 0.623 과 본문 두께(PE·NE 각 0.19±0.01 mm, Sp 0.020±0.002 mm)를 넣으면 적층 Cp 상한이 0.64 J/(g·K) 인데 표는 1.088~1.089 를 인쇄한다 — 인쇄값을 내려면 분리막 Cp 가 25 J/(g·K) 여야 해서 물리적으로 불가능하다(혼합률 상하한, 브리프 25·604). 같은 Eq. 6 을 ρ 에 걸면 분리막 ρ 0.8 g/cm³ 에서 2.290 이 정확히 재현되므로 ρ 열은 닫히고 **Cp 열만 안 닫힌다.** 방향도 갈린다 — 이 논문 자신이 단열열량계로 잰 셀 전체 Cp (Table III, 0.96~1.04 J/(g·K))와 Table V 의 Chen(PE 1.134·NE 1.184)·Kanari(0.849·0.867) 셋이 모두 PE 0.601·NE 0.623 보다 높다. 저자도 `Our Cp values are lower than their values` 라고 적는다. 어느 칸이 오염인지 우리가 고르면 그것이 우리 판정이 되므로(브리프 443) 인쇄값을 그대로 두되 **tier3 로 내리고 이 모순을 행마다 적어 둔다.** k 행은 이 Cp 로 계산돼 있으므로 k 도 같은 편향을 물려받는다는 뜻이다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "physical.density",
+     "value": 2291.0,
+     "unit": "kg/m^3",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "electrolyte": "none — 에탄올 세정 후 65 C 24 h 건조, 전해액 없음",
+      "measurement_table": "Table IVb",
+      "specimen": "XFT in-plane 시편 — 10 x 7 mm 층을 쌓아 100 mm2 x 7 mm 육면체로 만들고 열펄스를 층면에 나란히 가함 (Fig. 6b)",
+      "basis": "Eq. 6 질량분율 가중 유효값 — 성분값은 Ref. 3(Chen & Evans)·Ref. 8(Kanari) 에서 가져왔다고 원문이 밝힌다"
+     },
+     "notes": "Table IVb `ρ (g cm⁻³)` 적층 행(전해액 없음) = 2.291 g/cm³. **ρ·Cp 는 이 논문의 실측이 아니다.** 6쪽 `Thermal conductivity, method 2` 절 verbatim — `the thermal conductivity may be calculated from the product of α with the effective density ρ and the effective Cp. The latter may be calculated from mass-fraction-weighted values of Cp and ρ for each component (PE, NE, and/or Sp, **taken from Ref. 3 and 8**) as shown in Eq. 6` — Ref. 3 은 Chen & Evans, Ref. 8 은 Kanari 다. 즉 이 두 열은 2차 인용 성분값을 질량분율로 섞은 저자 계산값이라 규칙 4 대로 tier3·computed 로 넣는다. α 만이 이 논문의 XFT 실측이다. 검산 — 본문 두께(PE·NE 0.19 mm, Sp 0.020 mm)와 이 논문 자신의 PE 3.115·NE 1.622 를 Eq. 6 에 넣고 분리막 ρ = 0.8 g/cm³(미다공 PE 의 상식 범위)를 가정하면 2.290 이 그대로 나온다 — ρ 열은 닫힌다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1088.0,
+     "unit": "J/(kg*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "electrolyte": "none — 에탄올 세정 후 65 C 24 h 건조, 전해액 없음",
+      "measurement_table": "Table IVb",
+      "specimen": "XFT in-plane 시편 — 10 x 7 mm 층을 쌓아 100 mm2 x 7 mm 육면체로 만들고 열펄스를 층면에 나란히 가함 (Fig. 6b)",
+      "basis": "Eq. 6 질량분율 가중 유효값 — 성분값은 Ref. 3(Chen & Evans)·Ref. 8(Kanari) 에서 가져왔다고 원문이 밝힌다"
+     },
+     "notes": "Table IVb `Cp (J g⁻¹ K⁻¹)` 적층 행 = 1.088 J/(g·K). **ρ·Cp 는 이 논문의 실측이 아니다.** 6쪽 `Thermal conductivity, method 2` 절 verbatim — `the thermal conductivity may be calculated from the product of α with the effective density ρ and the effective Cp. The latter may be calculated from mass-fraction-weighted values of Cp and ρ for each component (PE, NE, and/or Sp, **taken from Ref. 3 and 8**) as shown in Eq. 6` — Ref. 3 은 Chen & Evans, Ref. 8 은 Kanari 다. 즉 이 두 열은 2차 인용 성분값을 질량분율로 섞은 저자 계산값이라 규칙 4 대로 tier3·computed 로 넣는다. α 만이 이 논문의 XFT 실측이다. **주의 — 이 논문의 Cp 열은 자기 자신과 어긋난다.** 본문이 밝힌 Eq. 6 `Cp = Σ(ρVCp)i / Σ(ρV)i` 에 이 논문 자신의 PE 0.601·NE 0.623 과 본문 두께(PE·NE 각 0.19±0.01 mm, Sp 0.020±0.002 mm)를 넣으면 적층 Cp 상한이 0.64 J/(g·K) 인데 표는 1.088~1.089 를 인쇄한다 — 인쇄값을 내려면 분리막 Cp 가 25 J/(g·K) 여야 해서 물리적으로 불가능하다(혼합률 상하한, 브리프 25·604). 같은 Eq. 6 을 ρ 에 걸면 분리막 ρ 0.8 g/cm³ 에서 2.290 이 정확히 재현되므로 ρ 열은 닫히고 **Cp 열만 안 닫힌다.** 방향도 갈린다 — 이 논문 자신이 단열열량계로 잰 셀 전체 Cp (Table III, 0.96~1.04 J/(g·K))와 Table V 의 Chen(PE 1.134·NE 1.184)·Kanari(0.849·0.867) 셋이 모두 PE 0.601·NE 0.623 보다 높다. 저자도 `Our Cp values are lower than their values` 라고 적는다. 어느 칸이 오염인지 우리가 고르면 그것이 우리 판정이 되므로(브리프 443) 인쇄값을 그대로 두되 **tier3 로 내리고 이 모순을 행마다 적어 둔다.** k 행은 이 Cp 로 계산돼 있으므로 k 도 같은 편향을 물려받는다는 뜻이다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 7.6e-07,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "electrolyte": "none — 에탄올 세정 후 65 C 24 h 건조, 전해액 없음",
+      "direction": "through-thickness",
+      "direction_verbatim": "cross-plane",
+      "open_circuit_voltage_v": 2.45,
+      "measurement_table": "Table IVa",
+      "specimen": "XFT cross-plane 시편 — 16 mm 지름 원판을 쌓고 열펄스를 층면에 수직으로 가함 (Fig. 6c)",
+      "test_method": "xenon flash technique (XFT), Oak Ridge HTML; α = 1.37 L²/t₁₂ (Eq. 7)",
+      "uncertainty_printed": "sd 4 x 10⁻⁴ cm²/s (표 머리글 공통)"
+     },
+     "notes": "Table IVa `α (cm² s⁻¹) OCV = 2.45 V` 적층 행 = 0.0076 cm²/s. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.9,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "electrolyte": "none — 에탄올 세정 후 65 C 24 h 건조, 전해액 없음",
+      "direction": "through-thickness",
+      "direction_verbatim": "cross-plane",
+      "open_circuit_voltage_v": 2.45,
+      "measurement_table": "Table IVa",
+      "specimen": "XFT cross-plane 시편 — 16 mm 지름 원판을 쌓고 열펄스를 층면에 수직으로 가함 (Fig. 6c)",
+      "basis": "k = α·ρ·Cp (초록 verbatim) — α 는 이 논문의 XFT 실측, ρ·Cp 는 Eq. 6 유효값",
+      "test_method": "xenon flash technique (XFT) α 측정 후 k = αρCp"
+     },
+     "notes": "Table IVa `k (W m⁻¹ K⁻¹) OCV = 2.45 V` 적층 행 = 1.9. 이 행은 항등식이 닫는다. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 9.5e-07,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "electrolyte": "none — 에탄올 세정 후 65 C 24 h 건조, 전해액 없음",
+      "direction": "through-thickness",
+      "direction_verbatim": "cross-plane",
+      "open_circuit_voltage_v": 3.75,
+      "measurement_table": "Table IVa",
+      "specimen": "XFT cross-plane 시편 — 16 mm 지름 원판을 쌓고 열펄스를 층면에 수직으로 가함 (Fig. 6c)",
+      "test_method": "xenon flash technique (XFT), Oak Ridge HTML; α = 1.37 L²/t₁₂ (Eq. 7)",
+      "uncertainty_printed": "sd 4 x 10⁻⁴ cm²/s (표 머리글 공통)"
+     },
+     "notes": "Table IVa `α (cm² s⁻¹) OCV = 3.75 V` 적층 행 = 0.0095 cm²/s. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 2.36,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "electrolyte": "none — 에탄올 세정 후 65 C 24 h 건조, 전해액 없음",
+      "direction": "through-thickness",
+      "direction_verbatim": "cross-plane",
+      "open_circuit_voltage_v": 3.75,
+      "measurement_table": "Table IVa",
+      "specimen": "XFT cross-plane 시편 — 16 mm 지름 원판을 쌓고 열펄스를 층면에 수직으로 가함 (Fig. 6c)",
+      "basis": "k = α·ρ·Cp (초록 verbatim) — α 는 이 논문의 XFT 실측, ρ·Cp 는 Eq. 6 유효값",
+      "test_method": "xenon flash technique (XFT) α 측정 후 k = αρCp"
+     },
+     "notes": "Table IVa `k (W m⁻¹ K⁻¹) OCV = 3.75 V` 적층 행 = 2.36. 이 행은 항등식이 닫는다. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 17.69,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "electrolyte": "none — 에탄올 세정 후 65 C 24 h 건조, 전해액 없음",
+      "direction": "in-plane",
+      "direction_verbatim": "in-plane",
+      "open_circuit_voltage_v": 2.45,
+      "measurement_table": "Table IVb",
+      "specimen": "XFT in-plane 시편 — 10 x 7 mm 층을 쌓아 100 mm2 x 7 mm 육면체로 만들고 열펄스를 층면에 나란히 가함 (Fig. 6b)",
+      "basis": "k = α·ρ·Cp (초록 verbatim) — α 는 이 논문의 XFT 실측, ρ·Cp 는 Eq. 6 유효값",
+      "test_method": "xenon flash technique (XFT) α 측정 후 k = αρCp"
+     },
+     "notes": "Table IVb `k (W m⁻¹ K⁻¹) OCV = 2.45 V` 적층 행 = 17.69. 같은 행의 α 칸은 기각했고 k 는 살렸다 — 사유는 재료 attributes 의 core_rejected_printed_value 에 있다. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 9.9e-06,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "electrolyte": "none — 에탄올 세정 후 65 C 24 h 건조, 전해액 없음",
+      "direction": "in-plane",
+      "direction_verbatim": "in-plane",
+      "open_circuit_voltage_v": 3.75,
+      "measurement_table": "Table IVb",
+      "specimen": "XFT in-plane 시편 — 10 x 7 mm 층을 쌓아 100 mm2 x 7 mm 육면체로 만들고 열펄스를 층면에 나란히 가함 (Fig. 6b)",
+      "test_method": "xenon flash technique (XFT), Oak Ridge HTML; α = 1.37 L²/t₁₂ (Eq. 7)",
+      "uncertainty_printed": "± 0.00150 cm²/s"
+     },
+     "notes": "Table IVb `α (cm² s⁻¹) OCV = 3.75 V` 적층 행 = 0.099 cm²/s. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 24.66,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "electrolyte": "none — 에탄올 세정 후 65 C 24 h 건조, 전해액 없음",
+      "direction": "in-plane",
+      "direction_verbatim": "in-plane",
+      "open_circuit_voltage_v": 3.75,
+      "measurement_table": "Table IVb",
+      "specimen": "XFT in-plane 시편 — 10 x 7 mm 층을 쌓아 100 mm2 x 7 mm 육면체로 만들고 열펄스를 층면에 나란히 가함 (Fig. 6b)",
+      "basis": "k = α·ρ·Cp (초록 verbatim) — α 는 이 논문의 XFT 실측, ρ·Cp 는 Eq. 6 유효값",
+      "test_method": "xenon flash technique (XFT) α 측정 후 k = αρCp"
+     },
+     "notes": "Table IVb `k (W m⁻¹ K⁻¹) OCV = 3.75 V` 적층 행 = 24.66. 이 행은 항등식이 닫는다. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "physical.density",
+     "value": 2680.0,
+     "unit": "kg/m^3",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "electrolyte": "1 M LiPF6 in EC:DMC (1:1 wt %) — 적층에 채운 상태",
+      "measurement_table": "Table IVa",
+      "specimen": "XFT cross-plane 시편 — 16 mm 지름 원판을 쌓고 열펄스를 층면에 수직으로 가함 (Fig. 6c)",
+      "basis": "Eq. 6 질량분율 가중 유효값 — 성분값은 Ref. 3(Chen & Evans)·Ref. 8(Kanari) 에서 가져왔다고 원문이 밝힌다"
+     },
+     "notes": "Table IVa `ρ (g cm⁻³)` 적층 행(전해액 채움) = 2.680 g/cm³. **ρ·Cp 는 이 논문의 실측이 아니다.** 6쪽 `Thermal conductivity, method 2` 절 verbatim — `the thermal conductivity may be calculated from the product of α with the effective density ρ and the effective Cp. The latter may be calculated from mass-fraction-weighted values of Cp and ρ for each component (PE, NE, and/or Sp, **taken from Ref. 3 and 8**) as shown in Eq. 6` — Ref. 3 은 Chen & Evans, Ref. 8 은 Kanari 다. 즉 이 두 열은 2차 인용 성분값을 질량분율로 섞은 저자 계산값이라 규칙 4 대로 tier3·computed 로 넣는다. α 만이 이 논문의 XFT 실측이다. 검산 — 본문 두께(PE·NE 0.19 mm, Sp 0.020 mm)와 이 논문 자신의 PE 3.115·NE 1.622 를 Eq. 6 에 넣고 분리막 ρ = 0.8 g/cm³(미다공 PE 의 상식 범위)를 가정하면 2.290 이 그대로 나온다 — ρ 열은 닫힌다. 전해액을 채우면 2.290 → 2.680 로 0.39~0.49 g/cm³ 늘어 전해액 밀도 1.2~1.3 g/cm³ 기준 기공률 31~39% 를 뜻하는데 전극 적층으로 정상 범위다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1280.0,
+     "unit": "J/(kg*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "electrolyte": "1 M LiPF6 in EC:DMC (1:1 wt %) — 적층에 채운 상태",
+      "measurement_table": "Table IVa",
+      "specimen": "XFT cross-plane 시편 — 16 mm 지름 원판을 쌓고 열펄스를 층면에 수직으로 가함 (Fig. 6c)",
+      "basis": "Eq. 6 질량분율 가중 유효값 — 성분값은 Ref. 3(Chen & Evans)·Ref. 8(Kanari) 에서 가져왔다고 원문이 밝힌다"
+     },
+     "notes": "Table IVa `Cp (J g⁻¹ K⁻¹)` 적층 행 = 1.280 J/(g·K). **ρ·Cp 는 이 논문의 실측이 아니다.** 6쪽 `Thermal conductivity, method 2` 절 verbatim — `the thermal conductivity may be calculated from the product of α with the effective density ρ and the effective Cp. The latter may be calculated from mass-fraction-weighted values of Cp and ρ for each component (PE, NE, and/or Sp, **taken from Ref. 3 and 8**) as shown in Eq. 6` — Ref. 3 은 Chen & Evans, Ref. 8 은 Kanari 다. 즉 이 두 열은 2차 인용 성분값을 질량분율로 섞은 저자 계산값이라 규칙 4 대로 tier3·computed 로 넣는다. α 만이 이 논문의 XFT 실측이다. **주의 — 이 논문의 Cp 열은 자기 자신과 어긋난다.** 본문이 밝힌 Eq. 6 `Cp = Σ(ρVCp)i / Σ(ρV)i` 에 이 논문 자신의 PE 0.601·NE 0.623 과 본문 두께(PE·NE 각 0.19±0.01 mm, Sp 0.020±0.002 mm)를 넣으면 적층 Cp 상한이 0.64 J/(g·K) 인데 표는 1.088~1.089 를 인쇄한다 — 인쇄값을 내려면 분리막 Cp 가 25 J/(g·K) 여야 해서 물리적으로 불가능하다(혼합률 상하한, 브리프 25·604). 같은 Eq. 6 을 ρ 에 걸면 분리막 ρ 0.8 g/cm³ 에서 2.290 이 정확히 재현되므로 ρ 열은 닫히고 **Cp 열만 안 닫힌다.** 방향도 갈린다 — 이 논문 자신이 단열열량계로 잰 셀 전체 Cp (Table III, 0.96~1.04 J/(g·K))와 Table V 의 Chen(PE 1.134·NE 1.184)·Kanari(0.849·0.867) 셋이 모두 PE 0.601·NE 0.623 보다 높다. 저자도 `Our Cp values are lower than their values` 라고 적는다. 어느 칸이 오염인지 우리가 고르면 그것이 우리 판정이 되므로(브리프 443) 인쇄값을 그대로 두되 **tier3 로 내리고 이 모순을 행마다 적어 둔다.** k 행은 이 Cp 로 계산돼 있으므로 k 도 같은 편향을 물려받는다는 뜻이다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "physical.density",
+     "value": 2780.0,
+     "unit": "kg/m^3",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "electrolyte": "1 M LiPF6 in EC:DMC (1:1 wt %) — 적층에 채운 상태",
+      "measurement_table": "Table IVb",
+      "specimen": "XFT in-plane 시편 — 10 x 7 mm 층을 쌓아 100 mm2 x 7 mm 육면체로 만들고 열펄스를 층면에 나란히 가함 (Fig. 6b)",
+      "basis": "Eq. 6 질량분율 가중 유효값 — 성분값은 Ref. 3(Chen & Evans)·Ref. 8(Kanari) 에서 가져왔다고 원문이 밝힌다"
+     },
+     "notes": "Table IVb `ρ (g cm⁻³)` 적층 행(전해액 채움) = 2.780 g/cm³. **ρ·Cp 는 이 논문의 실측이 아니다.** 6쪽 `Thermal conductivity, method 2` 절 verbatim — `the thermal conductivity may be calculated from the product of α with the effective density ρ and the effective Cp. The latter may be calculated from mass-fraction-weighted values of Cp and ρ for each component (PE, NE, and/or Sp, **taken from Ref. 3 and 8**) as shown in Eq. 6` — Ref. 3 은 Chen & Evans, Ref. 8 은 Kanari 다. 즉 이 두 열은 2차 인용 성분값을 질량분율로 섞은 저자 계산값이라 규칙 4 대로 tier3·computed 로 넣는다. α 만이 이 논문의 XFT 실측이다. 검산 — 본문 두께(PE·NE 0.19 mm, Sp 0.020 mm)와 이 논문 자신의 PE 3.115·NE 1.622 를 Eq. 6 에 넣고 분리막 ρ = 0.8 g/cm³(미다공 PE 의 상식 범위)를 가정하면 2.290 이 그대로 나온다 — ρ 열은 닫힌다. 전해액을 채우면 2.290 → 2.780 로 0.39~0.49 g/cm³ 늘어 전해액 밀도 1.2~1.3 g/cm³ 기준 기공률 31~39% 를 뜻하는데 전극 적층으로 정상 범위다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1278.0,
+     "unit": "J/(kg*K)",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "electrolyte": "1 M LiPF6 in EC:DMC (1:1 wt %) — 적층에 채운 상태",
+      "measurement_table": "Table IVb",
+      "specimen": "XFT in-plane 시편 — 10 x 7 mm 층을 쌓아 100 mm2 x 7 mm 육면체로 만들고 열펄스를 층면에 나란히 가함 (Fig. 6b)",
+      "basis": "Eq. 6 질량분율 가중 유효값 — 성분값은 Ref. 3(Chen & Evans)·Ref. 8(Kanari) 에서 가져왔다고 원문이 밝힌다"
+     },
+     "notes": "Table IVb `Cp (J g⁻¹ K⁻¹)` 적층 행 = 1.278 J/(g·K). **ρ·Cp 는 이 논문의 실측이 아니다.** 6쪽 `Thermal conductivity, method 2` 절 verbatim — `the thermal conductivity may be calculated from the product of α with the effective density ρ and the effective Cp. The latter may be calculated from mass-fraction-weighted values of Cp and ρ for each component (PE, NE, and/or Sp, **taken from Ref. 3 and 8**) as shown in Eq. 6` — Ref. 3 은 Chen & Evans, Ref. 8 은 Kanari 다. 즉 이 두 열은 2차 인용 성분값을 질량분율로 섞은 저자 계산값이라 규칙 4 대로 tier3·computed 로 넣는다. α 만이 이 논문의 XFT 실측이다. **주의 — 이 논문의 Cp 열은 자기 자신과 어긋난다.** 본문이 밝힌 Eq. 6 `Cp = Σ(ρVCp)i / Σ(ρV)i` 에 이 논문 자신의 PE 0.601·NE 0.623 과 본문 두께(PE·NE 각 0.19±0.01 mm, Sp 0.020±0.002 mm)를 넣으면 적층 Cp 상한이 0.64 J/(g·K) 인데 표는 1.088~1.089 를 인쇄한다 — 인쇄값을 내려면 분리막 Cp 가 25 J/(g·K) 여야 해서 물리적으로 불가능하다(혼합률 상하한, 브리프 25·604). 같은 Eq. 6 을 ρ 에 걸면 분리막 ρ 0.8 g/cm³ 에서 2.290 이 정확히 재현되므로 ρ 열은 닫히고 **Cp 열만 안 닫힌다.** 방향도 갈린다 — 이 논문 자신이 단열열량계로 잰 셀 전체 Cp (Table III, 0.96~1.04 J/(g·K))와 Table V 의 Chen(PE 1.134·NE 1.184)·Kanari(0.849·0.867) 셋이 모두 PE 0.601·NE 0.623 보다 높다. 저자도 `Our Cp values are lower than their values` 라고 적는다. 어느 칸이 오염인지 우리가 고르면 그것이 우리 판정이 되므로(브리프 443) 인쇄값을 그대로 두되 **tier3 로 내리고 이 모순을 행마다 적어 둔다.** k 행은 이 Cp 로 계산돼 있으므로 k 도 같은 편향을 물려받는다는 뜻이다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 9.9e-07,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "electrolyte": "1 M LiPF6 in EC:DMC (1:1 wt %) — 적층에 채운 상태",
+      "direction": "through-thickness",
+      "direction_verbatim": "cross-plane",
+      "open_circuit_voltage_v": 2.45,
+      "measurement_table": "Table IVa",
+      "specimen": "XFT cross-plane 시편 — 16 mm 지름 원판을 쌓고 열펄스를 층면에 수직으로 가함 (Fig. 6c)",
+      "test_method": "xenon flash technique (XFT), Oak Ridge HTML; α = 1.37 L²/t₁₂ (Eq. 7)",
+      "uncertainty_printed": "sd 4 x 10⁻⁴ cm²/s (표 머리글 공통)"
+     },
+     "notes": "Table IVa `α (cm² s⁻¹) OCV = 2.45 V` 적층 행 = 0.0099 cm²/s. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 3.39,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "electrolyte": "1 M LiPF6 in EC:DMC (1:1 wt %) — 적층에 채운 상태",
+      "direction": "through-thickness",
+      "direction_verbatim": "cross-plane",
+      "open_circuit_voltage_v": 2.45,
+      "measurement_table": "Table IVa",
+      "specimen": "XFT cross-plane 시편 — 16 mm 지름 원판을 쌓고 열펄스를 층면에 수직으로 가함 (Fig. 6c)",
+      "basis": "k = α·ρ·Cp (초록 verbatim) — α 는 이 논문의 XFT 실측, ρ·Cp 는 Eq. 6 유효값",
+      "test_method": "xenon flash technique (XFT) α 측정 후 k = αρCp"
+     },
+     "notes": "Table IVa `k (W m⁻¹ K⁻¹) OCV = 2.45 V` 적층 행 = 3.39. 이 행은 항등식이 닫는다. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 1e-06,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "electrolyte": "1 M LiPF6 in EC:DMC (1:1 wt %) — 적층에 채운 상태",
+      "direction": "through-thickness",
+      "direction_verbatim": "cross-plane",
+      "open_circuit_voltage_v": 3.75,
+      "measurement_table": "Table IVa",
+      "specimen": "XFT cross-plane 시편 — 16 mm 지름 원판을 쌓고 열펄스를 층면에 수직으로 가함 (Fig. 6c)",
+      "test_method": "xenon flash technique (XFT), Oak Ridge HTML; α = 1.37 L²/t₁₂ (Eq. 7)",
+      "uncertainty_printed": "sd 4 x 10⁻⁴ cm²/s (표 머리글 공통)"
+     },
+     "notes": "Table IVa `α (cm² s⁻¹) OCV = 3.75 V` 적층 행 = 0.01 cm²/s. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 3.4,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "electrolyte": "1 M LiPF6 in EC:DMC (1:1 wt %) — 적층에 채운 상태",
+      "direction": "through-thickness",
+      "direction_verbatim": "cross-plane",
+      "open_circuit_voltage_v": 3.75,
+      "measurement_table": "Table IVa",
+      "specimen": "XFT cross-plane 시편 — 16 mm 지름 원판을 쌓고 열펄스를 층면에 수직으로 가함 (Fig. 6c)",
+      "basis": "k = α·ρ·Cp (초록 verbatim) — α 는 이 논문의 XFT 실측, ρ·Cp 는 Eq. 6 유효값",
+      "test_method": "xenon flash technique (XFT) α 측정 후 k = αρCp"
+     },
+     "notes": "Table IVa `k (W m⁻¹ K⁻¹) OCV = 3.75 V` 적층 행 = 3.4. 이 행은 항등식이 닫는다. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 20.06,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "electrolyte": "1 M LiPF6 in EC:DMC (1:1 wt %) — 적층에 채운 상태",
+      "direction": "in-plane",
+      "direction_verbatim": "in-plane",
+      "open_circuit_voltage_v": 2.45,
+      "measurement_table": "Table IVb",
+      "specimen": "XFT in-plane 시편 — 10 x 7 mm 층을 쌓아 100 mm2 x 7 mm 육면체로 만들고 열펄스를 층면에 나란히 가함 (Fig. 6b)",
+      "basis": "k = α·ρ·Cp (초록 verbatim) — α 는 이 논문의 XFT 실측, ρ·Cp 는 Eq. 6 유효값",
+      "test_method": "xenon flash technique (XFT) α 측정 후 k = αρCp"
+     },
+     "notes": "Table IVb `k (W m⁻¹ K⁻¹) OCV = 2.45 V` 적층 행 = 20.06. 같은 행의 α 칸은 기각했고 k 는 살렸다 — 사유는 재료 attributes 의 core_rejected_printed_value 에 있다. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 7.9e-06,
+     "unit": "m^2/s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "electrolyte": "1 M LiPF6 in EC:DMC (1:1 wt %) — 적층에 채운 상태",
+      "direction": "in-plane",
+      "direction_verbatim": "in-plane",
+      "open_circuit_voltage_v": 3.75,
+      "measurement_table": "Table IVb",
+      "specimen": "XFT in-plane 시편 — 10 x 7 mm 층을 쌓아 100 mm2 x 7 mm 육면체로 만들고 열펄스를 층면에 나란히 가함 (Fig. 6b)",
+      "test_method": "xenon flash technique (XFT), Oak Ridge HTML; α = 1.37 L²/t₁₂ (Eq. 7)",
+      "uncertainty_printed": "± 0.0004 cm²/s"
+     },
+     "notes": "Table IVb `α (cm² s⁻¹) OCV = 3.75 V` 적층 행 = 0.079 cm²/s. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 28.05,
+     "unit": "W/(m*K)",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_status": "room temperature (원문 `at room temperature`; 상온 측정구간은 본문이 310~315 K 로 밝힌다)",
+      "cell": "Sony US-18650 cylindrical Li-ion cell (1.35 Ah, 1996년 구입품), 아르곤 글로브백에서 분해 후 에탄올 세정·65 C 24 h 건조",
+      "electrolyte": "1 M LiPF6 in EC:DMC (1:1 wt %) — 적층에 채운 상태",
+      "direction": "in-plane",
+      "direction_verbatim": "in-plane",
+      "open_circuit_voltage_v": 3.75,
+      "measurement_table": "Table IVb",
+      "specimen": "XFT in-plane 시편 — 10 x 7 mm 층을 쌓아 100 mm2 x 7 mm 육면체로 만들고 열펄스를 층면에 나란히 가함 (Fig. 6b)",
+      "basis": "k = α·ρ·Cp (초록 verbatim) — α 는 이 논문의 XFT 실측, ρ·Cp 는 Eq. 6 유효값",
+      "test_method": "xenon flash technique (XFT) α 측정 후 k = αρCp"
+     },
+     "notes": "Table IVb `k (W m⁻¹ K⁻¹) OCV = 3.75 V` 적층 행 = 28.05. 이 행은 항등식이 닫는다. 표 자신의 항등식 `k = α·ρ·Cp` 로 검산했다 — 초록 verbatim `The thermal conductivity, k, was calculated from k ≡ αρCp where α was measured by a xenon-flash technique`. Table IVa 8칸 전부와 IVb 6칸이 0.9% 안에서 재현된다. 모든 표를 400 dpi 렌더(`pdftoppm -png -r 400`)로 다시 읽고 적었다 — 이 PDF 는 md 와 `pdftotext` 가 **똑같이 틀린다**(브리프 603). 숫자 앞뒤 여백이 글자 `1` 로, `±` 가 `6` 으로, `+` 가 `1` 로, `=` 가 `5` 로 추출된다."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+{
+ "batch": "58차 TE",
+ "note": "te01 이 이 판정을 `core_rejected_printed_value` 에 넣었는데 `verdicts_check.py` 가 `선언했는데 값이 있다` 로 잡았다. 맞는 지적이다 — 기각한 것은 α **8칸 중 조건이 다른 2칸**이고 나머지 6칸은 들어가 있다. 그리고 `thermal.diffusivity` 는 CORE7 이 아니라 coverage 가 세지 않으므로 V6 자리(코어 칸이 V5 로 세어지는 것을 막는 자리)에 있을 이유도 없다. 전파되는 `verdict_` 접두어로 옮긴다(브리프 608 — 판정은 자리·독자·전파 셋이 다 있어야 한다).",
+ "verdicts": [
+  {
+   "material_id": 2693,
+   "name": "Li-ion PE/Sp/NE stacked layer assembly, dissected from Sony US-18650 cell (Maleki 1999)",
+   "core_rejected_printed_value": null,
+   "verdict_rejected_printed_cells": "[열전도율 확산율 α 두 칸 기각 — 재료 단위가 아니라 조건 단위다] in-plane α 두 칸만 버렸다(행 전체가 아니다 — 브리프 141). ① **전해액 없음·in-plane·OCV 2.45 V — 인쇄 `0.0071 ± 0.0040 cm²/s`.** 항등식이 k = 1.77 을 내는데 같은 행의 인쇄 k 는 17.69 다 — 정확히 10배. 렌더로 확인했으므로 추출 손상이 아니라 **원문 자체의 소수점 오식**이다. 같은 칸의 ± 0.0040 이 0.0071 에 대해는 56%, 0.071 에 대해는 5.6% 라 다른 행들(PE 0.115±0.0040 = 3.5%)과 맞는 쪽은 0.071 이다 — 그래도 그 값을 집어넣지 않는다(규칙 1·2). 같은 행의 ρ·Cp·k 세 칸은 살렸다. ② **전해액 채움·in-plane·OCV 2.45 V — 인쇄 `0.058 ± 0.0010 cm²/s`.** 항등식이 20.61 을 내는데 인쇄 k 는 20.06 이라 2.7% 어긋난다 — 나머지 14칸은 0.9% 안이라 이 한 쌍만 틀었다. 같은 재료의 OCV 3.75 V 행이 0.079 x 2780 x 1278 = 28.07 대 인쇄 28.05 로 0.06% 안에 닫히므로 ρ = 2.78·Cp = 1.278 은 확정이고 남는 용의자는 α 와 k 둘이다. 본문이 갈랐다 — `Addition of electrolyte also increases the ... k of stacked layers PE/Sp/NE recovered from a cell at OCV = 2.45 V, but only by 13%, and similarly for a cell at OCV = 3.75 V (Table IVb)` 에서 20.06/17.69 = 13.4% · 28.05/24.66 = 13.7% 로 'similarly' 가 성립하고, α = 0.058 이 맞다면 16.5% 가 돼 그 문장이 깨진다(브리프 60 — 본문 서술이 표의 오식을 특정한다). 따라서 k = 20.06 을 살리고 α 칸만 버렸다. 자리 — `thermal.diffusivity` 는 CORE7 이 아니라 커버리지가 세지 않고, 같은 키의 나머지 6칸은 들어가 있으므로 `core_rejected_printed_value`(V6) 가 아니라 여기 적는다. V6 는 코어 칸이 V5 로 세어지는 것을 막는 자리다(브리프 609). — 58차 TE"
+  }
+ ]
+}
