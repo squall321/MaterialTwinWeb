@@ -1,0 +1,144 @@
+{
+ "batch": "57차 SD",
+ "note": "56차 RC 가 남긴 S7 곁가지 값. 각 값은 이미 DB 에 있는 다른 칸으로 열 배정을 검산했다.",
+ "materials": [
+  {
+   "match_id": 2613,
+   "match_name": "Nittobo T-glass high-modulus low-expansion glass fibre (PCB reinforcement)",
+   "source": {
+    "kind": "datasheet",
+    "title": "組成／特性 — 日東紡績 グラスファイバーとは (Eガラス/Tガラス/NEガラス 특성·조성표, 일본어 페이지)",
+    "url": "https://www.nittobo.co.jp/business/glassfiber/composition.htm",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Nittobo_GlassFiber_Composition_Characteristics_JA_2026-09-01.html",
+    "authors": "Nitto Boseki Co., Ltd. (日東紡績株式会社)",
+    "year": 2026,
+    "publisher": "Nitto Boseki (Nittobo)"
+   },
+   "properties": [
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.4,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {"frequency_hz": 1000000000.0, "specimen_form": "lump/bulk glass (각주 ※1)", "temperature": "not printed"},
+     "notes": "일본어 `組成／特性` 페이지 특성표의 `誘電率[1GHz] ※1` 행 verbatim — `Eガラス 6.8 · Tガラス 5.4 · NEガラス 4.8`. 각주 `※1 塊状のガラスの測定値`(덩어리 유리의 측정값)이고 표 아래 `※上記データは、実測値の一例であり、規格値ではありません`(실측값의 한 예이며 규격값이 아니다)가 붙는다. **영문 T-glass 페이지에는 이 행이 아예 없다** — 56차 RC 가 연 `eng/business/electronicmaterials/t-glass.htm` 은 밀도·인장강도·인장탄성률·최대신율·CTE·연화점 여섯 행뿐이고 유전 특성 두 행은 일본어 `business/glassfiber/composition.htm` 에만 인쇄된다(같은 회사의 `電子材料事業` 계열 페이지에도 없고, NEガラス 페이지의 유전 비교표는 E대NE 두 열뿐이라 T열이 없다). **[열 배정 검산]** 같은 표의 나머지 여섯 행이 DB 에 이미 있는 재료 2613 의 값과 전부 일치한다 — 密度 2.5 g/cm3 · 引張り強度 4.8 GPa · 引張り弾性率 86 GPa · 熱膨張係数 2.8e-6 /℃ · 軟化点 >1000 ℃, 그리고 最大伸び率은 이 표가 6.1, 전용 페이지가 6.16 으로 자릿수만 다르다. 여섯 칸이 맞으므로 T열을 잘못 읽지 않았다(브리프 129). 측정 온도는 인쇄되어 있지 않다."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.0043,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {"frequency_hz": 1000000000.0, "specimen_form": "lump/bulk glass (각주 ※1)", "temperature": "not printed"},
+     "notes": "같은 표의 `誘電正接[1GHz] ※1` 행 verbatim — `Eガラス 0.0035 · Tガラス 0.0043 · NEガラス 0.0015`. 각주 `※1 塊状のガラスの測定値` 이고 규격값이 아니라 실측 예시임을 표가 스스로 밝힌다. 열 배정 검산은 같은 재료의 유전율 행과 같다(같은 표 여섯 행이 DB 와 일치). **곁가지로 확인된 것** — 이 표의 Eガラス 열 유전율 6.8 · 유전정접 0.0035 는 日東紡의 다른 페이지(`electronicmaterials/ne-glass.htm`·`electronicmaterials/pcbcloth/index.htm`)가 같은 값으로 인쇄해 표끼리 맞물린다. 다만 그 두 페이지는 T열을 싣지 않는다."
+    }
+   ]
+  },
+  {
+   "match_id": 261,
+   "match_name": "HA Rolled Annealed Copper Foil (JX)",
+   "source": {
+    "kind": "web",
+    "title": "Treated Rolled Copper Foil - JX Advanced Metals (Treated Rolled Copper Foil Lineup and Typical Properties > Typical properties > Mechanical properties)",
+    "url": "https://www.jx-nmm.com/english/products/copper_foil_and_alloy/rolled_copper_foil/",
+    "local_path": null,
+    "authors": "JX Advanced Metals Corporation",
+    "year": 2026,
+    "publisher": "JX Advanced Metals Corporation"
+   },
+   "properties": [
+    {
+     "key": "mechanical.elongation_at_break",
+     "value": 0.08,
+     "unit": "1",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {"grade": "HA (TPC base, Cu at least 99.9%, Ag 190 ppm)", "conditioning": "after annealing"},
+     "notes": "JX 자사 제품 페이지 `Typical properties` 절 `Mechanical properties` 표 verbatim. 표 머리글이 `Type | TPC | HA | HA-V2 | HG` 이고 `Elongation (%)` 아래 `Before annealing | 1 | 2 | 2 | 2` 와 `After annealing | 10 | 8 | 8 | 30` 두 줄이다. 재료 261 이 rolled annealed(소둔) 동박이므로 HA 열의 After annealing 8% = 0.08 을 골랐다. **[열 배정 검산]** 같은 표 바로 위 `Tensile strength (MPa)` 행의 `After annealing | 210 | 145 | 150 | 260` 중 HA 열 145 MPa 이 56차 RC 가 같은 페이지에서 넣은 DB 의 t1 인장강도 1.45e8 Pa 와 같고, 같은 페이지 `Physical properties` 표의 `Modulus of elasticity (GPa) (resonance method)` After annealing HA 열 70 이 DB 의 t1 영률 70 GPa 와 같다 — 두 칸이 같은 열을 가리키므로 연신율도 HA 열이 맞다. 표는 `Properties are shown as typical values, which are not guaranteed values` 라고 스스로 밝힌다. 시험 규격·온도·박 두께는 인쇄되어 있지 않아 조건에 넣지 않았다."
+    }
+   ]
+  },
+  {
+   "match_id": 431,
+   "match_name": "DynaVia 2000 (Shipley, photo-definable buildup dielectric dry film)",
+   "source": {
+    "kind": "other",
+    "title": "Physics Based Reliability Assessment of Embedded Passives",
+    "url": "http://hdl.handle.net/1853/5095",
+    "local_path": null,
+    "authors": "Manoj K. Damani",
+    "year": 2004,
+    "publisher": "Georgia Institute of Technology"
+   },
+   "properties": [
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 3.72,
+     "unit": "1",
+     "method": "literature",
+     "tier": 3,
+     "conditions": {"grade": "Shipley DynaVia 2000 (63.5 um dry-film buildup dielectric)", "frequency": "not printed", "temperature": "not printed"},
+     "notes": "학위논문 6장 `Electromagnetic Modeling` 절 본문 verbatim — `The dielectric constant of DynaVia 2000TM is 3.72 and its loss tangent is 0.024`. **[tier 를 1 로 올리지 않은 이유]** 논문이 이 값을 ANSYS 정전 모델(Solid122/Infinity111)의 입력으로 적었을 뿐 **측정했다고 방법절에 쓰지 않았고 인용 각주도 없다**(같은 장의 Prony 표 5.4 에는 `[35]`, 구리 탄성률 표 5.1 에는 `[32]` 가 붙어 있는데 이 문장에는 없다) — 브리프 3 의 판별을 그대로 적용해 tier3 이다. **[그래도 넣는 이유]** 이 재료의 기존 유전율 칸은 **다른 제품(TAIYO PSR-4000 AUS703)의 클래스값 4.0 이 t4 로 앉아 있는 것**이다. 3.72 는 이 제품 이름으로 인쇄된 값이고 유효숫자 3자리라 관용값이 아니다 — 등급이 맞는 t3 이 등급이 틀린 t4 보다 낫다. **역산이 아니다** — 논문의 정전 해석 결과(표 5.7)에서 되뽑은 값이 아니라 입력으로 인쇄된 숫자를 그대로 옮겼다."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.024,
+     "unit": "1",
+     "method": "literature",
+     "tier": 3,
+     "conditions": {"grade": "Shipley DynaVia 2000 (63.5 um dry-film buildup dielectric)", "frequency": "not printed", "temperature": "not printed"},
+     "notes": "같은 문장 verbatim — `its loss tangent is 0.024`. 손실계수(tanδ)다. tier 판단은 같은 문장의 유전율과 같다(측정 방법 미기재·인용 각주 없음, 브리프 3). 이 재료에는 손실계수 칸이 비어 있었으므로 이 값이 첫 값이다. 논문 5장이 이 재료를 `epoxy based photo definable, negative acting, dry film dielectric` 로 적고 두께 63.5 um 를 표로 인쇄해 재료 431 과 같은 제품임이 닫힌다."
+    }
+   ]
+  },
+  {
+   "match_id": 2378,
+   "match_name": "GPO-3 glass-mat polyester laminate, Rochling Glastic UTR grade (part 1491-1494-1497, NEMA GPO-3-GPO-3P, IEC UP GM 203)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Technical Data Sheet Glastic(R) UTR, GFK-UP (PIM-ID 715322, Version 5.0, Release 15/12/2023)",
+    "url": "https://www.roechling.com/fileadmin/assets/Technical%20Data%20Sheet%20Glastic%C2%AE%20UTR%20715322%20EN.pdf",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/mech/Rochling_Glastic_UTR_Technical_Data_Sheet_715322_EN.pdf",
+    "authors": "Roechling Industrial (Roechling Glastic Composites)",
+    "year": 2023,
+    "publisher": "Roechling Industrial"
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 90321320.5405,
+     "unit": "Pa",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {"temperature_c": 130, "test_standard": "ASTM D 790", "grade": "Glastic UTR, part numbers 1491 / 1493 / 1494 / 1495 / 1497 (NEMA LI 1-1989 GPO-3)"},
+     "notes": "Roechling 자사 공식 TDS 의 Mechanical properties 블록 verbatim `Flexural Strength @130°C   ASTM D 790   psi   13,100` 이다. 13,100 psi 를 SI 로 환산해 9.03213205e7 Pa 로 적었고 환산 외에 손대지 않았다. **[환산·열 배정 동시 검산]** 같은 블록 바로 위 행 `Flexural Strength   ASTM D 790   psi   22,100` 을 같은 계수(1 psi = 6894.757293168361 Pa)로 환산하면 152,374,136.18 Pa 인데, DB 에 이미 있는 재료 2378 의 23 ℃ 굽힘강도가 152,374,136.1753 Pa 다 — 소수점 넷째 자리까지 같다. 즉 이 표가 우리 DB 의 상온 행과 같은 데이터셋이고 환산 계수도 앞 배치와 같다. 같은 시트의 Tensile Modulus 1.7x10^6 psi 와 Specific Gravity 1.81 도 DB 의 t1 영률 1.17210874e10 Pa · 밀도 1810 kg/m3 와 맞물린다. **130 ℃ 값은 상온의 59.3% 다** — 폴리에스터 매트릭스 GPO-3 가 UL 전기 온도지수 130 ℃ 근처에서 강성을 잃는 것과 방향이 맞는다. 시편 두께는 시트 각주가 `Typical average values are for 0.063\" thick laminate` 라고만 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_id": 2379,
+   "match_name": "GPO-3 glass-mat polyester laminate, Rochling Glastic 1580 grade (part 1580, NEMA GPO-3, IEC UP GM 203, UL94 V-0)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Technical Data Sheet Glastic(R) 1580/1583, GFK-UP (PIM-ID 715308, Version 3.0, Release 11/03/2024)",
+    "url": "https://www.roechling.com/fileadmin/assets/715308_technical-data-sheet_en.pdf",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/mech/Rochling_Glastic_1580-1583_Technical_Data_Sheet_715308_EN.pdf",
+    "authors": "Roechling Industrial (Roechling Glastic Composites)",
+    "year": 2024,
+    "publisher": "Roechling Industrial"
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 58398594.2731,
+     "unit": "Pa",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {"temperature_c": 130, "test_standard": "ASTM D 790", "grade": "Glastic 1580 (1583), part number 1580, NEMA GPO-3"},
+     "notes": "Roechling 자사 공식 TDS(1580/1583) 의 Mechanical properties 블록 verbatim `Flexural Strength @130°C   ASTM D 790   psi   8,470` 이다. 같은 계수로 환산해 5.83985943e7 Pa 로 적었다. **[환산·열 배정 동시 검산]** 바로 위 행 `Flexural Strength   ASTM D 790   psi   24,600` 을 환산하면 169,611,029.41 Pa 인데 DB 의 재료 2379 상온 굽힘강도가 169,611,029.4078 Pa 다. 같은 시트의 `Specific Gravity 1.83` 도 DB 의 밀도 1830 kg/m3 와 같다. 56차 RC 가 이 시트를 열었지만 `Tensile Modulus 행이 없다` 로만 적고 지나갔다 — **행은 없었어도 이 시트에만 있는 행이 따로 있었다**(브리프 506 의 얼굴). **130 ℃ 값은 상온의 34.4% 로 UTR(59.3%)보다 훨씬 많이 떨어진다** — 이 시트가 1580 의 UL 전기 온도지수를 120 ℃, UTR 을 130 ℃ 로 찍는 것과 방향이 맞는다(130 ℃ 는 1580 에게 정격 밖이다). 시편 두께는 인쇄되어 있지 않다."
+    }
+   ]
+  }
+ ]
+}

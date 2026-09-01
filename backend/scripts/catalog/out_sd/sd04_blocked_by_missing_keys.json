@@ -1,0 +1,33 @@
+{
+ "batch": "57차 SD",
+ "왜 세는가": "키 부재를 '값 하나 못 넣음' 으로 세면 우선순위가 틀린다(브리프 468). 값은 이미 손에 있고 문서도 디스크에 있다. 키 신설은 채굴과 분리된 배치가 한꺼번에 여는 것이 낫다.",
+ "막힌 갈래": [
+  {
+   "필요한 키": "electrical.arc_resistance (ASTM D 495, 단위 s)",
+   "막힌 행": 2,
+   "값": [
+    {"material_id": 2378, "source_id": 4754, "verbatim": "Arc Resistance | ASTM D 495 | sec. | 180"},
+    {"material_id": 2379, "새 출처": "Roechling Glastic 1580/1583 TDS (PIM-ID 715308)", "verbatim": "Arc Resistance | ASTM D 495 | sec. | 181"}
+   ],
+   "비고": "두 시트 다 이 행을 찍는다. GPO-3 는 내아크성이 팔리는 이유라 이 계열에서 중요한 축이다. 유사 키 electrical.comparative_tracking_index(CTI)는 이미 있으나 ASTM D 495 와 UL 746A 는 다른 시험이다 — 같은 키에 넣으면 안 된다."
+  },
+  {
+   "필요한 키": "콘칼로리미터 ASTM E 1354 블록 — 착화시간(s) · 최대 열방출률(W/m^2) · 300초 열방출률(W/m^2) · 연소열(J/kg) · 평균 연기소멸면적(m^2/kg)",
+   "막힌 행": 5,
+   "값": [
+    {"material_id": 2378, "source_id": 4754, "verbatim": "Cone Calorimeter - Time to Ignition | ASTM E 1354 | sec. | 109"},
+    {"material_id": 2378, "source_id": 4754, "verbatim": "Cone Calorimeter - Peak Rate of Heat Release | ASTM E 1354 | kW/m2 | 168.6"},
+    {"material_id": 2378, "source_id": 4754, "verbatim": "Cone Calorimeter - Heat Release Rate @ 300 sec. | ASTM E 1354 | kW/m2 | 77.2"},
+    {"material_id": 2378, "source_id": 4754, "verbatim": "Cone Calorimeter - Caloric Conent | ASTM E 1354 | MJ / kg | 7.13"},
+    {"material_id": 2378, "source_id": 4754, "verbatim": "Cone Calorimeter - Average Smoke Extinction Area | ASTM E1354 | m2 / kg | 336.1"}
+   ],
+   "비고": "UTR 시트에만 있는 블록이다(1580 시트에는 없다). 다섯 칸이 한 시험의 한 세트라 키 하나가 아니라 갈래 전체가 막혀 있다. `Caloric Conent` 는 시트의 오타이고 값은 연소열이다."
+  },
+  {
+   "필요한 키": "그 밖의 난연·연기 블록 — ASTM E 162 복사패널 화염전파 · ASTM E 84/UL 723 터널시험(화염전파·연기밀도) · ASTM D 229-II 착화/연소시간 · ASTM E 662 광학연기밀도 4행 · 연기조성 4행 · ASTM D 257 절연저항 · ASTM D 2303 경사판 트래킹",
+   "막힌 행": 16,
+   "비고": "UTR 12행 · 1580 4행. 세어만 두고 값은 옮기지 않았다 — 표적이 아니었고 키도 없다."
+  }
+ ],
+ "합계": {"막힌 행": 23, "재료": 2, "문서": 2, "문서는 전부 디스크에 있다": true}
+}
