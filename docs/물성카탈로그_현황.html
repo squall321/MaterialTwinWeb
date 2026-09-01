@@ -254,7 +254,7 @@ details.more .tblwrap{border:none;border-top:1px solid var(--line);border-radius
 </ol></nav>
 <section id="s1"><div class="shead"><span class="sno">01</span><h2>수집 경로</h2><p class="ssub">원천에서 해석 카드까지 6단계</p></div>
 <figure class="flow">
-<svg viewBox="0 0 980 268" role="img" aria-label="원천에서 해석 카드까지 — 관문 둘이 값을 거르고, 검사기와 병합기가 DB 를 지킨다">
+<svg viewBox="0 0 980 268" role="img" aria-label="적재 경로 6단계와 검증 단계 2개소, DB 상단의 정합성 검사·병합 경로">
 <defs>
 <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
 <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
@@ -272,12 +272,12 @@ details.more .tblwrap{border:none;border-top:1px solid var(--line);border-radius
 <rect x="852" y="96" width="116" height="52" rx="7"/>
 </g>
 <g class="ft">
-<text x="76" y="117">원천</text><text x="76" y="134" class="sm">논문·시트·규격</text>
-<text x="244" y="117">채굴</text><text x="244" y="134" class="sm">배치가 표를 읽는다</text>
-<text x="412" y="117">적재기</text><text x="412" y="134" class="sm">유일한 쓰기 문</text>
+<text x="76" y="117">원천</text><text x="76" y="134" class="sm">문헌·시트·규격</text>
+<text x="244" y="117">추출</text><text x="244" y="134" class="sm">원문 표 판독</text>
+<text x="412" y="117">적재</text><text x="412" y="134" class="sm">단일 쓰기 경로</text>
 <text x="580" y="117">DB</text><text x="580" y="134" class="sm">값·출처·조건</text>
-<text x="748" y="117">대표값 선택</text><text x="748" y="134" class="sm">행 여럿 중 하나</text>
-<text x="910" y="117">카드·화면</text><text x="910" y="134" class="sm">해석 입력</text>
+<text x="748" y="117">대표값 선정</text><text x="748" y="134" class="sm">동일 물성 다중 행</text>
+<text x="910" y="117">해석 입력</text><text x="910" y="134" class="sm">카드·API·화면</text>
 </g>
 
 <!-- 본류 화살표 -->
@@ -306,8 +306,8 @@ details.more .tblwrap{border:none;border-top:1px solid var(--line);border-radius
 <rect x="344" y="196" width="136" height="44" rx="7"/>
 </g>
 <g class="ft rj">
-<text x="244" y="215">폐기 대장</text><text x="244" y="231" class="sm">왜 안 쓰는지 남긴다</text>
-<text x="412" y="215">거부</text><text x="412" y="231" class="sm">단위·범위·출처·조건</text>
+<text x="244" y="215">제외 기록</text><text x="244" y="231" class="sm">탈락 사유 보존</text>
+<text x="412" y="215">검증 불합격</text><text x="412" y="231" class="sm">단위·범위·출처·조건</text>
 </g>
 
 <!-- DB 를 지키는 둘 -->
@@ -317,20 +317,21 @@ details.more .tblwrap{border:none;border-top:1px solid var(--line);border-radius
 </g>
 <g class="fb gd"><rect x="500" y="18" width="192" height="44" rx="7"/></g>
 <g class="ft gd">
-<text x="596" y="37">검사기 · 병합기</text>
-<text x="596" y="53" class="sm">배포 전 관문 · 운영 전파</text>
+<text x="596" y="37">정합성 검사 · 병합</text>
+<text x="596" y="53" class="sm">배포 판정 · 운영 반영</text>
 </g>
 
 <!-- 대표값이 갈릴 때 -->
 <g class="fa alt"><line x1="748" y1="148" x2="748" y2="196" marker-end="url(#ah)"/></g>
 <g class="fb alt"><rect x="672" y="196" width="152" height="44" rx="7"/></g>
 <g class="ft alt">
-<text x="748" y="215">대안 후보 노출</text><text x="748" y="231" class="sm">진 값도 쓸 수 있다</text>
+<text x="748" y="215">비채택 후보 병기</text><text x="748" y="231" class="sm">삭제하지 않음</text>
 </g>
 </svg>
-<figcaption>값은 두 관문을 지나야 DB 에 들어간다 — <b>채굴이 버린 것은 대장에</b>, <b>적재기가 거부한 것은 반려로</b> 남는다.
-DB 위에서는 검사기가 배포를 막고 병합기가 운영 전파를 책임진다. 한 재료·한 물성에 행이 여럿이면
-선택기가 하나를 고르되 <b>진 후보를 지우지 않고 함께 낸다.</b></figcaption>
+<figcaption>적재 경로에 <b>검증 단계 2개소</b>를 둔다. 추출 단계 탈락분은 사유와 함께 제외 기록에 보존하고,
+적재 단계 불합격분은 단위·범위·출처·조건 위반으로 분류한다. DB 반영 이후에는 정합성 검사가 배포 가부를 판정하고
+병합 단계가 운영 DB 반영을 담당한다. 동일 재료·동일 물성에 행이 복수인 경우
+<b>대표값 1건을 선정하되 비채택 후보를 삭제하지 않고 함께 제공한다.</b></figcaption>
 </figure>
 </section>
 <section id="s2"><div class="shead"><span class="sno">02</span><h2>집계 기준</h2><p class="ssub">해석이 요구하는 칸만 분모로 계상</p></div>
@@ -341,7 +342,7 @@ DB 위에서는 검사기가 배포를 막고 병합기가 운영 전파를 책�
 <div class="cell"><b>247</b><span>구조적으로 못 채우는 칸</span></div>
 <div class="cell"><b>7,417</b><span>아직 채울 수 있는 칸</span></div>
 </div>
-<p class="note">택일군이 있다. 낙하해석의 소성 입력은 <code>항복강도</code> 하나든 <code>인장강도+파단연신율</code> 쌍이든 역할이 채워지므로 <b>칸 하나</b>로 센다. 어느 쪽이 인쇄되는지는 시험규격 관행이 정하지, 재료가 정하지 않는다.</p>
+<p class="note"><b>택일군을 둔다.</b> 낙하해석의 소성 입력은 <code>항복강도</code> 단독 또는 <code>인장강도 + 파단연신율</code> 쌍 중 하나로 충족되므로 <b>칸 1개</b>로 계상한다. 어느 쪽이 인쇄되는지는 재료가 아니라 시험규격 관행이 결정한다.</p>
 <dl class="defs"><dt>셀 채움</dt><dd>채워진 칸 / 전체 칸 — 수집 진척도</dd><dt>실측기반</dt><dd>tier4(가정·계산)를 뺀 채움 — 근거의 실제 크기</dd><dt>유효채움</dt><dd>구조적 부재를 분모에서 뺀 채움 — 도달 가능한 천장 대비</dd><dt>적용 대비 준비율</dt><dd>그 해석이 원리적으로 성립하는 재료만 분모로 둔 재료 준비율</dd></dl>
 </section>
 <section id="s3"><div class="shead"><span class="sno">03</span><h2>해석별 충족도</h2><p class="ssub">해석 13종 · 재료 준비율</p></div>
@@ -363,7 +364,7 @@ DB 위에서는 검사기가 배포를 막고 병합기가 운영 전파를 책�
 <tr><td class="nm">산소확산-매트릭스</td><td class="n">54</td><td class="n">54</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:68.5%"></i></span><span class="pct">68.5</span></td><td class="n mono">53.7</td><td class="n mono">74.0</td><td class="n"><span class="pill crit">74.0%</span></td></tr>
 <tr class="tot"><td class="nm">전체</td><td class="n">2663</td><td class="n">23,360</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:67.3%"></i></span><span class="pct">67.3</span></td><td class="n mono">51.8</td><td class="n mono">67.9</td><td class="n">—</td></tr>
 </tbody></table></div>
-<p class="note"><b>셀 채움과 실측기반의 차이 15.5%p(3,631칸)가 가정값이 만든 착시다.</b> 표를 하나만 보면 속는다 — 채움률이 100%인 해석도 실측기반은 67%일 수 있다.</p>
+<p class="note"><b>셀 채움과 실측기반의 차 15.5%p · 3,631칸이 가정값에 해당한다.</b> 두 지표를 함께 읽어야 한다 — 채움률 100%인 해석도 실측기반은 67% 수준일 수 있다.</p>
 </section>
 <section id="s4"><div class="shead"><span class="sno">04</span><h2>계통별 충족도</h2><p class="ssub">코어 7물성 기준 · 계통 17종</p></div>
 <p>제품 재료 873종을 계통으로 태깅했다. 아래는 <b>코어 7물성</b>(밀도·영률·포아송비·CTE·열전도율·비열·인장강도) 6,111칸의 채움률이다 — 해석 격자와 달리 <b>재료 하나가 최소한 이것은 있어야 한다</b>는 축이다.</p>
@@ -388,8 +389,8 @@ DB 위에서는 검사기가 배포를 막고 병합기가 운영 전파를 책�
 <tr><td class="nm">magnetics</td><td class="n">39</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:35.9%"></i></span><span class="pct">35.9</span><span class="blk">/ 175</span></td><td class="n mono">·</td><td class="n mono">·</td><td class="n mono">175</td><td class="n mono">·</td><td class="n mono">·</td><td class="n"><span class="pill crit">0</span></td></tr>
 <tr class="tot"><td class="nm">전체</td><td class="n">873</td><td class="barcell"><span class="btrack sm"><i class="bfill teal" style="width:68.7%"></i></span><span class="pct">68.7</span><span class="blk">/ 1,913</span></td><td class="n mono">206</td><td class="n mono">792</td><td class="n mono">191</td><td class="n mono">76</td><td class="n mono">78</td><td class="n mono">570</td></tr>
 </tbody></table></div>
-<details class="more"><summary>빈칸 갈래 정의</summary><div class="tblwrap"><table class="unf"><tbody><tr><td class="nm">해당 없음</td><td>물리적으로 그 물성이 정의되지 않는다 — 분말 원료·증착 박막·전환피막.</td></tr><tr><td class="nm">벤더 구조적 부재</td><td>시트를 실제로 열어 그 열이 없음을 확인했다.</td></tr><tr><td class="nm">인쇄됐으나 기각</td><td>원문이 값을 인쇄하는데 검산에서 죽어 안 넣었다 — V2 와 정반대다(문서에는 있다). 사유는 키마다 적혀 있다. 이 갈래가 없으면 그 칸이 &#x27;진짜 남은 것&#x27; 으로 세어져 다음 파동이 같은 값을 또 캐 온다(브리프 593).</td></tr><tr><td class="nm">판정은 있으나 집계가 못 읽음</td><td>사유가 자유 키(grade_table_scope·core_fill_sheet 등)에 적혀 있다. 다음 파동이 같은 칸을 또 표적으로 센다(브리프 593).</td></tr><tr><td class="nm">등급 미확정</td><td>익명 제품코드·클래스 서술뿐이라 원리적으로 못 닫는다(브리프 58).</td></tr><tr><td class="nm">진짜 남은 것</td><td>표적은 여기뿐이다.</td></tr></tbody></table></div></details>
-<p class="note warn"><b>빈칸 1,913칸 중 실제로 캘 수 있는 것은 570칸이다.</b> 나머지 1343칸은 판정이 끝났거나 원리적으로 못 닫는다. 그리고 그중 76칸은 <b>판정이 자유 키에 적혀 있어 이 표가 스스로 읽지 못한다</b> — 집계가 읽는 자리(<code>core_not_applicable</code>·<code>core_absent_from_vendor_sheet</code>·<code>core_rejected_printed_value</code>)로 옮기기 전까지는 다음 파동이 또 센다.</p>
+<details class="more"><summary>빈칸 갈래 정의</summary><div class="tblwrap"><table class="unf"><tbody><tr><td class="nm">해당 없음</td><td>물리적으로 그 물성이 정의되지 않는다 — 분말 원료·증착 박막·전환피막.</td></tr><tr><td class="nm">벤더 구조적 부재</td><td>시트를 실제로 열어 그 열이 없음을 확인했다.</td></tr><tr><td class="nm">인쇄됐으나 기각</td><td>원문에 값이 인쇄돼 있으나 검산에서 기각해 등재하지 않았다 — 문서에 값이 있다는 점에서 V2 와 반대다. 사유는 키마다 적혀 있다. 이 갈래가 없으면 그 칸이 &#x27;진짜 남은 것&#x27; 으로 세어져 다음 파동이 같은 값을 또 캐 온다(브리프 593).</td></tr><tr><td class="nm">판정은 있으나 집계가 못 읽음</td><td>사유가 자유 키(grade_table_scope·core_fill_sheet 등)에 적혀 있다. 다음 파동이 같은 칸을 또 표적으로 센다(브리프 593).</td></tr><tr><td class="nm">등급 미확정</td><td>익명 제품코드·클래스 서술뿐이라 원리적으로 못 닫는다(브리프 58).</td></tr><tr><td class="nm">진짜 남은 것</td><td>표적은 여기뿐이다.</td></tr></tbody></table></div></details>
+<p class="note warn"><b>빈칸 1,913칸 중 수집 가능한 것은 570칸이다.</b> 나머지 1,343칸은 판정 완료분이거나 원리적으로 충족 불가다. 이 중 76칸은 <b>판정이 자유 키에 기록돼 집계가 읽지 못한다</b> — 집계가 읽는 자리(<code>core_not_applicable</code>·<code>core_absent_from_vendor_sheet</code>·<code>core_rejected_printed_value</code>)로 이관하기 전까지는 다음 파동이 중복 계상한다.</p>
 </section>
 <section id="s5"><div class="shead"><span class="sno">05</span><h2>근거 등급</h2><p class="ssub">tier 1~4 판정 기준과 구성비</p></div>
 <div class="tiers">
@@ -423,7 +424,7 @@ DB 위에서는 검사기가 배포를 막고 병합기가 운영 전파를 책�
 <tr><td class="n mono">288</td><td class="kind">journal</td><td>A Study of the Physical Properties of Li-Ion Battery Electrolytes Containing Esters</td></tr>
 <tr><td class="n mono">284</td><td class="kind">datasheet</td><td>Ferrite Magnets/Ceramic Magnets Datasheet</td></tr>
 </tbody></table></div>
-<p class="note">한 문서가 800건 넘게 내는 경우가 있다 — 패키지 워피지 논문 하나가 재료 수십 종의 물성표를 통째로 싣기 때문이다. <b>그래서 상위 문서일수록 검증 비용이 크다</b> — 한 열이 밀려 있으면 수백 건이 함께 틀린다.</p>
+<p class="note">단일 문서가 800건 이상을 산출하는 사례가 있다 — 패키지 워피지 논문 1편이 재료 수십 종의 물성표를 일괄 수록하기 때문이다. <b>상위 문서일수록 검증 비용이 크다</b> — 열이 1개 밀리면 수백 건이 동시에 오염된다.</p>
 </section>
 <section id="s7"><div class="shead"><span class="sno">07</span><h2>수집 주기</h2><p class="ssub">1파동 10단계</p></div>
 <ol class="steps">
@@ -438,7 +439,7 @@ DB 위에서는 검사기가 배포를 막고 병합기가 운영 전파를 책�
 <li><span class="sn">09</span><div><b>무결성 검사</b><p>52항목 전량 0 이어야 배포</p></div></li>
 <li><span class="sn">10</span><div><b>기록</b><p>성공보다 <b>실패와 함정</b>을 기록 — 다음 파동의 동일 벽 재충돌 방지</p></div></li>
 </ol>
-<p class="note">5단계(청크 저장)는 <b>사고에서 나온 규칙</b>이다. 배치 6개가 결과를 끝에 몰아 쓰다가 동시에 죽어 산출물이 0이었다. 이후 모든 파동이 10~12종마다 중간 파일을 쓰고, 다시는 잃지 않았다.</p>
+<p class="note">5단계(청크 저장)는 <b>장애 대응으로 도입</b>했다. 배치 6개가 결과를 종료 시점에 일괄 기록하다 동시 중단돼 산출물 0건이 발생했다. 이후 전 파동이 10~12종마다 중간 파일을 기록하며 동일 유형 손실은 재발하지 않았다.</p>
 </section>
 <section id="s8"><div class="shead"><span class="sno">08</span><h2>금지 규정</h2><p class="ssub">예외 없이 적용하는 7개 항</p></div>
 <ol class="rules">
@@ -450,7 +451,7 @@ DB 위에서는 검사기가 배포를 막고 병합기가 운영 전파를 책�
 <li><b>자릿수 대조</b><p>동일 재료의 상위 tier 값과 자릿수 불일치 시 등재 보류.</p></li>
 <li><b>인접 열 오독 주의</b><p>표는 한 열이 통째로 밀릴 수 있음. 대조군 행과 본문 서술로 검산.</p></li>
 </ol>
-<p class="note">이 규칙들은 이상론이 아니라 <b>실제로 사고를 막은 기록</b>이다. 규칙 4는 "3M이 인쇄한 0.49"라던 43건의 근거 문장이 사실은 계열 기술자료였음을 잡아냈고, 규칙 6은 1000배 큰 굽힘강도 두 건을 걸러냈다.</p>
+<p class="note">각 규칙은 <b>실제 적발 이력</b>을 근거로 한다. 규칙 4는 「3M 인쇄값 0.49」로 기재된 43건의 근거가 계열 기술자료였음을 적발했고, 규칙 6은 1,000배 과대 굽힘강도 2건을 차단했다.</p>
 </section>
 <section id="s9"><div class="shead"><span class="sno">09</span><h2>역산 판별</h2><p class="ssub">인용 가능한 계산과 배제 대상의 경계</p></div>
 <ul class="lead"><li>판별 기준은 계산의 <b>수행 주체</b> — 계산 자체가 금지 대상이 아님</li><li>원문이 자기 데이터에 피팅한 상수는 <b>인용</b>, 우리가 타 물성에서 유도한 값은 <b>배제</b></li><li>표상으로는 양자 구별 불가 — 근거 검증으로만 갈림</li></ul>
@@ -477,13 +478,13 @@ DB 위에서는 검사기가 배포를 막고 병합기가 운영 전파를 책�
 <div><h4>계산값 상위 물성</h4><div class="krow"><span>Prony 상대완화계수</span><b class="mono">560</b></div><div class="krow"><span>Prony 완화시간</span><b class="mono">550</b></div><div class="krow"><span>Anand 점소성 상수</span><b class="mono">413</b></div><div class="krow"><span>영률</span><b class="mono">154</b></div><div class="krow"><span>경화 모델 상수</span><b class="mono">149</b></div><div class="krow"><span>열전도율</span><b class="mono">128</b></div><div class="krow"><span>초탄성 계수</span><b class="mono">76</b></div><div class="krow"><span>Arrhenius 활성화에너지</span><b class="mono">75</b></div></div>
 <div><h4>역산 검출 5개 항</h4><ul class="tips"><li><b>말단 자릿수 일치 여부.</b> E/(2(1+ν))를 손으로 계산해 인쇄값과 대조.</li><li><b>범위 양 끝점의 배수 동일 여부.</b> 유도열은 하한·상한이 같은 계수로 묶임.</li><li><b>물리적 성립 여부.</b> 내구한도 하한이 탄성한도 하한을 초과하면 유도열.</li><li><b>ν 음수 산출 여부.</b> E·G 를 함께 인쇄하는 표는 이 검산에서 무너짐.</li><li><b>대조군 행과 본문의 일치 여부.</b> 0 wt% 대조 행이 본문 값과 같으면 첨가물의 값.</li></ul></div>
 </div></details>
-<p class="note"><b>근거를 바꾸는 편집이 값을 바꾸는 편집보다 늦게 발각된다.</b> 추정 라벨 5건이 출처 정리 중 실제 벤더 문서 이름으로 바뀌면서, 값은 하나도 안 바뀐 채 그 아래 18개 값의 근거만 거짓이 됐다. 지금은 검사가 이 패턴을 잡는다.</p>
+<p class="note"><b>근거를 변경하는 편집은 값을 변경하는 편집보다 적발이 늦다.</b> 출처 정리 과정에서 추정 라벨 5건이 실제 벤더 문서명으로 치환되면서, 값 변경 0건인 채로 하위 18개 값의 근거만 허위가 됐다. 현재는 정합성 검사가 이 패턴을 검출한다.</p>
 </section>
 <section id="s10"><div class="shead"><span class="sno">10</span><h2>부재 선언</h2><p class="ssub">분모 제외 대상과 반례 검증</p></div>
 <ul class="lead"><li>액체의 항복강도·증착 도판트의 투습도 등 <b>원리적으로 성립하지 않는 칸</b>이 대상</li><li>분모 존치 시 <b>도달 불가능한 100%</b>를 목표로 삼게 됨</li><li>(재료군 × 물성) 쌍 단위 선언 <b>29건</b> · 분모 제외 247칸</li></ul>
 <details class="more"><summary>부재 선언 29건 전문</summary><div class="tblwrap"><table class="unf"><tbody><tr><td class="n mono">11키</td><td>저분자 도판트 — 광물리 물성만 발표된다</td></tr><tr><td class="n mono">5키</td><td>점착테이프 — 벤더가 발표하지 않는다(항복점은 물리적으로도 정의되지 않는다)</td></tr><tr><td class="n mono">5키</td><td>PCB·RF 라미네이트 — 비열·피로를 어느 벤더도 발표하지 않는다</td></tr><tr><td class="n mono">2키</td><td>아크릴 PSA/OCA — 산소투과를 재지 않는다(기능과 무관, 코퍼스 전수 0편)</td></tr><tr><td class="n mono">5키</td><td>기능성 접착필름 — 수명을 접촉저항·박리·굽힘 횟수로 잰다(응력-수명 축이 없다)</td></tr><tr><td class="n mono">5키</td><td>EMI 차폐재·가스켓 — 압축 영구변형·차폐효과로 판정한다</td></tr><tr><td class="n mono">5키</td><td>금속간화합물 영구자석 — 취성이고 벤더가 인장·피로를 발표하지 않는다</td></tr><tr><td class="n mono">3키</td><td>Cu-Al 금속간화합물 — 순환소성 상수는 발표되지 않는다(S-N 갈래는 살아 있다)</td></tr><tr><td class="n mono">2키</td><td>취성 재료 — 항복 없이 파괴하고 연신이 사실상 0이라 벤더가 발표하지 않는다</td></tr><tr><td class="n mono">3키</td><td>표면처리·단분자막 — 재료가 아니라 표면 상태다(체적물성이 정의되지 않는다)</td></tr><tr><td class="n mono">2키</td><td>스퍼터 확산배리어·RF 적층판 — 기체투과도 발표 자체가 없다</td></tr><tr><td class="n mono">4키</td><td>커버글래스 — 젖음·열물성 발표 자체가 없다</td></tr><tr><td class="n mono">1키</td><td>세라믹·유리 — 취성 파괴라 항복점이 물리적으로 없다</td></tr><tr><td class="n mono">1키</td><td>고무·엘라스토머 — 초탄성이라 항복점이 정의되지 않는다</td></tr><tr><td class="n mono">1키</td><td>저분자 유기 고체 — 벌크 항복 시험이 성립하지 않는다</td></tr><tr><td class="n mono">6키</td><td>저분자 유기 고체 — 흡습·투습 시험이 성립하지 않는다</td></tr><tr><td class="n mono">3키</td><td>무점착 폼 — 접착제가 없어 박리·전단이 정의되지 않는다</td></tr><tr><td class="n mono">3키</td><td>코팅 — 접착을 스크래치·풀오프로 재므로 박리·전단과 모드가 다르다</td></tr><tr><td class="n mono">3키</td><td>맨 필름·흑연시트 — 접착제가 없다</td></tr><tr><td class="n mono">5키</td><td>유리 — 사이클 기준 S-N이 성립하지 않는다(정적피로·동적피로로만 발표된다)</td></tr><tr><td class="n mono">5키</td><td>박막 기능층·활물질 분말 — 벌크 피로 시편이 성립하지 않는다</td></tr><tr><td class="n mono">7키</td><td>저분자 유기 고체 — 자립 인장시편이 없어 소성·율속이 정의되지 않는다</td></tr><tr><td class="n mono">3키</td><td>세라믹 — 순환소성이 없어 변형률-수명·에너지 계수가 정의되지 않는다(S-N은 존재한다)</td></tr><tr><td class="n mono">3키</td><td>영구자석 — MMPA 0100-00이 인장·경도 측정이 적절하지도 가능하지도 않다고 인쇄한다</td></tr><tr><td class="n mono">5키</td><td>단결정 — 입계 브리징이 없어 순환 열화 기전이 없고, Si는 지수가 재료상수가 아니다</td></tr><tr><td class="n mono">5키</td><td>PVD·CVD 박막 — 응력-수명이 아니라 임계하중·균열밀도로 재는 분야다</td></tr><tr><td class="n mono">5키</td><td>배리어 필름 — 수명을 굽힘 횟수 대 기능 상실로 재고 응력-수명 축이 없다</td></tr><tr><td class="n mono">5키</td><td>불소수지 RF 적층판 — S-N이 발표되지 않고 σB가 Okabe 적합 하한 아래다</td></tr><tr><td class="n mono">5키</td><td>활물질 분말 — 벌크 피로 시편이 성립하지 않는다</td></tr></tbody></table></div></details>
-<p class="note"><b>선언은 주장이 아니라 반례로 검증된다.</b> 문서에 기록된 사유가 있고, 그 군의 어느 재료도 그 물성을 <b>실측으로</b> 갖고 있지 않아야 부재로 친다 — 값이 하나라도 들어오면 그 쌍은 자동으로 빠진다. "세라믹은 피로계수가 없다"가 알루미나 S-N 회귀식 하나에, "폼엔 박리강도가 없다"가 VHB 반례 25건에 무너졌다.</p>
-<p class="note warn"><b>전수 검색이 비었다는 것은 검색 실패와 구분되지 않는다.</b> 출처를 재다운로드해 grep한 결과가 0건이어도 그것만으로는 부재가 아니다 — 인쇄된 부재 문장이나 기전(機轉) 논거가 있는 군만 선언에 넣는다.</p>
+<p class="note"><b>부재 선언은 반례 검증을 거친다.</b> 성립 요건은 둘이다 — 문서에 기록된 사유가 있을 것, 해당 군의 어느 재료도 그 물성을 <b>실측으로</b> 보유하지 않을 것. 실측값이 1건이라도 등재되면 그 쌍은 선언에서 자동 제외된다. 「세라믹 피로계수 미보유」 선언은 알루미나 S-N 회귀식 1건으로, 「폼 박리강도 미보유」 선언은 VHB 반례 25건으로 각각 철회됐다.</p>
+<p class="note warn"><b>전수 검색 결과 0건은 검색 실패와 구분되지 않는다.</b> 출처를 재수집해 검색한 결과가 0건이어도 그 자체로는 부재의 근거가 아니다 — 인쇄된 부재 문장 또는 물리적 논거가 있는 군만 선언 대상으로 한다.</p>
 </section>
 <section id="s11"><div class="shead"><span class="sno">11</span><h2>검증 체계</h2><p class="ssub">5중 필터</p></div>
 <div class="verify">
@@ -493,7 +494,7 @@ DB 위에서는 검사기가 배포를 막고 병합기가 운영 전파를 책�
 <div class="vcard"><b>원문 문자열 대조</b><p>저장 숫자의 인용 출처 실재 여부를 전문 확보 후 grep 으로 확인. 값 0.176 이 원문에 0회 출현하는 사례를 이 경로로 적발.</p></div>
 <div class="vcard"><b>규칙 6 자릿수 대조</b><p>동일 재료의 상위 tier 값과 자릿수 불일치 시 등재 보류. 1000배 과대 굽힘강도 2건을 이 단계에서 적발.</p></div>
 </div>
-<p class="note">검사가 <b>오탐</b>을 냈을 때는 값이 아니라 <b>검사를 고친다</b> — 왜 예외인지를 코드 주석에 남긴다. Prony 급수 밖에 있는 장기계수 E∞ 36건이 그렇게 걸렸다.</p>
+<p class="note">검사가 <b>오탐</b>을 내면 값이 아니라 <b>검사를 수정한다</b> — 예외 사유는 코드 주석에 기록한다. Prony 급수 외부 항인 장기계수 E∞ 36건이 이 경로로 처리됐다.</p>
 </section>
 <section id="s12"><div class="shead"><span class="sno">12</span><h2>누적 추이</h2><p class="ssub">2026-07-31 ~ 2026-09-01</p></div>
 <div class="chart"><svg viewBox="0 0 880 200" preserveAspectRatio="none" role="img" aria-label="물성값 누적 성장 곡선"><polygon points="8,192 8.0,190.4 53.5,172.1 98.9,161.9 144.4,144.6 189.9,143.1 235.4,131.3 280.8,129.8 326.3,125.0 371.8,115.1 417.3,104.3 462.7,98.6 508.2,82.6 553.7,71.7 599.2,53.3 644.6,42.3 690.1,34.9 735.6,15.6 781.1,9.9 826.5,9.8 872.0,8.0 872,192" class="ar"/><polyline points="8.0,190.4 53.5,172.1 98.9,161.9 144.4,144.6 189.9,143.1 235.4,131.3 280.8,129.8 326.3,125.0 371.8,115.1 417.3,104.3 462.7,98.6 508.2,82.6 553.7,71.7 599.2,53.3 644.6,42.3 690.1,34.9 735.6,15.6 781.1,9.9 826.5,9.8 872.0,8.0" class="ln"/><g class="dt"><circle cx="8.0" cy="190.4" r="2.5"/><circle cx="53.5" cy="172.1" r="2.5"/><circle cx="98.9" cy="161.9" r="2.5"/><circle cx="144.4" cy="144.6" r="2.5"/><circle cx="189.9" cy="143.1" r="2.5"/><circle cx="235.4" cy="131.3" r="2.5"/><circle cx="280.8" cy="129.8" r="2.5"/><circle cx="326.3" cy="125.0" r="2.5"/><circle cx="371.8" cy="115.1" r="2.5"/><circle cx="417.3" cy="104.3" r="2.5"/><circle cx="462.7" cy="98.6" r="2.5"/><circle cx="508.2" cy="82.6" r="2.5"/><circle cx="553.7" cy="71.7" r="2.5"/><circle cx="599.2" cy="53.3" r="2.5"/><circle cx="644.6" cy="42.3" r="2.5"/><circle cx="690.1" cy="34.9" r="2.5"/><circle cx="735.6" cy="15.6" r="2.5"/><circle cx="781.1" cy="9.9" r="2.5"/><circle cx="826.5" cy="9.8" r="2.5"/><circle cx="872.0" cy="8.0" r="2.5"/></g></svg><div class="xax"><span>2026-07-31</span><span>2026-09-01</span></div></div>
@@ -508,6 +509,6 @@ DB 위에서는 검사기가 배포를 막고 병합기가 운영 전파를 책�
 <div><h4>대체 여지 상위 물성</h4><div class="krow"><span>포아송비</span><b class="mono">319</b></div><div class="krow"><span>동적증가계수(DIF)</span><b class="mono">254</b></div><div class="krow"><span>영률</span><b class="mono">227</b></div><div class="krow"><span>열전도율</span><b class="mono">225</b></div><div class="krow"><span>선팽창계수(CTE)</span><b class="mono">198</b></div><div class="krow"><span>전방사율</span><b class="mono">197</b></div><div class="krow"><span>비열</span><b class="mono">177</b></div><div class="krow"><span>파단연신율</span><b class="mono">147</b></div></div>
 <div><h4>가정 의존 상위 재료</h4><div class="krow"><span>Color Filter Resin (pigment)</span><b class="mono">19칸</b></div><div class="krow"><span>FPCB Bonding Adhesive (acrylic/epoxy)</span><b class="mono">19칸</b></div><div class="krow"><span>OCA Foldable (Tg&lt;-30C)</span><b class="mono">18칸</b></div><div class="krow"><span>OCA Rollable (Tg&lt;-40C)</span><b class="mono">18칸</b></div><div class="krow"><span>OCA Rigid High Bond</span><b class="mono">17칸</b></div><div class="krow"><span>On-Chip Lens (OCL)</span><b class="mono">17칸</b></div><div class="krow"><span>EMI Shielding Film (FPCB)</span><b class="mono">17칸</b></div><div class="krow"><span>Microlens Resin (thermal reflow)</span><b class="mono">16칸</b></div></div>
 </div>
-<p class="note"><b>다만 대체 가능성은 물성마다 다르다.</b> 실측(tier≤3)으로 덮인 칸의 비율이 열전도율은 76%인데 포아송비는 53%다. <b>CAMPUS 스키마에 포아송비 필드가 없고</b>, Rogers 전 사이트에 <code>Poisson</code>이 5건이며, MnZn 페라이트 데이터북은 E·인장·경도·파괴인성까지 싣고 ν만 뺀다. <b>벤더가 아예 발표하지 않는 물성</b>이라 여기는 천장이 낮다.</p>
+<p class="note"><b>대체 가능성은 물성마다 다르다.</b> 실측(tier≤3) 피복률이 열전도율 76% · 포아송비 53%다. <b>CAMPUS 스키마에 포아송비 필드가 없고</b>, Rogers 전 사이트의 <code>Poisson</code> 출현이 5건이며, MnZn 페라이트 데이터북은 E·인장·경도·파괴인성을 수록하면서 ν만 제외한다. <b>벤더 미공표 물성</b>이라 도달 가능 상한 자체가 낮다.</p>
 </section>
 <footer><p>라이브 DB 조회 · 재료 2663종 · 물성값 41,799건 · 출처 2,968건 · 무결성 검사는 <code>integrity_check.py</code>가 매 파동 돌린다 · 최종 갱신 2026-09-01</p><p class="gen">이 페이지는 <code>build_overview_html.py</code>가 매번 다시 생성한다 — 숫자를 손으로 적지 않는다.</p></footer>

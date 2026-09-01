@@ -222,9 +222,9 @@ def main():
                  (f"{remain:,}", "아직 채울 수 있는 칸")]:
         A(f'<div class="cell"><b>{v}</b><span>{k}</span></div>')
     A('</div>')
-    A('<p class="note">택일군이 있다. 낙하해석의 소성 입력은 <code>항복강도</code> 하나든 '
-      '<code>인장강도+파단연신율</code> 쌍이든 역할이 채워지므로 <b>칸 하나</b>로 센다. '
-      '어느 쪽이 인쇄되는지는 시험규격 관행이 정하지, 재료가 정하지 않는다.</p>')
+    A('<p class="note"><b>택일군을 둔다.</b> 낙하해석의 소성 입력은 <code>항복강도</code> 단독 또는 '
+      '<code>인장강도 + 파단연신율</code> 쌍 중 하나로 충족되므로 <b>칸 1개</b>로 계상한다. '
+      '어느 쪽이 인쇄되는지는 재료가 아니라 시험규격 관행이 결정한다.</p>')
     A(dl([("셀 채움", "채워진 칸 / 전체 칸 — 수집 진척도"),
           ("실측기반", "tier4(가정·계산)를 뺀 채움 — 근거의 실제 크기"),
           ("유효채움", "구조적 부재를 분모에서 뺀 채움 — 도달 가능한 천장 대비"),
@@ -259,9 +259,10 @@ def main():
       f'<td class="n mono">{tot_meas * 100 / tot_cells:.1f}</td>'
       f'<td class="n mono">{tot_eff_filled * 100 / tot_eff:.1f}</td><td class="n">—</td></tr>')
     A('</tbody></table></div>')
-    A(f'<p class="note"><b>셀 채움과 실측기반의 차이 {(tot_filled - tot_meas) * 100 / tot_cells:.1f}%p'
-      f'({tot_filled - tot_meas:,}칸)가 가정값이 만든 착시다.</b> 표를 하나만 보면 속는다 — '
-      f'채움률이 100%인 해석도 실측기반은 67%일 수 있다.</p>')
+    A(f'<p class="note"><b>셀 채움과 실측기반의 차 '
+      f'{(tot_filled - tot_meas) * 100 / tot_cells:.1f}%p · {tot_filled - tot_meas:,}칸이 '
+      f'가정값에 해당한다.</b> 두 지표를 함께 읽어야 한다 — '
+      f'채움률 100%인 해석도 실측기반은 67% 수준일 수 있다.</p>')
     A('</section>')
 
     # ── 3. 계통 — 43·49차 태깅이 끝나 이제 계통별로 셀 수 있다.
@@ -302,12 +303,12 @@ def main():
       '<div class="tblwrap"><table class="unf"><tbody>'
       + "".join(f'<tr><td class="nm">{esc(lbl)}</td><td>{esc(why)}</td></tr>'
                 for _, lbl, why in CR.VERDICT_LABEL) + '</tbody></table></div></details>')
-    A(f'<p class="note warn"><b>빈칸 {t["blank"]:,}칸 중 실제로 캘 수 있는 것은 {t["V5"]:,}칸이다.</b> '
-      f'나머지 {t["blank"] - t["V5"]}칸은 판정이 끝났거나 원리적으로 못 닫는다. '
-      f'그리고 그중 {t["V3"]}칸은 <b>판정이 자유 키에 적혀 있어 이 표가 스스로 읽지 못한다</b> — '
+    A(f'<p class="note warn"><b>빈칸 {t["blank"]:,}칸 중 수집 가능한 것은 {t["V5"]:,}칸이다.</b> '
+      f'나머지 {t["blank"] - t["V5"]:,}칸은 판정 완료분이거나 원리적으로 충족 불가다. '
+      f'이 중 {t["V3"]}칸은 <b>판정이 자유 키에 기록돼 집계가 읽지 못한다</b> — '
       f'집계가 읽는 자리(<code>core_not_applicable</code>·'
       f'<code>core_absent_from_vendor_sheet</code>·'
-      f'<code>core_rejected_printed_value</code>)로 옮기기 전까지는 다음 파동이 또 센다.</p>')
+      f'<code>core_rejected_printed_value</code>)로 이관하기 전까지는 다음 파동이 중복 계상한다.</p>')
     A('</section>')
 
     # ── 3. 등급
@@ -356,9 +357,9 @@ def main():
         A(f'<tr><td class="n mono">{n}</td><td class="kind">{esc(kd)}</td>'
           f'<td>{esc(clip(t, 88))}</td></tr>')
     A('</tbody></table></div>')
-    A('<p class="note">한 문서가 800건 넘게 내는 경우가 있다 — 패키지 워피지 논문 하나가 '
-      '재료 수십 종의 물성표를 통째로 싣기 때문이다. '
-      '<b>그래서 상위 문서일수록 검증 비용이 크다</b> — 한 열이 밀려 있으면 수백 건이 함께 틀린다.</p>')
+    A('<p class="note">단일 문서가 800건 이상을 산출하는 사례가 있다 — 패키지 워피지 논문 1편이 '
+      '재료 수십 종의 물성표를 일괄 수록하기 때문이다. '
+      '<b>상위 문서일수록 검증 비용이 크다</b> — 열이 1개 밀리면 수백 건이 동시에 오염된다.</p>')
     A('</section>')
 
     # ── 5. 사이클
@@ -367,9 +368,9 @@ def main():
     for i, (t, d) in enumerate(CYCLE, 1):
         A(f'<li><span class="sn">{i:02d}</span><div><b>{esc(t)}</b><p>{d}</p></div></li>')
     A('</ol>')
-    A('<p class="note">5단계(청크 저장)는 <b>사고에서 나온 규칙</b>이다. '
-      '배치 6개가 결과를 끝에 몰아 쓰다가 동시에 죽어 산출물이 0이었다. '
-      '이후 모든 파동이 10~12종마다 중간 파일을 쓰고, 다시는 잃지 않았다.</p>')
+    A('<p class="note">5단계(청크 저장)는 <b>장애 대응으로 도입</b>했다. '
+      '배치 6개가 결과를 종료 시점에 일괄 기록하다 동시 중단돼 산출물 0건이 발생했다. '
+      '이후 전 파동이 10~12종마다 중간 파일을 기록하며 동일 유형 손실은 재발하지 않았다.</p>')
     A('</section>')
 
     # ── 6. 규칙
@@ -378,9 +379,9 @@ def main():
     for i, (t, d) in enumerate(RULES, 1):
         A(f'<li><b>{esc(t)}</b><p>{esc(d)}</p></li>')
     A('</ol>')
-    A('<p class="note">이 규칙들은 이상론이 아니라 <b>실제로 사고를 막은 기록</b>이다. '
-      '규칙 4는 "3M이 인쇄한 0.49"라던 43건의 근거 문장이 사실은 계열 기술자료였음을 잡아냈고, '
-      '규칙 6은 1000배 큰 굽힘강도 두 건을 걸러냈다.</p>')
+    A('<p class="note">각 규칙은 <b>실제 적발 이력</b>을 근거로 한다. '
+      '규칙 4는 「3M 인쇄값 0.49」로 기재된 43건의 근거가 계열 기술자료였음을 적발했고, '
+      '규칙 6은 1,000배 과대 굽힘강도 2건을 차단했다.</p>')
     A('</section>')
 
     # ── 7. 역산
@@ -420,9 +421,9 @@ def main():
       '<li><b>대조군 행과 본문의 일치 여부.</b> 0 wt% 대조 행이 본문 값과 같으면 첨가물의 값.</li>'
       '</ul></div>')
     A('</div></details>')
-    A('<p class="note"><b>근거를 바꾸는 편집이 값을 바꾸는 편집보다 늦게 발각된다.</b> '
-      '추정 라벨 5건이 출처 정리 중 실제 벤더 문서 이름으로 바뀌면서, '
-      '값은 하나도 안 바뀐 채 그 아래 18개 값의 근거만 거짓이 됐다. 지금은 검사가 이 패턴을 잡는다.</p>')
+    A('<p class="note"><b>근거를 변경하는 편집은 값을 변경하는 편집보다 적발이 늦다.</b> '
+      '출처 정리 과정에서 추정 라벨 5건이 실제 벤더 문서명으로 치환되면서, '
+      '값 변경 0건인 채로 하위 18개 값의 근거만 허위가 됐다. 현재는 정합성 검사가 이 패턴을 검출한다.</p>')
     A('</section>')
 
     # ── 8. 부재
@@ -436,14 +437,14 @@ def main():
       '<div class="tblwrap"><table class="unf"><tbody>'
       + "".join(f'<tr><td class="n mono">{len(k)}키</td><td>{esc(r)}</td></tr>'
                 for m, k, r in CR.UNFILLABLE) + '</tbody></table></div></details>')
-    A('<p class="note"><b>선언은 주장이 아니라 반례로 검증된다.</b> 문서에 기록된 사유가 있고, '
-      '그 군의 어느 재료도 그 물성을 <b>실측으로</b> 갖고 있지 않아야 부재로 친다 — '
-      '값이 하나라도 들어오면 그 쌍은 자동으로 빠진다. '
-      '"세라믹은 피로계수가 없다"가 알루미나 S-N 회귀식 하나에, '
-      '"폼엔 박리강도가 없다"가 VHB 반례 25건에 무너졌다.</p>')
-    A('<p class="note warn"><b>전수 검색이 비었다는 것은 검색 실패와 구분되지 않는다.</b> '
-      '출처를 재다운로드해 grep한 결과가 0건이어도 그것만으로는 부재가 아니다 — '
-      '인쇄된 부재 문장이나 기전(機轉) 논거가 있는 군만 선언에 넣는다.</p>')
+    A('<p class="note"><b>부재 선언은 반례 검증을 거친다.</b> 성립 요건은 둘이다 — '
+      '문서에 기록된 사유가 있을 것, 해당 군의 어느 재료도 그 물성을 <b>실측으로</b> 보유하지 않을 것. '
+      '실측값이 1건이라도 등재되면 그 쌍은 선언에서 자동 제외된다. '
+      '「세라믹 피로계수 미보유」 선언은 알루미나 S-N 회귀식 1건으로, '
+      '「폼 박리강도 미보유」 선언은 VHB 반례 25건으로 각각 철회됐다.</p>')
+    A('<p class="note warn"><b>전수 검색 결과 0건은 검색 실패와 구분되지 않는다.</b> '
+      '출처를 재수집해 검색한 결과가 0건이어도 그 자체로는 부재의 근거가 아니다 — '
+      '인쇄된 부재 문장 또는 물리적 논거가 있는 군만 선언 대상으로 한다.</p>')
     A('</section>')
 
     # ── 9. 검증
@@ -463,8 +464,8 @@ def main():
     ]:
         A(f'<div class="vcard"><b>{esc(t)}</b><p>{esc(d)}</p></div>')
     A('</div>')
-    A('<p class="note">검사가 <b>오탐</b>을 냈을 때는 값이 아니라 <b>검사를 고친다</b> — '
-      '왜 예외인지를 코드 주석에 남긴다. Prony 급수 밖에 있는 장기계수 E∞ 36건이 그렇게 걸렸다.</p>')
+    A('<p class="note">검사가 <b>오탐</b>을 내면 값이 아니라 <b>검사를 수정한다</b> — '
+      '예외 사유는 코드 주석에 기록한다. Prony 급수 외부 항인 장기계수 E∞ 36건이 이 경로로 처리됐다.</p>')
     A('</section>')
 
     # ── 10. 성장
@@ -503,12 +504,12 @@ def main():
         f'<div class="krow"><span>{esc(matname[m][:42])}</span><b class="mono">{n}칸</b></div>'
         for m, n in t4_by_mat.most_common(8)) + '</div>')
     A('</div>')
-    A(f'<p class="note"><b>다만 대체 가능성은 물성마다 다르다.</b> 실측(tier≤3)으로 덮인 칸의 '
-      f'비율이 열전도율은 {meas_cov("thermal.conductivity"):.0f}%인데 '
-      f'포아송비는 {meas_cov("mechanical.poisson_ratio"):.0f}%다. '
-      '<b>CAMPUS 스키마에 포아송비 필드가 없고</b>, Rogers 전 사이트에 '
-      '<code>Poisson</code>이 5건이며, MnZn 페라이트 데이터북은 E·인장·경도·파괴인성까지 싣고 ν만 뺀다. '
-      '<b>벤더가 아예 발표하지 않는 물성</b>이라 여기는 천장이 낮다.</p>')
+    A(f'<p class="note"><b>대체 가능성은 물성마다 다르다.</b> 실측(tier≤3) 피복률이 '
+      f'열전도율 {meas_cov("thermal.conductivity"):.0f}% · '
+      f'포아송비 {meas_cov("mechanical.poisson_ratio"):.0f}%다. '
+      '<b>CAMPUS 스키마에 포아송비 필드가 없고</b>, Rogers 전 사이트의 '
+      '<code>Poisson</code> 출현이 5건이며, MnZn 페라이트 데이터북은 E·인장·경도·파괴인성을 '
+      '수록하면서 ν만 제외한다. <b>벤더 미공표 물성</b>이라 도달 가능 상한 자체가 낮다.</p>')
     A('</section>')
 
     A(f'<footer><p>라이브 DB 조회 · 재료 {n_mat}종 · 물성값 {n_val:,}건 · 출처 {n_src:,}건 · '
@@ -528,7 +529,7 @@ def main():
 
 
 FLOW_SVG = """<figure class="flow">
-<svg viewBox="0 0 980 268" role="img" aria-label="원천에서 해석 카드까지 — 관문 둘이 값을 거르고, 검사기와 병합기가 DB 를 지킨다">
+<svg viewBox="0 0 980 268" role="img" aria-label="적재 경로 6단계와 검증 단계 2개소, DB 상단의 정합성 검사·병합 경로">
 <defs>
 <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
 <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
@@ -546,12 +547,12 @@ FLOW_SVG = """<figure class="flow">
 <rect x="852" y="96" width="116" height="52" rx="7"/>
 </g>
 <g class="ft">
-<text x="76" y="117">원천</text><text x="76" y="134" class="sm">논문·시트·규격</text>
-<text x="244" y="117">채굴</text><text x="244" y="134" class="sm">배치가 표를 읽는다</text>
-<text x="412" y="117">적재기</text><text x="412" y="134" class="sm">유일한 쓰기 문</text>
+<text x="76" y="117">원천</text><text x="76" y="134" class="sm">문헌·시트·규격</text>
+<text x="244" y="117">추출</text><text x="244" y="134" class="sm">원문 표 판독</text>
+<text x="412" y="117">적재</text><text x="412" y="134" class="sm">단일 쓰기 경로</text>
 <text x="580" y="117">DB</text><text x="580" y="134" class="sm">값·출처·조건</text>
-<text x="748" y="117">대표값 선택</text><text x="748" y="134" class="sm">행 여럿 중 하나</text>
-<text x="910" y="117">카드·화면</text><text x="910" y="134" class="sm">해석 입력</text>
+<text x="748" y="117">대표값 선정</text><text x="748" y="134" class="sm">동일 물성 다중 행</text>
+<text x="910" y="117">해석 입력</text><text x="910" y="134" class="sm">카드·API·화면</text>
 </g>
 
 <!-- 본류 화살표 -->
@@ -580,8 +581,8 @@ FLOW_SVG = """<figure class="flow">
 <rect x="344" y="196" width="136" height="44" rx="7"/>
 </g>
 <g class="ft rj">
-<text x="244" y="215">폐기 대장</text><text x="244" y="231" class="sm">왜 안 쓰는지 남긴다</text>
-<text x="412" y="215">거부</text><text x="412" y="231" class="sm">단위·범위·출처·조건</text>
+<text x="244" y="215">제외 기록</text><text x="244" y="231" class="sm">탈락 사유 보존</text>
+<text x="412" y="215">검증 불합격</text><text x="412" y="231" class="sm">단위·범위·출처·조건</text>
 </g>
 
 <!-- DB 를 지키는 둘 -->
@@ -591,20 +592,21 @@ FLOW_SVG = """<figure class="flow">
 </g>
 <g class="fb gd"><rect x="500" y="18" width="192" height="44" rx="7"/></g>
 <g class="ft gd">
-<text x="596" y="37">검사기 · 병합기</text>
-<text x="596" y="53" class="sm">배포 전 관문 · 운영 전파</text>
+<text x="596" y="37">정합성 검사 · 병합</text>
+<text x="596" y="53" class="sm">배포 판정 · 운영 반영</text>
 </g>
 
 <!-- 대표값이 갈릴 때 -->
 <g class="fa alt"><line x1="748" y1="148" x2="748" y2="196" marker-end="url(#ah)"/></g>
 <g class="fb alt"><rect x="672" y="196" width="152" height="44" rx="7"/></g>
 <g class="ft alt">
-<text x="748" y="215">대안 후보 노출</text><text x="748" y="231" class="sm">진 값도 쓸 수 있다</text>
+<text x="748" y="215">비채택 후보 병기</text><text x="748" y="231" class="sm">삭제하지 않음</text>
 </g>
 </svg>
-<figcaption>값은 두 관문을 지나야 DB 에 들어간다 — <b>채굴이 버린 것은 대장에</b>, <b>적재기가 거부한 것은 반려로</b> 남는다.
-DB 위에서는 검사기가 배포를 막고 병합기가 운영 전파를 책임진다. 한 재료·한 물성에 행이 여럿이면
-선택기가 하나를 고르되 <b>진 후보를 지우지 않고 함께 낸다.</b></figcaption>
+<figcaption>적재 경로에 <b>검증 단계 2개소</b>를 둔다. 추출 단계 탈락분은 사유와 함께 제외 기록에 보존하고,
+적재 단계 불합격분은 단위·범위·출처·조건 위반으로 분류한다. DB 반영 이후에는 정합성 검사가 배포 가부를 판정하고
+병합 단계가 운영 DB 반영을 담당한다. 동일 재료·동일 물성에 행이 복수인 경우
+<b>대표값 1건을 선정하되 비채택 후보를 삭제하지 않고 함께 제공한다.</b></figcaption>
 </figure>"""
 
 
