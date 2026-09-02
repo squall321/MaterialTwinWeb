@@ -1,0 +1,26 @@
+# 60차 VD 체크리스트 — V4「등급 미확정」 91칸 / 15종
+
+- [x] `docs/COLLECTION_METHODOLOGY.md` · `docs/CATALOG_PIPELINE.md` 통독
+- [x] `docs/COLLECTION_BRIEF_CORPUS.md` §596~§627 전문 + §22 §25 §58 §127 §438 §504 §582 §584 §585 §586 §593
+- [x] 라이브 DB 로 표적 전수 확인 → **표적표 14종 / 라이브 V4 15종 91칸**(재료 70 visco-6 1칸이 표에 없다)
+- [x] §626 — 조달 전 `corpus_index.py search` 로 원논문 코퍼스 조회(Erlat 2003 · Low 2005 둘 다 로컬에 있었다)
+- [x] §599 — 15종 판정문 재독. 거짓·미완 4건 확인(2274·2316 의 '개연성은 높다', 2254·2223~2225 의 미완 과제)
+- [x] 원논문 재료절 verbatim 재확인 6편(Eftekhari 2016 · Erlat 2003 · Low 2005 · Palaniappan 1999 · Palaniappan 2000 · Böhm 1990)
+- [x] 벤더 계열 목록 조달·전수 계수
+  - [x] SABIC Material Finder 전등급 2,225 → NORYL 280 → 등급페이지 279쪽 제품설명 전수 → 20 %GF+난연 **7종**
+  - [x] Asahi Kasei Thermylene 등급 목록 → GF30 **14+** · 탈크40 **2+**(P-40TC-1102 는 벤더 보도자료로 확인)
+  - [x] Melinex 등급 편찬표 52등급 → 광학품위 **37종**
+  - [x] Celanese Hostaform Product Manual 표준 무충전 **6종** · 밀도 전부 1.41
+  - [x] Teijin — 브랜드 자체가 안 닫힘을 확인(Tetoron / Melinex·Mylar / Teonex / Panlite)
+- [x] 유일성 판정 — **닫힌 등급 0종.** 값 이동 0건(§586 준수)
+- [x] §602 — 이미 캔 표의 안 캔 열 확인 → Palaniappan 1999 TABLE I 저장탄성률 4칸
+- [x] §603 — 400 dpi 렌더로 TABLE I 네 행 확인(md·pdftotext 에 숫자 없음)
+- [x] §605 — 열 머리글 `G'` 의 정체를 후속 논문 verbatim(`tensile storage modulus, G'`)과 자릿수로 확정
+- [x] 산출 JSON 2건 작성 → `vd01_underfill_storage_modulus.json`(값) · `vd02_grade_verdicts.json`(판정)
+- [x] 적재 예행 → 적용 (`ingest_agent_json.py --apply` 4행 · `apply_core_verdicts.py --apply` 12종)
+- [x] `integrity_check.py` — **VD 기여 신규 위반 0**(라이브 일관사본에서 VD 4행만 되돌려 diff, 50항목 전부 동일)
+- [x] `verdicts_check.py` — 이상 0개
+- [x] `pytest -q` — 366 passed, 1 skipped (기준선 일치)
+- [x] §610 — 선언 12종 = 병합 12종. V4 집계 15종·91칸 불변(분류가 아니라 사유를 고쳤으므로 옳다)
+- [x] `BRIEF_DRAFT.md` 작성(번호 비움)
+- [x] 커밋 — §504 경로 제한

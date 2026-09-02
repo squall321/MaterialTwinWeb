@@ -1,0 +1,150 @@
+{
+ "batch": "60차 VD",
+ "note": "Palaniappan 1999 TABLE I 의 저장탄성률 열 4칸. 이 표에서 Tg·CTE 두 열은 이미 캤고 셋째 축인 저장탄성률만 안 캐 있었다(브리프 602 — 이미 값이 든 재료의 옆 칸은 아무도 안 본다). 등급 미확정과 무관하게 **논문 자신이 이 시편에 대해 인쇄한 값**이라 벤더 시트를 빌리지 않는다.",
+ "materials": [
+  {
+   "match_name": "상용 플립칩 언더필 봉지재(단일 선정품), 경화 135 degC / 80 min [미식별: 논문이 제품명을 인쇄하지 않는다] (Palaniappan 1999) [class value]",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1109/ectc.1998.678805",
+    "title": "Correlation of flip chip underfill process parameters and material properties with in-process stress generation",
+    "authors": "Palaniappan, Selman, Baldwin, Wong",
+    "year": 1999,
+    "local_path": "/data/paper_patent_corpus/structured/snowball_papers/from_cae/Palaniappan - 1999 - Correlation of flip chip underfill process parameters and material properties with in-process stress generation/Palaniappan - 1999 - Correlation of flip chip underfill process parameters and material properties with in-process stress generation.md"
+   },
+   "properties": [
+    {
+     "key": "mechanical.storage_modulus",
+     "value": 5740000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "identification_status": "미식별",
+      "frequency_hz": 1.0,
+      "mode": "single cantilever (DMA, 굽힘 저장탄성률)",
+      "method_detail": "DMA, TA Instrument Model 2980. 본문 verbatim: 'The samples are cut into strips and measured in a single cantilever mode under 1 Hz sinusoidal strain loading. The samples are heated from room temperature to 220 degC at a rate of 3 degC/min.'",
+      "heating_rate_c_per_min": 3,
+      "scan_range_c": "room temperature - 220",
+      "cure_schedule": "135 degC / 80 min",
+      "figure": "TABLE I `Critical Properties of Selected Underfill Cured at Different Cure Parameters` 넷째 열",
+      "column_header_verbatim": "Storage Modulus G' (GPa)",
+      "temperature_printed": false,
+      "condition_note": "**측정 온도가 인쇄되지 않았다.** 스캔은 실온~220 degC 인데 표는 경화조건마다 값 하나만 싣는다. Tg 가 135~140 degC 이므로 유리상 평탄역 값으로 보이지만 **논문이 온도를 안 적었으므로 우리가 붙이지 않는다** — 같은 재료의 CTE 행이 같은 이유로 regime 을 안 붙인 것과 같은 규약이다(브리프 612·451).",
+      "printed_value_gpa": 5.74
+     },
+     "notes": "TABLE I 의 넷째 열 `Storage Modulus G' (GPa)` 다. **열 머리글은 G' 인데 값은 인장(굽힘) 저장탄성률 E' 이다** — 같은 저자·같은 장비·같은 시험(TA 2980, single cantilever, 1 Hz)으로 낸 후속 논문 Palaniappan & Baldwin, Microelectronics Reliability 40 (2000) 1181-1190 이 본문에서 verbatim 으로 `the underfill tensile storage modulus, G'` 라고 적는다 — 저자 표기가 G' 일 뿐 인장 저장탄성률이다. 물리도 같은 방향을 가리킨다 — 실리카 충전 언더필의 전단저장탄성률은 2 GPa 대이고 4.9~6.9 GPa 는 E' 대역이다 (브리프 605: 열 이름이 아니라 그 열이 무엇인지를 먼저 물어라). 표 자신의 검산 — 본문이 `The highest storage modulus is 6.8 GPa at ... 165 C for 60 min - about 28% higher than the lowest value of 4.9 GPa at 180 C for 15 min` 이라 적고, 표의 6.868 · 4.937 과 (6.868-4.937)/6.868 = 28.1% 가 맞는다. 400 dpi 렌더로 네 행을 다 확인했다(md·pdftotext 어디에도 이 표의 숫자가 없다 — docling 이 이미지로 남겼다). tier3 은 형제 행(Tg·CTE)의 규약을 그대로 따른 것이다(브리프 612) — 등급 미확정 class value 레코드다. 60차 VD."
+    }
+   ]
+  },
+  {
+   "match_name": "상용 플립칩 언더필 봉지재(단일 선정품), 경화 145 degC / 40 min [미식별: 논문이 제품명을 인쇄하지 않는다] (Palaniappan 1999) [class value]",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1109/ectc.1998.678805",
+    "title": "Correlation of flip chip underfill process parameters and material properties with in-process stress generation",
+    "authors": "Palaniappan, Selman, Baldwin, Wong",
+    "year": 1999,
+    "local_path": "/data/paper_patent_corpus/structured/snowball_papers/from_cae/Palaniappan - 1999 - Correlation of flip chip underfill process parameters and material properties with in-process stress generation/Palaniappan - 1999 - Correlation of flip chip underfill process parameters and material properties with in-process stress generation.md"
+   },
+   "properties": [
+    {
+     "key": "mechanical.storage_modulus",
+     "value": 5841000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "identification_status": "미식별",
+      "frequency_hz": 1.0,
+      "mode": "single cantilever (DMA, 굽힘 저장탄성률)",
+      "method_detail": "DMA, TA Instrument Model 2980. 본문 verbatim: 'The samples are cut into strips and measured in a single cantilever mode under 1 Hz sinusoidal strain loading. The samples are heated from room temperature to 220 degC at a rate of 3 degC/min.'",
+      "heating_rate_c_per_min": 3,
+      "scan_range_c": "room temperature - 220",
+      "cure_schedule": "145 degC / 40 min",
+      "figure": "TABLE I `Critical Properties of Selected Underfill Cured at Different Cure Parameters` 넷째 열",
+      "column_header_verbatim": "Storage Modulus G' (GPa)",
+      "temperature_printed": false,
+      "condition_note": "**측정 온도가 인쇄되지 않았다.** 스캔은 실온~220 degC 인데 표는 경화조건마다 값 하나만 싣는다. Tg 가 135~140 degC 이므로 유리상 평탄역 값으로 보이지만 **논문이 온도를 안 적었으므로 우리가 붙이지 않는다** — 같은 재료의 CTE 행이 같은 이유로 regime 을 안 붙인 것과 같은 규약이다(브리프 612·451).",
+      "printed_value_gpa": 5.841
+     },
+     "notes": "TABLE I 의 넷째 열 `Storage Modulus G' (GPa)` 다. **열 머리글은 G' 인데 값은 인장(굽힘) 저장탄성률 E' 이다** — 같은 저자·같은 장비·같은 시험(TA 2980, single cantilever, 1 Hz)으로 낸 후속 논문 Palaniappan & Baldwin, Microelectronics Reliability 40 (2000) 1181-1190 이 본문에서 verbatim 으로 `the underfill tensile storage modulus, G'` 라고 적는다 — 저자 표기가 G' 일 뿐 인장 저장탄성률이다. 물리도 같은 방향을 가리킨다 — 실리카 충전 언더필의 전단저장탄성률은 2 GPa 대이고 4.9~6.9 GPa 는 E' 대역이다 (브리프 605: 열 이름이 아니라 그 열이 무엇인지를 먼저 물어라). 표 자신의 검산 — 본문이 `The highest storage modulus is 6.8 GPa at ... 165 C for 60 min - about 28% higher than the lowest value of 4.9 GPa at 180 C for 15 min` 이라 적고, 표의 6.868 · 4.937 과 (6.868-4.937)/6.868 = 28.1% 가 맞는다. 400 dpi 렌더로 네 행을 다 확인했다(md·pdftotext 어디에도 이 표의 숫자가 없다 — docling 이 이미지로 남겼다). tier3 은 형제 행(Tg·CTE)의 규약을 그대로 따른 것이다(브리프 612) — 등급 미확정 class value 레코드다. 60차 VD."
+    }
+   ]
+  },
+  {
+   "match_name": "상용 플립칩 언더필 봉지재(단일 선정품), 경화 165 degC / 60 min [미식별: 논문이 제품명을 인쇄하지 않는다] (Palaniappan 1999) [class value]",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1109/ectc.1998.678805",
+    "title": "Correlation of flip chip underfill process parameters and material properties with in-process stress generation",
+    "authors": "Palaniappan, Selman, Baldwin, Wong",
+    "year": 1999,
+    "local_path": "/data/paper_patent_corpus/structured/snowball_papers/from_cae/Palaniappan - 1999 - Correlation of flip chip underfill process parameters and material properties with in-process stress generation/Palaniappan - 1999 - Correlation of flip chip underfill process parameters and material properties with in-process stress generation.md"
+   },
+   "properties": [
+    {
+     "key": "mechanical.storage_modulus",
+     "value": 6868000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "identification_status": "미식별",
+      "frequency_hz": 1.0,
+      "mode": "single cantilever (DMA, 굽힘 저장탄성률)",
+      "method_detail": "DMA, TA Instrument Model 2980. 본문 verbatim: 'The samples are cut into strips and measured in a single cantilever mode under 1 Hz sinusoidal strain loading. The samples are heated from room temperature to 220 degC at a rate of 3 degC/min.'",
+      "heating_rate_c_per_min": 3,
+      "scan_range_c": "room temperature - 220",
+      "cure_schedule": "165 degC / 60 min",
+      "figure": "TABLE I `Critical Properties of Selected Underfill Cured at Different Cure Parameters` 넷째 열",
+      "column_header_verbatim": "Storage Modulus G' (GPa)",
+      "temperature_printed": false,
+      "condition_note": "**측정 온도가 인쇄되지 않았다.** 스캔은 실온~220 degC 인데 표는 경화조건마다 값 하나만 싣는다. Tg 가 135~140 degC 이므로 유리상 평탄역 값으로 보이지만 **논문이 온도를 안 적었으므로 우리가 붙이지 않는다** — 같은 재료의 CTE 행이 같은 이유로 regime 을 안 붙인 것과 같은 규약이다(브리프 612·451).",
+      "printed_value_gpa": 6.868
+     },
+     "notes": "TABLE I 의 넷째 열 `Storage Modulus G' (GPa)` 다. **열 머리글은 G' 인데 값은 인장(굽힘) 저장탄성률 E' 이다** — 같은 저자·같은 장비·같은 시험(TA 2980, single cantilever, 1 Hz)으로 낸 후속 논문 Palaniappan & Baldwin, Microelectronics Reliability 40 (2000) 1181-1190 이 본문에서 verbatim 으로 `the underfill tensile storage modulus, G'` 라고 적는다 — 저자 표기가 G' 일 뿐 인장 저장탄성률이다. 물리도 같은 방향을 가리킨다 — 실리카 충전 언더필의 전단저장탄성률은 2 GPa 대이고 4.9~6.9 GPa 는 E' 대역이다 (브리프 605: 열 이름이 아니라 그 열이 무엇인지를 먼저 물어라). 표 자신의 검산 — 본문이 `The highest storage modulus is 6.8 GPa at ... 165 C for 60 min - about 28% higher than the lowest value of 4.9 GPa at 180 C for 15 min` 이라 적고, 표의 6.868 · 4.937 과 (6.868-4.937)/6.868 = 28.1% 가 맞는다. 400 dpi 렌더로 네 행을 다 확인했다(md·pdftotext 어디에도 이 표의 숫자가 없다 — docling 이 이미지로 남겼다). tier3 은 형제 행(Tg·CTE)의 규약을 그대로 따른 것이다(브리프 612) — 등급 미확정 class value 레코드다. 60차 VD."
+    }
+   ]
+  },
+  {
+   "match_name": "상용 플립칩 언더필 봉지재(단일 선정품), 경화 180 degC / 15 min [미식별: 논문이 제품명을 인쇄하지 않는다] (Palaniappan 1999) [class value]",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1109/ectc.1998.678805",
+    "title": "Correlation of flip chip underfill process parameters and material properties with in-process stress generation",
+    "authors": "Palaniappan, Selman, Baldwin, Wong",
+    "year": 1999,
+    "local_path": "/data/paper_patent_corpus/structured/snowball_papers/from_cae/Palaniappan - 1999 - Correlation of flip chip underfill process parameters and material properties with in-process stress generation/Palaniappan - 1999 - Correlation of flip chip underfill process parameters and material properties with in-process stress generation.md"
+   },
+   "properties": [
+    {
+     "key": "mechanical.storage_modulus",
+     "value": 4937000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "class_value": true,
+      "identification_status": "미식별",
+      "frequency_hz": 1.0,
+      "mode": "single cantilever (DMA, 굽힘 저장탄성률)",
+      "method_detail": "DMA, TA Instrument Model 2980. 본문 verbatim: 'The samples are cut into strips and measured in a single cantilever mode under 1 Hz sinusoidal strain loading. The samples are heated from room temperature to 220 degC at a rate of 3 degC/min.'",
+      "heating_rate_c_per_min": 3,
+      "scan_range_c": "room temperature - 220",
+      "cure_schedule": "180 degC / 15 min",
+      "figure": "TABLE I `Critical Properties of Selected Underfill Cured at Different Cure Parameters` 넷째 열",
+      "column_header_verbatim": "Storage Modulus G' (GPa)",
+      "temperature_printed": false,
+      "condition_note": "**측정 온도가 인쇄되지 않았다.** 스캔은 실온~220 degC 인데 표는 경화조건마다 값 하나만 싣는다. Tg 가 135~140 degC 이므로 유리상 평탄역 값으로 보이지만 **논문이 온도를 안 적었으므로 우리가 붙이지 않는다** — 같은 재료의 CTE 행이 같은 이유로 regime 을 안 붙인 것과 같은 규약이다(브리프 612·451).",
+      "printed_value_gpa": 4.937
+     },
+     "notes": "TABLE I 의 넷째 열 `Storage Modulus G' (GPa)` 다. **열 머리글은 G' 인데 값은 인장(굽힘) 저장탄성률 E' 이다** — 같은 저자·같은 장비·같은 시험(TA 2980, single cantilever, 1 Hz)으로 낸 후속 논문 Palaniappan & Baldwin, Microelectronics Reliability 40 (2000) 1181-1190 이 본문에서 verbatim 으로 `the underfill tensile storage modulus, G'` 라고 적는다 — 저자 표기가 G' 일 뿐 인장 저장탄성률이다. 물리도 같은 방향을 가리킨다 — 실리카 충전 언더필의 전단저장탄성률은 2 GPa 대이고 4.9~6.9 GPa 는 E' 대역이다 (브리프 605: 열 이름이 아니라 그 열이 무엇인지를 먼저 물어라). 표 자신의 검산 — 본문이 `The highest storage modulus is 6.8 GPa at ... 165 C for 60 min - about 28% higher than the lowest value of 4.9 GPa at 180 C for 15 min` 이라 적고, 표의 6.868 · 4.937 과 (6.868-4.937)/6.868 = 28.1% 가 맞는다. 400 dpi 렌더로 네 행을 다 확인했다(md·pdftotext 어디에도 이 표의 숫자가 없다 — docling 이 이미지로 남겼다). tier3 은 형제 행(Tg·CTE)의 규약을 그대로 따른 것이다(브리프 612) — 등급 미확정 class value 레코드다. 60차 VD."
+    }
+   ]
+  }
+ ]
+}
