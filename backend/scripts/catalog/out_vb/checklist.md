@@ -1,0 +1,23 @@
+# 60차 VB 체크리스트 — 논문 출처 솔더 코어 빈칸
+
+- [x] 지시 문서 읽기 — COLLECTION_METHODOLOGY · CATALOG_PIPELINE · BRIEF §600~627 및 §3 §9 §25 §60 §127 §141 §504 §514 §516 §584 §586
+- [x] 표적 9종의 `attributes.core_doors_tried` 읽기 · 코어 빈칸 실측(42칸)
+- [x] **§602 — 받치는 논문 전권 재개봉, 표 전수 계수**
+  - [x] Sakane 2021 (2346) — 표 1개
+  - [x] Jian-Chun Liu 2014 (581) — 표 2개
+  - [x] Duong 2021 / Sun 2006 / Yamamoto 2007 (582) — 표 0 / 3 / 4개
+  - [x] Kanchanomai 2002 (1074·1075) — 표 3개
+  - [x] Harrison 2001 (1679·1680·1681) — 표 11개
+  - [x] Perkins 2009 (2293) — 표 30여 개, 그중 Table 4.1 미개봉
+- [x] §626 — 조달 전 `corpus_index.py search` (Sn-Zn 계 · SAC-Bi · SnAgCuSb · IDEALS · Kanchanomai 후속)
+- [x] 벤더 편찬표 4종 재대조(Indalloy 2006 · Solder Connection 2023 · Kester · AIM)
+- [x] §603 — Perkins Table 4.1 400 dpi 렌더 확인
+- [x] §604 — 혼합물 상하한 검산(Sun 2006 E · Perkins ν · Perkins Cp)
+- [x] Kim 2003 Fig.10 디지타이즈 → 582 인장강도 3행
+- [x] §516/§619 — Fig.10 ↔ Fig.13 교차 되읽기
+- [x] 판정 JSON · 값 JSON 작성
+- [x] 적재(드라이런 → --apply)
+- [x] `integrity_check.py` · `verdicts_check.py` · `pytest -q`
+- [x] §610 — 선언 칸 수와 집계 칸 수 대조
+- [x] BRIEF_DRAFT.md
+- [x] 경로 제한 커밋(§504)
