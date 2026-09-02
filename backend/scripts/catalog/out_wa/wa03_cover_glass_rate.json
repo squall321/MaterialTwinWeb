@@ -1,0 +1,120 @@
+{
+ "batch": "WA-3 61차 · 알루미노실리케이트 커버글라스 율속 — Wang 2019 동적 굽힘(같은 표의 안 캔 칸) + 압축 SHPB 율속비",
+ "materials": [
+  {
+   "match_name": "Aluminosilicate Cover Glass",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1016/j.jnoncrysol.2019.119479",
+    "title": "Wang et al. 2019, Quasi-static and dynamic flexural behavior of annealed and chemically strengthened aluminosilicate glass with notch defects",
+    "authors": "Zhen Wang, Tao Suo, Muhammad Zakir Sheikh, Yulong Li, Xiang Wang, Yinmao Wang",
+    "year": 2019,
+    "publisher": "Elsevier (Journal of Non-Crystalline Solids)",
+    "local_path": "/data/paper_patent_corpus/structured/materials_papers/22_mech_aluminosilicate_glass/Wang - 2019 - Quasi-static and dynamic flexural behavior of annealed and chemically strengthened aluminosilicate glass with notch defects/Wang - 2019 - Quasi-static and dynamic flexural behavior of annealed and chemically strengthened aluminosilicate glass with notch defects.md"
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 312100000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test": "3-point bending",
+      "loading_speed_m_per_s": 2.5,
+      "state": "chemically strengthened",
+      "specimen": "intact (unnotched) 18 x 4 x 2 mm, span 12 mm",
+      "apparatus": "modified SHPB without transmitted bar, aluminium pulse shaper",
+      "statistic": "average of repeated tests, printed as 312.1 +/- 27.3 MPa",
+      "grade_scope": "class value — 실측 대상은 Tiemao Glass 2 mm 시트를 Na+/K+ 이온교환한 연구용 CSG(DOL 10 um)이고 대상은 일반 '알루미노실리케이트 커버글라스' 레코드다"
+     },
+     "notes": "Wang 2019 Table 2 verbatim 'Average flexural strength and standard deviation of intact specimens (MPa)' — 두 행뿐이다. '1.67x10-6 | 162.2 +/- 25.0 | 246.6 +/- 26.7' 와 '2.5 | 199.1 +/- 25.5 | 312.1 +/- 27.3' (Loading speed m/s | Annealed glass | Chemically strengthened glass). 시험 verbatim — 준정적은 Instron-5848, span 12 mm, 크로스헤드 0.1 mm/min(1.67x10-6 m/s); 동적은 개조 SHPB(투과봉 없음, 알루미늄 펄스셰이퍼)로 'a nearly constant loading speed 2.5 m/s is achieved after the first 14 us'. 시편 18x4x2 mm, 무결(intact, 노치 없음), 각 조건 다수 반복 후 Weibull 분석. 조성 Table 1 'SiO2 64.3 / Al2O3 17.7 / Na2O 10.4 / MgO 3.8 / K2O 2.5 / CaO 0.5 wt%' 는 알칼리 알루미노실리케이트 커버글라스 계통과 일치한다. ※ 이 표의 준정적 CSG 칸(246.6 MPa)은 이 카탈로그에 이미 t1 로 들어와 있었다(pv 862, 같은 출처 246). **같은 표의 동적 칸만 안 들어와 있었다** — 브리프 602 의 '옆 칸' 이다. 이 행은 동적(2.5 m/s) CSG 칸 312.1 MPa 다. ※ 등급을 t1 로 둔 것은 같은 표 같은 열의 준정적 짝(pv 862, 246.6 MPa)이 이미 t1 로 이 재료에 앉아 있기 때문이다 — 한 표에서 온 두 칸이 한 재료 안에서 두 규약으로 갈리면 안 된다(브리프 612). 성격상 둘 다 연구용 CSG 시트에서 일반 커버글라스 레코드로의 계열 대입이라 grade_scope 에 그 사실을 박아 둔다. 같은 논문의 전용 레코드('Aluminosilicate glass, chemically strengthened (CSG) ... Wang 2019', pv 25197·25198)에는 두 칸이 이미 다 있다 — 이 행은 그 값을 제품 레코드 쪽 계보에 맞춘 것이다."
+    },
+    {
+     "key": "mechanical.dynamic_increase_factor",
+     "value": 1.2656,
+     "unit": "1",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "loading": "3-point bending (flexural strength ratio)",
+      "loading_velocity_m_s": 2.5,
+      "reference_loading_velocity_m_s": 1.67e-06,
+      "state": "chemically strengthened",
+      "basis": "average flexural strength ratio of intact specimens",
+      "specimen": "intact (unnotched) 18 x 4 x 2 mm, span 12 mm",
+      "temperature": "room temperature (수치 미인쇄)"
+     },
+     "notes": "Wang 2019 Table 2 verbatim 'Average flexural strength and standard deviation of intact specimens (MPa)' — 두 행뿐이다. '1.67x10-6 | 162.2 +/- 25.0 | 246.6 +/- 26.7' 와 '2.5 | 199.1 +/- 25.5 | 312.1 +/- 27.3' (Loading speed m/s | Annealed glass | Chemically strengthened glass). 시험 verbatim — 준정적은 Instron-5848, span 12 mm, 크로스헤드 0.1 mm/min(1.67x10-6 m/s); 동적은 개조 SHPB(투과봉 없음, 알루미늄 펄스셰이퍼)로 'a nearly constant loading speed 2.5 m/s is achieved after the first 14 us'. 시편 18x4x2 mm, 무결(intact, 노치 없음), 각 조건 다수 반복 후 Weibull 분석. 조성 Table 1 'SiO2 64.3 / Al2O3 17.7 / Na2O 10.4 / MgO 3.8 / K2O 2.5 / CaO 0.5 wt%' 는 알칼리 알루미노실리케이트 커버글라스 계통과 일치한다. ※ 이 표의 준정적 CSG 칸(246.6 MPa)은 이 카탈로그에 이미 t1 로 들어와 있었다(pv 862, 같은 출처 246). **같은 표의 동적 칸만 안 들어와 있었다** — 브리프 602 의 '옆 칸' 이다. DIF = 312.1 / 246.6 MPa = 1.2656. 두 값 모두 같은 표의 측정값이고 비만 계산했다. 같은 표의 무강화 annealed 열은 199.1 / 162.2 = 1.2275 로 **강화·무강화가 같은 율속감도**를 보인다 — 이온교환층이 강도를 올리되 율속감도는 거의 안 바꾼다는 뜻이라 이 비의 자기검산이 된다(원문도 'for various loading rates the difference in flexural strength of CSG and AG was almost same' 라고 적는다). ※ 이 재료의 준정적 짝만 들어와 있고 동적 짝이 없어 율속비 칸이 비어 있었다 — 같은 파동에서 동적 굽힘강도 행과 함께 넣는다."
+    }
+   ]
+  },
+  {
+   "match_name": "Aluminosilicate Cover Glass",
+   "source": {
+    "kind": "journal",
+    "doi": "10.11883/bzycj-2016-0186",
+    "title": "飞机风挡无机玻璃在不同应变率下的力学行为 (Mechanical behavior of aircraft windshield inorganic glass at different strain rates), Explosion and Shock Waves 38(2):295-301",
+    "url": "https://www.bzycj.cn/cn/article/doi/10.11883/bzycj-2016-0186",
+    "year": 2018,
+    "publisher": "Explosion and Shock Waves (爆炸与冲击)"
+   },
+   "properties": [
+    {
+     "key": "mechanical.dynamic_increase_factor",
+     "value": 1.1626,
+     "unit": "1",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "loading": "uniaxial compression (compressive strength ratio)",
+      "strain_rate_s": 0.004,
+      "reference_strain_rate_s": 0.0004,
+      "basis": "average compressive strength ratio",
+      "specimen": "cube 8 x 8 x 8 mm, machined faces",
+      "apparatus": "universal testing machine (<=4e-3 /s) / modified SHPB (>=200 /s)",
+      "grade_scope": "class value — 원문 재료는 알루미노실리케이트 플로트 유리(고알루미나)이고 이온교환 강화 표기가 없다. 대상은 화학강화 커버글라스다",
+      "temperature": "room temperature (수치 미인쇄)"
+     },
+     "notes": "원문 2.1절 verbatim: '准静态实验结果如图 2 所示，每组实验至少保证 3 组有效数据，应变率为 4×10-4 和 4×10-3 s-1 时的试样平均强度分别为 486 和 565 MPa。' · 2.2절 verbatim: '应变率为 200 和 400 s-1 条件下的应力-应变曲线见图 7，材料平均强度分别为 886 和 1073 MPa。' 네 값 모두 같은 논문 같은 시편군(8 mm 정육면체 일축압축, 전자만능시험기 + 개조 SHPB)의 인쇄된 평균강도이고, 이 카탈로그에 mechanical.yield_strength_at_rate 네 행(pv 14752~14755, t1 measured)으로 이미 들어와 있다. 비만 계산했다. ※ 이 파동은 원문을 다시 열지 않았다 — 이 논문은 코퍼스에 없고(corpus_index 적중 0) DB 의 출처에도 local_path 가 없다. 위 두 문장은 그 네 행을 적재한 앞 배치가 원문에서 옮겨 둔 verbatim 이고, 계산의 근거는 그것이다(브리프 626 의 반대 얼굴 — 문서가 디스크에 없을 때 우리 DB 의 verbatim 이 유일한 사료다). 다시 확인하려면 위 url 을 열어라. ※ 등급 주의 — 원문 재료 verbatim 은 '铝硅酸盐浮法玻璃(高铝玻璃)' 로 **이온교환 강화 여부가 안 적혀 있다.** 압축강도는 표면 압축층의 영향이 굽힘보다 작지만 화학강화 커버글라스 자신의 값은 아니다. 같은 재료의 Wang 2019 굽힘 DIF(1.2656)와 크기가 다른 것은 하중형태(굽힘 대 압축)와 강화 상태가 둘 다 다르기 때문이다 — 섞어 읽지 마라. 이 행 = sigma(0.004 /s)/sigma(4e-4 /s) = 565.0 / 486.0 MPa = 1.1626."
+    },
+    {
+     "key": "mechanical.dynamic_increase_factor",
+     "value": 1.823,
+     "unit": "1",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "loading": "uniaxial compression (compressive strength ratio)",
+      "strain_rate_s": 200.0,
+      "reference_strain_rate_s": 0.0004,
+      "basis": "average compressive strength ratio",
+      "specimen": "cube 8 x 8 x 8 mm, machined faces",
+      "apparatus": "universal testing machine (<=4e-3 /s) / modified SHPB (>=200 /s)",
+      "grade_scope": "class value — 원문 재료는 알루미노실리케이트 플로트 유리(고알루미나)이고 이온교환 강화 표기가 없다. 대상은 화학강화 커버글라스다",
+      "temperature": "room temperature (수치 미인쇄)"
+     },
+     "notes": "원문 2.1절 verbatim: '准静态实验结果如图 2 所示，每组实验至少保证 3 组有效数据，应变率为 4×10-4 和 4×10-3 s-1 时的试样平均强度分别为 486 和 565 MPa。' · 2.2절 verbatim: '应变率为 200 和 400 s-1 条件下的应力-应变曲线见图 7，材料平均强度分别为 886 和 1073 MPa。' 네 값 모두 같은 논문 같은 시편군(8 mm 정육면체 일축압축, 전자만능시험기 + 개조 SHPB)의 인쇄된 평균강도이고, 이 카탈로그에 mechanical.yield_strength_at_rate 네 행(pv 14752~14755, t1 measured)으로 이미 들어와 있다. 비만 계산했다. ※ 이 파동은 원문을 다시 열지 않았다 — 이 논문은 코퍼스에 없고(corpus_index 적중 0) DB 의 출처에도 local_path 가 없다. 위 두 문장은 그 네 행을 적재한 앞 배치가 원문에서 옮겨 둔 verbatim 이고, 계산의 근거는 그것이다(브리프 626 의 반대 얼굴 — 문서가 디스크에 없을 때 우리 DB 의 verbatim 이 유일한 사료다). 다시 확인하려면 위 url 을 열어라. ※ 등급 주의 — 원문 재료 verbatim 은 '铝硅酸盐浮法玻璃(高铝玻璃)' 로 **이온교환 강화 여부가 안 적혀 있다.** 압축강도는 표면 압축층의 영향이 굽힘보다 작지만 화학강화 커버글라스 자신의 값은 아니다. 같은 재료의 Wang 2019 굽힘 DIF(1.2656)와 크기가 다른 것은 하중형태(굽힘 대 압축)와 강화 상태가 둘 다 다르기 때문이다 — 섞어 읽지 마라. 이 행 = sigma(200 /s)/sigma(4e-4 /s) = 886.0 / 486.0 MPa = 1.823."
+    },
+    {
+     "key": "mechanical.dynamic_increase_factor",
+     "value": 2.2078,
+     "unit": "1",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "loading": "uniaxial compression (compressive strength ratio)",
+      "strain_rate_s": 400.0,
+      "reference_strain_rate_s": 0.0004,
+      "basis": "average compressive strength ratio",
+      "specimen": "cube 8 x 8 x 8 mm, machined faces",
+      "apparatus": "universal testing machine (<=4e-3 /s) / modified SHPB (>=200 /s)",
+      "grade_scope": "class value — 원문 재료는 알루미노실리케이트 플로트 유리(고알루미나)이고 이온교환 강화 표기가 없다. 대상은 화학강화 커버글라스다",
+      "temperature": "room temperature (수치 미인쇄)"
+     },
+     "notes": "원문 2.1절 verbatim: '准静态实验结果如图 2 所示，每组实验至少保证 3 组有效数据，应变率为 4×10-4 和 4×10-3 s-1 时的试样平均强度分别为 486 和 565 MPa。' · 2.2절 verbatim: '应变率为 200 和 400 s-1 条件下的应力-应变曲线见图 7，材料平均强度分别为 886 和 1073 MPa。' 네 값 모두 같은 논문 같은 시편군(8 mm 정육면체 일축압축, 전자만능시험기 + 개조 SHPB)의 인쇄된 평균강도이고, 이 카탈로그에 mechanical.yield_strength_at_rate 네 행(pv 14752~14755, t1 measured)으로 이미 들어와 있다. 비만 계산했다. ※ 이 파동은 원문을 다시 열지 않았다 — 이 논문은 코퍼스에 없고(corpus_index 적중 0) DB 의 출처에도 local_path 가 없다. 위 두 문장은 그 네 행을 적재한 앞 배치가 원문에서 옮겨 둔 verbatim 이고, 계산의 근거는 그것이다(브리프 626 의 반대 얼굴 — 문서가 디스크에 없을 때 우리 DB 의 verbatim 이 유일한 사료다). 다시 확인하려면 위 url 을 열어라. ※ 등급 주의 — 원문 재료 verbatim 은 '铝硅酸盐浮法玻璃(高铝玻璃)' 로 **이온교환 강화 여부가 안 적혀 있다.** 압축강도는 표면 압축층의 영향이 굽힘보다 작지만 화학강화 커버글라스 자신의 값은 아니다. 같은 재료의 Wang 2019 굽힘 DIF(1.2656)와 크기가 다른 것은 하중형태(굽힘 대 압축)와 강화 상태가 둘 다 다르기 때문이다 — 섞어 읽지 마라. 이 행 = sigma(400 /s)/sigma(4e-4 /s) = 1073.0 / 486.0 MPa = 2.2078."
+    }
+   ]
+  }
+ ]
+}

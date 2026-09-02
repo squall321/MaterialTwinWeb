@@ -1,0 +1,599 @@
+{
+ "batch": "WA-1 61차 · Wong 2016 낙하추 압축 실측 — 솔더 3종의 DIF 12행 + Johnson-Cook 12행",
+ "materials": [
+  {
+   "match_name": "Sn63Pb37 Eutectic Solder Alloy",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1016/j.microrel.2016.10.007",
+    "title": "Constitutive modeling of solder alloys for drop-impact applications",
+    "authors": "E.H. Wong, J. Chrisp, C.S. Selvanayagam, S.K.W. Seah",
+    "year": 2016,
+    "publisher": "Elsevier (Microelectronics Reliability)",
+    "local_path": "/data/paper_patent_corpus/structured/rel_papers/24_creep_fatigue_interconnect/Wong - 2016 - Constitutive modeling of solder alloys for drop-impact applications/Wong - 2016 - Constitutive modeling of solder alloys for drop-impact applications.md"
+   },
+   "properties": [
+    {
+     "key": "mechanical.dynamic_increase_factor",
+     "value": 2.0526,
+     "unit": "1",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "loading": "uniaxial compression (drop-weight, 4 mm dia x 4 mm specimen, graphite-lubricated anvils)",
+      "strain_rate_s": 65.0,
+      "reference_strain_rate_s": 0.005,
+      "strain_rate_basis": "initial strain rate (eps_dot_o = Vo/Lo) as printed in the table header",
+      "true_strain": 0.3,
+      "basis": "true flow stress ratio at fixed true strain",
+      "temperature": "room temperature (수치 미인쇄 — 등온 압축, 온도항 미사용)"
+     },
+     "notes": "Wong 2016 Table 1 'Experimental true stress and true strain data of solder alloys at seven initial strain rates' (단위: strain rate s-1, stress MPa). 시험 verbatim(2.2절): 'Four solder alloys ... were machined from rods into test specimens of dimensions 4 mm x 4 mm and were compressed at the initial speeds, Vo = 0.02, 2, 4, 260, 400, 800, and 1200 mm/s' — 앞 셋은 표준 시험기, 뒤 넷은 낙하추(drop-weight) 압축이다. 같은 저자군의 선행 실험(Wong 2008, J. Electron. Mater. 37(6) 829, doi 10.1007/s11664-008-0403-x)을 이 논문이 처음 표로 인쇄한 것이다 — 2008년 판은 같은 데이터를 Fig.7 그래프와 본문 한 줄('The peak flow stress for the Sn-37Pb, SAC101, Sn-3.5Ag, and SAC305 solders at 1 s-1 are 61, 64, 81, and 87 MPa')로만 냈다. DIF = sigma(65 /s)/sigma(0.005 /s) = 89.7 / 43.7 MPa (eps=0.3). 두 값 모두 같은 표 같은 행의 측정값이고 비만 계산했다. Sn37Pb 는 이 표에서 변형연화를 보이지 않아 인쇄된 최대 변형 eps=0.30 행을 썼다. 주의 — 표 머리글의 율속은 초기 율속이고 저자가 2.3절에서 'In general, eps_dot(eps) != eps_dot_o' 라고 명시한다. 저자는 모델 피팅 전에 등율속(isostrain-rate)으로 변환하므로 이 비는 변환 전 인쇄값의 비다. 기준을 0.005 s-1(표준 시험기 준정적 열)로 잡은 것은 0.5·1 s-1 열이 Sn3.5Ag·SAC305 의 낮은 변형에서 서로 뒤집혀 있어서다(SAC305 eps=0.015 에서 0.5 s-1 23.1 대 1 s-1 13.4)."
+    },
+    {
+     "key": "mechanical.dynamic_increase_factor",
+     "value": 2.3043,
+     "unit": "1",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "loading": "uniaxial compression (drop-weight, 4 mm dia x 4 mm specimen, graphite-lubricated anvils)",
+      "strain_rate_s": 100.0,
+      "reference_strain_rate_s": 0.005,
+      "strain_rate_basis": "initial strain rate (eps_dot_o = Vo/Lo) as printed in the table header",
+      "true_strain": 0.3,
+      "basis": "true flow stress ratio at fixed true strain",
+      "temperature": "room temperature (수치 미인쇄 — 등온 압축, 온도항 미사용)"
+     },
+     "notes": "Wong 2016 Table 1 'Experimental true stress and true strain data of solder alloys at seven initial strain rates' (단위: strain rate s-1, stress MPa). 시험 verbatim(2.2절): 'Four solder alloys ... were machined from rods into test specimens of dimensions 4 mm x 4 mm and were compressed at the initial speeds, Vo = 0.02, 2, 4, 260, 400, 800, and 1200 mm/s' — 앞 셋은 표준 시험기, 뒤 넷은 낙하추(drop-weight) 압축이다. 같은 저자군의 선행 실험(Wong 2008, J. Electron. Mater. 37(6) 829, doi 10.1007/s11664-008-0403-x)을 이 논문이 처음 표로 인쇄한 것이다 — 2008년 판은 같은 데이터를 Fig.7 그래프와 본문 한 줄('The peak flow stress for the Sn-37Pb, SAC101, Sn-3.5Ag, and SAC305 solders at 1 s-1 are 61, 64, 81, and 87 MPa')로만 냈다. DIF = sigma(100 /s)/sigma(0.005 /s) = 100.7 / 43.7 MPa (eps=0.3). 두 값 모두 같은 표 같은 행의 측정값이고 비만 계산했다. Sn37Pb 는 이 표에서 변형연화를 보이지 않아 인쇄된 최대 변형 eps=0.30 행을 썼다. 주의 — 표 머리글의 율속은 초기 율속이고 저자가 2.3절에서 'In general, eps_dot(eps) != eps_dot_o' 라고 명시한다. 저자는 모델 피팅 전에 등율속(isostrain-rate)으로 변환하므로 이 비는 변환 전 인쇄값의 비다. 기준을 0.005 s-1(표준 시험기 준정적 열)로 잡은 것은 0.5·1 s-1 열이 Sn3.5Ag·SAC305 의 낮은 변형에서 서로 뒤집혀 있어서다(SAC305 eps=0.015 에서 0.5 s-1 23.1 대 1 s-1 13.4)."
+    },
+    {
+     "key": "mechanical.dynamic_increase_factor",
+     "value": 2.5034,
+     "unit": "1",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "loading": "uniaxial compression (drop-weight, 4 mm dia x 4 mm specimen, graphite-lubricated anvils)",
+      "strain_rate_s": 200.0,
+      "reference_strain_rate_s": 0.005,
+      "strain_rate_basis": "initial strain rate (eps_dot_o = Vo/Lo) as printed in the table header",
+      "true_strain": 0.3,
+      "basis": "true flow stress ratio at fixed true strain",
+      "temperature": "room temperature (수치 미인쇄 — 등온 압축, 온도항 미사용)"
+     },
+     "notes": "Wong 2016 Table 1 'Experimental true stress and true strain data of solder alloys at seven initial strain rates' (단위: strain rate s-1, stress MPa). 시험 verbatim(2.2절): 'Four solder alloys ... were machined from rods into test specimens of dimensions 4 mm x 4 mm and were compressed at the initial speeds, Vo = 0.02, 2, 4, 260, 400, 800, and 1200 mm/s' — 앞 셋은 표준 시험기, 뒤 넷은 낙하추(drop-weight) 압축이다. 같은 저자군의 선행 실험(Wong 2008, J. Electron. Mater. 37(6) 829, doi 10.1007/s11664-008-0403-x)을 이 논문이 처음 표로 인쇄한 것이다 — 2008년 판은 같은 데이터를 Fig.7 그래프와 본문 한 줄('The peak flow stress for the Sn-37Pb, SAC101, Sn-3.5Ag, and SAC305 solders at 1 s-1 are 61, 64, 81, and 87 MPa')로만 냈다. DIF = sigma(200 /s)/sigma(0.005 /s) = 109.4 / 43.7 MPa (eps=0.3). 두 값 모두 같은 표 같은 행의 측정값이고 비만 계산했다. Sn37Pb 는 이 표에서 변형연화를 보이지 않아 인쇄된 최대 변형 eps=0.30 행을 썼다. 주의 — 표 머리글의 율속은 초기 율속이고 저자가 2.3절에서 'In general, eps_dot(eps) != eps_dot_o' 라고 명시한다. 저자는 모델 피팅 전에 등율속(isostrain-rate)으로 변환하므로 이 비는 변환 전 인쇄값의 비다. 기준을 0.005 s-1(표준 시험기 준정적 열)로 잡은 것은 0.5·1 s-1 열이 Sn3.5Ag·SAC305 의 낮은 변형에서 서로 뒤집혀 있어서다(SAC305 eps=0.015 에서 0.5 s-1 23.1 대 1 s-1 13.4)."
+    },
+    {
+     "key": "mechanical.dynamic_increase_factor",
+     "value": 2.5309,
+     "unit": "1",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "loading": "uniaxial compression (drop-weight, 4 mm dia x 4 mm specimen, graphite-lubricated anvils)",
+      "strain_rate_s": 300.0,
+      "reference_strain_rate_s": 0.005,
+      "strain_rate_basis": "initial strain rate (eps_dot_o = Vo/Lo) as printed in the table header",
+      "true_strain": 0.3,
+      "basis": "true flow stress ratio at fixed true strain",
+      "temperature": "room temperature (수치 미인쇄 — 등온 압축, 온도항 미사용)"
+     },
+     "notes": "Wong 2016 Table 1 'Experimental true stress and true strain data of solder alloys at seven initial strain rates' (단위: strain rate s-1, stress MPa). 시험 verbatim(2.2절): 'Four solder alloys ... were machined from rods into test specimens of dimensions 4 mm x 4 mm and were compressed at the initial speeds, Vo = 0.02, 2, 4, 260, 400, 800, and 1200 mm/s' — 앞 셋은 표준 시험기, 뒤 넷은 낙하추(drop-weight) 압축이다. 같은 저자군의 선행 실험(Wong 2008, J. Electron. Mater. 37(6) 829, doi 10.1007/s11664-008-0403-x)을 이 논문이 처음 표로 인쇄한 것이다 — 2008년 판은 같은 데이터를 Fig.7 그래프와 본문 한 줄('The peak flow stress for the Sn-37Pb, SAC101, Sn-3.5Ag, and SAC305 solders at 1 s-1 are 61, 64, 81, and 87 MPa')로만 냈다. DIF = sigma(300 /s)/sigma(0.005 /s) = 110.6 / 43.7 MPa (eps=0.3). 두 값 모두 같은 표 같은 행의 측정값이고 비만 계산했다. Sn37Pb 는 이 표에서 변형연화를 보이지 않아 인쇄된 최대 변형 eps=0.30 행을 썼다. 주의 — 표 머리글의 율속은 초기 율속이고 저자가 2.3절에서 'In general, eps_dot(eps) != eps_dot_o' 라고 명시한다. 저자는 모델 피팅 전에 등율속(isostrain-rate)으로 변환하므로 이 비는 변환 전 인쇄값의 비다. 기준을 0.005 s-1(표준 시험기 준정적 열)로 잡은 것은 0.5·1 s-1 열이 Sn3.5Ag·SAC305 의 낮은 변형에서 서로 뒤집혀 있어서다(SAC305 eps=0.015 에서 0.5 s-1 23.1 대 1 s-1 13.4)."
+    }
+   ]
+  },
+  {
+   "match_name": "Sn63Pb37 Eutectic Solder Alloy",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1016/j.microrel.2016.10.007",
+    "title": "Constitutive modeling of solder alloys for drop-impact applications",
+    "authors": "E.H. Wong, J. Chrisp, C.S. Selvanayagam, S.K.W. Seah",
+    "year": 2016,
+    "publisher": "Elsevier (Microelectronics Reliability)",
+    "local_path": "/data/paper_patent_corpus/structured/rel_papers/24_creep_fatigue_interconnect/Wong - 2016 - Constitutive modeling of solder alloys for drop-impact applications/Wong - 2016 - Constitutive modeling of solder alloys for drop-impact applications.md"
+   },
+   "properties": [
+    {
+     "key": "mechanical.johnson_cook_a",
+     "value": 37400000.0,
+     "unit": "Pa",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "model": "johnson_cook",
+      "set_id": "wong2016_dropweight_jc_sn37pb",
+      "reference_strain_rate_s": 1.0,
+      "fit_strain_rates_s": [
+       0.005,
+       0.5,
+       1,
+       65,
+       100,
+       200,
+       300
+      ],
+      "fit_r2": 0.93,
+      "temperature": "room temperature — 온도항(m) 미피팅. 등온 낙하추 압축",
+      "test_method": "drop-weight + 표준 시험기 압축 실측을 등율속으로 변환한 뒤 저자가 최소자승 피팅",
+      "assumption": true,
+      "basis": "저자가 항복변형률 0.1%를 가정하고 Table 2 의 영률(혼합칙 계산값)에 곱해 얻은 값 — 측정 항복강도가 아니다"
+     },
+     "notes": "Wong 2016 Table 1 'Experimental true stress and true strain data of solder alloys at seven initial strain rates' (단위: strain rate s-1, stress MPa). 시험 verbatim(2.2절): 'Four solder alloys ... were machined from rods into test specimens of dimensions 4 mm x 4 mm and were compressed at the initial speeds, Vo = 0.02, 2, 4, 260, 400, 800, and 1200 mm/s' — 앞 셋은 표준 시험기, 뒤 넷은 낙하추(drop-weight) 압축이다. 같은 저자군의 선행 실험(Wong 2008, J. Electron. Mater. 37(6) 829, doi 10.1007/s11664-008-0403-x)을 이 논문이 처음 표로 인쇄한 것이다 — 2008년 판은 같은 데이터를 Fig.7 그래프와 본문 한 줄('The peak flow stress for the Sn-37Pb, SAC101, Sn-3.5Ag, and SAC305 solders at 1 s-1 are 61, 64, 81, and 87 MPa')로만 냈다. Table 3 verbatim 캡션: 'Material constants for the Johnson-Cook model with eps_dot_ref = 1 s-1 taken at eps_dot_o = 0.005, 0.5, 1, 65, 100, 200, and 300 s-1'; 이 행 = 'Sn37Pb | 37.4 | 62.5 | 0.082 | 0.489 | 0.93' (sigma_y MPa | B MPa | C | n | R2). 저자가 자기 실험 데이터에 직접 피팅했고(3.2.1절), Sn37Pb 는 같은 상수로 Ansys-Autodyne 재현을 돌려 하중이력 편차 <1%(Table 5)이며 Ansys 최적화로 독립 재추출한 상수(Table 6: B 57.1 / C 0.152 / n 0.792)가 해석 피팅(58.7 / 0.138 / 0.737)과 근접한다. 자기검산 — SAC305 세트(A 51.4 MPa · B 281 MPa · C 0.136 · n 0.780)를 sigma=(A+B*eps^n)(1+C*ln(eps_dot)) 에 넣으면 eps=0.090 기준 300 s-1 에서 167.5 MPa(Table 1 인쇄값 169.9, -1.4%), 200 s-1 에서 162.3 MPa(인쇄값 157.7, +2.9%)로 닫힌다. 저율속 끝(0.005 s-1)은 ln 항이 음이라 안 맞는데, 이는 R2 0.82~0.93 이 말하는 고율속 편중 피팅의 성질이고 저자도 Table 1 을 등율속으로 변환한 뒤 피팅했다고 3.2.1절에 밝힌다. ※ A(sigma_y)만 성격이 다르다. 3.2.1절 verbatim: 'Assuming the yield strain for the solder alloys to be 0.1%, and referring to the Young's moduli of the solder alloys presented in Table 2, the yield stresses ... are evaluated as 37.4 MPa, 50.2 MPa, 51.2 MPa, and 51.4 MPa'. 그리고 그 영률 자체가 측정이 아니다 — 3.2절 verbatim: 'The methods of measurement do not have sufficient resolution to resolve the elastic modulus of the solder alloys. These are estimated using the properties of the constituting elements ... Using the rule of mixture'. 즉 가정(항복변형률 0.1%) 곱하기 계산(혼합칙 E)이라 t4 가정으로 넣는다. JC 세트는 A 없이 못 쓰므로 값은 넣되 등급으로 성격을 표시한다 — 같은 세트의 B·C·n 은 실측 피팅이라 t1 이다. (SAC101 은 본문이 50.2, Table 3 이 50.4 로 갈리는데 카탈로그에 대응 재료가 없어 안 넣었다. 카탈로그의 986 SAC107 은 Sn-1Ag-0.7Cu 이고 이 논문의 SAC101 은 Sn-1.0Ag-0.1Cu 로 Cu 가 일곱 배 다르다 — 브리프 621.)"
+    },
+    {
+     "key": "mechanical.johnson_cook_b",
+     "value": 62500000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "model": "johnson_cook",
+      "set_id": "wong2016_dropweight_jc_sn37pb",
+      "reference_strain_rate_s": 1.0,
+      "fit_strain_rates_s": [
+       0.005,
+       0.5,
+       1,
+       65,
+       100,
+       200,
+       300
+      ],
+      "fit_r2": 0.93,
+      "temperature": "room temperature — 온도항(m) 미피팅. 등온 낙하추 압축",
+      "test_method": "drop-weight + 표준 시험기 압축 실측을 등율속으로 변환한 뒤 저자가 최소자승 피팅"
+     },
+     "notes": "Wong 2016 Table 1 'Experimental true stress and true strain data of solder alloys at seven initial strain rates' (단위: strain rate s-1, stress MPa). 시험 verbatim(2.2절): 'Four solder alloys ... were machined from rods into test specimens of dimensions 4 mm x 4 mm and were compressed at the initial speeds, Vo = 0.02, 2, 4, 260, 400, 800, and 1200 mm/s' — 앞 셋은 표준 시험기, 뒤 넷은 낙하추(drop-weight) 압축이다. 같은 저자군의 선행 실험(Wong 2008, J. Electron. Mater. 37(6) 829, doi 10.1007/s11664-008-0403-x)을 이 논문이 처음 표로 인쇄한 것이다 — 2008년 판은 같은 데이터를 Fig.7 그래프와 본문 한 줄('The peak flow stress for the Sn-37Pb, SAC101, Sn-3.5Ag, and SAC305 solders at 1 s-1 are 61, 64, 81, and 87 MPa')로만 냈다. Table 3 verbatim 캡션: 'Material constants for the Johnson-Cook model with eps_dot_ref = 1 s-1 taken at eps_dot_o = 0.005, 0.5, 1, 65, 100, 200, and 300 s-1'; 이 행 = 'Sn37Pb | 37.4 | 62.5 | 0.082 | 0.489 | 0.93' (sigma_y MPa | B MPa | C | n | R2). 저자가 자기 실험 데이터에 직접 피팅했고(3.2.1절), Sn37Pb 는 같은 상수로 Ansys-Autodyne 재현을 돌려 하중이력 편차 <1%(Table 5)이며 Ansys 최적화로 독립 재추출한 상수(Table 6: B 57.1 / C 0.152 / n 0.792)가 해석 피팅(58.7 / 0.138 / 0.737)과 근접한다. 자기검산 — SAC305 세트(A 51.4 MPa · B 281 MPa · C 0.136 · n 0.780)를 sigma=(A+B*eps^n)(1+C*ln(eps_dot)) 에 넣으면 eps=0.090 기준 300 s-1 에서 167.5 MPa(Table 1 인쇄값 169.9, -1.4%), 200 s-1 에서 162.3 MPa(인쇄값 157.7, +2.9%)로 닫힌다. 저율속 끝(0.005 s-1)은 ln 항이 음이라 안 맞는데, 이는 R2 0.82~0.93 이 말하는 고율속 편중 피팅의 성질이고 저자도 Table 1 을 등율속으로 변환한 뒤 피팅했다고 3.2.1절에 밝힌다."
+    },
+    {
+     "key": "mechanical.johnson_cook_c",
+     "value": 0.082,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "model": "johnson_cook",
+      "set_id": "wong2016_dropweight_jc_sn37pb",
+      "reference_strain_rate_s": 1.0,
+      "fit_strain_rates_s": [
+       0.005,
+       0.5,
+       1,
+       65,
+       100,
+       200,
+       300
+      ],
+      "fit_r2": 0.93,
+      "temperature": "room temperature — 온도항(m) 미피팅. 등온 낙하추 압축",
+      "test_method": "drop-weight + 표준 시험기 압축 실측을 등율속으로 변환한 뒤 저자가 최소자승 피팅"
+     },
+     "notes": "Wong 2016 Table 1 'Experimental true stress and true strain data of solder alloys at seven initial strain rates' (단위: strain rate s-1, stress MPa). 시험 verbatim(2.2절): 'Four solder alloys ... were machined from rods into test specimens of dimensions 4 mm x 4 mm and were compressed at the initial speeds, Vo = 0.02, 2, 4, 260, 400, 800, and 1200 mm/s' — 앞 셋은 표준 시험기, 뒤 넷은 낙하추(drop-weight) 압축이다. 같은 저자군의 선행 실험(Wong 2008, J. Electron. Mater. 37(6) 829, doi 10.1007/s11664-008-0403-x)을 이 논문이 처음 표로 인쇄한 것이다 — 2008년 판은 같은 데이터를 Fig.7 그래프와 본문 한 줄('The peak flow stress for the Sn-37Pb, SAC101, Sn-3.5Ag, and SAC305 solders at 1 s-1 are 61, 64, 81, and 87 MPa')로만 냈다. Table 3 verbatim 캡션: 'Material constants for the Johnson-Cook model with eps_dot_ref = 1 s-1 taken at eps_dot_o = 0.005, 0.5, 1, 65, 100, 200, and 300 s-1'; 이 행 = 'Sn37Pb | 37.4 | 62.5 | 0.082 | 0.489 | 0.93' (sigma_y MPa | B MPa | C | n | R2). 저자가 자기 실험 데이터에 직접 피팅했고(3.2.1절), Sn37Pb 는 같은 상수로 Ansys-Autodyne 재현을 돌려 하중이력 편차 <1%(Table 5)이며 Ansys 최적화로 독립 재추출한 상수(Table 6: B 57.1 / C 0.152 / n 0.792)가 해석 피팅(58.7 / 0.138 / 0.737)과 근접한다. 자기검산 — SAC305 세트(A 51.4 MPa · B 281 MPa · C 0.136 · n 0.780)를 sigma=(A+B*eps^n)(1+C*ln(eps_dot)) 에 넣으면 eps=0.090 기준 300 s-1 에서 167.5 MPa(Table 1 인쇄값 169.9, -1.4%), 200 s-1 에서 162.3 MPa(인쇄값 157.7, +2.9%)로 닫힌다. 저율속 끝(0.005 s-1)은 ln 항이 음이라 안 맞는데, 이는 R2 0.82~0.93 이 말하는 고율속 편중 피팅의 성질이고 저자도 Table 1 을 등율속으로 변환한 뒤 피팅했다고 3.2.1절에 밝힌다."
+    },
+    {
+     "key": "mechanical.johnson_cook_n",
+     "value": 0.489,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "model": "johnson_cook",
+      "set_id": "wong2016_dropweight_jc_sn37pb",
+      "reference_strain_rate_s": 1.0,
+      "fit_strain_rates_s": [
+       0.005,
+       0.5,
+       1,
+       65,
+       100,
+       200,
+       300
+      ],
+      "fit_r2": 0.93,
+      "temperature": "room temperature — 온도항(m) 미피팅. 등온 낙하추 압축",
+      "test_method": "drop-weight + 표준 시험기 압축 실측을 등율속으로 변환한 뒤 저자가 최소자승 피팅"
+     },
+     "notes": "Wong 2016 Table 1 'Experimental true stress and true strain data of solder alloys at seven initial strain rates' (단위: strain rate s-1, stress MPa). 시험 verbatim(2.2절): 'Four solder alloys ... were machined from rods into test specimens of dimensions 4 mm x 4 mm and were compressed at the initial speeds, Vo = 0.02, 2, 4, 260, 400, 800, and 1200 mm/s' — 앞 셋은 표준 시험기, 뒤 넷은 낙하추(drop-weight) 압축이다. 같은 저자군의 선행 실험(Wong 2008, J. Electron. Mater. 37(6) 829, doi 10.1007/s11664-008-0403-x)을 이 논문이 처음 표로 인쇄한 것이다 — 2008년 판은 같은 데이터를 Fig.7 그래프와 본문 한 줄('The peak flow stress for the Sn-37Pb, SAC101, Sn-3.5Ag, and SAC305 solders at 1 s-1 are 61, 64, 81, and 87 MPa')로만 냈다. Table 3 verbatim 캡션: 'Material constants for the Johnson-Cook model with eps_dot_ref = 1 s-1 taken at eps_dot_o = 0.005, 0.5, 1, 65, 100, 200, and 300 s-1'; 이 행 = 'Sn37Pb | 37.4 | 62.5 | 0.082 | 0.489 | 0.93' (sigma_y MPa | B MPa | C | n | R2). 저자가 자기 실험 데이터에 직접 피팅했고(3.2.1절), Sn37Pb 는 같은 상수로 Ansys-Autodyne 재현을 돌려 하중이력 편차 <1%(Table 5)이며 Ansys 최적화로 독립 재추출한 상수(Table 6: B 57.1 / C 0.152 / n 0.792)가 해석 피팅(58.7 / 0.138 / 0.737)과 근접한다. 자기검산 — SAC305 세트(A 51.4 MPa · B 281 MPa · C 0.136 · n 0.780)를 sigma=(A+B*eps^n)(1+C*ln(eps_dot)) 에 넣으면 eps=0.090 기준 300 s-1 에서 167.5 MPa(Table 1 인쇄값 169.9, -1.4%), 200 s-1 에서 162.3 MPa(인쇄값 157.7, +2.9%)로 닫힌다. 저율속 끝(0.005 s-1)은 ln 항이 음이라 안 맞는데, 이는 R2 0.82~0.93 이 말하는 고율속 편중 피팅의 성질이고 저자도 Table 1 을 등율속으로 변환한 뒤 피팅했다고 3.2.1절에 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Sn-3.5Ag Solder Alloy",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1016/j.microrel.2016.10.007",
+    "title": "Constitutive modeling of solder alloys for drop-impact applications",
+    "authors": "E.H. Wong, J. Chrisp, C.S. Selvanayagam, S.K.W. Seah",
+    "year": 2016,
+    "publisher": "Elsevier (Microelectronics Reliability)",
+    "local_path": "/data/paper_patent_corpus/structured/rel_papers/24_creep_fatigue_interconnect/Wong - 2016 - Constitutive modeling of solder alloys for drop-impact applications/Wong - 2016 - Constitutive modeling of solder alloys for drop-impact applications.md"
+   },
+   "properties": [
+    {
+     "key": "mechanical.dynamic_increase_factor",
+     "value": 2.5558,
+     "unit": "1",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "loading": "uniaxial compression (drop-weight, 4 mm dia x 4 mm specimen, graphite-lubricated anvils)",
+      "strain_rate_s": 65.0,
+      "reference_strain_rate_s": 0.005,
+      "strain_rate_basis": "initial strain rate (eps_dot_o = Vo/Lo) as printed in the table header",
+      "true_strain": 0.14,
+      "basis": "true flow stress ratio at fixed true strain",
+      "temperature": "room temperature (수치 미인쇄 — 등온 압축, 온도항 미사용)"
+     },
+     "notes": "Wong 2016 Table 1 'Experimental true stress and true strain data of solder alloys at seven initial strain rates' (단위: strain rate s-1, stress MPa). 시험 verbatim(2.2절): 'Four solder alloys ... were machined from rods into test specimens of dimensions 4 mm x 4 mm and were compressed at the initial speeds, Vo = 0.02, 2, 4, 260, 400, 800, and 1200 mm/s' — 앞 셋은 표준 시험기, 뒤 넷은 낙하추(drop-weight) 압축이다. 같은 저자군의 선행 실험(Wong 2008, J. Electron. Mater. 37(6) 829, doi 10.1007/s11664-008-0403-x)을 이 논문이 처음 표로 인쇄한 것이다 — 2008년 판은 같은 데이터를 Fig.7 그래프와 본문 한 줄('The peak flow stress for the Sn-37Pb, SAC101, Sn-3.5Ag, and SAC305 solders at 1 s-1 are 61, 64, 81, and 87 MPa')로만 냈다. DIF = sigma(65 /s)/sigma(0.005 /s) = 128.3 / 50.2 MPa (eps=0.14). 두 값 모두 같은 표 같은 행의 측정값이고 비만 계산했다. 본문 verbatim: 'The Sn3.5Ag and the SAC305 solder alloys exhibited strain softening at the true strain of approximately 0.15 and 0.1, respectively.' 연화 직전인 eps=0.14 행을 썼다. 주의 — 표 머리글의 율속은 초기 율속이고 저자가 2.3절에서 'In general, eps_dot(eps) != eps_dot_o' 라고 명시한다. 저자는 모델 피팅 전에 등율속(isostrain-rate)으로 변환하므로 이 비는 변환 전 인쇄값의 비다. 기준을 0.005 s-1(표준 시험기 준정적 열)로 잡은 것은 0.5·1 s-1 열이 Sn3.5Ag·SAC305 의 낮은 변형에서 서로 뒤집혀 있어서다(SAC305 eps=0.015 에서 0.5 s-1 23.1 대 1 s-1 13.4)."
+    },
+    {
+     "key": "mechanical.dynamic_increase_factor",
+     "value": 2.757,
+     "unit": "1",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "loading": "uniaxial compression (drop-weight, 4 mm dia x 4 mm specimen, graphite-lubricated anvils)",
+      "strain_rate_s": 100.0,
+      "reference_strain_rate_s": 0.005,
+      "strain_rate_basis": "initial strain rate (eps_dot_o = Vo/Lo) as printed in the table header",
+      "true_strain": 0.14,
+      "basis": "true flow stress ratio at fixed true strain",
+      "temperature": "room temperature (수치 미인쇄 — 등온 압축, 온도항 미사용)"
+     },
+     "notes": "Wong 2016 Table 1 'Experimental true stress and true strain data of solder alloys at seven initial strain rates' (단위: strain rate s-1, stress MPa). 시험 verbatim(2.2절): 'Four solder alloys ... were machined from rods into test specimens of dimensions 4 mm x 4 mm and were compressed at the initial speeds, Vo = 0.02, 2, 4, 260, 400, 800, and 1200 mm/s' — 앞 셋은 표준 시험기, 뒤 넷은 낙하추(drop-weight) 압축이다. 같은 저자군의 선행 실험(Wong 2008, J. Electron. Mater. 37(6) 829, doi 10.1007/s11664-008-0403-x)을 이 논문이 처음 표로 인쇄한 것이다 — 2008년 판은 같은 데이터를 Fig.7 그래프와 본문 한 줄('The peak flow stress for the Sn-37Pb, SAC101, Sn-3.5Ag, and SAC305 solders at 1 s-1 are 61, 64, 81, and 87 MPa')로만 냈다. DIF = sigma(100 /s)/sigma(0.005 /s) = 138.4 / 50.2 MPa (eps=0.14). 두 값 모두 같은 표 같은 행의 측정값이고 비만 계산했다. 본문 verbatim: 'The Sn3.5Ag and the SAC305 solder alloys exhibited strain softening at the true strain of approximately 0.15 and 0.1, respectively.' 연화 직전인 eps=0.14 행을 썼다. 주의 — 표 머리글의 율속은 초기 율속이고 저자가 2.3절에서 'In general, eps_dot(eps) != eps_dot_o' 라고 명시한다. 저자는 모델 피팅 전에 등율속(isostrain-rate)으로 변환하므로 이 비는 변환 전 인쇄값의 비다. 기준을 0.005 s-1(표준 시험기 준정적 열)로 잡은 것은 0.5·1 s-1 열이 Sn3.5Ag·SAC305 의 낮은 변형에서 서로 뒤집혀 있어서다(SAC305 eps=0.015 에서 0.5 s-1 23.1 대 1 s-1 13.4)."
+    },
+    {
+     "key": "mechanical.dynamic_increase_factor",
+     "value": 3.3327,
+     "unit": "1",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "loading": "uniaxial compression (drop-weight, 4 mm dia x 4 mm specimen, graphite-lubricated anvils)",
+      "strain_rate_s": 200.0,
+      "reference_strain_rate_s": 0.005,
+      "strain_rate_basis": "initial strain rate (eps_dot_o = Vo/Lo) as printed in the table header",
+      "true_strain": 0.14,
+      "basis": "true flow stress ratio at fixed true strain",
+      "temperature": "room temperature (수치 미인쇄 — 등온 압축, 온도항 미사용)"
+     },
+     "notes": "Wong 2016 Table 1 'Experimental true stress and true strain data of solder alloys at seven initial strain rates' (단위: strain rate s-1, stress MPa). 시험 verbatim(2.2절): 'Four solder alloys ... were machined from rods into test specimens of dimensions 4 mm x 4 mm and were compressed at the initial speeds, Vo = 0.02, 2, 4, 260, 400, 800, and 1200 mm/s' — 앞 셋은 표준 시험기, 뒤 넷은 낙하추(drop-weight) 압축이다. 같은 저자군의 선행 실험(Wong 2008, J. Electron. Mater. 37(6) 829, doi 10.1007/s11664-008-0403-x)을 이 논문이 처음 표로 인쇄한 것이다 — 2008년 판은 같은 데이터를 Fig.7 그래프와 본문 한 줄('The peak flow stress for the Sn-37Pb, SAC101, Sn-3.5Ag, and SAC305 solders at 1 s-1 are 61, 64, 81, and 87 MPa')로만 냈다. DIF = sigma(200 /s)/sigma(0.005 /s) = 167.3 / 50.2 MPa (eps=0.14). 두 값 모두 같은 표 같은 행의 측정값이고 비만 계산했다. 본문 verbatim: 'The Sn3.5Ag and the SAC305 solder alloys exhibited strain softening at the true strain of approximately 0.15 and 0.1, respectively.' 연화 직전인 eps=0.14 행을 썼다. 주의 — 표 머리글의 율속은 초기 율속이고 저자가 2.3절에서 'In general, eps_dot(eps) != eps_dot_o' 라고 명시한다. 저자는 모델 피팅 전에 등율속(isostrain-rate)으로 변환하므로 이 비는 변환 전 인쇄값의 비다. 기준을 0.005 s-1(표준 시험기 준정적 열)로 잡은 것은 0.5·1 s-1 열이 Sn3.5Ag·SAC305 의 낮은 변형에서 서로 뒤집혀 있어서다(SAC305 eps=0.015 에서 0.5 s-1 23.1 대 1 s-1 13.4)."
+    },
+    {
+     "key": "mechanical.dynamic_increase_factor",
+     "value": 3.3406,
+     "unit": "1",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "loading": "uniaxial compression (drop-weight, 4 mm dia x 4 mm specimen, graphite-lubricated anvils)",
+      "strain_rate_s": 300.0,
+      "reference_strain_rate_s": 0.005,
+      "strain_rate_basis": "initial strain rate (eps_dot_o = Vo/Lo) as printed in the table header",
+      "true_strain": 0.14,
+      "basis": "true flow stress ratio at fixed true strain",
+      "temperature": "room temperature (수치 미인쇄 — 등온 압축, 온도항 미사용)"
+     },
+     "notes": "Wong 2016 Table 1 'Experimental true stress and true strain data of solder alloys at seven initial strain rates' (단위: strain rate s-1, stress MPa). 시험 verbatim(2.2절): 'Four solder alloys ... were machined from rods into test specimens of dimensions 4 mm x 4 mm and were compressed at the initial speeds, Vo = 0.02, 2, 4, 260, 400, 800, and 1200 mm/s' — 앞 셋은 표준 시험기, 뒤 넷은 낙하추(drop-weight) 압축이다. 같은 저자군의 선행 실험(Wong 2008, J. Electron. Mater. 37(6) 829, doi 10.1007/s11664-008-0403-x)을 이 논문이 처음 표로 인쇄한 것이다 — 2008년 판은 같은 데이터를 Fig.7 그래프와 본문 한 줄('The peak flow stress for the Sn-37Pb, SAC101, Sn-3.5Ag, and SAC305 solders at 1 s-1 are 61, 64, 81, and 87 MPa')로만 냈다. DIF = sigma(300 /s)/sigma(0.005 /s) = 167.7 / 50.2 MPa (eps=0.14). 두 값 모두 같은 표 같은 행의 측정값이고 비만 계산했다. 본문 verbatim: 'The Sn3.5Ag and the SAC305 solder alloys exhibited strain softening at the true strain of approximately 0.15 and 0.1, respectively.' 연화 직전인 eps=0.14 행을 썼다. 주의 — 표 머리글의 율속은 초기 율속이고 저자가 2.3절에서 'In general, eps_dot(eps) != eps_dot_o' 라고 명시한다. 저자는 모델 피팅 전에 등율속(isostrain-rate)으로 변환하므로 이 비는 변환 전 인쇄값의 비다. 기준을 0.005 s-1(표준 시험기 준정적 열)로 잡은 것은 0.5·1 s-1 열이 Sn3.5Ag·SAC305 의 낮은 변형에서 서로 뒤집혀 있어서다(SAC305 eps=0.015 에서 0.5 s-1 23.1 대 1 s-1 13.4)."
+    }
+   ]
+  },
+  {
+   "match_name": "Sn-3.5Ag Solder Alloy",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1016/j.microrel.2016.10.007",
+    "title": "Constitutive modeling of solder alloys for drop-impact applications",
+    "authors": "E.H. Wong, J. Chrisp, C.S. Selvanayagam, S.K.W. Seah",
+    "year": 2016,
+    "publisher": "Elsevier (Microelectronics Reliability)",
+    "local_path": "/data/paper_patent_corpus/structured/rel_papers/24_creep_fatigue_interconnect/Wong - 2016 - Constitutive modeling of solder alloys for drop-impact applications/Wong - 2016 - Constitutive modeling of solder alloys for drop-impact applications.md"
+   },
+   "properties": [
+    {
+     "key": "mechanical.johnson_cook_a",
+     "value": 51200000.0,
+     "unit": "Pa",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "model": "johnson_cook",
+      "set_id": "wong2016_dropweight_jc_sn35ag",
+      "reference_strain_rate_s": 1.0,
+      "fit_strain_rates_s": [
+       0.005,
+       0.5,
+       1,
+       65,
+       100,
+       200,
+       300
+      ],
+      "fit_r2": 0.82,
+      "temperature": "room temperature — 온도항(m) 미피팅. 등온 낙하추 압축",
+      "test_method": "drop-weight + 표준 시험기 압축 실측을 등율속으로 변환한 뒤 저자가 최소자승 피팅",
+      "assumption": true,
+      "basis": "저자가 항복변형률 0.1%를 가정하고 Table 2 의 영률(혼합칙 계산값)에 곱해 얻은 값 — 측정 항복강도가 아니다"
+     },
+     "notes": "Wong 2016 Table 1 'Experimental true stress and true strain data of solder alloys at seven initial strain rates' (단위: strain rate s-1, stress MPa). 시험 verbatim(2.2절): 'Four solder alloys ... were machined from rods into test specimens of dimensions 4 mm x 4 mm and were compressed at the initial speeds, Vo = 0.02, 2, 4, 260, 400, 800, and 1200 mm/s' — 앞 셋은 표준 시험기, 뒤 넷은 낙하추(drop-weight) 압축이다. 같은 저자군의 선행 실험(Wong 2008, J. Electron. Mater. 37(6) 829, doi 10.1007/s11664-008-0403-x)을 이 논문이 처음 표로 인쇄한 것이다 — 2008년 판은 같은 데이터를 Fig.7 그래프와 본문 한 줄('The peak flow stress for the Sn-37Pb, SAC101, Sn-3.5Ag, and SAC305 solders at 1 s-1 are 61, 64, 81, and 87 MPa')로만 냈다. Table 3 verbatim 캡션: 'Material constants for the Johnson-Cook model with eps_dot_ref = 1 s-1 taken at eps_dot_o = 0.005, 0.5, 1, 65, 100, 200, and 300 s-1'; 이 행 = 'Sn3.5Ag | 51.2 | 227.0 | 0.118 | 0.788 | 0.82' (sigma_y MPa | B MPa | C | n | R2). 저자가 자기 실험 데이터에 직접 피팅했고(3.2.1절), Sn37Pb 는 같은 상수로 Ansys-Autodyne 재현을 돌려 하중이력 편차 <1%(Table 5)이며 Ansys 최적화로 독립 재추출한 상수(Table 6: B 57.1 / C 0.152 / n 0.792)가 해석 피팅(58.7 / 0.138 / 0.737)과 근접한다. 자기검산 — SAC305 세트(A 51.4 MPa · B 281 MPa · C 0.136 · n 0.780)를 sigma=(A+B*eps^n)(1+C*ln(eps_dot)) 에 넣으면 eps=0.090 기준 300 s-1 에서 167.5 MPa(Table 1 인쇄값 169.9, -1.4%), 200 s-1 에서 162.3 MPa(인쇄값 157.7, +2.9%)로 닫힌다. 저율속 끝(0.005 s-1)은 ln 항이 음이라 안 맞는데, 이는 R2 0.82~0.93 이 말하는 고율속 편중 피팅의 성질이고 저자도 Table 1 을 등율속으로 변환한 뒤 피팅했다고 3.2.1절에 밝힌다. ※ A(sigma_y)만 성격이 다르다. 3.2.1절 verbatim: 'Assuming the yield strain for the solder alloys to be 0.1%, and referring to the Young's moduli of the solder alloys presented in Table 2, the yield stresses ... are evaluated as 37.4 MPa, 50.2 MPa, 51.2 MPa, and 51.4 MPa'. 그리고 그 영률 자체가 측정이 아니다 — 3.2절 verbatim: 'The methods of measurement do not have sufficient resolution to resolve the elastic modulus of the solder alloys. These are estimated using the properties of the constituting elements ... Using the rule of mixture'. 즉 가정(항복변형률 0.1%) 곱하기 계산(혼합칙 E)이라 t4 가정으로 넣는다. JC 세트는 A 없이 못 쓰므로 값은 넣되 등급으로 성격을 표시한다 — 같은 세트의 B·C·n 은 실측 피팅이라 t1 이다. (SAC101 은 본문이 50.2, Table 3 이 50.4 로 갈리는데 카탈로그에 대응 재료가 없어 안 넣었다. 카탈로그의 986 SAC107 은 Sn-1Ag-0.7Cu 이고 이 논문의 SAC101 은 Sn-1.0Ag-0.1Cu 로 Cu 가 일곱 배 다르다 — 브리프 621.)"
+    },
+    {
+     "key": "mechanical.johnson_cook_b",
+     "value": 227000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "model": "johnson_cook",
+      "set_id": "wong2016_dropweight_jc_sn35ag",
+      "reference_strain_rate_s": 1.0,
+      "fit_strain_rates_s": [
+       0.005,
+       0.5,
+       1,
+       65,
+       100,
+       200,
+       300
+      ],
+      "fit_r2": 0.82,
+      "temperature": "room temperature — 온도항(m) 미피팅. 등온 낙하추 압축",
+      "test_method": "drop-weight + 표준 시험기 압축 실측을 등율속으로 변환한 뒤 저자가 최소자승 피팅"
+     },
+     "notes": "Wong 2016 Table 1 'Experimental true stress and true strain data of solder alloys at seven initial strain rates' (단위: strain rate s-1, stress MPa). 시험 verbatim(2.2절): 'Four solder alloys ... were machined from rods into test specimens of dimensions 4 mm x 4 mm and were compressed at the initial speeds, Vo = 0.02, 2, 4, 260, 400, 800, and 1200 mm/s' — 앞 셋은 표준 시험기, 뒤 넷은 낙하추(drop-weight) 압축이다. 같은 저자군의 선행 실험(Wong 2008, J. Electron. Mater. 37(6) 829, doi 10.1007/s11664-008-0403-x)을 이 논문이 처음 표로 인쇄한 것이다 — 2008년 판은 같은 데이터를 Fig.7 그래프와 본문 한 줄('The peak flow stress for the Sn-37Pb, SAC101, Sn-3.5Ag, and SAC305 solders at 1 s-1 are 61, 64, 81, and 87 MPa')로만 냈다. Table 3 verbatim 캡션: 'Material constants for the Johnson-Cook model with eps_dot_ref = 1 s-1 taken at eps_dot_o = 0.005, 0.5, 1, 65, 100, 200, and 300 s-1'; 이 행 = 'Sn3.5Ag | 51.2 | 227.0 | 0.118 | 0.788 | 0.82' (sigma_y MPa | B MPa | C | n | R2). 저자가 자기 실험 데이터에 직접 피팅했고(3.2.1절), Sn37Pb 는 같은 상수로 Ansys-Autodyne 재현을 돌려 하중이력 편차 <1%(Table 5)이며 Ansys 최적화로 독립 재추출한 상수(Table 6: B 57.1 / C 0.152 / n 0.792)가 해석 피팅(58.7 / 0.138 / 0.737)과 근접한다. 자기검산 — SAC305 세트(A 51.4 MPa · B 281 MPa · C 0.136 · n 0.780)를 sigma=(A+B*eps^n)(1+C*ln(eps_dot)) 에 넣으면 eps=0.090 기준 300 s-1 에서 167.5 MPa(Table 1 인쇄값 169.9, -1.4%), 200 s-1 에서 162.3 MPa(인쇄값 157.7, +2.9%)로 닫힌다. 저율속 끝(0.005 s-1)은 ln 항이 음이라 안 맞는데, 이는 R2 0.82~0.93 이 말하는 고율속 편중 피팅의 성질이고 저자도 Table 1 을 등율속으로 변환한 뒤 피팅했다고 3.2.1절에 밝힌다."
+    },
+    {
+     "key": "mechanical.johnson_cook_c",
+     "value": 0.118,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "model": "johnson_cook",
+      "set_id": "wong2016_dropweight_jc_sn35ag",
+      "reference_strain_rate_s": 1.0,
+      "fit_strain_rates_s": [
+       0.005,
+       0.5,
+       1,
+       65,
+       100,
+       200,
+       300
+      ],
+      "fit_r2": 0.82,
+      "temperature": "room temperature — 온도항(m) 미피팅. 등온 낙하추 압축",
+      "test_method": "drop-weight + 표준 시험기 압축 실측을 등율속으로 변환한 뒤 저자가 최소자승 피팅"
+     },
+     "notes": "Wong 2016 Table 1 'Experimental true stress and true strain data of solder alloys at seven initial strain rates' (단위: strain rate s-1, stress MPa). 시험 verbatim(2.2절): 'Four solder alloys ... were machined from rods into test specimens of dimensions 4 mm x 4 mm and were compressed at the initial speeds, Vo = 0.02, 2, 4, 260, 400, 800, and 1200 mm/s' — 앞 셋은 표준 시험기, 뒤 넷은 낙하추(drop-weight) 압축이다. 같은 저자군의 선행 실험(Wong 2008, J. Electron. Mater. 37(6) 829, doi 10.1007/s11664-008-0403-x)을 이 논문이 처음 표로 인쇄한 것이다 — 2008년 판은 같은 데이터를 Fig.7 그래프와 본문 한 줄('The peak flow stress for the Sn-37Pb, SAC101, Sn-3.5Ag, and SAC305 solders at 1 s-1 are 61, 64, 81, and 87 MPa')로만 냈다. Table 3 verbatim 캡션: 'Material constants for the Johnson-Cook model with eps_dot_ref = 1 s-1 taken at eps_dot_o = 0.005, 0.5, 1, 65, 100, 200, and 300 s-1'; 이 행 = 'Sn3.5Ag | 51.2 | 227.0 | 0.118 | 0.788 | 0.82' (sigma_y MPa | B MPa | C | n | R2). 저자가 자기 실험 데이터에 직접 피팅했고(3.2.1절), Sn37Pb 는 같은 상수로 Ansys-Autodyne 재현을 돌려 하중이력 편차 <1%(Table 5)이며 Ansys 최적화로 독립 재추출한 상수(Table 6: B 57.1 / C 0.152 / n 0.792)가 해석 피팅(58.7 / 0.138 / 0.737)과 근접한다. 자기검산 — SAC305 세트(A 51.4 MPa · B 281 MPa · C 0.136 · n 0.780)를 sigma=(A+B*eps^n)(1+C*ln(eps_dot)) 에 넣으면 eps=0.090 기준 300 s-1 에서 167.5 MPa(Table 1 인쇄값 169.9, -1.4%), 200 s-1 에서 162.3 MPa(인쇄값 157.7, +2.9%)로 닫힌다. 저율속 끝(0.005 s-1)은 ln 항이 음이라 안 맞는데, 이는 R2 0.82~0.93 이 말하는 고율속 편중 피팅의 성질이고 저자도 Table 1 을 등율속으로 변환한 뒤 피팅했다고 3.2.1절에 밝힌다."
+    },
+    {
+     "key": "mechanical.johnson_cook_n",
+     "value": 0.788,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "model": "johnson_cook",
+      "set_id": "wong2016_dropweight_jc_sn35ag",
+      "reference_strain_rate_s": 1.0,
+      "fit_strain_rates_s": [
+       0.005,
+       0.5,
+       1,
+       65,
+       100,
+       200,
+       300
+      ],
+      "fit_r2": 0.82,
+      "temperature": "room temperature — 온도항(m) 미피팅. 등온 낙하추 압축",
+      "test_method": "drop-weight + 표준 시험기 압축 실측을 등율속으로 변환한 뒤 저자가 최소자승 피팅"
+     },
+     "notes": "Wong 2016 Table 1 'Experimental true stress and true strain data of solder alloys at seven initial strain rates' (단위: strain rate s-1, stress MPa). 시험 verbatim(2.2절): 'Four solder alloys ... were machined from rods into test specimens of dimensions 4 mm x 4 mm and were compressed at the initial speeds, Vo = 0.02, 2, 4, 260, 400, 800, and 1200 mm/s' — 앞 셋은 표준 시험기, 뒤 넷은 낙하추(drop-weight) 압축이다. 같은 저자군의 선행 실험(Wong 2008, J. Electron. Mater. 37(6) 829, doi 10.1007/s11664-008-0403-x)을 이 논문이 처음 표로 인쇄한 것이다 — 2008년 판은 같은 데이터를 Fig.7 그래프와 본문 한 줄('The peak flow stress for the Sn-37Pb, SAC101, Sn-3.5Ag, and SAC305 solders at 1 s-1 are 61, 64, 81, and 87 MPa')로만 냈다. Table 3 verbatim 캡션: 'Material constants for the Johnson-Cook model with eps_dot_ref = 1 s-1 taken at eps_dot_o = 0.005, 0.5, 1, 65, 100, 200, and 300 s-1'; 이 행 = 'Sn3.5Ag | 51.2 | 227.0 | 0.118 | 0.788 | 0.82' (sigma_y MPa | B MPa | C | n | R2). 저자가 자기 실험 데이터에 직접 피팅했고(3.2.1절), Sn37Pb 는 같은 상수로 Ansys-Autodyne 재현을 돌려 하중이력 편차 <1%(Table 5)이며 Ansys 최적화로 독립 재추출한 상수(Table 6: B 57.1 / C 0.152 / n 0.792)가 해석 피팅(58.7 / 0.138 / 0.737)과 근접한다. 자기검산 — SAC305 세트(A 51.4 MPa · B 281 MPa · C 0.136 · n 0.780)를 sigma=(A+B*eps^n)(1+C*ln(eps_dot)) 에 넣으면 eps=0.090 기준 300 s-1 에서 167.5 MPa(Table 1 인쇄값 169.9, -1.4%), 200 s-1 에서 162.3 MPa(인쇄값 157.7, +2.9%)로 닫힌다. 저율속 끝(0.005 s-1)은 ln 항이 음이라 안 맞는데, 이는 R2 0.82~0.93 이 말하는 고율속 편중 피팅의 성질이고 저자도 Table 1 을 등율속으로 변환한 뒤 피팅했다고 3.2.1절에 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "SAC305 Solder Alloy",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1016/j.microrel.2016.10.007",
+    "title": "Constitutive modeling of solder alloys for drop-impact applications",
+    "authors": "E.H. Wong, J. Chrisp, C.S. Selvanayagam, S.K.W. Seah",
+    "year": 2016,
+    "publisher": "Elsevier (Microelectronics Reliability)",
+    "local_path": "/data/paper_patent_corpus/structured/rel_papers/24_creep_fatigue_interconnect/Wong - 2016 - Constitutive modeling of solder alloys for drop-impact applications/Wong - 2016 - Constitutive modeling of solder alloys for drop-impact applications.md"
+   },
+   "properties": [
+    {
+     "key": "mechanical.dynamic_increase_factor",
+     "value": 2.8711,
+     "unit": "1",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "loading": "uniaxial compression (drop-weight, 4 mm dia x 4 mm specimen, graphite-lubricated anvils)",
+      "strain_rate_s": 65.0,
+      "reference_strain_rate_s": 0.005,
+      "strain_rate_basis": "initial strain rate (eps_dot_o = Vo/Lo) as printed in the table header",
+      "true_strain": 0.09,
+      "basis": "true flow stress ratio at fixed true strain",
+      "temperature": "room temperature (수치 미인쇄 — 등온 압축, 온도항 미사용)"
+     },
+     "notes": "Wong 2016 Table 1 'Experimental true stress and true strain data of solder alloys at seven initial strain rates' (단위: strain rate s-1, stress MPa). 시험 verbatim(2.2절): 'Four solder alloys ... were machined from rods into test specimens of dimensions 4 mm x 4 mm and were compressed at the initial speeds, Vo = 0.02, 2, 4, 260, 400, 800, and 1200 mm/s' — 앞 셋은 표준 시험기, 뒤 넷은 낙하추(drop-weight) 압축이다. 같은 저자군의 선행 실험(Wong 2008, J. Electron. Mater. 37(6) 829, doi 10.1007/s11664-008-0403-x)을 이 논문이 처음 표로 인쇄한 것이다 — 2008년 판은 같은 데이터를 Fig.7 그래프와 본문 한 줄('The peak flow stress for the Sn-37Pb, SAC101, Sn-3.5Ag, and SAC305 solders at 1 s-1 are 61, 64, 81, and 87 MPa')로만 냈다. DIF = sigma(65 /s)/sigma(0.005 /s) = 138.1 / 48.1 MPa (eps=0.09). 두 값 모두 같은 표 같은 행의 측정값이고 비만 계산했다. 본문 verbatim: '... strain softening at the true strain of approximately 0.15 and 0.1, respectively.' 연화 직전인 eps=0.090 행을 썼다. 주의 — 표 머리글의 율속은 초기 율속이고 저자가 2.3절에서 'In general, eps_dot(eps) != eps_dot_o' 라고 명시한다. 저자는 모델 피팅 전에 등율속(isostrain-rate)으로 변환하므로 이 비는 변환 전 인쇄값의 비다. 기준을 0.005 s-1(표준 시험기 준정적 열)로 잡은 것은 0.5·1 s-1 열이 Sn3.5Ag·SAC305 의 낮은 변형에서 서로 뒤집혀 있어서다(SAC305 eps=0.015 에서 0.5 s-1 23.1 대 1 s-1 13.4)."
+    },
+    {
+     "key": "mechanical.dynamic_increase_factor",
+     "value": 3.0125,
+     "unit": "1",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "loading": "uniaxial compression (drop-weight, 4 mm dia x 4 mm specimen, graphite-lubricated anvils)",
+      "strain_rate_s": 100.0,
+      "reference_strain_rate_s": 0.005,
+      "strain_rate_basis": "initial strain rate (eps_dot_o = Vo/Lo) as printed in the table header",
+      "true_strain": 0.09,
+      "basis": "true flow stress ratio at fixed true strain",
+      "temperature": "room temperature (수치 미인쇄 — 등온 압축, 온도항 미사용)"
+     },
+     "notes": "Wong 2016 Table 1 'Experimental true stress and true strain data of solder alloys at seven initial strain rates' (단위: strain rate s-1, stress MPa). 시험 verbatim(2.2절): 'Four solder alloys ... were machined from rods into test specimens of dimensions 4 mm x 4 mm and were compressed at the initial speeds, Vo = 0.02, 2, 4, 260, 400, 800, and 1200 mm/s' — 앞 셋은 표준 시험기, 뒤 넷은 낙하추(drop-weight) 압축이다. 같은 저자군의 선행 실험(Wong 2008, J. Electron. Mater. 37(6) 829, doi 10.1007/s11664-008-0403-x)을 이 논문이 처음 표로 인쇄한 것이다 — 2008년 판은 같은 데이터를 Fig.7 그래프와 본문 한 줄('The peak flow stress for the Sn-37Pb, SAC101, Sn-3.5Ag, and SAC305 solders at 1 s-1 are 61, 64, 81, and 87 MPa')로만 냈다. DIF = sigma(100 /s)/sigma(0.005 /s) = 144.9 / 48.1 MPa (eps=0.09). 두 값 모두 같은 표 같은 행의 측정값이고 비만 계산했다. 본문 verbatim: '... strain softening at the true strain of approximately 0.15 and 0.1, respectively.' 연화 직전인 eps=0.090 행을 썼다. 주의 — 표 머리글의 율속은 초기 율속이고 저자가 2.3절에서 'In general, eps_dot(eps) != eps_dot_o' 라고 명시한다. 저자는 모델 피팅 전에 등율속(isostrain-rate)으로 변환하므로 이 비는 변환 전 인쇄값의 비다. 기준을 0.005 s-1(표준 시험기 준정적 열)로 잡은 것은 0.5·1 s-1 열이 Sn3.5Ag·SAC305 의 낮은 변형에서 서로 뒤집혀 있어서다(SAC305 eps=0.015 에서 0.5 s-1 23.1 대 1 s-1 13.4)."
+    },
+    {
+     "key": "mechanical.dynamic_increase_factor",
+     "value": 3.2786,
+     "unit": "1",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "loading": "uniaxial compression (drop-weight, 4 mm dia x 4 mm specimen, graphite-lubricated anvils)",
+      "strain_rate_s": 200.0,
+      "reference_strain_rate_s": 0.005,
+      "strain_rate_basis": "initial strain rate (eps_dot_o = Vo/Lo) as printed in the table header",
+      "true_strain": 0.09,
+      "basis": "true flow stress ratio at fixed true strain",
+      "temperature": "room temperature (수치 미인쇄 — 등온 압축, 온도항 미사용)"
+     },
+     "notes": "Wong 2016 Table 1 'Experimental true stress and true strain data of solder alloys at seven initial strain rates' (단위: strain rate s-1, stress MPa). 시험 verbatim(2.2절): 'Four solder alloys ... were machined from rods into test specimens of dimensions 4 mm x 4 mm and were compressed at the initial speeds, Vo = 0.02, 2, 4, 260, 400, 800, and 1200 mm/s' — 앞 셋은 표준 시험기, 뒤 넷은 낙하추(drop-weight) 압축이다. 같은 저자군의 선행 실험(Wong 2008, J. Electron. Mater. 37(6) 829, doi 10.1007/s11664-008-0403-x)을 이 논문이 처음 표로 인쇄한 것이다 — 2008년 판은 같은 데이터를 Fig.7 그래프와 본문 한 줄('The peak flow stress for the Sn-37Pb, SAC101, Sn-3.5Ag, and SAC305 solders at 1 s-1 are 61, 64, 81, and 87 MPa')로만 냈다. DIF = sigma(200 /s)/sigma(0.005 /s) = 157.7 / 48.1 MPa (eps=0.09). 두 값 모두 같은 표 같은 행의 측정값이고 비만 계산했다. 본문 verbatim: '... strain softening at the true strain of approximately 0.15 and 0.1, respectively.' 연화 직전인 eps=0.090 행을 썼다. 주의 — 표 머리글의 율속은 초기 율속이고 저자가 2.3절에서 'In general, eps_dot(eps) != eps_dot_o' 라고 명시한다. 저자는 모델 피팅 전에 등율속(isostrain-rate)으로 변환하므로 이 비는 변환 전 인쇄값의 비다. 기준을 0.005 s-1(표준 시험기 준정적 열)로 잡은 것은 0.5·1 s-1 열이 Sn3.5Ag·SAC305 의 낮은 변형에서 서로 뒤집혀 있어서다(SAC305 eps=0.015 에서 0.5 s-1 23.1 대 1 s-1 13.4)."
+    },
+    {
+     "key": "mechanical.dynamic_increase_factor",
+     "value": 3.5322,
+     "unit": "1",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "loading": "uniaxial compression (drop-weight, 4 mm dia x 4 mm specimen, graphite-lubricated anvils)",
+      "strain_rate_s": 300.0,
+      "reference_strain_rate_s": 0.005,
+      "strain_rate_basis": "initial strain rate (eps_dot_o = Vo/Lo) as printed in the table header",
+      "true_strain": 0.09,
+      "basis": "true flow stress ratio at fixed true strain",
+      "temperature": "room temperature (수치 미인쇄 — 등온 압축, 온도항 미사용)"
+     },
+     "notes": "Wong 2016 Table 1 'Experimental true stress and true strain data of solder alloys at seven initial strain rates' (단위: strain rate s-1, stress MPa). 시험 verbatim(2.2절): 'Four solder alloys ... were machined from rods into test specimens of dimensions 4 mm x 4 mm and were compressed at the initial speeds, Vo = 0.02, 2, 4, 260, 400, 800, and 1200 mm/s' — 앞 셋은 표준 시험기, 뒤 넷은 낙하추(drop-weight) 압축이다. 같은 저자군의 선행 실험(Wong 2008, J. Electron. Mater. 37(6) 829, doi 10.1007/s11664-008-0403-x)을 이 논문이 처음 표로 인쇄한 것이다 — 2008년 판은 같은 데이터를 Fig.7 그래프와 본문 한 줄('The peak flow stress for the Sn-37Pb, SAC101, Sn-3.5Ag, and SAC305 solders at 1 s-1 are 61, 64, 81, and 87 MPa')로만 냈다. DIF = sigma(300 /s)/sigma(0.005 /s) = 169.9 / 48.1 MPa (eps=0.09). 두 값 모두 같은 표 같은 행의 측정값이고 비만 계산했다. 본문 verbatim: '... strain softening at the true strain of approximately 0.15 and 0.1, respectively.' 연화 직전인 eps=0.090 행을 썼다. 주의 — 표 머리글의 율속은 초기 율속이고 저자가 2.3절에서 'In general, eps_dot(eps) != eps_dot_o' 라고 명시한다. 저자는 모델 피팅 전에 등율속(isostrain-rate)으로 변환하므로 이 비는 변환 전 인쇄값의 비다. 기준을 0.005 s-1(표준 시험기 준정적 열)로 잡은 것은 0.5·1 s-1 열이 Sn3.5Ag·SAC305 의 낮은 변형에서 서로 뒤집혀 있어서다(SAC305 eps=0.015 에서 0.5 s-1 23.1 대 1 s-1 13.4)."
+    }
+   ]
+  },
+  {
+   "match_name": "SAC305 Solder Alloy",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1016/j.microrel.2016.10.007",
+    "title": "Constitutive modeling of solder alloys for drop-impact applications",
+    "authors": "E.H. Wong, J. Chrisp, C.S. Selvanayagam, S.K.W. Seah",
+    "year": 2016,
+    "publisher": "Elsevier (Microelectronics Reliability)",
+    "local_path": "/data/paper_patent_corpus/structured/rel_papers/24_creep_fatigue_interconnect/Wong - 2016 - Constitutive modeling of solder alloys for drop-impact applications/Wong - 2016 - Constitutive modeling of solder alloys for drop-impact applications.md"
+   },
+   "properties": [
+    {
+     "key": "mechanical.johnson_cook_a",
+     "value": 51400000.0,
+     "unit": "Pa",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "model": "johnson_cook",
+      "set_id": "wong2016_dropweight_jc_sac305",
+      "reference_strain_rate_s": 1.0,
+      "fit_strain_rates_s": [
+       0.005,
+       0.5,
+       1,
+       65,
+       100,
+       200,
+       300
+      ],
+      "fit_r2": 0.85,
+      "temperature": "room temperature — 온도항(m) 미피팅. 등온 낙하추 압축",
+      "test_method": "drop-weight + 표준 시험기 압축 실측을 등율속으로 변환한 뒤 저자가 최소자승 피팅",
+      "assumption": true,
+      "basis": "저자가 항복변형률 0.1%를 가정하고 Table 2 의 영률(혼합칙 계산값)에 곱해 얻은 값 — 측정 항복강도가 아니다"
+     },
+     "notes": "Wong 2016 Table 1 'Experimental true stress and true strain data of solder alloys at seven initial strain rates' (단위: strain rate s-1, stress MPa). 시험 verbatim(2.2절): 'Four solder alloys ... were machined from rods into test specimens of dimensions 4 mm x 4 mm and were compressed at the initial speeds, Vo = 0.02, 2, 4, 260, 400, 800, and 1200 mm/s' — 앞 셋은 표준 시험기, 뒤 넷은 낙하추(drop-weight) 압축이다. 같은 저자군의 선행 실험(Wong 2008, J. Electron. Mater. 37(6) 829, doi 10.1007/s11664-008-0403-x)을 이 논문이 처음 표로 인쇄한 것이다 — 2008년 판은 같은 데이터를 Fig.7 그래프와 본문 한 줄('The peak flow stress for the Sn-37Pb, SAC101, Sn-3.5Ag, and SAC305 solders at 1 s-1 are 61, 64, 81, and 87 MPa')로만 냈다. Table 3 verbatim 캡션: 'Material constants for the Johnson-Cook model with eps_dot_ref = 1 s-1 taken at eps_dot_o = 0.005, 0.5, 1, 65, 100, 200, and 300 s-1'; 이 행 = 'SAC305 | 51.4 | 281.0 | 0.136 | 0.78 | 0.85' (sigma_y MPa | B MPa | C | n | R2). 저자가 자기 실험 데이터에 직접 피팅했고(3.2.1절), Sn37Pb 는 같은 상수로 Ansys-Autodyne 재현을 돌려 하중이력 편차 <1%(Table 5)이며 Ansys 최적화로 독립 재추출한 상수(Table 6: B 57.1 / C 0.152 / n 0.792)가 해석 피팅(58.7 / 0.138 / 0.737)과 근접한다. 자기검산 — SAC305 세트(A 51.4 MPa · B 281 MPa · C 0.136 · n 0.780)를 sigma=(A+B*eps^n)(1+C*ln(eps_dot)) 에 넣으면 eps=0.090 기준 300 s-1 에서 167.5 MPa(Table 1 인쇄값 169.9, -1.4%), 200 s-1 에서 162.3 MPa(인쇄값 157.7, +2.9%)로 닫힌다. 저율속 끝(0.005 s-1)은 ln 항이 음이라 안 맞는데, 이는 R2 0.82~0.93 이 말하는 고율속 편중 피팅의 성질이고 저자도 Table 1 을 등율속으로 변환한 뒤 피팅했다고 3.2.1절에 밝힌다. ※ A(sigma_y)만 성격이 다르다. 3.2.1절 verbatim: 'Assuming the yield strain for the solder alloys to be 0.1%, and referring to the Young's moduli of the solder alloys presented in Table 2, the yield stresses ... are evaluated as 37.4 MPa, 50.2 MPa, 51.2 MPa, and 51.4 MPa'. 그리고 그 영률 자체가 측정이 아니다 — 3.2절 verbatim: 'The methods of measurement do not have sufficient resolution to resolve the elastic modulus of the solder alloys. These are estimated using the properties of the constituting elements ... Using the rule of mixture'. 즉 가정(항복변형률 0.1%) 곱하기 계산(혼합칙 E)이라 t4 가정으로 넣는다. JC 세트는 A 없이 못 쓰므로 값은 넣되 등급으로 성격을 표시한다 — 같은 세트의 B·C·n 은 실측 피팅이라 t1 이다. (SAC101 은 본문이 50.2, Table 3 이 50.4 로 갈리는데 카탈로그에 대응 재료가 없어 안 넣었다. 카탈로그의 986 SAC107 은 Sn-1Ag-0.7Cu 이고 이 논문의 SAC101 은 Sn-1.0Ag-0.1Cu 로 Cu 가 일곱 배 다르다 — 브리프 621.)"
+    },
+    {
+     "key": "mechanical.johnson_cook_b",
+     "value": 281000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "model": "johnson_cook",
+      "set_id": "wong2016_dropweight_jc_sac305",
+      "reference_strain_rate_s": 1.0,
+      "fit_strain_rates_s": [
+       0.005,
+       0.5,
+       1,
+       65,
+       100,
+       200,
+       300
+      ],
+      "fit_r2": 0.85,
+      "temperature": "room temperature — 온도항(m) 미피팅. 등온 낙하추 압축",
+      "test_method": "drop-weight + 표준 시험기 압축 실측을 등율속으로 변환한 뒤 저자가 최소자승 피팅"
+     },
+     "notes": "Wong 2016 Table 1 'Experimental true stress and true strain data of solder alloys at seven initial strain rates' (단위: strain rate s-1, stress MPa). 시험 verbatim(2.2절): 'Four solder alloys ... were machined from rods into test specimens of dimensions 4 mm x 4 mm and were compressed at the initial speeds, Vo = 0.02, 2, 4, 260, 400, 800, and 1200 mm/s' — 앞 셋은 표준 시험기, 뒤 넷은 낙하추(drop-weight) 압축이다. 같은 저자군의 선행 실험(Wong 2008, J. Electron. Mater. 37(6) 829, doi 10.1007/s11664-008-0403-x)을 이 논문이 처음 표로 인쇄한 것이다 — 2008년 판은 같은 데이터를 Fig.7 그래프와 본문 한 줄('The peak flow stress for the Sn-37Pb, SAC101, Sn-3.5Ag, and SAC305 solders at 1 s-1 are 61, 64, 81, and 87 MPa')로만 냈다. Table 3 verbatim 캡션: 'Material constants for the Johnson-Cook model with eps_dot_ref = 1 s-1 taken at eps_dot_o = 0.005, 0.5, 1, 65, 100, 200, and 300 s-1'; 이 행 = 'SAC305 | 51.4 | 281.0 | 0.136 | 0.78 | 0.85' (sigma_y MPa | B MPa | C | n | R2). 저자가 자기 실험 데이터에 직접 피팅했고(3.2.1절), Sn37Pb 는 같은 상수로 Ansys-Autodyne 재현을 돌려 하중이력 편차 <1%(Table 5)이며 Ansys 최적화로 독립 재추출한 상수(Table 6: B 57.1 / C 0.152 / n 0.792)가 해석 피팅(58.7 / 0.138 / 0.737)과 근접한다. 자기검산 — SAC305 세트(A 51.4 MPa · B 281 MPa · C 0.136 · n 0.780)를 sigma=(A+B*eps^n)(1+C*ln(eps_dot)) 에 넣으면 eps=0.090 기준 300 s-1 에서 167.5 MPa(Table 1 인쇄값 169.9, -1.4%), 200 s-1 에서 162.3 MPa(인쇄값 157.7, +2.9%)로 닫힌다. 저율속 끝(0.005 s-1)은 ln 항이 음이라 안 맞는데, 이는 R2 0.82~0.93 이 말하는 고율속 편중 피팅의 성질이고 저자도 Table 1 을 등율속으로 변환한 뒤 피팅했다고 3.2.1절에 밝힌다."
+    },
+    {
+     "key": "mechanical.johnson_cook_c",
+     "value": 0.136,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "model": "johnson_cook",
+      "set_id": "wong2016_dropweight_jc_sac305",
+      "reference_strain_rate_s": 1.0,
+      "fit_strain_rates_s": [
+       0.005,
+       0.5,
+       1,
+       65,
+       100,
+       200,
+       300
+      ],
+      "fit_r2": 0.85,
+      "temperature": "room temperature — 온도항(m) 미피팅. 등온 낙하추 압축",
+      "test_method": "drop-weight + 표준 시험기 압축 실측을 등율속으로 변환한 뒤 저자가 최소자승 피팅"
+     },
+     "notes": "Wong 2016 Table 1 'Experimental true stress and true strain data of solder alloys at seven initial strain rates' (단위: strain rate s-1, stress MPa). 시험 verbatim(2.2절): 'Four solder alloys ... were machined from rods into test specimens of dimensions 4 mm x 4 mm and were compressed at the initial speeds, Vo = 0.02, 2, 4, 260, 400, 800, and 1200 mm/s' — 앞 셋은 표준 시험기, 뒤 넷은 낙하추(drop-weight) 압축이다. 같은 저자군의 선행 실험(Wong 2008, J. Electron. Mater. 37(6) 829, doi 10.1007/s11664-008-0403-x)을 이 논문이 처음 표로 인쇄한 것이다 — 2008년 판은 같은 데이터를 Fig.7 그래프와 본문 한 줄('The peak flow stress for the Sn-37Pb, SAC101, Sn-3.5Ag, and SAC305 solders at 1 s-1 are 61, 64, 81, and 87 MPa')로만 냈다. Table 3 verbatim 캡션: 'Material constants for the Johnson-Cook model with eps_dot_ref = 1 s-1 taken at eps_dot_o = 0.005, 0.5, 1, 65, 100, 200, and 300 s-1'; 이 행 = 'SAC305 | 51.4 | 281.0 | 0.136 | 0.78 | 0.85' (sigma_y MPa | B MPa | C | n | R2). 저자가 자기 실험 데이터에 직접 피팅했고(3.2.1절), Sn37Pb 는 같은 상수로 Ansys-Autodyne 재현을 돌려 하중이력 편차 <1%(Table 5)이며 Ansys 최적화로 독립 재추출한 상수(Table 6: B 57.1 / C 0.152 / n 0.792)가 해석 피팅(58.7 / 0.138 / 0.737)과 근접한다. 자기검산 — SAC305 세트(A 51.4 MPa · B 281 MPa · C 0.136 · n 0.780)를 sigma=(A+B*eps^n)(1+C*ln(eps_dot)) 에 넣으면 eps=0.090 기준 300 s-1 에서 167.5 MPa(Table 1 인쇄값 169.9, -1.4%), 200 s-1 에서 162.3 MPa(인쇄값 157.7, +2.9%)로 닫힌다. 저율속 끝(0.005 s-1)은 ln 항이 음이라 안 맞는데, 이는 R2 0.82~0.93 이 말하는 고율속 편중 피팅의 성질이고 저자도 Table 1 을 등율속으로 변환한 뒤 피팅했다고 3.2.1절에 밝힌다."
+    },
+    {
+     "key": "mechanical.johnson_cook_n",
+     "value": 0.78,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "model": "johnson_cook",
+      "set_id": "wong2016_dropweight_jc_sac305",
+      "reference_strain_rate_s": 1.0,
+      "fit_strain_rates_s": [
+       0.005,
+       0.5,
+       1,
+       65,
+       100,
+       200,
+       300
+      ],
+      "fit_r2": 0.85,
+      "temperature": "room temperature — 온도항(m) 미피팅. 등온 낙하추 압축",
+      "test_method": "drop-weight + 표준 시험기 압축 실측을 등율속으로 변환한 뒤 저자가 최소자승 피팅"
+     },
+     "notes": "Wong 2016 Table 1 'Experimental true stress and true strain data of solder alloys at seven initial strain rates' (단위: strain rate s-1, stress MPa). 시험 verbatim(2.2절): 'Four solder alloys ... were machined from rods into test specimens of dimensions 4 mm x 4 mm and were compressed at the initial speeds, Vo = 0.02, 2, 4, 260, 400, 800, and 1200 mm/s' — 앞 셋은 표준 시험기, 뒤 넷은 낙하추(drop-weight) 압축이다. 같은 저자군의 선행 실험(Wong 2008, J. Electron. Mater. 37(6) 829, doi 10.1007/s11664-008-0403-x)을 이 논문이 처음 표로 인쇄한 것이다 — 2008년 판은 같은 데이터를 Fig.7 그래프와 본문 한 줄('The peak flow stress for the Sn-37Pb, SAC101, Sn-3.5Ag, and SAC305 solders at 1 s-1 are 61, 64, 81, and 87 MPa')로만 냈다. Table 3 verbatim 캡션: 'Material constants for the Johnson-Cook model with eps_dot_ref = 1 s-1 taken at eps_dot_o = 0.005, 0.5, 1, 65, 100, 200, and 300 s-1'; 이 행 = 'SAC305 | 51.4 | 281.0 | 0.136 | 0.78 | 0.85' (sigma_y MPa | B MPa | C | n | R2). 저자가 자기 실험 데이터에 직접 피팅했고(3.2.1절), Sn37Pb 는 같은 상수로 Ansys-Autodyne 재현을 돌려 하중이력 편차 <1%(Table 5)이며 Ansys 최적화로 독립 재추출한 상수(Table 6: B 57.1 / C 0.152 / n 0.792)가 해석 피팅(58.7 / 0.138 / 0.737)과 근접한다. 자기검산 — SAC305 세트(A 51.4 MPa · B 281 MPa · C 0.136 · n 0.780)를 sigma=(A+B*eps^n)(1+C*ln(eps_dot)) 에 넣으면 eps=0.090 기준 300 s-1 에서 167.5 MPa(Table 1 인쇄값 169.9, -1.4%), 200 s-1 에서 162.3 MPa(인쇄값 157.7, +2.9%)로 닫힌다. 저율속 끝(0.005 s-1)은 ln 항이 음이라 안 맞는데, 이는 R2 0.82~0.93 이 말하는 고율속 편중 피팅의 성질이고 저자도 Table 1 을 등율속으로 변환한 뒤 피팅했다고 3.2.1절에 밝힌다."
+    }
+   ]
+  }
+ ]
+}

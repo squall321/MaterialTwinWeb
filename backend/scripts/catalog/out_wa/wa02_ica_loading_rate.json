@@ -1,0 +1,73 @@
+{
+ "batch": "WA-2 61차 · 도전성 은에폭시 조인트 전단 율속비(Ji 2018) — 이미 캔 문서의 안 캔 칸",
+ "materials": [
+  {
+   "match_name": "Conductive Silver Epoxy (die attach)",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1080/00218464.2017.1415147",
+    "title": "Shear properties of isotropic conductive adhesive joints under different loading rates",
+    "authors": "Xinkuo Ji, Gesheng Xiao, Tao Jin, Xuefeng Shu",
+    "year": 2018,
+    "publisher": "Taylor & Francis (The Journal of Adhesion)",
+    "local_path": "/data/paper_patent_corpus/structured/pkg_papers/14_conductive_adhesive_ica/Ji - 2018 - Shear properties of isotropic conductive adhesive joints under different loading rates/Ji - 2018 - Shear properties of isotropic conductive adhesive joints under different loading rates.md"
+   },
+   "properties": [
+    {
+     "key": "mechanical.dynamic_increase_factor",
+     "value": 1.0527,
+     "unit": "1",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "loading": "single-lap joint tensile-shear (겹침 12.5 mm, 본드라인 0.1 mm, T2 Cu 피착재)",
+      "loading_velocity_m_s": 8.3333e-06,
+      "reference_loading_velocity_m_s": 8.333e-07,
+      "loading_velocity_mm_min": 0.5,
+      "reference_loading_velocity_mm_min": 0.05,
+      "basis": "단일겹침 조인트 전단강도의 비다 — 벌크 유동응력 비가 아니다. 접착층·계면·피착재가 함께 든 값이라 벌크 DIF 와 섞어 읽으면 안 된다",
+      "grade_scope": "class value — 실측 대상은 Uniwell AS8010(Ag 플레이크 60 wt%)이고 대상은 일반 '도전성 은에폭시(다이어태치)' 레코드다",
+      "temperature": "room temperature (수치 미인쇄)"
+     },
+     "notes": "Ji 2018 Table 3 verbatim 'Shear strength of conductive adhesive specimens at different loading rates' — '0.05 | 1.006' · '0.5 | 1.059' · '5 | 2.752' · '10 | 4.203' (mm/min | MPa). 시편 verbatim: Uniwell International AS8010 은플레이크 60 wt% 에폭시 ICA, T2 동판 50x25x2 mm 단일겹침 12.5 mm, 접착층 0.1 mm, 120 degC 3 h 경화, INSTRON 5544 로 0.05/0.5/5/10 mm/min 네 속도, 각 3회 평균. 비 자체가 논문의 정의다 — 저자가 무차원 파라미터 B = tau_f / tau_0.05 를 식 (20)으로 세우고 Fig.6 으로 그린다(그림값은 안 읽고 Table 3 인쇄값으로 계산했다). 이 행 = tau(0.5 mm/min)/tau(0.05 mm/min) = 1.059 / 1.006 MPa = 1.0527. ※ Table 3 은 저자가 계면파괴에너지(Table 2)로부터 계산한 값이다(원문 'Table 3 presents that the shear strength ... can be obtained based on the interfacial fracture energy') — 그래서 method 가 computed 다. 이 카탈로그의 interface.lap_shear_strength 네 행이 이미 같은 표에서 t3 computed 로 들어와 있는데 율속비 칸은 비어 있었다(브리프 602). ※ 율속대 주의 — 0.05~10 mm/min 은 전부 준정적 크로스헤드 속도(8.3e-7 ~ 1.7e-4 m/s)다. 낙하해석의 10^2 /s 대가 아니다. 이 재료에 이미 앉아 있는 t4 DIF 는 RTM6 에폭시 SHPB 압축의 계열 대입이라 조건축이 전혀 다르다 — 둘 다 남는 것이 옳다."
+    },
+    {
+     "key": "mechanical.dynamic_increase_factor",
+     "value": 2.7356,
+     "unit": "1",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "loading": "single-lap joint tensile-shear (겹침 12.5 mm, 본드라인 0.1 mm, T2 Cu 피착재)",
+      "loading_velocity_m_s": 8.33333e-05,
+      "reference_loading_velocity_m_s": 8.333e-07,
+      "loading_velocity_mm_min": 5,
+      "reference_loading_velocity_mm_min": 0.05,
+      "basis": "단일겹침 조인트 전단강도의 비다 — 벌크 유동응력 비가 아니다. 접착층·계면·피착재가 함께 든 값이라 벌크 DIF 와 섞어 읽으면 안 된다",
+      "grade_scope": "class value — 실측 대상은 Uniwell AS8010(Ag 플레이크 60 wt%)이고 대상은 일반 '도전성 은에폭시(다이어태치)' 레코드다",
+      "temperature": "room temperature (수치 미인쇄)"
+     },
+     "notes": "Ji 2018 Table 3 verbatim 'Shear strength of conductive adhesive specimens at different loading rates' — '0.05 | 1.006' · '0.5 | 1.059' · '5 | 2.752' · '10 | 4.203' (mm/min | MPa). 시편 verbatim: Uniwell International AS8010 은플레이크 60 wt% 에폭시 ICA, T2 동판 50x25x2 mm 단일겹침 12.5 mm, 접착층 0.1 mm, 120 degC 3 h 경화, INSTRON 5544 로 0.05/0.5/5/10 mm/min 네 속도, 각 3회 평균. 비 자체가 논문의 정의다 — 저자가 무차원 파라미터 B = tau_f / tau_0.05 를 식 (20)으로 세우고 Fig.6 으로 그린다(그림값은 안 읽고 Table 3 인쇄값으로 계산했다). 이 행 = tau(5 mm/min)/tau(0.05 mm/min) = 2.752 / 1.006 MPa = 2.7356. ※ Table 3 은 저자가 계면파괴에너지(Table 2)로부터 계산한 값이다(원문 'Table 3 presents that the shear strength ... can be obtained based on the interfacial fracture energy') — 그래서 method 가 computed 다. 이 카탈로그의 interface.lap_shear_strength 네 행이 이미 같은 표에서 t3 computed 로 들어와 있는데 율속비 칸은 비어 있었다(브리프 602). ※ 율속대 주의 — 0.05~10 mm/min 은 전부 준정적 크로스헤드 속도(8.3e-7 ~ 1.7e-4 m/s)다. 낙하해석의 10^2 /s 대가 아니다. 이 재료에 이미 앉아 있는 t4 DIF 는 RTM6 에폭시 SHPB 압축의 계열 대입이라 조건축이 전혀 다르다 — 둘 다 남는 것이 옳다."
+    },
+    {
+     "key": "mechanical.dynamic_increase_factor",
+     "value": 4.1779,
+     "unit": "1",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "loading": "single-lap joint tensile-shear (겹침 12.5 mm, 본드라인 0.1 mm, T2 Cu 피착재)",
+      "loading_velocity_m_s": 0.0001666667,
+      "reference_loading_velocity_m_s": 8.333e-07,
+      "loading_velocity_mm_min": 10,
+      "reference_loading_velocity_mm_min": 0.05,
+      "basis": "단일겹침 조인트 전단강도의 비다 — 벌크 유동응력 비가 아니다. 접착층·계면·피착재가 함께 든 값이라 벌크 DIF 와 섞어 읽으면 안 된다",
+      "grade_scope": "class value — 실측 대상은 Uniwell AS8010(Ag 플레이크 60 wt%)이고 대상은 일반 '도전성 은에폭시(다이어태치)' 레코드다",
+      "temperature": "room temperature (수치 미인쇄)"
+     },
+     "notes": "Ji 2018 Table 3 verbatim 'Shear strength of conductive adhesive specimens at different loading rates' — '0.05 | 1.006' · '0.5 | 1.059' · '5 | 2.752' · '10 | 4.203' (mm/min | MPa). 시편 verbatim: Uniwell International AS8010 은플레이크 60 wt% 에폭시 ICA, T2 동판 50x25x2 mm 단일겹침 12.5 mm, 접착층 0.1 mm, 120 degC 3 h 경화, INSTRON 5544 로 0.05/0.5/5/10 mm/min 네 속도, 각 3회 평균. 비 자체가 논문의 정의다 — 저자가 무차원 파라미터 B = tau_f / tau_0.05 를 식 (20)으로 세우고 Fig.6 으로 그린다(그림값은 안 읽고 Table 3 인쇄값으로 계산했다). 이 행 = tau(10 mm/min)/tau(0.05 mm/min) = 4.203 / 1.006 MPa = 4.1779. ※ Table 3 은 저자가 계면파괴에너지(Table 2)로부터 계산한 값이다(원문 'Table 3 presents that the shear strength ... can be obtained based on the interfacial fracture energy') — 그래서 method 가 computed 다. 이 카탈로그의 interface.lap_shear_strength 네 행이 이미 같은 표에서 t3 computed 로 들어와 있는데 율속비 칸은 비어 있었다(브리프 602). ※ 율속대 주의 — 0.05~10 mm/min 은 전부 준정적 크로스헤드 속도(8.3e-7 ~ 1.7e-4 m/s)다. 낙하해석의 10^2 /s 대가 아니다. 이 재료에 이미 앉아 있는 t4 DIF 는 RTM6 에폭시 SHPB 압축의 계열 대입이라 조건축이 전혀 다르다 — 둘 다 남는 것이 옳다."
+    }
+   ]
+  }
+ ]
+}
