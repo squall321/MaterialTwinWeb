@@ -42,9 +42,27 @@ def check_core_verdicts(mt: sqlite3.Connection) -> tuple[list[str], list[str]]:
         고침이 아니므로(§565) 여기서는 **신고만** 한다.
     """
     keys = {k for (k,) in mt.execute("select key from property_definition")}
-    have: dict[int, set[str]] = {}
-    for mid, k in mt.execute("select material_id,property_key from property_value"):
-        have.setdefault(mid, set()).add(k)
+    # 반례로 칠 값과 안 칠 값을 가른다.
+    #
+    # `core_absent_from_vendor_sheet` 는 **"이 등급에 대해 벤더 시트가 그 열을 안 찍는다"** 는
+    # 주장이다. 그 칸에 t3 클래스 대표값이나 t4 가정값이 앉아 있는 것은 **주장을 반증하지 않는다** —
+    # 그 값들은 애초에 벤더 시트에서 온 것이 아니다. 재료 229(Doosan DS-7402)가 이 자리다.
+    # 선언문 자체가 "카탈로그의 유일한 Doosan 비열 행은 벤더값이 아니라 FE 해석 논문의 FR-4
+    # 클래스값이다" 라고 적어 두었는데, 검사기가 tier 를 안 보고 세 파동 연속 같은 신고를 냈다.
+    #
+    # 그래서 판정 종류마다 반례의 문턱을 달리 둔다.
+    #   · 벤더 시트 부재  → **tier1(그 제품에 대해 인쇄된 값)만** 반증한다.
+    #   · 해당 없음       → 실측(tier≤3)이면 반증한다. 물리적으로 정의가 안 된다는 주장이니까.
+    #   · 인쇄값 기각     → 등급을 가리지 않는다. 기각해 놓고 저장한 것 자체가 어긋남이다.
+    COUNTER_TIER = {"core_absent_from_vendor_sheet": 1,
+                    "core_no_public_document": 1,
+                    "core_not_applicable": 3,
+                    "core_rejected_printed_value": 4}
+    have: dict[int, dict[str, int]] = {}
+    for mid, k, t in mt.execute(
+            "select material_id,property_key,quality_tier from property_value"):
+        cur = have.setdefault(mid, {})
+        cur[k] = min(cur.get(k, 9), t if t is not None else 9)
     bad, warn = [], []
     for mid, name, raw in mt.execute("select id,name,attributes from material"):
         try:
@@ -65,8 +83,9 @@ def check_core_verdicts(mt: sqlite3.Connection) -> tuple[list[str], list[str]]:
             for k in v:
                 if k not in keys:
                     bad.append(f"재료 {mid} `{attr}` 의 `{k}` 는 물성 정의에 없다")
-                if k in have.get(mid, ()):
-                    warn.append(f"재료 {mid} `{attr}` 가 `{k}` 를 선언했는데 값이 있다 — "
+                t = have.get(mid, {}).get(k)
+                if t is not None and t <= COUNTER_TIER.get(attr, 4):
+                    warn.append(f"재료 {mid} `{attr}` 가 `{k}` 를 선언했는데 t{t} 값이 있다 — "
                                 f"{str(name)[:44]}")
     return bad, warn
 
