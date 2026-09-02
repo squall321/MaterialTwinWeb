@@ -1,0 +1,132 @@
+{"materials": [
+
+{
+ "match_name": "Al Laminate Pouch",
+ "source": {"kind": "database",
+   "title": "MakeItFrom: 1100-O Aluminum",
+   "url": "https://www.makeitfrom.com/material-properties/1100-O-Aluminum"},
+ "properties": [
+  {"key": "mechanical.poisson_ratio", "value": 0.33, "unit": "1", "method": "handbook", "tier": 3,
+   "conditions": {"temperature_c": 25, "assumption": false,
+     "grade_scope": "class value — 1100-O 순알루미늄의 값이다. 대상은 PET/Al 박/CPP 다층 파우치이며 강성은 Al 박이 지배한다. 같은 출처·같은 표에서 전단탄성률 26 GPa 를 이미 t3 으로 옮겨 둔 계보를 그대로 따른다(브리프 612)."},
+   "notes": "**브리프 635 규율 1 이 그대로 걸렸다 — 이 값은 우리 DB 의 notes 안에 이미 문장으로 들어 있었다.** 이 재료의 전단탄성률 행(같은 출처 184) notes 가 verbatim `MakeItFrom 1100-O Aluminum 물성표 원문 verbatim: \"Poisson's Ratio 0.33 | Shear Modulus 26 GPa\"` 라고 적어 두었는데 **정작 포아송비 칸은 tier4 가정으로 비어 있었다.** 이번에 출처를 다시 열어 인쇄면을 확인했다 — 원문 `Mechanical Properties ... Elastic (Young's, Tensile) Modulus 69 GPa ... Poisson's Ratio 0.33 Shear Modulus 26 GPa ...`. 값 자체는 기존 tier4 와 같은 0.33 이므로 **대표값 숫자는 안 바뀌고 근거만 생긴다** — 종전 행의 사유는 `복합재/적층재는 실제로 이방성 — 등방 해석용 면내 등가값` 뿐이었다. 검산(값 생성이 아니라 열 배정 확인용) — 같은 표의 E 69 GPa 와 G 26 GPa 로 E/(2G)-1 = 0.327 이 되어 인쇄된 0.33 과 맞는다. 우리가 나눈 값을 넣은 것이 아니라 **인쇄된 0.33 을 옮겼다**(브리프 43). 브리프 69장이 지적한 MakeItFrom 폴리머 G 오염은 금속 열에는 해당하지 않는다. 파우치의 PET·CPP 층은 이 값에 반영돼 있지 않다. — 61차 WC"}
+ ]},
+
+{
+ "match_name": "Chip Resistor Film (RuO2)",
+ "source": {"kind": "database",
+   "doi": "10.1103/PhysRevMaterials.1.015401",
+   "title": "AFLOW Elasticity Library (AEL) — RuO2 rutile (A2B_tP6_136, ORu_pv), ael_shear_modulus_vrh",
+   "url": "https://aflow.org/API/aflux/?species(Ru,O),nspecies(2),ael_shear_modulus_vrh,ael_bulk_modulus_vrh,ael_poisson_ratio,compound,spacegroup_relax"},
+ "properties": [
+  {"key": "mechanical.poisson_ratio", "value": 0.337378, "unit": "1", "method": "computed", "tier": 3,
+   "conditions": {"phase": "rutile RuO2 (P4_2/mnm, sg 136, tP6)",
+     "grade_scope": "class value — 순수 RuO2 루틸 결정의 DFT 값이다. 실제 칩저항 후막은 RuO2 입자를 붕규산 유리에 분산해 소성한 복합체라 유효 포아송비는 이와 다르다.",
+     "test_method": "AFLOW-AEL automatic elasticity (DFT), Voigt-Reuss-Hill average"},
+   "notes": "**브리프 602 — 이미 값이 든 재료의 옆 칸이다.** 이 재료의 전단탄성률(92.3857 GPa)이 **같은 AFLUX 질의의 같은 레코드**에서 왔는데, 그 레코드가 함께 돌려준 `ael_poisson_ratio` 는 아무도 안 가져갔다. 그 행의 notes 가 verbatim `compound O4Ru2, spacegroup_relax 136(루틸), ael_shear_modulus_vrh 92.3857 GPa, ael_bulk_modulus_vrh 253.255 GPa, ael_poisson_ratio 0.337378` 로 값을 이미 적어 두었다(브리프 635 규율 1). 이번에 같은 질의를 다시 쳐 응답 원문에서 재확인했다 — `auid aflow:5433cf1ada4a05c1, aurl aflowlib.duke.edu:AFLOWDATA/LIB2_WEB/ORu_pv/A2B_tP6_136_f_a-001.AB, spacegroup_relax 136, ael_shear_modulus_vrh 92.3857, ael_bulk_modulus_vrh 253.255, ael_poisson_ratio 0.337378`. **출처 자체가 자기무결성을 만족한다**(검산 목적, 값 생성 아님) — 같은 레코드의 G·B 로 (3B-2G)/(2(3B+G)) = (759.765-184.771)/(2x852.151) = 0.3374 로 인쇄된 ael_poisson_ratio 와 네 자리까지 같다. **method 를 형제 행의 `measured` 가 아니라 `computed` 로 적었다** — AEL 값은 DFT 계산이지 측정이 아니다(브리프 612 의 계보 일치보다 어휘 정확성을 앞세웠고, 그 이유를 여기 적어 둔다). 기존 tier4 는 0.28(계열 관용값)이었다. 물리 경계 확인 — -1 < 0.337 < 0.5. — 61차 WC"}
+ ]},
+
+{
+ "match_name": "NiCr Thin-Film Resistor",
+ "source": {"kind": "datasheet",
+   "title": "INCONEL alloy 600 (Special Metals Corporation, Publication SMC-027), Table 4 'Modulus of Elasticity'",
+   "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-600.pdf"},
+ "properties": [
+  {"key": "mechanical.poisson_ratio", "value": 0.324, "unit": "1", "method": "measured", "tier": 3,
+   "conditions": {"temperature_c": 22,
+     "grade_scope": "class value — INCONEL alloy 600(Ni>=72 / Cr 14-17 / Fe 6-10 wt%)의 값이다. 대상은 스퍼터링 Ni-Cr(약 80/20) 박막 저항체라 Fe가 없고 박막 조직이지만, 같은 Ni-Cr 고용체 계열이라 탄성상수 자릿수가 같다.",
+     "test_method": "dynamic modulus measurement (vendor datasheet)"},
+   "notes": "**브리프 602 — 같은 표·같은 행의 안 캔 칸이다.** 이 재료의 전단탄성률 80.8 GPa 가 Table 4 SI 블록의 `22 214 80.8 0.324` 한 행에서 왔는데 **네 번째 열(Poisson's Ratio)만 안 옮겨졌고**, 그 행의 notes 는 verbatim `열 머리글은 °C / Young Modulus GPa / Shear Modulus GPa / Poisson's Ratio 순이다` 로 열 배정까지 못박아 두었다(브리프 635 규율 1). 이번에 시트를 다시 열어 인쇄면을 확인했다 — SI 블록 `22 214 80.8 0.324`, 화씨 블록 `72 31.1 11.72 0.327`. **두 블록이 서로를 검산한다**(31.1e3 ksi = 214 GPa · 11.72e3 ksi = 80.8 GPa · ν 0.327 대 0.324 는 반올림 폭 안). 검산(열 배정 확인용, 값 생성 아님) — 같은 행의 E/(2G)-1 = 214/161.6 - 1 = 0.3243 으로 인쇄된 0.324 와 세 자리까지 같다. **우리가 나눈 값이 아니라 벤더가 인쇄한 열을 옮겼다**(브리프 43). 기존 tier4 는 0.30(계열 관용값)이었다. — 61차 WC"}
+ ]},
+
+{
+ "match_name": "TSV Barrier (Ta/TaN)",
+ "source": {"kind": "database", "publisher": "Wikipedia",
+   "title": "Tantalum - physical properties",
+   "url": "https://en.wikipedia.org/wiki/Tantalum"},
+ "properties": [
+  {"key": "mechanical.poisson_ratio", "value": 0.34, "unit": "1", "method": "handbook", "tier": 3,
+   "conditions": {"phase": "Ta metal (bulk)", "temperature_c": 20,
+     "grade_scope": "class value — 벌크 Ta 금속의 값이다. 대상은 Ta/TaN 이중층 배리어라 TaN 층의 탄성거동은 반영돼 있지 않다."},
+   "notes": "**브리프 602 — 같은 인포박스에서 다섯 칸을 가져오고 여섯 번째만 남겨 두었다.** 이 재료의 영률 186 GPa · 밀도 16690 kg/m3 · 열전도율 57 W/(m*K) · CTE 6.3e-6 /K · 체적저항률 1.31e-7 ohm*m 가 전부 이 문서에서 왔는데 같은 블록의 `Poisson ratio 0.34` 만 안 옮겨졌다. 원문 verbatim: `Young's modulus 186 GPa | Shear modulus 69 GPa | Bulk modulus 200 GPa | Speed of sound thin rod 3400 m/s (at 20 °C) | Poisson ratio 0.34`. 검산(열 배정 확인용) — 같은 블록의 E 186 · G 69 로 E/(2G)-1 = 0.348 이라 인쇄된 0.34 와 반올림 폭 안이다(우리가 만든 값이 아니라 인쇄값을 옮겼다 — 브리프 43). 값 자체는 기존 tier4 와 같은 0.34 이므로 **숫자는 안 바뀌고 근거가 생긴다** — 종전 행은 `fill_dyna_gaps_1.py` 표에서 온 쪽·표 표기 없는 계열 대표값이었다. ⚠ **등급 — 형제 다섯 행은 tier2(handbook)로 들어가 있으나 이 행은 tier3 으로 낮췄다.** 출처가 핸드북이 아니라 백과사전 인포박스(2차 인용)이고 브리프 규칙 4 가 2차 인용을 tier3 으로 정하기 때문이다. 형제 행과 등급이 갈리는 이유를 여기 적어 둔다(브리프 612) — 다음 파동은 이 다섯 행의 tier2 표기가 옳은지 함께 봐라. — 61차 WC"}
+ ]},
+
+{
+ "match_name": "Conductive Silver Epoxy (die attach)",
+ "source": {"kind": "datasheet",
+   "title": "LOCTITE ABLESTIK 84-1LMISNB - Technical Specifications (product datasheet page)",
+   "url": "https://www.caplinq.com/loctite-ablestik-84-1lmisnb-84-1lmisnb.html"},
+ "properties": [
+  {"key": "mechanical.poisson_ratio", "value": 0.33, "unit": "1", "method": "handbook", "tier": 3,
+   "conditions": {"grade": "LOCTITE ABLESTIK 84-1LMISNB",
+     "product_family": "silver-filled electrically conductive die attach paste",
+     "grade_scope": "class value — 벤더 페이지가 이 값을 이 제품의 측정값이 아니라 접착제 일반의 값이라고 스스로 밝힌다."},
+   "notes": "**브리프 602 — 같은 제품페이지의 안 캔 문장이다.** 이 재료의 영률 4점(-65/25/150/250 °C) · CTE α1/α2 · Tg 가 전부 이 페이지에서 왔는데 포아송비 문장만 남아 있었다. 원문 verbatim: `Its poisson's ration, as with the majority of adhesives is 0.33.`(원문 오타 `ration` 포함). **`as with the majority of adhesives` 라고 벤더 스스로 계열값임을 밝히므로 tier1 이 아니라 tier3 이고 method 는 measured 가 아니라 handbook 이다** — 형제 행들이 tier1 로 들어가 있는 것과 갈리는 이유가 이 한 문장이다(브리프 612 대로 갈린 이유를 값 옆에 적는다). 기존 tier4 는 0.35(계열 관용값 — `해석 입력용 등방 근사`)였다. ⚠ 출처가 제조사 PDF 가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표라는 형제 행들의 등급 주석이 이 행에도 그대로 적용된다. 물리 경계 확인 — -1 < 0.33 < 0.5. — 61차 WC"}
+ ]},
+
+{
+ "match_name": "Anodized Aluminum Layer (Al2O3)",
+ "source": {"kind": "datasheet",
+   "title": "Aluminum Oxide, Al2O3 Material Properties — Accuratus Corporation (99.5 % alumina column)",
+   "url": "https://accuratus.com/alumox.html"},
+ "properties": [
+  {"key": "mechanical.poisson_ratio", "value": 0.22, "unit": "1", "method": "handbook", "tier": 3,
+   "conditions": {"temperature": "room temperature (출처가 'All properties are room temperature values'로만 표기, 수치 미인쇄)",
+     "grade_scope": "class value — 소결 99.5 % Al2O3. 양극산화 피막은 비정질·다공성(봉공 여부에 따라 다름)이라 실제값은 이보다 낮을 수 있다."},
+   "notes": "**브리프 602 — 같은 열의 안 캔 칸이다.** 이 재료의 유전율 9.8(@1 MHz)이 이 페이지의 99.5 % 알루미나 열에서 왔고 그 행의 notes 가 `같은 열의 Density 3.89 g/cm3, Elastic Modulus 375 GPa로 99.5 % 알루미나 열임을 확인했다` 로 열 배정을 못박아 두었는데 **같은 열의 Poisson's Ratio 는 안 캐 갔다.** ⚠ **열을 잘못 짚기 쉬운 자리다**(브리프 7) — 이 페이지는 94 % · 96 % · 99.5 % 세 열을 나란히 찍고 앞 둘은 `Elastic Modulus 300 GPa / Poisson's Ratio 0.21`, 99.5 % 만 `Elastic Modulus 375 GPa / Poisson's Ratio 0.22` 다. HTML 표를 rowspan/colspan 을 편 격자로 읽어(브리프 629) 99.5 % 블록 verbatim `Density gm/cc (lb/ft3) 3.89 (242.8) | Porosity % (%) 0 (0) | Elastic Modulus GPa (lb/in2x106) 375 (54.4) | Poisson's Ratio — 0.22 (0.22)` 를 확인했다. **형제 행이 이미 확정한 열(밀도 3.89 · E 375)과 같은 열이므로 0.21 이 아니라 0.22 다.** 기존 tier4 는 0.24(계열 관용값)였다. — 61차 WC"}
+ ]},
+
+{
+ "match_name": "ITEQ IT-968 Ultra-Low-Loss Laminate",
+ "source": {"kind": "datasheet",
+   "title": "370HR Industry Leading, Standard Loss, Thermally Robust Epoxy Laminate and Prepreg (Rev C, 2021-04-15)",
+   "url": "https://www.isola-group.com/wp-content/uploads/data-sheets/370hr.pdf",
+   "authors": "Isola Group", "year": 2021, "publisher": "Isola",
+   "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Isola_370HR_Laminate_Prepreg_DataSheet_RevC_2021-04-15.pdf"},
+ "properties": [
+  {"key": "mechanical.poisson_ratio", "value": 0.177, "unit": "1", "method": "measured", "tier": 3,
+   "conditions": {"direction": "in-plane", "direction_verbatim": "A. Length direction (warp)",
+     "test_standard": "ASTM D3039",
+     "grade_scope": "class value — Isola 370HR(고Tg 다관능 에폭시 / 직조 E-glass) 벤더 실측. 대상 ITEQ IT-968 은 저손실 수지계의 직조유리 적층판이라 수지가 다르다. 직조 E-glass 원단이 면내 포아송비를 지배한다는 가정 위에 있다."},
+   "notes": "**브리프 602 — 이 시트는 이미 이 재료의 열전도율(0.4 W/(m*K), t3 class value)을 대주고 있는데 같은 시트의 포아송비 두 행은 아무도 안 캐 갔다.** 원문 verbatim(pdftotext -layout): `Poisson's Ratio | A. Length direction 0.177 | B. Cross direction 0.171 | — | ASTM D3039`. 같은 표가 인장강도(Length 55.9 / Cross 35.6 ksi, ASTM D3039)와 영률(3744/3178 ksi, ASTM D790)을 같은 방향축으로 찍는다. **직조유리 적층판은 warp/fill 로 ν 가 갈리므로 방향 없이 쓰면 안 된다**(브리프 462·633). 기존 tier4 는 0.183(카탈로그 '직물유리 적층판' 클래스 실측 34건의 중앙값, 방향 in-plane 단일값)이고 이 두 값은 그 클래스 범위(0.135~0.35) 안에 있다 — **숫자가 뒤집히는 것이 아니라 방향축이 열리고 등급이 가정에서 벤더 실측 계열값으로 올라간다.** ⚠ 브리프 630 이 밝힌 대로 Isola 는 판(edition)에 따라 ν 행이 흔들린 전례가 있다(GETEK 2008 판 0.16/0.13 대 2012 판 0.192/0.150). 이 값은 370HR Rev C(2021-04-15) 한 판의 값이고 **370HR 자신의 다른 판과는 대조하지 못했다** — 다음 파동의 확인 대상이다. ⚠ 브리프 167 의 사고(직물유리 중앙값 0.183 을 PTFE·LCP 여섯 종에 얹은 것)를 되풀이하지 않으려고 **직조 E-glass 보강 적층판에만** 옮겼다. — 61차 WC"},
+  {"key": "mechanical.poisson_ratio", "value": 0.171, "unit": "1", "method": "measured", "tier": 3,
+   "conditions": {"direction": "in-plane", "direction_verbatim": "B. Cross direction (fill)",
+     "test_standard": "ASTM D3039",
+     "grade_scope": "class value — Isola 370HR(고Tg 다관능 에폭시 / 직조 E-glass) 벤더 실측. 대상 ITEQ IT-968 은 저손실 수지계의 직조유리 적층판이라 수지가 다르다. 직조 E-glass 원단이 면내 포아송비를 지배한다는 가정 위에 있다."},
+   "notes": "같은 표 같은 행의 Cross direction 열 verbatim `0.171`. warp 0.177 대 fill 0.171 로 3.4 % 차이인데 같은 표의 영률이 3744 대 3178 ksi 로 18 % 차이나는 것과 견주면 ν 의 방향 의존이 훨씬 약하다 — 계열 대입의 근거가 되는 성질이다. 나머지 판정과 한계는 warp 행 notes 와 같다. — 61차 WC"}
+ ]},
+
+{
+ "match_name": "TUC TU-933 (ThunderClad 3) Super-Low-Loss Laminate",
+ "source": {"kind": "datasheet",
+   "title": "370HR Industry Leading, Standard Loss, Thermally Robust Epoxy Laminate and Prepreg (Rev C, 2021-04-15)",
+   "url": "https://www.isola-group.com/wp-content/uploads/data-sheets/370hr.pdf",
+   "authors": "Isola Group", "year": 2021, "publisher": "Isola",
+   "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Isola_370HR_Laminate_Prepreg_DataSheet_RevC_2021-04-15.pdf"},
+ "properties": [
+  {"key": "mechanical.poisson_ratio", "value": 0.177, "unit": "1", "method": "measured", "tier": 3,
+   "conditions": {"direction": "in-plane", "direction_verbatim": "A. Length direction (warp)",
+     "test_standard": "ASTM D3039",
+     "grade_scope": "class value — Isola 370HR(고Tg 다관능 에폭시 / 직조 E-glass) 벤더 실측. 대상 TUC TU-933 은 초저손실 수지계의 직조유리 적층판이라 수지가 다르다. 직조 E-glass 원단이 면내 포아송비를 지배한다는 가정 위에 있다."},
+   "notes": "**브리프 602 — 이 시트는 이미 이 재료의 열전도율(0.4 W/(m*K), t3 class value)을 대주고 있는데 같은 시트의 포아송비 두 행은 아무도 안 캐 갔다.** 원문 verbatim(pdftotext -layout): `Poisson's Ratio | A. Length direction 0.177 | B. Cross direction 0.171 | — | ASTM D3039`. 열전도율 행의 notes 가 이미 `ITEQ IT-180A/IT-968, Nan Ya NP-155FR, TUC TU-872 SLK/TU-933 데이터시트 6종을 모두 훑었으나` 라고 적어 이 등급들의 벤더 시트에는 해당 행이 없음을 확인해 두었다. 기존 tier4 는 0.183(카탈로그 '직물유리 적층판' 클래스 실측 34건 중앙값)이고 이 값은 그 범위 안이다. ⚠ 한계는 IT-968 행 notes 와 같다(Isola 판 의존 · 직조 E-glass 적층판에만 적용). — 61차 WC"},
+  {"key": "mechanical.poisson_ratio", "value": 0.171, "unit": "1", "method": "measured", "tier": 3,
+   "conditions": {"direction": "in-plane", "direction_verbatim": "B. Cross direction (fill)",
+     "test_standard": "ASTM D3039",
+     "grade_scope": "class value — Isola 370HR(고Tg 다관능 에폭시 / 직조 E-glass) 벤더 실측. 대상 TUC TU-933 은 초저손실 수지계의 직조유리 적층판이라 수지가 다르다. 직조 E-glass 원단이 면내 포아송비를 지배한다는 가정 위에 있다."},
+   "notes": "같은 표 같은 행의 Cross direction 열 verbatim `0.171`. 나머지 판정과 한계는 warp 행 notes 와 같다. — 61차 WC"}
+ ]},
+
+{
+ "match_name": "Ferrite Soft (MnZn)",
+ "source": {"kind": "other",
+   "title": "MnZn Ferrite with Higher Strength (JFE Technical Report No. 27)",
+   "url": "https://www.jfe-steel.co.jp/en/research/report/027/pdf/027-06.pdf"},
+ "properties": [
+  {"key": "mechanical.poisson_ratio", "value": 0.28, "unit": "1", "method": "handbook", "tier": 3,
+   "conditions": {"phase": "MnZn ferrite (MnFe2O4 (551) reflection)",
+     "basis": "X선 응력측정의 탄성상수 입력으로 저자가 인쇄한 값 — 이 시료를 잰 값이 아니다",
+     "grade_scope": "class value — MnZn 페라이트 일반. 대상은 카탈로그의 연자성 MnZn 페라이트이며 등급이 특정돼 있지 않다."},
+   "notes": "**브리프 602 — 이 재료가 이미 쓰고 있는 문서 안에 있었다.** JFE Technical Report No. 27 원문 verbatim: `Focusing on the (551) plane peak, which is assumed to appear at θ =148.40° in MnFe2O4, the residual stress was estimated from the peak shift. An elastic coefficient of 147 GPa and Poisson's ratio of 0.28 were used in the calculation of residual stress.` **브리프 3 대로 이것은 저자의 실측이 아니라 계산 입력이므로 tier1 이 아니라 tier3 이고 method 는 handbook 이다.** 그래도 넣는 이유는 둘이다 — (a) 기존 행은 `계열 대표값 — 해석 입력용 등방 근사` 라는 출처 없는 tier4 가정이라 근거가 아예 없었고, (b) 같은 문장이 인쇄한 탄성계수 147 GPa 가 이 재료의 기존 인쇄 범위(Eclipse 자료 `MnZn (90 to 150) x 10^3 N/mm2`) 안에 들어 **같은 문장의 두 수가 서로를 검산한다.** 값 자체는 기존 tier4 와 같은 0.28 이라 대표값 숫자는 안 바뀌고 출처가 생긴다. ⚠ **브리프가 '**MnZn 페라이트 데이터북은 E·인장·경도·파괴인성까지 싣고 ν 만 뺀다**' 로 세워 둔 벽은 그대로다** — 이 값은 데이터북이 아니라 벤더 기술보고서의 해석 입력이고, 등급별 값이 아니다. — 61차 WC"}
+ ]}
+
+]}
