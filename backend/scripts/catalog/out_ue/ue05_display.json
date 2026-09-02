@@ -1,0 +1,404 @@
+{
+ "materials": [
+  {
+   "match_name": "ZEONOR 1020R cyclo-olefin polymer, injection grade (ZEON, Yamazaki 2004)",
+   "source": {
+    "kind": "datasheet",
+    "title": "ZEON — ZEONEX(R)/ZEONOR(R) Medical Grade Property Table (Zeon 고기능수지사업부, 2026년 2월)",
+    "url": "https://www.zeon.co.jp/business/enterprise/resin/pdf/ZEONEX-ZEONOR-medical-property.pdf",
+    "authors": "Zeon Corporation",
+    "year": 2026,
+    "publisher": "Zeon Corporation",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/ZEON_ZEONEX_ZEONOR_medical_property_table_2026-02.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 6e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "ZEONOR 1020R",
+      "test_standard": "ASTM E831",
+      "direction": "in-plane",
+      "direction_verbatim": "MD",
+      "temperature_range_status": "not printed on this sheet (각주 ※2 의 본문이 시트에 없다)"
+     },
+     "notes": "56차 RB 가 `ZEON ZEONOR 등급별 데이터시트 조달` 로 넘긴 표적이다. **`/downloads/` 가 아니라 `/resources/downloads/` 가 열린다**(브리프 601 곁가지 — ZEONEX 에서 통한 경로가 ZEONOR 에도 통한다). Zeon 자사 물성표 verbatim — 열 머리는 `ZEONOR(R) 1020R | 1060R | 1420R | 1430R` · `ZEONEX(R) 5000 | 690R | 790R`, 행은 `Coefficient of Linear Thermal Expansion / 線膨張係数  ASTM E831※2  cm/cm℃  6×10-5  6×10-5  6×10-5  6×10-5  7×10-5  6×10-5  6×10-5` 다. ⚠ **온도구간이 인쇄돼 있지 않다** — `※2` 표시가 붙어 있는데 **그 각주 본문이 시트 어디에도 인쇄돼 있지 않다**(300 dpi 렌더로 전면을 다시 읽어 확인). 구간을 지어내지 않았고 `temperature_range_status` 에 그대로 적었다(브리프 328·373). **이것은 이 계열의 규약이다** — 카탈로그의 ZEONEX 형제들(재료 2540 K26R · 2544 T62R · 2555 360R)이 전부 `test_standard: ASTM E831` + `temperature_range_status: not printed on this sheet` 로 들어가 있어 한 계열 안에서 규약이 갈리지 않는다(브리프 612).\n⚠ **등급별 TDS 에는 이 행이 없다** — `ZEONOR(R) 1020R Medical Grade` TDS(V2026.06.03)의 `Thermal Properties` 블록은 `Glass transition temperature (20 ⁰C/min) 100 ⁰C` · `DTUL @ 1.82 MPa 88 ⁰C` · `Flammability HB` 뿐이고 **선팽창 행이 없다.** 즉 같은 벤더의 두 문서가 층이 다르다(브리프 601). 계열 물성표 쪽이 이 등급의 값을 담는다.\n⚠ **곁가지 결함 신고** — 같은 1020R TDS 가 `Density  1.01  kg/m³  ASTM D792` 로 **단위를 틀리게 인쇄한다**(1.01 kg/m³ 은 공기보다 가볍다. 형제 1420R TDS 는 같은 자리를 `Specific gravity 1.02 -` 로 옳게 찍는다). 이 재료의 밀도는 이미 Yamazaki 2004 로 들어가 있어 이 행을 옮기지 않았다 — 신고만 한다. — 59차 UE"
+    }
+   ]
+  },
+  {
+   "match_name": "ZEONOR 1420R cyclo-olefin polymer, injection grade (ZEON, Yamazaki 2004)",
+   "source": {
+    "kind": "datasheet",
+    "title": "ZEON — ZEONEX(R)/ZEONOR(R) Medical Grade Property Table (Zeon 고기능수지사업부, 2026년 2월)",
+    "url": "https://www.zeon.co.jp/business/enterprise/resin/pdf/ZEONEX-ZEONOR-medical-property.pdf",
+    "authors": "Zeon Corporation",
+    "year": 2026,
+    "publisher": "Zeon Corporation",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/ZEON_ZEONEX_ZEONOR_medical_property_table_2026-02.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 6e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "ZEONOR 1420R",
+      "test_standard": "ASTM E831",
+      "direction": "in-plane",
+      "direction_verbatim": "MD",
+      "temperature_range_status": "not printed on this sheet (각주 ※2 의 본문이 시트에 없다)"
+     },
+     "notes": "56차 RB 가 `ZEON ZEONOR 등급별 데이터시트 조달` 로 넘긴 표적이다. **`/downloads/` 가 아니라 `/resources/downloads/` 가 열린다**(브리프 601 곁가지 — ZEONEX 에서 통한 경로가 ZEONOR 에도 통한다). Zeon 자사 물성표 verbatim — 열 머리는 `ZEONOR(R) 1020R | 1060R | 1420R | 1430R` · `ZEONEX(R) 5000 | 690R | 790R`, 행은 `Coefficient of Linear Thermal Expansion / 線膨張係数  ASTM E831※2  cm/cm℃  6×10-5  6×10-5  6×10-5  6×10-5  7×10-5  6×10-5  6×10-5` 다. ⚠ **온도구간이 인쇄돼 있지 않다** — `※2` 표시가 붙어 있는데 **그 각주 본문이 시트 어디에도 인쇄돼 있지 않다**(300 dpi 렌더로 전면을 다시 읽어 확인). 구간을 지어내지 않았고 `temperature_range_status` 에 그대로 적었다(브리프 328·373). **이것은 이 계열의 규약이다** — 카탈로그의 ZEONEX 형제들(재료 2540 K26R · 2544 T62R · 2555 360R)이 전부 `test_standard: ASTM E831` + `temperature_range_status: not printed on this sheet` 로 들어가 있어 한 계열 안에서 규약이 갈리지 않는다(브리프 612).\n**둘째 증인 — 등급별 TDS** `ZEONOR(R) 1420R Diagnostic Grade`(V2026.06.03)가 `Coefficient of linear thermal expansion (1.82 mPa)  6E-05  cm/cm ⁰C  ASTM D648` 로 같은 값을 인쇄한다.\n⚠ **그 TDS 의 시험규격 열은 한 행씩 밀려 있다** — 바로 위 행이 `Heat deflection temperature (0.45 MPa)  120  ⁰C  ASTM E831` 인데, **ASTM E831 은 열팽창 시험법이고 ASTM D648 은 하중하 변형온도(HDT) 시험법**이다. 두 행의 규격이 서로 바뀌었고 `(1.82 mPa)` 하중 표기도 HDT 의 것이다(브리프 606 — 벤더표의 열이 밀린다). 그래서 **시험법은 계열 물성표의 `ASTM E831` 을 썼다.** 값 6E-05 자체는 두 문서가 일치한다.\n셋째 증인 — Zeon 광학등급 물성표(`ZEONEX-ZEONOR-optical-property.pdf`, 2026년 2월)도 1420R 열에 `Coefficient of thermal expansion / 線膨張係数  ASTM E831  cm/cm ℃  6×10-5` 를 인쇄한다.\n⚠ **구판은 다른 값을 찍는다**(브리프 615) — 구 Zeon Chemicals L.P. 판 1420R 시트는 `Linear expansion coefficient  ASTM D696  cm/cm°C  7×10-5` 다. **시험법이 D696(석영관 딜라토미터)으로 다르므로 같은 양의 다른 판정이 아니라 다른 시험이다.** 현행 판을 넣고 이 차이를 여기 적어 둔다. — 59차 UE"
+    }
+   ]
+  },
+  {
+   "match_name": "ZEONOR 1020R cyclo-olefin polymer, injection grade (ZEON, Yamazaki 2004)",
+   "source": {
+    "kind": "datasheet",
+    "title": "ZEON — ZEONEX(R)·ZEONOR(R) 射出成形ガイド 4.1 ZEONEX·ZEONOR の諸物性, 図4-15/図4-16 (ZEONOR 1020R の比熱容量・熱伝導率)",
+    "url": "https://www.zeon.co.jp/business/enterprise/resin/pdf/ZEONEX-ZEONOR-injection-moliding.pdf",
+    "authors": "Zeon Corporation",
+    "publisher": "Zeon Corporation",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/ZEON_ZEONEX_ZEONOR_injection_molding_guide.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.specific_heat",
+     "value": 1513,
+     "unit": "J/(kg*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 30.9,
+      "temperature_k": 304.05,
+      "grade": "ZEONOR 1020R",
+      "digitized": true,
+      "figure": "図4-15 ZEONOR(R)1020R の比熱容量 (射出成形ガイド 4.1 節)",
+      "reading_uncertainty": "±15 J/(kg·K)",
+      "phase": "solid (Tg 100 °C 아래)"
+     },
+     "notes": "세로축 verbatim `比熱容量 (J/kg・C)` · 가로축 `温度 (deg C)`. J/(kg·°C) = J/(kg·K). 56차 RB 가 `ZEON 공개 시트는 못 열었다` 로 넘긴 뒤 이 값이 표가 아니라 **그림**으로만 있다는 것이 이번에 밝혀졌다 — 인쇄된 숫자가 아니므로 method 는 `digitized` 다(브리프 447·448). **판독 파이프라인** — 원 PDF 를 300 dpi 로 렌더한 뒤 마커 색(#80a0d0)으로 연결성분(blob)을 잡아 각 마커의 무게중심을 좌표로 환산했다(산점도라 열 중앙값이 아니라 blob 중심이 옳다). 축은 회색 격자선의 픽셀 위치를 자동 검출해 잡았다 — 세로 격자 여덟(0·50·…·350 °C)과 가로 격자 여덟(0·500·…·3500) 이 각각 173.1 px · 143.4 px 등간격으로 나와 축 배정이 스스로 닫힌다. 마커 하나가 1,140±20 px 라 겹친 blob(px≈2,144)은 두 점이 붙은 것으로 보고 **버렸다.** **자기무결성 검산 — 유리전이가 곡선 위에 찍혀 있다.** 판독한 비열이 96.8 °C 에서 108 °C 사이에서 1978 → 2165 J/(kg·K) 로 계단처럼 뛰는데, 같은 벤더의 `ZEONOR 1020R Medical Grade` TDS 가 `Glass transition temperature (20 ⁰C/min)  100  ⁰C  JIS K7121` 을 인쇄한다. **판독한 계단의 위치가 인쇄된 Tg 와 맞는다** — 축 배정과 판독이 동시에 검산된다(브리프 137·603). 겹쳐서 버린 두 점이 바로 그 계단 위(~105·112 °C)라 계단의 중간값은 넣지 않았다. ⚠ **이 그림은 1020R 전용이다** — 같은 절의 다음 쪽(図4-17·4-18)이 1060R 을 따로 그리고, 1420R·1600R 은 이 가이드에 그림이 없다. 등급을 빌리지 않았다(브리프 123·140). — 59차 UE"
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1634,
+     "unit": "J/(kg*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 49.3,
+      "temperature_k": 322.45,
+      "grade": "ZEONOR 1020R",
+      "digitized": true,
+      "figure": "図4-15 ZEONOR(R)1020R の比熱容量 (射出成形ガイド 4.1 節)",
+      "reading_uncertainty": "±15 J/(kg·K)",
+      "phase": "solid (Tg 100 °C 아래)"
+     },
+     "notes": "세로축 verbatim `比熱容量 (J/kg・C)` · 가로축 `温度 (deg C)`. J/(kg·°C) = J/(kg·K). 56차 RB 가 `ZEON 공개 시트는 못 열었다` 로 넘긴 뒤 이 값이 표가 아니라 **그림**으로만 있다는 것이 이번에 밝혀졌다 — 인쇄된 숫자가 아니므로 method 는 `digitized` 다(브리프 447·448). **판독 파이프라인** — 원 PDF 를 300 dpi 로 렌더한 뒤 마커 색(#80a0d0)으로 연결성분(blob)을 잡아 각 마커의 무게중심을 좌표로 환산했다(산점도라 열 중앙값이 아니라 blob 중심이 옳다). 축은 회색 격자선의 픽셀 위치를 자동 검출해 잡았다 — 세로 격자 여덟(0·50·…·350 °C)과 가로 격자 여덟(0·500·…·3500) 이 각각 173.1 px · 143.4 px 등간격으로 나와 축 배정이 스스로 닫힌다. 마커 하나가 1,140±20 px 라 겹친 blob(px≈2,144)은 두 점이 붙은 것으로 보고 **버렸다.** **자기무결성 검산 — 유리전이가 곡선 위에 찍혀 있다.** 판독한 비열이 96.8 °C 에서 108 °C 사이에서 1978 → 2165 J/(kg·K) 로 계단처럼 뛰는데, 같은 벤더의 `ZEONOR 1020R Medical Grade` TDS 가 `Glass transition temperature (20 ⁰C/min)  100  ⁰C  JIS K7121` 을 인쇄한다. **판독한 계단의 위치가 인쇄된 Tg 와 맞는다** — 축 배정과 판독이 동시에 검산된다(브리프 137·603). 겹쳐서 버린 두 점이 바로 그 계단 위(~105·112 °C)라 계단의 중간값은 넣지 않았다. ⚠ **이 그림은 1020R 전용이다** — 같은 절의 다음 쪽(図4-17·4-18)이 1060R 을 따로 그리고, 1420R·1600R 은 이 가이드에 그림이 없다. 등급을 빌리지 않았다(브리프 123·140). — 59차 UE"
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1694,
+     "unit": "J/(kg*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 61.8,
+      "temperature_k": 334.95,
+      "grade": "ZEONOR 1020R",
+      "digitized": true,
+      "figure": "図4-15 ZEONOR(R)1020R の比熱容量 (射出成形ガイド 4.1 節)",
+      "reading_uncertainty": "±15 J/(kg·K)",
+      "phase": "solid (Tg 100 °C 아래)"
+     },
+     "notes": "세로축 verbatim `比熱容量 (J/kg・C)` · 가로축 `温度 (deg C)`. J/(kg·°C) = J/(kg·K). 56차 RB 가 `ZEON 공개 시트는 못 열었다` 로 넘긴 뒤 이 값이 표가 아니라 **그림**으로만 있다는 것이 이번에 밝혀졌다 — 인쇄된 숫자가 아니므로 method 는 `digitized` 다(브리프 447·448). **판독 파이프라인** — 원 PDF 를 300 dpi 로 렌더한 뒤 마커 색(#80a0d0)으로 연결성분(blob)을 잡아 각 마커의 무게중심을 좌표로 환산했다(산점도라 열 중앙값이 아니라 blob 중심이 옳다). 축은 회색 격자선의 픽셀 위치를 자동 검출해 잡았다 — 세로 격자 여덟(0·50·…·350 °C)과 가로 격자 여덟(0·500·…·3500) 이 각각 173.1 px · 143.4 px 등간격으로 나와 축 배정이 스스로 닫힌다. 마커 하나가 1,140±20 px 라 겹친 blob(px≈2,144)은 두 점이 붙은 것으로 보고 **버렸다.** **자기무결성 검산 — 유리전이가 곡선 위에 찍혀 있다.** 판독한 비열이 96.8 °C 에서 108 °C 사이에서 1978 → 2165 J/(kg·K) 로 계단처럼 뛰는데, 같은 벤더의 `ZEONOR 1020R Medical Grade` TDS 가 `Glass transition temperature (20 ⁰C/min)  100  ⁰C  JIS K7121` 을 인쇄한다. **판독한 계단의 위치가 인쇄된 Tg 와 맞는다** — 축 배정과 판독이 동시에 검산된다(브리프 137·603). 겹쳐서 버린 두 점이 바로 그 계단 위(~105·112 °C)라 계단의 중간값은 넣지 않았다. ⚠ **이 그림은 1020R 전용이다** — 같은 절의 다음 쪽(図4-17·4-18)이 1060R 을 따로 그리고, 1420R·1600R 은 이 가이드에 그림이 없다. 등급을 빌리지 않았다(브리프 123·140). — 59차 UE"
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1785,
+     "unit": "J/(kg*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 78.3,
+      "temperature_k": 351.45,
+      "grade": "ZEONOR 1020R",
+      "digitized": true,
+      "figure": "図4-15 ZEONOR(R)1020R の比熱容量 (射出成形ガイド 4.1 節)",
+      "reading_uncertainty": "±15 J/(kg·K)",
+      "phase": "solid (Tg 100 °C 아래)"
+     },
+     "notes": "세로축 verbatim `比熱容量 (J/kg・C)` · 가로축 `温度 (deg C)`. J/(kg·°C) = J/(kg·K). 56차 RB 가 `ZEON 공개 시트는 못 열었다` 로 넘긴 뒤 이 값이 표가 아니라 **그림**으로만 있다는 것이 이번에 밝혀졌다 — 인쇄된 숫자가 아니므로 method 는 `digitized` 다(브리프 447·448). **판독 파이프라인** — 원 PDF 를 300 dpi 로 렌더한 뒤 마커 색(#80a0d0)으로 연결성분(blob)을 잡아 각 마커의 무게중심을 좌표로 환산했다(산점도라 열 중앙값이 아니라 blob 중심이 옳다). 축은 회색 격자선의 픽셀 위치를 자동 검출해 잡았다 — 세로 격자 여덟(0·50·…·350 °C)과 가로 격자 여덟(0·500·…·3500) 이 각각 173.1 px · 143.4 px 등간격으로 나와 축 배정이 스스로 닫힌다. 마커 하나가 1,140±20 px 라 겹친 blob(px≈2,144)은 두 점이 붙은 것으로 보고 **버렸다.** **자기무결성 검산 — 유리전이가 곡선 위에 찍혀 있다.** 판독한 비열이 96.8 °C 에서 108 °C 사이에서 1978 → 2165 J/(kg·K) 로 계단처럼 뛰는데, 같은 벤더의 `ZEONOR 1020R Medical Grade` TDS 가 `Glass transition temperature (20 ⁰C/min)  100  ⁰C  JIS K7121` 을 인쇄한다. **판독한 계단의 위치가 인쇄된 Tg 와 맞는다** — 축 배정과 판독이 동시에 검산된다(브리프 137·603). 겹쳐서 버린 두 점이 바로 그 계단 위(~105·112 °C)라 계단의 중간값은 넣지 않았다. ⚠ **이 그림은 1020R 전용이다** — 같은 절의 다음 쪽(図4-17·4-18)이 1060R 을 따로 그리고, 1420R·1600R 은 이 가이드에 그림이 없다. 등급을 빌리지 않았다(브리프 123·140). — 59차 UE"
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1869,
+     "unit": "J/(kg*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 88.7,
+      "temperature_k": 361.85,
+      "grade": "ZEONOR 1020R",
+      "digitized": true,
+      "figure": "図4-15 ZEONOR(R)1020R の比熱容量 (射出成形ガイド 4.1 節)",
+      "reading_uncertainty": "±15 J/(kg·K)",
+      "phase": "solid (Tg 100 °C 아래)"
+     },
+     "notes": "세로축 verbatim `比熱容量 (J/kg・C)` · 가로축 `温度 (deg C)`. J/(kg·°C) = J/(kg·K). 56차 RB 가 `ZEON 공개 시트는 못 열었다` 로 넘긴 뒤 이 값이 표가 아니라 **그림**으로만 있다는 것이 이번에 밝혀졌다 — 인쇄된 숫자가 아니므로 method 는 `digitized` 다(브리프 447·448). **판독 파이프라인** — 원 PDF 를 300 dpi 로 렌더한 뒤 마커 색(#80a0d0)으로 연결성분(blob)을 잡아 각 마커의 무게중심을 좌표로 환산했다(산점도라 열 중앙값이 아니라 blob 중심이 옳다). 축은 회색 격자선의 픽셀 위치를 자동 검출해 잡았다 — 세로 격자 여덟(0·50·…·350 °C)과 가로 격자 여덟(0·500·…·3500) 이 각각 173.1 px · 143.4 px 등간격으로 나와 축 배정이 스스로 닫힌다. 마커 하나가 1,140±20 px 라 겹친 blob(px≈2,144)은 두 점이 붙은 것으로 보고 **버렸다.** **자기무결성 검산 — 유리전이가 곡선 위에 찍혀 있다.** 판독한 비열이 96.8 °C 에서 108 °C 사이에서 1978 → 2165 J/(kg·K) 로 계단처럼 뛰는데, 같은 벤더의 `ZEONOR 1020R Medical Grade` TDS 가 `Glass transition temperature (20 ⁰C/min)  100  ⁰C  JIS K7121` 을 인쇄한다. **판독한 계단의 위치가 인쇄된 Tg 와 맞는다** — 축 배정과 판독이 동시에 검산된다(브리프 137·603). 겹쳐서 버린 두 점이 바로 그 계단 위(~105·112 °C)라 계단의 중간값은 넣지 않았다. ⚠ **이 그림은 1020R 전용이다** — 같은 절의 다음 쪽(図4-17·4-18)이 1060R 을 따로 그리고, 1420R·1600R 은 이 가이드에 그림이 없다. 등급을 빌리지 않았다(브리프 123·140). — 59차 UE"
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1978,
+     "unit": "J/(kg*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 96.8,
+      "temperature_k": 369.95,
+      "grade": "ZEONOR 1020R",
+      "digitized": true,
+      "figure": "図4-15 ZEONOR(R)1020R の比熱容量 (射出成形ガイド 4.1 節)",
+      "reading_uncertainty": "±15 J/(kg·K)",
+      "phase": "solid (Tg 100 °C 아래)"
+     },
+     "notes": "세로축 verbatim `比熱容量 (J/kg・C)` · 가로축 `温度 (deg C)`. J/(kg·°C) = J/(kg·K). 56차 RB 가 `ZEON 공개 시트는 못 열었다` 로 넘긴 뒤 이 값이 표가 아니라 **그림**으로만 있다는 것이 이번에 밝혀졌다 — 인쇄된 숫자가 아니므로 method 는 `digitized` 다(브리프 447·448). **판독 파이프라인** — 원 PDF 를 300 dpi 로 렌더한 뒤 마커 색(#80a0d0)으로 연결성분(blob)을 잡아 각 마커의 무게중심을 좌표로 환산했다(산점도라 열 중앙값이 아니라 blob 중심이 옳다). 축은 회색 격자선의 픽셀 위치를 자동 검출해 잡았다 — 세로 격자 여덟(0·50·…·350 °C)과 가로 격자 여덟(0·500·…·3500) 이 각각 173.1 px · 143.4 px 등간격으로 나와 축 배정이 스스로 닫힌다. 마커 하나가 1,140±20 px 라 겹친 blob(px≈2,144)은 두 점이 붙은 것으로 보고 **버렸다.** **자기무결성 검산 — 유리전이가 곡선 위에 찍혀 있다.** 판독한 비열이 96.8 °C 에서 108 °C 사이에서 1978 → 2165 J/(kg·K) 로 계단처럼 뛰는데, 같은 벤더의 `ZEONOR 1020R Medical Grade` TDS 가 `Glass transition temperature (20 ⁰C/min)  100  ⁰C  JIS K7121` 을 인쇄한다. **판독한 계단의 위치가 인쇄된 Tg 와 맞는다** — 축 배정과 판독이 동시에 검산된다(브리프 137·603). 겹쳐서 버린 두 점이 바로 그 계단 위(~105·112 °C)라 계단의 중간값은 넣지 않았다. ⚠ **이 그림은 1020R 전용이다** — 같은 절의 다음 쪽(図4-17·4-18)이 1060R 을 따로 그리고, 1420R·1600R 은 이 가이드에 그림이 없다. 등급을 빌리지 않았다(브리프 123·140). — 59차 UE"
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 2358,
+     "unit": "J/(kg*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 151.7,
+      "temperature_k": 424.85,
+      "grade": "ZEONOR 1020R",
+      "digitized": true,
+      "figure": "図4-15 ZEONOR(R)1020R の比熱容量 (射出成形ガイド 4.1 節)",
+      "reading_uncertainty": "±15 J/(kg·K)",
+      "phase": "above Tg (100 °C, JIS K7121)"
+     },
+     "notes": "세로축 verbatim `比熱容量 (J/kg・C)` · 가로축 `温度 (deg C)`. J/(kg·°C) = J/(kg·K). 56차 RB 가 `ZEON 공개 시트는 못 열었다` 로 넘긴 뒤 이 값이 표가 아니라 **그림**으로만 있다는 것이 이번에 밝혀졌다 — 인쇄된 숫자가 아니므로 method 는 `digitized` 다(브리프 447·448). **판독 파이프라인** — 원 PDF 를 300 dpi 로 렌더한 뒤 마커 색(#80a0d0)으로 연결성분(blob)을 잡아 각 마커의 무게중심을 좌표로 환산했다(산점도라 열 중앙값이 아니라 blob 중심이 옳다). 축은 회색 격자선의 픽셀 위치를 자동 검출해 잡았다 — 세로 격자 여덟(0·50·…·350 °C)과 가로 격자 여덟(0·500·…·3500) 이 각각 173.1 px · 143.4 px 등간격으로 나와 축 배정이 스스로 닫힌다. 마커 하나가 1,140±20 px 라 겹친 blob(px≈2,144)은 두 점이 붙은 것으로 보고 **버렸다.** **자기무결성 검산 — 유리전이가 곡선 위에 찍혀 있다.** 판독한 비열이 96.8 °C 에서 108 °C 사이에서 1978 → 2165 J/(kg·K) 로 계단처럼 뛰는데, 같은 벤더의 `ZEONOR 1020R Medical Grade` TDS 가 `Glass transition temperature (20 ⁰C/min)  100  ⁰C  JIS K7121` 을 인쇄한다. **판독한 계단의 위치가 인쇄된 Tg 와 맞는다** — 축 배정과 판독이 동시에 검산된다(브리프 137·603). 겹쳐서 버린 두 점이 바로 그 계단 위(~105·112 °C)라 계단의 중간값은 넣지 않았다. ⚠ **이 그림은 1020R 전용이다** — 같은 절의 다음 쪽(図4-17·4-18)이 1060R 을 따로 그리고, 1420R·1600R 은 이 가이드에 그림이 없다. 등급을 빌리지 않았다(브리프 123·140). — 59차 UE"
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 2551,
+     "unit": "J/(kg*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 201.1,
+      "temperature_k": 474.25,
+      "grade": "ZEONOR 1020R",
+      "digitized": true,
+      "figure": "図4-15 ZEONOR(R)1020R の比熱容量 (射出成形ガイド 4.1 節)",
+      "reading_uncertainty": "±15 J/(kg·K)",
+      "phase": "above Tg (100 °C, JIS K7121)"
+     },
+     "notes": "세로축 verbatim `比熱容量 (J/kg・C)` · 가로축 `温度 (deg C)`. J/(kg·°C) = J/(kg·K). 56차 RB 가 `ZEON 공개 시트는 못 열었다` 로 넘긴 뒤 이 값이 표가 아니라 **그림**으로만 있다는 것이 이번에 밝혀졌다 — 인쇄된 숫자가 아니므로 method 는 `digitized` 다(브리프 447·448). **판독 파이프라인** — 원 PDF 를 300 dpi 로 렌더한 뒤 마커 색(#80a0d0)으로 연결성분(blob)을 잡아 각 마커의 무게중심을 좌표로 환산했다(산점도라 열 중앙값이 아니라 blob 중심이 옳다). 축은 회색 격자선의 픽셀 위치를 자동 검출해 잡았다 — 세로 격자 여덟(0·50·…·350 °C)과 가로 격자 여덟(0·500·…·3500) 이 각각 173.1 px · 143.4 px 등간격으로 나와 축 배정이 스스로 닫힌다. 마커 하나가 1,140±20 px 라 겹친 blob(px≈2,144)은 두 점이 붙은 것으로 보고 **버렸다.** **자기무결성 검산 — 유리전이가 곡선 위에 찍혀 있다.** 판독한 비열이 96.8 °C 에서 108 °C 사이에서 1978 → 2165 J/(kg·K) 로 계단처럼 뛰는데, 같은 벤더의 `ZEONOR 1020R Medical Grade` TDS 가 `Glass transition temperature (20 ⁰C/min)  100  ⁰C  JIS K7121` 을 인쇄한다. **판독한 계단의 위치가 인쇄된 Tg 와 맞는다** — 축 배정과 판독이 동시에 검산된다(브리프 137·603). 겹쳐서 버린 두 점이 바로 그 계단 위(~105·112 °C)라 계단의 중간값은 넣지 않았다. ⚠ **이 그림은 1020R 전용이다** — 같은 절의 다음 쪽(図4-17·4-18)이 1060R 을 따로 그리고, 1420R·1600R 은 이 가이드에 그림이 없다. 등급을 빌리지 않았다(브리프 123·140). — 59차 UE"
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 2714,
+     "unit": "J/(kg*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 247.5,
+      "temperature_k": 520.65,
+      "grade": "ZEONOR 1020R",
+      "digitized": true,
+      "figure": "図4-15 ZEONOR(R)1020R の比熱容量 (射出成形ガイド 4.1 節)",
+      "reading_uncertainty": "±15 J/(kg·K)",
+      "phase": "above Tg (100 °C, JIS K7121)"
+     },
+     "notes": "세로축 verbatim `比熱容量 (J/kg・C)` · 가로축 `温度 (deg C)`. J/(kg·°C) = J/(kg·K). 56차 RB 가 `ZEON 공개 시트는 못 열었다` 로 넘긴 뒤 이 값이 표가 아니라 **그림**으로만 있다는 것이 이번에 밝혀졌다 — 인쇄된 숫자가 아니므로 method 는 `digitized` 다(브리프 447·448). **판독 파이프라인** — 원 PDF 를 300 dpi 로 렌더한 뒤 마커 색(#80a0d0)으로 연결성분(blob)을 잡아 각 마커의 무게중심을 좌표로 환산했다(산점도라 열 중앙값이 아니라 blob 중심이 옳다). 축은 회색 격자선의 픽셀 위치를 자동 검출해 잡았다 — 세로 격자 여덟(0·50·…·350 °C)과 가로 격자 여덟(0·500·…·3500) 이 각각 173.1 px · 143.4 px 등간격으로 나와 축 배정이 스스로 닫힌다. 마커 하나가 1,140±20 px 라 겹친 blob(px≈2,144)은 두 점이 붙은 것으로 보고 **버렸다.** **자기무결성 검산 — 유리전이가 곡선 위에 찍혀 있다.** 판독한 비열이 96.8 °C 에서 108 °C 사이에서 1978 → 2165 J/(kg·K) 로 계단처럼 뛰는데, 같은 벤더의 `ZEONOR 1020R Medical Grade` TDS 가 `Glass transition temperature (20 ⁰C/min)  100  ⁰C  JIS K7121` 을 인쇄한다. **판독한 계단의 위치가 인쇄된 Tg 와 맞는다** — 축 배정과 판독이 동시에 검산된다(브리프 137·603). 겹쳐서 버린 두 점이 바로 그 계단 위(~105·112 °C)라 계단의 중간값은 넣지 않았다. ⚠ **이 그림은 1020R 전용이다** — 같은 절의 다음 쪽(図4-17·4-18)이 1060R 을 따로 그리고, 1420R·1600R 은 이 가이드에 그림이 없다. 등급을 빌리지 않았다(브리프 123·140). — 59차 UE"
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.2131,
+     "unit": "W/(m*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 60.5,
+      "temperature_k": 333.65,
+      "grade": "ZEONOR 1020R",
+      "digitized": true,
+      "figure": "図4-16 ZEONOR(R)1020R の熱伝導率 (射出成形ガイド 4.1 節)",
+      "reading_uncertainty": "±0.002 W/(m·K)"
+     },
+     "notes": "세로축 verbatim `熱伝導率 (W/m・C)` · 가로축 `温度 (deg C)`. W/(m·°C) = W/(m·K). **판독 파이프라인** — 원 PDF 를 300 dpi 로 렌더한 뒤 마커 색(#80a0d0)으로 연결성분(blob)을 잡아 각 마커의 무게중심을 좌표로 환산했다(산점도라 열 중앙값이 아니라 blob 중심이 옳다). 축은 회색 격자선의 픽셀 위치를 자동 검출해 잡았다 — 세로 격자 여덟(0·50·…·350 °C)과 가로 격자 여덟(0·500·…·3500) 이 각각 173.1 px · 143.4 px 등간격으로 나와 축 배정이 스스로 닫힌다. 마커 하나가 1,140±20 px 라 겹친 blob(px≈2,144)은 두 점이 붙은 것으로 보고 **버렸다.** **자릿수 검산** — 판독한 60.5 °C 의 0.2131 W/(m·K) 와 같은 그림쌍의 비열 1694 J/(kg·K)(61.8 °C), 그리고 이 재료에 이미 들어 있는 밀도 1010 kg/m³ 로 열확산율을 만들면 α = k/(ρ·Cp) = 0.2131/(1010 x 1694) = 1.25e-7 m²/s 로 비정질 고분자 통용 대역(1e-7 자릿수)에 앉는다(브리프 603 — 네 칸이 한 문서에서 올 때 가장 강한 검산이다). ⚠ **이 그림은 1020R 전용이다.** 1420R·1600R 에 옮기지 않았다. — 59차 UE"
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.2206,
+     "unit": "W/(m*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 80.2,
+      "temperature_k": 353.35,
+      "grade": "ZEONOR 1020R",
+      "digitized": true,
+      "figure": "図4-16 ZEONOR(R)1020R の熱伝導率 (射出成形ガイド 4.1 節)",
+      "reading_uncertainty": "±0.002 W/(m·K)"
+     },
+     "notes": "세로축 verbatim `熱伝導率 (W/m・C)` · 가로축 `温度 (deg C)`. W/(m·°C) = W/(m·K). **판독 파이프라인** — 원 PDF 를 300 dpi 로 렌더한 뒤 마커 색(#80a0d0)으로 연결성분(blob)을 잡아 각 마커의 무게중심을 좌표로 환산했다(산점도라 열 중앙값이 아니라 blob 중심이 옳다). 축은 회색 격자선의 픽셀 위치를 자동 검출해 잡았다 — 세로 격자 여덟(0·50·…·350 °C)과 가로 격자 여덟(0·500·…·3500) 이 각각 173.1 px · 143.4 px 등간격으로 나와 축 배정이 스스로 닫힌다. 마커 하나가 1,140±20 px 라 겹친 blob(px≈2,144)은 두 점이 붙은 것으로 보고 **버렸다.** **자릿수 검산** — 판독한 60.5 °C 의 0.2131 W/(m·K) 와 같은 그림쌍의 비열 1694 J/(kg·K)(61.8 °C), 그리고 이 재료에 이미 들어 있는 밀도 1010 kg/m³ 로 열확산율을 만들면 α = k/(ρ·Cp) = 0.2131/(1010 x 1694) = 1.25e-7 m²/s 로 비정질 고분자 통용 대역(1e-7 자릿수)에 앉는다(브리프 603 — 네 칸이 한 문서에서 올 때 가장 강한 검산이다). ⚠ **이 그림은 1020R 전용이다.** 1420R·1600R 에 옮기지 않았다. — 59차 UE"
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.2312,
+     "unit": "W/(m*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 121.5,
+      "temperature_k": 394.65,
+      "grade": "ZEONOR 1020R",
+      "digitized": true,
+      "figure": "図4-16 ZEONOR(R)1020R の熱伝導率 (射出成形ガイド 4.1 節)",
+      "reading_uncertainty": "±0.002 W/(m·K)"
+     },
+     "notes": "세로축 verbatim `熱伝導率 (W/m・C)` · 가로축 `温度 (deg C)`. W/(m·°C) = W/(m·K). **판독 파이프라인** — 원 PDF 를 300 dpi 로 렌더한 뒤 마커 색(#80a0d0)으로 연결성분(blob)을 잡아 각 마커의 무게중심을 좌표로 환산했다(산점도라 열 중앙값이 아니라 blob 중심이 옳다). 축은 회색 격자선의 픽셀 위치를 자동 검출해 잡았다 — 세로 격자 여덟(0·50·…·350 °C)과 가로 격자 여덟(0·500·…·3500) 이 각각 173.1 px · 143.4 px 등간격으로 나와 축 배정이 스스로 닫힌다. 마커 하나가 1,140±20 px 라 겹친 blob(px≈2,144)은 두 점이 붙은 것으로 보고 **버렸다.** **자릿수 검산** — 판독한 60.5 °C 의 0.2131 W/(m·K) 와 같은 그림쌍의 비열 1694 J/(kg·K)(61.8 °C), 그리고 이 재료에 이미 들어 있는 밀도 1010 kg/m³ 로 열확산율을 만들면 α = k/(ρ·Cp) = 0.2131/(1010 x 1694) = 1.25e-7 m²/s 로 비정질 고분자 통용 대역(1e-7 자릿수)에 앉는다(브리프 603 — 네 칸이 한 문서에서 올 때 가장 강한 검산이다). ⚠ **이 그림은 1020R 전용이다.** 1420R·1600R 에 옮기지 않았다. — 59차 UE"
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.2333,
+     "unit": "W/(m*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 142.1,
+      "temperature_k": 415.25,
+      "grade": "ZEONOR 1020R",
+      "digitized": true,
+      "figure": "図4-16 ZEONOR(R)1020R の熱伝導率 (射出成形ガイド 4.1 節)",
+      "reading_uncertainty": "±0.002 W/(m·K)"
+     },
+     "notes": "세로축 verbatim `熱伝導率 (W/m・C)` · 가로축 `温度 (deg C)`. W/(m·°C) = W/(m·K). **판독 파이프라인** — 원 PDF 를 300 dpi 로 렌더한 뒤 마커 색(#80a0d0)으로 연결성분(blob)을 잡아 각 마커의 무게중심을 좌표로 환산했다(산점도라 열 중앙값이 아니라 blob 중심이 옳다). 축은 회색 격자선의 픽셀 위치를 자동 검출해 잡았다 — 세로 격자 여덟(0·50·…·350 °C)과 가로 격자 여덟(0·500·…·3500) 이 각각 173.1 px · 143.4 px 등간격으로 나와 축 배정이 스스로 닫힌다. 마커 하나가 1,140±20 px 라 겹친 blob(px≈2,144)은 두 점이 붙은 것으로 보고 **버렸다.** **자릿수 검산** — 판독한 60.5 °C 의 0.2131 W/(m·K) 와 같은 그림쌍의 비열 1694 J/(kg·K)(61.8 °C), 그리고 이 재료에 이미 들어 있는 밀도 1010 kg/m³ 로 열확산율을 만들면 α = k/(ρ·Cp) = 0.2131/(1010 x 1694) = 1.25e-7 m²/s 로 비정질 고분자 통용 대역(1e-7 자릿수)에 앉는다(브리프 603 — 네 칸이 한 문서에서 올 때 가장 강한 검산이다). ⚠ **이 그림은 1020R 전용이다.** 1420R·1600R 에 옮기지 않았다. — 59차 UE"
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.2361,
+     "unit": "W/(m*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 162.4,
+      "temperature_k": 435.55,
+      "grade": "ZEONOR 1020R",
+      "digitized": true,
+      "figure": "図4-16 ZEONOR(R)1020R の熱伝導率 (射出成形ガイド 4.1 節)",
+      "reading_uncertainty": "±0.002 W/(m·K)"
+     },
+     "notes": "세로축 verbatim `熱伝導率 (W/m・C)` · 가로축 `温度 (deg C)`. W/(m·°C) = W/(m·K). **판독 파이프라인** — 원 PDF 를 300 dpi 로 렌더한 뒤 마커 색(#80a0d0)으로 연결성분(blob)을 잡아 각 마커의 무게중심을 좌표로 환산했다(산점도라 열 중앙값이 아니라 blob 중심이 옳다). 축은 회색 격자선의 픽셀 위치를 자동 검출해 잡았다 — 세로 격자 여덟(0·50·…·350 °C)과 가로 격자 여덟(0·500·…·3500) 이 각각 173.1 px · 143.4 px 등간격으로 나와 축 배정이 스스로 닫힌다. 마커 하나가 1,140±20 px 라 겹친 blob(px≈2,144)은 두 점이 붙은 것으로 보고 **버렸다.** **자릿수 검산** — 판독한 60.5 °C 의 0.2131 W/(m·K) 와 같은 그림쌍의 비열 1694 J/(kg·K)(61.8 °C), 그리고 이 재료에 이미 들어 있는 밀도 1010 kg/m³ 로 열확산율을 만들면 α = k/(ρ·Cp) = 0.2131/(1010 x 1694) = 1.25e-7 m²/s 로 비정질 고분자 통용 대역(1e-7 자릿수)에 앉는다(브리프 603 — 네 칸이 한 문서에서 올 때 가장 강한 검산이다). ⚠ **이 그림은 1020R 전용이다.** 1420R·1600R 에 옮기지 않았다. — 59차 UE"
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.239,
+     "unit": "W/(m*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 183.4,
+      "temperature_k": 456.55,
+      "grade": "ZEONOR 1020R",
+      "digitized": true,
+      "figure": "図4-16 ZEONOR(R)1020R の熱伝導率 (射出成形ガイド 4.1 節)",
+      "reading_uncertainty": "±0.002 W/(m·K)"
+     },
+     "notes": "세로축 verbatim `熱伝導率 (W/m・C)` · 가로축 `温度 (deg C)`. W/(m·°C) = W/(m·K). **판독 파이프라인** — 원 PDF 를 300 dpi 로 렌더한 뒤 마커 색(#80a0d0)으로 연결성분(blob)을 잡아 각 마커의 무게중심을 좌표로 환산했다(산점도라 열 중앙값이 아니라 blob 중심이 옳다). 축은 회색 격자선의 픽셀 위치를 자동 검출해 잡았다 — 세로 격자 여덟(0·50·…·350 °C)과 가로 격자 여덟(0·500·…·3500) 이 각각 173.1 px · 143.4 px 등간격으로 나와 축 배정이 스스로 닫힌다. 마커 하나가 1,140±20 px 라 겹친 blob(px≈2,144)은 두 점이 붙은 것으로 보고 **버렸다.** **자릿수 검산** — 판독한 60.5 °C 의 0.2131 W/(m·K) 와 같은 그림쌍의 비열 1694 J/(kg·K)(61.8 °C), 그리고 이 재료에 이미 들어 있는 밀도 1010 kg/m³ 로 열확산율을 만들면 α = k/(ρ·Cp) = 0.2131/(1010 x 1694) = 1.25e-7 m²/s 로 비정질 고분자 통용 대역(1e-7 자릿수)에 앉는다(브리프 603 — 네 칸이 한 문서에서 올 때 가장 강한 검산이다). ⚠ **이 그림은 1020R 전용이다.** 1420R·1600R 에 옮기지 않았다. — 59차 UE"
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.2408,
+     "unit": "W/(m*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 203.1,
+      "temperature_k": 476.25,
+      "grade": "ZEONOR 1020R",
+      "digitized": true,
+      "figure": "図4-16 ZEONOR(R)1020R の熱伝導率 (射出成形ガイド 4.1 節)",
+      "reading_uncertainty": "±0.002 W/(m·K)"
+     },
+     "notes": "세로축 verbatim `熱伝導率 (W/m・C)` · 가로축 `温度 (deg C)`. W/(m·°C) = W/(m·K). **판독 파이프라인** — 원 PDF 를 300 dpi 로 렌더한 뒤 마커 색(#80a0d0)으로 연결성분(blob)을 잡아 각 마커의 무게중심을 좌표로 환산했다(산점도라 열 중앙값이 아니라 blob 중심이 옳다). 축은 회색 격자선의 픽셀 위치를 자동 검출해 잡았다 — 세로 격자 여덟(0·50·…·350 °C)과 가로 격자 여덟(0·500·…·3500) 이 각각 173.1 px · 143.4 px 등간격으로 나와 축 배정이 스스로 닫힌다. 마커 하나가 1,140±20 px 라 겹친 blob(px≈2,144)은 두 점이 붙은 것으로 보고 **버렸다.** **자릿수 검산** — 판독한 60.5 °C 의 0.2131 W/(m·K) 와 같은 그림쌍의 비열 1694 J/(kg·K)(61.8 °C), 그리고 이 재료에 이미 들어 있는 밀도 1010 kg/m³ 로 열확산율을 만들면 α = k/(ρ·Cp) = 0.2131/(1010 x 1694) = 1.25e-7 m²/s 로 비정질 고분자 통용 대역(1e-7 자릿수)에 앉는다(브리프 603 — 네 칸이 한 문서에서 올 때 가장 강한 검산이다). ⚠ **이 그림은 1020R 전용이다.** 1420R·1600R 에 옮기지 않았다. — 59차 UE"
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.2459,
+     "unit": "W/(m*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 224.2,
+      "temperature_k": 497.35,
+      "grade": "ZEONOR 1020R",
+      "digitized": true,
+      "figure": "図4-16 ZEONOR(R)1020R の熱伝導率 (射出成形ガイド 4.1 節)",
+      "reading_uncertainty": "±0.002 W/(m·K)"
+     },
+     "notes": "세로축 verbatim `熱伝導率 (W/m・C)` · 가로축 `温度 (deg C)`. W/(m·°C) = W/(m·K). **판독 파이프라인** — 원 PDF 를 300 dpi 로 렌더한 뒤 마커 색(#80a0d0)으로 연결성분(blob)을 잡아 각 마커의 무게중심을 좌표로 환산했다(산점도라 열 중앙값이 아니라 blob 중심이 옳다). 축은 회색 격자선의 픽셀 위치를 자동 검출해 잡았다 — 세로 격자 여덟(0·50·…·350 °C)과 가로 격자 여덟(0·500·…·3500) 이 각각 173.1 px · 143.4 px 등간격으로 나와 축 배정이 스스로 닫힌다. 마커 하나가 1,140±20 px 라 겹친 blob(px≈2,144)은 두 점이 붙은 것으로 보고 **버렸다.** **자릿수 검산** — 판독한 60.5 °C 의 0.2131 W/(m·K) 와 같은 그림쌍의 비열 1694 J/(kg·K)(61.8 °C), 그리고 이 재료에 이미 들어 있는 밀도 1010 kg/m³ 로 열확산율을 만들면 α = k/(ρ·Cp) = 0.2131/(1010 x 1694) = 1.25e-7 m²/s 로 비정질 고분자 통용 대역(1e-7 자릿수)에 앉는다(브리프 603 — 네 칸이 한 문서에서 올 때 가장 강한 검산이다). ⚠ **이 그림은 1020R 전용이다.** 1420R·1600R 에 옮기지 않았다. — 59차 UE"
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.2488,
+     "unit": "W/(m*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 244.4,
+      "temperature_k": 517.55,
+      "grade": "ZEONOR 1020R",
+      "digitized": true,
+      "figure": "図4-16 ZEONOR(R)1020R の熱伝導率 (射出成形ガイド 4.1 節)",
+      "reading_uncertainty": "±0.002 W/(m·K)"
+     },
+     "notes": "세로축 verbatim `熱伝導率 (W/m・C)` · 가로축 `温度 (deg C)`. W/(m·°C) = W/(m·K). **판독 파이프라인** — 원 PDF 를 300 dpi 로 렌더한 뒤 마커 색(#80a0d0)으로 연결성분(blob)을 잡아 각 마커의 무게중심을 좌표로 환산했다(산점도라 열 중앙값이 아니라 blob 중심이 옳다). 축은 회색 격자선의 픽셀 위치를 자동 검출해 잡았다 — 세로 격자 여덟(0·50·…·350 °C)과 가로 격자 여덟(0·500·…·3500) 이 각각 173.1 px · 143.4 px 등간격으로 나와 축 배정이 스스로 닫힌다. 마커 하나가 1,140±20 px 라 겹친 blob(px≈2,144)은 두 점이 붙은 것으로 보고 **버렸다.** **자릿수 검산** — 판독한 60.5 °C 의 0.2131 W/(m·K) 와 같은 그림쌍의 비열 1694 J/(kg·K)(61.8 °C), 그리고 이 재료에 이미 들어 있는 밀도 1010 kg/m³ 로 열확산율을 만들면 α = k/(ρ·Cp) = 0.2131/(1010 x 1694) = 1.25e-7 m²/s 로 비정질 고분자 통용 대역(1e-7 자릿수)에 앉는다(브리프 603 — 네 칸이 한 문서에서 올 때 가장 강한 검산이다). ⚠ **이 그림은 1020R 전용이다.** 1420R·1600R 에 옮기지 않았다. — 59차 UE"
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.2529,
+     "unit": "W/(m*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 265.5,
+      "temperature_k": 538.65,
+      "grade": "ZEONOR 1020R",
+      "digitized": true,
+      "figure": "図4-16 ZEONOR(R)1020R の熱伝導率 (射出成形ガイド 4.1 節)",
+      "reading_uncertainty": "±0.002 W/(m·K)"
+     },
+     "notes": "세로축 verbatim `熱伝導率 (W/m・C)` · 가로축 `温度 (deg C)`. W/(m·°C) = W/(m·K). **판독 파이프라인** — 원 PDF 를 300 dpi 로 렌더한 뒤 마커 색(#80a0d0)으로 연결성분(blob)을 잡아 각 마커의 무게중심을 좌표로 환산했다(산점도라 열 중앙값이 아니라 blob 중심이 옳다). 축은 회색 격자선의 픽셀 위치를 자동 검출해 잡았다 — 세로 격자 여덟(0·50·…·350 °C)과 가로 격자 여덟(0·500·…·3500) 이 각각 173.1 px · 143.4 px 등간격으로 나와 축 배정이 스스로 닫힌다. 마커 하나가 1,140±20 px 라 겹친 blob(px≈2,144)은 두 점이 붙은 것으로 보고 **버렸다.** **자릿수 검산** — 판독한 60.5 °C 의 0.2131 W/(m·K) 와 같은 그림쌍의 비열 1694 J/(kg·K)(61.8 °C), 그리고 이 재료에 이미 들어 있는 밀도 1010 kg/m³ 로 열확산율을 만들면 α = k/(ρ·Cp) = 0.2131/(1010 x 1694) = 1.25e-7 m²/s 로 비정질 고분자 통용 대역(1e-7 자릿수)에 앉는다(브리프 603 — 네 칸이 한 문서에서 올 때 가장 강한 검산이다). ⚠ **이 그림은 1020R 전용이다.** 1420R·1600R 에 옮기지 않았다. — 59차 UE"
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.2547,
+     "unit": "W/(m*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 285.2,
+      "temperature_k": 558.35,
+      "grade": "ZEONOR 1020R",
+      "digitized": true,
+      "figure": "図4-16 ZEONOR(R)1020R の熱伝導率 (射出成形ガイド 4.1 節)",
+      "reading_uncertainty": "±0.002 W/(m·K)"
+     },
+     "notes": "세로축 verbatim `熱伝導率 (W/m・C)` · 가로축 `温度 (deg C)`. W/(m·°C) = W/(m·K). **판독 파이프라인** — 원 PDF 를 300 dpi 로 렌더한 뒤 마커 색(#80a0d0)으로 연결성분(blob)을 잡아 각 마커의 무게중심을 좌표로 환산했다(산점도라 열 중앙값이 아니라 blob 중심이 옳다). 축은 회색 격자선의 픽셀 위치를 자동 검출해 잡았다 — 세로 격자 여덟(0·50·…·350 °C)과 가로 격자 여덟(0·500·…·3500) 이 각각 173.1 px · 143.4 px 등간격으로 나와 축 배정이 스스로 닫힌다. 마커 하나가 1,140±20 px 라 겹친 blob(px≈2,144)은 두 점이 붙은 것으로 보고 **버렸다.** **자릿수 검산** — 판독한 60.5 °C 의 0.2131 W/(m·K) 와 같은 그림쌍의 비열 1694 J/(kg·K)(61.8 °C), 그리고 이 재료에 이미 들어 있는 밀도 1010 kg/m³ 로 열확산율을 만들면 α = k/(ρ·Cp) = 0.2131/(1010 x 1694) = 1.25e-7 m²/s 로 비정질 고분자 통용 대역(1e-7 자릿수)에 앉는다(브리프 603 — 네 칸이 한 문서에서 올 때 가장 강한 검산이다). ⚠ **이 그림은 1020R 전용이다.** 1420R·1600R 에 옮기지 않았다. — 59차 UE"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,85 @@
+{
+ "batch": "59차 UE",
+ "materials": [
+  {
+   "match_name": "Liquid Electrolyte, LiPF6 in EC:DMC 50:50 wt%",
+   "source": {
+    "kind": "journal",
+    "title": "Temperature and Concentration Dependence of the Ionic Transport Properties of Lithium-Ion Battery Electrolytes — Supporting Information",
+    "doi": "10.1149/2.0571912jes",
+    "authors": "Johannes Landesfeind, Hubert A. Gasteiger",
+    "year": 2019,
+    "publisher": "IOP Publishing (Journal of The Electrochemical Society 166 A3079)",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/battery/Landesfeind_Gasteiger_2019_JES_166_A3079_SupportingInformation.docx"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1254.9,
+     "unit": "kg/m^3",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_k": 298.15,
+      "salt_concentration_mol_l": 1.0,
+      "solvent_blend_verbatim": "EC:DMC (1:1 w:w)",
+      "basis": "저자의 회귀식 Eq. S1 에 저자의 Table S1 계수를 넣어 평가한 값이다 — 개별 측정점의 인쇄값이 아니다",
+      "test_method": "gravimetric, 10 ml flask, preheated/cooled electrolyte, argon glovebox (Figure S1 캡션)",
+      "fit_validity_range": "0.1~3 M · 0 ~ 50 °C (Table S1 캡션 verbatim)",
+      "uncertainty_note": "Table S1 의 95% 신뢰폭(p1 7% · p2 7% · p3 27%)을 계수 독립으로 전파하면 이 점에서 8~12% 가 상한이다. R² = 0.989"
+     },
+     "notes": "58차 TA 가 표적으로 넘긴 칸이다. SI 1절 `Electrolyte Densities` verbatim: `ρ(c,T) = p1 + p2·c + p3·T  [g/cm³]` — `The concentration and temperature in Eq. 1 are used in units of M/L and K.` Table S1 verbatim 캡션: `Functional description of lithium ion battery electrolyte densities based on regression fits of the measurements from 0°C to 50°C and 0.1 M to 3 M to Eq. S1. Parameters are given including their 95% confidence bounds.` 측정법도 인쇄돼 있다 — Figure S1 캡션 verbatim: `The data were obtained gravimetrically, using a 10 ml flask filled with the preheated/cooled electrolytes inside an argon filled glovebox.`\n평가 — `EC:DMC (1:1 w:w)` 열의 p1=1.59 · p2=0.0674 · p3=-0.00135 · R²=0.989 로 ρ(1.0 M, 298.15 K) = 1.59 + 0.0674x1.0 + (-0.00135)x298.15 = 1.2549 g/cm³ = 1254.9 kg/m³.\n**자기무결성 검산** — 같은 식을 c=0 으로 평가하면 용매 배합 자체의 밀도 1.1875 g/cm³ 가 나오고, 염을 1 M 넣었을 때 증가분이 67.4 kg/m³ 다. 카보네이트 용매 배합의 자릿수로 옳고 두 재료를 나란히 보면 EC 를 절반 넣은 2689 가 EMC 주체인 2690 보다 무겁다(1.255 대 1.111 g/cm³) — EC 가 계열에서 가장 무거운 용매라는 방향과 맞는다. ⚠ c=0 은 적합 구간(0.1 M 이상) 밖이라 검산용으로만 쓰고 값으로 넣지 않았다.\n⚠ **농도는 이 재료의 자유변수다** — 카탈로그 재료명이 용매 배합만 규정하고 염 농도는 원문의 독립변수(0.1~3 M)라 조건축 `salt_concentration_mol_l` 없이는 밀도가 값이 아니다. 1.0 M 을 고른 것은 그것이 SI Figure S2 가 상용 스펙과 대조한 농도이기 때문이고(verbatim `1 M LiPF6 in EC:DMC (1:1 w:w)`), 조건에 못박았으므로 다른 농도가 필요하면 같은 식으로 다시 평가하면 된다.\n**Figure S1 은 판독할 수 없다** — ρ 를 c 와 T 두 축에 대해 그린 **3차원 투영도**(산점 + 회귀평면)라 2차원 곡선 판독기로 좌표를 복원할 수 없다. 그래서 그림이 아니라 저자 자신의 회귀식을 썼다.\n**method 를 `computed` 로, tier 를 3 으로 둔 이유** — 이 값은 개별 측정점으로 인쇄된 것이 아니라 저자가 인쇄한 회귀식에 저자가 인쇄한 계수를 넣어 **우리가 평가한** 값이다. 브리프 43 의 역산 금지선 안쪽이다 — 다른 물성(k·Cp·α)에서 밀도를 나눠 만든 것이 아니라 **같은 물성의 저자 회귀를 저자가 밝힌 유효 구간 안에서 평가**한 것이고, 평가점(1.0 M · 298.15 K)이 적합 구간(0.1~3 M · 273~323 K) 한가운데다. 그래도 인쇄된 점이 아니므로 tier1 이 아니다. ⚠ **불확도 주의** — Table S1 이 계수마다 95% 신뢰폭을 인쇄한다. 계수를 독립으로 보고 단순 전파하면 이 점에서 8~12% 가 나오는데, 계수 간 상관 때문에 그것은 상한이다(R² 은 0.989/0.990 이다). **해석에 쓰기 전에 이 폭을 보고 쓰라는 뜻으로 조건과 notes 에 남긴다.**\n⚠ 이 재료에는 이미 `physical.density_model_constant` 3행(같은 Table S1)이 들어 있다 — 이 행은 그 모형을 한 점에서 평가한 것이지 새 측정이 아니다(중복 계상이 아니라 소비면을 위한 평가점이다). — 59차 UE"
+    }
+   ]
+  },
+  {
+   "match_name": "Liquid Electrolyte, LiPF6 in EMC:FEC 95:5 wt%",
+   "source": {
+    "kind": "journal",
+    "title": "Temperature and Concentration Dependence of the Ionic Transport Properties of Lithium-Ion Battery Electrolytes — Supporting Information",
+    "doi": "10.1149/2.0571912jes",
+    "authors": "Johannes Landesfeind, Hubert A. Gasteiger",
+    "year": 2019,
+    "publisher": "IOP Publishing (Journal of The Electrochemical Society 166 A3079)",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/battery/Landesfeind_Gasteiger_2019_JES_166_A3079_SupportingInformation.docx"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1110.8,
+     "unit": "kg/m^3",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "temperature_k": 298.15,
+      "salt_concentration_mol_l": 1.0,
+      "solvent_blend_verbatim": "EMC:FEC (19:1 w:w)",
+      "basis": "저자의 회귀식 Eq. S1 에 저자의 Table S1 계수를 넣어 평가한 값이다 — 개별 측정점의 인쇄값이 아니다",
+      "test_method": "gravimetric, 10 ml flask, preheated/cooled electrolyte, argon glovebox (Figure S1 캡션)",
+      "fit_validity_range": "0.1~3 M · 0 ~ 50 °C (Table S1 캡션 verbatim)",
+      "uncertainty_note": "Table S1 의 95% 신뢰폭(p1 12% · p2 6% · p3 51%)을 계수 독립으로 전파하면 이 점에서 8~12% 가 상한이다. R² = 0.99"
+     },
+     "notes": "58차 TA 가 표적으로 넘긴 칸이다. SI 1절 `Electrolyte Densities` verbatim: `ρ(c,T) = p1 + p2·c + p3·T  [g/cm³]` — `The concentration and temperature in Eq. 1 are used in units of M/L and K.` Table S1 verbatim 캡션: `Functional description of lithium ion battery electrolyte densities based on regression fits of the measurements from 0°C to 50°C and 0.1 M to 3 M to Eq. S1. Parameters are given including their 95% confidence bounds.` 측정법도 인쇄돼 있다 — Figure S1 캡션 verbatim: `The data were obtained gravimetrically, using a 10 ml flask filled with the preheated/cooled electrolytes inside an argon filled glovebox.`\n평가 — `EMC:FEC (19:1 w:w)` 열의 p1=1.3 · p2=0.103 · p3=-0.00098 · R²=0.99 로 ρ(1.0 M, 298.15 K) = 1.3 + 0.103x1.0 + (-0.00098)x298.15 = 1.1108 g/cm³ = 1110.8 kg/m³.\n**자기무결성 검산** — 같은 식을 c=0 으로 평가하면 용매 배합 자체의 밀도 1.0078 g/cm³ 가 나오고, 염을 1 M 넣었을 때 증가분이 103.0 kg/m³ 다. 카보네이트 용매 배합의 자릿수로 옳고 두 재료를 나란히 보면 EC 를 절반 넣은 2689 가 EMC 주체인 2690 보다 무겁다(1.255 대 1.111 g/cm³) — EC 가 계열에서 가장 무거운 용매라는 방향과 맞는다. ⚠ c=0 은 적합 구간(0.1 M 이상) 밖이라 검산용으로만 쓰고 값으로 넣지 않았다.\n⚠ **농도는 이 재료의 자유변수다** — 카탈로그 재료명이 용매 배합만 규정하고 염 농도는 원문의 독립변수(0.1~3 M)라 조건축 `salt_concentration_mol_l` 없이는 밀도가 값이 아니다. 1.0 M 을 고른 것은 그것이 SI Figure S2 가 상용 스펙과 대조한 농도이기 때문이고(verbatim `1 M LiPF6 in EC:DMC (1:1 w:w)`), 조건에 못박았으므로 다른 농도가 필요하면 같은 식으로 다시 평가하면 된다.\n**Figure S1 은 판독할 수 없다** — ρ 를 c 와 T 두 축에 대해 그린 **3차원 투영도**(산점 + 회귀평면)라 2차원 곡선 판독기로 좌표를 복원할 수 없다. 그래서 그림이 아니라 저자 자신의 회귀식을 썼다.\n**method 를 `computed` 로, tier 를 3 으로 둔 이유** — 이 값은 개별 측정점으로 인쇄된 것이 아니라 저자가 인쇄한 회귀식에 저자가 인쇄한 계수를 넣어 **우리가 평가한** 값이다. 브리프 43 의 역산 금지선 안쪽이다 — 다른 물성(k·Cp·α)에서 밀도를 나눠 만든 것이 아니라 **같은 물성의 저자 회귀를 저자가 밝힌 유효 구간 안에서 평가**한 것이고, 평가점(1.0 M · 298.15 K)이 적합 구간(0.1~3 M · 273~323 K) 한가운데다. 그래도 인쇄된 점이 아니므로 tier1 이 아니다. ⚠ **불확도 주의** — Table S1 이 계수마다 95% 신뢰폭을 인쇄한다. 계수를 독립으로 보고 단순 전파하면 이 점에서 8~12% 가 나오는데, 계수 간 상관 때문에 그것은 상한이다(R² 은 0.989/0.990 이다). **해석에 쓰기 전에 이 폭을 보고 쓰라는 뜻으로 조건과 notes 에 남긴다.**\n⚠ 이 재료에는 이미 `physical.density_model_constant` 3행(같은 Table S1)이 들어 있다 — 이 행은 그 모형을 한 점에서 평가한 것이지 새 측정이 아니다(중복 계상이 아니라 소비면을 위한 평가점이다). — 59차 UE"
+    }
+   ]
+  }
+ ],
+ "verdicts": [
+  {
+   "material_id": 2689,
+   "name": "Liquid Electrolyte, LiPF6 in EC:DMC 50:50 wt%",
+   "core_absent_from_vendor_sheet": {
+    "thermal.conductivity": "**본편과 SI 를 이 파동에 둘 다 열었다**(58차 TA 는 SI 만 열고 `core_open_58ta` 에 `문서를 열지 않고 부재를 선언하지 않는다` 라고 적어 넘겼다 — 브리프 127·505). 본편(JES 166 (14) A3079, `10.1149/2.0571912jes`)의 절 구성은 `Experimental / Theory / Data Analysis / Results` 이고 결과절은 `Concentration & temperature dependent description of κ` · `… of D±` · `… of TDF` 셋이다. 표는 셋(`Summary of galvanostatic pulse polarization steps` · `Fitting parameters for empirical approximations` 외), 그림은 열이고 전부 이온전도도·농도전위·이성분확산계수·수송률·열역학인자다. **열전도율도 비열도 인쇄되지 않는다.** 본편이 밀도를 언급하는 곳은 한 문장뿐이고 verbatim 으로 SI 를 가리킨다 — `For the interested reader, we provide density measurements for the electrolytes used in this study, covering the used temperature and concentration range (see Supporting Information (SI), Figure S1; fitting parameters to a linear concentration and temperature dependent function (Eq. S1) are given in Table S1 in the SI).` SI 의 절 구성도 `1. Electrolyte Densities / 2. Conductivity Comparison / 3. Error by Integral Simplification / 4. Error calculation and regression analysis` 넷이라 열물성이 없다.\n⚠ **성격 — V2 가 아니다. 벤더 시트가 없다.** 이 재료는 저자가 배합한 전해액이다. 브리프 609 의 `core_no_public_document` 자리인데 집계가 그 키를 안 읽어(브리프 593·608) 전파되는 이 키에 적고 성격을 여기 못박는다.\n**다음 한 걸음이 문서로 지정돼 있다** — SI Figure S2 캡션이 같은 조성의 상용 전해액 스펙시트를 verbatim 으로 인용한다: `the specification of commercially (BASF) available electrolyte solutions of the same composition (BASF, Spec. Sheet., Specifications for Lithium-Ion Battery Electrolyte)`. **이 파동에서 그 시트를 조달하지 못했다**(targray 제품페이지는 404 로 리다이렉트, solvionic 은 연결 거부). 코퍼스도 검색했다 — `thermal conductivity of lithium ion battery electrolyte measurement carbonate` 와 `heat capacity electrolyte carbonate solvent measurement DSC lithium` 둘 다 이 조성의 값을 가진 문헌을 내지 못했고, 같은 디렉터리의 Logan 2018(JES 165 A21, 전해액 물성 논문)은 `thermal conductivity` 0건 · `heat capacity` 0건에 조성도 EC:DMC:MA 3원계라 다르다. — 59차 UE",
+    "thermal.specific_heat": "**본편과 SI 를 이 파동에 둘 다 열었다**(58차 TA 는 SI 만 열고 `core_open_58ta` 에 `문서를 열지 않고 부재를 선언하지 않는다` 라고 적어 넘겼다 — 브리프 127·505). 본편(JES 166 (14) A3079, `10.1149/2.0571912jes`)의 절 구성은 `Experimental / Theory / Data Analysis / Results` 이고 결과절은 `Concentration & temperature dependent description of κ` · `… of D±` · `… of TDF` 셋이다. 표는 셋(`Summary of galvanostatic pulse polarization steps` · `Fitting parameters for empirical approximations` 외), 그림은 열이고 전부 이온전도도·농도전위·이성분확산계수·수송률·열역학인자다. **열전도율도 비열도 인쇄되지 않는다.** 본편이 밀도를 언급하는 곳은 한 문장뿐이고 verbatim 으로 SI 를 가리킨다 — `For the interested reader, we provide density measurements for the electrolytes used in this study, covering the used temperature and concentration range (see Supporting Information (SI), Figure S1; fitting parameters to a linear concentration and temperature dependent function (Eq. S1) are given in Table S1 in the SI).` SI 의 절 구성도 `1. Electrolyte Densities / 2. Conductivity Comparison / 3. Error by Integral Simplification / 4. Error calculation and regression analysis` 넷이라 열물성이 없다.\n⚠ **성격 — V2 가 아니다. 벤더 시트가 없다.** 이 재료는 저자가 배합한 전해액이다. 브리프 609 의 `core_no_public_document` 자리인데 집계가 그 키를 안 읽어(브리프 593·608) 전파되는 이 키에 적고 성격을 여기 못박는다.\n**다음 한 걸음이 문서로 지정돼 있다** — SI Figure S2 캡션이 같은 조성의 상용 전해액 스펙시트를 verbatim 으로 인용한다: `the specification of commercially (BASF) available electrolyte solutions of the same composition (BASF, Spec. Sheet., Specifications for Lithium-Ion Battery Electrolyte)`. **이 파동에서 그 시트를 조달하지 못했다**(targray 제품페이지는 404 로 리다이렉트, solvionic 은 연결 거부). 코퍼스도 검색했다 — `thermal conductivity of lithium ion battery electrolyte measurement carbonate` 와 `heat capacity electrolyte carbonate solvent measurement DSC lithium` 둘 다 이 조성의 값을 가진 문헌을 내지 못했고, 같은 디렉터리의 Logan 2018(JES 165 A21, 전해액 물성 논문)은 `thermal conductivity` 0건 · `heat capacity` 0건에 조성도 EC:DMC:MA 3원계라 다르다. — 59차 UE"
+   }
+  },
+  {
+   "material_id": 2690,
+   "name": "Liquid Electrolyte, LiPF6 in EMC:FEC 95:5 wt%",
+   "core_absent_from_vendor_sheet": {
+    "thermal.conductivity": "**본편과 SI 를 이 파동에 둘 다 열었다**(58차 TA 는 SI 만 열고 `core_open_58ta` 에 `문서를 열지 않고 부재를 선언하지 않는다` 라고 적어 넘겼다 — 브리프 127·505). 본편(JES 166 (14) A3079, `10.1149/2.0571912jes`)의 절 구성은 `Experimental / Theory / Data Analysis / Results` 이고 결과절은 `Concentration & temperature dependent description of κ` · `… of D±` · `… of TDF` 셋이다. 표는 셋(`Summary of galvanostatic pulse polarization steps` · `Fitting parameters for empirical approximations` 외), 그림은 열이고 전부 이온전도도·농도전위·이성분확산계수·수송률·열역학인자다. **열전도율도 비열도 인쇄되지 않는다.** 본편이 밀도를 언급하는 곳은 한 문장뿐이고 verbatim 으로 SI 를 가리킨다 — `For the interested reader, we provide density measurements for the electrolytes used in this study, covering the used temperature and concentration range (see Supporting Information (SI), Figure S1; fitting parameters to a linear concentration and temperature dependent function (Eq. S1) are given in Table S1 in the SI).` SI 의 절 구성도 `1. Electrolyte Densities / 2. Conductivity Comparison / 3. Error by Integral Simplification / 4. Error calculation and regression analysis` 넷이라 열물성이 없다.\n⚠ **성격 — V2 가 아니다. 벤더 시트가 없다.** 이 재료는 저자가 배합한 전해액이다. 브리프 609 의 `core_no_public_document` 자리인데 집계가 그 키를 안 읽어(브리프 593·608) 전파되는 이 키에 적고 성격을 여기 못박는다.\n**다음 한 걸음이 문서로 지정돼 있다** — SI Figure S2 캡션이 같은 조성의 상용 전해액 스펙시트를 verbatim 으로 인용한다: `the specification of commercially (BASF) available electrolyte solutions of the same composition (BASF, Spec. Sheet., Specifications for Lithium-Ion Battery Electrolyte)`. **이 파동에서 그 시트를 조달하지 못했다**(targray 제품페이지는 404 로 리다이렉트, solvionic 은 연결 거부). 코퍼스도 검색했다 — `thermal conductivity of lithium ion battery electrolyte measurement carbonate` 와 `heat capacity electrolyte carbonate solvent measurement DSC lithium` 둘 다 이 조성의 값을 가진 문헌을 내지 못했고, 같은 디렉터리의 Logan 2018(JES 165 A21, 전해액 물성 논문)은 `thermal conductivity` 0건 · `heat capacity` 0건에 조성도 EC:DMC:MA 3원계라 다르다. — 59차 UE",
+    "thermal.specific_heat": "**본편과 SI 를 이 파동에 둘 다 열었다**(58차 TA 는 SI 만 열고 `core_open_58ta` 에 `문서를 열지 않고 부재를 선언하지 않는다` 라고 적어 넘겼다 — 브리프 127·505). 본편(JES 166 (14) A3079, `10.1149/2.0571912jes`)의 절 구성은 `Experimental / Theory / Data Analysis / Results` 이고 결과절은 `Concentration & temperature dependent description of κ` · `… of D±` · `… of TDF` 셋이다. 표는 셋(`Summary of galvanostatic pulse polarization steps` · `Fitting parameters for empirical approximations` 외), 그림은 열이고 전부 이온전도도·농도전위·이성분확산계수·수송률·열역학인자다. **열전도율도 비열도 인쇄되지 않는다.** 본편이 밀도를 언급하는 곳은 한 문장뿐이고 verbatim 으로 SI 를 가리킨다 — `For the interested reader, we provide density measurements for the electrolytes used in this study, covering the used temperature and concentration range (see Supporting Information (SI), Figure S1; fitting parameters to a linear concentration and temperature dependent function (Eq. S1) are given in Table S1 in the SI).` SI 의 절 구성도 `1. Electrolyte Densities / 2. Conductivity Comparison / 3. Error by Integral Simplification / 4. Error calculation and regression analysis` 넷이라 열물성이 없다.\n⚠ **성격 — V2 가 아니다. 벤더 시트가 없다.** 이 재료는 저자가 배합한 전해액이다. 브리프 609 의 `core_no_public_document` 자리인데 집계가 그 키를 안 읽어(브리프 593·608) 전파되는 이 키에 적고 성격을 여기 못박는다.\n**다음 한 걸음이 문서로 지정돼 있다** — SI Figure S2 캡션이 같은 조성의 상용 전해액 스펙시트를 verbatim 으로 인용한다: `the specification of commercially (BASF) available electrolyte solutions of the same composition (BASF, Spec. Sheet., Specifications for Lithium-Ion Battery Electrolyte)`. **이 파동에서 그 시트를 조달하지 못했다**(targray 제품페이지는 404 로 리다이렉트, solvionic 은 연결 거부). 코퍼스도 검색했다 — `thermal conductivity of lithium ion battery electrolyte measurement carbonate` 와 `heat capacity electrolyte carbonate solvent measurement DSC lithium` 둘 다 이 조성의 값을 가진 문헌을 내지 못했고, 같은 디렉터리의 Logan 2018(JES 165 A21, 전해액 물성 논문)은 `thermal conductivity` 0건 · `heat capacity` 0건에 조성도 EC:DMC:MA 3원계라 다르다. — 59차 UE"
+   }
+  }
+ ]
+}

@@ -1,0 +1,764 @@
+{
+ "materials": [
+  {
+   "match_name": "Arctic Silver 5 commercial silicone thermal grease (Warzoha 2017 heat-meter-bar characterisation)",
+   "source": {
+    "kind": "journal",
+    "title": "High resolution steady-state measurements of thermal contact resistance across thermal interface material junctions",
+    "doi": "10.1063/1.5001835",
+    "url": "https://doi.org/10.1063/1.5001835",
+    "authors": "Warzoha et al.",
+    "year": 2017,
+    "publisher": "AIP Publishing (Review of Scientific Instruments 88, 094901)",
+    "local_path": "/data/paper_patent_corpus/structured/mech_papers/11_tim_thermal_physics/Warzoha - 2017 - High resolution steady-state measurements of thermal contact resistance across thermal interface material junctions/"
+   },
+   "properties": [
+    {
+     "key": "thermal.specific_heat",
+     "value": 577,
+     "unit": "J/(kg*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 303.15,
+      "temperature_c": 30.0,
+      "digitized": true,
+      "figure": "FIG. 6(b) — Measurements of ... (b) specific heat capacity of thermal pastes as a function of temperature",
+      "series_colour": "녹색(dark green)",
+      "test_method": "Modulated Differential Scanning Calorimetry (MDSC), TA Q20, 3 °C/min + 1 °C/min modulation, hermetically sealed aluminium pan",
+      "reading_uncertainty": "±0.005 J/(g·K)"
+     },
+     "notes": "Warzoha 2017 Fig.6(b) 판독. 세로축 라벨 verbatim `C_p (J/g·K)`, 가로축 `T (°C)` — 0.5770 J/(g·K) x 1000 = 577 J/(kg·K). **저자 자신의 실측이다** — 본문 II.B verbatim: `Specific heat measurements were conducted using Modulated Differential Scanning Calorimetry (MDSC) on a Texas Instruments Q20 system.` 그래서 브리프 624 의 TABLE I(제조사 스펙 전재, t3)과 갈래가 다르다. 인쇄된 숫자가 아니라 그림에서 읽은 값이므로 method 는 `digitized` 다(브리프 447·448). **브리프 603 항등식 검산 — 이 논문 안에서만 닫힌다.** 같은 온도 30 °C 에서 `k = α·ρ·Cp` = 0.0044 cm²/s x 4.1 g/cm³ x 0.5770 J/(g·K) = 1.0400 W/(m·K) 이고 Fig.7 판독값 1.025 W/(m·K) 과 **+1.46%** 다. ρ 는 같은 논문 TABLE I 의 비중이라 다른 문서를 섞지 않은 자기무결성 검사다. 네 페이스트 x 세 온도 열두 점 전부에서 편차가 −0.10~+4.15% 이고 ShinEtsu MicroSi 만 계통적으로 +3.9~4.2% 인데, 그 페이스트의 Fig.6(a) 파란 마커가 자홍 마커에 일부 가려 α 중앙값이 위로 치우친 탓이다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 4.396e-07,
+     "unit": "m^2/s",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 303.15,
+      "temperature_c": 30.0,
+      "digitized": true,
+      "figure": "FIG. 6(a) — thermal diffusivity of pastes as a function of temperature",
+      "series_colour": "녹색(dark green)",
+      "test_method": "Discovery Xenon Flash (DXF), 액상/페이스트 캡슐(무산소동 디스크 t=0.32 mm, 페이스트 두께 12.7 mm)",
+      "reading_uncertainty": "±5e-9 m²/s"
+     },
+     "notes": "Warzoha 2017 Fig.6(a) 판독. 세로축 verbatim `α (cm²/s)` 에 `x10⁻³` 배수 표기 — 0.0044e-3 cm²/s = 4.3960e-07 m²/s(1 cm²/s = 1e-4 m²/s). **이 칸은 코어 빈칸이 아니지만 같이 넣는다** — 이것이 있어야 같은 재료의 k·ρ·Cp 로 브리프 603 항등식을 DB 안에서 재현할 수 있다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.025,
+     "unit": "W/(m*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 303.15,
+      "temperature_c": 30.0,
+      "digitized": true,
+      "figure": "FIG. 7 — Thermal conductivity of pastes as a function of temperature",
+      "series_colour": "녹색(dark green)",
+      "basis": "저자 실측 — 열확산율·비열·비중에서 저자가 계산해 그림으로 제시한 값이다(본문 IV.A: `the thermal conductivity is calculated based on the thermal diffusivity, specific heat capacity, and specific gravity (density) as a function of temperature`)",
+      "reading_uncertainty": "±0.02 W/(m·K)"
+     },
+     "notes": "Warzoha 2017 Fig.7 판독. **이 재료에 이미 들어 있는 제조사 스펙 t3 행과 크게 갈린다** — 본문 IV.A verbatim: `the values measured in this study are significantly different from those obtained by the manufacturer.` 브리프 624 가 제조사 전재값을 넣으며 '실측은 그래프뿐' 이라고 적어 둔 그 그래프를 이 배치가 열었다(브리프 602 — 이미 값이 든 재료의 옆 칸). 두 값을 다 살려 두고 조건으로 갈랐다(브리프 565 — 삭제하지 않는다). 에러바가 곡선과 같은 색인데 마커를 중심으로 대칭이라 열별 중앙값이 마커 중심에 앉는다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 602,
+     "unit": "J/(kg*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 328.15,
+      "temperature_c": 55.0,
+      "digitized": true,
+      "figure": "FIG. 6(b) — Measurements of ... (b) specific heat capacity of thermal pastes as a function of temperature",
+      "series_colour": "녹색(dark green)",
+      "test_method": "Modulated Differential Scanning Calorimetry (MDSC), TA Q20, 3 °C/min + 1 °C/min modulation, hermetically sealed aluminium pan",
+      "reading_uncertainty": "±0.005 J/(g·K)"
+     },
+     "notes": "Warzoha 2017 Fig.6(b) 판독. 세로축 라벨 verbatim `C_p (J/g·K)`, 가로축 `T (°C)` — 0.6020 J/(g·K) x 1000 = 602 J/(kg·K). **저자 자신의 실측이다** — 본문 II.B verbatim: `Specific heat measurements were conducted using Modulated Differential Scanning Calorimetry (MDSC) on a Texas Instruments Q20 system.` 그래서 브리프 624 의 TABLE I(제조사 스펙 전재, t3)과 갈래가 다르다. 인쇄된 숫자가 아니라 그림에서 읽은 값이므로 method 는 `digitized` 다(브리프 447·448). **브리프 603 항등식 검산 — 이 논문 안에서만 닫힌다.** 같은 온도 55 °C 에서 `k = α·ρ·Cp` = 0.0042 cm²/s x 4.1 g/cm³ x 0.6020 J/(g·K) = 1.0369 W/(m·K) 이고 Fig.7 판독값 1.023 W/(m·K) 과 **+1.36%** 다. ρ 는 같은 논문 TABLE I 의 비중이라 다른 문서를 섞지 않은 자기무결성 검사다. 네 페이스트 x 세 온도 열두 점 전부에서 편차가 −0.10~+4.15% 이고 ShinEtsu MicroSi 만 계통적으로 +3.9~4.2% 인데, 그 페이스트의 Fig.6(a) 파란 마커가 자홍 마커에 일부 가려 α 중앙값이 위로 치우친 탓이다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 4.201e-07,
+     "unit": "m^2/s",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 328.15,
+      "temperature_c": 55.0,
+      "digitized": true,
+      "figure": "FIG. 6(a) — thermal diffusivity of pastes as a function of temperature",
+      "series_colour": "녹색(dark green)",
+      "test_method": "Discovery Xenon Flash (DXF), 액상/페이스트 캡슐(무산소동 디스크 t=0.32 mm, 페이스트 두께 12.7 mm)",
+      "reading_uncertainty": "±5e-9 m²/s"
+     },
+     "notes": "Warzoha 2017 Fig.6(a) 판독. 세로축 verbatim `α (cm²/s)` 에 `x10⁻³` 배수 표기 — 0.0042e-3 cm²/s = 4.2010e-07 m²/s(1 cm²/s = 1e-4 m²/s). **이 칸은 코어 빈칸이 아니지만 같이 넣는다** — 이것이 있어야 같은 재료의 k·ρ·Cp 로 브리프 603 항등식을 DB 안에서 재현할 수 있다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.023,
+     "unit": "W/(m*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 328.15,
+      "temperature_c": 55.0,
+      "digitized": true,
+      "figure": "FIG. 7 — Thermal conductivity of pastes as a function of temperature",
+      "series_colour": "녹색(dark green)",
+      "basis": "저자 실측 — 열확산율·비열·비중에서 저자가 계산해 그림으로 제시한 값이다(본문 IV.A: `the thermal conductivity is calculated based on the thermal diffusivity, specific heat capacity, and specific gravity (density) as a function of temperature`)",
+      "reading_uncertainty": "±0.02 W/(m·K)"
+     },
+     "notes": "Warzoha 2017 Fig.7 판독. **이 재료에 이미 들어 있는 제조사 스펙 t3 행과 크게 갈린다** — 본문 IV.A verbatim: `the values measured in this study are significantly different from those obtained by the manufacturer.` 브리프 624 가 제조사 전재값을 넣으며 '실측은 그래프뿐' 이라고 적어 둔 그 그래프를 이 배치가 열었다(브리프 602 — 이미 값이 든 재료의 옆 칸). 두 값을 다 살려 두고 조건으로 갈랐다(브리프 565 — 삭제하지 않는다). 에러바가 곡선과 같은 색인데 마커를 중심으로 대칭이라 열별 중앙값이 마커 중심에 앉는다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 631,
+     "unit": "J/(kg*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 358.15,
+      "temperature_c": 85.0,
+      "digitized": true,
+      "figure": "FIG. 6(b) — Measurements of ... (b) specific heat capacity of thermal pastes as a function of temperature",
+      "series_colour": "녹색(dark green)",
+      "test_method": "Modulated Differential Scanning Calorimetry (MDSC), TA Q20, 3 °C/min + 1 °C/min modulation, hermetically sealed aluminium pan",
+      "reading_uncertainty": "±0.005 J/(g·K)"
+     },
+     "notes": "Warzoha 2017 Fig.6(b) 판독. 세로축 라벨 verbatim `C_p (J/g·K)`, 가로축 `T (°C)` — 0.6310 J/(g·K) x 1000 = 631 J/(kg·K). **저자 자신의 실측이다** — 본문 II.B verbatim: `Specific heat measurements were conducted using Modulated Differential Scanning Calorimetry (MDSC) on a Texas Instruments Q20 system.` 그래서 브리프 624 의 TABLE I(제조사 스펙 전재, t3)과 갈래가 다르다. 인쇄된 숫자가 아니라 그림에서 읽은 값이므로 method 는 `digitized` 다(브리프 447·448). **브리프 603 항등식 검산 — 이 논문 안에서만 닫힌다.** 같은 온도 85 °C 에서 `k = α·ρ·Cp` = 0.0039 cm²/s x 4.1 g/cm³ x 0.6310 J/(g·K) = 1.0126 W/(m·K) 이고 Fig.7 판독값 1.003 W/(m·K) 과 **+0.96%** 다. ρ 는 같은 논문 TABLE I 의 비중이라 다른 문서를 섞지 않은 자기무결성 검사다. 네 페이스트 x 세 온도 열두 점 전부에서 편차가 −0.10~+4.15% 이고 ShinEtsu MicroSi 만 계통적으로 +3.9~4.2% 인데, 그 페이스트의 Fig.6(a) 파란 마커가 자홍 마커에 일부 가려 α 중앙값이 위로 치우친 탓이다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 3.914e-07,
+     "unit": "m^2/s",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 358.15,
+      "temperature_c": 85.0,
+      "digitized": true,
+      "figure": "FIG. 6(a) — thermal diffusivity of pastes as a function of temperature",
+      "series_colour": "녹색(dark green)",
+      "test_method": "Discovery Xenon Flash (DXF), 액상/페이스트 캡슐(무산소동 디스크 t=0.32 mm, 페이스트 두께 12.7 mm)",
+      "reading_uncertainty": "±5e-9 m²/s"
+     },
+     "notes": "Warzoha 2017 Fig.6(a) 판독. 세로축 verbatim `α (cm²/s)` 에 `x10⁻³` 배수 표기 — 0.0039e-3 cm²/s = 3.9140e-07 m²/s(1 cm²/s = 1e-4 m²/s). **이 칸은 코어 빈칸이 아니지만 같이 넣는다** — 이것이 있어야 같은 재료의 k·ρ·Cp 로 브리프 603 항등식을 DB 안에서 재현할 수 있다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.003,
+     "unit": "W/(m*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 358.15,
+      "temperature_c": 85.0,
+      "digitized": true,
+      "figure": "FIG. 7 — Thermal conductivity of pastes as a function of temperature",
+      "series_colour": "녹색(dark green)",
+      "basis": "저자 실측 — 열확산율·비열·비중에서 저자가 계산해 그림으로 제시한 값이다(본문 IV.A: `the thermal conductivity is calculated based on the thermal diffusivity, specific heat capacity, and specific gravity (density) as a function of temperature`)",
+      "reading_uncertainty": "±0.02 W/(m·K)"
+     },
+     "notes": "Warzoha 2017 Fig.7 판독. **이 재료에 이미 들어 있는 제조사 스펙 t3 행과 크게 갈린다** — 본문 IV.A verbatim: `the values measured in this study are significantly different from those obtained by the manufacturer.` 브리프 624 가 제조사 전재값을 넣으며 '실측은 그래프뿐' 이라고 적어 둔 그 그래프를 이 배치가 열었다(브리프 602 — 이미 값이 든 재료의 옆 칸). 두 값을 다 살려 두고 조건으로 갈랐다(브리프 565 — 삭제하지 않는다). 에러바가 곡선과 같은 색인데 마커를 중심으로 대칭이라 열별 중앙값이 마커 중심에 앉는다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    }
+   ]
+  },
+  {
+   "match_name": "Dimastech HTX commercial silicone thermal grease (Warzoha 2017 heat-meter-bar characterisation)",
+   "source": {
+    "kind": "journal",
+    "title": "High resolution steady-state measurements of thermal contact resistance across thermal interface material junctions",
+    "doi": "10.1063/1.5001835",
+    "url": "https://doi.org/10.1063/1.5001835",
+    "authors": "Warzoha et al.",
+    "year": 2017,
+    "publisher": "AIP Publishing (Review of Scientific Instruments 88, 094901)",
+    "local_path": "/data/paper_patent_corpus/structured/mech_papers/11_tim_thermal_physics/Warzoha - 2017 - High resolution steady-state measurements of thermal contact resistance across thermal interface material junctions/"
+   },
+   "properties": [
+    {
+     "key": "thermal.specific_heat",
+     "value": 801,
+     "unit": "J/(kg*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 303.15,
+      "temperature_c": 30.0,
+      "digitized": true,
+      "figure": "FIG. 6(b) — Measurements of ... (b) specific heat capacity of thermal pastes as a function of temperature",
+      "series_colour": "빨강(red)",
+      "test_method": "Modulated Differential Scanning Calorimetry (MDSC), TA Q20, 3 °C/min + 1 °C/min modulation, hermetically sealed aluminium pan",
+      "reading_uncertainty": "±0.005 J/(g·K)"
+     },
+     "notes": "Warzoha 2017 Fig.6(b) 판독. 세로축 라벨 verbatim `C_p (J/g·K)`, 가로축 `T (°C)` — 0.8010 J/(g·K) x 1000 = 801 J/(kg·K). **저자 자신의 실측이다** — 본문 II.B verbatim: `Specific heat measurements were conducted using Modulated Differential Scanning Calorimetry (MDSC) on a Texas Instruments Q20 system.` 그래서 브리프 624 의 TABLE I(제조사 스펙 전재, t3)과 갈래가 다르다. 인쇄된 숫자가 아니라 그림에서 읽은 값이므로 method 는 `digitized` 다(브리프 447·448). **브리프 603 항등식 검산 — 이 논문 안에서만 닫힌다.** 같은 온도 30 °C 에서 `k = α·ρ·Cp` = 0.0091 cm²/s x 2.5 g/cm³ x 0.8010 J/(g·K) = 1.8165 W/(m·K) 이고 Fig.7 판독값 1.815 W/(m·K) 과 **+0.08%** 다. ρ 는 같은 논문 TABLE I 의 비중이라 다른 문서를 섞지 않은 자기무결성 검사다. 네 페이스트 x 세 온도 열두 점 전부에서 편차가 −0.10~+4.15% 이고 ShinEtsu MicroSi 만 계통적으로 +3.9~4.2% 인데, 그 페이스트의 Fig.6(a) 파란 마커가 자홍 마커에 일부 가려 α 중앙값이 위로 치우친 탓이다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 9.071e-07,
+     "unit": "m^2/s",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 303.15,
+      "temperature_c": 30.0,
+      "digitized": true,
+      "figure": "FIG. 6(a) — thermal diffusivity of pastes as a function of temperature",
+      "series_colour": "빨강(red)",
+      "test_method": "Discovery Xenon Flash (DXF), 액상/페이스트 캡슐(무산소동 디스크 t=0.32 mm, 페이스트 두께 12.7 mm)",
+      "reading_uncertainty": "±5e-9 m²/s"
+     },
+     "notes": "Warzoha 2017 Fig.6(a) 판독. 세로축 verbatim `α (cm²/s)` 에 `x10⁻³` 배수 표기 — 0.0091e-3 cm²/s = 9.0710e-07 m²/s(1 cm²/s = 1e-4 m²/s). **이 칸은 코어 빈칸이 아니지만 같이 넣는다** — 이것이 있어야 같은 재료의 k·ρ·Cp 로 브리프 603 항등식을 DB 안에서 재현할 수 있다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.815,
+     "unit": "W/(m*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 303.15,
+      "temperature_c": 30.0,
+      "digitized": true,
+      "figure": "FIG. 7 — Thermal conductivity of pastes as a function of temperature",
+      "series_colour": "빨강(red)",
+      "basis": "저자 실측 — 열확산율·비열·비중에서 저자가 계산해 그림으로 제시한 값이다(본문 IV.A: `the thermal conductivity is calculated based on the thermal diffusivity, specific heat capacity, and specific gravity (density) as a function of temperature`)",
+      "reading_uncertainty": "±0.02 W/(m·K)"
+     },
+     "notes": "Warzoha 2017 Fig.7 판독. **이 재료에 이미 들어 있는 제조사 스펙 t3 행과 크게 갈린다** — 본문 IV.A verbatim: `the values measured in this study are significantly different from those obtained by the manufacturer.` 브리프 624 가 제조사 전재값을 넣으며 '실측은 그래프뿐' 이라고 적어 둔 그 그래프를 이 배치가 열었다(브리프 602 — 이미 값이 든 재료의 옆 칸). 두 값을 다 살려 두고 조건으로 갈랐다(브리프 565 — 삭제하지 않는다). 에러바가 곡선과 같은 색인데 마커를 중심으로 대칭이라 열별 중앙값이 마커 중심에 앉는다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 832,
+     "unit": "J/(kg*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 328.15,
+      "temperature_c": 55.0,
+      "digitized": true,
+      "figure": "FIG. 6(b) — Measurements of ... (b) specific heat capacity of thermal pastes as a function of temperature",
+      "series_colour": "빨강(red)",
+      "test_method": "Modulated Differential Scanning Calorimetry (MDSC), TA Q20, 3 °C/min + 1 °C/min modulation, hermetically sealed aluminium pan",
+      "reading_uncertainty": "±0.005 J/(g·K)"
+     },
+     "notes": "Warzoha 2017 Fig.6(b) 판독. 세로축 라벨 verbatim `C_p (J/g·K)`, 가로축 `T (°C)` — 0.8320 J/(g·K) x 1000 = 832 J/(kg·K). **저자 자신의 실측이다** — 본문 II.B verbatim: `Specific heat measurements were conducted using Modulated Differential Scanning Calorimetry (MDSC) on a Texas Instruments Q20 system.` 그래서 브리프 624 의 TABLE I(제조사 스펙 전재, t3)과 갈래가 다르다. 인쇄된 숫자가 아니라 그림에서 읽은 값이므로 method 는 `digitized` 다(브리프 447·448). **브리프 603 항등식 검산 — 이 논문 안에서만 닫힌다.** 같은 온도 55 °C 에서 `k = α·ρ·Cp` = 0.0085 cm²/s x 2.5 g/cm³ x 0.8320 J/(g·K) = 1.7722 W/(m·K) 이고 Fig.7 판독값 1.773 W/(m·K) 과 **-0.05%** 다. ρ 는 같은 논문 TABLE I 의 비중이라 다른 문서를 섞지 않은 자기무결성 검사다. 네 페이스트 x 세 온도 열두 점 전부에서 편차가 −0.10~+4.15% 이고 ShinEtsu MicroSi 만 계통적으로 +3.9~4.2% 인데, 그 페이스트의 Fig.6(a) 파란 마커가 자홍 마커에 일부 가려 α 중앙값이 위로 치우친 탓이다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 8.52e-07,
+     "unit": "m^2/s",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 328.15,
+      "temperature_c": 55.0,
+      "digitized": true,
+      "figure": "FIG. 6(a) — thermal diffusivity of pastes as a function of temperature",
+      "series_colour": "빨강(red)",
+      "test_method": "Discovery Xenon Flash (DXF), 액상/페이스트 캡슐(무산소동 디스크 t=0.32 mm, 페이스트 두께 12.7 mm)",
+      "reading_uncertainty": "±5e-9 m²/s"
+     },
+     "notes": "Warzoha 2017 Fig.6(a) 판독. 세로축 verbatim `α (cm²/s)` 에 `x10⁻³` 배수 표기 — 0.0085e-3 cm²/s = 8.5200e-07 m²/s(1 cm²/s = 1e-4 m²/s). **이 칸은 코어 빈칸이 아니지만 같이 넣는다** — 이것이 있어야 같은 재료의 k·ρ·Cp 로 브리프 603 항등식을 DB 안에서 재현할 수 있다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.773,
+     "unit": "W/(m*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 328.15,
+      "temperature_c": 55.0,
+      "digitized": true,
+      "figure": "FIG. 7 — Thermal conductivity of pastes as a function of temperature",
+      "series_colour": "빨강(red)",
+      "basis": "저자 실측 — 열확산율·비열·비중에서 저자가 계산해 그림으로 제시한 값이다(본문 IV.A: `the thermal conductivity is calculated based on the thermal diffusivity, specific heat capacity, and specific gravity (density) as a function of temperature`)",
+      "reading_uncertainty": "±0.02 W/(m·K)"
+     },
+     "notes": "Warzoha 2017 Fig.7 판독. **이 재료에 이미 들어 있는 제조사 스펙 t3 행과 크게 갈린다** — 본문 IV.A verbatim: `the values measured in this study are significantly different from those obtained by the manufacturer.` 브리프 624 가 제조사 전재값을 넣으며 '실측은 그래프뿐' 이라고 적어 둔 그 그래프를 이 배치가 열었다(브리프 602 — 이미 값이 든 재료의 옆 칸). 두 값을 다 살려 두고 조건으로 갈랐다(브리프 565 — 삭제하지 않는다). 에러바가 곡선과 같은 색인데 마커를 중심으로 대칭이라 열별 중앙값이 마커 중심에 앉는다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 868,
+     "unit": "J/(kg*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 358.15,
+      "temperature_c": 85.0,
+      "digitized": true,
+      "figure": "FIG. 6(b) — Measurements of ... (b) specific heat capacity of thermal pastes as a function of temperature",
+      "series_colour": "빨강(red)",
+      "test_method": "Modulated Differential Scanning Calorimetry (MDSC), TA Q20, 3 °C/min + 1 °C/min modulation, hermetically sealed aluminium pan",
+      "reading_uncertainty": "±0.005 J/(g·K)"
+     },
+     "notes": "Warzoha 2017 Fig.6(b) 판독. 세로축 라벨 verbatim `C_p (J/g·K)`, 가로축 `T (°C)` — 0.8680 J/(g·K) x 1000 = 868 J/(kg·K). **저자 자신의 실측이다** — 본문 II.B verbatim: `Specific heat measurements were conducted using Modulated Differential Scanning Calorimetry (MDSC) on a Texas Instruments Q20 system.` 그래서 브리프 624 의 TABLE I(제조사 스펙 전재, t3)과 갈래가 다르다. 인쇄된 숫자가 아니라 그림에서 읽은 값이므로 method 는 `digitized` 다(브리프 447·448). **브리프 603 항등식 검산 — 이 논문 안에서만 닫힌다.** 같은 온도 85 °C 에서 `k = α·ρ·Cp` = 0.0081 cm²/s x 2.5 g/cm³ x 0.8680 J/(g·K) = 1.7597 W/(m·K) 이고 Fig.7 판독값 1.761 W/(m·K) 과 **-0.08%** 다. ρ 는 같은 논문 TABLE I 의 비중이라 다른 문서를 섞지 않은 자기무결성 검사다. 네 페이스트 x 세 온도 열두 점 전부에서 편차가 −0.10~+4.15% 이고 ShinEtsu MicroSi 만 계통적으로 +3.9~4.2% 인데, 그 페이스트의 Fig.6(a) 파란 마커가 자홍 마커에 일부 가려 α 중앙값이 위로 치우친 탓이다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 8.109e-07,
+     "unit": "m^2/s",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 358.15,
+      "temperature_c": 85.0,
+      "digitized": true,
+      "figure": "FIG. 6(a) — thermal diffusivity of pastes as a function of temperature",
+      "series_colour": "빨강(red)",
+      "test_method": "Discovery Xenon Flash (DXF), 액상/페이스트 캡슐(무산소동 디스크 t=0.32 mm, 페이스트 두께 12.7 mm)",
+      "reading_uncertainty": "±5e-9 m²/s"
+     },
+     "notes": "Warzoha 2017 Fig.6(a) 판독. 세로축 verbatim `α (cm²/s)` 에 `x10⁻³` 배수 표기 — 0.0081e-3 cm²/s = 8.1090e-07 m²/s(1 cm²/s = 1e-4 m²/s). **이 칸은 코어 빈칸이 아니지만 같이 넣는다** — 이것이 있어야 같은 재료의 k·ρ·Cp 로 브리프 603 항등식을 DB 안에서 재현할 수 있다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.761,
+     "unit": "W/(m*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 358.15,
+      "temperature_c": 85.0,
+      "digitized": true,
+      "figure": "FIG. 7 — Thermal conductivity of pastes as a function of temperature",
+      "series_colour": "빨강(red)",
+      "basis": "저자 실측 — 열확산율·비열·비중에서 저자가 계산해 그림으로 제시한 값이다(본문 IV.A: `the thermal conductivity is calculated based on the thermal diffusivity, specific heat capacity, and specific gravity (density) as a function of temperature`)",
+      "reading_uncertainty": "±0.02 W/(m·K)"
+     },
+     "notes": "Warzoha 2017 Fig.7 판독. **이 재료에 이미 들어 있는 제조사 스펙 t3 행과 크게 갈린다** — 본문 IV.A verbatim: `the values measured in this study are significantly different from those obtained by the manufacturer.` 브리프 624 가 제조사 전재값을 넣으며 '실측은 그래프뿐' 이라고 적어 둔 그 그래프를 이 배치가 열었다(브리프 602 — 이미 값이 든 재료의 옆 칸). 두 값을 다 살려 두고 조건으로 갈랐다(브리프 565 — 삭제하지 않는다). 에러바가 곡선과 같은 색인데 마커를 중심으로 대칭이라 열별 중앙값이 마커 중심에 앉는다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    }
+   ]
+  },
+  {
+   "match_name": "Phobya Nanogrease commercial silicone thermal grease (Warzoha 2017 heat-meter-bar characterisation)",
+   "source": {
+    "kind": "journal",
+    "title": "High resolution steady-state measurements of thermal contact resistance across thermal interface material junctions",
+    "doi": "10.1063/1.5001835",
+    "url": "https://doi.org/10.1063/1.5001835",
+    "authors": "Warzoha et al.",
+    "year": 2017,
+    "publisher": "AIP Publishing (Review of Scientific Instruments 88, 094901)",
+    "local_path": "/data/paper_patent_corpus/structured/mech_papers/11_tim_thermal_physics/Warzoha - 2017 - High resolution steady-state measurements of thermal contact resistance across thermal interface material junctions/"
+   },
+   "properties": [
+    {
+     "key": "thermal.specific_heat",
+     "value": 869,
+     "unit": "J/(kg*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 303.15,
+      "temperature_c": 30.0,
+      "digitized": true,
+      "figure": "FIG. 6(b) — Measurements of ... (b) specific heat capacity of thermal pastes as a function of temperature",
+      "series_colour": "자홍(magenta)",
+      "test_method": "Modulated Differential Scanning Calorimetry (MDSC), TA Q20, 3 °C/min + 1 °C/min modulation, hermetically sealed aluminium pan",
+      "reading_uncertainty": "±0.005 J/(g·K)"
+     },
+     "notes": "Warzoha 2017 Fig.6(b) 판독. 세로축 라벨 verbatim `C_p (J/g·K)`, 가로축 `T (°C)` — 0.8690 J/(g·K) x 1000 = 869 J/(kg·K). **저자 자신의 실측이다** — 본문 II.B verbatim: `Specific heat measurements were conducted using Modulated Differential Scanning Calorimetry (MDSC) on a Texas Instruments Q20 system.` 그래서 브리프 624 의 TABLE I(제조사 스펙 전재, t3)과 갈래가 다르다. 인쇄된 숫자가 아니라 그림에서 읽은 값이므로 method 는 `digitized` 다(브리프 447·448). **브리프 603 항등식 검산 — 이 논문 안에서만 닫힌다.** 같은 온도 30 °C 에서 `k = α·ρ·Cp` = 0.0056 cm²/s x 2.7 g/cm³ x 0.8690 J/(g·K) = 1.3128 W/(m·K) 이고 Fig.7 판독값 1.310 W/(m·K) 과 **+0.21%** 다. ρ 는 같은 논문 TABLE I 의 비중이라 다른 문서를 섞지 않은 자기무결성 검사다. 네 페이스트 x 세 온도 열두 점 전부에서 편차가 −0.10~+4.15% 이고 ShinEtsu MicroSi 만 계통적으로 +3.9~4.2% 인데, 그 페이스트의 Fig.6(a) 파란 마커가 자홍 마커에 일부 가려 α 중앙값이 위로 치우친 탓이다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.595e-07,
+     "unit": "m^2/s",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 303.15,
+      "temperature_c": 30.0,
+      "digitized": true,
+      "figure": "FIG. 6(a) — thermal diffusivity of pastes as a function of temperature",
+      "series_colour": "자홍(magenta)",
+      "test_method": "Discovery Xenon Flash (DXF), 액상/페이스트 캡슐(무산소동 디스크 t=0.32 mm, 페이스트 두께 12.7 mm)",
+      "reading_uncertainty": "±5e-9 m²/s"
+     },
+     "notes": "Warzoha 2017 Fig.6(a) 판독. 세로축 verbatim `α (cm²/s)` 에 `x10⁻³` 배수 표기 — 0.0056e-3 cm²/s = 5.5950e-07 m²/s(1 cm²/s = 1e-4 m²/s). **이 칸은 코어 빈칸이 아니지만 같이 넣는다** — 이것이 있어야 같은 재료의 k·ρ·Cp 로 브리프 603 항등식을 DB 안에서 재현할 수 있다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.31,
+     "unit": "W/(m*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 303.15,
+      "temperature_c": 30.0,
+      "digitized": true,
+      "figure": "FIG. 7 — Thermal conductivity of pastes as a function of temperature",
+      "series_colour": "자홍(magenta)",
+      "basis": "저자 실측 — 열확산율·비열·비중에서 저자가 계산해 그림으로 제시한 값이다(본문 IV.A: `the thermal conductivity is calculated based on the thermal diffusivity, specific heat capacity, and specific gravity (density) as a function of temperature`)",
+      "reading_uncertainty": "±0.02 W/(m·K)"
+     },
+     "notes": "Warzoha 2017 Fig.7 판독. **이 재료에 이미 들어 있는 제조사 스펙 t3 행과 크게 갈린다** — 본문 IV.A verbatim: `the values measured in this study are significantly different from those obtained by the manufacturer.` 브리프 624 가 제조사 전재값을 넣으며 '실측은 그래프뿐' 이라고 적어 둔 그 그래프를 이 배치가 열었다(브리프 602 — 이미 값이 든 재료의 옆 칸). 두 값을 다 살려 두고 조건으로 갈랐다(브리프 565 — 삭제하지 않는다). 에러바가 곡선과 같은 색인데 마커를 중심으로 대칭이라 열별 중앙값이 마커 중심에 앉는다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 901,
+     "unit": "J/(kg*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 328.15,
+      "temperature_c": 55.0,
+      "digitized": true,
+      "figure": "FIG. 6(b) — Measurements of ... (b) specific heat capacity of thermal pastes as a function of temperature",
+      "series_colour": "자홍(magenta)",
+      "test_method": "Modulated Differential Scanning Calorimetry (MDSC), TA Q20, 3 °C/min + 1 °C/min modulation, hermetically sealed aluminium pan",
+      "reading_uncertainty": "±0.005 J/(g·K)"
+     },
+     "notes": "Warzoha 2017 Fig.6(b) 판독. 세로축 라벨 verbatim `C_p (J/g·K)`, 가로축 `T (°C)` — 0.9010 J/(g·K) x 1000 = 901 J/(kg·K). **저자 자신의 실측이다** — 본문 II.B verbatim: `Specific heat measurements were conducted using Modulated Differential Scanning Calorimetry (MDSC) on a Texas Instruments Q20 system.` 그래서 브리프 624 의 TABLE I(제조사 스펙 전재, t3)과 갈래가 다르다. 인쇄된 숫자가 아니라 그림에서 읽은 값이므로 method 는 `digitized` 다(브리프 447·448). **브리프 603 항등식 검산 — 이 논문 안에서만 닫힌다.** 같은 온도 55 °C 에서 `k = α·ρ·Cp` = 0.0053 cm²/s x 2.7 g/cm³ x 0.9010 J/(g·K) = 1.2881 W/(m·K) 이고 Fig.7 판독값 1.290 W/(m·K) 과 **-0.15%** 다. ρ 는 같은 논문 TABLE I 의 비중이라 다른 문서를 섞지 않은 자기무결성 검사다. 네 페이스트 x 세 온도 열두 점 전부에서 편차가 −0.10~+4.15% 이고 ShinEtsu MicroSi 만 계통적으로 +3.9~4.2% 인데, 그 페이스트의 Fig.6(a) 파란 마커가 자홍 마커에 일부 가려 α 중앙값이 위로 치우친 탓이다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.295e-07,
+     "unit": "m^2/s",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 328.15,
+      "temperature_c": 55.0,
+      "digitized": true,
+      "figure": "FIG. 6(a) — thermal diffusivity of pastes as a function of temperature",
+      "series_colour": "자홍(magenta)",
+      "test_method": "Discovery Xenon Flash (DXF), 액상/페이스트 캡슐(무산소동 디스크 t=0.32 mm, 페이스트 두께 12.7 mm)",
+      "reading_uncertainty": "±5e-9 m²/s"
+     },
+     "notes": "Warzoha 2017 Fig.6(a) 판독. 세로축 verbatim `α (cm²/s)` 에 `x10⁻³` 배수 표기 — 0.0053e-3 cm²/s = 5.2950e-07 m²/s(1 cm²/s = 1e-4 m²/s). **이 칸은 코어 빈칸이 아니지만 같이 넣는다** — 이것이 있어야 같은 재료의 k·ρ·Cp 로 브리프 603 항등식을 DB 안에서 재현할 수 있다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.29,
+     "unit": "W/(m*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 328.15,
+      "temperature_c": 55.0,
+      "digitized": true,
+      "figure": "FIG. 7 — Thermal conductivity of pastes as a function of temperature",
+      "series_colour": "자홍(magenta)",
+      "basis": "저자 실측 — 열확산율·비열·비중에서 저자가 계산해 그림으로 제시한 값이다(본문 IV.A: `the thermal conductivity is calculated based on the thermal diffusivity, specific heat capacity, and specific gravity (density) as a function of temperature`)",
+      "reading_uncertainty": "±0.02 W/(m·K)"
+     },
+     "notes": "Warzoha 2017 Fig.7 판독. **이 재료에 이미 들어 있는 제조사 스펙 t3 행과 크게 갈린다** — 본문 IV.A verbatim: `the values measured in this study are significantly different from those obtained by the manufacturer.` 브리프 624 가 제조사 전재값을 넣으며 '실측은 그래프뿐' 이라고 적어 둔 그 그래프를 이 배치가 열었다(브리프 602 — 이미 값이 든 재료의 옆 칸). 두 값을 다 살려 두고 조건으로 갈랐다(브리프 565 — 삭제하지 않는다). 에러바가 곡선과 같은 색인데 마커를 중심으로 대칭이라 열별 중앙값이 마커 중심에 앉는다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 936,
+     "unit": "J/(kg*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 358.15,
+      "temperature_c": 85.0,
+      "digitized": true,
+      "figure": "FIG. 6(b) — Measurements of ... (b) specific heat capacity of thermal pastes as a function of temperature",
+      "series_colour": "자홍(magenta)",
+      "test_method": "Modulated Differential Scanning Calorimetry (MDSC), TA Q20, 3 °C/min + 1 °C/min modulation, hermetically sealed aluminium pan",
+      "reading_uncertainty": "±0.005 J/(g·K)"
+     },
+     "notes": "Warzoha 2017 Fig.6(b) 판독. 세로축 라벨 verbatim `C_p (J/g·K)`, 가로축 `T (°C)` — 0.9360 J/(g·K) x 1000 = 936 J/(kg·K). **저자 자신의 실측이다** — 본문 II.B verbatim: `Specific heat measurements were conducted using Modulated Differential Scanning Calorimetry (MDSC) on a Texas Instruments Q20 system.` 그래서 브리프 624 의 TABLE I(제조사 스펙 전재, t3)과 갈래가 다르다. 인쇄된 숫자가 아니라 그림에서 읽은 값이므로 method 는 `digitized` 다(브리프 447·448). **브리프 603 항등식 검산 — 이 논문 안에서만 닫힌다.** 같은 온도 85 °C 에서 `k = α·ρ·Cp` = 0.0051 cm²/s x 2.7 g/cm³ x 0.9360 J/(g·K) = 1.2939 W/(m·K) 이고 Fig.7 판독값 1.292 W/(m·K) 과 **+0.15%** 다. ρ 는 같은 논문 TABLE I 의 비중이라 다른 문서를 섞지 않은 자기무결성 검사다. 네 페이스트 x 세 온도 열두 점 전부에서 편차가 −0.10~+4.15% 이고 ShinEtsu MicroSi 만 계통적으로 +3.9~4.2% 인데, 그 페이스트의 Fig.6(a) 파란 마커가 자홍 마커에 일부 가려 α 중앙값이 위로 치우친 탓이다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.12e-07,
+     "unit": "m^2/s",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 358.15,
+      "temperature_c": 85.0,
+      "digitized": true,
+      "figure": "FIG. 6(a) — thermal diffusivity of pastes as a function of temperature",
+      "series_colour": "자홍(magenta)",
+      "test_method": "Discovery Xenon Flash (DXF), 액상/페이스트 캡슐(무산소동 디스크 t=0.32 mm, 페이스트 두께 12.7 mm)",
+      "reading_uncertainty": "±5e-9 m²/s"
+     },
+     "notes": "Warzoha 2017 Fig.6(a) 판독. 세로축 verbatim `α (cm²/s)` 에 `x10⁻³` 배수 표기 — 0.0051e-3 cm²/s = 5.1200e-07 m²/s(1 cm²/s = 1e-4 m²/s). **이 칸은 코어 빈칸이 아니지만 같이 넣는다** — 이것이 있어야 같은 재료의 k·ρ·Cp 로 브리프 603 항등식을 DB 안에서 재현할 수 있다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.292,
+     "unit": "W/(m*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 358.15,
+      "temperature_c": 85.0,
+      "digitized": true,
+      "figure": "FIG. 7 — Thermal conductivity of pastes as a function of temperature",
+      "series_colour": "자홍(magenta)",
+      "basis": "저자 실측 — 열확산율·비열·비중에서 저자가 계산해 그림으로 제시한 값이다(본문 IV.A: `the thermal conductivity is calculated based on the thermal diffusivity, specific heat capacity, and specific gravity (density) as a function of temperature`)",
+      "reading_uncertainty": "±0.02 W/(m·K)"
+     },
+     "notes": "Warzoha 2017 Fig.7 판독. **이 재료에 이미 들어 있는 제조사 스펙 t3 행과 크게 갈린다** — 본문 IV.A verbatim: `the values measured in this study are significantly different from those obtained by the manufacturer.` 브리프 624 가 제조사 전재값을 넣으며 '실측은 그래프뿐' 이라고 적어 둔 그 그래프를 이 배치가 열었다(브리프 602 — 이미 값이 든 재료의 옆 칸). 두 값을 다 살려 두고 조건으로 갈랐다(브리프 565 — 삭제하지 않는다). 에러바가 곡선과 같은 색인데 마커를 중심으로 대칭이라 열별 중앙값이 마커 중심에 앉는다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    }
+   ]
+  },
+  {
+   "match_name": "Shin-Etsu MicroSi commercial silicone thermal grease (Warzoha 2017 heat-meter-bar characterisation)",
+   "source": {
+    "kind": "journal",
+    "title": "High resolution steady-state measurements of thermal contact resistance across thermal interface material junctions",
+    "doi": "10.1063/1.5001835",
+    "url": "https://doi.org/10.1063/1.5001835",
+    "authors": "Warzoha et al.",
+    "year": 2017,
+    "publisher": "AIP Publishing (Review of Scientific Instruments 88, 094901)",
+    "local_path": "/data/paper_patent_corpus/structured/mech_papers/11_tim_thermal_physics/Warzoha - 2017 - High resolution steady-state measurements of thermal contact resistance across thermal interface material junctions/"
+   },
+   "properties": [
+    {
+     "key": "thermal.specific_heat",
+     "value": 860,
+     "unit": "J/(kg*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 303.15,
+      "temperature_c": 30.0,
+      "digitized": true,
+      "figure": "FIG. 6(b) — Measurements of ... (b) specific heat capacity of thermal pastes as a function of temperature",
+      "series_colour": "파랑(blue)",
+      "test_method": "Modulated Differential Scanning Calorimetry (MDSC), TA Q20, 3 °C/min + 1 °C/min modulation, hermetically sealed aluminium pan",
+      "reading_uncertainty": "±0.005 J/(g·K)"
+     },
+     "notes": "Warzoha 2017 Fig.6(b) 판독. 세로축 라벨 verbatim `C_p (J/g·K)`, 가로축 `T (°C)` — 0.8600 J/(g·K) x 1000 = 860 J/(kg·K). **저자 자신의 실측이다** — 본문 II.B verbatim: `Specific heat measurements were conducted using Modulated Differential Scanning Calorimetry (MDSC) on a Texas Instruments Q20 system.` 그래서 브리프 624 의 TABLE I(제조사 스펙 전재, t3)과 갈래가 다르다. 인쇄된 숫자가 아니라 그림에서 읽은 값이므로 method 는 `digitized` 다(브리프 447·448). **브리프 603 항등식 검산 — 이 논문 안에서만 닫힌다.** 같은 온도 30 °C 에서 `k = α·ρ·Cp` = 0.0062 cm²/s x 2.6 g/cm³ x 0.8600 J/(g·K) = 1.3856 W/(m·K) 이고 Fig.7 판독값 1.330 W/(m·K) 과 **+4.18%** 다. ρ 는 같은 논문 TABLE I 의 비중이라 다른 문서를 섞지 않은 자기무결성 검사다. 네 페이스트 x 세 온도 열두 점 전부에서 편차가 −0.10~+4.15% 이고 ShinEtsu MicroSi 만 계통적으로 +3.9~4.2% 인데, 그 페이스트의 Fig.6(a) 파란 마커가 자홍 마커에 일부 가려 α 중앙값이 위로 치우친 탓이다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 6.197e-07,
+     "unit": "m^2/s",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 303.15,
+      "temperature_c": 30.0,
+      "digitized": true,
+      "figure": "FIG. 6(a) — thermal diffusivity of pastes as a function of temperature",
+      "series_colour": "파랑(blue)",
+      "test_method": "Discovery Xenon Flash (DXF), 액상/페이스트 캡슐(무산소동 디스크 t=0.32 mm, 페이스트 두께 12.7 mm)",
+      "reading_uncertainty": "±5e-9 m²/s"
+     },
+     "notes": "Warzoha 2017 Fig.6(a) 판독. 세로축 verbatim `α (cm²/s)` 에 `x10⁻³` 배수 표기 — 0.0062e-3 cm²/s = 6.1970e-07 m²/s(1 cm²/s = 1e-4 m²/s). **이 칸은 코어 빈칸이 아니지만 같이 넣는다** — 이것이 있어야 같은 재료의 k·ρ·Cp 로 브리프 603 항등식을 DB 안에서 재현할 수 있다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.33,
+     "unit": "W/(m*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 303.15,
+      "temperature_c": 30.0,
+      "digitized": true,
+      "figure": "FIG. 7 — Thermal conductivity of pastes as a function of temperature",
+      "series_colour": "파랑(blue)",
+      "basis": "저자 실측 — 열확산율·비열·비중에서 저자가 계산해 그림으로 제시한 값이다(본문 IV.A: `the thermal conductivity is calculated based on the thermal diffusivity, specific heat capacity, and specific gravity (density) as a function of temperature`)",
+      "reading_uncertainty": "±0.02 W/(m·K)"
+     },
+     "notes": "Warzoha 2017 Fig.7 판독. **이 재료에 이미 들어 있는 제조사 스펙 t3 행과 크게 갈린다** — 본문 IV.A verbatim: `the values measured in this study are significantly different from those obtained by the manufacturer.` 브리프 624 가 제조사 전재값을 넣으며 '실측은 그래프뿐' 이라고 적어 둔 그 그래프를 이 배치가 열었다(브리프 602 — 이미 값이 든 재료의 옆 칸). 두 값을 다 살려 두고 조건으로 갈랐다(브리프 565 — 삭제하지 않는다). 에러바가 곡선과 같은 색인데 마커를 중심으로 대칭이라 열별 중앙값이 마커 중심에 앉는다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 892,
+     "unit": "J/(kg*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 328.15,
+      "temperature_c": 55.0,
+      "digitized": true,
+      "figure": "FIG. 6(b) — Measurements of ... (b) specific heat capacity of thermal pastes as a function of temperature",
+      "series_colour": "파랑(blue)",
+      "test_method": "Modulated Differential Scanning Calorimetry (MDSC), TA Q20, 3 °C/min + 1 °C/min modulation, hermetically sealed aluminium pan",
+      "reading_uncertainty": "±0.005 J/(g·K)"
+     },
+     "notes": "Warzoha 2017 Fig.6(b) 판독. 세로축 라벨 verbatim `C_p (J/g·K)`, 가로축 `T (°C)` — 0.8920 J/(g·K) x 1000 = 892 J/(kg·K). **저자 자신의 실측이다** — 본문 II.B verbatim: `Specific heat measurements were conducted using Modulated Differential Scanning Calorimetry (MDSC) on a Texas Instruments Q20 system.` 그래서 브리프 624 의 TABLE I(제조사 스펙 전재, t3)과 갈래가 다르다. 인쇄된 숫자가 아니라 그림에서 읽은 값이므로 method 는 `digitized` 다(브리프 447·448). **브리프 603 항등식 검산 — 이 논문 안에서만 닫힌다.** 같은 온도 55 °C 에서 `k = α·ρ·Cp` = 0.0058 cm²/s x 2.6 g/cm³ x 0.8920 J/(g·K) = 1.3502 W/(m·K) 이고 Fig.7 판독값 1.300 W/(m·K) 과 **+3.86%** 다. ρ 는 같은 논문 TABLE I 의 비중이라 다른 문서를 섞지 않은 자기무결성 검사다. 네 페이스트 x 세 온도 열두 점 전부에서 편차가 −0.10~+4.15% 이고 ShinEtsu MicroSi 만 계통적으로 +3.9~4.2% 인데, 그 페이스트의 Fig.6(a) 파란 마커가 자홍 마커에 일부 가려 α 중앙값이 위로 치우친 탓이다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.822e-07,
+     "unit": "m^2/s",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 328.15,
+      "temperature_c": 55.0,
+      "digitized": true,
+      "figure": "FIG. 6(a) — thermal diffusivity of pastes as a function of temperature",
+      "series_colour": "파랑(blue)",
+      "test_method": "Discovery Xenon Flash (DXF), 액상/페이스트 캡슐(무산소동 디스크 t=0.32 mm, 페이스트 두께 12.7 mm)",
+      "reading_uncertainty": "±5e-9 m²/s"
+     },
+     "notes": "Warzoha 2017 Fig.6(a) 판독. 세로축 verbatim `α (cm²/s)` 에 `x10⁻³` 배수 표기 — 0.0058e-3 cm²/s = 5.8220e-07 m²/s(1 cm²/s = 1e-4 m²/s). **이 칸은 코어 빈칸이 아니지만 같이 넣는다** — 이것이 있어야 같은 재료의 k·ρ·Cp 로 브리프 603 항등식을 DB 안에서 재현할 수 있다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.3,
+     "unit": "W/(m*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 328.15,
+      "temperature_c": 55.0,
+      "digitized": true,
+      "figure": "FIG. 7 — Thermal conductivity of pastes as a function of temperature",
+      "series_colour": "파랑(blue)",
+      "basis": "저자 실측 — 열확산율·비열·비중에서 저자가 계산해 그림으로 제시한 값이다(본문 IV.A: `the thermal conductivity is calculated based on the thermal diffusivity, specific heat capacity, and specific gravity (density) as a function of temperature`)",
+      "reading_uncertainty": "±0.02 W/(m·K)"
+     },
+     "notes": "Warzoha 2017 Fig.7 판독. **이 재료에 이미 들어 있는 제조사 스펙 t3 행과 크게 갈린다** — 본문 IV.A verbatim: `the values measured in this study are significantly different from those obtained by the manufacturer.` 브리프 624 가 제조사 전재값을 넣으며 '실측은 그래프뿐' 이라고 적어 둔 그 그래프를 이 배치가 열었다(브리프 602 — 이미 값이 든 재료의 옆 칸). 두 값을 다 살려 두고 조건으로 갈랐다(브리프 565 — 삭제하지 않는다). 에러바가 곡선과 같은 색인데 마커를 중심으로 대칭이라 열별 중앙값이 마커 중심에 앉는다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 929,
+     "unit": "J/(kg*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 358.15,
+      "temperature_c": 85.0,
+      "digitized": true,
+      "figure": "FIG. 6(b) — Measurements of ... (b) specific heat capacity of thermal pastes as a function of temperature",
+      "series_colour": "파랑(blue)",
+      "test_method": "Modulated Differential Scanning Calorimetry (MDSC), TA Q20, 3 °C/min + 1 °C/min modulation, hermetically sealed aluminium pan",
+      "reading_uncertainty": "±0.005 J/(g·K)"
+     },
+     "notes": "Warzoha 2017 Fig.6(b) 판독. 세로축 라벨 verbatim `C_p (J/g·K)`, 가로축 `T (°C)` — 0.9290 J/(g·K) x 1000 = 929 J/(kg·K). **저자 자신의 실측이다** — 본문 II.B verbatim: `Specific heat measurements were conducted using Modulated Differential Scanning Calorimetry (MDSC) on a Texas Instruments Q20 system.` 그래서 브리프 624 의 TABLE I(제조사 스펙 전재, t3)과 갈래가 다르다. 인쇄된 숫자가 아니라 그림에서 읽은 값이므로 method 는 `digitized` 다(브리프 447·448). **브리프 603 항등식 검산 — 이 논문 안에서만 닫힌다.** 같은 온도 85 °C 에서 `k = α·ρ·Cp` = 0.0058 cm²/s x 2.6 g/cm³ x 0.9290 J/(g·K) = 1.3983 W/(m·K) 이고 Fig.7 판독값 1.342 W/(m·K) 과 **+4.19%** 다. ρ 는 같은 논문 TABLE I 의 비중이라 다른 문서를 섞지 않은 자기무결성 검사다. 네 페이스트 x 세 온도 열두 점 전부에서 편차가 −0.10~+4.15% 이고 ShinEtsu MicroSi 만 계통적으로 +3.9~4.2% 인데, 그 페이스트의 Fig.6(a) 파란 마커가 자홍 마커에 일부 가려 α 중앙값이 위로 치우친 탓이다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.diffusivity",
+     "value": 5.789e-07,
+     "unit": "m^2/s",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 358.15,
+      "temperature_c": 85.0,
+      "digitized": true,
+      "figure": "FIG. 6(a) — thermal diffusivity of pastes as a function of temperature",
+      "series_colour": "파랑(blue)",
+      "test_method": "Discovery Xenon Flash (DXF), 액상/페이스트 캡슐(무산소동 디스크 t=0.32 mm, 페이스트 두께 12.7 mm)",
+      "reading_uncertainty": "±5e-9 m²/s"
+     },
+     "notes": "Warzoha 2017 Fig.6(a) 판독. 세로축 verbatim `α (cm²/s)` 에 `x10⁻³` 배수 표기 — 0.0058e-3 cm²/s = 5.7890e-07 m²/s(1 cm²/s = 1e-4 m²/s). **이 칸은 코어 빈칸이 아니지만 같이 넣는다** — 이것이 있어야 같은 재료의 k·ρ·Cp 로 브리프 603 항등식을 DB 안에서 재현할 수 있다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 1.342,
+     "unit": "W/(m*K)",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 358.15,
+      "temperature_c": 85.0,
+      "digitized": true,
+      "figure": "FIG. 7 — Thermal conductivity of pastes as a function of temperature",
+      "series_colour": "파랑(blue)",
+      "basis": "저자 실측 — 열확산율·비열·비중에서 저자가 계산해 그림으로 제시한 값이다(본문 IV.A: `the thermal conductivity is calculated based on the thermal diffusivity, specific heat capacity, and specific gravity (density) as a function of temperature`)",
+      "reading_uncertainty": "±0.02 W/(m·K)"
+     },
+     "notes": "Warzoha 2017 Fig.7 판독. **이 재료에 이미 들어 있는 제조사 스펙 t3 행과 크게 갈린다** — 본문 IV.A verbatim: `the values measured in this study are significantly different from those obtained by the manufacturer.` 브리프 624 가 제조사 전재값을 넣으며 '실측은 그래프뿐' 이라고 적어 둔 그 그래프를 이 배치가 열었다(브리프 602 — 이미 값이 든 재료의 옆 칸). 두 값을 다 살려 두고 조건으로 갈랐다(브리프 565 — 삭제하지 않는다). 에러바가 곡선과 같은 색인데 마커를 중심으로 대칭이라 열별 중앙값이 마커 중심에 앉는다. **판독 파이프라인** — docling 이 원문에서 뽑아 둔 그림 비트맵을 4배 LANCZOS 확대한 뒤 `scripts/catalog/digitize_curve.py` 로 색 마스크 판독했다. 축 캘리브레이션은 회색 축틀의 픽셀 좌표를 자동 검출해 잡았다(Fig.6(b) 좌 346.0 / 우 1764.5 / 상 82.5 / 하 1181.5 px = x 10~90 °C · y 0.5~1.0 J/g·K). 범례 선분이 곡선과 같은 색이라 범례 상자만 흰색으로 지우고 읽었다. 판독 불확도는 축 스케일 x 선 두께로 Cp ±0.005 J/(g·K) · α ±5e-9 m²/s · k ±0.02 W/(m·K) 다."
+    }
+   ]
+  },
+  {
+   "match_name": "TPG thermal pyrolytic graphite (highly oriented CVD pyrolytic graphite core of TC1050, Montesano 1996)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Momentive — High Thermal Conductivity Graphite and Thermal Management Product (TMP), `Property comparison between commonly used thermal management materials` (Wayback 2020-04-18)",
+    "url": "https://web.archive.org/web/20200418051231id_/https://www.momentive.com/en-us/brands/tmp/high-thermal-conductivity-graphite-and-thermal-management-product-(tmp)",
+    "authors": "Momentive Performance Materials",
+    "year": 2020,
+    "publisher": "Momentive Performance Materials",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/mech/Momentive_TMP_brand_page_TPG_property_comparison_wayback_2020-04-18.html"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 30000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "direction": "in-plane",
+      "direction_verbatim": "in-plane (a & b, along basal planes)",
+      "temperature_k": 298,
+      "class_value": true,
+      "grade_scope": "class value — 같은 갈래(고배향 CVD 열분해흑연)의 벤더 인쇄값을 TC1050 TPG 코어에 적용했다"
+     },
+     "notes": "Momentive 브랜드 페이지 `High Thermal Conductivity Graphite and Thermal Management Product (TMP)` 의 `Property comparison between commonly used thermal management materials` 표 verbatim — 열 머리글은 `Material | Thermal Conductivity (W/m-K) | Coefficient of Thermal Expansion (10-6/oC) | Modulus (GPa) | Density (gm/cm3) | Specific Thermal Conductivity`, TPG 행은 두 줄이다:\n`TPG Graphite | >1500 (in-plane) | 0 | 30 | 2.25 | 650` 과 `<10 (through-plane) | 24 | 11`.\n**같은 행의 다른 칸이 이 표가 우리 재료를 가리킨다는 것을 증명한다** — 밀도 2.25 gm/cm3(DB 2260 kg/m3), c축 CTE 24 ppm/°C(DB 25e-6), 면내 k >1500(DB 1700)이 전부 맞는다. 같은 표의 Aluminum 68 GPa · Copper 110 GPa 가 교과서값이라 `Modulus (GPa)` 열의 단위와 정체도 닫힌다(브리프 129·606 — 순물질 행이 표를 검산한다).\n⚠ **다른 벤더는 다른 값을 찍는다** — MINTEQ Pyroid HT TDS 는 `Young's Modulus XY 50 GPa / Z 3 GPa` 이고 MINTEQ 자신의 IMAPS 2006·2011 논문 둘이 `Young's Elastic Modulus PYROID HT = 50 GPa` 로 재확인한다. Pyroid HT 는 CVD 후 **열처리로 배향을 더 높인 등급**이라 면내 계수가 높은 것이 방향으로 맞고, as-deposited PG(카탈로그 재료 2361, Minerals Technologies via Yao 2003)의 면내 20 GPa 와 함께 보면 **20(as-deposited) < 30(TPG) < 50(Pyroid HT)** 로 계보가 단조롭다.\n⚠ **Momentive 브로슈어의 `Stiffness 1050 GPa c11 / 36 GPa c33` 는 이 키에 넣지 않았다** — 강성텐서 성분(c11·c33)이지 영률이 아니다. 라벨이 다르면 다른 양이다(브리프 102·443·601 곁가지).\n표 하단 단서 verbatim: `Typical properties are average data and are not to be used as or to develop specification.` 그래서 tier3 이다.\n\n⚠ **등급 계보를 먼저 갈랐다**(브리프 586·623). 카탈로그 재료 1355 는 Montesano 1996 의 **TC1050 TPG 코어**이고 TC1050 은 Advanced Ceramics → GE Advanced Ceramics → **Momentive** 계보다. MINTEQ Pyroid HT 는 다른 벤더다. 가장 잘 갈리는 축으로 세 문서를 대 봤다.\n```\n                      DB(Montesano 1996)   Momentive TPG 브로슈어      MINTEQ Pyroid HT TDS\n  밀도                 2260 kg/m3          2.26 gm/cc  ✔일치         2.26 g/cc  ✔일치\n  CTE a-b              -1.0e-6 /K          0 to -1 ppm/degC ✔          -0.439e-6 /K  (2.3배 작다)\n  CTE c                25.0e-6 /K          25 ppm/degC ✔글자일치       26.4e-6 /K  (5.6% 크다)\n  k a-b                1700 W/mK           1500 (본문 `typically 1350 to 1700`) ✔  1500\n  k c                  25 W/mK             <20  ✔같은 대역            7   ✘3.6배 갈린다\n  비열                  840 J/kgK          0.71 J/gm-degC (18% 작다)   (시트에 없다)\n```\n**Momentive 문서가 c축 CTE 25 ppm/°C 를 글자 단위로 재현하고 c축 열전도율 대역도 맞는다. MINTEQ 는 c축 열전도율에서 3.6배 갈린다.** 그래서 **탄성계수는 Momentive 값을 쓴다.** — 59차 UE"
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 11000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "direction": "through-thickness",
+      "direction_verbatim": "through-plane (c axis, through basal planes)",
+      "temperature_k": 298,
+      "class_value": true,
+      "grade_scope": "class value — 같은 갈래(고배향 CVD 열분해흑연)의 벤더 인쇄값을 TC1050 TPG 코어에 적용했다"
+     },
+     "notes": "Momentive 브랜드 페이지 `High Thermal Conductivity Graphite and Thermal Management Product (TMP)` 의 `Property comparison between commonly used thermal management materials` 표 verbatim — 열 머리글은 `Material | Thermal Conductivity (W/m-K) | Coefficient of Thermal Expansion (10-6/oC) | Modulus (GPa) | Density (gm/cm3) | Specific Thermal Conductivity`, TPG 행은 두 줄이다:\n`TPG Graphite | >1500 (in-plane) | 0 | 30 | 2.25 | 650` 과 `<10 (through-plane) | 24 | 11`.\n**같은 행의 다른 칸이 이 표가 우리 재료를 가리킨다는 것을 증명한다** — 밀도 2.25 gm/cm3(DB 2260 kg/m3), c축 CTE 24 ppm/°C(DB 25e-6), 면내 k >1500(DB 1700)이 전부 맞는다. 같은 표의 Aluminum 68 GPa · Copper 110 GPa 가 교과서값이라 `Modulus (GPa)` 열의 단위와 정체도 닫힌다(브리프 129·606 — 순물질 행이 표를 검산한다).\n⚠ **다른 벤더는 다른 값을 찍는다** — MINTEQ Pyroid HT TDS 는 `Young's Modulus XY 50 GPa / Z 3 GPa` 이고 MINTEQ 자신의 IMAPS 2006·2011 논문 둘이 `Young's Elastic Modulus PYROID HT = 50 GPa` 로 재확인한다. Pyroid HT 는 CVD 후 **열처리로 배향을 더 높인 등급**이라 면내 계수가 높은 것이 방향으로 맞고, as-deposited PG(카탈로그 재료 2361, Minerals Technologies via Yao 2003)의 면내 20 GPa 와 함께 보면 **20(as-deposited) < 30(TPG) < 50(Pyroid HT)** 로 계보가 단조롭다.\n⚠ **Momentive 브로슈어의 `Stiffness 1050 GPa c11 / 36 GPa c33` 는 이 키에 넣지 않았다** — 강성텐서 성분(c11·c33)이지 영률이 아니다. 라벨이 다르면 다른 양이다(브리프 102·443·601 곁가지).\n표 하단 단서 verbatim: `Typical properties are average data and are not to be used as or to develop specification.` 그래서 tier3 이다.\n\n⚠ **등급 계보를 먼저 갈랐다**(브리프 586·623). 카탈로그 재료 1355 는 Montesano 1996 의 **TC1050 TPG 코어**이고 TC1050 은 Advanced Ceramics → GE Advanced Ceramics → **Momentive** 계보다. MINTEQ Pyroid HT 는 다른 벤더다. 가장 잘 갈리는 축으로 세 문서를 대 봤다.\n```\n                      DB(Montesano 1996)   Momentive TPG 브로슈어      MINTEQ Pyroid HT TDS\n  밀도                 2260 kg/m3          2.26 gm/cc  ✔일치         2.26 g/cc  ✔일치\n  CTE a-b              -1.0e-6 /K          0 to -1 ppm/degC ✔          -0.439e-6 /K  (2.3배 작다)\n  CTE c                25.0e-6 /K          25 ppm/degC ✔글자일치       26.4e-6 /K  (5.6% 크다)\n  k a-b                1700 W/mK           1500 (본문 `typically 1350 to 1700`) ✔  1500\n  k c                  25 W/mK             <20  ✔같은 대역            7   ✘3.6배 갈린다\n  비열                  840 J/kgK          0.71 J/gm-degC (18% 작다)   (시트에 없다)\n```\n**Momentive 문서가 c축 CTE 25 ppm/°C 를 글자 단위로 재현하고 c축 열전도율 대역도 맞는다. MINTEQ 는 c축 열전도율에서 3.6배 갈린다.** 그래서 **탄성계수는 Momentive 값을 쓴다.** — 59차 UE"
+    }
+   ]
+  },
+  {
+   "match_name": "TPG thermal pyrolytic graphite (highly oriented CVD pyrolytic graphite core of TC1050, Montesano 1996)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Pyroid(R) HT Pyrolytic Graphite — TECHNICAL DATA (MINTEQ International / Minerals Technologies)",
+    "url": "https://www.mineralstech.com/business-segments/minteq",
+    "authors": "MINTEQ International Inc. (Minerals Technologies)",
+    "year": 2026,
+    "publisher": "MINTEQ International",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/mech/MINTEQ_Pyroid_HT_Pyrolytic_Graphite_TechnicalData_2026-03.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": -0.18,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "direction": "in-plane",
+      "direction_verbatim": "in-plane (a & b, along basal planes)",
+      "temperature_k": 298,
+      "class_value": true,
+      "grade_scope": "class value — 같은 갈래(고배향 CVD 열분해흑연)의 벤더 인쇄값을 TC1050 TPG 코어에 적용했다"
+     },
+     "notes": "MINTEQ `Pyroid(R) HT Pyrolytic Graphite — TECHNICAL DATA` 의 `Physical Properties` 표 verbatim: `Poisson's Ratio | XY -0.18 | Z 0.20` (각주 verbatim `*XY: Along basal planes (across surface) / Z: Through basal planes (through thickness)`).\n**면내 포아송비가 음수다.** 적재기의 `RANGE[\"mechanical.poisson_ratio\"]` 하한이 42차 DA 에 0.0 → -1.0 으로 내려간 이유가 바로 이 시트다(주석 verbatim: `열분해흑연(PG)의 basal 면은 실제로 음수이고, 제조사 시트(MINTEQ Pyroid HT)가 XY -0.18 을 인쇄한다`). **그때 시트를 본 배치가 값을 넣지는 않았다** — 그 PDF 는 2026-08-19 부터 `/data/paper_patent_corpus/standards_appnotes/mech/` 에 있었는데 `source` 로 등록된 적이 없고 이 시트에서 나온 행이 DB 에 0건이었다(브리프 602·626).\n⚠ **이 한 칸만 벤더가 갈린다** — Momentive 문서 넷(브로슈어 · 브랜드 페이지 · TC1050/TPG 포털 스냅샷 둘)에서 `Poisson` 이 **0건**이라 계보가 맞는 벤더는 이 물성을 아예 안 찍는다. 그래서 다른 벤더의 같은 갈래 값을 클래스값으로 빌렸고 tier3 에 `grade_scope` 로 못박았다.\n**부호 구조는 세 번째 문서가 지지한다** — 카탈로그 재료 2361(`Pyrolytic graphite (PG), bulk CVD as-deposited`, Minerals Technologies via Yao 2003)이 ν 면내 **-0.1** · ν 두께 **0.3** 으로 **부호가 같고 자릿수가 같다.** 포아송비는 부호로 틀리는 물성이라(브리프 166) 이 대조가 결정적이다 — 벌크 흑연의 관용값 0.2 를 면내에 넣으면 값이 아니라 오답이 된다(브리프 618 의 ePTFE 와 같은 자리).\n\n⚠ **등급 계보를 먼저 갈랐다**(브리프 586·623). 카탈로그 재료 1355 는 Montesano 1996 의 **TC1050 TPG 코어**이고 TC1050 은 Advanced Ceramics → GE Advanced Ceramics → **Momentive** 계보다. MINTEQ Pyroid HT 는 다른 벤더다. 가장 잘 갈리는 축으로 세 문서를 대 봤다.\n```\n                      DB(Montesano 1996)   Momentive TPG 브로슈어      MINTEQ Pyroid HT TDS\n  밀도                 2260 kg/m3          2.26 gm/cc  ✔일치         2.26 g/cc  ✔일치\n  CTE a-b              -1.0e-6 /K          0 to -1 ppm/degC ✔          -0.439e-6 /K  (2.3배 작다)\n  CTE c                25.0e-6 /K          25 ppm/degC ✔글자일치       26.4e-6 /K  (5.6% 크다)\n  k a-b                1700 W/mK           1500 (본문 `typically 1350 to 1700`) ✔  1500\n  k c                  25 W/mK             <20  ✔같은 대역            7   ✘3.6배 갈린다\n  비열                  840 J/kgK          0.71 J/gm-degC (18% 작다)   (시트에 없다)\n```\n**Momentive 문서가 c축 CTE 25 ppm/°C 를 글자 단위로 재현하고 c축 열전도율 대역도 맞는다. MINTEQ 는 c축 열전도율에서 3.6배 갈린다.** 그래서 **탄성계수는 Momentive 값을 쓴다.** — 59차 UE"
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.2,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "direction": "through-thickness",
+      "direction_verbatim": "through-plane (c axis, through basal planes)",
+      "temperature_k": 298,
+      "class_value": true,
+      "grade_scope": "class value — 같은 갈래(고배향 CVD 열분해흑연)의 벤더 인쇄값을 TC1050 TPG 코어에 적용했다"
+     },
+     "notes": "MINTEQ `Pyroid(R) HT Pyrolytic Graphite — TECHNICAL DATA` 의 `Physical Properties` 표 verbatim: `Poisson's Ratio | XY -0.18 | Z 0.20` (각주 verbatim `*XY: Along basal planes (across surface) / Z: Through basal planes (through thickness)`).\n**면내 포아송비가 음수다.** 적재기의 `RANGE[\"mechanical.poisson_ratio\"]` 하한이 42차 DA 에 0.0 → -1.0 으로 내려간 이유가 바로 이 시트다(주석 verbatim: `열분해흑연(PG)의 basal 면은 실제로 음수이고, 제조사 시트(MINTEQ Pyroid HT)가 XY -0.18 을 인쇄한다`). **그때 시트를 본 배치가 값을 넣지는 않았다** — 그 PDF 는 2026-08-19 부터 `/data/paper_patent_corpus/standards_appnotes/mech/` 에 있었는데 `source` 로 등록된 적이 없고 이 시트에서 나온 행이 DB 에 0건이었다(브리프 602·626).\n⚠ **이 한 칸만 벤더가 갈린다** — Momentive 문서 넷(브로슈어 · 브랜드 페이지 · TC1050/TPG 포털 스냅샷 둘)에서 `Poisson` 이 **0건**이라 계보가 맞는 벤더는 이 물성을 아예 안 찍는다. 그래서 다른 벤더의 같은 갈래 값을 클래스값으로 빌렸고 tier3 에 `grade_scope` 로 못박았다.\n**부호 구조는 세 번째 문서가 지지한다** — 카탈로그 재료 2361(`Pyrolytic graphite (PG), bulk CVD as-deposited`, Minerals Technologies via Yao 2003)이 ν 면내 **-0.1** · ν 두께 **0.3** 으로 **부호가 같고 자릿수가 같다.** 포아송비는 부호로 틀리는 물성이라(브리프 166) 이 대조가 결정적이다 — 벌크 흑연의 관용값 0.2 를 면내에 넣으면 값이 아니라 오답이 된다(브리프 618 의 ePTFE 와 같은 자리).\n\n⚠ **등급 계보를 먼저 갈랐다**(브리프 586·623). 카탈로그 재료 1355 는 Montesano 1996 의 **TC1050 TPG 코어**이고 TC1050 은 Advanced Ceramics → GE Advanced Ceramics → **Momentive** 계보다. MINTEQ Pyroid HT 는 다른 벤더다. 가장 잘 갈리는 축으로 세 문서를 대 봤다.\n```\n                      DB(Montesano 1996)   Momentive TPG 브로슈어      MINTEQ Pyroid HT TDS\n  밀도                 2260 kg/m3          2.26 gm/cc  ✔일치         2.26 g/cc  ✔일치\n  CTE a-b              -1.0e-6 /K          0 to -1 ppm/degC ✔          -0.439e-6 /K  (2.3배 작다)\n  CTE c                25.0e-6 /K          25 ppm/degC ✔글자일치       26.4e-6 /K  (5.6% 크다)\n  k a-b                1700 W/mK           1500 (본문 `typically 1350 to 1700`) ✔  1500\n  k c                  25 W/mK             <20  ✔같은 대역            7   ✘3.6배 갈린다\n  비열                  840 J/kgK          0.71 J/gm-degC (18% 작다)   (시트에 없다)\n```\n**Momentive 문서가 c축 CTE 25 ppm/°C 를 글자 단위로 재현하고 c축 열전도율 대역도 맞는다. MINTEQ 는 c축 열전도율에서 3.6배 갈린다.** 그래서 **탄성계수는 Momentive 값을 쓴다.** — 59차 UE"
+    }
+   ]
+  }
+ ]
+}
