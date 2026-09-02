@@ -582,6 +582,29 @@ if _dup:
         print(f"           출처 {_sid} · {str(_t)[:56]} · 재료 {[m for m, _ in _ms]}")
 
 
+# **다시 열 수 없는 출처** — 스키마는 DOI·URL·제목 중 하나만 요구하므로 제목만 있는 출처가 통과한다.
+# 그 자체는 정당하다(핸드북·규격은 제목이 식별자다). 문제는 **그 값을 나중에 재검증할 수 없다**는 것이다.
+# 61차 WB 가 찾은 자리 — 출처 972 는 제목이 `Handbook of Infrared Radiation — emissivity tables
+# (Touloukian TPRC Data Series)` 로 **서로 다른 두 문헌을 한 줄에 붙인 것**이고 doi·url·저자·연도·
+# local_path 가 전부 NULL 인데, 전방사율 201행을 혼자 받친다. tier4 표시는 정직한데 출처 문자열이
+# 실제보다 강해 보인다. 이런 출처는 §626 의 반대 얼굴이다 — 디스크에 있는데 경로가 없는 게 아니라
+# **애초에 열 것이 없다.** 지우자는 말이 아니라, 그 값들이 "재검증 불가" 임을 드러내자는 것이다.
+_noid = list(c.execute(
+    """select s.id, s.title, count(v.id) n, min(v.quality_tier) t
+         from source s join property_value v on v.source_id = s.id
+        where coalesce(s.doi,'')='' and coalesce(s.url,'')='' and coalesce(s.local_path,'')=''
+        group by s.id order by n desc"""))
+if _noid:
+    _nv = sum(n for _, _, n, _ in _noid)
+    print(f"\n  [주의] **식별자가 제목뿐이라 다시 열 수 없는 출처: {len(_noid)}건 · 값 {_nv:,}행**")
+    print("         DOI·URL·local_path 가 전부 없다. 스키마는 통과하지만 재검증 경로가 없다.")
+    print("         핸드북·규격은 제목이 식별자라 정당할 수 있다 — 다만 **제목이 실제 한 문헌을**")
+    print("         **가리키는지** 확인해라. 두 문헌을 붙여 놓으면 어느 쪽도 못 연다(61차 WB).")
+    print("         고치는 법은 삭제가 아니라 **판·쪽·ISBN 을 채워 열 수 있게 만드는 것**이다.")
+    for _sid, _t, _n, _q in _noid[:5]:
+        print(f"           출처 {_sid} · {_n:>4}행 · 최고등급 t{_q} · {str(_t)[:52]}")
+
+
 # **Tg 위 CTE 가 물리적 상한을 넘는 값** — 고분자 고무상 CTE 는 대개 50~400 ppm/K 다.
 # 35차 AL 의 Chung 2007 A계열이 2953 ppm/K(alpha2/alpha1 = 40배)로 들어왔다.
 # 인쇄값이라 지우지 않되 **표식 없이 지나가면 안 된다**(TMA 프로브 침강 인공산물일 수 있다).
