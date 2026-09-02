@@ -1,0 +1,48 @@
+{
+  "batch": "60차 VA — SAC107 의 상용 등급 확정. 千住金属 Eco Solder M771",
+  "materials": [
+    {
+      "match_name": "SAC107 Solder Alloy",
+      "source": {
+        "kind": "datasheet",
+        "title": "千住金属工業 (Senju Metal Industry Co., Ltd., SMIC) — 鉛フリーはんだ合金 一覧表 / List of Lead-free Solder Alloys, 2020 SMIC FA catalogue (2020-04-09), p.12",
+        "url": "https://www.senju.com/ja/download/pdf/2020_SMIC_FA_cata_0409.pdf",
+        "publisher": "千住金属工業株式会社 (Senju Metal Industry Co., Ltd.)",
+        "year": 2020,
+        "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w60va/senju_smic_2020.pdf"
+      },
+      "properties": [
+        {
+          "key": "thermal.melting_point",
+          "value": 490.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "phase_boundary": "solidus (固相線)",
+            "temperature_c_printed": 217,
+            "composition_wt_pct": "Sn-1.0Ag-0.7Cu (千住 Eco Solder 품번 M771)",
+            "product_form": "카탈로그가 BAR·CORE·BALL·PASTE·PREFORM 다섯 형태를 표시한다",
+            "test_method": "출처에 인쇄되지 않았다"
+          },
+          "notes": "p.12 `鉛フリーはんだ合金 一覧表 / List of Lead-free Solder Alloys` 행 verbatim `M771 | Sn-1.0Ag-0.7Cu | 217 | 219 | 224`(열 머리글 `固相線 Solidus line | ピーク温度 Peak | 液相線 Liquidus line`). 200 dpi 렌더로 pdftotext 값과 글자 단위로 일치함을 확인했다. **이 행이 이 재료의 상용 등급을 확정한다** — 58차 TB 는 이 조성을 파는 벤더를 못 찾아 '아홉 표 전부에 행 없음' 으로 넘겼는데, 千住가 M771 로 다섯 형태를 판다. 표 배정 검산 — 같은 표의 `M34 = Sn-1.0Ag-0.5Cu`(SAC105) 217/219/227 과 `M35 = Sn-0.3Ag-0.7Cu`(SAC0307) 217/219/227 이 공정 SAC 의 고상선 217 과 맞고, `M30 = Sn-3.5Ag` 221 이 Sn-Ag 공정점과 맞는다. **주의 — 같은 표의 `M40 = Sn-1.0Ag-0.7Cu-Bi-In`(211/222/222)은 Bi·In 도핑 등급이라 이 재료가 아니다.** 그리고 **이 카탈로그는 융점과 제품형태만 싣고 물성 열이 하나도 없다**(密度·比重·熱膨張·熱伝導·ヤング·ポアソン·引張 낱말이 전권에서 사실상 0건)."
+        },
+        {
+          "key": "thermal.melting_point",
+          "value": 497.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "phase_boundary": "liquidus (液相線)",
+            "temperature_c_printed": 224,
+            "composition_wt_pct": "Sn-1.0Ag-0.7Cu (千住 Eco Solder 품번 M771)",
+            "product_form": "카탈로그가 BAR·CORE·BALL·PASTE·PREFORM 다섯 형태를 표시한다",
+            "test_method": "출처에 인쇄되지 않았다"
+          },
+          "notes": "p.12 행 verbatim `M771 | Sn-1.0Ag-0.7Cu | 217 | 219 | 224` 의 `液相線 Liquidus line` 칸. 224 C = 497.15 K. **다른 문서와 대 봤다** — JEITA `Standardization Activity of 2nd Generation Lead-Free Solder Paste` 가 SAC107 을 `217 / 224` 로 인쇄해 벤더값과 같고, 이 재료에 이미 있는 Sun 2017(DSC 승온 10 K/min) 판독은 onset 219.2 / end 230.8 로 다르다 — **벤더 규격값과 DSC 실측이 다른 것이 정상**이라 정정하지 않고 각자의 출처로 둔다. 중간 열 `ピーク温度 Peak 219` 는 상경계가 아니라 DSC 피크라 넣지 않았다."
+        }
+      ]
+    }
+  ]
+}

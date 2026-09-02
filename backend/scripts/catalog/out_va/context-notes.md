@@ -18,6 +18,8 @@
 | `va03_linqalloy_sac125n.json` | 값 6행 / 재료 1종(965). 적재 완료(거부 0) |
 | `va04_indium_directory.json` | 값 2행 / 재료 2종(585·963). 적재 완료(거부 0) |
 | `va02_core_verdicts.json` | 판정 29칸 / 재료 6종(585·575·573·586·965·580). 적재 완료 |
+| `va05_senju_sac107.json` | 값 2행 / 재료 1종(986). 적재 완료(거부 0) |
+| `va06_core_verdicts_2.json` | 판정 8칸 / 재료 2종(986·572). 적재 완료 |
 | `BRIEF_DRAFT.md` | 브리프 초안 |
 
 ## 결과 — `subsystem='packaging'` · `role='product'`
@@ -32,11 +34,16 @@
 | va03·va04 적재 직후 | **417** | **37** |
 | va02 판정 직전 | 417 | 37 |
 | va02 판정 직후 | 417 | **8** |
+| va05 적재 직후 | 417 | 8 |
+| va06 판정 직후 | 417 | **0** |
 
 - **값으로 닫은 코어 칸 9** — 963(포아송비·CTE·열전도율·인장) 4 · 962(포아송비) 1 · 965(밀도·영률·인장) 3 · 585(영률) 1.
-- **판정으로 닫은 칸 29** — V2 28 · V6 1. **선언 29 = 집계 증가 29**(V2 297→325 · V6 9→10 · V5 37→8)로 §610 대조를 통과했다.
-- **그 밖 넣은 비코어 값 8행** — 항복강도 1 · 연신율 2 · 융점 3 · 비커스경도 1 · 밀도(독립확인) 1.
-- **표적 아홉 종의 44칸 중 36칸을 닫았다.** 남은 8칸은 재료 986 SAC107 7칸과 재료 572 SAC105 의 CTE 1칸이다.
+- **판정으로 닫은 칸 37** — V2 36 · V6 1. **§610 대조를 두 번 다 통과했다**:
+  va02 선언 29 = 증가 29(V2 297→325 · V6 9→10 · V5 37→8) · va06 선언 8 = 증가 8(V2 325→333 · V5 8→0).
+- **그 밖 넣은 비코어 값 10행** — 항복강도 1 · 연신율 2 · 융점 5 · 비커스경도 1 · 밀도(독립확인) 1.
+- **표적 아홉 종의 44칸을 전부 닫았다. `subsystem='packaging'` 의 V5 가 0 이 됐다.**
+  마지막 여덟은 986 SAC107 7칸(V2 — 千住가 파는 등급이나 물성 열이 없다)과
+  572 SAC105 의 CTE 1칸(`core_no_public_document` — 문서가 특정됐는데 못 받는다)이다.
 
 ## 가장 큰 것 — 이미 DB 에 있던 출처의 옆 칸(§602)
 
@@ -117,6 +124,25 @@
 13. Osterman `Modeling Temperature Cycle Fatigue Life of Select SAC alloys`(CALCE, SMTAI 2018) — 기판·패키지 CTE 뿐
 14. Electronics Cooling `Thermal Conductivity of Solders`(2006) — SAC 계열을 `approximately 60 W/mK` 라는 **계열 구간**으로만 쓴다(§616)
 
+15. 千住金属工業(Senju Metal Industry, SMIC) `鉛フリーはんだ合金 一覧表 / List of Lead-free Solder Alloys`(2020-04-09 카탈로그, 7 MB)
+    — https://www.senju.com/ja/download/pdf/2020_SMIC_FA_cata_0409.pdf
+    ← **재료 986 SAC107 의 등급 존재를 확정한 문서다**: `M771 | Sn-1.0Ag-0.7Cu | 217 | 219 | 224 | BAR·CORE·BALL·PASTE·PREFORM`.
+    **그러나 이 카탈로그는 물성 열이 하나도 없다**(전권에서 密度·比重·熱膨張·熱伝導·ヤング·ポアソン·引張 낱말이 사실상 0건).
+    같은 표에 `M34 = Sn-1.0Ag-0.5Cu`(SAC105) · `M35 = Sn-0.3Ag-0.7Cu`(SAC0307) · `M40 = Sn-1.0Ag-0.7Cu-Bi-In`(딴 등급)도 있다
+16. TOPLINE `BGA Solder Ball Alloys` — https://www.topline.tv/BGA_SolderBall.html.
+    `Ref. | Composition | Solidus | Liquidus | Density gm/cc` 네 열뿐이고 CTE 열이 없다.
+    SAC105 `Sn98.5 Ag1.0 Cu0.5 | 215 | 227 | 7.350` 은 있으나 **SAC107·SAC205 행이 없다**
+17. INVACU `Properties of solder alloys` — https://invacu.com/solder-alloys.
+    SAC105 행의 여섯 값이 The Solder Connection 2023 과 **글자 단위로 같아 같은 표의 재게재**다(§456) — 새 값 없음
+18. Harima MULTiCORE `Solder Material Solutions` 브로슈어 — `SOLDER ALLOY PROPERTIES` 표(융점·밀도·비저항·열전도율).
+    SAC0307·SAC305·SAC387 등은 있고 **SAC105·SAC107·SAC205 행이 없으며 CTE 열 자체가 없다**
+19. Qualitek `SAC Solder Bar` TDS Rev. E 01/17 — `Coefficient of Thermal Expansion Pure Sn= 23.5` 로 **순 Sn 값만** 찍는다(등급값 아님)
+20. Balver Zinn `SCAN-Ge 071` PDS(SnCu0.7Ag1.0NiGe) — Ag 1.0 / Cu 0.7 이지만 **Ni·Ge 도핑 등급**이라 SAC107 이 아니다. 융점·조성만
+21. NIST `Database for Solder Properties with Emphasis on New Lead-free Solders` v4(140쪽)
+    — https://www.metallurgy.nist.gov/solder/NIST_LeadfreeSolder_v4.pdf. CTE 표(Table 1.23~1.26 · 2.2.19)가 **근공정 SnAgCu 뿐**이고 저Ag 계열이 없다
+22. EasySpheres SAC105 SDS(Version 2.4, 2023-04-22) — 9항이 융점·상대밀도를 포함해 **전 항목 `Not Available`**
+23. Interflux `TD Lead-free alloys` · Canfield `SAC Alloys` · Kester 무연 바 솔더 페이지 · Shenmao 2019 카탈로그 · MG Chemicals TDS-4900 — SAC105/107/205 행 또는 물성 열 없음
+
 **다시 연 기존 문서** — The Solder Connection 2023(출처 3641) · Indalloy 2006(출처 4753) ·
 Kester Technical Data on Soft Solders · AIM Alloy Information(출처 4767) · Darveaux 1992(출처 3556) ·
 Chen 2020(출처 3634) · Basit 2015(출처 3452) · Cai 2010(출처 4729) · Lall 2018(출처 3454) · Amagai 2002 · Coyle 2015 · Sun 2017(출처 4728)
@@ -165,6 +191,13 @@ Chen 2020(출처 3634) · Basit 2015(출처 3452) · Cai 2010(출처 4729) · La
 - **R9 의 SAC0307 인장 6882 psi = 47.4 MPa 도 안 넣었다** — 재료 585 의 이 칸은 The Solder Connection 의
   300 kgf/cm² = 29.42 MPa 로 차 있고 ALPHA Vaculoy SACX0307 29.5 와 맞는다. **세 값이 29.4 / ~40(Kapp 물결표) / 47.4 로
   갈리는데 닫지 못했다** — 신고만 한다.
+- **986 SAC107 은 상용 등급이다 — 그런데 파는 벤더가 물성을 안 찍는다.** 千住金属 카탈로그의 `M771` 이
+  이 조성을 바·와이어·볼·페이스트·프리폼 다섯 형태로 판다고 인쇄한다. 58차 TB 가 '아홉 표 전부에 행 없음' 으로
+  넘긴 전제는 맞았으나 **결론("상용 등급이 아닐 수 있다")은 틀렸다.** 그래도 코어 일곱은 V2 다 —
+  물성 열이 있는 표 스물한 장 전부에 이 조성의 행이 없다. **남은 문은 논문이다.**
+- **572 SAC105 의 CTE 는 `core_no_public_document` 로 냈다**(V2 로 세어진다). 문이 하나로 특정됐고
+  형제 시트가 그 열의 존재를 증명하는데(SAC300~405 TB 의 `TCE (Range 20 to 100 ºC)`) 파일을 못 받는다 —
+  403 여섯 조합 · Wayback 캡처 0 · 유통사 미러 넷 0. **"벤더가 안 찍는다" 가 아니므로 V2 사유를 쓰면 거짓이 된다.**
 - **아무것도 지우지 않았다.**
 
 ## 신고 — 손대지 않은 것
@@ -178,3 +211,28 @@ Chen 2020(출처 3634) · Basit 2015(출처 3452) · Cai 2010(출처 4729) · La
    전파되는 `core_absent_from_vendor_sheet` 에 적고 사유에 성격을 못박았다. 공유 도구는 고치지 않았다(§468).
 3. **57차 SA 가 신고한 V4 전파 문제(`identification_status`·`anonymised_code` 가 병합기 `CURATION_KEYS` 밖)도 그대로다.**
    재료 575 가 정확히 그 자리라 같은 우회로를 썼다.
+
+## 다음 표적 — 솔더 갈래에 남은 것
+
+`subsystem='packaging'` 의 V5 는 0 이다. **표적은 판정 밖에 있다.**
+
+| 재료 | 무엇이 남았나 | 다음 문 |
+|---|---|---|
+| **572 SAC105** | CTE 한 칸. `core_no_public_document` 로 세었으나 **다시 조달할 가치가 가장 큰 자리다** | `https://www.macdermidalpha.com/sites/default/files/2021-11/ALPHA-VACULOY-SAC-100,-105-Solid-Solder-EN-24Sep20-TB.pdf` 한 장. 유통사·대리점 사본이 유일한 길이다(hisco·hilpert·ams-electronics·gluespec 넷은 이미 확인) |
+| **986 SAC107** | 코어 일곱 전부. 벤더 스물한 문이 닫혔다 | **논문뿐이다.** 이 조성을 기준시편으로 쓰는 나노입자 첨가 연구(SnO2·SiC·Fe2O3·MWCNT·TiO2·ZrO2)가 여럿인데 코퍼스에 있는 Sun 2017·Xiong 2018 은 DSC·IMC 만 싣는다. Gu(Fe2O3) · El-Daly(SiC) 계열 원논문 조달이 다음 자리다 |
+| 573 SAC205 · 586 SAC(307)-2In | 코어 여섯씩 | 벤더가 아니라 논문. 573 은 컨소시엄 평가 합금(초안 13 의 ③), 586 은 논문 개발합금(④) |
+| 575 SAC-Q | 코어 여섯 | **등급을 먼저 닫아라.** Lall 2018 EDX(Ag 3.4/Bi 3.4)와 CAPLINQ LINQALLOY SACQ(Ag 4.0/Bi 3.0/Ni 0.05)가 다르다. ALPHA CYCLOMAX 원 TDS 나 Witkin 2013(Sn-3.4Ag-1.0Cu-3.3Bi)이 남은 문이다 |
+| 580 97.5Pb2.5Sn | 코어 여섯 | 벤더 목록·표준 열여덟이 닫혔다. 1990년대 플립칩 시험합금이라 **Darveaux 계열 원논문의 부록**이 유일하게 남은 자리다 |
+| 585 SAC0307 | CTE·열전도율·비열 | 등급 전용 TDS 넉 장이 안 찍는다. Indium R9 도 그 두 열이 비어 있다 |
+| 965 SAC125Ni | CTE·비열·포아송비 | LINQALLOY TDS·SDS·ALPHA 스피어 TDS 가 안 찍는다 |
+
+### 다음 파동에 바로 쓸 수 있는 것
+
+- **§602 를 표적 선정에 먼저 걸어라.** 이 배치가 닫은 코어 아홉 칸 중 다섯이 **이미 DB 에 있던 출처 한 장**에서 나왔다.
+  새로 연 문 열셋에서 나온 코어 칸은 넷이다.
+- **Almit 시험보고서(출처 4658)에는 아직 안 가져온 열이 남아 있다** — `Sn-3.5Ag-0.7Cu`(SAC357) 열 전체다.
+  카탈로그에 이 조성의 일반 등급 레코드가 없고 재료 1679~1681(IDEALS project, Harrison 2001)은
+  **특정 연구과제의 용해물**이라 옮기면 §123·140·623 위반이다. **일반 SAC357 재료를 새로 세울지가 먼저 결정할 일이다.**
+- **CAPLINQ/Krayden `/products/<id>/files/<id>` 는 새로 열린 문서 창고다.** 솔더 스피어 라인 전체
+  (`linq-sac105` · `linq-sac305` · `linq-sac405` · `linq-sacq` · `linq-sac125n` · `linqalloy-sp-*`)에 TDS·SDS 가 붙어 있고
+  **caplinq.com 쪽 링크는 404 이며 Wayback 에도 없다.** krayden.com 으로만 받힌다.
