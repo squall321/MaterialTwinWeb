@@ -1,0 +1,471 @@
+{
+ "batch": "59차 UC — 서구 CCL 벤더 시트",
+ "note": "Ehrler 2002 유래 CCL 4종의 코어 빈칸을 벤더 시트로 메운다. 모든 값은 400 dpi 렌더로 확인했다(브리프 603). 등급 동일성 판정은 각 재료 첫 행의 notes 에 있다(브리프 586). **다시 적재하지 마라** — 이 파일은 59차 조정자가 확정한 방향 규칙까지 반영한 최종 선언이지만, DB 의 해당 13행은 uc03_direction_rule.json 의 정정으로 그 상태에 도달해 조건에 `direction_before_correction` 같은 되돌리기 표시를 더 갖고 있다. 조건 서명이 달라 재적재하면 중복 행이 생긴다.",
+ "materials": [
+  {
+   "match_name": "Nelco 4000-6 high-performance epoxy PCB laminate (Park Nelco) — Ehrler 2002",
+   "source": {
+    "kind": "datasheet",
+    "title": "Nelco(R) N4000-6 High-Tg Multifunctional Epoxy Laminate & Prepreg - Typical Engineering Values (Rev C 4-02)",
+    "year": 2002,
+    "publisher": "Park Electrochemical Corp. (Nelco)",
+    "url": "https://www.epectec.com/downloads/Nelco-N4000-6-Data-Sheet.pdf",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Park_Nelco_N4000-6_DataSheet_RevC_2002-04.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1920.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "resin_content": "50% resin content (시트 행 이름 verbatim: 'Density [50% resin content]')",
+      "test_method": "Internal Method (시트 verbatim)",
+      "temperature": "not printed"
+     },
+     "notes": "Rev C 4-02 시트 Chemical/Physical 블록 마지막 행 `Density [50% resin content] 1.92 g/cm3`. 400 dpi 렌더로 확인했다(브리프 603). 2011 판(Rev 4-11)도 1.92 로 같다. 자체 검산 — 유리 2.54 · 수지 1.25 로 50 vol% 를 섞으면 1.90 g/cm3 라 인쇄값과 1% 안이다. 반대로 PCB 관행대로 50 wt% 로 읽으면 1.63 이 나와 안 맞으므로, 이 행의 '50% resin content' 는 부피 기준으로 읽어야 한다. §586 동정 검산 — Ehrler 2002 Table II 'Nelco4000-6' 대 이 시트. Tg(TMA) 164/164 degC 대 시트 170 degC(6 degC 차) · Dk(1MHz) 4.57 대 시트 4.3(50% resin) · Df(1MHz) 0.019 대 시트 0.027. Ehrler 시편은 3x7628(유리 함량 높음)이라 Dk 가 높고 Df 가 낮은 방향이 맞다. 시트 판이 둘(Rev C 4-02 · Rev 4-11)인데 밀도 1.92 · E 29.9/25.1 · nu 0.16/0.14 · k 0.3-0.4 · Cp 1.20-1.40 여섯 값이 9년 사이에 글자 단위로 같다(달라진 것은 Td 300 대 325 · Z팽창 3.9 대 3.7 · Df 0.027 대 0.023). 이름에 접미 세대 표시가 없고(RO4350 대 RO4350B 와 다르다) 등급 판정 통과."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 29900000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "X",
+      "direction_verbatim": "Young's Modulus (X / Y) — X 칸",
+      "direction_basis": "시트가 X/Y 로만 인쇄하고 warp/fill 대응을 밝히지 않는다(ASTM D3039). 두 면내축을 갈라 찍되 어느 쪽이 경사인지 적지 않아 MD/TD 로 배정하지 않았다 — 정규어휘는 in-plane 으로 접힌다(app/direction_vocab._BARE_XY).",
+      "test_standard": "ASTM D3039",
+      "temperature": "not printed"
+     },
+     "notes": "Rev C 4-02 시트 Mechanical 블록 `Young's Modulus (X / Y) 4.4 / 3.7 psi x 10^6 | 29.9 / 25.1 GN/m^2 | ASTM D3039`. 미터 열의 인쇄값을 그대로 담았다. 미국 열 4.4e6 psi = 30.34 GPa 로 미터 열 29.9 와 1.5% 어긋나는데 두 열을 따로 반올림한 것이다(3.7e6 psi = 25.51 대 25.1, 1.6%). 2011 판도 29.9/25.1 로 같다. §604 혼합물 경계 검산 — 이 시트가 같이 인쇄하는 밀도/구성으로 유리 부피분율을 0.5 로 잡으면 직조포 warp 방향 하한 = 0.25 x 72 GPa = 18.0 GPa, Voigt 상한 = 0.5 x 72 + 0.5 x 3.3 = 37.7 GPa 다. 이 값이 그 사이에 든다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 25100000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "Y",
+      "direction_verbatim": "Young's Modulus (X / Y) — Y 칸",
+      "direction_basis": "시트가 X/Y 로만 인쇄하고 warp/fill 대응을 밝히지 않는다(ASTM D3039). 두 면내축을 갈라 찍되 어느 쪽이 경사인지 적지 않아 MD/TD 로 배정하지 않았다 — 정규어휘는 in-plane 으로 접힌다(app/direction_vocab._BARE_XY).",
+      "test_standard": "ASTM D3039",
+      "temperature": "not printed"
+     },
+     "notes": "Rev C 4-02 시트 Mechanical 블록 `Young's Modulus (X / Y) 4.4 / 3.7 psi x 10^6 | 29.9 / 25.1 GN/m^2 | ASTM D3039`. 미터 열의 인쇄값을 그대로 담았다. 미국 열 4.4e6 psi = 30.34 GPa 로 미터 열 29.9 와 1.5% 어긋나는데 두 열을 따로 반올림한 것이다(3.7e6 psi = 25.51 대 25.1, 1.6%). 2011 판도 29.9/25.1 로 같다. §604 혼합물 경계 검산 — 이 시트가 같이 인쇄하는 밀도/구성으로 유리 부피분율을 0.5 로 잡으면 직조포 warp 방향 하한 = 0.25 x 72 GPa = 18.0 GPa, Voigt 상한 = 0.5 x 72 + 0.5 x 3.3 = 37.7 GPa 다. 이 값이 그 사이에 든다."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.16,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "X",
+      "direction_verbatim": "Poisson's Ratios (X / Y) — X 칸",
+      "direction_basis": "시트가 X/Y 로만 인쇄하고 warp/fill 대응을 밝히지 않는다(ASTM D3039). 두 면내축을 갈라 찍되 어느 쪽이 경사인지 적지 않아 MD/TD 로 배정하지 않았다 — 정규어휘는 in-plane 으로 접힌다(app/direction_vocab._BARE_XY).",
+      "test_standard": "ASTM D3039",
+      "temperature": "not printed"
+     },
+     "notes": "Rev C 4-02 시트 `Poisson's Ratios (X / Y) 0.16 / 0.14 ASTM D3039`. 2011 판도 같다. Isola 계열 라미네이트의 D3039 포아송비(370HR 0.177/0.171 · FR408 0.162/0.138 · FR408HR 0.137/0.133)와 같은 대역이다."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.14,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "Y",
+      "direction_verbatim": "Poisson's Ratios (X / Y) — Y 칸",
+      "direction_basis": "시트가 X/Y 로만 인쇄하고 warp/fill 대응을 밝히지 않는다(ASTM D3039). 두 면내축을 갈라 찍되 어느 쪽이 경사인지 적지 않아 MD/TD 로 배정하지 않았다 — 정규어휘는 in-plane 으로 접힌다(app/direction_vocab._BARE_XY).",
+      "test_standard": "ASTM D3039",
+      "temperature": "not printed"
+     },
+     "notes": "Rev C 4-02 시트 `Poisson's Ratios (X / Y) 0.16 / 0.14 ASTM D3039`. 2011 판도 같다. Isola 계열 라미네이트의 D3039 포아송비(370HR 0.177/0.171 · FR408 0.162/0.138 · FR408HR 0.137/0.133)와 같은 대역이다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.3,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "statistic": "minimum",
+      "printed_as": "0.3 - 0.4 W/mK",
+      "direction": "미기재 — 벤더가 축 라벨 없이 한 칸만 인쇄한다(ASTM E1461). CCL 은 이방성이지만 이 시트는 면내/두께방향을 가르지 않는다. E1461(레이저 플래시)이 판상 시편의 두께방향을 재는 규격이라 기하상 두께방향으로 읽을 여지는 있으나, 시트가 그렇게 적지 않았으므로 배정하지 않는다.",
+      "test_standard": "ASTM E1461-92",
+      "temperature": "not printed"
+     },
+     "notes": "Rev C 4-02 시트 `Thermal Conductivity 0.3 - 0.4 W/mK ASTM E1461-92`. 구간만 인쇄되므로 중앙값을 만들지 않고 두 끝을 statistic 으로 갈라 담았다(브리프 616·451, 같은 DB 의 Ehrler CTE min/max 규약과 같다). 2011 판도 0.3-0.4 로 같다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.4,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "statistic": "maximum",
+      "printed_as": "0.3 - 0.4 W/mK",
+      "direction": "미기재 — 벤더가 축 라벨 없이 한 칸만 인쇄한다(ASTM E1461). CCL 은 이방성이지만 이 시트는 면내/두께방향을 가르지 않는다. E1461(레이저 플래시)이 판상 시편의 두께방향을 재는 규격이라 기하상 두께방향으로 읽을 여지는 있으나, 시트가 그렇게 적지 않았으므로 배정하지 않는다.",
+      "test_standard": "ASTM E1461-92",
+      "temperature": "not printed"
+     },
+     "notes": "Rev C 4-02 시트 `Thermal Conductivity 0.3 - 0.4 W/mK ASTM E1461-92`. 구간만 인쇄되므로 중앙값을 만들지 않고 두 끝을 statistic 으로 갈라 담았다(브리프 616·451, 같은 DB 의 Ehrler CTE min/max 규약과 같다). 2011 판도 0.3-0.4 로 같다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1200.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "statistic": "minimum",
+      "printed_as": "1.20 - 1.40 J/gK",
+      "test_standard": "ASTM E1461-92",
+      "temperature": "not printed"
+     },
+     "notes": "Rev C 4-02 시트 `Specific Heat 1.20 - 1.40 J/gK ASTM E1461-92`. 2011 판도 같다. 브리프 585 는 *\"비열은 pcb 벤더가 아무도 안 찍는다\"* 고 적었는데 Park/Nelco 는 찍는다 — 그 선언의 반례다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1400.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "statistic": "maximum",
+      "printed_as": "1.20 - 1.40 J/gK",
+      "test_standard": "ASTM E1461-92",
+      "temperature": "not printed"
+     },
+     "notes": "Rev C 4-02 시트 `Specific Heat 1.20 - 1.40 J/gK ASTM E1461-92`. 2011 판도 같다. 브리프 585 는 *\"비열은 pcb 벤더가 아무도 안 찍는다\"* 고 적었는데 Park/Nelco 는 찍는다 — 그 선언의 반례다."
+    }
+   ]
+  },
+  {
+   "match_name": "Nelco N4000-13 high-performance epoxy PCB laminate (Park Nelco) — Ehrler 2002",
+   "source": {
+    "kind": "datasheet",
+    "title": "Nelco(R) N4000-13 / Nelco(R) N4000-13 SI(R) High-Speed Multifunctional Epoxy Laminate & Prepreg (Rev 1-14)",
+    "year": 2014,
+    "publisher": "Park Electrochemical Corp. (Nelco)",
+    "url": "https://www.cirexx.com/wp-content/uploads/n4000-13-1.pdf",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Park_Nelco_N4000-13_and_SI_DataSheet_Rev1-14.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1910.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "resin_content": "50% resin content (시트 행 이름 verbatim)",
+      "test_method": "Internal Method (시트 verbatim)",
+      "temperature": "not printed"
+     },
+     "notes": "Rev 1-14 시트 Chemical/Physical 블록 `Density [50% resin content] 1.91 g/cm3`. N4000-13 열(첫 열)이다 — 옆 열 N4000-13 SI 는 1.79 로 다른 재료다(브리프 7). 400 dpi 렌더로 열 배정을 확인했다. §586 동정 검산 — Ehrler 2002 Table II 'N4000-13' 대 이 시트. Tg(DSC) 202-207 degC 대 시트 210 · Tg(DMA) 238-245 degC 대 시트 240 — 두 축이 맞는다. 어긋나는 축 둘을 밝혀 둔다: Tg(TMA) Ehrler 162/178 대 시트 200 · CTEz alpha1 Ehrler 53-55 대 시트 70 ppm/degC. Ehrler 의 TMA 는 같은 논문 네 재료 전부에서 자기 DSC 보다 20-40 degC 낮게 읽혀 계통 편향이 있고(Nelco4000-6 TMA 164 대 DSC 186 · FR408 TMA 163 대 DSC 194), 그래서 TMA 축은 등급 판별에 못 쓴다. 이름에 접미 세대 표시가 없다 (현행 AGC 는 개량판을 'N4000-13 EP' 로 따로 판다 - 이 시트는 접미 없는 N4000-13 본판이다)."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 28500000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "X",
+      "direction_verbatim": "Young's Modulus (X / Y) — X 칸",
+      "direction_basis": "시트가 X/Y 로만 인쇄하고 warp/fill 대응을 밝히지 않는다(ASTM D3039). 두 면내축을 갈라 찍되 어느 쪽이 경사인지 적지 않아 MD/TD 로 배정하지 않았다 — 정규어휘는 in-plane 으로 접힌다(app/direction_vocab._BARE_XY).",
+      "test_standard": "ASTM D3039",
+      "temperature": "not printed",
+      "grade": "N4000-13 (SI 등급 아님)"
+     },
+     "notes": "Rev 1-14 시트 `Young's Modulus (X / Y) 4.2 / 3.3 psi x 10^6 | 28.5 / 22.4 GN/m^2 | ASTM D3039` 의 N4000-13 열. 미터 열 인쇄값을 담았다(미국 열 4.2e6 psi = 28.96 GPa 로 1.6% 차 - 열마다 따로 반올림). §604 혼합물 경계 검산 — 이 시트가 같이 인쇄하는 밀도/구성으로 유리 부피분율을 0.5 로 잡으면 직조포 warp 방향 하한 = 0.25 x 72 GPa = 18.0 GPa, Voigt 상한 = 0.5 x 72 + 0.5 x 3.3 = 37.7 GPa 다. 이 값이 그 사이에 든다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 22400000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "Y",
+      "direction_verbatim": "Young's Modulus (X / Y) — Y 칸",
+      "direction_basis": "시트가 X/Y 로만 인쇄하고 warp/fill 대응을 밝히지 않는다(ASTM D3039). 두 면내축을 갈라 찍되 어느 쪽이 경사인지 적지 않아 MD/TD 로 배정하지 않았다 — 정규어휘는 in-plane 으로 접힌다(app/direction_vocab._BARE_XY).",
+      "test_standard": "ASTM D3039",
+      "temperature": "not printed",
+      "grade": "N4000-13 (SI 등급 아님)"
+     },
+     "notes": "Rev 1-14 시트 `Young's Modulus (X / Y) 4.2 / 3.3 psi x 10^6 | 28.5 / 22.4 GN/m^2 | ASTM D3039` 의 N4000-13 열. 미터 열 인쇄값을 담았다(미국 열 4.2e6 psi = 28.96 GPa 로 1.6% 차 - 열마다 따로 반올림). §604 혼합물 경계 검산 — 이 시트가 같이 인쇄하는 밀도/구성으로 유리 부피분율을 0.5 로 잡으면 직조포 warp 방향 하한 = 0.25 x 72 GPa = 18.0 GPa, Voigt 상한 = 0.5 x 72 + 0.5 x 3.3 = 37.7 GPa 다. 이 값이 그 사이에 든다."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.13,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "X",
+      "direction_verbatim": "Poisson's Ratios (X / Y) — X 칸",
+      "direction_basis": "시트가 X/Y 로만 인쇄하고 warp/fill 대응을 밝히지 않는다(ASTM D3039). 두 면내축을 갈라 찍되 어느 쪽이 경사인지 적지 않아 MD/TD 로 배정하지 않았다 — 정규어휘는 in-plane 으로 접힌다(app/direction_vocab._BARE_XY).",
+      "test_standard": "ASTM D3039",
+      "temperature": "not printed",
+      "grade": "N4000-13 (SI 등급 아님)"
+     },
+     "notes": "Rev 1-14 시트 `Poisson's Ratios (X / Y) 0.13 / 0.11 ASTM D3039` 의 N4000-13 열. SI 열은 0.18/0.17 로 다르다."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.11,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "Y",
+      "direction_verbatim": "Poisson's Ratios (X / Y) — Y 칸",
+      "direction_basis": "시트가 X/Y 로만 인쇄하고 warp/fill 대응을 밝히지 않는다(ASTM D3039). 두 면내축을 갈라 찍되 어느 쪽이 경사인지 적지 않아 MD/TD 로 배정하지 않았다 — 정규어휘는 in-plane 으로 접힌다(app/direction_vocab._BARE_XY).",
+      "test_standard": "ASTM D3039",
+      "temperature": "not printed",
+      "grade": "N4000-13 (SI 등급 아님)"
+     },
+     "notes": "Rev 1-14 시트 `Poisson's Ratios (X / Y) 0.13 / 0.11 ASTM D3039` 의 N4000-13 열. SI 열은 0.18/0.17 로 다르다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.35,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "미기재 — 벤더가 축 라벨 없이 한 칸만 인쇄한다(ASTM E1461). CCL 은 이방성이지만 이 시트는 면내/두께방향을 가르지 않는다. E1461(레이저 플래시)이 판상 시편의 두께방향을 재는 규격이라 기하상 두께방향으로 읽을 여지는 있으나, 시트가 그렇게 적지 않았으므로 배정하지 않는다.",
+      "test_standard": "ASTM E1461",
+      "temperature": "not printed",
+      "grade": "N4000-13 (SI 등급 아님)"
+     },
+     "notes": "Rev 1-14 시트 `Thermal Conductivity 0.350 W/mK ASTM E1461` 의 N4000-13 열(SI 열은 0.294). 현행 AGC 의 N4000-13 EP 시트도 0.35 로 같다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1200.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM E1461",
+      "temperature": "not printed",
+      "grade": "N4000-13 (SI 등급 아님)"
+     },
+     "notes": "Rev 1-14 시트 `Specific Heat 1.20 J/gK ASTM E1461` 의 N4000-13 열(SI 열은 1.30). 자체 검산 — 이 시트 한 장이 rho 1.91 g/cm3 · k 0.350 W/(m*K) · Cp 1200 J/(kg*K) 를 같이 인쇄하므로 alpha = k/(rho*Cp) = 0.350/(1910 x 1200) = 1.53e-7 m^2/s 다. FR-4 계열 라미네이트의 통용 열확산율 (1.2~2.0e-7 m^2/s) 안이라 세 칸이 서로 모순되지 않는다(브리프 603 의 k = alpha*rho*Cp 항등식을 같은 표 안에서 닫았다)."
+    }
+   ]
+  },
+  {
+   "match_name": "Isola FR408 high-performance epoxy PCB laminate — Ehrler 2002",
+   "source": {
+    "kind": "datasheet",
+    "title": "FR408 Mid Loss, Epoxy Laminate and Prepreg - Typical Values Table (Revision No: C, Last Updated April 16, 2021)",
+    "year": 2021,
+    "publisher": "Isola Group",
+    "url": "https://www.isola-group.com/wp-content/uploads/data-sheets/fr408.pdf",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Isola_FR408_Laminate_Prepreg_DataSheet_RevC_2021-04-16.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 25407179545.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "MD",
+      "direction_verbatim": "A. Length direction",
+      "test_standard": "ASTM D790-15e2",
+      "modulus_basis": "flexural (ASTM D790 3점 굽힘) — 시트 행 이름은 \"Young's Modulus\"",
+      "printed_as": "3685 / 3044 ksi",
+      "temperature": "not printed"
+     },
+     "notes": "시트가 행 이름을 \"Young's Modulus\" 로 인쇄하지만 시험규격은 ASTM D790(3점 굽힘)이라 실체는 굽힘탄성률이다 — 행 이름과 규격을 둘 다 조건에 박아 둔다(브리프 21·605). 카탈로그의 Isola 220/221/222 도 같은 D790 행을 mechanical.youngs_modulus 로 담고 있어 규약이 같다. Rev C 시트 `Young's Modulus A. Length direction 3685 / B. Cross direction 3044 ksi | ASTM D790-15e2`. 1 ksi = 6.894757e6 Pa. 400 dpi 렌더로 확인했다. 형제 등급 FR408HR(Rev E)의 3695/3315 ksi 와 같은 대역이다.  §604 혼합물 경계 검산 — 이 시트가 같이 인쇄하는 밀도/구성으로 유리 부피분율을 0.5 로 잡으면 직조포 warp 방향 하한 = 0.25 x 72 GPa = 18.0 GPa, Voigt 상한 = 0.5 x 72 + 0.5 x 3.3 = 37.7 GPa 다. 이 값이 그 사이에 든다. §586 동정 검산 — Ehrler 2002 Table II 'FR408 Isola' 대 이 시트. 동시대판(Isola Laminate Systems Data Sheet #5035/5/02)과 이 Rev C 가 Tg(DSC) 180 degC · CTE x/y 13 ppm/degC 를 19년 사이에 같게 인쇄한다 - 벤더의 FR408 은 세대가 갈리지 않았다. Ehrler 의 DSC 192-196 degC 는 공칭 180 보다 높은데, 같은 논문이 공칭 180 급인 Nelco4000-6('FR4-180')도 DSC 184-188 로 높게 읽어 계통 편향이다. Dk 는 Ehrler 4.06(1MHz, 3x7628 추정) 대 시트 3.69(100MHz, 표준 구성)로 주파수·구성이 달라 판별축이 못 된다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 20987640308.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "TD",
+      "direction_verbatim": "B. Cross direction",
+      "test_standard": "ASTM D790-15e2",
+      "modulus_basis": "flexural (ASTM D790 3점 굽힘) — 시트 행 이름은 \"Young's Modulus\"",
+      "printed_as": "3685 / 3044 ksi",
+      "temperature": "not printed"
+     },
+     "notes": "시트가 행 이름을 \"Young's Modulus\" 로 인쇄하지만 시험규격은 ASTM D790(3점 굽힘)이라 실체는 굽힘탄성률이다 — 행 이름과 규격을 둘 다 조건에 박아 둔다(브리프 21·605). 카탈로그의 Isola 220/221/222 도 같은 D790 행을 mechanical.youngs_modulus 로 담고 있어 규약이 같다. Rev C 시트 `Young's Modulus A. Length direction 3685 / B. Cross direction 3044 ksi | ASTM D790-15e2`. 1 ksi = 6.894757e6 Pa. 400 dpi 렌더로 확인했다. 형제 등급 FR408HR(Rev E)의 3695/3315 ksi 와 같은 대역이다.  §604 혼합물 경계 검산 — 이 시트가 같이 인쇄하는 밀도/구성으로 유리 부피분율을 0.5 로 잡으면 직조포 warp 방향 하한 = 0.25 x 72 GPa = 18.0 GPa, Voigt 상한 = 0.5 x 72 + 0.5 x 3.3 = 37.7 GPa 다. 이 값이 그 사이에 든다. §586 동정 검산 — Ehrler 2002 Table II 'FR408 Isola' 대 이 시트. 동시대판(Isola Laminate Systems Data Sheet #5035/5/02)과 이 Rev C 가 Tg(DSC) 180 degC · CTE x/y 13 ppm/degC 를 19년 사이에 같게 인쇄한다 - 벤더의 FR408 은 세대가 갈리지 않았다. Ehrler 의 DSC 192-196 degC 는 공칭 180 보다 높은데, 같은 논문이 공칭 180 급인 Nelco4000-6('FR4-180')도 DSC 184-188 로 높게 읽어 계통 편향이다. Dk 는 Ehrler 4.06(1MHz, 3x7628 추정) 대 시트 3.69(100MHz, 표준 구성)로 주파수·구성이 달라 판별축이 못 된다."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.162,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "MD",
+      "direction_verbatim": "A. Length direction",
+      "test_standard": "ASTM D3039",
+      "temperature": "not printed"
+     },
+     "notes": "Rev C 시트 `Poisson's Ratio A. Length direction 0.162 / B. Cross direction 0.138 | ASTM D3039`. Isola 계열의 같은 규격 값(370HR 0.177/0.171 · FR408HR 0.137/0.133 · IS400 계열)과 같은 대역이다."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.138,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "TD",
+      "direction_verbatim": "B. Cross direction",
+      "test_standard": "ASTM D3039",
+      "temperature": "not printed"
+     },
+     "notes": "Rev C 시트 `Poisson's Ratio A. Length direction 0.162 / B. Cross direction 0.138 | ASTM D3039`. Isola 계열의 같은 규격 값(370HR 0.177/0.171 · FR408HR 0.137/0.133 · IS400 계열)과 같은 대역이다."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 408859090.1,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "MD",
+      "direction_verbatim": "A. Length direction",
+      "test_standard": "ASTM D3039",
+      "printed_as": "59.3 / 42.0 ksi",
+      "temperature": "not printed"
+     },
+     "notes": "Rev C 시트 `Tensile Strength A. Length direction 59.3 / B. Cross direction 42.0 ksi | ASTM D3039`. 이 판의 개정 이력이 `B: Corrected units for Flexural and Tensile Strength - 8/18` 이라 Rev A/B 의 단위가 틀렸었다 — 고쳐진 Rev C 를 썼다(브리프 615). 카탈로그의 370HR(385/245 MPa)과 같은 대역이고 LW > CW 순서도 같다."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 289579794.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "TD",
+      "direction_verbatim": "B. Cross direction",
+      "test_standard": "ASTM D3039",
+      "printed_as": "59.3 / 42.0 ksi",
+      "temperature": "not printed"
+     },
+     "notes": "Rev C 시트 `Tensile Strength A. Length direction 59.3 / B. Cross direction 42.0 ksi | ASTM D3039`. 이 판의 개정 이력이 `B: Corrected units for Flexural and Tensile Strength - 8/18` 이라 Rev A/B 의 단위가 틀렸었다 — 고쳐진 Rev C 를 썼다(브리프 615). 카탈로그의 370HR(385/245 MPa)과 같은 대역이고 LW > CW 순서도 같다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.4,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "미기재 — 벤더가 축 라벨 없이 한 칸만 인쇄한다(ASTM E1952). CCL 은 이방성이지만 이 시트는 면내/두께방향을 가르지 않는다. E1952 가 두께방향 측정법이라 기하상 두께방향으로 읽을 여지는 있고 카탈로그의 Isola 220·221·222 행은 그 근거로 through-thickness 를 배정해 두었으나, 59차 조정자 규칙에 따라 시트가 적지 않은 축은 배정하지 않는다.",
+      "test_standard": "ASTM E1952",
+      "temperature": "not printed"
+     },
+     "notes": "Rev C 시트 `Thermal Conductivity 0.4 W/m*K ASTM E1952`. 카탈로그의 Isola 370HR 0.4 · IS400 0.36 · I-Tera MT40 0.61 과 같은 규격·같은 대역이다."
+    }
+   ]
+  },
+  {
+   "match_name": "GETEK high-Tg epoxy / polyphenylene-oxide blend PCB laminate (General Electric) — Ehrler 2002",
+   "source": {
+    "kind": "datasheet",
+    "title": "GETEK(R) Low Dk/Df Laminate and Prepreg - GETEK(R) Specifications, Typical Values (9/12 DSGETEKA)",
+    "year": 2012,
+    "publisher": "Isola Group",
+    "url": "https://www.midwestpcb.com/data_sheets/GETEK.pdf",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Isola_GETEK_Laminate_Prepreg_DataSheet_DSGETEKA_2012-09.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 22780277128.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "MD",
+      "direction_verbatim": "A. Grain direction",
+      "test_method": "not printed — 시트의 Test Method 칸이 자리표시자 문자 \"ww\" 다",
+      "printed_as": "3304 / 3083 ksi",
+      "temperature": "not printed"
+     },
+     "notes": "2012 판(9/12 DSGETEKA) `Young's Modulus A. Grain direction 3304 / B. Fill direction 3083 ksi`. 400 dpi 렌더로 확인했고 시험규격 칸이 비어 있는 것이 아니라 `ww` 라는 자리표시자임도 렌더로 확인했다. 판 대조(브리프 615) — 같은 제품의 2008 판(Data Sheet IGETEK, Rev 5-16-08, (c)2006 Isola)과 대 봤다. 인장강도 50,000/37,000 lb/inch^2 와 굽힘강도 58,000/79,000 과 열전도율 0.4 W/mK(ASTM D5930)는 두 판이 같다. 탄성률은 2008 판이 단위 칸을 비운 채 `Youngs Modulus 3.4/3.0` 과 `Taylors Modulus 3.7/3.0` 두 행으로 인쇄하고 2012 판은 `Young's Modulus 3304/3083 ksi` 한 행으로 인쇄한다(3.304/3.083 Msi). 미러 셋(midwestpcb · nwengineeringllc · epectec)을 받아 대조했고 2012 판 둘은 바이트가 같다. 2008 판의 두 후보(3.4/3.0 · 3.7/3.0 Msi)와 3~11% 안이라 같은 값의 판 차이로 보고 담았다. §604 혼합물 경계 검산 — 이 시트가 같이 인쇄하는 밀도/구성으로 유리 부피분율을 0.5 로 잡으면 직조포 warp 방향 하한 = 0.25 x 72 GPa = 18.0 GPa, Voigt 상한 = 0.5 x 72 + 0.5 x 3.3 = 37.7 GPa 다. 이 값이 그 사이에 든다. §586 동정 검산 — Ehrler 2002 Table II 'GETEK General electric' 대 이 Isola 시트(GETEK 상표는 GE -> Polyclad -> Isola 로 넘어갔고 시트 각주가 'GETEK are registered trademarks of Isola Corp. USA' 라고 밝힌다). 세 축이 맞는다 — Tg(DMA) Ehrler 183/181 degC 대 시트 180 · Dk Ehrler 3.75(1MHz) 대 시트 3.81(100MHz) · CTEz Pre-Tg Ehrler 40-60 ppm/K 가 시트 55 를 포함한다. 이름에 접미 세대 표시가 없다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 21256535831.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "TD",
+      "direction_verbatim": "B. Fill direction",
+      "test_method": "not printed — 시트의 Test Method 칸이 자리표시자 문자 \"ww\" 다",
+      "printed_as": "3304 / 3083 ksi",
+      "temperature": "not printed"
+     },
+     "notes": "2012 판(9/12 DSGETEKA) `Young's Modulus A. Grain direction 3304 / B. Fill direction 3083 ksi`. 400 dpi 렌더로 확인했고 시험규격 칸이 비어 있는 것이 아니라 `ww` 라는 자리표시자임도 렌더로 확인했다. 판 대조(브리프 615) — 같은 제품의 2008 판(Data Sheet IGETEK, Rev 5-16-08, (c)2006 Isola)과 대 봤다. 인장강도 50,000/37,000 lb/inch^2 와 굽힘강도 58,000/79,000 과 열전도율 0.4 W/mK(ASTM D5930)는 두 판이 같다. 탄성률은 2008 판이 단위 칸을 비운 채 `Youngs Modulus 3.4/3.0` 과 `Taylors Modulus 3.7/3.0` 두 행으로 인쇄하고 2012 판은 `Young's Modulus 3304/3083 ksi` 한 행으로 인쇄한다(3.304/3.083 Msi). 미러 셋(midwestpcb · nwengineeringllc · epectec)을 받아 대조했고 2012 판 둘은 바이트가 같다. 2008 판의 두 후보(3.4/3.0 · 3.7/3.0 Msi)와 3~11% 안이라 같은 값의 판 차이로 보고 담았다. §604 혼합물 경계 검산 — 이 시트가 같이 인쇄하는 밀도/구성으로 유리 부피분율을 0.5 로 잡으면 직조포 warp 방향 하한 = 0.25 x 72 GPa = 18.0 GPa, Voigt 상한 = 0.5 x 72 + 0.5 x 3.3 = 37.7 GPa 다. 이 값이 그 사이에 든다. §586 동정 검산 — Ehrler 2002 Table II 'GETEK General electric' 대 이 Isola 시트(GETEK 상표는 GE -> Polyclad -> Isola 로 넘어갔고 시트 각주가 'GETEK are registered trademarks of Isola Corp. USA' 라고 밝힌다). 세 축이 맞는다 — Tg(DMA) Ehrler 183/181 degC 대 시트 180 · Dk Ehrler 3.75(1MHz) 대 시트 3.81(100MHz) · CTEz Pre-Tg Ehrler 40-60 ppm/K 가 시트 55 를 포함한다. 이름에 접미 세대 표시가 없다."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 344737850.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "MD",
+      "direction_verbatim": "A. Lengthwise direction",
+      "test_method": "not printed — 시트의 Test Method 칸이 `-` 다",
+      "printed_as": "50,000 / 37,000 lb/inch^2",
+      "temperature": "not printed",
+      "bound": "minimum (2008 판이 행 이름을 'TensileStrength, minimum' 으로 인쇄한다)"
+     },
+     "notes": "2012 판 `Tensile Strength A. Lengthwise 50,000 / B. Crosswise 37,000 lb/inch^2`. 1 psi = 6894.757 Pa. 400 dpi 렌더로 확인했다. 판 대조(브리프 615) — 같은 제품의 2008 판(Data Sheet IGETEK, Rev 5-16-08, (c)2006 Isola)과 대 봤다. 인장강도 50,000/37,000 lb/inch^2 와 굽힘강도 58,000/79,000 과 열전도율 0.4 W/mK(ASTM D5930)는 두 판이 같다. 탄성률은 2008 판이 단위 칸을 비운 채 `Youngs Modulus 3.4/3.0` 과 `Taylors Modulus 3.7/3.0` 두 행으로 인쇄하고 2012 판은 `Young's Modulus 3304/3083 ksi` 한 행으로 인쇄한다(3.304/3.083 Msi). 미러 셋(midwestpcb · nwengineeringllc · epectec)을 받아 대조했고 2012 판 둘은 바이트가 같다. 같은 표의 굽힘강도가 LW 58,000 < CW 79,000 으로 뒤집혀 인쇄되는데(라미네이트 관행과 반대) 인장강도 행은 LW 50,000 > CW 37,000 으로 정상 순서이고 FR408(59.3>42.0 ksi)·370HR(385>245 MPa)과도 같은 방향이라 굽힘 행의 이상이 인장 행으로 번지지 않았음을 확인했다(브리프 141)."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 255106009.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "TD",
+      "direction_verbatim": "B. Crosswise direction",
+      "test_method": "not printed — 시트의 Test Method 칸이 `-` 다",
+      "printed_as": "50,000 / 37,000 lb/inch^2",
+      "temperature": "not printed",
+      "bound": "minimum (2008 판이 행 이름을 'TensileStrength, minimum' 으로 인쇄한다)"
+     },
+     "notes": "2012 판 `Tensile Strength A. Lengthwise 50,000 / B. Crosswise 37,000 lb/inch^2`. 1 psi = 6894.757 Pa. 400 dpi 렌더로 확인했다. 판 대조(브리프 615) — 같은 제품의 2008 판(Data Sheet IGETEK, Rev 5-16-08, (c)2006 Isola)과 대 봤다. 인장강도 50,000/37,000 lb/inch^2 와 굽힘강도 58,000/79,000 과 열전도율 0.4 W/mK(ASTM D5930)는 두 판이 같다. 탄성률은 2008 판이 단위 칸을 비운 채 `Youngs Modulus 3.4/3.0` 과 `Taylors Modulus 3.7/3.0` 두 행으로 인쇄하고 2012 판은 `Young's Modulus 3304/3083 ksi` 한 행으로 인쇄한다(3.304/3.083 Msi). 미러 셋(midwestpcb · nwengineeringllc · epectec)을 받아 대조했고 2012 판 둘은 바이트가 같다. 같은 표의 굽힘강도가 LW 58,000 < CW 79,000 으로 뒤집혀 인쇄되는데(라미네이트 관행과 반대) 인장강도 행은 LW 50,000 > CW 37,000 으로 정상 순서이고 FR408(59.3>42.0 ksi)·370HR(385>245 MPa)과도 같은 방향이라 굽힘 행의 이상이 인장 행으로 번지지 않았음을 확인했다(브리프 141)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.4,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "미기재 — 벤더가 축 라벨 없이 한 칸만 인쇄한다(ASTM D5930). CCL 은 이방성이지만 이 시트는 면내/두께방향을 가르지 않는다. D5930(과도 선원법)은 규격이 기하로 축을 규정하지도 않는다.",
+      "test_standard": "ASTM D5930",
+      "temperature": "not printed"
+     },
+     "notes": "2012 판 `Thermal Conductivity 0.4 W/mK ASTM D5930`. 2008 판도 같은 값·같은 규격이다. Isola 의 다른 등급(370HR 0.4 · IS400 0.36)과 같은 대역이지만 규격이 E1952 가 아니라 D5930 이라 조건에 갈라 적었다."
+    }
+   ]
+  }
+ ]
+}
