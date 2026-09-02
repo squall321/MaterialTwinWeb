@@ -1,0 +1,116 @@
+# 59차 UD — V5 에서 실제로 캔 값 11칸(2417 6 · 2266 3 · 587 2).
+import json
+
+LEE={"kind":"journal","doi":"10.1002/app.31873","url":"https://doi.org/10.1002/app.31873",
+ "title":("Sung Hee Lee, Seong Yun Kim, Jae Ryoun Youn, Baek Jin Kim (2010), Warpage of a large-sized orthogonal "
+   "stiffened plate produced by injection molding and injection compression molding, Journal of Applied Polymer "
+   "Science 116:3460-3467, TABLE II 'Constants of the Modified Cross Model with WLF Equation for the Thermocomp MEV-1006'"),
+ "authors":"Sung Hee Lee; Seong Yun Kim; Jae Ryoun Youn; Baek Jin Kim","year":2010,
+ "local_path":("/data/paper_patent_corpus/structured/expert_papers/03_mech/Lee - 2010 - Warpage of a large‐sized "
+   "orthogonal stiffened plate produced by injection molding and injection compression molding/Lee - 2010 - Warpage "
+   "of a large‐sized orthogonal stiffened plate produced by injection molding and injection compression molding.md")}
+
+LEE_BASIS=("해석 입력표 — 논문 방법절이 '측정했다' 고 밝힌 것은 점도와 PVT 뿐이라 이 표는 tier1 이 될 수 없다(브리프 3). "
+  "Moldflow 물성 데이터베이스의 이 상용 등급 값으로 본다.")
+LEE_COL=("**열 배정 검산(브리프 606·604).** docling 이 TABLE III 의 값 넉 줄을 첫 행에 몰아 뽑았다 — "
+  "`Melt density (kg/m3) | 971.4 1132.4 5212 0.437 (at` 이고 뒤 세 행(고체밀도·탄성계수·포아송비)이 빈칸이다. "
+  "배정은 순서와 자릿수로 닫힌다 — 네 값이 표의 네 행 순서와 같고 각 값의 크기가 그 행의 단위와만 맞는다. "
+  "**독립 검산 — 조성 혼합칙**(브리프 604): PP 0.905 · E-glass 2.54 g/cm³ 로 30 wt% GF 를 섞으면 "
+  "1/ρ = 0.7/0.905 + 0.3/2.54 → ρ = 1.1216 g/cm³ 이고 인쇄 고체밀도 1.1324 와 **1.0% 안**이다. "
+  "용융밀도 971.4 kg/m³ 도 같은 표에 있으나 **온도 조건이 인쇄돼 있지 않아 넣지 않았다**(조건 없는 행은 "
+  "조건축이 거짓이 된다 — 브리프 121·138). 남긴 이유를 여기 적어 두니 다음 파동이 다시 세지 마라(브리프 612).")
+
+GLID={"kind":"datasheet","publisher":"SCM Metal Products / Höganäs (GlidCop®)",
+ "url":"https://componentconcepts.com/assets/docs/Electrodes%20GlidCop_AL_15%20specifications.pdf",
+ "title":"TECHNICAL DATA SHEET — GLIDCOP DISPERSION STRENGTHENED COPPER, GLIDCOP® AL-15 (C15715), PHYSICAL PROPERTIES (No. 700A, Revised 05/02/03)",
+ "local_path":"/tmp/claude-1000/-home-koopark-claude-MaterialTwinWeb/27fcb5b7-c986-41ba-966a-c49b295b3f3a/scratchpad/glidcop_al15_tds.pdf"}
+GLID_ID=("제품 동정이 닫혀 있다 — 시트가 `GlidCop® AL-15 is designated in UNS as C15715` 라고 못박고 DB 재료명의 "
+ "UNS 도 C15715 다. 형제 등급 AL-25(C15725)·AL-60(C15760) 은 알루미나 함량이 달라 옮기면 안 된다(브리프 22·586). "
+ "**행 배정 교차검증(브리프 129)** — 같은 시트 MECHANICAL PROPERTIES 의 `Plate 16 mm(.625 in) CW 75%` 행이 "
+ "인장 483 MPa · 항복 455 MPa 인데, 이 재료의 기존 tier1(Srivatsan 1993, as-rolled 16 mm 판재 종방향)이 "
+ "UTS 482 · YS 462 MPa 다. **1~2% 안에서 만나 이 시트가 바로 이 제품·이 두께의 시트임이 닫힌다.**")
+
+CHENG={"kind":"journal","doi":"10.1016/j.compositesb.2019.03.002",
+ "title":"Parameters prediction of cohesive zone model for simulating composite/adhesive delamination in hygrothermal environments",
+ "authors":"Cheng","year":2019,
+ "local_path":("/data/paper_patent_corpus/structured/cae_papers/15_cohesive_xfem/Cheng - 2019 - Parameters prediction "
+   "of cohesive zone model for simulating composite_adhesive delamination in hygrothermal environments/Cheng - 2019 - "
+   "Parameters prediction of cohesive zone model for simulating composite_adhesive delamination in hygrothermal environments.md")}
+CHENG_CAL=("**디지타이즈 근거와 축 캘리브레이션.** 논문 2.1.2 절이 `The configuration of the adhesive specimens … made by "
+ "12 layers of adhesive films (SY-14M-III) … Instron 8801 … Epsilon extensometer with 10 mm gauge length … "
+ "three specimens per group, 21 specimens in total` 이라고 밝힌다 — **저자가 이 접착제 벌크 시편을 직접 인장시험했다.** "
+ "결과는 표가 아니라 Fig.8 두 부그림에만 있어 픽셀로 읽었다(method=digitized — 브리프 40차 BF: 그림에서 읽은 값은 실측이 아니다). "
+ "축 눈금을 두 부그림에서 각각 잡아 교차검증했다 — 가로축은 두 그림 모두 긴 눈금 넷이 0·50·100·150 °C 이고 "
+ "프레임 좌우가 −25 °C 와 175 °C 로 같다. 마커 다섯 개의 가로좌표가 (a) 23.0·55.1·74.9·95.3·129.5 °C, "
+ "(b) 23.4·50.1·75.1·94.8·130.0 °C 로 **다섯 중 넷이 0.5 °C 안에서 겹친다**(둘째 점만 55 대 50 으로 갈리는데, "
+ "우리가 쓰는 상온점이 아니다). 상온 건조점 `Dry environment-EXP (M=0)` 만 등재한다.")
+
+MAT=[
+ {"match_name":"Thermocomp MEV-1006 PP/GF 30 wt% (LNP Engineering Plastics)","source":LEE,"properties":[
+  {"key":"physical.density","value":1132.4,"unit":"kg/m^3","method":"handbook","tier":3,
+   "conditions":{"state":"solid","source_table":"TABLE III Material Properties of the Polymer Resin for Numerical Flow Simulation","basis":LEE_BASIS},
+   "notes":"TABLE III `Solid density (kg/m 3 )` 행. "+LEE_COL+" 이 재료는 코어 7칸이 통째로 비어 V5 로 세어져 왔는데, "
+           "**같은 논문의 TABLE II 는 52차에 이미 캐 갔다**(WLF 상수·Cross 모델 상수). 옆 표를 아무도 안 열었다(브리프 602). 59차 UD."},
+  {"key":"mechanical.youngs_modulus","value":5.212e9,"unit":"Pa","method":"handbook","tier":3,
+   "conditions":{"state":"solid","source_table":"TABLE III","basis":LEE_BASIS},
+   "notes":"TABLE III `Elastic modulus (MPa) 5212`. "+LEE_COL+" 크기 검산 — PP-GF30 사출 등급의 통용 인장탄성률 5~7 GPa 안이다. 59차 UD."},
+  {"key":"mechanical.poisson_ratio","value":0.437,"unit":"1","method":"handbook","tier":3,
+   "conditions":{"state":"solid","source_table":"TABLE III","basis":LEE_BASIS},
+   "notes":"TABLE III `Poisson's ratio 0.437`. "+LEE_COL+" 브리프 3 의 관용값 판별(0.3/0.33/0.35 에 유효숫자 2자리)에 "
+           "걸리지 않는다 — 세 자리이고 관용값이 아니다. 다만 방법절이 측정을 밝히지 않아 tier3 이다. 59차 UD."},
+  {"key":"thermal.expansion_linear","value":3.024e-5,"unit":"1/K","method":"handbook","tier":3,
+   "conditions":{"state":"solid","source_table":"TABLE III","basis":LEE_BASIS},
+   "notes":"TABLE III `Thermal expansion coefficient (K-1) 3.024E-5`. 이 행은 docling 이 몰아 뽑지 않고 제 행에 그대로 실었다. "
+           "크기 검산 — 무충전 PP 가 약 1.0e-4 이고 GF30 이면 1/3 수준으로 내려가는 것이 통상이다. 59차 UD."},
+  {"key":"thermal.specific_heat","value":2407.0,"unit":"J/(kg*K)","method":"handbook","tier":3,
+   "conditions":{"state":"melt","temperature_c":254.5,"source_table":"TABLE III","basis":LEE_BASIS,
+                 "temperature_dependence":"시트가 `temperature dependent` 라고 밝힌다 — 이 값은 254.5 °C 의 한 점이다"},
+   "notes":"TABLE III `Specific heat (J/kg K) 2407 (at 254.5 °C, temperature dependent)`. **용융 상태 값이다** — "
+           "고체 비열이 아니므로 조건에 못박았다. 크기 검산 — PP 용융 비열 통용 2500~2900 J/(kg·K) 에 GF30 을 섞으면 내려간다. 59차 UD."},
+  {"key":"thermal.conductivity","value":0.18,"unit":"W/(m*K)","method":"handbook","tier":3,
+   "conditions":{"state":"melt","temperature_c":215.5,"source_table":"TABLE III","basis":LEE_BASIS,
+                 "temperature_dependence":"시트가 `temperature dependent` 라고 밝힌다 — 이 값은 215.5 °C 의 한 점이다"},
+   "notes":"TABLE III `Thermal conductivity (W/m K) 0.18 (at 215.5 °C, temperature dependent)`. **용융 상태 값이다.** 59차 UD."}]},
+
+ {"match_name":"GlidCop AL-15 (UNS C15715) alumina dispersion-strengthened copper, 16 mm plate (SCM Metal Products, Srivatsan 1993)",
+  "source":GLID,"properties":[
+  {"key":"physical.density","value":8900.0,"unit":"kg/m^3","method":"measured","tier":2,
+   "conditions":{"temperature_c":20,"basis":"벤더 시트 PHYSICAL PROPERTIES 전형값"},
+   "notes":"시트 verbatim — `Density  8.90 g/cm3 at 20°C  |  0.321 lbs./in3 at 68°F`. **단위쌍 검산** — "
+           "0.321 lb/in³ × 27.6799 = 8.884 g/cm³ 로 인쇄 8.90 과 0.2% 안이다. "
+           "**조성 검산** — Cu 99.7 wt% + Al2O3 0.3 wt%(시트 COMPOSITION 행)이면 1/ρ = 0.997/8.96 + 0.003/3.95 → 8.937 g/cm³ 로 "
+           "인쇄값과 0.4% 안이다. "+GLID_ID+" 59차 UD."},
+  {"key":"thermal.conductivity","value":365.0,"unit":"W/(m*K)","method":"measured","tier":2,
+   "conditions":{"temperature_c":20,"basis":"벤더 시트 PHYSICAL PROPERTIES 전형값"},
+   "notes":"시트 verbatim — `Thermal Conductivity  365 W/m/°K at 20°C  |  211 Btu/ft2/ft/hr/°F at 68°F`. "
+           "**단위쌍 검산** — 211 × 1.7307 = 365.2 로 자릿수까지 닫힌다. "
+           "**전도도 교차검산** — 같은 시트가 `92% IACS` 를 인쇄하고 Wiedemann-Franz 로 순동 401 W/(m·K) × 0.92 = 369 이라 "
+           "인쇄 365 와 1% 안이다. "+GLID_ID+" 59차 UD."},
+  {"key":"thermal.expansion_linear","value":1.66e-5,"unit":"1/K","method":"measured","tier":2,
+   "conditions":{"temperature_range_c":"20-150","basis":"벤더 시트 PHYSICAL PROPERTIES 전형값"},
+   "notes":"시트 verbatim — `Coefficient of Thermal Expansion  16.6 µm/m/°C (20-150°C)  |  9.2 µin/in/°F (68-300°F)`. "
+           "**단위쌍 검산** — 9.2 × 1.8 = 16.56 으로 인쇄 16.6 과 자릿수까지 맞는다. "
+           "크기 검산 — 순동 16.5~17.0 ppm/K 와 같다(알루미나 0.3 wt% 는 CTE 를 거의 안 바꾼다). "+GLID_ID+" 59차 UD."}]},
+
+ {"match_name":"SY-14M-III epoxy film adhesive (aerospace structural bonding film, Beijing Institute of Aeronautical Materials)",
+  "source":CHENG,"properties":[
+  {"key":"mechanical.youngs_modulus","value":3.76e9,"unit":"Pa","method":"digitized","tier":1,"uncertainty":5.0e7,
+   "conditions":{"environment":"RD = room temperature / dry (M=0)","temperature_c":23,"humidity_state":"dry (as received)",
+                 "figure":"Fig. 8(a) Elastic modulus vs Temperature, `Dry environment-EXP (M=0)` 사각 마커 중 상온점",
+                 "test_method":"bulk adhesive tensile test, Instron 8801, 0.5 mm/min, 10 mm gauge extensometer, 12층 필름 적층 시편",
+                 "readout":"y축 긴 눈금 여섯(0~5 GPa, 41.0 px/GPa) 기준 마커 중심 → 3.757 GPa"},
+   "notes":CHENG_CAL+" 읽은 값 3.757 GPa 를 3.76 으로 적고 불확실도 0.05 GPa(마커 중심 ±1 px + 캘리브레이션)를 붙였다. "
+          "**이 칸은 57차 SC 가 '열 시트가 존재하지 않는다' 로 넘긴 14칸 중 하나였다** — 벤더 TDS 가 없다는 것은 맞지만 "
+          "저자가 직접 잰 문서가 코퍼스에 있었다(브리프 626). 59차 UD."},
+  {"key":"mechanical.tensile_strength","value":6.67e7,"unit":"Pa","method":"digitized","tier":1,"uncertainty":5.0e5,
+   "conditions":{"environment":"RD = room temperature / dry (M=0)","temperature_c":23,"humidity_state":"dry (as received)",
+                 "figure":"Fig. 8(b) Tensile strength vs Temperature, `Dry environment-EXP (M=0)` 사각 마커 중 상온점",
+                 "test_method":"bulk adhesive tensile test, Instron 8801, 0.5 mm/min, 10 mm gauge extensometer, 12층 필름 적층 시편",
+                 "readout":"y축 긴 눈금 다섯(0~80 MPa, 46.0 px/20 MPa) 기준 마커 중심 → 66.65 MPa"},
+   "notes":CHENG_CAL+" 읽은 값 66.65 MPa 를 66.7 로 적고 불확실도 0.5 MPa 를 붙였다. "
+          "같은 그림의 고온점(약 130 °C 에서 10 MPa)까지 읽지 않은 이유는 이 재료의 조건축이 아직 온도로 갈려 있지 않아서다 — "
+          "상온 한 점만 코어 칸을 닫는다. 59차 UD."}]},
+]
+json.dump({"batch":"59차 UD — 계통 태그 없는 재료의 V5 에서 캔 값","materials":MAT},
+          open("ud02_values.json","w"),ensure_ascii=False,indent=1)
+print("재료",len(MAT),"물성",sum(len(m["properties"]) for m in MAT))
