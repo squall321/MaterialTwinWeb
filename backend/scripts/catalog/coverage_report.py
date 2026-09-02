@@ -727,6 +727,10 @@ CORE7 = [RHO, E, NU, CTE, TC, HC, "mechanical.tensile_strength"]
 # 판정을 *읽을 수 있는* 자리 — §582 가 정한 칸이다.
 VERDICT_ATTR_NA = "core_not_applicable"              # 해당 없음(물리적으로 정의 안 됨)
 VERDICT_ATTR_VENDOR = "core_absent_from_vendor_sheet"  # 벤더가 구조적으로 안 찍는다
+# 열 문서가 아예 존재하지 않는 칸(단종·비공개) — 59차 UD 가 자리를 요청했다.
+# **갈래를 새로 내지 않고 V2 에 합친다.** 이 표가 답하는 질문은 "남은 것을 캘 수 있나" 인데
+# 그 질문에 대해 "열어 보니 없다"와 "열 문서가 없다"는 같은 답이다. 왜 그런지는 판정문에 있다.
+VERDICT_ATTR_NODOC = "core_no_public_document"
 # 원문이 값을 **인쇄하는데** 검산에서 죽어 안 넣은 칸 — 56차 RA 가 자리를 만들고 57차 SD 가 열었다.
 # 이 갈래가 없으면 그런 칸이 V5(진짜 남은 것)로 세어져 **다음 파동이 또 표적으로 집는다**(§593 의 재발).
 # "문서에 없다"(V2)와 정반대다 — 문서에는 있고 **우리가 기각했다.**
@@ -761,7 +765,8 @@ def subsystem_core(db: str | None = None) -> dict:
 
     빈칸 하나하나를 다섯 갈래로 가른다.
       V1 해당 없음      `attributes.core_not_applicable`  (dict면 그 키만, 문자열이면 그 재료의 코어 전부)
-      V2 벤더 구조적 부재 `attributes.core_absent_from_vendor_sheet`
+      V2 공개 문서로 채울 수 없음 `attributes.core_absent_from_vendor_sheet`
+         또는 `attributes.core_no_public_document`(열 문서가 없다 — 단종·비공개)
       V6 인쇄됐으나 기각 `attributes.core_rejected_printed_value` — 원문에 값이 있는데 검산에서 죽었다.
                         번호는 만든 순서이고 자리는 뜻으로 정한다 — V2 다음에 온다.
       V3 자유 키 판정    판정이 적혀는 있는데 집계가 못 읽는 자리에 있다(§593). **세어서 보고만 한다.**
@@ -798,6 +803,8 @@ def subsystem_core(db: str | None = None) -> dict:
         na_all = isinstance(na, str)          # 재료 단위 선언 — 그 재료의 코어 전부를 덮는다
         vend = a.get(VERDICT_ATTR_VENDOR)
         vend_keys = set(vend) if isinstance(vend, dict) else set()
+        nodoc = a.get(VERDICT_ATTR_NODOC)
+        vend_keys |= set(nodoc) if isinstance(nodoc, dict) else set()
         rej = a.get(VERDICT_ATTR_REJECT)
         # 기각은 **언제나 키 단위**다 — 어느 값을 왜 버렸는지가 판정의 내용이라
         # 재료 단위 문자열로는 적을 수 없다(§582 문자열 판정이 범위를 지어낸 것과 같은 자리).
@@ -834,7 +841,9 @@ def subsystem_core(db: str | None = None) -> dict:
 
 VERDICT_LABEL = [
     ("V1", "해당 없음", "물리적으로 그 물성이 정의되지 않는다 — 분말 원료·증착 박막·전환피막."),
-    ("V2", "벤더 구조적 부재", "시트를 실제로 열어 그 열이 없음을 확인했다."),
+    ("V2", "공개 문서로 채울 수 없음",
+     "시트를 실제로 열어 그 열이 없음을 확인했거나(`core_absent_from_vendor_sheet`), "
+     "열 문서 자체가 존재하지 않는다(`core_no_public_document` — 단종·비공개)."),
     ("V6", "인쇄됐으나 기각",
      "원문에 값이 인쇄돼 있으나 검산에서 기각해 등재하지 않았다 — 문서에 값이 있다는 점에서 V2 와 반대다. "
      "사유는 키마다 적혀 있다. 이 갈래가 없으면 그 칸이 '진짜 남은 것' 으로 세어져 "
