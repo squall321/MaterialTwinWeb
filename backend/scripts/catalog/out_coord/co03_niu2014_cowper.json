@@ -1,0 +1,18 @@
+{"corrections": [
+  {"target": {"property_value_id": 22178},
+   "reason": "1차 실측이 아닌 값이 tier1 로 앉아 있었다. Niu 2014 verbatim: 'From the experimental data the values for C and P are presented in Table 1 for Sn0.3Ag0.7Cu.' — **어느 실험인지 인용이 없고 이 논문에는 실험 절 자체가 없다**(3D FE 낙하해석 논문이다). 규칙 4(재인쇄본·2차 인용 불가 — 1차 출처까지 따라가 확인)에 걸린다. 같은 출처(src3479)의 밀도 행이 이미 t3 라 한 출처 안에서 규약이 갈려 있던 것도 함께 닫는다. method 는 computed 를 유지한다 — C·P 는 원문이 대수변환 회귀로 낸 값이 맞다. 값·조건·짝은 그대로 둔다. 61차 WA 가 신고했고 조율자가 코퍼스 원문으로 문장을 확인했다.",
+   "evidence": "/data/paper_patent_corpus/structured/pkg_papers/04_sac_microalloy/Niu - 2014 …/…md — 'From the experimental data the values for C and P are presented in Table 1'. 방증: 같은 표의 E 열 2.39/2.22 GPa 가 카탈로그의 같은 재료 t1 실측 46.19 GPa 와 20배 어긋난다(추출 손상 아님, 인쇄면 확인).",
+   "set": {"quality_tier": 3}},
+  {"target": {"property_value_id": 22179},
+   "reason": "1차 실측이 아닌 값이 tier1 로 앉아 있었다. Niu 2014 verbatim: 'From the experimental data the values for C and P are presented in Table 1 for Sn0.3Ag0.7Cu.' — 어느 실험인지 인용이 없고 이 논문에는 실험 절 자체가 없다(3D FE 낙하해석 논문이다). 규칙 4 에 걸린다. 같은 출처의 밀도 행이 이미 t3 라 규약이 갈려 있던 것도 함께 닫는다. method 는 computed 유지. 짝인 C(pv22178)와 같은 등급이어야 한다.",
+   "evidence": "같은 문단. C·P 는 쌍이라 등급이 갈리면 해석 입력으로 못 쓴다.",
+   "set": {"quality_tier": 3}},
+  {"target": {"property_value_id": 22180},
+   "reason": "1차 실측이 아닌 값이 tier1 로 앉아 있었다. Niu 2014 verbatim: 'From the experimental data the values for C and P are presented in Table 1 for Sn0.3Ag0.7Cu.' — 어느 실험인지 인용이 없고 이 논문에는 실험 절 자체가 없다(3D FE 낙하해석 논문이다). 규칙 4 에 걸린다. 같은 출처의 밀도 행이 이미 t3 라 규약이 갈려 있던 것도 함께 닫는다. method 는 computed 유지.",
+   "evidence": "같은 문단. T = 23 C 행.",
+   "set": {"quality_tier": 3}},
+  {"target": {"property_value_id": 22181},
+   "reason": "1차 실측이 아닌 값이 tier1 로 앉아 있었다. Niu 2014 verbatim: 'From the experimental data the values for C and P are presented in Table 1 for Sn0.3Ag0.7Cu.' — 어느 실험인지 인용이 없고 이 논문에는 실험 절 자체가 없다(3D FE 낙하해석 논문이다). 규칙 4 에 걸린다. 같은 출처의 밀도 행이 이미 t3 라 규약이 갈려 있던 것도 함께 닫는다. method 는 computed 유지. 짝인 C(pv22180)와 같은 등급이어야 한다.",
+   "evidence": "같은 문단. C·P 는 쌍이라 등급이 갈리면 해석 입력으로 못 쓴다.",
+   "set": {"quality_tier": 3}}
+]}
