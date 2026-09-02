@@ -1,0 +1,16 @@
+{"corrections": [
+  {"target": {"property_value_id": 10133},
+   "reason": "우리가 한 환산인데 method 가 computed(원문이 계산한 것)로 돼 있었다. notes 가 스스로 적는다 — 'Converted E = 3 x 3.0e4 = 9.0e4 Pa. This is derived from a SHEAR STORAGE modulus, not a static tensile modulus.' 원문은 G' 만 인쇄했고 3배는 우리가 곱했다(§43). 값·조건·출처는 그대로 두고 표시만 바로잡는다 — 유도 근거는 이미 conditions.basis 에 정직하게 적혀 있다. 62차 XD 가 신고했고 조율자가 확인했다. 같은 백서를 쓰는 형제 행 279·281 은 정반대 규약(E 를 G 에서 만들지 않았다)을 적어 두어 한 계열 안에서 규약이 갈려 있었다.",
+   "evidence": "conditions.basis verbatim: \"E = 3*G' assuming a near-incompressible elastomer (nu ~ 0.5)\" — 그 가정을 한 주체가 우리다.",
+   "set": {"method": "estimated",
+           "conditions": {"frequency": "1 rad/s", "temperature": "room temperature",
+                          "basis": "E = 3*G' assuming a near-incompressible elastomer (nu ~ 0.5)",
+                          "assumption": true}}},
+  {"target": {"property_value_id": 10146},
+   "reason": "우리가 한 환산인데 method 가 computed(원문이 계산한 것)로 돼 있었다. notes 가 스스로 적는다 — 'Converted E = 3 x 7.0e4 = 2.1e5 Pa. Derived from a SHEAR STORAGE modulus, not a static tensile modulus.' 원문은 G' 만 인쇄했고 3배는 우리가 곱했다(§43). 값·조건·출처는 그대로 두고 표시만 바로잡는다 — 유도 근거는 이미 conditions.basis 에 적혀 있다. 62차 XD 가 신고했고 조율자가 확인했다.",
+   "evidence": "conditions.basis verbatim: \"E = 3*G' assuming a near-incompressible elastomer (nu ~ 0.5)\" — 그 가정을 한 주체가 우리다.",
+   "set": {"method": "estimated",
+           "conditions": {"frequency": "1 rad/s", "temperature": "room temperature",
+                          "basis": "E = 3*G' assuming a near-incompressible elastomer (nu ~ 0.5)",
+                          "assumption": true}}}
+]}
