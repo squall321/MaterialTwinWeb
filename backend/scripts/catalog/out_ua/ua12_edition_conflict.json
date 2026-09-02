@@ -1,0 +1,17 @@
+{
+ "batch": "59차 UA — 2026 제품 페이지가 2024 전제품 TDS v9 와 갈리는 두 등급 신고(값은 한 칸도 안 고친다)",
+ "verdicts": [
+  {
+   "material_id": 2453,
+   "name": "DS-7409DJG",
+   "verdict_edition_conflict": "59차 UA 신고 — **판이 갈린다. 고치지 않았다.** 이 재료의 영률 t1 두 행(21 GPa lower · 23 GPa upper)은 전제품 TDS v9(2024-09-30) [Mechanical] p.4 `DS-7409DJG` 행 `21~23` 에서 왔다(400 dpi 렌더 확인). 그런데 2026-09-02 에 받은 제품 페이지 `Doosan_CCL_DS-7409DJG_ProductPage_en_2026-09-02.html` 는 같은 칸을 `Young's Modulus | As received | IPC-TM-650 2.4.18.3 | GPa | 24~25` 로 인쇄한다. 같은 페이지의 나머지 코어(밀도 1.40~1.45 · ν 0.16~0.18 · CTE X/Y 12 · Z a1 35 · Z a2 200 · k 0.4)는 DB 의 기존 t1 과 전부 일치하므로 등급을 잘못 짚은 것이 아니다 — **벤더가 값을 갱신했거나 TDS v9 가 `DS-7409DJG (S)` 행(같은 21~23)을 복사한 것**이고 우리 문서만으로는 못 가른다. 어느 쪽이 옳은지 안 닫히므로 새 값을 넣지도, 옛 값을 내리지도 않았다(§122·314·565). 닫으려면 v10 이후 전제품 TDS 가 필요하다(§615).",
+   "verdict_edition_conflict_scope": "mechanical.youngs_modulus"
+  },
+  {
+   "material_id": 2460,
+   "name": "DS-7409DXG",
+   "verdict_edition_conflict": "59차 UA 신고 — **판이 갈린다. 고치지 않았다.** 전제품 TDS v9(2024-09-30) 는 이 등급을 `Young's Modulus 24~27 GPa · Density 1.71 g/cm3 · Thermal Conductivity 0.6 (ASTM E 1461) / 0.8 (ASTM D 5470)` 로 인쇄하고(400 dpi 렌더 확인) DB 의 t1 행이 그대로 그것이다. 2026-09-02 에 받은 제품 페이지 `Doosan_CCL_DS-7409DXG_ProductPage_en_2026-09-02.html` 는 같은 세 칸을 `29~30 GPa · 1.6 g/cm3 · 0.4~0.5 W/m·K(E 1461 한 열뿐)` 로 인쇄한다. 포아송비만 `0.17~0.19` 로 두 판이 같다. **세 칸이 함께 움직였고 열전도율은 열 하나가 통째로 사라졌다** — 등급 오인이 아니라 판 갱신의 지문이다(§615 — 신판이 구판보다 적게 찍는다). 어느 판이 현행인지 벤더가 밝히지 않아 새 값을 넣지도 옛 값을 내리지도 않았다(§565). 이 재료의 유일한 코어 빈칸(인장강도)은 두 판 모두 비어 있어 별도로 부재 확정했다.",
+   "verdict_edition_conflict_scope": "mechanical.youngs_modulus · physical.density · thermal.conductivity"
+  }
+ ]
+}
