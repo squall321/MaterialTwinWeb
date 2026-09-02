@@ -1,0 +1,318 @@
+{
+ "materials": [
+  {
+   "match_name": "NiCr Thin-Film Resistor",
+   "source": {
+    "kind": "datasheet",
+    "title": "INCONEL alloy 600 (Special Metals Corporation, Publication SMC-027), Table 4 'Modulus of Elasticity'",
+    "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-600.pdf",
+    "publisher": "Special Metals Corporation",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/mech/SpecialMetals_INCONEL_alloy_600_SMC-027.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 214000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 22,
+      "grade_scope": "class value — INCONEL alloy 600(Ni>=72 / Cr 14-17 / Fe 6-10 wt%)의 값이다. 대상은 스퍼터링 Ni-Cr(약 80/20) 박막 저항체라 Fe가 없고 박막 조직이지만, 같은 Ni-Cr 고용체 계열이라 탄성상수 자릿수가 같다.",
+      "test_method": "dynamic modulus measurement (vendor datasheet)"
+     },
+     "notes": "**브리프 602·635 — 같은 표·같은 행의 남은 첫째 열이다.** 이 재료의 전단탄성률 80.8 GPa(pv20851)와 포아송비 0.324(pv43827)가 Table 4 SI 블록의 한 행 `22 214 80.8 0.324` 에서 왔는데 **둘째 열(Young Modulus)만 안 옮겨졌다**. 이번에 시트를 직접 받아(pdftotext -layout) 인쇄면을 다시 읽었다 — 열 머리글 `°C | GPa | GPa | Poisson's Ratio`, SI 블록 첫 행 `22 214 80.8 0.324`, 화씨 블록 첫 행 `72 31.1 11.72 0.327`(10^3 ksi). **표 자신의 항등식으로 검산했다**(브리프 603): E = 2G(1+nu) = 2 x 80.8 x 1.324 = 213.96 GPa 로 인쇄값 214 GPa 와 0.02% 안에서 맞고, 화씨 블록도 31.1e3 ksi = 214.4 GPa · 11.72e3 ksi = 80.8 GPa 로 두 단위 블록이 서로를 검산한다. **역산이 아니다 — 214 는 표에 인쇄된 숫자이고 항등식은 확인에만 썼다**(브리프 43). 기존 tier4 가정값 200 GPa 는 지우지 않았다. 표는 22~1000 °C 를 더 인쇄하지만 대상이 박막 저항체라 상온 행만 옮겼다."
+    }
+   ]
+  },
+  {
+   "match_name": "Solder Mask / PSR (photoimageable)",
+   "source": {
+    "kind": "datasheet",
+    "title": "TAIYO FLEXFINER SERIES Technical Data Sheet (Revised October 28, 2024)",
+    "url": "http://taiyo-america.com/docs/files/8417/3016/8260/TDS_FLEXFINER_October_2024.pdf",
+    "publisher": "Taiyo America, Inc.",
+    "year": 2024,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/TAIYO_FLEXFINER_TDS_2024-10-28.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 32000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "FLEXFINER SERIES",
+      "method_detail": "tensile, Shimadzu AGS-G 100N tensile testing machine"
+     },
+     "notes": "**브리프 602·649 — 같은 TDS 같은 행의 안 캔 칸이다.** 이 재료의 영률 1.7 GPa(pv12194)가 이 시트 `Additional Tests / Results` 표의 `Tensile Test` 한 행에서 왔는데 그 행의 나머지 두 값은 안 옮겨졌다. 시트를 다시 받아 확인한 원문 verbatim: `Tensile Test | Tensile testing machine SHIMADZU: AGS-G 100N | Young's modules: 1.7 GPa / Tensile strength: 32 MPa / Elongation: 35%`. 32 MPa x 1e6 = 3.2e7 Pa. 짝 검산(브리프 604 방향): UTS/E = 32/1700 = 1.88% 탄성변형률이고 같은 행의 인쇄 파단연신율이 35% 라 비가 18.6 배 — 연성 플렉시블 솔더레지스트(FLEXFINER 는 190도 굽힘에서 균열 없음을 같은 표에 인쇄한다)답게 크게 비선형이다. 시험온도는 시트에 인쇄돼 있지 않아 조건에 넣지 않았다(pv12194 와 같은 규약). 기존 tier4 계열대표값 60 MPa 는 지우지 않았다."
+    },
+    {
+     "key": "mechanical.elongation_at_break",
+     "value": 0.35,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "FLEXFINER SERIES",
+      "method_detail": "tensile, Shimadzu AGS-G 100N tensile testing machine"
+     },
+     "notes": "위 인장강도와 **같은 행의 셋째 값**이다. 원문 verbatim `Elongation: 35%` -> 0.35. 기존 tier4 계열대표값 0.03(경성 솔더레지스트 계열값)과 한 자릿수 넘게 다른데, 그것은 모순이 아니라 등급 차다 — 이 행은 연성 플렉시블 등급(FLEXFINER)이고 t4 행은 리지드 PSR 계열값이다. 조건의 `grade` 가 둘을 가른다. t4 는 지우지 않았다."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 3.0,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "FLEXFINER SERIES",
+      "frequency_hz": 1000000000.0,
+      "method_detail": "cavity resonator perturbation method"
+     },
+     "notes": "같은 표 `Dielectric Property` 행 verbatim: `Cavity resonator perturbation method (1GHz) | Dielectric Constant: 3.00 / Dissipation Factor: 0.02`. 브리프 649 — 표를 열었으므로 이번 표적이 아닌 행도 같이 읽었다. 이 재료의 기존 Dk 행(3.9 @1MHz · 3.5 @1GHz)은 다른 등급·다른 출처라 조건축(`grade`)이 갈린다."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.02,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "FLEXFINER SERIES",
+      "frequency_hz": 1000000000.0,
+      "method_detail": "cavity resonator perturbation method"
+     },
+     "notes": "위 유전율과 같은 행의 짝이다. 원문 verbatim `Dissipation Factor: 0.02`."
+    },
+    {
+     "key": "chemical.outgassing_tml",
+     "value": 0.0083,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "FLEXFINER SERIES",
+      "test_standard": "ASTM E595-90",
+      "cure": "2-3 J/cm2 UV cure after thermal curing"
+     },
+     "notes": "같은 표 `Outgassing Test ASTM E 595-90` 행 verbatim: `TML < 1% | Pass - TML = 0.83%`. 0.83% -> 0.0083. 합격 문턱(<1%)이 아니라 **측정 결과값**을 옮겼다."
+    },
+    {
+     "key": "chemical.outgassing_cvcm",
+     "value": 0.0004,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "FLEXFINER SERIES",
+      "test_standard": "ASTM E595-90",
+      "cure": "2-3 J/cm2 UV cure after thermal curing"
+     },
+     "notes": "위 TML 과 같은 행의 짝이다. 원문 verbatim `CVCM < 0.10% | Pass - CVCM = 0.04%` -> 0.0004."
+    }
+   ]
+  },
+  {
+   "match_name": "FR4 Glass-Epoxy Laminate",
+   "source": {
+    "kind": "journal",
+    "doi": "10.3390/polym17060715",
+    "title": "Mechanical Characterization of Dicyclopentadiene and Glass-Fibre-Reinforced Polymer Subjected to Low to High Strain Rate",
+    "url": "https://res.mdpi.com/d_attachment/polymers/polymers-17-00715/article_deploy/polymers-17-00715.pdf",
+    "publisher": "MDPI (Polymers 17(6) 715)",
+    "year": 2025
+   },
+   "properties": [
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 258940000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "strain_rate_regime": "quasi-static (2.08e-5 ~ 1.04e-1 /s)",
+      "temperature_c": 25,
+      "direction": "in-plane",
+      "grade_scope": "class value - G10/FR-4 glass-fibre/epoxy laminate, 1 mm, 5-ply 0/90; specific FR-4 grade and glass style not stated",
+      "citation_depth": "2차 인용 — 이 논문이 Chen et al. [30]의 시험 결과를 숫자까지 옮겨 인쇄한다"
+     },
+     "notes": "**브리프 602·649 — 같은 문장의 안 캔 앞칸이다.** 이 재료의 `tensile_strength_at_rate` 428.4 MPa @104.6/s(pv17841)가 이 논문 서론 4쪽의 한 문장에서 왔는데, **그 문장이 같이 인쇄한 준정적 기준값은 안 옮겨졌다.** 논문 PDF 를 다시 받아 pdftotext -layout 으로 확인한 원문 verbatim(168~175행): `According to Chen et al. [30], who conducted tensile tests on glass fibre/epoxy laminate (G10/FR-4) with a thickness of 1 mm (arranged in five layers with 0-degree and 90-degree orientations), quasi-static strain rates are reported in the range of 2.08 x 10-5 s-1 up to 1.04 x 10-1 s-1 ... Considering the quasi-static test, the tensile strength is approximately 258.94 MPa, a value that increases with the increase in the strain rate, reaching about 428.4 MPa at 104.6 s-1, which represents an increase of approximately 65%.` 자기검산: 428.4 / 258.94 = 1.655 로 본문이 밝힌 `약 65% 증가` 와 맞는다 — **두 값이 같은 짝임이 문장 안에서 확정된다**. 2차 인용이라 method 는 `handbook`, 등급은 짝 행(pv17841)과 같은 tier3 이다. 기존 tier4 계열대표값 310 MPa 는 지우지 않았다."
+    }
+   ]
+  },
+  {
+   "match_name": "FR-4 PCB laminate, 1 mm thick (wafer level package board level test vehicle)",
+   "source": {
+    "kind": "journal",
+    "doi": "10.3390/polym17060715",
+    "title": "Mechanical Characterization of Dicyclopentadiene and Glass-Fibre-Reinforced Polymer Subjected to Low to High Strain Rate",
+    "url": "https://res.mdpi.com/d_attachment/polymers/polymers-17-00715/article_deploy/polymers-17-00715.pdf",
+    "publisher": "MDPI (Polymers 17(6) 715)",
+    "year": 2025
+   },
+   "properties": [
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 258940000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "strain_rate_regime": "quasi-static (2.08e-5 ~ 1.04e-1 /s)",
+      "temperature_c": 25,
+      "direction": "in-plane",
+      "grade_scope": "class value - G10/FR-4 glass-fibre/epoxy laminate, 1 mm, 5-ply 0/90; PCB grade and glass style not matched",
+      "citation_depth": "2차 인용 — 이 논문이 Chen et al. [30]의 시험 결과를 숫자까지 옮겨 인쇄한다"
+     },
+     "notes": "위 재료 94 와 같은 문장·같은 값이다. 이 재료도 같은 출처의 `tensile_strength_at_rate` 428.4 MPa(pv17842)를 이미 갖고 있는데 준정적 기준값만 빠져 있었다 — **두 재료에서 같은 모양으로 빠졌다**(브리프 612 — 같은 표에서 몇 칸만 옮기면 나머지가 영원히 표적으로 센다). 두께 1 mm 라는 점에서 공여재와 이 재료의 판 두께가 같다. 검산·인용경로는 재료 94 행과 같다. 기존 tier4 두 행(385.42 · 245.45 MPa)은 지우지 않았다."
+    }
+   ]
+  },
+  {
+   "match_name": "전해동박 ED Copper Foil (HTE)",
+   "source": {
+    "kind": "journal",
+    "doi": "10.3390/app10010388",
+    "title": "Comparison of Tensile and Fatigue Properties of Copper Thin Film Depending on Process Method",
+    "url": "https://res.mdpi.com/d_attachment/applsci/applsci-10-00388/article_deploy/applsci-10-00388.pdf",
+    "publisher": "MDPI (Applied Sciences 10(1) 388)",
+    "year": 2020
+   },
+   "properties": [
+    {
+     "key": "mechanical.yield_strength",
+     "value": 233000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "process": "electrodeposited (ED) copper thin film for FPCB",
+      "thickness_um": 12,
+      "temperature_c": 25,
+      "offset": "0.2% offset",
+      "grade_scope": "class value — 벤더 특정 등급이 아니라 FPCB용 12 um 전착(ED) 동박 일반의 값. HTE 등급은 원문에 명시돼 있지 않다",
+      "test_method": "단축 인장(응력-변형률 곡선에서 판독), 자립형 12 um 전착 Cu 박막 모래시계형 시편"
+     },
+     "notes": "**브리프 602·635 — 이 재료가 이미 쓰는 출처의 안 캔 표다.** 이 카탈로그는 이 논문의 Table 2(피로 Basquin 계수)만 가져갔고 **Table 1(인장물성)은 아무도 안 열었다.** 논문 PDF 를 직접 받아 확인한 원문 verbatim — Table 1 캡션 `The result of mechanical properties rolled and electrodeposited copper and depending on process method at other condition (Elastic modulus, 0.2% offset yield strength, ultimate tensile strength)`, 행 `Electrodeposited Copper | 61 GPa | 233 MPa | 367 MPa`, `Rolled Copper | 63 GPa | 306 MPa | 414 MPa`. 본문 p.11 verbatim: `... which are experimental results obtained from the stress-strain curve. As a result, the elastic modulus of the rolled and electrodeposited copper is 63 GPa and 61 GPa. 0.2% yield strength is 306 MPa, 233 MPa, and ultimate tensile strength is 414 MPa, 367 MPa.` — **저자가 직접 잰 값임이 본문에 적혀 있다**(브리프 3 통과). ★ **같은 표의 탄성계수 열은 안 옮겼다**(브리프 604·141): ED 61 / 압연 63 GPa 는 벌크 Cu 117~130 GPa 의 절반이라 크로스헤드 컴플라이언스가 섞인 값이고, 이 카탈로그가 이 재료에 이미 가진 영률은 tier1 실측이다. **강도·항복은 컴플라이언스와 무관하므로 그 칸만 살린다.** 표의 Type A/B/C 행(72/71/69 GPa)은 저자들의 선행논문 [12] 값이라 2차 인용이므로 제외했다(기존 피로 행의 판정과 같다). 등급은 같은 출처의 기존 행들과 같은 tier3 이다 — 시편이 `electrodeposited copper thin film` 일 뿐 HTE 등급 표기가 없다. 기존 tier4 항복강도 250 MPa(출처 귀속 경고가 이미 붙어 있는 행)는 지우지 않았다."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 367000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "process": "electrodeposited (ED) copper thin film for FPCB",
+      "thickness_um": 12,
+      "temperature_c": 25,
+      "grade_scope": "class value — 벤더 특정 등급이 아니라 FPCB용 12 um 전착(ED) 동박 일반의 값. HTE 등급은 원문에 명시돼 있지 않다",
+      "test_method": "단축 인장(응력-변형률 곡선에서 판독), 자립형 12 um 전착 Cu 박막 모래시계형 시편"
+     },
+     "notes": "위 항복강도와 **같은 행의 셋째 값**이다(Table 1, ultimate tensile strength). 원문 verbatim `Electrodeposited Copper | 61 GPa | 233 MPa | 367 MPa`. 항복비 233/367 = 0.635 로 전착 구리답고, 같은 표의 압연재 306/414 = 0.739 보다 낮아 논문 결론(`the electrodeposited copper has a lower yield strength than the rolled copper`)과 부호가 맞는다. **한 행에서 두 칸만 옮기고 셋째를 빼면 그 칸이 영원히 표적으로 센다**(브리프 612)는 이유로 같이 넣었다. 이 재료의 기존 인장강도 8행(벤더 TDS 의 `>=21 kgf/mm2` 꼴 최소규격값 포함)은 하나도 지우지 않았다. ⚠ **신고** — 이 재료의 tier1 인장강도 행 일부는 벤더가 인쇄한 **최소 규격값**(205.94 · 227.53 MPa 등)이라 새로 넣은 실측 항복 233 MPa 보다 낮다. integrity_check 의 `항복 > 인장` 주의가 이 재료에서 새로 뜰 수 있는데, 이는 물리 모순이 아니라 **규격 하한과 실측을 같은 자로 재기 때문**이다(브리프 617·642). 값을 지우지 않고 여기 적어 둔다."
+    }
+   ]
+  },
+  {
+   "match_name": "TSV Copper (through-silicon via)",
+   "source": {
+    "kind": "journal",
+    "doi": "10.3390/app10010388",
+    "title": "Comparison of Tensile and Fatigue Properties of Copper Thin Film Depending on Process Method",
+    "url": "https://res.mdpi.com/d_attachment/applsci/applsci-10-00388/article_deploy/applsci-10-00388.pdf",
+    "publisher": "MDPI (Applied Sciences 10(1) 388)",
+    "year": 2020
+   },
+   "properties": [
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 367000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "process": "electrodeposited (ED) copper thin film for FPCB",
+      "thickness_um": 12,
+      "temperature_c": 25,
+      "grade_scope": "class value — 공여재는 FPCB용 12 um 전착(ED) 동박이다. 대상 TSV 구리는 전해도금(electroplated) 구리라 같은 습식 석출 계열이지만 비아 형상·첨가제·어닐링 이력이 다르다",
+      "test_method": "단축 인장(응력-변형률 곡선에서 판독), 자립형 12 um 전착 Cu 박막 모래시계형 시편"
+     },
+     "notes": "**브리프 602·635 — 이 재료가 이미 쓰는 출처의 안 캔 표다.** 이 재료는 같은 논문 Table 2 의 ED Cu Basquin 계수(sigma_f' 277 MPa · b -0.0759)를 이미 tier3 계열대입으로 갖고 있고, 그 행의 notes 가 verbatim `같은 논문이 인쇄한 인장물성: ED 박막 UTS 367 MPa / E 61 GPa / 항복 233 MPa` 라고 적어 두었는데 **정작 UTS 칸은 비어 tier4 가정값 280 MPa 만 앉아 있었다.** 논문 PDF 를 직접 받아 Table 1 인쇄면을 확인했다 — `Electrodeposited Copper | 61 GPa | 233 MPa | 367 MPa`, 본문 p.11 이 `experimental results obtained from the stress-strain curve` 라고 밝힌다. 짝 검산(기존 피로 행의 검산과 같은 자): 277 x (1e6)^-0.0759 = 97 MPa 이고 97/367 = 0.26 으로 물리적으로 타당하다. **같은 표의 탄성계수 61 GPa 는 옮기지 않았다** — 이 재료에는 이미 나노인덴테이션 tier1 실측 140.41 GPa 가 있어 인쇄값이 컴플라이언스 오염임이 드러난다(브리프 604·141: 강도 칸만 살린다). 기존 tier4 280 MPa 는 지우지 않았다."
+    }
+   ]
+  },
+  {
+   "match_name": "Copper Pillar Bump",
+   "source": {
+    "kind": "journal",
+    "doi": "10.3390/app10010388",
+    "title": "Comparison of Tensile and Fatigue Properties of Copper Thin Film Depending on Process Method",
+    "url": "https://res.mdpi.com/d_attachment/applsci/applsci-10-00388/article_deploy/applsci-10-00388.pdf",
+    "publisher": "MDPI (Applied Sciences 10(1) 388)",
+    "year": 2020
+   },
+   "properties": [
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 367000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "process": "electrodeposited (ED) copper thin film for FPCB",
+      "thickness_um": 12,
+      "temperature_c": 25,
+      "grade_scope": "class value — 공여재는 FPCB용 12 um 전착(ED) 동박이다. 대상 구리 필러 범프는 전해도금 구리 기둥이라 같은 습식 석출 계열이지만 형상·첨가제·어닐링 이력이 다르다",
+      "test_method": "단축 인장(응력-변형률 곡선에서 판독), 자립형 12 um 전착 Cu 박막 모래시계형 시편"
+     },
+     "notes": "**브리프 602·635.** 이 재료도 같은 논문 Table 2 의 ED Cu Basquin 계수를 tier3 계열대입으로 이미 갖고 있고 그 행의 notes 가 Table 1 의 인장물성을 verbatim 으로 인용해 두었는데 UTS 칸은 tier4 가정값 220 MPa 뿐이었다. 논문 PDF 인쇄면 확인 — Table 1 `Electrodeposited Copper | 61 GPa | 233 MPa | 367 MPa`, 본문이 `experimental results obtained from the stress-strain curve` 라고 밝힌다. **탄성계수 열은 옮기지 않았다**(이 재료의 영률은 이미 tier1 실측 110 GPa 다 — 인쇄된 61 GPa 는 컴플라이언스 오염이다. 브리프 604·141). 기존 tier4 220 MPa 는 지우지 않았다."
+    },
+    {
+     "key": "mechanical.yield_strength",
+     "value": 233000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "process": "electrodeposited (ED) copper thin film for FPCB",
+      "thickness_um": 12,
+      "temperature_c": 25,
+      "offset": "0.2% offset",
+      "grade_scope": "class value — 공여재는 FPCB용 12 um 전착(ED) 동박이다. 대상 구리 필러 범프는 전해도금 구리 기둥이라 같은 습식 석출 계열이지만 형상·첨가제·어닐링 이력이 다르다",
+      "test_method": "단축 인장(응력-변형률 곡선에서 판독), 자립형 12 um 전착 Cu 박막 모래시계형 시편"
+     },
+     "notes": "위 UTS 와 **같은 행의 짝**이다(Table 1, 0.2% offset yield strength). 이 재료의 항복강도 칸에는 tier4 가정값 150 MPa 와, 원문 식 (4)에 미세조직을 대입해 저자가 얻은 이론값 3행(462/356/317 MPa, computed tier4)만 있었다 — **인장시험으로 잰 값은 없었다.** 233 MPa 는 저자가 응력-변형률 곡선에서 읽은 실측이다. 자기정합: 233/367 = 0.635 로 전착 구리의 항복비로 타당하고, 같은 표의 압연재 306/414 = 0.739 보다 낮아 논문 결론(`the electrodeposited copper has a lower yield strength than the rolled copper`)과 부호가 맞는다. 기존 행은 하나도 지우지 않았다."
+    }
+   ]
+  },
+  {
+   "match_name": "Avery Dennison FT Series Rubber Adhesive Transfer Tape",
+   "source": {
+    "kind": "journal",
+    "doi": "10.3390/molecules30143035",
+    "title": "Elastocaloric Performance of Natural Rubber: The Role of Nanoclay Addition, Molecules 30(14), 3035 (2025) — Table 3 'Specific heat capacity, thermal conductivity, and thermal diffusivity of neat NR and the relative nanocomposites from LFA', row NR = 1.70 +/- 0.05 J/(g*K)",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12300880/fullTextXML",
+    "publisher": "MDPI (Molecules 30(14) 3035)",
+    "year": 2025
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 958.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 25,
+      "uncertainty_kg_m3": 6.0,
+      "basis": "neat adhesive polymer (무캐리어 전사 테이프이므로 테이프 전체와 같은 기준)",
+      "grade_scope": "class value — 무충전 가황 천연고무(SMR 10, 황 1.5 phr) 실측값. 대상은 무캐리어 천연고무계 점착제라 배합이 다르다",
+      "test_method": "Table 1 'Density and crosslinking density of the unfilled NR and the relative nanocomposites'"
+     },
+     "notes": "**브리프 602 — 옆 칸이 아니라 옆 표다.** 이 재료의 열전도율 0.132 W/(m*K)(pv21262)가 이 논문 Table 3 의 `NR` 행에서 왔고, 그 행의 notes 가 verbatim `자기검산: 같은 논문 Table 1의 NR 밀도 0.958 g/cm3을 써서 alpha x rho x Cp = 0.081e-6 x 958 x 1700 = 0.1319 -> 인쇄된 0.132와 일치한다(검산용 계산)` 라고 **Table 1 의 밀도를 검산에 쓰기까지 했는데 밀도 칸에는 안 넣었다.** 논문 전문 XML 을 다시 받아 Table 1 인쇄면을 확인했다 — 캡션 `Density and crosslinking density of the unfilled NR and the relative nanocomposites`, 열 머리글 `Sample | Density (g/cm3) | Crosslinking Density (mol*10^-4/cm3)`, 행 `NR | 0.958 +- 0.006 | 2.94 +- 0.21`. 0.958 g/cm3 -> 958 kg/m^3. 표 자신의 항등식 검산(브리프 603): k = alpha x rho x Cp = 0.081e-6 x 958 x 1700 = 0.1319 W/(m*K) 로 Table 3 인쇄값 0.132 와 0.1% 안이다 — **밀도·확산율·비열·전도율 넷이 한 논문에서 서로를 검산한다.** 나노클레이 충전 행(NR_1MMT 0.960 ~ NR_5MMT 0.981)은 충전계라 옮기지 않았다. 기존 tier4 1060 kg/m^3(3M Double Coated Tape 9731 의 PET 캐리어 포함 테이프 전체 밀도)는 지우지 않았다 — 그 행의 notes 자신이 `무캐리어 고무계 전사 테이프에는 상한` 이라고 적어 두었고, 이 재료는 캐리어가 없는 전사 테이프다. 같은 출처를 쓰는 재료 366(Lohmann DuploCOLL 2501)·420(SIS/C5 핫멜트)에는 넣지 않았다 — 366 은 필름 캐리어가 있어 기준이 다르고 420 은 SIS 라 천연고무가 아니다."
+    }
+   ]
+  }
+ ]
+}
