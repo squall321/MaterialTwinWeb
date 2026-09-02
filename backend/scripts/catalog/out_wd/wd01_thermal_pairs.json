@@ -1,0 +1,146 @@
+{
+  "batch": "61차 WD",
+  "materials": [
+    {
+      "match_name": "BT Resin",
+      "source": {
+        "kind": "datasheet",
+        "title": "Non-halogenated Low CTE BT Resin Laminate for IC Plastic Packages — CCL-HL832NX",
+        "url": "https://www.mgc.co.jp/eng/products/sc/btprint/lineup/hfbt.html",
+        "publisher": "Mitsubishi Gas Chemical Company, Inc."
+      },
+      "properties": [
+        {
+          "key": "thermal.specific_heat",
+          "value": 1000.0,
+          "unit": "J/(kg*K)",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "grade": "HL832NX (A)",
+            "temperature_c": 25,
+            "test_method": "manufacturer typical value (측정법 열이 비어 있다)",
+            "temperature_note": "원문 미인쇄 — MGC 'Typical properties of Materials' 표의 비열 행에는 측정법·온도가 없다. 같은 표·같은 열에서 온 이 재료의 열전도율 t1 행(0.8 W/(m*K))이 상온 25 °C 규약으로 이미 적재돼 있어 같은 규약을 따랐다(브리프 612 — 한 재료 안에서 규약이 갈리면 안 된다)"
+          },
+          "notes": "MGC 'Typical properties of Materials' 표 verbatim 행: 'Specific heat | J/g・K | 1.00 | 1.00 | 0.95 | 0.95' — 열 머리글 'Item | Measurement Method | Unit | HL832NX (A) | HL832NS | HL832NS type LC | HL832NSR'. 1.00 J/(g*K) x 1000 = 1000 J/(kg*K). **열 배정은 이 재료가 이미 갖고 있는 t1 세 값으로 닫힌다** — 같은 열의 'Density 2.1 g/cm3'(카드 t1 2100 kg/m3) · 'Poissin's ratio 0.19'(카드 t1 0.19) · 'Thermal Conductivity 0.8 W/m*K'(카드 t1 0.8)가 전부 일치한다(브리프 129의 기존 t1 행으로 열 배정을 확정하는 검산). 브리프 602 — 12차 배치가 이 표에서 열전도율만 캐 가고 **바로 아래 줄의 비열은 두고 갔다.** 그 배치의 노트가 verbatim '같은 열의 비열 1.00 J/(g*K)도 함께 인쇄돼 있다'고 적어 놓고도 그 값의 주인 칸에는 안 넣었다(브리프 635①). 종전 t4 1100(ASM Composites 계열 대표값, 무근거)보다 9% 낮다."
+        }
+      ]
+    },
+    {
+      "match_name": "Solid Electrolyte (LLZO Garnet)",
+      "source": {
+        "kind": "journal",
+        "title": "Chalise et al., 'Thermal Characterization of Garnet Solid Electrolyte', ACS Applied Materials & Interfaces",
+        "doi": "10.1021/acsami.2c23038",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10080538/fullTextXML"
+      },
+      "properties": [
+        {
+          "key": "thermal.specific_heat",
+          "value": 618.0,
+          "unit": "J/(kg*K)",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "temperature_c": 25,
+            "test_method": "DSC (differential scanning calorimetry)",
+            "composition": "Al-doped LLZO + 4 wt% MgO + 1 wt% Li2CO3, sintered 1050 degC in Ar",
+            "relative_density_pct": 90,
+            "density_g_cm3": 3.894,
+            "temperature_note": "원문 미인쇄 — 저자는 'average specific heat capacity' 라고만 적고 DSC 평균 구간을 밝히지 않는다. 같은 논문 같은 시편에서 온 이 재료의 열전도율 t1 행(1.33 W/(m*K), 3-omega)이 상온 25 °C 규약으로 적재돼 있어 같은 규약을 따랐다(브리프 612)"
+          },
+          "notes": "본문 verbatim: 'The 3omega voltage, particularly at low frequencies, is sensitive to the thermal conductivity (k) and the volumetric specific heat capacity (Cp = density (rho) x mass specific heat (cp)) of LLZO. The average specific heat capacity (cp) was obtained to be 618 J/(kg K) from differential scanning calorimetry (DSC). The density was measured to be 3.894 g/cm3, and the thermal conductivity was determined to be 1.33 W/mK from the 3omega method (see Figure 3c).' 브리프 602·635① — 이 문장은 **이미 이 재료의 열전도율 t1 행 notes 에 verbatim 으로 인용돼 있었는데** 비열 칸에는 안 들어갔고, 그 칸은 근거 불명 t4 600 으로 남아 있었다. 항등식 검산 — 열확산율 alpha = k/(rho*cp) = 1.33/(3894 x 618) = 5.53e-7 m^2/s 로 산화물 소결체 대역에 든다(검산용 계산이며 값으로 넣지 않았다). 종전 t4 600 과는 +3.0% 로 가까우나, 그 t4 는 fill_dyna_gaps_1.py 의 무출처 계열 대표값이었고 이 값은 도핑 조성·소결밀도·측정법이 붙은 DSC 실측이다."
+        }
+      ]
+    },
+    {
+      "match_name": "Anodized Aluminum Layer (Al2O3)",
+      "source": {
+        "kind": "journal",
+        "title": "Rodriguez et al., 'Thermal conductivity of 3D ordered anodic aluminium oxide membranes', Scientific Reports 6:38595",
+        "doi": "10.1038/srep38595",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC5146943/fullTextXML"
+      },
+      "properties": [
+        {
+          "key": "thermal.specific_heat",
+          "value": 885.0,
+          "unit": "J/(kg*K)",
+          "method": "measured",
+          "tier": 3,
+          "conditions": {
+            "temperature_c": 25,
+            "porosity_pct": 40,
+            "layer_thickness_um": 33.4,
+            "uncertainty_j_kgk": 25,
+            "grade_scope": "class value — 다공성 양극산화 알루미나(AAO) 막의 유효(복합) 비열. 시료는 횡방향 나노채널을 가진 '3D' AAO 막이라 통상적인 종방향 기공 양극산화 피막과 구조가 다르다",
+            "test_method": "measured (광음향 데이터 환원에 쓰려고 밀도와 함께 잰 값. 측정 기법은 본문이 아니라 Supporting Information 에 있다)",
+            "temperature_note": "원문 미인쇄 — 논문 전권에 'room temperature'·'25 °C'·'300 K' 가 0건이다. 같은 표에서 온 이 재료의 열전도율 t3 행(0.38 W/(m*K))이 상온 25 °C 규약으로 적재돼 있어 같은 규약을 따랐다(브리프 612)"
+          },
+          "notes": "Table 1 verbatim 열 머리글: 'Porosity P (%) | Skeletal density rho_AAO (g cm-3) | Composite Specific heat C_pcom (J g-1 K-1) | Composite density rho_com (g cm-3) | Composite thermal conductivity k_com (W m-1 K-1) | Calculated Skeletal thermal conductivity k_AAO (W m-1 K-1)' / 값 행 '40 +/- 6 | 2.770 +/- 0.054 | 0.885 +/- 0.025 | 1.662 +/- 0.169 | 0.38 +/- 0.06 | 1.25 +/- 0.25'. 0.885 J/(g*K) x 1000 = 885 J/(kg*K). **계산값이 아니라 실측이다** — 본문 verbatim 'The density and the specific heat were measured in order to extract the thermal conductivity of the 3D AAO membrane by means of the photoacoustic technique' (같은 표의 k_AAO 1.25 는 열저항 모델로 '계산된' 값이라 쓰지 않는다). 항등식 검산 — alpha = k_com/(rho_com*C_pcom) = 0.38/(1662 x 885) = 2.58e-7 m^2/s. 브리프 602·635① — 이 행의 값은 **이미 이 재료의 열전도율 t3 행 notes 에 Table 1 verbatim 으로 통째로 인용돼 있었는데** 비열 칸에는 안 들어갔다. **22차 B 의 감사 판단이 이 실측으로 확정됐다** — 그 감사는 종전 t4 880 을 'Kyocera 소결 알루미나 13등급 대역 750~790 밖(+11~17%)이라 의심스럽지만 양극산화막은 비정질·수화·다공이라 결합수가 Cp 를 실제로 올릴 수 있다' 고 적고 판단을 보류했다. 실측 885 는 그 보류를 지지한다(t4 880 과 +0.6%). 소결 알루미나 값을 옮기지 않은 것이 옳았다."
+        }
+      ]
+    },
+    {
+      "match_name": "Periscope Prism Glass (high-index)",
+      "source": {
+        "kind": "datasheet",
+        "title": "SCHOTT Optical Glass - Datasheet Collection (N-LASF9 datasheet, as of 09-May-2014)",
+        "url": "https://media.schott.com/api/public/content/38cbbe876d324e03b1881d33f3d26635?v=ae4e3db8&download=true",
+        "publisher": "SCHOTT"
+      },
+      "properties": [
+        {
+          "key": "thermal.specific_heat",
+          "value": 530.0,
+          "unit": "J/(kg*K)",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "grade": "N-LASF9",
+            "detail": "SCHOTT N-LASF9, cp = 0.530 J/(g*K)",
+            "temperature_note": "원문 미인쇄 — 이 서식의 범례는 cp 를 verbatim 'cp = average specific heat capacity in J/(g·K)' 로만 정의하고 평균 구간을 인쇄하지 않는다. 같은 블록의 alpha 는 -30/+70 °C 와 +20/+300 °C 두 구간을 인쇄하므로 서식이 구간을 적을 줄 몰라서가 아니다(브리프 633 — 원문이 안 찍은 것은 안 찍혔다고 적는다)"
+          },
+          "notes": "'Other Properties' 블록 verbatim: 'cp [J/(g*K)] 0.530' / 바로 아래 줄 'l [W/(m•K)] 0.790'. x1000 -> 530 J/(kg*K). 브리프 602 — **같은 블록의 lambda 0.790 · alpha 7.4/8.4 · Tg 683 은 이미 t1 으로 적재돼 있고 바로 위 줄의 cp 만 비어 있었다.** 판 대조(브리프 615) — 2017-01-20 판 datasheet collection(refractiveindex.info 배포)의 같은 등급도 cp 0.530 으로 글자까지 같고, lambda 0.790 · Tg 683 · rho 4.41 도 두 판이 일치한다."
+        },
+        {
+          "key": "thermal.specific_heat",
+          "value": 660.0,
+          "unit": "J/(kg*K)",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "grade": "N-SF57",
+            "detail": "SCHOTT N-SF57, cp = 0.660 J/(g*K)",
+            "temperature_note": "원문 미인쇄 — 이 서식의 범례는 cp 를 verbatim 'cp = average specific heat capacity in J/(g·K)' 로만 정의하고 평균 구간을 인쇄하지 않는다(브리프 633)"
+          },
+          "notes": "같은 datasheet collection 의 N-SF57 'Other Properties' 블록 verbatim: 'cp [J/(g*K)] 0.660' / 'l [W/(m•K)] 0.990' / 'Tg [°C] 629' / 'r [g/cm3] 3.53'. x1000 -> 660 J/(kg*K). 이 재료는 이미 같은 시트에서 N-SF57 의 lambda 0.99 · alpha 8.5/9.9 · Tg 629 를 t1 으로 갖고 있다(브리프 602). 판 대조 — 2017 판도 0.660 으로 같다."
+        }
+      ]
+    },
+    {
+      "match_name": "Glass Molded Aspheric Lens",
+      "source": {
+        "kind": "datasheet",
+        "title": "SCHOTT Optical Glass - Datasheet Collection (N-LASF9 datasheet, as of 09-May-2014)",
+        "url": "https://media.schott.com/api/public/content/38cbbe876d324e03b1881d33f3d26635?v=ae4e3db8&download=true",
+        "publisher": "SCHOTT"
+      },
+      "properties": [
+        {
+          "key": "thermal.specific_heat",
+          "value": 760.0,
+          "unit": "J/(kg*K)",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "grade": "P-SK57",
+            "detail": "SCHOTT P-SK57, cp = 0.760 J/(g*K)",
+            "temperature_note": "원문 미인쇄 — 이 서식의 범례는 cp 를 verbatim 'cp = average specific heat capacity in J/(g·K)' 로만 정의하고 평균 구간을 인쇄하지 않는다(브리프 633)"
+          },
+          "notes": "같은 datasheet collection 의 P-SK57 'Other Properties' 블록 verbatim: 'cp [J/(g*K)] 0.760' / 'l [W/(m•K)] 1.010' / 'Tg [°C] 493' / 'r [g/cm3] 3.01'. x1000 -> 760 J/(kg*K). 이 재료는 이미 같은 시트에서 P-SK57 의 lambda 1.01 · alpha 7.2/8.9 · Tg 493 을 t1 으로 갖고 있다(브리프 602 — 옆 줄을 안 봤다). 판 대조 — 2017 판도 0.760 으로 같다. 주의 — 같은 재료의 다른 계보인 OHARA L-BAL35 는 lambda 1.13 을 인쇄하지만 **비열 행이 없다**(낱장 시트·2023 pocket catalog 4장 전권에 'specific heat' 0건). 이 cp 는 SCHOTT P-SK57 계보에만 걸린다(브리프 638 — 계보는 물성 단위로 갈릴 수 있다)."
+        }
+      ]
+    }
+  ]
+}

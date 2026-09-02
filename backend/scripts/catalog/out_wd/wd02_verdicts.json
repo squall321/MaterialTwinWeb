@@ -1,0 +1,130 @@
+{
+  "batch": "61차 WD",
+  "verdicts": [
+    {
+      "material_id": 137,
+      "name": "IR Cut Filter (blue glass)",
+      "core_absent_from_vendor_sheet": {
+        "thermal.conductivity": "SCHOTT 필터유리 데이터시트 BG60(STATUS 01.12.2014)·BG61 두 장을 실제로 열어 확인했다. 두 장의 물성 블록은 `Density rho [g/cm3]` · `Bubble class` · `Chemical Resistance FR/SR/AR` · `Transformation temperature Tg` · `Thermal expansion alpha -30/+70 · 20/300 · 20/200` · `Temperature coefficient TK` · `Knoop hardness HK` 로 끝나고 **열전도율 행이 없다** (`grep -aci 'thermal conductivity'` = 0). 61차 WD 가 연 문서 범위는 이 두 장이다(브리프 627③). 곁가지 — 같은 벤더의 `Electrical properties of SCHOTT glass` 브로슈어는 verbatim 'The thermal conductivity λ at ϑ = 90 °C is approx. 1 W/(m · K) for all glass types.' 를 인쇄하지만, 그 표의 `all glass types` 는 D 263 T · AF 32 · AS 87 neo · MEMpax · B 270 · BOROFLOAT 33 · low-loss · AF 35 G 여덟 종이고 **이온 착색 필터유리는 그 표에 없다** — 옮기면 브리프 586·632 위반이라 안 옮겼다.",
+        "thermal.specific_heat": "위와 같은 두 장(BG60·BG61)에 **비열 행도 없다**(`grep -aci 'specific heat'` = 0 · `heat capacity` = 0). 같은 벤더의 광학유리 datasheet collection 은 등급마다 `cp [J/(g·K)]` 를 찍는데(이 배치가 그것으로 재료 156·182 를 닫았다) **필터유리 서식에는 그 줄이 없다** — 같은 벤더 안에서도 서식이 갈린다(브리프 613·628)."
+      }
+    },
+    {
+      "material_id": 155,
+      "name": "Ultra-Thin Glass (UTG, foldable)",
+      "core_absent_from_vendor_sheet": {
+        "thermal.conductivity": "SCHOTT AS 87 eco 시트(Abrisa 판 `AS87 10_22`)와 SCHOTT 자료를 옮긴 PGO 제품 페이지 두 장을 열어 확인했다. `Thermal Properties` 블록은 `CTE alpha in 10-6 K-1 (20 °C; 300 °C) 8.7` · `Mean specific heat capacity cp in J/(g·K) (20 °C to 100 °C) 0.84` · `Transformation temperature Tg 621` · `Viscosity lg eta` 넷뿐이고 **열전도율 행이 없다**(두 장 다 `grep -aci 'thermal conductivity'` = 0). 같은 시트의 비열 0.84 는 이미 t1 으로 적재돼 있다 — **서식이 비열은 찍고 열전도율은 안 찍는다**(브리프 613 의 갈래별 인쇄 규칙). 같은 재료가 쓰는 Corning Gorilla Glass 3 PI 시트에도 열전도율 행이 없다."
+      }
+    },
+    {
+      "material_id": 274,
+      "name": "Corning Gorilla Glass Victus 2",
+      "core_absent_from_vendor_sheet": {
+        "thermal.conductivity": "Corning Gorilla Glass Victus 2 Product Information Sheet(2쪽)를 실제로 열어 확인했다. 물성 블록은 `Density 2.41 g/cm3` · `Young's Modulus 79 GPa` · `Poisson's Ratio` · `Shear Modulus` · `Vickers/Knoop Hardness` · `Fracture Toughness` · `Coefficient of Thermal Expansion (0-300 °C) 58.8 x 10-7/°C` 로 끝나고 **열전도율 행이 없다**(`thermal` 낱말 1건이 CTE 행 하나다 · `conductivit` 0건). 곁가지(브리프 634) — corning.com 은 UA 없는 `curl` 에 **403** 을 주고 브라우저 UA 를 붙이면 200 을 준다. Panasonic 과 정반대 방언이다.",
+        "thermal.specific_heat": "같은 PI 시트에 **비열 행도 없다**(`grep -aci 'specific heat'` = 0 · `heat capacity` = 0). 이 갈래의 부재는 §127 이 인장강도에서 확인한 것과 같은 모양이다 — Corning PI 시트는 기계·광학·전기와 CTE 까지만 싣는다."
+      }
+    },
+    {
+      "material_id": 275,
+      "name": "Corning Gorilla Glass Victus",
+      "core_absent_from_vendor_sheet": {
+        "thermal.conductivity": "Corning Gorilla Glass Victus Product Information Sheet(2쪽)를 실제로 열어 확인했다. `Density 2.40 g/cm3` · `Young's Modulus 77 GPa` · `Coefficient of Thermal Expansion (0-300 °C) 72.5 x 10-7/°C` 까지 싣고 **열전도율 행이 없다**(`conductivit` 0건).",
+        "thermal.specific_heat": "같은 PI 시트에 **비열 행도 없다**(`specific heat` 0건 · `heat capacity` 0건)."
+      }
+    },
+    {
+      "material_id": 429,
+      "name": "Corning Gorilla Glass 2",
+      "core_absent_from_vendor_sheet": {
+        "thermal.conductivity": "Corning Gorilla Glass 2 제품정보를 옮긴 Valley Design 배포판(`Corning-Gorilla-glass.pdf`)을 열어 확인했다. `Viscosity(Softening/Annealing/Strain Point)` · `Density 2.42` · `Young's Modulus 71.5 GPa` · `Poisson's Ratio 0.21` · `Shear Modulus` · `Vickers Hardness` · `Chemical Durability` · `Electrical` 까지 싣고 **열전도율 행이 없다**(`conductivit` 0건). 61차 WD 가 연 문서 범위는 이 한 장이다 — Corning 자사 GG2 PI 시트 원본은 현행 마이크로사이트에서 내려갔다(브리프 627③).",
+        "thermal.specific_heat": "같은 배포판에 **비열 행도 없다**(`specific heat` 0건)."
+      }
+    },
+    {
+      "material_id": 222,
+      "name": "Isola I-Tera MT40 Low-Loss Laminate",
+      "core_absent_from_vendor_sheet": {
+        "thermal.specific_heat": "Isola I-Tera MT40 Laminate & Prepreg Data Sheet(Rev F, 2025-12-08)를 열어 확인했다. `Thermal Conductivity 0.61 W/m·K (ASTM E1952)` 는 찍는데 **비열 행이 없다**(`specific heat` 0건 · `heat capacity` 0건). 브리프 585·628 의 Isola 관찰(밀도·비열 0건)이 이 등급에서 재현된다."
+      }
+    },
+    {
+      "material_id": 254,
+      "name": "Isola Astra MT77 Very Low Loss RF/MW Laminate",
+      "core_absent_from_vendor_sheet": {
+        "thermal.specific_heat": "Isola Astra MT77 Laminate & Prepreg Data Sheet(Rev D, 2021-04-20)를 열어 확인했다. `Thermal Conductivity 0.45 W/m·K (ASTM E1952)` 는 찍는데 **비열 행이 없다**(`specific heat` 0건 · `heat capacity` 0건)."
+      }
+    },
+    {
+      "material_id": 230,
+      "name": "Rogers RO4003C High-Frequency Laminate",
+      "core_absent_from_vendor_sheet": {
+        "thermal.specific_heat": "Rogers RO4003C/RO4350B 공용 데이터시트를 열어 확인했다. `Thermal Conductivity 0.71 W/m/°K @ 80 °C (ASTM C518)` · `Density 1.79 g/cm3 @ 23 °C (ASTM D792)` 는 찍는데 **비열 행이 없다**(`specific heat` 0건 · `heat capacity` 0건). **같은 벤더가 서식마다 갈린다** — Rogers RT/duroid 5870/5880 시트는 비열을 찍고(이 카탈로그의 960 J/(kg·K) 계열 대입값이 거기서 왔다) RO4000 계열 시트는 안 찍는다(브리프 628 의 서식 층)."
+      }
+    },
+    {
+      "material_id": 231,
+      "name": "Rogers RO4350B High-Frequency Laminate",
+      "core_absent_from_vendor_sheet": {
+        "thermal.specific_heat": "위와 같은 RO4003C/RO4350B 공용 데이터시트다. RO4350B 열은 `Thermal Conductivity 0.69` · `Density 1.86` 을 찍고 **비열 행이 없다**(`specific heat` 0건)."
+      }
+    },
+    {
+      "material_id": 244,
+      "name": "Rogers RO4835 Oxidation-Resistant Hydrocarbon-Ceramic Laminate",
+      "core_absent_from_vendor_sheet": {
+        "thermal.specific_heat": "Rogers RO4835 데이터시트를 열어 확인했다. `Thermal Conductivity 0.66 W/(m·K) @ 80 °C (ASTM C518)` · `Density 1.92 g/cm3 @ 23 °C (ASTM D792)` 는 찍는데 **비열 행이 없다**(`specific heat` 0건 · `heat capacity` 0건)."
+      }
+    },
+    {
+      "material_id": 247,
+      "name": "Rogers CLTE-AT Ceramic-PTFE Woven Glass Laminate",
+      "core_absent_from_vendor_sheet": {
+        "thermal.specific_heat": "Rogers CLTE-AT Series Laminates Data Sheet 를 열어 확인했다. `Thermal Conductivity 0.64 W/(m.K) · z direction · ASTM E1461` · `Density 2.06 g/cm3 · ASTM D792` 는 찍는데 **비열 행이 없다**(`specific heat` 0건 · `heat capacity` 0건). 이 재료의 비열 t4 960 은 같은 벤더의 **다른 등급**(RT/duroid 5870-5880) 시트에서 옮겨 온 계열 대입값이고, CLTE-AT 자신의 시트에는 그 줄이 없다."
+      }
+    },
+    {
+      "material_id": 273,
+      "name": "Taconic TLX-8 (PTFE/woven glass RF laminate)",
+      "core_absent_from_vendor_sheet": {
+        "thermal.specific_heat": "Taconic `TLX High Volume Fiberglass Reinforced Microwave Substrate` 시리즈 데이터시트(TLX-0/6/7/8/9 다섯 등급을 한 장에 싣는다)를 열어 확인했다. **비열 행이 없다**(`specific heat` 0건)."
+      }
+    },
+    {
+      "material_id": 251,
+      "name": "Chukoh CHUKOH FLO CGN-500 PTFE Copper-Clad Laminate",
+      "core_absent_from_vendor_sheet": {
+        "thermal.specific_heat": "中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja)를 열어 확인했다. 전권에 `比熱` 0건 · `熱伝導` 0건 · `specific heat` 0건이다(카탈로그 텍스트 7,732자 전량 검색). 이 재료의 비열 t4 960 은 Rogers RT/duroid 시트에서 옮겨 온 계열 대입값이다."
+      }
+    },
+    {
+      "material_id": 252,
+      "name": "Chukoh CHUKOH FLO CGS-500A PTFE Copper-Clad Laminate",
+      "core_absent_from_vendor_sheet": {
+        "thermal.specific_heat": "위와 같은 카탈로그다. 같은 표가 CGN-500 · CGS-500 · CGS-500A 세 등급을 나란히 싣는데 **세 등급 전부 비열 행이 없다**(`比熱` 0건)."
+      }
+    },
+    {
+      "material_id": 72,
+      "name": "COP Zeonex (Cyclo-Olefin Polymer)",
+      "core_absent_from_vendor_sheet": {
+        "thermal.conductivity": "ZEON `Cyclo Olefin Polymer (COP) ZEONEX` 제품 브로슈어(200323391.pdf, 대표 물성/물성 비교표)를 열어 확인했다. 열물성 행은 `Heat distortion temperature (ASTM D648)` 뿐이고 **열전도율 행이 없다**(`thermal conductivity` 0건 · `熱伝導` 0건). 브리프 616 의 TOPAS COC 와 같은 자리다 — 다만 TOPAS 는 본문에 구간이라도 있었고 여기는 낱말 자체가 0건이다.",
+        "thermal.specific_heat": "같은 브로슈어에 **비열 행도 없다**(`specific heat` 0건 · `比熱` 0건)."
+      }
+    },
+    {
+      "material_id": 73,
+      "name": "APEL 5014CL (COC, Mitsui)",
+      "core_absent_from_vendor_sheet": {
+        "thermal.conductivity": "三井化学 `APEL cyclo olefin copolymer` 제품 브로슈어(APEL_EN.pdf, Table of Product Properties · 109,213자)를 열어 확인했다. **열전도율 행이 없다**(`thermal conductivity` 0건 · `熱伝導` 0건).",
+        "thermal.specific_heat": "같은 브로슈어에 **비열 행도 없다**(`specific heat` 0건 · `比熱` 0건)."
+      }
+    },
+    {
+      "material_id": 109,
+      "name": "LCP (Liquid Crystal Polymer)",
+      "core_absent_from_vendor_sheet": {
+        "thermal.specific_heat": "Celanese `VECTRA A950 Liquid Crystal Polymer` CAMPUS/Material Data Center 데이터시트를 열어 확인했다. `Thermal properties` 블록은 `Melting temperature 280 °C (ISO 11357-1/-3)` · `Temperature of deflection under load 193/94 °C (ISO 75-1/-2)` · `Vicat softening temperature 145 °C (ISO 306)` · `CLTE parallel -2.4E-6/K · normal 81E-6/K (ISO 11359-1/-2)` 넷뿐이고 **비열 행이 없다**(`specific heat` 0건 · `heat capacity` 0건). CAMPUS 서식은 포아송비까지 시험법을 붙여 찍으면서(브리프 613 의 보태기) 비열은 안 찍는다."
+      }
+    }
+  ]
+}
