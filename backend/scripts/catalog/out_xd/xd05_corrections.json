@@ -1,0 +1,25 @@
+{"corrections": [
+{
+ "target": {"property_value_id": 1177},
+ "reason": "이 행은 인장 영률이 아니라 **굽힘탄성률**이다. 그 사실이 notes 에만 있고 조건축에 없어, 조건으로 거르는 어떤 조회도 이 행을 인장 영률과 구별하지 못한다(브리프 601 곁가지 — `Flexural Modulus` 도 `Stiffness c11` 도 영률이 아니다 / 브리프 633 — 원문이 안 찍은 사실 자체가 조건이다). 값·단위·등급·method·출처는 하나도 바꾸지 않고 조건만 더한다.",
+ "set": {"conditions": {"assumption": true,
+   "modulus_type": "굽힘탄성률(flexural modulus)을 영률 칸에 담은 값이다 — 인장 영률이 아니다. SABIC Valox 325 데이터시트에 인장탄성률 행이 없어 굽힘탄성률 2.34 GPa 를 프록시로 썼다.",
+   "test_method": "flexural (3-point bend) modulus, 벤더 데이터시트 인쇄값",
+   "printed_label": "Flexural Modulus"}}
+},
+{
+ "target": {"property_value_id": 1379},
+ "reason": "이 행은 영률이 아니라 **탄성강성 텐서 성분 C^E_11** 이다(브리프 601 곁가지 — `Stiffness c11` 은 영률이 아니다). axis 는 이미 있으나 어느 양인지가 조건에 없어 인장 영률과 구별되지 않는다. 값·단위·등급·method·출처는 그대로 두고 조건만 더한다.",
+ "set": {"conditions": {"axis": "a-direction (from C^E_11)", "assumption": true,
+   "modulus_type": "탄성강성 성분 C^E_11 = 233 GPa 를 a축 영률 프록시로 담은 값이다 — 인장시험으로 잰 영률이 아니다. 같은 결정의 C^E_33 = 276 GPa · C^E_44 = 103 GPa 로 이방성이 크다.",
+   "printed_label": "elastic stiffness C^E_11"}}
+},
+{
+ "target": {"property_value_id": 1598},
+ "reason": "이 행의 근거는 **나노압입** 탄성률이고 원문이 구간(약 130~150 GPa)으로 준 것을 우리가 한 값으로 접었다. 두 사실이 다 notes 에만 있고 조건축에 없다. 값·단위·등급·method·출처는 그대로 두고 조건만 더한다(브리프 451 의 취지 — 그 숫자를 누가 만들었는지가 값 옆에 있어야 한다).",
+ "set": {"conditions": {"assumption": true,
+   "modulus_type": "나노압입(instrumented indentation) 탄성률이다 — 인장·굽힘 시험값이 아니다. 층상 산화물 입자 수준의 값이라 전극 합제층의 유효 영률과 다르다.",
+   "test_method": "nanoindentation",
+   "printed_range": "약 130~150 GPa(원문이 구간으로 준 것을 140 GPa 한 값으로 접었다 — 우리 산술이다)"}}
+}
+]}
