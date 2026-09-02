@@ -1,0 +1,72 @@
+{
+  "batch": "60차 VA — packaging 상용 솔더 코어 빈칸 판정",
+  "verdicts": [
+    {
+      "material_id": 585,
+      "name": "Sn0.3Ag0.7Cu Solder Alloy",
+      "core_absent_from_vendor_sheet": {
+        "thermal.expansion_linear": "위 넉 장(Alpha-Fry EGS SAC0307 TDS · AIM SAC0307 TDS · Nathan Trotter SAC0307 TDS · DYFENCO SAC0307-1688 TDS) 어디에도 선팽창계수 행이 없다. 58차 TB 가 확인한 The Solder Connection 2023(Sn99Ag0.3Cu0.7 행)·Kapp Alloy SAC0307 페이지에도 CTE 열이 없다(Kapp 은 `~24e-6 /degC` 를 찍으나 물결표 계열근사라 등급값이 아니다 — 같은 페이지의 인장강도 `~40 MPa` 가 두 독립 벤더의 29.4/29.5 MPa 와 36% 어긋난다).",
+        "thermal.conductivity": "The Solder Connection 2023 사양표는 이 등급 행(Sn99Ag0.3Cu0.7 (SAC0307))을 싣는데 **열전도율 칸이 비어 있다**('-'). 이번에 연 등급 전용 TDS 넉 장(Alpha-Fry EGS · AIM · Nathan Trotter · DYFENCO)에도 열전도율 행이 없다. Kapp Alloy 의 `~60 W/mK` 는 물결표 계열근사다. **주의 — ALPHA Vaculoy SACX0307 시트의 값은 이 재료가 아니다**(Bi 0.1 도핑 등급 = 재료 2677)."
+      }
+    },
+    {
+      "material_id": 575,
+      "name": "SAC-Q Solder Alloy",
+      "core_absent_from_vendor_sheet": {
+        "physical.density": "**성격상 V4(등급 미확정)다 — 값은 인쇄돼 있는데 그것이 이 재료의 등급이 아니다.** 이번에 CAPLINQ/Krayden `LINQALLOY SACQ Pb-free Solder Spheres` TDS(v1.0)와 그 SDS(Version 01, 인쇄일 2024-05-02)를 열었다. TDS 는 `Density 7.56 g/cm3`, SDS 9항은 `Specific Gravity (Water = 1 at 25°C): 7.48` 을 찍는다(두 값도 1.1% 갈린다). 그러나 **그 문서의 조성이 이 재료와 다르다** — LINQALLOY SACQ 는 `Sn Balance / Ag 3.90-4.10 / Cu 0.45-0.55 / Ni 0.04-0.06 / Bi 2.50-3.50` 이고, 이 재료는 Lall 2018(IPACK2018-8357) TABLE 1 의 EDX verbatim `SAC-Q | Sn 92.7 | Ag 3.4 | Cu 0.5 | Bi 3.4` 로 **Ag 가 3.4 대 4.0 으로 18% 다르고 Ni 이 없다.** 융점도 갈린다(벤더 211/216 C). 브리프 22·586 대로 옮기지 않았다. 참고 — 조성 혼합칙으로 벤더 조성의 밀도는 7.446 g/cm3 이라 SDS 의 7.48 쪽이 TDS 의 7.56 보다 맞는다. **경고 — 같은 TDS 의 `Young's Modulus 128.4 GPa` 는 인쇄돼 있으나 물리적으로 불가능하다**(Sn 92.45% 합금의 Voigt 상한이 50.8 GPa 이므로 2.5배다. 같은 벤더의 형제 등급 `LINQALLOY SAC405` TDS 가 같은 표 구성으로 49 GPa 를 찍어 한 칸짜리 오식임이 드러난다). 이 재료의 영률 칸은 이미 Lall 2018 값으로 차 있으므로 빈칸 판정 자리가 아니지만, 다음 파동이 이 표를 열어 128.4 를 집지 않게 여기 적어 둔다.",
+        "mechanical.poisson_ratio": "이 등급의 이름을 다는 유일한 공개 벤더 문서인 CAPLINQ/Krayden `LINQALLOY SACQ` TDS v1.0 의 `Speciﬁcations` 표에 포아송비 행이 없다(구면지름·고상선/액상선·피크리플로·밀도·비커스경도·인장강도·영률·연신율·비저항·열전도율·CTE 열한 행뿐). 그리고 그 문서의 조성이 이 재료와 다르다(위 physical.density 판정 참조).",
+        "thermal.expansion_linear": "CAPLINQ/Krayden LINQALLOY SACQ TDS v1.0 은 `Coeﬃcient of Thermal Expansion 23.1 ppm/°C` 를 인쇄한다. **그러나 그 문서의 조성(Ag 3.90-4.10 / Bi 2.50-3.50 / Ni 0.04-0.06)이 이 재료(Lall 2018 EDX Ag 3.4 / Bi 3.4 / Ni 없음)와 다르다.** 등급을 못 닫았으므로 붙이지 않는다(브리프 22·586·123). 이 재료의 원 출처 Lall 2018 은 Anand 상수와 응력-변형률 곡선만 싣고 CTE 표가 없다.",
+        "thermal.conductivity": "LINQALLOY SACQ TDS 는 `Thermal Conductivity 70.8 W/m·K` 를 인쇄하나 **조성이 다른 등급이고, 그 값 자체도 계열에서 벗어난다** — 같은 벤더의 LINQALLOY SAC405 TDS 가 74 W/m·K 를 찍는데 The Solder Connection 2023 의 SAC405 는 62, Almit 실측 SAC396 은 61.1 이다(19% 높다). 순 Sn 의 66.6 W/(m K) 보다도 높아 Sn 92% 합금의 값으로는 계통에서 벗어난다. 등급도 다르고 값도 못 믿으므로 붙이지 않았다.",
+        "thermal.specific_heat": "LINQALLOY SACQ TDS v1.0 의 `Speciﬁcations` 표와 SDS 9항 어디에도 비열 행이 없다. Lall 2018 에도 없다.",
+        "mechanical.tensile_strength": "**이 칸의 값은 카탈로그 안에 이미 있다 — 다만 형제 키에 있다**(58차 TB 신고 1). 같은 재료의 `mechanical.tensile_strength_at_rate` 에 160행(Lall 2018, 변형률속도 10~75 /s, 25~200 C, 시효 0~180일)이 들어와 있고 `mechanical.youngs_modulus_at_rate` 도 160행이다. 솔더는 상온에서 T/Tm ~ 0.65 라 UTS 가 변형률속도 지배이고 그래서 논문이 조건 없는 UTS 를 안 찍는다 — **조건 없는 UTS 는 어느 문서에도 인쇄돼 있지 않다**(그 뜻에서 이 판정은 참이다). 벤더 쪽 LINQALLOY SACQ TDS 는 `Tensile Strength 94.8 MPa` 를 찍으나 조성이 다른 등급이다. 코어 7물성 집계(coverage_report.CORE7)가 `_at_rate` 계열을 안 보므로 갈래를 새로 내기 전에는 이 자리가 옳다(브리프 608 의 57차 SA 선례 — 전파되는 키에 적고 성격을 사유에 못박는다)."
+      }
+    },
+    {
+      "material_id": 573,
+      "name": "SAC205 Solder Alloy",
+      "core_absent_from_vendor_sheet": {
+        "physical.density": "**상용 등급으로 팔리지 않는다 — 벤더 문을 두드릴 자리가 아니다.** 58차 TB 가 벤더 편찬표·TDS 아홉을 전수로 훑어 이 조성(Sn97.5/Ag2.0/Cu0.5) 행이 하나도 없음을 확인했다(The Solder Connection 2023 은 SAC0107·SAC0307·SAC0807·SAC105·SAC263·SAC305·SAC405·SAC387 을 전부 싣는데 SAC205 만 없다). 60차 VA 가 문 넷을 더 열어 같은 결론에 닿았다 — ① Indium Corporation `Master Solder Alloy Properties Table`(2004, 5쪽, Indalloy 2006 편찬표와 다른 판) 에 행 없음. ② Almit `Difference Between Various Sn/Ag/Cu Solder Compositions`(2005) 시험시료 넷은 SAC396·SAC357·SAC305·63Sn37Pb 다. ③ Alpha-Fry EGS 저은 SAC TDS(SM1138-1) 는 SAC0107/0307/0807 계열이다. ④ AIM 등급별 TDS 는 SAC0307 하나만 존재한다. **이 조성이 실물로 존재하기는 한다** — Coyle 2015(iNEMI Pb-Free Alloy Characterization) 의 합금표가 `Sn-2.0Ag-0.5Cu | SAC205` 와 `Sn-2.0Ag-0.5Cu-0.05Ni | SAC205+Ni` 를 싣고 실제로 볼을 붙여 시험했다. 그러나 **그 보고서도 물성표를 싣지 않는다**(특성수명·와이블만 싣는다). 다음 문은 벤더가 아니라 이 조성을 벌크로 잰 논문이다.",
+        "mechanical.poisson_ratio": "이 재료의 출처 셋(Basit 2015 IPACK2015-48619 · Cai 2010 ECTC · Chen 2020 Microelectron. Reliab. 109, 113651)을 전문으로 훑었다. **셋 다 `Poisson` 이 0건이거나 솔더가 아닌 재료의 것이다** — Chen 2020 의 유일한 포아송비 표 `Table III Elastic Material Properties used for FEA modeling` 은 Copper·Board·Mold·Die·Die attach·BGA sub 여섯 줄이고 솔더 줄이 없다(그마저 FE 입력표다 — 브리프 3). 벤더 문서는 위 physical.density 판정대로 존재하지 않는다.",
+        "thermal.expansion_linear": "출처 셋 어디에도 이 합금의 CTE 가 인쇄되지 않는다 — Basit 2015 와 Cai 2010 의 `CTE` 언급은 시험보드 CTE 불일치 서술이고, Chen 2020 의 CTE 열은 Table III(구리·기판·몰드·다이·다이어태치·BGA 기판)의 것이다. 벤더 문서는 존재하지 않는다.",
+        "thermal.conductivity": "출처 셋에 열전도율 행이 없다(전부 점소성·크리프·피로 논문이다). 벤더 편찬표 아홉과 이번에 연 문 넷에 이 등급 행이 없다.",
+        "thermal.specific_heat": "출처 셋에 비열 행이 없다. 벤더 편찬표 아홉과 이번에 연 문 넷에 이 등급 행이 없다.",
+        "mechanical.tensile_strength": "**이 칸의 값은 카탈로그 안에 이미 있다 — 다만 형제 키에 있다**(58차 TB 신고 1). 같은 재료의 `mechanical.tensile_strength_at_rate` 에 36행(Basit 2015·Cai 2010, 시효·변형률속도별)이 있고 `mechanical.yield_strength_at_rate` 도 있다. **조건 없는 UTS 는 어느 문서에도 인쇄돼 있지 않다** — 솔더는 상온에서 T/Tm ~ 0.65 라 UTS 가 변형률속도 지배라 논문이 조건 없는 값을 아예 안 찍는다. 코어 집계가 `_at_rate` 를 안 보므로 갈래가 생기기 전에는 이 자리가 옳다(브리프 608 의 57차 SA 선례)."
+      }
+    },
+    {
+      "material_id": 586,
+      "name": "SAC(307)-2In Solder Alloy",
+      "core_absent_from_vendor_sheet": {
+        "physical.density": "**논문 개발합금이라 벤더 문서가 존재하지 않는다.** Ibrahiem 2019(Microelectron. Reliab., DOI 10.1016/j.microrel.2019.04.020)가 석영관에서 Sn(99.9%) + Ag·Cu·In(99.99%)를 800 C 1시간 녹여 직접 만든 조성이다(Sn-3.0Ag-0.7Cu-2.0In). 58차 TB 가 원문을 전문으로 열어 Table 1~6 에 밀도 행이 없음을 확인했다(DSC 융점·pasty range·과냉, 인장 UTS/YS/E/연신, SRT/SRRT 파라미터, 활성화에너지뿐). 60차 VA 가 편찬표 쪽을 재확인했다 — Indium Corporation `Master Solder Alloy Properties Table`(2004)의 In 함유 Sn-Ag 계 행(Indalloy 227 = 77.2Sn/20In/2.8Ag 등)은 조성이 전혀 다르다. 이 조성을 파는 벤더가 없으므로 열 시트가 없다.",
+        "mechanical.poisson_ratio": "Ibrahiem 2019 전문에 포아송비가 없다(인장시험은 UTS·YS·E·연신만 낸다). 벤더 등급이 아니라 벤더 시트가 존재하지 않는다. 브리프 613·582 의 솔더판 — 솔더 문서는 강도축은 찍어도 포아송비를 거의 안 찍는다.",
+        "thermal.expansion_linear": "Ibrahiem 2019 전문에 선팽창계수 표가 없다(58차 TB 확인, 60차 VA 재확인). 벤더 시트가 존재하지 않는다.",
+        "thermal.conductivity": "Ibrahiem 2019 전문에 열전도율 표가 없다. 벤더 시트가 존재하지 않는다.",
+        "thermal.specific_heat": "Ibrahiem 2019 전문에 비열 표가 없다(DSC 는 융점·과냉만 낸다). 벤더 시트가 존재하지 않는다.",
+        "mechanical.tensile_strength": "**이 칸의 값은 카탈로그 안에 이미 있다 — 다만 형제 키에 있다**(58차 TB 신고 1, 이 재료의 `attributes.core_value_at_sibling_key` 에 이미 적혀 있으나 집계가 그 키를 안 읽는다). 같은 논문의 UTS 36.18 / 39.15 MPa 가 `mechanical.tensile_strength_at_rate`(변형률속도 3.4e-3 /s, 무RMF/RMF)로 2행 들어와 있다. **조건 없는 UTS 는 원문 어디에도 인쇄돼 있지 않다.** 집계가 읽는 자리에 옮겨 적어 다음 파동이 같은 논문을 다시 열지 않게 한다(브리프 608 의 57차 SA 선례 — 전파되는 키에 적고 성격을 사유에 못박는다)."
+      }
+    },
+    {
+      "material_id": 965,
+      "name": "SAC125Ni Solder Alloy (Sn1.2Ag0.5Cu0.05Ni)",
+      "core_absent_from_vendor_sheet": {
+        "thermal.expansion_linear": "이 등급의 이름을 다는 벤더 문서 넷을 열었고 선팽창계수 행이 있는 것이 0장이다. ① **CAPLINQ LINQALLOY SAC125N TDS v1.0**(이번에 처음 연 등급 전용 시트 — `https://www.krayden.com/products/709/files/5859`)의 `Technical Speciﬁcations` 표는 조성·고상선/액상선·피크리플로·밀도·비커스경도·인장강도·영률·연신율·비저항·열전도율 **열 행**을 찍는데 **CTE 행이 없다.** 같은 벤더의 형제 시트도 갈린다 — LINQALLOY SACQ TDS 는 CTE 를 찍고 LINQALLOY SAC405 TDS 는 안 찍는다(§600·147 의 형제 판정 금지가 벤더 표에서도 성립한다). ② 같은 제품의 **SDS**(Version 01) 9항에도 CTE 가 없다. ③ ALPHA SOLDER SPHERES TDS(2020)는 조성·융점만 싣는다(58차 TB 확인). ④ CapLinq/Krayden 제품 페이지(현행·구판 Wayback)도 조성·융점만 싣는다. 벤더 편찬표 다섯(Indalloy 2006 · The Solder Connection 2023 · Kester · AIM · Guangzhou Xianyi)과 이번에 연 **Indium Corporation Solder Alloy Directory R9(2025)** 에는 이 등급 행 자체가 없다(R9 의 Ni 도프 행은 291 = 99.25Sn/0.7Cu/0.05Ni 와 291RPB = 99.95Sn/0.05Ni 뿐이다).",
+        "thermal.specific_heat": "위 넉 장(LINQALLOY SAC125N TDS v1.0 · 같은 제품 SDS 9항 · ALPHA SOLDER SPHERES TDS 2020 · CapLinq/Krayden 제품 페이지) 어디에도 비열 행이 없다. 편찬표 여섯(Indalloy 2006 · Indium Solder Alloy Directory R9 · The Solder Connection 2023 · Kester · AIM · Xianyi)에는 이 등급 행이 없다. **참고 — LINQALLOY 계열 TDS 는 어느 등급에서도 비열을 안 찍는다**(SACQ·SAC405·SAC125N 세 장 전수)."
+      },
+      "core_rejected_printed_value": {
+        "thermal.conductivity": "CAPLINQ LINQALLOY SAC125N TDS v1.0 이 `Thermal Conductivity | 67 | W/m·K` 를 인쇄한다. **순물질 상한에서 죽는다** — 이 합금은 Sn 98.3%인데 **순 Sn 의 열전도율이 66.6 W/(m·K)** 다. 희박 고용 합금은 용질 산란 때문에 모재보다 낮아야 하는데 인쇄값이 순 Sn 보다 높다. **같은 벤더의 형제 등급 둘이 같은 방향으로 어긋난다** — LINQALLOY SAC405 TDS 74 W/(m·K) 대 The Solder Connection 2023 의 SAC405 62(19% 높다) · LINQALLOY SACQ 70.8. 즉 이 열은 한 칸이 아니라 **열 전체가 계통적으로 높다**(같은 표의 영률 열이 SACQ 한 칸만 죽은 것과 반대다 — 형제가 같이 틀리면 열의 문제다). 독립 대조 — 이 등급의 이웃인 SAC105 를 The Solder Connection 은 60, Almit 실측 SAC396 은 61.1, Indium Solder Alloy Directory R9 는 SAC305 를 0.61 W/(cm·°C) = 61 로 찍는다. 비저항 검산도 어긋난다 — 같은 표의 `Electrical Resistivity 13 µΩ·cm` 에 Wiedemann-Franz(L = 2.44e-8, T = 298 K)를 넣으면 55.9 W/(m·K)이고 순 Sn 의 WF 오차(+5%)를 보정해도 58.7 이라 인쇄 67 과 14% 어긋난다. **곁가지 — 그 비저항 열 자체가 복제된 열이다**(SACQ 13.0 · SAC405 13 · SAC125N 13 으로 세 등급이 같다)."
+      }
+    },
+    {
+      "material_id": 580,
+      "name": "97.5Pb2.5Sn Solder Alloy",
+      "core_absent_from_vendor_sheet": {
+        "physical.density": "**이 조성은 상용 솔더 등급으로 카탈로그되지 않는다 — 벤더 문을 두드릴 자리가 아니다.** 58차 TB 가 편찬표 다섯(Indalloy 2006 · The Solder Connection 2023 · Kester · AIM · Guangzhou Xianyi)에 행이 없음을 확인했고, 60차 VA 가 **문 열여덟을 더 열어** 같은 결론에 닿았다. 가장 강한 부재 증거는 **Indium Corporation `SOLDER ALLOY DIRECTORY` Form 97720-A4-R9(2025)** 다 — Indalloy 전 등급을 싣는 현행 목록인데 Pb-Sn 이원계가 `90Pb/10Sn`(159) → `95Pb/5Sn`(171) 에서 끊기고 그 위는 전부 Ag·Sb 삼원계다(`97.5Pb/2.5Ag` 161 · `98Pb/2Sb` 168 · `98.5Pb/1.5Sb` 169 · `95.5Pb/2.5Ag/2Sn` 163). **Pb 97.5 / Sn 2.5 행이 없다.** 그 밖 연 문 — Indium `Master Solder Alloy Properties Table`(2004) · Indium `Solder Preforms` PDS 97702 R6 · AMETEK COINING `Solder Wire` TDS(V1-08-22) · AMETEK `Pb-Based Solder Wire` · Multicore/Loctite `Properties of Solders` · Array Solders `Solder Alloys Temperature Chart`(2016) · The Solder Connection `Solder Alloy Chart`(Issue 1, 07/07/21) · Senju `SMIC Lead Free Solder Catalog 2018` · Topline CCGA 재료표 · alasir.com 솔더 물성표 · Belmont Metals 납계 합금 카탈로그 · Stannol 전 TDS(Wayback PDF 2,776건 훑음) · Nathan Trotter·Qualitek 전 PDF 목록 · Indium 사이트 전 PDF(Wayback 4,208건) · EasySpheres SDS 색인. **표준도 이 등급을 안 낸다** — JIS Z 3282:2017 의 납다량 등급은 `Pb95Sn5 / H5A`(Sn 4.5~5.5)에서 끊기고 2.5% Sn 등급이 없으며, ASTM B32 의 납다량 등급은 `Sn2`(Sn 1.5~2.5 구간)라 **2.5% 를 콕 집은 등급이 아니다.** 이 조성이 인쇄된 유일한 문서는 RotoMetals 의 `1 to 40 Bullet Alloy`(총알 주조용, 97.5% lead / 2.5% tin)이고 **인쇄된 물성이 브리넬 경도 근사치 한 줄뿐**이라 코어 일곱 중 아무것도 없다. **이 조성의 정체는 상용 등급이 아니라 1990년대 플립칩 세라믹 기판용 시험합금이다** — 이 재료의 두 출처(Darveaux 1992 IEEE TCHMT · Wang 1998 ASME)가 다 그 계보다.",
+        "mechanical.poisson_ratio": "위 열여덟 문 어디에도 이 조성의 행이 없다. 원 출처 Darveaux 1992 는 **포아송비를 가정한다** — 본문 verbatim `Assuming a Poisson's ratio of 0.35, the shear modulus constants were calculated to be Go = 1.3(10^6) lbf/in2 and G1 = 1.5(10^3) lbf/in2/°C`. 가정치이므로 t1~t2 로 넣을 수 없다(58차 TB 확인, 60차 VA 가 원문 전문으로 재확인).",
+        "thermal.expansion_linear": "위 열여덟 문 어디에도 이 조성의 행이 없다. Darveaux 1992 와 Wang 1998 은 크리프·Anand 상수만 싣는다.",
+        "thermal.conductivity": "위 열여덟 문 어디에도 이 조성의 행이 없다. Indium Solder Alloy Directory R9 는 열전도율 열을 두 개(@85 C · @20 C) 싣지만 이 조성의 행이 없다.",
+        "thermal.specific_heat": "위 열여덟 문 어디에도 이 조성의 행이 없다. 비열 열이 있는 것은 Indalloy 2006(SOLID/LIQUID 두 열)뿐인데 그 표에도 이 조성의 행이 없다.",
+        "mechanical.tensile_strength": "위 열여덟 문 어디에도 이 조성의 행이 없다. 원 출처 Darveaux 1992 는 **접합체 전단·인장 시험**이고 인쇄하는 것은 정상상태 크리프 상수·과도크리프 상수·파단시작 변형률이며 UTS 표가 없다. Wang 1998 은 Anand 상수만 싣는다."
+      }
+    }
+  ]
+}

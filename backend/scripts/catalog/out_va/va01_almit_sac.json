@@ -1,0 +1,219 @@
+{
+  "batch": "60차 VA — packaging 상용 솔더. Almit SAC 비교시험 Chart 2 의 옆 칸(§602)",
+  "materials": [
+    {
+      "match_name": "Sn3.9Ag0.6Cu Solder Alloy (SAC396)",
+      "source": {
+        "kind": "other",
+        "title": "Almit Ltd. (Nihon Almit Co., Ltd.) — 'Difference Between Various Sn/Ag/Cu Solder Compositions', 29/6/2005, §2.4 Specific Heat and Chart 2 'Mechanical Properties Test Results (n=3)'",
+        "url": "https://www.almit.com/dloads/Agents/SAC%20Alloy%20Comparison.pdf",
+        "publisher": "Almit Ltd. (Nihon Almit Co., Ltd.)",
+        "year": 2005,
+        "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w60va/almit_sac_alloy_comparison_2005.pdf"
+      },
+      "properties": [
+        {
+          "key": "mechanical.tensile_strength",
+          "value": 43700000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "temperature_c": 25,
+            "temperature_k": 298.15,
+            "composition_wt_pct": "Sn-3.9Ag-0.6Cu (SAC396, iNEMI recommended)",
+            "specimen": "환봉 인장시편 — §2.1 verbatim 'Diameter: 10mm / Length: 50mm / Parallel: 60mm / R: 15'",
+            "test_method": "인장시험(Tensile Strength Measurement eqp.). 크로스헤드 속도·변형률속도는 원문에 인쇄되지 않았다",
+            "n_replicates": 3,
+            "strain_rate_printed": "미기재"
+          },
+          "notes": "p.13 Chart 2 'Mechanical Properties Test Results (n=3)' verbatim 행 `Tensile Strength (MPa) | 43.7 | 44.0 | 41.1 | 34.7` 의 첫 열(Sn-3.9Ag-0.6Cu). 400 dpi 렌더로 pdftotext -layout 값과 글자 단위로 일치함을 확인했다(브리프 603). 같은 표의 기준열 63Sn-37Pb 34.7 MPa 와 The Solder Connection 2023(525 kgf/cm2 = 51.5 MPa)이 33% 갈리는데, 이 표는 변형률속도를 안 찍고 벌크 환봉(D10 x L50)이라 시편·율속이 다르다 — 두 값이 다른 측정이다. 같은 표의 SAC305 열 41.1 MPa 도 Solder Connection 500 kgf/cm2 = 49.0 MPa 보다 16% 낮아 계통적이다(한 시험실 안에서는 일관된다). 항복 31.3 MPa · 연신 40.6% 와 같은 시험의 값이다."
+        },
+        {
+          "key": "mechanical.yield_strength",
+          "value": 31300000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "temperature_c": 25,
+            "temperature_k": 298.15,
+            "composition_wt_pct": "Sn-3.9Ag-0.6Cu (SAC396, iNEMI recommended)",
+            "specimen": "환봉 인장시편 D10 x L50 mm, 평행부 60 mm, R15",
+            "test_method": "인장시험. 원문 행 머리글은 'Yield Point (MPa)'. 오프셋 기준(0.2% 등)은 인쇄되지 않았다",
+            "n_replicates": 3,
+            "offset_basis_printed": "미기재"
+          },
+          "notes": "p.13 Chart 2 verbatim `Yield Point (MPa) | 31.3 | 35.0 | 34.2 | 28.4`. 같은 행의 기준열 63Sn-37Pb 28.4 MPa. UTS 43.7 과의 비 0.716 은 SAC 계열 통상범위 안이다."
+        },
+        {
+          "key": "mechanical.elongation_at_break",
+          "value": 0.406,
+          "unit": "1",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "temperature_c": 25,
+            "temperature_k": 298.15,
+            "composition_wt_pct": "Sn-3.9Ag-0.6Cu (SAC396, iNEMI recommended)",
+            "specimen": "환봉 인장시편 D10 x L50 mm, 평행부 60 mm, R15",
+            "test_method": "인장시험",
+            "n_replicates": 3,
+            "value_printed": "40.6 %"
+          },
+          "notes": "p.13 Chart 2 verbatim `Elongation (%) | 40.6 | 43.4 | 41.0 | 91.2`. 40.6% = 0.406(무차원). 기준열 63Sn-37Pb 91.2% 가 공정 SnPb 의 큰 연신과 맞아 열 배정이 확인된다."
+        },
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 52000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "temperature_c": 25,
+            "temperature_k": 298.15,
+            "composition_wt_pct": "Sn-3.9Ag-0.6Cu (SAC396, iNEMI recommended)",
+            "test_method": "초음파(sonic velocity) 동적 측정 — §2.2 verbatim 'Test Method: Ultrasonic ... Calculate the Young's Modulus and Poisson's Ratio from the speed that the ultrasonics travel through the metal', 시편 20 mm sq x t 10 mm, 25 C, Matech 장비",
+            "modulus_type": "동적(초음파)",
+            "n_replicates": 3
+          },
+          "notes": "p.13 Chart 2 verbatim `Young's Modulus (GPa) | 52 | 51 | 50 | 40`. **혼합물 상한 검산(브리프 604)** — 부피분율 Sn 0.9676 / Ag 0.0275 / Cu 0.0049 로 Voigt 상한은 순물질 E 를 교과서값(Sn 50 · Ag 83 · Cu 130 GPa)으로 재면 51.3 GPa, 편찬표 준정적값(Indalloy·Kester 의 순 Sn 42.1 GPa)으로 재면 43.6 GPa 다. 인쇄값 52 는 앞엣것보다 1.4% 위, 뒤엣것보다 19% 위다. **기각하지 않은 이유는 같은 표의 기준열이 같은 편차를 재현하기 때문이다** — 63Sn-37Pb 인쇄 40 GPa 은 교과서값 Voigt 40.7 과 1.7% 안이고 편찬표값 Voigt 35.5 보다 13% 위다. 즉 이 열은 **초음파 동적 탄성률**이라 준정적 편찬표값보다 계통적으로 13~19% 높고, 두 행이 같은 방향·같은 크기로 어긋난다(계통 편차는 오식이 아니다). 이 재료의 기존 t1 영률 18.075 GPa(Zhang 2004 Eq.14b, TMM 제하기울기)은 준정적 겉보기값이라 **다른 측정**이다 — 조건의 modulus_type 으로 갈라 둔다. 원문의 식 서술 'Young's modulus = sonic speed x (density)2' 는 오식이나(옳은 형태는 rho x v^2) 측정법이 초음파임은 명시돼 있다."
+        },
+        {
+          "key": "mechanical.poisson_ratio",
+          "value": 0.35,
+          "unit": "1",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "temperature_c": 25,
+            "temperature_k": 298.15,
+            "composition_wt_pct": "Sn-3.9Ag-0.6Cu (SAC396, iNEMI recommended)",
+            "test_method": "초음파(sonic velocity) 동적 측정, 시편 20 mm sq x t 10 mm, 25 C, Matech 장비",
+            "n_replicates": 3
+          },
+          "notes": "p.13 Chart 2 verbatim `Poisson's Ratio | 0.35 | 0.36 | 0.36 | 0.37`. **솔더 벤더가 포아송비를 인쇄한 첫 문서다** — 58차 TB 가 편찬표·TDS 열셋을 훑어 '포아송비 열이 있는 것이 0장' 이라 판정했는데(브리프 초안 5·§613) 이 표에는 열이 있다. 검산 — 부피분율 혼합칙(Sn 0.36 · Ag 0.37 · Cu 0.34)으로 0.360 이 나와 인쇄 0.35 와 3% 안이고, 같은 표의 기준열 63Sn-37Pb 0.37 은 Sn 0.36 / Pb 0.44 혼합칙 0.382 와 3% 안이다. 두 행이 같이 맞으므로 열 배정이 닫힌다. 이 재료의 기존 판정 `core_absent_from_vendor_sheet.mechanical.poisson_ratio`(Indalloy 252행에 열이 없다)는 그 표에 대해서는 참이나 계통 전체의 부재는 아니었다."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 2.18e-05,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "temperature_range_c": [20, 100],
+            "temperature_range_k": [293.15, 373.15],
+            "composition_wt_pct": "Sn-3.9Ag-0.6Cu (SAC396, iNEMI recommended)",
+            "test_method": "열팽창 측정(Heat Expansion Measurement) — §2.5 verbatim 'The metal expansion transferred from the measurement stick to the pressure reader will be transferred to voltage and recorded', 시편 4 mm x 4 mm x t 10 mm",
+            "n_replicates": 3
+          },
+          "notes": "p.13 Chart 2 verbatim `CTE (10-6/K) | 20-100C | 21.8 | 21.7 | 21.6 | 21.6`. 검산 — 부피분율(Sn 0.9676 / Ag 0.0275 / Cu 0.0049)에 순물질 CTE(Sn 22.0 · Ag 18.9 · Cu 16.5 ppm/K)를 넣으면 21.89 ppm/K 로 인쇄값과 0.4% 안이다. 같은 계열의 독립 벤더값 — ALPHA VACULOY SAC TDS 의 SAC405 21.4 ppm/K(20~100 C, 이미 DB 에 있다)와 같은 대역이다. **표 내부 항등식으로 열 배정이 닫힌다** — 같은 표에서 'Thermal Conductivity (%) 100C' 로 잘못 이름 붙은 행의 값 0.174 는 21.8e-6 x 80 K = 1.744e-3 = 0.174 % 로 이 CTE 의 팽창률(%)이다(아래 20-60C 행 notes 참조)."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 2.14e-05,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "temperature_range_c": [20, 60],
+            "temperature_range_k": [293.15, 333.15],
+            "composition_wt_pct": "Sn-3.9Ag-0.6Cu (SAC396, iNEMI recommended)",
+            "test_method": "열팽창 측정, 시편 4 mm x 4 mm x t 10 mm",
+            "n_replicates": 3
+          },
+          "notes": "p.13 Chart 2 verbatim `CTE (10-6/K) | 20-60C | 21.4 | 21.5 | --- | 21.6`. **이 표에는 이름이 틀린 행이 둘 있고, 그것을 가른 것이 이 CTE 행과의 항등식이다.** 'Thermal Conductivity (%) 60C' 행과 'Thermal Conductivity (%) 100C' 행의 값은 열전도율이 아니라 **열팽창률(%)** 이다 — 21.4e-6 x 40 K = 8.56e-4 = 0.0856 대 인쇄 0.085, 21.5e-6 x 40 = 0.086 대 인쇄 0.086, 21.8e-6 x 80 = 0.1744 대 인쇄 0.174, 21.7e-6 x 80 = 0.1736 대 인쇄 0.173, 기준열 21.6e-6 x 40 = 0.0864 대 0.086 · x 80 = 0.1728 대 0.173 으로 **인쇄된 일곱 칸이 전부 재현되고, CTE 20-60C 가 '---' 인 SAC305 열은 60C 행도 '---' 다.** 문서 목차(p.6)가 평가항목을 '5) Coefficient of Thermal Expansion / Thermal Expansion ratio' 로 적어 팽창률 행이 있어야 함을 뒷받침한다. 400 dpi 렌더로 행 머리글이 실제로 'Thermal Conductivity (%)' 로 인쇄돼 있음을 확인했다 — 추출 손상이 아니라 원문 오식이다."
+        },
+        {
+          "key": "thermal.conductivity",
+          "value": 61.1,
+          "unit": "W/(m*K)",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "temperature_c": 25,
+            "temperature_k": 298.15,
+            "composition_wt_pct": "Sn-3.9Ag-0.6Cu (SAC396, iNEMI recommended)",
+            "test_method": "레이저 플래시법 — §2.3 verbatim 'Test Method: Laser Flash Method ... Test Specimen: 10mm diameter / t = 2mm / Test Environment: 25C / 60% RH / vacuum', Ulvac-Riko 장비. 원문이 'Thermal conductivity = specific heat x heat diffusion x specific gravity' 로 산출식을 밝힌다",
+            "n_replicates": 3,
+            "unit_printed": "원문은 축 이름과 표 행 머리글을 둘 다 'Thermal conductivity (%)' 로 인쇄한다 — % 는 오식이다(아래 notes)"
+          },
+          "notes": "p.10 막대그래프와 p.13 Chart 2 가 같은 값을 인쇄한다 — `Thermal Conductivity (%) 25C | 61.1 | 62.1 | 63.2 | 52.8`. **단위 '%' 는 열전도율에 성립하지 않는다.** 척도를 고정한 것은 같은 표의 기준열이다 — 63Sn-37Pb 52.8 은 The Solder Connection 2023 의 Sn63Pb37 50 W/(m K) 와 5.6% 안이고, 어떤 상대비(순 Cu 401 대비 61.1% = 245 · 순 Sn 66.6 대비 61.1% = 40.7)로 읽어도 기준열이 맞지 않는다. **W/(m K) 로 읽을 때만 기준열이 닫히므로 그렇게 읽었다**(브리프 129 의 순물질 검산을 기준합금 행으로 적용한 것이다). 계열 대조 — 같은 표 SAC305 63.2 · The Solder Connection SAC305 58 · SAC405 62 · SAC387 60. 부피분율 Voigt 상한은 79.4 W/(m K) 이고 인쇄값은 그 아래다. **같은 표의 60C·100C 행은 열전도율이 아니라 열팽창률이므로 이 행의 이웃 두 칸이 이상해 보이는 것은 이 값의 결함이 아니다**(CTE 20-60C 행 notes)."
+        },
+        {
+          "key": "physical.density",
+          "value": 7400.0,
+          "unit": "kg/m^3",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "temperature_c": 25,
+            "temperature_k": 298.15,
+            "phase": "solid",
+            "composition_wt_pct": "Sn-3.9Ag-0.6Cu (SAC396, iNEMI recommended)",
+            "test_method": "레이저 플래시 측정과 같은 시편에서 얻은 비중(Specific Gravity) — §2.3 'calculate the specific gravity and thermal conductivity', 시편 10 mm dia x t 2 mm",
+            "n_replicates": 3,
+            "value_printed": "Specific Gravity 7.4"
+          },
+          "notes": "p.10 과 p.13 Chart 2 verbatim `Specific Gravity | 7.4 | 7.4 | 7.4 | 8.4`. 검산 — 조성 혼합칙 100/(95.5/7.29 + 3.9/10.49 + 0.6/8.96) = 7.386 g/cm3 이고, 기준열 63Sn-37Pb 는 100/(63/7.29 + 37/11.34) = 8.400 으로 인쇄 8.4 와 소수 셋째자리까지 같다. 이 재료의 기존 밀도 7400(Indalloy 2006 252행, t3 편찬표)과 같은 값을 **벤더가 자기 시편에서 잰 값**으로 독립 확인한다."
+        },
+        {
+          "key": "thermal.melting_point",
+          "value": 490.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "phase_boundary": "solidus",
+            "temperature_c_printed": 217,
+            "composition_wt_pct": "Sn-3.9Ag-0.6Cu (SAC396, iNEMI recommended)",
+            "test_method": "원문에 측정법이 인쇄되지 않았다"
+          },
+          "notes": "p.13 Chart 2 verbatim `Solidus Temp C | 217 | 217 | 217 | 183`. 217 C = 490.15 K. 기준열 63Sn-37Pb 183 C 가 공정 SnPb 의 교과서값과 같아 행 배정이 확인된다. 독립 확인 — Indalloy 2006 252행(95.5Sn/3.9Ag/0.6Cu)이 고상선 217 / 액상선 220 C 를 인쇄한다(액상선은 218 대 220 으로 2 C 갈린다)."
+        },
+        {
+          "key": "thermal.melting_point",
+          "value": 491.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "phase_boundary": "liquidus",
+            "temperature_c_printed": 218,
+            "composition_wt_pct": "Sn-3.9Ag-0.6Cu (SAC396, iNEMI recommended)",
+            "test_method": "원문에 측정법이 인쇄되지 않았다"
+          },
+          "notes": "p.13 Chart 2 verbatim `Liquidus Temp C | 218 | 218 | 220 | 183`. 218 C = 491.15 K. **Indalloy 2006 은 같은 조성의 액상선을 220 C 로 인쇄한다** — 2 C 차이는 닫지 못했으므로 양쪽을 다 남기지 않고 이 문서의 값만 이 출처로 넣는다(정정하지 않는다)."
+        }
+      ]
+    },
+    {
+      "match_name": "Sn63Pb37 Eutectic Solder Alloy",
+      "source": {
+        "kind": "other",
+        "title": "Almit Ltd. (Nihon Almit Co., Ltd.) — 'Difference Between Various Sn/Ag/Cu Solder Compositions', 29/6/2005, §2.4 Specific Heat and Chart 2 'Mechanical Properties Test Results (n=3)'",
+        "url": "https://www.almit.com/dloads/Agents/SAC%20Alloy%20Comparison.pdf",
+        "publisher": "Almit Ltd. (Nihon Almit Co., Ltd.)",
+        "year": 2005,
+        "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w60va/almit_sac_alloy_comparison_2005.pdf"
+      },
+      "properties": [
+        {
+          "key": "mechanical.poisson_ratio",
+          "value": 0.37,
+          "unit": "1",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "temperature_c": 25,
+            "temperature_k": 298.15,
+            "composition_wt_pct": "63Sn-37Pb (Eutectic Solder, 이 문서의 기준시편)",
+            "test_method": "초음파(sonic velocity) 동적 측정 — §2.2 verbatim 'Calculate the Young's Modulus and Poisson's Ratio from the speed that the ultrasonics travel through the metal', 시편 20 mm sq x t 10 mm, 25 C, Matech 장비",
+            "n_replicates": 3
+          },
+          "notes": "p.13 Chart 2 verbatim `Poisson's Ratio | 0.35 | 0.36 | 0.36 | 0.37` 의 넷째 열(63Sn-37Pb). 검산 — 부피분율 Sn 0.7259 / Pb 0.2741 에 순물질 ν(Sn 0.36 · Pb 0.44)를 넣으면 0.382 로 인쇄값과 3% 안이다. 같은 표의 SAC 세 열 0.35/0.36/0.36 도 Sn 지배 조성의 혼합칙 0.360 과 맞는다. **이 재료의 기존 판정은 '이 등급 행을 싣는 벤더 표 다섯에 포아송비 열이 없다' 였고 그 다섯에 대해서는 참이다 — 여섯 번째 문서인 이 표에는 열이 있다.**"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "batch": "60차 VA — SAC125Ni. CAPLINQ/Krayden LINQALLOY 등급별 TDS(§601 의 새 층)",
+  "materials": [
+    {
+      "match_name": "SAC125Ni Solder Alloy (Sn1.2Ag0.5Cu0.05Ni)",
+      "source": {
+        "kind": "datasheet",
+        "title": "CAPLINQ LINQALLOY SAC125N — SAC125N Solder Spheres, Technical Data Sheet v1.0, 'Technical Speciﬁcations' table",
+        "url": "https://www.krayden.com/products/709/files/5859",
+        "publisher": "CAPLINQ Europe BV (LINQALLOY, distributed by Krayden Inc.)",
+        "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w60va/retry5859.pdf"
+      },
+      "properties": [
+        {
+          "key": "physical.density",
+          "value": 7330.0,
+          "unit": "kg/m^3",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "phase": "solid",
+            "composition_wt_pct": "Sn 98.3 / Ag 1.2 / Cu 0.5 / Ni 0.05 (시트 본문 verbatim 'composed of 98.3% Sn, 1.2% Ag, 0.5% Cu, and 0.05% Ni (Sn98.3Ag1.2Cu0.5Ni0.05), commonly referred to as SAC125Ni'). 원소 규격표는 Ag 1.10-1.30 / Cu 0.45-0.55 로 못박고 Ni 열은 싣지 않는다",
+            "product_form": "솔더 스피어(Solder Spheres)",
+            "temperature_k": "출처에 인쇄되지 않았다"
+          },
+          "notes": "TDS v1.0 `Technical Speciﬁcations` verbatim `Density | 7.33 | g/cm³`. 400 dpi 렌더로 pdftotext 값과 글자 단위로 일치함을 확인했다(브리프 603). **조성 혼합칙 검산** — 100/(98.3/7.29 + 1.2/10.49 + 0.5/8.96) = 7.324 g/cm3 로 인쇄값과 0.1% 안이다. 계열 대조 — The Solder Connection 2023 의 SAC105(Sn98.5Ag1.0Cu0.5) 7.32 · SAC0307 7.33 과 같은 대역이다. **주의 — 같은 제품의 SDS 9항은 이 값과 어긋난다**(아래 notes 를 공유하는 융점 행 참조): SDS 는 `Specific Gravity (Water = 1 at 25°C): 7.48` 과 `Melting Point 211-216 °C` 를 찍는데 그 둘은 같은 벤더의 **LINQALLOY SACQ** SDS 값과 글자까지 같다(SACQ TDS 밀도 7.56 · 융점 211/216). SDS 9항이 형제 제품에서 복제된 것이라 TDS 쪽을 썼다."
+        },
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 51000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "composition_wt_pct": "Sn 98.3 / Ag 1.2 / Cu 0.5 / Ni 0.05",
+            "product_form": "솔더 스피어(Solder Spheres)",
+            "temperature_k": "출처에 인쇄되지 않았다",
+            "test_method": "출처에 인쇄되지 않았다"
+          },
+          "notes": "TDS v1.0 verbatim `Young's Modulus | 51 | GPa`(400 dpi 렌더 확인). **혼합물 상한 검산(브리프 604)** — 부피분율 Sn 0.9876 / Ag 0.0084 / Cu 0.0041 에 순물질 E(Sn 50 · Ag 83 · Cu 130 GPa)를 넣은 Voigt 상한이 50.6 GPa 이라 인쇄값이 0.8% 위다(순물질값 선택의 불확실성 안이다). **같은 벤더의 형제 등급이 이 열을 검증한다** — `LINQALLOY SAC405` TDS 가 같은 표 구성으로 `49 GPa` 를 찍고 그 값도 Voigt 상한 50.8 아래다. **다만 같은 열의 `LINQALLOY SACQ` 칸은 죽어 있다**(`128.4 GPa`, Voigt 상한 50.8 의 2.5배 — 한 칸짜리 오식이다). 열 전체가 아니라 그 칸만 버린다(§141)."
+        },
+        {
+          "key": "mechanical.tensile_strength",
+          "value": 41000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "composition_wt_pct": "Sn 98.3 / Ag 1.2 / Cu 0.5 / Ni 0.05",
+            "product_form": "솔더 스피어(Solder Spheres)",
+            "temperature_k": "출처에 인쇄되지 않았다",
+            "strain_rate_printed": "미기재",
+            "test_method": "출처에 인쇄되지 않았다"
+          },
+          "notes": "TDS v1.0 verbatim `Tensile Strength | 41 | MPa`(400 dpi 렌더 확인). 계열 대조 — The Solder Connection 2023 의 SAC105(Ag 1.0) `400 kgf/cm2` = 39.2 MPa 와 4.6% 안이고, Almit 실측 SAC305 41.1 MPa 와도 같은 대역이다. Ag 1.2 등급이 Ag 1.0 등급보다 조금 높은 방향도 맞는다. 같은 벤더 표의 인장강도 열은 등급마다 다르게 찍혀 있고(SACQ 94.8 · SAC405 53 · SAC125N 41) Ag·Bi 함량 순서와 단조로워 복제된 열이 아니다 — **반면 같은 표의 비저항 열은 세 등급이 전부 `13 µΩ·cm` 로 같아 복제된 열이다**(그래서 비저항은 넣지 않았다)."
+        },
+        {
+          "key": "mechanical.elongation_at_break",
+          "value": 0.46,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "composition_wt_pct": "Sn 98.3 / Ag 1.2 / Cu 0.5 / Ni 0.05",
+            "product_form": "솔더 스피어(Solder Spheres)",
+            "value_printed": "46 %",
+            "test_method": "출처에 인쇄되지 않았다"
+          },
+          "notes": "TDS v1.0 verbatim `Elongation | 46 | %` → 0.46(무차원). 같은 표의 형제 등급이 Ag·Bi 가 늘수록 줄어든다(SAC125N 46 > SAC405 35 > SACQ 21.8) — 강도와 반대 방향이라 계열이 일관된다."
+        },
+        {
+          "key": "mechanical.hardness_vickers",
+          "value": 11.0,
+          "unit": "HV",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "composition_wt_pct": "Sn 98.3 / Ag 1.2 / Cu 0.5 / Ni 0.05",
+            "product_form": "솔더 스피어(Solder Spheres)",
+            "test_load_printed": "미기재",
+            "test_method": "출처에 인쇄되지 않았다"
+          },
+          "notes": "TDS v1.0 verbatim `Vickers Hardness | 11 | Hv`. 계열 대조 — The Solder Connection 2023 의 SAC105 브리넬 13 HB, ALPHA VACULOY SAC305 14.1 HV, 같은 벤더 SAC405 16 Hv · SACQ 19 Hv 로 Ag·Bi 순서와 단조롭다."
+        },
+        {
+          "key": "thermal.melting_point",
+          "value": 490.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "phase_boundary": "solidus",
+            "temperature_c_printed": 217,
+            "composition_wt_pct": "Sn 98.3 / Ag 1.2 / Cu 0.5 / Ni 0.05",
+            "test_method": "출처에 인쇄되지 않았다"
+          },
+          "notes": "TDS v1.0 verbatim `Solidus / Liquidus Temperature | 217 / 225 | °C`. 217 C = 490.15 K. 이 재료에 이미 있는 융점 행(ALPHA SOLDER SPHERES TDS 2020, 고상선 217 / 액상선 228)과 고상선은 같고 액상선이 225 대 228 로 갈린다 — 정정하지 않고 양쪽을 각자의 출처로 둔다. **경고 — 같은 제품의 SDS 9항은 `Melting Point 211-216 °C` 를 찍는데 그것은 형제 제품 LINQALLOY SACQ 의 값이다**(SACQ TDS 가 211/216 을 찍는다). SDS 9항이 복제됐으므로 융점·비중은 TDS 쪽을 썼다. **액상선은 넣지 않았다** — 같은 벤더가 세 값을 인쇄한다(TDS v1.0 225 C · 같은 벤더 제품 페이지 `Melting Temperature (Liquidus): 219°C` · ALPHA SOLDER SPHERES TDS 2020 228 C). 벤더가 자기 문서 안에서 갈리므로 어느 쪽도 못 고른다(브리프 25). 고상선은 세 문서가 전부 217 C 로 같아 넣었다."
+        }
+      ]
+    }
+  ]
+}
