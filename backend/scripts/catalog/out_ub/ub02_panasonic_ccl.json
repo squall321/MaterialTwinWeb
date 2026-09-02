@@ -1,0 +1,817 @@
+{
+ "batch": "59차 UB — Panasonic CCL 굽힘·열·유전",
+ "materials": [
+  {
+   "match_name": "Panasonic R-1755V / R-1650V High-Tg Low-CTE High-Reliability Glass Epoxy Laminate",
+   "source": {
+    "kind": "datasheet",
+    "publisher": "Panasonic Industry Co., Ltd.",
+    "title": "Panasonic Electronic Materials catalog 2015-11 — HIPER V R-1755V / R-1650V general properties (Flexural modulus, JIS C6481)",
+    "url": "https://web.archive.org/web/20160528083733id_/https://industrial.panasonic.com/content/data/EM/PDF/emscatalog_1511_hiperv.pdf",
+    "year": 2015,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_ElectronicMaterials_Catalog_2015-11_HIPER-V_R-1755V.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 24000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "A",
+      "test_standard": "JIS C6481",
+      "direction": "MD",
+      "direction_verbatim": "warp (タテ方向)"
+     },
+     "notes": "원문 '曲げ弾性率 / Flexural modulus, JIS C6481, 条件 A, GPa' 행의 R-1755V 열. 2015-11 판 HIPER V 표의 R-1755V 열. 2026 현행 제품페이지 시리즈표의 ヨコ方向 22 GPa 와 일치한다. 시트가 タテ方向(warp)·ヨコ方向(fill)을 갈라 인쇄하므로 방향을 그대로 옮겼다 — CCL 은 이방성이고 경사 쪽이 더 뻣뻣하다. **이것은 영률이 아니라 굽힘탄성계수다**(JIS C6481 3점굽힘). Panasonic 은 인장 영률을 어느 판에서도 찍지 않는다. 검산 — 같은 벤더가 인쇄한 굽힘강도(ヨコ 440~490 MPa)를 이 굽힘탄성계수로 나누면 파단변형률이 2.1~2.3%로 유리포/에폭시 적층판 통용범위(1.5~2.5%) 안이다."
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 22000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "A",
+      "test_standard": "JIS C6481",
+      "direction": "TD",
+      "direction_verbatim": "fill (ヨコ方向)"
+     },
+     "notes": "원문 '曲げ弾性率 / Flexural modulus, JIS C6481, 条件 A, GPa' 행의 R-1755V 열. 2015-11 판 HIPER V 표의 R-1755V 열. 2026 현행 제품페이지 시리즈표의 ヨコ方向 22 GPa 와 일치한다. 시트가 タテ方向(warp)·ヨコ方向(fill)을 갈라 인쇄하므로 방향을 그대로 옮겼다 — CCL 은 이방성이고 경사 쪽이 더 뻣뻣하다. **이것은 영률이 아니라 굽힘탄성계수다**(JIS C6481 3점굽힘). Panasonic 은 인장 영률을 어느 판에서도 찍지 않는다. 검산 — 같은 벤더가 인쇄한 굽힘강도(ヨコ 440~490 MPa)를 이 굽힘탄성계수로 나누면 파단변형률이 2.1~2.3%로 유리포/에폭시 적층판 통용범위(1.5~2.5%) 안이다."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1755D (HIPER D) High-Heat-Resistance Automotive Glass Epoxy Laminate",
+   "source": {
+    "kind": "datasheet",
+    "publisher": "Panasonic Industry Co., Ltd.",
+    "title": "Panasonic Electronic Materials catalog 2015-11 — HIPER D R-1755D vs conventional FR-4 R-1766 general properties (Flexural modulus, JIS C6481)",
+    "url": "https://web.archive.org/web/20160910120336id_/https://industrial.panasonic.com/content/data/EM/PDF/emscatalog_1511_hiperd.pdf",
+    "year": 2015,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_ElectronicMaterials_Catalog_2015-11_HIPER-D_R-1755D.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 23000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "A",
+      "test_standard": "JIS C6481",
+      "direction": "MD",
+      "direction_verbatim": "warp (タテ方向)"
+     },
+     "notes": "원문 '曲げ弾性率 / Flexural modulus, JIS C6481, 条件 A, GPa' 행의 R-1755D 열. 2015-11 판 HIPER D 표의 R-1755D 열. 2026 현행 제품페이지(hiperd)의 タテ 23·ヨコ 21 과 글자까지 일치한다. 시트가 タテ方向(warp)·ヨコ方向(fill)을 갈라 인쇄하므로 방향을 그대로 옮겼다 — CCL 은 이방성이고 경사 쪽이 더 뻣뻣하다. **이것은 영률이 아니라 굽힘탄성계수다**(JIS C6481 3점굽힘). Panasonic 은 인장 영률을 어느 판에서도 찍지 않는다. 검산 — 같은 벤더가 인쇄한 굽힘강도(ヨコ 440~490 MPa)를 이 굽힘탄성계수로 나누면 파단변형률이 2.1~2.3%로 유리포/에폭시 적층판 통용범위(1.5~2.5%) 안이다."
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 21000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "A",
+      "test_standard": "JIS C6481",
+      "direction": "TD",
+      "direction_verbatim": "fill (ヨコ方向)"
+     },
+     "notes": "원문 '曲げ弾性率 / Flexural modulus, JIS C6481, 条件 A, GPa' 행의 R-1755D 열. 2015-11 판 HIPER D 표의 R-1755D 열. 2026 현행 제품페이지(hiperd)의 タテ 23·ヨコ 21 과 글자까지 일치한다. 시트가 タテ方向(warp)·ヨコ方向(fill)을 갈라 인쇄하므로 방향을 그대로 옮겼다 — CCL 은 이방성이고 경사 쪽이 더 뻣뻣하다. **이것은 영률이 아니라 굽힘탄성계수다**(JIS C6481 3점굽힘). Panasonic 은 인장 영률을 어느 판에서도 찍지 않는다. 검산 — 같은 벤더가 인쇄한 굽힘강도(ヨコ 440~490 MPa)를 이 굽힘탄성계수로 나누면 파단변형률이 2.1~2.3%로 유리포/에폭시 적층판 통용범위(1.5~2.5%) 안이다."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1755M / R-1650M Mid-Tg Low-CTE High-Reliability Glass Epoxy Laminate",
+   "source": {
+    "kind": "web",
+    "publisher": "Panasonic Industry Co., Ltd.",
+    "title": "Panasonic 高耐熱・低熱膨張多層基板材料 HIPER M (R-1755M) 製品ページ 一般特性表 (ja, 2026-09-02 취득)",
+    "url": "https://industrial.panasonic.com/jp/products/pt/hiper/hiperm",
+    "year": 2026,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_HIPER-M_R-1755M_ProductPage_ja_2026-09-02.html"
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 24000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "A",
+      "test_standard": "JIS C6481",
+      "direction": "MD",
+      "direction_verbatim": "warp (タテ方向)"
+     },
+     "notes": "원문 '曲げ弾性率 / Flexural modulus, JIS C6481, 条件 A, GPa' 행의 R-1755M 열. 2026 현행 제품페이지 hiperm 표. 시리즈표의 ヨコ方向 22 GPa 와 일치한다. 시트가 タテ方向(warp)·ヨコ方向(fill)을 갈라 인쇄하므로 방향을 그대로 옮겼다 — CCL 은 이방성이고 경사 쪽이 더 뻣뻣하다. **이것은 영률이 아니라 굽힘탄성계수다**(JIS C6481 3점굽힘). Panasonic 은 인장 영률을 어느 판에서도 찍지 않는다. 검산 — 같은 벤더가 인쇄한 굽힘강도(ヨコ 440~490 MPa)를 이 굽힘탄성계수로 나누면 파단변형률이 2.1~2.3%로 유리포/에폭시 적층판 통용범위(1.5~2.5%) 안이다."
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 22000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "A",
+      "test_standard": "JIS C6481",
+      "direction": "TD",
+      "direction_verbatim": "fill (ヨコ方向)"
+     },
+     "notes": "원문 '曲げ弾性率 / Flexural modulus, JIS C6481, 条件 A, GPa' 행의 R-1755M 열. 2026 현행 제품페이지 hiperm 표. 시리즈표의 ヨコ方向 22 GPa 와 일치한다. 시트가 タテ方向(warp)·ヨコ方向(fill)을 갈라 인쇄하므로 방향을 그대로 옮겼다 — CCL 은 이방성이고 경사 쪽이 더 뻣뻣하다. **이것은 영률이 아니라 굽힘탄성계수다**(JIS C6481 3점굽힘). Panasonic 은 인장 영률을 어느 판에서도 찍지 않는다. 검산 — 같은 벤더가 인쇄한 굽힘강도(ヨコ 440~490 MPa)를 이 굽힘탄성계수로 나누면 파단변형률이 2.1~2.3%로 유리포/에폭시 적층판 통용범위(1.5~2.5%) 안이다."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1755E (HIPER E) High-Reliability Automotive Glass Epoxy Laminate",
+   "source": {
+    "kind": "web",
+    "publisher": "Panasonic Industry Co., Ltd.",
+    "title": "Panasonic 高耐熱・低熱膨張多層基板材料 HIPER E (R-1755E) 製品ページ 一般特性表 (ja, 2026-09-02 취득)",
+    "url": "https://industrial.panasonic.com/jp/products/pt/hiper/hipere",
+    "year": 2026,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_HIPER-E_R-1755E_ProductPage_ja_2026-09-02.html"
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 24000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "A",
+      "test_standard": "JIS C6481",
+      "direction": "MD",
+      "direction_verbatim": "warp (タテ方向)"
+     },
+     "notes": "원문 '曲げ弾性率 / Flexural modulus, JIS C6481, 条件 A, GPa' 행의 R-1755E 열. 2026 현행 제품페이지 hipere 표. 시리즈표의 ヨコ方向 22 GPa 와 일치한다. 시트가 タテ方向(warp)·ヨコ方向(fill)을 갈라 인쇄하므로 방향을 그대로 옮겼다 — CCL 은 이방성이고 경사 쪽이 더 뻣뻣하다. **이것은 영률이 아니라 굽힘탄성계수다**(JIS C6481 3점굽힘). Panasonic 은 인장 영률을 어느 판에서도 찍지 않는다. 검산 — 같은 벤더가 인쇄한 굽힘강도(ヨコ 440~490 MPa)를 이 굽힘탄성계수로 나누면 파단변형률이 2.1~2.3%로 유리포/에폭시 적층판 통용범위(1.5~2.5%) 안이다."
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 22000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "A",
+      "test_standard": "JIS C6481",
+      "direction": "TD",
+      "direction_verbatim": "fill (ヨコ方向)"
+     },
+     "notes": "원문 '曲げ弾性率 / Flexural modulus, JIS C6481, 条件 A, GPa' 행의 R-1755E 열. 2026 현행 제품페이지 hipere 표. 시리즈표의 ヨコ方向 22 GPa 와 일치한다. 시트가 タテ方向(warp)·ヨコ方向(fill)을 갈라 인쇄하므로 방향을 그대로 옮겼다 — CCL 은 이방성이고 경사 쪽이 더 뻣뻣하다. **이것은 영률이 아니라 굽힘탄성계수다**(JIS C6481 3점굽힘). Panasonic 은 인장 영률을 어느 판에서도 찍지 않는다. 검산 — 같은 벤더가 인쇄한 굽힘강도(ヨコ 440~490 MPa)를 이 굽힘탄성계수로 나누면 파단변형률이 2.1~2.3%로 유리포/에폭시 적층판 통용범위(1.5~2.5%) 안이다."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1566 Halogen-Free Automotive Glass Epoxy Laminate",
+   "source": {
+    "kind": "datasheet",
+    "publisher": "Panasonic Industry Co., Ltd.",
+    "title": "Panasonic Electronic Materials catalog 2015-11 — Halogen-free R-1566 (W/WN) vs conventional FR-4 R-1766 general properties (Flexural modulus, JIS C6481)",
+    "url": "https://web.archive.org/web/20160706044348id_/https://industrial.panasonic.com/content/data/EM/PDF/emscatalog_1511_hfreer1566.pdf",
+    "year": 2015,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_ElectronicMaterials_Catalog_2015-11_HalogenFree_R-1566.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 24000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "A",
+      "test_standard": "JIS C6481",
+      "direction": "MD",
+      "direction_verbatim": "warp (タテ方向)"
+     },
+     "notes": "원문 '曲げ弾性率 / Flexural modulus, JIS C6481, 条件 A, GPa' 행의 R-1566 열. 2015-11 판 Halogen-free 표의 R-1566 (W/WN) 열. 2026 시리즈표의 ヨコ方向 22 GPa 와 일치한다. 시트가 タテ方向(warp)·ヨコ方向(fill)을 갈라 인쇄하므로 방향을 그대로 옮겼다 — CCL 은 이방성이고 경사 쪽이 더 뻣뻣하다. **이것은 영률이 아니라 굽힘탄성계수다**(JIS C6481 3점굽힘). Panasonic 은 인장 영률을 어느 판에서도 찍지 않는다. 검산 — 같은 벤더가 인쇄한 굽힘강도(ヨコ 440~490 MPa)를 이 굽힘탄성계수로 나누면 파단변형률이 2.1~2.3%로 유리포/에폭시 적층판 통용범위(1.5~2.5%) 안이다."
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 22000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "A",
+      "test_standard": "JIS C6481",
+      "direction": "TD",
+      "direction_verbatim": "fill (ヨコ方向)"
+     },
+     "notes": "원문 '曲げ弾性率 / Flexural modulus, JIS C6481, 条件 A, GPa' 행의 R-1566 열. 2015-11 판 Halogen-free 표의 R-1566 (W/WN) 열. 2026 시리즈표의 ヨコ方向 22 GPa 와 일치한다. 시트가 タテ方向(warp)·ヨコ方向(fill)을 갈라 인쇄하므로 방향을 그대로 옮겼다 — CCL 은 이방성이고 경사 쪽이 더 뻣뻣하다. **이것은 영률이 아니라 굽힘탄성계수다**(JIS C6481 3점굽힘). Panasonic 은 인장 영률을 어느 판에서도 찍지 않는다. 검산 — 같은 벤더가 인쇄한 굽힘강도(ヨコ 440~490 MPa)를 이 굽힘탄성계수로 나누면 파단변형률이 2.1~2.3%로 유리포/에폭시 적층판 통용범위(1.5~2.5%) 안이다."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1766 Standard FR-4 Automotive Glass Epoxy Laminate",
+   "source": {
+    "kind": "datasheet",
+    "publisher": "Panasonic Industry Co., Ltd.",
+    "title": "Panasonic Electronic Materials catalog 2015-11 — HIPER D R-1755D vs conventional FR-4 R-1766 general properties (Flexural modulus, JIS C6481)",
+    "url": "https://web.archive.org/web/20160910120336id_/https://industrial.panasonic.com/content/data/EM/PDF/emscatalog_1511_hiperd.pdf",
+    "year": 2015,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_ElectronicMaterials_Catalog_2015-11_HIPER-D_R-1755D.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 23000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "A",
+      "test_standard": "JIS C6481",
+      "direction": "MD",
+      "direction_verbatim": "warp (タテ方向)"
+     },
+     "notes": "원문 '曲げ弾性率 / Flexural modulus, JIS C6481, 条件 A, GPa' 행의 R-1766 열. 2015-11 판 HIPER D 표의 비교열 当社汎用 FR-4 R-1766. 같은 값을 2015-11 HIPER V 표·2015-11 Halogen-free 표·2026 제품페이지 넷(hiperd/hiperm/hipere/시리즈)이 되풀이한다. 시트가 タテ方向(warp)·ヨコ方向(fill)을 갈라 인쇄하므로 방향을 그대로 옮겼다 — CCL 은 이방성이고 경사 쪽이 더 뻣뻣하다. **이것은 영률이 아니라 굽힘탄성계수다**(JIS C6481 3점굽힘). Panasonic 은 인장 영률을 어느 판에서도 찍지 않는다. 검산 — 같은 벤더가 인쇄한 굽힘강도(ヨコ 440~490 MPa)를 이 굽힘탄성계수로 나누면 파단변형률이 2.1~2.3%로 유리포/에폭시 적층판 통용범위(1.5~2.5%) 안이다."
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 21000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "A",
+      "test_standard": "JIS C6481",
+      "direction": "TD",
+      "direction_verbatim": "fill (ヨコ方向)"
+     },
+     "notes": "원문 '曲げ弾性率 / Flexural modulus, JIS C6481, 条件 A, GPa' 행의 R-1766 열. 2015-11 판 HIPER D 표의 비교열 当社汎用 FR-4 R-1766. 같은 값을 2015-11 HIPER V 표·2015-11 Halogen-free 표·2026 제품페이지 넷(hiperd/hiperm/hipere/시리즈)이 되풀이한다. 시트가 タテ方向(warp)·ヨコ方向(fill)을 갈라 인쇄하므로 방향을 그대로 옮겼다 — CCL 은 이방성이고 경사 쪽이 더 뻣뻣하다. **이것은 영률이 아니라 굽힘탄성계수다**(JIS C6481 3점굽힘). Panasonic 은 인장 영률을 어느 판에서도 찍지 않는다. 검산 — 같은 벤더가 인쇄한 굽힘강도(ヨコ 440~490 MPa)를 이 굽힘탄성계수로 나누면 파단변형률이 2.1~2.3%로 유리포/에폭시 적층판 통용범위(1.5~2.5%) 안이다."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1755D (HIPER D) High-Heat-Resistance Automotive Glass Epoxy Laminate",
+   "source": {
+    "kind": "datasheet",
+    "publisher": "Panasonic Industry Co., Ltd.",
+    "title": "Panasonic 多層基板材料 カタログ (2019-06) — コア材 R-1755D / プリプレグ R-1650D, 性能表 (JIS C 6481)",
+    "url": "https://web.archive.org/web/20211022043727id_/https://industrial.panasonic.com/content/data/EM/PDF/cbmcatalog_1906_r1755d.pdf",
+    "year": 2019,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_CircuitBoardMaterials_Catalog_2019-06_R-1755D_ja.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 440000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 1.6 mm",
+      "conditioning": "A",
+      "test_standard": "JIS C6481",
+      "direction": "TD",
+      "direction_verbatim": "cross (ヨコ方向)"
+     },
+     "notes": "원문 ■性能表 '曲げ強さ(ヨコ方向) | N/mm² | A | 440' (R-1755D). 1 N/mm² = 1 MPa. 400 dpi 렌더로 확인했다(브리프 603). **시트가 ヨコ方向 한 축만 찍는다** — タテ方向 굽힘강도는 어느 판에도 없다."
+    },
+    {
+     "key": "thermal.flammability_ul94",
+     "value": "94V-0",
+     "unit": null,
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 1.6 mm",
+      "conditioning": "AおよびE-168/70",
+      "test_standard": "UL 94"
+     },
+     "notes": "원문 ■性能表 '耐燃性(UL法) | − | AおよびE-168/70 | 94V-0' (R-1755D)."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1755E (HIPER E) High-Reliability Automotive Glass Epoxy Laminate",
+   "source": {
+    "kind": "datasheet",
+    "publisher": "Panasonic Industry Co., Ltd.",
+    "title": "Panasonic 多層基板材料 カタログ (2019-06) — コア材 R-1755E / プリプレグ R-1650E, 性能表 (JIS C 6481)",
+    "url": "https://web.archive.org/web/20220819072955id_/https://industrial.panasonic.com/content/data/EM/PDF/cbmcatalog_1906_r1755e.pdf",
+    "year": 2019,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_CircuitBoardMaterials_Catalog_2019-06_R-1755E_ja.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 440000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 1.6 mm",
+      "conditioning": "A",
+      "test_standard": "JIS C6481",
+      "direction": "TD",
+      "direction_verbatim": "cross (ヨコ方向)"
+     },
+     "notes": "원문 ■性能表 '曲げ強さ(ヨコ方向) | N/mm² | A | 440' (R-1755E). 1 N/mm² = 1 MPa. 400 dpi 렌더로 확인했다(브리프 603). **시트가 ヨコ方向 한 축만 찍는다** — タテ方向 굽힘강도는 어느 판에도 없다."
+    },
+    {
+     "key": "thermal.flammability_ul94",
+     "value": "94V-0",
+     "unit": null,
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 1.6 mm",
+      "conditioning": "AおよびE-168/70",
+      "test_standard": "UL 94"
+     },
+     "notes": "원문 ■性能表 '耐燃性(UL法) | − | AおよびE-168/70 | 94V-0' (R-1755E)."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1566S Halogen-Free Automotive Glass Epoxy Laminate",
+   "source": {
+    "kind": "datasheet",
+    "publisher": "Panasonic Industry Co., Ltd.",
+    "title": "Panasonic 多層基板材料 カタログ (2020-07) — コア材 R-1566S / プリプレグ R-1551S, 性能表 (JIS C 6481)",
+    "url": "https://web.archive.org/web/20211206005855id_/https://industrial.panasonic.com/content/data/EM/PDF/cbmcatalog_2007_r1566s.pdf",
+    "year": 2020,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_CircuitBoardMaterials_Catalog_2020-07_R-1566S_ja.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 450000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 1.6 mm",
+      "conditioning": "A",
+      "test_standard": "JIS C6481",
+      "direction": "TD",
+      "direction_verbatim": "cross (ヨコ方向)"
+     },
+     "notes": "원문 ■性能表 '曲げ強さ(ヨコ方向) | N/mm² | A | 450' (R-1566S). 1 N/mm² = 1 MPa. 400 dpi 렌더로 확인했다(브리프 603). **시트가 ヨコ方向 한 축만 찍는다** — タテ方向 굽힘강도는 어느 판에도 없다."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.7,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 1.6 mm",
+      "conditioning": "C-24/23/50",
+      "frequency_hz": 1000000000.0,
+      "test_standard": "IPC-TM-650 2.5.5.9"
+     },
+     "notes": "원문 ■性能表 '比誘電率(1GHz) | − | C-24/23/50 | 4.7' (R-1566S). 試験片の厚さ 1.6 mm."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.2,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 1.6 mm",
+      "conditioning": "C-96/20/65",
+      "frequency_hz": 1000000.0,
+      "test_standard": "JIS C 6481"
+     },
+     "notes": "원문 ■性能表 '比誘電率(1MHz) | − | C-96/20/65 | 5.2' (R-1566S). 試験片の厚さ 1.6 mm."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.011,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 1.6 mm",
+      "conditioning": "C-24/23/50",
+      "frequency_hz": 1000000000.0,
+      "test_standard": "IPC-TM-650 2.5.5.9"
+     },
+     "notes": "원문 ■性能表 '誘電正接(1GHz) | − | C-24/23/50 | 0.011' (R-1566S). 試験片の厚さ 1.6 mm."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0009,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 1.6 mm",
+      "conditioning": "E-24/50+D-24/23",
+      "test_standard": "JIS C 6481"
+     },
+     "notes": "원문 ■性能表 '吸水率 | ％ | E-24/50+D-24/23 | 0.09' (R-1566S) → 비율 0.0009. 試験片の厚さ 1.6 mm."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1566 Halogen-Free Automotive Glass Epoxy Laminate",
+   "source": {
+    "kind": "datasheet",
+    "publisher": "Panasonic Industry Co., Ltd.",
+    "title": "Panasonic 多層基板材料 カタログ (2019-06) — コア材 R-1566 / プリプレグ R-1551, 性能表 (JIS C 6481)",
+    "url": "https://web.archive.org/web/20220126204300id_/https://industrial.panasonic.com/content/data/EM/PDF/cbmcatalog_1906_r1566.pdf",
+    "year": 2019,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_CircuitBoardMaterials_Catalog_2019-06_R-1566_ja.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 490000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 1.6 mm",
+      "conditioning": "A",
+      "test_standard": "JIS C6481",
+      "direction": "TD",
+      "direction_verbatim": "cross (ヨコ方向)"
+     },
+     "notes": "원문 ■性能表 '曲げ強さ(ヨコ方向) | N/mm² | A | 490' (R-1566). 1 N/mm² = 1 MPa. 400 dpi 렌더로 확인했다(브리프 603). **시트가 ヨコ方向 한 축만 찍는다** — タテ方向 굽힘강도는 어느 판에도 없다."
+    },
+    {
+     "key": "thermal.flammability_ul94",
+     "value": "94V-0",
+     "unit": null,
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 1.6 mm",
+      "conditioning": "AおよびE-168/70",
+      "test_standard": "UL 94"
+     },
+     "notes": "원문 ■性能表 '耐燃性(UL法) | − | AおよびE-168/70 | 94V-0' (R-1566)."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1766 Standard FR-4 Automotive Glass Epoxy Laminate",
+   "source": {
+    "kind": "datasheet",
+    "publisher": "Panasonic Industry Co., Ltd.",
+    "title": "Panasonic 多層基板材料 カタログ (2019-06) — コア材 R-1766 / プリプレグ R-1661, 性能表 (JIS C 6481)",
+    "url": "https://web.archive.org/web/20220813092013id_/https://industrial.panasonic.com/content/data/EM/PDF/cbmcatalog_1906_r1766.pdf",
+    "year": 2019,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_CircuitBoardMaterials_Catalog_2019-06_R-1766_ja.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 490000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 1.6 mm",
+      "conditioning": "A",
+      "test_standard": "JIS C6481",
+      "direction": "TD",
+      "direction_verbatim": "cross (ヨコ方向)"
+     },
+     "notes": "원문 ■性能表 '曲げ強さ(ヨコ方向) | N/mm² | A | 490' (R-1766). 1 N/mm² = 1 MPa. 400 dpi 렌더로 확인했다(브리프 603). **시트가 ヨコ方向 한 축만 찍는다** — タテ方向 굽힘강도는 어느 판에도 없다. R-1766 은 같은 값 490 을 2014년 JIS 데이터시트(jisdatasheet_1403_R-1766, 규격 하한 343以上)가 독립으로 인쇄해 판이 다른 두 문서가 만난다."
+    },
+    {
+     "key": "thermal.flammability_ul94",
+     "value": "94V-0",
+     "unit": null,
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 1.6 mm",
+      "conditioning": "AおよびE-168/70",
+      "test_standard": "UL 94"
+     },
+     "notes": "원문 ■性能表 '耐燃性(UL法) | − | AおよびE-168/70 | 94V-0' (R-1766)."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1755D (HIPER D) High-Heat-Resistance Automotive Glass Epoxy Laminate",
+   "source": {
+    "kind": "web",
+    "publisher": "Panasonic Industry Co., Ltd.",
+    "title": "Panasonic 車載機器用 多層基板材料「HIPER」シリーズ 製品ページ 一般特性表 (ja, 2026-09-02 취득)",
+    "url": "https://industrial.panasonic.com/jp/products/pt/hiper",
+    "year": 2026,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_HIPERseries_ProductPage_ja_2026-09-02.html"
+   },
+   "properties": [
+    {
+     "key": "thermal.decomposition_temp",
+     "value": 618.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "A",
+      "method_detail": "TG/DTA"
+     },
+     "notes": "원문 '熱分解温度 (Td) | TG/DTA | A | ℃ | 345' (R-1755D 열). 2026-09-02 취득한 現行 제품페이지 「HIPER」シリーズ 一般特性 표를 rowspan 을 편 뒤 열로 읽었다 — 라벨이 rowspan 에 먹힌 행을 놓치지 않으려고 그렇게 했다. 試験片の厚さ 0.8 mm."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.4,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "C-24/23/50",
+      "frequency_hz": 1000000000.0,
+      "test_standard": "IPC TM-650 2.5.5.9"
+     },
+     "notes": "원문 '比誘電率 (Dk) 1GHz | IPC TM-650 2.5.5.9 | C-24/23/50 | 4.4' (R-1755D 열). 2026-09-02 취득한 現行 제품페이지 「HIPER」シリーズ 一般特性 표를 rowspan 을 편 뒤 열로 읽었다 — 라벨이 rowspan 에 먹힌 행을 놓치지 않으려고 그렇게 했다. 試験片の厚さ 0.8 mm."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.016,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "C-24/23/50",
+      "frequency_hz": 1000000000.0,
+      "test_standard": "IPC TM-650 2.5.5.9"
+     },
+     "notes": "원문 '誘電正接 (Df) 1GHz | IPC TM-650 2.5.5.9 | C-24/23/50 | 0.016' (R-1755D 열). 2026-09-02 취득한 現行 제품페이지 「HIPER」シリーズ 一般特性 표를 rowspan 을 편 뒤 열로 읽었다 — 라벨이 rowspan 에 먹힌 행을 놓치지 않으려고 그렇게 했다. 試験片の厚さ 0.8 mm."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0011,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "D-24/23",
+      "test_standard": "IPC TM-650 2.6.2.1"
+     },
+     "notes": "원문 '吸水率 | IPC TM-650 2.6.2.1 | D-24/23 | % | 0.11' (R-1755D 열) → 비율. 2026-09-02 취득한 現行 제품페이지 「HIPER」シリーズ 一般特性 표를 rowspan 을 편 뒤 열로 읽었다 — 라벨이 rowspan 에 먹힌 행을 놓치지 않으려고 그렇게 했다. 試験片の厚さ 0.8 mm."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1755E (HIPER E) High-Reliability Automotive Glass Epoxy Laminate",
+   "source": {
+    "kind": "web",
+    "publisher": "Panasonic Industry Co., Ltd.",
+    "title": "Panasonic 車載機器用 多層基板材料「HIPER」シリーズ 製品ページ 一般特性表 (ja, 2026-09-02 취득)",
+    "url": "https://industrial.panasonic.com/jp/products/pt/hiper",
+    "year": 2026,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_HIPERseries_ProductPage_ja_2026-09-02.html"
+   },
+   "properties": [
+    {
+     "key": "thermal.decomposition_temp",
+     "value": 643.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "A",
+      "method_detail": "TG/DTA"
+     },
+     "notes": "원문 '熱分解温度 (Td) | TG/DTA | A | ℃ | 370' (R-1755E 열). 2026-09-02 취득한 現行 제품페이지 「HIPER」シリーズ 一般特性 표를 rowspan 을 편 뒤 열로 읽었다 — 라벨이 rowspan 에 먹힌 행을 놓치지 않으려고 그렇게 했다. 試験片の厚さ 0.8 mm."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.6,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "C-24/23/50",
+      "frequency_hz": 1000000000.0,
+      "test_standard": "IPC TM-650 2.5.5.9"
+     },
+     "notes": "원문 '比誘電率 (Dk) 1GHz | IPC TM-650 2.5.5.9 | C-24/23/50 | 4.6' (R-1755E 열). 2026-09-02 취득한 現行 제품페이지 「HIPER」シリーズ 一般特性 표를 rowspan 을 편 뒤 열로 읽었다 — 라벨이 rowspan 에 먹힌 행을 놓치지 않으려고 그렇게 했다. 試験片の厚さ 0.8 mm."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.013,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "C-24/23/50",
+      "frequency_hz": 1000000000.0,
+      "test_standard": "IPC TM-650 2.5.5.9"
+     },
+     "notes": "원문 '誘電正接 (Df) 1GHz | IPC TM-650 2.5.5.9 | C-24/23/50 | 0.013' (R-1755E 열). 2026-09-02 취득한 現行 제품페이지 「HIPER」シリーズ 一般特性 표를 rowspan 을 편 뒤 열로 읽었다 — 라벨이 rowspan 에 먹힌 행을 놓치지 않으려고 그렇게 했다. 試験片の厚さ 0.8 mm."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0011,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "D-24/23",
+      "test_standard": "IPC TM-650 2.6.2.1"
+     },
+     "notes": "원문 '吸水率 | IPC TM-650 2.6.2.1 | D-24/23 | % | 0.11' (R-1755E 열) → 비율. 2026-09-02 취득한 現行 제품페이지 「HIPER」シリーズ 一般特性 표를 rowspan 을 편 뒤 열로 읽었다 — 라벨이 rowspan 에 먹힌 행을 놓치지 않으려고 그렇게 했다. 試験片の厚さ 0.8 mm."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1566 Halogen-Free Automotive Glass Epoxy Laminate",
+   "source": {
+    "kind": "web",
+    "publisher": "Panasonic Industry Co., Ltd.",
+    "title": "Panasonic 車載機器用 多層基板材料「HIPER」シリーズ 製品ページ 一般特性表 (ja, 2026-09-02 취득)",
+    "url": "https://industrial.panasonic.com/jp/products/pt/hiper",
+    "year": 2026,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_HIPERseries_ProductPage_ja_2026-09-02.html"
+   },
+   "properties": [
+    {
+     "key": "thermal.decomposition_temp",
+     "value": 623.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "A",
+      "method_detail": "TG/DTA"
+     },
+     "notes": "원문 '熱分解温度 (Td) | TG/DTA | A | ℃ | 350' (R-1566 열). 2026-09-02 취득한 現行 제품페이지 「HIPER」シリーズ 一般特性 표를 rowspan 을 편 뒤 열로 읽었다 — 라벨이 rowspan 에 먹힌 행을 놓치지 않으려고 그렇게 했다. 試験片の厚さ 0.8 mm."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.6,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "C-24/23/50",
+      "frequency_hz": 1000000000.0,
+      "test_standard": "IPC TM-650 2.5.5.9"
+     },
+     "notes": "원문 '比誘電率 (Dk) 1GHz | IPC TM-650 2.5.5.9 | C-24/23/50 | 4.6' (R-1566 열). 2026-09-02 취득한 現行 제품페이지 「HIPER」シリーズ 一般特性 표를 rowspan 을 편 뒤 열로 읽었다 — 라벨이 rowspan 에 먹힌 행을 놓치지 않으려고 그렇게 했다. 試験片の厚さ 0.8 mm."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.01,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "C-24/23/50",
+      "frequency_hz": 1000000000.0,
+      "test_standard": "IPC TM-650 2.5.5.9"
+     },
+     "notes": "원문 '誘電正接 (Df) 1GHz | IPC TM-650 2.5.5.9 | C-24/23/50 | 0.01' (R-1566 열). 2026-09-02 취득한 現行 제품페이지 「HIPER」シリーズ 一般特性 표를 rowspan 을 편 뒤 열로 읽었다 — 라벨이 rowspan 에 먹힌 행을 놓치지 않으려고 그렇게 했다. 試験片の厚さ 0.8 mm."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0014,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "D-24/23",
+      "test_standard": "IPC TM-650 2.6.2.1"
+     },
+     "notes": "원문 '吸水率 | IPC TM-650 2.6.2.1 | D-24/23 | % | 0.14' (R-1566 열) → 비율. 2026-09-02 취득한 現行 제품페이지 「HIPER」シリーズ 一般特性 표를 rowspan 을 편 뒤 열로 읽었다 — 라벨이 rowspan 에 먹힌 행을 놓치지 않으려고 그렇게 했다. 試験片の厚さ 0.8 mm."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1766 Standard FR-4 Automotive Glass Epoxy Laminate",
+   "source": {
+    "kind": "web",
+    "publisher": "Panasonic Industry Co., Ltd.",
+    "title": "Panasonic 車載機器用 多層基板材料「HIPER」シリーズ 製品ページ 一般特性表 (ja, 2026-09-02 취득)",
+    "url": "https://industrial.panasonic.com/jp/products/pt/hiper",
+    "year": 2026,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_HIPERseries_ProductPage_ja_2026-09-02.html"
+   },
+   "properties": [
+    {
+     "key": "thermal.decomposition_temp",
+     "value": 588.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "A",
+      "method_detail": "TG/DTA"
+     },
+     "notes": "원문 '熱分解温度 (Td) | TG/DTA | A | ℃ | 315' (R-1766 열). 2026-09-02 취득한 現行 제품페이지 「HIPER」シリーズ 一般特性 표를 rowspan 을 편 뒤 열로 읽었다 — 라벨이 rowspan 에 먹힌 행을 놓치지 않으려고 그렇게 했다. 試験片の厚さ 0.8 mm."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.3,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "C-24/23/50",
+      "frequency_hz": 1000000000.0,
+      "test_standard": "IPC TM-650 2.5.5.9"
+     },
+     "notes": "원문 '比誘電率 (Dk) 1GHz | IPC TM-650 2.5.5.9 | C-24/23/50 | 4.3' (R-1766 열). 2026-09-02 취득한 現行 제품페이지 「HIPER」シリーズ 一般特性 표를 rowspan 을 편 뒤 열로 읽었다 — 라벨이 rowspan 에 먹힌 행을 놓치지 않으려고 그렇게 했다. 試験片の厚さ 0.8 mm."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.016,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "C-24/23/50",
+      "frequency_hz": 1000000000.0,
+      "test_standard": "IPC TM-650 2.5.5.9"
+     },
+     "notes": "원문 '誘電正接 (Df) 1GHz | IPC TM-650 2.5.5.9 | C-24/23/50 | 0.016' (R-1766 열). 2026-09-02 취득한 現行 제품페이지 「HIPER」シリーズ 一般特性 표를 rowspan 을 편 뒤 열로 읽었다 — 라벨이 rowspan 에 먹힌 행을 놓치지 않으려고 그렇게 했다. 試験片の厚さ 0.8 mm."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0014,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "D-24/23",
+      "test_standard": "IPC TM-650 2.6.2.1"
+     },
+     "notes": "원문 '吸水率 | IPC TM-650 2.6.2.1 | D-24/23 | % | 0.14' (R-1766 열) → 비율. 2026-09-02 취득한 現行 제품페이지 「HIPER」シリーズ 一般特性 표를 rowspan 을 편 뒤 열로 읽었다 — 라벨이 rowspan 에 먹힌 행을 놓치지 않으려고 그렇게 했다. 試験片の厚さ 0.8 mm."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1566S Halogen-Free Automotive Glass Epoxy Laminate",
+   "source": {
+    "kind": "web",
+    "publisher": "Panasonic Industry Co., Ltd.",
+    "title": "Panasonic 高耐熱ハロゲンフリー多層基板材料 R-156AS / R-156YS / R-1566S 製品ページ 一般特性表 (ja, 2026-09-02 취득)",
+    "url": "https://industrial.panasonic.com/jp/products/pt/halogen-free/hfreer1566s",
+    "year": 2026,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_HalogenFree_R-1566S_ProductPage_ja_2026-09-02.html"
+   },
+   "properties": [
+    {
+     "key": "thermal.decomposition_temp",
+     "value": 628.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "A",
+      "method_detail": "TGA"
+     },
+     "notes": "원문 '熱分解温度(Td) | TGA | A | °C | 355'. 표의 열이 R-156AS·R-156YS·R-1566S·R-1566(W) 넷인데 앞 세 등급이 colspan 한 칸을 공유한다 — rowspan/colspan 을 편 뒤에 읽었다. 같은 표의 耐燃性 행은 셋이 각각 94V-0※1 · 94V-1 · 認証なし 로 갈리므로 열 배정이 맞다."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 443.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "laminate, sample thickness 0.8 mm",
+      "conditioning": "A",
+      "method_detail": "TMA"
+     },
+     "notes": "원문 'ガラス転移温度(Tg) | TMA | A | °C | 170'. 같은 표의 DSC 행 175 는 이미 DB 에 있다 — 측정법이 다른 별개 행이다."
+    }
+   ]
+  }
+ ]
+}
