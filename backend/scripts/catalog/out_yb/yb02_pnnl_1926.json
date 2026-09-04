@@ -1,0 +1,139 @@
+{
+ "materials": [
+  {
+   "match_name": "PC Optical (Lens Grade)",
+   "source": {
+    "kind": "other",
+    "title": "Water Vapor Permeation in Plastics (PNNL-26070), Table 4.3 — Some Water Vapor Permeability Coefficients [Bhadha 1999]",
+    "url": "https://www.pnnl.gov/main/publications/external/technical_reports/PNNL-26070.pdf",
+    "publisher": "Pacific Northwest National Laboratory",
+    "year": 2017,
+    "authors": "Kouzes, R. T. et al."
+   },
+   "properties": [
+    {
+     "key": "physical.gas_permeability_o2",
+     "value": 3.618334e-16,
+     "unit": "mol/(m*s*Pa)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "species": "O2",
+      "pressure_atm": 1,
+      "temperature_c": 25,
+      "bound": "lower",
+      "printed_as": "71 cm3*mm/(m2*d*atm)",
+      "grade_scope": "class value — 표 행은 등급 미지정 일반 PC('Lexan')이고 대상은 광학 렌즈 등급이다"
+     },
+     "notes": "PNNL-26070 Table 4.2 'Permeability coefficient (P0) of oxygen and water vapor for various polymers from the literature' — 열 머리글 'P0 (Oxygen) cm3*mm/m2*d*atm' / 'P0 (Water) g*mm/m2*d'. 400 dpi 렌더로 행·열을 확인했다. 환산 상수 5.096245e-18 = 1e-3 m/mm / (22414 cm3/mol x 86400 s/d x 101325 Pa/atm) — 같은 출처의 기존 행(PEN 0.5 -> 2.548122e-18 · PVDF 5.52 -> 2.813127e-17 · PMMA 5.8 -> 2.955822e-17)이 쓴 규약과 같다. 표가 구간으로 인쇄하므로 **중앙값을 만들지 않고 인쇄된 두 끝을 각각 한 행으로** 넣는다(브리프 451). 행 verbatim: 'Polycarbonate (PC) ‘Lexan’ | 71 - 124 | (Water 열 공란) | [McKeen 2012, p.94-97]'. 같은 표의 하위 등급 행이 이 구간을 다시 가른다 — 'Bayer Makrolon PC 71 - 81' 과 'Dow Calibre PC 91 - 124'. 온도는 표 본문에 개별 명시가 없고 보고서가 Table 4.3 을 25 degC 기준으로 명기 — 25 degC 로 기록. 타당성 검산: PC 의 O2 투과도 문헌 대역은 약 1 Barrer 이고 1 Barrer = 3.35e-16 mol/(m*s*Pa) 이므로 3.6e-16~6.3e-16 은 정합. 같은 재료가 이미 갖고 있는 이 출처의 값은 Table 2.1 의 DH2O(6.5e-12 m2/s @23 degC)와 Table 4.3 의 수분투과계수뿐이었다 — **Table 4.2 의 O2 열은 아무도 열지 않았다.**"
+    },
+    {
+     "key": "physical.gas_permeability_o2",
+     "value": 6.319344e-16,
+     "unit": "mol/(m*s*Pa)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "species": "O2",
+      "pressure_atm": 1,
+      "temperature_c": 25,
+      "bound": "upper",
+      "printed_as": "124 cm3*mm/(m2*d*atm)",
+      "grade_scope": "class value — 표 행은 등급 미지정 일반 PC('Lexan')이고 대상은 광학 렌즈 등급이다"
+     },
+     "notes": "PNNL-26070 Table 4.2 'Permeability coefficient (P0) of oxygen and water vapor for various polymers from the literature' — 열 머리글 'P0 (Oxygen) cm3*mm/m2*d*atm' / 'P0 (Water) g*mm/m2*d'. 400 dpi 렌더로 행·열을 확인했다. 환산 상수 5.096245e-18 = 1e-3 m/mm / (22414 cm3/mol x 86400 s/d x 101325 Pa/atm) — 같은 출처의 기존 행(PEN 0.5 -> 2.548122e-18 · PVDF 5.52 -> 2.813127e-17 · PMMA 5.8 -> 2.955822e-17)이 쓴 규약과 같다. 표가 구간으로 인쇄하므로 **중앙값을 만들지 않고 인쇄된 두 끝을 각각 한 행으로** 넣는다(브리프 451). 행 verbatim: 'Polycarbonate (PC) ‘Lexan’ | 71 - 124 | (Water 열 공란) | [McKeen 2012, p.94-97]'. 같은 표의 하위 등급 행이 이 구간을 다시 가른다 — 'Bayer Makrolon PC 71 - 81' 과 'Dow Calibre PC 91 - 124'. 온도는 표 본문에 개별 명시가 없고 보고서가 Table 4.3 을 25 degC 기준으로 명기 — 25 degC 로 기록. 타당성 검산: PC 의 O2 투과도 문헌 대역은 약 1 Barrer 이고 1 Barrer = 3.35e-16 mol/(m*s*Pa) 이므로 3.6e-16~6.3e-16 은 정합. 같은 재료가 이미 갖고 있는 이 출처의 값은 Table 2.1 의 DH2O(6.5e-12 m2/s @23 degC)와 Table 4.3 의 수분투과계수뿐이었다 — **Table 4.2 의 O2 열은 아무도 열지 않았다.**"
+    }
+   ]
+  },
+  {
+   "match_name": "PC (SABIC Lexan 143R, general purpose)",
+   "source": {
+    "kind": "other",
+    "title": "Water Vapor Permeation in Plastics (PNNL-26070), Table 4.3 — Some Water Vapor Permeability Coefficients [Bhadha 1999]",
+    "url": "https://www.pnnl.gov/main/publications/external/technical_reports/PNNL-26070.pdf",
+    "publisher": "Pacific Northwest National Laboratory",
+    "year": 2017,
+    "authors": "Kouzes, R. T. et al."
+   },
+   "properties": [
+    {
+     "key": "physical.gas_permeability_o2",
+     "value": 3.618334e-16,
+     "unit": "mol/(m*s*Pa)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "species": "O2",
+      "pressure_atm": 1,
+      "temperature_c": 25,
+      "bound": "lower",
+      "printed_as": "71 cm3*mm/(m2*d*atm)",
+      "grade_scope": "class value — 표 행이 'Lexan' 을 이름으로 찍지만 143R 등급을 특정하지 않는다(McKeen 은 PC 일반을 다룬다)"
+     },
+     "notes": "PNNL-26070 Table 4.2 'Permeability coefficient (P0) of oxygen and water vapor for various polymers from the literature' — 열 머리글 'P0 (Oxygen) cm3*mm/m2*d*atm' / 'P0 (Water) g*mm/m2*d'. 400 dpi 렌더로 행·열을 확인했다. 환산 상수 5.096245e-18 = 1e-3 m/mm / (22414 cm3/mol x 86400 s/d x 101325 Pa/atm) — 같은 출처의 기존 행(PEN 0.5 -> 2.548122e-18 · PVDF 5.52 -> 2.813127e-17 · PMMA 5.8 -> 2.955822e-17)이 쓴 규약과 같다. 표가 구간으로 인쇄하므로 **중앙값을 만들지 않고 인쇄된 두 끝을 각각 한 행으로** 넣는다(브리프 451). 행 verbatim: 'Polycarbonate (PC) ‘Lexan’ | 71 - 124 | (Water 열 공란) | [McKeen 2012, p.94-97]'. 같은 표의 하위 등급 행이 이 구간을 다시 가른다 — 'Bayer Makrolon PC 71 - 81' 과 'Dow Calibre PC 91 - 124'. 온도는 표 본문에 개별 명시가 없고 보고서가 Table 4.3 을 25 degC 기준으로 명기 — 25 degC 로 기록. 타당성 검산: PC 의 O2 투과도 문헌 대역은 약 1 Barrer 이고 1 Barrer = 3.35e-16 mol/(m*s*Pa) 이므로 3.6e-16~6.3e-16 은 정합. 같은 재료가 이미 갖고 있는 이 출처의 값은 Table 2.1 의 DH2O(6.5e-12 m2/s @23 degC)와 Table 4.3 의 수분투과계수뿐이었다 — **Table 4.2 의 O2 열은 아무도 열지 않았다.**"
+    },
+    {
+     "key": "physical.gas_permeability_o2",
+     "value": 6.319344e-16,
+     "unit": "mol/(m*s*Pa)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "species": "O2",
+      "pressure_atm": 1,
+      "temperature_c": 25,
+      "bound": "upper",
+      "printed_as": "124 cm3*mm/(m2*d*atm)",
+      "grade_scope": "class value — 표 행이 'Lexan' 을 이름으로 찍지만 143R 등급을 특정하지 않는다(McKeen 은 PC 일반을 다룬다)"
+     },
+     "notes": "PNNL-26070 Table 4.2 'Permeability coefficient (P0) of oxygen and water vapor for various polymers from the literature' — 열 머리글 'P0 (Oxygen) cm3*mm/m2*d*atm' / 'P0 (Water) g*mm/m2*d'. 400 dpi 렌더로 행·열을 확인했다. 환산 상수 5.096245e-18 = 1e-3 m/mm / (22414 cm3/mol x 86400 s/d x 101325 Pa/atm) — 같은 출처의 기존 행(PEN 0.5 -> 2.548122e-18 · PVDF 5.52 -> 2.813127e-17 · PMMA 5.8 -> 2.955822e-17)이 쓴 규약과 같다. 표가 구간으로 인쇄하므로 **중앙값을 만들지 않고 인쇄된 두 끝을 각각 한 행으로** 넣는다(브리프 451). 행 verbatim: 'Polycarbonate (PC) ‘Lexan’ | 71 - 124 | (Water 열 공란) | [McKeen 2012, p.94-97]'. 같은 표의 하위 등급 행이 이 구간을 다시 가른다 — 'Bayer Makrolon PC 71 - 81' 과 'Dow Calibre PC 91 - 124'. 온도는 표 본문에 개별 명시가 없고 보고서가 Table 4.3 을 25 degC 기준으로 명기 — 25 degC 로 기록. 타당성 검산: PC 의 O2 투과도 문헌 대역은 약 1 Barrer 이고 1 Barrer = 3.35e-16 mol/(m*s*Pa) 이므로 3.6e-16~6.3e-16 은 정합. 같은 재료가 이미 갖고 있는 이 출처의 값은 Table 2.1 의 DH2O(6.5e-12 m2/s @23 degC)와 Table 4.3 의 수분투과계수뿐이었다 — **Table 4.2 의 O2 열은 아무도 열지 않았다.**"
+    }
+   ]
+  },
+  {
+   "match_name": "PTFE (RF coax dielectric)",
+   "source": {
+    "kind": "other",
+    "title": "Water Vapor Permeation in Plastics (PNNL-26070), Table 4.3 — Some Water Vapor Permeability Coefficients [Bhadha 1999]",
+    "url": "https://www.pnnl.gov/main/publications/external/technical_reports/PNNL-26070.pdf",
+    "publisher": "Pacific Northwest National Laboratory",
+    "year": 2017,
+    "authors": "Kouzes, R. T. et al."
+   },
+   "properties": [
+    {
+     "key": "physical.gas_permeability_o2",
+     "value": 1.1313664e-15,
+     "unit": "mol/(m*s*Pa)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "species": "O2",
+      "pressure_atm": 1,
+      "temperature_c": 25,
+      "bound": "lower",
+      "printed_as": "222 cm3*mm/(m2*d*atm)",
+      "grade_scope": "class value — 표 행은 필름 PTFE 이고 대상은 RF 동축 유전체 PTFE 다"
+     },
+     "notes": "PNNL-26070 Table 4.2 'Permeability coefficient (P0) of oxygen and water vapor for various polymers from the literature' — 열 머리글 'P0 (Oxygen) cm3*mm/m2*d*atm' / 'P0 (Water) g*mm/m2*d'. 400 dpi 렌더로 행·열을 확인했다. 환산 상수 5.096245e-18 = 1e-3 m/mm / (22414 cm3/mol x 86400 s/d x 101325 Pa/atm) — 같은 출처의 기존 행(PEN 0.5 -> 2.548122e-18 · PVDF 5.52 -> 2.813127e-17 · PMMA 5.8 -> 2.955822e-17)이 쓴 규약과 같다. 표가 구간으로 인쇄하므로 **중앙값을 만들지 않고 인쇄된 두 끝을 각각 한 행으로** 넣는다(브리프 451). 행 verbatim: 'Polytetrafluoroethylene (PTFE) | 222 – 387 | 0.0045 - 0.30 | [McKeen 2012, p.197-201]'. **수분 열(0.0045-0.30 g*mm/m2*d)은 넣지 않았다** — 이 재료는 같은 보고서 Table 4.3 의 Teflon 행에서 온 tier1 수분투과계수(1.606e-15)를 이미 갖고 있고, 보고서 본문이 Table 4.2 와 4.3 의 값이 서로 어긋난다고 스스로 적는다. 타당성 검산: PTFE 의 O2 투과도는 약 4 Barrer(=1.34e-15) 로 알려져 있어 1.13e-15~1.97e-15 는 정합. tier 3 — 표 행은 필름 PTFE(McKeen)이고 DB 재료는 RF 동축 유전체용 PTFE 라 형태·결정화도가 다르다."
+    },
+    {
+     "key": "physical.gas_permeability_o2",
+     "value": 1.9722468e-15,
+     "unit": "mol/(m*s*Pa)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "species": "O2",
+      "pressure_atm": 1,
+      "temperature_c": 25,
+      "bound": "upper",
+      "printed_as": "387 cm3*mm/(m2*d*atm)",
+      "grade_scope": "class value — 표 행은 필름 PTFE 이고 대상은 RF 동축 유전체 PTFE 다"
+     },
+     "notes": "PNNL-26070 Table 4.2 'Permeability coefficient (P0) of oxygen and water vapor for various polymers from the literature' — 열 머리글 'P0 (Oxygen) cm3*mm/m2*d*atm' / 'P0 (Water) g*mm/m2*d'. 400 dpi 렌더로 행·열을 확인했다. 환산 상수 5.096245e-18 = 1e-3 m/mm / (22414 cm3/mol x 86400 s/d x 101325 Pa/atm) — 같은 출처의 기존 행(PEN 0.5 -> 2.548122e-18 · PVDF 5.52 -> 2.813127e-17 · PMMA 5.8 -> 2.955822e-17)이 쓴 규약과 같다. 표가 구간으로 인쇄하므로 **중앙값을 만들지 않고 인쇄된 두 끝을 각각 한 행으로** 넣는다(브리프 451). 행 verbatim: 'Polytetrafluoroethylene (PTFE) | 222 – 387 | 0.0045 - 0.30 | [McKeen 2012, p.197-201]'. **수분 열(0.0045-0.30 g*mm/m2*d)은 넣지 않았다** — 이 재료는 같은 보고서 Table 4.3 의 Teflon 행에서 온 tier1 수분투과계수(1.606e-15)를 이미 갖고 있고, 보고서 본문이 Table 4.2 와 4.3 의 값이 서로 어긋난다고 스스로 적는다. 타당성 검산: PTFE 의 O2 투과도는 약 4 Barrer(=1.34e-15) 로 알려져 있어 1.13e-15~1.97e-15 는 정합. tier 3 — 표 행은 필름 PTFE(McKeen)이고 DB 재료는 RF 동축 유전체용 PTFE 라 형태·결정화도가 다르다."
+    }
+   ]
+  }
+ ]
+}

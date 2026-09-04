@@ -1,0 +1,215 @@
+{
+ "materials": [
+  {
+   "match_name": "VHB Black 1.1mm (3M 5952)",
+   "source": {
+    "kind": "datasheet",
+    "title": "3M VHB Tapes Technical Data (October 2018)",
+    "url": "https://multimedia.3m.com/mws/media/67100O/3m-vhb-tapes.pdf",
+    "publisher": "3M",
+    "year": 2018
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 0.00018,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "isotropic",
+      "temperature_range_c": "미인쇄",
+      "regime": "unspecified (Tg 기준 alpha1/alpha2 구분 미인쇄)",
+      "printed_as": "180 (100) 10^-6 m/m/degC (10^-6 in/in/degF)",
+      "table": "Additional Typical Performance Characteristics / Thermal Properties of Modeling"
+     },
+     "notes": "p.6 'Thermal Properties of Modeling' 블록의 'Thermal Coefficient of Expansion | 180 (100) | 10^-6 m/m/degC (10^-6 in/in/degF)'. **400 dpi 렌더로 확인 — 4941 과 5952 를 가르는 세로 괘선이 바로 위 WVTR 행에서 끝나고 이 행은 두 열에 걸친 단일 값이다.** 그래서 5952 의 값이기도 하다. 자기검산: 같은 블록의 'Shear Modulus (at 25degC, 1 Hz) 3 x 10^5 Pa' 도 두 열 공통인데, 5952 자기 TDS(출처 2216)에서 온 이 재료의 tier1 전단탄성률이 정확히 300000 Pa 다 — 두 열 공통 해석이 우리 DB 안에서 확인된다. 괄호값 100e-6 in/in/degF x 1.8 = 180e-6 m/m/degC 로 원문 두 단위가 서로를 검산한다. 종전 대표는 Handbook of PSA Technology 의 tier4 추정 2.1e-4 였다 — 지우지 않았다.",
+     "value_check": "180e-6 /degC = 1.8e-4 /K"
+    },
+    {
+     "key": "thermal.min_service_temp",
+     "value": 238.15,
+     "unit": "K",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "basis": "UL746C File MH17478 component recognition temperature rating, minimum",
+      "listing_scope": "5915, 5915P, 5915WF, 5925, 5925P, 5925WF, 5930, 5030P, 5930WF, 5952, 5952P, 5952WF, 5962, 5962P, 5962WF (및 5952/5952P/5952WF 의 Cellulose Acetate Butyrate 행)",
+      "note_on_maximum": "같은 표의 Maximum 은 기재별로 75/90/110 degC 로 갈린다 — 최소값만 등록했다",
+      "printed_as": "-35 degC"
+     },
+     "notes": "3M VHB Tapes Technical Data (2018) p.6 'UL746C Listings - File MH 17478 / Category QOQW2 Component - Polymeric Adhesive Systems, Electrical Equipment' 표. 'Temperature Rating Minimum' 열이 이 표의 **모든 기재 행에서 예외 없이 -35 degC** 다(400 dpi 렌더로 전 행 확인). -35 degC = 238.15 K. Maximum 열은 기재에 따라 75/90/110 degC 로 갈리므로 이 배치는 최소값만 넣는다 — 최대는 같은 문서 p.5 'Temperature Tolerance'(단기/장기)에서 이미 다른 정의로 들어와 있다. UL 부품인정 온도등급이지 시험 측정치가 아니라 method=datasheet 다."
+    }
+   ]
+  },
+  {
+   "match_name": "VHB Gray 1.1mm (3M 4941)",
+   "source": {
+    "kind": "datasheet",
+    "title": "3M VHB Tapes Technical Data (October 2018)",
+    "url": "https://multimedia.3m.com/mws/media/67100O/3m-vhb-tapes.pdf",
+    "publisher": "3M",
+    "year": 2018
+   },
+   "properties": [
+    {
+     "key": "electrical.dielectric_strength",
+     "value": 14000000.0,
+     "unit": "V/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D140",
+      "printed_as": "14 (360) V/um (V/mil)",
+      "grade": "4941"
+     },
+     "notes": "p.6 'Additional Typical Performance Characteristics' 표, 'Dielectric Breakdown Strength | 14 (360) | 18 (455) | V/um (V/mil) | ASTM D140' 행. 열 머리글은 '3M VHB Tape | 4941 | 5952' 이고 400 dpi 렌더에서 4941 열 = 14 V/um 임을 확인했다. 14 V/um = 1.4e7 V/m. 검산: 괄호의 360 V/mil x 39.37 = 14173 V/mm = 14.2 V/um 로 인쇄된 14 와 일치한다(두 단위가 서로를 친다). 이 표의 나머지 4941 칸(유전율 2.29/1.99 · 손실계수 0.0245/0.0374 · 체적저항 2.1e14 ohm-cm · 표면저항 2.7e14 ohm/sq · 열전도율 0.08 · WVTR 25.6)은 52차가 bbox 로 열을 확정해 이미 들어와 있는데 **이 한 행만 비어 있었다.**"
+    },
+    {
+     "key": "thermal.min_service_temp",
+     "value": 238.15,
+     "unit": "K",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "basis": "UL746C File MH17478 component recognition temperature rating, minimum",
+      "listing_scope": "4919F, 4926, 4936, 4936F, 4941, 4941F, 4947F, 4956, 4956F, 4979F",
+      "note_on_maximum": "같은 표의 Maximum 은 기재별로 75/90/110 degC 로 갈린다 — 최소값만 등록했다",
+      "printed_as": "-35 degC"
+     },
+     "notes": "3M VHB Tapes Technical Data (2018) p.6 'UL746C Listings - File MH 17478 / Category QOQW2 Component - Polymeric Adhesive Systems, Electrical Equipment' 표. 'Temperature Rating Minimum' 열이 이 표의 **모든 기재 행에서 예외 없이 -35 degC** 다(400 dpi 렌더로 전 행 확인). -35 degC = 238.15 K. Maximum 열은 기재에 따라 75/90/110 degC 로 갈리므로 이 배치는 최소값만 넣는다 — 최대는 같은 문서 p.5 'Temperature Tolerance'(단기/장기)에서 이미 다른 정의로 들어와 있다. UL 부품인정 온도등급이지 시험 측정치가 아니라 method=datasheet 다."
+    }
+   ]
+  },
+  {
+   "match_name": "VHB Black 0.4mm (3M 5915)",
+   "source": {
+    "kind": "datasheet",
+    "title": "3M VHB Tapes Technical Data (October 2018)",
+    "url": "https://multimedia.3m.com/mws/media/67100O/3m-vhb-tapes.pdf",
+    "publisher": "3M",
+    "year": 2018
+   },
+   "properties": [
+    {
+     "key": "thermal.min_service_temp",
+     "value": 238.15,
+     "unit": "K",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "basis": "UL746C File MH17478 component recognition temperature rating, minimum",
+      "listing_scope": "5915, 5915P, 5915WF, 5925, 5925P, 5925WF, 5930, 5030P, 5930WF, 5952, 5952P, 5952WF, 5962, 5962P, 5962WF",
+      "note_on_maximum": "같은 표의 Maximum 은 기재별로 75/90/110 degC 로 갈린다 — 최소값만 등록했다",
+      "printed_as": "-35 degC"
+     },
+     "notes": "3M VHB Tapes Technical Data (2018) p.6 'UL746C Listings - File MH 17478 / Category QOQW2 Component - Polymeric Adhesive Systems, Electrical Equipment' 표. 'Temperature Rating Minimum' 열이 이 표의 **모든 기재 행에서 예외 없이 -35 degC** 다(400 dpi 렌더로 전 행 확인). -35 degC = 238.15 K. Maximum 열은 기재에 따라 75/90/110 degC 로 갈리므로 이 배치는 최소값만 넣는다 — 최대는 같은 문서 p.5 'Temperature Tolerance'(단기/장기)에서 이미 다른 정의로 들어와 있다. UL 부품인정 온도등급이지 시험 측정치가 아니라 method=datasheet 다."
+    }
+   ]
+  },
+  {
+   "match_name": "VHB Gray 1.6mm (3M 4956)",
+   "source": {
+    "kind": "datasheet",
+    "title": "3M VHB Tapes Technical Data (October 2018)",
+    "url": "https://multimedia.3m.com/mws/media/67100O/3m-vhb-tapes.pdf",
+    "publisher": "3M",
+    "year": 2018
+   },
+   "properties": [
+    {
+     "key": "thermal.min_service_temp",
+     "value": 238.15,
+     "unit": "K",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "basis": "UL746C File MH17478 component recognition temperature rating, minimum",
+      "listing_scope": "4919F, 4926, 4936, 4936F, 4941, 4941F, 4947F, 4956, 4956F, 4979F",
+      "note_on_maximum": "같은 표의 Maximum 은 기재별로 75/90/110 degC 로 갈린다 — 최소값만 등록했다",
+      "printed_as": "-35 degC"
+     },
+     "notes": "3M VHB Tapes Technical Data (2018) p.6 'UL746C Listings - File MH 17478 / Category QOQW2 Component - Polymeric Adhesive Systems, Electrical Equipment' 표. 'Temperature Rating Minimum' 열이 이 표의 **모든 기재 행에서 예외 없이 -35 degC** 다(400 dpi 렌더로 전 행 확인). -35 degC = 238.15 K. Maximum 열은 기재에 따라 75/90/110 degC 로 갈리므로 이 배치는 최소값만 넣는다 — 최대는 같은 문서 p.5 'Temperature Tolerance'(단기/장기)에서 이미 다른 정의로 들어와 있다. UL 부품인정 온도등급이지 시험 측정치가 아니라 method=datasheet 다."
+    }
+   ]
+  },
+  {
+   "match_name": "VHB Gray 1.1mm (3M RP45)",
+   "source": {
+    "kind": "datasheet",
+    "title": "3M VHB Tapes Technical Data (October 2018)",
+    "url": "https://multimedia.3m.com/mws/media/67100O/3m-vhb-tapes.pdf",
+    "publisher": "3M",
+    "year": 2018
+   },
+   "properties": [
+    {
+     "key": "thermal.min_service_temp",
+     "value": 238.15,
+     "unit": "K",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "basis": "UL746C File MH17478 component recognition temperature rating, minimum",
+      "listing_scope": "RP16, RP25, RP32, RP45, RP62",
+      "note_on_maximum": "같은 표의 Maximum 은 기재별로 75/90/110 degC 로 갈린다 — 최소값만 등록했다",
+      "printed_as": "-35 degC"
+     },
+     "notes": "3M VHB Tapes Technical Data (2018) p.6 'UL746C Listings - File MH 17478 / Category QOQW2 Component - Polymeric Adhesive Systems, Electrical Equipment' 표. 'Temperature Rating Minimum' 열이 이 표의 **모든 기재 행에서 예외 없이 -35 degC** 다(400 dpi 렌더로 전 행 확인). -35 degC = 238.15 K. Maximum 열은 기재에 따라 75/90/110 degC 로 갈리므로 이 배치는 최소값만 넣는다 — 최대는 같은 문서 p.5 'Temperature Tolerance'(단기/장기)에서 이미 다른 정의로 들어와 있다. UL 부품인정 온도등급이지 시험 측정치가 아니라 method=datasheet 다."
+    }
+   ]
+  },
+  {
+   "match_name": "VHB Black 0.6mm (3M 5925)",
+   "source": {
+    "kind": "datasheet",
+    "title": "3M VHB Tapes Technical Data (October 2018)",
+    "url": "https://multimedia.3m.com/mws/media/67100O/3m-vhb-tapes.pdf",
+    "publisher": "3M",
+    "year": 2018
+   },
+   "properties": [
+    {
+     "key": "thermal.min_service_temp",
+     "value": 238.15,
+     "unit": "K",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "basis": "UL746C File MH17478 component recognition temperature rating, minimum",
+      "listing_scope": "5915, 5915P, 5915WF, 5925, 5925P, 5925WF, 5930, 5030P, 5930WF, 5952, 5952P, 5952WF, 5962, 5962P, 5962WF",
+      "note_on_maximum": "같은 표의 Maximum 은 기재별로 75/90/110 degC 로 갈린다 — 최소값만 등록했다",
+      "printed_as": "-35 degC"
+     },
+     "notes": "3M VHB Tapes Technical Data (2018) p.6 'UL746C Listings - File MH 17478 / Category QOQW2 Component - Polymeric Adhesive Systems, Electrical Equipment' 표. 'Temperature Rating Minimum' 열이 이 표의 **모든 기재 행에서 예외 없이 -35 degC** 다(400 dpi 렌더로 전 행 확인). -35 degC = 238.15 K. Maximum 열은 기재에 따라 75/90/110 degC 로 갈리므로 이 배치는 최소값만 넣는다 — 최대는 같은 문서 p.5 'Temperature Tolerance'(단기/장기)에서 이미 다른 정의로 들어와 있다. UL 부품인정 온도등급이지 시험 측정치가 아니라 method=datasheet 다."
+    }
+   ]
+  },
+  {
+   "match_name": "VHB Gray 2.3mm (3M 4991)",
+   "source": {
+    "kind": "datasheet",
+    "title": "3M VHB Tapes Technical Data (October 2018)",
+    "url": "https://multimedia.3m.com/mws/media/67100O/3m-vhb-tapes.pdf",
+    "publisher": "3M",
+    "year": 2018
+   },
+   "properties": [
+    {
+     "key": "thermal.min_service_temp",
+     "value": 238.15,
+     "unit": "K",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "basis": "UL746C File MH17478 component recognition temperature rating, minimum",
+      "listing_scope": "4991",
+      "note_on_maximum": "같은 표의 Maximum 은 기재별로 75/90/110 degC 로 갈린다 — 최소값만 등록했다",
+      "printed_as": "-35 degC"
+     },
+     "notes": "3M VHB Tapes Technical Data (2018) p.6 'UL746C Listings - File MH 17478 / Category QOQW2 Component - Polymeric Adhesive Systems, Electrical Equipment' 표. 'Temperature Rating Minimum' 열이 이 표의 **모든 기재 행에서 예외 없이 -35 degC** 다(400 dpi 렌더로 전 행 확인). -35 degC = 238.15 K. Maximum 열은 기재에 따라 75/90/110 degC 로 갈리므로 이 배치는 최소값만 넣는다 — 최대는 같은 문서 p.5 'Temperature Tolerance'(단기/장기)에서 이미 다른 정의로 들어와 있다. UL 부품인정 온도등급이지 시험 측정치가 아니라 method=datasheet 다."
+    }
+   ]
+  }
+ ]
+}

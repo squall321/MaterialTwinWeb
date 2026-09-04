@@ -1,0 +1,51 @@
+{
+ "materials": [
+  {
+   "match_name": "Victrex PES 200P/300P, unreinforced polyethersulphone (ICI, Thompson 1983)",
+   "source": {
+    "kind": "database",
+    "url": "https://www.accudynetest.com/polymer_surface_data/other_polymers.pdf",
+    "title": "Surface Energy Data for PEHA: Poly(2-ethylhexyl acrylate) (in the 'other polymers' sheet) - AccuDyne Test polymer surface data compilation (Diversified Enterprises, 2009)",
+    "publisher": "Diversified Enterprises",
+    "year": 2009
+   },
+   "properties": [
+    {
+     "key": "physical.surface_energy",
+     "value": 0.047,
+     "unit": "J/m^2",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature": "not cited",
+      "method_detail": "contact-angle derived surface energy; dispersive 40, polar 7 mJ/m^2",
+      "liquid": "water and formamide",
+      "surface_state": "untreated PES (원문에 표면처리 언급 없음)",
+      "grade_scope": "class value — AccuDyne 행은 등급 미지정 일반 PES(Cho 2005)이고 대상은 Victrex 200P/300P 무강화 등급이다",
+      "provenance": "secondary compilation; primary source Cho 2005 (ref 226)",
+      "printed_as": "gamma_s = 47 mJ/m2"
+     },
+     "notes": "AccuDyne 'Surface Energy Data — Assorted Polymers' 시트(2009)의 'PES: Polyethersulfone, CAS # 25154-01-2' 절 verbatim 세 행: 'Kogoma, 1987(66) | Contact angle | theta_WY = 69.0 deg; no temp cited' · 'Cho, 2005(226) | Contact angle | theta_WY = 68 deg; no temp cited | Measured by sessile drop method.' · 'Cho, 2005(226) | Contact angle | gamma_s = 47 mJ/m2 (gamma_sd = 40, gamma_sp = 7); no temp cited | Test liquids: water and formamide.' **한 출처(Cho 2005)의 같은 두 행이 접촉각과 표면에너지를 함께 인쇄하므로 둘을 같이 넣어 한 행을 통째로 세웠다**(브리프 612). Kogoma 69.0 deg 는 같은 절의 독립 2차 출처이고 Cho 68 deg 와 1.5% 차이라 서로를 검산한다 — 값이 하나로 모인다. 온도는 원문이 'no temp cited' 라 주장하지 않는다. tier 3 — 표 행은 등급 미지정 일반 PES 이고 대상은 Victrex PES 200P/300P 무강화 등급이다. 이 시트는 이 카탈로그가 이미 78종에 쓰고 있는 문서인데(전부 PEHA·폴리이소프렌·PEI 세 절만) PES 절은 아무도 열지 않았다."
+    },
+    {
+     "key": "physical.contact_angle_water",
+     "value": 68.0,
+     "unit": "deg",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "angle_type": "static (Young, sessile drop)",
+      "liquid": "water",
+      "temperature": "not cited",
+      "surface_state": "untreated PES (원문에 표면처리 언급 없음)",
+      "test_method": "sessile drop contact angle",
+      "grade_scope": "class value — AccuDyne 행은 등급 미지정 일반 PES(Cho 2005)이고 대상은 Victrex 200P/300P 무강화 등급이다",
+      "provenance": "secondary compilation; primary source Cho 2005 (ref 226); 같은 절 Kogoma 1987 은 69.0 deg",
+      "printed_as": "theta_WY = 68 deg"
+     },
+     "notes": "AccuDyne 'Surface Energy Data — Assorted Polymers' 시트(2009)의 'PES: Polyethersulfone, CAS # 25154-01-2' 절 verbatim 세 행: 'Kogoma, 1987(66) | Contact angle | theta_WY = 69.0 deg; no temp cited' · 'Cho, 2005(226) | Contact angle | theta_WY = 68 deg; no temp cited | Measured by sessile drop method.' · 'Cho, 2005(226) | Contact angle | gamma_s = 47 mJ/m2 (gamma_sd = 40, gamma_sp = 7); no temp cited | Test liquids: water and formamide.' **한 출처(Cho 2005)의 같은 두 행이 접촉각과 표면에너지를 함께 인쇄하므로 둘을 같이 넣어 한 행을 통째로 세웠다**(브리프 612). Kogoma 69.0 deg 는 같은 절의 독립 2차 출처이고 Cho 68 deg 와 1.5% 차이라 서로를 검산한다 — 값이 하나로 모인다. 온도는 원문이 'no temp cited' 라 주장하지 않는다. tier 3 — 표 행은 등급 미지정 일반 PES 이고 대상은 Victrex PES 200P/300P 무강화 등급이다. 이 시트는 이 카탈로그가 이미 78종에 쓰고 있는 문서인데(전부 PEHA·폴리이소프렌·PEI 세 절만) PES 절은 아무도 열지 않았다."
+    }
+   ]
+  }
+ ]
+}

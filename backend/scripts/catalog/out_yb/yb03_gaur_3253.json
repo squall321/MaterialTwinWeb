@@ -1,0 +1,90 @@
+{
+ "materials": [
+  {
+   "match_name": "Poly(methyl acrylate) (PMA, n-alkyl acrylate homopolymer, C1 side chain)",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1063/1.555671",
+    "title": "Gaur, Wunderlich et al., 'Heat Capacity and Other Thermodynamic Properties of Linear Macromolecules VI. Acrylic Polymers', J. Phys. Chem. Ref. Data 11, 1065 (1982) — ATHAS recommended data",
+    "authors": "Umesh Gaur, Suk-fai Lau, Brent B. Wunderlich, Bernhard Wunderlich",
+    "year": 1982,
+    "publisher": "AIP for NIST (Journal of Physical and Chemical Reference Data)"
+   },
+   "properties": [
+    {
+     "key": "thermal.glass_transition",
+     "value": 279.0,
+     "unit": "K",
+     "method": "handbook",
+     "tier": 2,
+     "conditions": {
+      "printed_as": "279 K",
+      "state": "amorphous",
+      "heat_capacity_step_j_mol_k": 42.3,
+      "test_method": "ATHAS recommended data (glass transition from recommended glassy/molten Cp curves)"
+     },
+     "notes": "Gaur et al. 1982, Table 26 'Heat capacity change at the glass transition temperature' — 400 dpi 렌더로 행을 확인했다. 인쇄 행: 'Poly(methyl acrylate) | 279 | 42.3' · 'Poly(ethyl acrylate) | 249 | 45.6' (Tg(K) · dCp J mol-1 K-1). 같은 논문 Table 1 'Acrylic polymers investigated in this study' 의 Tg 열이 같은 값을 다시 인쇄한다(PMA 279 · PEA 249) — **한 논문 안에서 두 표가 서로를 검산한다.** ATHAS 권장 데이터라 저자들의 1차 측정이 아니라 문헌 35개 시료를 곡선적합해 낸 권장값이다 → method=handbook."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1765.6,
+     "unit": "J/(kg*K)",
+     "method": "handbook",
+     "tier": 2,
+     "conditions": {
+      "temperature_k": 300,
+      "temperature_c": 26.85,
+      "state": "amorphous, molten (above Tg)",
+      "test_method": "ATHAS recommended data (curve fit to adiabatic calorimetry / DSC literature)",
+      "repeat_unit_molar_mass_g_mol": 86.09,
+      "printed_as": "152.0 J mol-1 K-1 at 300 K (Table 21)"
+     },
+     "notes": "Gaur et al. 1982, Table 21 'Recommended heat capacity data for molten polyacrylates in J mol-1 K-1' — 400 dpi 렌더로 열과 온도행을 확인했다. 인쇄값: T=300 K 행에서 PMA 152.0 · PEA 178.9 · PNBA 233.3. 같은 논문 Table 1 이 인쇄한 반복단위 질량으로 나눠 질량기준으로 바꾼다(단위 환산이지 역산이 아니다). 이 카탈로그가 이미 쓰고 있는 규약과 같다 — 기존 tier3 행 54개가 PNBA 233.3 / 128.17 g/mol = 1820 J/(kg*K) 로 들어와 있고, **그 행의 notes 가 '같은 표의 PMA 1766, PEA 1787' 이라고 이미 적어 두고서 정작 PMA·PEA 재료의 칸에는 넣지 않았다.** 상태 확인: Table 26 의 Tg 가 PMA 279 K · PEA 249 K 이므로 300 K 는 둘 다 Tg 위 — molten 표가 맞는 상태다. 이 재료들이 이미 가진 비열은 각각 270 K(PMA, 유리상) · 230 K(PEA, 유리상) 점이라 온도·상태 조건이 달라 충돌하지 않는다."
+    }
+   ]
+  },
+  {
+   "match_name": "Poly(ethyl acrylate) (PEA, n-alkyl acrylate homopolymer, C2 side chain)",
+   "source": {
+    "kind": "journal",
+    "doi": "10.1063/1.555671",
+    "title": "Gaur, Wunderlich et al., 'Heat Capacity and Other Thermodynamic Properties of Linear Macromolecules VI. Acrylic Polymers', J. Phys. Chem. Ref. Data 11, 1065 (1982) — ATHAS recommended data",
+    "authors": "Umesh Gaur, Suk-fai Lau, Brent B. Wunderlich, Bernhard Wunderlich",
+    "year": 1982,
+    "publisher": "AIP for NIST (Journal of Physical and Chemical Reference Data)"
+   },
+   "properties": [
+    {
+     "key": "thermal.glass_transition",
+     "value": 249.0,
+     "unit": "K",
+     "method": "handbook",
+     "tier": 2,
+     "conditions": {
+      "printed_as": "249 K",
+      "state": "amorphous",
+      "heat_capacity_step_j_mol_k": 45.6,
+      "test_method": "ATHAS recommended data (glass transition from recommended glassy/molten Cp curves)"
+     },
+     "notes": "Gaur et al. 1982, Table 26 'Heat capacity change at the glass transition temperature' — 400 dpi 렌더로 행을 확인했다. 인쇄 행: 'Poly(methyl acrylate) | 279 | 42.3' · 'Poly(ethyl acrylate) | 249 | 45.6' (Tg(K) · dCp J mol-1 K-1). 같은 논문 Table 1 'Acrylic polymers investigated in this study' 의 Tg 열이 같은 값을 다시 인쇄한다(PMA 279 · PEA 249) — **한 논문 안에서 두 표가 서로를 검산한다.** ATHAS 권장 데이터라 저자들의 1차 측정이 아니라 문헌 35개 시료를 곡선적합해 낸 권장값이다 → method=handbook."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1786.9,
+     "unit": "J/(kg*K)",
+     "method": "handbook",
+     "tier": 2,
+     "conditions": {
+      "temperature_k": 300,
+      "temperature_c": 26.85,
+      "state": "amorphous, molten (above Tg)",
+      "test_method": "ATHAS recommended data (curve fit to adiabatic calorimetry / DSC literature)",
+      "repeat_unit_molar_mass_g_mol": 100.12,
+      "printed_as": "178.9 J mol-1 K-1 at 300 K (Table 21)"
+     },
+     "notes": "Gaur et al. 1982, Table 21 'Recommended heat capacity data for molten polyacrylates in J mol-1 K-1' — 400 dpi 렌더로 열과 온도행을 확인했다. 인쇄값: T=300 K 행에서 PMA 152.0 · PEA 178.9 · PNBA 233.3. 같은 논문 Table 1 이 인쇄한 반복단위 질량으로 나눠 질량기준으로 바꾼다(단위 환산이지 역산이 아니다). 이 카탈로그가 이미 쓰고 있는 규약과 같다 — 기존 tier3 행 54개가 PNBA 233.3 / 128.17 g/mol = 1820 J/(kg*K) 로 들어와 있고, **그 행의 notes 가 '같은 표의 PMA 1766, PEA 1787' 이라고 이미 적어 두고서 정작 PMA·PEA 재료의 칸에는 넣지 않았다.** 상태 확인: Table 26 의 Tg 가 PMA 279 K · PEA 249 K 이므로 300 K 는 둘 다 Tg 위 — molten 표가 맞는 상태다. 이 재료들이 이미 가진 비열은 각각 270 K(PMA, 유리상) · 230 K(PEA, 유리상) 점이라 온도·상태 조건이 달라 충돌하지 않는다."
+    }
+   ]
+  }
+ ]
+}
