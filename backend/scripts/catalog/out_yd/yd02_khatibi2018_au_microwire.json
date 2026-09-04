@@ -1,0 +1,145 @@
+{
+  "materials": [
+    {
+      "match_name": "Gold Bonding Wire",
+      "source": {
+        "kind": "journal",
+        "doi": "10.1051/matecconf/201816506002",
+        "title": "G. Khatibi, A. Mazloum-Nejadari, M. Lederer, M. Delshadmanesh, B. Czerny, 'Fatigue life time modelling of Cu and Au fine wires', MATEC Web of Conferences 165, 06002 (FATIGUE 2018) — Fig. 5 (LCF) / Fig. 6 (HCF) 회귀식 라벨",
+        "url": "https://web.archive.org/web/2020id_/https://www.matec-conferences.org/articles/matecconf/pdf/2018/24/matecconf_fatigue2018_06002.pdf"
+      },
+      "properties": [
+        {
+          "key": "mechanical.yield_strength",
+          "value": 130000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "condition": "as-drawn (initial, 'Au-i'), fine-grained with strong <111> fibre texture in the core",
+            "wire_diameter_um": 25,
+            "strain_rate_s": 0.00013,
+            "test_method": "micro-tensile machine, 1 N load cell (+/- 0.001 N), laser speckle extensometer (contactless, strain resolution ~1e-5), room temperature",
+            "uncertainty_note": "원문이 이 칸에만 +/- 를 안 붙였다 — Au-i 항복만 130 으로 단일값이고 같은 행의 나머지 셋은 209 +/- 2 · 3.5 +/- 1 · 75 +/- 2 다",
+            "set_id": "Khatibi2018_T1_Au-i"
+          },
+          "notes": "Table 1 'Mechanical properties of Cu and Au micro wires' 의 Au-i 행, 'Yield stress sigma_y [MPa]' 열 = 130 (400 dpi 렌더로 열·행을 눈으로 확인, 브리프 7·586). 시편 verbatim: \"Commercial high purity Cu and Au wires with diameters of 25 um which are used for interconnection in microelectronics devices were purchased from different suppliers.\" — 카탈로그의 'Gold Bonding Wire'(25 um 열초음파 볼본딩용 금세선)와 같은 제품군이라 tier 1 이다(같은 논문·같은 재료의 pv 20921/20922 를 앞 파동이 같은 이유로 t1 로 잡았다). **이 칸이 표적이었다** — 종전 대표는 pv 2844, tier 4, 80 MPa, 출처 760(ASM Metals Handbook, 식별자 전무)이고 notes 가 *'계열 대표값 — sigma-epsilon 곡선 합성 및 해석 입력용'* 이다. 그 t4 는 지우지 않았다. **검산(브리프 604)**: sigma_y/sigma_u = 130/209 = 0.62 로 냉간인발 세선의 통상 범위이고, 카탈로그의 기존 t1 인장(4N 볼본딩 와이어 >240 MPa, Heraeus HA3 환산 203.7 MPa)과 이 표의 209 MPa 가 같은 자릿수다. 어닐재(Au-a) 행은 별개 조건으로 같이 넣었다."
+        },
+        {
+          "key": "mechanical.yield_strength",
+          "value": 31000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "condition": "annealed 450 C / 1 h in vacuum ('Au-a'), microstructure chosen to mimic the heat affected zone above a thermosonic ball bond",
+            "wire_diameter_um": 25,
+            "strain_rate_s": 0.00013,
+            "test_method": "micro-tensile machine, 1 N load cell (+/- 0.001 N), laser speckle extensometer (contactless, strain resolution ~1e-5), room temperature",
+            "uncertainty_printed": "+/- 3 MPa",
+            "set_id": "Khatibi2018_T1_Au-a"
+          },
+          "notes": "Table 1 Au-a 행 항복응력 31 +/- 3 MPa (400 dpi 렌더 확인). 어닐 조건 verbatim: \"The microstructure of the wires was modified by annealing at 450 C for one hour in vacuum. The annealing conditions were selected based on a previous study with the aim to obtain a microstructure similar to that occurring in the heat affected zone of thermosonic wire bonds in microelectronic packages\". **볼본드 넥의 열영향부를 해석할 때 써야 하는 값이 이쪽이다** — 같은 논문의 피로 행(pv 20923/20924)에 앞 파동이 같은 취지를 적어 두었다. 인발재(Au-i) 130 MPa 대비 4.2배 연화다."
+        },
+        {
+          "key": "mechanical.tensile_strength",
+          "value": 209000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "condition": "as-drawn (initial, 'Au-i')",
+            "wire_diameter_um": 25,
+            "strain_rate_s": 0.00013,
+            "test_method": "micro-tensile machine, 1 N load cell (+/- 0.001 N), laser speckle extensometer, room temperature",
+            "uncertainty_printed": "+/- 2 MPa",
+            "set_id": "Khatibi2018_T1_Au-i"
+          },
+          "notes": "Table 1 Au-i 행 'Tensile strength sigma_u [MPa]' = 209 +/- 2 (400 dpi 렌더 확인). 이 재료의 기존 t1 인장 행들은 전부 **벤더 시트의 하한·최소 규격**(120 하한 · >240 최소 · 파단하중에서 환산한 203.7/179.8)이라 실측 분포가 없었다 — 이 행이 실측 평균과 산포를 처음 세운다."
+        },
+        {
+          "key": "mechanical.tensile_strength",
+          "value": 84000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "condition": "annealed 450 C / 1 h in vacuum ('Au-a')",
+            "wire_diameter_um": 25,
+            "strain_rate_s": 0.00013,
+            "test_method": "micro-tensile machine, 1 N load cell (+/- 0.001 N), laser speckle extensometer, room temperature",
+            "uncertainty_printed": "+/- 5 MPa",
+            "set_id": "Khatibi2018_T1_Au-a"
+          },
+          "notes": "Table 1 Au-a 행 인장강도 84 +/- 5 MPa (400 dpi 렌더 확인). 어닐로 209 -> 84 MPa 로 2.5배 떨어진다 — 본문 verbatim: \"the fine grained Au-i wires which exhibit the highest yield and tensile strength are highly prone to softening subsequent to annealing at 450 C\"."
+        },
+        {
+          "key": "mechanical.elongation_at_break",
+          "value": 0.035,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "condition": "as-drawn (initial, 'Au-i')",
+            "wire_diameter_um": 25,
+            "strain_rate_s": 0.00013,
+            "basis": "표 머리글 verbatim 'Fracture strain [%]' — 단축인장 파단변형률",
+            "test_method": "micro-tensile machine with laser speckle extensometer (contactless strain), room temperature",
+            "uncertainty_printed": "+/- 1 %",
+            "set_id": "Khatibi2018_T1_Au-i"
+          },
+          "notes": "Table 1 Au-i 행 파단변형률 3.5 +/- 1 % -> 0.035 (400 dpi 렌더 확인). 본문 교차확인: \"The ductility remains low with a value of about 4% for the initial and annealed wires.\" 카탈로그의 기존 t1 연신 행들은 벤더 시트 범위의 **하한**(2 %·3 %)이라 실측이 아니었다."
+        },
+        {
+          "key": "mechanical.elongation_at_break",
+          "value": 0.045,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "condition": "annealed 450 C / 1 h in vacuum ('Au-a')",
+            "wire_diameter_um": 25,
+            "strain_rate_s": 0.00013,
+            "basis": "표 머리글 verbatim 'Fracture strain [%]' — 단축인장 파단변형률",
+            "test_method": "micro-tensile machine with laser speckle extensometer (contactless strain), room temperature",
+            "uncertainty_printed": "+/- 2 %",
+            "set_id": "Khatibi2018_T1_Au-a"
+          },
+          "notes": "Table 1 Au-a 행 파단변형률 4.5 +/- 2 % -> 0.045 (400 dpi 렌더 확인). 값이 이 재료의 기존 pv 1262(0.045, 출처 449 데이터시트)와 우연히 같지만 **출처·조건이 달라 별개 행**이다 — 이쪽은 어닐재 실측이고 산포가 붙어 있다."
+        },
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 75000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "condition": "as-drawn (initial, 'Au-i')",
+            "wire_diameter_um": 25,
+            "strain_rate_s": 0.00013,
+            "test_method": "micro-tensile machine, laser speckle extensometer, Young's modulus from the elastic slope in accordance with Hooke's law; room temperature",
+            "uncertainty_printed": "+/- 2 GPa",
+            "set_id": "Khatibi2018_T1_Au-i"
+          },
+          "notes": "Table 1 Au-i 행 'Young's Modulus E [GPa]' = 75 +/- 2 (400 dpi 렌더 확인). **검산(브리프 604)**: 벌크 순금 E = 78~79 GPa 이고 카탈로그의 기존 t1 값들이 78~90 GPa 다 — 25 um 인발 세선의 75 GPa 는 그 아래로 <111> 섬유조직·세선 효과와 모순되지 않는다. 원문 verbatim: \"Tensile properties and Young's Modulus of the Cu wires were determined by using a micro-tensile machine ... A laser speckle extensometer with a strain resolution of about 10e-5 was used for contactless strain measurements.\" (2.2.1 절은 Cu 만 명시하지만 3.1 절과 Table 1 은 Au·Cu 를 같은 표에 나란히 싣는다)."
+        },
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 76000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "condition": "annealed 450 C / 1 h in vacuum ('Au-a')",
+            "wire_diameter_um": 25,
+            "strain_rate_s": 0.00013,
+            "test_method": "micro-tensile machine, laser speckle extensometer, Young's modulus from the elastic slope in accordance with Hooke's law; room temperature",
+            "uncertainty_printed": "+/- 5 GPa",
+            "set_id": "Khatibi2018_T1_Au-a"
+          },
+          "notes": "Table 1 Au-a 행 E = 76 +/- 5 GPa (400 dpi 렌더 확인). 어닐로 항복·인장은 4배·2.5배 떨어지는데 **탄성계수는 75 -> 76 으로 사실상 안 변한다** — 탄성계수가 조직이 아니라 원자결합이 정하는 물성이라는 것과 맞는다(표 내부 정합성 검산)."
+        }
+      ]
+    }
+  ]
+}

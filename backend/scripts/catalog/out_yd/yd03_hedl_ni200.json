@@ -1,0 +1,185 @@
+{
+  "materials": [
+    {
+      "match_name": "Nickel Tab/Interconnect",
+      "source": {
+        "kind": "other",
+        "title": "High Strain Rate Mechanical Properties of Type 304 Stainless Steel and Nickel 200 (RM-14), HEDL-TME 71-166",
+        "url": "https://www.osti.gov/servlets/purl/4700948",
+        "publisher": "Hanford Engineering Development Laboratory (AEC)"
+      },
+      "properties": [
+        {
+          "key": "mechanical.yield_strength",
+          "value": 119417191.2,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 3,
+          "conditions": {
+            "strain_rate_s": 0.0003,
+            "basis": "0.2% offset yield stress (표 머리글 verbatim 'Stress x 10^3 psi' 아래 '0.2% Yield' 열)",
+            "test_method": "quasi-static to high-rate uniaxial tension, constant crosshead velocity (Instron for the 3e-5 and 3e-4 1/s points, MTS high-rate system above); buttonhead specimen 1.125 in gauge length x 0.125 in gauge diameter; tested in air",
+            "heat_treatment": "0.250 in cold rolled plate, annealed 10 min at 1400 F, rapid air cool",
+            "temperature_note": "표 제목 verbatim 'MECHANICAL PROPERTIES OF NICKEL 200 AT ROOM TEMPERATURE' — 정확한 온도는 미인쇄",
+            "specimen_id": "HO 4790",
+            "printed_value_ksi": 17.32,
+            "grade_scope": "class value — 원문은 완전 소둔 Ni 200 순니켈 판재이고, 카탈로그 항목은 배터리 탭용 니켈 인터커넥트다. 논문이 'nickel tab' 이라고 부른 것은 아니다"
+          },
+          "notes": "Appendix B 'MECHANICAL PROPERTIES OF NICKEL 200 AT ROOM TEMPERATURE' 표의 **가장 느린 행**(변형률속도 3e-4 s^-1, 시편 HO 4790)의 '0.2% Yield' 열 17.32 x 10^3 psi. 17.32e3 psi x 6894.757 Pa/psi = 1.194e8 Pa. 3e-4 s^-1 는 ASTM E8 준정적 대역(1e-4~1e-3)이라 이 표에서 준정적 항복으로 쓸 수 있는 유일한 행이다. **이 칸이 표적이었다** — 종전 대표는 pv 2844 계열의 tier 4, 150 MPa, 출처 760(ASM Metals Handbook — doi·isbn·url·저자·연도·권·쪽이 모두 비어 있다)이고 notes 가 '계열 대표값 — sigma-epsilon 곡선 합성 및 해석 입력용' 이다. 그 t4 는 지우지 않았다. **표 확인** — 400 dpi 렌더로 머리글(Strain Rate Sec-1 | Stress x 10^3 psi (Ultimate, 0.2% Yield) | Elongation-% (1.125 in. gauge) (Total, Uniform) | Reduction of Area-% | Site Sequence Number)과 9행 전체를 눈으로 확인했다(스캔 문서라 필수, 브리프 603). **교차검산** — 이 카탈로그가 같은 표에서 이미 캔 mechanical.yield_strength_at_rate 9행(pv 14531~14539)의 값이 인쇄된 9개 항복값과 같은 순서로 1 Pa 자리까지 맞는다. 행-속도 짝짓기가 독립적으로 확인된 셈이다. 등급은 앞 파동이 같은 표의 at_rate 행에 매긴 tier 3 과 맞췄다."
+        },
+        {
+          "key": "mechanical.tensile_strength_at_rate",
+          "value": 398516954.6,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 3,
+          "conditions": {
+            "strain_rate_s": 0.0003,
+            "basis": "표 머리글 verbatim 'Stress x 10^3 psi' 아래 'Ultimate' 열",
+            "test_method": "quasi-static to high-rate uniaxial tension, constant crosshead velocity (Instron for the 3e-5 and 3e-4 1/s points, MTS high-rate system above); buttonhead specimen 1.125 in gauge length x 0.125 in gauge diameter; tested in air",
+            "heat_treatment": "0.250 in cold rolled plate, annealed 10 min at 1400 F, rapid air cool",
+            "temperature_note": "표 제목 verbatim 'AT ROOM TEMPERATURE' — 정확한 온도는 미인쇄",
+            "specimen_id": "HO 4790",
+            "printed_value_ksi": 57.8,
+            "set_id": "HEDL_TME_71_166_Ni200_RT_ultimate",
+            "grade_scope": "class value — 원문은 완전 소둔 Ni 200 순니켈 판재이고, 카탈로그 항목은 배터리 탭용 니켈 인터커넥트다"
+          },
+          "notes": "Appendix B Nickel 200 실온표, 변형률속도 0.0003 s^-1 행(시편 HO 4790)의 'Ultimate' 열 57.8 x 10^3 psi -> 398516954.6 Pa. **이 열은 앞선 파동들이 한 번도 안 캔 열이다**(브리프 649) — 같은 표에서 '0.2% Yield' 9행과 'Total' 연신 9행은 가져갔는데 'Ultimate' 열은 통째로 남아 있었다. 400 dpi 렌더로 9행을 전수 확인했고, 변형률속도 0.1 s^-1 의 첫 행(시편번호 없음)은 Ultimate 칸이 '- - -' 로 비어 있어 8행만 넣는다. 속도 의존: 3e-4 -> 100 s^-1 에서 57.80 -> 67.80 ksi 로 17퍼센트 증가한다(양의 율속민감도). 환산계수 6894.757 Pa/psi 는 같은 표에서 온 기존 at_rate 항복 행들과 맞췄다."
+        },
+        {
+          "key": "mechanical.tensile_strength_at_rate",
+          "value": 427130196.1,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 3,
+          "conditions": {
+            "strain_rate_s": 0.1,
+            "basis": "표 머리글 verbatim 'Stress x 10^3 psi' 아래 'Ultimate' 열",
+            "test_method": "quasi-static to high-rate uniaxial tension, constant crosshead velocity (Instron for the 3e-5 and 3e-4 1/s points, MTS high-rate system above); buttonhead specimen 1.125 in gauge length x 0.125 in gauge diameter; tested in air",
+            "heat_treatment": "0.250 in cold rolled plate, annealed 10 min at 1400 F, rapid air cool",
+            "temperature_note": "표 제목 verbatim 'AT ROOM TEMPERATURE' — 정확한 온도는 미인쇄",
+            "specimen_id": "HO 4791",
+            "printed_value_ksi": 61.95,
+            "set_id": "HEDL_TME_71_166_Ni200_RT_ultimate",
+            "grade_scope": "class value — 원문은 완전 소둔 Ni 200 순니켈 판재이고, 카탈로그 항목은 배터리 탭용 니켈 인터커넥트다"
+          },
+          "notes": "Appendix B Nickel 200 실온표, 변형률속도 0.1 s^-1 행(시편 HO 4791)의 'Ultimate' 열 61.95 x 10^3 psi -> 427130196.1 Pa. **이 열은 앞선 파동들이 한 번도 안 캔 열이다**(브리프 649) — 같은 표에서 '0.2% Yield' 9행과 'Total' 연신 9행은 가져갔는데 'Ultimate' 열은 통째로 남아 있었다. 400 dpi 렌더로 9행을 전수 확인했고, 변형률속도 0.1 s^-1 의 첫 행(시편번호 없음)은 Ultimate 칸이 '- - -' 로 비어 있어 8행만 넣는다. 속도 의존: 3e-4 -> 100 s^-1 에서 57.80 -> 67.80 ksi 로 17퍼센트 증가한다(양의 율속민감도). 환산계수 6894.757 Pa/psi 는 같은 표에서 온 기존 at_rate 항복 행들과 맞췄다."
+        },
+        {
+          "key": "mechanical.tensile_strength_at_rate",
+          "value": 437196541.4,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 3,
+          "conditions": {
+            "strain_rate_s": 1.0,
+            "basis": "표 머리글 verbatim 'Stress x 10^3 psi' 아래 'Ultimate' 열",
+            "test_method": "quasi-static to high-rate uniaxial tension, constant crosshead velocity (Instron for the 3e-5 and 3e-4 1/s points, MTS high-rate system above); buttonhead specimen 1.125 in gauge length x 0.125 in gauge diameter; tested in air",
+            "heat_treatment": "0.250 in cold rolled plate, annealed 10 min at 1400 F, rapid air cool",
+            "temperature_note": "표 제목 verbatim 'AT ROOM TEMPERATURE' — 정확한 온도는 미인쇄",
+            "specimen_id": "HO 4792",
+            "printed_value_ksi": 63.41,
+            "set_id": "HEDL_TME_71_166_Ni200_RT_ultimate",
+            "grade_scope": "class value — 원문은 완전 소둔 Ni 200 순니켈 판재이고, 카탈로그 항목은 배터리 탭용 니켈 인터커넥트다"
+          },
+          "notes": "Appendix B Nickel 200 실온표, 변형률속도 1.0 s^-1 행(시편 HO 4792)의 'Ultimate' 열 63.41 x 10^3 psi -> 437196541.4 Pa. **이 열은 앞선 파동들이 한 번도 안 캔 열이다**(브리프 649) — 같은 표에서 '0.2% Yield' 9행과 'Total' 연신 9행은 가져갔는데 'Ultimate' 열은 통째로 남아 있었다. 400 dpi 렌더로 9행을 전수 확인했고, 변형률속도 0.1 s^-1 의 첫 행(시편번호 없음)은 Ultimate 칸이 '- - -' 로 비어 있어 8행만 넣는다. 속도 의존: 3e-4 -> 100 s^-1 에서 57.80 -> 67.80 ksi 로 17퍼센트 증가한다(양의 율속민감도). 환산계수 6894.757 Pa/psi 는 같은 표에서 온 기존 at_rate 항복 행들과 맞췄다."
+        },
+        {
+          "key": "mechanical.tensile_strength_at_rate",
+          "value": 432714949.3,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 3,
+          "conditions": {
+            "strain_rate_s": 1.0,
+            "basis": "표 머리글 verbatim 'Stress x 10^3 psi' 아래 'Ultimate' 열",
+            "test_method": "quasi-static to high-rate uniaxial tension, constant crosshead velocity (Instron for the 3e-5 and 3e-4 1/s points, MTS high-rate system above); buttonhead specimen 1.125 in gauge length x 0.125 in gauge diameter; tested in air",
+            "heat_treatment": "0.250 in cold rolled plate, annealed 10 min at 1400 F, rapid air cool",
+            "temperature_note": "표 제목 verbatim 'AT ROOM TEMPERATURE' — 정확한 온도는 미인쇄",
+            "specimen_id": "HO 4793",
+            "printed_value_ksi": 62.76,
+            "set_id": "HEDL_TME_71_166_Ni200_RT_ultimate",
+            "grade_scope": "class value — 원문은 완전 소둔 Ni 200 순니켈 판재이고, 카탈로그 항목은 배터리 탭용 니켈 인터커넥트다"
+          },
+          "notes": "Appendix B Nickel 200 실온표, 변형률속도 1.0 s^-1 행(시편 HO 4793)의 'Ultimate' 열 62.76 x 10^3 psi -> 432714949.3 Pa. **이 열은 앞선 파동들이 한 번도 안 캔 열이다**(브리프 649) — 같은 표에서 '0.2% Yield' 9행과 'Total' 연신 9행은 가져갔는데 'Ultimate' 열은 통째로 남아 있었다. 400 dpi 렌더로 9행을 전수 확인했고, 변형률속도 0.1 s^-1 의 첫 행(시편번호 없음)은 Ultimate 칸이 '- - -' 로 비어 있어 8행만 넣는다. 속도 의존: 3e-4 -> 100 s^-1 에서 57.80 -> 67.80 ksi 로 17퍼센트 증가한다(양의 율속민감도). 환산계수 6894.757 Pa/psi 는 같은 표에서 온 기존 at_rate 항복 행들과 맞췄다."
+        },
+        {
+          "key": "mechanical.tensile_strength_at_rate",
+          "value": 450089737.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 3,
+          "conditions": {
+            "strain_rate_s": 10.0,
+            "basis": "표 머리글 verbatim 'Stress x 10^3 psi' 아래 'Ultimate' 열",
+            "test_method": "quasi-static to high-rate uniaxial tension, constant crosshead velocity (Instron for the 3e-5 and 3e-4 1/s points, MTS high-rate system above); buttonhead specimen 1.125 in gauge length x 0.125 in gauge diameter; tested in air",
+            "heat_treatment": "0.250 in cold rolled plate, annealed 10 min at 1400 F, rapid air cool",
+            "temperature_note": "표 제목 verbatim 'AT ROOM TEMPERATURE' — 정확한 온도는 미인쇄",
+            "specimen_id": "HO 4794",
+            "printed_value_ksi": 65.28,
+            "set_id": "HEDL_TME_71_166_Ni200_RT_ultimate",
+            "grade_scope": "class value — 원문은 완전 소둔 Ni 200 순니켈 판재이고, 카탈로그 항목은 배터리 탭용 니켈 인터커넥트다"
+          },
+          "notes": "Appendix B Nickel 200 실온표, 변형률속도 10.0 s^-1 행(시편 HO 4794)의 'Ultimate' 열 65.28 x 10^3 psi -> 450089737.0 Pa. **이 열은 앞선 파동들이 한 번도 안 캔 열이다**(브리프 649) — 같은 표에서 '0.2% Yield' 9행과 'Total' 연신 9행은 가져갔는데 'Ultimate' 열은 통째로 남아 있었다. 400 dpi 렌더로 9행을 전수 확인했고, 변형률속도 0.1 s^-1 의 첫 행(시편번호 없음)은 Ultimate 칸이 '- - -' 로 비어 있어 8행만 넣는다. 속도 의존: 3e-4 -> 100 s^-1 에서 57.80 -> 67.80 ksi 로 17퍼센트 증가한다(양의 율속민감도). 환산계수 6894.757 Pa/psi 는 같은 표에서 온 기존 at_rate 항복 행들과 맞췄다."
+        },
+        {
+          "key": "mechanical.tensile_strength_at_rate",
+          "value": 448434995.3,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 3,
+          "conditions": {
+            "strain_rate_s": 10.0,
+            "basis": "표 머리글 verbatim 'Stress x 10^3 psi' 아래 'Ultimate' 열",
+            "test_method": "quasi-static to high-rate uniaxial tension, constant crosshead velocity (Instron for the 3e-5 and 3e-4 1/s points, MTS high-rate system above); buttonhead specimen 1.125 in gauge length x 0.125 in gauge diameter; tested in air",
+            "heat_treatment": "0.250 in cold rolled plate, annealed 10 min at 1400 F, rapid air cool",
+            "temperature_note": "표 제목 verbatim 'AT ROOM TEMPERATURE' — 정확한 온도는 미인쇄",
+            "specimen_id": "HO 4795",
+            "printed_value_ksi": 65.04,
+            "set_id": "HEDL_TME_71_166_Ni200_RT_ultimate",
+            "grade_scope": "class value — 원문은 완전 소둔 Ni 200 순니켈 판재이고, 카탈로그 항목은 배터리 탭용 니켈 인터커넥트다"
+          },
+          "notes": "Appendix B Nickel 200 실온표, 변형률속도 10.0 s^-1 행(시편 HO 4795)의 'Ultimate' 열 65.04 x 10^3 psi -> 448434995.3 Pa. **이 열은 앞선 파동들이 한 번도 안 캔 열이다**(브리프 649) — 같은 표에서 '0.2% Yield' 9행과 'Total' 연신 9행은 가져갔는데 'Ultimate' 열은 통째로 남아 있었다. 400 dpi 렌더로 9행을 전수 확인했고, 변형률속도 0.1 s^-1 의 첫 행(시편번호 없음)은 Ultimate 칸이 '- - -' 로 비어 있어 8행만 넣는다. 속도 의존: 3e-4 -> 100 s^-1 에서 57.80 -> 67.80 ksi 로 17퍼센트 증가한다(양의 율속민감도). 환산계수 6894.757 Pa/psi 는 같은 표에서 온 기존 at_rate 항복 행들과 맞췄다."
+        },
+        {
+          "key": "mechanical.tensile_strength_at_rate",
+          "value": 462431352.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 3,
+          "conditions": {
+            "strain_rate_s": 100.0,
+            "basis": "표 머리글 verbatim 'Stress x 10^3 psi' 아래 'Ultimate' 열",
+            "test_method": "quasi-static to high-rate uniaxial tension, constant crosshead velocity (Instron for the 3e-5 and 3e-4 1/s points, MTS high-rate system above); buttonhead specimen 1.125 in gauge length x 0.125 in gauge diameter; tested in air",
+            "heat_treatment": "0.250 in cold rolled plate, annealed 10 min at 1400 F, rapid air cool",
+            "temperature_note": "표 제목 verbatim 'AT ROOM TEMPERATURE' — 정확한 온도는 미인쇄",
+            "specimen_id": "HO 4976",
+            "printed_value_ksi": 67.07,
+            "set_id": "HEDL_TME_71_166_Ni200_RT_ultimate",
+            "grade_scope": "class value — 원문은 완전 소둔 Ni 200 순니켈 판재이고, 카탈로그 항목은 배터리 탭용 니켈 인터커넥트다"
+          },
+          "notes": "Appendix B Nickel 200 실온표, 변형률속도 100.0 s^-1 행(시편 HO 4976)의 'Ultimate' 열 67.07 x 10^3 psi -> 462431352.0 Pa. **이 열은 앞선 파동들이 한 번도 안 캔 열이다**(브리프 649) — 같은 표에서 '0.2% Yield' 9행과 'Total' 연신 9행은 가져갔는데 'Ultimate' 열은 통째로 남아 있었다. 400 dpi 렌더로 9행을 전수 확인했고, 변형률속도 0.1 s^-1 의 첫 행(시편번호 없음)은 Ultimate 칸이 '- - -' 로 비어 있어 8행만 넣는다. 속도 의존: 3e-4 -> 100 s^-1 에서 57.80 -> 67.80 ksi 로 17퍼센트 증가한다(양의 율속민감도). 환산계수 6894.757 Pa/psi 는 같은 표에서 온 기존 at_rate 항복 행들과 맞췄다."
+        },
+        {
+          "key": "mechanical.tensile_strength_at_rate",
+          "value": 467464524.6,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 3,
+          "conditions": {
+            "strain_rate_s": 100.0,
+            "basis": "표 머리글 verbatim 'Stress x 10^3 psi' 아래 'Ultimate' 열",
+            "test_method": "quasi-static to high-rate uniaxial tension, constant crosshead velocity (Instron for the 3e-5 and 3e-4 1/s points, MTS high-rate system above); buttonhead specimen 1.125 in gauge length x 0.125 in gauge diameter; tested in air",
+            "heat_treatment": "0.250 in cold rolled plate, annealed 10 min at 1400 F, rapid air cool",
+            "temperature_note": "표 제목 verbatim 'AT ROOM TEMPERATURE' — 정확한 온도는 미인쇄",
+            "specimen_id": "HO 4797",
+            "printed_value_ksi": 67.8,
+            "set_id": "HEDL_TME_71_166_Ni200_RT_ultimate",
+            "grade_scope": "class value — 원문은 완전 소둔 Ni 200 순니켈 판재이고, 카탈로그 항목은 배터리 탭용 니켈 인터커넥트다"
+          },
+          "notes": "Appendix B Nickel 200 실온표, 변형률속도 100.0 s^-1 행(시편 HO 4797)의 'Ultimate' 열 67.8 x 10^3 psi -> 467464524.6 Pa. **이 열은 앞선 파동들이 한 번도 안 캔 열이다**(브리프 649) — 같은 표에서 '0.2% Yield' 9행과 'Total' 연신 9행은 가져갔는데 'Ultimate' 열은 통째로 남아 있었다. 400 dpi 렌더로 9행을 전수 확인했고, 변형률속도 0.1 s^-1 의 첫 행(시편번호 없음)은 Ultimate 칸이 '- - -' 로 비어 있어 8행만 넣는다. 속도 의존: 3e-4 -> 100 s^-1 에서 57.80 -> 67.80 ksi 로 17퍼센트 증가한다(양의 율속민감도). 환산계수 6894.757 Pa/psi 는 같은 표에서 온 기존 at_rate 항복 행들과 맞췄다."
+        }
+      ]
+    }
+  ]
+}

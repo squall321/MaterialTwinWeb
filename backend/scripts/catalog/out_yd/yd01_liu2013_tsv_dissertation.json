@@ -1,0 +1,156 @@
+{
+  "materials": [
+    {
+      "match_name": "Organic flip-chip package substrate laminate, core + build-up layers (Liu 2013 Georgia Tech TSV dissertation, DMA Prony characterization)",
+      "source": {
+        "kind": "other",
+        "title": "Experimental and Theoretical Assessment of Through-Silicon Vias for 3D Integrated Microelectronic Packages — Xi Liu, PhD dissertation, Georgia Institute of Technology, 2013 (handle 1853/50249)",
+        "url": "https://repository.gatech.edu/server/api/core/bitstreams/d378984a-1232-4800-9d74-95ce185f5200/content"
+      },
+      "properties": [
+        {
+          "key": "thermal.glass_transition",
+          "value": 438.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "component": "multi-layer organic package substrate (core + build-up layers on top and bottom)",
+            "test_method": "DMA (TA Instruments Q800), three-point bending clamp, 30 -> 230 C ramp; Tg read from the storage/loss modulus transition (Figure 5.29)",
+            "specimen": "substrate coupon cut from a larger package substrate, 35 mm long x 0.968 mm thick, width 2.7-2.98 mm",
+            "basis": "in-house DMA measurement, explicitly distinguished by the author from the vendor-sheet Tg of the substrate core",
+            "printed_value_c": 165
+          },
+          "notes": "5.5.7절 verbatim(400 dpi 렌더로 확인) — \"These figures show that the glass transition temperature (Tg) of the ABF-GX13 is about 170 C, the Tg of the underfill is around 75 C, and the Tg of the substrate is about 165 C. It should be noted that the Tg values shown in Table 5.7 is for the substrate core and is from the vendor sheet, while the Tg of 165 C is an in-house measured value and is for a multi-layer substrate with a core as well as buildup layers on top and bottom.\" **저자가 벤더 시트값(Table 5.7 substrate core 210 C)과 자기 실측값(165 C)을 한 문장에서 명시적으로 가른다** — 그래서 이 행만 실측이다(브리프 3). 교차검산: 같은 논문 Table 5.9 의 기판 마스터커브 기준온도 Tref = 438.15 K(165 C)가 이 Tg 와 같다. 저자가 Tg 를 기준온도로 골라 시프트했다는 뜻이고, 카탈로그에 이미 있는 pv 13598(전단탄성률 G0 = 9,511 MPa, reference_temperature_c 165)이 그 값을 독립적으로 받친다. 이 (재료, 열전이온도) 칸은 이 파동 전까지 **비어 있었다** — 앞 파동은 같은 논문에서 Prony 와 G0 만 가져갔다(브리프 649). 원문이 'about 165 C' 로 어림을 붙였으므로 소수 자리를 만들지 않았다."
+        },
+        {
+          "key": "mechanical.wlf_c1",
+          "value": 38.79,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "reference_temperature_k": 438.15,
+            "reference_temperature_c": 165.0,
+            "log_base": "log10",
+            "sign_convention": "log10(a_T) = -C1*(T-Tref)/(C2+(T-Tref))",
+            "equation_verbatim": "400 dpi 렌더에서 해독한 인쇄식 — log10(a_T) = -C1(T - Tref) / (C2 + (T - Tref))",
+            "component": "multi-layer organic package substrate (core + build-up layers)",
+            "test_method": "DMA stress relaxation (TA Q800, 20 min load / 10 min recovery, 5 C increments up to 215 C) -> shear relaxation master curve -> WLF fit (TRS assumption)",
+            "set_id": "liu2013_gt_table5_9_substrate"
+          },
+          "notes": "Table 5.9 'Fitted WLF material constants for underfill and substrate' 의 Substrate 열 C1 = 38.79 (400 dpi 렌더로 확인). 같은 표의 Tref = 438.15 K, C2 = 776.2 K. **부호 규약을 추정하지 않았다** — pdftotext 는 이 식을 이미지로 흘려 버렸고(md·텍스트 레이어에 숫자가 없다) 400 dpi 렌더에서 log10(a_T) = -C1(T-Tref)/(C2+(T-Tref)) 로 직접 읽었다(브리프 603). 본문: \"The stress relaxation data was converted into a shear relaxation modulus by assuming isotropy condition. Then the data was shifted and formed into the master curves ... which were fitted with Williams-Landel-Ferry (WLF) function by assuming both materials are Thermo-Rheologically Simple (TRS)\". 이 (재료, WLF C1) 칸은 비어 있었다 — 카탈로그의 pv 13598 notes 가 이 상수를 **문장으로 인용해 놓고 칸에는 안 넣었다**(브리프 658)."
+        },
+        {
+          "key": "mechanical.wlf_c2",
+          "value": 776.2,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "reference_temperature_k": 438.15,
+            "reference_temperature_c": 165.0,
+            "log_base": "log10",
+            "sign_convention": "log10(a_T) = -C1*(T-Tref)/(C2+(T-Tref))",
+            "equation_verbatim": "400 dpi 렌더에서 해독한 인쇄식 — log10(a_T) = -C1(T - Tref) / (C2 + (T - Tref))",
+            "component": "multi-layer organic package substrate (core + build-up layers)",
+            "test_method": "DMA stress relaxation (TA Q800, 20 min load / 10 min recovery, 5 C increments up to 215 C) -> shear relaxation master curve -> WLF fit (TRS assumption)",
+            "set_id": "liu2013_gt_table5_9_substrate"
+          },
+          "notes": "Table 5.9 Substrate 열 C2 = 776.2 K (400 dpi 렌더 확인). 단위는 표 머리글이 'C2 (K)' 로 찍는다. C1 행(같은 세트)과 짝으로만 쓸 수 있다 — set_id 로 묶었다."
+        }
+      ]
+    },
+    {
+      "match_name": "Underfill Epoxy",
+      "source": {
+        "kind": "other",
+        "title": "Experimental and Theoretical Assessment of Through-Silicon Vias for 3D Integrated Microelectronic Packages — Xi Liu, PhD dissertation, Georgia Institute of Technology, 2013 (handle 1853/50249)",
+        "url": "https://repository.gatech.edu/server/api/core/bitstreams/d378984a-1232-4800-9d74-95ce185f5200/content"
+      },
+      "properties": [
+        {
+          "key": "mechanical.wlf_c1",
+          "value": -1.916,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "reference_temperature_k": 348.15,
+            "reference_temperature_c": 75.0,
+            "log_base": "log10",
+            "sign_convention": "log10(a_T) = -C1*(T-Tref)/(C2+(T-Tref))",
+            "equation_verbatim": "400 dpi 렌더에서 해독한 인쇄식 — log10(a_T) = -C1(T - Tref) / (C2 + (T - Tref))",
+            "grade": "NAMICS U8439-1 underfill",
+            "cure_schedule": "165 C, 90 min (assembly-mimicking)",
+            "test_method": "DMA stress relaxation (TA Q800, three-point bending, 20 min load / 10 min recovery, 5 C increments up to 80 C) -> shear relaxation master curve -> WLF fit (TRS assumption)",
+            "fit_range_note": "원문 verbatim — \"Here we have negative constants for underfill material because all the experimental test data were obtained below Tg.\"",
+            "set_id": "liu2013_gt_table5_9_underfill",
+            "grade_scope": "class value — 카탈로그의 'Underfill Epoxy' 는 여러 제품을 담는 일반 엔트리이고, 이 상수는 NAMICS U8439-1 한 제품의 피팅값이다"
+          },
+          "notes": "Table 5.9 Underfill 열 C1 = -1.916 (400 dpi 렌더 확인). **제품명 정정 사항** — 이 카탈로그의 pv 13581(같은 논문 G0 = 2,626 MPa) notes 는 *\"상품명·제조사는 논문에 기재되지 않았다\"* 라고 적었으나 **틀렸다.** 5.5.7절 verbatim: \"For underfill samples, the underfill material **NAMICS U8439-1** was squeezed into a homemade Teflon sample makers and vacuumed in a vacuum chamber for two hours to remove bubbles. Then the samples were cured at 165 C for 90 minutes to mimic the assembly process conditions.\" 시편: 30 mm x 12.89 mm, 연마 후 두께 0.92~1.34 mm. 음수 상수는 오식이 아니라 저자가 이유를 밝힌 피팅 결과다 — 부호 규약과 함께 써야만 뜻이 있다. 이 재료에 이미 있는 WLF 쌍(pv 23589/23590, Tref 373.15 K, 출처 290)은 **다른 논문·다른 제품**이라 조건이 다르다."
+        },
+        {
+          "key": "mechanical.wlf_c2",
+          "value": -36.42,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "reference_temperature_k": 348.15,
+            "reference_temperature_c": 75.0,
+            "log_base": "log10",
+            "sign_convention": "log10(a_T) = -C1*(T-Tref)/(C2+(T-Tref))",
+            "equation_verbatim": "400 dpi 렌더에서 해독한 인쇄식 — log10(a_T) = -C1(T - Tref) / (C2 + (T - Tref))",
+            "grade": "NAMICS U8439-1 underfill",
+            "cure_schedule": "165 C, 90 min (assembly-mimicking)",
+            "test_method": "DMA stress relaxation (TA Q800, three-point bending, 20 min load / 10 min recovery, 5 C increments up to 80 C) -> shear relaxation master curve -> WLF fit (TRS assumption)",
+            "fit_range_note": "원문 verbatim — \"Here we have negative constants for underfill material because all the experimental test data were obtained below Tg.\"",
+            "set_id": "liu2013_gt_table5_9_underfill",
+            "grade_scope": "class value — 카탈로그의 'Underfill Epoxy' 는 여러 제품을 담는 일반 엔트리이고, 이 상수는 NAMICS U8439-1 한 제품의 피팅값이다"
+          },
+          "notes": "Table 5.9 Underfill 열 C2 = -36.42 K (400 dpi 렌더 확인). C1 행과 짝으로만 쓸 수 있다 — set_id 로 묶었다. C2 가 음수이고 |C2| = 36.42 K 이므로 T - Tref = 36.42 K 부근(약 111 C)에서 식이 특이해진다 — 저자가 밝힌 대로 시험 대역(Tg 75 C 이하)에서만 유효하다."
+        }
+      ]
+    },
+    {
+      "match_name": "ABF Buildup Film",
+      "source": {
+        "kind": "other",
+        "title": "Experimental and Theoretical Assessment of Through-Silicon Vias for 3D Integrated Microelectronic Packages — Xi Liu, PhD dissertation, Georgia Institute of Technology, 2013 (handle 1853/50249)",
+        "url": "https://repository.gatech.edu/server/api/core/bitstreams/d378984a-1232-4800-9d74-95ce185f5200/content"
+      },
+      "properties": [
+        {
+          "key": "thermal.glass_transition",
+          "value": 443.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 3,
+          "conditions": {
+            "grade": "Ajinomoto ABF-GX13 build-up film",
+            "test_method": "DMA (TA Instruments Q800), tension clamp, 25 -> 175 C ramp; Tg read from the storage/loss modulus transition (Figure 5.27)",
+            "specimen": "63.3 mm x 7.7 mm x 0.04 mm film cut from prepreg, cured 180 C / 30 min (same profile as the substrate build-up process)",
+            "printed_value_c": 170,
+            "grade_scope": "class value — 카탈로그의 'ABF Buildup Film' 은 아지노모토 빌드업 필름 계열의 일반 엔트리이고, 이 값은 GX13 한 등급의 실측이다"
+          },
+          "notes": "두 곳에 같은 값이 인쇄된다 — 5.5.7절 verbatim \"the glass transition temperature (Tg) of the ABF-GX13 is about 170 C\" 와 Table 5.7 의 'Build-up layer (ABF-GX13)' 행 Tg 열 170 (둘 다 400 dpi 렌더로 확인). 저자 자신의 DMA 실측이지만 **카탈로그 엔트리가 등급이 아니라 계열**이라 tier 3 으로 잡았다 — 같은 논문·같은 재료의 Prony 행(pv 기존 t3)과 같은 판정이다. 종전 t3 두 행(pv 26681/26682)은 **아지노모토 ABF 가 아니라 감광성 드라이필름 PDM-1** 의 180~185 C 범위이고 'ABF 클래스 대표' 로 옮긴 값이다 — 이 행이 처음으로 실제 ABF 등급의 값을 세운다. 'about 170 C' 의 어림을 유지해 소수 자리를 만들지 않았다."
+        },
+        {
+          "key": "mechanical.poisson_ratio",
+          "value": 0.258,
+          "unit": "1",
+          "method": "datasheet",
+          "tier": 3,
+          "conditions": {
+            "grade": "Ajinomoto ABF-GX13 build-up film",
+            "temperature_note": "표에 온도 표기가 없다 — Table 5.7 은 FE 입력표이고 nu 열은 온도 무관 상수 한 칸으로 인쇄된다. 해석 대역은 25~250 C 다",
+            "grade_scope": "class value — 카탈로그의 'ABF Buildup Film' 은 계열 엔트리이고, 이 값은 GX13 한 등급의 인쇄값이다",
+            "provenance": "저자 실측이 아니다 — 같은 표에서 E 열만 'Figure 5.27'(저자 DMA)로 표시되고 nu 열은 출처 표기가 없다(벤더 시트값으로 보인다)"
+          },
+          "notes": "Table 5.7 'Material properties' 의 'Build-up layer (ABF-GX13)' 행, 'upsilon'(포아송비) 열 = 0.258. **열 확인(브리프 7)** — 400 dpi 렌더에서 머리글이 왼쪽부터 `E (GPa) | upsilon | CTE (ppm/C) | Tg (C)` 이고 0.258 이 두 번째 열에 있음을 눈으로 확인했다. 같은 행의 이웃값(E = Figure 5.27, CTE alpha1 XZ:46 Y:47 / alpha2 XZ:120 Y:155, Tg 170)과 혼동하지 않았다. **저자가 잰 값이 아니다**(브리프 3) — 5.5.7절이 DMA 로 잰 것은 저장·손실 탄성률과 응력완화뿐이라고 밝힌다. 그래서 method 는 datasheet, tier 3 이다. 이 재료의 종전 포아송비는 t4 0.3(출처 770, *계열 대표값 — 해석 입력용 등방 근사*)이고 **지우지 않았다** — 등급이 더 높고 등급명이 붙은 이 행을 옆에 세운다(브리프 565). **같은 표의 CTE 는 옮기지 않았다** — 같은 표 'Substrate core' 행이 alpha1 XZ:15 -> alpha2 XZ:11 로 Tg 위에서 CTE 가 **줄어드는** 물리적으로 뒤집힌 값을 인쇄하고 있어 이 표의 XZ/Y 방향 라벨을 믿을 수 없다(브리프 604·7)."
+        }
+      ]
+    }
+  ]
+}
