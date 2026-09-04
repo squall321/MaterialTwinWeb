@@ -1,0 +1,45 @@
+# apply_snapshot_ya — 전문 4440줄 중 머리 30줄과 꼬리 10줄만 남긴다(나머지는 같은 모양의 반복이다).
+
+[DB] sqlite:////tmp/claude-1000/-home-koopark-claude-MaterialTwinWeb/27fcb5b7-c986-41ba-966a-c49b295b3f3a/scratchpad/snap_ya/materialtwin.db
+     재료 2663종 · 정의 271종
+
+=== corrections_ya.json ===
+
+======================================================================
+정정 선언 1477건 — 적용한다
+  [corrections_ya.json] ✔ pv1055 [108] thermal.conductivity
+       conditions: {'orientation': 'in-plane', 'temperature': 298.15} → {'orientation': 'in-plane', 'temperature_k': 298.15}
+       사유: [63차 YA] 구식 문자열 키 `conditions.temperature` 정리 — 값·단위·등급·method·출처는 한 칸도 안 고친다. 맨 숫자 298.15 를 `temperature_k` 로 옮겼다 — .15 단위 소수가 K↔°C 환산상수의 지문이다(298.15/296.15/29
+  [corrections_ya.json] ✔ pv1059 [109] chemical.water_absorption_24h
+       conditions: {'temperature': 296.15, 'duration_h': 24} → {'duration_h': 24, 'temperature_k': 296.15}
+       사유: [63차 YA] 구식 문자열 키 `conditions.temperature` 정리 — 값·단위·등급·method·출처는 한 칸도 안 고친다. 맨 숫자 296.15 를 `temperature_k` 로 옮겼다 — .15 단위 소수가 K↔°C 환산상수의 지문이다(298.15/296.15/29
+  [corrections_ya.json] ✔ pv1066 [111] physical.density
+       conditions: {'temperature': 293.15} → {'temperature_k': 293.15}
+       사유: [63차 YA] 구식 문자열 키 `conditions.temperature` 정리 — 값·단위·등급·method·출처는 한 칸도 안 고친다. 맨 숫자 293.15 를 `temperature_k` 로 옮겼다 — .15 단위 소수가 K↔°C 환산상수의 지문이다(298.15/296.15/29
+  [corrections_ya.json] ✔ pv1067 [111] electrical.conductivity
+       conditions: {'temperature': 298.15, 'verdict_tie_axis': '52차 NC — 다른조건 — 시편·조성', 'verdict_tie_note': ' → {'verdict_tie_axis': '52차 NC — 다른조건 — 시편·조성', 'verdict_tie_note': '[52차 NC 동률 판정] 축이 다르므로 
+       사유: [63차 YA] 구식 문자열 키 `conditions.temperature` 정리 — 값·단위·등급·method·출처는 한 칸도 안 고친다. 맨 숫자 298.15 를 `temperature_k` 로 옮겼다 — .15 단위 소수가 K↔°C 환산상수의 지문이다(298.15/296.15/29
+  [corrections_ya.json] ✔ pv1069 [111] electrical.conductivity
+       conditions: {'temperature': 293.15, 'verdict_tie_axis': '52차 NC — 다른조건 — 시편·조성', 'verdict_tie_note': ' → {'verdict_tie_axis': '52차 NC — 다른조건 — 시편·조성', 'verdict_tie_note': '[52차 NC 동률 판정] 축이 다르므로 
+       사유: [63차 YA] 구식 문자열 키 `conditions.temperature` 정리 — 값·단위·등급·method·출처는 한 칸도 안 고친다. 맨 숫자 293.15 를 `temperature_k` 로 옮겼다 — .15 단위 소수가 K↔°C 환산상수의 지문이다(298.15/296.15/29
+  [corrections_ya.json] ✔ pv1070 [112] electrical.conductivity
+       conditions: {'temperature': 298.15, 'verdict_tie_axis': '52차 NC — 의견차', 'verdict_tie_note': '[52차 NC 동 → {'verdict_tie_axis': '52차 NC — 의견차', 'verdict_tie_note': '[52차 NC 동률 판정] **인쇄된 조건이 같은데 값이 
+       사유: [63차 YA] 구식 문자열 키 `conditions.temperature` 정리 — 값·단위·등급·method·출처는 한 칸도 안 고친다. 맨 숫자 298.15 를 `temperature_k` 로 옮겼다 — .15 단위 소수가 K↔°C 환산상수의 지문이다(298.15/296.15/29
+  [corrections_ya.json] ✔ pv1071 [112] electrical.conductivity
+       conditions: {'temperature': 298.15, 'verdict_tie_axis': '52차 NC — 의견차', 'verdict_tie_note': '[52차 NC 동 → {'verdict_tie_axis': '52차 NC — 의견차', 'verdict_tie_note': '[52차 NC 동률 판정] **인쇄된 조건이 같은데 값이 
+       사유: [63차 YA] 구식 문자열 키 `conditions.temperature` 정리 — 값·단위·등급·method·출처는 한 칸도 안 고친다. 맨 숫자 298.15 를 `temperature_k` 로 옮겼다 — .15 단위 소수가 K↔°C 환산상수의 지문이다(298.15/296.15/29
+  [corrections_ya.json] ✔ pv1073 [112] mechanical.youngs_modulus
+       conditions: {'temperature': 298.15} → {'temperature_k': 298.15}
+
+  … (중략) …
+
+       conditions: {'loading': 'uniaxial compression (compressive strength ratio)', 'strain_rate_s': 400.0, ' → {'loading': 'uniaxial compression (compressive strength ratio)', 'strain_rate_s': 400.0, '
+       사유: [63차 YA] 구식 문자열 키 `conditions.temperature` 정리 — 값·단위·등급·method·출처는 한 칸도 안 고친다. 온도 진술 'room temperature (수치 미인쇄)' 를 정규값 'room temperature' 로 접었다 — 숫자를 만들지 않았고 원문
+  [corrections_ya.json] ✔ pv43830 [151] mechanical.poisson_ratio
+       conditions: {'temperature': "room temperature (출처가 'All properties are room temperature values'로만 표기,  → {'temperature': 'room temperature', 'grade_scope': 'class value — 소결 99.5 % Al2O3. 양극산화 피막
+       사유: [63차 YA] 구식 문자열 키 `conditions.temperature` 정리 — 값·단위·등급·method·출처는 한 칸도 안 고친다. 온도 진술 "room temperature (출처가 'All properties are room temperature values'로만 표기, 수
+  [corrections_ya.json] ✔ pv43838 [204] mechanical.elongation_at_break
+       conditions: {'grade': 'FLEXFINER SERIES', 'method_detail': 'tensile, Shimadzu AGS-G 100N tensile testi → {'grade': 'FLEXFINER SERIES', 'method_detail': 'tensile, Shimadzu AGS-G 100N tensile testi
+       사유: [63차 YA] 구식 문자열 키 `conditions.temperature` 정리 — 값·단위·등급·method·출처는 한 칸도 안 고친다. 온도 진술 '미기재 — 시험 온도가 인쇄돼 있지 않다. 같은 TDS 같은 칸에서 온 영률 행(pv12194)도 같은 이유로 온도를 비워 두었다.'
+
+[APPLY] corr_ok 1477

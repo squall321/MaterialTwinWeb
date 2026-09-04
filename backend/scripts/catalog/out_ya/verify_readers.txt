@@ -1,0 +1,29 @@
+MATERIALTWIN_DATA_DIR 미설정 — 개발 전용 폴백 경로(/home/koopark/claude/MaterialTwinWeb/backend/var/data) 사용. 배포 시 절대경로 주입 필수.
+군 20389  (전 20389 · 후 20389)
+조건 칸 수가 바뀐 행: 0  []
+`_temp_distance` 가 바뀐 행: 75
+
+대표행이 바뀐 군 7 · 그중 **값이 실제로 달라지는 군** 5
+  재료78 mechanical.youngs_modulus
+     전 pv891 t1 160000000000.0 거리 5.00
+     후 pv5661 t1 160000000000.0 거리 3.00  (값 같음)
+  재료78 physical.density
+     전 pv887 t1 7500.0 거리 5.00
+     후 pv5660 t1 7500.0 거리 3.00  (값 같음)
+  재료111 electrical.conductivity
+     전 pv42987 t1 0.684 거리 3.00
+     후 pv1067 t1 1.138 거리 2.00  ← 값이 바뀐다
+  재료111 physical.density
+     전 pv3864 t1 1280.0 거리 3.15
+     후 pv1066 t1 1243.0 거리 3.00  ← 값이 바뀐다
+  재료121 chemical.water_absorption_24h
+     전 pv1110 t1 0.0015 거리 5.00
+     후 pv5722 t1 0.0012 거리 0.00  ← 값이 바뀐다
+  재료156 thermal.conductivity
+     전 pv5567 t1 0.957 거리 5.00
+     후 pv5543 t1 0.79 거리 3.00  ← 값이 바뀐다
+  재료182 thermal.conductivity
+     전 pv5591 t1 1.13 거리 5.00
+     후 pv5579 t1 1.01 거리 3.00  ← 값이 바뀐다
+
+카드 조건 태그 — 온도 태그가 새로 붙은 행 75 · **사라진 행 0**
