@@ -1,0 +1,22 @@
+{
+  "batch": "64차 ZA",
+  "materials": [
+    {
+      "match_name": "LEXAN 3413R (PC-GF30, SABIC)",
+      "source": {
+        "kind": "book",
+        "title": "GE Plastics (now SABIC) Engineering Design Guide, Section 2 Mechanical Properties, Table 2-1 'Poisson's Ratio Values'",
+        "url": "https://web.archive.org/web/20000902045122id_/http://www.geplastics.com:80/resins/global/pdf/design_guides/propertiessec2.pdf",
+        "publisher": "GE Plastics",
+        "year": 1999
+      },
+      "properties": [
+        {"key": "mechanical.poisson_ratio", "value": 0.38, "unit": "1", "method": "handbook", "tier": 3,
+         "conditions": {"temperature_c": 23,
+                        "grade_scope": "class value — LEXAN(PC) 수지 계열값. 유리 30 wt% 충전을 반영하지 않은 값이다",
+                        "test_method": "resin family value printed in the vendor design guide"},
+         "notes": "64차 ZA 가 원문을 열어 확인했다 — Section 2 p.2-11 Table 2-1 'Poisson's Ratio Values' 가 재료 이름과 값만 있는 열 두 개짜리 표이고 verbatim 으로 `LEXAN resin .38` 이다(같은 표: CYCOLAC .35 · CYCOLOY .35 · GELOY .40 · NORYL .38 · ULTEM .38 · VALOX .40 · ALUMINUM .33 · CARBON STEEL .29). **등급값이 아니라 상표 계열값이므로 t3 다** — 표는 유리충전 여부를 구별하지 않는다. 형제 302 LEXAN 500R(GF10)·313 LEXAN 3412R(GF20)이 같은 출처의 같은 값을 같은 규약으로 이미 들고 있어 그 계보를 따랐다(§612 — 한 계열 안에서 규약이 갈리면 안 된다). 3413R 자신의 시트(Americas Rev 20220720 · Asia Rev 20180905 · UL Prospector 2014-08-30) 셋에는 포아송비 행이 없다."}
+      ]
+    }
+  ]
+}

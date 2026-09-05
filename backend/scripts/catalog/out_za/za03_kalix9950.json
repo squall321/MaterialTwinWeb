@@ -1,0 +1,306 @@
+{
+ "batch": "64차 ZA",
+ "materials": [
+  {
+   "new_material": {
+    "name": "Kalix 9950 (PA MXD6/66-GF50, Syensqo)",
+    "category": "polymer"
+   },
+   "attributes": {
+    "source": "batch-za",
+    "manufacturer": "Syensqo (Solvay Specialty Polymers)",
+    "grade": "Kalix 9950",
+    "material_class": "PA MXD6/66-GF50",
+    "role": "product",
+    "role_reason": "벤더 자사 Technical Data Sheet(Revised 11/18/2014)가 등급명·색상 품번(BK 000·WH 000·NT 000)·물성표를 찍는다 — 이름·출처 둘 다 제품 신호",
+    "role_confidence": "high",
+    "subsystem": "housing",
+    "subsystem_basis": "시트가 용도를 'Cell Phones · Thin-walled Parts · structural parts in mobile electronic devices' 로 못박는다.",
+    "core_absent_from_vendor_sheet": {
+     "thermal.expansion_linear": "64차 ZA — Solvay 자사 TDS 3쪽 전체(Physical·Mechanical·Impact·Thermal·Electrical·Flammability·Injection 일곱 블록)에 선팽창계수 행이 없다. 독립 문서 하나가 이것을 확인한다 — 일본 PlaBase 의 Kalix 9950 레코드가 같은 표를 전부 옮겨 싣는데(밀도 1.6 · 인장탄성률 18500 · HDT 262/254 · Dk 4.15 까지 글자 단위로 같다) **거기에도 CTE 행이 없다**. 두 문서가 같은 부재를 보인다. 다음 문: Syensqo 의 Kalix processing guide 나 CAE 카드(syensqo.com 은 UA 유무 무관하게 403·406 이다).",
+     "thermal.conductivity": "64차 ZA — 위와 같다. TDS·PlaBase 두 문서 모두 열전도율 행이 없다.",
+     "thermal.specific_heat": "64차 ZA — 위와 같다. TDS·PlaBase 두 문서 모두 비열 행이 없다.",
+     "mechanical.poisson_ratio": "64차 ZA — TDS 에 포아송비 행이 없다. §6 대로 표적에서 내린 물성이라 계열 대입도 하지 않았다."
+    },
+    "verdict_grade_identity": "64차 ZA — **조정자 지시서가 이 등급을 PPA(폴리프탈아미드)로 적었으나 벤더 시트가 그것을 부정한다.** TDS 의 ISO 11469 부품표시 코드가 verbatim `>PAMXD6/66-GF50<` 다 — MXD6(폴리아릴아미드/PARA)와 PA66 의 블렌드에 유리 50 wt% 이지 프탈아미드계가 아니다. 카탈로그의 PPA 넷(297 Amodel A-1145 HS · 308 Amodel AS-1145 HS · 309 Grivory HTV-5H1 · 315 Grivory HT2V-45H)과는 **다른 계열**이므로 그쪽 값을 옮기면 안 된다(§586). Syensqo 는 이 계열을 상표 차원에서 `Kalix HPPA (High Performance Polyamide)` 로 부른다 — 'HPPA' 의 P 는 프탈이 아니라 Performance 다."
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Kalix(R) 9950 high performance polyamide — Technical Data Sheet, Revised 11/18/2014",
+    "url": "https://www.nevicolor.it/prodotti/ricerca-polimero/solvay/kalix-hppa/allegati/kalix-9950-50-fibra-vetro-stabile-dimensionalmente.pdf",
+    "publisher": "Solvay Specialty Polymers (now Syensqo)",
+    "year": 2014,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/poly/Solvay_Kalix_9950_HPPA_TDS_2014-11-18.pdf"
+   },
+   "properties": [
+    {
+     "key": "structure.filler_content",
+     "value": 0.5,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "filler": "glass fiber",
+      "basis": "weight"
+     },
+     "notes": "General 블록 'Filler / Reinforcement: Glass Fiber, 50% Filler by Weight'. ISO 11469 표시코드 `>PAMXD6/66-GF50<` 가 같은 수를 두 번째로 찍는다(§611 — 문서가 스스로 두 번 인쇄하면 선언이다)."
+    },
+    {
+     "key": "physical.density",
+     "value": 1600.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D792",
+      "conditioning": "dry as moulded"
+     },
+     "notes": "Physical 블록 'Specific Gravity 1.60 ASTM D792'. 검산(§604): PA MXD6 1.22 + E-glass 2.54 를 50 wt% 로 섞으면 1/rho = 0.5/1.22 + 0.5/2.54 = 0.6067 → 1.648 이고, 매트릭스를 1.18 로 잡으면 1.611 이다 — 인쇄값 1.60 이 그 사이다. 시트 말미가 'Typical values shown tested on Dry as Molded samples' 라고 상태를 못박아 조건에 박았다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 18500000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ISO 527-2",
+      "conditioning": "dry as moulded"
+     },
+     "notes": "Mechanical 블록 'Tensile Modulus 18500 MPa ISO 527-2'. 혼합칙 검산(§604): 유리 50 wt% → 부피분율 0.324 이면 Reuss 하한 6.5 GPa · Voigt 상한 26.4 GPa 이고 인쇄값 18.5 GPa 가 그 안이다."
+    },
+    {
+     "key": "mechanical.yield_strength",
+     "value": 245000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ISO 527-2",
+      "conditioning": "dry as moulded"
+     },
+     "notes": "'Tensile Stress (Yield) 245 MPa ISO 527-2'. 시트는 파단응력 행을 안 찍고 항복행만 찍는다."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 245000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "point": "yield",
+      "test_standard": "ISO 527-2",
+      "conditioning": "dry as moulded"
+     },
+     "notes": "같은 'Tensile Stress (Yield) 245 MPa' 행이다. 302 LEXAN 500R 이 세운 규약대로(시트가 항복만 찍으면 tensile_strength 를 point=yield 로 함께 세운다) 낙하·충격 택일군이 이 재료에서 닫히게 했다. **새 측정이 아니라 같은 인쇄 행의 두 번째 자리다**(§456 — 문서가 인쇄하지 않은 것을 복제한 것이 아니다)."
+    },
+    {
+     "key": "mechanical.elongation_at_break",
+     "value": 0.023,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ISO 527-2",
+      "conditioning": "dry as moulded"
+     },
+     "notes": "'Tensile Strain (Break) 2.3 % ISO 527-2'."
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 15900000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ISO 178",
+      "conditioning": "dry as moulded"
+     },
+     "notes": "'Flexural Modulus 15900 MPa ISO 178'."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 379000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "definition": "flexural stress at 3.5 % strain",
+      "test_standard": "ISO 178",
+      "conditioning": "dry as moulded"
+     },
+     "notes": "'Flexural Stress (3.5% Strain) 379 MPa ISO 178'. **파단·항복 굴곡강도가 아니라 3.5% 변형률에서의 굴곡응력이다** — 라벨을 verbatim 으로 조건에 박았다(§601)."
+    },
+    {
+     "key": "mechanical.impact_strength_izod_area",
+     "value": 15000.0,
+     "unit": "J/m^2",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "notch": "notched",
+      "test_standard": "ISO 180/1A",
+      "conditioning": "dry as moulded"
+     },
+     "notes": "'Notched Izod Impact Strength 15 kJ/m2 ISO 180/1A'. **시트가 시험온도를 안 찍는다** — 23 C 라고 가정하지 않고 조건을 비웠다(§677)."
+    },
+    {
+     "key": "mechanical.impact_strength_izod_area",
+     "value": 68000.0,
+     "unit": "J/m^2",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "notch": "unnotched",
+      "test_standard": "ISO 180",
+      "conditioning": "dry as moulded"
+     },
+     "notes": "'Unnotched Izod Impact Strength 68 kJ/m2 ISO 180'. 시험온도 미표기는 위와 같다."
+    },
+    {
+     "key": "thermal.heat_deflection_temp",
+     "value": 535.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "load_MPa": 0.45,
+      "state": "unannealed",
+      "test_standard": "ISO 75-2/B",
+      "conditioning": "dry as moulded"
+     },
+     "notes": "'Heat Deflection Temperature 0.45 MPa, Unannealed 262 C ISO 75-2/B'."
+    },
+    {
+     "key": "thermal.heat_deflection_temp",
+     "value": 527.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "load_MPa": 1.8,
+      "state": "unannealed",
+      "test_standard": "ISO 75-2/A",
+      "conditioning": "dry as moulded"
+     },
+     "notes": "'Heat Deflection Temperature 1.8 MPa, Unannealed 254 C ISO 75-2/A'."
+    },
+    {
+     "key": "thermal.melting_point",
+     "value": 533.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D3418",
+      "test_method": "DSC"
+     },
+     "notes": "'Melting Temperature 260 C ASTM D3418'. HDT(0.45 MPa) 262 C 가 융점 260 C 보다 2 C 높은데, 유리 50 wt% 충전재는 하중변형온도가 결정 융해 부근까지 밀려 올라가므로 모순이 아니다(비교: 297 Amodel A-1145 HS 도 같은 모양이다)."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.15,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000000.0,
+      "test_standard": "ASTM D2520",
+      "conditioning": "dry as moulded"
+     },
+     "notes": "'Dielectric Constant 1.00 GHz = 4.15 ASTM D2520'."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.15,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 2400000000.0,
+      "test_standard": "ASTM D2520",
+      "conditioning": "dry as moulded"
+     },
+     "notes": "'Dielectric Constant 2.40 GHz = 4.15 ASTM D2520'. 1 GHz 와 같은 값을 **시트가 두 행으로 따로 찍는다**(§611)."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.011,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000000.0,
+      "test_standard": "ASTM D2520",
+      "conditioning": "dry as moulded"
+     },
+     "notes": "'Dissipation Factor 1.00 GHz = 0.011 ASTM D2520'."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.011,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 2400000000.0,
+      "test_standard": "ASTM D2520",
+      "conditioning": "dry as moulded"
+     },
+     "notes": "'Dissipation Factor 2.40 GHz = 0.011 ASTM D2520'."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0037,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "duration_h": 24,
+      "temperature_c": 23,
+      "test_standard": "ISO 62"
+     },
+     "notes": "'Water Absorption (23C, 24 hr) 0.37 % ISO 62'."
+    },
+    {
+     "key": "rheological.mold_shrinkage",
+     "value": 0.0013,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "MD",
+      "direction_verbatim": "Flow",
+      "test_method": "Internal Method"
+     },
+     "notes": "'Molding Shrinkage — Flow 0.13 % (Internal Method)'."
+    },
+    {
+     "key": "rheological.mold_shrinkage",
+     "value": 0.0032,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "TD",
+      "direction_verbatim": "Across Flow",
+      "test_method": "Internal Method"
+     },
+     "notes": "'Molding Shrinkage — Across Flow 0.32 % (Internal Method)'. 유리 50 wt% 단섬유라 TD/MD = 2.5 배로 이방성이 크고 시트 서두의 'low warpage behavior' 서술과 방향이 맞는다."
+    },
+    {
+     "key": "thermal.flammability_ul94",
+     "value_text": "HB",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "thickness_mm": 0.6,
+      "colour": "all colors",
+      "test_standard": "UL 94"
+     },
+     "notes": "'Flame Rating (0.600 mm, All colors) HB UL 94'."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,413 @@
+{
+ "batch": "64차 ZA",
+ "materials": [
+  {
+   "new_material": {
+    "name": "LEXAN 3413R (PC-GF30, SABIC)",
+    "category": "polymer"
+   },
+   "attributes": {
+    "source": "batch-za",
+    "manufacturer": "SABIC",
+    "grade": "LEXAN FR Resins 3413R",
+    "material_class": "PC-GF30",
+    "role": "product",
+    "role_reason": "이름에 제조사+그레이드가 박혀 있고 출처가 해당 제품 데이터시트 — 이름·출처 둘 다 제품 신호(302·313 선례)",
+    "role_confidence": "high",
+    "subsystem": "housing",
+    "subsystem_basis": "사출 구조부품용 엔지니어링 플라스틱이다(302 LEXAN 500R·313 LEXAN 3412R 선례).",
+    "core_absent_from_vendor_sheet": {
+     "mechanical.youngs_modulus": "64차 ZA — Americas TDS(Rev 20220720)·Asia TDS(Rev 20180905)·UL Prospector TDS(2014-08-30) 세 장을 다 열었고 셋 다 ASTM 서식이라 Flexural Modulus 6610 MPa 만 찍고 Tensile Modulus 행이 없다(굴곡탄성률은 영률이 아니다 — §601). 형제 500R·3412R 은 **Europe(ISO) TDS 의 `Tensile Modulus, 1 mm/min` 행**에서 E 를 얻었다(3300·6000 MPa). 성격상 V5 다 — 벤더가 안 찍는 것이 아니라 3413R 의 Europe 층을 아직 못 열었다. 두드린 곳: plastore.it(cgi2018/file818/760~764 전부 404) · petromall.net(403, UA 유무 무관) · terplast.it(404) · pakrokimya.com(Europe 파일명 404, Americas 만 200) · materialfinder.sabic-specialties.com(전등급 2,226종에 3413R 없음 — 이 카탈로그는 LEXAN Copolymer 132·FR Resin 17종만 담는다) · matweb/ulprospector(Cloudflare 차단) · honcere/suntek(Asia 판만). 다음 파동이 열 것: SABIC `LEXAN(TM) FR RESINS 3413R REGION EUROPE` TDS 한 장 — 그 한 장이 코어 마지막 칸을 닫는다.",
+     "mechanical.poisson_ratio": "64차 ZA — **등급 시트에는 없고 계열 문서로 닫았다.** 3413R 자신의 시트 세 장 전부에 포아송비 행이 없다. 대신 GE Plastics(현 SABIC) Engineering Design Guide Sec.2 Table 2-1 이 `LEXAN resin .38` 을 상표 계열값으로 찍어 t3 로 넣었다(형제 302·313 과 같은 출처·같은 규약, §612). 이 칸은 이제 비어 있지 않다 — 다만 값이 **유리 30 wt% 충전을 반영하지 않은 계열값**이라 등급 실측이 들어오면 대표값이 자동으로 갈아 끼워진다(§2.2)."
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "LEXAN(TM) FR RESINS 3413R REGION AMERICAS — Technical Data Sheet, Revision 20220720",
+    "url": "https://www.pakrokimya.com/wp-content/uploads/LEXAN%E2%84%A2-FR-Resins_3413R_Americas_Technical_Data_Sheet.pdf",
+    "publisher": "SABIC",
+    "year": 2022,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/poly/SABIC_LEXAN_FR_Resins_3413R_Americas_TDS_Rev20220720.pdf"
+   },
+   "properties": [
+    {
+     "key": "structure.filler_content",
+     "value": 0.3,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "filler": "glass fiber",
+      "basis": "weight"
+     },
+     "notes": "DESCRIPTION verbatim: 'LEXAN(TM) 3413R resin is a 30% glass fiber filled, 5 MFR polycarbonate.' UL Prospector 서식 시트(2014-08-30)도 'Filler / Reinforcement: Glass Fiber, 30% Filler by Weight' 로 같은 값을 찍는다 — 두 문서가 충전율을 독립 확인한다."
+    },
+    {
+     "key": "physical.density",
+     "value": 1440.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D792",
+      "temperature_c": 23
+     },
+     "notes": "PHYSICAL 블록 'Density 1.44 g/cm3 ASTM D792' 행. 같은 시트가 'Specific Gravity 1.43' 을, Asia TDS(Rev 20180905)는 'Density 1.439 g/cm3' 를 찍는다 — 세 표기의 폭이 0.7%다. 검산(§603): PC 1.20 + E-glass 2.54 를 30 wt% 로 섞으면 1/rho = 0.7/1.20 + 0.3/2.54 = 0.7014 → 1.426 g/cm3 이고, 인쇄값이 1.0% 위다(FR 첨가제). 그리고 카탈로그의 LEXAN 유리충전 사다리가 닫힌다 — 500R(GF10) 1270 · 3412R(GF20) 1356 · 3413R(GF30) 1440 으로 단조증가하고 혼합칙 1.267/1.342/1.426 에 대해 편차가 각각 +0.2/+1.0/+1.0% 로 일정하다."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 99000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "point": "break",
+      "specimen": "Type I",
+      "rate_mm_min": 5,
+      "test_standard": "ASTM D638",
+      "temperature_c": 23
+     },
+     "notes": "'Tensile Stress, brk, Type I, 5 mm/min = 99 MPa'. Asia TDS(Rev 20180905)도 99 로 같다. UL Prospector 서식 시트는 같은 행을 100 MPa 로 반올림해 찍는다 — SABIC 자사 시트값을 취했다."
+    },
+    {
+     "key": "mechanical.elongation_at_break",
+     "value": 0.02,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "specimen": "Type I",
+      "rate_mm_min": 5,
+      "test_standard": "ASTM D638",
+      "temperature_c": 23
+     },
+     "notes": "'Tensile Strain, brk, Type I, 5 mm/min = 2 %'. GF30 등급이라 인장 항복이 일어나지 않고 시트도 항복 행을 안 찍는다(§454)."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 153000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "point": "yield",
+      "span_mm": 50,
+      "rate_mm_min": 1.3,
+      "test_standard": "ASTM D790"
+     },
+     "notes": "'Flexural Stress, yld, 1.3 mm/min, 50 mm span = 153 MPa'."
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 6610000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "span_mm": 50,
+      "rate_mm_min": 1.3,
+      "test_standard": "ASTM D790"
+     },
+     "notes": "'Flexural Modulus, 1.3 mm/min, 50 mm span = 6610 MPa'. **영률이 아니다**(§601) — 같은 시트에 Tensile Modulus 행이 없다. LEXAN 유리충전 사다리에서 3450(GF10) → 5511(GF20) → 6610(GF30) 으로 단조증가한다."
+    },
+    {
+     "key": "mechanical.impact_strength_izod",
+     "value": 106.0,
+     "unit": "J/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "notch": "notched",
+      "temperature_c": 23,
+      "test_standard": "ASTM D256"
+     },
+     "notes": "'Izod Impact, notched, 23C = 106 J/m'. UL Prospector 서식은 같은 행을 110 J/m 로 찍는다 — SABIC 자사 시트값을 취했다."
+    },
+    {
+     "key": "mechanical.impact_strength_izod",
+     "value": 1121.0,
+     "unit": "J/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "notch": "unnotched",
+      "temperature_c": 23,
+      "test_standard": "ASTM D4812"
+     },
+     "notes": "'Izod Impact, unnotched, 23C = 1121 J/m'."
+    },
+    {
+     "key": "mechanical.hardness_rockwell",
+     "value": 92.0,
+     "unit": "HR",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "scale": "M",
+      "test_standard": "ASTM D785"
+     },
+     "notes": "'Hardness, Rockwell M = 92'."
+    },
+    {
+     "key": "mechanical.hardness_rockwell",
+     "value": 120.0,
+     "unit": "HR",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "scale": "R",
+      "test_standard": "ASTM D785"
+     },
+     "notes": "'Hardness, Rockwell R = 120'."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 2.16e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_range_c": "-40 to 95",
+      "direction": "MD",
+      "direction_verbatim": "flow",
+      "test_standard": "ASTM E831"
+     },
+     "notes": "'CTE, -40C to 95C, flow = 2.16E-05 1/C'. UL Prospector 서식은 같은 행을 2.2E-5 cm/cm/C 로 반올림해 찍는다. LEXAN 유리충전 사다리에서 3.2e-5(GF10) → 2.7e-5(GF20) → 2.16e-5(GF30) 으로 단조감소한다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1130.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM C351"
+     },
+     "notes": "'Specific Heat = 1.13 J/g-C' → 1130 J/(kg*K). UL Prospector 서식도 1130 J/kg/C 로 같다. 사다리: 1210(GF10) → 1170(GF20) → 1130(GF30) 단조감소."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.22,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM C177",
+      "temperature_c": 23
+     },
+     "notes": "'Thermal Conductivity = 0.22 W/m-C'. 사다리: 0.20(GF10) → 0.21(GF20) → 0.22(GF30) 단조증가."
+    },
+    {
+     "key": "thermal.heat_deflection_temp",
+     "value": 424.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "load_MPa": 0.45,
+      "thickness_mm": 6.4,
+      "state": "unannealed",
+      "test_standard": "ASTM D648"
+     },
+     "notes": "'HDT, 0.45 MPa, 6.4 mm, unannealed = 151 C'."
+    },
+    {
+     "key": "thermal.heat_deflection_temp",
+     "value": 419.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "load_MPa": 1.82,
+      "thickness_mm": 6.4,
+      "state": "unannealed",
+      "test_standard": "ASTM D648"
+     },
+     "notes": "'HDT, 1.82 MPa, 6.4 mm, unannealed = 146 C'."
+    },
+    {
+     "key": "thermal.vicat_softening",
+     "value": 438.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "rate": "B/50",
+      "test_standard": "ASTM D1525"
+     },
+     "notes": "'Vicat Softening Temp, Rate B/50 = 165 C'."
+    },
+    {
+     "key": "thermal.max_service_temp",
+     "value": 403.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "basis": "RTI Str (Relative Temp Index, Mech w/o impact)",
+      "test_standard": "UL 746B"
+     },
+     "notes": "'Relative Temp Index, Mech w/o impact = 130 C'. 같은 시트가 RTI Elec 120 C 와 RTI Mech w/impact 120 C 도 찍는다 — 302 의 규약(RTI Str)을 따라 130 C 를 최대 사용온도로 넣었다."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 1000000000000000.0,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D257",
+      "bound": "lower bound as printed"
+     },
+     "notes": "'Volume Resistivity > 1.E+17 Ohm.cm' → 1e15 ohm*m. 부등호 하한이라 조건에 bound 를 박았다(302·313 과 같은 값·같은 규약)."
+    },
+    {
+     "key": "electrical.dielectric_strength",
+     "value": 18700000.0,
+     "unit": "V/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "thickness_mm": 3.2,
+      "medium": "air",
+      "test_standard": "ASTM D149"
+     },
+     "notes": "'Dielectric Strength, in air, 3.2 mm = 18.7 kV/mm'."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 3.35,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 60,
+      "test_standard": "ASTM D150"
+     },
+     "notes": "'Relative Permittivity, 50/60 Hz = 3.35'. 시트가 50 Hz 와 60 Hz 를 한 행에 묶어 찍는다 — UL Prospector 서식이 50 Hz·60 Hz 두 행으로 갈라 둘 다 3.35 임을 확인해 준다."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 3.31,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "ASTM D150"
+     },
+     "notes": "'Relative Permittivity, 1 MHz = 3.31'."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.0011,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 60,
+      "test_standard": "ASTM D150"
+     },
+     "notes": "'Dissipation Factor, 50/60 Hz = 0.0011'."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.007,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "ASTM D150"
+     },
+     "notes": "'Dissipation Factor, 1 MHz = 0.007'."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0014,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "duration_h": 24,
+      "temperature_c": 23,
+      "test_standard": "ASTM D570"
+     },
+     "notes": "'Water Absorption, (23C/24hrs) = 0.14 %'."
+    },
+    {
+     "key": "chemical.water_absorption_saturation",
+     "value": 0.0026,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "state": "equilibrium",
+      "temperature_c": 23,
+      "test_standard": "ASTM D570"
+     },
+     "notes": "'Water Absorption, (23C/Saturated) = 0.26 %'."
+    },
+    {
+     "key": "rheological.melt_flow_index",
+     "value": 5.0,
+     "unit": "g/600s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 300,
+      "load_kg": 1.2,
+      "test_standard": "ASTM D1238"
+     },
+     "notes": "'Melt Flow Rate, 300C/1.2 kgf = 5 g/10 min'."
+    },
+    {
+     "key": "rheological.melt_flow_index",
+     "value": 19.0,
+     "unit": "g/600s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 300,
+      "load_kg": 5.0,
+      "test_standard": "ASTM D1238"
+     },
+     "notes": "'Melt Flow Rate, 300C/5.0 kgf = 19 g/10 min'."
+    },
+    {
+     "key": "thermal.flammability_ul94",
+     "value_text": "HB",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "thickness_mm": 0.75,
+      "test_standard": "UL 94"
+     },
+     "notes": "'UL Recognized, 94HB Flame Class Rating = 0.75 mm'. UL Yellow Card E121562-220881."
+    },
+    {
+     "key": "thermal.flammability_ul94",
+     "value_text": "V-1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "thickness_mm": 1.47,
+      "test_standard": "UL 94"
+     },
+     "notes": "'UL Recognized, 94V-1 Flame Class Rating = 1.47 mm'."
+    },
+    {
+     "key": "thermal.flammability_ul94",
+     "value_text": "V-0",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "thickness_mm": 2.99,
+      "test_standard": "UL 94"
+     },
+     "notes": "'UL Recognized, 94V-0 Flame Class Rating = 2.99 mm'."
+    }
+   ]
+  }
+ ]
+}

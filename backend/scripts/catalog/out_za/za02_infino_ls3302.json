@@ -1,0 +1,339 @@
+{
+ "batch": "64차 ZA",
+ "materials": [
+  {
+   "new_material": {
+    "name": "INFINO LS-3302 (PC-GF, Lotte Chemical)",
+    "category": "polymer"
+   },
+   "attributes": {
+    "source": "batch-za",
+    "manufacturer": "LOTTE Chemical",
+    "grade": "INFINO LS-3302",
+    "material_class": "PC-GF",
+    "role": "product",
+    "role_reason": "벤더 자사 제품 데이터시트 페이지(product.lottechem.com, grade=LS-3302)가 등급명·수지타입·물성표를 직접 찍는다 — 이름·출처 둘 다 제품 신호",
+    "role_confidence": "high",
+    "subsystem": "housing",
+    "subsystem_basis": "사출 구조부품용 유리충전 PC 다(302 LEXAN 500R·313 LEXAN 3412R 선례). 벤더가 용도를 'E&E, General' 로 찍는다.",
+    "core_absent_from_vendor_sheet": {
+     "thermal.expansion_linear": "64차 ZA — 벤더 자사 물성표 두 장(ISO 서식·ASTM 서식)을 다 열었고 둘 다 선팽창계수 행이 없다. 이 벤더 서식이 담는 열 항목은 HDT 2행·Vicat 1행뿐이다(§675 의 서식 비대칭 — k 도 Cp 도 CTE 도 안 찍는 서식이다). 다음 문: UL Prospector 148116 / SpecialChem `lotte-chemical-infino-ls-3302` — 둘 다 Cloudflare 로 막혀 있어 계정이 있으면 열린다(§609 셋째 갈래).",
+     "thermal.conductivity": "64차 ZA — 위와 같다. 벤더 서식에 열전도율 행 자체가 없다.",
+     "thermal.specific_heat": "64차 ZA — 위와 같다. 벤더 서식에 비열 행 자체가 없다.",
+     "mechanical.poisson_ratio": "64차 ZA — 벤더 서식에 포아송비 행이 없다. §6 대로 표적에서 내린 물성이라 계열 대입도 하지 않았다.",
+     "structure.filler_content": "64차 ZA — 벤더가 Resin Type 을 `PC/GF` 로만 찍고 **유리 함량 %를 어디에도 안 찍는다**(ISO·ASTM 두 서식 모두). 제3자 색인(UL Prospector 148116 · SpecialChem)의 제품설명이 `30% glass fiber` 라고 적지만 둘 다 열지 못했으므로 값으로 넣지 않았다(§645 — 못 연 문서는 근거가 아니다). 형제 등급 LS-3302A 의 UL Prospector 서식 시트는 `Ash Content 31 % (ISO 3451)` 를 찍지만 **다른 등급이라 옮기지 않았다**(§586 — E 5700 대 6600 · 비중 1.41 대 1.4 · MFR 25 대 12 로 갈린다). 닫는 법: LS-3302 의 UL Prospector 시트나 Lotte 의 INFINO 제품 가이드 PDF 한 장."
+    },
+    "verdict_grade_identity": "64차 ZA — 조정자 표적 `LS3302` 를 **LOTTE Chemical INFINO LS-3302** 으로 동정했다. 근거: 벤더 자사 페이지 `product.lottechem.com/en/advanced_materials/iso.do?grade=LS-3302` 가 200 을 주고 Grade 칸에 `LS-3302`, Resin Type 칸에 `PC/GF` 를 찍는다. 상태코드 방언을 먼저 쟀다(§634) — 없는 등급은 500·4424 바이트를 준다(ZZZZZ-9999·XX-0000·LS-9999·LS-3303 넷 다), 있는 등급은 200·22~24 KB 를 준다(LS-3302·LS-3302A·NH-1035·EN-1052 넷 다)."
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "LOTTE Chemical INFINO LS-3302 — ISO Property datasheet (product.lottechem.com, grade=LS-3302)",
+    "url": "https://product.lottechem.com/en/advanced_materials/iso.do?grade=LS-3302",
+    "publisher": "LOTTE Chemical",
+    "year": 2026,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/poly/LotteChemical_INFINO_LS-3302_ISO_PropertyTable_2026-09-05.html"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1400.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ISO 1183",
+      "colour": "natural or representative"
+     },
+     "notes": "ISO 서식 Physical 블록 'Specific Gravity ISO 1183 · Natural or representative · 1.4'. 같은 벤더의 ASTM 서식 페이지도 'Specific Gravity ASTM D792 = 1.4' 로 같은 값을 찍어 두 서식이 서로 확인한다. 검산: PC 1.20 + E-glass 2.54 를 30 wt% 로 섞으면 1.426 이고 유효숫자 2자리로 1.4 다 — 제3자 색인의 '30% GF' 서술과 모순되지 않는다(다만 이것은 검산이지 충전율 값이 아니다).\n**함정 신고(§671)** — `iso.do?grade=LS-3302` 페이지의 HTML 안에는 ISO 표 위에 **숨겨진 ASTM 블록**이 하나 더 있는데 그 블록의 값은 이 등급의 것이 아니다(비중 1.05 · MFI 200C/5kg 4.0 · 인장 380 kgf/cm2 · 굴곡탄성율 22000 kgf/cm2 · 경도 R106 — PC 가 아니라 ABS 대역이다). `astm.do?grade=LS-3302` 를 따로 치면 같은 자리에 비중 1.4 · MFI 250C/10kg 12 · 인장 1300 kgf/cm2 · 굴곡탄성율 75000 kgf/cm2 · 경도 R120 이 나와 ISO 표와 서로 닫힌다. **한 페이지 안의 두 서식 블록 중 하나가 남의 등급을 들고 있다 — 요청한 서식의 블록만 읽어라.**"
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 6600000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ISO 527",
+      "rate_mm_min": 5,
+      "temperature_c": 23
+     },
+     "notes": "ISO 서식 Mechanical 블록 'Tensile Modulus ISO 527 · 5mm/min · 6600 MPa'. ASTM 서식 페이지의 Tensile Modulus 행은 값이 `-` 로 비어 있다 — **E 는 이 벤더의 ISO 서식에만 있다**(§628 서식 층)."
+    },
+    {
+     "key": "mechanical.yield_strength",
+     "value": 120000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ISO 527",
+      "rate_mm_min": 5,
+      "temperature_c": 23
+     },
+     "notes": "'Tensile Strength at Yield ISO 527 · 5mm/min · 120 MPa'."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 120000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "point": "break",
+      "test_standard": "ISO 527",
+      "rate_mm_min": 5,
+      "temperature_c": 23
+     },
+     "notes": "'Tensile Strength at Break ISO 527 · 5mm/min · 120 MPa'. 시트가 항복행과 파단행을 **따로** 찍고 둘 다 120 이다 — 복제가 아니라 시트가 두 번 인쇄한 것이다(§611)."
+    },
+    {
+     "key": "mechanical.elongation_at_break",
+     "value": 0.03,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ISO 527",
+      "rate_mm_min": 5,
+      "temperature_c": 23
+     },
+     "notes": "'Tensile Strain at break ISO 527 · 5mm/min · 3 %'."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 175000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ISO 178",
+      "rate_mm_min": 2
+     },
+     "notes": "'Flexural Strength ISO 178 · 2mm/min · 175 MPa'. ASTM 서식의 1800 kgf/cm2 = 176.5 MPa 와 0.9% 안에서 만난다."
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 8300000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ISO 178",
+      "rate_mm_min": 2
+     },
+     "notes": "'Flexural Modulus ISO 178 · 2mm/min · 8300 MPa'. ASTM 서식(D790, 2.8 mm/min)의 75000 kgf/cm2 = 7355 MPa 와 13% 갈린다 — 시험 속도·지간이 다르므로 두 값을 조건으로 갈라 둘 다 넣었다."
+    },
+    {
+     "key": "mechanical.impact_strength_izod_area",
+     "value": 12000.0,
+     "unit": "J/m^2",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "notch": "notched",
+      "temperature_c": 23,
+      "thickness_mm": 4,
+      "test_standard": "ISO 180 1A"
+     },
+     "notes": "'Izod Impact Strength (notched) ISO 180 1A · at 23C, 4mm · 12 kJ/m2'."
+    },
+    {
+     "key": "mechanical.impact_strength_charpy",
+     "value": 12000.0,
+     "unit": "J/m^2",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "notch": "V-notched",
+      "temperature_c": 23,
+      "thickness_mm": 4,
+      "test_standard": "ISO 179 1eA"
+     },
+     "notes": "'Charpy Impact Strength (V-notched) ISO 179 1eA · at 23C, 4mm · 12 kJ/m2'."
+    },
+    {
+     "key": "mechanical.hardness_rockwell",
+     "value": 120.0,
+     "unit": "HR",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "scale": "R",
+      "test_standard": "ISO 2039-2"
+     },
+     "notes": "'Rockwell Hardness ISO 2039-2 · R-scale · 120'."
+    },
+    {
+     "key": "thermal.heat_deflection_temp",
+     "value": 413.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "load_MPa": 1.8,
+      "thickness_mm": 4.0,
+      "state": "unannealed",
+      "test_standard": "ISO 75-2"
+     },
+     "notes": "'Heat Deflection Temperature(Unannealed) ISO 75-2 · 1.8MPa, 4.0mm · 140 C'."
+    },
+    {
+     "key": "thermal.heat_deflection_temp",
+     "value": 417.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "load_MPa": 0.45,
+      "thickness_mm": 4.0,
+      "state": "unannealed",
+      "test_standard": "ISO 75-2"
+     },
+     "notes": "'Heat Deflection Temperature(Unannealed) ISO 75-2 · 0.45MPa, 4.0mm · 144 C'."
+    },
+    {
+     "key": "thermal.vicat_softening",
+     "value": 420.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "rate": "B/50",
+      "test_standard": "ISO 306"
+     },
+     "notes": "'VICAT Softening Temperature ISO 306 · B/50 · 147 C'. ASTM 서식 페이지도 같은 값을 ISO 306 으로 찍는다."
+    },
+    {
+     "key": "rheological.melt_flow_index",
+     "value": 12.0,
+     "unit": "g/600s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 250,
+      "load_kg": 10,
+      "test_standard": "ISO 1133"
+     },
+     "notes": "'Melt Flow Index ISO 1133 · 250C, 10kg · 12 g/10min'. PC 통상 조건(300C/1.2kg)이 아니라 250C/10kg 이다 — 벤더가 찍은 조건 그대로 박았다. 형제 LS-3302A 도 같은 250C/10kg 조건으로 25 를 찍는다."
+    },
+    {
+     "key": "thermal.flammability_ul94",
+     "value_text": "V-2",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "thickness_mm": 0.8,
+      "test_standard": "UL 94"
+     },
+     "notes": "'Flammability UL94 · V-2 · 0.8 mm'."
+    },
+    {
+     "key": "thermal.flammability_ul94",
+     "value_text": "V-1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "thickness_mm": 3.2,
+      "test_standard": "UL 94"
+     },
+     "notes": "'Flammability UL94 · V-1 · 3.2 mm'."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "INFINO LS-3302 (PC-GF, Lotte Chemical)",
+    "category": "polymer"
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "LOTTE Chemical INFINO LS-3302 — ASTM Property datasheet (product.lottechem.com, grade=LS-3302)",
+    "url": "https://product.lottechem.com/en/advanced_materials/astm.do?grade=LS-3302",
+    "publisher": "LOTTE Chemical",
+    "year": 2026,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/poly/LotteChemical_INFINO_LS-3302_ASTM_PropertyTable_2026-09-05.html"
+   },
+   "properties": [
+    {
+     "key": "mechanical.yield_strength",
+     "value": 127486450.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D638",
+      "rate_mm_min": 5,
+      "temperature_c": 23
+     },
+     "notes": "ASTM 서식 'Tensile Strength at Yield ASTM D638 · 5mm/min · 1300 kgf/cm2' → 1300 x 98066.5 = 1.27486e8 Pa (127.5 MPa). ISO 서식의 120 MPa 와 6% 차이인데 시험 규격·시편이 다르다 — 조건으로 갈라 둘 다 넣었다. **검사기 주의 한 줄을 내가 만든다 — 거짓 양성이다.** `integrity_check.py` 의 「항복강도가 인장강도보다 큰 재료」는 조건축을 맞추지 않고 항복행 × 인장행을 전수 대조하므로(SQL 에 test_standard 조인이 없다) 이 재료의 **ASTM 항복 127.5 MPa 가 ISO 파단 120 MPa 를 넘는 것**으로 잡힌다. 서식 안에서는 역전이 없다 — ISO 는 항복 120 = 파단 120, ASTM 은 항복 1300 = 파단 1300 kgf/cm2 로 둘 다 같은 값이다. 인쇄된 값을 검사기 침묵을 위해 빼지 않았다."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 127486450.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "point": "break",
+      "test_standard": "ASTM D638",
+      "rate_mm_min": 5,
+      "temperature_c": 23
+     },
+     "notes": "ASTM 서식 'Tensile Strength at break ASTM D638 · 5mm/min · 1300 kgf/cm2' → 127.5 MPa."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 176519700.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D790",
+      "rate_mm_min": 2.8
+     },
+     "notes": "'Flexural Strength ASTM D790 · 2.8mm/min · 1800 kgf/cm2' → 176.5 MPa."
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 7354987500.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D790",
+      "rate_mm_min": 2.8
+     },
+     "notes": "'Flexural Modulus ASTM D790 · 2.8mm/min · 75000 kgf/cm2' → 7355 MPa."
+    },
+    {
+     "key": "mechanical.impact_strength_izod",
+     "value": 117.6798,
+     "unit": "J/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "notch": "notched",
+      "temperature_c": 23,
+      "thickness_in": 0.25,
+      "test_standard": "ASTM D256"
+     },
+     "notes": "'Izod Impact Strength(notched) ASTM D256 · 1/4 inch at 23C · 12 kgf-cm/cm' → 12 x 9.80665 = 117.68 J/m (1 kgf-cm/cm = 0.0980665 J / 0.01 m)."
+    },
+    {
+     "key": "mechanical.impact_strength_izod",
+     "value": 166.71305,
+     "unit": "J/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "notch": "notched",
+      "temperature_c": 23,
+      "thickness_in": 0.125,
+      "test_standard": "ASTM D256"
+     },
+     "notes": "'Izod Impact Strength(notched) ASTM D256 · 1/8 inch at 23C · 17 kgf-cm/cm' → 166.71 J/m. 얇은 시편이 더 높은 것은 ASTM D256 두께 효과로 정상이다."
+    }
+   ]
+  }
+ ]
+}
