@@ -1,0 +1,121 @@
+{
+  "materials": [
+    {
+      "match_name": "무연 솔더 페이스트 S3X48 + M500 플럭스 (Type 3, 분말 20-45 um) — Krammer 2018",
+      "source": {
+        "kind": "datasheet",
+        "title": "KOKI ECO+PLUS — Anti-Pillow Defect Lead Free Solder Paste S3X48-M500 브로슈어 4쪽 'Specifications' 표 (문서 각인 10.20..09)",
+        "url": "https://web.archive.org/web/20160802155651id_/http://koki.org/pdf/S3X48-M500.pdf",
+        "authors": "KOKI Company Limited",
+        "year": 2009,
+        "manufacturer": "KOKI Company Limited (株式会社弘輝, Tokyo)"
+      },
+      "properties": [
+        {
+          "key": "thermal.melting_point",
+          "value": 490.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {"phase_boundary": "solidus", "component": "solder alloy powder (Sn96.5Ag3.0Cu0.5)", "temperature_c_printed": 217},
+          "notes": "제조사(KOKI) 공식 브로슈어 Specifications 표의 'Alloy / Melting point (C) 217 - 219' 하한. **페이스트 전체가 아니라 그 안의 솔더 분말 합금의 융점**이다(브리프 45차 GA 함정 2 — 페이스트와 합금을 가르라). 같은 표가 'Composition (%) Sn96.5, Ag3.0, Cu0.5' 를 인쇄해 분말이 SAC305 조성임을 못박는다. 원문 PDF 는 Adobe Illustrator 로 만든 **이미지 전용**이라 pdftotext 가 4바이트를 냈다(브리프 128) — 200 dpi 렌더로 눈으로 읽었다. 조달 경로: koki.org 가 현재 koki-global.com 으로 이전하며 M500 계열 시트가 내려갔고, Wayback CDX 로 2016-08-02 스냅샷(id_ 원본)을 받았다(브리프 438). 받은 것이 진짜 PDF 임을 content_type=application/pdf + pdfinfo 로 확인했다. 교차확인: 카탈로그의 SAC305(재료 91)에 Indium Corporation·AIM 시트 기준 solidus 217 C 가 이미 있고 소수점까지 같다. 단 액상선은 벤더가 갈린다 — KOKI·MacDermid Alpha 219 대 Indium·Kapp 220. 어느 쪽도 고르지 않고 이 행은 KOKI 인쇄값만 담는다."
+        },
+        {
+          "key": "thermal.melting_point",
+          "value": 492.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {"phase_boundary": "liquidus", "component": "solder alloy powder (Sn96.5Ag3.0Cu0.5)", "temperature_c_printed": 219},
+          "notes": "같은 표 'Melting point (C) 217 - 219' 의 상한. 구간이므로 중앙값(218)을 만들지 않고 상·하한 두 행으로 갈랐다(브리프 451·76). 페이스트가 아니라 솔더 분말 합금의 값이다."
+        },
+        {
+          "key": "chemical.composition",
+          "value_text": "Sn 96.5 / Ag 3.0 / Cu 0.5 (wt%) — 페이스트 내 솔더 분말 합금 (KOKI 'S3X' 합금코드 = SAC305 조성)",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {"component": "solder alloy powder", "basis": "wt%"},
+          "notes": "KOKI 브로슈어 Specifications 표 'Alloy / Composition (%) Sn96.5, Ag3.0, Cu0.5' verbatim. 이 행을 넣는 이유는 **페이스트와 합금을 가르기 위해서**다 — 논문(Krammer 2018)은 제품코드 S3X48/S3X58/S3X70 만 적고 분말 조성을 밝히지 않는다. 제조사 코드 'S3X' 가 Sn3.0Ag0.5Cu 를 뜻함이 이 표로 확정된다. 페이스트 자체의 밀도·탄성계수는 플럭스가 섞여 있어 합금값과 다르므로 옮기지 않았다."
+        }
+      ]
+    },
+    {
+      "match_name": "무연 솔더 페이스트 S3X58 + M500 플럭스 (Type 4, 분말 20-38 um) — Krammer 2018",
+      "source": {
+        "kind": "datasheet",
+        "title": "KOKI ECO+PLUS — Anti-Pillow Defect Lead Free Solder Paste S3X48-M500 브로슈어 4쪽 'Specifications' 표 (문서 각인 10.20..09)",
+        "url": "https://web.archive.org/web/20160802155651id_/http://koki.org/pdf/S3X48-M500.pdf",
+        "authors": "KOKI Company Limited",
+        "year": 2009,
+        "manufacturer": "KOKI Company Limited (株式会社弘輝, Tokyo)"
+      },
+      "properties": [
+        {
+          "key": "thermal.melting_point",
+          "value": 490.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {"phase_boundary": "solidus", "component": "solder alloy powder (Sn96.5Ag3.0Cu0.5)", "temperature_c_printed": 217},
+          "notes": "이 시트가 S3X58-M500 을 **명시적으로 포함한다** — 표 마지막 줄이 'Optional powder(um) 20 - 38; S3X58-M500' 이다. 즉 S3X58-M500 은 같은 M500 플럭스에 Type 4(20-38 um) 분말을 쓴 같은 제품군이고, 합금·융점·플럭스 함량 칸이 그대로 적용된다. 이 한 줄이 Krammer 2018 Table 1(Type 4 = S3X58, 플럭스 M500, 20-38 um)과 글자 단위로 맞아 제품 동정이 닫힌다. 값은 'Melting point (C) 217 - 219' 하한이며 페이스트가 아니라 분말 합금의 융점이다."
+        },
+        {
+          "key": "thermal.melting_point",
+          "value": 492.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {"phase_boundary": "liquidus", "component": "solder alloy powder (Sn96.5Ag3.0Cu0.5)", "temperature_c_printed": 219},
+          "notes": "같은 표 'Melting point (C) 217 - 219' 상한. 중앙값을 만들지 않고 상·하한으로 갈랐다(브리프 451·76)."
+        },
+        {
+          "key": "chemical.composition",
+          "value_text": "Sn 96.5 / Ag 3.0 / Cu 0.5 (wt%) — 페이스트 내 솔더 분말 합금 (KOKI 'S3X' 합금코드 = SAC305 조성)",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {"component": "solder alloy powder", "basis": "wt%"},
+          "notes": "KOKI S3X48-M500 시트 Specifications 표의 'Composition (%) Sn96.5, Ag3.0, Cu0.5'. 같은 표가 S3X58-M500 을 optional powder 로 명시하므로 합금 칸이 공유된다."
+        }
+      ]
+    },
+    {
+      "match_name": "무연 솔더 페이스트 S3X70 + M500 플럭스 (Type 5, 분말 10-25 um) — Krammer 2018",
+      "source": {
+        "kind": "datasheet",
+        "title": "KOKI 고밀도실장대응 솔더페이스트 S3X70-M500C / S3X70-M500D 브로슈어 '製品物性表' (B1-21, 2013-12-19)",
+        "url": "https://web.archive.org/web/20160929051118id_/http://www.ko-ki.co.jp/products/pdf/B1-21_S3X70-M500C.pdf",
+        "authors": "KOKI Company Limited",
+        "year": 2013,
+        "manufacturer": "KOKI Company Limited (株式会社弘輝, Tokyo)"
+      },
+      "properties": [
+        {
+          "key": "thermal.melting_point",
+          "value": 490.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {"phase_boundary": "solidus", "component": "solder alloy powder (Sn3.0Ag0.5Cu)", "temperature_c_printed": 217, "vendor_sheet_grade": "S3X70-M500C / S3X70-M500D (본 재료의 플럭스 등급은 M500)"},
+          "notes": "**등급이 정확히 일치하지 않아 tier2 로 내렸다.** 이 재료의 페이스트는 S3X70 + M500 인데 남아 있는 KOKI 공식 시트는 S3X70-M500C·M500D 다. 다만 이 칸은 **플럭스가 아니라 분말 합금의 융점**이고, 분말 등급코드 S3X70 은 완전히 같다 — 시트의 製品物性表 는 合金組成·融点·粉末粒度 세 칸을 M500C·M500D 두 등급에 걸쳐 하나로 인쇄한다(플럭스 함량만 11.5 대 14.0 으로 갈린다). 인쇄값 '融点(℃) 217-219' 의 하한. 제품명 옆에 'Sn 3.0Ag 0.5Cu' 가 병기돼 조성도 같은 표에서 닫힌다. 粉末粒度 10-25 um 은 Krammer 2018 Table 1 의 Type 5 값과 정확히 같아 분말 등급 동정이 교차확인된다. 조달: ko-ki.co.jp 구판 경로가 내려가 Wayback id_ 스냅샷(2016-09-29)을 받았다."
+        },
+        {
+          "key": "thermal.melting_point",
+          "value": 492.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {"phase_boundary": "liquidus", "component": "solder alloy powder (Sn3.0Ag0.5Cu)", "temperature_c_printed": 219, "vendor_sheet_grade": "S3X70-M500C / S3X70-M500D (본 재료의 플럭스 등급은 M500)"},
+          "notes": "'融点(℃) 217-219' 의 상한. 중앙값을 만들지 않고 상·하한으로 갈랐다(브리프 451·76). 등급 불일치 사유는 고상선 행과 같다."
+        },
+        {
+          "key": "chemical.composition",
+          "value_text": "Sn 3.0Ag 0.5Cu (wt%) — 페이스트 내 솔더 분말 합금 (KOKI 'S3X' 합금코드 = SAC305 조성)",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {"component": "solder alloy powder", "basis": "wt%", "vendor_sheet_grade": "S3X70-M500C / S3X70-M500D"},
+          "notes": "KOKI S3X70-M500C/D 브로슈어의 제품명 병기 'S3X70-M500C  Sn 3.0Ag 0.5Cu' 및 製品物性表 '合金組成(%) Sn 3.0Ag 0.5Cu'. 분말 등급코드 S3X70 이 같으므로 조성은 이전 가능하다. 플럭스 등급(M500 대 M500C/D)이 달라 tier2."
+        }
+      ]
+    }
+  ]
+}

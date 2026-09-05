@@ -1,0 +1,587 @@
+{
+ "batch": "ED-3 43차 · 하드페라이트 확성기 등급(Eclipse 페라이트 데이터시트)",
+ "materials": [
+  {
+   "new_material": {
+    "name": "Hard Ferrite Magnet C8 / C8A (Sr Ferrite, = Y30H-1 / Feroba3)",
+    "category": "ceramic",
+    "attributes": {
+     "role": "product",
+     "subsystem": "speaker",
+     "material_class": "sintered anisotropic strontium hard ferrite (SrO·6Fe2O3), grade C8/C8A = Y30H-1",
+     "process": "sintered",
+     "manufacturer": "Eclipse Magnetics",
+     "role_reason": "벤더가 이 등급을 확성기용으로 지정한다 — verbatim `C8 / Y30H-1 is a better choice for applications such as loudspeakers`. Y30(재료 424)·Y35(재료 425)와 다른 등급이다",
+     "role_confidence": "high"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "manufacturer": "Eclipse Magnetics",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "local_path": null
+   },
+   "properties": [
+    {
+     "key": "magnetic.remanence",
+     "value": 0.385,
+     "unit": "T",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "C8 / C8A (American standard)",
+      "temperature_C": 20,
+      "value_type": "typical",
+      "direction": "along the orientation (easy) axis",
+      "standard": "American standard designation"
+     },
+     "notes": "`American Standard ... Typical Values` 표 `C8 / C8A` 행 Br = 385 mT. 중국규격 대응 등급은 Y30H-1(같은 문서의 Quick Cross Reference Guide verbatim — `C8/C8A = Feroba3 = Fer3 = Y30H−1`). BHmax 물리 상한 검산(브리프 431) — 미국 규격표 7개 등급 전부 인쇄 BHmax <= Br²/(4·mu0) 를 만족한다(C8: 27.8 <= 29.5 · C8B: 32.8 <= 35.1 · C10: 30.04 <= 31.8 · C5: 27.0 <= 28.7 kJ/m³). HcJ >= HcB 도 전 행에서 성립한다. **BHmax 자체는 카탈로그에 키가 없어 넣지 못했다.**"
+    },
+    {
+     "key": "magnetic.coercivity",
+     "value": 235000.0,
+     "unit": "A/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "C8 / C8A (American standard)",
+      "temperature_C": 20,
+      "value_type": "typical",
+      "quantity": "HcB (normal coercivity)",
+      "direction": "along the orientation (easy) axis"
+     },
+     "notes": "미국규격표 C8/C8A 행 `Hc (Hcb)` = 235 kA/m (2.95 kOe). 단위 왕복검산 — 235 kA/m ÷ 79.577 = 2.953 kOe 로 같은 행의 kOe 열과 맞는다."
+    },
+    {
+     "key": "magnetic.coercivity",
+     "value": 242000.0,
+     "unit": "A/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "C8 / C8A (American standard)",
+      "temperature_C": 20,
+      "value_type": "typical",
+      "quantity": "HcJ (intrinsic coercivity)",
+      "direction": "along the orientation (easy) axis"
+     },
+     "notes": "미국규격표 C8/C8A 행 `Hci (Hcj)` = 242 kA/m (3.05 kOe). 왕복검산 242/79.577 = 3.041 kOe."
+    },
+    {
+     "key": "magnetic.remanence",
+     "value": 0.38,
+     "unit": "T",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "Y30H-1 (Chinese standard)",
+      "temperature_C": 20,
+      "bound": "lower — 원문은 `380-400 mT` 구간",
+      "direction": "along the orientation (easy) axis"
+     },
+     "notes": "중국규격표 `Y30H-1` 행 Br 구간 380-400 mT 의 하한. 미국규격 C8 typ 385 mT 가 이 구간 안에 있어 두 표의 등급 대응이 닫힌다."
+    },
+    {
+     "key": "magnetic.remanence",
+     "value": 0.4,
+     "unit": "T",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "Y30H-1 (Chinese standard)",
+      "temperature_C": 20,
+      "bound": "upper — 원문은 `380-400 mT` 구간",
+      "direction": "along the orientation (easy) axis"
+     },
+     "notes": "중국규격표 Y30H-1 행 Br 구간의 상한. 중앙값은 만들지 않았다(브리프 451)."
+    },
+    {
+     "key": "magnetic.coercivity",
+     "value": 230000.0,
+     "unit": "A/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "Y30H-1 (Chinese standard)",
+      "temperature_C": 20,
+      "quantity": "HcB (normal coercivity)",
+      "bound": "lower — 원문은 `230-275 kA/m` 구간",
+      "direction": "along the orientation (easy) axis"
+     },
+     "notes": "중국규격표 Y30H-1 행 Hc(Hcb) 구간의 하한. 미국규격 C8 typ 235 kA/m 가 구간 안이다."
+    },
+    {
+     "key": "magnetic.coercivity",
+     "value": 275000.0,
+     "unit": "A/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "Y30H-1 (Chinese standard)",
+      "temperature_C": 20,
+      "quantity": "HcB (normal coercivity)",
+      "bound": "upper — 원문은 `230-275 kA/m` 구간",
+      "direction": "along the orientation (easy) axis"
+     },
+     "notes": "중국규격표 Y30H-1 행 Hc(Hcb) 구간의 상한."
+    },
+    {
+     "key": "magnetic.coercivity",
+     "value": 235000.0,
+     "unit": "A/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "Y30H-1 (Chinese standard)",
+      "temperature_C": 20,
+      "quantity": "HcJ (intrinsic coercivity)",
+      "bound": "lower — 원문은 `235-290 kA/m` 구간",
+      "direction": "along the orientation (easy) axis"
+     },
+     "notes": "중국규격표 Y30H-1 행 Hci(Hcj) 구간의 하한. 미국규격 C8 typ 242 kA/m 가 구간 안이다."
+    },
+    {
+     "key": "magnetic.coercivity",
+     "value": 290000.0,
+     "unit": "A/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "Y30H-1 (Chinese standard)",
+      "temperature_C": 20,
+      "quantity": "HcJ (intrinsic coercivity)",
+      "bound": "upper — 원문은 `235-290 kA/m` 구간",
+      "direction": "along the orientation (easy) axis"
+     },
+     "notes": "중국규격표 Y30H-1 행 Hci(Hcj) 구간의 상한."
+    },
+    {
+     "key": "magnetic.curie_temp",
+     "value": 723.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "C8 / C8A (= Y30H-1)",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Curie Temperature Tc °C 450`. `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    },
+    {
+     "key": "physical.density",
+     "value": 4900.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "C8 / C8A (= Y30H-1)",
+      "bound": "lower — 원문은 `4.9 to 5.1 g/cc` 구간이다",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Density D g/cc 4.9 to 5.1`. `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 180000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "C8 / C8A (= Y30H-1)",
+      "direction": "not stated in source (bulk)",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Modulus of Elasticity λ/E Pa 1.8x10¹¹`. `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "C8 / C8A (= Y30H-1)",
+      "direction": "not stated in source (bulk)",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Poisson's Ratio ν 0.28`. `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 34000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "C8 / C8A (= Y30H-1)",
+      "direction": "not stated in source (bulk)",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Tensile Strength σUTS 34x10⁶ Pa`. **소결 페라이트는 취성이라 항복이 없다** — 표에 인장·굽힘·압축만 있다. `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 62000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "C8 / C8A (= Y30H-1)",
+      "direction": "not stated in source (bulk)",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Flexural Strength σ 62x10⁶ Pa`. `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 100.0,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "C8 / C8A (= Y30H-1)",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Electrical Resistivity ρ μΩ.cm 1x10¹⁰` → 1e10 µΩ·cm = 1e4 Ω·cm = 100 Ω·m. `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.5e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "C8 / C8A (= Y30H-1)",
+      "direction": "parallel to orientation (C∥)",
+      "regime": "unspecified",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Coefficient of Thermal Expansion C∥ 10⁻⁶/°C 15`. `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "C8 / C8A (= Y30H-1)",
+      "direction": "perpendicular to orientation (C⊥)",
+      "regime": "unspecified",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `C⊥ 10⁻⁶/°C 10`. 이방성이 1.5 배다 — 방향 없이 쓰면 안 된다. `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    },
+    {
+     "key": "physical.density",
+     "value": 5100.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "C8 / C8A (= Y30H-1)",
+      "bound": "upper — 원문은 `4.9 to 5.1 g/cc` 구간이다",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Density D g/cc 4.9 to 5.1`. 하한 4.9 는 이미 DB 에 있어 **상한만 추가**했다 — 구간의 중앙값은 만들지 않는다(브리프 76·451). 물리 검산: SrFe12O19 이론밀도 5.10 g/cm³ 와 상한이 일치한다. `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 795.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "C8 / C8A (= Y30H-1)",
+      "bound": "lower — 원문은 `795−855 J/kg°C` 구간이다",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Specific Heat Capacity c J/kg°C 795−855`. 구간을 상·하한 두 행으로 갈랐다(브리프 76). `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 855.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "C8 / C8A (= Y30H-1)",
+      "bound": "upper — 원문은 `795−855 J/kg°C` 구간이다",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Specific Heat Capacity c J/kg°C 795−855`. `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 2.9,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "C8 / C8A (= Y30H-1)",
+      "direction": "not stated in source",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Thermal Conductivity k W/cm°C 0.029` → 0.029 W/(cm·K) × 100 = 2.9 W/(m·K). `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    },
+    {
+     "key": "mechanical.hardness_vickers",
+     "value": 400.0,
+     "unit": "HV",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "C8 / C8A (= Y30H-1)",
+      "bound": "lower — 원문은 `400 to 700 D.P.N` 구간이다",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Vickers Hardness Hv D.P.N 400 to 700`(시험하중 미인쇄). `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    },
+    {
+     "key": "mechanical.hardness_vickers",
+     "value": 700.0,
+     "unit": "HV",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "C8 / C8A (= Y30H-1)",
+      "bound": "upper — 원문은 `400 to 700 D.P.N` 구간이다",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Vickers Hardness Hv D.P.N 400 to 700`. `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y30 (Sr Ferrite)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "manufacturer": "Eclipse Magnetics",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "local_path": null
+   },
+   "properties": [
+    {
+     "key": "magnetic.remanence",
+     "value": 0.38,
+     "unit": "T",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "C5 (American standard designation of Y30)",
+      "temperature_C": 20,
+      "value_type": "typical",
+      "direction": "along the orientation (easy) axis"
+     },
+     "notes": "같은 문서의 **미국규격표**(단일 typical 값) `C5` 행 Br = 380 mT. Quick Cross Reference verbatim — `C5 = Feroba2 = Fer2 = Y30 = HF26/18`. DB 의 기존 Y30 값 370 mT 는 **중국규격표 구간(370-400 mT)의 하한**이고, 이 380 mT 는 미국규격 대표값이다 — 같은 등급의 다른 규격 인쇄값이라 별개 행으로 둔다."
+    },
+    {
+     "key": "magnetic.coercivity",
+     "value": 191000.0,
+     "unit": "A/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "C5 (American standard designation of Y30)",
+      "temperature_C": 20,
+      "value_type": "typical",
+      "quantity": "HcB (normal coercivity)",
+      "direction": "along the orientation (easy) axis"
+     },
+     "notes": "미국규격표 C5 행 Hc(Hcb) = 191 kA/m (2.40 kOe). 중국규격 Y30 구간 175-210 kA/m 안이다. 왕복검산 191/79.577 = 2.400 kOe."
+    },
+    {
+     "key": "magnetic.coercivity",
+     "value": 199000.0,
+     "unit": "A/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "grade": "C5 (American standard designation of Y30)",
+      "temperature_C": 20,
+      "value_type": "typical",
+      "quantity": "HcJ (intrinsic coercivity)",
+      "direction": "along the orientation (easy) axis"
+     },
+     "notes": "미국규격표 C5 행 Hci(Hcj) = 199 kA/m (2.50 kOe). 중국규격 Y30 구간 180-220 kA/m 안이다."
+    },
+    {
+     "key": "physical.density",
+     "value": 5100.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "Y30 (= C5)",
+      "bound": "upper — 원문은 `4.9 to 5.1 g/cc` 구간이다",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Density D g/cc 4.9 to 5.1`. 하한 4.9 는 이미 DB 에 있어 **상한만 추가**했다 — 구간의 중앙값은 만들지 않는다(브리프 76·451). 물리 검산: SrFe12O19 이론밀도 5.10 g/cm³ 와 상한이 일치한다. `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 795.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "Y30 (= C5)",
+      "bound": "lower — 원문은 `795−855 J/kg°C` 구간이다",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Specific Heat Capacity c J/kg°C 795−855`. 구간을 상·하한 두 행으로 갈랐다(브리프 76). `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 855.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "Y30 (= C5)",
+      "bound": "upper — 원문은 `795−855 J/kg°C` 구간이다",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Specific Heat Capacity c J/kg°C 795−855`. `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 2.9,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "Y30 (= C5)",
+      "direction": "not stated in source",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Thermal Conductivity k W/cm°C 0.029` → 0.029 W/(cm·K) × 100 = 2.9 W/(m·K). `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    },
+    {
+     "key": "mechanical.hardness_vickers",
+     "value": 400.0,
+     "unit": "HV",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "Y30 (= C5)",
+      "bound": "lower — 원문은 `400 to 700 D.P.N` 구간이다",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Vickers Hardness Hv D.P.N 400 to 700`(시험하중 미인쇄). `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    },
+    {
+     "key": "mechanical.hardness_vickers",
+     "value": 700.0,
+     "unit": "HV",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "Y30 (= C5)",
+      "bound": "upper — 원문은 `400 to 700 D.P.N` 구간이다",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Vickers Hardness Hv D.P.N 400 to 700`. `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y35 (Sr Ferrite)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "manufacturer": "Eclipse Magnetics",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "local_path": null
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 5100.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "Y35",
+      "bound": "upper — 원문은 `4.9 to 5.1 g/cc` 구간이다",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Density D g/cc 4.9 to 5.1`. 하한 4.9 는 이미 DB 에 있어 **상한만 추가**했다 — 구간의 중앙값은 만들지 않는다(브리프 76·451). 물리 검산: SrFe12O19 이론밀도 5.10 g/cm³ 와 상한이 일치한다. `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 795.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "Y35",
+      "bound": "lower — 원문은 `795−855 J/kg°C` 구간이다",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Specific Heat Capacity c J/kg°C 795−855`. 구간을 상·하한 두 행으로 갈랐다(브리프 76). `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 855.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "Y35",
+      "bound": "upper — 원문은 `795−855 J/kg°C` 구간이다",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Specific Heat Capacity c J/kg°C 795−855`. `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 2.9,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "Y35",
+      "direction": "not stated in source",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Thermal Conductivity k W/cm°C 0.029` → 0.029 W/(cm·K) × 100 = 2.9 W/(m·K). `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    },
+    {
+     "key": "mechanical.hardness_vickers",
+     "value": 400.0,
+     "unit": "HV",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "Y35",
+      "bound": "lower — 원문은 `400 to 700 D.P.N` 구간이다",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Vickers Hardness Hv D.P.N 400 to 700`(시험하중 미인쇄). `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    },
+    {
+     "key": "mechanical.hardness_vickers",
+     "value": 700.0,
+     "unit": "HV",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "grade": "Y35",
+      "bound": "upper — 원문은 `400 to 700 D.P.N` 구간이다",
+      "grade_scope": "class value — sintered hard ferrite, not grade-specific"
+     },
+     "notes": "원문 verbatim `Vickers Hardness Hv D.P.N 400 to 700`. `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다. 같은 표의 압축강도는 넣지 않았다: 한 표 안에서 `680−720 N/mm²` 와 `895x10⁶ Pa` 두 값이 모순이라 양쪽을 다 버렸다(브리프 25)."
+    }
+   ]
+  }
+ ]
+}

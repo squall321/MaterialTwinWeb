@@ -1,0 +1,389 @@
+{
+  "batch": "ED-1 43차 · 배터리 기계물성(코퍼스)",
+  "materials": [
+    {
+      "match_name": "PE/PP Separator",
+      "source": {
+        "kind": "journal",
+        "title": "A lithium-ion battery separator prepared using a phase inversion process",
+        "doi": "10.1016/j.jpowsour.2012.05.019",
+        "url": "https://doi.org/10.1016/j.jpowsour.2012.05.019",
+        "authors": "Xiaosong Huang",
+        "year": 2012,
+        "local_path": "/data/paper_patent_corpus/structured/materials_papers/bat_separator/Huang - 2012 - A lithium-ion battery separator prepared using a phase inversion process/Huang - 2012 - A lithium-ion battery separator prepared using a phase inversion process.md"
+      },
+      "properties": [
+        {
+          "key": "mechanical.tensile_strength",
+          "value": 175400000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "grade": "Celgard 2400 (commercial PP monolayer separator, baseline sample)",
+            "direction": "MD (machine direction)",
+            "thickness_um": 25,
+            "porosity": "~40% (원문 표기 'w 40' = approx 40)",
+            "definition": "tensile strength at break",
+            "test_method": "Instron 5582, ASTM D882-09, crosshead 10 mm/min",
+            "temperature": "not stated in source (room temperature test)"
+          },
+          "notes": "Table 2 마지막 행 'Polypropylene separator' 의 파단인장강도. 원문 verbatim `175.4 ± 5.9 MPa (MD)a`, 각주 a=Machine direction(PDF pdftotext 로 확인, md 에서는 각주가 소실). 산포 ±5.9 MPa. 저자 자신의 실측이다 — 2.2절이 Instron 5582/ASTM D882-09 를 밝히고 ± SD 가 붙는다(브리프 197). 벤더 TDS 의 typical 139.25 MPa 와 다른 독립 측정이라 계보가 갈린다(브리프 456). MD/TD 비 175.4/12.6 = 13.9 배 — 건식연신 PP 막의 이방성과 일치."
+        },
+        {
+          "key": "mechanical.tensile_strength",
+          "value": 12600000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "grade": "Celgard 2400 (commercial PP monolayer separator, baseline sample)",
+            "direction": "TD (transverse direction)",
+            "thickness_um": 25,
+            "porosity": "~40% (원문 표기 'w 40' = approx 40)",
+            "definition": "tensile strength at break",
+            "test_method": "Instron 5582, ASTM D882-09, crosshead 10 mm/min",
+            "temperature": "not stated in source (room temperature test)"
+          },
+          "notes": "Table 2 'Polypropylene separator' 행. 원문 verbatim `12.6 MPa ± 2.6 (TD)b`, 각주 b=Transverse direction(PDF 로 확인). 산포 ±2.6 MPa. md 추출에서 ± 가 \\x06 으로 바뀌어 있었다(브리프 9 문자대응표에 없던 새 형태 — PDF 로 복원). 같은 시편의 MD 값 175.4 MPa 와 한 쌍이다."
+        }
+      ]
+    },
+    {
+      "new_material": {
+        "name": "Li-ion graphite composite anode electrode (12 um Cu foil + graphite coating, 200 um total, 18650 NCA cell)",
+        "category": "composite",
+        "attributes": {
+          "role": "product",
+          "subsystem": "battery",
+          "material_class": "coated composite electrode (current collector + active-material lamina)",
+          "role_reason": "상용 18650 셀에서 분해해 낸 실부품 전극. 활물질 분말이 아니라 집전체+합제층 적층 그 자체다(브리프 160)",
+          "role_confidence": "high",
+          "manufacturer": "not disclosed (commercial 18650 NCA cell)"
+        }
+      },
+      "source": {
+        "kind": "journal",
+        "title": "Mechanical characterization and modeling for anodes and cathodes in lithium-ion batteries",
+        "doi": "10.1016/j.jpowsour.2018.05.007",
+        "url": "https://doi.org/10.1016/j.jpowsour.2018.05.007",
+        "authors": "Lubing Wang, Sha Yin, Chao Zhang, Yong Huan, Jun Xu",
+        "year": 2018,
+        "local_path": "/data/paper_patent_corpus/structured/snowball_papers/from_cae/Wang - 2018 - Mechanical characterization and modeling for anodes and cathodes in lithium-ion batteries/Wang - 2018 - Mechanical characterization and modeling for anodes and cathodes in lithium-ion batteries.md"
+      },
+      "properties": [
+        {
+          "key": "mechanical.yield_strength",
+          "value": 7700000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "state_of_charge": 0.0,
+            "strain_rate_s": 5e-05,
+            "direction": "0 deg (axial) and 90 deg (rolling) — 원문이 두 방향에 차이 없음을 명시",
+            "loading": "uniaxial tension, one electrode layer per test",
+            "definition": "0.2% offset yield stress, engineering stress on the FULL electrode cross-section (200 um: 12 um Cu foil + graphite coating both sides)",
+            "test_method": "Instron E1000, 200 N load cell, 3 repeats minimum",
+            "temperature": "not stated in source"
+          },
+          "notes": "3절 verbatim — `the effective modulus E = 3.64 GPa, σy = 7.7 MPa, σf = 8.3 MPa and εf = 0.026`. **전극 전체 단면 기준 공칭응력**이다(2.1절: 음극 총두께 200 um, Cu 박 12 um). 같은 논문의 탄성계수는 넣지 않았다 — 저자가 잰 Cu 박 '유효 탄성계수' 가 30·50 GPa 로 주지값 110~130 GPa 의 1/4~1/2 이라(브리프 10·443 아는 값 대조) 크로스헤드 컴플라이언스에 눌린 값이다. 강도는 컴플라이언스와 무관해 그대로 쓴다."
+        },
+        {
+          "key": "mechanical.tensile_strength",
+          "value": 8300000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "state_of_charge": 0.0,
+            "strain_rate_s": 5e-05,
+            "direction": "0 deg (axial) and 90 deg (rolling) — 원문이 두 방향에 차이 없음을 명시",
+            "loading": "uniaxial tension, one electrode layer per test",
+            "definition": "failure stress sigma_f; SOC=0 에서는 이상 탄소성 거동이라 최대응력 = 파단응력이다",
+            "basis": "engineering stress on the FULL electrode cross-section (200 um)",
+            "test_method": "Instron E1000, 200 N load cell, 3 repeats minimum",
+            "temperature": "not stated in source"
+          },
+          "notes": "3절 verbatim `σf = 8.3 MPa`. SOC=0 은 `ideal elastic-plastic` 이라 σf 가 곧 최대응력이다. 전극 전체 단면(200 um) 기준."
+        },
+        {
+          "key": "mechanical.elongation_at_break",
+          "value": 0.026,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "state_of_charge": 0.0,
+            "strain_rate_s": 5e-05,
+            "direction": "0 deg (axial) and 90 deg (rolling)",
+            "loading": "uniaxial tension",
+            "definition": "failure strain epsilon_f (onset of failure)",
+            "temperature": "not stated in source"
+          },
+          "notes": "3절 verbatim `εf = 0.026`. 크로스헤드 기준이라 기계 컴플라이언스가 조금 섞인다 — 같은 논문의 Cu 박 탄성계수가 주지값의 1/4~1/2 인 것이 그 증거다. 다만 2.6% 는 탄성변형(<0.3%)보다 훨씬 커서 영향이 작다."
+        },
+        {
+          "key": "mechanical.yield_strength",
+          "value": 10800000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "state_of_charge": 0.1,
+            "strain_rate_s": 5e-05,
+            "loading": "uniaxial tension",
+            "definition": "0.2% offset yield stress; SOC=0.1 곡선은 탄성-소성-연화-파단 4구간이라 항복응력이 파단응력보다 크다",
+            "basis": "engineering stress on the FULL electrode cross-section (200 um)",
+            "test_method": "Instron E1000",
+            "direction": "not stated for the SOC series (SOC 시험은 0·90 도 양쪽을 쟀으나 인쇄된 수치의 방향이 특정되지 않았다)",
+            "temperature": "not stated in source"
+          },
+          "notes": "3절 verbatim — `The corresponding σy and σf at SOC = 0.1 are 10.8 MPa and 9 MPa respectively`. SOC 0 → 0.1 에서 항복이 7.7 → 10.8 MPa 로 40% 오른다(리튬 삽입 취화). **항복 > 파단인 것은 오류가 아니라 연화구간 때문이다** — 원문이 `elastic, plastic, softening and failure phases` 라고 명시한다. 무결성 점검의 '항복>인장' 주의목록에 이 재료가 뜰 수 있으나 물리적으로 정당하다."
+        },
+        {
+          "key": "mechanical.tensile_strength",
+          "value": 9000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "state_of_charge": 0.1,
+            "strain_rate_s": 5e-05,
+            "loading": "uniaxial tension",
+            "definition": "failure stress sigma_f AFTER the softening phase — NOT the maximum stress (최대응력은 항복응력 10.8 MPa 쪽이다)",
+            "basis": "engineering stress on the FULL electrode cross-section (200 um)",
+            "direction": "not stated for the SOC series",
+            "temperature": "not stated in source"
+          },
+          "notes": "3절 verbatim `σy and σf at SOC = 0.1 are 10.8 MPa and 9 MPa`. SOC=0 의 σf 8.3 MPa 보다 크다. **이 값은 UTS 가 아니라 연화 후 파단응력**이라 조건에 정의를 박았다."
+        },
+        {
+          "key": "mechanical.elongation_at_break",
+          "value": 0.01,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "state_of_charge": 0.1,
+            "strain_rate_s": 5e-05,
+            "loading": "uniaxial tension",
+            "definition": "failure strain epsilon_f",
+            "direction": "not stated for the SOC series",
+            "temperature": "not stated in source"
+          },
+          "notes": "3절 verbatim `while εf = 0.01, is 67% smaller than that in SOC = 0`. 검산 — 0.026 × (1-0.67) = 0.0086 ≈ 0.01 로 저자가 인쇄한 감소율과 맞는다(브리프 35 표 검산)."
+        }
+      ]
+    },
+    {
+      "new_material": {
+        "name": "Li-ion NCA composite cathode electrode (8.5 um Al foil + NCA coating, 170 um total, 18650 cell)",
+        "category": "composite",
+        "attributes": {
+          "role": "product",
+          "subsystem": "battery",
+          "material_class": "coated composite electrode (current collector + active-material lamina)",
+          "role_reason": "상용 18650 NCA 셀에서 분해해 낸 실부품 전극. 활물질 분말이 아니라 집전체+합제층 적층이다(브리프 160)",
+          "role_confidence": "high",
+          "manufacturer": "not disclosed (commercial 18650 NCA cell)"
+        }
+      },
+      "source": {
+        "kind": "journal",
+        "title": "Mechanical characterization and modeling for anodes and cathodes in lithium-ion batteries",
+        "doi": "10.1016/j.jpowsour.2018.05.007",
+        "url": "https://doi.org/10.1016/j.jpowsour.2018.05.007",
+        "authors": "Lubing Wang, Sha Yin, Chao Zhang, Yong Huan, Jun Xu",
+        "year": 2018,
+        "local_path": "/data/paper_patent_corpus/structured/snowball_papers/from_cae/Wang - 2018 - Mechanical characterization and modeling for anodes and cathodes in lithium-ion batteries/Wang - 2018 - Mechanical characterization and modeling for anodes and cathodes in lithium-ion batteries.md"
+      },
+      "properties": [
+        {
+          "key": "mechanical.elongation_at_break",
+          "value": 0.02,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "state_of_charge": 0.0,
+            "strain_rate_s": 5e-05,
+            "direction": "0 deg (axial direction of the jellyroll)",
+            "loading": "uniaxial tension, one electrode layer per test",
+            "definition": "failure strain epsilon_f",
+            "test_method": "Instron E1000, 200 N load cell, 3 repeats minimum",
+            "temperature": "not stated in source"
+          },
+          "notes": "3절 verbatim — `failure strain along 0° and 90° directions are 0.02 and 0.03`. 양극은 방향에 따라 파단변형률이 1.5 배 갈린다(음극은 안 갈린다)."
+        },
+        {
+          "key": "mechanical.elongation_at_break",
+          "value": 0.03,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "state_of_charge": 0.0,
+            "strain_rate_s": 5e-05,
+            "direction": "90 deg (rolling/winding direction)",
+            "loading": "uniaxial tension, one electrode layer per test",
+            "definition": "failure strain epsilon_f",
+            "test_method": "Instron E1000, 200 N load cell, 3 repeats minimum",
+            "temperature": "not stated in source"
+          },
+          "notes": "3절 verbatim `failure strain along 0° and 90° directions are 0.02 and 0.03`. 0 도 값 0.02 와 한 쌍이다."
+        },
+        {
+          "key": "mechanical.yield_strength",
+          "value": 5500000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "state_of_charge": 0.0,
+            "strain_rate_s": 5e-05,
+            "direction": "0 deg and 90 deg (원문이 항복·파단응력은 방향차가 없다고 밝힌다)",
+            "loading": "uniaxial tension",
+            "definition": "0.2% offset yield stress on the FULL electrode cross-section (170 um: 8.5 um Al foil + NCA coating both sides)",
+            "test_method": "Instron E1000",
+            "temperature": "not stated in source"
+          },
+          "notes": "3절 verbatim `Note that the yield and failure stress are almost the same, i.e. σy = 5.5 MPa and σf = 6.4 MPa.` **귀속 확정 근거** — 이 문장이 알루미늄박 서술 바로 뒤에 와서 양극이냐 Al 박이냐가 모호하다. 물리로 갈랐다(브리프 431): 연질 Al 박(1235-O/H18, 8.5 um)의 항복은 아무리 낮아도 30 MPa 이상이라 5.5 MPa 일 수 없다. 반대로 양극 전체 단면 기준이면 Al 박 면적비 8.5/170 = 5% × 박 강도 약 100~130 MPa = 5~6.5 MPa 로 인쇄값과 맞는다. 따라서 양극 전극 값이다."
+        },
+        {
+          "key": "mechanical.tensile_strength",
+          "value": 6400000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "state_of_charge": 0.0,
+            "strain_rate_s": 5e-05,
+            "direction": "0 deg and 90 deg (원문이 항복·파단응력은 방향차가 없다고 밝힌다)",
+            "loading": "uniaxial tension",
+            "definition": "failure stress sigma_f on the FULL electrode cross-section (170 um)",
+            "test_method": "Instron E1000",
+            "temperature": "not stated in source"
+          },
+          "notes": "3절 verbatim `σy = 5.5 MPa and σf = 6.4 MPa`. 귀속 근거는 같은 논문의 항복강도 행 notes 참조(Al 박 단독으로는 물리적으로 불가능한 크기라 양극 전극 값으로 확정). 양극은 SOC 의존성이 없다고 원문이 명시한다 — `Cathode is SOC independent`."
+        }
+      ]
+    },
+    {
+      "match_name": "Battery Cu Current Collector Foil",
+      "source": {
+        "kind": "journal",
+        "title": "Rolled electrodeposited copper foil with modified surface morphology as anode current collector for high performance lithium-ion batteries",
+        "doi": "10.1016/j.surfcoat.2021.126881",
+        "url": "https://doi.org/10.1016/j.surfcoat.2021.126881",
+        "authors": "Jingqi Chen, Xiaogong Wang, Haitao Gao, Shu Yan, Shoudong Chen, Xianghua Liu, Xianlei Hu",
+        "year": 2021,
+        "local_path": "/data/paper_patent_corpus/structured/materials_papers/pkg_copper_foil/Chen - 2021 - Rolled electrodeposited copper foil with modified surface morphology as anode current collector for high performance lithium-ion batteri/Chen - 2021 - Rolled electrodeposited copper foil with modified surface morphology as anode current collector for high performance lithium-ion batteri.md"
+      },
+      "properties": [
+        {
+          "key": "mechanical.tensile_strength",
+          "value": 457000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "sample_label": "R10",
+            "process": "rolled (RA-type) Cu foil",
+            "thickness_um": 10,
+            "loading": "uniaxial tension, gauge length 10 mm x width 5 mm (EDM cut), 0.5 mm/min, 5 specimens",
+            "temperature": "room temperature (원문 미인쇄)"
+          },
+          "notes": "3.2절 verbatim — `The tensile strength of R10, ED10, ED6 and RE6 copper foil are 457, 381, 293 and 503 MPa`. 같은 문장의 ED6 293 MPa 는 이미 DB 에 있다(출처 471, 1행) — 기채굴 조회로 확인하고 중복을 피했다(브리프 410)."
+        },
+        {
+          "key": "mechanical.tensile_strength",
+          "value": 381000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "sample_label": "ED10",
+            "process": "electrodeposited (ED) Cu foil",
+            "thickness_um": 10,
+            "loading": "uniaxial tension, gauge length 10 mm x width 5 mm (EDM cut), 0.5 mm/min, 5 specimens",
+            "temperature": "room temperature (원문 미인쇄)"
+          },
+          "notes": "3.2절 verbatim. 두께 의존이 같은 논문 안에서 닫힌다 — ED10 381 MPa > ED6 293 MPa 이고 원문이 `the thinner electrodeposited copper foil is easier to form pinhole defects ... resulting in a decrease in strength` 로 방향을 밝힌다."
+        },
+        {
+          "key": "mechanical.elongation_at_break",
+          "value": 0.021,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "sample_label": "R10",
+            "process": "rolled (RA-type) Cu foil",
+            "thickness_um": 10,
+            "loading": "uniaxial tension, 0.5 mm/min, 5 specimens",
+            "temperature": "room temperature (원문 미인쇄)"
+          },
+          "notes": "3.2절 verbatim — `The elongation of R10, ED10, ED6 and RE6 copper foils are 0.021, 0.36, 0.034 and 0.027`. **ED10 의 0.36 칸은 버렸다** — ED6 0.034 · RE6 0.027 · R10 0.021 사이에서 혼자 10 배라 오식이다(0.036 의 자리누락으로 보이나 우리가 고칠 수 없다, 브리프 141·443)."
+        },
+        {
+          "key": "mechanical.elongation_at_break",
+          "value": 0.034,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "sample_label": "ED6",
+            "process": "electrodeposited (ED) Cu foil",
+            "thickness_um": 6,
+            "loading": "uniaxial tension, 0.5 mm/min, 5 specimens",
+            "temperature": "room temperature (원문 미인쇄)"
+          },
+          "notes": "3.2절 verbatim. 같은 논문의 인장강도 293 MPa(ED6)와 한 시편이다(그 강도값은 이미 DB 에 있다)."
+        },
+        {
+          "key": "surface.roughness_ra",
+          "value": 9.5e-07,
+          "unit": "m",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "sample_label": "R10",
+            "process": "rolled (RA-type) Cu foil",
+            "thickness_um": 10,
+            "test_method": "confocal laser scanning microscopy (OLYMPUS LEXT OLS4000)"
+          },
+          "notes": "3.1절 verbatim — `The surface roughness of R10, ED10, ED6 and RE6 copper foil current collectors are 0.95, 0.56, 0.22 and 1.80 μm`. 집전체 조도는 합제층 밀착력을 정하는 축이다(같은 논문이 조도↑ → 박리강도↑ 를 보인다)."
+        },
+        {
+          "key": "surface.roughness_ra",
+          "value": 5.6e-07,
+          "unit": "m",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "sample_label": "ED10",
+            "process": "electrodeposited (ED) Cu foil",
+            "thickness_um": 10,
+            "test_method": "confocal laser scanning microscopy (OLYMPUS LEXT OLS4000)"
+          },
+          "notes": "3.1절 verbatim (위 R10 행과 같은 문장)."
+        },
+        {
+          "key": "surface.roughness_ra",
+          "value": 2.2e-07,
+          "unit": "m",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "sample_label": "ED6",
+            "process": "electrodeposited (ED) Cu foil",
+            "thickness_um": 6,
+            "test_method": "confocal laser scanning microscopy (OLYMPUS LEXT OLS4000)"
+          },
+          "notes": "3.1절 verbatim. 초록도 같은 값을 인쇄한다 — `the traditional electrodeposited copper foil (Ra = 0.22 μm) when the thickness is 6 μm` (브리프 164 초록이 표 배정을 확정한다)."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,259 @@
+{
+ "batch": "ED-4 43차 · 전극 합제층·집전체 기하(Liebig 2019 실측)",
+ "materials": [
+  {
+   "new_material": {
+    "name": "Li-ion graphite anode coating layer, detached from Cu foil (40 Ah NMC/graphite pouch cell)",
+    "category": "composite",
+    "attributes": {
+     "role": "product",
+     "subsystem": "battery",
+     "material_class": "calendered graphite composite electrode coating (active material + binder + conductive carbon), current collector removed",
+     "role_reason": "상용 40 Ah NMC/흑연 셀을 글로브박스에서 분해해 집전체에서 떼어 낸 합제층 그 자체다. 활물질 분말(재료 100)과도, 집전체 포함 전극(재료 2524)과도 다른 물리적 대상이다(브리프 160)",
+     "role_confidence": "high"
+    }
+   },
+   "source": {
+    "kind": "journal",
+    "title": "Parameterization and Validation of an Electrochemical Thermal Model of a Lithium-Ion Battery",
+    "doi": "10.3390/batteries5030062",
+    "url": "https://doi.org/10.3390/batteries5030062",
+    "authors": "Gerd Liebig, Gaurav Gupta, Ulf Kirstein, Frank Schuldt, Carsten Agert",
+    "year": 2019,
+    "local_path": "/data/paper_patent_corpus/structured/cae_papers/25_battery_electrochem_thermal/Liebig - 2019 - Parameterization and Validation of an Electrochemical Thermal Model of a Lithium-Ion Battery/Liebig - 2019 - Parameterization and Validation of an Electrochemical Thermal Model of a Lithium-Ion Battery.md"
+   },
+   "properties": [
+    {
+     "key": "physical.porosity",
+     "value": 0.3079,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "form": "calendered composite anode coating, detached from the copper foil",
+      "cell": "commercial 40 Ah NMC/graphite pouch cell, 144 Wh at 1/3 C",
+      "test_method": "X-ray micro-computed tomography (µ-CT, SkyScan 1172 Bruker, 80 kV), 1 µm/pixel, ROI 500 µm × 500 µm, morphometric analysis (CTAn)",
+      "state_of_charge": "not stated in source (셀은 완전방전 후 글로브박스에서 분해)"
+     },
+     "notes": "Table 3 `Porosity l (%) 30.79 *3`. Table 3 각주 verbatim — `*1 measured with µm-screw; *2 A = #2hw, active surface area; *3 measured with µ-CT; *4 measured with n-CT`(PDF 로 확인, md 에서는 각주가 소실). µ-CT SkyScan 1172 / n-CT SkyScan 2011 (Bruker), 80 kV / 40 kV. 캘린더링된 합제층의 **전극 수준 공극률**이지 입자 내부 공극이 아니다."
+    },
+    {
+     "key": "structure.particle_diameter",
+     "value": 9.89e-06,
+     "unit": "m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "form": "calendered composite anode coating, detached from the copper foil",
+      "definition": "particle size r, mean ± SD = 9.89 ± 3.31 um",
+      "test_method": "µ-CT (SkyScan 1172 Bruker) 1 µm/pixel, confirmed by SEM (InLens detector, 20 kV)"
+     },
+     "notes": "Table 3 `Particle Size r (µm) 9.89 ± 3.31 *3`. 산포 ±3.31 µm. Table 3 각주 verbatim — `*1 measured with µm-screw; *2 A = #2hw, active surface area; *3 measured with µ-CT; *4 measured with n-CT`(PDF 로 확인, md 에서는 각주가 소실). µ-CT SkyScan 1172 / n-CT SkyScan 2011 (Bruker), 80 kV / 40 kV."
+    },
+    {
+     "key": "structure.layer_thickness",
+     "value": 4.75e-05,
+     "unit": "m",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "layer": "anode coating, one side",
+      "form": "calendered composite anode coating on Cu foil",
+      "basis": "원문 verbatim — `The coating thickness is recalculated based on the current collector thickness` (직접 측정이 아니다)"
+     },
+     "notes": "Table 3 `Coating thickness L (µm) 47.5`. **저자가 계산값이라고 밝혀 method 를 computed 로 내렸다.** 우리가 (110.0−19.01)/2 = 45.5 µm 로 되짚으면 인쇄값 47.5 와 4% 어긋난다 — 저자의 산식이 인쇄되지 않아 재현하지 못했고 인쇄값을 그대로 둔다(고쳐 쓰면 우리 값이 된다, 브리프 443). **표 산술 검산(브리프 35)** — 음극 19.01 + 2×47.5 = 114.0 µm 대 인쇄 총두께 110.0 µm(+3.6%), 양극 17.78 + 2×54.5 = 126.8 대 129.0(-1.7%). 두 전극 모두 몇 % 안에서 닫힌다(마이크로미터는 코팅을 눌러 재고 CT 는 안 누른다)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1040.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_range_C": "25-60 (mean; 원문이 이 구간에서 거의 일정하다고 밝힌다)",
+      "form": "anode coating scraped off the copper foil with a scalpel, sealed in a hermetic aluminium pan",
+      "test_method": "DSC 204 F1 Phoenix (Netzsch), 10 K/min, empty-pan baseline, sapphire standard calibration (12.73 mg, 0.25 mm, Ø4 mm)",
+      "sample_prep": "two 1-min baths in 10 mL pure DMC before measurement",
+      "state_of_charge": "not stated in source"
+     },
+     "notes": "Table 4 `Negative Electrode Coating ... 1040`. 같은 표의 **밀도 4670·2260 은 [25] 인용이라 넣지 않았다**(브리프 195 — 셀 각주가 재인용의 최강 신호다). Cp 는 3.3.3절이 DSC 실측이라 밝힌다. **아는 값 대조(브리프 443)** — 순흑연 Cp 는 25 °C 에서 약 710 J/(kg·K) 인데 이 값은 46% 높다. 합제층은 바인더·도전재를 포함하고 리튬화 상태이며 잔류 전해액이 있을 수 있어 방향이 맞다. SOC 가 인쇄되지 않았다는 것을 조건에 밝혔다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Li-ion NMC cathode coating layer, detached from Al foil (40 Ah NMC/graphite pouch cell)",
+    "category": "composite",
+    "attributes": {
+     "role": "product",
+     "subsystem": "battery",
+     "material_class": "calendered NMC composite electrode coating (active material + binder + conductive carbon), current collector removed",
+     "role_reason": "상용 40 Ah NMC/흑연 셀에서 떼어 낸 합제층. 활물질 분말(재료 99·187)과 다른 대상이다(브리프 160)",
+     "role_confidence": "high"
+    }
+   },
+   "source": {
+    "kind": "journal",
+    "title": "Parameterization and Validation of an Electrochemical Thermal Model of a Lithium-Ion Battery",
+    "doi": "10.3390/batteries5030062",
+    "url": "https://doi.org/10.3390/batteries5030062",
+    "authors": "Gerd Liebig, Gaurav Gupta, Ulf Kirstein, Frank Schuldt, Carsten Agert",
+    "year": 2019,
+    "local_path": "/data/paper_patent_corpus/structured/cae_papers/25_battery_electrochem_thermal/Liebig - 2019 - Parameterization and Validation of an Electrochemical Thermal Model of a Lithium-Ion Battery/Liebig - 2019 - Parameterization and Validation of an Electrochemical Thermal Model of a Lithium-Ion Battery.md"
+   },
+   "properties": [
+    {
+     "key": "physical.porosity",
+     "value": 0.1973,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "form": "calendered composite cathode coating, detached from the aluminium foil",
+      "cell": "commercial 40 Ah NMC/graphite pouch cell, 144 Wh at 1/3 C",
+      "test_method": "X-ray nano-computed tomography (n-CT, SkyScan 2011 Bruker, 40 kV), 0.2 µm/pixel, ROI 100 µm × 100 µm, morphometric analysis (CTAn)",
+      "state_of_charge": "not stated in source"
+     },
+     "notes": "Table 3 `Porosity l (%) 19.73 *4`. Table 3 각주 verbatim — `*1 measured with µm-screw; *2 A = #2hw, active surface area; *3 measured with µ-CT; *4 measured with n-CT`(PDF 로 확인, md 에서는 각주가 소실). µ-CT SkyScan 1172 / n-CT SkyScan 2011 (Bruker), 80 kV / 40 kV. 음극 합제층(30.79%)보다 11%p 낮다 — 양극이 더 세게 압착된다. DB 의 기존 NCM811 전극 공극률 0.25(재료 99, t1)와 같은 대역이다."
+    },
+    {
+     "key": "structure.particle_diameter",
+     "value": 1.72e-06,
+     "unit": "m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "form": "calendered composite cathode coating, detached from the aluminium foil",
+      "definition": "particle size r, mean ± SD = 1.72 ± 0.54 um",
+      "test_method": "n-CT (SkyScan 2011 Bruker) 0.2 µm/pixel, confirmed by SEM (InLens detector, 20 kV)"
+     },
+     "notes": "Table 3 `Particle Size r (µm) 1.72 ± 0.54 *4`. 산포 ±0.54 µm. n-CT 해상도 0.2 µm/pixel 이라 1.72 µm 입자를 분해할 수 있다. Table 3 각주 verbatim — `*1 measured with µm-screw; *2 A = #2hw, active surface area; *3 measured with µ-CT; *4 measured with n-CT`(PDF 로 확인, md 에서는 각주가 소실). µ-CT SkyScan 1172 / n-CT SkyScan 2011 (Bruker), 80 kV / 40 kV."
+    },
+    {
+     "key": "structure.layer_thickness",
+     "value": 5.45e-05,
+     "unit": "m",
+     "method": "computed",
+     "tier": 3,
+     "conditions": {
+      "layer": "cathode coating, one side",
+      "form": "calendered composite cathode coating on Al foil",
+      "basis": "원문 verbatim — `The coating thickness is recalculated based on the current collector thickness` (직접 측정이 아니다)"
+     },
+     "notes": "Table 3 `Coating thickness L (µm) 54.5`. 저자가 계산값이라 밝혀 computed 로 내렸다. **표 산술 검산(브리프 35)** — 음극 19.01 + 2×47.5 = 114.0 µm 대 인쇄 총두께 110.0 µm(+3.6%), 양극 17.78 + 2×54.5 = 126.8 대 129.0(-1.7%). 두 전극 모두 몇 % 안에서 닫힌다(마이크로미터는 코팅을 눌러 재고 CT 는 안 누른다)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 940.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_range_C": "25-60 (mean; 원문이 이 구간에서 거의 일정하다고 밝힌다)",
+      "form": "cathode coating scraped off the aluminium foil with a scalpel, sealed in a hermetic aluminium pan",
+      "test_method": "DSC 204 F1 Phoenix (Netzsch), 10 K/min, empty-pan baseline, sapphire standard calibration",
+      "sample_prep": "two 1-min baths in 10 mL pure DMC before measurement",
+      "state_of_charge": "not stated in source"
+     },
+     "notes": "Table 4 `Positive Electrode Coating ... 940`. 같은 표의 밀도는 [25] 인용이라 넣지 않았다(브리프 195). NMC 계열 벌크 Cp 800~900 J/(kg·K) 대역과 맞는다."
+    }
+   ]
+  },
+  {
+   "match_name": "PE/PP Separator",
+   "source": {
+    "kind": "journal",
+    "title": "Parameterization and Validation of an Electrochemical Thermal Model of a Lithium-Ion Battery",
+    "doi": "10.3390/batteries5030062",
+    "url": "https://doi.org/10.3390/batteries5030062",
+    "authors": "Gerd Liebig, Gaurav Gupta, Ulf Kirstein, Frank Schuldt, Carsten Agert",
+    "year": 2019,
+    "local_path": "/data/paper_patent_corpus/structured/cae_papers/25_battery_electrochem_thermal/Liebig - 2019 - Parameterization and Validation of an Electrochemical Thermal Model of a Lithium-Ion Battery/Liebig - 2019 - Parameterization and Validation of an Electrochemical Thermal Model of a Lithium-Ion Battery.md"
+   },
+   "properties": [
+    {
+     "key": "structure.layer_thickness",
+     "value": 2.4e-05,
+     "unit": "m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "layer": "separator sheet (total)",
+      "cell": "commercial 40 Ah NMC/graphite pouch cell",
+      "test_method": "micrometer screw, average of five points"
+     },
+     "notes": "Table 3 `Total thickness of one sheet *1 (µm) ... 24.0`, 각주 *1 = measured with µm-screw. **같은 열의 `Coating thickness 24.7 µm` 은 넣지 않았다** — 분리막은 코팅층이 총두께보다 두꺼울 수 없는데 24.7 > 24.0 이라 표 안에서 모순이다(브리프 25)."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1907.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_range_C": "25-60 (mean; 원문이 이 구간에서 거의 일정하다고 밝힌다)",
+      "form": "separator sheet from a commercial 40 Ah NMC/graphite pouch cell",
+      "test_method": "DSC 204 F1 Phoenix (Netzsch), 10 K/min, empty-pan baseline, sapphire standard calibration",
+      "sample_prep": "two 1-min baths in 10 mL pure DMC before measurement",
+      "state": "dry (전해액 세척 후)"
+     },
+     "notes": "Table 4 `Separator ... 1907`. DSC 실측이다. DB 의 기존 1600 J/(kg·K)(문헌 boxplot 중앙값)보다 19% 높고 PE 벌크 비열 약 1900 과 맞는다. 같은 표의 분리막 밀도 1009 kg/m³ 는 넣지 않았다 — 출처가 인용도 측정법도 밝히지 않아 계산값인지 실측인지 갈리지 않는다."
+    }
+   ]
+  },
+  {
+   "match_name": "Battery Cu Current Collector Foil",
+   "source": {
+    "kind": "journal",
+    "title": "Parameterization and Validation of an Electrochemical Thermal Model of a Lithium-Ion Battery",
+    "doi": "10.3390/batteries5030062",
+    "url": "https://doi.org/10.3390/batteries5030062",
+    "authors": "Gerd Liebig, Gaurav Gupta, Ulf Kirstein, Frank Schuldt, Carsten Agert",
+    "year": 2019,
+    "local_path": "/data/paper_patent_corpus/structured/cae_papers/25_battery_electrochem_thermal/Liebig - 2019 - Parameterization and Validation of an Electrochemical Thermal Model of a Lithium-Ion Battery/Liebig - 2019 - Parameterization and Validation of an Electrochemical Thermal Model of a Lithium-Ion Battery.md"
+   },
+   "properties": [
+    {
+     "key": "structure.layer_thickness",
+     "value": 1.901e-05,
+     "unit": "m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "role": "anode current collector in a commercial 40 Ah NMC/graphite pouch cell",
+      "uncertainty_um": 0.12,
+      "test_method": "X-ray micro-CT (SkyScan 1172 Bruker, 80 kV) at 1.17 µm/pixel, thickness read at >=10 points on each of the coronal and sagittal planes, averaged"
+     },
+     "notes": "Table 3 `Thickness of current collector (µm) 19.01 ± 0.12 *3`(음극 열 = Cu). Table 3 각주 verbatim — `*1 measured with µm-screw; *2 A = #2hw, active surface area; *3 measured with µ-CT; *4 measured with n-CT`(PDF 로 확인, md 에서는 각주가 소실). µ-CT SkyScan 1172 / n-CT SkyScan 2011 (Bruker), 80 kV / 40 kV. 대형 40 Ah 셀이라 스마트폰 셀(6~10 µm)보다 두껍다 — 조건에 셀 형식을 밝혔다."
+    }
+   ]
+  },
+  {
+   "match_name": "Battery Al Current Collector Foil",
+   "source": {
+    "kind": "journal",
+    "title": "Parameterization and Validation of an Electrochemical Thermal Model of a Lithium-Ion Battery",
+    "doi": "10.3390/batteries5030062",
+    "url": "https://doi.org/10.3390/batteries5030062",
+    "authors": "Gerd Liebig, Gaurav Gupta, Ulf Kirstein, Frank Schuldt, Carsten Agert",
+    "year": 2019,
+    "local_path": "/data/paper_patent_corpus/structured/cae_papers/25_battery_electrochem_thermal/Liebig - 2019 - Parameterization and Validation of an Electrochemical Thermal Model of a Lithium-Ion Battery/Liebig - 2019 - Parameterization and Validation of an Electrochemical Thermal Model of a Lithium-Ion Battery.md"
+   },
+   "properties": [
+    {
+     "key": "structure.layer_thickness",
+     "value": 1.778e-05,
+     "unit": "m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "role": "cathode current collector in a commercial 40 Ah NMC/graphite pouch cell",
+      "uncertainty_um": 1.2,
+      "test_method": "X-ray micro-CT (SkyScan 1172 Bruker, 80 kV) at 1.17 µm/pixel, thickness read at >=10 points on each of the coronal and sagittal planes, averaged"
+     },
+     "notes": "Table 3 `Thickness of current collector (µm) 17.78 ± 1.20 *3`(양극 열 = Al). Table 3 각주 verbatim — `*1 measured with µm-screw; *2 A = #2hw, active surface area; *3 measured with µ-CT; *4 measured with n-CT`(PDF 로 확인, md 에서는 각주가 소실). µ-CT SkyScan 1172 / n-CT SkyScan 2011 (Bruker), 80 kV / 40 kV. 산포가 Cu(±0.12)보다 10 배 크다."
+    }
+   ]
+  }
+ ]
+}

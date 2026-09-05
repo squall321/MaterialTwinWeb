@@ -1,0 +1,77 @@
+{
+  "materials": [
+    {
+      "match_name": "SAC107 Solder Alloy",
+      "source": {
+        "kind": "journal",
+        "doi": "10.1007/s11664-017-5374-3",
+        "title": "Influence of SnO2 Nanoparticles Addition on Microstructure, Thermal Analysis, and Interfacial IMC Growth of Sn1.0Ag0.7Cu Solder",
+        "authors": "Ren Sun, Yanwei Sui, Jiqiu Qi, Fuxiang Wei, Yezeng He, Xiao Chen, Qingkun Meng, Zhi Sun",
+        "year": 2017,
+        "publisher": "Springer (Journal of Electronic Materials)",
+        "local_path": "/data/paper_patent_corpus/structured/rel_papers/09_solder_imc_reliability/Sun - 2017 - Influence of SnO2 Nanoparticles Addition on Microstructure, Thermal Analysis, and Interfacial IMC Growth of Sn1.0Ag0.7Cu Solder/Sun - 2017 - Influence of SnO2 Nanoparticles Addition on Microstructure, Thermal Analysis, and Interfacial IMC Growth of Sn1.0Ag0.7Cu Solder.md"
+      },
+      "properties": [
+        {
+          "key": "thermal.melting_point",
+          "value": 492.35,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {"phase_boundary": "solidus (DSC onset on heating)", "test_method": "DSC, 10 K/min heating, N2 atmosphere, ~5 mg", "specimen": "vacuum arc-melted, water-cooled cast ingot, remelted 4x", "temperature_c_printed": 219.2},
+          "notes": "Table I ('Solidus temperature (T onset), liquidus temperature (T end), pasty range and melting temperature for solder alloys during the heating curve') 의 **SAC107 기준행**(SnO2 0 wt%) T onset = 219.2 C. 조성이 정확히 일치한다 — 방법절이 'Sn-1.0Ag-0.7Cu (SAC107)' 이고 99.99% 순금속을 진공아크로 900 C 30 분 용해해 만들었다고 밝힌다(브리프 45차 GA 함정 1: 조성이 곧 재료다. SAC105·SAC0107 과 섞지 않았다). 저자 실측이지 재인용이 아니다 — 표 전체가 이 논문의 DSC 결과이고 Ref./Source 열이 없다(브리프 195). 표 내부 검산: T end - T onset = 230.8 - 219.2 = 11.6 이 인쇄된 pasty range 11.6 과 정확히 같고, SnO2 0/0.3/0.7/1.0 wt% 네 행 전부 이 항등식이 성립한다(브리프 35). 단위 환산 219.2 C + 273.15 = 492.35 K."
+        },
+        {
+          "key": "thermal.melting_point",
+          "value": 503.95,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {"phase_boundary": "liquidus (DSC endset on heating)", "test_method": "DSC, 10 K/min heating, N2 atmosphere, ~5 mg", "specimen": "vacuum arc-melted, water-cooled cast ingot, remelted 4x", "temperature_c_printed": 230.8},
+          "notes": "Table I 의 SAC107 기준행 T end = 230.8 C. **DSC 종료점(endset)이지 평형 액상선이 아니다** — 10 K/min 승온의 열지연이 실려 있어 SAC107 의 통상 액상선(약 227 C)보다 높게 나온다. 그래서 조건축에 'DSC endset' 을 명시했다. 인쇄된 값을 우리가 보정하지 않았다(브리프 443). 단위 환산 230.8 + 273.15 = 503.95 K."
+        },
+        {
+          "key": "thermal.melting_point",
+          "value": 497.45,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {"phase_boundary": "DSC melting peak", "test_method": "DSC, 10 K/min heating, N2 atmosphere, ~5 mg", "specimen": "vacuum arc-melted, water-cooled cast ingot, remelted 4x", "temperature_c_printed": 224.3},
+          "notes": "Table I 의 'Melting temperature (C)' 열 SAC107 값 224.3 C = DSC 흡열 피크. 고상선 219.2 와 액상선 230.8 사이에 있어 자리가 맞는다. 본문이 이 열을 verbatim 으로 다시 인쇄한다 — 'the melting temperature and the solidus temperature ... change slightly from 224.3 C to 222.5 C and from 219.2 C to 217.4 C'(브리프 164: 본문이 표의 열 배정을 확정한다). 고상선·액상선과 **다른 물리량이므로 조건축 phase_boundary 로 갈라 별도 행으로 넣었다.**"
+        }
+      ]
+    },
+    {
+      "match_name": "SAC205 Solder Alloy",
+      "source": {
+        "kind": "journal",
+        "doi": "10.1109/ectc.2010.5490796",
+        "title": "Reduction of lead free solder aging effects using doped SAC alloys",
+        "authors": "Zijie Cai, Yifei Zhang, Jeffrey C. Suhling, Pradeep Lall, R. Wayne Johnson, Michael J. Bozack",
+        "year": 2010,
+        "publisher": "IEEE (60th Electronic Components and Technology Conference)",
+        "local_path": "/data/paper_patent_corpus/structured/snowball_papers/from_cae/Cai - 2010 - Reduction of lead free solder aging effects using doped SAC alloys/Cai - 2010 - Reduction of lead free solder aging effects using doped SAC alloys.md"
+      },
+      "properties": [
+        {
+          "key": "mechanical.creep_rate",
+          "value": 3.8e-08,
+          "unit": "1/s",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {"stress_MPa": 15, "temperature_C": 25, "aging": "none (tested immediately after solidification)", "solidification": "reflowed (RF) profile", "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm", "creep_stage": "secondary (steady-state)"},
+          "notes": "'SAC Creep Rate Comparisons' 표의 SAC205 'Strain Rate (Initial)' = 3.8 x 10^-8 /s. 방법절 verbatim — 'All uniaxial stress-strain and creep tests in this paper were conducted at room temperature (25 C) ... the applied stress for the creep testing was sigma = 15 MPa'. **표 자체를 산술로 검산했다**(브리프 35): 네 합금 모두 인쇄된 증가배수가 두 열의 비와 정확히 일치한다 — SAC105 9.7e-4/10.0e-8 = 9700X, SAC205 1.1e-4/3.8e-8 = 2895X, SAC305 0.130e-4/3.6e-8 = 361X, SAC405 0.074e-4/3.5e-8 = 211X. 네 칸이 다 맞으므로 지수 소실(브리프 9)이 없다. 단조성도 맞는다 — Ag 함량이 오를수록 초기 크리프율이 3.8 -> 3.6 -> 3.5e-8 로 낮아진다. 조건축 표기는 이 키의 기존 행(재료 91 등)이 쓰는 stress_MPa·temperature_C 를 따랐다."
+        },
+        {
+          "key": "mechanical.creep_rate",
+          "value": 1.1e-04,
+          "unit": "1/s",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {"stress_MPa": 15, "temperature_C": 25, "aging": "6 months at 125 C", "solidification": "reflowed (RF) profile", "specimen": "vacuum-suction cast bar, 80 x 3 x 0.5 mm", "creep_stage": "secondary (steady-state)"},
+          "notes": "같은 표의 SAC205 'Strain Rate (After 6 Months Aging at 125 C)' = 1.1 x 10^-4 /s. **시험온도는 여전히 25 C 다** — 125 C 는 시효(aging) 온도이지 시험온도가 아니다. 방법절이 모든 크리프 시험을 상온에서 했다고 못박는다. 조건축에서 aging 과 temperature_C 를 갈라 적은 이유가 이것이다. 인쇄된 증가배수 2895X 로 초기값과의 비가 검산된다."
+        }
+      ]
+    }
+  ]
+}
