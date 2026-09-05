@@ -23,6 +23,21 @@ from app.units import area_from_geometry
 router = APIRouter(prefix="/api", tags=["materials"])
 
 
+def _alias_match(like: str):
+    """`attributes.aliases` 안에서만 찾는다 — attributes 전체를 훑으면 오탐이 난다.
+
+    규격이 부르는 이름과 우리 재료명이 갈려 있다. `Al7075-T6 Bilinear`(값 53)를
+    `7075-T651` 로 찾으면 값 4개짜리 딴 레코드에 걸리고, `Ti6Al4V_Grade5`(값 61)는
+    `Ti-6Al-4V` 로 아예 안 나온다. 64차 ZC 가 규격 표기 97개를 쳐서 **92개 0건**을 쟀다.
+
+    attributes 를 통째로 LIKE 하면 안 된다 — 판정문이 긴 산문이라 *"7075-T651 시트에는
+    이 열이 없다"* 같은 사유가 걸린다. `$.aliases` 로 좁혀야 그 오탐이 안 난다.
+    """
+    return func.coalesce(
+        func.json_extract(Material.attributes, "$.aliases"), ""
+    ).ilike(like)
+
+
 def _get_material(db: Session, mid: int) -> Material:
     mat = db.get(Material, mid)
     if mat is None:
@@ -39,12 +54,13 @@ def list_materials(
     size: int = Query(default=20, ge=1, le=200),
     db: Session = Depends(get_db),
 ) -> dict:
-    """재료 목록. q는 name/material_code(인덱스 컬럼)만 LIKE 검색(JSON 검색 금지). category는 동등 필터."""
+    """재료 목록. q는 name/material_code + `attributes.aliases` LIKE 검색. category는 동등 필터."""
     stmt = select(Material)
     count_stmt = select(func.count()).select_from(Material)
     if q:
         like = f"%{q}%"
-        cond = or_(Material.name.ilike(like), Material.material_code.ilike(like))
+        cond = or_(Material.name.ilike(like), Material.material_code.ilike(like),
+                   _alias_match(like))
         stmt = stmt.where(cond)
         count_stmt = count_stmt.where(cond)
     if category:

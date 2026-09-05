@@ -123,8 +123,13 @@ def catalog_materials(
     stmt = select(Material)
     if q:
         like = f"%{q}%"
+        # `attributes.aliases` 도 본다 — 규격 표기와 우리 재료명이 갈려 있다(64차 ZC).
+        # attributes 를 통째로 LIKE 하면 판정문 산문이 걸리므로 `$.aliases` 로 좁힌다.
         stmt = stmt.where(or_(Material.name.ilike(like), Material.material_code.ilike(like),
-                             Material.description.ilike(like)))
+                             Material.description.ilike(like),
+                             func.coalesce(
+                                 func.json_extract(Material.attributes, "$.aliases"), ""
+                             ).ilike(like)))
     if category:
         stmt = stmt.where(Material.category == category)
     mats = db.execute(stmt).scalars().all()
