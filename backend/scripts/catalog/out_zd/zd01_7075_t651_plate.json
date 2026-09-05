@@ -1,0 +1,173 @@
+{
+ "batch": "64차 ZD",
+ "materials": [
+  {
+   "match_name": "7075-T651 aluminium alloy plate 10 mm, parent metal (Southwest Aluminum, Li 2018)",
+   "source": {
+    "kind": "standard",
+    "title": "MIL-HDBK-5J — Metallic Materials and Elements for Aerospace Vehicle Structures (Department of Defense Handbook, 31 January 2003)",
+    "url": "https://everyspec.com/MIL-HDBK/MIL-HDBK-0001-0099/download.php?spec=MIL_HDBK_5J.139.pdf",
+    "publisher": "U.S. Department of Defense (MMPDS-01 과 같은 판)",
+    "year": 2003,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/mech/MIL-HDBK-5J_2003-01-31.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2795.67,
+     "unit": "kg/m^3",
+     "method": "handbook",
+     "tier": 2,
+     "conditions": {
+      "temperature_k": 293,
+      "temper": "T651",
+      "product_form": "plate",
+      "alloy_designation": "AA 7075",
+      "specification": "AMS 4045 and AMS-QQ-A-250/12",
+      "table": "Table 3.7.6.0(b1). Design Mechanical and Physical Properties of 7075 Aluminum Alloy Sheet and Plate",
+      "printed_as": "omega, lb/in.^3 . . . 0.101",
+      "unit_conversion": "0.101 lb/in^3 x 27679.9047 (kg/m^3)/(lb/in^3) = 2795.67 kg/m^3",
+      "row_scope": "omega 행은 이 표의 Sheet(T6/T62) 열과 Plate(T651) 열에 걸쳐 한 칸으로 인쇄된다 — 이 행은 합금 단위이고 조질 단위가 아니다",
+      "prior_verdict_scope": "58차 TD 의 core_not_applicable(`이 여섯은 판재가 아니라 합금의 것이라 재료 23 의 몫이다`)을 이 값이 닫는다 — 근거는 재료 23 의 복제가 아니라 T651 판재를 명시한 독립 문서다(브리프 676)"
+     },
+     "notes": "MIL-HDBK-5J p.3-371 Table 3.7.6.0(b1). Design Mechanical and Physical Properties of 7075 Aluminum Alloy Sheet and Plate 의 **Plate / Temper T651** 열이다. 표 머리글 verbatim: `Specification … AMS 4045 and AMS-QQ-A-250/12` · `Form … Sheet | Plate` · `Temper … T6 and T62 | T651`. 우리 레코드의 10 mm 판재는 0.394 in 이라 이 표의 `0.250-0.499` in 열 안이다. **T651 을 명시한 문서다** — 재료 23 에서 옮긴 값이 아니다(브리프 586). 300 dpi 렌더(PDF 673쪽)로 인쇄면을 확인했다 — `E, 10^3 ksi 10.3` · `Ec 10.6` · `G 3.9` · `µ 0.33` · `Physical Properties: ω, lb/in.^3 0.101` · `C, K, and α  See Figure 3.7.6.0`(브리프 603·631). AMS 4045 는 조정자가 지목한 7075 판재 규격이다. 교차확인 셋 — GLEICH EN AW-7075 압연판재 TDS(Temper: T651)가 `Density [g/cm3] 2,80`, Kaiser Rod & Bar Alloy 7075 가 `Nominal Density (68 F / 20 C) 0.101 lbs./in.3 | 2.80 Mg/m3`, Aluminum Association Teal Sheet(2021-10) `CALCULATED NOMINAL DENSITIES` 표가 `7075 | 0.101 | 2.81` 을 찍는다. 환산 2795.67 은 셋과 0.2% 안이다. 브리프 604 의 Al 합금 밀도 경계 2.66~2.85 g/cm3 안이다. — 64차 ZD"
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 71016000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 2,
+     "conditions": {
+      "temperature_k": 293,
+      "temper": "T651",
+      "product_form": "plate",
+      "alloy_designation": "AA 7075",
+      "specification": "AMS 4045 and AMS-QQ-A-250/12",
+      "table": "Table 3.7.6.0(b1). Design Mechanical and Physical Properties of 7075 Aluminum Alloy Sheet and Plate",
+      "printed_as": "E, 10^3 ksi . . . 10.3 (Plate/T651 열)",
+      "unit_conversion": "10.3e3 ksi x 6.8947573 MPa/ksi = 71016 MPa",
+      "modulus_type": "인장 영률 — 같은 표가 압축 Ec 10.6e3 ksi 와 전단 G 3.9e3 ksi 를 따로 찍는다(브리프 679)",
+      "prior_verdict_scope": "58차 TD 의 core_not_applicable 을 닫는다 — T651 판재를 명시한 문서다(브리프 676)"
+     },
+     "notes": "MIL-HDBK-5J p.3-371 Table 3.7.6.0(b1). Design Mechanical and Physical Properties of 7075 Aluminum Alloy Sheet and Plate 의 **Plate / Temper T651** 열이다. 표 머리글 verbatim: `Specification … AMS 4045 and AMS-QQ-A-250/12` · `Form … Sheet | Plate` · `Temper … T6 and T62 | T651`. 우리 레코드의 10 mm 판재는 0.394 in 이라 이 표의 `0.250-0.499` in 열 안이다. **T651 을 명시한 문서다** — 재료 23 에서 옮긴 값이 아니다(브리프 586). 300 dpi 렌더(PDF 673쪽)로 인쇄면을 확인했다 — `E, 10^3 ksi 10.3` · `Ec 10.6` · `G 3.9` · `µ 0.33` · `Physical Properties: ω, lb/in.^3 0.101` · `C, K, and α  See Figure 3.7.6.0`(브리프 603·631). AMS 4045 는 조정자가 지목한 7075 판재 규격이다. 71.0 GPa 는 브리프 604 의 Al 합금 E 경계 68~73 GPa 안이다. 교차확인 — GLEICH T651 판재 TDS `Module of elasticity [GPa] 71` 이 소수 자리까지 만나고, Kaiser Rod & Bar 는 T6·T651 행에 `10.3 KSI x 10^3 | 71.0 GPa` 를 찍는다(같은 인쇄값·같은 환산). BIKAR EN AW-7075 는 `Elastic modulus [GPa] 72` 로 1.4% 위다(합금 단위 표라 조질 표기가 없다). — 64차 ZD"
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.33,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 2,
+     "conditions": {
+      "temperature_k": 293,
+      "temper": "T651",
+      "product_form": "plate",
+      "alloy_designation": "AA 7075",
+      "specification": "AMS 4045 and AMS-QQ-A-250/12",
+      "table": "Table 3.7.6.0(b1). Design Mechanical and Physical Properties of 7075 Aluminum Alloy Sheet and Plate",
+      "printed_as": "µ . . . . . . . 0.33 (Plate/T651 열. Sheet/T6·T62 열에도 따로 0.33 이 인쇄돼 있다)",
+      "prior_verdict_scope": "58차 TD 의 core_not_applicable 을 닫는다 — T651 판재 열에 직접 인쇄된 값이다(브리프 676)"
+     },
+     "notes": "MIL-HDBK-5J p.3-371 Table 3.7.6.0(b1). Design Mechanical and Physical Properties of 7075 Aluminum Alloy Sheet and Plate 의 **Plate / Temper T651** 열이다. 표 머리글 verbatim: `Specification … AMS 4045 and AMS-QQ-A-250/12` · `Form … Sheet | Plate` · `Temper … T6 and T62 | T651`. 우리 레코드의 10 mm 판재는 0.394 in 이라 이 표의 `0.250-0.499` in 열 안이다. **T651 을 명시한 문서다** — 재료 23 에서 옮긴 값이 아니다(브리프 586). 300 dpi 렌더(PDF 673쪽)로 인쇄면을 확인했다 — `E, 10^3 ksi 10.3` · `Ec 10.6` · `G 3.9` · `µ 0.33` · `Physical Properties: ω, lb/in.^3 0.101` · `C, K, and α  See Figure 3.7.6.0`(브리프 603·631). AMS 4045 는 조정자가 지목한 7075 판재 규격이다. 브리프 6·613 이 세운 `포아송비는 벤더 시트에서 구조적으로 부재다` 는 여기서 뒤집히지 않는다 — **벤더 시트가 아니라 설계 핸드북이 찍는다.** 실제로 이번에 연 알루미늄 벤더 문서 여덟 장(GLEICH 7075·6082 · BIKAR 7075·6082 · Kaiser 7075 · Hydro 6082 · Alumeco 물성표 · Teal Sheet)에서 `Poisson`/`Querkontraktion` 이 **전부 0건**이고, MIL-HDBK-5J 은 알루미늄 장 전권에서 µ 를 표마다 찍는다(µ 행 87개 중 0.33 이 82 · 0.32 가 1 · 0.34 가 3 · 0.35 가 1). **문의 종류가 다른 것이다**(브리프 669·628). 브리프 604 의 ν 경계 0.32~0.35 안이다. — 64차 ZD"
+    }
+   ]
+  },
+  {
+   "match_name": "7075-T651 aluminium alloy plate 10 mm, parent metal (Southwest Aluminum, Li 2018)",
+   "source": {
+    "kind": "datasheet",
+    "title": "GLEICH Aluminium — AL Rolled Plates EN AW-7075 [AlZn5,5MgCu] TECHNICAL DATA SHEET (Date 03.05.2024)",
+    "url": "https://gleich.de/wp-content/uploads/2021/03/en_en_aw_7075-02-19.pdf",
+    "publisher": "GLEICH Aluminium GmbH",
+    "year": 2024,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/mech/Gleich_EN-AW-7075_rolled-plates_TDS_2024-05.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.expansion_linear",
+     "value": 2.34e-05,
+     "unit": "1/K",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temper": "T651",
+      "product_form": "rolled plate",
+      "plate_thickness_mm": "10-120",
+      "alloy_designation": "EN AW-7075 [AlZn5,5MgCu]",
+      "temperature_c": 20,
+      "temperature_range_c": "20-100",
+      "temperature_range_basis": "GLEICH 은 구간을 안 찍고 각주 1) `Typical values at room temperature` 만 적는다. 같은 23.4 에 20-100 degC 를 붙여 인쇄하는 독립 문서가 둘이다 — BIKAR EN AW-7075 · Kaiser 7075",
+      "printed_as": "Coeffic. of thermal expansion [K-1 10-6] 23,4",
+      "basis": "vendor 'Typical values at room temperature' physical property table"
+     },
+     "notes": "GLEICH Aluminium `AL Rolled Plates EN AW-7075` TDS(2024-05-03). **시트 머리에 `Temper: T651` 이 인쇄돼 있고** 제품이 `Plate Dimension … in thickness of 10 - 120 mm` 라 우리 10 mm 판재가 그 안이다. `7075` 3건 · `T651` 1건 · `6082` 0건 · `2017` 0건으로 등급을 본문에서 세었다(브리프 438 세 번째 형태). 물리물성 표 verbatim 한 블록: `Density [g/cm3] 2,80` · `Module of elasticity [GPa] 71` · `Electrical conductivity [M/Ohm mm2] 19 - 23` · `Coeffic. of thermal expansion [K-1 10-6] 23,4` · `Thermal conductivity [W/m K] 130 - 160` · `Specific heat capacity [J/kg K] 862`. 교차확인 둘 — BIKAR EN AW-7075 `Thermal expansion coefficient 20 C - 100 C 23,4`(같은 표가 -50~20 C 21,6 · 20~200 C 24,3 · 20~300 C 25,2 로 온도의존까지 찍는다) · Kaiser `Coefficient of Thermal Expansion Linear 68 F - 212 F / 20 C - 100 C | 13.0 micro in./in.-F | 23.4 micro m/m-K`. 13.0 x 1.8 = 23.4 로 두 단위열이 서로를 검산한다. Alumeco 물성표만 EN AW-7075 을 23.5 로 찍어 0.4% 위다. — 64차 ZD"
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 862.0,
+     "unit": "J/(kg*K)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temper": "T651",
+      "product_form": "rolled plate",
+      "plate_thickness_mm": "10-120",
+      "alloy_designation": "EN AW-7075 [AlZn5,5MgCu]",
+      "temperature_c": 20,
+      "temperature_basis": "각주 1) `Typical values at room temperature`",
+      "printed_as": "Specific heat capacity [J/kg K] 862",
+      "basis": "vendor 'Typical values at room temperature' physical property table",
+      "prior_verdict_scope": "58차 TD 의 core_not_applicable 을 닫는다 — T651 판재를 명시한 벤더 TDS 다(브리프 676)"
+     },
+     "notes": "GLEICH `AL Rolled Plates EN AW-7075` TDS(2024-05-03) 물리물성 표 verbatim `Specific heat capacity [J/kg K] 862`. **독립 문서 하나가 같은 862 를 찍는다** — BIKAR EN AW-7075 `Specific heat J/(kg * K) 862`. 두 독일 공급사가 서로 다른 서식에서 같은 값을 인쇄한다. 같은 재료의 100 degC 행(Kaiser 960)과 함께 보면 862(20 C) < 960(100 C) 로 온도에 단조증가한다 — 방향이 맞는다. 브리프 675 의 비대칭(`k 는 찍고 Cp 는 안 찍는다`)이 여기서는 안 걸린다 — 이 두 독일 서식은 Cp 를 찍는다. — 64차 ZD"
+    }
+   ]
+  },
+  {
+   "match_name": "7075-T651 aluminium alloy plate 10 mm, parent metal (Southwest Aluminum, Li 2018)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Kaiser Aluminum Technical Data — ROD & BAR ALLOY 7075 (KA-RBH-7075-8.10)",
+    "url": "https://online.kaiseraluminum.com/depot/PublicProductInformation/Document/1028/Kaiser_Aluminum_7075_Rod_and_Bar.pdf",
+    "publisher": "Kaiser Aluminum",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/mech/Kaiser_Aluminum_7075_Rod_and_Bar_KA-RBH-7075-8.10.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.conductivity",
+     "value": 130.0,
+     "unit": "W/(m*K)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "temper": "T6, T651",
+      "temper_row_scope": "문서가 T6 와 T651 을 한 행으로 묶어 찍는다. 같은 열의 다른 행은 T73, T7351 로 155 W/m-K 라 **이 열은 조질로 갈려 있다**",
+      "product_form_in_source": "rod and bar",
+      "alloy_designation": "7075",
+      "printed_as": "Thermal Conductivity (68 F / 20 C) | T6, T651 | 75 BTU/ft. - hr. - F | 130 W/m - K",
+      "grade_scope": "Kaiser 의 이 표는 `TYPICAL PHYSICAL PROPERTIES` 로 합금 7075 단위이고 열전도율·전기전도도 두 행만 조질로 갈린다. 제품 형태는 봉·바이고 우리 레코드는 판재다 — 열전도율은 형태가 아니라 석출 상태가 정한다",
+      "prior_verdict_scope": "58차 TD 의 core_not_applicable 을 닫는다(브리프 676)"
+     },
+     "notes": "Kaiser Aluminum `ROD & BAR ALLOY 7075`(KA-RBH-7075-8.10) `TYPICAL PHYSICAL PROPERTIES` 표. **조질별로 갈라 찍는 열이다** — `T6, T651 | 75 BTU/ft.-hr.-F | 130 W/m-K` 와 `T73, T7351 | 90 BTU/ft.-hr.-F | 155 W/m-K` 두 행이다. 시트 안 자기검산 — 75 Btu/(ft hr F) x 1.730735 = 129.8 W/(m K) 로 같은 행의 인쇄 130 과 0.2% 안이다(두 단위열이 서로를 닫는다, 브리프 628 UE). 교차확인 둘 — Alumeco 물성표 `EN AW-7075 | T6 | 134 W/m*K`(+3.1%)와 `T7 | 155`(Kaiser T73/T7351 의 155 와 **글자까지 같다**). GLEICH T651 판재 TDS 는 같은 물성을 `130 - 160` 구간으로만 찍는데 130 이 그 하한이다 — **구간만 인쇄된 값은 부재라는 브리프 616 을 조질을 찍는 문서가 닫은 자리다.** `7075` 3건 · `T651` 6건 · `6082` 0건으로 본문에서 등급을 세었다(브리프 438). ⚠ 남은 것은 온도의존이다 — MIL-HDBK-5J 은 7075 의 C·K·alpha 를 `See Figure 3.7.6.0` 으로만 주고 표로 안 찍는다. 온도별 값이 필요하면 그 그림을 되읽어야 한다(브리프 652). — 64차 ZD"
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 960.0,
+     "unit": "J/(kg*K)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 100,
+      "temper_not_printed": true,
+      "temper_row_scope": "이 표에서 조질로 갈리는 행은 열전도율과 전기전도도뿐이고 비열·밀도·CTE 는 합금 단위 한 칸이다",
+      "product_form_in_source": "rod and bar",
+      "alloy_designation": "7075",
+      "printed_as": "Specific Heat (212 F / 100 C) | 0.23 BTU/lb. - F | 960 J/kg - K"
+     },
+     "notes": "Kaiser `ROD & BAR ALLOY 7075` TYPICAL PHYSICAL PROPERTIES 표. **온도가 100 degC 로 인쇄돼 있다** — 같은 재료의 20 degC 행(GLEICH·BIKAR 862)과 다른 조건축이라 둘 다 값이다(브리프 662). 시트 안 자기검산 — 0.23 Btu/(lb F) x 4186.8 = 962.96 J/(kg K) 로 인쇄 960 과 0.3% 안이다. 862(20 C) → 960(100 C) 는 알루미늄 비열의 온도의존 방향과 맞는다. — 64차 ZD"
+    }
+   ]
+  }
+ ]
+}

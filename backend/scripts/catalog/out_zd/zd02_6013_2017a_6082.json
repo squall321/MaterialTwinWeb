@@ -1,0 +1,184 @@
+{
+ "batch": "64차 ZD",
+ "materials": [
+  {
+   "match_name": "Al 6013 sheet alloy (AA6013, Al-Mg-Si-Cu)",
+   "source": {
+    "kind": "standard",
+    "title": "MIL-HDBK-5J — Metallic Materials and Elements for Aerospace Vehicle Structures (Department of Defense Handbook, 31 January 2003)",
+    "url": "https://everyspec.com/MIL-HDBK/MIL-HDBK-0001-0099/download.php?spec=MIL_HDBK_5J.139.pdf",
+    "publisher": "U.S. Department of Defense (MMPDS-01 과 같은 판)",
+    "year": 2003,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/mech/MIL-HDBK-5J_2003-01-31.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2712.63,
+     "unit": "kg/m^3",
+     "method": "handbook",
+     "tier": 2,
+     "conditions": {
+      "temperature_k": 293,
+      "temper": "T6",
+      "product_form": "sheet",
+      "alloy_designation": "AA 6013",
+      "specification": "AMS 4216 and AMS 4347",
+      "table": "Table 3.6.1.0(b). Design Mechanical and Physical Properties of 6013 Aluminum Alloy Sheet",
+      "printed_as": "omega, lb/in^3 . . . 0.098",
+      "unit_conversion": "0.098 lb/in^3 x 27679.9047 (kg/m^3)/(lb/in^3) = 2712.63 kg/m^3",
+      "temper_scope": "이 표는 T6 표제 아래 있으나 물리물성 블록은 조질로 갈리지 않는다 — 밀도는 조질에 둔감하다. 우리 레코드는 T4·T6 두 조질의 기계물성을 함께 담는다",
+      "prior_verdict_scope": "58차 TD 의 `core_absent_from_vendor_sheet`(Alcoa 시트에 물리물성 블록이 없다)는 **지금도 참이다** — 이 값은 벤더 시트가 아니라 설계 핸드북에서 왔다(브리프 639·676)"
+     },
+     "notes": "MIL-HDBK-5J p.3-259 Table 3.6.1.0(b). Design Mechanical and Physical Properties of 6013 Aluminum Alloy Sheet 다. 표 머리글 verbatim: `Specification … AMS 4216 and AMS 4347` · `Form … Sheet` · `Temper … T6` · `Thickness, in. … 0.010-0.062 | 0.063-0.125 | 0.126-0.249`. 300 dpi 렌더(PDF 561쪽)로 인쇄면을 확인했다 — `E, 10^3 ksi 9.9` · `Ec 10.1` · `G 3.8` · `µ 0.33` · `Physical Properties: ω, lb/in^3 0.098` · **`C, K, and α  …`**(브리프 603·631). **마지막 줄이 이 파동의 부재 증거다** — 설계 핸드북이 행을 두고 값 칸에 `…` 를 찍는다(브리프 614·630). 6013 은 Alcoa 가 1983년에 미국에서 등록한 합금이고(Teal Sheet `6013 | 1983 | USA`), 그 벤더 시트(Alcoa Technical Fact Sheet rev.5/07)에는 58차 TD 확인대로 물리물성 블록 자체가 없다. 교차확인 — Aluminum Association Teal Sheet(2021-10) `CALCULATED NOMINAL DENSITIES` 표가 `6013 | 0.098 | 2.71` 을 찍는다. 환산 2712.63 이 그 2.71 과 0.1% 안이라 **두 문서가 lb/in^3 과 kg/m^3 두 단위로 서로를 닫는다**(브리프 628 UE). 브리프 604 의 Al 합금 밀도 경계 2.66~2.85 g/cm3 안이다. — 64차 ZD"
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 68258100000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 2,
+     "conditions": {
+      "temperature_k": 293,
+      "temper": "T6",
+      "product_form": "sheet",
+      "alloy_designation": "AA 6013",
+      "specification": "AMS 4216 and AMS 4347",
+      "table": "Table 3.6.1.0(b). Design Mechanical and Physical Properties of 6013 Aluminum Alloy Sheet",
+      "printed_as": "E, 10^3 ksi . . . 9.9",
+      "unit_conversion": "9.9e3 ksi x 6.8947573 MPa/ksi = 68258.1 MPa",
+      "modulus_type": "인장 영률 — 같은 표가 압축 Ec 10.1e3 ksi 와 전단 G 3.8e3 ksi 를 따로 찍는다(브리프 679)",
+      "prior_verdict_scope": "58차 TD 의 벤더 시트 부재 선언은 지금도 참이다 — 이 값은 설계 핸드북에서 왔다(브리프 639·676)"
+     },
+     "notes": "MIL-HDBK-5J p.3-259 Table 3.6.1.0(b). Design Mechanical and Physical Properties of 6013 Aluminum Alloy Sheet 다. 표 머리글 verbatim: `Specification … AMS 4216 and AMS 4347` · `Form … Sheet` · `Temper … T6` · `Thickness, in. … 0.010-0.062 | 0.063-0.125 | 0.126-0.249`. 300 dpi 렌더(PDF 561쪽)로 인쇄면을 확인했다 — `E, 10^3 ksi 9.9` · `Ec 10.1` · `G 3.8` · `µ 0.33` · `Physical Properties: ω, lb/in^3 0.098` · **`C, K, and α  …`**(브리프 603·631). **마지막 줄이 이 파동의 부재 증거다** — 설계 핸드북이 행을 두고 값 칸에 `…` 를 찍는다(브리프 614·630). 6013 은 Alcoa 가 1983년에 미국에서 등록한 합금이고(Teal Sheet `6013 | 1983 | USA`), 그 벤더 시트(Alcoa Technical Fact Sheet rev.5/07)에는 58차 TD 확인대로 물리물성 블록 자체가 없다. 68.3 GPa 는 브리프 604 의 Al 합금 E 경계 68~73 GPa 안이고, 6xxx 계 중에서도 낮은 쪽이다(같은 핸드북이 2017 을 10.4e3 ksi = 71.7 GPa, 7075 를 10.3e3 ksi = 71.0 GPa 로 찍는다). — 64차 ZD"
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.33,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 2,
+     "conditions": {
+      "temperature_k": 293,
+      "temper": "T6",
+      "product_form": "sheet",
+      "alloy_designation": "AA 6013",
+      "specification": "AMS 4216 and AMS 4347",
+      "table": "Table 3.6.1.0(b). Design Mechanical and Physical Properties of 6013 Aluminum Alloy Sheet",
+      "printed_as": "µ . . . . . . . 0.33",
+      "prior_verdict_scope": "58차 TD 의 벤더 시트 부재 선언은 지금도 참이다 — Alcoa 시트에는 이 행이 없고, 이 값은 설계 핸드북 표의 µ 행이다(브리프 639·676)"
+     },
+     "notes": "MIL-HDBK-5J p.3-259 Table 3.6.1.0(b). Design Mechanical and Physical Properties of 6013 Aluminum Alloy Sheet 다. 표 머리글 verbatim: `Specification … AMS 4216 and AMS 4347` · `Form … Sheet` · `Temper … T6` · `Thickness, in. … 0.010-0.062 | 0.063-0.125 | 0.126-0.249`. 300 dpi 렌더(PDF 561쪽)로 인쇄면을 확인했다 — `E, 10^3 ksi 9.9` · `Ec 10.1` · `G 3.8` · `µ 0.33` · `Physical Properties: ω, lb/in^3 0.098` · **`C, K, and α  …`**(브리프 603·631). **마지막 줄이 이 파동의 부재 증거다** — 설계 핸드북이 행을 두고 값 칸에 `…` 를 찍는다(브리프 614·630). 6013 은 Alcoa 가 1983년에 미국에서 등록한 합금이고(Teal Sheet `6013 | 1983 | USA`), 그 벤더 시트(Alcoa Technical Fact Sheet rev.5/07)에는 58차 TD 확인대로 물리물성 블록 자체가 없다. 브리프 604 의 ν 경계 0.32~0.35 안이다. 58차 TD 가 기각한 makeitfrom 의 0.33 과 숫자는 같지만 **자리가 다르다** — 그쪽은 밀도를 2.8(참값 2.71)로 찍는 편찬 클래스값이고 이쪽은 AMS 4216/4347 규격에 묶인 등급·조질·형태 지정 설계값이다(브리프 632 — 숫자 일치는 동정의 증거가 아니다). — 64차 ZD"
+    }
+   ]
+  },
+  {
+   "match_name": "2017A-T4 aluminium alloy, commercial quality bar, bending-torsion fatigue specimen (Kluger 2015)",
+   "source": {
+    "kind": "standard",
+    "title": "MIL-HDBK-5J — Metallic Materials and Elements for Aerospace Vehicle Structures (Department of Defense Handbook, 31 January 2003)",
+    "url": "https://everyspec.com/MIL-HDBK/MIL-HDBK-0001-0099/download.php?spec=MIL_HDBK_5J.139.pdf",
+    "publisher": "U.S. Department of Defense (MMPDS-01 과 같은 판)",
+    "year": 2003,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/mech/MIL-HDBK-5J_2003-01-31.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.33,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_k": 293,
+      "temper": "T4",
+      "product_form": "bar and rod",
+      "alloy_designation": "AA 2017 (미국 등록) — **우리 레코드는 EN AW-2017A 다**",
+      "specification": "AMS 4118 and AMS-QQ-A-225/5",
+      "table": "Table 3.2.2.0(b). Design Mechanical and Physical Properties of 2017 Aluminum Alloy Bar and Rod; Rolled, Drawn, or Cold-Finished",
+      "printed_as": "µ . . . . . . . 0.33",
+      "grade_scope": "등급 불일치 대체값(tier3). Teal Sheet(2021-10) 조성표가 두 등록을 verbatim 으로 가른다 — `2017 | 1954 | USA | Si 0.20-0.8 | Fe 0.7 | Cu 3.5-4.5 | Mn 0.40-1.0 | **Mg 0.40-0.8** | Cr 0.10 | Zn 0.25 | **Ti 0.15**` 대 `2017A | 1972 | EAA | … | **Mg 0.40-1.0** | … | **Zr+Ti 0.25**`. 조질(T4)과 제품형태(봉)는 맞고 등록만 다르다. 같은 Teal Sheet 의 공칭밀도표는 2017 과 2017A 를 **둘 다 0.101 lb/in^3 / 2.79** 로 같게 계산한다",
+      "prior_verdict_scope": "59차 UE 의 `core_absent_from_vendor_sheet`(EN AW-2017A 벤더 문서 일곱 장에 ν 열이 0건)는 **지금도 참이다** — 이 값은 벤더 시트가 아니라 설계 핸드북에서 왔고 등급도 자매 등록이다(브리프 639·676)"
+     },
+     "notes": "MIL-HDBK-5J p.3-66 Table 3.2.2.0(b). Design Mechanical and Physical Properties of 2017 Aluminum Alloy Bar and Rod; Rolled, Drawn, or Cold-Finished 의 µ 행이다. 표 머리글 verbatim: `Form … Bar and rod; rolled, drawn, or cold-finished` · `Temper … T4, T451, T42`. 300 dpi 렌더(PDF 368쪽)로 확인했다 — `E, 10^3 ksi 10.4` · `Ec 10.6` · `G 3.95` · `µ 0.33` · `ω 0.101` · `C, Btu/(lb)(F) 0.23 (at 212 F)` · `K, Btu/[(hr)(ft2)(F)/ft] 78 (at 77 F)` · `α  See Figure 3.2.2.0`. **59차 UE 가 적어 둔 역산의 유혹은 여기서도 만들지 않았다**(브리프 43) — 벤더 표의 E 72500 MPa · G 27200 MPa 로 ν = E/(2G) - 1 = 0.3327 이 나오고 이 핸드북 표도 E 10.4e3 · G 3.95e3 ksi 로 0.3165 를 만든다. **둘 다 만들지 않았고, 넣은 것은 표가 스스로 인쇄한 µ 다.** 59차 UE 가 기각한 MatWeb `Aluminum 2017-T4; 2017-T451` 의 0.33 과는 자리가 다르다 — 그쪽은 값 옆에 verbatim `Estimated from trends in similar Al alloys.` 가 붙은 추정이고 이쪽은 AMS 규격에 묶인 설계값이다(브리프 195). ⚠ 남은 한 걸음은 **EN AW-2017A 자신의 ν 를 인쇄한 문서**다. 그 문서가 나오면 이 t3 를 밀어낸다. — 64차 ZD"
+    }
+   ]
+  },
+  {
+   "match_name": "2017A-T4 aluminium alloy, commercial quality bar, bending-torsion fatigue specimen (Kluger 2015)",
+   "source": {
+    "kind": "database",
+    "title": "Alumeco — Aluminium: Physical properties (합금·조질별 열전도율·선팽창계수·융점구간·탄성계수·전기전도도 표)",
+    "url": "https://www.alumeco.com/aluminium/data/physical-properties/",
+    "publisher": "Alumeco A/S",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/mech/Alumeco_aluminium_physical-properties.html"
+   },
+   "properties": [
+    {
+     "key": "thermal.conductivity",
+     "value": 134.0,
+     "unit": "W/(m*K)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temper": "T4",
+      "alloy_designation": "EN AW-2017A",
+      "temperature_note": "원문 표에 온도 열이 없다 — 상온 물성표로 읽히나 명시가 없다(브리프 677)",
+      "printed_as": "행 verbatim `EN AW-2017A | Aluminium | T4 | 134 | 22.9 | 410 | 645 | 72 | 34` (열 머리글 `Alloy | Alloys | Temper | W/m*K | um/(m*K) | min degC | max degC | KN/mm2 | %IACS`)",
+      "temper_row_scope": "같은 합금의 O 행은 열전도율 칸이 **비어 있다** — 이 표는 조질로 갈리고 값이 없는 칸을 비워 둔다(브리프 614·630)",
+      "prior_verdict_scope": "59차 UE 의 `core_rejected_printed_value`(벤더 다섯이 130-200 구간만 찍어 기각)를 이 값이 닫는다. 그 판정은 **합금 단위 물리물성표**에 대해 참이었고, 이 표는 조질로 갈린 표다(브리프 616·676)"
+     },
+     "notes": "Alumeco `Aluminium: Physical properties` 표. HTML 을 직접 받아 `<tr>` 을 파싱해 행을 읽었다(브리프 629). **59차 UE 가 지목한 표적이 이것이다** — `EN AW-2017A 의 조질별 k 를 찍는 문서`. 그 파동은 Kloeckner·Leichtmetall·BIKAR·thyssenkrupp·Alumeco 다섯이 전부 `130 - 200`(1.54배) 합금 단위 구간만 찍어 기각했고, 구간의 정체가 **조질 폭**이라고 적어 두었다. 이 표가 그 가설을 확인한다 — T4 는 134 로 그 구간의 **하한 쪽**이다(2xxx 계는 T4 에서 Cu 가 고용 상태라 전자 산란이 커 k 가 낮다). **독립 확인 하나** — MIL-HDBK-5J Table 3.2.2.0(b). Design Mechanical and Physical Properties of 2017 Aluminum Alloy Bar and Rod; Rolled, Drawn, or Cold-Finished 은 미국 등록 2017 의 T4/T451/T42 에 대해 `K, Btu/[(hr)(ft2)(F)/ft] 78 (at 77 F)` 를 찍는다. 78 x 1.730735 = **135.0 W/(m K)** 로 이 134 와 0.7% 안이다. 서로 다른 등록(2017 대 2017A)·서로 다른 문서인데 같은 조질에서 만난다. **이 표의 열전도율 열 자체도 두 자리에서 검산된다**(브리프 129·641) — `EN AW-7075 | T7 | 155` 는 Kaiser 7075 시트의 `T73, T7351 | 155 W/m-K` 와 글자까지 같고, `EN AW-6082 | T6 | 172` 는 Hydro EN AW-6082 TDS 의 `T6 172` 와 같다. ⚠ 같은 표의 **융점 열은 자기모순이다** — 같은 EN AW-2017A 의 O 행이 `510 - 645`, T4 행이 `410 - 645` 다. 융점은 조질에 안 갈린다. 열전도율 열이 두 문서로 검산되므로 칸 단위로 갈라 그 열만 썼다(브리프 141·650). — 64차 ZD"
+    }
+   ]
+  },
+  {
+   "match_name": "6082-T6 aluminium alloy, commercial quality bar, bending-torsion fatigue specimen (Kluger 2015)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Hydro — Technical datasheet, Extruded products, Alloy EN AW-6082 [AlSi1MgMn] (Hydro 6082_Rev.4 - 03/2023)",
+    "url": "https://www.hydro.com/globalassets/08-about-hydro/hydro-worldwide/austria/nenzing/alloy-data-sheets/hydro-en-aw-6082.pdf",
+    "publisher": "Hydro Innovation & Technology, Finspang (Hydro Extrusion)",
+    "year": 2023,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/mech/Hydro_EN-AW-6082_Rev4_2023-03.pdf"
+   },
+   "properties": [
+    {
+     "key": "thermal.specific_heat",
+     "value": 897.0,
+     "unit": "J/(kg*K)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "alloy_designation": "EN AW-6082 [AlSi1MgMn]",
+      "product_form_in_source": "extruded products",
+      "temper_row_scope": "이 표의 비열 칸은 T4·T6 두 행에 걸쳐 하나다 — 합금 단위이고 조질 단위가 아니다. 같은 표에서 조질로 갈리는 것은 열전도율과 전기저항률 둘뿐이다",
+      "reference_cited_by_source": "각주 5) verbatim `Reference: MNC Handbok nr 12, version 2, SIS, 1989. Typical properties at room temperature 20 degC`",
+      "printed_as": "Specific Heat Capacity [J/kg K] 897",
+      "prior_verdict_scope": "58차 TD 의 `core_absent_from_vendor_sheet`(Nedal 6082 시트·Aalco 6082 시트의 물리물성 표에 비열 행이 없다)는 **지금도 참이다** — 그 두 서식은 여섯 열짜리이고 이 Hydro 서식은 여덟 열이다(브리프 628·676)"
+     },
+     "notes": "Hydro `Technical datasheet - Extruded products, Alloy EN AW-6082 [AlSi1MgMn]`(Rev.4, 03/2023) 2쪽 `Physical Properties` 표. 열 구성 verbatim: `Temper | Modulus of Elasticity [GPa] | Modulus of Rigidity [GPa] | Melting Range [degC] | Density [g/cm3] | Thermal Conductivity [W/m K] | Specific Heat Capacity [J/kg K] | Electrical Resistivity [nOhm m] | Coefficient of linear expansion [10-6 K-1]` 이고 한 블록이 `70 | 26 | 575 - 650 | 2.71 | (T4 150 / T6 172) | 897 | (T4 41 / T6 39) | 23.1` 이다. **독립 문서 둘이 같은 자리를 896 으로 찍는다** — BIKAR EN AW-6082 `Specific heat J/(kg * K) 896` · GLEICH `AL rolled plates EN AW-6082`(Temper: T651) `Specific heat capacity [J/kg K] 896`. 셋이 0.1% 안이다. **58차 TD 가 못 찾은 이유는 서식이다**(브리프 628) — Nedal·Aalco 의 여섯 열 서식에는 이 행이 아예 없고, Hydro·BIKAR·GLEICH 서식에는 있다. 부재는 벤더가 아니라 서식이 정한다(브리프 676). 우리 레코드는 Kluger 2015 의 봉재 시편이고 이 문서는 압출재다 — 비열은 형태에 둔감하다. — 64차 ZD"
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 172.0,
+     "unit": "W/(m*K)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "temper": "T6",
+      "alloy_designation": "EN AW-6082 [AlSi1MgMn]",
+      "product_form_in_source": "extruded products",
+      "temper_row_scope": "이 표에서 열전도율은 조질로 갈린다 — `T4 150` · `T6 172`",
+      "reference_cited_by_source": "각주 5) verbatim `Reference: MNC Handbok nr 12, version 2, SIS, 1989. Typical properties at room temperature 20 degC`",
+      "printed_as": "Thermal Conductivity [W/m K] | T4 150 | T6 172",
+      "relation_to_existing_rows": "이 재료에는 Nedal 시트의 합금 단위 구간 `170 - 220` 이 이미 bound=range_lower/range_upper 두 행으로 들어 있다(58차 TD). 그 두 행은 조질을 안 찍고 이 행은 T6 를 찍는다 — 지우지 않고 옆에 세운다(브리프 565·676)"
+     },
+     "notes": "Hydro EN AW-6082 TDS(Rev.4, 03/2023) `Physical Properties` 표의 조질별 열전도율 행. **독립 확인 하나** — Alumeco `Aluminium: Physical properties` 표가 `EN AW-6082 | T6 | 172` 를 찍는다. 두 문서가 글자까지 같다. **이 값이 58차 TD 가 노트에 남긴 브리프 616 대 612 의 충돌을 닫는다** — 그 파동은 Nedal 의 `170 - 220` 구간을 두 행(bound=range_lower/range_upper)으로 넣으면서 `616 을 따르면 두 행 다 안 넣는 것이 옳다` 고 적어 두었다. 구간의 정체는 조질 폭이고(같은 표가 T4 150 · T6 172, Alumeco 는 O 216 · T4 167 · T6 172), 우리 레코드는 T6 로 특정돼 있다. 172 는 기존 구간 170-220 의 하한 쪽 안이다. ⚠ T4 는 두 문서가 갈린다 — Hydro 150 대 Alumeco 167(11%). 우리가 쓰는 T6 에서는 둘이 일치하므로 그 칸만 썼다(브리프 141·651 — 닫힌 범위를 정직하게 적는다). — 64차 ZD"
+    }
+   ]
+  }
+ ]
+}
