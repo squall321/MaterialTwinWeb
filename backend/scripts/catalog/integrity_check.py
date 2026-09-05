@@ -630,6 +630,11 @@ _yt = c.execute("""
          = ifnull(json_extract(y.conditions,'$.hardness_hrc'),-1)
        and ifnull(json_extract(t.conditions,'$.direction'),'')
          = ifnull(json_extract(y.conditions,'$.direction'),'')
+       -- 시험규격도 조건축이다(64차 ZA). ASTM D638 과 ISO 527 은 시편형상·율속이 달라
+       -- 한 재료가 두 서식으로 실리면 서로 다른 시험의 항복과 파단을 맞대게 된다 —
+       -- LS-3302 의 ASTM 항복 127.5 대 ISO 파단 120 이 그 자리다. 서식 안에서는 역전이 없다.
+       and ifnull(json_extract(t.conditions,'$.test_standard'),'')
+         = ifnull(json_extract(y.conditions,'$.test_standard'),'')
       join material m on m.id = y.material_id
      where y.property_key='mechanical.yield_strength'
        and t.property_key='mechanical.tensile_strength'
@@ -637,7 +642,7 @@ _yt = c.execute("""
      group by y.material_id""").fetchall()
 if _yt:
     print(f"\n  [주의] **항복강도가 인장강도보다 큰 재료: {len(_yt)}종**")
-    print("         조건축(온도·경도·방향)을 맞춘 뒤에도 역전인 것이다.")
+    print("         조건축(온도·경도·방향·시험규격)을 맞춘 뒤에도 역전인 것이다.")
     print("         물리적으로 불가능하므로 한쪽이 틀렸다 — 대개 t4 추정 항복이 t1 실측 인장을 넘는다.")
     for _m, _n, _i, _yv, _yq, _tv, _tq in _yt[:6]:
         print(f"           재료{_m} {_n[:38]:40s} 항복 {_yv/1e6:>8.4g}(t{_yq}) > 인장 {_tv/1e6:>8.4g}(t{_tq})")
