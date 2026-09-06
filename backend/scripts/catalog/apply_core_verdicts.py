@@ -16,23 +16,34 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sqlite3
 from collections import Counter
 
-DB = "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web/materialtwin.db"
+# 경로를 박아 두면 **사본 리허설이 조용히 무력화된다.** 배치들은 `VACUUM INTO` 로 사본을
+# 뜨고 거기 먼저 `--apply` 해 diff 를 본 뒤 라이브에 넣으라고 배웠는데(§647), 이 도구만
+# 환경변수를 무시해 그 리허설이 라이브에 쓰였다(65차 AD 실측 — 판정이 리허설 중 들어갔다).
+# 형제 도구(integrity_check·coverage_report)와 같은 관례로 맞춘다. 기본값은 그대로라
+# 기존 호출은 안 변하고, `--db` 로 사본을 직접 지목할 수도 있다.
+DEFAULT_DB = os.path.join(
+    os.environ.get("MATERIALTWIN_DATA_DIR",
+                   "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web"),
+    "materialtwin.db")
 
 SKIP = {"material_id", "name"}
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
+    ap.add_argument("--db", default=DEFAULT_DB,
+                    help="쓸 DB. 기본은 MATERIALTWIN_DATA_DIR/materialtwin.db")
     ap.add_argument("paths", nargs="+")
     ap.add_argument("--apply", action="store_true")
     a = ap.parse_args()
 
-    c = sqlite3.connect(DB)
+    c = sqlite3.connect(a.db)
     have = {i: (n, at) for i, n, at in c.execute("select id,name,attributes from material")}
-    print(f"[DB] {DB}\n     재료 {len(have)}종")
+    print(f"[DB] {a.db}\n     재료 {len(have)}종")
 
     rows: list[dict] = []
     for p in a.paths:
