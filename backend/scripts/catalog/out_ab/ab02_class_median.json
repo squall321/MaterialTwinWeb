@@ -1,0 +1,543 @@
+{
+ "materials": [
+  {
+   "match_name": "Flip-chip underfill NUF-3 (NUF-C / NUF-D) no-flow underfill, unfilled, highest fluxing (Tg 90 C, filler 0 wt%, Katsurayama 2008)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 카탈로그 내 동일 클래스 실측값(tier<=3, 비가정)의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-class-median"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1150.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "basis": "catalog class median",
+      "grade_scope": "class value — unfilled (0 wt% filler) epoxy underfill, not this product's own measurement"
+     },
+     "notes": "원문(Katsurayama 2008)이 이 등급을 `filler 0 wt%`(무충전)로 인쇄한다 — 그래서 조성 계산이 아니라 무충전 에폭시 자체의 클래스 중앙값이다. 근거: 카탈로그 내 무충전 에폭시 실측 4종의 중앙값 1.15 g/cm3 (N=4, 범위 1.1496~1.18 — 재료 702 neat epoxy 1.1496 tier1 · 재료 200 Araldite LY556 1.15 tier1 · 재료 438 E-44 1.15 tier3 · 재료 774 EPO-TEK 353ND 1.18 tier3). 검산 대역 에폭시 1.1~1.3 g/cm3 안이다."
+    }
+   ]
+  },
+  {
+   "match_name": "ITEQ IT-200DK low-Dk/Df high-Tg laminate, 1.6 mm (Jeng-I Chen 2007)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 카탈로그 내 동일 클래스 실측값(tier<=3, 비가정)의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-class-median"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1800.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "basis": "catalog class median (vendor family)",
+      "grade_scope": "class/sibling value — not this grade's own printed value"
+     },
+     "notes": "벤더 시트가 이 등급의 밀도를 안 찍는 칸(판정 기존). ITEQ 계열 밀도 실측 3종의 중앙값 1800 kg/m3 (N=3, 범위 1750~1800 — IT-180 1750 · IT-180A 1800 · IT-968 1800). 벤더 계열이 클래스 전체보다 좁다. 검산 대역 — 유리충전 수지 1.3~1.7 g/cm3 위, 실리카충전 EMC 1.8~2.0 안이다. 직물유리 적층판은 유리 함량이 40~60 wt% 라 1.8~2.0 이 정상이다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 18000000000.0,
+     "unit": "Pa",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "basis": "catalog class median (vendor family)",
+      "grade_scope": "class value — ITEQ rigid laminate family, not grade-specific"
+     },
+     "notes": "Jeng-I Chen 2007 이 이 등급의 영률을 안 인쇄한다(판정 기존). 근거는 카탈로그 내 **ITEQ 계열** 영률 실측 3종의 중앙값 18.0 GPa (N=3 · 범위 17.5~18.5 — IT-180 17.5 · IT-968 18.0 · IT-180A 18.5). 벤더 계열을 쓴 이유가 있다 — 카탈로그 전체 강성 유리에폭시 CCL 중앙값은 24.5 GPa 인데 **ITEQ 3등급이 전부 그보다 6 GPa 아래**라 클래스 중앙값을 얹으면 값이 나빠진다(브리프 660)."
+    }
+   ]
+  },
+  {
+   "match_name": "Shengyi S7439 High-Speed Low-Loss Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 카탈로그 내 동일 클래스 실측값(tier<=3, 비가정)의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-class-median"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1800.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "basis": "catalog class median (low-loss laminate sub-class)",
+      "grade_scope": "class/sibling value — not this grade's own printed value"
+     },
+     "notes": "벤더 시트가 이 등급의 밀도를 안 찍는 칸(판정 기존). 카탈로그 내 **저손실/저Dk 강성 라미네이트** 밀도 실측 4종이 전부 1800 kg/m3 이다 (N=4, 범위 1800~1800 — TUC TU-872 SLK · TUC TU-933 ThunderClad 3 · Isola Astra MT77 · ITEQ IT-968). 폭이 0 이라 클래스 전체 중앙값(1870)보다 이 서브클래스를 썼다. 검산 대역 — 유리충전 수지 1.3~1.7 g/cm3 위, 실리카충전 EMC 1.8~2.0 안이다. 직물유리 적층판은 유리 함량이 40~60 wt% 라 1.8~2.0 이 정상이다."
+    }
+   ]
+  },
+  {
+   "match_name": "Elite Material EM-888 / EM-888B High-Tg Low-Loss Halogen-Free Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 카탈로그 내 동일 클래스 실측값(tier<=3, 비가정)의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-class-median"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1800.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "basis": "catalog class median (low-loss laminate sub-class)",
+      "grade_scope": "class/sibling value — not this grade's own printed value"
+     },
+     "notes": "벤더 시트가 이 등급의 밀도를 안 찍는 칸(판정 기존). 카탈로그 내 **저손실/저Dk 강성 라미네이트** 밀도 실측 4종이 전부 1800 kg/m3 이다 (N=4, 범위 1800~1800 — TUC TU-872 SLK · TUC TU-933 ThunderClad 3 · Isola Astra MT77 · ITEQ IT-968). 폭이 0 이라 클래스 전체 중앙값(1870)보다 이 서브클래스를 썼다. 검산 대역 — 유리충전 수지 1.3~1.7 g/cm3 위, 실리카충전 EMC 1.8~2.0 안이다. 직물유리 적층판은 유리 함량이 40~60 wt% 라 1.8~2.0 이 정상이다."
+    }
+   ]
+  },
+  {
+   "match_name": "Elite Material EM-890 / EM-89B High-Tg Ultra-Low-Loss Halogen-Free Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 카탈로그 내 동일 클래스 실측값(tier<=3, 비가정)의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-class-median"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1800.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "basis": "catalog class median (low-loss laminate sub-class)",
+      "grade_scope": "class/sibling value — not this grade's own printed value"
+     },
+     "notes": "벤더 시트가 이 등급의 밀도를 안 찍는 칸(판정 기존). 카탈로그 내 **저손실/저Dk 강성 라미네이트** 밀도 실측 4종이 전부 1800 kg/m3 이다 (N=4, 범위 1800~1800 — TUC TU-872 SLK · TUC TU-933 ThunderClad 3 · Isola Astra MT77 · ITEQ IT-968). 폭이 0 이라 클래스 전체 중앙값(1870)보다 이 서브클래스를 썼다. 검산 대역 — 유리충전 수지 1.3~1.7 g/cm3 위, 실리카충전 EMC 1.8~2.0 안이다. 직물유리 적층판은 유리 함량이 40~60 wt% 라 1.8~2.0 이 정상이다."
+    }
+   ]
+  },
+  {
+   "match_name": "Elite Material EM-891 / EM-891B High-Tg Ultra-Low-Loss Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 카탈로그 내 동일 클래스 실측값(tier<=3, 비가정)의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-class-median"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1800.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "basis": "catalog class median (low-loss laminate sub-class)",
+      "grade_scope": "class/sibling value — not this grade's own printed value"
+     },
+     "notes": "벤더 시트가 이 등급의 밀도를 안 찍는 칸(판정 기존). 카탈로그 내 **저손실/저Dk 강성 라미네이트** 밀도 실측 4종이 전부 1800 kg/m3 이다 (N=4, 범위 1800~1800 — TUC TU-872 SLK · TUC TU-933 ThunderClad 3 · Isola Astra MT77 · ITEQ IT-968). 폭이 0 이라 클래스 전체 중앙값(1870)보다 이 서브클래스를 썼다. 검산 대역 — 유리충전 수지 1.3~1.7 g/cm3 위, 실리카충전 EMC 1.8~2.0 안이다. 직물유리 적층판은 유리 함량이 40~60 wt% 라 1.8~2.0 이 정상이다."
+    }
+   ]
+  },
+  {
+   "match_name": "Elite Material EM-370(5) / EM-37B(5) Mid-Tg Halogen-Free Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 카탈로그 내 동일 클래스 실측값(tier<=3, 비가정)의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-class-median"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1870.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "basis": "catalog class median (rigid glass/epoxy CCL)",
+      "grade_scope": "class/sibling value — not this grade's own printed value"
+     },
+     "notes": "벤더 시트가 이 등급의 밀도를 안 찍는 칸(판정 기존). 카탈로그 내 **강성 직물유리/에폭시계 동박적층판** 밀도 실측(tier<=3·비가정) 재료 52종의 중앙값 1870 kg/m3 (IQR 1760~1990 · 범위 1420~2100). PTFE·세라믹충전·탄화수소계·연성 CCL·본딩시트는 클래스에서 뺐다. 검산 대역 — 유리충전 수지 1.3~1.7 g/cm3 위, 실리카충전 EMC 1.8~2.0 안이다. 직물유리 적층판은 유리 함량이 40~60 wt% 라 1.8~2.0 이 정상이다."
+    }
+   ]
+  },
+  {
+   "match_name": "Elite Material EM-370(Z) / EM-37B(Z) High-Tg Halogen-Free Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 카탈로그 내 동일 클래스 실측값(tier<=3, 비가정)의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-class-median"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1870.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "basis": "catalog class median (rigid glass/epoxy CCL)",
+      "grade_scope": "class/sibling value — not this grade's own printed value"
+     },
+     "notes": "벤더 시트가 이 등급의 밀도를 안 찍는 칸(판정 기존). 카탈로그 내 **강성 직물유리/에폭시계 동박적층판** 밀도 실측(tier<=3·비가정) 재료 52종의 중앙값 1870 kg/m3 (IQR 1760~1990 · 범위 1420~2100). PTFE·세라믹충전·탄화수소계·연성 CCL·본딩시트는 클래스에서 뺐다. 검산 대역 — 유리충전 수지 1.3~1.7 g/cm3 위, 실리카충전 EMC 1.8~2.0 안이다. 직물유리 적층판은 유리 함량이 40~60 wt% 라 1.8~2.0 이 정상이다."
+    }
+   ]
+  },
+  {
+   "match_name": "Laird T-flex 320 ceramic-filled silicone thermal gap filler pad (0.020 in / 0.51 mm)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 카탈로그 내 동일 클래스 실측값(tier<=3, 비가정)의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-class-median"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 121000.0,
+     "unit": "Pa",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "test_standard": "ASTM D575 (class anchor)",
+      "grade_scope": "class value — silicone thermal gap filler pad, not grade-specific"
+     },
+     "notes": "벤더 시트가 영률을 안 찍는 칸(판정 기존). 근거 — 카탈로그 안에서 **ASTM D575 로 영률을 인쇄한 실리콘 갭필러 패드** 5종의 중앙값 121 kPa (N=5 · 범위 35~379 kPa · 사분 90~121: 재료 2567 Bergquist Gap Pad TGP 2400 35 kPa tier3 · 재료 2569 TGP 1300U 90 kPa tier3 · 재료 64 Thermal Pad Silicone High 5.0 W/mK 121 kPa tier1 · 재료 2568 TGP HC5000 121 kPa tier3 · 재료 2570 TGP A2000 379 kPa tier3). **클래스 폭이 한 자릿수 안(35~379 kPa)이라 대역이 열려 있음을 값과 함께 남긴다** — 이 클래스는 벤더가 압축-변형 곡선만 내고 영률을 안 찍는 자리라 등급별로 가를 근거가 지금은 없다. 검산 대역 — 브리프의 점착층 0.1~1 MPa 대역 하단이고, 갭필러는 그보다 무르다."
+    }
+   ]
+  },
+  {
+   "match_name": "Laird T-flex 340 ceramic-filled silicone thermal gap filler pad (0.040 in / 1.02 mm)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 카탈로그 내 동일 클래스 실측값(tier<=3, 비가정)의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-class-median"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 121000.0,
+     "unit": "Pa",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "test_standard": "ASTM D575 (class anchor)",
+      "grade_scope": "class value — silicone thermal gap filler pad, not grade-specific"
+     },
+     "notes": "벤더 시트가 영률을 안 찍는 칸(판정 기존). 근거 — 카탈로그 안에서 **ASTM D575 로 영률을 인쇄한 실리콘 갭필러 패드** 5종의 중앙값 121 kPa (N=5 · 범위 35~379 kPa · 사분 90~121: 재료 2567 Bergquist Gap Pad TGP 2400 35 kPa tier3 · 재료 2569 TGP 1300U 90 kPa tier3 · 재료 64 Thermal Pad Silicone High 5.0 W/mK 121 kPa tier1 · 재료 2568 TGP HC5000 121 kPa tier3 · 재료 2570 TGP A2000 379 kPa tier3). **클래스 폭이 한 자릿수 안(35~379 kPa)이라 대역이 열려 있음을 값과 함께 남긴다** — 이 클래스는 벤더가 압축-변형 곡선만 내고 영률을 안 찍는 자리라 등급별로 가를 근거가 지금은 없다. 검산 대역 — 브리프의 점착층 0.1~1 MPa 대역 하단이고, 갭필러는 그보다 무르다."
+    }
+   ]
+  },
+  {
+   "match_name": "Laird T-flex 360 ceramic-filled silicone thermal gap filler pad (0.060 in / 1.52 mm)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 카탈로그 내 동일 클래스 실측값(tier<=3, 비가정)의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-class-median"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 121000.0,
+     "unit": "Pa",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "test_standard": "ASTM D575 (class anchor)",
+      "grade_scope": "class value — silicone thermal gap filler pad, not grade-specific"
+     },
+     "notes": "벤더 시트가 영률을 안 찍는 칸(판정 기존). 근거 — 카탈로그 안에서 **ASTM D575 로 영률을 인쇄한 실리콘 갭필러 패드** 5종의 중앙값 121 kPa (N=5 · 범위 35~379 kPa · 사분 90~121: 재료 2567 Bergquist Gap Pad TGP 2400 35 kPa tier3 · 재료 2569 TGP 1300U 90 kPa tier3 · 재료 64 Thermal Pad Silicone High 5.0 W/mK 121 kPa tier1 · 재료 2568 TGP HC5000 121 kPa tier3 · 재료 2570 TGP A2000 379 kPa tier3). **클래스 폭이 한 자릿수 안(35~379 kPa)이라 대역이 열려 있음을 값과 함께 남긴다** — 이 클래스는 벤더가 압축-변형 곡선만 내고 영률을 안 찍는 자리라 등급별로 가를 근거가 지금은 없다. 검산 대역 — 브리프의 점착층 0.1~1 MPa 대역 하단이고, 갭필러는 그보다 무르다."
+    }
+   ]
+  },
+  {
+   "match_name": "Laird T-flex 380 ceramic-filled silicone thermal gap filler pad (0.080 in / 2.03 mm)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 카탈로그 내 동일 클래스 실측값(tier<=3, 비가정)의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-class-median"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 121000.0,
+     "unit": "Pa",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "test_standard": "ASTM D575 (class anchor)",
+      "grade_scope": "class value — silicone thermal gap filler pad, not grade-specific"
+     },
+     "notes": "벤더 시트가 영률을 안 찍는 칸(판정 기존). 근거 — 카탈로그 안에서 **ASTM D575 로 영률을 인쇄한 실리콘 갭필러 패드** 5종의 중앙값 121 kPa (N=5 · 범위 35~379 kPa · 사분 90~121: 재료 2567 Bergquist Gap Pad TGP 2400 35 kPa tier3 · 재료 2569 TGP 1300U 90 kPa tier3 · 재료 64 Thermal Pad Silicone High 5.0 W/mK 121 kPa tier1 · 재료 2568 TGP HC5000 121 kPa tier3 · 재료 2570 TGP A2000 379 kPa tier3). **클래스 폭이 한 자릿수 안(35~379 kPa)이라 대역이 열려 있음을 값과 함께 남긴다** — 이 클래스는 벤더가 압축-변형 곡선만 내고 영률을 안 찍는 자리라 등급별로 가를 근거가 지금은 없다. 검산 대역 — 브리프의 점착층 0.1~1 MPa 대역 하단이고, 갭필러는 그보다 무르다."
+    }
+   ]
+  },
+  {
+   "match_name": "Laird T-flex 3100 ceramic-filled silicone thermal gap filler pad (0.100 in / 2.54 mm)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 카탈로그 내 동일 클래스 실측값(tier<=3, 비가정)의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-class-median"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 121000.0,
+     "unit": "Pa",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "test_standard": "ASTM D575 (class anchor)",
+      "grade_scope": "class value — silicone thermal gap filler pad, not grade-specific"
+     },
+     "notes": "벤더 시트가 영률을 안 찍는 칸(판정 기존). 근거 — 카탈로그 안에서 **ASTM D575 로 영률을 인쇄한 실리콘 갭필러 패드** 5종의 중앙값 121 kPa (N=5 · 범위 35~379 kPa · 사분 90~121: 재료 2567 Bergquist Gap Pad TGP 2400 35 kPa tier3 · 재료 2569 TGP 1300U 90 kPa tier3 · 재료 64 Thermal Pad Silicone High 5.0 W/mK 121 kPa tier1 · 재료 2568 TGP HC5000 121 kPa tier3 · 재료 2570 TGP A2000 379 kPa tier3). **클래스 폭이 한 자릿수 안(35~379 kPa)이라 대역이 열려 있음을 값과 함께 남긴다** — 이 클래스는 벤더가 압축-변형 곡선만 내고 영률을 안 찍는 자리라 등급별로 가를 근거가 지금은 없다. 검산 대역 — 브리프의 점착층 0.1~1 MPa 대역 하단이고, 갭필러는 그보다 무르다."
+    }
+   ]
+  },
+  {
+   "match_name": "Parker Chomerics THERM-A-GAP HCS10 silicone thermal gap filler pad (1.0 W/m-K)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 카탈로그 내 동일 클래스 실측값(tier<=3, 비가정)의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-class-median"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 121000.0,
+     "unit": "Pa",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "test_standard": "ASTM D575 (class anchor)",
+      "grade_scope": "class value — silicone thermal gap filler pad, not grade-specific"
+     },
+     "notes": "벤더 시트가 영률을 안 찍는 칸(판정 기존). 근거 — 카탈로그 안에서 **ASTM D575 로 영률을 인쇄한 실리콘 갭필러 패드** 5종의 중앙값 121 kPa (N=5 · 범위 35~379 kPa · 사분 90~121: 재료 2567 Bergquist Gap Pad TGP 2400 35 kPa tier3 · 재료 2569 TGP 1300U 90 kPa tier3 · 재료 64 Thermal Pad Silicone High 5.0 W/mK 121 kPa tier1 · 재료 2568 TGP HC5000 121 kPa tier3 · 재료 2570 TGP A2000 379 kPa tier3). **클래스 폭이 한 자릿수 안(35~379 kPa)이라 대역이 열려 있음을 값과 함께 남긴다** — 이 클래스는 벤더가 압축-변형 곡선만 내고 영률을 안 찍는 자리라 등급별로 가를 근거가 지금은 없다. 검산 대역 — 브리프의 점착층 0.1~1 MPa 대역 하단이고, 갭필러는 그보다 무르다."
+    }
+   ]
+  },
+  {
+   "match_name": "Parker Chomerics THERM-A-GAP 569 silicone thermal gap filler pad (1.5 W/m-K)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 카탈로그 내 동일 클래스 실측값(tier<=3, 비가정)의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-class-median"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 121000.0,
+     "unit": "Pa",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "test_standard": "ASTM D575 (class anchor)",
+      "grade_scope": "class value — silicone thermal gap filler pad, not grade-specific"
+     },
+     "notes": "벤더 시트가 영률을 안 찍는 칸(판정 기존). 근거 — 카탈로그 안에서 **ASTM D575 로 영률을 인쇄한 실리콘 갭필러 패드** 5종의 중앙값 121 kPa (N=5 · 범위 35~379 kPa · 사분 90~121: 재료 2567 Bergquist Gap Pad TGP 2400 35 kPa tier3 · 재료 2569 TGP 1300U 90 kPa tier3 · 재료 64 Thermal Pad Silicone High 5.0 W/mK 121 kPa tier1 · 재료 2568 TGP HC5000 121 kPa tier3 · 재료 2570 TGP A2000 379 kPa tier3). **클래스 폭이 한 자릿수 안(35~379 kPa)이라 대역이 열려 있음을 값과 함께 남긴다** — 이 클래스는 벤더가 압축-변형 곡선만 내고 영률을 안 찍는 자리라 등급별로 가를 근거가 지금은 없다. 검산 대역 — 브리프의 점착층 0.1~1 MPa 대역 하단이고, 갭필러는 그보다 무르다."
+    }
+   ]
+  },
+  {
+   "match_name": "Parker Chomerics THERM-A-GAP 570 silicone thermal gap filler pad (1.5 W/m-K)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 카탈로그 내 동일 클래스 실측값(tier<=3, 비가정)의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-class-median"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 121000.0,
+     "unit": "Pa",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "test_standard": "ASTM D575 (class anchor)",
+      "grade_scope": "class value — silicone thermal gap filler pad, not grade-specific"
+     },
+     "notes": "벤더 시트가 영률을 안 찍는 칸(판정 기존). 근거 — 카탈로그 안에서 **ASTM D575 로 영률을 인쇄한 실리콘 갭필러 패드** 5종의 중앙값 121 kPa (N=5 · 범위 35~379 kPa · 사분 90~121: 재료 2567 Bergquist Gap Pad TGP 2400 35 kPa tier3 · 재료 2569 TGP 1300U 90 kPa tier3 · 재료 64 Thermal Pad Silicone High 5.0 W/mK 121 kPa tier1 · 재료 2568 TGP HC5000 121 kPa tier3 · 재료 2570 TGP A2000 379 kPa tier3). **클래스 폭이 한 자릿수 안(35~379 kPa)이라 대역이 열려 있음을 값과 함께 남긴다** — 이 클래스는 벤더가 압축-변형 곡선만 내고 영률을 안 찍는 자리라 등급별로 가를 근거가 지금은 없다. 검산 대역 — 브리프의 점착층 0.1~1 MPa 대역 하단이고, 갭필러는 그보다 무르다."
+    }
+   ]
+  },
+  {
+   "match_name": "Parker Chomerics THERM-A-GAP 579 silicone thermal gap filler pad (3.0 W/m-K)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 카탈로그 내 동일 클래스 실측값(tier<=3, 비가정)의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-class-median"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 121000.0,
+     "unit": "Pa",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "test_standard": "ASTM D575 (class anchor)",
+      "grade_scope": "class value — silicone thermal gap filler pad, not grade-specific"
+     },
+     "notes": "벤더 시트가 영률을 안 찍는 칸(판정 기존). 근거 — 카탈로그 안에서 **ASTM D575 로 영률을 인쇄한 실리콘 갭필러 패드** 5종의 중앙값 121 kPa (N=5 · 범위 35~379 kPa · 사분 90~121: 재료 2567 Bergquist Gap Pad TGP 2400 35 kPa tier3 · 재료 2569 TGP 1300U 90 kPa tier3 · 재료 64 Thermal Pad Silicone High 5.0 W/mK 121 kPa tier1 · 재료 2568 TGP HC5000 121 kPa tier3 · 재료 2570 TGP A2000 379 kPa tier3). **클래스 폭이 한 자릿수 안(35~379 kPa)이라 대역이 열려 있음을 값과 함께 남긴다** — 이 클래스는 벤더가 압축-변형 곡선만 내고 영률을 안 찍는 자리라 등급별로 가를 근거가 지금은 없다. 검산 대역 — 브리프의 점착층 0.1~1 MPa 대역 하단이고, 갭필러는 그보다 무르다."
+    }
+   ]
+  },
+  {
+   "match_name": "Parker Chomerics THERM-A-GAP 580 silicone thermal gap filler pad (3.0 W/m-K)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 카탈로그 내 동일 클래스 실측값(tier<=3, 비가정)의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-class-median"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 121000.0,
+     "unit": "Pa",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "test_standard": "ASTM D575 (class anchor)",
+      "grade_scope": "class value — silicone thermal gap filler pad, not grade-specific"
+     },
+     "notes": "벤더 시트가 영률을 안 찍는 칸(판정 기존). 근거 — 카탈로그 안에서 **ASTM D575 로 영률을 인쇄한 실리콘 갭필러 패드** 5종의 중앙값 121 kPa (N=5 · 범위 35~379 kPa · 사분 90~121: 재료 2567 Bergquist Gap Pad TGP 2400 35 kPa tier3 · 재료 2569 TGP 1300U 90 kPa tier3 · 재료 64 Thermal Pad Silicone High 5.0 W/mK 121 kPa tier1 · 재료 2568 TGP HC5000 121 kPa tier3 · 재료 2570 TGP A2000 379 kPa tier3). **클래스 폭이 한 자릿수 안(35~379 kPa)이라 대역이 열려 있음을 값과 함께 남긴다** — 이 클래스는 벤더가 압축-변형 곡선만 내고 영률을 안 찍는 자리라 등급별로 가를 근거가 지금은 없다. 검산 대역 — 브리프의 점착층 0.1~1 MPa 대역 하단이고, 갭필러는 그보다 무르다."
+    }
+   ]
+  },
+  {
+   "match_name": "Parker Chomerics THERM-A-GAP G974 silicone thermal gap filler pad, fiberglass carrier with PSA (5.0 W/m-K)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 카탈로그 내 동일 클래스 실측값(tier<=3, 비가정)의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-class-median"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 121000.0,
+     "unit": "Pa",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "test_standard": "ASTM D575 (class anchor)",
+      "grade_scope": "class value — silicone thermal gap filler pad, not grade-specific"
+     },
+     "notes": "벤더 시트가 영률을 안 찍는 칸(판정 기존). 근거 — 카탈로그 안에서 **ASTM D575 로 영률을 인쇄한 실리콘 갭필러 패드** 5종의 중앙값 121 kPa (N=5 · 범위 35~379 kPa · 사분 90~121: 재료 2567 Bergquist Gap Pad TGP 2400 35 kPa tier3 · 재료 2569 TGP 1300U 90 kPa tier3 · 재료 64 Thermal Pad Silicone High 5.0 W/mK 121 kPa tier1 · 재료 2568 TGP HC5000 121 kPa tier3 · 재료 2570 TGP A2000 379 kPa tier3). **클래스 폭이 한 자릿수 안(35~379 kPa)이라 대역이 열려 있음을 값과 함께 남긴다** — 이 클래스는 벤더가 압축-변형 곡선만 내고 영률을 안 찍는 자리라 등급별로 가를 근거가 지금은 없다. 검산 대역 — 브리프의 점착층 0.1~1 MPa 대역 하단이고, 갭필러는 그보다 무르다."
+    }
+   ]
+  },
+  {
+   "match_name": "Parker Chomerics THERM-A-GAP 974 silicone thermal gap filler pad, PSA carrier (6.0 W/m-K)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 카탈로그 내 동일 클래스 실측값(tier<=3, 비가정)의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-class-median"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 121000.0,
+     "unit": "Pa",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "test_standard": "ASTM D575 (class anchor)",
+      "grade_scope": "class value — silicone thermal gap filler pad, not grade-specific"
+     },
+     "notes": "벤더 시트가 영률을 안 찍는 칸(판정 기존). 근거 — 카탈로그 안에서 **ASTM D575 로 영률을 인쇄한 실리콘 갭필러 패드** 5종의 중앙값 121 kPa (N=5 · 범위 35~379 kPa · 사분 90~121: 재료 2567 Bergquist Gap Pad TGP 2400 35 kPa tier3 · 재료 2569 TGP 1300U 90 kPa tier3 · 재료 64 Thermal Pad Silicone High 5.0 W/mK 121 kPa tier1 · 재료 2568 TGP HC5000 121 kPa tier3 · 재료 2570 TGP A2000 379 kPa tier3). **클래스 폭이 한 자릿수 안(35~379 kPa)이라 대역이 열려 있음을 값과 함께 남긴다** — 이 클래스는 벤더가 압축-변형 곡선만 내고 영률을 안 찍는 자리라 등급별로 가를 근거가 지금은 없다. 검산 대역 — 브리프의 점착층 0.1~1 MPa 대역 하단이고, 갭필러는 그보다 무르다."
+    }
+   ]
+  },
+  {
+   "match_name": "Parker Chomerics THERM-A-GAP 976 silicone thermal gap filler pad, unsupported (6.5 W/m-K)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 카탈로그 내 동일 클래스 실측값(tier<=3, 비가정)의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-class-median"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 121000.0,
+     "unit": "Pa",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "test_standard": "ASTM D575 (class anchor)",
+      "grade_scope": "class value — silicone thermal gap filler pad, not grade-specific"
+     },
+     "notes": "벤더 시트가 영률을 안 찍는 칸(판정 기존). 근거 — 카탈로그 안에서 **ASTM D575 로 영률을 인쇄한 실리콘 갭필러 패드** 5종의 중앙값 121 kPa (N=5 · 범위 35~379 kPa · 사분 90~121: 재료 2567 Bergquist Gap Pad TGP 2400 35 kPa tier3 · 재료 2569 TGP 1300U 90 kPa tier3 · 재료 64 Thermal Pad Silicone High 5.0 W/mK 121 kPa tier1 · 재료 2568 TGP HC5000 121 kPa tier3 · 재료 2570 TGP A2000 379 kPa tier3). **클래스 폭이 한 자릿수 안(35~379 kPa)이라 대역이 열려 있음을 값과 함께 남긴다** — 이 클래스는 벤더가 압축-변형 곡선만 내고 영률을 안 찍는 자리라 등급별로 가를 근거가 지금은 없다. 검산 대역 — 브리프의 점착층 0.1~1 MPa 대역 하단이고, 갭필러는 그보다 무르다."
+    }
+   ]
+  }
+ ]
+}

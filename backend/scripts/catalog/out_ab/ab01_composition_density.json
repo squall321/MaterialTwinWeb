@@ -1,0 +1,467 @@
+{
+ "materials": [
+  {
+   "match_name": "97.5Pb2.5Sn Solder Alloy",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 원문이 인쇄한 조성으로 계산한 밀도(혼합칙 역수식)",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-composition-density"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 11180.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "composition (rule of mixtures, volume additivity)"
+     },
+     "notes": "벤더 시트가 밀도를 안 찍는 칸(판정 기존). **역산이 아니라 조성 계산**이다 — 원문이 조성을 인쇄한다: 제품명이 곧 조성 규격 97.5Pb-2.5Sn (wt%). 계산식 1/rho = sum(w_i/rho_i) = 0.9750/11.34 + 0.0250/7.287 → rho = 11.1845 g/cm3 → 10 kg/m3 자리로 반올림해 11180 kg/m3 로 적재했다(식의 실측 대조 오차가 최대 0.75% 라 그 아래 자릿수는 뜻이 없다). 입력 원소 밀도(CRC Handbook 93판, 20 C, g/cm3): Pb 11.34 · Sn 7.287. 자기 검산 — 같은 식을 카탈로그가 벤더 인쇄값을 이미 가진 합금 5종에 돌렸다: SAC305 계산 7.361 대 인쇄 7.35~7.37(오차 0.15%) · 92.5Pb5Sn2.5Ag 계산 11.012 대 인쇄 11.02(0.08%) · 62Sn36Pb2Ag 계산 8.422 대 인쇄 8.42(0.03%) · SAC405 계산 7.384 대 인쇄 7.44(0.75%) · SAC0307 계산 7.303 대 인쇄 7.33(0.36%). 최대 오차 0.75%."
+    }
+   ]
+  },
+  {
+   "match_name": "SAC(307)-2In Solder Alloy",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 원문이 인쇄한 조성으로 계산한 밀도(혼합칙 역수식)",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-composition-density"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 7360.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "composition (rule of mixtures, volume additivity)"
+     },
+     "notes": "벤더 시트가 밀도를 안 찍는 칸(판정 기존). **역산이 아니라 조성 계산**이다 — 원문이 조성을 인쇄한다: Ibrahiem 2019 Table 1 조성 Ag 3.0 / Cu 0.7 / In 2.0 / Sn Bal.(재료 attributes.composition_note). 계산식 1/rho = sum(w_i/rho_i) = 0.9430/7.287 + 0.0300/10.49 + 0.0070/8.96 + 0.0200/7.31 → rho = 7.3645 g/cm3 → 10 kg/m3 자리로 반올림해 7360 kg/m3 로 적재했다(식의 실측 대조 오차가 최대 0.75% 라 그 아래 자릿수는 뜻이 없다). 입력 원소 밀도(CRC Handbook 93판, 20 C, g/cm3): Sn 7.287 · Ag 10.49 · Cu 8.96 · In 7.31. 자기 검산 — 같은 식을 카탈로그가 벤더 인쇄값을 이미 가진 합금 5종에 돌렸다: SAC305 계산 7.361 대 인쇄 7.35~7.37(오차 0.15%) · 92.5Pb5Sn2.5Ag 계산 11.012 대 인쇄 11.02(0.08%) · 62Sn36Pb2Ag 계산 8.422 대 인쇄 8.42(0.03%) · SAC405 계산 7.384 대 인쇄 7.44(0.75%) · SAC0307 계산 7.303 대 인쇄 7.33(0.36%). 최대 오차 0.75%."
+    }
+   ]
+  },
+  {
+   "match_name": "SAC-Q Solder Alloy",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 원문이 인쇄한 조성으로 계산한 밀도(혼합칙 역수식)",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-composition-density"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 7440.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "composition (rule of mixtures, volume additivity)"
+     },
+     "notes": "벤더 시트가 밀도를 안 찍는 칸(판정 기존). **역산이 아니라 조성 계산**이다 — 원문이 조성을 인쇄한다: Lall 2018 TABLE 1(EDX) Sn 92.7 / Ag 3.4 / Cu 0.5 / Bi 3.4 wt%(재료 attributes.composition_note). 계산식 1/rho = sum(w_i/rho_i) = 0.9270/7.287 + 0.0340/10.49 + 0.0050/8.96 + 0.0340/9.78 → rho = 7.4356 g/cm3 → 10 kg/m3 자리로 반올림해 7440 kg/m3 로 적재했다(식의 실측 대조 오차가 최대 0.75% 라 그 아래 자릿수는 뜻이 없다). 입력 원소 밀도(CRC Handbook 93판, 20 C, g/cm3): Sn 7.287 · Ag 10.49 · Cu 8.96 · Bi 9.78. 자기 검산 — 같은 식을 카탈로그가 벤더 인쇄값을 이미 가진 합금 5종에 돌렸다: SAC305 계산 7.361 대 인쇄 7.35~7.37(오차 0.15%) · 92.5Pb5Sn2.5Ag 계산 11.012 대 인쇄 11.02(0.08%) · 62Sn36Pb2Ag 계산 8.422 대 인쇄 8.42(0.03%) · SAC405 계산 7.384 대 인쇄 7.44(0.75%) · SAC0307 계산 7.303 대 인쇄 7.33(0.36%). 최대 오차 0.75%."
+    }
+   ]
+  },
+  {
+   "match_name": "SAC107 Solder Alloy",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 원문이 인쇄한 조성으로 계산한 밀도(혼합칙 역수식)",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-composition-density"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 7320.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "composition (rule of mixtures, volume additivity)"
+     },
+     "notes": "벤더 시트가 밀도를 안 찍는 칸(판정 기존). **역산이 아니라 조성 계산**이다 — 원문이 조성을 인쇄한다: 원문 verbatim 'Sn-1Ag-0.7Cu (SAC107)'. 계산식 1/rho = sum(w_i/rho_i) = 0.9830/7.287 + 0.0100/10.49 + 0.0070/8.96 → rho = 7.3189 g/cm3 → 10 kg/m3 자리로 반올림해 7320 kg/m3 로 적재했다(식의 실측 대조 오차가 최대 0.75% 라 그 아래 자릿수는 뜻이 없다). 입력 원소 밀도(CRC Handbook 93판, 20 C, g/cm3): Sn 7.287 · Ag 10.49 · Cu 8.96. 자기 검산 — 같은 식을 카탈로그가 벤더 인쇄값을 이미 가진 합금 5종에 돌렸다: SAC305 계산 7.361 대 인쇄 7.35~7.37(오차 0.15%) · 92.5Pb5Sn2.5Ag 계산 11.012 대 인쇄 11.02(0.08%) · 62Sn36Pb2Ag 계산 8.422 대 인쇄 8.42(0.03%) · SAC405 계산 7.384 대 인쇄 7.44(0.75%) · SAC0307 계산 7.303 대 인쇄 7.33(0.36%). 최대 오차 0.75%."
+    }
+   ]
+  },
+  {
+   "match_name": "SAC205 Solder Alloy",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 원문이 인쇄한 조성으로 계산한 밀도(혼합칙 역수식)",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-composition-density"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 7340.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "composition (rule of mixtures, volume additivity)"
+     },
+     "notes": "벤더 시트가 밀도를 안 찍는 칸(판정 기존). **역산이 아니라 조성 계산**이다 — 원문이 조성을 인쇄한다: 제품명이 곧 조성 규격 97.5Sn-2.0Ag-0.5Cu (wt%). 계산식 1/rho = sum(w_i/rho_i) = 0.9750/7.287 + 0.0200/10.49 + 0.0050/8.96 → rho = 7.3387 g/cm3 → 10 kg/m3 자리로 반올림해 7340 kg/m3 로 적재했다(식의 실측 대조 오차가 최대 0.75% 라 그 아래 자릿수는 뜻이 없다). 입력 원소 밀도(CRC Handbook 93판, 20 C, g/cm3): Sn 7.287 · Ag 10.49 · Cu 8.96. 자기 검산 — 같은 식을 카탈로그가 벤더 인쇄값을 이미 가진 합금 5종에 돌렸다: SAC305 계산 7.361 대 인쇄 7.35~7.37(오차 0.15%) · 92.5Pb5Sn2.5Ag 계산 11.012 대 인쇄 11.02(0.08%) · 62Sn36Pb2Ag 계산 8.422 대 인쇄 8.42(0.03%) · SAC405 계산 7.384 대 인쇄 7.44(0.75%) · SAC0307 계산 7.303 대 인쇄 7.33(0.36%). 최대 오차 0.75%."
+    }
+   ]
+  },
+  {
+   "match_name": "Sn-3Ag-0.5Cu-1Bi Solder Alloy (Kanchanomai 2002)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 원문이 인쇄한 조성으로 계산한 밀도(혼합칙 역수식)",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-composition-density"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 7380.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "composition (rule of mixtures, volume additivity)"
+     },
+     "notes": "벤더 시트가 밀도를 안 찍는 칸(판정 기존). **역산이 아니라 조성 계산**이다 — 원문이 조성을 인쇄한다: 제품명이 곧 조성 규격 Sn-3.0Ag-0.5Cu-1.0Bi (wt%). 계산식 1/rho = sum(w_i/rho_i) = 0.9550/7.287 + 0.0300/10.49 + 0.0050/8.96 + 0.0100/9.78 → rho = 7.3803 g/cm3 → 10 kg/m3 자리로 반올림해 7380 kg/m3 로 적재했다(식의 실측 대조 오차가 최대 0.75% 라 그 아래 자릿수는 뜻이 없다). 입력 원소 밀도(CRC Handbook 93판, 20 C, g/cm3): Sn 7.287 · Ag 10.49 · Cu 8.96 · Bi 9.78. 자기 검산 — 같은 식을 카탈로그가 벤더 인쇄값을 이미 가진 합금 5종에 돌렸다: SAC305 계산 7.361 대 인쇄 7.35~7.37(오차 0.15%) · 92.5Pb5Sn2.5Ag 계산 11.012 대 인쇄 11.02(0.08%) · 62Sn36Pb2Ag 계산 8.422 대 인쇄 8.42(0.03%) · SAC405 계산 7.384 대 인쇄 7.44(0.75%) · SAC0307 계산 7.303 대 인쇄 7.33(0.36%). 최대 오차 0.75%."
+    }
+   ]
+  },
+  {
+   "match_name": "Sn-3Ag-0.5Cu-3Bi Solder Alloy (Kanchanomai 2002)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 원문이 인쇄한 조성으로 계산한 밀도(혼합칙 역수식)",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-composition-density"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 7420.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "composition (rule of mixtures, volume additivity)"
+     },
+     "notes": "벤더 시트가 밀도를 안 찍는 칸(판정 기존). **역산이 아니라 조성 계산**이다 — 원문이 조성을 인쇄한다: 제품명이 곧 조성 규격 Sn-3.0Ag-0.5Cu-3.0Bi (wt%). 계산식 1/rho = sum(w_i/rho_i) = 0.9350/7.287 + 0.0300/10.49 + 0.0050/8.96 + 0.0300/9.78 → rho = 7.4186 g/cm3 → 10 kg/m3 자리로 반올림해 7420 kg/m3 로 적재했다(식의 실측 대조 오차가 최대 0.75% 라 그 아래 자릿수는 뜻이 없다). 입력 원소 밀도(CRC Handbook 93판, 20 C, g/cm3): Sn 7.287 · Ag 10.49 · Cu 8.96 · Bi 9.78. 자기 검산 — 같은 식을 카탈로그가 벤더 인쇄값을 이미 가진 합금 5종에 돌렸다: SAC305 계산 7.361 대 인쇄 7.35~7.37(오차 0.15%) · 92.5Pb5Sn2.5Ag 계산 11.012 대 인쇄 11.02(0.08%) · 62Sn36Pb2Ag 계산 8.422 대 인쇄 8.42(0.03%) · SAC405 계산 7.384 대 인쇄 7.44(0.75%) · SAC0307 계산 7.303 대 인쇄 7.33(0.36%). 최대 오차 0.75%."
+    }
+   ]
+  },
+  {
+   "match_name": "Sn-8Zn-3Bi Solder Alloy",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 원문이 인쇄한 조성으로 계산한 밀도(혼합칙 역수식)",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-composition-density"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 7330.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "composition (rule of mixtures, volume additivity)"
+     },
+     "notes": "벤더 시트가 밀도를 안 찍는 칸(판정 기존). **역산이 아니라 조성 계산**이다 — 원문이 조성을 인쇄한다: 제품명이 곧 조성 규격 Sn-8Zn-3Bi (wt%). 계산식 1/rho = sum(w_i/rho_i) = 0.8900/7.287 + 0.0800/7.14 + 0.0300/9.78 → rho = 7.3310 g/cm3 → 10 kg/m3 자리로 반올림해 7330 kg/m3 로 적재했다(식의 실측 대조 오차가 최대 0.75% 라 그 아래 자릿수는 뜻이 없다). 입력 원소 밀도(CRC Handbook 93판, 20 C, g/cm3): Sn 7.287 · Zn 7.14 · Bi 9.78. 자기 검산 — 같은 식을 카탈로그가 벤더 인쇄값을 이미 가진 합금 5종에 돌렸다: SAC305 계산 7.361 대 인쇄 7.35~7.37(오차 0.15%) · 92.5Pb5Sn2.5Ag 계산 11.012 대 인쇄 11.02(0.08%) · 62Sn36Pb2Ag 계산 8.422 대 인쇄 8.42(0.03%) · SAC405 계산 7.384 대 인쇄 7.44(0.75%) · SAC0307 계산 7.303 대 인쇄 7.33(0.36%). 최대 오차 0.75%."
+    }
+   ]
+  },
+  {
+   "match_name": "Sn-9Zn-2.5Bi-0.5In-0.01P Solder Alloy",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 원문이 인쇄한 조성으로 계산한 밀도(혼합칙 역수식)",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-composition-density"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 7320.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "composition (rule of mixtures, volume additivity)"
+     },
+     "notes": "벤더 시트가 밀도를 안 찍는 칸(판정 기존). **역산이 아니라 조성 계산**이다 — 원문이 조성을 인쇄한다: 제품명이 곧 조성 규격 Sn-9Zn-2.5Bi-0.5In-0.01P (wt%). 계산식 1/rho = sum(w_i/rho_i) = 0.8799/7.287 + 0.0900/7.14 + 0.0250/9.78 + 0.0050/7.31 + 0.0001/1.82 → rho = 7.3180 g/cm3 → 10 kg/m3 자리로 반올림해 7320 kg/m3 로 적재했다(식의 실측 대조 오차가 최대 0.75% 라 그 아래 자릿수는 뜻이 없다). 입력 원소 밀도(CRC Handbook 93판, 20 C, g/cm3): Sn 7.287 · Zn 7.14 · Bi 9.78 · In 7.31 · P 1.82. 자기 검산 — 같은 식을 카탈로그가 벤더 인쇄값을 이미 가진 합금 5종에 돌렸다: SAC305 계산 7.361 대 인쇄 7.35~7.37(오차 0.15%) · 92.5Pb5Sn2.5Ag 계산 11.012 대 인쇄 11.02(0.08%) · 62Sn36Pb2Ag 계산 8.422 대 인쇄 8.42(0.03%) · SAC405 계산 7.384 대 인쇄 7.44(0.75%) · SAC0307 계산 7.303 대 인쇄 7.33(0.36%). 최대 오차 0.75%."
+    }
+   ]
+  },
+  {
+   "match_name": "SnAg3.5Cu0.7 lead-free solder alloy (IDEALS project, Harrison 2001)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 원문이 인쇄한 조성으로 계산한 밀도(혼합칙 역수식)",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-composition-density"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 7380.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "composition (rule of mixtures, volume additivity)"
+     },
+     "notes": "벤더 시트가 밀도를 안 찍는 칸(판정 기존). **역산이 아니라 조성 계산**이다 — 원문이 조성을 인쇄한다: 제품명이 곧 조성 규격 Sn-3.5Ag-0.7Cu (wt%, IDEALS 프로젝트 합금). 계산식 1/rho = sum(w_i/rho_i) = 0.9580/7.287 + 0.0350/10.49 + 0.0070/8.96 → rho = 7.3755 g/cm3 → 10 kg/m3 자리로 반올림해 7380 kg/m3 로 적재했다(식의 실측 대조 오차가 최대 0.75% 라 그 아래 자릿수는 뜻이 없다). 입력 원소 밀도(CRC Handbook 93판, 20 C, g/cm3): Sn 7.287 · Ag 10.49 · Cu 8.96. 자기 검산 — 같은 식을 카탈로그가 벤더 인쇄값을 이미 가진 합금 5종에 돌렸다: SAC305 계산 7.361 대 인쇄 7.35~7.37(오차 0.15%) · 92.5Pb5Sn2.5Ag 계산 11.012 대 인쇄 11.02(0.08%) · 62Sn36Pb2Ag 계산 8.422 대 인쇄 8.42(0.03%) · SAC405 계산 7.384 대 인쇄 7.44(0.75%) · SAC0307 계산 7.303 대 인쇄 7.33(0.36%). 최대 오차 0.75%."
+    }
+   ]
+  },
+  {
+   "match_name": "SnAg3.5Cu0.7Sb0.25 lead-free solder alloy (IDEALS project, Harrison 2001)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 원문이 인쇄한 조성으로 계산한 밀도(혼합칙 역수식)",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-composition-density"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 7370.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "composition (rule of mixtures, volume additivity)"
+     },
+     "notes": "벤더 시트가 밀도를 안 찍는 칸(판정 기존). **역산이 아니라 조성 계산**이다 — 원문이 조성을 인쇄한다: 제품명이 곧 조성 규격 Sn-3.5Ag-0.7Cu-0.25Sb (wt%, IDEALS 프로젝트 합금). 계산식 1/rho = sum(w_i/rho_i) = 0.9555/7.287 + 0.0350/10.49 + 0.0070/8.96 + 0.0025/6.68 → rho = 7.3738 g/cm3 → 10 kg/m3 자리로 반올림해 7370 kg/m3 로 적재했다(식의 실측 대조 오차가 최대 0.75% 라 그 아래 자릿수는 뜻이 없다). 입력 원소 밀도(CRC Handbook 93판, 20 C, g/cm3): Sn 7.287 · Ag 10.49 · Cu 8.96 · Sb 6.68. 자기 검산 — 같은 식을 카탈로그가 벤더 인쇄값을 이미 가진 합금 5종에 돌렸다: SAC305 계산 7.361 대 인쇄 7.35~7.37(오차 0.15%) · 92.5Pb5Sn2.5Ag 계산 11.012 대 인쇄 11.02(0.08%) · 62Sn36Pb2Ag 계산 8.422 대 인쇄 8.42(0.03%) · SAC405 계산 7.384 대 인쇄 7.44(0.75%) · SAC0307 계산 7.303 대 인쇄 7.33(0.36%). 최대 오차 0.75%."
+    }
+   ]
+  },
+  {
+   "match_name": "SnCu0.7Sb0.5 lead-free solder alloy (IDEALS project, Harrison 2001)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 원문이 인쇄한 조성으로 계산한 밀도(혼합칙 역수식)",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-composition-density"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 7290.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "composition (rule of mixtures, volume additivity)"
+     },
+     "notes": "벤더 시트가 밀도를 안 찍는 칸(판정 기존). **역산이 아니라 조성 계산**이다 — 원문이 조성을 인쇄한다: 제품명이 곧 조성 규격 Sn-0.7Cu-0.5Sb (wt%, IDEALS 프로젝트 합금). 계산식 1/rho = sum(w_i/rho_i) = 0.9880/7.287 + 0.0070/8.96 + 0.0050/6.68 → rho = 7.2932 g/cm3 → 10 kg/m3 자리로 반올림해 7290 kg/m3 로 적재했다(식의 실측 대조 오차가 최대 0.75% 라 그 아래 자릿수는 뜻이 없다). 입력 원소 밀도(CRC Handbook 93판, 20 C, g/cm3): Sn 7.287 · Cu 8.96 · Sb 6.68. 자기 검산 — 같은 식을 카탈로그가 벤더 인쇄값을 이미 가진 합금 5종에 돌렸다: SAC305 계산 7.361 대 인쇄 7.35~7.37(오차 0.15%) · 92.5Pb5Sn2.5Ag 계산 11.012 대 인쇄 11.02(0.08%) · 62Sn36Pb2Ag 계산 8.422 대 인쇄 8.42(0.03%) · SAC405 계산 7.384 대 인쇄 7.44(0.75%) · SAC0307 계산 7.303 대 인쇄 7.33(0.36%). 최대 오차 0.75%."
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy molding compound, 89 wt% silica-filled commercial fan-out WLP compound (Chiu 2018)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 원문이 인쇄한 조성으로 계산한 밀도(혼합칙 역수식)",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-composition-density"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2000.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "basis": "composition (printed filler wt%, volume additivity)",
+      "filler_content_wt_pct_printed": 89.0
+     },
+     "notes": "벤더 시트/논문이 밀도를 안 찍는 칸(판정 기존). **역산이 아니라 조성 계산**이다 — 원문이 충전율을 인쇄한다(재료명에 새겨진 실리카 89 wt%). 계산식 1/rho = w_f/rho_f + w_m/rho_m = 0.89/2.2 + 0.11/1.15 = 0.500198 → rho = 1.9992 g/cm3 → 10 kg/m3 자리로 반올림해 2000 kg/m3 로 적재했다. 입력 두 개는 우리 카탈로그 실측에서 왔다 — 용융실리카 2.20 g/cm3(재료 1040 'Vitreous silica G14' tier1 measured 2200 · 재료 639 'Fused Silica' tier3 2200), 무충전 에폭시 매트릭스 1.15 g/cm3(무충전 에폭시 실측 4종 중앙값: 재료 702 neat epoxy 1.1496 t1 · 재료 200 Araldite LY556 1.15 t1 · 재료 438 E-44 1.15 t3 · 재료 774 EPO-TEK 353ND 1.18 t3). 자기 검산 — 같은 식을 형제 제품에 돌렸다. Dexter/Hysol FP4526(재료 2363)은 LOCTITE ECCOBOND TDS 에 1.70 g/cm3 을 인쇄하는데, 68 wt% 충전 기준 계산값이 1.703 이다(오차 0.2%)."
+    }
+   ]
+  },
+  {
+   "match_name": "Underfill Dexter FP4527, silica-filled epoxy 68 wt% (flip-chip capillary underfill, Hohlfelder 2001)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 원문이 인쇄한 조성으로 계산한 밀도(혼합칙 역수식)",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-composition-density"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1700.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "basis": "composition (printed filler wt%, volume additivity)",
+      "filler_content_wt_pct_printed": 68.0
+     },
+     "notes": "벤더 시트/논문이 밀도를 안 찍는 칸(판정 기존). **역산이 아니라 조성 계산**이다 — 원문이 충전율을 인쇄한다(재료명에 새겨진 실리카 68 wt%). 계산식 1/rho = w_f/rho_f + w_m/rho_m = 0.68/2.2 + 0.32/1.15 = 0.587352 → rho = 1.7026 g/cm3 → 10 kg/m3 자리로 반올림해 1700 kg/m3 로 적재했다. 입력 두 개는 우리 카탈로그 실측에서 왔다 — 용융실리카 2.20 g/cm3(재료 1040 'Vitreous silica G14' tier1 measured 2200 · 재료 639 'Fused Silica' tier3 2200), 무충전 에폭시 매트릭스 1.15 g/cm3(무충전 에폭시 실측 4종 중앙값: 재료 702 neat epoxy 1.1496 t1 · 재료 200 Araldite LY556 1.15 t1 · 재료 438 E-44 1.15 t3 · 재료 774 EPO-TEK 353ND 1.18 t3). 자기 검산 — 같은 식을 형제 제품에 돌렸다. Dexter/Hysol FP4526(재료 2363)은 LOCTITE ECCOBOND TDS 에 1.70 g/cm3 을 인쇄하는데, 68 wt% 충전 기준 계산값이 1.703 이다(오차 0.2%)."
+    }
+   ]
+  },
+  {
+   "match_name": "Underfill Zymet X6-82-5, silica-filled epoxy 62 wt% (flip-chip capillary underfill, Hohlfelder 2001)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 원문이 인쇄한 조성으로 계산한 밀도(혼합칙 역수식)",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-composition-density"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1630.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "basis": "composition (printed filler wt%, volume additivity)",
+      "filler_content_wt_pct_printed": 62.0
+     },
+     "notes": "벤더 시트/논문이 밀도를 안 찍는 칸(판정 기존). **역산이 아니라 조성 계산**이다 — 원문이 충전율을 인쇄한다(재료명에 새겨진 실리카 62 wt%). 계산식 1/rho = w_f/rho_f + w_m/rho_m = 0.62/2.2 + 0.38/1.15 = 0.612253 → rho = 1.6333 g/cm3 → 10 kg/m3 자리로 반올림해 1630 kg/m3 로 적재했다. 입력 두 개는 우리 카탈로그 실측에서 왔다 — 용융실리카 2.20 g/cm3(재료 1040 'Vitreous silica G14' tier1 measured 2200 · 재료 639 'Fused Silica' tier3 2200), 무충전 에폭시 매트릭스 1.15 g/cm3(무충전 에폭시 실측 4종 중앙값: 재료 702 neat epoxy 1.1496 t1 · 재료 200 Araldite LY556 1.15 t1 · 재료 438 E-44 1.15 t3 · 재료 774 EPO-TEK 353ND 1.18 t3). 자기 검산 — 같은 식을 형제 제품에 돌렸다. Dexter/Hysol FP4526(재료 2363)은 LOCTITE ECCOBOND TDS 에 1.70 g/cm3 을 인쇄하는데, 68 wt% 충전 기준 계산값이 1.703 이다(오차 0.2%)."
+    }
+   ]
+  },
+  {
+   "match_name": "Underfill Zymet X6-82-8, silica-filled epoxy 62 wt% + extra adhesion promoter (Hohlfelder 2001)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 원문이 인쇄한 조성으로 계산한 밀도(혼합칙 역수식)",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-composition-density"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1630.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "basis": "composition (printed filler wt%, volume additivity)",
+      "filler_content_wt_pct_printed": 62.0
+     },
+     "notes": "벤더 시트/논문이 밀도를 안 찍는 칸(판정 기존). **역산이 아니라 조성 계산**이다 — 원문이 충전율을 인쇄한다(재료명에 새겨진 실리카 62 wt%). 계산식 1/rho = w_f/rho_f + w_m/rho_m = 0.62/2.2 + 0.38/1.15 = 0.612253 → rho = 1.6333 g/cm3 → 10 kg/m3 자리로 반올림해 1630 kg/m3 로 적재했다. 입력 두 개는 우리 카탈로그 실측에서 왔다 — 용융실리카 2.20 g/cm3(재료 1040 'Vitreous silica G14' tier1 measured 2200 · 재료 639 'Fused Silica' tier3 2200), 무충전 에폭시 매트릭스 1.15 g/cm3(무충전 에폭시 실측 4종 중앙값: 재료 702 neat epoxy 1.1496 t1 · 재료 200 Araldite LY556 1.15 t1 · 재료 438 E-44 1.15 t3 · 재료 774 EPO-TEK 353ND 1.18 t3). 자기 검산 — 같은 식을 형제 제품에 돌렸다. Dexter/Hysol FP4526(재료 2363)은 LOCTITE ECCOBOND TDS 에 1.70 g/cm3 을 인쇄하는데, 68 wt% 충전 기준 계산값이 1.703 이다(오차 0.2%)."
+    }
+   ]
+  },
+  {
+   "match_name": "Underfill Zymet X6-82-0, silica-filled epoxy 62 wt% with no adhesion promoter (Hohlfelder 2001)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 원문이 인쇄한 조성으로 계산한 밀도(혼합칙 역수식)",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-composition-density"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1630.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "basis": "composition (printed filler wt%, volume additivity)",
+      "filler_content_wt_pct_printed": 62.0
+     },
+     "notes": "벤더 시트/논문이 밀도를 안 찍는 칸(판정 기존). **역산이 아니라 조성 계산**이다 — 원문이 충전율을 인쇄한다(재료명에 새겨진 실리카 62 wt%). 계산식 1/rho = w_f/rho_f + w_m/rho_m = 0.62/2.2 + 0.38/1.15 = 0.612253 → rho = 1.6333 g/cm3 → 10 kg/m3 자리로 반올림해 1630 kg/m3 로 적재했다. 입력 두 개는 우리 카탈로그 실측에서 왔다 — 용융실리카 2.20 g/cm3(재료 1040 'Vitreous silica G14' tier1 measured 2200 · 재료 639 'Fused Silica' tier3 2200), 무충전 에폭시 매트릭스 1.15 g/cm3(무충전 에폭시 실측 4종 중앙값: 재료 702 neat epoxy 1.1496 t1 · 재료 200 Araldite LY556 1.15 t1 · 재료 438 E-44 1.15 t3 · 재료 774 EPO-TEK 353ND 1.18 t3). 자기 검산 — 같은 식을 형제 제품에 돌렸다. Dexter/Hysol FP4526(재료 2363)은 LOCTITE ECCOBOND TDS 에 1.70 g/cm3 을 인쇄하는데, 68 wt% 충전 기준 계산값이 1.703 이다(오차 0.2%)."
+    }
+   ]
+  },
+  {
+   "match_name": "Flip-chip underfill CUF-1 (CUF-A) capillary-flow underfill (Tg 100 C, filler 65 wt%, Katsurayama 2008)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 원문이 인쇄한 조성으로 계산한 밀도(혼합칙 역수식)",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-composition-density"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1670.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "basis": "composition (printed filler wt%, volume additivity)",
+      "filler_content_wt_pct_printed": 65.0
+     },
+     "notes": "벤더 시트/논문이 밀도를 안 찍는 칸(판정 기존). **역산이 아니라 조성 계산**이다 — 원문이 충전율을 인쇄한다(재료명에 새겨진 실리카 65 wt%). 계산식 1/rho = w_f/rho_f + w_m/rho_m = 0.65/2.2 + 0.35/1.15 = 0.599802 → rho = 1.6672 g/cm3 → 10 kg/m3 자리로 반올림해 1670 kg/m3 로 적재했다. 입력 두 개는 우리 카탈로그 실측에서 왔다 — 용융실리카 2.20 g/cm3(재료 1040 'Vitreous silica G14' tier1 measured 2200 · 재료 639 'Fused Silica' tier3 2200), 무충전 에폭시 매트릭스 1.15 g/cm3(무충전 에폭시 실측 4종 중앙값: 재료 702 neat epoxy 1.1496 t1 · 재료 200 Araldite LY556 1.15 t1 · 재료 438 E-44 1.15 t3 · 재료 774 EPO-TEK 353ND 1.18 t3). 자기 검산 — 같은 식을 형제 제품에 돌렸다. Dexter/Hysol FP4526(재료 2363)은 LOCTITE ECCOBOND TDS 에 1.70 g/cm3 을 인쇄하는데, 68 wt% 충전 기준 계산값이 1.703 이다(오차 0.2%)."
+    }
+   ]
+  },
+  {
+   "match_name": "Flip-chip underfill NUF-2 (NUF-B) no-flow underfill, lowest CTE (Tg 95 C, filler 60 wt%, Katsurayama 2008)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 65차 AB — 원문이 인쇄한 조성으로 계산한 밀도(혼합칙 역수식)",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb#w65ab-composition-density"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1610.0,
+     "unit": "kg/m^3",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 23,
+      "basis": "composition (printed filler wt%, volume additivity)",
+      "filler_content_wt_pct_printed": 60.0
+     },
+     "notes": "벤더 시트/논문이 밀도를 안 찍는 칸(판정 기존). **역산이 아니라 조성 계산**이다 — 원문이 충전율을 인쇄한다(재료명에 새겨진 실리카 60 wt%). 계산식 1/rho = w_f/rho_f + w_m/rho_m = 0.60/2.2 + 0.40/1.15 = 0.620553 → rho = 1.6115 g/cm3 → 10 kg/m3 자리로 반올림해 1610 kg/m3 로 적재했다. 입력 두 개는 우리 카탈로그 실측에서 왔다 — 용융실리카 2.20 g/cm3(재료 1040 'Vitreous silica G14' tier1 measured 2200 · 재료 639 'Fused Silica' tier3 2200), 무충전 에폭시 매트릭스 1.15 g/cm3(무충전 에폭시 실측 4종 중앙값: 재료 702 neat epoxy 1.1496 t1 · 재료 200 Araldite LY556 1.15 t1 · 재료 438 E-44 1.15 t3 · 재료 774 EPO-TEK 353ND 1.18 t3). 자기 검산 — 같은 식을 형제 제품에 돌렸다. Dexter/Hysol FP4526(재료 2363)은 LOCTITE ECCOBOND TDS 에 1.70 g/cm3 을 인쇄하는데, 68 wt% 충전 기준 계산값이 1.703 이다(오차 0.2%)."
+    }
+   ]
+  }
+ ]
+}
