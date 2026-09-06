@@ -1,0 +1,731 @@
+{
+ "batch": "65차 AC",
+ "materials": [
+  {
+   "match_name": "Thermylene talc-filled polypropylene PP-T, 40 wt% talc, injection moulded (Eftekhari 2016)",
+   "source": {
+    "kind": "other",
+    "title": "Eftekhari, M. (2016), Creep, Fatigue, and Their Interaction at Elevated Temperatures in Thermoplastic Composites, PhD dissertation, The University of Toledo",
+    "authors": "Mohammadreza Eftekhari (advisor Ali Fatemi)",
+    "year": 2016,
+    "publisher": "The University of Toledo (OhioLINK ETD, accession toledo1470388940)",
+    "url": "http://rave.ohiolink.edu/etdc/view?acc_num=toledo1470388940"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 3900000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 23,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ISO 527",
+      "strain_rate_s": 0.0005,
+      "replicate": 1
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PP-T` 블록, 23 degC 행 1번째 반복, `Elastic Modulus (ISO)` 열 verbatim `3.90` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ISO-527 정의 — 응력-변형률 곡선의 0.0005~0.0025 mm/mm 구간에 맞춘 직선의 기울기(할선). 원문 verbatim: 'Based on ISO-527, elastic modulus is defined as the slope of fitted line to the part of stress-strain curve within 0.0005 to 0.0025 mm/mm strain.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: P-40TC-8100 의 ISO 178 굽힘탄성률 4.3 GPa(판상 탈크라 이방성이 작다) 대 횡방향 인장 3.9~4.4 GPa 로 거의 같다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 4400000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 23,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ASTM D638",
+      "strain_rate_s": 0.0005,
+      "replicate": 1
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PP-T` 블록, 23 degC 행 1번째 반복, `Elastic Modulus (ASTM)` 열 verbatim `4.40` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ASTM-D638 정의 — 곡선의 탄성구간에 맞춘 직선의 기울기(접선). 원문 verbatim: 'According to ASTM-D638, elastic modulus is defined as the slope of fitted line to the elastic part of stress-strain curve.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: P-40TC-8100 의 ISO 178 굽힘탄성률 4.3 GPa(판상 탈크라 이방성이 작다) 대 횡방향 인장 3.9~4.4 GPa 로 거의 같다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 4290000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 23,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ISO 527",
+      "strain_rate_s": 0.0005,
+      "replicate": 2
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PP-T` 블록, 23 degC 행 2번째 반복, `Elastic Modulus (ISO)` 열 verbatim `4.29` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ISO-527 정의 — 응력-변형률 곡선의 0.0005~0.0025 mm/mm 구간에 맞춘 직선의 기울기(할선). 원문 verbatim: 'Based on ISO-527, elastic modulus is defined as the slope of fitted line to the part of stress-strain curve within 0.0005 to 0.0025 mm/mm strain.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: P-40TC-8100 의 ISO 178 굽힘탄성률 4.3 GPa(판상 탈크라 이방성이 작다) 대 횡방향 인장 3.9~4.4 GPa 로 거의 같다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 4100000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 23,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ASTM D638",
+      "strain_rate_s": 0.0005,
+      "replicate": 2
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PP-T` 블록, 23 degC 행 2번째 반복, `Elastic Modulus (ASTM)` 열 verbatim `4.10` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ASTM-D638 정의 — 곡선의 탄성구간에 맞춘 직선의 기울기(접선). 원문 verbatim: 'According to ASTM-D638, elastic modulus is defined as the slope of fitted line to the elastic part of stress-strain curve.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: P-40TC-8100 의 ISO 178 굽힘탄성률 4.3 GPa(판상 탈크라 이방성이 작다) 대 횡방향 인장 3.9~4.4 GPa 로 거의 같다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 1320000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 85,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ISO 527",
+      "strain_rate_s": 0.0002,
+      "replicate": 1
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PP-T` 블록, 85 degC 행 1번째 반복, `Elastic Modulus (ISO)` 열 verbatim `1.32` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ISO-527 정의 — 응력-변형률 곡선의 0.0005~0.0025 mm/mm 구간에 맞춘 직선의 기울기(할선). 원문 verbatim: 'Based on ISO-527, elastic modulus is defined as the slope of fitted line to the part of stress-strain curve within 0.0005 to 0.0025 mm/mm strain.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: P-40TC-8100 의 ISO 178 굽힘탄성률 4.3 GPa(판상 탈크라 이방성이 작다) 대 횡방향 인장 3.9~4.4 GPa 로 거의 같다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 1600000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 85,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ASTM D638",
+      "strain_rate_s": 0.0002,
+      "replicate": 1
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PP-T` 블록, 85 degC 행 1번째 반복, `Elastic Modulus (ASTM)` 열 verbatim `1.60` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ASTM-D638 정의 — 곡선의 탄성구간에 맞춘 직선의 기울기(접선). 원문 verbatim: 'According to ASTM-D638, elastic modulus is defined as the slope of fitted line to the elastic part of stress-strain curve.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: P-40TC-8100 의 ISO 178 굽힘탄성률 4.3 GPa(판상 탈크라 이방성이 작다) 대 횡방향 인장 3.9~4.4 GPa 로 거의 같다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 940000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 85,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ISO 527",
+      "strain_rate_s": 0.0002,
+      "replicate": 2
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PP-T` 블록, 85 degC 행 2번째 반복, `Elastic Modulus (ISO)` 열 verbatim `0.94` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ISO-527 정의 — 응력-변형률 곡선의 0.0005~0.0025 mm/mm 구간에 맞춘 직선의 기울기(할선). 원문 verbatim: 'Based on ISO-527, elastic modulus is defined as the slope of fitted line to the part of stress-strain curve within 0.0005 to 0.0025 mm/mm strain.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: P-40TC-8100 의 ISO 178 굽힘탄성률 4.3 GPa(판상 탈크라 이방성이 작다) 대 횡방향 인장 3.9~4.4 GPa 로 거의 같다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 1500000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 85,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ASTM D638",
+      "strain_rate_s": 0.0002,
+      "replicate": 2
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PP-T` 블록, 85 degC 행 2번째 반복, `Elastic Modulus (ASTM)` 열 verbatim `1.50` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ASTM-D638 정의 — 곡선의 탄성구간에 맞춘 직선의 기울기(접선). 원문 verbatim: 'According to ASTM-D638, elastic modulus is defined as the slope of fitted line to the elastic part of stress-strain curve.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: P-40TC-8100 의 ISO 178 굽힘탄성률 4.3 GPa(판상 탈크라 이방성이 작다) 대 횡방향 인장 3.9~4.4 GPa 로 거의 같다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 560000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 120,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ISO 527",
+      "strain_rate_s": 0.0002,
+      "replicate": 1
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PP-T` 블록, 120 degC 행 1번째 반복, `Elastic Modulus (ISO)` 열 verbatim `0.56` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ISO-527 정의 — 응력-변형률 곡선의 0.0005~0.0025 mm/mm 구간에 맞춘 직선의 기울기(할선). 원문 verbatim: 'Based on ISO-527, elastic modulus is defined as the slope of fitted line to the part of stress-strain curve within 0.0005 to 0.0025 mm/mm strain.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: P-40TC-8100 의 ISO 178 굽힘탄성률 4.3 GPa(판상 탈크라 이방성이 작다) 대 횡방향 인장 3.9~4.4 GPa 로 거의 같다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 650000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 120,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ASTM D638",
+      "strain_rate_s": 0.0002,
+      "replicate": 1
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PP-T` 블록, 120 degC 행 1번째 반복, `Elastic Modulus (ASTM)` 열 verbatim `0.65` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ASTM-D638 정의 — 곡선의 탄성구간에 맞춘 직선의 기울기(접선). 원문 verbatim: 'According to ASTM-D638, elastic modulus is defined as the slope of fitted line to the elastic part of stress-strain curve.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: P-40TC-8100 의 ISO 178 굽힘탄성률 4.3 GPa(판상 탈크라 이방성이 작다) 대 횡방향 인장 3.9~4.4 GPa 로 거의 같다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 570000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 120,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ISO 527",
+      "strain_rate_s": 0.0002,
+      "replicate": 2
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PP-T` 블록, 120 degC 행 2번째 반복, `Elastic Modulus (ISO)` 열 verbatim `0.57` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ISO-527 정의 — 응력-변형률 곡선의 0.0005~0.0025 mm/mm 구간에 맞춘 직선의 기울기(할선). 원문 verbatim: 'Based on ISO-527, elastic modulus is defined as the slope of fitted line to the part of stress-strain curve within 0.0005 to 0.0025 mm/mm strain.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: P-40TC-8100 의 ISO 178 굽힘탄성률 4.3 GPa(판상 탈크라 이방성이 작다) 대 횡방향 인장 3.9~4.4 GPa 로 거의 같다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 700000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 120,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ASTM D638",
+      "strain_rate_s": 0.0002,
+      "replicate": 2
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PP-T` 블록, 120 degC 행 2번째 반복, `Elastic Modulus (ASTM)` 열 verbatim `0.70` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ASTM-D638 정의 — 곡선의 탄성구간에 맞춘 직선의 기울기(접선). 원문 verbatim: 'According to ASTM-D638, elastic modulus is defined as the slope of fitted line to the elastic part of stress-strain curve.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: P-40TC-8100 의 ISO 178 굽힘탄성률 4.3 GPa(판상 탈크라 이방성이 작다) 대 횡방향 인장 3.9~4.4 GPa 로 거의 같다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    }
+   ]
+  },
+  {
+   "match_name": "Thermylene talc-filled polypropylene PP-T, 40 wt% talc, injection moulded (Eftekhari 2016)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Thermylene(R) P-40TC-8100 (PP-T40) — CAMPUS/ISO datasheet (Material Data Center)",
+    "publisher": "Asahi Kasei Corporation (CAMPUS data via Material Data Center, M-Base Engineering + Software)",
+    "url": "https://www.materialdatacenter.com/ms/en/Thermylene/Asahi+Kasei+Corporation/Thermylene%C2%AE+P-40TC-8100/5aa7eb80/214"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1260.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 23,
+      "test_standard": "ISO 1183",
+      "grade": "Thermylene P-40TC-8100 (Asahi Kasei)",
+      "state": "as-supplied pellet (벤더 표준시편)"
+     },
+     "notes": "Material Data Center(CAMPUS) `Thermylene(R) P-40TC-8100 - PP-T40 - Asahi Kasei` 시트의 `Other properties` 절 verbatim: `Density | 1260 | kg/m^3 | ISO 1183`. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). **교차확인** — 밀도 1.26 g/cm3(ISO 1183)가 현행 CAMPUS 시트의 1260 kg/m3 와 글자 그대로 같고, ISO 527 인장강도 31 MPa 대 현행 29 MPa · ISO 178 굽힘탄성률 3.8 GPa 대 현행 4.3 GPa 로 같은 등급의 개정판 폭 안이다. 혼합물 하한 검산(브리프 604): PP 0.905 + 탈크 2.75 을 질량기준 역수합으로 섞으면 1/rho = 0.6/0.905 + 0.4/2.75 -> 1.237 g/cm3 로 인쇄값 1.26 과 2% 안이다. 65차 AC."
+    }
+   ]
+  },
+  {
+   "match_name": "Thermylene short-glass-fiber polypropylene PP-G, 30 wt% GF, injection moulded (Eftekhari 2016)",
+   "source": {
+    "kind": "other",
+    "title": "Eftekhari, M. (2016), Creep, Fatigue, and Their Interaction at Elevated Temperatures in Thermoplastic Composites, PhD dissertation, The University of Toledo",
+    "authors": "Mohammadreza Eftekhari (advisor Ali Fatemi)",
+    "year": 2016,
+    "publisher": "The University of Toledo (OhioLINK ETD, accession toledo1470388940)",
+    "url": "http://rave.ohiolink.edu/etdc/view?acc_num=toledo1470388940"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 3530000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 23,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ISO 527",
+      "strain_rate_s": 0.0004,
+      "replicate": 1
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PP-G` 블록, 23 degC 행 1번째 반복, `Elastic Modulus (ISO)` 열 verbatim `3.53` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ISO-527 정의 — 응력-변형률 곡선의 0.0005~0.0025 mm/mm 구간에 맞춘 직선의 기울기(할선). 원문 verbatim: 'Based on ISO-527, elastic modulus is defined as the slope of fitted line to the part of stress-strain curve within 0.0005 to 0.0025 mm/mm strain.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: P6-30FG-0600 의 ISO 178 굽힘탄성률 5.9 GPa(유동방향) 대 횡방향 인장 2.9~3.5 GPa — 단섬유가 유동축으로 배향하므로 옳은 방향이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 3460000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 23,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ASTM D638",
+      "strain_rate_s": 0.0004,
+      "replicate": 1
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PP-G` 블록, 23 degC 행 1번째 반복, `Elastic Modulus (ASTM)` 열 verbatim `3.46` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ASTM-D638 정의 — 곡선의 탄성구간에 맞춘 직선의 기울기(접선). 원문 verbatim: 'According to ASTM-D638, elastic modulus is defined as the slope of fitted line to the elastic part of stress-strain curve.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: P6-30FG-0600 의 ISO 178 굽힘탄성률 5.9 GPa(유동방향) 대 횡방향 인장 2.9~3.5 GPa — 단섬유가 유동축으로 배향하므로 옳은 방향이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 2900000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 23,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ISO 527",
+      "strain_rate_s": 0.0004,
+      "replicate": 2
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PP-G` 블록, 23 degC 행 2번째 반복, `Elastic Modulus (ISO)` 열 verbatim `2.90` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ISO-527 정의 — 응력-변형률 곡선의 0.0005~0.0025 mm/mm 구간에 맞춘 직선의 기울기(할선). 원문 verbatim: 'Based on ISO-527, elastic modulus is defined as the slope of fitted line to the part of stress-strain curve within 0.0005 to 0.0025 mm/mm strain.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: P6-30FG-0600 의 ISO 178 굽힘탄성률 5.9 GPa(유동방향) 대 횡방향 인장 2.9~3.5 GPa — 단섬유가 유동축으로 배향하므로 옳은 방향이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 3430000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 23,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ASTM D638",
+      "strain_rate_s": 0.0004,
+      "replicate": 2
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PP-G` 블록, 23 degC 행 2번째 반복, `Elastic Modulus (ASTM)` 열 verbatim `3.43` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ASTM-D638 정의 — 곡선의 탄성구간에 맞춘 직선의 기울기(접선). 원문 verbatim: 'According to ASTM-D638, elastic modulus is defined as the slope of fitted line to the elastic part of stress-strain curve.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: P6-30FG-0600 의 ISO 178 굽힘탄성률 5.9 GPa(유동방향) 대 횡방향 인장 2.9~3.5 GPa — 단섬유가 유동축으로 배향하므로 옳은 방향이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 1400000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 85,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ISO 527",
+      "strain_rate_s": 0.0006,
+      "replicate": 1
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PP-G` 블록, 85 degC 행 1번째 반복, `Elastic Modulus (ISO)` 열 verbatim `1.40` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ISO-527 정의 — 응력-변형률 곡선의 0.0005~0.0025 mm/mm 구간에 맞춘 직선의 기울기(할선). 원문 verbatim: 'Based on ISO-527, elastic modulus is defined as the slope of fitted line to the part of stress-strain curve within 0.0005 to 0.0025 mm/mm strain.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: P6-30FG-0600 의 ISO 178 굽힘탄성률 5.9 GPa(유동방향) 대 횡방향 인장 2.9~3.5 GPa — 단섬유가 유동축으로 배향하므로 옳은 방향이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 1400000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 85,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ASTM D638",
+      "strain_rate_s": 0.0006,
+      "replicate": 1
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PP-G` 블록, 85 degC 행 1번째 반복, `Elastic Modulus (ASTM)` 열 verbatim `1.40` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ASTM-D638 정의 — 곡선의 탄성구간에 맞춘 직선의 기울기(접선). 원문 verbatim: 'According to ASTM-D638, elastic modulus is defined as the slope of fitted line to the elastic part of stress-strain curve.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: P6-30FG-0600 의 ISO 178 굽힘탄성률 5.9 GPa(유동방향) 대 횡방향 인장 2.9~3.5 GPa — 단섬유가 유동축으로 배향하므로 옳은 방향이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 1550000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 85,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ISO 527",
+      "strain_rate_s": 0.0006,
+      "replicate": 2
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PP-G` 블록, 85 degC 행 2번째 반복, `Elastic Modulus (ISO)` 열 verbatim `1.55` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ISO-527 정의 — 응력-변형률 곡선의 0.0005~0.0025 mm/mm 구간에 맞춘 직선의 기울기(할선). 원문 verbatim: 'Based on ISO-527, elastic modulus is defined as the slope of fitted line to the part of stress-strain curve within 0.0005 to 0.0025 mm/mm strain.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: P6-30FG-0600 의 ISO 178 굽힘탄성률 5.9 GPa(유동방향) 대 횡방향 인장 2.9~3.5 GPa — 단섬유가 유동축으로 배향하므로 옳은 방향이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 1630000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 85,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ASTM D638",
+      "strain_rate_s": 0.0006,
+      "replicate": 2
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PP-G` 블록, 85 degC 행 2번째 반복, `Elastic Modulus (ASTM)` 열 verbatim `1.63` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ASTM-D638 정의 — 곡선의 탄성구간에 맞춘 직선의 기울기(접선). 원문 verbatim: 'According to ASTM-D638, elastic modulus is defined as the slope of fitted line to the elastic part of stress-strain curve.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: P6-30FG-0600 의 ISO 178 굽힘탄성률 5.9 GPa(유동방향) 대 횡방향 인장 2.9~3.5 GPa — 단섬유가 유동축으로 배향하므로 옳은 방향이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 790000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 120,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ISO 527",
+      "strain_rate_s": 0.0007,
+      "replicate": 1
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PP-G` 블록, 120 degC 행 1번째 반복, `Elastic Modulus (ISO)` 열 verbatim `0.79` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ISO-527 정의 — 응력-변형률 곡선의 0.0005~0.0025 mm/mm 구간에 맞춘 직선의 기울기(할선). 원문 verbatim: 'Based on ISO-527, elastic modulus is defined as the slope of fitted line to the part of stress-strain curve within 0.0005 to 0.0025 mm/mm strain.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: P6-30FG-0600 의 ISO 178 굽힘탄성률 5.9 GPa(유동방향) 대 횡방향 인장 2.9~3.5 GPa — 단섬유가 유동축으로 배향하므로 옳은 방향이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 930000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 120,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ASTM D638",
+      "strain_rate_s": 0.0007,
+      "replicate": 1
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PP-G` 블록, 120 degC 행 1번째 반복, `Elastic Modulus (ASTM)` 열 verbatim `0.93` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ASTM-D638 정의 — 곡선의 탄성구간에 맞춘 직선의 기울기(접선). 원문 verbatim: 'According to ASTM-D638, elastic modulus is defined as the slope of fitted line to the elastic part of stress-strain curve.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: P6-30FG-0600 의 ISO 178 굽힘탄성률 5.9 GPa(유동방향) 대 횡방향 인장 2.9~3.5 GPa — 단섬유가 유동축으로 배향하므로 옳은 방향이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 950000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 120,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ISO 527",
+      "strain_rate_s": 0.0007,
+      "replicate": 2
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PP-G` 블록, 120 degC 행 2번째 반복, `Elastic Modulus (ISO)` 열 verbatim `0.95` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ISO-527 정의 — 응력-변형률 곡선의 0.0005~0.0025 mm/mm 구간에 맞춘 직선의 기울기(할선). 원문 verbatim: 'Based on ISO-527, elastic modulus is defined as the slope of fitted line to the part of stress-strain curve within 0.0005 to 0.0025 mm/mm strain.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: P6-30FG-0600 의 ISO 178 굽힘탄성률 5.9 GPa(유동방향) 대 횡방향 인장 2.9~3.5 GPa — 단섬유가 유동축으로 배향하므로 옳은 방향이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 1000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 120,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ASTM D638",
+      "strain_rate_s": 0.0007,
+      "replicate": 2
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PP-G` 블록, 120 degC 행 2번째 반복, `Elastic Modulus (ASTM)` 열 verbatim `1.00` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ASTM-D638 정의 — 곡선의 탄성구간에 맞춘 직선의 기울기(접선). 원문 verbatim: 'According to ASTM-D638, elastic modulus is defined as the slope of fitted line to the elastic part of stress-strain curve.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: P6-30FG-0600 의 ISO 178 굽힘탄성률 5.9 GPa(유동방향) 대 횡방향 인장 2.9~3.5 GPa — 단섬유가 유동축으로 배향하므로 옳은 방향이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    }
+   ]
+  },
+  {
+   "match_name": "Thermylene short-glass-fiber polypropylene PP-G, 30 wt% GF, injection moulded (Eftekhari 2016)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Thermylene(R) P6-30FG-0600 (PP-GF30) — CAMPUS/ISO datasheet (Material Data Center)",
+    "publisher": "Asahi Kasei Corporation (CAMPUS data via Material Data Center, M-Base Engineering + Software)",
+    "url": "https://www.materialdatacenter.com/ms/en/tradenames/Thermylene/Asahi+Kasei/Thermylene+P6-30FG-0600/1b55dc95/214"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1140.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 23,
+      "test_standard": "ISO 1183",
+      "grade": "Thermylene P6-30FG-0600 (Asahi Kasei)",
+      "state": "as-supplied pellet (벤더 표준시편)"
+     },
+     "notes": "Material Data Center(CAMPUS) `Thermylene(R) P6-30FG-0600 - PP-GF30 - Asahi Kasei` 시트의 `Other properties` 절 verbatim: `Density | 1140 | kg/m^3 | ISO 1183`. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). **교차확인** — 밀도 1.14 g/cm3(ISO 1183) = 현행 CAMPUS 1140 kg/m3 · ISO 527 인장강도 85 대 86 MPa · ISO 178 굽힘탄성률 6.0 대 5.9 GPa — 세 칸이 다 맞는다. 혼합물 하한 검산(브리프 604): PP 0.905 + E-glass 2.54 을 질량기준 역수합으로 섞으면 1/rho = 0.7/0.905 + 0.3/2.54 -> 1.122 g/cm3 로 인쇄값 1.14 와 2% 안이다. 65차 AC."
+    }
+   ]
+  },
+  {
+   "match_name": "Noryl short-glass-fiber modified PPE/PS blend, 20 wt% GF, injection moulded (Eftekhari 2016)",
+   "source": {
+    "kind": "other",
+    "title": "Eftekhari, M. (2016), Creep, Fatigue, and Their Interaction at Elevated Temperatures in Thermoplastic Composites, PhD dissertation, The University of Toledo",
+    "authors": "Mohammadreza Eftekhari (advisor Ali Fatemi)",
+    "year": 2016,
+    "publisher": "The University of Toledo (OhioLINK ETD, accession toledo1470388940)",
+    "url": "http://rave.ohiolink.edu/etdc/view?acc_num=toledo1470388940"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 4600000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 23,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ISO 527",
+      "strain_rate_s": 0.0004,
+      "replicate": 1
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PPE/PS` 블록, 23 degC 행 1번째 반복, `Elastic Modulus (ISO)` 열 verbatim `4.60` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ISO-527 정의 — 응력-변형률 곡선의 0.0005~0.0025 mm/mm 구간에 맞춘 직선의 기울기(할선). 원문 verbatim: 'Based on ISO-527, elastic modulus is defined as the slope of fitted line to the part of stress-strain curve within 0.0005 to 0.0025 mm/mm strain.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: SABIC SE1GFN2 Americas 의 ASTM D638 인장탄성률 7100 MPa(유동방향) 대 횡방향 인장 4.4~4.6 GPa — 옳은 방향이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 4400000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 23,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ASTM D638",
+      "strain_rate_s": 0.0004,
+      "replicate": 1
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PPE/PS` 블록, 23 degC 행 1번째 반복, `Elastic Modulus (ASTM)` 열 verbatim `4.40` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ASTM-D638 정의 — 곡선의 탄성구간에 맞춘 직선의 기울기(접선). 원문 verbatim: 'According to ASTM-D638, elastic modulus is defined as the slope of fitted line to the elastic part of stress-strain curve.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: SABIC SE1GFN2 Americas 의 ASTM D638 인장탄성률 7100 MPa(유동방향) 대 횡방향 인장 4.4~4.6 GPa — 옳은 방향이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 4400000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 23,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ISO 527",
+      "strain_rate_s": 0.0004,
+      "replicate": 2
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PPE/PS` 블록, 23 degC 행 2번째 반복, `Elastic Modulus (ISO)` 열 verbatim `4.40` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ISO-527 정의 — 응력-변형률 곡선의 0.0005~0.0025 mm/mm 구간에 맞춘 직선의 기울기(할선). 원문 verbatim: 'Based on ISO-527, elastic modulus is defined as the slope of fitted line to the part of stress-strain curve within 0.0005 to 0.0025 mm/mm strain.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: SABIC SE1GFN2 Americas 의 ASTM D638 인장탄성률 7100 MPa(유동방향) 대 횡방향 인장 4.4~4.6 GPa — 옳은 방향이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 4500000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 23,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ASTM D638",
+      "strain_rate_s": 0.0004,
+      "replicate": 2
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PPE/PS` 블록, 23 degC 행 2번째 반복, `Elastic Modulus (ASTM)` 열 verbatim `4.50` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ASTM-D638 정의 — 곡선의 탄성구간에 맞춘 직선의 기울기(접선). 원문 verbatim: 'According to ASTM-D638, elastic modulus is defined as the slope of fitted line to the elastic part of stress-strain curve.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: SABIC SE1GFN2 Americas 의 ASTM D638 인장탄성률 7100 MPa(유동방향) 대 횡방향 인장 4.4~4.6 GPa — 옳은 방향이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 3800000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 85,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ISO 527",
+      "strain_rate_s": 0.0003,
+      "replicate": 1
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PPE/PS` 블록, 85 degC 행 1번째 반복, `Elastic Modulus (ISO)` 열 verbatim `3.80` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ISO-527 정의 — 응력-변형률 곡선의 0.0005~0.0025 mm/mm 구간에 맞춘 직선의 기울기(할선). 원문 verbatim: 'Based on ISO-527, elastic modulus is defined as the slope of fitted line to the part of stress-strain curve within 0.0005 to 0.0025 mm/mm strain.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: SABIC SE1GFN2 Americas 의 ASTM D638 인장탄성률 7100 MPa(유동방향) 대 횡방향 인장 4.4~4.6 GPa — 옳은 방향이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 4000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 85,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ASTM D638",
+      "strain_rate_s": 0.0003,
+      "replicate": 1
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PPE/PS` 블록, 85 degC 행 1번째 반복, `Elastic Modulus (ASTM)` 열 verbatim `4.00` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ASTM-D638 정의 — 곡선의 탄성구간에 맞춘 직선의 기울기(접선). 원문 verbatim: 'According to ASTM-D638, elastic modulus is defined as the slope of fitted line to the elastic part of stress-strain curve.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: SABIC SE1GFN2 Americas 의 ASTM D638 인장탄성률 7100 MPa(유동방향) 대 횡방향 인장 4.4~4.6 GPa — 옳은 방향이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 3800000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 85,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ISO 527",
+      "strain_rate_s": 0.0003,
+      "replicate": 2
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PPE/PS` 블록, 85 degC 행 2번째 반복, `Elastic Modulus (ISO)` 열 verbatim `3.80` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ISO-527 정의 — 응력-변형률 곡선의 0.0005~0.0025 mm/mm 구간에 맞춘 직선의 기울기(할선). 원문 verbatim: 'Based on ISO-527, elastic modulus is defined as the slope of fitted line to the part of stress-strain curve within 0.0005 to 0.0025 mm/mm strain.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: SABIC SE1GFN2 Americas 의 ASTM D638 인장탄성률 7100 MPa(유동방향) 대 횡방향 인장 4.4~4.6 GPa — 옳은 방향이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 4000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 85,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ASTM D638",
+      "strain_rate_s": 0.0003,
+      "replicate": 2
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PPE/PS` 블록, 85 degC 행 2번째 반복, `Elastic Modulus (ASTM)` 열 verbatim `4.00` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ASTM-D638 정의 — 곡선의 탄성구간에 맞춘 직선의 기울기(접선). 원문 verbatim: 'According to ASTM-D638, elastic modulus is defined as the slope of fitted line to the elastic part of stress-strain curve.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: SABIC SE1GFN2 Americas 의 ASTM D638 인장탄성률 7100 MPa(유동방향) 대 횡방향 인장 4.4~4.6 GPa — 옳은 방향이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 3800000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 120,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ISO 527",
+      "strain_rate_s": 0.0004,
+      "replicate": 1
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PPE/PS` 블록, 120 degC 행 1번째 반복, `Elastic Modulus (ISO)` 열 verbatim `3.80` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ISO-527 정의 — 응력-변형률 곡선의 0.0005~0.0025 mm/mm 구간에 맞춘 직선의 기울기(할선). 원문 verbatim: 'Based on ISO-527, elastic modulus is defined as the slope of fitted line to the part of stress-strain curve within 0.0005 to 0.0025 mm/mm strain.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: SABIC SE1GFN2 Americas 의 ASTM D638 인장탄성률 7100 MPa(유동방향) 대 횡방향 인장 4.4~4.6 GPa — 옳은 방향이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 3500000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 120,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ASTM D638",
+      "strain_rate_s": 0.0004,
+      "replicate": 1
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PPE/PS` 블록, 120 degC 행 1번째 반복, `Elastic Modulus (ASTM)` 열 verbatim `3.50` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ASTM-D638 정의 — 곡선의 탄성구간에 맞춘 직선의 기울기(접선). 원문 verbatim: 'According to ASTM-D638, elastic modulus is defined as the slope of fitted line to the elastic part of stress-strain curve.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: SABIC SE1GFN2 Americas 의 ASTM D638 인장탄성률 7100 MPa(유동방향) 대 횡방향 인장 4.4~4.6 GPa — 옳은 방향이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 3500000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 120,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ISO 527",
+      "strain_rate_s": 0.0004,
+      "replicate": 2
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PPE/PS` 블록, 120 degC 행 2번째 반복, `Elastic Modulus (ISO)` 열 verbatim `3.50` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ISO-527 정의 — 응력-변형률 곡선의 0.0005~0.0025 mm/mm 구간에 맞춘 직선의 기울기(할선). 원문 verbatim: 'Based on ISO-527, elastic modulus is defined as the slope of fitted line to the part of stress-strain curve within 0.0005 to 0.0025 mm/mm strain.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: SABIC SE1GFN2 Americas 의 ASTM D638 인장탄성률 7100 MPa(유동방향) 대 횡방향 인장 4.4~4.6 GPa — 옳은 방향이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 3400000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 120,
+      "direction": "TD",
+      "direction_verbatim": "transverse (90 deg) to the mold flow direction",
+      "state": "dry as-molded",
+      "test_standard": "ASTM D638",
+      "strain_rate_s": 0.0004,
+      "replicate": 2
+     },
+     "notes": "학위논문 Table 4-1 (`Tensile properties of PP-T, PP-G, PA66/B, PA66/D and PPE/PS at different testing temperatures under displacement rate of 1 mm/min in the transverse to the mold flow direction and dry as-molded condition`, 인쇄쪽 93 · PDF 124쪽) 의 `PPE/PS` 블록, 120 degC 행 2번째 반복, `Elastic Modulus (ASTM)` 열 verbatim `3.40` GPa. **열 배정은 `pdftotext -bbox-layout` 의 x좌표로 했다**(브리프 606) — Temp 154 · Strain Rate 185 · Yield 244 · Ultimate 293 · Strain 340 · **E(ISO) 390 · E(ASTM) 432** · K 470 · n 505. 저자 자신의 인장시험이다(Instron 서보유압, 10 kN 로드셀, ASTM E1012 정렬확인, 환경챔버 +-1 degC, 변위속도 1 mm/min). ASTM-D638 정의 — 곡선의 탄성구간에 맞춘 직선의 기울기(접선). 원문 verbatim: 'According to ASTM-D638, elastic modulus is defined as the slope of fitted line to the elastic part of stress-strain curve.' **방향 검산(브리프 462)** — 이 값은 유동 **횡방향**이라 벤더 시트의 유동방향값보다 낮아야 하는데 실제로 그렇다: SABIC SE1GFN2 Americas 의 ASTM D638 인장탄성률 7100 MPa(유동방향) 대 횡방향 인장 4.4~4.6 GPa — 옳은 방향이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). 65차 AC."
+    }
+   ]
+  },
+  {
+   "match_name": "Noryl short-glass-fiber modified PPE/PS blend, 20 wt% GF, injection moulded (Eftekhari 2016)",
+   "source": {
+    "kind": "datasheet",
+    "title": "NORYL(TM) Resin SE1GFN2 — SABIC Material Finder 제품 데이터시트(Americas/Asia/Europe 3개 지역 블록)",
+    "publisher": "SABIC (Specialties)",
+    "url": "https://materialfinder.sabic-specialties.com/material/noryl-resin-se1gfn2"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1230.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 23,
+      "test_standard": "ASTM D792",
+      "grade": "NORYL Resin SE1GFN2 (SABIC, Americas 지역판)",
+      "state": "as-supplied pellet (벤더 표준시편)"
+     },
+     "notes": "SABIC Material Finder `NORYL(TM) Resin SE1GFN2` 의 **Americas 블록** `PHYSICAL` 절 verbatim: `Specific Gravity | 1.23 | - | ASTM D792`. 비중은 무차원이라 x1000 으로 SI 밀도를 만든다(이 DB 의 기존 관례 — `Specific gravity 1.2 g/cm3 x 1000 = 1200 kg/m3` 등). Europe 블록은 `Specific Gravity 1.25` · `Density 1.25 g/cm^3 (ISO 1183)` 로 **다른 지역판**이라 안 썼다(브리프 638) — Eftekhari 는 ASTM 규격열을 인용했으므로 Americas 판이다. **등급이 이번에 닫혔다.** 저자 자신의 학위논문(Eftekhari 2016, University of Toledo, OhioLINK 등록번호 `toledo1470388940`) Table 3-1 마지막 행 `Full name and company` 가 이 시편의 상품코드를 인쇄한다 — PP-T = `[P-40TC-8100] -ASAHI KASEI` · PP-G = `[P6-30FG-0600] -ASAHI KASEI` · PPE/PS = `[SE1GFN2] - Sabic`. 동일 시편임의 확인(브리프 632 — 숫자 일치는 동정을 시도할 이유이고, 여기서는 저자·지도교수·시편이 같아 동정이 닫힌다): 학위논문 Table 3-2 의 Tm/Tg 가 이미 DB 에 든 IJF 논문값과 같고(PP-T 165/11 · PP-G 165/23 · PPE/PS 325/135 degC), 학위논문 Table 4-1 의 85 degC 인장강도가 IJF 논문 Table 2 의 모델상수 S_u 와 맞는다(PP-T 13.8 · PPE/PS 46.3~46.8 평균 46.55 대 46.5). 46차 HD 가 지목하고 47차 IC 가 조달에 실패한 것은 자매 **저널논문**(Compos. Part B 97, Elsevier 유료)이었는데, **학위논문은 OhioLINK 에서 무료로 열린다**(10.4 MB PDF). **교차확인** — ASTM D638 인장강도 106 MPa · ASTM D790 굽힘탄성률 5.7 GPa · ASTM D792 비중 1.23 세 칸이 SABIC Material Finder 의 **Americas 블록**(106 MPa · 5720 MPa · 1.23)과 전부 일치한다. Europe 블록은 비중 1.25 · ISO 527 인장탄성률 5500 MPa 로 다른 지역판이다(브리프 638). 혼합물 하한 검산(브리프 604): PPE/PS 1.06~1.08 + E-glass 2.54 를 질량기준 역수합으로 섞으면 1.21 g/cm3 로 인쇄값 1.23 과 2% 안이다. 65차 AC."
+    }
+   ]
+  }
+ ]
+}
