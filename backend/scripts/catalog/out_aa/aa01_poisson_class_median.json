@@ -1,0 +1,3642 @@
+{
+ "materials": [
+  {
+   "match_name": "Doosan DS-7402BS (DFM) Copper Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.16,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "DS-7402",
+      "basis": "catalog_class_median",
+      "class_n": 6,
+      "class_range": "0.16~0.2",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'DS-7402' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 6종(출처 6건)의 중앙값 0.16 을 해석 입력용으로 세웠다. 그 6종의 분포는 최소 0.16 · 최대 0.2 · IQR 0.01 다. 근거 재료 예 — Doosan DS-7402 Halogen-Free CCL 0.16 · Doosan DS-7402H Copper Clad Laminate 0.16 · Doosan DS-7402HD Low-Dk Halogen-Free CCL 0.2. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DS-7409DQN2 Copper Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.17,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "DS-7409(HG 외)",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.17~0.18",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'DS-7409(HG 외)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 11건)의 중앙값 0.17 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.17 · 최대 0.18 · IQR 0.0 다. 근거 재료 예 — Doosan DS-7409DJG Copper Clad Laminate 0.17 · Doosan DS-7409DV (N) Copper Clad Laminate 0.17 · Doosan DS-7409DXG Copper Clad Laminate 0.18. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DS-7409DYN Copper Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.17,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "DS-7409(HG 외)",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.17~0.18",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'DS-7409(HG 외)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 11건)의 중앙값 0.17 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.17 · 최대 0.18 · IQR 0.0 다. 근거 재료 예 — Doosan DS-7409DJG Copper Clad Laminate 0.17 · Doosan DS-7409DV (N) Copper Clad Laminate 0.17 · Doosan DS-7409DXG Copper Clad Laminate 0.18. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DS-7409DYN2 Copper Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.17,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "DS-7409(HG 외)",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.17~0.18",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'DS-7409(HG 외)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 11건)의 중앙값 0.17 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.17 · 최대 0.18 · IQR 0.0 다. 근거 재료 예 — Doosan DS-7409DJG Copper Clad Laminate 0.17 · Doosan DS-7409DV (N) Copper Clad Laminate 0.17 · Doosan DS-7409DXG Copper Clad Laminate 0.18. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DS-7409DYQ Copper Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.17,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "DS-7409(HG 외)",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.17~0.18",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'DS-7409(HG 외)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 11건)의 중앙값 0.17 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.17 · 최대 0.18 · IQR 0.0 다. 근거 재료 예 — Doosan DS-7409DJG Copper Clad Laminate 0.17 · Doosan DS-7409DV (N) Copper Clad Laminate 0.17 · Doosan DS-7409DXG Copper Clad Laminate 0.18. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DS-7409DV (NT) Copper Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.17,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "DS-7409(HG 외)",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.17~0.18",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'DS-7409(HG 외)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 11건)의 중앙값 0.17 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.17 · 최대 0.18 · IQR 0.0 다. 근거 재료 예 — Doosan DS-7409DJG Copper Clad Laminate 0.17 · Doosan DS-7409DV (N) Copper Clad Laminate 0.17 · Doosan DS-7409DXG Copper Clad Laminate 0.18. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DS-7409DV (T) Copper Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.17,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "DS-7409(HG 외)",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.17~0.18",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'DS-7409(HG 외)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 11건)의 중앙값 0.17 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.17 · 최대 0.18 · IQR 0.0 다. 근거 재료 예 — Doosan DS-7409DJG Copper Clad Laminate 0.17 · Doosan DS-7409DV (N) Copper Clad Laminate 0.17 · Doosan DS-7409DXG Copper Clad Laminate 0.18. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DS-7409S (N) Copper Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.17,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "DS-7409(HG 외)",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.17~0.18",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'DS-7409(HG 외)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 11건)의 중앙값 0.17 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.17 · 최대 0.18 · IQR 0.0 다. 근거 재료 예 — Doosan DS-7409DJG Copper Clad Laminate 0.17 · Doosan DS-7409DV (N) Copper Clad Laminate 0.17 · Doosan DS-7409DXG Copper Clad Laminate 0.18. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DSF-900HT Copper Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.29,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "DSF-900",
+      "basis": "catalog_class_median",
+      "class_n": 2,
+      "class_range": "0.28~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'DSF-900' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 2종(출처 2건)의 중앙값 0.29 을 해석 입력용으로 세웠다. 그 2종의 분포는 최소 0.28 · 최대 0.3 다. 근거 재료 예 — Doosan DSF-900SQ Copper Clad Laminate 0.28 · Doosan DSF-900LC Copper Clad Laminate 0.3 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "INFINO LS-3302 (PC-GF, Lotte Chemical)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.38,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "PC-GF",
+      "basis": "catalog_class_median",
+      "class_n": 3,
+      "class_range": "0.38~0.38",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'PC-GF' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 3종(출처 1건)의 중앙값 0.38 을 해석 입력용으로 세웠다. 그 3종의 분포는 최소 0.38 · 최대 0.38 다. 근거 재료 예 — LEXAN 500R (PC-GF10, SABIC) 0.38 · LEXAN 3412R (PC-GF20, SABIC) 0.38 · LEXAN 3413R (PC-GF30, SABIC) 0.38. 근거 3종이 모두 SABIC LEXAN 한 시트에서 왔다(출처 1건) — 표본 수보다 출처 수가 근거의 세기다(§678). 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "PET film 13 um, uncoated PECVD barrier substrate (da Silva Sobrinho 2000)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.38,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "PET 필름·시트",
+      "basis": "catalog_class_median",
+      "class_n": 7,
+      "class_range": "0.38~0.43",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'PET 필름·시트' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 7종(출처 3건)의 중앙값 0.38 을 해석 입력용으로 세웠다. 그 7종의 분포는 최소 0.38 · 최대 0.43 · IQR 0.0 다. 근거 재료 예 — Toppan GX-P-F transparent barrier film (AlOx 0.38 · Toppan GL-ARH transparent barrier film (AlOx 0.38 · PET film Shinpex C87R8H (Taiwan), 188 um, as 0.43. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Bare PET film (Lazar 2019 LbL barrier substrate)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.38,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "PET 필름·시트",
+      "basis": "catalog_class_median",
+      "class_n": 7,
+      "class_range": "0.38~0.43",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'PET 필름·시트' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 7종(출처 3건)의 중앙값 0.38 을 해석 입력용으로 세웠다. 그 7종의 분포는 최소 0.38 · 최대 0.43 · IQR 0.0 다. 근거 재료 예 — Toppan GX-P-F transparent barrier film (AlOx 0.38 · Toppan GL-ARH transparent barrier film (AlOx 0.38 · PET film Shinpex C87R8H (Taiwan), 188 um, as 0.43. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Ertalyte — 폴리에틸렌 테레프탈레이트 PET (Böhm 1990)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.38,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "PET 필름·시트",
+      "basis": "catalog_class_median",
+      "class_n": 7,
+      "class_range": "0.38~0.43",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'PET 필름·시트' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 7종(출처 3건)의 중앙값 0.38 을 해석 입력용으로 세웠다. 그 7종의 분포는 최소 0.38 · 최대 0.43 · IQR 0.0 다. 근거 재료 예 — Toppan GX-P-F transparent barrier film (AlOx 0.38 · Toppan GL-ARH transparent barrier film (AlOx 0.38 · PET film Shinpex C87R8H (Taiwan), 188 um, as 0.43. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Rogers RO3003 Ceramic-Filled PTFE Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.17,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "PTFE·세라믹 충전 RF 적층판",
+      "basis": "catalog_class_median",
+      "class_n": 7,
+      "class_range": "0.135~0.24",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'PTFE·세라믹 충전 RF 적층판' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 7종(출처 5건)의 중앙값 0.17 을 해석 입력용으로 세웠다. 그 7종의 분포는 최소 0.135 · 최대 0.24 · IQR 0.04 다. 근거 재료 예 — Taconic TLX-8 (PTFE/woven glass RF laminate) 0.135 · Rogers CLTE-XT Ceramic-PTFE Woven Glass Lami 0.17 · AGC Taconic TSM-DS3 Ceramic-Filled Low-Loss  0.24. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Rogers RT/duroid 5880 Glass-Microfiber PTFE Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.17,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "PTFE·세라믹 충전 RF 적층판",
+      "basis": "catalog_class_median",
+      "class_n": 7,
+      "class_range": "0.135~0.24",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'PTFE·세라믹 충전 RF 적층판' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 7종(출처 5건)의 중앙값 0.17 을 해석 입력용으로 세웠다. 그 7종의 분포는 최소 0.135 · 최대 0.24 · IQR 0.04 다. 근거 재료 예 — Taconic TLX-8 (PTFE/woven glass RF laminate) 0.135 · Rogers CLTE-XT Ceramic-PTFE Woven Glass Lami 0.17 · AGC Taconic TSM-DS3 Ceramic-Filled Low-Loss  0.24. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Chukoh CHUKOH FLO CGN-500 PTFE Copper-Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.17,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "PTFE·세라믹 충전 RF 적층판",
+      "basis": "catalog_class_median",
+      "class_n": 7,
+      "class_range": "0.135~0.24",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'PTFE·세라믹 충전 RF 적층판' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 7종(출처 5건)의 중앙값 0.17 을 해석 입력용으로 세웠다. 그 7종의 분포는 최소 0.135 · 최대 0.24 · IQR 0.04 다. 근거 재료 예 — Taconic TLX-8 (PTFE/woven glass RF laminate) 0.135 · Rogers CLTE-XT Ceramic-PTFE Woven Glass Lami 0.17 · AGC Taconic TSM-DS3 Ceramic-Filled Low-Loss  0.24. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Chukoh CHUKOH FLO CGS-500A PTFE Copper-Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.17,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "PTFE·세라믹 충전 RF 적층판",
+      "basis": "catalog_class_median",
+      "class_n": 7,
+      "class_range": "0.135~0.24",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'PTFE·세라믹 충전 RF 적층판' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 7종(출처 5건)의 중앙값 0.17 을 해석 입력용으로 세웠다. 그 7종의 분포는 최소 0.135 · 최대 0.24 · IQR 0.04 다. 근거 재료 예 — Taconic TLX-8 (PTFE/woven glass RF laminate) 0.135 · Rogers CLTE-XT Ceramic-PTFE Woven Glass Lami 0.17 · AGC Taconic TSM-DS3 Ceramic-Filled Low-Loss  0.24. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Rogers RO4350 ceramic-filled hydrocarbon PCB laminate — Ehrler 2002",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.17,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "PTFE·세라믹 충전 RF 적층판",
+      "basis": "catalog_class_median",
+      "class_n": 7,
+      "class_range": "0.135~0.24",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'PTFE·세라믹 충전 RF 적층판' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 7종(출처 5건)의 중앙값 0.17 을 해석 입력용으로 세웠다. 그 7종의 분포는 최소 0.135 · 최대 0.24 · IQR 0.04 다. 근거 재료 예 — Taconic TLX-8 (PTFE/woven glass RF laminate) 0.135 · Rogers CLTE-XT Ceramic-PTFE Woven Glass Lami 0.17 · AGC Taconic TSM-DS3 Ceramic-Filled Low-Loss  0.24. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "SAC105 Solder Alloy",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.355,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "Sn 주체 솔더 합금",
+      "basis": "catalog_class_median",
+      "class_n": 3,
+      "class_range": "0.35~0.37",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'Sn 주체 솔더 합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 3종(출처 3건)의 중앙값 0.355 을 해석 입력용으로 세웠다. 그 3종의 분포는 최소 0.35 · 최대 0.37 다. 근거 재료 예 — Sn3.9Ag0.6Cu Solder Alloy (SAC396) 0.35 · SAC305 Solder Alloy 0.355 · Sn63Pb37 Eutectic Solder Alloy 0.37. 참고대역(금속 0.27~0.35)을 조금 넘는데 Sn·Pb 자체가 ν 가 높은 금속이라 그렇다 — 카탈로그의 솔더 실측 세 건이 0.35~0.37 로 모여 있다. Pb 주체 솔더(92.5Pb·97.5Pb·90Pb)와 인듐 솔더는 이 클래스에 넣지 않았다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "SAC205 Solder Alloy",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.355,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "Sn 주체 솔더 합금",
+      "basis": "catalog_class_median",
+      "class_n": 3,
+      "class_range": "0.35~0.37",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'Sn 주체 솔더 합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 3종(출처 3건)의 중앙값 0.355 을 해석 입력용으로 세웠다. 그 3종의 분포는 최소 0.35 · 최대 0.37 다. 근거 재료 예 — Sn3.9Ag0.6Cu Solder Alloy (SAC396) 0.35 · SAC305 Solder Alloy 0.355 · Sn63Pb37 Eutectic Solder Alloy 0.37. 참고대역(금속 0.27~0.35)을 조금 넘는데 Sn·Pb 자체가 ν 가 높은 금속이라 그렇다 — 카탈로그의 솔더 실측 세 건이 0.35~0.37 로 모여 있다. Pb 주체 솔더(92.5Pb·97.5Pb·90Pb)와 인듐 솔더는 이 클래스에 넣지 않았다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "SAC405 Solder Alloy",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.355,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "Sn 주체 솔더 합금",
+      "basis": "catalog_class_median",
+      "class_n": 3,
+      "class_range": "0.35~0.37",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'Sn 주체 솔더 합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 3종(출처 3건)의 중앙값 0.355 을 해석 입력용으로 세웠다. 그 3종의 분포는 최소 0.35 · 최대 0.37 다. 근거 재료 예 — Sn3.9Ag0.6Cu Solder Alloy (SAC396) 0.35 · SAC305 Solder Alloy 0.355 · Sn63Pb37 Eutectic Solder Alloy 0.37. 참고대역(금속 0.27~0.35)을 조금 넘는데 Sn·Pb 자체가 ν 가 높은 금속이라 그렇다 — 카탈로그의 솔더 실측 세 건이 0.35~0.37 로 모여 있다. Pb 주체 솔더(92.5Pb·97.5Pb·90Pb)와 인듐 솔더는 이 클래스에 넣지 않았다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "SAC-Q Solder Alloy",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.355,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "Sn 주체 솔더 합금",
+      "basis": "catalog_class_median",
+      "class_n": 3,
+      "class_range": "0.35~0.37",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'Sn 주체 솔더 합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 3종(출처 3건)의 중앙값 0.355 을 해석 입력용으로 세웠다. 그 3종의 분포는 최소 0.35 · 최대 0.37 다. 근거 재료 예 — Sn3.9Ag0.6Cu Solder Alloy (SAC396) 0.35 · SAC305 Solder Alloy 0.355 · Sn63Pb37 Eutectic Solder Alloy 0.37. 참고대역(금속 0.27~0.35)을 조금 넘는데 Sn·Pb 자체가 ν 가 높은 금속이라 그렇다 — 카탈로그의 솔더 실측 세 건이 0.35~0.37 로 모여 있다. Pb 주체 솔더(92.5Pb·97.5Pb·90Pb)와 인듐 솔더는 이 클래스에 넣지 않았다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "60Sn40Pb Solder Alloy",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.355,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "Sn 주체 솔더 합금",
+      "basis": "catalog_class_median",
+      "class_n": 3,
+      "class_range": "0.35~0.37",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'Sn 주체 솔더 합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 3종(출처 3건)의 중앙값 0.355 을 해석 입력용으로 세웠다. 그 3종의 분포는 최소 0.35 · 최대 0.37 다. 근거 재료 예 — Sn3.9Ag0.6Cu Solder Alloy (SAC396) 0.35 · SAC305 Solder Alloy 0.355 · Sn63Pb37 Eutectic Solder Alloy 0.37. 참고대역(금속 0.27~0.35)을 조금 넘는데 Sn·Pb 자체가 ν 가 높은 금속이라 그렇다 — 카탈로그의 솔더 실측 세 건이 0.35~0.37 로 모여 있다. Pb 주체 솔더(92.5Pb·97.5Pb·90Pb)와 인듐 솔더는 이 클래스에 넣지 않았다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "62Sn36Pb2Ag Solder Alloy",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.355,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "Sn 주체 솔더 합금",
+      "basis": "catalog_class_median",
+      "class_n": 3,
+      "class_range": "0.35~0.37",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'Sn 주체 솔더 합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 3종(출처 3건)의 중앙값 0.355 을 해석 입력용으로 세웠다. 그 3종의 분포는 최소 0.35 · 최대 0.37 다. 근거 재료 예 — Sn3.9Ag0.6Cu Solder Alloy (SAC396) 0.35 · SAC305 Solder Alloy 0.355 · Sn63Pb37 Eutectic Solder Alloy 0.37. 참고대역(금속 0.27~0.35)을 조금 넘는데 Sn·Pb 자체가 ν 가 높은 금속이라 그렇다 — 카탈로그의 솔더 실측 세 건이 0.35~0.37 로 모여 있다. Pb 주체 솔더(92.5Pb·97.5Pb·90Pb)와 인듐 솔더는 이 클래스에 넣지 않았다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Sn-3.5Ag Solder Alloy",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.355,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "Sn 주체 솔더 합금",
+      "basis": "catalog_class_median",
+      "class_n": 3,
+      "class_range": "0.35~0.37",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'Sn 주체 솔더 합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 3종(출처 3건)의 중앙값 0.355 을 해석 입력용으로 세웠다. 그 3종의 분포는 최소 0.35 · 최대 0.37 다. 근거 재료 예 — Sn3.9Ag0.6Cu Solder Alloy (SAC396) 0.35 · SAC305 Solder Alloy 0.355 · Sn63Pb37 Eutectic Solder Alloy 0.37. 참고대역(금속 0.27~0.35)을 조금 넘는데 Sn·Pb 자체가 ν 가 높은 금속이라 그렇다 — 카탈로그의 솔더 실측 세 건이 0.35~0.37 로 모여 있다. Pb 주체 솔더(92.5Pb·97.5Pb·90Pb)와 인듐 솔더는 이 클래스에 넣지 않았다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Sn-9Zn-2.5Bi-0.5In-0.01P Solder Alloy",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.355,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "Sn 주체 솔더 합금",
+      "basis": "catalog_class_median",
+      "class_n": 3,
+      "class_range": "0.35~0.37",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'Sn 주체 솔더 합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 3종(출처 3건)의 중앙값 0.355 을 해석 입력용으로 세웠다. 그 3종의 분포는 최소 0.35 · 최대 0.37 다. 근거 재료 예 — Sn3.9Ag0.6Cu Solder Alloy (SAC396) 0.35 · SAC305 Solder Alloy 0.355 · Sn63Pb37 Eutectic Solder Alloy 0.37. 참고대역(금속 0.27~0.35)을 조금 넘는데 Sn·Pb 자체가 ν 가 높은 금속이라 그렇다 — 카탈로그의 솔더 실측 세 건이 0.35~0.37 로 모여 있다. Pb 주체 솔더(92.5Pb·97.5Pb·90Pb)와 인듐 솔더는 이 클래스에 넣지 않았다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Sn3.8Ag0.7Cu Solder Alloy (SAC387)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.355,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "Sn 주체 솔더 합금",
+      "basis": "catalog_class_median",
+      "class_n": 3,
+      "class_range": "0.35~0.37",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'Sn 주체 솔더 합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 3종(출처 3건)의 중앙값 0.355 을 해석 입력용으로 세웠다. 그 3종의 분포는 최소 0.35 · 최대 0.37 다. 근거 재료 예 — Sn3.9Ag0.6Cu Solder Alloy (SAC396) 0.35 · SAC305 Solder Alloy 0.355 · Sn63Pb37 Eutectic Solder Alloy 0.37. 참고대역(금속 0.27~0.35)을 조금 넘는데 Sn·Pb 자체가 ν 가 높은 금속이라 그렇다 — 카탈로그의 솔더 실측 세 건이 0.35~0.37 로 모여 있다. Pb 주체 솔더(92.5Pb·97.5Pb·90Pb)와 인듐 솔더는 이 클래스에 넣지 않았다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Sn0.3Ag0.7Cu Solder Alloy",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.355,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "Sn 주체 솔더 합금",
+      "basis": "catalog_class_median",
+      "class_n": 3,
+      "class_range": "0.35~0.37",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'Sn 주체 솔더 합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 3종(출처 3건)의 중앙값 0.355 을 해석 입력용으로 세웠다. 그 3종의 분포는 최소 0.35 · 최대 0.37 다. 근거 재료 예 — Sn3.9Ag0.6Cu Solder Alloy (SAC396) 0.35 · SAC305 Solder Alloy 0.355 · Sn63Pb37 Eutectic Solder Alloy 0.37. 참고대역(금속 0.27~0.35)을 조금 넘는데 Sn·Pb 자체가 ν 가 높은 금속이라 그렇다 — 카탈로그의 솔더 실측 세 건이 0.35~0.37 로 모여 있다. Pb 주체 솔더(92.5Pb·97.5Pb·90Pb)와 인듐 솔더는 이 클래스에 넣지 않았다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "SAC(307)-2In Solder Alloy",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.355,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "Sn 주체 솔더 합금",
+      "basis": "catalog_class_median",
+      "class_n": 3,
+      "class_range": "0.35~0.37",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'Sn 주체 솔더 합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 3종(출처 3건)의 중앙값 0.355 을 해석 입력용으로 세웠다. 그 3종의 분포는 최소 0.35 · 최대 0.37 다. 근거 재료 예 — Sn3.9Ag0.6Cu Solder Alloy (SAC396) 0.35 · SAC305 Solder Alloy 0.355 · Sn63Pb37 Eutectic Solder Alloy 0.37. 참고대역(금속 0.27~0.35)을 조금 넘는데 Sn·Pb 자체가 ν 가 높은 금속이라 그렇다 — 카탈로그의 솔더 실측 세 건이 0.35~0.37 로 모여 있다. Pb 주체 솔더(92.5Pb·97.5Pb·90Pb)와 인듐 솔더는 이 클래스에 넣지 않았다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "SAC125Ni Solder Alloy (Sn1.2Ag0.5Cu0.05Ni)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.355,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "Sn 주체 솔더 합금",
+      "basis": "catalog_class_median",
+      "class_n": 3,
+      "class_range": "0.35~0.37",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'Sn 주체 솔더 합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 3종(출처 3건)의 중앙값 0.355 을 해석 입력용으로 세웠다. 그 3종의 분포는 최소 0.35 · 최대 0.37 다. 근거 재료 예 — Sn3.9Ag0.6Cu Solder Alloy (SAC396) 0.35 · SAC305 Solder Alloy 0.355 · Sn63Pb37 Eutectic Solder Alloy 0.37. 참고대역(금속 0.27~0.35)을 조금 넘는데 Sn·Pb 자체가 ν 가 높은 금속이라 그렇다 — 카탈로그의 솔더 실측 세 건이 0.35~0.37 로 모여 있다. Pb 주체 솔더(92.5Pb·97.5Pb·90Pb)와 인듐 솔더는 이 클래스에 넣지 않았다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Sn0.7Cu Eutectic Solder Alloy",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.355,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "Sn 주체 솔더 합금",
+      "basis": "catalog_class_median",
+      "class_n": 3,
+      "class_range": "0.35~0.37",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'Sn 주체 솔더 합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 3종(출처 3건)의 중앙값 0.355 을 해석 입력용으로 세웠다. 그 3종의 분포는 최소 0.35 · 최대 0.37 다. 근거 재료 예 — Sn3.9Ag0.6Cu Solder Alloy (SAC396) 0.35 · SAC305 Solder Alloy 0.355 · Sn63Pb37 Eutectic Solder Alloy 0.37. 참고대역(금속 0.27~0.35)을 조금 넘는데 Sn·Pb 자체가 ν 가 높은 금속이라 그렇다 — 카탈로그의 솔더 실측 세 건이 0.35~0.37 로 모여 있다. Pb 주체 솔더(92.5Pb·97.5Pb·90Pb)와 인듐 솔더는 이 클래스에 넣지 않았다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "SAC107 Solder Alloy",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.355,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "Sn 주체 솔더 합금",
+      "basis": "catalog_class_median",
+      "class_n": 3,
+      "class_range": "0.35~0.37",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'Sn 주체 솔더 합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 3종(출처 3건)의 중앙값 0.355 을 해석 입력용으로 세웠다. 그 3종의 분포는 최소 0.35 · 최대 0.37 다. 근거 재료 예 — Sn3.9Ag0.6Cu Solder Alloy (SAC396) 0.35 · SAC305 Solder Alloy 0.355 · Sn63Pb37 Eutectic Solder Alloy 0.37. 참고대역(금속 0.27~0.35)을 조금 넘는데 Sn·Pb 자체가 ν 가 높은 금속이라 그렇다 — 카탈로그의 솔더 실측 세 건이 0.35~0.37 로 모여 있다. Pb 주체 솔더(92.5Pb·97.5Pb·90Pb)와 인듐 솔더는 이 클래스에 넣지 않았다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Sn-3Ag-0.5Cu-1Bi Solder Alloy (Kanchanomai 2002)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.355,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "Sn 주체 솔더 합금",
+      "basis": "catalog_class_median",
+      "class_n": 3,
+      "class_range": "0.35~0.37",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'Sn 주체 솔더 합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 3종(출처 3건)의 중앙값 0.355 을 해석 입력용으로 세웠다. 그 3종의 분포는 최소 0.35 · 최대 0.37 다. 근거 재료 예 — Sn3.9Ag0.6Cu Solder Alloy (SAC396) 0.35 · SAC305 Solder Alloy 0.355 · Sn63Pb37 Eutectic Solder Alloy 0.37. 참고대역(금속 0.27~0.35)을 조금 넘는데 Sn·Pb 자체가 ν 가 높은 금속이라 그렇다 — 카탈로그의 솔더 실측 세 건이 0.35~0.37 로 모여 있다. Pb 주체 솔더(92.5Pb·97.5Pb·90Pb)와 인듐 솔더는 이 클래스에 넣지 않았다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Sn-3Ag-0.5Cu-3Bi Solder Alloy (Kanchanomai 2002)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.355,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "Sn 주체 솔더 합금",
+      "basis": "catalog_class_median",
+      "class_n": 3,
+      "class_range": "0.35~0.37",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'Sn 주체 솔더 합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 3종(출처 3건)의 중앙값 0.355 을 해석 입력용으로 세웠다. 그 3종의 분포는 최소 0.35 · 최대 0.37 다. 근거 재료 예 — Sn3.9Ag0.6Cu Solder Alloy (SAC396) 0.35 · SAC305 Solder Alloy 0.355 · Sn63Pb37 Eutectic Solder Alloy 0.37. 참고대역(금속 0.27~0.35)을 조금 넘는데 Sn·Pb 자체가 ν 가 높은 금속이라 그렇다 — 카탈로그의 솔더 실측 세 건이 0.35~0.37 로 모여 있다. Pb 주체 솔더(92.5Pb·97.5Pb·90Pb)와 인듐 솔더는 이 클래스에 넣지 않았다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "SnCu0.7Sb0.5 lead-free solder alloy (IDEALS project, Harrison 2001)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.355,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "Sn 주체 솔더 합금",
+      "basis": "catalog_class_median",
+      "class_n": 3,
+      "class_range": "0.35~0.37",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'Sn 주체 솔더 합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 3종(출처 3건)의 중앙값 0.355 을 해석 입력용으로 세웠다. 그 3종의 분포는 최소 0.35 · 최대 0.37 다. 근거 재료 예 — Sn3.9Ag0.6Cu Solder Alloy (SAC396) 0.35 · SAC305 Solder Alloy 0.355 · Sn63Pb37 Eutectic Solder Alloy 0.37. 참고대역(금속 0.27~0.35)을 조금 넘는데 Sn·Pb 자체가 ν 가 높은 금속이라 그렇다 — 카탈로그의 솔더 실측 세 건이 0.35~0.37 로 모여 있다. Pb 주체 솔더(92.5Pb·97.5Pb·90Pb)와 인듐 솔더는 이 클래스에 넣지 않았다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "SnAg3.5Cu0.7 lead-free solder alloy (IDEALS project, Harrison 2001)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.355,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "Sn 주체 솔더 합금",
+      "basis": "catalog_class_median",
+      "class_n": 3,
+      "class_range": "0.35~0.37",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'Sn 주체 솔더 합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 3종(출처 3건)의 중앙값 0.355 을 해석 입력용으로 세웠다. 그 3종의 분포는 최소 0.35 · 최대 0.37 다. 근거 재료 예 — Sn3.9Ag0.6Cu Solder Alloy (SAC396) 0.35 · SAC305 Solder Alloy 0.355 · Sn63Pb37 Eutectic Solder Alloy 0.37. 참고대역(금속 0.27~0.35)을 조금 넘는데 Sn·Pb 자체가 ν 가 높은 금속이라 그렇다 — 카탈로그의 솔더 실측 세 건이 0.35~0.37 로 모여 있다. Pb 주체 솔더(92.5Pb·97.5Pb·90Pb)와 인듐 솔더는 이 클래스에 넣지 않았다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "SnAg3.5Cu0.7Sb0.25 lead-free solder alloy (IDEALS project, Harrison 2001)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.355,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "Sn 주체 솔더 합금",
+      "basis": "catalog_class_median",
+      "class_n": 3,
+      "class_range": "0.35~0.37",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'Sn 주체 솔더 합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 3종(출처 3건)의 중앙값 0.355 을 해석 입력용으로 세웠다. 그 3종의 분포는 최소 0.35 · 최대 0.37 다. 근거 재료 예 — Sn3.9Ag0.6Cu Solder Alloy (SAC396) 0.35 · SAC305 Solder Alloy 0.355 · Sn63Pb37 Eutectic Solder Alloy 0.37. 참고대역(금속 0.27~0.35)을 조금 넘는데 Sn·Pb 자체가 ν 가 높은 금속이라 그렇다 — 카탈로그의 솔더 실측 세 건이 0.35~0.37 로 모여 있다. Pb 주체 솔더(92.5Pb·97.5Pb·90Pb)와 인듐 솔더는 이 클래스에 넣지 않았다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "SACX0307 Solder Alloy (Sn-0.3Ag-0.7Cu-0.1Bi, Cookson SACX, Bi-doped low-Ag SAC)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.355,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "Sn 주체 솔더 합금",
+      "basis": "catalog_class_median",
+      "class_n": 3,
+      "class_range": "0.35~0.37",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 'Sn 주체 솔더 합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 3종(출처 3건)의 중앙값 0.355 을 해석 입력용으로 세웠다. 그 3종의 분포는 최소 0.35 · 최대 0.37 다. 근거 재료 예 — Sn3.9Ag0.6Cu Solder Alloy (SAC396) 0.35 · SAC305 Solder Alloy 0.355 · Sn63Pb37 Eutectic Solder Alloy 0.37. 참고대역(금속 0.27~0.35)을 조금 넘는데 Sn·Pb 자체가 ν 가 높은 금속이라 그렇다 — 카탈로그의 솔더 실측 세 건이 0.35~0.37 로 모여 있다. Pb 주체 솔더(92.5Pb·97.5Pb·90Pb)와 인듐 솔더는 이 클래스에 넣지 않았다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Shengyi S1170 high-Tg (170 degC) epoxy glass copper clad laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "BT/glass-fibre laminate substrate core, 70 um (UT/SCSP, He 2007)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Ajinomoto AGL-1020 copper-clad laminate (ABF-resin glass-cloth prepreg + thin copper transfer film, 0.2 mm)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "ITEQ IT-200DK low-Dk/Df high-Tg laminate, 1.6 mm (Jeng-I Chen 2007)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "ITEQ IT-180 high-Tg phenolic-cured laminate, 1.6 mm (Jeng-I Chen 2007)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Elite Material EM-370(Z) / EM-37B(Z) High-Tg Halogen-Free Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Elite Material EM-370(5) / EM-37B(5) Mid-Tg Halogen-Free Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Elite Material EM-890 / EM-89B High-Tg Ultra-Low-Loss Halogen-Free Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1755V / R-1650V High-Tg Low-CTE High-Reliability Glass Epoxy Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1755M / R-1650M Mid-Tg Low-CTE High-Reliability Glass Epoxy Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Nan Ya NP-175FR Dicy-Free Low-CTE FR-4 Copper Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Nan Ya NP-175FTL Low-Transmission-Loss FR-4 Copper Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Shengyi S1000-2M High-Tg Low-CTE Copper Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Shengyi S7439 High-Speed Low-Loss Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DS-8402H BS (DFL) Copper Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DS-8502SQ Copper Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DS-8502SQN Copper Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DS-9000 Copper Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DSR-1000 Copper Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DST-9000 Copper Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DST-9000HT Copper Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DST-9000S Copper Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DS-9530 Copper Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Shengyi S1170G Halogen-Free High-Tg Copper Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Elite Material EM-888 / EM-888B High-Tg Low-Loss Halogen-Free Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Elite Material EM-891 / EM-891B High-Tg Ultra-Low-Loss Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1755D (HIPER D) High-Heat-Resistance Automotive Glass Epoxy Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1755E (HIPER E) High-Reliability Automotive Glass Epoxy Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1566S Halogen-Free Automotive Glass Epoxy Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1566 Halogen-Free Automotive Glass Epoxy Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1766 Standard FR-4 Automotive Glass Epoxy Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.172,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "강성 직물유리 적층판(에폭시·BT·PPO)",
+      "basis": "catalog_class_median",
+      "class_n": 59,
+      "class_range": "0.12~0.3",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '강성 직물유리 적층판(에폭시·BT·PPO)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 59종(출처 49건)의 중앙값 0.172 을 해석 입력용으로 세웠다. 그 59종의 분포는 최소 0.12 · 최대 0.3 · IQR 0.034 다. 근거 재료 예 — Nelco N4000-13 high-performance epoxy PCB la 0.12 · High-Tg FR-4 Prepreg (7628 glass) 0.1715 · Doosan DSF-900LC Copper Clad Laminate 0.3. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "GlidCop AL-15 (UNS C15715) alumina dispersion-strengthened copper, 16 mm plate (SCM Metal Products, Srivatsan 1993)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.34,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "구리·구리합금",
+      "basis": "catalog_class_median",
+      "class_n": 16,
+      "class_range": "0.3~0.37",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '구리·구리합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 16종(출처 8건)의 중앙값 0.34 을 해석 입력용으로 세웠다. 그 16종의 분포는 최소 0.3 · 최대 0.37 · IQR 0.003 다. 근거 재료 예 — Beryllium Copper (spring/contact) 0.3 · TSV Copper (through-silicon via) 0.34 · Electroplated copper thin film 20 um for PCB 0.37. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "C5210 Spring Phosphor Bronze (JIS H 3130 / UNS C52100 / CuSn8)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.34,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "구리·구리합금",
+      "basis": "catalog_class_median",
+      "class_n": 16,
+      "class_range": "0.3~0.37",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '구리·구리합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 16종(출처 8건)의 중앙값 0.34 을 해석 입력용으로 세웠다. 그 16종의 분포는 최소 0.3 · 최대 0.37 · IQR 0.003 다. 근거 재료 예 — Beryllium Copper (spring/contact) 0.3 · TSV Copper (through-silicon via) 0.34 · Electroplated copper thin film 20 um for PCB 0.37. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Nittobo NE-glass low-dielectric glass fibre (PCB reinforcement)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.22,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "다성분 규산염 유리",
+      "basis": "catalog_class_median",
+      "class_n": 26,
+      "class_range": "0.13~0.26",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '다성분 규산염 유리' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 26종(출처 22건)의 중앙값 0.22 을 해석 입력용으로 세웠다. 그 26종의 분포는 최소 0.13 · 최대 0.26 · IQR 0.0171 다. 근거 재료 예 — Corning Gorilla Glass 3 0.13 · Corning Gorilla Glass Victus 0.22 · SCHOTT Xensation alpha 0.26. 유리섬유는 조성에 따라 ν 가 갈린다 — 카탈로그 안에서도 붕규산 0.195 부터 S 유리 0.23 까지 퍼져 있어 이 가정은 그 폭을 안고 있다. 100% SiO2 인 석영섬유(0.16)는 조성이 달라 클래스에서 뺐다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Nittobo T-glass high-modulus low-expansion glass fibre (PCB reinforcement)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.22,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "다성분 규산염 유리",
+      "basis": "catalog_class_median",
+      "class_n": 26,
+      "class_range": "0.13~0.26",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '다성분 규산염 유리' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 26종(출처 22건)의 중앙값 0.22 을 해석 입력용으로 세웠다. 그 26종의 분포는 최소 0.13 · 최대 0.26 · IQR 0.0171 다. 근거 재료 예 — Corning Gorilla Glass 3 0.13 · Corning Gorilla Glass Victus 0.22 · SCHOTT Xensation alpha 0.26. 유리섬유는 조성에 따라 ν 가 갈린다 — 카탈로그 안에서도 붕규산 0.195 부터 S 유리 0.23 까지 퍼져 있어 이 가정은 그 폭을 안고 있다. 100% SiO2 인 석영섬유(0.16)는 조성이 달라 클래스에서 뺐다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "AGY L Glass fibre yarn (low-Dk/Df PCB reinforcement)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.22,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "다성분 규산염 유리",
+      "basis": "catalog_class_median",
+      "class_n": 26,
+      "class_range": "0.13~0.26",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '다성분 규산염 유리' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 26종(출처 22건)의 중앙값 0.22 을 해석 입력용으로 세웠다. 그 26종의 분포는 최소 0.13 · 최대 0.26 · IQR 0.0171 다. 근거 재료 예 — Corning Gorilla Glass 3 0.13 · Corning Gorilla Glass Victus 0.22 · SCHOTT Xensation alpha 0.26. 유리섬유는 조성에 따라 ν 가 갈린다 — 카탈로그 안에서도 붕규산 0.195 부터 S 유리 0.23 까지 퍼져 있어 이 가정은 그 폭을 안고 있다. 100% SiO2 인 석영섬유(0.16)는 조성이 달라 클래스에서 뺐다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "AGY L2 Glass fibre yarn (ultra-low-Dk/Df PCB reinforcement)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.22,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "다성분 규산염 유리",
+      "basis": "catalog_class_median",
+      "class_n": 26,
+      "class_range": "0.13~0.26",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '다성분 규산염 유리' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 26종(출처 22건)의 중앙값 0.22 을 해석 입력용으로 세웠다. 그 26종의 분포는 최소 0.13 · 최대 0.26 · IQR 0.0171 다. 근거 재료 예 — Corning Gorilla Glass 3 0.13 · Corning Gorilla Glass Victus 0.22 · SCHOTT Xensation alpha 0.26. 유리섬유는 조성에 따라 ν 가 갈린다 — 카탈로그 안에서도 붕규산 0.195 부터 S 유리 0.23 까지 퍼져 있어 이 가정은 그 폭을 안고 있다. 100% SiO2 인 석영섬유(0.16)는 조성이 달라 클래스에서 뺐다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "AGY L-HDI Glass fibre yarn (low-CTE high-modulus IC substrate reinforcement)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.22,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "다성분 규산염 유리",
+      "basis": "catalog_class_median",
+      "class_n": 26,
+      "class_range": "0.13~0.26",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '다성분 규산염 유리' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 26종(출처 22건)의 중앙값 0.22 을 해석 입력용으로 세웠다. 그 26종의 분포는 최소 0.13 · 최대 0.26 · IQR 0.0171 다. 근거 재료 예 — Corning Gorilla Glass 3 0.13 · Corning Gorilla Glass Victus 0.22 · SCHOTT Xensation alpha 0.26. 유리섬유는 조성에 따라 ν 가 갈린다 — 카탈로그 안에서도 붕규산 0.195 부터 S 유리 0.23 까지 퍼져 있어 이 가정은 그 폭을 안고 있다. 100% SiO2 인 석영섬유(0.16)는 조성이 달라 클래스에서 뺐다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "D-glass low-dielectric borosilicate glass fibre (PCB reinforcement)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.22,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "다성분 규산염 유리",
+      "basis": "catalog_class_median",
+      "class_n": 26,
+      "class_range": "0.13~0.26",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '다성분 규산염 유리' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 26종(출처 22건)의 중앙값 0.22 을 해석 입력용으로 세웠다. 그 26종의 분포는 최소 0.13 · 최대 0.26 · IQR 0.0171 다. 근거 재료 예 — Corning Gorilla Glass 3 0.13 · Corning Gorilla Glass Victus 0.22 · SCHOTT Xensation alpha 0.26. 유리섬유는 조성에 따라 ν 가 갈린다 — 카탈로그 안에서도 붕규산 0.195 부터 S 유리 0.23 까지 퍼져 있어 이 가정은 그 폭을 안고 있다. 100% SiO2 인 석영섬유(0.16)는 조성이 달라 클래스에서 뺐다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "A-glass high-alkali soda-lime-silicate glass fibre (AGY compilation grade)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.22,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "다성분 규산염 유리",
+      "basis": "catalog_class_median",
+      "class_n": 26,
+      "class_range": "0.13~0.26",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '다성분 규산염 유리' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 26종(출처 22건)의 중앙값 0.22 을 해석 입력용으로 세웠다. 그 26종의 분포는 최소 0.13 · 최대 0.26 · IQR 0.0171 다. 근거 재료 예 — Corning Gorilla Glass 3 0.13 · Corning Gorilla Glass Victus 0.22 · SCHOTT Xensation alpha 0.26. 유리섬유는 조성에 따라 ν 가 갈린다 — 카탈로그 안에서도 붕규산 0.195 부터 S 유리 0.23 까지 퍼져 있어 이 가정은 그 폭을 안고 있다. 100% SiO2 인 석영섬유(0.16)는 조성이 달라 클래스에서 뺐다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "C-glass corrosion-resistant borosilicate glass fibre (AGY compilation grade)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.22,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "다성분 규산염 유리",
+      "basis": "catalog_class_median",
+      "class_n": 26,
+      "class_range": "0.13~0.26",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '다성분 규산염 유리' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 26종(출처 22건)의 중앙값 0.22 을 해석 입력용으로 세웠다. 그 26종의 분포는 최소 0.13 · 최대 0.26 · IQR 0.0171 다. 근거 재료 예 — Corning Gorilla Glass 3 0.13 · Corning Gorilla Glass Victus 0.22 · SCHOTT Xensation alpha 0.26. 유리섬유는 조성에 따라 ν 가 갈린다 — 카탈로그 안에서도 붕규산 0.195 부터 S 유리 0.23 까지 퍼져 있어 이 가정은 그 폭을 안고 있다. 100% SiO2 인 석영섬유(0.16)는 조성이 달라 클래스에서 뺐다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "AR-glass alkali-resistant zirconia-bearing glass fibre (AGY compilation grade)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.22,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "다성분 규산염 유리",
+      "basis": "catalog_class_median",
+      "class_n": 26,
+      "class_range": "0.13~0.26",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '다성분 규산염 유리' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 26종(출처 22건)의 중앙값 0.22 을 해석 입력용으로 세웠다. 그 26종의 분포는 최소 0.13 · 최대 0.26 · IQR 0.0171 다. 근거 재료 예 — Corning Gorilla Glass 3 0.13 · Corning Gorilla Glass Victus 0.22 · SCHOTT Xensation alpha 0.26. 유리섬유는 조성에 따라 ν 가 갈린다 — 카탈로그 안에서도 붕규산 0.195 부터 S 유리 0.23 까지 퍼져 있어 이 가정은 그 폭을 안고 있다. 100% SiO2 인 석영섬유(0.16)는 조성이 달라 클래스에서 뺐다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "R-glass high-strength alumino-silicate glass fibre (composite and PCB reinforcement)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.22,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "다성분 규산염 유리",
+      "basis": "catalog_class_median",
+      "class_n": 26,
+      "class_range": "0.13~0.26",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '다성분 규산염 유리' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 26종(출처 22건)의 중앙값 0.22 을 해석 입력용으로 세웠다. 그 26종의 분포는 최소 0.13 · 최대 0.26 · IQR 0.0171 다. 근거 재료 예 — Corning Gorilla Glass 3 0.13 · Corning Gorilla Glass Victus 0.22 · SCHOTT Xensation alpha 0.26. 유리섬유는 조성에 따라 ν 가 갈린다 — 카탈로그 안에서도 붕규산 0.195 부터 S 유리 0.23 까지 퍼져 있어 이 가정은 그 폭을 안고 있다. 100% SiO2 인 석영섬유(0.16)는 조성이 달라 클래스에서 뺐다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "AGY ECRGLAS boron-free corrosion-resistant glass fibre (E-CR type reinforcement)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.22,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "다성분 규산염 유리",
+      "basis": "catalog_class_median",
+      "class_n": 26,
+      "class_range": "0.13~0.26",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '다성분 규산염 유리' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 26종(출처 22건)의 중앙값 0.22 을 해석 입력용으로 세웠다. 그 26종의 분포는 최소 0.13 · 최대 0.26 · IQR 0.0171 다. 근거 재료 예 — Corning Gorilla Glass 3 0.13 · Corning Gorilla Glass Victus 0.22 · SCHOTT Xensation alpha 0.26. 유리섬유는 조성에 따라 ν 가 갈린다 — 카탈로그 안에서도 붕규산 0.195 부터 S 유리 0.23 까지 퍼져 있어 이 가정은 그 폭을 안고 있다. 100% SiO2 인 석영섬유(0.16)는 조성이 달라 클래스에서 뺐다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Die-cast AE44 magnesium alloy (Mg-4Al-4RE), as-cast — Rzychoń 2009",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.35,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "마그네슘 합금",
+      "basis": "catalog_class_median",
+      "class_n": 5,
+      "class_range": "0.32~0.35",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '마그네슘 합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 5종(출처 6건)의 중앙값 0.35 을 해석 입력용으로 세웠다. 그 5종의 분포는 최소 0.32 · 최대 0.35 · IQR 0.015 다. 근거 재료 예 — Mg_ZK60A_T5 Bilinear 0.32 · Mg_AZ91D_diecast Bilinear 0.35 · Mg AM50A die casting alloy (Mg-5Al-0.3Mn, AS 0.35. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "ZEONEX 480R cyclo-olefin polymer, optical grade (ZEON, Yamazaki 2004)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.38,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "무충전 비결정 열가소성 수지",
+      "basis": "catalog_class_median",
+      "class_n": 9,
+      "class_range": "0.35~0.4",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '무충전 비결정 열가소성 수지' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 9종(출처 7건)의 중앙값 0.38 을 해석 입력용으로 세웠다. 그 9종의 분포는 최소 0.35 · 최대 0.4 · IQR 0.025 다. 근거 재료 예 — PMMA Optical (Acrylic) 0.35 · Lexan FR25A polycarbonate film (297 um, SABI 0.38 · Cast acrylic (PMMA) plate 5 mm, drop-weight  0.4. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "ZEONOR 1020R cyclo-olefin polymer, injection grade (ZEON, Yamazaki 2004)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.38,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "무충전 비결정 열가소성 수지",
+      "basis": "catalog_class_median",
+      "class_n": 9,
+      "class_range": "0.35~0.4",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '무충전 비결정 열가소성 수지' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 9종(출처 7건)의 중앙값 0.38 을 해석 입력용으로 세웠다. 그 9종의 분포는 최소 0.35 · 최대 0.4 · IQR 0.025 다. 근거 재료 예 — PMMA Optical (Acrylic) 0.35 · Lexan FR25A polycarbonate film (297 um, SABI 0.38 · Cast acrylic (PMMA) plate 5 mm, drop-weight  0.4. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "ZEONOR 1420R cyclo-olefin polymer, injection grade (ZEON, Yamazaki 2004)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.38,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "무충전 비결정 열가소성 수지",
+      "basis": "catalog_class_median",
+      "class_n": 9,
+      "class_range": "0.35~0.4",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '무충전 비결정 열가소성 수지' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 9종(출처 7건)의 중앙값 0.38 을 해석 입력용으로 세웠다. 그 9종의 분포는 최소 0.35 · 최대 0.4 · IQR 0.025 다. 근거 재료 예 — PMMA Optical (Acrylic) 0.35 · Lexan FR25A polycarbonate film (297 um, SABI 0.38 · Cast acrylic (PMMA) plate 5 mm, drop-weight  0.4. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "ZEONOR 1600R cyclo-olefin polymer, high-heat grade (ZEON, Yamazaki 2004)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.38,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "무충전 비결정 열가소성 수지",
+      "basis": "catalog_class_median",
+      "class_n": 9,
+      "class_range": "0.35~0.4",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '무충전 비결정 열가소성 수지' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 9종(출처 7건)의 중앙값 0.38 을 해석 입력용으로 세웠다. 그 9종의 분포는 최소 0.35 · 최대 0.4 · IQR 0.025 다. 근거 재료 예 — PMMA Optical (Acrylic) 0.35 · Lexan FR25A polycarbonate film (297 um, SABI 0.38 · Cast acrylic (PMMA) plate 5 mm, drop-weight  0.4. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Victrex PES 200P/300P, unreinforced polyethersulphone (ICI, Thompson 1983)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.38,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "무충전 비결정 열가소성 수지",
+      "basis": "catalog_class_median",
+      "class_n": 9,
+      "class_range": "0.35~0.4",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '무충전 비결정 열가소성 수지' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 9종(출처 7건)의 중앙값 0.38 을 해석 입력용으로 세웠다. 그 9종의 분포는 최소 0.35 · 최대 0.4 · IQR 0.025 다. 근거 재료 예 — PMMA Optical (Acrylic) 0.35 · Lexan FR25A polycarbonate film (297 um, SABI 0.38 · Cast acrylic (PMMA) plate 5 mm, drop-weight  0.4. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "ZEONEX K26R cyclo-olefin polymer, high-flow optical grade (ZEON)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.38,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "무충전 비결정 열가소성 수지",
+      "basis": "catalog_class_median",
+      "class_n": 9,
+      "class_range": "0.35~0.4",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '무충전 비결정 열가소성 수지' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 9종(출처 7건)의 중앙값 0.38 을 해석 입력용으로 세웠다. 그 9종의 분포는 최소 0.35 · 최대 0.4 · IQR 0.025 다. 근거 재료 예 — PMMA Optical (Acrylic) 0.35 · Lexan FR25A polycarbonate film (297 um, SABI 0.38 · Cast acrylic (PMMA) plate 5 mm, drop-weight  0.4. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "ZEONEX K22R cyclo-olefin polymer, optical grade (ZEON)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.38,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "무충전 비결정 열가소성 수지",
+      "basis": "catalog_class_median",
+      "class_n": 9,
+      "class_range": "0.35~0.4",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '무충전 비결정 열가소성 수지' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 9종(출처 7건)의 중앙값 0.38 을 해석 입력용으로 세웠다. 그 9종의 분포는 최소 0.35 · 최대 0.4 · IQR 0.025 다. 근거 재료 예 — PMMA Optical (Acrylic) 0.35 · Lexan FR25A polycarbonate film (297 um, SABI 0.38 · Cast acrylic (PMMA) plate 5 mm, drop-weight  0.4. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "ZEONEX E48R cyclo-olefin polymer, optical grade (ZEON)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.38,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "무충전 비결정 열가소성 수지",
+      "basis": "catalog_class_median",
+      "class_n": 9,
+      "class_range": "0.35~0.4",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '무충전 비결정 열가소성 수지' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 9종(출처 7건)의 중앙값 0.38 을 해석 입력용으로 세웠다. 그 9종의 분포는 최소 0.35 · 최대 0.4 · IQR 0.025 다. 근거 재료 예 — PMMA Optical (Acrylic) 0.35 · Lexan FR25A polycarbonate film (297 um, SABI 0.38 · Cast acrylic (PMMA) plate 5 mm, drop-weight  0.4. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "ZEONEX F52R cyclo-olefin polymer, high-Tg optical grade (ZEON)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.38,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "무충전 비결정 열가소성 수지",
+      "basis": "catalog_class_median",
+      "class_n": 9,
+      "class_range": "0.35~0.4",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '무충전 비결정 열가소성 수지' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 9종(출처 7건)의 중앙값 0.38 을 해석 입력용으로 세웠다. 그 9종의 분포는 최소 0.35 · 최대 0.4 · IQR 0.025 다. 근거 재료 예 — PMMA Optical (Acrylic) 0.35 · Lexan FR25A polycarbonate film (297 um, SABI 0.38 · Cast acrylic (PMMA) plate 5 mm, drop-weight  0.4. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "ZEONEX T62R cyclo-olefin polymer, high-Tg optical grade (ZEON)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.38,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "무충전 비결정 열가소성 수지",
+      "basis": "catalog_class_median",
+      "class_n": 9,
+      "class_range": "0.35~0.4",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '무충전 비결정 열가소성 수지' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 9종(출처 7건)의 중앙값 0.38 을 해석 입력용으로 세웠다. 그 9종의 분포는 최소 0.35 · 최대 0.4 · IQR 0.025 다. 근거 재료 예 — PMMA Optical (Acrylic) 0.35 · Lexan FR25A polycarbonate film (297 um, SABI 0.38 · Cast acrylic (PMMA) plate 5 mm, drop-weight  0.4. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "ZEONEX 330R cyclo-olefin polymer, low-index optical grade (ZEON)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.38,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "무충전 비결정 열가소성 수지",
+      "basis": "catalog_class_median",
+      "class_n": 9,
+      "class_range": "0.35~0.4",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '무충전 비결정 열가소성 수지' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 9종(출처 7건)의 중앙값 0.38 을 해석 입력용으로 세웠다. 그 9종의 분포는 최소 0.35 · 최대 0.4 · IQR 0.025 다. 근거 재료 예 — PMMA Optical (Acrylic) 0.35 · Lexan FR25A polycarbonate film (297 um, SABI 0.38 · Cast acrylic (PMMA) plate 5 mm, drop-weight  0.4. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "TOPAS 5013S-04 cyclic olefin copolymer, optical injection-molding grade (TOPAS Advanced Polymers)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.38,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "무충전 비결정 열가소성 수지",
+      "basis": "catalog_class_median",
+      "class_n": 9,
+      "class_range": "0.35~0.4",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '무충전 비결정 열가소성 수지' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 9종(출처 7건)의 중앙값 0.38 을 해석 입력용으로 세웠다. 그 9종의 분포는 최소 0.35 · 최대 0.4 · IQR 0.025 다. 근거 재료 예 — PMMA Optical (Acrylic) 0.35 · Lexan FR25A polycarbonate film (297 um, SABI 0.38 · Cast acrylic (PMMA) plate 5 mm, drop-weight  0.4. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "TOPAS 6015S-04 cyclic olefin copolymer, high heat-distortion grade (TOPAS Advanced Polymers)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.38,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "무충전 비결정 열가소성 수지",
+      "basis": "catalog_class_median",
+      "class_n": 9,
+      "class_range": "0.35~0.4",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '무충전 비결정 열가소성 수지' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 9종(출처 7건)의 중앙값 0.38 을 해석 입력용으로 세웠다. 그 9종의 분포는 최소 0.35 · 최대 0.4 · IQR 0.025 다. 근거 재료 예 — PMMA Optical (Acrylic) 0.35 · Lexan FR25A polycarbonate film (297 um, SABI 0.38 · Cast acrylic (PMMA) plate 5 mm, drop-weight  0.4. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "TOPAS 6017S-04 cyclic olefin copolymer, high heat-distortion grade (TOPAS Advanced Polymers)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.38,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "무충전 비결정 열가소성 수지",
+      "basis": "catalog_class_median",
+      "class_n": 9,
+      "class_range": "0.35~0.4",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '무충전 비결정 열가소성 수지' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 9종(출처 7건)의 중앙값 0.38 을 해석 입력용으로 세웠다. 그 9종의 분포는 최소 0.35 · 최대 0.4 · IQR 0.025 다. 근거 재료 예 — PMMA Optical (Acrylic) 0.35 · Lexan FR25A polycarbonate film (297 um, SABI 0.38 · Cast acrylic (PMMA) plate 5 mm, drop-weight  0.4. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "ZEONEX 360R cyclo-olefin polymer, low-index optical grade (ZEON)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.38,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "무충전 비결정 열가소성 수지",
+      "basis": "catalog_class_median",
+      "class_n": 9,
+      "class_range": "0.35~0.4",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '무충전 비결정 열가소성 수지' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 9종(출처 7건)의 중앙값 0.38 을 해석 입력용으로 세웠다. 그 9종의 분포는 최소 0.35 · 최대 0.4 · IQR 0.025 다. 근거 재료 예 — PMMA Optical (Acrylic) 0.35 · Lexan FR25A polycarbonate film (297 um, SABI 0.38 · Cast acrylic (PMMA) plate 5 mm, drop-weight  0.4. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Underfill encapsulant, silica-filled epoxy (Tg 137 C, flip-chip production cure, Chowdhury 2017)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Zymet X6-82-5LV50 capillary BGA/CSP underfill encapsulant (silica-filled epoxy)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Silica-filled liquid epoxy molding compound for fan-out WLP (Chiu 2020)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Ajinomoto Build-up Film ABF GX13 (Fujishima 2017)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Ajinomoto Build-up Film ABF GX92 (Fujishima 2017)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Ajinomoto Build-up Film ABF GX-T31 (Fujishima 2017)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Ajinomoto Build-up Film ABF GZ-41, cyanate-ester-cured epoxy (Fujishima 2017)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Ajinomoto Build-up Film ABF GY, phenolic-ester-cured epoxy (Fujishima 2017)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Ajinomoto low-dielectric molding film LE series (Fujishima 2017)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Underfill Dexter FP4527, silica-filled epoxy 68 wt% (flip-chip capillary underfill, Hohlfelder 2001)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Underfill Zymet X6-82-5, silica-filled epoxy 62 wt% (flip-chip capillary underfill, Hohlfelder 2001)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Underfill Zymet X6-82-8, silica-filled epoxy 62 wt% + extra adhesion promoter (Hohlfelder 2001)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Underfill Zymet X6-82-0, silica-filled epoxy 62 wt% with no adhesion promoter (Hohlfelder 2001)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Ultra-low-loss build-up film, semi-IPN matrix + primer (Hitachi Chemical, Kasahara 2016)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Reworkable one-component capillary-flow epoxy underfill, Tg 85 C (DMTA), density 1.16 g/cm3, trade name not printed (Shi 2012 CSP study)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Flip-chip underfill U-8437-3 (Lamics Inc., Japan), silica-filled epoxy (Kaltenpoth 2001)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "IBM Endicott C4 flip-chip encapsulant, liquid silica-filled epoxy, cured 130 C/4 h (US Pat. 5,194,930; Wang 1993)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Flip-chip capillary underfill, Tg 408 K (TMA), E 9.0 GPa, cured 150 C / 20 min, trade name not printed (Qun 2000 FCOB case study)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Flip-chip underfill CUF-1 (CUF-A) capillary-flow underfill (Tg 100 C, filler 65 wt%, Katsurayama 2008)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Flip-chip underfill NUF-2 (NUF-B) no-flow underfill, lowest CTE (Tg 95 C, filler 60 wt%, Katsurayama 2008)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "상용 플립칩 언더필 봉지재 'A' [미식별: 논문이 제품명을 인쇄하지 않는다] (Palaniappan 2000) [class value]",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "상용 플립칩 언더필 봉지재 'B' [미식별: 논문이 제품명을 인쇄하지 않는다] (Palaniappan 2000) [class value]",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "상용 플립칩 언더필 봉지재 'C' [미식별: 논문이 제품명을 인쇄하지 않는다] (Palaniappan 2000) [class value]",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "상용 플립칩 언더필 봉지재 'D' [미식별: 논문이 제품명을 인쇄하지 않는다] (Palaniappan 2000) [class value]",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Dexter Hysol FP4526 flip-chip underfill, silica-filled epoxy (Liu 2011)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.3,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "실리카·무기 충전 에폭시 봉지재",
+      "basis": "catalog_class_median",
+      "class_n": 11,
+      "class_range": "0.25~0.371",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '실리카·무기 충전 에폭시 봉지재' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 11종(출처 8건)의 중앙값 0.3 을 해석 입력용으로 세웠다. 그 11종의 분포는 최소 0.25 · 최대 0.371 · IQR 0.0311 다. 근거 재료 예 — Dry-film epoxy molding compound for fan-out  0.25 · Epoxy molding compound EMC1 (Tg 115 C, Nitto 0.3 · Epoxy molding compound, 89 wt% silica-filled 0.371. 충전율이 폭을 만든다 — 고충전 드라이필름 0.25 부터 89 wt% 실리카 EMC 0.371 까지다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "6082-T6 aluminium alloy, commercial quality bar, bending-torsion fatigue specimen (Kluger 2015)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.33,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "알루미늄 전신·주조 합금",
+      "basis": "catalog_class_median",
+      "class_n": 15,
+      "class_range": "0.33~0.33",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '알루미늄 전신·주조 합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 15종(출처 25건)의 중앙값 0.33 을 해석 입력용으로 세웠다. 그 15종의 분포는 최소 0.33 · 최대 0.33 · IQR 0.0 다. 근거 재료 예 — Al1050-O Bilinear 0.33 · Al6063-T5 Bilinear 0.33 · 2017A-T4 aluminium alloy, commercial quality 0.33. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Al 7003 extrusion alloy (EN AW-7003, AlZn6Mg0.8Zr)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.33,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "알루미늄 전신·주조 합금",
+      "basis": "catalog_class_median",
+      "class_n": 15,
+      "class_range": "0.33~0.33",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '알루미늄 전신·주조 합금' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 15종(출처 25건)의 중앙값 0.33 을 해석 입력용으로 세웠다. 그 15종의 분포는 최소 0.33 · 최대 0.33 · IQR 0.0 다. 근거 재료 예 — Al1050-O Bilinear 0.33 · Al6063-T5 Bilinear 0.33 · 2017A-T4 aluminium alloy, commercial quality 0.33. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "AGC AN100 Alkali-free Glass Substrate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.23,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "알칼리프리 디스플레이 유리 기판",
+      "basis": "catalog_class_median",
+      "class_n": 9,
+      "class_range": "0.2~0.25",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '알칼리프리 디스플레이 유리 기판' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 9종(출처 9건)의 중앙값 0.23 을 해석 입력용으로 세웠다. 그 9종의 분포는 최소 0.2 · 최대 0.25 · IQR 0.03 다. 근거 재료 예 — NEG OA-10G Alkali-free Glass Substrate 0.2 · Corning EAGLE XG Slim Glass (alkali-free dis 0.23 · NEG OA-31 High-Heat-Resistant Low-Compaction 0.25. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "AGC AN635 Alkali-free Glass Substrate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.23,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "알칼리프리 디스플레이 유리 기판",
+      "basis": "catalog_class_median",
+      "class_n": 9,
+      "class_range": "0.2~0.25",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '알칼리프리 디스플레이 유리 기판' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 9종(출처 9건)의 중앙값 0.23 을 해석 입력용으로 세웠다. 그 9종의 분포는 최소 0.2 · 최대 0.25 · IQR 0.03 다. 근거 재료 예 — NEG OA-10G Alkali-free Glass Substrate 0.2 · Corning EAGLE XG Slim Glass (alkali-free dis 0.23 · NEG OA-31 High-Heat-Resistant Low-Compaction 0.25. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DSflex-600G Flexible Copper Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.34,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "연성 동박적층판(PI 기반)",
+      "basis": "catalog_class_median",
+      "class_n": 14,
+      "class_range": "0.34~0.34",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '연성 동박적층판(PI 기반)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 14종(출처 11건)의 중앙값 0.34 을 해석 입력용으로 세웠다. 그 14종의 분포는 최소 0.34 · 최대 0.34 · IQR 0.0 다. 근거 재료 예 — Doosan DSflex-600 Flexible Copper Clad Lamin 0.34 · Doosan DSflex-900L Flexible Copper Clad Lami 0.34 · Doosan DSflex-600UY Flexible Copper Clad Lam 0.34. 근거 14종이 모두 0.34 로 같고 카탈로그의 PI 필름 실측 대역(0.34)과도 일치한다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Doosan DSflex-600HF Flexible Copper Clad Laminate",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.34,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "연성 동박적층판(PI 기반)",
+      "basis": "catalog_class_median",
+      "class_n": 14,
+      "class_range": "0.34~0.34",
+      "prior_verdict": "core_absent_from_vendor_sheet",
+      "direction": "in-plane (nu12) — 두께방향 nu13 은 값이 다르다"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '연성 동박적층판(PI 기반)' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 14종(출처 11건)의 중앙값 0.34 을 해석 입력용으로 세웠다. 그 14종의 분포는 최소 0.34 · 최대 0.34 · IQR 0.0 다. 근거 재료 예 — Doosan DSflex-600 Flexible Copper Clad Lamin 0.34 · Doosan DSflex-900L Flexible Copper Clad Lami 0.34 · Doosan DSflex-600UY Flexible Copper Clad Lam 0.34. 근거 14종이 모두 0.34 로 같고 카탈로그의 PI 필름 실측 대역(0.34)과도 일치한다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Celanex 3300 D PBT, 30% glass filled, as received untreated control (Ticona, O'Neill 2008)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.39,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "유리섬유 충전 열가소성 수지",
+      "basis": "catalog_class_median",
+      "class_n": 17,
+      "class_range": "0.325~0.437",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '유리섬유 충전 열가소성 수지' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 17종(출처 12건)의 중앙값 0.39 을 해석 입력용으로 세웠다. 그 17종의 분포는 최소 0.325 · 최대 0.437 · IQR 0.05 다. 근거 재료 예 — Ultramid B3WG6 (PA6-GF30, BASF) 0.325 · Ryton R-4-02XT (PPS-GF40, Solvay/Syensqo) 0.39 · Thermocomp MEV-1006 PP/GF 30 wt% (LNP Engine 0.437. 참고대역(유리충전 수지 0.30~0.38)의 위쪽을 넘는데, 카탈로그의 유리충전 등급값이 벤더 시트(CAMPUS 계열)에서 온 것이고 0.38~0.44 에 모여 있어서다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Victrex PES 420P, 20% glass-reinforced polyethersulphone (ICI, Thompson 1983)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.39,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "유리섬유 충전 열가소성 수지",
+      "basis": "catalog_class_median",
+      "class_n": 17,
+      "class_range": "0.325~0.437",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '유리섬유 충전 열가소성 수지' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 17종(출처 12건)의 중앙값 0.39 을 해석 입력용으로 세웠다. 그 17종의 분포는 최소 0.325 · 최대 0.437 · IQR 0.05 다. 근거 재료 예 — Ultramid B3WG6 (PA6-GF30, BASF) 0.325 · Ryton R-4-02XT (PPS-GF40, Solvay/Syensqo) 0.39 · Thermocomp MEV-1006 PP/GF 30 wt% (LNP Engine 0.437. 참고대역(유리충전 수지 0.30~0.38)의 위쪽을 넘는데, 카탈로그의 유리충전 등급값이 벤더 시트(CAMPUS 계열)에서 온 것이고 0.38~0.44 에 모여 있어서다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Victrex PES 430P, 30% glass-reinforced polyethersulphone (ICI, Thompson 1983)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.39,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "유리섬유 충전 열가소성 수지",
+      "basis": "catalog_class_median",
+      "class_n": 17,
+      "class_range": "0.325~0.437",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '유리섬유 충전 열가소성 수지' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 17종(출처 12건)의 중앙값 0.39 을 해석 입력용으로 세웠다. 그 17종의 분포는 최소 0.325 · 최대 0.437 · IQR 0.05 다. 근거 재료 예 — Ultramid B3WG6 (PA6-GF30, BASF) 0.325 · Ryton R-4-02XT (PPS-GF40, Solvay/Syensqo) 0.39 · Thermocomp MEV-1006 PP/GF 30 wt% (LNP Engine 0.437. 참고대역(유리충전 수지 0.30~0.38)의 위쪽을 넘는데, 카탈로그의 유리충전 등급값이 벤더 시트(CAMPUS 계열)에서 온 것이고 0.38~0.44 에 모여 있어서다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  },
+  {
+   "match_name": "Kalix 9950 (PA MXD6/66-GF50, Syensqo)",
+   "source": {
+    "kind": "computed",
+    "title": "MaterialTwinWeb 클래스 가정 — 카탈로그 내 동일 클래스 실측값의 중앙값",
+    "publisher": "MaterialTwinWeb",
+    "url": "https://github.com/squall321/MaterialTwinWeb"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.39,
+     "unit": "1",
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "class": "유리섬유 충전 열가소성 수지",
+      "basis": "catalog_class_median",
+      "class_n": 17,
+      "class_range": "0.325~0.437",
+      "prior_verdict": "core_absent_from_vendor_sheet"
+     },
+     "notes": "[가정] 이 재료 자신을 잰 값이 아니다. 카탈로그 안 '유리섬유 충전 열가소성 수지' 클래스에서 tier 3 이하이면서 estimated 가 아닌 포아송비를 가진 재료 17종(출처 12건)의 중앙값 0.39 을 해석 입력용으로 세웠다. 그 17종의 분포는 최소 0.325 · 최대 0.437 · IQR 0.05 다. 근거 재료 예 — Ultramid B3WG6 (PA6-GF30, BASF) 0.325 · Ryton R-4-02XT (PPS-GF40, Solvay/Syensqo) 0.39 · Thermocomp MEV-1006 PP/GF 30 wt% (LNP Engine 0.437. 참고대역(유리충전 수지 0.30~0.38)의 위쪽을 넘는데, 카탈로그의 유리충전 등급값이 벤더 시트(CAMPUS 계열)에서 온 것이고 0.38~0.44 에 모여 있어서다. 앞 판정 `core_absent_from_vendor_sheet` 은 그대로 참이다 — 벤더·원문은 여전히 이 재료의 포아송비를 인쇄하지 않으며, 이 값은 인쇄값이 아니라 우리 카탈로그 실측군의 중앙값이다(§676 — 판정은 서식에 대해 참이고 값은 그 옆에 선다). §43 대로 E·G 에서 역산하지 않았다. 이 제품 자신의 실측이 들어오면 그 값이 대표값이 된다."
+    }
+   ]
+  }
+ ]
+}
