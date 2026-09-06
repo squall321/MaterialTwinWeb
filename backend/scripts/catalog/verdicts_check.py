@@ -53,11 +53,18 @@ def check_core_verdicts(mt: sqlite3.Connection) -> tuple[list[str], list[str]]:
     # 그래서 판정 종류마다 반례의 문턱을 달리 둔다.
     #   · 벤더 시트 부재  → **tier1(그 제품에 대해 인쇄된 값)만** 반증한다.
     #   · 해당 없음       → 실측(tier≤3)이면 반증한다. 물리적으로 정의가 안 된다는 주장이니까.
-    #   · 인쇄값 기각     → 등급을 가리지 않는다. 기각해 놓고 저장한 것 자체가 어긋남이다.
+    #   · 인쇄값 기각     → **실측(tier≤3)만** 반증한다. 65차에 문턱을 4에서 3으로 내렸다.
+    #
+    # 기각 판정의 뜻은 "원문이 인쇄한 이 값을 **그 등급의 값으로** 귀속시키지 않았다" 이지
+    # "이 칸을 영원히 비워 두라" 가 아니다. 뒤에 같은 숫자가 `tier4 · assumption:true` 로
+    # 들어오면 그건 원문의 주장을 되살린 게 아니라 **우리 가정으로 다시 세운 것**이라
+    # 어긋남이 아니다. 65차 AB 가 Sr 페라이트 25등급에 Eclipse 공통값을 그렇게 넣었고
+    # notes 가 "등급별이 아니라 소결 하드페라이트 공통값" 이라고 그대로 적는다.
+    # 문턱을 4로 두면 그 50건이 경고를 채워 **진짜 어긋남(재료 582 의 t2)이 묻힌다.**
     COUNTER_TIER = {"core_absent_from_vendor_sheet": 1,
                     "core_no_public_document": 1,
                     "core_not_applicable": 3,
-                    "core_rejected_printed_value": 4}
+                    "core_rejected_printed_value": 3}
     have: dict[int, dict[str, int]] = {}
     for mid, k, t in mt.execute(
             "select material_id,property_key,quality_tier from property_value"):
