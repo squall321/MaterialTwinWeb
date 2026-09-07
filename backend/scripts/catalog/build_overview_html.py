@@ -510,6 +510,7 @@ def main():
       '<b>CAMPUS 스키마에 포아송비 필드가 없고</b>, Rogers 전 사이트의 '
       '<code>Poisson</code> 출현이 5건이며, MnZn 페라이트 데이터북은 E·인장·경도·파괴인성을 '
       '수록하면서 ν만 제외한다. <b>벤더 미공표 물성</b>이라 도달 가능 상한 자체가 낮다.</p>')
+    A(yield_block())
     A('</section>')
 
     A(f'<footer><p>라이브 DB 조회 · 재료 {n_mat}종 · 물성값 {n_val:,}건 · 출처 {n_src:,}건 · '
@@ -608,6 +609,49 @@ FLOW_SVG = """<figure class="flow">
 병합 단계가 운영 DB 반영을 담당한다. 동일 재료·동일 물성에 행이 복수인 경우
 <b>대표값 1건을 선정하되 비채택 후보를 삭제하지 않고 함께 제공한다.</b></figcaption>
 </figure>"""
+
+
+# 66차 BC 가 코어 밖 격자 2,081칸을 전수로 두드려 잰 물성별 수확률.
+# 표본이 아니라 전수다 — 표적 재료가 이미 쓰는 출처를 전부 내려받아 낱말 적중까지 셌다.
+# **이 숫자는 DB 질의가 아니라 그날의 측정치다.** 다시 재기 전까지 갱신되지 않는다.
+YIELD_MEASURED = "2026-09-07 (66차 BC)"
+YIELD_ROWS = [
+    # 물성, 표적 재료, 쓰는 출처, 로컬 확보, 낱말 적중, 수확률 %
+    ("접착강도",      65,  83,  37, 19, 51.4),
+    ("투습도",       142, 123,  74, 27, 36.5),
+    ("소성 상수",     290, 284, 199, 64, 32.2),
+    ("전기 물성",     232, 195, 139, 20, 14.4),
+    ("율속 민감도",   437, 401, 306, 38, 12.4),
+    ("피로 계수",     312, 290, 209, 26, 12.4),
+    ("젖음·표면에너지", 428, 395, 318, 18,  5.7),
+    ("Prony 계열",    154, 195, 130,  6,  4.6),
+]
+
+
+def yield_block():
+    """물성별 수확률 표. 어디를 파야 나오는지를 값이 아니라 확률로 말한다."""
+    rows = "".join(
+        f'<tr><td class="nm">{esc(nm)}</td><td class="n">{tgt}</td>'
+        f'<td class="n mono">{src}</td><td class="n mono">{loc}</td>'
+        f'<td class="n mono">{hit}</td>'
+        f'<td class="barcell"><span class="btrack sm"><i class="bfill teal" '
+        f'style="width:{y:.1f}%"></i></span><span class="pct">{y:.1f}</span></td></tr>'
+        for nm, tgt, src, loc, hit, y in YIELD_ROWS)
+    return (
+        '<h4>보유 문서 재검 시 물성별 수확률</h4>'
+        '<div class="tblwrap"><table class="cov">'
+        '<thead><tr><th>물성</th><th class="n">표적 재료</th><th class="n">쓰는 출처</th>'
+        '<th class="n">로컬 확보</th><th class="n">낱말 적중</th><th>수확률</th></tr></thead>'
+        f'<tbody>{rows}</tbody></table></div>'
+        '<p class="note"><b>같은 노력이 물성마다 열 배 다른 결과를 낸다.</b> '
+        '기준선은 포아송비 7.5% · 전방사율 0.7%다 — 상위 셋은 그 네 배 이상이고, '
+        '하위 둘은 그 아래다. 낮은 쪽의 원인은 셋으로 갈린다. '
+        '<b>젖음</b>은 재료의 물성이 아니라 <b>공정의 결과</b>로 발표돼 벤더 시트에 열이 없다. '
+        '<b>Prony</b>는 문서에 있으나 <b>표가 아니라 마스터커브 그림</b>이라 디지타이즈 대상이다. '
+        '<b>율속·피로</b>는 적중이 「이 논문이 율속을 언급한다」이지 '
+        '「이 등급의 상수를 찍는다」가 아니다 — 적중 수가 성과를 예고한다는 착각을 주는 구간이다.</p>'
+        f'<p class="note"><b>이 표는 측정치다.</b> {esc(YIELD_MEASURED)} 전수 측정 결과이며 '
+        '다른 지표와 달리 DB 조회로 갱신되지 않는다.</p>')
 
 
 def lead(items):
