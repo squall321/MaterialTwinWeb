@@ -24,10 +24,19 @@ import sys
 import unicodedata
 from pathlib import Path
 
-DB = os.environ.get(
-    "MATERIALTWIN_DB",
-    "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web/materialtwin.db",
-)
+# 형제 도구(integrity_check·coverage_report·apply_core_verdicts)는 전부
+# `MATERIALTWIN_DATA_DIR` 을 보는데 여기만 `MATERIALTWIN_DB` 를 봤다. 그래서 배치가
+# 사본에 `--apply` 한 뒤 `MATERIALTWIN_DATA_DIR=<사본>` 으로 검사를 돌리면
+# **integrity 는 사본을, verdicts 는 라이브를 읽는다** — 정상 종료하고 `이상 0개` 를
+# 찍으므로 조용하고, "내 적재가 어긋남을 안 늘렸다" 로 잘못 읽힌다(66차 BB 실측).
+# 65차 AD 가 `apply_core_verdicts.py` 에서 잡은 것과 같은 부류다.
+#
+# `MATERIALTWIN_DB` 는 그대로 받는다(직접 파일을 지목하는 기존 호출을 깨지 않는다).
+# 다만 그것이 없으면 형제들과 같은 `MATERIALTWIN_DATA_DIR` 을 따른다.
+DB = os.environ.get("MATERIALTWIN_DB") or os.path.join(
+    os.environ.get("MATERIALTWIN_DATA_DIR",
+                   "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web"),
+    "materialtwin.db")
 
 
 def norm_doi(s: str | None) -> str:
