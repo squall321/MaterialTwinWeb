@@ -1,0 +1,86 @@
+{
+  "batch": "66차 BB — 판정된 구조해석 결손칸 중 솔더 영률 2종을 핸드북·리뷰 조달로 닫는다",
+  "materials": [
+    {
+      "match_name": "62Sn36Pb2Ag Solder Alloy",
+      "source": {
+        "kind": "database",
+        "title": "Database for Solder Properties with Emphasis on New Lead-free Solders — Properties of Lead-Free Solders, Release 4.0",
+        "authors": "Thomas Siewert; Stephen Liu; David R. Smith; Juan Carlos Madeni",
+        "year": 2002,
+        "publisher": "National Institute of Standards and Technology & Colorado School of Mines",
+        "url": "https://www.msed.nist.gov/solder/NIST_LeadfreeSolder_v4.pdf",
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/pkg/NIST_CSM_DatabaseForSolderProperties_LeadFree_Release4.0_2002-02-11.pdf"
+      },
+      "properties": [
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 1.80e10,
+          "unit": "Pa",
+          "method": "handbook",
+          "tier": 2,
+          "conditions": {
+            "temperature": "room temperature (원문 표기 — 표 제목 'Room Temperature Tensile Properties')",
+            "test_method": "uniaxial tension (준정적 인장 시험의 응력-변형 기울기)",
+            "grade": "NCMS Alloy Code A2 = Sn-2Ag-36Pb (= 62Sn-36Pb-2Ag, wt%)"
+          },
+          "notes": "NIST/Colorado School of Mines 『Database for Solder Properties』 Release 4.0(2002-02-11) Table 1.2 『Tensile Properties of Lead-Free Solders』의 **A2 행 Sn-2Ag-36Pb** 인쇄값 — Elastic Modulus 2,617 ksi = **18.0 GPa**(표가 ksi 와 GPa 두 열을 다 인쇄하므로 우리가 환산한 값이 아니다. ksi 열로 검산하면 2617 x 6.894757 = 18.04 GPa 로 인쇄된 GPa 열과 0.2% 안에서 겹친다). 표의 1차 출처는 원문 각주 verbatim — 'Technical Reports for the Lead Free Solder Project: Properties Reports: \"Room Temperature Tensile Properties of Lead-Free Solder Alloys;\" Lead Free Solder Project CD-ROM, National Center for Manufacturing Sciences (NCMS), 1998'. 편찬물을 통해 읽었으므로 t1 이 아니라 t2 다.\n\n**등급 동일성(§586)** — NCMS 합금코드 A2 의 조성 표기 Sn-2Ag-36Pb 는 Sn 잔부 62 wt% 이므로 이 재료의 62Sn-36Pb-2Ag 와 같은 조성이다. 같은 표의 A1 이 Sn-37Pb, A3 이 Sn-97Pb 로 같은 'Sn 잔부' 표기법을 쓴다.\n\n**검산 — 같은 표의 다른 행을 우리 카탈로그 실측과 맞대었다.** Table 1.2 의 A1 Sn-37Pb = **15.7 GPa** 인데 우리 카탈로그의 Sn63Pb37 공정 솔더는 Zhang 2004(분할 점소성 특성화)에서 온 t1 실측 **15.6 / 17.8 / 13.4 GPa** 를 이미 갖고 있다 — 15.7 대 15.6 은 **0.6%** 차다. 즉 이 NCMS 표의 준정적 인장 갈래는 우리가 1차 논문에서 따로 넣은 값들과 같은 대역에 앉는다.\n\n**왜 이 값이 브리프 604 의 기각 대상이 아닌가(§689)** — 58차 TB 는 Kester 편찬표의 Sn62Pb36Ag2 = 23.51 GPa 를 혼합칙 Reuss 하한(31.17 GPa) 위반으로 기각했고 그 판정은 지금도 유지한다(그 행은 시험법이 안 적혀 있고 같은 열의 계통이 하한 언저리에서 흩어진다). 이 18.0 GPa 는 **더 낮지만 다른 것**이다 — 시험법이 '실온 준정적 인장' 으로 명시돼 있고, 그 판정문 자신이 verbatim 으로 적어 둔 단서('솔더는 상온에서 T/Tm ~ 0.65 라 준정적 인장 기울기가 참 탄성계수보다 계통적으로 낮게 나온다. 그래서 하한 위반 자체가 곧 오식은 아니다')가 가리키는 갈래다. 측정과 규격/혼합칙은 경쟁이 아니라 조건축이다.\n\n**물리 경계 자기검사** — 지시서의 금속 45~210 GPa 는 구조용 금속의 띠이고 솔더는 이 카탈로그에서 이미 예외다. 카탈로그의 솔더 합금(category=metal, 이름에 'Solder Alloy') 영률 102행은 6.9~54.0 GPa 에 걸쳐 있고 **15~22 GPa 구간에만 13행**이 앉아 있다(Sn63Pb37 15.6·17.8·18.0 · SAC105 17.5·18.4 · SAC396 15.97·17.02·18.07). 18.0 GPa 는 그 안이다.\n\n조달 기록 — msed.nist.gov 는 UA 유무와 무관하게 둘 다 200 · 2,225,272 바이트 · 140쪽 PDF 를 준다(§634 방언 측정). 2026-09-07 취득."
+        }
+      ]
+    },
+    {
+      "match_name": "Sn3.8Ag0.7Cu Solder Alloy (SAC387)",
+      "source": {
+        "kind": "journal",
+        "title": "A review of mechanical properties of lead-free solders for electronic packaging",
+        "authors": "Hongtao Ma; Jeffrey C. Suhling",
+        "year": 2009,
+        "doi": "10.1007/s10853-008-3125-9",
+        "publisher": "Journal of Materials Science 44(5), 1141-1158 (Springer)",
+        "local_path": "/data/paper_patent_corpus/structured/snowball_papers/from_pkg/Ma - 2009 - A review of mechanical properties of lead-free solders for electronic packaging/Ma - 2009 - A review of mechanical properties of lead-free solders for electronic packaging.md"
+      },
+      "properties": [
+        {
+          "key": "mechanical.youngs_modulus", "value": 4.50e10, "unit": "Pa", "method": "handbook", "tier": 2,
+          "conditions": {"test_method": "uniaxial tension", "specimen": "cast, cylindrical", "strain_rate_s": 6.68e-4, "grade": "Sn-3.8Ag-0.7Cu", "primary_reference": "Hwang [36]"},
+          "notes": "Ma & Suhling 2009 Table 2 『Tensile properties of SAC alloys』의 Sn-3.8Ag-0.7Cu 행 — E 45 GPa · UTS 40 MPa · YS 35 MPa · 변형률속도 6.68e-4 /s · 시편 cast, cylindrical · 시험법 Tension · 1차출처 Hwang [36]. **표가 시편·시험법·변형률속도·1차출처를 열로 갖고 있어 브리프 3 의 FEA 입력표가 아니다**(§3 의 '측정 방법이 적힌 값' 조건). 편찬물을 통해 읽었으므로 t2 다. 이 표에서 이 등급의 영률 행 8개를 **한 행도 고르지 않고 전부** 옮겼다(41~50 GPa) — 어느 칸이 옳은지 우리가 고르면 그것은 우리 값이 된다. 검산 — 같은 표의 Sn-3.0Ag-0.5Cu 54 GPa(Kanchanomai [69]) 는 우리 카탈로그 SAC305 가 Kanchanomai 1차 논문에서 이미 t1 으로 갖고 있는 54.0 GPa 와 **글자까지 같다**. 즉 이 표의 행들은 우리가 1차에서 따로 넣은 값에 정확히 내려앉는다."
+        },
+        {
+          "key": "mechanical.youngs_modulus", "value": 5.00e10, "unit": "Pa", "method": "handbook", "tier": 2,
+          "conditions": {"test_method": "uniaxial tension", "specimen": "cast, cylindrical", "strain_rate_s": 1.67e-3, "grade": "Sn-3.8Ag-0.7Cu", "primary_reference": "Fouassier [110]"},
+          "notes": "Ma & Suhling 2009 Table 2 Sn-3.8Ag-0.7Cu 행 — E 50 GPa · UTS 45 MPa · 변형률속도 1.67e-3 /s · 시편 cast, cylindrical · 시험법 Tension · 1차출처 Fouassier [110]. 같은 표에서 옮긴 8행 중 하나다(41~50 GPa)."
+        },
+        {
+          "key": "mechanical.youngs_modulus", "value": 4.44e10, "unit": "Pa", "method": "handbook", "tier": 2,
+          "conditions": {"test_method": "uniaxial tension", "specimen": "cast, dog-bone", "strain_rate_s": 5.6e-4, "grade": "Sn-3.8Ag-0.7Cu", "primary_reference": "Pang [68]"},
+          "notes": "Ma & Suhling 2009 Table 2 Sn-3.8Ag-0.7Cu 행 — E 44.4 GPa · UTS 39.6 MPa · YS 35.1 MPa · 변형률속도 5.6e-4 /s · 시편 cast, dog-bone · 시험법 Tension · 1차출처 Pang [68]. 같은 표에서 옮긴 8행 중 하나다(41~50 GPa)."
+        },
+        {
+          "key": "mechanical.youngs_modulus", "value": 4.60e10, "unit": "Pa", "method": "handbook", "tier": 2,
+          "conditions": {"test_method": "uniaxial tension", "specimen": "cast, dog-bone", "strain_rate_s": 1.0e-4, "grade": "Sn-3.8Ag-0.7Cu", "primary_reference": "Schubert [23, 63]"},
+          "notes": "Ma & Suhling 2009 Table 2 Sn-3.8Ag-0.7Cu 행 — E 46 GPa · 변형률속도 1e-4 /s · 시편 cast, dog-bone · 시험법 Tension · 1차출처 Schubert [23, 63]. 같은 표에서 옮긴 8행 중 하나다(41~50 GPa)."
+        },
+        {
+          "key": "mechanical.youngs_modulus", "value": 4.10e10, "unit": "Pa", "method": "handbook", "tier": 2,
+          "conditions": {"test_method": "uniaxial tension", "specimen": "cast, dog-bone", "strain_rate_s": 1.0e-3, "grade": "Sn-3.8Ag-0.7Cu", "primary_reference": "Lin [45]"},
+          "notes": "Ma & Suhling 2009 Table 2 Sn-3.8Ag-0.7Cu 행 — E 41 GPa · UTS 39 MPa · YS 32 MPa · 변형률속도 1e-3 /s · 시편 cast, dog-bone · 시험법 Tension · 1차출처 Lin [45]. 같은 표에서 옮긴 8행 중 하나다(41~50 GPa)."
+        },
+        {
+          "key": "mechanical.youngs_modulus", "value": 4.31e10, "unit": "Pa", "method": "handbook", "tier": 2,
+          "conditions": {"test_method": "nano-indentation", "specimen": "solder joints", "grade": "Sn-3.8Ag-0.7Cu", "primary_reference": "Xu [109]"},
+          "notes": "Ma & Suhling 2009 Table 2 Sn-3.8Ag-0.7Cu 행 — E 43.1 GPa · 시편 solder joints · 시험법 Nano-indentation · 1차출처 Xu [109]. **벌크 인장이 아니라 접합부 나노인덴테이션이다** — 조건축이 다르므로 인장 5행과 같은 칸이 아니다(§689). 같은 표에서 옮긴 8행 중 하나다."
+        },
+        {
+          "key": "mechanical.youngs_modulus", "value": 4.49e10, "unit": "Pa", "method": "handbook", "tier": 2,
+          "conditions": {"test_method": "nano-indentation", "specimen": "solder joints", "grade": "Sn-3.8Ag-0.7Cu", "primary_reference": "Li [111]"},
+          "notes": "Ma & Suhling 2009 Table 2 Sn-3.8Ag-0.7Cu 행 — E 44.9 GPa · 시편 solder joints · 시험법 Nano-indentation · 1차출처 Li [111]. 접합부 나노인덴테이션 갈래다. 같은 표에서 옮긴 8행 중 하나다."
+        },
+        {
+          "key": "mechanical.youngs_modulus", "value": 4.60e10, "unit": "Pa", "method": "handbook", "tier": 2,
+          "conditions": {"test_method": "dynamic analyzer", "specimen": "solder joints", "grade": "Sn-3.8Ag-0.7Cu", "primary_reference": "Harrison [112]"},
+          "notes": "Ma & Suhling 2009 Table 2 Sn-3.8Ag-0.7Cu 행 — E 46 GPa · YS 47.1 MPa · 시편 solder joints · 시험법 Dynamic analyzer · 1차출처 Harrison [112]. **동적 측정 갈래**라 준정적 인장과 조건축이 다르다. 같은 표에서 옮긴 8행 중 하나다."
+        }
+      ]
+    }
+  ]
+}
