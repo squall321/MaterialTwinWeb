@@ -1,0 +1,205 @@
+{
+ "batch": "66차 BC",
+ "materials": [
+  {
+   "match_name": "FM300K epoxy film adhesive (Cytec Engineered Materials, aerospace structural bonding film)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Solvay Composite Materials — TECHNICAL DATA SHEET FM(R) 300 ADHESIVE FILM (TDS FM 300_2018-06-14)",
+    "url": "https://www.integralproducts.com/Asset/FM_300_CM_EN--1-.pdf",
+    "publisher": "Solvay Composite Materials",
+    "year": 2018,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Solvay_FM300_AdhesiveFilm_TDS_2018-06-14.pdf"
+   },
+   "properties": [
+    {
+     "key": "interface.lap_shear_strength",
+     "value": 36800000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 297.15,
+      "test_standard": "ASTM D 1002 (single-lap shear, 0.063 in / 1.60 mm 2024-T3 clad aluminium)",
+      "areal_weight_gsm": 244,
+      "primer": "BR 127",
+      "adherend": "2024-T3 clad aluminum",
+      "cure": "제조사 표준 경화(Table 4 조건)",
+      "adherend_thickness_m": 0.0016
+     },
+     "notes": "Table 4 `Lap Shear ASTM D 1002` 행, FM 300K 244 gsm 열, 시험온도 75 F (24 C) = `5340 (36.8)` psi (MPa). 인쇄된 MPa 를 그대로 넣었다.\n\nTable 4 `Mechanical Properties with Primer BR 127` 의 **FM 300K** 열이다. 열 머리글이 `FM 300K 0.05 psf (244 gsm)` 와 `FM 300K 0.08 psf (391 gsm)` 로 두 면적중량을 따로 찍으므로 `areal_weight_gsm` 을 조건에 박았다 — 재료 591 이 이미 갖고 있는 ASTM D5656 전단 행들이 `areal_weight_gsm: 293` 을 쓰는 것과 같은 규약이다(브리프 612 — 한 재료 안에서 규약이 갈리면 안 된다).\n\n**왜 이제야 넣나(브리프 602·658).** 46차 HD 가 이 시트를 이미 열었고 재료 591 의 `core_fill_sheet` 사유문에 *\"시트가 인쇄하는 기계물성은 랩전단(D1002)·플로팅롤러 박리(D3167)·허니콤 샌드위치 박리(D1781)·플랫와이즈 인장(C297)·KGR-1 전단(D5656)뿐이다\"* 라고 **자기가 안 캔 행의 이름을 적어 두었다.** 그 파동의 표적은 코어 7물성이라 D5656 전단만 가져갔고, 랩전단과 박리는 표적이 아니어서 남았다. 재료 591 의 접착 택일군(peel|lap_shear|die_shear)은 그래서 지금까지 빈칸으로 세어졌다.\n\n값은 **원문이 인쇄한 MPa/kN·m 를 그대로** 쓴다 — psi/lb·in 에서 우리가 환산하지 않았다(브리프 25)."
+    },
+    {
+     "key": "interface.lap_shear_strength",
+     "value": 24700000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 394.15,
+      "test_standard": "ASTM D 1002 (single-lap shear, 0.063 in / 1.60 mm 2024-T3 clad aluminium)",
+      "areal_weight_gsm": 244,
+      "primer": "BR 127",
+      "adherend": "2024-T3 clad aluminum",
+      "cure": "제조사 표준 경화(Table 4 조건)",
+      "adherend_thickness_m": 0.0016
+     },
+     "notes": "Table 4 `Lap Shear ASTM D 1002` 행, FM 300K 244 gsm 열, 시험온도 250 F (121 C) = `3580 (24.7)` psi (MPa). 인쇄된 MPa 를 그대로 넣었다.\n\nTable 4 `Mechanical Properties with Primer BR 127` 의 **FM 300K** 열이다. 열 머리글이 `FM 300K 0.05 psf (244 gsm)` 와 `FM 300K 0.08 psf (391 gsm)` 로 두 면적중량을 따로 찍으므로 `areal_weight_gsm` 을 조건에 박았다 — 재료 591 이 이미 갖고 있는 ASTM D5656 전단 행들이 `areal_weight_gsm: 293` 을 쓰는 것과 같은 규약이다(브리프 612 — 한 재료 안에서 규약이 갈리면 안 된다).\n\n**왜 이제야 넣나(브리프 602·658).** 46차 HD 가 이 시트를 이미 열었고 재료 591 의 `core_fill_sheet` 사유문에 *\"시트가 인쇄하는 기계물성은 랩전단(D1002)·플로팅롤러 박리(D3167)·허니콤 샌드위치 박리(D1781)·플랫와이즈 인장(C297)·KGR-1 전단(D5656)뿐이다\"* 라고 **자기가 안 캔 행의 이름을 적어 두었다.** 그 파동의 표적은 코어 7물성이라 D5656 전단만 가져갔고, 랩전단과 박리는 표적이 아니어서 남았다. 재료 591 의 접착 택일군(peel|lap_shear|die_shear)은 그래서 지금까지 빈칸으로 세어졌다.\n\n값은 **원문이 인쇄한 MPa/kN·m 를 그대로** 쓴다 — psi/lb·in 에서 우리가 환산하지 않았다(브리프 25)."
+    },
+    {
+     "key": "interface.lap_shear_strength",
+     "value": 20400000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 422.15,
+      "test_standard": "ASTM D 1002 (single-lap shear, 0.063 in / 1.60 mm 2024-T3 clad aluminium)",
+      "areal_weight_gsm": 244,
+      "primer": "BR 127",
+      "adherend": "2024-T3 clad aluminum",
+      "cure": "제조사 표준 경화(Table 4 조건)",
+      "adherend_thickness_m": 0.0016
+     },
+     "notes": "Table 4 `Lap Shear ASTM D 1002` 행, FM 300K 244 gsm 열, 시험온도 300 F (149 C) = `2970 (20.4)` psi (MPa). 인쇄된 MPa 를 그대로 넣었다.\n\nTable 4 `Mechanical Properties with Primer BR 127` 의 **FM 300K** 열이다. 열 머리글이 `FM 300K 0.05 psf (244 gsm)` 와 `FM 300K 0.08 psf (391 gsm)` 로 두 면적중량을 따로 찍으므로 `areal_weight_gsm` 을 조건에 박았다 — 재료 591 이 이미 갖고 있는 ASTM D5656 전단 행들이 `areal_weight_gsm: 293` 을 쓰는 것과 같은 규약이다(브리프 612 — 한 재료 안에서 규약이 갈리면 안 된다).\n\n**왜 이제야 넣나(브리프 602·658).** 46차 HD 가 이 시트를 이미 열었고 재료 591 의 `core_fill_sheet` 사유문에 *\"시트가 인쇄하는 기계물성은 랩전단(D1002)·플로팅롤러 박리(D3167)·허니콤 샌드위치 박리(D1781)·플랫와이즈 인장(C297)·KGR-1 전단(D5656)뿐이다\"* 라고 **자기가 안 캔 행의 이름을 적어 두었다.** 그 파동의 표적은 코어 7물성이라 D5656 전단만 가져갔고, 랩전단과 박리는 표적이 아니어서 남았다. 재료 591 의 접착 택일군(peel|lap_shear|die_shear)은 그래서 지금까지 빈칸으로 세어졌다.\n\n값은 **원문이 인쇄한 MPa/kN·m 를 그대로** 쓴다 — psi/lb·in 에서 우리가 환산하지 않았다(브리프 25)."
+    },
+    {
+     "key": "interface.lap_shear_strength",
+     "value": 37700000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 218.15,
+      "test_standard": "ASTM D 1002 (single-lap shear, 0.063 in / 1.60 mm 2024-T3 clad aluminium)",
+      "areal_weight_gsm": 391,
+      "primer": "BR 127",
+      "adherend": "2024-T3 clad aluminum",
+      "cure": "제조사 표준 경화(Table 4 조건)",
+      "adherend_thickness_m": 0.0016
+     },
+     "notes": "Table 4 `Lap Shear ASTM D 1002` 행, FM 300K 391 gsm 열, 시험온도 -67 F (-55 C) = `5460 (37.7)` psi (MPa). 인쇄된 MPa 를 그대로 넣었다.\n\nTable 4 `Mechanical Properties with Primer BR 127` 의 **FM 300K** 열이다. 열 머리글이 `FM 300K 0.05 psf (244 gsm)` 와 `FM 300K 0.08 psf (391 gsm)` 로 두 면적중량을 따로 찍으므로 `areal_weight_gsm` 을 조건에 박았다 — 재료 591 이 이미 갖고 있는 ASTM D5656 전단 행들이 `areal_weight_gsm: 293` 을 쓰는 것과 같은 규약이다(브리프 612 — 한 재료 안에서 규약이 갈리면 안 된다).\n\n**왜 이제야 넣나(브리프 602·658).** 46차 HD 가 이 시트를 이미 열었고 재료 591 의 `core_fill_sheet` 사유문에 *\"시트가 인쇄하는 기계물성은 랩전단(D1002)·플로팅롤러 박리(D3167)·허니콤 샌드위치 박리(D1781)·플랫와이즈 인장(C297)·KGR-1 전단(D5656)뿐이다\"* 라고 **자기가 안 캔 행의 이름을 적어 두었다.** 그 파동의 표적은 코어 7물성이라 D5656 전단만 가져갔고, 랩전단과 박리는 표적이 아니어서 남았다. 재료 591 의 접착 택일군(peel|lap_shear|die_shear)은 그래서 지금까지 빈칸으로 세어졌다.\n\n값은 **원문이 인쇄한 MPa/kN·m 를 그대로** 쓴다 — psi/lb·in 에서 우리가 환산하지 않았다(브리프 25)."
+    },
+    {
+     "key": "interface.lap_shear_strength",
+     "value": 40300000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 297.15,
+      "test_standard": "ASTM D 1002 (single-lap shear, 0.063 in / 1.60 mm 2024-T3 clad aluminium)",
+      "areal_weight_gsm": 391,
+      "primer": "BR 127",
+      "adherend": "2024-T3 clad aluminum",
+      "cure": "제조사 표준 경화(Table 4 조건)",
+      "adherend_thickness_m": 0.0016
+     },
+     "notes": "Table 4 `Lap Shear ASTM D 1002` 행, FM 300K 391 gsm 열, 시험온도 75 F (24 C) = `5850 (40.3)` psi (MPa). 인쇄된 MPa 를 그대로 넣었다.\n\nTable 4 `Mechanical Properties with Primer BR 127` 의 **FM 300K** 열이다. 열 머리글이 `FM 300K 0.05 psf (244 gsm)` 와 `FM 300K 0.08 psf (391 gsm)` 로 두 면적중량을 따로 찍으므로 `areal_weight_gsm` 을 조건에 박았다 — 재료 591 이 이미 갖고 있는 ASTM D5656 전단 행들이 `areal_weight_gsm: 293` 을 쓰는 것과 같은 규약이다(브리프 612 — 한 재료 안에서 규약이 갈리면 안 된다).\n\n**왜 이제야 넣나(브리프 602·658).** 46차 HD 가 이 시트를 이미 열었고 재료 591 의 `core_fill_sheet` 사유문에 *\"시트가 인쇄하는 기계물성은 랩전단(D1002)·플로팅롤러 박리(D3167)·허니콤 샌드위치 박리(D1781)·플랫와이즈 인장(C297)·KGR-1 전단(D5656)뿐이다\"* 라고 **자기가 안 캔 행의 이름을 적어 두었다.** 그 파동의 표적은 코어 7물성이라 D5656 전단만 가져갔고, 랩전단과 박리는 표적이 아니어서 남았다. 재료 591 의 접착 택일군(peel|lap_shear|die_shear)은 그래서 지금까지 빈칸으로 세어졌다.\n\n값은 **원문이 인쇄한 MPa/kN·m 를 그대로** 쓴다 — psi/lb·in 에서 우리가 환산하지 않았다(브리프 25)."
+    },
+    {
+     "key": "interface.lap_shear_strength",
+     "value": 28900000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 394.15,
+      "test_standard": "ASTM D 1002 (single-lap shear, 0.063 in / 1.60 mm 2024-T3 clad aluminium)",
+      "areal_weight_gsm": 391,
+      "primer": "BR 127",
+      "adherend": "2024-T3 clad aluminum",
+      "cure": "제조사 표준 경화(Table 4 조건)",
+      "adherend_thickness_m": 0.0016
+     },
+     "notes": "Table 4 `Lap Shear ASTM D 1002` 행, FM 300K 391 gsm 열, 시험온도 250 F (121 C) = `4200 (28.9)` psi (MPa). 인쇄된 MPa 를 그대로 넣었다.\n\nTable 4 `Mechanical Properties with Primer BR 127` 의 **FM 300K** 열이다. 열 머리글이 `FM 300K 0.05 psf (244 gsm)` 와 `FM 300K 0.08 psf (391 gsm)` 로 두 면적중량을 따로 찍으므로 `areal_weight_gsm` 을 조건에 박았다 — 재료 591 이 이미 갖고 있는 ASTM D5656 전단 행들이 `areal_weight_gsm: 293` 을 쓰는 것과 같은 규약이다(브리프 612 — 한 재료 안에서 규약이 갈리면 안 된다).\n\n**왜 이제야 넣나(브리프 602·658).** 46차 HD 가 이 시트를 이미 열었고 재료 591 의 `core_fill_sheet` 사유문에 *\"시트가 인쇄하는 기계물성은 랩전단(D1002)·플로팅롤러 박리(D3167)·허니콤 샌드위치 박리(D1781)·플랫와이즈 인장(C297)·KGR-1 전단(D5656)뿐이다\"* 라고 **자기가 안 캔 행의 이름을 적어 두었다.** 그 파동의 표적은 코어 7물성이라 D5656 전단만 가져갔고, 랩전단과 박리는 표적이 아니어서 남았다. 재료 591 의 접착 택일군(peel|lap_shear|die_shear)은 그래서 지금까지 빈칸으로 세어졌다.\n\n값은 **원문이 인쇄한 MPa/kN·m 를 그대로** 쓴다 — psi/lb·in 에서 우리가 환산하지 않았다(브리프 25)."
+    },
+    {
+     "key": "interface.lap_shear_strength",
+     "value": 21800000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 422.15,
+      "test_standard": "ASTM D 1002 (single-lap shear, 0.063 in / 1.60 mm 2024-T3 clad aluminium)",
+      "areal_weight_gsm": 391,
+      "primer": "BR 127",
+      "adherend": "2024-T3 clad aluminum",
+      "cure": "제조사 표준 경화(Table 4 조건)",
+      "adherend_thickness_m": 0.0016
+     },
+     "notes": "Table 4 `Lap Shear ASTM D 1002` 행, FM 300K 391 gsm 열, 시험온도 300 F (149 C) = `3160 (21.8)` psi (MPa). 인쇄된 MPa 를 그대로 넣었다.\n\nTable 4 `Mechanical Properties with Primer BR 127` 의 **FM 300K** 열이다. 열 머리글이 `FM 300K 0.05 psf (244 gsm)` 와 `FM 300K 0.08 psf (391 gsm)` 로 두 면적중량을 따로 찍으므로 `areal_weight_gsm` 을 조건에 박았다 — 재료 591 이 이미 갖고 있는 ASTM D5656 전단 행들이 `areal_weight_gsm: 293` 을 쓰는 것과 같은 규약이다(브리프 612 — 한 재료 안에서 규약이 갈리면 안 된다).\n\n**왜 이제야 넣나(브리프 602·658).** 46차 HD 가 이 시트를 이미 열었고 재료 591 의 `core_fill_sheet` 사유문에 *\"시트가 인쇄하는 기계물성은 랩전단(D1002)·플로팅롤러 박리(D3167)·허니콤 샌드위치 박리(D1781)·플랫와이즈 인장(C297)·KGR-1 전단(D5656)뿐이다\"* 라고 **자기가 안 캔 행의 이름을 적어 두었다.** 그 파동의 표적은 코어 7물성이라 D5656 전단만 가져갔고, 랩전단과 박리는 표적이 아니어서 남았다. 재료 591 의 접착 택일군(peel|lap_shear|die_shear)은 그래서 지금까지 빈칸으로 세어졌다.\n\n값은 **원문이 인쇄한 MPa/kN·m 를 그대로** 쓴다 — psi/lb·in 에서 우리가 환산하지 않았다(브리프 25)."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 4000.0,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 297.15,
+      "test_standard": "ASTM D 3167 (floating roller peel, 0.025 in / 0.63 mm + 0.064 in / 1.63 mm 2024-T3 clad aluminium)",
+      "areal_weight_gsm": 244,
+      "primer": "BR 127",
+      "adherend": "2024-T3 clad aluminum",
+      "cure": "제조사 표준 경화(Table 4 조건)",
+      "peel_geometry": "floating roller"
+     },
+     "notes": "Table 4 `Floating Roller Peel ASTM D 3167` 행, FM 300K 244 gsm 열, 시험온도 75 F (24 C) = `23 (4.0)` lb/in (kN/m). 인쇄된 kN/m 를 N/m 로만 바꿨다(4.0 kN/m = 4000 N/m).\n\n**플로팅롤러 박리는 IPC-TM-650 2.4.9(동박 박리)와 다른 시험이다** — 조건축에 `test_standard`·`peel_geometry` 를 박아 갈랐다. 정의(`interface.peel_strength`)의 단위는 N/m 로 같고, 이 키는 시험규격을 조건으로 받는다.\n\nTable 4 `Mechanical Properties with Primer BR 127` 의 **FM 300K** 열이다. 열 머리글이 `FM 300K 0.05 psf (244 gsm)` 와 `FM 300K 0.08 psf (391 gsm)` 로 두 면적중량을 따로 찍으므로 `areal_weight_gsm` 을 조건에 박았다 — 재료 591 이 이미 갖고 있는 ASTM D5656 전단 행들이 `areal_weight_gsm: 293` 을 쓰는 것과 같은 규약이다(브리프 612 — 한 재료 안에서 규약이 갈리면 안 된다).\n\n**왜 이제야 넣나(브리프 602·658).** 46차 HD 가 이 시트를 이미 열었고 재료 591 의 `core_fill_sheet` 사유문에 *\"시트가 인쇄하는 기계물성은 랩전단(D1002)·플로팅롤러 박리(D3167)·허니콤 샌드위치 박리(D1781)·플랫와이즈 인장(C297)·KGR-1 전단(D5656)뿐이다\"* 라고 **자기가 안 캔 행의 이름을 적어 두었다.** 그 파동의 표적은 코어 7물성이라 D5656 전단만 가져갔고, 랩전단과 박리는 표적이 아니어서 남았다. 재료 591 의 접착 택일군(peel|lap_shear|die_shear)은 그래서 지금까지 빈칸으로 세어졌다.\n\n값은 **원문이 인쇄한 MPa/kN·m 를 그대로** 쓴다 — psi/lb·in 에서 우리가 환산하지 않았다(브리프 25)."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 4900.0,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 218.15,
+      "test_standard": "ASTM D 3167 (floating roller peel, 0.025 in / 0.63 mm + 0.064 in / 1.63 mm 2024-T3 clad aluminium)",
+      "areal_weight_gsm": 391,
+      "primer": "BR 127",
+      "adherend": "2024-T3 clad aluminum",
+      "cure": "제조사 표준 경화(Table 4 조건)",
+      "peel_geometry": "floating roller"
+     },
+     "notes": "Table 4 `Floating Roller Peel ASTM D 3167` 행, FM 300K 391 gsm 열, 시험온도 -67 F (-55 C) = `28 (4.9)` lb/in (kN/m). 인쇄된 kN/m 를 N/m 로만 바꿨다(4.9 kN/m = 4900 N/m).\n\n**플로팅롤러 박리는 IPC-TM-650 2.4.9(동박 박리)와 다른 시험이다** — 조건축에 `test_standard`·`peel_geometry` 를 박아 갈랐다. 정의(`interface.peel_strength`)의 단위는 N/m 로 같고, 이 키는 시험규격을 조건으로 받는다.\n\nTable 4 `Mechanical Properties with Primer BR 127` 의 **FM 300K** 열이다. 열 머리글이 `FM 300K 0.05 psf (244 gsm)` 와 `FM 300K 0.08 psf (391 gsm)` 로 두 면적중량을 따로 찍으므로 `areal_weight_gsm` 을 조건에 박았다 — 재료 591 이 이미 갖고 있는 ASTM D5656 전단 행들이 `areal_weight_gsm: 293` 을 쓰는 것과 같은 규약이다(브리프 612 — 한 재료 안에서 규약이 갈리면 안 된다).\n\n**왜 이제야 넣나(브리프 602·658).** 46차 HD 가 이 시트를 이미 열었고 재료 591 의 `core_fill_sheet` 사유문에 *\"시트가 인쇄하는 기계물성은 랩전단(D1002)·플로팅롤러 박리(D3167)·허니콤 샌드위치 박리(D1781)·플랫와이즈 인장(C297)·KGR-1 전단(D5656)뿐이다\"* 라고 **자기가 안 캔 행의 이름을 적어 두었다.** 그 파동의 표적은 코어 7물성이라 D5656 전단만 가져갔고, 랩전단과 박리는 표적이 아니어서 남았다. 재료 591 의 접착 택일군(peel|lap_shear|die_shear)은 그래서 지금까지 빈칸으로 세어졌다.\n\n값은 **원문이 인쇄한 MPa/kN·m 를 그대로** 쓴다 — psi/lb·in 에서 우리가 환산하지 않았다(브리프 25)."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 4900.0,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 297.15,
+      "test_standard": "ASTM D 3167 (floating roller peel, 0.025 in / 0.63 mm + 0.064 in / 1.63 mm 2024-T3 clad aluminium)",
+      "areal_weight_gsm": 391,
+      "primer": "BR 127",
+      "adherend": "2024-T3 clad aluminum",
+      "cure": "제조사 표준 경화(Table 4 조건)",
+      "peel_geometry": "floating roller"
+     },
+     "notes": "Table 4 `Floating Roller Peel ASTM D 3167` 행, FM 300K 391 gsm 열, 시험온도 75 F (24 C) = `28 (4.9)` lb/in (kN/m). 인쇄된 kN/m 를 N/m 로만 바꿨다(4.9 kN/m = 4900 N/m).\n\n**플로팅롤러 박리는 IPC-TM-650 2.4.9(동박 박리)와 다른 시험이다** — 조건축에 `test_standard`·`peel_geometry` 를 박아 갈랐다. 정의(`interface.peel_strength`)의 단위는 N/m 로 같고, 이 키는 시험규격을 조건으로 받는다.\n\nTable 4 `Mechanical Properties with Primer BR 127` 의 **FM 300K** 열이다. 열 머리글이 `FM 300K 0.05 psf (244 gsm)` 와 `FM 300K 0.08 psf (391 gsm)` 로 두 면적중량을 따로 찍으므로 `areal_weight_gsm` 을 조건에 박았다 — 재료 591 이 이미 갖고 있는 ASTM D5656 전단 행들이 `areal_weight_gsm: 293` 을 쓰는 것과 같은 규약이다(브리프 612 — 한 재료 안에서 규약이 갈리면 안 된다).\n\n**왜 이제야 넣나(브리프 602·658).** 46차 HD 가 이 시트를 이미 열었고 재료 591 의 `core_fill_sheet` 사유문에 *\"시트가 인쇄하는 기계물성은 랩전단(D1002)·플로팅롤러 박리(D3167)·허니콤 샌드위치 박리(D1781)·플랫와이즈 인장(C297)·KGR-1 전단(D5656)뿐이다\"* 라고 **자기가 안 캔 행의 이름을 적어 두었다.** 그 파동의 표적은 코어 7물성이라 D5656 전단만 가져갔고, 랩전단과 박리는 표적이 아니어서 남았다. 재료 591 의 접착 택일군(peel|lap_shear|die_shear)은 그래서 지금까지 빈칸으로 세어졌다.\n\n값은 **원문이 인쇄한 MPa/kN·m 를 그대로** 쓴다 — psi/lb·in 에서 우리가 환산하지 않았다(브리프 25)."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 4600.0,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_k": 422.15,
+      "test_standard": "ASTM D 3167 (floating roller peel, 0.025 in / 0.63 mm + 0.064 in / 1.63 mm 2024-T3 clad aluminium)",
+      "areal_weight_gsm": 391,
+      "primer": "BR 127",
+      "adherend": "2024-T3 clad aluminum",
+      "cure": "제조사 표준 경화(Table 4 조건)",
+      "peel_geometry": "floating roller"
+     },
+     "notes": "Table 4 `Floating Roller Peel ASTM D 3167` 행, FM 300K 391 gsm 열, 시험온도 300 F (149 C) = `26 (4.6)` lb/in (kN/m). 인쇄된 kN/m 를 N/m 로만 바꿨다(4.6 kN/m = 4600 N/m).\n\n**플로팅롤러 박리는 IPC-TM-650 2.4.9(동박 박리)와 다른 시험이다** — 조건축에 `test_standard`·`peel_geometry` 를 박아 갈랐다. 정의(`interface.peel_strength`)의 단위는 N/m 로 같고, 이 키는 시험규격을 조건으로 받는다.\n\nTable 4 `Mechanical Properties with Primer BR 127` 의 **FM 300K** 열이다. 열 머리글이 `FM 300K 0.05 psf (244 gsm)` 와 `FM 300K 0.08 psf (391 gsm)` 로 두 면적중량을 따로 찍으므로 `areal_weight_gsm` 을 조건에 박았다 — 재료 591 이 이미 갖고 있는 ASTM D5656 전단 행들이 `areal_weight_gsm: 293` 을 쓰는 것과 같은 규약이다(브리프 612 — 한 재료 안에서 규약이 갈리면 안 된다).\n\n**왜 이제야 넣나(브리프 602·658).** 46차 HD 가 이 시트를 이미 열었고 재료 591 의 `core_fill_sheet` 사유문에 *\"시트가 인쇄하는 기계물성은 랩전단(D1002)·플로팅롤러 박리(D3167)·허니콤 샌드위치 박리(D1781)·플랫와이즈 인장(C297)·KGR-1 전단(D5656)뿐이다\"* 라고 **자기가 안 캔 행의 이름을 적어 두었다.** 그 파동의 표적은 코어 7물성이라 D5656 전단만 가져갔고, 랩전단과 박리는 표적이 아니어서 남았다. 재료 591 의 접착 택일군(peel|lap_shear|die_shear)은 그래서 지금까지 빈칸으로 세어졌다.\n\n값은 **원문이 인쇄한 MPa/kN·m 를 그대로** 쓴다 — psi/lb·in 에서 우리가 환산하지 않았다(브리프 25)."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,385 @@
+{
+ "batch": "66차 BC",
+ "materials": [
+  {
+   "match_name": "GETEK high-Tg epoxy / polyphenylene-oxide blend PCB laminate (General Electric) — Ehrler 2002",
+   "source": {
+    "kind": "datasheet",
+    "title": "GETEK(R) Low Dk/Df Laminate and Prepreg - GETEK(R) Specifications, Typical Values (9/12 DSGETEK-A)",
+    "url": "https://www.midwestpcb.com/data_sheets/GETEK.pdf",
+    "publisher": "Isola Group",
+    "year": 2012,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Isola_GETEK_Laminate_Prepreg_DataSheet_DSGETEKA_2012-09.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0015,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.6.2.1",
+      "form": "laminate & prepreg as laminated"
+     },
+     "notes": "Typical Values 표 verbatim: `Moisture Absorption | 0.15 | – | % | 2.6.2.1`. 0.15 % = 0.0015.\n\n**키 선택은 `property_definition.test_standard` 로 했다(브리프 670).** `chemical.water_absorption_24h` 의 정의 규격이 ASTM D570(23 C 24 h 침지)이고 이 시트가 찍는 IPC-TM-650 2.6.2.1(Water Absorption, Metal Clad Plastic Laminates)도 같은 24 h 침지 증량법이다. 시트의 행 이름은 `Moisture Absorption` 이지만 시험규격이 그 열의 정체를 정한다(브리프 693 의 반대 방향 — 여기서는 규격 번호가 라벨을 확정한다).\n\n**Ehrler 2002 가 이 등급의 다른 물성을 이미 준 재료다(브리프 602).** Ehrler 표에는 흡습 행이 없고 벤더 시트에 있다."
+    }
+   ]
+  },
+  {
+   "match_name": "Isola FR408 high-performance epoxy PCB laminate — Ehrler 2002",
+   "source": {
+    "kind": "datasheet",
+    "title": "FR408 Mid Loss, Epoxy Laminate and Prepreg - Typical Values Table (Revision No: C, 2021-04-16)",
+    "url": "https://www.isola-group.com/wp-content/uploads/data-sheets/fr408.pdf",
+    "publisher": "Isola Group",
+    "year": 2021,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Isola_FR408_Laminate_Prepreg_DataSheet_RevC_2021-04-16.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0015,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.6.2.1A",
+      "form": "laminate & laminated prepreg"
+     },
+     "notes": "Typical Values 표 verbatim: `Moisture Absorption | 0.15 | % | 2.6.2.1A`. 0.15 % = 0.0015.\n\n**키 선택은 `property_definition.test_standard` 로 했다(브리프 670).** `chemical.water_absorption_24h` 의 정의 규격이 ASTM D570(23 C 24 h 침지)이고 이 시트가 찍는 IPC-TM-650 2.6.2.1(Water Absorption, Metal Clad Plastic Laminates)도 같은 24 h 침지 증량법이다. 시트의 행 이름은 `Moisture Absorption` 이지만 시험규격이 그 열의 정체를 정한다(브리프 693 의 반대 방향 — 여기서는 규격 번호가 라벨을 확정한다)."
+    }
+   ]
+  },
+  {
+   "match_name": "Nelco N4000-13 high-performance epoxy PCB laminate (Park Nelco) — Ehrler 2002",
+   "source": {
+    "kind": "datasheet",
+    "title": "Nelco(R) N4000-13 / Nelco(R) N4000-13 SI(R) High-Speed Multifunctional Epoxy Laminate & Prepreg",
+    "url": "https://www.cirexx.com/wp-content/uploads/n4000-13-1.pdf",
+    "publisher": "Park Electrochemical Corp.",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Park_Nelco_N4000-13_and_SI_DataSheet_Rev1-14.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.001,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.6.2.1",
+      "form": "laminate",
+      "grade_table_scope": "이 시트는 N4000-13 과 N4000-13 SI 두 등급 x (라미네이트/프리프레그) 네 칸을 찍는데 흡습은 네 칸이 전부 0.1 wt% 로 같다"
+     },
+     "notes": "`Chemical / Physical Properties` 블록 verbatim: `Moisture Absorption | 0.1 | 0.1 | wt. % | 0.1 | 0.1 | wt. % | IPC-TM-650.2.6.2.1`. **네 칸이 전부 0.1 이라 등급 배정이 답을 안 바꾼다**(브리프 685 의 위험이 이 행에서는 무해하다). 0.1 wt% = 0.001.\n\n**키 선택은 `property_definition.test_standard` 로 했다(브리프 670).** `chemical.water_absorption_24h` 의 정의 규격이 ASTM D570(23 C 24 h 침지)이고 이 시트가 찍는 IPC-TM-650 2.6.2.1(Water Absorption, Metal Clad Plastic Laminates)도 같은 24 h 침지 증량법이다. 시트의 행 이름은 `Moisture Absorption` 이지만 시험규격이 그 열의 정체를 정한다(브리프 693 의 반대 방향 — 여기서는 규격 번호가 라벨을 확정한다)."
+    }
+   ]
+  },
+  {
+   "match_name": "Nelco 4000-6 high-performance epoxy PCB laminate (Park Nelco) — Ehrler 2002",
+   "source": {
+    "kind": "datasheet",
+    "title": "Nelco(R) N4000-6 High-Tg Multifunctional Epoxy Laminate & Prepreg - Typical Engineering Values",
+    "url": "https://www.epectec.com/downloads/Nelco-N4000-6-Data-Sheet.pdf",
+    "publisher": "Park Electrochemical Corp.",
+    "year": 2002,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Park_Nelco_N4000-6_DataSheet_RevC_2002-04.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.001,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.6.2c",
+      "form": "laminate"
+     },
+     "notes": "`Chemical / Physical` 블록 verbatim: `Moisture Absorption | 0.1 | wt. % | 0.1 | wt. % | IPC-TM-650.2.6.2c`. 0.1 wt% = 0.001.\n\n**키 선택은 `property_definition.test_standard` 로 했다(브리프 670).** `chemical.water_absorption_24h` 의 정의 규격이 ASTM D570(23 C 24 h 침지)이고 이 시트가 찍는 IPC-TM-650 2.6.2.1(Water Absorption, Metal Clad Plastic Laminates)도 같은 24 h 침지 증량법이다. 시트의 행 이름은 `Moisture Absorption` 이지만 시험규격이 그 열의 정체를 정한다(브리프 693 의 반대 방향 — 여기서는 규격 번호가 라벨을 확정한다)."
+    }
+   ]
+  },
+  {
+   "match_name": "Nylon 6,6 Zytel 101 NC010, unfilled injection-moulded plaque (Heiser 2004 factorial baseline)",
+   "source": {
+    "kind": "datasheet",
+    "title": "DuPont(TM) Zytel(R) 101F NC010 NYLON RESIN — Product Information (Revised: 2021-11-24)",
+    "url": "https://www.qosina.com/Files/Product%20assets/202%20-%20Technical%20Data%20Sheet/202-MAT088-Dupont%20Zytel%20101F%20NC010%20Nylon%20Technical%20Data%20Sheet%2011-24-2021.pdf",
+    "publisher": "DuPont",
+    "year": 2021,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/poly/DuPont_Zytel_101F_NC010_ProductInformation_2021-11-24.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.water_absorption_saturation",
+     "value": 0.085,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "Sim. to ISO 62",
+      "specimen": "80 mil (2.03 mm)",
+      "state": "dry as moulded 기준 증량"
+     },
+     "notes": "`Other properties` 블록 verbatim: `Water absorption, 80mil | 8.5/* | % | Sim. to ISO 62`. 8.5 % = 0.085.\n\nDuPont 의 이 서식은 ISO 62 계열 세 갈래를 따로 찍는다 — `Humidity absorption`(23 C / 50 %RH 평형)과 `Water absorption`(포화 침지), 그리고 등급에 따라 `Water absorption, Immersion 24h`. `coverage_report.MOIST` 정의절이 그대로 이 서식을 가리킨다 — 유럽식 ISO 62 시트는 24 h 침지값을 아예 발표하지 않는 경우가 많아 세 키를 다 택일군에 넣어 두었다. `dry/cond.` 머리글의 앞 값(dry, 성형 직후)을 썼고 뒤 값은 `*`(미기재)다."
+    },
+    {
+     "key": "chemical.moisture_absorption_equilibrium",
+     "value": 0.026,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "Sim. to ISO 62",
+      "specimen": "80 mil (2.03 mm)",
+      "relative_humidity_pct": 50,
+      "temperature_k": 296.15
+     },
+     "notes": "같은 블록 verbatim: `Humidity absorption, 80mil | 2.6/* | % | Sim. to ISO 62`. 2.6 % = 0.026.\n\nDuPont 의 이 서식은 ISO 62 계열 세 갈래를 따로 찍는다 — `Humidity absorption`(23 C / 50 %RH 평형)과 `Water absorption`(포화 침지), 그리고 등급에 따라 `Water absorption, Immersion 24h`. `coverage_report.MOIST` 정의절이 그대로 이 서식을 가리킨다 — 유럽식 ISO 62 시트는 24 h 침지값을 아예 발표하지 않는 경우가 많아 세 키를 다 택일군에 넣어 두었다. `dry/cond.` 머리글의 앞 값(dry, 성형 직후)을 썼고 뒤 값은 `*`(미기재)다."
+    }
+   ]
+  },
+  {
+   "match_name": "Zytel 70G33HS1L short E-glass/PA-6,6 33 wt% (18 vol%), injection-moulded 2.5 mm plaque (DuPont, Mallick 2004)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Zytel(R) 70G33HS1L NC010 NYLON RESIN — Material Data Sheet (EN, Printed: 2022-12-23)",
+    "url": "https://www.picoplast.nl/uploads/Zytel%2070G33HS1L%20NC010%20-%20MDS%20-%20EN.pdf",
+    "publisher": "DuPont",
+    "year": 2022,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/poly/Zytel_70G33HS1L_NC010_MDS_EN_2022-12-23.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.012,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "Sim. to ISO 62",
+      "specimen": "2 mm",
+      "immersion_h": 24
+     },
+     "notes": "`Other properties` 블록 verbatim: `Water absorption, Immersion 24h | 1.2/* | % | Sim. to ISO 62`. 1.2 % = 0.012.\n\nDuPont 의 이 서식은 ISO 62 계열 세 갈래를 따로 찍는다 — `Humidity absorption`(23 C / 50 %RH 평형)과 `Water absorption`(포화 침지), 그리고 등급에 따라 `Water absorption, Immersion 24h`. `coverage_report.MOIST` 정의절이 그대로 이 서식을 가리킨다 — 유럽식 ISO 62 시트는 24 h 침지값을 아예 발표하지 않는 경우가 많아 세 키를 다 택일군에 넣어 두었다. `dry/cond.` 머리글의 앞 값(dry, 성형 직후)을 썼고 뒤 값은 `*`(미기재)다."
+    },
+    {
+     "key": "chemical.water_absorption_saturation",
+     "value": 0.057,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "Sim. to ISO 62",
+      "specimen": "2 mm"
+     },
+     "notes": "같은 블록 verbatim: `Water absorption, 2mm | 5.7/* | % | Sim. to ISO 62`. 5.7 % = 0.057.\n\nDuPont 의 이 서식은 ISO 62 계열 세 갈래를 따로 찍는다 — `Humidity absorption`(23 C / 50 %RH 평형)과 `Water absorption`(포화 침지), 그리고 등급에 따라 `Water absorption, Immersion 24h`. `coverage_report.MOIST` 정의절이 그대로 이 서식을 가리킨다 — 유럽식 ISO 62 시트는 24 h 침지값을 아예 발표하지 않는 경우가 많아 세 키를 다 택일군에 넣어 두었다. `dry/cond.` 머리글의 앞 값(dry, 성형 직후)을 썼고 뒤 값은 `*`(미기재)다."
+    },
+    {
+     "key": "chemical.moisture_absorption_equilibrium",
+     "value": 0.018,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "Sim. to ISO 62",
+      "specimen": "2 mm",
+      "relative_humidity_pct": 50,
+      "temperature_k": 296.15
+     },
+     "notes": "같은 블록 verbatim: `Humidity absorption, 2mm | 1.8/* | % | Sim. to ISO 62`. 1.8 % = 0.018.\n\nDuPont 의 이 서식은 ISO 62 계열 세 갈래를 따로 찍는다 — `Humidity absorption`(23 C / 50 %RH 평형)과 `Water absorption`(포화 침지), 그리고 등급에 따라 `Water absorption, Immersion 24h`. `coverage_report.MOIST` 정의절이 그대로 이 서식을 가리킨다 — 유럽식 ISO 62 시트는 24 h 침지값을 아예 발표하지 않는 경우가 많아 세 키를 다 택일군에 넣어 두었다. `dry/cond.` 머리글의 앞 값(dry, 성형 직후)을 썼고 뒤 값은 `*`(미기재)다.\n\n**세 값의 순서가 자기검산이다** — 24 h 침지 1.2 < 50 %RH 평형 1.8 < 포화 침지 5.7 로 단조증가한다. 유리 33 wt% 충전이라 무충전 Zytel 101(8.5 % 포화)보다 낮은 것도 맞는다."
+    }
+   ]
+  },
+  {
+   "match_name": "GPO-3 glass-mat polyester laminate, Rochling Glastic 1580 grade (part 1580, NEMA GPO-3, IEC UP GM 203, UL94 V-0)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Technical Data Sheet Glastic(R) 1580/1583, GFK-UP (PIM-ID 715308, Version 3.0)",
+    "url": "https://www.roechling.com/fileadmin/assets/715308_technical-data-sheet_en.pdf",
+    "publisher": "Roechling",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/mech/Rochling_Glastic_1580-1583_Technical_Data_Sheet_715308_EN.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.002,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D 570",
+      "duration_note": "시트가 침지시간을 안 찍었다 — ASTM D570 의 표준 보고값은 23 C 24 h 침지다"
+     },
+     "notes": "`Physical properties` 블록 verbatim: `Water Absorption | ASTM D 570 | % by wt. | 0.2`. 0.2 wt% = 0.002.\n\n**규격 번호가 키를 정한다(브리프 670)** — `chemical.water_absorption_24h` 의 정의 규격이 ASTM D570 이다. 다만 시트가 침지시간을 안 찍으므로 조건에 그 사실을 적었다(브리프 677 — 조건이 없는 것과 우리가 안 적은 것은 다르다)."
+    }
+   ]
+  },
+  {
+   "match_name": "ZEONEX K26R cyclo-olefin polymer, high-flow optical grade (ZEON)",
+   "source": {
+    "kind": "datasheet",
+    "title": "ZEONEX(R) K26R Optical Grade — Technical Data Sheet (Zeon Specialty Materials, V2025.12.02)",
+    "url": "https://www.zeonsmi.com/uploads/downloads/ZEONEX_K26R-V2025.12.02.pdf",
+    "publisher": "Zeon Specialty Materials",
+    "year": 2025,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/cam/ZEON_ZEONEX_K26R_TDS_V2025.12.02.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.water_absorption_saturation",
+     "value": 0.0001,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D570",
+      "temperature_k": 296.15,
+      "state": "saturation",
+      "bound": "upper",
+      "value_printed": "<0.01 %"
+     },
+     "notes": "TDS `Physical Properties` 블록 verbatim: `Water absorption (23 C-sat) | <0.01 | % | ASTM D570`.\n\nZeon 광학등급 TDS 의 `Water absorption (23 C-sat)` 행이다 — **포화 침지값이라 `chemical.water_absorption_saturation` 이다**(브리프 670). `<0.01 %` 는 벤더가 보증하는 상한이라 `bound: upper` 로 넣었다(브리프 616 의 '범위만 인쇄' 와 다르다 — 이건 단일 상한이다). 0.01 % = 1e-4."
+    }
+   ]
+  },
+  {
+   "match_name": "ZEONEX T62R cyclo-olefin polymer, high-Tg optical grade (ZEON)",
+   "source": {
+    "kind": "datasheet",
+    "title": "ZEONEX(R) T62R Optical Grade — Technical Data Sheet (Zeon Specialty Materials, V2025.08.13)",
+    "url": "https://www.zeonsmi.com/uploads/downloads/ZEONEX_T62R-V2025.08.13.pdf",
+    "publisher": "Zeon Specialty Materials",
+    "year": 2025,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/cam/ZEON_ZEONEX_T62R_TDS_V2025.08.13.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.water_absorption_saturation",
+     "value": 0.0001,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D570",
+      "temperature_k": 296.15,
+      "state": "saturation",
+      "bound": "upper",
+      "value_printed": "<0.01 %"
+     },
+     "notes": "TDS `Physical Properties` 블록 verbatim: `Water absorption (23 C-sat) | <0.01 | % | ASTM D570`.\n\nZeon 광학등급 TDS 의 `Water absorption (23 C-sat)` 행이다 — **포화 침지값이라 `chemical.water_absorption_saturation` 이다**(브리프 670). `<0.01 %` 는 벤더가 보증하는 상한이라 `bound: upper` 로 넣었다(브리프 616 의 '범위만 인쇄' 와 다르다 — 이건 단일 상한이다). 0.01 % = 1e-4."
+    }
+   ]
+  },
+  {
+   "match_name": "ZEONEX 360R cyclo-olefin polymer, low-index optical grade (ZEON)",
+   "source": {
+    "kind": "datasheet",
+    "title": "ZEONEX(R) 360R Optical Grade — Technical Data Sheet (Zeon Specialty Materials, V2025.08.13)",
+    "url": "https://www.zeonsmi.com/uploads/downloads/ZEONEX_360R-V2025.08.13.pdf",
+    "publisher": "Zeon Specialty Materials",
+    "year": 2025,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/cam/ZEON_ZEONEX_360R_TDS_V2025.08.13.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.water_absorption_saturation",
+     "value": 0.0001,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D570",
+      "temperature_k": 296.15,
+      "state": "saturation",
+      "bound": "upper",
+      "value_printed": "<0.01 %"
+     },
+     "notes": "TDS `Physical Properties` 블록 verbatim: `Water absorption (23 C-sat) | <0.01 | % | ASTM D570`.\n\nZeon 광학등급 TDS 의 `Water absorption (23 C-sat)` 행이다 — **포화 침지값이라 `chemical.water_absorption_saturation` 이다**(브리프 670). `<0.01 %` 는 벤더가 보증하는 상한이라 `bound: upper` 로 넣었다(브리프 616 의 '범위만 인쇄' 와 다르다 — 이건 단일 상한이다). 0.01 % = 1e-4."
+    }
+   ]
+  },
+  {
+   "match_name": "ZEONOR 1020R cyclo-olefin polymer, injection grade (ZEON, Yamazaki 2004)",
+   "source": {
+    "kind": "datasheet",
+    "title": "ZEON — ZEONEX(R)/ZEONOR(R) Medical Grade Property Table (Zeon 고기능수지사업부, 2026년 2월)",
+    "url": "https://www.zeon.co.jp/business/enterprise/resin/pdf/ZEONEX-ZEONOR-medical-property.pdf",
+    "publisher": "ZEON Corporation",
+    "year": 2026,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/ZEON_ZEONEX_ZEONOR_medical_property_table_2026-02.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.water_absorption_saturation",
+     "value": 0.0001,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D570",
+      "bound": "upper",
+      "value_printed": "<0.01 %",
+      "grade_column": "1020R"
+     },
+     "notes": "의료등급 물성표 verbatim: `Water Absorption / 吸水率 | ASTM D570 | ％ | <0.01`(1020R 열).\n\nZEON 의료·바이오등급 물성표(2026-02) 의 ZEONOR 열이다. 표는 7등급(1020R·1060R·1420R·1430R·5000·690R·790R)을 나란히 찍고 `Water Absorption / 吸水率` 행은 일곱 칸이 전부 `<0.01`, `Water Vapor Transmission Rate / 水蒸気透過率` 행은 등급마다 값이 다르다.\n\n`<0.01 %` 는 상한이라 `bound: upper` 로 넣었다. 형제 광학등급 TDS(ZEONEX K26R·T62R·360R)가 같은 행을 `Water absorption (23 C-sat)` 로 찍어 **포화값임을 확정한다**(브리프 600 — 형제 서식이 뜻을 정한다)."
+    },
+    {
+     "key": "physical.water_vapor_transmission",
+     "value": 1.273148e-08,
+     "unit": "kg/(m^2*s)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM F1249",
+      "grade_column": "1020R",
+      "value_printed": "1.1 g/m2*day"
+     },
+     "notes": "의료등급 물성표 verbatim: `Water Vapor Transmission Rate / 水蒸気透過率 | ASTM F1249 | g/m2*day | 1.1`(1020R 열). 1.1 g/(m2*day) = 1.1e-3 kg / (m2 * 86400 s) = 1.273148e-08 kg/(m^2*s). 단위 환산만 했다.\n\nZEON 의료·바이오등급 물성표(2026-02) 의 ZEONOR 열이다. 표는 7등급(1020R·1060R·1420R·1430R·5000·690R·790R)을 나란히 찍고 `Water Absorption / 吸水率` 행은 일곱 칸이 전부 `<0.01`, `Water Vapor Transmission Rate / 水蒸気透過率` 행은 등급마다 값이 다르다.\n\n**두께가 안 찍혀 있다** — WVTR 은 두께 의존량인데 이 표는 시편 두께를 광선투과율 행에만(3mm厚) 적는다. 그 3 mm 가 WVTR 행에도 걸리는지는 원문이 말하지 않아 조건에 두께를 쓰지 않았다(브리프 677)."
+    }
+   ]
+  },
+  {
+   "match_name": "ZEONOR 1420R cyclo-olefin polymer, injection grade (ZEON, Yamazaki 2004)",
+   "source": {
+    "kind": "datasheet",
+    "title": "ZEON — ZEONEX(R)/ZEONOR(R) Medical Grade Property Table (Zeon 고기능수지사업부, 2026년 2월)",
+    "url": "https://www.zeon.co.jp/business/enterprise/resin/pdf/ZEONEX-ZEONOR-medical-property.pdf",
+    "publisher": "ZEON Corporation",
+    "year": 2026,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/disp/ZEON_ZEONEX_ZEONOR_medical_property_table_2026-02.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.water_absorption_saturation",
+     "value": 0.0001,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D570",
+      "bound": "upper",
+      "value_printed": "<0.01 %",
+      "grade_column": "1420R"
+     },
+     "notes": "의료등급 물성표 verbatim: `Water Absorption / 吸水率 | ASTM D570 | ％ | <0.01`(1420R 열).\n\nZEON 의료·바이오등급 물성표(2026-02) 의 ZEONOR 열이다. 표는 7등급(1020R·1060R·1420R·1430R·5000·690R·790R)을 나란히 찍고 `Water Absorption / 吸水率` 행은 일곱 칸이 전부 `<0.01`, `Water Vapor Transmission Rate / 水蒸気透過率` 행은 등급마다 값이 다르다.\n\n`<0.01 %` 는 상한이라 `bound: upper` 로 넣었다. 형제 광학등급 TDS(ZEONEX K26R·T62R·360R)가 같은 행을 `Water absorption (23 C-sat)` 로 찍어 **포화값임을 확정한다**(브리프 600 — 형제 서식이 뜻을 정한다)."
+    },
+    {
+     "key": "physical.water_vapor_transmission",
+     "value": 1.157407e-08,
+     "unit": "kg/(m^2*s)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM F1249",
+      "grade_column": "1420R",
+      "value_printed": "1.0 g/m2*day"
+     },
+     "notes": "의료등급 물성표 verbatim: `Water Vapor Transmission Rate / 水蒸気透過率 | ASTM F1249 | g/m2*day | 1.0`(1420R 열). 1.0 g/(m2*day) = 1.0e-3 kg / (m2 * 86400 s) = 1.157407e-08 kg/(m^2*s). 단위 환산만 했다.\n\nZEON 의료·바이오등급 물성표(2026-02) 의 ZEONOR 열이다. 표는 7등급(1020R·1060R·1420R·1430R·5000·690R·790R)을 나란히 찍고 `Water Absorption / 吸水率` 행은 일곱 칸이 전부 `<0.01`, `Water Vapor Transmission Rate / 水蒸気透過率` 행은 등급마다 값이 다르다.\n\n**두께가 안 찍혀 있다** — WVTR 은 두께 의존량인데 이 표는 시편 두께를 광선투과율 행에만(3mm厚) 적는다. 그 3 mm 가 WVTR 행에도 걸리는지는 원문이 말하지 않아 조건에 두께를 쓰지 않았다(브리프 677)."
+    }
+   ]
+  }
+ ]
+}

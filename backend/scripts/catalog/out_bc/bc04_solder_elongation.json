@@ -1,0 +1,114 @@
+{
+ "batch": "66차 BC",
+ "materials": [
+  {
+   "match_name": "60Sn40Pb Solder Alloy",
+   "source": {
+    "kind": "datasheet",
+    "title": "INDALLOY Specialty Alloys — alloy chart sorted by Indalloy number (Indium Corporation of America, Europe and Asia)",
+    "url": "https://web.archive.org/web/20060311125310id_/http://www.indium.com/products/alloy_sorted_by_indalloy_number.pdf",
+    "publisher": "Indium Corporation of America",
+    "year": 2006,
+    "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w56rd/Indium_Indalloy_specialty_alloys_sorted_by_indalloy_number_2006.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.elongation_at_break",
+     "value": 0.4,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "composition_mass_pct": "60.0 Sn, 40.0 Pb",
+      "temperature_k": "출처에 인쇄되지 않았다",
+      "basis": "Indalloy 109 행 'Elongation (%)' 열",
+      "strain_rate": "출처에 인쇄되지 않았다"
+     },
+     "notes": "2쪽 Indalloy 109(60.0 Sn / 40.0 Pb) 행, `Elongation (%)` 열 = 40 %. 0.40 으로 넣었다.\n\n**열 배정은 `pdftotext -bbox-layout` 의 x좌표로 확정했다(브리프 606).** 머리글 x 좌표 — `Tensile Strength (PSI)` 551 · `Shear Strength (PSI)` 574 · `Young's Modulus (PSI x10^6)` 594~613 · `Elongation (%)` 624~639 · `Brinell Hardness` 656~663. 이 표는 열 사이가 20 pt 남짓이라 `-layout` 텍스트만으로는 영률과 연신율이 섞인다 — 실제로 Indalloy 151 행의 단독 `2` 는 x=603 이라 **영률이지 연신율이 아니다.**\n\n**같은 표·같은 행에서 이미 인장강도를 캐 갔다(브리프 602·658).** 이 재료의 인장강도 행 사유문에 *'같은 행이 전단강도 ... 연신 36.5% ... 를 함께 인쇄해'* 처럼 연신율을 **검산에 써 놓고 그 칸에는 안 넣은 자리**가 있다.\n\n**딴 벤더표가 독립으로 확인한다** — The Solder Connection 사양표(2023) 1쪽 `Sn60Pb40` 행의 `Tensile Elongation at Break (%)` 도 40 이다. 같은 행의 인장강도도 535 kgf/cm2(52.5 MPa) 대 Indalloy 7600 psi(52.4 MPa) 로 0.2 % 안에서 같아 **두 표가 같은 원측정 계보다**(브리프 603).\n\n**같은 벤더의 신판은 다르게 찍는다** — Indium Solder Alloy Directory(Form 97720-A4-R9) 의 같은 Indalloy 109 행은 인장 7280 psi · 연신 61 % 다. 조건축을 어느 쪽도 안 찍어 설명이 안 되므로(브리프 662) **여기서는 이 재료의 기존 인장강도와 같은 문서(2006 판)를 골라 짝을 맞췄다**(브리프 612). 신판 값은 다음 파동의 표적이다."
+    }
+   ]
+  },
+  {
+   "match_name": "90Pb10Sn CCGA column solder with 63Sn37Pb fillets (Perkins 2009 vibration HCF)",
+   "source": {
+    "kind": "datasheet",
+    "title": "INDALLOY Specialty Alloys — alloy chart sorted by Indalloy number (Indium Corporation of America, Europe and Asia)",
+    "url": "https://web.archive.org/web/20060311125310id_/http://www.indium.com/products/alloy_sorted_by_indalloy_number.pdf",
+    "publisher": "Indium Corporation of America",
+    "year": 2006,
+    "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w56rd/Indium_Indalloy_specialty_alloys_sorted_by_indalloy_number_2006.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.elongation_at_break",
+     "value": 0.3,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "composition_mass_pct": "90.0 Pb, 10.0 Sn",
+      "temperature_k": "출처에 인쇄되지 않았다",
+      "component": "CCGA 컬럼 본체의 벌크 합금 (63Sn37Pb 필렛은 별개 합금이며 이 값이 아니다)",
+      "basis": "Indalloy 159 행 'Elongation (%)' 열",
+      "strain_rate": "출처에 인쇄되지 않았다"
+     },
+     "notes": "2쪽 Indalloy 159(90.0 Pb / 10.0 Sn) 행, `Elongation (%)` 열 = 30 %. 0.30.\n\n**열 배정은 `pdftotext -bbox-layout` 의 x좌표로 확정했다(브리프 606).** 머리글 x 좌표 — `Tensile Strength (PSI)` 551 · `Shear Strength (PSI)` 574 · `Young's Modulus (PSI x10^6)` 594~613 · `Elongation (%)` 624~639 · `Brinell Hardness` 656~663. 이 표는 열 사이가 20 pt 남짓이라 `-layout` 텍스트만으로는 영률과 연신율이 섞인다 — 실제로 Indalloy 151 행의 단독 `2` 는 x=603 이라 **영률이지 연신율이 아니다.**\n\n**같은 표·같은 행에서 이미 인장강도를 캐 갔다(브리프 602·658).** 이 재료의 인장강도 행 사유문에 *'같은 행이 전단강도 ... 연신 36.5% ... 를 함께 인쇄해'* 처럼 연신율을 **검산에 써 놓고 그 칸에는 안 넣은 자리**가 있다.\n\n**딴 벤더표가 독립으로 확인한다** — The Solder Connection 사양표(2023) `Pb90Sn10 or Sn10Pb90` 행의 연신율도 30 % 이고 인장 310 kgf/cm2(30.40 MPa) 가 Indalloy 4400 psi(30.34 MPa) 와 0.2 % 안에서 같다.\n\n**신판은 28 % 다**(Indium Solder Alloy Directory R9, 인장 4950 psi). 2006 판과 Solder Connection 이 서로를 확인하므로 그쪽을 골랐다."
+    }
+   ]
+  },
+  {
+   "match_name": "Sn3.8Ag0.7Cu Solder Alloy (SAC387)",
+   "source": {
+    "kind": "datasheet",
+    "title": "INDALLOY Specialty Alloys — alloy chart sorted by Indalloy number (Indium Corporation of America, Europe and Asia)",
+    "url": "https://web.archive.org/web/20060311125310id_/http://www.indium.com/products/alloy_sorted_by_indalloy_number.pdf",
+    "publisher": "Indium Corporation of America",
+    "year": 2006,
+    "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w56rd/Indium_Indalloy_specialty_alloys_sorted_by_indalloy_number_2006.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.elongation_at_break",
+     "value": 0.365,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "composition_mass_pct": "95.5 Sn, 3.8 Ag, 0.7 Cu",
+      "temperature_k": "출처에 인쇄되지 않았다",
+      "basis": "Indalloy 241 행 'Elongation (%)' 열",
+      "strain_rate": "출처에 인쇄되지 않았다"
+     },
+     "notes": "4쪽 Indalloy 241(95.5 Sn / 3.8 Ag / 0.7 Cu) 행, `Elongation (%)` 열 = 36.5 %. 0.365.\n\n**열 배정은 `pdftotext -bbox-layout` 의 x좌표로 확정했다(브리프 606).** 머리글 x 좌표 — `Tensile Strength (PSI)` 551 · `Shear Strength (PSI)` 574 · `Young's Modulus (PSI x10^6)` 594~613 · `Elongation (%)` 624~639 · `Brinell Hardness` 656~663. 이 표는 열 사이가 20 pt 남짓이라 `-layout` 텍스트만으로는 영률과 연신율이 섞인다 — 실제로 Indalloy 151 행의 단독 `2` 는 x=603 이라 **영률이지 연신율이 아니다.**\n\n**같은 표·같은 행에서 이미 인장강도를 캐 갔다(브리프 602·658).** 이 재료의 인장강도 행 사유문에 *'같은 행이 전단강도 ... 연신 36.5% ... 를 함께 인쇄해'* 처럼 연신율을 **검산에 써 놓고 그 칸에는 안 넣은 자리**가 있다.\n\n**이 재료의 기존 인장강도 사유문이 이 값을 이미 인용해 놓고 칸에는 안 넣었다** — *'같은 행이 전단강도 3,916 psi(27.0 MPa) · 연신 36.5% · Brinell 15 를 함께 인쇄해 전단/인장 비 0.56 이 무연솔더의 관용비와 맞는다'*(브리프 658).\n\n**세 표가 갈린다** — Indalloy 2006 36.5 % (인장 6962 psi = 48.0 MPa) · Indium Directory R9 33 % (인장 6990 psi = 48.2 MPa) · Solder Connection 2023 16 % (인장 600 kgf/cm2 = 58.8 MPa). **Solder Connection 행은 인장에서도 22 % 높아 계보가 다르다**(브리프 688) — 인장이 서로 맞는 앞의 두 표 중, 이 재료의 기존 인장강도와 같은 문서인 2006 판을 골랐다(브리프 612)."
+    }
+   ]
+  },
+  {
+   "match_name": "Sn0.3Ag0.7Cu Solder Alloy",
+   "source": {
+    "kind": "datasheet",
+    "title": "Solder Alloy Technical Specification (The Solder Connection Ltd)",
+    "url": "https://www.solderconnection.com/wp-content/uploads/2023/03/Solder-Alloy-Technical-Specifications.pdf",
+    "publisher": "The Solder Connection Ltd",
+    "year": 2023,
+    "local_path": "/home/koopark/claude/MaterialTwinWeb/.agent_work/w57sa/solderconnection.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.elongation_at_break",
+     "value": 0.22,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "composition_mass_pct": "Sn 99.0 / Ag 0.3 / Cu 0.7 (SAC0307)",
+      "temperature_k": "출처에 인쇄되지 않았다",
+      "basis": "'Sn99Ag0.3Cu0.7 (SAC0307)' 행 'Tensile Elongation at Break (%)' 열",
+      "strain_rate": "출처에 인쇄되지 않았다"
+     },
+     "notes": "1쪽 `Sn99Ag0.3Cu0.7 (SAC0307)` 행 verbatim: 밀도 7.33 g/cm3 · `Tensile Strength at Break 300 kgf/cm2` · `Tensile Elongation at Break 22 %` · `Brinell Hardness 14`. 0.22.\n\n**이 재료의 기존 인장강도(29.42 MPa)와 밀도(7330 kg/m3)가 바로 이 행에서 왔다** — 같은 행의 옆 칸이라 행 배정이 이미 닫혀 있다(브리프 129·602).\n\n**Indium Solder Alloy Directory R9 는 같은 조성을 34.1 % 로 찍는다**(Indalloy 263, 인장 6882 psi = 47.4 MPa). 인장이 61 % 차이라 **다른 시편·다른 계보다**(브리프 688) — 이 재료의 인장·밀도가 Solder Connection 행에서 온 이상 연신율도 같은 행에서 가져와야 짝이 맞는다(브리프 612). **두 계보를 섞으면 카드의 응력-변형 짝이 원문 어디에도 없는 것이 된다.**"
+    }
+   ]
+  }
+ ]
+}

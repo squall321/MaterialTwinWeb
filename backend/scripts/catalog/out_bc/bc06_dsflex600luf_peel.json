@@ -1,0 +1,33 @@
+{
+ "batch": "66차 BC",
+ "materials": [
+  {
+   "match_name": "Doosan DSflex-600LUF Flexible Copper Clad Laminate",
+   "source": {
+    "kind": "datasheet",
+    "title": "Doosan Corporation Electro-Materials — DSflex-600LUF CCL(Copper Clad Laminate) General Properties (제품 페이지)",
+    "url": "https://www.doosanelectromaterials.com/en/product/Copper_Clad_Laminate/DSflex-600LUF",
+    "publisher": "Doosan Corporation Electro-Materials",
+    "year": 2026,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Doosan_CCL_DSflex-600LUF_ProductPage_en_2026-09-01.html"
+   },
+   "properties": [
+    {
+     "key": "interface.peel_strength",
+     "value": 1176.798,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "ED/RA copper foil, >12 um (> T oz)",
+      "substrate": "ED or RA copper foil, thickness > 12 um",
+      "test_standard": "IPC-TM-650 2.4.9.1",
+      "bound": "lower",
+      "value_printed": ">1.2 (단위 칸은 이 문서에서 `-`; 형제 페이지 DSflex-600 이 Kgf/cm 를 찍는다)"
+     },
+     "notes": "제품 페이지 [Mechanical] 블록 verbatim: `Peel strength | >1.2 | - | ED/RA, >12um(>Toz) | IPC-TM-650 2.4.9.1`. 1.2 kgf/cm x 980.665 = 1176.798 N/m.\n\n**단위는 형제 페이지 한 장이 정한다.** 이 행의 단위 칸은 `-` 인데 **DSflex-600 제품 페이지 한 장만은 같은 행을 `>1 | Kgf/cm | ED/RA, >12um(>Toz)` 로 단위까지 찍는다.** 전제품 TDS v9 [Mechanical] 표의 나머지 두 박리강도 열도 Kgf/cm 이고 값 대역(0.7~2.2)이 이 열의 대역(>1~>1.2)과 같은 자릿수라 자기정합적이다. 부등호는 벤더 보증 하한이라 `bound: lower` 다.\n\n**등급 동정 보류(59차 UA)는 이 값에 안 걸린다.** UA 가 보류한 것은 *재료 2492(DSflex-600LUF)와 재료 2513(DSflex-600UF (DS))이 같은 등급인가* 이지 *이 페이지가 재료 2492 의 출처인가* 가 아니다 — 슬러그 `DSflex-600LUF` 는 200 이고 `canonical`·`og:url` 이 그 슬러그를 가리키는 살아 있는 벤더 레코드이며, 이 재료의 다른 20행이 이미 같은 페이지에서 왔다. 한 칸을 더 같은 페이지에서 채우는 것은 병합 판단을 앞당기지 않는다(브리프 612 — 한 재료 안에서 규약이 갈리면 안 된다)."
+    }
+   ]
+  }
+ ]
+}
