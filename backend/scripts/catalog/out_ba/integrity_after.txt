@@ -1,0 +1,101 @@
+  출처 없는 값                      0
+  끊어진 출처 참조                    0
+  정의 없는 물성키                    0
+  고아 시편                        0
+  값·텍스트 모두 없음                  0
+  단위가 정의와 다름                   0
+  tier 범위 밖                    0
+  method 어휘 밖                  0
+  출처 kind 어휘 밖                 0
+  category 어휘 밖                0
+  물성값 0인 재료                    2  ←
+  묘비 선언이 깨졌다                   0
+  묘비가 옮겼다는 키가 대상에 없다           0
+  추정만 있는 재료                    0
+  제목 없는 출처                     0
+  journal인데 DOI 없음             0
+  조건이 dict 아님                  0
+  초탄성인데 model 조건 없음            0
+  파장 없는 광학값(tier<4)            0
+  장비 범위에 단위 없음                 0
+  장비 범위 역전                     0
+  장비 온도범위 역전                   0
+  장비 온도가 절대영도 아래               0
+  장비인데 카탈로그 경로 없음              0
+  온도가 값인데 시험온도 조건              0
+  Prony 항에 항번호 없음              0
+  Basquin 계수·지수 쌍 불일치          0
+  Coffin-Manson 계수·지수 쌍 불일치    0
+  Mooney-Rivlin G0 음수(Drucker 불안정) 0
+  Prony 가중치·완화시간 항수 불일치        0
+  Stromeyer 3종 세트 불완전          0
+  Morrow 계수·지수 쌍 불일치           0
+  Darveaux 쌍 깨짐(홀수 개)          0
+  항번호 없는 다항 상수                 0
+  노화 유지율 조건 불완전                0
+  확산계수에 온도 조건 없음               0
+  datasheet·standard인데 식별자도 실측도 없음 0
+  tier4 가정인데 근거 notes 없음       0
+  우리 추정인데 tier4가 아님            0
+  저자 추정인데 근거 없음                0
+  tier4인데 실측·핸드북               0
+  가정값인데 tier4·estimated 아님     0
+  가정값인데 근거 출처 없음               0
+  비금속인데 비열이 금속급으로 낮음           0
+  파장 조건이 가시광 밖(오타 의심)          0
+  LCSR 가로축 비단조                 0
+  중앙값인데 실측·핸드북 표기              0
+  (BH)max > Br^2/(4mu0)        0
+  점도 기준점 순서 역전                 0
+  점도 기준온도에 기준점 없음              0
+
+  [주의] 열적 이방성이 입증된 재료인데 열전도율에 방향이 없는 값: 132건
+         CTE가 두 방향 이상으로 갈린 재료다. FR-4는 면내가 두께방향의 약 3배라
+         (0.81~1.06 vs 0.29~0.34 W/mK) 등방으로 쓰면 크게 틀린다.
+         원문에 방향이 없으면 지어내지 말고, 해석에서 이 값을 등방으로 쓰지 말 것.
+
+  [주의] 소자 유효열전도율을 재료 열전도율 키에 담은 재료: 4종
+         재료2593 Ultrathin vapor chamber (200 um) case 3 — wett   최대 11,915 W/(m*K)
+         재료2592 Ultrathin vapor chamber (200 um) case 2 — nano   최대 3,835 W/(m*K)
+         재료2588 Fujikura ultra-thin heat pipe cooling module (   최대 2,468 W/(m*K)
+         재료2591 Ultrathin vapor chamber (200 um) case 1 — bare   최대 744 W/(m*K)
+         상변화 소자라 재료 상한(다이아몬드 3,320)을 넘는 것이 정상이다.
+         소자 해석 입력으로는 정당하지만 **재료로 비교·순위·카드추출하면 틀린다.**
+
+  [주의] 같은 출처에 **1차값(tier<=2)이 완전히 같은 재료쌍**: 15건
+         두 배치가 같은 시편을 다른 이름으로 넣었을 수 있다(30차 AB 가 ZrB2 10종을 이렇게 찾았다).
+         다만 한 논문이 조성만 다른 시료에 같은 값을 인쇄한 정당한 경우도 걸린다 —
+         **이름이 같은 시편을 가리키는지 눈으로 확인해라.** 자동 삭제하지 말 것.
+           출처 4813 · SAND2018-13271 — Total Hemispherical Emissivity of Metal · 재료 [3, 4]
+           출처 49 · AZoM Properties: Stainless Steel Grade 316 (UNS S31600) · 재료 [5, 6]
+           출처 2915 · Influence of Loading Directions on Dynamic Compressive P · 재료 [24, 25]
+           출처 40 · Sorbothane Polyurethane Damping Material, 50 Durometer ( · 재료 [60, 61]
+           출처 689 · CRC Handbook of Chemistry and Physics, 97th ed. · 재료 [124, 128]
+
+  [주의] **식별자가 제목뿐이라 다시 열 수 없는 출처: 91건 · 값 1,736행**
+         DOI·URL·local_path 가 전부 없다. 스키마는 통과하지만 재검증 경로가 없다.
+         핸드북·규격은 제목이 식별자라 정당할 수 있다 — 다만 **제목이 실제 한 문헌을**
+         **가리키는지** 확인해라. 두 문헌을 붙여 놓으면 어느 쪽도 못 연다(61차 WB).
+         고치는 법은 삭제가 아니라 **판·쪽·ISBN 을 채워 열 수 있게 만드는 것**이다.
+           출처 853 ·  391행 · 최고등급 t2 · Polymer Handbook (Brandrup, Immergut, Grulke), 4th e
+           출처 972 ·  201행 · 최고등급 t4 · Handbook of Infrared Radiation — emissivity tables (
+           출처 701 ·  192행 · 최고등급 t2 · ASM Engineered Materials Handbook — Ceramics and Gla
+           출처 760 ·  148행 · 최고등급 t2 · ASM Metals Handbook — Properties and Selection: Nonf
+           출처 770 ·  136행 · 최고등급 t4 · ASM Engineered Materials Handbook — Composites
+
+  [주의] **항복강도가 인장강도보다 큰 재료: 20종**
+         조건축(온도·경도·방향·시험규격·조질)을 맞춘 뒤에도 역전인 것이다.
+         물리적으로 불가능하므로 한쪽이 틀렸다 — 대개 t4 추정 항복이 t1 실측 인장을 넘는다.
+           재료12 SCM440_alloy_steel Bilinear              항복      790(t2) > 인장      690(t3)
+           재료37 C26000_Cartridge_Brass Bilinear          항복      340(t2) > 인장      303(t3)
+           재료84 PEI Ultem Film                           항복      105(t1) > 인장       85(t1)
+           재료88 Polarizer (TAC/PVA)                      항복       50(t4) > 인장     40.8(t1)
+           재료134 PC/ABS Blend (housing)                   항복       55(t4) > 인장       45(t1)
+           재료135 PBT (structural)                         항복       55(t4) > 인장       51(t1)
+           … 외 14종
+         고분자 고무상 CTE 는 대개 50~400 ppm/K 다. TMA 팽창모드에서 연화된 시편이
+         프로브 하중에 눌리면 겉보기 CTE 가 크게 나온다 — **인쇄값이어도 해석 입력으로
+         바로 쓰면 안 된다.** conditions 에 `magnitude_suspect` 를 달아라.
+
+재료 2670 · 물성값 43587 · 출처 3052 · 정의 271/269
+이상 1개

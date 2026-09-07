@@ -1,0 +1,730 @@
+{
+ "batch": "66차 BA — 하드페라이트 25등급 포아송비(클래스 공통값 t4)",
+ "materials": [
+  {
+   "match_name": "Hard Ferrite Magnet Y8T (Sr Ferrite)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y10T (Sr Ferrite)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y20 (Sr Ferrite)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y22H (Sr Ferrite)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y23 (Sr Ferrite)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y25 (Sr Ferrite)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y26H (Sr Ferrite)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y26H-1 (Sr Ferrite)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y26H-2 (Sr Ferrite, = C7)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y27H (Sr Ferrite)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y28 (Sr Ferrite)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y28H-1 (Sr Ferrite)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y28H-2 (Sr Ferrite)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y30BH (Sr Ferrite)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y30H-2 (Sr Ferrite, = C9 / C12)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y32 (Sr Ferrite)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y32H-1 (Sr Ferrite)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y32H-2 (Sr Ferrite)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y33 (Sr Ferrite, = C8B)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y33H (Sr Ferrite, = C10)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y34 (Sr Ferrite, = C11)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y36 (Sr Ferrite)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y38 (Sr Ferrite)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet Y40 (Sr Ferrite)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  },
+  {
+   "match_name": "Hard Ferrite Magnet C1 (Sr Ferrite, American standard, = Y10T / Y8T)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.eclipsemagnetics.com/site/assets/files/19602/ferrite_ceramic_datasheet.pdf",
+    "title": "Ferrite Magnets/Ceramic Magnets Datasheet",
+    "authors": "Eclipse Magnetics Ltd (corporate author)",
+    "year": 2021,
+    "publisher": "Eclipse Magnetics",
+    "local_path": "standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.28,
+     "unit": null,
+     "method": "estimated",
+     "tier": 4,
+     "conditions": {
+      "assumption": true,
+      "temperature_c": 20,
+      "basis": "vendor class value (grade-independent)",
+      "grade_scope": "class value — sintered hard ferrite (Sr ferrite), not grade-specific",
+      "prior_verdict": "core_rejected_printed_value — 58차 TA 가 '이 표는 등급별이 아니다' 로 기각한 칸이다. t4·assumption 으로 다시 세우는 것은 원문의 주장을 되살리는 것이 아니라 우리 가정으로 세우는 것이다"
+     },
+     "notes": "원문 verbatim `Poisson’s Ratio  ν  0.28`. Eclipse Magnetics `Ferrite Magnets/Ceramic Magnets Datasheet`(Rev.2021) p.3 `Physical Characteristics (Typical)` 표에서 왔다 — **등급별이 아니라 소결 하드페라이트 공통값**이다(58차 TA 가 PDF 전문을 열어 확인했고, 같은 문서의 등급표는 Br·Hc·Hci·(BH)max 자기특성만 싣고 물리특성 열이 하나도 없다). 그래서 이 행은 그 공통값을 이 등급에 대입한 **가정값**이라 tier4·estimated·assumption 으로 세운다 — 등급별 실측이 들어오면 대표값 선택이 자동으로 밀어낸다. 계보 — 같은 표의 같은 값이 형제 등급 재료 424(Y30)·425(Y35)·2533(C8/C8A)에 이미 `grade_scope: class value — sintered hard ferrite, not grade-specific` tier3 규약으로 실려 있고, 65차 AB 가 같은 표의 밀도(4.9~5.1 g/cc)와 영률(1.8x10^11 Pa)을 이 25등급에 같은 규약으로 세웠다. 이 행은 그 표의 세 번째 열을 같은 규율로 닫는 것이다. **기존 `core_rejected_printed_value` 판정은 지우지 않았다** — '벤더가 이 등급에 대해 이 열을 찍지 않는다' 는 사실은 여전히 참이고, 그 판정문이 verbatim *\"계보를 따를지 안 따를지는 다음 파동의 판단\"* 이라 적어 두었다. 물리 검산 — 등방재 한계 −1<ν<0.5 안이고, 소결 산화물 세라믹의 통상 대역(0.24~0.31)에 든다. §657 자기검사 — 이 한 값이 25종에 간다. 값 가짓수 1 / 재료 25 는 주입 지문이지만, 그것이 **원문이 이 값을 등급별로 찍지 않기 때문**임을 `grade_scope` 조건축과 이 문장이 그대로 밝힌다."
+    }
+   ]
+  }
+ ]
+}
