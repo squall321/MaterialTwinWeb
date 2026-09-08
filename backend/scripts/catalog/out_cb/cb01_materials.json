@@ -1,0 +1,153 @@
+{
+  "batch": "67차 CB",
+  "target": "산소확산 원자재 6종 중 3번 — 저온 유기 평탄화막 (적층 ②, 15 um, 총 산소투과의 13.7%)",
+  "materials": [
+    {
+      "new_material": {
+        "name": "Low-temperature organic planarization film / color-filter overcoat (acrylic-epoxy thermoset, OLED CoE 적층 ②)",
+        "category": "polymer",
+        "description": "OLED CoE(Color filter on Encapsulation) 적층에서 컬러필터 바로 위에 올라가 CF를 보호하고 표면을 평탄화하는 저온 경화 유기막이다. US9978816B2(삼성디스플레이)가 이 적층 위치를 그대로 인쇄한다 — 봉지층(TFE) → 컬러필터 → 오버코트 530 → 제1점착층(PSA) → 터치패널 → 제2점착층 → 윈도. 재질은 아크릴 수지-에폭시 수지를 골격으로 하는 가교 열/광경화 수지이며(US11332634B2 배경부), 상온에서 유리상이고 표면경도·내약품성을 요구받는다(US10822449B2). 하드코트(윈도 최외곽 내스크래치층)가 아니라 평탄화막(오버코트)이다. 유연/OLED 공정에서는 100 C 이하 저온 경화가 강제된다.",
+        "attributes": {
+          "material_class": "acrylic-epoxy thermoset overcoat resin (glassy, crosslinked) — photosensitive/thermosetting planarization resin",
+          "subsystem": "display",
+          "process": "slit/spin coat → prebake → (photo-patterning) → cure. OLED CoE 계열은 100 C 이하 저온 경화, 종래 LCD CF 오버코트는 150~250 C 열경화",
+          "stack_position": "OLED CoE 적층 ② — TFE / G CF(3 um) / 이 층(15 um) / PSA(15 um) / TAC(40 um) / OCA(75 um) / Glass",
+          "aliases": [
+            "평탄화막",
+            "오버코트",
+            "OC layer",
+            "OC 재료",
+            "planarization layer",
+            "overcoat layer",
+            "저온 유기막",
+            "저온 유기 평탄화막",
+            "저온 경화 오버코트",
+            "CF overcoat",
+            "overcoat 530",
+            "Acrylic (저온 유기막)"
+          ],
+          "not_aliases": [
+            "하드코트",
+            "hard coat",
+            "hardcoat",
+            "아크릴 코팅층",
+            "아크릴 점착제",
+            "PSA"
+          ],
+          "role": "product",
+          "role_reason": "실제 패널 적층의 한 층에 대응하는 재료 카드다. 특정 벤더 제품 grade 가 아니라 그 층의 소재 계열을 세운 것이므로 값은 전부 클래스값이다.",
+          "role_confidence": "medium"
+        }
+      },
+      "source": {
+        "kind": "patent",
+        "title": "US 10,259,948 B2 — Coating compositions and coating products made therefrom (Comparative Example 1: UV 광경화 아크릴레이트/에폭시아크릴레이트 무충전 자립막의 산소투과계수)",
+        "url": "https://patents.google.com/patent/US10259948B2/en",
+        "doi": null,
+        "publisher": "United States Patent and Trademark Office — Assignee: Kaneka Corporation; The Texas A&M University System",
+        "year": 2019,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/display/US10259948B2_Kaneka_TexasAM_coating_compositions.pdf"
+      },
+      "properties": [
+        {
+          "key": "physical.gas_permeability_o2",
+          "value": 7.1e-17,
+          "unit": "mol/(m*s*Pa)",
+          "method": "measured",
+          "tier": 3,
+          "conditions": {
+            "species": "O2",
+            "temperature_c": null,
+            "temperature_basis": "원문이 이 행(TABLE 2 Comparative Example 1)에 온도를 인쇄하지 않았다. 특허 안의 '23 C / 50 RH %' 는 FIG.5A 의 **다른 시료계(스프레이 도포 열경화물)** 것이라 이 행에 빌려올 수 없다(67차 CA 보조배치가 독립으로 같은 판정). 측정 규격 JIS K 7126-1 의 표준 분위기가 23 C 이지만 그것은 규격의 기본값이지 인쇄된 시험조건이 아니다 — 비워 둔다.",
+            "humidity_rh": null,
+            "test_method": "JIS K 7126-1 (차압법), Toyoseiki BT-3 Gas Transmission Rate Tester",
+            "thickness_um": "30~50 (원문 표기). 인쇄된 투과계수/투과도 비로 역산하면 41.8 um 로 이 범위 안이다",
+            "state": "fully cured, 자립막(free-standing), 무충전(inorganic nanoplatelet 0 wt%)",
+            "grade_scope": "class value — UV 광경화 아크릴레이트/에폭시아크릴레이트 네트워크(IBOA 42.8 / EO3TMPTA 23.8 / 에폭시아크릴레이트 CN120 28.5 / HCPK 광개시제 4.8 wt%, 1000 mJ/cm2 메탈할라이드 경화)의 인쇄값이다. 이 패널이 실제로 쓰는 평탄화막 제품·grade 를 측정한 값이 아니다. 계열을 고른 근거는 notes 에 적었다"
+          },
+          "notes": "[원문 verbatim — Comparative Example 1] 'A free-standing film containing no inorganic nanoplatelets was then produced in the same manner as in Example 2 except that the drying time for the coating in Example 2 was skipped. The free-standing film had a total light transmittance of 91.3%, a haze of 0.8% and oxygen transmission rate of 1.7*10 -12 mol*Pa -1 *m -2 *s -1 and permeability coefficient for oxygen of 7.1*10 -17 mol*Pa -1 *m -2 *s -1 .' [단위 정정 — 원문 오타] 이 행의 투과계수 단위가 'mol*Pa-1*m-2*s-1' 로 인쇄돼 있는데 이는 투과도(permeance)의 단위다. 바로 위 Example 2 의 같은 문장은 같은 물리량을 'permeability coefficient for oxygen of 3.6*10 -18 mol*m*Pa -1 *m -2 *s -1' 로 m 을 포함해 인쇄한다. 즉 Comparative Example 1 행에서 *m 이 빠진 식자 오류이며, 값 7.1e-17 의 단위는 mol*m/(m^2*Pa*s) = mol/(m*s*Pa) 다 — 우리 DB 단위와 같아 환산이 필요 없다. [독립 검산] 같은 문장이 투과도(permeance)와 투과계수를 둘 다 인쇄하므로 그 비가 시편 두께여야 한다. 7.1e-17 / 1.7e-12 = 4.18e-5 m = 41.8 um. 원문이 적은 시편 두께는 'a uniform thickness of about 30 to 50 micrometers' 이고 41.8 um 는 그 안이다. Example 2 로도 같은 검산을 하면 3.6e-18 / 8.1e-14 = 4.44e-5 m = 44.4 um 로 역시 30~50 um 안이다 — 두 행 모두 맞으므로 단위 판독이 확인된다. [Barrer 되돌림 검산] 7.1e-17 / 3.3464e-16 = 0.2122 Barrer. 아래 두 독립 계열의 인쇄값과 같은 자리다 — 유리상 PMMA 0.1434 Barrer(4.79e-17, DB 재료 75, Membranes 2022 실측), 가교 에폭시-아민 Epon828/A2049 0.140 Barrer(4.7e-17, DB 재료 438, 25 C 실측). 세 계열이 0.14~0.21 Barrer 로 모인다. [왜 이 계열을 골랐는가 — 이 선택이 자릿수를 지배한다] (a) US9978816B2(삼성디스플레이, 2018-05-22)가 이 적층 위치를 그대로 적는다 — 'An overcoat 530 for protecting the color filter and planarizing a surface of the layer with the color filter may be provided on the first to third color filters 510R, 510G, and 510B.' 그리고 'the encapsulation layer 400, the color filter layer CF, the overcoat 530, the first adhesive layer 600, the touch panel 700 ... are sequentially laminated.' 제1점착층 600 은 'a silicon and/or acryl-based compressive adhesive such as a PSA with a low modulus value' 로 별개 층이다. 즉 ②는 PSA 가 아니다. (b) 같은 특허가 이 오버코트의 유기 절연막 재질로 'a general purpose polymer (PMMA and/or PS), a polymer derivative having a phenol group, an acryl-based polymer, an imide-based polymer ...' 를 나열한다. (c) US11332634B2(BOE/허페이신성, 2022-05-17, 우선일 2017-08-30) 배경부 verbatim — 'At present, the OC material mainly consists of acrylic resin-epoxy resin as a basic skeleton component, and an OC raw material available for a coating process may be obtained by adding a crosslinking agent, a surface modifier, a solvent, and the like. As one of the main skeleton components, acrylic resin exhibits high optical properties, but there is room for improvement in hygroscopicity and dielectric properties. At present, the most commonly used acrylic resin is polymethyl methacrylate.' 청구항 1 은 스티렌+(메타)아크릴레이트 10~30 wt% / 에폭시 수지 10~30 wt% / 가교제(디비닐벤젠) 1~3 wt% 다. (d) US10822449B2(삼성SDI, 2020-11-03)가 저온 오버코트에 표면경도를 요구한다 — 'When the surface hardness is low, a haze phenomenon occurs after CVD' · 'high mechanical strength ... excellent chemical resistance'. 표면경도를 요구하는 층은 상온 고무상(PSA, E~0.1 MPa 급)일 수 없다. 이 넷이 ②를 '가교된 유리상 아크릴-에폭시 열경화물' 로 묶고, 그 계열에서 산소투과계수를 직접 인쇄한 문서가 US10259948B2 Comparative Example 1 이다 — IBOA(이소보닐 아크릴레이트, 강직 벌키 단관능) + EO3TMPTA(3관능 가교제) + CN120(비스페놀A 에폭시 디아크릴레이트), 즉 아크릴-에폭시 광경화 네트워크로 오버코트 배합과 골격이 같다. [무엇을 버렸는가] 현재 해석이 쓰는 1.1813e-14(35.3 Barrer)는 poly(n-hexyl acrylate) 균질중합체 — 가교 없는 상온 고무상 n-알킬 아크릴레이트, 즉 점착제다. 이 값은 여기서 166배 높다. 요청서가 대안으로 든 1.7067e-15(5.1 Barrer)는 DB 재료 539 XLPEGDA-100 으로, Kusuma 학위논문의 가교 폴리(에틸렌옥사이드) 막(PEGDA n=14 단독 광경화, 친수성 고무상 하이드로겔 네트워크)이다. 둘 다 고무상이라 유리상 오버코트의 대표가 될 수 없다. [tier3 사유] 인쇄된 실측값이지만 (a) 이 패널이 쓰는 평탄화막 제품·grade 가 아니고, (b) 원 시료는 방식(防蝕)/배리어 코팅 특허의 비교예라 오버코트용으로 최적화된 배합이 아니며, (c) 이 행의 측정 온도·습도가 인쇄되지 않았다. 제품 실측이 오면 대체할 것."
+        },
+        {
+          "key": "physical.gas_permeability_o2",
+          "value": 3.0118e-16,
+          "unit": "mol/(m*s*Pa)",
+          "method": "estimated",
+          "tier": 4,
+          "conditions": {
+            "species": "O2",
+            "temperature_c": 35,
+            "pressure": "infinite dilution",
+            "assumption": true,
+            "bound": "upper",
+            "grade_scope": "class value — 감도해석용 상한이다. 이 층이 위 t3 값보다 성긴 네트워크(가교밀도가 낮거나 두꺼운 잉크젯 평탄화막 계열)일 경우를 덮기 위해, DB 가 가진 UV 광경화 아크릴레이트 네트워크 중 가장 조밀·강직한 BPAEDA4 균질네트워크(재료 533, 0.9 Barrer)의 값을 그대로 상한으로 세웠다. 이 층을 측정한 값이 아니다"
+          },
+          "notes": "[근거값 verbatim] Kusuma 학위논문 Table 8.2 원문 행 '--- 100 100 12 5.3 0.6 0.9 0.2', 열 순서 'XL content wt% | vol% | CO2 H2 CH4 O2 N2' 이므로 O2 = 0.9 Barrer (DB 재료 533, UV-cured BPAEDA4 homopolymer acrylate network, 비스페놀A 에톡실레이트 디아크릴레이트 EO 4단위 100 wt% 단독 광경화, 35 C). 환산 0.9 x 3.3464e-16 = 3.0118e-16 mol/(m*s*Pa). 검산 3.0118e-16 / 3.3464e-16 = 0.9000 Barrer. [왜 이것을 상한으로 세웠는가] DB 가 가진 UV 광경화 아크릴레이트 네트워크 12종(재료 527~539)의 O2 투과계수 범위는 0.45~19.0 Barrer 이고 그중 최저가 이 BPAEDA4 균질네트워크 0.9 Barrer 다. 그 계열은 전부 PEG(에틸렌옥사이드)계 친수성 고무상 막이라 유리상 오버코트보다 투과가 높은 쪽이며, 그중 가장 낮은 값이면 '오버코트가 예상보다 성기더라도 여기까지' 라는 상한 역할을 한다. 독립 대조 — 가교 에폭시-아민(재료 438) 80 C 값이 0.768 Barrer 로 같은 자리다. [t4 사유] 이 층을 측정한 값이 아니고 우리가 상한으로 세운 것이다. 계산이 아니라 계열 선택이므로 method=estimated, assumption=true. [영향] 이 상한을 써도 총 산소투과는 t3 값을 쓸 때와 0.27 %p 밖에 안 갈린다(아래 report 참조) — 즉 이 층의 남은 불확실성은 해석 결과를 바꾸지 못한다."
+        }
+      ],
+      "supporting_sources": [
+        {
+          "kind": "patent",
+          "title": "US 9,978,816 B2 — Organic light emitting diode display and manufacturing method thereof (오버코트 530 의 적층 위치·역할·유기막 재질 나열)",
+          "url": "https://patents.google.com/patent/US9978816B2/en",
+          "publisher": "USPTO — Assignee: Samsung Display Co., Ltd. (inventors Young Do Kim, Hoon Sik Kim; KR 우선권 10-2015-0058112, 2015-04-24)",
+          "year": 2018,
+          "local_path": "/data/paper_patent_corpus/standards_appnotes/display/US9978816B2_SamsungDisplay_OLED_CF_overcoat530_stack.pdf",
+          "ocr_text_path": "/data/paper_patent_corpus/standards_appnotes/display/US9978816B2_OCR.txt",
+          "role": "적층 위치 확정 — TFE / CF / 오버코트 530 / PSA 600 / 터치패널 / 윈도 순서가 해석 적층표 ①②③ 과 일치한다"
+        },
+        {
+          "kind": "patent",
+          "title": "US 11,332,634 B2 — Composition for overcoat layer, preparation method for the same, overcoat layer material, display substrate and display device",
+          "url": "https://patents.google.com/patent/US11332634B2/en",
+          "publisher": "USPTO — Assignee: BOE Technology Group; Hefei Xinsheng Optoelectronics (CN 우선권 201710762111.4, 2017-08-30)",
+          "year": 2022,
+          "local_path": "/data/paper_patent_corpus/standards_appnotes/display/US11332634B2_BOE_overcoat_layer_composition.pdf",
+          "ocr_text_path": "/data/paper_patent_corpus/standards_appnotes/display/US11332634B2_OCR.txt",
+          "role": "소재 계열 확정 — 'OC material mainly consists of acrylic resin-epoxy resin as a basic skeleton component' · 'the most commonly used acrylic resin is polymethyl methacrylate'. 청구항 1 은 스티렌+(메타)아크릴레이트/에폭시 수지/디비닐벤젠 가교제. 경화 150~250 C(LCD CF 용)"
+        },
+        {
+          "kind": "patent",
+          "title": "US 10,822,449 B2 — Low temperature curing composition, cured film formed therefrom, and electronic device having cured film",
+          "url": "https://patents.google.com/patent/US10822449B2/en",
+          "publisher": "USPTO — Assignee: Samsung SDI Co., Ltd. (우선일 2015-08-31)",
+          "year": 2020,
+          "local_path": "/data/paper_patent_corpus/standards_appnotes/display/US10822449B2_SamsungSDI_low_temperature_curing_overcoat.pdf",
+          "ocr_text_path": "/data/paper_patent_corpus/standards_appnotes/display/US10822449B2_OCR.txt",
+          "role": "저온 경화 제약과 경도 요구 — 'the conventional olefin-based unsaturated compound has a curing temperature of 150 C. or greater and thus may not be cured at a low temperature of 100 C. or less and not applied to a flexible display-manufacturing process' · 'When the surface hardness is low, a haze phenomenon occurs after CVD'. 이 특허 자체는 에폭시-실록산 계열이라 아크릴 분기와 다른 대안이다"
+        },
+        {
+          "kind": "patent",
+          "title": "US 2014/0240645 A1 — Photosensitive resin composition, display device using the same and method of manufacturing the display device (평탄화막용 아크릴 공중합체 조성 예시)",
+          "url": "https://patents.google.com/patent/US20140240645A1/en",
+          "publisher": "USPTO — Applicant: Samsung Display Co., Ltd. (우선일 2013-02-27)",
+          "year": 2014,
+          "local_path": null,
+          "role": "평탄화막 아크릴 공중합체의 구체 조성 — 합성예 1 은 메타크릴산 30 / 스티렌 30 / 글리시딜메타크릴레이트 40 중량부. 프리베이크 100 C. 원문 전문은 Google Patents 렌더링으로만 확인했고 로컬 PDF 는 못 받았다"
+        },
+        {
+          "kind": "journal",
+          "title": "Chemical Vapour Deposition Graphene-PMMA Nanolaminates for Flexible Gas Barrier — Table 2 (PMMA O2 투과계수 실측)",
+          "doi": "10.3390/membranes12060611",
+          "publisher": "Membranes (MDPI)",
+          "year": 2022,
+          "role": "교차 대조 — PMMA 4.79e-17 mol/(m*s*Pa) = 0.1434 Barrer, 25 C. DB 재료 75·114 가 이미 쓰는 출처다"
+        },
+        {
+          "kind": "journal",
+          "title": "A Critical Review of the Time-Dependent Performance of Polymeric Pipeline Coatings — Table 3, Oxygen mass transport parameters (dry conditions) in epoxy polymeric structures",
+          "doi": "10.3390/polym13091517",
+          "publisher": "Polymers (MDPI)",
+          "year": 2021,
+          "role": "교차 대조 — Epon828/A2049 가교 에폭시-아민 25 C 4.7e-17 mol/(m*s*Pa) = 0.140 Barrer. DB 재료 437·438 의 출처다"
+        },
+        {
+          "kind": "other",
+          "title": "Effect of Network Structure Modifications on the Light Gas Transport Properties of Cross-linked Poly(ethylene oxide) Membranes (V. A. Kusuma, PhD dissertation, UT Austin, 2009)",
+          "url": "https://repositories.lib.utexas.edu/server/api/core/bitstreams/49adec55-6fe8-44ad-b33c-13004449f4bd/content",
+          "year": 2009,
+          "role": "상한값 출처(Table 8.2 BPAEDA4 0.9 Barrer)이자, 요청서가 말한 1.707e-15 의 계보 원점(Table 5.3/6.3 XLPEGDA-100 5.1 Barrer)이다"
+        }
+      ]
+    }
+  ]
+}

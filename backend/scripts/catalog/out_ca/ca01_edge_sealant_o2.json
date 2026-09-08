@@ -1,0 +1,202 @@
+{
+  "batch": "67차 CA",
+  "materials": [
+    {
+      "new_material": {
+        "name": "Display panel edge/frame sealant, epoxy-acrylate backbone perimeter seal (composition class — panel grade not identified)",
+        "category": "polymer",
+        "description": "LCD/OLED 패널 주변부를 두르는 프레임 실(메인 실)이다. 주수지는 부분 (메타)아크릴화 비스페놀A/F 에폭시(에폭시 아크릴레이트) 50~80 wt%, 미변성 에폭시 15~20 wt%, 실리카/알루미나 충전 — 67차 CA 가 무관한 특허 9건(Sharp·Hitachi·Mitsui·Sekisui·Nippon Kayaku·Kumho·ITRI·BOE·CSOT)의 수렴으로 확정했다. LCD ODF 는 UV+열 병용 경화, OLED 는 내열 80~120 C 라 열경화 에폭시가 완전경화를 못 해 UV 양이온 경화로 간다(Mitsui US7495035B2 가 이유를 인쇄한다). **모듈 레벨 사이드실링재와 다른 재료다** — 그쪽은 편광판·OCA 적층 바깥면에 디스펜서로 바르는 폴리이소부틸렌 골격 + 아크릴레이트 UV 경화계이고, 특허 3건이 두 실링재가 다르다고 명시한다. 산소가 실제로 들어오는 면은 모듈 사이드실 쪽이다(별도 카드). OLED/LCD 패널 외곽을 봉하는 실링재의 조성 계열 카드다. 산소확산 해석(oxygen_stack_2d)의 엣지 경계조건 h 를 실링재 물성으로 닫기 위해 세웠으며, 특정 제품이 아니라 공개 특허·벤더문서로 확인된 계열을 나타낸다. [LCD ODF 메인 실] 8개 기관 9건의 특허가 수렴한다 — 주수지는 아크릴산 변성(부분 (메타)아크릴화) 비스페놀A/F 에폭시, 즉 에폭시 (메타)아크릴레이트가 약 50~80 wt%, 미변성 에폭시수지 약 15~20 wt%, 잠재성 열경화제(디히드라지드 또는 이미다졸) 약 5~10 wt%, 실란커플링제 약 0.2~2 wt%, 무기충전재(실리카 또는 알루미나) 10~25 wt%. 경화는 UV 라디칼 경화 + 잠재 열경화의 병용이다. 전문 배합 실례 2건 — Sharp US10739647B2 'an acrylic resin (epoxy-modified) (EBECRYL3700 ... about 50 wt %), an epoxy resin (Epikote 806 ... about 20 wt %), a hydrazide-based curing agent (dihydrazide adipate ... about 10 wt %), ... a silane coupling agent (KBM-403 ... about 0.2 wt %), an organic filler, and an inorganic filler (ADMAFINE SO-C2) (the total amount ... is about 10 wt %)'; Hitachi Displays US7746428B2 '80 parts by weight of epoxy acrylate of a bisphenol F epoxy resin, 20 parts by weight of RE203 ... 10 parts by weight of isophtalic acid dihydrazido ... 13 parts by weight of alumina'. ITRI US8193258B2 배경이 업계 상태를 명시한다 — 'Currently, sealant materials used for the ODF process are mainly crystallized acrylic modified epoxy resin.' 같은 특허 배경이 이 실의 역할도 명시한다 — 'avoid water vapor and oxygen from permeating into the LCD panels.' [OLED 는 경화화학이 다르다] Mitsui US7495035B2 가 이유를 인쇄한다 — 'The organic EL element ... has low heat resistance, and its heat-resistant temperature is said to be in the range of about 80 to 120 C. Therefore, ... a thermosetting epoxy resin cannot be completely cured by heating.' 그래서 OLED 는 UV 양이온 경화 에폭시/옥세탄, 또는 dam-and-fil",
+        "attributes": {
+          "material_class": "epoxy-backbone perimeter seal. LCD ODF branch: partially (meth)acrylated bisphenol-A/F epoxy (epoxy acrylate) 50-80 wt% + unmodified epoxy 15-20 wt% + latent dihydrazide/imidazole thermal curing agent + silane + silica or alumina filler 10-25 wt%, dual UV radical + thermal cure. OLED branch: UV-cationic epoxy/oxetane, or dam-and-fill epoxy, or glass frit",
+          "subsystem": "display",
+          "process": "perimeter dispense (ODF main seal / dam), UV cure then thermal post-cure ~120 C",
+          "aliases": [
+            "엣지 실링재",
+            "frame seal",
+            "main seal",
+            "ODF sealant",
+            "perimeter sealant",
+            "dam",
+            "주변 실런트",
+            "edge seal",
+            "sealing member",
+            "epoxy acrylate sealant",
+            "acrylic modified epoxy sealant"
+          ],
+          "role": "product",
+          "role_reason": "경계조건 h 를 지배하는 패널 프레임 실 — 해석이 직접 읽는다.",
+          "role_confidence": "medium"
+        }
+      },
+      "source": {
+        "kind": "journal",
+        "title": "A Critical Review of the Time-Dependent Performance of Polymeric Pipeline Coatings: Focus on Hydration of Epoxy-Based Coatings — Table 3, Oxygen mass transport parameters (dry conditions) in epoxy polymeric structures from the literature data",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8125940/fullTextXML",
+        "doi": "10.3390/polym13091517",
+        "publisher": "MDPI (Polymers 2021, 13, 1517)",
+        "year": 2021,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/display/polym13091517_Polymers2021_epoxy_coatings_review.xml"
+      },
+      "properties": [
+        {
+          "key": "physical.gas_permeability_o2",
+          "value": 4.7e-17,
+          "unit": "mol/(m*s*Pa)",
+          "method": "measured",
+          "tier": 3,
+          "conditions": {
+            "species": "O2",
+            "temperature_c": 25,
+            "humidity_rh": 0,
+            "thickness_um": 150,
+            "test_method": "gas permeation, dry conditions (time-lag / continuous flux)",
+            "grade_scope": "class value — 원 시료는 Epon 828(DGEBA) + A2049 아민 경화, Tg 150 C, 두께 약 150 um 의 무충전 에폭시다. 이 카드가 나타내는 디스플레이 실링재는 (a) 아크릴레이트 변성 에폭시라 가교 구조가 다르고 (b) SiO2/talc 를 10~50부 충전하므로 실제 투과도는 이 값보다 낮다. 상한(보수측)으로만 써라 추가 경고 — 67차 CA 가 특허 9건으로 확인한 바, 실링재의 주수지는 '무충전 에폭시' 가 아니라 부분 (메타)아크릴화 비스페놀A/F 에폭시(에폭시 아크릴레이트) 50~80 wt% 이고 미변성 에폭시는 15~20 wt% 에 불과하다. 이 값은 에폭시 '주쇄' 계열값이지 실링재 네트워크의 값이 아니다."
+          },
+          "notes": "원문 verbatim — Table 3 'Oxygen mass transport parameters (dry conditions) in epoxy polymeric structures from the literature data', 행 'Epon828/A2049 | 25 | 150 | ~150 | 0.47 | 4.97 | 9.44 | [110]', 열 머리글 'Material | Test Temp. (°C) | Tg (°C) | l (µm) | P × 1016 (mol/m−s−Pa) | D × 1013 (m2/s) | S × 105 (mol/m3−Pa) | Ref.'. 환산 산술 — 논문 단위가 이미 SI 라 0.47 x 10^-16 = 4.7e-17 mol/(m*s*Pa), 환산 불필요. 검산 (1) 자기검산 P = D x S = 4.97e-13 x 9.44e-5 = 4.692e-17 로 인쇄된 P 와 0.2% 일치하여 열 배치가 확인된다. 검산 (2) Barrer 되돌리기 — 4.7e-17 / 3.3464e-16 = 0.140 Barrer 로 에폭시 문헌 범위 0.1~1 Barrer 안에 든다. tier 3 사유 — 두 겹이다. (i) 이 표는 리뷰가 인용한 2차 값이고 1차 출처는 Celina & Quintana, Polymer 2018;150:326-342 (doi 10.1016/j.polymer.2018.06.047) 이며 원표는 확인하지 못했다. (ii) 더 중요하게, 이 값은 디스플레이 실링재 제품의 값이 아니라 무충전 DGEBA 에폭시의 값을 계열 대표로 빌려온 것이다. 함정 경고 — 같은 논문 Table 2 에도 'Epon828/A2049' 행이 있는데 그건 수증기 표(65 C, RH 100/0, l 78 um, P x 10^13 = 2.6)다. 산소는 Table 3 에서만 읽어야 한다. 참고 — 카탈로그의 재료 437·438 이 이미 같은 표 같은 행을 쓴다. 교차검증이 아니라 같은 문헌값의 전파임을 알고 써라."
+        },
+        {
+          "key": "physical.gas_permeability_o2",
+          "value": 8e-17,
+          "unit": "mol/(m*s*Pa)",
+          "method": "measured",
+          "tier": 3,
+          "conditions": {
+            "species": "O2",
+            "temperature_c": 40,
+            "humidity_rh": 0,
+            "thickness_um": 150,
+            "test_method": "gas permeation, dry conditions (time-lag / continuous flux)",
+            "grade_scope": "class value — 원 시료는 Epon 828(DGEBA) + A2049 아민 경화, Tg 150 C, 무충전. 디스플레이 실링재는 아크릴레이트 변성 + 충전재 10~50부라 실제 투과도는 이보다 낮다. 상한으로만 써라 추가 경고 — 67차 CA 가 특허 9건으로 확인한 바, 실링재의 주수지는 '무충전 에폭시' 가 아니라 부분 (메타)아크릴화 비스페놀A/F 에폭시(에폭시 아크릴레이트) 50~80 wt% 이고 미변성 에폭시는 15~20 wt% 에 불과하다. 이 값은 에폭시 '주쇄' 계열값이지 실링재 네트워크의 값이 아니다."
+          },
+          "notes": "원문 verbatim — 같은 Table 3, Epon828/A2049 행의 40 C 줄 ' | 40 | 150 | ~150 | 0.80 | 10.1 | 7.63 | [110]'. 환산 산술 — 0.80 x 10^-16 = 8.0e-17 mol/(m*s*Pa), 논문 단위가 SI 라 환산 불필요. 검산 (1) P = D x S = 10.1e-13 x 7.63e-5 = 7.706e-17 로 인쇄값과 3.7% 이내. 검산 (2) 8.0e-17 / 3.3464e-16 = 0.239 Barrer 로 에폭시 범위 내. 25 C 대비 40 C 에서 1.70 배 — 15 K 상승에 1.7 배는 겉보기 활성화에너지 약 27 kJ/mol 로 유리상 에폭시로 타당하다. 신뢰성 시험 온도대(40~60 C)를 h 로 환산할 때 이 줄을 써라. tier 3 사유는 25 C 줄과 같다 — 2차 인용 + 제품 아닌 계열값."
+        },
+        {
+          "key": "physical.gas_permeability_o2",
+          "value": 4.32e-17,
+          "unit": "mol/(m*s*Pa)",
+          "method": "computed",
+          "tier": 3,
+          "conditions": {
+            "species": "O2",
+            "temperature_c": 30,
+            "humidity_rh": 0,
+            "thickness_um": 20,
+            "test_method": "computed as P = D x S from the same printed table row (gas transport of epoxy-amine network)",
+            "grade_scope": "class value — 원 시료는 DGEBA/DDM(비스페놀A 에폭시 + 4,4'-디아미노디페닐메탄 방향족 아민 경화), Tg 164 C, 두께 20 um 무충전 필름이다. 디스플레이 실링재는 이미다졸 열경화 + 아크릴레이트 병용이라 경화화학이 다르고 충전재도 있다. 경화제 계열이 달라도 같은 오더임을 보이는 용도로만 써라 추가 경고 — 67차 CA 가 특허 9건으로 확인한 바, 실링재의 주수지는 '무충전 에폭시' 가 아니라 부분 (메타)아크릴화 비스페놀A/F 에폭시(에폭시 아크릴레이트) 50~80 wt% 이고 미변성 에폭시는 15~20 wt% 에 불과하다. 이 값은 에폭시 '주쇄' 계열값이지 실링재 네트워크의 값이 아니다."
+          },
+          "notes": "원문 verbatim — 같은 Table 3 행 'DGEBA/DDM | 30 | 164 | 20 | - | 2.40 | 18.0 | [109]'. P 열은 '-' 로 비어 있고 D 와 S 만 인쇄되어 있다. 환산 산술 — 원문이 D 와 S 를 둘 다 인쇄했으므로 P = D x S = 2.40e-13 m^2/s x 18.0e-5 mol/(m^3*Pa) = 4.32e-17 mol/(m*s*Pa). 이것은 우리가 한 곱셈이므로 method 는 computed 다. 검산 — 4.32e-17 / 3.3464e-16 = 0.129 Barrer 로 같은 표의 Epon828/A2049 25 C 값 0.140 Barrer 와 8% 차이. 경화제가 지방족(A2049)에서 방향족(DDM)으로 바뀌고 Tg 가 150 -> 164 C 로 올라도 산소투과가 같은 오더에 머문다는 뜻이며, 이 계열의 P 가 경화화학에 둔감함을 보여준다. h 의 불확실도를 좁히는 근거다. 1차 출처 — Damian C., Espuche E., Escoubes M., 'Influence of three ageing types on the structure and gas transport properties of epoxy-amine networks', Polym. Degrad. Stab. 2001;72:447-458 (doi 10.1016/S0141-3910(01)00045-3). 원논문은 열지 못했고 리뷰의 인용표만 읽었다. 제외 기록 — 같은 행의 40 C 줄(D 2.80e-13, S 30.3e-5, P 계산시 8.484e-17 = 0.254 Barrer)은 넣지 않았다. 이유는 S 가 30 C 18.0 -> 40 C 30.3 으로 온도와 함께 올라가는데, 이는 같은 표 Epon828/A2049 계열(9.44 -> 7.63 -> 5.19 -> 4.82 로 하강)과 반대이고 물리흡착의 발열 부호와도 어긋난다. 인쇄값 자체가 의심스러워 등록을 보류했다."
+        },
+        {
+          "key": "physical.gas_permeability_o2",
+          "value": 3.344e-17,
+          "unit": "mol/(m*s*Pa)",
+          "method": "computed",
+          "tier": 3,
+          "conditions": {
+            "species": "O2",
+            "temperature_c": 30,
+            "humidity_rh": 0,
+            "thickness_um": 20,
+            "test_method": "computed as P = D x S from the same printed table row (gas transport of epoxy-amine network)",
+            "grade_scope": "class value — 원 시료는 DGEBA/PGE/DDM(비스페놀A 에폭시에 단관능 희석제 페닐글리시딜에테르를 넣어 가교밀도를 낮춘 것 + DDM 경화), Tg 117 C, 두께 20 um 무충전 필름이다. Tg 117 C 는 Sekisui Photolec S 표준 그레이드의 DMA Tg 95 C 에 이 표에서 가장 가까운 줄이라 실링재의 가교밀도대에 더 근접한다. 그래도 아크릴레이트 변성도 충전재도 없다 추가 경고 — 67차 CA 가 특허 9건으로 확인한 바, 실링재의 주수지는 '무충전 에폭시' 가 아니라 부분 (메타)아크릴화 비스페놀A/F 에폭시(에폭시 아크릴레이트) 50~80 wt% 이고 미변성 에폭시는 15~20 wt% 에 불과하다. 이 값은 에폭시 '주쇄' 계열값이지 실링재 네트워크의 값이 아니다."
+          },
+          "notes": "원문 verbatim — 같은 Table 3 행 'DGEBA/PGE/DDM | 30 | 117 | 20 | - | 1.60 | 20.9 | [109]'. P 열은 '-' 다. 환산 산술 — 원문이 D 와 S 를 둘 다 인쇄했으므로 P = 1.60e-13 x 20.9e-5 = 3.344e-17 mol/(m*s*Pa), method computed. 검산 — 3.344e-17 / 3.3464e-16 = 0.0999 Barrer. 에폭시 문헌 범위(0.1~1 Barrer) 하단에 딱 걸친다. 계열 밴드 — 이 표에서 읽히는 에폭시 O2 투과의 30 C 근방 밴드는 0.100 ~ 0.140 Barrer, 즉 3.34e-17 ~ 4.70e-17 mol/(m*s*Pa) 로 1.4 배 안이다. h 를 이 밴드로 계산하면 h 의 불확실도도 1.4 배 안이며, 이는 현재 역산값 h_edge = 1.0e-8 m/s 의 신뢰구간보다 훨씬 좁다. 주의 — PGE 로 희석해 Tg 를 164 -> 117 C 로 낮췄는데 D 가 2.40e-13 -> 1.60e-13 으로 오히려 내려간다. 유리상에서 Tg 가 내려가면 보통 D 가 오르므로 방향이 반대다. 원문(Damian 2001)을 열지 못해 이 역전이 실측인지 표 전사 오류인지 확인하지 못했다. 그래서 이 값을 밴드의 하한으로만 쓰고 단독 대표값으로 쓰지 마라."
+        },
+        {
+          "key": "physical.diffusion_coefficient",
+          "value": 2.4e-13,
+          "unit": "m^2/s",
+          "method": "measured",
+          "tier": 3,
+          "conditions": {
+            "species": "O2",
+            "temperature_c": 30,
+            "humidity_rh": 0,
+            "thickness_um": 20,
+            "test_method": "gas transport measurement on epoxy-amine network film, dry",
+            "grade_scope": "class value — DGEBA/DDM(방향족 아민 경화, Tg 164 C) 무충전 20 um 필름의 값이다. 디스플레이 실링재 제품의 실측이 아니다 추가 경고 — 67차 CA 가 특허 9건으로 확인한 바, 실링재의 주수지는 '무충전 에폭시' 가 아니라 부분 (메타)아크릴화 비스페놀A/F 에폭시(에폭시 아크릴레이트) 50~80 wt% 이고 미변성 에폭시는 15~20 wt% 에 불과하다. 이 값은 에폭시 '주쇄' 계열값이지 실링재 네트워크의 값이 아니다."
+          },
+          "notes": "원문 verbatim — Table 3 행 'DGEBA/DDM | 30 | 164 | 20 | - | 2.40 | 18.0 | [109]', 열 머리글 'D × 1013 (m2/s)' = 2.40 -> 2.40e-13 m^2/s. 환산 불필요(논문 단위가 SI). 검산 — 카탈로그가 가진 O2 확산계수 전량과 대조하면 PDMS 3.1e-9 · PMMA 2.49e-12 · PTFE 1.36e-12 · PET 2.7e-13 이고, 이 값 2.40e-13 은 PET 와 같은 자릿수로 유리상 고분자로서 타당하다. 이 D 와 짝인 S 를 곱한 P 를 같은 배치에서 computed 로 별도 등록했다. tier 3 사유 — 2차 인용(1차는 Damian 2001, 미열람) + 제품 아닌 계열값."
+        },
+        {
+          "key": "physical.gas_solubility",
+          "value": 0.00018,
+          "unit": "mol/(m^3*Pa)",
+          "method": "measured",
+          "tier": 3,
+          "conditions": {
+            "species": "O2",
+            "temperature_c": 30,
+            "humidity_rh": 0,
+            "thickness_um": 20,
+            "test_method": "gas transport measurement on epoxy-amine network film, dry",
+            "grade_scope": "class value — DGEBA/DDM(방향족 아민 경화, Tg 164 C) 무충전 20 um 필름의 값이다. 디스플레이 실링재 제품의 실측이 아니다 추가 경고 — 67차 CA 가 특허 9건으로 확인한 바, 실링재의 주수지는 '무충전 에폭시' 가 아니라 부분 (메타)아크릴화 비스페놀A/F 에폭시(에폭시 아크릴레이트) 50~80 wt% 이고 미변성 에폭시는 15~20 wt% 에 불과하다. 이 값은 에폭시 '주쇄' 계열값이지 실링재 네트워크의 값이 아니다."
+          },
+          "notes": "원문 verbatim — Table 3 행 'DGEBA/DDM | 30 | 164 | 20 | - | 2.40 | 18.0 | [109]', 열 머리글 'S × 105 (mol/m3−Pa)' = 18.0 -> 1.80e-4 mol/(m^3*Pa). 환산 불필요. 검산 — 같은 표 Epon828/A2049 의 25 C S 는 9.44e-5, 카탈로그 보유 S 범위는 4.8e-5 ~ 1.34e-4 (실리콘 9e-5 · 에폭시 4.8~9.4e-5 · 폴리이미드 1.06~1.34e-4) 이므로 1.80e-4 는 그 범위의 위쪽을 약간 넘는다. 방향족 아민 경화로 자유부피가 큰 유리상이라는 설명이 가능하지만 확인하지 못했다. 물성요청서 §10.4 가 'S 는 폴리머 간 산포가 좁다(3배 범위)' 고 적은 근거를 이 값이 약간 넓힌다 — 4.8e-5 ~ 1.8e-4 로 3.75배다. 계면 분배계수(I-5)를 쓸 때 이 점을 반영해라. tier 3 사유 — 2차 인용 + 계열값."
+        },
+        {
+          "key": "physical.diffusion_coefficient",
+          "value": 1.6e-13,
+          "unit": "m^2/s",
+          "method": "measured",
+          "tier": 3,
+          "conditions": {
+            "species": "O2",
+            "temperature_c": 30,
+            "humidity_rh": 0,
+            "thickness_um": 20,
+            "test_method": "gas transport measurement on epoxy-amine network film, dry",
+            "grade_scope": "class value — DGEBA/PGE/DDM(단관능 희석제 PGE 로 가교밀도를 낮춘 에폭시, Tg 117 C) 무충전 20 um 필름의 값이다. 디스플레이 실링재 제품의 실측이 아니다 추가 경고 — 67차 CA 가 특허 9건으로 확인한 바, 실링재의 주수지는 '무충전 에폭시' 가 아니라 부분 (메타)아크릴화 비스페놀A/F 에폭시(에폭시 아크릴레이트) 50~80 wt% 이고 미변성 에폭시는 15~20 wt% 에 불과하다. 이 값은 에폭시 '주쇄' 계열값이지 실링재 네트워크의 값이 아니다."
+          },
+          "notes": "원문 verbatim — Table 3 행 'DGEBA/PGE/DDM | 30 | 117 | 20 | - | 1.60 | 20.9 | [109]', 열 'D × 1013 (m2/s)' = 1.60 -> 1.60e-13 m^2/s. 환산 불필요. 검산 — PET 2.7e-13 과 같은 자릿수로 유리상 고분자로 타당. 이상 신호 — 같은 표에서 가교밀도가 더 높고 Tg 가 47 K 높은 DGEBA/DDM 의 D 가 2.40e-13 으로 이쪽보다 크다. 유리상에서는 보통 반대 방향이다. 원논문(Damian 2001)을 열지 못해 실측인지 전사 오류인지 가르지 못했다 — 이 D 를 단독으로 확산 모델에 넣지 말고 짝인 S 와 함께 P 로만 써라. tier 3 사유 — 2차 인용 + 계열값."
+        },
+        {
+          "key": "physical.gas_solubility",
+          "value": 0.000209,
+          "unit": "mol/(m^3*Pa)",
+          "method": "measured",
+          "tier": 3,
+          "conditions": {
+            "species": "O2",
+            "temperature_c": 30,
+            "humidity_rh": 0,
+            "thickness_um": 20,
+            "test_method": "gas transport measurement on epoxy-amine network film, dry",
+            "grade_scope": "class value — DGEBA/PGE/DDM(PGE 희석 에폭시, Tg 117 C) 무충전 20 um 필름의 값이다. 디스플레이 실링재 제품의 실측이 아니다 추가 경고 — 67차 CA 가 특허 9건으로 확인한 바, 실링재의 주수지는 '무충전 에폭시' 가 아니라 부분 (메타)아크릴화 비스페놀A/F 에폭시(에폭시 아크릴레이트) 50~80 wt% 이고 미변성 에폭시는 15~20 wt% 에 불과하다. 이 값은 에폭시 '주쇄' 계열값이지 실링재 네트워크의 값이 아니다."
+          },
+          "notes": "원문 verbatim — Table 3 행 'DGEBA/PGE/DDM | 30 | 117 | 20 | - | 1.60 | 20.9 | [109]', 열 'S × 105 (mol/m3−Pa)' = 20.9 -> 2.09e-4 mol/(m^3*Pa). 환산 불필요. 검산 — 카탈로그 보유 S 범위(4.8e-5 ~ 1.34e-4)의 위를 넘는 이 표 계열의 최댓값이다. 같은 표 안에서 S 는 9.44e-5(Epon828/A2049 25 C) ~ 2.09e-4 로 2.2 배 범위에 있어 §10.4 의 '산포가 좁다' 는 관찰 자체는 유지된다. tier 3 사유 — 2차 인용 + 계열값."
+        }
+      ]
+    },
+    {
+      "match_name": "Display panel edge/frame sealant, epoxy-acrylate backbone perimeter seal (composition class — panel grade not identified)",
+      "source": {
+        "kind": "journal",
+        "title": "Comparative Evaluation of Redox and Non-Redox Epoxy-Clay Coatings for Corrosion Resistance in ACQ Saline Media — Table 1 / Section 3.8 Gas Permeability Testing for Coatings",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12197049/fullTextXML",
+        "doi": "10.3390/polym17121684",
+        "publisher": "MDPI (Polymers 2025, 17, 1684)",
+        "year": 2025,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/display/Polymers2025_17_1684_PMC12197049_DGEBA-T403_epoxy_clay_O2permeability_fulltext.xml"
+      },
+      "properties": [
+        {
+          "key": "physical.gas_permeability_o2",
+          "value": 4.1157e-15,
+          "unit": "mol/(m*s*Pa)",
+          "method": "measured",
+          "tier": 3,
+          "conditions": {
+            "species": "O2",
+            "thickness_um": 150,
+            "test_method": "gas permeation on free-standing film, GTR10-GPA gas permeability analyzer (Yanagimoto Co. Ltd.)",
+            "temperature_c": null,
+            "humidity_rh": null,
+            "grade_scope": "class value — 원 시료는 무충전 DGEBA + T-403(Jeffamine 계 폴리에테르 삼관능 아민, Mw 440) 경화, 50 C 1 h -> 120 C 2 h -> 140 C 4 h 경화한 두께 약 150 um 자립막이다. 디스플레이 실링재의 주수지는 에폭시 아크릴레이트 50~80 wt% 이고 충전재가 10~25 wt% 들어가므로 이 값과 다르다. **이 값은 같은 카드의 다른 P 값들과 88 배 어긋난다 — notes 를 반드시 읽고 써라. 평균 내지 마라.** 원문이 시험 온도와 습도를 인쇄하지 않아 conditions 에 넣지 못했다"
+          },
+          "notes": "원문 verbatim — 본문 3.8 절 'The oxygen permeability of a 150 um-thick, neat epoxy free-standing film was approximately 12.299 barrer.' 및 Table 1 행 'Epoxy | 71.4 | 28.6 | - | - | 255.5 | 121.3 | 150 +/- 3 | 723 | 12.299' (마지막 열 머리글 'Oxygen Permeability (barrer)'). 측정법 원문 — 'Oxygen permeability measurements were carried out with a GTR10-GPA gas permeability analyzer (Yanagimoto Co. Ltd., Takaishi-shi, Osaka, Japan)' 이고 '(GPA) measurements were conducted on free-standing films of neat epoxy'. 즉 전기화학 측정이 아니라 자립막 기상투과 측정이다 (같은 Table 1 의 임피던스·Cu2+ 열만 NaCl/ACQ 침지 조건이고 투과도 열은 별도 자립막 측정이다 — 표 캡션에 낚이지 마라). 환산 산술 — 원문이 Barrer 로 직접 인쇄했으므로 12.299 x 3.3464e-16 = 4.1157e-15 mol/(m*s*Pa). 검산 및 **미해결 충돌** — 되돌리면 정확히 12.299 Barrer 다. 그런데 이 값은 같은 카드의 Polymers 2021 Table 3 계열값(0.100~0.239 Barrer)보다 **51~123 배 높다**. 둘 다 동료심사 저널의 무충전 DGEBA/아민 에폭시 자립막 값인데 두 자릿수가 어긋난다. 어느 쪽이 옳은지 이번 배치는 가르지 못했다. 참고 — 12.3 Barrer 는 폴리카보네이트(약 1.4 Barrer)보다 높고 폴리에틸렌 수준이라 유리상 가교 에폭시로는 통념에서 벗어난다. 반면 T-403 은 유연한 폴리에테르 아민이라 DDM/A2049 같은 강직한 아민보다 자유부피가 크고 Tg 가 낮아 투과도가 높은 방향인 것은 맞다. 다만 88 배는 경화제 차이로 설명되지 않는다. **쓰는 법 — 이 값을 상한, Polymers 2021 계열값을 하한으로 두고 h 를 밴드로 계산해라. 평균은 물리적 의미가 없다.** tier 3 사유 — 제품 실측이 아닌 계열값이고, 부식방식 논문의 부차 측정이며 시험 온도·습도가 인쇄되지 않았다."
+        }
+      ]
+    }
+  ]
+}

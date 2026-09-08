@@ -1,0 +1,93 @@
+{
+  "batch": "67차 CA",
+  "materials": [
+    {
+      "new_material": {
+        "name": "Sekisui Photolec S (Standard), UV+heat dual-cure display panel ODF main seal / frame sealant",
+        "category": "polymer",
+        "description": "세키스이화학 Photolec S 시리즈 표준 그레이드. LCD ODF(One Drop Filling) 공정의 메인 실(주변 프레임 실런트)로 판매되는 자외선+열 병용 경화형 접착제다. 벤더 페이지는 경화조건 UV 3000 mJ/cm2 + 120 C 60 min, DMA Tg 95 C, 점도 280,000 MPa.s (25 C, 1 rpm), Ti 1.15, 유리/유리 전단접착강도 >500 N/25 mm2, WVTR(60 C 90%RH) 34 g/m2 를 인쇄한다. 수지 계열(에폭시/아크릴레이트 비율)은 벤더가 공개하지 않는다. 산소 물성은 인쇄되지 않았다. 용도 확인 — Sharp US 11,168,254 B2 가 이 제품을 패널 주변 실(sealing member)로 직접 지목한다. 원문 verbatim 'The sealing member 40 may contain an epoxy resin or a (meth)acryl resin ... As the sealing member 40, for example, Photolec available from Sekisui Chemical Co., Ltd. may be used.' 즉 이 카드는 요청서가 말하는 엣지 실링재 그 자체의 상용 제품이다.",
+        "attributes": {
+          "material_class": "UV + thermal dual-cure display sealant, resin family not disclosed by vendor",
+          "subsystem": "display",
+          "process": "dispense main seal, ODF assembly, UV cure 3000 mJ/cm2 then 120 C / 60 min post-cure",
+          "aliases": [
+            "Photolec S",
+            "Photolec S Standard",
+            "포토렉 S",
+            "ODF sealant",
+            "LCD main seal",
+            "frame seal",
+            "sealing member"
+          ],
+          "role": "evidence",
+          "role_reason": "프레임 실 계열을 받치는 벤더 등급. 스마트폰 구조해석 대상 재료가 아니라 근거다.",
+          "role_confidence": "high"
+        }
+      },
+      "source": {
+        "kind": "datasheet",
+        "title": "SEKISUI CHEMICAL High Performance Plastics Company — UV curing adhesive Photolec S (Sealant for ODF), product property table",
+        "url": "https://www.sekisuichemical-hppc.com/en/products/detail/196/",
+        "publisher": "Sekisui Chemical Co., Ltd.",
+        "year": 2026
+      },
+      "properties": [
+        {
+          "key": "thermal.glass_transition",
+          "value": 368.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "test_method": "DMA",
+            "grade": "Standard"
+          },
+          "notes": "벤더 물성표 행 'Tg (DMA) ℃' 열 'Standard' = 95 (verbatim). 95 C + 273.15 = 368.15 K. DB 관례가 thermal.glass_transition 을 전량 K 로 저장하므로 K 로 환산했다. 검산 — 368.15 - 273.15 = 95.0 C 로 인쇄값 복원. 이 값이 중요한 이유는 물성요청서 §10.2 다 — 재료명이 아니라 Tg 대비 사용온도가 O2 확산의 지배 인자인데, 표준 그레이드는 사용온도(25~60 C)에서 유리상이다. 벤더는 이 제품의 산소 물성을 인쇄하지 않는다."
+        }
+      ]
+    },
+    {
+      "new_material": {
+        "name": "Sekisui Photolec S (Soft), UV+heat dual-cure display panel ODF main seal / frame sealant",
+        "category": "polymer",
+        "description": "세키스이화학 Photolec S 시리즈 소프트 그레이드. 같은 벤더 물성표의 'Soft' 열이다. 경화조건 UV 3000 mJ/cm2 + 120 C 60 min, DMA Tg 45 C, 점도 230,000 MPa.s (25 C, 1 rpm), Ti 1.37, 유리/유리 전단접착강도 >500 N/25 mm2, WVTR(60 C 90%RH) 71 g/m2. 표준 그레이드보다 Tg 가 50 C 낮고 WVTR 은 2.1 배 높다. 수지 계열은 비공개, 산소 물성은 미인쇄. 용도 확인 — Sharp US 11,168,254 B2 가 이 제품을 패널 주변 실(sealing member)로 직접 지목한다. 원문 verbatim 'The sealing member 40 may contain an epoxy resin or a (meth)acryl resin ... As the sealing member 40, for example, Photolec available from Sekisui Chemical Co., Ltd. may be used.' 즉 이 카드는 요청서가 말하는 엣지 실링재 그 자체의 상용 제품이다.",
+        "attributes": {
+          "material_class": "UV + thermal dual-cure display sealant, soft grade, resin family not disclosed by vendor",
+          "subsystem": "display",
+          "process": "dispense main seal, ODF assembly, UV cure 3000 mJ/cm2 then 120 C / 60 min post-cure",
+          "aliases": [
+            "Photolec S Soft",
+            "포토렉 S 소프트",
+            "ODF sealant soft grade",
+            "LCD main seal",
+            "sealing member"
+          ],
+          "role": "evidence",
+          "role_reason": "프레임 실 계열을 받치는 벤더 등급. 스마트폰 구조해석 대상 재료가 아니라 근거다.",
+          "role_confidence": "high"
+        }
+      },
+      "source": {
+        "kind": "datasheet",
+        "title": "SEKISUI CHEMICAL High Performance Plastics Company — UV curing adhesive Photolec S (Sealant for ODF), product property table",
+        "url": "https://www.sekisuichemical-hppc.com/en/products/detail/196/",
+        "publisher": "Sekisui Chemical Co., Ltd.",
+        "year": 2026
+      },
+      "properties": [
+        {
+          "key": "thermal.glass_transition",
+          "value": 318.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "test_method": "DMA",
+            "grade": "Soft"
+          },
+          "notes": "벤더 물성표 행 'Tg (DMA) ℃' 열 'Soft' = 45 (verbatim). 45 C + 273.15 = 318.15 K. 검산 — 318.15 - 273.15 = 45.0 C. 같은 표의 WVTR(60 C 90%RH) 이 Standard 34 -> Soft 71 g/m2 로 2.1 배 오르는 것과 Tg 가 95 -> 45 C 로 내려가는 것이 같은 방향이라 표 내부 정합성은 맞는다. 이 그레이드는 60 C 신뢰성 시험 온도에서 고무상이므로 산소 확산이 표준 그레이드보다 크게 높을 것으로 예상되나, 벤더는 산소를 인쇄하지 않았고 우리도 재지 않았다 — 그 예상은 값으로 넣지 않았다."
+        }
+      ]
+    }
+  ]
+}

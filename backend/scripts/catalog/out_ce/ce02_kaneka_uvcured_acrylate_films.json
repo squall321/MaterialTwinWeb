@@ -1,0 +1,121 @@
+{
+  "batch": "67차 CE",
+  "materials": [
+    {
+      "new_material": {
+        "name": "UV-cured IBOA 60 / TMPTA 10 / urethane acrylate CN986 30 wt% free-standing film, alpha-zirconium phosphate nanoplatelet 0 and 10 wt% (Kaneka / Texas A&M, US10259948 TABLE 2)",
+        "category": "polymer",
+        "description": "Kaneka/Texas A&M 가 US 10,259,948 B2 TABLE 2 에 실측을 인쇄한 **UV 경화 아크릴레이트 자립막**이다. 매트릭스는 이소보닐아크릴레이트(IBOA) 60 / 트리메틸올프로판 트리아크릴레이트(TMPTA) 10 / 우레탄아크릴레이트(SARTOMER CN986) 30 wt% 이고, 여기에 올리고머(JEFFAMINE M-1000)로 표면개질해 박리한 alpha-인산지르코늄(ZrP) 나노판상체를 0 wt%(Comparative Example 2) 또는 10 wt%(Example 3) 넣었다. PET 위에 바코팅해 30~50 um 로 경화한 뒤 벗겨낸 자립막을, JIS K 7126-1 로 산소투과도와 투과계수를 재서 둘 다 인쇄했다. 이 카드를 세운 이유 — 삼성디스플레이 US10928662B2 의 **모듈 사이드실링재**가 우레탄아크릴레이트 올리고머 45~60 중량부를 IBOA 25~40 중량부로 희석해 광경화하는 배합이라, 이 막이 그 갈래의 산소투과를 문서로 잡을 수 있는 가장 가까운 실측이다. 또 하나 — 같은 표가 **무기 충전 유무만 바꾼 짝**을 갖고 있어, 실링재의 충전·게터가 투과에 얼마나 영향을 주는지를 추정이 아니라 실측으로 말할 수 있다.",
+        "attributes": {
+          "role": "evidence",
+          "role_reason": "특허 TABLE 2 의 자립막 시편. 충전 효과와 계열 오더를 받치는 근거다.",
+          "role_confidence": "high"
+        }
+      },
+      "source": {
+        "kind": "patent",
+        "title": "US 10,259,948 B2 — Coating compositions and coating products made therefrom (Kaneka Corporation / The Texas A&M University System), TABLE 2 — oxygen permeability coefficient of UV-cured free-standing acrylate films",
+        "url": "https://www.freepatentsonline.com/10259948.html",
+        "publisher": "United States Patent and Trademark Office",
+        "year": 2019,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/display/pat_US10259948_Kaneka_uvcured_acrylate_OTR.txt"
+      },
+      "properties": [
+        {
+          "key": "physical.gas_permeability_o2",
+          "value": 2.4e-16,
+          "unit": "mol/(m*s*Pa)",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "species": "O2",
+            "temperature_c": null,
+            "humidity_rh": null,
+            "filler_zrp_wt_pct": 0,
+            "thickness_um": null,
+            "test_standard": "JIS K 7126-1 (BT-3 Gas Transmission Rate Tester, Toyoseiki Seisaku-sho)",
+            "cure": "UV, 1000 mJ/cm2, 120 W/cm metal halide, free-standing film peeled from PET",
+            "printed_as": "2.4 x 10^-16 mol*m/m2/s/Pa"
+          },
+          "notes": "본문 verbatim (Comparative Example 2): 'The free-standing film had a total light transmittance of 92.0%, a haze of 1.0% and oxygen transmission rate of 6.7*10-12 mol*Pa-1*m-2*s-1 and **permeability coefficient for oxygen of 2.4*10-16 mol*m*Pa-1*m-2*s-1**.' TABLE 2 행 — 'Comparative Example 2 | IBOA 60 | TMPTA 10 | CN986 30 | 0 | 92 | 1.0 | 6.7 x 10-12 | 2.4 x 10-16'. 검산 1 (Barrer 되돌림): 2.4e-16 / 3.3464e-16 = 0.7172 Barrer. 검산 2 (두께 자기검산): 인쇄된 투과계수 / 인쇄된 투과도 = 2.4e-16 / 6.7e-12 = 35.8 um 로 원문의 'about 30 to 50 micrometers' 안에 들어온다. 출처 — US 10,259,948 B2 (Kaneka / Texas A&M), TABLE 2 'Composition of matrix polymer (wt. %) | Content of zirconium phosphate (wt %) | Total light transmittance (%) | Haze (%) | Oxygen transmission rate (mol/m2/s/Pa) | Oxygen permeability coefficient (mol*m/m2/s/Pa)'. 제법 verbatim — 'This coating composition was cast on a polyethylene terephthalate film ... so as to allow the film after curing to have a uniform thickness of about 30 to 50 micrometers. ... exposed to UV lamp (ECS-301, EYE GRAPHICS CO., LTD.) to cure the coating composition under an accumulated light quantity of 1000 mJ/cm2 using a 120 W/cm metal halide lamp. After cured, the resulted coating product was peeled off from the PET film, thereby providing a free-standing film.' 측정법 verbatim — 'Oxygen transmission rate was measured by using BT-3 Gas Transmisstion Rate Tester (Toyoseiki Seisaku-sho, Ltd.), in conformity with JIS K 7126-1.' **환산이 필요 없다** — 원문 단위 mol*m/m2/s/Pa 는 mol/(m*s*Pa) 와 같다. **시험 온도·습도는 원문이 인쇄하지 않아 conditions 에 넣지 않았다.** 같은 특허 FIG. 5A 의 '23 degC, 50 RH %' 는 별개 실험(스프레이 코팅 epoxy/ZrP)의 조건이라 옮기지 않았다."
+        },
+        {
+          "key": "physical.gas_permeability_o2",
+          "value": 2.7e-17,
+          "unit": "mol/(m*s*Pa)",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "species": "O2",
+            "temperature_c": null,
+            "humidity_rh": null,
+            "filler_zrp_wt_pct": 10,
+            "thickness_um": null,
+            "test_standard": "JIS K 7126-1 (BT-3 Gas Transmission Rate Tester, Toyoseiki Seisaku-sho)",
+            "cure": "UV, 1000 mJ/cm2, 120 W/cm metal halide, free-standing film peeled from PET",
+            "printed_as": "2.7 x 10^-17 mol*m/m2/s/Pa"
+          },
+          "notes": "TABLE 2 행 verbatim — 'Example 3 | IBOA 60 | TMPTA 10 | CN986 30 | 10 | 92 | 4.3 | 7.8 x 10-13 | 2.7 x 10-17'. 검산 1 (Barrer 되돌림): 2.7e-17 / 3.3464e-16 = 0.0807 Barrer. 검산 2 (두께 자기검산): 인쇄된 투과계수 / 인쇄된 투과도 = 2.7e-17 / 7.8e-13 = 34.6 um 로 원문의 'about 30 to 50 micrometers' 안에 들어온다. **충전 효과의 실측 근거다** — 매트릭스가 같고 ZrP 만 0 -> 10 wt% 로 바뀌었는데 투과계수가 2.4e-16 -> 2.7e-17 로 **8.9 배** 낮아진다. 출처 — US 10,259,948 B2 (Kaneka / Texas A&M), TABLE 2 'Composition of matrix polymer (wt. %) | Content of zirconium phosphate (wt %) | Total light transmittance (%) | Haze (%) | Oxygen transmission rate (mol/m2/s/Pa) | Oxygen permeability coefficient (mol*m/m2/s/Pa)'. 제법 verbatim — 'This coating composition was cast on a polyethylene terephthalate film ... so as to allow the film after curing to have a uniform thickness of about 30 to 50 micrometers. ... exposed to UV lamp (ECS-301, EYE GRAPHICS CO., LTD.) to cure the coating composition under an accumulated light quantity of 1000 mJ/cm2 using a 120 W/cm metal halide lamp. After cured, the resulted coating product was peeled off from the PET film, thereby providing a free-standing film.' 측정법 verbatim — 'Oxygen transmission rate was measured by using BT-3 Gas Transmisstion Rate Tester (Toyoseiki Seisaku-sho, Ltd.), in conformity with JIS K 7126-1.' **환산이 필요 없다** — 원문 단위 mol*m/m2/s/Pa 는 mol/(m*s*Pa) 와 같다. **시험 온도·습도는 원문이 인쇄하지 않아 conditions 에 넣지 않았다.** 같은 특허 FIG. 5A 의 '23 degC, 50 RH %' 는 별개 실험(스프레이 코팅 epoxy/ZrP)의 조건이라 옮기지 않았다."
+        }
+      ]
+    },
+    {
+      "new_material": {
+        "name": "UV-cured IBOA 45 / EO3TMPTA 25 / epoxy acrylate CN120 30 wt% free-standing film, alpha-zirconium phosphate nanoplatelet 0 and 10 wt% (Kaneka / Texas A&M, US10259948 TABLE 2)",
+        "category": "polymer",
+        "description": "위 카드와 같은 표·같은 제법의 **UV 경화 에폭시아크릴레이트 자립막**이다. 매트릭스는 IBOA 45 / 에톡실화 TMPTA(EO3TMPTA) 25 / 에폭시아크릴레이트(SARTOMER CN120) 30 wt%, ZrP 0 wt%(Comparative Example 1) 또는 10 wt%(Example 2). 이 카드를 세운 이유 — 67차 CA 가 확정한 **패널 프레임 실의 주수지가 에폭시 아크릴레이트**인데, CA 는 그 계열의 산소투과 실측을 하나도 넣지 못했다(유일한 오픈액세스 후보였던 ACS Omega 2025 는 OTR 열 배정이 원문 안에서 어긋나 폐기했다 — out_ca/ca00_report.md §3.2). 이 표는 UV 경화 에폭시아크릴레이트 자립막의 투과계수를 두께 자기검산까지 통과하는 형태로 인쇄한다.",
+        "attributes": {
+          "role": "evidence",
+          "role_reason": "특허 TABLE 2 의 자립막 시편. 충전 효과와 계열 오더를 받치는 근거다.",
+          "role_confidence": "high"
+        }
+      },
+      "source": {
+        "kind": "patent",
+        "title": "US 10,259,948 B2 — Coating compositions and coating products made therefrom (Kaneka Corporation / The Texas A&M University System), TABLE 2 — oxygen permeability coefficient of UV-cured free-standing acrylate films",
+        "url": "https://www.freepatentsonline.com/10259948.html",
+        "publisher": "United States Patent and Trademark Office",
+        "year": 2019,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/display/pat_US10259948_Kaneka_uvcured_acrylate_OTR.txt"
+      },
+      "properties": [
+        {
+          "key": "physical.gas_permeability_o2",
+          "value": 7.1e-17,
+          "unit": "mol/(m*s*Pa)",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "species": "O2",
+            "temperature_c": null,
+            "humidity_rh": null,
+            "filler_zrp_wt_pct": 0,
+            "thickness_um": null,
+            "test_standard": "JIS K 7126-1 (BT-3 Gas Transmission Rate Tester, Toyoseiki Seisaku-sho)",
+            "cure": "UV, 1000 mJ/cm2, 120 W/cm metal halide, free-standing film peeled from PET",
+            "printed_as": "7.1 x 10^-17 mol*m/m2/s/Pa"
+          },
+          "notes": "TABLE 2 행 verbatim — 'Comparative Example 1 | IBOA 45 | EO3TMPTA 25 | CN120 30 | 0 | 91.3 | 0.8 | 1.7 x 10-12 | 7.1 x 10-17'. 검산 1 (Barrer 되돌림): 7.1e-17 / 3.3464e-16 = 0.2122 Barrer. 검산 2 (두께 자기검산): 인쇄된 투과계수 / 인쇄된 투과도 = 7.1e-17 / 1.7e-12 = 41.8 um 로 원문의 'about 30 to 50 micrometers' 안에 들어온다. 참고 — 67차 CA 가 등록한 에폭시 계열 밴드는 0.100 ~ 12.299 Barrer 였다. 이 무충전 UV 경화 에폭시아크릴레이트의 0.2122 Barrer 는 그 밴드의 **아래쪽**에 들어온다. 출처 — US 10,259,948 B2 (Kaneka / Texas A&M), TABLE 2 'Composition of matrix polymer (wt. %) | Content of zirconium phosphate (wt %) | Total light transmittance (%) | Haze (%) | Oxygen transmission rate (mol/m2/s/Pa) | Oxygen permeability coefficient (mol*m/m2/s/Pa)'. 제법 verbatim — 'This coating composition was cast on a polyethylene terephthalate film ... so as to allow the film after curing to have a uniform thickness of about 30 to 50 micrometers. ... exposed to UV lamp (ECS-301, EYE GRAPHICS CO., LTD.) to cure the coating composition under an accumulated light quantity of 1000 mJ/cm2 using a 120 W/cm metal halide lamp. After cured, the resulted coating product was peeled off from the PET film, thereby providing a free-standing film.' 측정법 verbatim — 'Oxygen transmission rate was measured by using BT-3 Gas Transmisstion Rate Tester (Toyoseiki Seisaku-sho, Ltd.), in conformity with JIS K 7126-1.' **환산이 필요 없다** — 원문 단위 mol*m/m2/s/Pa 는 mol/(m*s*Pa) 와 같다. **시험 온도·습도는 원문이 인쇄하지 않아 conditions 에 넣지 않았다.** 같은 특허 FIG. 5A 의 '23 degC, 50 RH %' 는 별개 실험(스프레이 코팅 epoxy/ZrP)의 조건이라 옮기지 않았다."
+        },
+        {
+          "key": "physical.gas_permeability_o2",
+          "value": 3.6e-18,
+          "unit": "mol/(m*s*Pa)",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "species": "O2",
+            "temperature_c": null,
+            "humidity_rh": null,
+            "filler_zrp_wt_pct": 10,
+            "thickness_um": null,
+            "test_standard": "JIS K 7126-1 (BT-3 Gas Transmission Rate Tester, Toyoseiki Seisaku-sho)",
+            "cure": "UV, 1000 mJ/cm2, 120 W/cm metal halide, free-standing film peeled from PET",
+            "printed_as": "3.6 x 10^-18 mol*m/m2/s/Pa"
+          },
+          "notes": "TABLE 2 행 verbatim — 'Example 2 | IBOA 45 | EO3TMPTA 25 | CN120 30 | 10 | 91.5 | 2.3 | 8.1 x 10-14 | 3.6 x 10-18'. 검산 1 (Barrer 되돌림): 3.6e-18 / 3.3464e-16 = 0.0108 Barrer. 검산 2 (두께 자기검산): 인쇄된 투과계수 / 인쇄된 투과도 = 3.6e-18 / 8.1e-14 = 44.4 um 로 원문의 'about 30 to 50 micrometers' 안에 들어온다. **충전 효과의 실측 근거다** — 매트릭스가 같고 ZrP 만 0 -> 10 wt% 로 바뀌었는데 투과계수가 7.1e-17 -> 3.6e-18 로 **19.7 배** 낮아진다. 출처 — US 10,259,948 B2 (Kaneka / Texas A&M), TABLE 2 'Composition of matrix polymer (wt. %) | Content of zirconium phosphate (wt %) | Total light transmittance (%) | Haze (%) | Oxygen transmission rate (mol/m2/s/Pa) | Oxygen permeability coefficient (mol*m/m2/s/Pa)'. 제법 verbatim — 'This coating composition was cast on a polyethylene terephthalate film ... so as to allow the film after curing to have a uniform thickness of about 30 to 50 micrometers. ... exposed to UV lamp (ECS-301, EYE GRAPHICS CO., LTD.) to cure the coating composition under an accumulated light quantity of 1000 mJ/cm2 using a 120 W/cm metal halide lamp. After cured, the resulted coating product was peeled off from the PET film, thereby providing a free-standing film.' 측정법 verbatim — 'Oxygen transmission rate was measured by using BT-3 Gas Transmisstion Rate Tester (Toyoseiki Seisaku-sho, Ltd.), in conformity with JIS K 7126-1.' **환산이 필요 없다** — 원문 단위 mol*m/m2/s/Pa 는 mol/(m*s*Pa) 와 같다. **시험 온도·습도는 원문이 인쇄하지 않아 conditions 에 넣지 않았다.** 같은 특허 FIG. 5A 의 '23 degC, 50 RH %' 는 별개 실험(스프레이 코팅 epoxy/ZrP)의 조건이라 옮기지 않았다."
+        }
+      ]
+    }
+  ]
+}

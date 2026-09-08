@@ -1,0 +1,425 @@
+{
+ "batch": "67차 CD",
+ "materials": [
+  {
+   "match_name": "OCA Rigid Standard (3M 8171)",
+   "source": {
+    "kind": "other",
+    "title": "Physical Properties of Poly (n-alkyl acrylate) Copolymers (K. A. O'Leary, PhD dissertation, The University of Texas at Austin, 2005; supervisor D. R. Paul)",
+    "url": "https://repositories.lib.utexas.edu/server/api/core/bitstreams/b50f3cf2-2ce3-4e44-aba8-a120bd4e0003/content",
+    "publisher": "The University of Texas at Austin",
+    "year": 2005,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/display/cd_oleary_2005_poly_n_alkyl_acrylate_thesis.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.activation_energy",
+     "value": 28451.0,
+     "unit": "J/mol",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "species": "O2",
+      "process": "O2 permeation",
+      "state": "amorphous (Ea)",
+      "test_method": "composite-membrane permeation on a PPO support, 2 atm upstream, six gases; Ea = Arrhenius slope of P(T) printed by the author",
+      "grade_scope": "class value — poly(n-hexyl acrylate)(PA 6) 균질중합체의 Arrhenius 활성화에너지다. 이 제품 등급을 잰 값이 아니다. 이 재료가 이미 쓰는 투과율 1.1813e-14 와 **같은 표 · 같은 행**에서 왔으므로 계보가 하나로 붙는다 — 다섯 출처의 교차검증이 아니라 한 문헌값의 전파다. 아크릴 OCA/PSA 는 2-EHA/BA/AA 공중합에 가교가 들어가므로 실제 Ea 는 이보다 클 가능성이 있다(가교가 늘면 확산 활성화에너지가 커진다). 같은 계열이 비정질 구간에서 PA 6(C6) 6.8 / PA 10(C10) 7.4 kcal/mol 로 곁사슬 길이에 둔감한 점이 이 대체의 근거이고, 그 둔감성은 투과율(35.3 / 31.1 Barrer)의 둔감성과 같은 방향이다. 실제 사용 grade 의 온도의존 실측이 오면 이 값을 대체해야 한다."
+     },
+     "notes": "Table 7.1 'Activation Energy and Permeability Data Extrapolated to 35ºC for Various Gases Through Poly (n-alkyl acrylate) Homopolymers' 의 PA 6 블록 Ea 행 verbatim: '6.5  6.7  6.8  8.0  6.8  6.5', 열 머리글 'He  H2  O2  N2  CH4  CO2' 이므로 O2 는 3번째 = 6.8 kcal/mol. 단위 각주 원문: 'Note that the activation energies Ea and Ec have units of kcal/mol while the permeability coefficients P35+ and P35- have units of Barrers'. 환산 6.8 kcal/mol x 4184 J/kcal = 28451.2 J/mol. 카탈로그의 뿌리 재료 480 'Poly(hexyl acrylate) (PA 6 ...)' 가 같은 칸을 이미 28451 J/mol 로 갖고 있어 그 자리에 맞춘다(중복 아님, 계열값 이식). 환산 검산 — 같은 표 PA 10 의 O2 Ea 7.4 kcal/mol x 4184 = 30961.6 J/mol 이고 DB 재료 481 이 30962 J/mol 을 갖고 있다. 같은 인자로 두 행이 맞으므로 kcal->J 인자 4184 가 이 표에 대한 카탈로그 관례임이 확인된다. [Ea 가 서술하는 것] 본문 원문: 'The quantities Ea and Ec are the activation energies for permeation in the amorphous and semi-crystalline states, respectively'. PA 6 은 Table 7.1 에서 Ec / P35- / P35+/P35- 칸이 모두 비어 있어 상온에서 결정상이 없다 — 그래서 Ea 하나가 전 온도구간을 기술한다. [측정법 원문] 'A layer of known thickness of the poly (n-alkyl acrylate) polymer was added on top of the PPO support. The permeance of the composite was measured as a function of temperature above and below the Tm of the acrylate sample.' / 'The gases used, He, H2, O2, N2, CH4, and CO2, were purchased from Matheson Tri Gas with at least 99.9% purity and were run at a 2 atm upstream pressure for all temperatures.' 즉 Ea 는 저자가 잰 P(T) 를 Arrhenius 좌표에서 기울기로 뽑은 값이지(Figure 7.2), 35 °C 투과율처럼 외삽으로 만든 숫자가 아니다. 그래서 같은 표에서 왔어도 P35+ 와 달리 value_basis 에 '외삽' 이 붙지 않는다. [왜 이 칸을 여는가] 이 재료는 같은 표 같은 PA 6 행에서 온 투과율 1.1813e-14 mol/(m*s*Pa) @35 °C 를 이미 갖고 있는데 온도의존성이 없어 35 °C 한 점에 묶여 있었다. 요청서 PDE/oxygen-diffusion/물성요청_산소확산_원자재6종.md §2 가 '측정 온도 — 아크릴계는 10 °C 차이로 배 가까이 움직인다' 로 온도 조건을 필수로 걸었다. 이 Ea 가 그 축을 연다. 다만 **이 Ea 로 다른 온도의 투과율을 만들어 카탈로그에 넣지 않았다** — 그것은 역산이다. 참고로 이 Ea 를 쓰면 25→35 °C 비가 exp(-28451/8.314 x (1/308.15 - 1/298.15)) = 1.45 배다. 요청서가 적은 '배 가까이'보다 완만하다 — 이 1.45 는 저장하지 않는 해설값이다. [벤더 확인 — 67차 CD] 이 재료가 이미 인용하는 벤더 시트를 포함해 OCA/PSA 접착제 벤더 문서 31장(내려받은 38개 중 바이트 동일 중복 7개 제외)을 내려받아 열고 oxygen / OTR / O2 / permeab / permeance / barrer / transmission rate 로 걸었다. **등급 실측은 0건이다.** 3M OCA 8211-8215 · 8171/8172 · 817X · 818X · 8173KCL · 8146-x · 8141/8142/8161/9483 · ACO 01N · 467MP · 468MP · CEF35XX · 폴더블 OLED OCA 백서 · Nitto No.5000NS(유통사 사본) · Nitto Mounting Tapes 2025 · tesa 88006 · tesa 88008 · Adhesives Research ARclear 6장 · 3M LOCA 1088 · LOCTITE AA 3311 이 그 목록이고, 이 서식들은 박리력 · 전단유지력 · 굴절률 · 헤이즈 · 광투과율 · 색좌표만 찍는다. 같은 3M 아크릴 계열 중 **VHB Tapes TDS(2018) 만이 가스 행을 하나 갖는데 그것도 산소가 아니라 'Water Vapor Transmission Rate  25.6  37.1  g/m2*day  ASTM F1249 at 38°C/100% RH' 다.** 즉 3M 은 아크릴 접착제의 가스 수송을 재긴 재되 공개하는 것은 WVTR 뿐이고 OTR 은 어느 시트에도 없다."
+    }
+   ]
+  },
+  {
+   "match_name": "OCA Rigid High Bond",
+   "source": {
+    "kind": "other",
+    "title": "Physical Properties of Poly (n-alkyl acrylate) Copolymers (K. A. O'Leary, PhD dissertation, The University of Texas at Austin, 2005; supervisor D. R. Paul)",
+    "url": "https://repositories.lib.utexas.edu/server/api/core/bitstreams/b50f3cf2-2ce3-4e44-aba8-a120bd4e0003/content",
+    "publisher": "The University of Texas at Austin",
+    "year": 2005,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/display/cd_oleary_2005_poly_n_alkyl_acrylate_thesis.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.activation_energy",
+     "value": 28451.0,
+     "unit": "J/mol",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "species": "O2",
+      "process": "O2 permeation",
+      "state": "amorphous (Ea)",
+      "test_method": "composite-membrane permeation on a PPO support, 2 atm upstream, six gases; Ea = Arrhenius slope of P(T) printed by the author",
+      "grade_scope": "class value — poly(n-hexyl acrylate)(PA 6) 균질중합체의 Arrhenius 활성화에너지다. 이 제품 등급을 잰 값이 아니다. 이 재료가 이미 쓰는 투과율 1.1813e-14 와 **같은 표 · 같은 행**에서 왔으므로 계보가 하나로 붙는다 — 다섯 출처의 교차검증이 아니라 한 문헌값의 전파다. 아크릴 OCA/PSA 는 2-EHA/BA/AA 공중합에 가교가 들어가므로 실제 Ea 는 이보다 클 가능성이 있다(가교가 늘면 확산 활성화에너지가 커진다). 같은 계열이 비정질 구간에서 PA 6(C6) 6.8 / PA 10(C10) 7.4 kcal/mol 로 곁사슬 길이에 둔감한 점이 이 대체의 근거이고, 그 둔감성은 투과율(35.3 / 31.1 Barrer)의 둔감성과 같은 방향이다. 실제 사용 grade 의 온도의존 실측이 오면 이 값을 대체해야 한다."
+     },
+     "notes": "Table 7.1 'Activation Energy and Permeability Data Extrapolated to 35ºC for Various Gases Through Poly (n-alkyl acrylate) Homopolymers' 의 PA 6 블록 Ea 행 verbatim: '6.5  6.7  6.8  8.0  6.8  6.5', 열 머리글 'He  H2  O2  N2  CH4  CO2' 이므로 O2 는 3번째 = 6.8 kcal/mol. 단위 각주 원문: 'Note that the activation energies Ea and Ec have units of kcal/mol while the permeability coefficients P35+ and P35- have units of Barrers'. 환산 6.8 kcal/mol x 4184 J/kcal = 28451.2 J/mol. 카탈로그의 뿌리 재료 480 'Poly(hexyl acrylate) (PA 6 ...)' 가 같은 칸을 이미 28451 J/mol 로 갖고 있어 그 자리에 맞춘다(중복 아님, 계열값 이식). 환산 검산 — 같은 표 PA 10 의 O2 Ea 7.4 kcal/mol x 4184 = 30961.6 J/mol 이고 DB 재료 481 이 30962 J/mol 을 갖고 있다. 같은 인자로 두 행이 맞으므로 kcal->J 인자 4184 가 이 표에 대한 카탈로그 관례임이 확인된다. [Ea 가 서술하는 것] 본문 원문: 'The quantities Ea and Ec are the activation energies for permeation in the amorphous and semi-crystalline states, respectively'. PA 6 은 Table 7.1 에서 Ec / P35- / P35+/P35- 칸이 모두 비어 있어 상온에서 결정상이 없다 — 그래서 Ea 하나가 전 온도구간을 기술한다. [측정법 원문] 'A layer of known thickness of the poly (n-alkyl acrylate) polymer was added on top of the PPO support. The permeance of the composite was measured as a function of temperature above and below the Tm of the acrylate sample.' / 'The gases used, He, H2, O2, N2, CH4, and CO2, were purchased from Matheson Tri Gas with at least 99.9% purity and were run at a 2 atm upstream pressure for all temperatures.' 즉 Ea 는 저자가 잰 P(T) 를 Arrhenius 좌표에서 기울기로 뽑은 값이지(Figure 7.2), 35 °C 투과율처럼 외삽으로 만든 숫자가 아니다. 그래서 같은 표에서 왔어도 P35+ 와 달리 value_basis 에 '외삽' 이 붙지 않는다. [왜 이 칸을 여는가] 이 재료는 같은 표 같은 PA 6 행에서 온 투과율 1.1813e-14 mol/(m*s*Pa) @35 °C 를 이미 갖고 있는데 온도의존성이 없어 35 °C 한 점에 묶여 있었다. 요청서 PDE/oxygen-diffusion/물성요청_산소확산_원자재6종.md §2 가 '측정 온도 — 아크릴계는 10 °C 차이로 배 가까이 움직인다' 로 온도 조건을 필수로 걸었다. 이 Ea 가 그 축을 연다. 다만 **이 Ea 로 다른 온도의 투과율을 만들어 카탈로그에 넣지 않았다** — 그것은 역산이다. 참고로 이 Ea 를 쓰면 25→35 °C 비가 exp(-28451/8.314 x (1/308.15 - 1/298.15)) = 1.45 배다. 요청서가 적은 '배 가까이'보다 완만하다 — 이 1.45 는 저장하지 않는 해설값이다. [벤더 확인 — 67차 CD] 이 재료가 이미 인용하는 벤더 시트를 포함해 OCA/PSA 접착제 벤더 문서 31장(내려받은 38개 중 바이트 동일 중복 7개 제외)을 내려받아 열고 oxygen / OTR / O2 / permeab / permeance / barrer / transmission rate 로 걸었다. **등급 실측은 0건이다.** 3M OCA 8211-8215 · 8171/8172 · 817X · 818X · 8173KCL · 8146-x · 8141/8142/8161/9483 · ACO 01N · 467MP · 468MP · CEF35XX · 폴더블 OLED OCA 백서 · Nitto No.5000NS(유통사 사본) · Nitto Mounting Tapes 2025 · tesa 88006 · tesa 88008 · Adhesives Research ARclear 6장 · 3M LOCA 1088 · LOCTITE AA 3311 이 그 목록이고, 이 서식들은 박리력 · 전단유지력 · 굴절률 · 헤이즈 · 광투과율 · 색좌표만 찍는다. 같은 3M 아크릴 계열 중 **VHB Tapes TDS(2018) 만이 가스 행을 하나 갖는데 그것도 산소가 아니라 'Water Vapor Transmission Rate  25.6  37.1  g/m2*day  ASTM F1249 at 38°C/100% RH' 다.** 즉 3M 은 아크릴 접착제의 가스 수송을 재긴 재되 공개하는 것은 WVTR 뿐이고 OTR 은 어느 시트에도 없다."
+    }
+   ]
+  },
+  {
+   "match_name": "OCA Foldable (Tg<-30C)",
+   "source": {
+    "kind": "other",
+    "title": "Physical Properties of Poly (n-alkyl acrylate) Copolymers (K. A. O'Leary, PhD dissertation, The University of Texas at Austin, 2005; supervisor D. R. Paul)",
+    "url": "https://repositories.lib.utexas.edu/server/api/core/bitstreams/b50f3cf2-2ce3-4e44-aba8-a120bd4e0003/content",
+    "publisher": "The University of Texas at Austin",
+    "year": 2005,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/display/cd_oleary_2005_poly_n_alkyl_acrylate_thesis.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.activation_energy",
+     "value": 28451.0,
+     "unit": "J/mol",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "species": "O2",
+      "process": "O2 permeation",
+      "state": "amorphous (Ea)",
+      "test_method": "composite-membrane permeation on a PPO support, 2 atm upstream, six gases; Ea = Arrhenius slope of P(T) printed by the author",
+      "grade_scope": "class value — poly(n-hexyl acrylate)(PA 6) 균질중합체의 Arrhenius 활성화에너지다. 이 제품 등급을 잰 값이 아니다. 이 재료가 이미 쓰는 투과율 1.1813e-14 와 **같은 표 · 같은 행**에서 왔으므로 계보가 하나로 붙는다 — 다섯 출처의 교차검증이 아니라 한 문헌값의 전파다. 아크릴 OCA/PSA 는 2-EHA/BA/AA 공중합에 가교가 들어가므로 실제 Ea 는 이보다 클 가능성이 있다(가교가 늘면 확산 활성화에너지가 커진다). 같은 계열이 비정질 구간에서 PA 6(C6) 6.8 / PA 10(C10) 7.4 kcal/mol 로 곁사슬 길이에 둔감한 점이 이 대체의 근거이고, 그 둔감성은 투과율(35.3 / 31.1 Barrer)의 둔감성과 같은 방향이다. 실제 사용 grade 의 온도의존 실측이 오면 이 값을 대체해야 한다."
+     },
+     "notes": "Table 7.1 'Activation Energy and Permeability Data Extrapolated to 35ºC for Various Gases Through Poly (n-alkyl acrylate) Homopolymers' 의 PA 6 블록 Ea 행 verbatim: '6.5  6.7  6.8  8.0  6.8  6.5', 열 머리글 'He  H2  O2  N2  CH4  CO2' 이므로 O2 는 3번째 = 6.8 kcal/mol. 단위 각주 원문: 'Note that the activation energies Ea and Ec have units of kcal/mol while the permeability coefficients P35+ and P35- have units of Barrers'. 환산 6.8 kcal/mol x 4184 J/kcal = 28451.2 J/mol. 카탈로그의 뿌리 재료 480 'Poly(hexyl acrylate) (PA 6 ...)' 가 같은 칸을 이미 28451 J/mol 로 갖고 있어 그 자리에 맞춘다(중복 아님, 계열값 이식). 환산 검산 — 같은 표 PA 10 의 O2 Ea 7.4 kcal/mol x 4184 = 30961.6 J/mol 이고 DB 재료 481 이 30962 J/mol 을 갖고 있다. 같은 인자로 두 행이 맞으므로 kcal->J 인자 4184 가 이 표에 대한 카탈로그 관례임이 확인된다. [Ea 가 서술하는 것] 본문 원문: 'The quantities Ea and Ec are the activation energies for permeation in the amorphous and semi-crystalline states, respectively'. PA 6 은 Table 7.1 에서 Ec / P35- / P35+/P35- 칸이 모두 비어 있어 상온에서 결정상이 없다 — 그래서 Ea 하나가 전 온도구간을 기술한다. [측정법 원문] 'A layer of known thickness of the poly (n-alkyl acrylate) polymer was added on top of the PPO support. The permeance of the composite was measured as a function of temperature above and below the Tm of the acrylate sample.' / 'The gases used, He, H2, O2, N2, CH4, and CO2, were purchased from Matheson Tri Gas with at least 99.9% purity and were run at a 2 atm upstream pressure for all temperatures.' 즉 Ea 는 저자가 잰 P(T) 를 Arrhenius 좌표에서 기울기로 뽑은 값이지(Figure 7.2), 35 °C 투과율처럼 외삽으로 만든 숫자가 아니다. 그래서 같은 표에서 왔어도 P35+ 와 달리 value_basis 에 '외삽' 이 붙지 않는다. [왜 이 칸을 여는가] 이 재료는 같은 표 같은 PA 6 행에서 온 투과율 1.1813e-14 mol/(m*s*Pa) @35 °C 를 이미 갖고 있는데 온도의존성이 없어 35 °C 한 점에 묶여 있었다. 요청서 PDE/oxygen-diffusion/물성요청_산소확산_원자재6종.md §2 가 '측정 온도 — 아크릴계는 10 °C 차이로 배 가까이 움직인다' 로 온도 조건을 필수로 걸었다. 이 Ea 가 그 축을 연다. 다만 **이 Ea 로 다른 온도의 투과율을 만들어 카탈로그에 넣지 않았다** — 그것은 역산이다. 참고로 이 Ea 를 쓰면 25→35 °C 비가 exp(-28451/8.314 x (1/308.15 - 1/298.15)) = 1.45 배다. 요청서가 적은 '배 가까이'보다 완만하다 — 이 1.45 는 저장하지 않는 해설값이다. [벤더 확인 — 67차 CD] 이 재료가 이미 인용하는 벤더 시트를 포함해 OCA/PSA 접착제 벤더 문서 31장(내려받은 38개 중 바이트 동일 중복 7개 제외)을 내려받아 열고 oxygen / OTR / O2 / permeab / permeance / barrer / transmission rate 로 걸었다. **등급 실측은 0건이다.** 3M OCA 8211-8215 · 8171/8172 · 817X · 818X · 8173KCL · 8146-x · 8141/8142/8161/9483 · ACO 01N · 467MP · 468MP · CEF35XX · 폴더블 OLED OCA 백서 · Nitto No.5000NS(유통사 사본) · Nitto Mounting Tapes 2025 · tesa 88006 · tesa 88008 · Adhesives Research ARclear 6장 · 3M LOCA 1088 · LOCTITE AA 3311 이 그 목록이고, 이 서식들은 박리력 · 전단유지력 · 굴절률 · 헤이즈 · 광투과율 · 색좌표만 찍는다. 같은 3M 아크릴 계열 중 **VHB Tapes TDS(2018) 만이 가스 행을 하나 갖는데 그것도 산소가 아니라 'Water Vapor Transmission Rate  25.6  37.1  g/m2*day  ASTM F1249 at 38°C/100% RH' 다.** 즉 3M 은 아크릴 접착제의 가스 수송을 재긴 재되 공개하는 것은 WVTR 뿐이고 OTR 은 어느 시트에도 없다."
+    }
+   ]
+  },
+  {
+   "match_name": "OCA Rollable (Tg<-40C)",
+   "source": {
+    "kind": "other",
+    "title": "Physical Properties of Poly (n-alkyl acrylate) Copolymers (K. A. O'Leary, PhD dissertation, The University of Texas at Austin, 2005; supervisor D. R. Paul)",
+    "url": "https://repositories.lib.utexas.edu/server/api/core/bitstreams/b50f3cf2-2ce3-4e44-aba8-a120bd4e0003/content",
+    "publisher": "The University of Texas at Austin",
+    "year": 2005,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/display/cd_oleary_2005_poly_n_alkyl_acrylate_thesis.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.activation_energy",
+     "value": 28451.0,
+     "unit": "J/mol",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "species": "O2",
+      "process": "O2 permeation",
+      "state": "amorphous (Ea)",
+      "test_method": "composite-membrane permeation on a PPO support, 2 atm upstream, six gases; Ea = Arrhenius slope of P(T) printed by the author",
+      "grade_scope": "class value — poly(n-hexyl acrylate)(PA 6) 균질중합체의 Arrhenius 활성화에너지다. 이 제품 등급을 잰 값이 아니다. 이 재료가 이미 쓰는 투과율 1.1813e-14 와 **같은 표 · 같은 행**에서 왔으므로 계보가 하나로 붙는다 — 다섯 출처의 교차검증이 아니라 한 문헌값의 전파다. 아크릴 OCA/PSA 는 2-EHA/BA/AA 공중합에 가교가 들어가므로 실제 Ea 는 이보다 클 가능성이 있다(가교가 늘면 확산 활성화에너지가 커진다). 같은 계열이 비정질 구간에서 PA 6(C6) 6.8 / PA 10(C10) 7.4 kcal/mol 로 곁사슬 길이에 둔감한 점이 이 대체의 근거이고, 그 둔감성은 투과율(35.3 / 31.1 Barrer)의 둔감성과 같은 방향이다. 실제 사용 grade 의 온도의존 실측이 오면 이 값을 대체해야 한다."
+     },
+     "notes": "Table 7.1 'Activation Energy and Permeability Data Extrapolated to 35ºC for Various Gases Through Poly (n-alkyl acrylate) Homopolymers' 의 PA 6 블록 Ea 행 verbatim: '6.5  6.7  6.8  8.0  6.8  6.5', 열 머리글 'He  H2  O2  N2  CH4  CO2' 이므로 O2 는 3번째 = 6.8 kcal/mol. 단위 각주 원문: 'Note that the activation energies Ea and Ec have units of kcal/mol while the permeability coefficients P35+ and P35- have units of Barrers'. 환산 6.8 kcal/mol x 4184 J/kcal = 28451.2 J/mol. 카탈로그의 뿌리 재료 480 'Poly(hexyl acrylate) (PA 6 ...)' 가 같은 칸을 이미 28451 J/mol 로 갖고 있어 그 자리에 맞춘다(중복 아님, 계열값 이식). 환산 검산 — 같은 표 PA 10 의 O2 Ea 7.4 kcal/mol x 4184 = 30961.6 J/mol 이고 DB 재료 481 이 30962 J/mol 을 갖고 있다. 같은 인자로 두 행이 맞으므로 kcal->J 인자 4184 가 이 표에 대한 카탈로그 관례임이 확인된다. [Ea 가 서술하는 것] 본문 원문: 'The quantities Ea and Ec are the activation energies for permeation in the amorphous and semi-crystalline states, respectively'. PA 6 은 Table 7.1 에서 Ec / P35- / P35+/P35- 칸이 모두 비어 있어 상온에서 결정상이 없다 — 그래서 Ea 하나가 전 온도구간을 기술한다. [측정법 원문] 'A layer of known thickness of the poly (n-alkyl acrylate) polymer was added on top of the PPO support. The permeance of the composite was measured as a function of temperature above and below the Tm of the acrylate sample.' / 'The gases used, He, H2, O2, N2, CH4, and CO2, were purchased from Matheson Tri Gas with at least 99.9% purity and were run at a 2 atm upstream pressure for all temperatures.' 즉 Ea 는 저자가 잰 P(T) 를 Arrhenius 좌표에서 기울기로 뽑은 값이지(Figure 7.2), 35 °C 투과율처럼 외삽으로 만든 숫자가 아니다. 그래서 같은 표에서 왔어도 P35+ 와 달리 value_basis 에 '외삽' 이 붙지 않는다. [왜 이 칸을 여는가] 이 재료는 같은 표 같은 PA 6 행에서 온 투과율 1.1813e-14 mol/(m*s*Pa) @35 °C 를 이미 갖고 있는데 온도의존성이 없어 35 °C 한 점에 묶여 있었다. 요청서 PDE/oxygen-diffusion/물성요청_산소확산_원자재6종.md §2 가 '측정 온도 — 아크릴계는 10 °C 차이로 배 가까이 움직인다' 로 온도 조건을 필수로 걸었다. 이 Ea 가 그 축을 연다. 다만 **이 Ea 로 다른 온도의 투과율을 만들어 카탈로그에 넣지 않았다** — 그것은 역산이다. 참고로 이 Ea 를 쓰면 25→35 °C 비가 exp(-28451/8.314 x (1/308.15 - 1/298.15)) = 1.45 배다. 요청서가 적은 '배 가까이'보다 완만하다 — 이 1.45 는 저장하지 않는 해설값이다. [벤더 확인 — 67차 CD] 이 재료가 이미 인용하는 벤더 시트를 포함해 OCA/PSA 접착제 벤더 문서 31장(내려받은 38개 중 바이트 동일 중복 7개 제외)을 내려받아 열고 oxygen / OTR / O2 / permeab / permeance / barrer / transmission rate 로 걸었다. **등급 실측은 0건이다.** 3M OCA 8211-8215 · 8171/8172 · 817X · 818X · 8173KCL · 8146-x · 8141/8142/8161/9483 · ACO 01N · 467MP · 468MP · CEF35XX · 폴더블 OLED OCA 백서 · Nitto No.5000NS(유통사 사본) · Nitto Mounting Tapes 2025 · tesa 88006 · tesa 88008 · Adhesives Research ARclear 6장 · 3M LOCA 1088 · LOCTITE AA 3311 이 그 목록이고, 이 서식들은 박리력 · 전단유지력 · 굴절률 · 헤이즈 · 광투과율 · 색좌표만 찍는다. 같은 3M 아크릴 계열 중 **VHB Tapes TDS(2018) 만이 가스 행을 하나 갖는데 그것도 산소가 아니라 'Water Vapor Transmission Rate  25.6  37.1  g/m2*day  ASTM F1249 at 38°C/100% RH' 다.** 즉 3M 은 아크릴 접착제의 가스 수송을 재긴 재되 공개하는 것은 WVTR 뿐이고 OTR 은 어느 시트에도 없다."
+    }
+   ]
+  },
+  {
+   "match_name": "OCA UV Cured",
+   "source": {
+    "kind": "other",
+    "title": "Physical Properties of Poly (n-alkyl acrylate) Copolymers (K. A. O'Leary, PhD dissertation, The University of Texas at Austin, 2005; supervisor D. R. Paul)",
+    "url": "https://repositories.lib.utexas.edu/server/api/core/bitstreams/b50f3cf2-2ce3-4e44-aba8-a120bd4e0003/content",
+    "publisher": "The University of Texas at Austin",
+    "year": 2005,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/display/cd_oleary_2005_poly_n_alkyl_acrylate_thesis.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.activation_energy",
+     "value": 28451.0,
+     "unit": "J/mol",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "species": "O2",
+      "process": "O2 permeation",
+      "state": "amorphous (Ea)",
+      "test_method": "composite-membrane permeation on a PPO support, 2 atm upstream, six gases; Ea = Arrhenius slope of P(T) printed by the author",
+      "grade_scope": "class value — poly(n-hexyl acrylate)(PA 6) 균질중합체의 Arrhenius 활성화에너지다. 이 제품 등급을 잰 값이 아니다. 이 재료가 이미 쓰는 투과율 1.1813e-14 와 **같은 표 · 같은 행**에서 왔으므로 계보가 하나로 붙는다 — 다섯 출처의 교차검증이 아니라 한 문헌값의 전파다. 아크릴 OCA/PSA 는 2-EHA/BA/AA 공중합에 가교가 들어가므로 실제 Ea 는 이보다 클 가능성이 있다(가교가 늘면 확산 활성화에너지가 커진다). 같은 계열이 비정질 구간에서 PA 6(C6) 6.8 / PA 10(C10) 7.4 kcal/mol 로 곁사슬 길이에 둔감한 점이 이 대체의 근거이고, 그 둔감성은 투과율(35.3 / 31.1 Barrer)의 둔감성과 같은 방향이다. 실제 사용 grade 의 온도의존 실측이 오면 이 값을 대체해야 한다."
+     },
+     "notes": "Table 7.1 'Activation Energy and Permeability Data Extrapolated to 35ºC for Various Gases Through Poly (n-alkyl acrylate) Homopolymers' 의 PA 6 블록 Ea 행 verbatim: '6.5  6.7  6.8  8.0  6.8  6.5', 열 머리글 'He  H2  O2  N2  CH4  CO2' 이므로 O2 는 3번째 = 6.8 kcal/mol. 단위 각주 원문: 'Note that the activation energies Ea and Ec have units of kcal/mol while the permeability coefficients P35+ and P35- have units of Barrers'. 환산 6.8 kcal/mol x 4184 J/kcal = 28451.2 J/mol. 카탈로그의 뿌리 재료 480 'Poly(hexyl acrylate) (PA 6 ...)' 가 같은 칸을 이미 28451 J/mol 로 갖고 있어 그 자리에 맞춘다(중복 아님, 계열값 이식). 환산 검산 — 같은 표 PA 10 의 O2 Ea 7.4 kcal/mol x 4184 = 30961.6 J/mol 이고 DB 재료 481 이 30962 J/mol 을 갖고 있다. 같은 인자로 두 행이 맞으므로 kcal->J 인자 4184 가 이 표에 대한 카탈로그 관례임이 확인된다. [Ea 가 서술하는 것] 본문 원문: 'The quantities Ea and Ec are the activation energies for permeation in the amorphous and semi-crystalline states, respectively'. PA 6 은 Table 7.1 에서 Ec / P35- / P35+/P35- 칸이 모두 비어 있어 상온에서 결정상이 없다 — 그래서 Ea 하나가 전 온도구간을 기술한다. [측정법 원문] 'A layer of known thickness of the poly (n-alkyl acrylate) polymer was added on top of the PPO support. The permeance of the composite was measured as a function of temperature above and below the Tm of the acrylate sample.' / 'The gases used, He, H2, O2, N2, CH4, and CO2, were purchased from Matheson Tri Gas with at least 99.9% purity and were run at a 2 atm upstream pressure for all temperatures.' 즉 Ea 는 저자가 잰 P(T) 를 Arrhenius 좌표에서 기울기로 뽑은 값이지(Figure 7.2), 35 °C 투과율처럼 외삽으로 만든 숫자가 아니다. 그래서 같은 표에서 왔어도 P35+ 와 달리 value_basis 에 '외삽' 이 붙지 않는다. [왜 이 칸을 여는가] 이 재료는 같은 표 같은 PA 6 행에서 온 투과율 1.1813e-14 mol/(m*s*Pa) @35 °C 를 이미 갖고 있는데 온도의존성이 없어 35 °C 한 점에 묶여 있었다. 요청서 PDE/oxygen-diffusion/물성요청_산소확산_원자재6종.md §2 가 '측정 온도 — 아크릴계는 10 °C 차이로 배 가까이 움직인다' 로 온도 조건을 필수로 걸었다. 이 Ea 가 그 축을 연다. 다만 **이 Ea 로 다른 온도의 투과율을 만들어 카탈로그에 넣지 않았다** — 그것은 역산이다. 참고로 이 Ea 를 쓰면 25→35 °C 비가 exp(-28451/8.314 x (1/308.15 - 1/298.15)) = 1.45 배다. 요청서가 적은 '배 가까이'보다 완만하다 — 이 1.45 는 저장하지 않는 해설값이다. [벤더 확인 — 67차 CD] 이 재료가 이미 인용하는 벤더 시트를 포함해 OCA/PSA 접착제 벤더 문서 31장(내려받은 38개 중 바이트 동일 중복 7개 제외)을 내려받아 열고 oxygen / OTR / O2 / permeab / permeance / barrer / transmission rate 로 걸었다. **등급 실측은 0건이다.** 3M OCA 8211-8215 · 8171/8172 · 817X · 818X · 8173KCL · 8146-x · 8141/8142/8161/9483 · ACO 01N · 467MP · 468MP · CEF35XX · 폴더블 OLED OCA 백서 · Nitto No.5000NS(유통사 사본) · Nitto Mounting Tapes 2025 · tesa 88006 · tesa 88008 · Adhesives Research ARclear 6장 · 3M LOCA 1088 · LOCTITE AA 3311 이 그 목록이고, 이 서식들은 박리력 · 전단유지력 · 굴절률 · 헤이즈 · 광투과율 · 색좌표만 찍는다. 같은 3M 아크릴 계열 중 **VHB Tapes TDS(2018) 만이 가스 행을 하나 갖는데 그것도 산소가 아니라 'Water Vapor Transmission Rate  25.6  37.1  g/m2*day  ASTM F1249 at 38°C/100% RH' 다.** 즉 3M 은 아크릴 접착제의 가스 수송을 재긴 재되 공개하는 것은 WVTR 뿐이고 OTR 은 어느 시트에도 없다."
+    }
+   ]
+  },
+  {
+   "match_name": "PSA Acrylic General (3M 467MP)",
+   "source": {
+    "kind": "other",
+    "title": "Physical Properties of Poly (n-alkyl acrylate) Copolymers (K. A. O'Leary, PhD dissertation, The University of Texas at Austin, 2005; supervisor D. R. Paul)",
+    "url": "https://repositories.lib.utexas.edu/server/api/core/bitstreams/b50f3cf2-2ce3-4e44-aba8-a120bd4e0003/content",
+    "publisher": "The University of Texas at Austin",
+    "year": 2005,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/display/cd_oleary_2005_poly_n_alkyl_acrylate_thesis.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.activation_energy",
+     "value": 28451.0,
+     "unit": "J/mol",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "species": "O2",
+      "process": "O2 permeation",
+      "state": "amorphous (Ea)",
+      "test_method": "composite-membrane permeation on a PPO support, 2 atm upstream, six gases; Ea = Arrhenius slope of P(T) printed by the author",
+      "grade_scope": "class value — poly(n-hexyl acrylate)(PA 6) 균질중합체의 Arrhenius 활성화에너지다. 이 제품 등급을 잰 값이 아니다. 이 재료가 이미 쓰는 투과율 1.1813e-14 와 **같은 표 · 같은 행**에서 왔으므로 계보가 하나로 붙는다 — 다섯 출처의 교차검증이 아니라 한 문헌값의 전파다. 아크릴 OCA/PSA 는 2-EHA/BA/AA 공중합에 가교가 들어가므로 실제 Ea 는 이보다 클 가능성이 있다(가교가 늘면 확산 활성화에너지가 커진다). 같은 계열이 비정질 구간에서 PA 6(C6) 6.8 / PA 10(C10) 7.4 kcal/mol 로 곁사슬 길이에 둔감한 점이 이 대체의 근거이고, 그 둔감성은 투과율(35.3 / 31.1 Barrer)의 둔감성과 같은 방향이다. 실제 사용 grade 의 온도의존 실측이 오면 이 값을 대체해야 한다."
+     },
+     "notes": "Table 7.1 'Activation Energy and Permeability Data Extrapolated to 35ºC for Various Gases Through Poly (n-alkyl acrylate) Homopolymers' 의 PA 6 블록 Ea 행 verbatim: '6.5  6.7  6.8  8.0  6.8  6.5', 열 머리글 'He  H2  O2  N2  CH4  CO2' 이므로 O2 는 3번째 = 6.8 kcal/mol. 단위 각주 원문: 'Note that the activation energies Ea and Ec have units of kcal/mol while the permeability coefficients P35+ and P35- have units of Barrers'. 환산 6.8 kcal/mol x 4184 J/kcal = 28451.2 J/mol. 카탈로그의 뿌리 재료 480 'Poly(hexyl acrylate) (PA 6 ...)' 가 같은 칸을 이미 28451 J/mol 로 갖고 있어 그 자리에 맞춘다(중복 아님, 계열값 이식). 환산 검산 — 같은 표 PA 10 의 O2 Ea 7.4 kcal/mol x 4184 = 30961.6 J/mol 이고 DB 재료 481 이 30962 J/mol 을 갖고 있다. 같은 인자로 두 행이 맞으므로 kcal->J 인자 4184 가 이 표에 대한 카탈로그 관례임이 확인된다. [Ea 가 서술하는 것] 본문 원문: 'The quantities Ea and Ec are the activation energies for permeation in the amorphous and semi-crystalline states, respectively'. PA 6 은 Table 7.1 에서 Ec / P35- / P35+/P35- 칸이 모두 비어 있어 상온에서 결정상이 없다 — 그래서 Ea 하나가 전 온도구간을 기술한다. [측정법 원문] 'A layer of known thickness of the poly (n-alkyl acrylate) polymer was added on top of the PPO support. The permeance of the composite was measured as a function of temperature above and below the Tm of the acrylate sample.' / 'The gases used, He, H2, O2, N2, CH4, and CO2, were purchased from Matheson Tri Gas with at least 99.9% purity and were run at a 2 atm upstream pressure for all temperatures.' 즉 Ea 는 저자가 잰 P(T) 를 Arrhenius 좌표에서 기울기로 뽑은 값이지(Figure 7.2), 35 °C 투과율처럼 외삽으로 만든 숫자가 아니다. 그래서 같은 표에서 왔어도 P35+ 와 달리 value_basis 에 '외삽' 이 붙지 않는다. [왜 이 칸을 여는가] 이 재료는 같은 표 같은 PA 6 행에서 온 투과율 1.1813e-14 mol/(m*s*Pa) @35 °C 를 이미 갖고 있는데 온도의존성이 없어 35 °C 한 점에 묶여 있었다. 요청서 PDE/oxygen-diffusion/물성요청_산소확산_원자재6종.md §2 가 '측정 온도 — 아크릴계는 10 °C 차이로 배 가까이 움직인다' 로 온도 조건을 필수로 걸었다. 이 Ea 가 그 축을 연다. 다만 **이 Ea 로 다른 온도의 투과율을 만들어 카탈로그에 넣지 않았다** — 그것은 역산이다. 참고로 이 Ea 를 쓰면 25→35 °C 비가 exp(-28451/8.314 x (1/308.15 - 1/298.15)) = 1.45 배다. 요청서가 적은 '배 가까이'보다 완만하다 — 이 1.45 는 저장하지 않는 해설값이다. [벤더 확인 — 67차 CD] 이 재료가 이미 인용하는 벤더 시트를 포함해 OCA/PSA 접착제 벤더 문서 31장(내려받은 38개 중 바이트 동일 중복 7개 제외)을 내려받아 열고 oxygen / OTR / O2 / permeab / permeance / barrer / transmission rate 로 걸었다. **등급 실측은 0건이다.** 3M OCA 8211-8215 · 8171/8172 · 817X · 818X · 8173KCL · 8146-x · 8141/8142/8161/9483 · ACO 01N · 467MP · 468MP · CEF35XX · 폴더블 OLED OCA 백서 · Nitto No.5000NS(유통사 사본) · Nitto Mounting Tapes 2025 · tesa 88006 · tesa 88008 · Adhesives Research ARclear 6장 · 3M LOCA 1088 · LOCTITE AA 3311 이 그 목록이고, 이 서식들은 박리력 · 전단유지력 · 굴절률 · 헤이즈 · 광투과율 · 색좌표만 찍는다. 같은 3M 아크릴 계열 중 **VHB Tapes TDS(2018) 만이 가스 행을 하나 갖는데 그것도 산소가 아니라 'Water Vapor Transmission Rate  25.6  37.1  g/m2*day  ASTM F1249 at 38°C/100% RH' 다.** 즉 3M 은 아크릴 접착제의 가스 수송을 재긴 재되 공개하는 것은 WVTR 뿐이고 OTR 은 어느 시트에도 없다."
+    }
+   ]
+  },
+  {
+   "match_name": "PSA High Shear (Nitto 5000)",
+   "source": {
+    "kind": "other",
+    "title": "Physical Properties of Poly (n-alkyl acrylate) Copolymers (K. A. O'Leary, PhD dissertation, The University of Texas at Austin, 2005; supervisor D. R. Paul)",
+    "url": "https://repositories.lib.utexas.edu/server/api/core/bitstreams/b50f3cf2-2ce3-4e44-aba8-a120bd4e0003/content",
+    "publisher": "The University of Texas at Austin",
+    "year": 2005,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/display/cd_oleary_2005_poly_n_alkyl_acrylate_thesis.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.activation_energy",
+     "value": 28451.0,
+     "unit": "J/mol",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "species": "O2",
+      "process": "O2 permeation",
+      "state": "amorphous (Ea)",
+      "test_method": "composite-membrane permeation on a PPO support, 2 atm upstream, six gases; Ea = Arrhenius slope of P(T) printed by the author",
+      "grade_scope": "class value — poly(n-hexyl acrylate)(PA 6) 균질중합체의 Arrhenius 활성화에너지다. 이 제품 등급을 잰 값이 아니다. 이 재료가 이미 쓰는 투과율 1.1813e-14 와 **같은 표 · 같은 행**에서 왔으므로 계보가 하나로 붙는다 — 다섯 출처의 교차검증이 아니라 한 문헌값의 전파다. 아크릴 OCA/PSA 는 2-EHA/BA/AA 공중합에 가교가 들어가므로 실제 Ea 는 이보다 클 가능성이 있다(가교가 늘면 확산 활성화에너지가 커진다). 같은 계열이 비정질 구간에서 PA 6(C6) 6.8 / PA 10(C10) 7.4 kcal/mol 로 곁사슬 길이에 둔감한 점이 이 대체의 근거이고, 그 둔감성은 투과율(35.3 / 31.1 Barrer)의 둔감성과 같은 방향이다. 실제 사용 grade 의 온도의존 실측이 오면 이 값을 대체해야 한다."
+     },
+     "notes": "Table 7.1 'Activation Energy and Permeability Data Extrapolated to 35ºC for Various Gases Through Poly (n-alkyl acrylate) Homopolymers' 의 PA 6 블록 Ea 행 verbatim: '6.5  6.7  6.8  8.0  6.8  6.5', 열 머리글 'He  H2  O2  N2  CH4  CO2' 이므로 O2 는 3번째 = 6.8 kcal/mol. 단위 각주 원문: 'Note that the activation energies Ea and Ec have units of kcal/mol while the permeability coefficients P35+ and P35- have units of Barrers'. 환산 6.8 kcal/mol x 4184 J/kcal = 28451.2 J/mol. 카탈로그의 뿌리 재료 480 'Poly(hexyl acrylate) (PA 6 ...)' 가 같은 칸을 이미 28451 J/mol 로 갖고 있어 그 자리에 맞춘다(중복 아님, 계열값 이식). 환산 검산 — 같은 표 PA 10 의 O2 Ea 7.4 kcal/mol x 4184 = 30961.6 J/mol 이고 DB 재료 481 이 30962 J/mol 을 갖고 있다. 같은 인자로 두 행이 맞으므로 kcal->J 인자 4184 가 이 표에 대한 카탈로그 관례임이 확인된다. [Ea 가 서술하는 것] 본문 원문: 'The quantities Ea and Ec are the activation energies for permeation in the amorphous and semi-crystalline states, respectively'. PA 6 은 Table 7.1 에서 Ec / P35- / P35+/P35- 칸이 모두 비어 있어 상온에서 결정상이 없다 — 그래서 Ea 하나가 전 온도구간을 기술한다. [측정법 원문] 'A layer of known thickness of the poly (n-alkyl acrylate) polymer was added on top of the PPO support. The permeance of the composite was measured as a function of temperature above and below the Tm of the acrylate sample.' / 'The gases used, He, H2, O2, N2, CH4, and CO2, were purchased from Matheson Tri Gas with at least 99.9% purity and were run at a 2 atm upstream pressure for all temperatures.' 즉 Ea 는 저자가 잰 P(T) 를 Arrhenius 좌표에서 기울기로 뽑은 값이지(Figure 7.2), 35 °C 투과율처럼 외삽으로 만든 숫자가 아니다. 그래서 같은 표에서 왔어도 P35+ 와 달리 value_basis 에 '외삽' 이 붙지 않는다. [왜 이 칸을 여는가] 이 재료는 같은 표 같은 PA 6 행에서 온 투과율 1.1813e-14 mol/(m*s*Pa) @35 °C 를 이미 갖고 있는데 온도의존성이 없어 35 °C 한 점에 묶여 있었다. 요청서 PDE/oxygen-diffusion/물성요청_산소확산_원자재6종.md §2 가 '측정 온도 — 아크릴계는 10 °C 차이로 배 가까이 움직인다' 로 온도 조건을 필수로 걸었다. 이 Ea 가 그 축을 연다. 다만 **이 Ea 로 다른 온도의 투과율을 만들어 카탈로그에 넣지 않았다** — 그것은 역산이다. 참고로 이 Ea 를 쓰면 25→35 °C 비가 exp(-28451/8.314 x (1/308.15 - 1/298.15)) = 1.45 배다. 요청서가 적은 '배 가까이'보다 완만하다 — 이 1.45 는 저장하지 않는 해설값이다. [벤더 확인 — 67차 CD] 이 재료가 이미 인용하는 벤더 시트를 포함해 OCA/PSA 접착제 벤더 문서 31장(내려받은 38개 중 바이트 동일 중복 7개 제외)을 내려받아 열고 oxygen / OTR / O2 / permeab / permeance / barrer / transmission rate 로 걸었다. **등급 실측은 0건이다.** 3M OCA 8211-8215 · 8171/8172 · 817X · 818X · 8173KCL · 8146-x · 8141/8142/8161/9483 · ACO 01N · 467MP · 468MP · CEF35XX · 폴더블 OLED OCA 백서 · Nitto No.5000NS(유통사 사본) · Nitto Mounting Tapes 2025 · tesa 88006 · tesa 88008 · Adhesives Research ARclear 6장 · 3M LOCA 1088 · LOCTITE AA 3311 이 그 목록이고, 이 서식들은 박리력 · 전단유지력 · 굴절률 · 헤이즈 · 광투과율 · 색좌표만 찍는다. 같은 3M 아크릴 계열 중 **VHB Tapes TDS(2018) 만이 가스 행을 하나 갖는데 그것도 산소가 아니라 'Water Vapor Transmission Rate  25.6  37.1  g/m2*day  ASTM F1249 at 38°C/100% RH' 다.** 즉 3M 은 아크릴 접착제의 가스 수송을 재긴 재되 공개하는 것은 WVTR 뿐이고 OTR 은 어느 시트에도 없다."
+    }
+   ]
+  },
+  {
+   "match_name": "PSA Removable",
+   "source": {
+    "kind": "other",
+    "title": "Physical Properties of Poly (n-alkyl acrylate) Copolymers (K. A. O'Leary, PhD dissertation, The University of Texas at Austin, 2005; supervisor D. R. Paul)",
+    "url": "https://repositories.lib.utexas.edu/server/api/core/bitstreams/b50f3cf2-2ce3-4e44-aba8-a120bd4e0003/content",
+    "publisher": "The University of Texas at Austin",
+    "year": 2005,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/display/cd_oleary_2005_poly_n_alkyl_acrylate_thesis.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.activation_energy",
+     "value": 28451.0,
+     "unit": "J/mol",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "species": "O2",
+      "process": "O2 permeation",
+      "state": "amorphous (Ea)",
+      "test_method": "composite-membrane permeation on a PPO support, 2 atm upstream, six gases; Ea = Arrhenius slope of P(T) printed by the author",
+      "grade_scope": "class value — poly(n-hexyl acrylate)(PA 6) 균질중합체의 Arrhenius 활성화에너지다. 이 제품 등급을 잰 값이 아니다. 이 재료가 이미 쓰는 투과율 1.1813e-14 와 **같은 표 · 같은 행**에서 왔으므로 계보가 하나로 붙는다 — 다섯 출처의 교차검증이 아니라 한 문헌값의 전파다. 아크릴 OCA/PSA 는 2-EHA/BA/AA 공중합에 가교가 들어가므로 실제 Ea 는 이보다 클 가능성이 있다(가교가 늘면 확산 활성화에너지가 커진다). 같은 계열이 비정질 구간에서 PA 6(C6) 6.8 / PA 10(C10) 7.4 kcal/mol 로 곁사슬 길이에 둔감한 점이 이 대체의 근거이고, 그 둔감성은 투과율(35.3 / 31.1 Barrer)의 둔감성과 같은 방향이다. 실제 사용 grade 의 온도의존 실측이 오면 이 값을 대체해야 한다."
+     },
+     "notes": "Table 7.1 'Activation Energy and Permeability Data Extrapolated to 35ºC for Various Gases Through Poly (n-alkyl acrylate) Homopolymers' 의 PA 6 블록 Ea 행 verbatim: '6.5  6.7  6.8  8.0  6.8  6.5', 열 머리글 'He  H2  O2  N2  CH4  CO2' 이므로 O2 는 3번째 = 6.8 kcal/mol. 단위 각주 원문: 'Note that the activation energies Ea and Ec have units of kcal/mol while the permeability coefficients P35+ and P35- have units of Barrers'. 환산 6.8 kcal/mol x 4184 J/kcal = 28451.2 J/mol. 카탈로그의 뿌리 재료 480 'Poly(hexyl acrylate) (PA 6 ...)' 가 같은 칸을 이미 28451 J/mol 로 갖고 있어 그 자리에 맞춘다(중복 아님, 계열값 이식). 환산 검산 — 같은 표 PA 10 의 O2 Ea 7.4 kcal/mol x 4184 = 30961.6 J/mol 이고 DB 재료 481 이 30962 J/mol 을 갖고 있다. 같은 인자로 두 행이 맞으므로 kcal->J 인자 4184 가 이 표에 대한 카탈로그 관례임이 확인된다. [Ea 가 서술하는 것] 본문 원문: 'The quantities Ea and Ec are the activation energies for permeation in the amorphous and semi-crystalline states, respectively'. PA 6 은 Table 7.1 에서 Ec / P35- / P35+/P35- 칸이 모두 비어 있어 상온에서 결정상이 없다 — 그래서 Ea 하나가 전 온도구간을 기술한다. [측정법 원문] 'A layer of known thickness of the poly (n-alkyl acrylate) polymer was added on top of the PPO support. The permeance of the composite was measured as a function of temperature above and below the Tm of the acrylate sample.' / 'The gases used, He, H2, O2, N2, CH4, and CO2, were purchased from Matheson Tri Gas with at least 99.9% purity and were run at a 2 atm upstream pressure for all temperatures.' 즉 Ea 는 저자가 잰 P(T) 를 Arrhenius 좌표에서 기울기로 뽑은 값이지(Figure 7.2), 35 °C 투과율처럼 외삽으로 만든 숫자가 아니다. 그래서 같은 표에서 왔어도 P35+ 와 달리 value_basis 에 '외삽' 이 붙지 않는다. [왜 이 칸을 여는가] 이 재료는 같은 표 같은 PA 6 행에서 온 투과율 1.1813e-14 mol/(m*s*Pa) @35 °C 를 이미 갖고 있는데 온도의존성이 없어 35 °C 한 점에 묶여 있었다. 요청서 PDE/oxygen-diffusion/물성요청_산소확산_원자재6종.md §2 가 '측정 온도 — 아크릴계는 10 °C 차이로 배 가까이 움직인다' 로 온도 조건을 필수로 걸었다. 이 Ea 가 그 축을 연다. 다만 **이 Ea 로 다른 온도의 투과율을 만들어 카탈로그에 넣지 않았다** — 그것은 역산이다. 참고로 이 Ea 를 쓰면 25→35 °C 비가 exp(-28451/8.314 x (1/308.15 - 1/298.15)) = 1.45 배다. 요청서가 적은 '배 가까이'보다 완만하다 — 이 1.45 는 저장하지 않는 해설값이다. [벤더 확인 — 67차 CD] 이 재료가 이미 인용하는 벤더 시트를 포함해 OCA/PSA 접착제 벤더 문서 31장(내려받은 38개 중 바이트 동일 중복 7개 제외)을 내려받아 열고 oxygen / OTR / O2 / permeab / permeance / barrer / transmission rate 로 걸었다. **등급 실측은 0건이다.** 3M OCA 8211-8215 · 8171/8172 · 817X · 818X · 8173KCL · 8146-x · 8141/8142/8161/9483 · ACO 01N · 467MP · 468MP · CEF35XX · 폴더블 OLED OCA 백서 · Nitto No.5000NS(유통사 사본) · Nitto Mounting Tapes 2025 · tesa 88006 · tesa 88008 · Adhesives Research ARclear 6장 · 3M LOCA 1088 · LOCTITE AA 3311 이 그 목록이고, 이 서식들은 박리력 · 전단유지력 · 굴절률 · 헤이즈 · 광투과율 · 색좌표만 찍는다. 같은 3M 아크릴 계열 중 **VHB Tapes TDS(2018) 만이 가스 행을 하나 갖는데 그것도 산소가 아니라 'Water Vapor Transmission Rate  25.6  37.1  g/m2*day  ASTM F1249 at 38°C/100% RH' 다.** 즉 3M 은 아크릴 접착제의 가스 수송을 재긴 재되 공개하는 것은 WVTR 뿐이고 OTR 은 어느 시트에도 없다."
+    }
+   ]
+  },
+  {
+   "match_name": "LOCA/OCR (liquid optically clear adhesive)",
+   "source": {
+    "kind": "other",
+    "title": "Physical Properties of Poly (n-alkyl acrylate) Copolymers (K. A. O'Leary, PhD dissertation, The University of Texas at Austin, 2005; supervisor D. R. Paul)",
+    "url": "https://repositories.lib.utexas.edu/server/api/core/bitstreams/b50f3cf2-2ce3-4e44-aba8-a120bd4e0003/content",
+    "publisher": "The University of Texas at Austin",
+    "year": 2005,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/display/cd_oleary_2005_poly_n_alkyl_acrylate_thesis.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.activation_energy",
+     "value": 28451.0,
+     "unit": "J/mol",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "species": "O2",
+      "process": "O2 permeation",
+      "state": "amorphous (Ea)",
+      "test_method": "composite-membrane permeation on a PPO support, 2 atm upstream, six gases; Ea = Arrhenius slope of P(T) printed by the author",
+      "grade_scope": "class value — poly(n-hexyl acrylate)(PA 6) 균질중합체의 Arrhenius 활성화에너지다. 이 제품 등급을 잰 값이 아니다. 이 재료가 이미 쓰는 투과율 1.1813e-14 와 **같은 표 · 같은 행**에서 왔으므로 계보가 하나로 붙는다 — 다섯 출처의 교차검증이 아니라 한 문헌값의 전파다. 아크릴 OCA/PSA 는 2-EHA/BA/AA 공중합에 가교가 들어가므로 실제 Ea 는 이보다 클 가능성이 있다(가교가 늘면 확산 활성화에너지가 커진다). 같은 계열이 비정질 구간에서 PA 6(C6) 6.8 / PA 10(C10) 7.4 kcal/mol 로 곁사슬 길이에 둔감한 점이 이 대체의 근거이고, 그 둔감성은 투과율(35.3 / 31.1 Barrer)의 둔감성과 같은 방향이다. 실제 사용 grade 의 온도의존 실측이 오면 이 값을 대체해야 한다."
+     },
+     "notes": "Table 7.1 'Activation Energy and Permeability Data Extrapolated to 35ºC for Various Gases Through Poly (n-alkyl acrylate) Homopolymers' 의 PA 6 블록 Ea 행 verbatim: '6.5  6.7  6.8  8.0  6.8  6.5', 열 머리글 'He  H2  O2  N2  CH4  CO2' 이므로 O2 는 3번째 = 6.8 kcal/mol. 단위 각주 원문: 'Note that the activation energies Ea and Ec have units of kcal/mol while the permeability coefficients P35+ and P35- have units of Barrers'. 환산 6.8 kcal/mol x 4184 J/kcal = 28451.2 J/mol. 카탈로그의 뿌리 재료 480 'Poly(hexyl acrylate) (PA 6 ...)' 가 같은 칸을 이미 28451 J/mol 로 갖고 있어 그 자리에 맞춘다(중복 아님, 계열값 이식). 환산 검산 — 같은 표 PA 10 의 O2 Ea 7.4 kcal/mol x 4184 = 30961.6 J/mol 이고 DB 재료 481 이 30962 J/mol 을 갖고 있다. 같은 인자로 두 행이 맞으므로 kcal->J 인자 4184 가 이 표에 대한 카탈로그 관례임이 확인된다. [Ea 가 서술하는 것] 본문 원문: 'The quantities Ea and Ec are the activation energies for permeation in the amorphous and semi-crystalline states, respectively'. PA 6 은 Table 7.1 에서 Ec / P35- / P35+/P35- 칸이 모두 비어 있어 상온에서 결정상이 없다 — 그래서 Ea 하나가 전 온도구간을 기술한다. [측정법 원문] 'A layer of known thickness of the poly (n-alkyl acrylate) polymer was added on top of the PPO support. The permeance of the composite was measured as a function of temperature above and below the Tm of the acrylate sample.' / 'The gases used, He, H2, O2, N2, CH4, and CO2, were purchased from Matheson Tri Gas with at least 99.9% purity and were run at a 2 atm upstream pressure for all temperatures.' 즉 Ea 는 저자가 잰 P(T) 를 Arrhenius 좌표에서 기울기로 뽑은 값이지(Figure 7.2), 35 °C 투과율처럼 외삽으로 만든 숫자가 아니다. 그래서 같은 표에서 왔어도 P35+ 와 달리 value_basis 에 '외삽' 이 붙지 않는다. [왜 이 칸을 여는가] 이 재료는 같은 표 같은 PA 6 행에서 온 투과율 1.1813e-14 mol/(m*s*Pa) @35 °C 를 이미 갖고 있는데 온도의존성이 없어 35 °C 한 점에 묶여 있었다. 요청서 PDE/oxygen-diffusion/물성요청_산소확산_원자재6종.md §2 가 '측정 온도 — 아크릴계는 10 °C 차이로 배 가까이 움직인다' 로 온도 조건을 필수로 걸었다. 이 Ea 가 그 축을 연다. 다만 **이 Ea 로 다른 온도의 투과율을 만들어 카탈로그에 넣지 않았다** — 그것은 역산이다. 참고로 이 Ea 를 쓰면 25→35 °C 비가 exp(-28451/8.314 x (1/308.15 - 1/298.15)) = 1.45 배다. 요청서가 적은 '배 가까이'보다 완만하다 — 이 1.45 는 저장하지 않는 해설값이다. [벤더 확인 — 67차 CD] 이 재료가 이미 인용하는 벤더 시트를 포함해 OCA/PSA 접착제 벤더 문서 31장(내려받은 38개 중 바이트 동일 중복 7개 제외)을 내려받아 열고 oxygen / OTR / O2 / permeab / permeance / barrer / transmission rate 로 걸었다. **등급 실측은 0건이다.** 3M OCA 8211-8215 · 8171/8172 · 817X · 818X · 8173KCL · 8146-x · 8141/8142/8161/9483 · ACO 01N · 467MP · 468MP · CEF35XX · 폴더블 OLED OCA 백서 · Nitto No.5000NS(유통사 사본) · Nitto Mounting Tapes 2025 · tesa 88006 · tesa 88008 · Adhesives Research ARclear 6장 · 3M LOCA 1088 · LOCTITE AA 3311 이 그 목록이고, 이 서식들은 박리력 · 전단유지력 · 굴절률 · 헤이즈 · 광투과율 · 색좌표만 찍는다. 같은 3M 아크릴 계열 중 **VHB Tapes TDS(2018) 만이 가스 행을 하나 갖는데 그것도 산소가 아니라 'Water Vapor Transmission Rate  25.6  37.1  g/m2*day  ASTM F1249 at 38°C/100% RH' 다.** 즉 3M 은 아크릴 접착제의 가스 수송을 재긴 재되 공개하는 것은 WVTR 뿐이고 OTR 은 어느 시트에도 없다."
+    }
+   ]
+  },
+  {
+   "match_name": "3M Optically Clear Adhesive 8172",
+   "source": {
+    "kind": "other",
+    "title": "Physical Properties of Poly (n-alkyl acrylate) Copolymers (K. A. O'Leary, PhD dissertation, The University of Texas at Austin, 2005; supervisor D. R. Paul)",
+    "url": "https://repositories.lib.utexas.edu/server/api/core/bitstreams/b50f3cf2-2ce3-4e44-aba8-a120bd4e0003/content",
+    "publisher": "The University of Texas at Austin",
+    "year": 2005,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/display/cd_oleary_2005_poly_n_alkyl_acrylate_thesis.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.activation_energy",
+     "value": 28451.0,
+     "unit": "J/mol",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "species": "O2",
+      "process": "O2 permeation",
+      "state": "amorphous (Ea)",
+      "test_method": "composite-membrane permeation on a PPO support, 2 atm upstream, six gases; Ea = Arrhenius slope of P(T) printed by the author",
+      "grade_scope": "class value — poly(n-hexyl acrylate)(PA 6) 균질중합체의 Arrhenius 활성화에너지다. 이 제품 등급을 잰 값이 아니다. 이 재료가 이미 쓰는 투과율 1.1813e-14 와 **같은 표 · 같은 행**에서 왔으므로 계보가 하나로 붙는다 — 다섯 출처의 교차검증이 아니라 한 문헌값의 전파다. 아크릴 OCA/PSA 는 2-EHA/BA/AA 공중합에 가교가 들어가므로 실제 Ea 는 이보다 클 가능성이 있다(가교가 늘면 확산 활성화에너지가 커진다). 같은 계열이 비정질 구간에서 PA 6(C6) 6.8 / PA 10(C10) 7.4 kcal/mol 로 곁사슬 길이에 둔감한 점이 이 대체의 근거이고, 그 둔감성은 투과율(35.3 / 31.1 Barrer)의 둔감성과 같은 방향이다. 실제 사용 grade 의 온도의존 실측이 오면 이 값을 대체해야 한다."
+     },
+     "notes": "Table 7.1 'Activation Energy and Permeability Data Extrapolated to 35ºC for Various Gases Through Poly (n-alkyl acrylate) Homopolymers' 의 PA 6 블록 Ea 행 verbatim: '6.5  6.7  6.8  8.0  6.8  6.5', 열 머리글 'He  H2  O2  N2  CH4  CO2' 이므로 O2 는 3번째 = 6.8 kcal/mol. 단위 각주 원문: 'Note that the activation energies Ea and Ec have units of kcal/mol while the permeability coefficients P35+ and P35- have units of Barrers'. 환산 6.8 kcal/mol x 4184 J/kcal = 28451.2 J/mol. 카탈로그의 뿌리 재료 480 'Poly(hexyl acrylate) (PA 6 ...)' 가 같은 칸을 이미 28451 J/mol 로 갖고 있어 그 자리에 맞춘다(중복 아님, 계열값 이식). 환산 검산 — 같은 표 PA 10 의 O2 Ea 7.4 kcal/mol x 4184 = 30961.6 J/mol 이고 DB 재료 481 이 30962 J/mol 을 갖고 있다. 같은 인자로 두 행이 맞으므로 kcal->J 인자 4184 가 이 표에 대한 카탈로그 관례임이 확인된다. [Ea 가 서술하는 것] 본문 원문: 'The quantities Ea and Ec are the activation energies for permeation in the amorphous and semi-crystalline states, respectively'. PA 6 은 Table 7.1 에서 Ec / P35- / P35+/P35- 칸이 모두 비어 있어 상온에서 결정상이 없다 — 그래서 Ea 하나가 전 온도구간을 기술한다. [측정법 원문] 'A layer of known thickness of the poly (n-alkyl acrylate) polymer was added on top of the PPO support. The permeance of the composite was measured as a function of temperature above and below the Tm of the acrylate sample.' / 'The gases used, He, H2, O2, N2, CH4, and CO2, were purchased from Matheson Tri Gas with at least 99.9% purity and were run at a 2 atm upstream pressure for all temperatures.' 즉 Ea 는 저자가 잰 P(T) 를 Arrhenius 좌표에서 기울기로 뽑은 값이지(Figure 7.2), 35 °C 투과율처럼 외삽으로 만든 숫자가 아니다. 그래서 같은 표에서 왔어도 P35+ 와 달리 value_basis 에 '외삽' 이 붙지 않는다. [왜 이 칸을 여는가] 이 재료는 같은 표 같은 PA 6 행에서 온 투과율 1.1813e-14 mol/(m*s*Pa) @35 °C 를 이미 갖고 있는데 온도의존성이 없어 35 °C 한 점에 묶여 있었다. 요청서 PDE/oxygen-diffusion/물성요청_산소확산_원자재6종.md §2 가 '측정 온도 — 아크릴계는 10 °C 차이로 배 가까이 움직인다' 로 온도 조건을 필수로 걸었다. 이 Ea 가 그 축을 연다. 다만 **이 Ea 로 다른 온도의 투과율을 만들어 카탈로그에 넣지 않았다** — 그것은 역산이다. 참고로 이 Ea 를 쓰면 25→35 °C 비가 exp(-28451/8.314 x (1/308.15 - 1/298.15)) = 1.45 배다. 요청서가 적은 '배 가까이'보다 완만하다 — 이 1.45 는 저장하지 않는 해설값이다. [벤더 확인 — 67차 CD] 이 재료가 이미 인용하는 벤더 시트를 포함해 OCA/PSA 접착제 벤더 문서 31장(내려받은 38개 중 바이트 동일 중복 7개 제외)을 내려받아 열고 oxygen / OTR / O2 / permeab / permeance / barrer / transmission rate 로 걸었다. **등급 실측은 0건이다.** 3M OCA 8211-8215 · 8171/8172 · 817X · 818X · 8173KCL · 8146-x · 8141/8142/8161/9483 · ACO 01N · 467MP · 468MP · CEF35XX · 폴더블 OLED OCA 백서 · Nitto No.5000NS(유통사 사본) · Nitto Mounting Tapes 2025 · tesa 88006 · tesa 88008 · Adhesives Research ARclear 6장 · 3M LOCA 1088 · LOCTITE AA 3311 이 그 목록이고, 이 서식들은 박리력 · 전단유지력 · 굴절률 · 헤이즈 · 광투과율 · 색좌표만 찍는다. 같은 3M 아크릴 계열 중 **VHB Tapes TDS(2018) 만이 가스 행을 하나 갖는데 그것도 산소가 아니라 'Water Vapor Transmission Rate  25.6  37.1  g/m2*day  ASTM F1249 at 38°C/100% RH' 다.** 즉 3M 은 아크릴 접착제의 가스 수송을 재긴 재되 공개하는 것은 WVTR 뿐이고 OTR 은 어느 시트에도 없다."
+    }
+   ]
+  },
+  {
+   "match_name": "3M Foldable OCA CEF3501",
+   "source": {
+    "kind": "other",
+    "title": "Physical Properties of Poly (n-alkyl acrylate) Copolymers (K. A. O'Leary, PhD dissertation, The University of Texas at Austin, 2005; supervisor D. R. Paul)",
+    "url": "https://repositories.lib.utexas.edu/server/api/core/bitstreams/b50f3cf2-2ce3-4e44-aba8-a120bd4e0003/content",
+    "publisher": "The University of Texas at Austin",
+    "year": 2005,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/display/cd_oleary_2005_poly_n_alkyl_acrylate_thesis.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.activation_energy",
+     "value": 28451.0,
+     "unit": "J/mol",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "species": "O2",
+      "process": "O2 permeation",
+      "state": "amorphous (Ea)",
+      "test_method": "composite-membrane permeation on a PPO support, 2 atm upstream, six gases; Ea = Arrhenius slope of P(T) printed by the author",
+      "grade_scope": "class value — poly(n-hexyl acrylate)(PA 6) 균질중합체의 Arrhenius 활성화에너지다. 이 제품 등급을 잰 값이 아니다. 이 재료가 이미 쓰는 투과율 1.1813e-14 와 **같은 표 · 같은 행**에서 왔으므로 계보가 하나로 붙는다 — 다섯 출처의 교차검증이 아니라 한 문헌값의 전파다. 아크릴 OCA/PSA 는 2-EHA/BA/AA 공중합에 가교가 들어가므로 실제 Ea 는 이보다 클 가능성이 있다(가교가 늘면 확산 활성화에너지가 커진다). 같은 계열이 비정질 구간에서 PA 6(C6) 6.8 / PA 10(C10) 7.4 kcal/mol 로 곁사슬 길이에 둔감한 점이 이 대체의 근거이고, 그 둔감성은 투과율(35.3 / 31.1 Barrer)의 둔감성과 같은 방향이다. 실제 사용 grade 의 온도의존 실측이 오면 이 값을 대체해야 한다."
+     },
+     "notes": "Table 7.1 'Activation Energy and Permeability Data Extrapolated to 35ºC for Various Gases Through Poly (n-alkyl acrylate) Homopolymers' 의 PA 6 블록 Ea 행 verbatim: '6.5  6.7  6.8  8.0  6.8  6.5', 열 머리글 'He  H2  O2  N2  CH4  CO2' 이므로 O2 는 3번째 = 6.8 kcal/mol. 단위 각주 원문: 'Note that the activation energies Ea and Ec have units of kcal/mol while the permeability coefficients P35+ and P35- have units of Barrers'. 환산 6.8 kcal/mol x 4184 J/kcal = 28451.2 J/mol. 카탈로그의 뿌리 재료 480 'Poly(hexyl acrylate) (PA 6 ...)' 가 같은 칸을 이미 28451 J/mol 로 갖고 있어 그 자리에 맞춘다(중복 아님, 계열값 이식). 환산 검산 — 같은 표 PA 10 의 O2 Ea 7.4 kcal/mol x 4184 = 30961.6 J/mol 이고 DB 재료 481 이 30962 J/mol 을 갖고 있다. 같은 인자로 두 행이 맞으므로 kcal->J 인자 4184 가 이 표에 대한 카탈로그 관례임이 확인된다. [Ea 가 서술하는 것] 본문 원문: 'The quantities Ea and Ec are the activation energies for permeation in the amorphous and semi-crystalline states, respectively'. PA 6 은 Table 7.1 에서 Ec / P35- / P35+/P35- 칸이 모두 비어 있어 상온에서 결정상이 없다 — 그래서 Ea 하나가 전 온도구간을 기술한다. [측정법 원문] 'A layer of known thickness of the poly (n-alkyl acrylate) polymer was added on top of the PPO support. The permeance of the composite was measured as a function of temperature above and below the Tm of the acrylate sample.' / 'The gases used, He, H2, O2, N2, CH4, and CO2, were purchased from Matheson Tri Gas with at least 99.9% purity and were run at a 2 atm upstream pressure for all temperatures.' 즉 Ea 는 저자가 잰 P(T) 를 Arrhenius 좌표에서 기울기로 뽑은 값이지(Figure 7.2), 35 °C 투과율처럼 외삽으로 만든 숫자가 아니다. 그래서 같은 표에서 왔어도 P35+ 와 달리 value_basis 에 '외삽' 이 붙지 않는다. [왜 이 칸을 여는가] 이 재료는 같은 표 같은 PA 6 행에서 온 투과율 1.1813e-14 mol/(m*s*Pa) @35 °C 를 이미 갖고 있는데 온도의존성이 없어 35 °C 한 점에 묶여 있었다. 요청서 PDE/oxygen-diffusion/물성요청_산소확산_원자재6종.md §2 가 '측정 온도 — 아크릴계는 10 °C 차이로 배 가까이 움직인다' 로 온도 조건을 필수로 걸었다. 이 Ea 가 그 축을 연다. 다만 **이 Ea 로 다른 온도의 투과율을 만들어 카탈로그에 넣지 않았다** — 그것은 역산이다. 참고로 이 Ea 를 쓰면 25→35 °C 비가 exp(-28451/8.314 x (1/308.15 - 1/298.15)) = 1.45 배다. 요청서가 적은 '배 가까이'보다 완만하다 — 이 1.45 는 저장하지 않는 해설값이다. [벤더 확인 — 67차 CD] 이 재료가 이미 인용하는 벤더 시트를 포함해 OCA/PSA 접착제 벤더 문서 31장(내려받은 38개 중 바이트 동일 중복 7개 제외)을 내려받아 열고 oxygen / OTR / O2 / permeab / permeance / barrer / transmission rate 로 걸었다. **등급 실측은 0건이다.** 3M OCA 8211-8215 · 8171/8172 · 817X · 818X · 8173KCL · 8146-x · 8141/8142/8161/9483 · ACO 01N · 467MP · 468MP · CEF35XX · 폴더블 OLED OCA 백서 · Nitto No.5000NS(유통사 사본) · Nitto Mounting Tapes 2025 · tesa 88006 · tesa 88008 · Adhesives Research ARclear 6장 · 3M LOCA 1088 · LOCTITE AA 3311 이 그 목록이고, 이 서식들은 박리력 · 전단유지력 · 굴절률 · 헤이즈 · 광투과율 · 색좌표만 찍는다. 같은 3M 아크릴 계열 중 **VHB Tapes TDS(2018) 만이 가스 행을 하나 갖는데 그것도 산소가 아니라 'Water Vapor Transmission Rate  25.6  37.1  g/m2*day  ASTM F1249 at 38°C/100% RH' 다.** 즉 3M 은 아크릴 접착제의 가스 수송을 재긴 재되 공개하는 것은 WVTR 뿐이고 OTR 은 어느 시트에도 없다."
+    }
+   ]
+  },
+  {
+   "match_name": "3M Optically Clear Adhesive 8211",
+   "source": {
+    "kind": "other",
+    "title": "Physical Properties of Poly (n-alkyl acrylate) Copolymers (K. A. O'Leary, PhD dissertation, The University of Texas at Austin, 2005; supervisor D. R. Paul)",
+    "url": "https://repositories.lib.utexas.edu/server/api/core/bitstreams/b50f3cf2-2ce3-4e44-aba8-a120bd4e0003/content",
+    "publisher": "The University of Texas at Austin",
+    "year": 2005,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/display/cd_oleary_2005_poly_n_alkyl_acrylate_thesis.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.activation_energy",
+     "value": 28451.0,
+     "unit": "J/mol",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "species": "O2",
+      "process": "O2 permeation",
+      "state": "amorphous (Ea)",
+      "test_method": "composite-membrane permeation on a PPO support, 2 atm upstream, six gases; Ea = Arrhenius slope of P(T) printed by the author",
+      "grade_scope": "class value — poly(n-hexyl acrylate)(PA 6) 균질중합체의 Arrhenius 활성화에너지다. 이 제품 등급을 잰 값이 아니다. 이 재료가 이미 쓰는 투과율 1.1813e-14 와 **같은 표 · 같은 행**에서 왔으므로 계보가 하나로 붙는다 — 다섯 출처의 교차검증이 아니라 한 문헌값의 전파다. 아크릴 OCA/PSA 는 2-EHA/BA/AA 공중합에 가교가 들어가므로 실제 Ea 는 이보다 클 가능성이 있다(가교가 늘면 확산 활성화에너지가 커진다). 같은 계열이 비정질 구간에서 PA 6(C6) 6.8 / PA 10(C10) 7.4 kcal/mol 로 곁사슬 길이에 둔감한 점이 이 대체의 근거이고, 그 둔감성은 투과율(35.3 / 31.1 Barrer)의 둔감성과 같은 방향이다. 실제 사용 grade 의 온도의존 실측이 오면 이 값을 대체해야 한다."
+     },
+     "notes": "Table 7.1 'Activation Energy and Permeability Data Extrapolated to 35ºC for Various Gases Through Poly (n-alkyl acrylate) Homopolymers' 의 PA 6 블록 Ea 행 verbatim: '6.5  6.7  6.8  8.0  6.8  6.5', 열 머리글 'He  H2  O2  N2  CH4  CO2' 이므로 O2 는 3번째 = 6.8 kcal/mol. 단위 각주 원문: 'Note that the activation energies Ea and Ec have units of kcal/mol while the permeability coefficients P35+ and P35- have units of Barrers'. 환산 6.8 kcal/mol x 4184 J/kcal = 28451.2 J/mol. 카탈로그의 뿌리 재료 480 'Poly(hexyl acrylate) (PA 6 ...)' 가 같은 칸을 이미 28451 J/mol 로 갖고 있어 그 자리에 맞춘다(중복 아님, 계열값 이식). 환산 검산 — 같은 표 PA 10 의 O2 Ea 7.4 kcal/mol x 4184 = 30961.6 J/mol 이고 DB 재료 481 이 30962 J/mol 을 갖고 있다. 같은 인자로 두 행이 맞으므로 kcal->J 인자 4184 가 이 표에 대한 카탈로그 관례임이 확인된다. [Ea 가 서술하는 것] 본문 원문: 'The quantities Ea and Ec are the activation energies for permeation in the amorphous and semi-crystalline states, respectively'. PA 6 은 Table 7.1 에서 Ec / P35- / P35+/P35- 칸이 모두 비어 있어 상온에서 결정상이 없다 — 그래서 Ea 하나가 전 온도구간을 기술한다. [측정법 원문] 'A layer of known thickness of the poly (n-alkyl acrylate) polymer was added on top of the PPO support. The permeance of the composite was measured as a function of temperature above and below the Tm of the acrylate sample.' / 'The gases used, He, H2, O2, N2, CH4, and CO2, were purchased from Matheson Tri Gas with at least 99.9% purity and were run at a 2 atm upstream pressure for all temperatures.' 즉 Ea 는 저자가 잰 P(T) 를 Arrhenius 좌표에서 기울기로 뽑은 값이지(Figure 7.2), 35 °C 투과율처럼 외삽으로 만든 숫자가 아니다. 그래서 같은 표에서 왔어도 P35+ 와 달리 value_basis 에 '외삽' 이 붙지 않는다. [왜 이 칸을 여는가] 이 재료는 같은 표 같은 PA 6 행에서 온 투과율 1.1813e-14 mol/(m*s*Pa) @35 °C 를 이미 갖고 있는데 온도의존성이 없어 35 °C 한 점에 묶여 있었다. 요청서 PDE/oxygen-diffusion/물성요청_산소확산_원자재6종.md §2 가 '측정 온도 — 아크릴계는 10 °C 차이로 배 가까이 움직인다' 로 온도 조건을 필수로 걸었다. 이 Ea 가 그 축을 연다. 다만 **이 Ea 로 다른 온도의 투과율을 만들어 카탈로그에 넣지 않았다** — 그것은 역산이다. 참고로 이 Ea 를 쓰면 25→35 °C 비가 exp(-28451/8.314 x (1/308.15 - 1/298.15)) = 1.45 배다. 요청서가 적은 '배 가까이'보다 완만하다 — 이 1.45 는 저장하지 않는 해설값이다. [벤더 확인 — 67차 CD] 이 재료가 이미 인용하는 벤더 시트를 포함해 OCA/PSA 접착제 벤더 문서 31장(내려받은 38개 중 바이트 동일 중복 7개 제외)을 내려받아 열고 oxygen / OTR / O2 / permeab / permeance / barrer / transmission rate 로 걸었다. **등급 실측은 0건이다.** 3M OCA 8211-8215 · 8171/8172 · 817X · 818X · 8173KCL · 8146-x · 8141/8142/8161/9483 · ACO 01N · 467MP · 468MP · CEF35XX · 폴더블 OLED OCA 백서 · Nitto No.5000NS(유통사 사본) · Nitto Mounting Tapes 2025 · tesa 88006 · tesa 88008 · Adhesives Research ARclear 6장 · 3M LOCA 1088 · LOCTITE AA 3311 이 그 목록이고, 이 서식들은 박리력 · 전단유지력 · 굴절률 · 헤이즈 · 광투과율 · 색좌표만 찍는다. 같은 3M 아크릴 계열 중 **VHB Tapes TDS(2018) 만이 가스 행을 하나 갖는데 그것도 산소가 아니라 'Water Vapor Transmission Rate  25.6  37.1  g/m2*day  ASTM F1249 at 38°C/100% RH' 다.** 즉 3M 은 아크릴 접착제의 가스 수송을 재긴 재되 공개하는 것은 WVTR 뿐이고 OTR 은 어느 시트에도 없다."
+    }
+   ]
+  },
+  {
+   "match_name": "OCA acrylic (flexible device, Tg 0C) - Micromachines 2022 characterization",
+   "source": {
+    "kind": "other",
+    "title": "Physical Properties of Poly (n-alkyl acrylate) Copolymers (K. A. O'Leary, PhD dissertation, The University of Texas at Austin, 2005; supervisor D. R. Paul)",
+    "url": "https://repositories.lib.utexas.edu/server/api/core/bitstreams/b50f3cf2-2ce3-4e44-aba8-a120bd4e0003/content",
+    "publisher": "The University of Texas at Austin",
+    "year": 2005,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/display/cd_oleary_2005_poly_n_alkyl_acrylate_thesis.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.activation_energy",
+     "value": 28451.0,
+     "unit": "J/mol",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "species": "O2",
+      "process": "O2 permeation",
+      "state": "amorphous (Ea)",
+      "test_method": "composite-membrane permeation on a PPO support, 2 atm upstream, six gases; Ea = Arrhenius slope of P(T) printed by the author",
+      "grade_scope": "class value — poly(n-hexyl acrylate)(PA 6) 균질중합체의 Arrhenius 활성화에너지다. 이 제품 등급을 잰 값이 아니다. 이 재료가 이미 쓰는 투과율 1.1813e-14 와 **같은 표 · 같은 행**에서 왔으므로 계보가 하나로 붙는다 — 다섯 출처의 교차검증이 아니라 한 문헌값의 전파다. 아크릴 OCA/PSA 는 2-EHA/BA/AA 공중합에 가교가 들어가므로 실제 Ea 는 이보다 클 가능성이 있다(가교가 늘면 확산 활성화에너지가 커진다). 같은 계열이 비정질 구간에서 PA 6(C6) 6.8 / PA 10(C10) 7.4 kcal/mol 로 곁사슬 길이에 둔감한 점이 이 대체의 근거이고, 그 둔감성은 투과율(35.3 / 31.1 Barrer)의 둔감성과 같은 방향이다. 실제 사용 grade 의 온도의존 실측이 오면 이 값을 대체해야 한다."
+     },
+     "notes": "Table 7.1 'Activation Energy and Permeability Data Extrapolated to 35ºC for Various Gases Through Poly (n-alkyl acrylate) Homopolymers' 의 PA 6 블록 Ea 행 verbatim: '6.5  6.7  6.8  8.0  6.8  6.5', 열 머리글 'He  H2  O2  N2  CH4  CO2' 이므로 O2 는 3번째 = 6.8 kcal/mol. 단위 각주 원문: 'Note that the activation energies Ea and Ec have units of kcal/mol while the permeability coefficients P35+ and P35- have units of Barrers'. 환산 6.8 kcal/mol x 4184 J/kcal = 28451.2 J/mol. 카탈로그의 뿌리 재료 480 'Poly(hexyl acrylate) (PA 6 ...)' 가 같은 칸을 이미 28451 J/mol 로 갖고 있어 그 자리에 맞춘다(중복 아님, 계열값 이식). 환산 검산 — 같은 표 PA 10 의 O2 Ea 7.4 kcal/mol x 4184 = 30961.6 J/mol 이고 DB 재료 481 이 30962 J/mol 을 갖고 있다. 같은 인자로 두 행이 맞으므로 kcal->J 인자 4184 가 이 표에 대한 카탈로그 관례임이 확인된다. [Ea 가 서술하는 것] 본문 원문: 'The quantities Ea and Ec are the activation energies for permeation in the amorphous and semi-crystalline states, respectively'. PA 6 은 Table 7.1 에서 Ec / P35- / P35+/P35- 칸이 모두 비어 있어 상온에서 결정상이 없다 — 그래서 Ea 하나가 전 온도구간을 기술한다. [측정법 원문] 'A layer of known thickness of the poly (n-alkyl acrylate) polymer was added on top of the PPO support. The permeance of the composite was measured as a function of temperature above and below the Tm of the acrylate sample.' / 'The gases used, He, H2, O2, N2, CH4, and CO2, were purchased from Matheson Tri Gas with at least 99.9% purity and were run at a 2 atm upstream pressure for all temperatures.' 즉 Ea 는 저자가 잰 P(T) 를 Arrhenius 좌표에서 기울기로 뽑은 값이지(Figure 7.2), 35 °C 투과율처럼 외삽으로 만든 숫자가 아니다. 그래서 같은 표에서 왔어도 P35+ 와 달리 value_basis 에 '외삽' 이 붙지 않는다. [왜 이 칸을 여는가] 이 재료는 같은 표 같은 PA 6 행에서 온 투과율 1.1813e-14 mol/(m*s*Pa) @35 °C 를 이미 갖고 있는데 온도의존성이 없어 35 °C 한 점에 묶여 있었다. 요청서 PDE/oxygen-diffusion/물성요청_산소확산_원자재6종.md §2 가 '측정 온도 — 아크릴계는 10 °C 차이로 배 가까이 움직인다' 로 온도 조건을 필수로 걸었다. 이 Ea 가 그 축을 연다. 다만 **이 Ea 로 다른 온도의 투과율을 만들어 카탈로그에 넣지 않았다** — 그것은 역산이다. 참고로 이 Ea 를 쓰면 25→35 °C 비가 exp(-28451/8.314 x (1/308.15 - 1/298.15)) = 1.45 배다. 요청서가 적은 '배 가까이'보다 완만하다 — 이 1.45 는 저장하지 않는 해설값이다. [벤더 확인 — 67차 CD] 이 재료가 이미 인용하는 벤더 시트를 포함해 OCA/PSA 접착제 벤더 문서 31장(내려받은 38개 중 바이트 동일 중복 7개 제외)을 내려받아 열고 oxygen / OTR / O2 / permeab / permeance / barrer / transmission rate 로 걸었다. **등급 실측은 0건이다.** 3M OCA 8211-8215 · 8171/8172 · 817X · 818X · 8173KCL · 8146-x · 8141/8142/8161/9483 · ACO 01N · 467MP · 468MP · CEF35XX · 폴더블 OLED OCA 백서 · Nitto No.5000NS(유통사 사본) · Nitto Mounting Tapes 2025 · tesa 88006 · tesa 88008 · Adhesives Research ARclear 6장 · 3M LOCA 1088 · LOCTITE AA 3311 이 그 목록이고, 이 서식들은 박리력 · 전단유지력 · 굴절률 · 헤이즈 · 광투과율 · 색좌표만 찍는다. 같은 3M 아크릴 계열 중 **VHB Tapes TDS(2018) 만이 가스 행을 하나 갖는데 그것도 산소가 아니라 'Water Vapor Transmission Rate  25.6  37.1  g/m2*day  ASTM F1249 at 38°C/100% RH' 다.** 즉 3M 은 아크릴 접착제의 가스 수송을 재긴 재되 공개하는 것은 WVTR 뿐이고 OTR 은 어느 시트에도 없다."
+    }
+   ]
+  },
+  {
+   "match_name": "OCA 8211 (3M, rigid standard)",
+   "source": {
+    "kind": "other",
+    "title": "Physical Properties of Poly (n-alkyl acrylate) Copolymers (K. A. O'Leary, PhD dissertation, The University of Texas at Austin, 2005; supervisor D. R. Paul)",
+    "url": "https://repositories.lib.utexas.edu/server/api/core/bitstreams/b50f3cf2-2ce3-4e44-aba8-a120bd4e0003/content",
+    "publisher": "The University of Texas at Austin",
+    "year": 2005,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/display/cd_oleary_2005_poly_n_alkyl_acrylate_thesis.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.activation_energy",
+     "value": 28451.0,
+     "unit": "J/mol",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "species": "O2",
+      "process": "O2 permeation",
+      "state": "amorphous (Ea)",
+      "test_method": "composite-membrane permeation on a PPO support, 2 atm upstream, six gases; Ea = Arrhenius slope of P(T) printed by the author",
+      "grade_scope": "class value — poly(n-hexyl acrylate)(PA 6) 균질중합체의 Arrhenius 활성화에너지다. 이 제품 등급을 잰 값이 아니다. 이 재료가 이미 쓰는 투과율 1.1813e-14 와 **같은 표 · 같은 행**에서 왔으므로 계보가 하나로 붙는다 — 다섯 출처의 교차검증이 아니라 한 문헌값의 전파다. 아크릴 OCA/PSA 는 2-EHA/BA/AA 공중합에 가교가 들어가므로 실제 Ea 는 이보다 클 가능성이 있다(가교가 늘면 확산 활성화에너지가 커진다). 같은 계열이 비정질 구간에서 PA 6(C6) 6.8 / PA 10(C10) 7.4 kcal/mol 로 곁사슬 길이에 둔감한 점이 이 대체의 근거이고, 그 둔감성은 투과율(35.3 / 31.1 Barrer)의 둔감성과 같은 방향이다. 실제 사용 grade 의 온도의존 실측이 오면 이 값을 대체해야 한다."
+     },
+     "notes": "Table 7.1 'Activation Energy and Permeability Data Extrapolated to 35ºC for Various Gases Through Poly (n-alkyl acrylate) Homopolymers' 의 PA 6 블록 Ea 행 verbatim: '6.5  6.7  6.8  8.0  6.8  6.5', 열 머리글 'He  H2  O2  N2  CH4  CO2' 이므로 O2 는 3번째 = 6.8 kcal/mol. 단위 각주 원문: 'Note that the activation energies Ea and Ec have units of kcal/mol while the permeability coefficients P35+ and P35- have units of Barrers'. 환산 6.8 kcal/mol x 4184 J/kcal = 28451.2 J/mol. 카탈로그의 뿌리 재료 480 'Poly(hexyl acrylate) (PA 6 ...)' 가 같은 칸을 이미 28451 J/mol 로 갖고 있어 그 자리에 맞춘다(중복 아님, 계열값 이식). 환산 검산 — 같은 표 PA 10 의 O2 Ea 7.4 kcal/mol x 4184 = 30961.6 J/mol 이고 DB 재료 481 이 30962 J/mol 을 갖고 있다. 같은 인자로 두 행이 맞으므로 kcal->J 인자 4184 가 이 표에 대한 카탈로그 관례임이 확인된다. [Ea 가 서술하는 것] 본문 원문: 'The quantities Ea and Ec are the activation energies for permeation in the amorphous and semi-crystalline states, respectively'. PA 6 은 Table 7.1 에서 Ec / P35- / P35+/P35- 칸이 모두 비어 있어 상온에서 결정상이 없다 — 그래서 Ea 하나가 전 온도구간을 기술한다. [측정법 원문] 'A layer of known thickness of the poly (n-alkyl acrylate) polymer was added on top of the PPO support. The permeance of the composite was measured as a function of temperature above and below the Tm of the acrylate sample.' / 'The gases used, He, H2, O2, N2, CH4, and CO2, were purchased from Matheson Tri Gas with at least 99.9% purity and were run at a 2 atm upstream pressure for all temperatures.' 즉 Ea 는 저자가 잰 P(T) 를 Arrhenius 좌표에서 기울기로 뽑은 값이지(Figure 7.2), 35 °C 투과율처럼 외삽으로 만든 숫자가 아니다. 그래서 같은 표에서 왔어도 P35+ 와 달리 value_basis 에 '외삽' 이 붙지 않는다. [왜 이 칸을 여는가] 이 재료는 같은 표 같은 PA 6 행에서 온 투과율 1.1813e-14 mol/(m*s*Pa) @35 °C 를 이미 갖고 있는데 온도의존성이 없어 35 °C 한 점에 묶여 있었다. 요청서 PDE/oxygen-diffusion/물성요청_산소확산_원자재6종.md §2 가 '측정 온도 — 아크릴계는 10 °C 차이로 배 가까이 움직인다' 로 온도 조건을 필수로 걸었다. 이 Ea 가 그 축을 연다. 다만 **이 Ea 로 다른 온도의 투과율을 만들어 카탈로그에 넣지 않았다** — 그것은 역산이다. 참고로 이 Ea 를 쓰면 25→35 °C 비가 exp(-28451/8.314 x (1/308.15 - 1/298.15)) = 1.45 배다. 요청서가 적은 '배 가까이'보다 완만하다 — 이 1.45 는 저장하지 않는 해설값이다. [벤더 확인 — 67차 CD] 이 재료가 이미 인용하는 벤더 시트를 포함해 OCA/PSA 접착제 벤더 문서 31장(내려받은 38개 중 바이트 동일 중복 7개 제외)을 내려받아 열고 oxygen / OTR / O2 / permeab / permeance / barrer / transmission rate 로 걸었다. **등급 실측은 0건이다.** 3M OCA 8211-8215 · 8171/8172 · 817X · 818X · 8173KCL · 8146-x · 8141/8142/8161/9483 · ACO 01N · 467MP · 468MP · CEF35XX · 폴더블 OLED OCA 백서 · Nitto No.5000NS(유통사 사본) · Nitto Mounting Tapes 2025 · tesa 88006 · tesa 88008 · Adhesives Research ARclear 6장 · 3M LOCA 1088 · LOCTITE AA 3311 이 그 목록이고, 이 서식들은 박리력 · 전단유지력 · 굴절률 · 헤이즈 · 광투과율 · 색좌표만 찍는다. 같은 3M 아크릴 계열 중 **VHB Tapes TDS(2018) 만이 가스 행을 하나 갖는데 그것도 산소가 아니라 'Water Vapor Transmission Rate  25.6  37.1  g/m2*day  ASTM F1249 at 38°C/100% RH' 다.** 즉 3M 은 아크릴 접착제의 가스 수송을 재긴 재되 공개하는 것은 WVTR 뿐이고 OTR 은 어느 시트에도 없다."
+    }
+   ]
+  },
+  {
+   "match_name": "OCA acrylic (foldable OLED) - Microsyst Nanoeng 2026 characterization",
+   "source": {
+    "kind": "other",
+    "title": "Physical Properties of Poly (n-alkyl acrylate) Copolymers (K. A. O'Leary, PhD dissertation, The University of Texas at Austin, 2005; supervisor D. R. Paul)",
+    "url": "https://repositories.lib.utexas.edu/server/api/core/bitstreams/b50f3cf2-2ce3-4e44-aba8-a120bd4e0003/content",
+    "publisher": "The University of Texas at Austin",
+    "year": 2005,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/display/cd_oleary_2005_poly_n_alkyl_acrylate_thesis.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.activation_energy",
+     "value": 28451.0,
+     "unit": "J/mol",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "species": "O2",
+      "process": "O2 permeation",
+      "state": "amorphous (Ea)",
+      "test_method": "composite-membrane permeation on a PPO support, 2 atm upstream, six gases; Ea = Arrhenius slope of P(T) printed by the author",
+      "grade_scope": "class value — poly(n-hexyl acrylate)(PA 6) 균질중합체의 Arrhenius 활성화에너지다. 이 제품 등급을 잰 값이 아니다. 이 재료가 이미 쓰는 투과율 1.1813e-14 와 **같은 표 · 같은 행**에서 왔으므로 계보가 하나로 붙는다 — 다섯 출처의 교차검증이 아니라 한 문헌값의 전파다. 아크릴 OCA/PSA 는 2-EHA/BA/AA 공중합에 가교가 들어가므로 실제 Ea 는 이보다 클 가능성이 있다(가교가 늘면 확산 활성화에너지가 커진다). 같은 계열이 비정질 구간에서 PA 6(C6) 6.8 / PA 10(C10) 7.4 kcal/mol 로 곁사슬 길이에 둔감한 점이 이 대체의 근거이고, 그 둔감성은 투과율(35.3 / 31.1 Barrer)의 둔감성과 같은 방향이다. 실제 사용 grade 의 온도의존 실측이 오면 이 값을 대체해야 한다."
+     },
+     "notes": "Table 7.1 'Activation Energy and Permeability Data Extrapolated to 35ºC for Various Gases Through Poly (n-alkyl acrylate) Homopolymers' 의 PA 6 블록 Ea 행 verbatim: '6.5  6.7  6.8  8.0  6.8  6.5', 열 머리글 'He  H2  O2  N2  CH4  CO2' 이므로 O2 는 3번째 = 6.8 kcal/mol. 단위 각주 원문: 'Note that the activation energies Ea and Ec have units of kcal/mol while the permeability coefficients P35+ and P35- have units of Barrers'. 환산 6.8 kcal/mol x 4184 J/kcal = 28451.2 J/mol. 카탈로그의 뿌리 재료 480 'Poly(hexyl acrylate) (PA 6 ...)' 가 같은 칸을 이미 28451 J/mol 로 갖고 있어 그 자리에 맞춘다(중복 아님, 계열값 이식). 환산 검산 — 같은 표 PA 10 의 O2 Ea 7.4 kcal/mol x 4184 = 30961.6 J/mol 이고 DB 재료 481 이 30962 J/mol 을 갖고 있다. 같은 인자로 두 행이 맞으므로 kcal->J 인자 4184 가 이 표에 대한 카탈로그 관례임이 확인된다. [Ea 가 서술하는 것] 본문 원문: 'The quantities Ea and Ec are the activation energies for permeation in the amorphous and semi-crystalline states, respectively'. PA 6 은 Table 7.1 에서 Ec / P35- / P35+/P35- 칸이 모두 비어 있어 상온에서 결정상이 없다 — 그래서 Ea 하나가 전 온도구간을 기술한다. [측정법 원문] 'A layer of known thickness of the poly (n-alkyl acrylate) polymer was added on top of the PPO support. The permeance of the composite was measured as a function of temperature above and below the Tm of the acrylate sample.' / 'The gases used, He, H2, O2, N2, CH4, and CO2, were purchased from Matheson Tri Gas with at least 99.9% purity and were run at a 2 atm upstream pressure for all temperatures.' 즉 Ea 는 저자가 잰 P(T) 를 Arrhenius 좌표에서 기울기로 뽑은 값이지(Figure 7.2), 35 °C 투과율처럼 외삽으로 만든 숫자가 아니다. 그래서 같은 표에서 왔어도 P35+ 와 달리 value_basis 에 '외삽' 이 붙지 않는다. [왜 이 칸을 여는가] 이 재료는 같은 표 같은 PA 6 행에서 온 투과율 1.1813e-14 mol/(m*s*Pa) @35 °C 를 이미 갖고 있는데 온도의존성이 없어 35 °C 한 점에 묶여 있었다. 요청서 PDE/oxygen-diffusion/물성요청_산소확산_원자재6종.md §2 가 '측정 온도 — 아크릴계는 10 °C 차이로 배 가까이 움직인다' 로 온도 조건을 필수로 걸었다. 이 Ea 가 그 축을 연다. 다만 **이 Ea 로 다른 온도의 투과율을 만들어 카탈로그에 넣지 않았다** — 그것은 역산이다. 참고로 이 Ea 를 쓰면 25→35 °C 비가 exp(-28451/8.314 x (1/308.15 - 1/298.15)) = 1.45 배다. 요청서가 적은 '배 가까이'보다 완만하다 — 이 1.45 는 저장하지 않는 해설값이다. [벤더 확인 — 67차 CD] 이 재료가 이미 인용하는 벤더 시트를 포함해 OCA/PSA 접착제 벤더 문서 31장(내려받은 38개 중 바이트 동일 중복 7개 제외)을 내려받아 열고 oxygen / OTR / O2 / permeab / permeance / barrer / transmission rate 로 걸었다. **등급 실측은 0건이다.** 3M OCA 8211-8215 · 8171/8172 · 817X · 818X · 8173KCL · 8146-x · 8141/8142/8161/9483 · ACO 01N · 467MP · 468MP · CEF35XX · 폴더블 OLED OCA 백서 · Nitto No.5000NS(유통사 사본) · Nitto Mounting Tapes 2025 · tesa 88006 · tesa 88008 · Adhesives Research ARclear 6장 · 3M LOCA 1088 · LOCTITE AA 3311 이 그 목록이고, 이 서식들은 박리력 · 전단유지력 · 굴절률 · 헤이즈 · 광투과율 · 색좌표만 찍는다. 같은 3M 아크릴 계열 중 **VHB Tapes TDS(2018) 만이 가스 행을 하나 갖는데 그것도 산소가 아니라 'Water Vapor Transmission Rate  25.6  37.1  g/m2*day  ASTM F1249 at 38°C/100% RH' 다.** 즉 3M 은 아크릴 접착제의 가스 수송을 재긴 재되 공개하는 것은 WVTR 뿐이고 OTR 은 어느 시트에도 없다."
+    }
+   ]
+  }
+ ]
+}

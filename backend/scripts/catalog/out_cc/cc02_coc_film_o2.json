@@ -1,0 +1,99 @@
+{
+  "batch": "67차 CC",
+  "materials": [
+    {
+      "new_material": {
+        "name": "TOPAS 6013F-04 cyclic olefin copolymer film grade (COC, Tg 138 C, TOPAS Advanced Polymers)",
+        "category": "polymer",
+        "description": "TOPAS COC 표준 필름 등급이다. 편광판 구조를 COP/COC 로 바꾸는 검토(산소확산 요청서 3순위)에 쓸 시클로올레핀계 산소투과의 기준점으로 세웠다. **주의 — 이것은 COC(에틸렌-노보넨 공중합체)이지 COP(개환중합 후 수소화한 노보넨 단독중합체, ZEON ZEONOR/ZEONEX · JSR ARTON)가 아니다.** 디스플레이용 광학필름은 보통 COP 쪽이고, ZEON 의 ZeonorFilm 개요서(ZF14/ZF16)를 열어 본 결과 산소투과 행 자체가 없다 — 그래서 같은 시클로올레핀 계열에서 공개 벤더값이 있는 COC 로 오더를 세운 것이다. Tg 138 C 로 ZeonorFilm(140/170 C)과 가장 가까운 필름 등급이다. 카탈로그에 이미 있는 TOPAS 5013S-04·6015S-04·6017S-04 는 사출(S) 등급이고 이 카드는 필름(F) 등급이라 별개다.",
+        "attributes": {
+          "material_class": "cyclic olefin copolymer (COC, ethylene-norbornene)",
+          "subsystem": "display",
+          "process": "cast film",
+          "manufacturer": "TOPAS Advanced Polymers",
+          "grade": "TOPAS 6013F-04",
+          "aliases": [
+            "TOPAS 6013F-04",
+            "COC 6013F",
+            "cyclic olefin copolymer film"
+          ],
+          "role": "evidence",
+          "role_reason": "COC 포장·광학 필름 등급. 편광판 COP 전환 검토용 오더 근거이지 현재 적층의 층이 아니다.",
+          "role_confidence": "high"
+        }
+      },
+      "source": {
+        "kind": "datasheet",
+        "title": "Packaging with TOPAS COC (TOPAS Advanced Polymers packaging brochure) — Table 4, Physical properties of TOPAS COC standard film grades",
+        "url": "https://topas.com/wp-content/uploads/2023/05/TOPAS-Packaging-Brochure.pdf",
+        "publisher": "TOPAS Advanced Polymers",
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/display/cc_TOPAS_Packaging_Brochure.pdf"
+      },
+      "properties": [
+        {
+          "key": "physical.gas_permeability_o2",
+          "value": 1.4459e-16,
+          "unit": "mol/(m*s*Pa)",
+          "method": "datasheet",
+          "tier": 1,
+          "conditions": {
+            "species": "O2",
+            "temperature_c": 23,
+            "humidity_rh": 50,
+            "test_standard": "ASTM D3985",
+            "normalization": "벤더가 100 um 기준으로 규격화해 인쇄한 투과도다. 두께가 이미 나눠져 있으므로 특정 필름의 OTR 이 아니다",
+            "grade_scope": "TOPAS 6013F-04 필름 등급 그 자체의 인쇄값이다. 다만 벤더가 표 아래에 'The above values are representative values and not guaranteed values for quality or design purposes.' 라고 명시했다"
+          },
+          "notes": "① 원문 verbatim — TOPAS Packaging Brochure p.7 Table 4 'Physical properties of TOPAS® COC standard film grades', 열 머리글 'Property | Unit | Test method | 9506F-500 | 8007F-600 | 7010F-600 | 6013F-04', 해당 행 'Oxygen permeability (23°C, 50% RH) | cm3-100 µm/(m2-day-bar) | ASTM D3985 | 170 | 200 | 260 | 280'. 6013F-04 열은 280 이다. 같은 표의 Tg 행은 'Glass transition temperature (10°C/min) | °C | ISO 11357-1,-2,-3 | 65 | 78 | 110 | 138' 로 이 등급이 Tg 138 C 임을 확인해 준다. ② 환산 산술 — 단위 cm3(STP)·100um/(m2·day·bar) 는 100 um 로 규격화된 투과도이므로 100 um = 1e-4 m 를 곱하고 나머지를 SI 로 바꾼다. 280 x 1e-4 m / 86400 s / 1e5 Pa / 22414 cm3(STP)/mol = 1.4459e-16 mol/(m*s*Pa). 환산 상수로 정리하면 1 cm3·100um/(m2·day·bar) = 5.1638e-19 mol/(m*s*Pa). ③ 검산 (1) Barrer 되돌리기 — 1.4459e-16 / 3.3464e-16 = 0.432 Barrer. 검산 (2) 독립 경로로 Barrer 직접 계산 — 280 cm3 x 0.01 cm / (1e4 cm2 x 86400 s x 75.0062 cmHg) = 4.32e-11 cm3·cm/(cm2·s·cmHg) = 0.432 Barrer 로 일치한다. 검산 (3) 표 내부 정합 — 같은 행에서 Tg 가 65 -> 78 -> 110 -> 138 C 로 오를 때 산소투과가 170 -> 200 -> 260 -> 280 으로 단조 증가한다. 노보넨 함량이 늘면 사슬이 굳고 자유부피가 커져 투과가 오르는 유리상 시클로올레핀의 알려진 거동과 방향이 맞다. 배포 주의 — 이 표의 나머지 6 등급(9506F-500 170 · 8007F-600 200 · 7010F-600 260 · 9903D-10 400 · 8007F-04 200 · E-140 1200)도 같은 문서에 있으나 이번 배치는 디스플레이 관련성이 높은 고 Tg 필름 두 등급만 세웠다. 유통사 문서 Entec Polymers 'TOPAS COC Product Guide' 는 7010F-600 을 260 이 아니라 26 으로 인쇄하는 오타가 있으므로 그 문서를 교차검증에 쓰지 마라."
+        }
+      ]
+    },
+    {
+      "new_material": {
+        "name": "TOPAS 5013F-04 cyclic olefin copolymer film grade (COC, Tg 136 C, TOPAS Advanced Polymers)",
+        "category": "polymer",
+        "description": "TOPAS COC 특수 필름 등급이다. Tg 136 C 로 디스플레이 광학필름 온도대에 걸리는 필름 등급이며, 편광판 COP/COC 전환 검토용 산소투과 기준점으로 6013F-04 와 짝지어 세웠다. **COC 이지 COP 가 아니다** — 상세는 6013F-04 카드 설명과 out_cc/cc00_report.md 참조. 카탈로그의 TOPAS 5013S-04(재료 2546)는 사출 등급이고 이 카드는 필름 등급이라 별개다.",
+        "attributes": {
+          "material_class": "cyclic olefin copolymer (COC, ethylene-norbornene)",
+          "subsystem": "display",
+          "process": "cast film",
+          "manufacturer": "TOPAS Advanced Polymers",
+          "grade": "TOPAS 5013F-04",
+          "aliases": [
+            "TOPAS 5013F-04",
+            "COC 5013F",
+            "cyclic olefin copolymer film"
+          ],
+          "role": "evidence",
+          "role_reason": "COC 포장·광학 필름 등급. 편광판 COP 전환 검토용 오더 근거이지 현재 적층의 층이 아니다.",
+          "role_confidence": "high"
+        }
+      },
+      "source": {
+        "kind": "datasheet",
+        "title": "Packaging with TOPAS COC (TOPAS Advanced Polymers packaging brochure) — Table 5, Physical properties of TOPAS COC special film grades",
+        "url": "https://topas.com/wp-content/uploads/2023/05/TOPAS-Packaging-Brochure.pdf",
+        "publisher": "TOPAS Advanced Polymers",
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/display/cc_TOPAS_Packaging_Brochure.pdf"
+      },
+      "properties": [
+        {
+          "key": "physical.gas_permeability_o2",
+          "value": 1.2909e-16,
+          "unit": "mol/(m*s*Pa)",
+          "method": "datasheet",
+          "tier": 1,
+          "conditions": {
+            "species": "O2",
+            "temperature_c": 23,
+            "humidity_rh": 50,
+            "test_standard": "ASTM D3985",
+            "normalization": "벤더가 100 um 기준으로 규격화해 인쇄한 투과도다. 두께가 이미 나눠져 있으므로 특정 필름의 OTR 이 아니다",
+            "grade_scope": "TOPAS 5013F-04 필름 등급 그 자체의 인쇄값이다. 벤더 각주 'representative values and not guaranteed values' 가 붙는다"
+          },
+          "notes": "① 원문 verbatim — TOPAS Packaging Brochure p.8 Table 5 'Physical properties of TOPAS® COC special film grades', 열 머리글 'Property | Unit | Test method | 9903D-10 | 8007F-04 | 5013F-04 | E-140', 해당 행 'Oxygen permeability (23°C, 50% RH) | cm3-100 µm/(m2-day-bar) | ASTM D3985 | 400 | 200 | 250 | 1200'. 5013F-04 열은 250 이다. 같은 표 Tg 행 'Glass transition temperature (10°C/min) | °C | ISO 11357-1,-2,-3 | 33 | 78 | 136 | 6' 으로 이 등급이 Tg 136 C 임이 확인된다. ② 환산 산술 — 250 x 1e-4 m / 86400 s / 1e5 Pa / 22414 cm3(STP)/mol = 1.2909e-16 mol/(m*s*Pa). ③ 검산 (1) Barrer — 1.2909e-16 / 3.3464e-16 = 0.386 Barrer. 검산 (2) 독립 경로 — 250 x 0.01 / (1e4 x 86400 x 75.0062) = 3.858e-11 cm3·cm/(cm2·s·cmHg) = 0.386 Barrer 로 일치. 검산 (3) 유통사 문서 Entec Polymers 'TOPAS COC Product Guide'(2021-05-10)가 같은 등급을 250 cm3x100um/(m2xdayxbar), ASTM D3985, 23°C/50% RH 로 독립 인쇄해 일치한다(단 그 문서는 7010F-600 을 26 으로 잘못 적는다). 참고 — 표에서 Tg 6 C 인 탄성체 등급 E-140 은 1200 으로 이 등급의 4.8 배다. 시클로올레핀이라도 등급이 달라지면 오더가 흔들린다는 뜻이므로 'COC/COP 전환' 을 한 숫자로 뭉뚱그리면 안 된다."
+        }
+      ]
+    }
+  ]
+}

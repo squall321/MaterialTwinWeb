@@ -1,0 +1,134 @@
+{
+  "batch": "67차 CE",
+  "materials": [
+    {
+      "new_material": {
+        "name": "Display module side sealing material, module-level perimeter side seal (composition class — panel grade not identified)",
+        "category": "polymer",
+        "description": "모듈 레벨 사이드실링재 — 편광판·OCA 적층 바깥면에 디스펜서/스크린인쇄로 바르고 레이저로 잘라 폭을 정하는 측면 코팅이다. 두 갈래가 있다. **PIB 갈래**: 산무수물 변성 폴리이소부틸렌 + 아크릴 올리고머(에폭시/우레탄 아크릴레이트) + 흄드실리카 + CaO 게터, UV/열 경화 (LG화학 US11795314B2 청구항 18 이 실제 배합을 인쇄한다). **아크릴레이트 갈래**: 우레탄아크릴레이트 + IBOA + THFA + 카본블랙, UV 385~405 nm (삼성디스플레이 US10928662B2). **패널 프레임 실(메인 실)과 다른 재료다** — 특허 3건이 명시한다. 프레임 실은 기판 사이 좁은 갭을 열경화 에폭시로 채우고, 이쪽은 적층이 80 C 를 못 버텨 UV 로 간다. 산소가 우리 적층에 실제로 들어오는 면이 이쪽이다. 두께 80~140 µm(LGD US2025/0212658A1 청구항 13), 폭은 특허 25건 어디에도 인쇄돼 있지 않다. OLED 모듈의 노출된 적층 측면(편광판/OCA/TAC/봉지기판 라미네이트의 옆면)을 덮는 **모듈 레벨 사이드실링재**의 조성 계열 카드다. 산소확산 해석(oxygen_stack_2d)의 엣지 경계조건 h 를 닫기 위해 세웠다. [패널 프레임 실과 다른 재료다 — 문서 세 건이 명시한다] LG화학 US11795314B2 는 사이드는 'screen printing or dispenser applying', 톱은 'a liquid drop injection (one drop fill) process' 로 **공정을 갈라 적는다**. LG디스플레이 US20240224729A1 은 기판 사이는 frit, 편광판 위는 에폭시/아크릴로 갈라 적는다. LG디스플레이 US10001665B2 청구항 1 은 못을 박는다 — 'wherein the side seal member and the sealing-bonding member are formed of different materials, the sealing-bonding member comprising a curable resin and the side seal member comprising a polymer having a black pigment therein.' 그래서 67차 CA 가 세운 패널 프레임 실 카드(에폭시 아크릴레이트 주쇄)와 **별개 카드**로 둔다. [갈래 1 — PIB 골격 (LG화학·LG디스플레이)] 실제 배합을 인쇄한 유일한 문서가 LG화학 US11795314B2 다 (청구항 18 이 'a side sealing layer on the periphery of the substrate and surrounding the side of the organic electronic element' 를 적는다). 실시예 verbatim — 'as the olefin-based resin, an acid anhydride-modified polyisobutylene resin (BASF, Mn 1000 g/mol, Glissopal SA, hereinafter PIBSA) and polyisobutylene (B14 from BASF, Mw=60,000 g/mol, hereinafter PIB) were used. As the bifunctional (multifunctional) acrylic oligomer, epoxy acrylate (Sartomer, CN110 ...) and urethane acrylate (Sartomer, CN 9013 ...) ... As the inorganic filler, fumed silica (Aerosil, Evonik, R805) ... and as the moisture adsorbent, calcium oxide (CaO, Aldrich) was used.' 실시예 1 의 배합비는 PIBSA 65 / CN110 15 / CN131 5 / Celloxide2021P 15 / 흄드실리카 R805 5 / **CaO 25** / CPI-101A 0.5 / ",
+        "attributes": {
+          "material_class": "polyisobutylene/butyl-rubber backbone with acrylic oligomer crosslinker, fumed-silica filled, CaO getter loaded (PIB branch); urethane acrylate/IBOA/THFA photopolymer with carbon black (acrylate branch)",
+          "subsystem": "display",
+          "process": "screen printing or dispenser applying on the module edge, then UV cure (and optional thermal post-cure); laser cutting to final width",
+          "aliases": [
+            "사이드실",
+            "side seal",
+            "side sealing layer",
+            "모듈 사이드실링재",
+            "side seal member",
+            "side sealing member",
+            "module perimeter side seal",
+            "사이드실링재"
+          ],
+          "role": "product",
+          "role_reason": "산소가 우리 적층에 실제로 들어오는 면. 해석이 직접 읽는다.",
+          "role_confidence": "medium"
+        }
+      },
+      "source": {
+        "kind": "other",
+        "title": "Water Vapor Permeation in Plastics (PNNL-26070), Table 4.2 — Permeability coefficient (P0) of oxygen and water vapor for various polymers from the literature, RUBBERS section [Kjeldsen 1993, p.127]",
+        "url": "https://www.pnnl.gov/main/publications/external/technical_reports/PNNL-26070.pdf",
+        "publisher": "Pacific Northwest National Laboratory",
+        "year": 2017,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/display/PNNL-26070.pdf"
+      },
+      "properties": [
+        {
+          "key": "physical.gas_permeability_o2",
+          "value": 4.015841e-17,
+          "unit": "mol/(m*s*Pa)",
+          "method": "handbook",
+          "tier": 3,
+          "conditions": {
+            "species": "O2",
+            "pressure_atm": 1,
+            "temperature_c": null,
+            "bound": "lower",
+            "resin_backbone": "polyisobutylene / butyl rubber (PIB branch)",
+            "printed_as": "7.88 cm3*mm/(m2*d*atm)",
+            "grade_scope": "class value — 원 표 행은 **충전제도 게터도 없는 순수 부틸고무(폴리이소부틸렌-이소프렌 공중합체)** 이고, 이 카드가 나타내는 모듈 사이드실링재는 LG화학 US11795314B2 실시예 기준 **CaO 약 18 wt% + 흄드실리카 약 3.7 wt% 를 담은 충전·게터계**이며 아크릴 올리고머로 가교된 하이브리드다. 무기 충전이 들어가면 투과가 내려가므로(같은 카탈로그 Kaneka 카드 실측: 무기 나노판상체 10 wt% 로 8.9~19.7 배 감소) 이 값은 **보수측 상한**이다. 등급 일치가 아니라 골격(PIB) 일치일 뿐이다."
+          },
+          "notes": "PNNL-26070 Table 4.2 'Permeability coefficient (P0) of oxygen and water vapor for various polymers from the literature' — 열 머리글 'P0 (Oxygen) cm3*mm/m2*d*atm' / 'P0 (Water) g*mm/m2*d'. RUBBERS 구획 행 verbatim: 'Butyl rubber | 7.88 - 85.4 | (Water 열 공란) | [Kjeldsen 1993, p.127]'. 같은 구획의 이웃 행 — 'Rubbers 7.88 - 4330' · 'Polyisoprene 4320' · 'Methyl rubber 11.8 - 722' · 'Natural rubber 1530 - 1580' · 'Neoprene 1640 - 2630' · 'Silicone rubber 3940 - 4330'. 부틸고무가 이 표 RUBBERS 구획에서 가장 낮다 — 고전적 산소배리어 엘라스토머라는 통념과 방향이 맞는다. 환산: 7.88 x 5.096245e-18 = 4.015841e-17 mol/(m*s*Pa). 환산 상수 5.096245e-18 = 1e-3 m/mm / (22414 cm3/mol x 86400 s/d x 101325 Pa/atm) — 같은 출처의 기존 DB 행(PEN 0.5 -> 2.548122e-18 · PVDF 5.52 -> 2.813127e-17 · PMMA 5.8 -> 2.955822e-17 · PC 71/124 · PTFE 222/387)이 쓴 규약과 같다. 검산(Barrer 되돌림) — 4.015841e-17 / 3.3464e-16 = 0.12000 Barrer. 교차검산: 같은 보고서 Table 3.1 이 'Barrer -> cm3*mm/(m2*d*atm) Multiply by 65.664' 를 직접 인쇄한다. 7.88 / 65.664 = 0.12000 Barrer 로 두 경로가 소수 5 자리까지 일치한다(1/5.096245e-18 x 3.3464e-16 = 65.664). **온도를 넣지 않았다.** Table 4.2 서문이 스스로 'The values in the table may be from measurements at different temperatures.' 라고 적는다. 이 표에는 개별 온도가 인쇄돼 있지 않으므로 temperature_c 를 null 로 둔다. (주의 — 같은 표에서 온 DB 의 기존 행 일부는 temperature_c=25 로 적혀 있다. 그것은 Table 4.3 의 25 degC 명기를 Table 4.2 로 옮긴 것이고, 이 배치는 그 추정을 따르지 않았다. 정합 여부는 다음 배치가 판단할 것.) 2차 인용이다 — PNNL 보고서가 [Kjeldsen 1993, p.127] 을 인용한 것이고 1 차 출처는 열지 못했다."
+        },
+        {
+          "key": "physical.gas_permeability_o2",
+          "value": 4.352193e-16,
+          "unit": "mol/(m*s*Pa)",
+          "method": "handbook",
+          "tier": 3,
+          "conditions": {
+            "species": "O2",
+            "pressure_atm": 1,
+            "temperature_c": null,
+            "bound": "upper",
+            "resin_backbone": "polyisobutylene / butyl rubber (PIB branch)",
+            "printed_as": "85.4 cm3*mm/(m2*d*atm)",
+            "grade_scope": "class value — 원 표 행은 **충전제도 게터도 없는 순수 부틸고무(폴리이소부틸렌-이소프렌 공중합체)** 이고, 이 카드가 나타내는 모듈 사이드실링재는 LG화학 US11795314B2 실시예 기준 **CaO 약 18 wt% + 흄드실리카 약 3.7 wt% 를 담은 충전·게터계**이며 아크릴 올리고머로 가교된 하이브리드다. 무기 충전이 들어가면 투과가 내려가므로(같은 카탈로그 Kaneka 카드 실측: 무기 나노판상체 10 wt% 로 8.9~19.7 배 감소) 이 값은 **보수측 상한**이다. 등급 일치가 아니라 골격(PIB) 일치일 뿐이다."
+          },
+          "notes": "PNNL-26070 Table 4.2 'Permeability coefficient (P0) of oxygen and water vapor for various polymers from the literature' — 열 머리글 'P0 (Oxygen) cm3*mm/m2*d*atm' / 'P0 (Water) g*mm/m2*d'. RUBBERS 구획 행 verbatim: 'Butyl rubber | 7.88 - 85.4 | (Water 열 공란) | [Kjeldsen 1993, p.127]'. 같은 구획의 이웃 행 — 'Rubbers 7.88 - 4330' · 'Polyisoprene 4320' · 'Methyl rubber 11.8 - 722' · 'Natural rubber 1530 - 1580' · 'Neoprene 1640 - 2630' · 'Silicone rubber 3940 - 4330'. 부틸고무가 이 표 RUBBERS 구획에서 가장 낮다 — 고전적 산소배리어 엘라스토머라는 통념과 방향이 맞는다. 환산: 85.4 x 5.096245e-18 = 4.352193e-16 mol/(m*s*Pa). 환산 상수 5.096245e-18 = 1e-3 m/mm / (22414 cm3/mol x 86400 s/d x 101325 Pa/atm) — 같은 출처의 기존 DB 행(PEN 0.5 -> 2.548122e-18 · PVDF 5.52 -> 2.813127e-17 · PMMA 5.8 -> 2.955822e-17 · PC 71/124 · PTFE 222/387)이 쓴 규약과 같다. 검산(Barrer 되돌림) — 4.352193e-16 / 3.3464e-16 = 1.30056 Barrer. 교차검산: 같은 보고서 Table 3.1 의 인쇄된 상수로 85.4 / 65.664 = 1.30056 Barrer — 두 경로 일치. 타당성 — 부틸고무(IIR)/PIB 의 산소투과도 통념 대역이 약 1 Barrer 이므로 상한 1.30 Barrer 는 정합한다. 하한 0.12 Barrer 는 그보다 10.8 배 낮은데, 이는 카본블랙·클레이를 충전한 가황 부틸 컴파운드(타이어 이너라이너 계열) 쪽 값으로 보인다 — 다만 Kjeldsen 1993 원문을 열지 못해 **어느 시료가 어느 끝인지 문서로 가르지 못했다.** 그래서 중앙값을 만들지 않고 인쇄된 두 끝을 각각 한 행으로 넣는다. **온도를 넣지 않았다.** Table 4.2 서문이 스스로 'The values in the table may be from measurements at different temperatures.' 라고 적는다. 이 표에는 개별 온도가 인쇄돼 있지 않으므로 temperature_c 를 null 로 둔다. (주의 — 같은 표에서 온 DB 의 기존 행 일부는 temperature_c=25 로 적혀 있다. 그것은 Table 4.3 의 25 degC 명기를 Table 4.2 로 옮긴 것이고, 이 배치는 그 추정을 따르지 않았다. 정합 여부는 다음 배치가 판단할 것.) 2차 인용이다 — PNNL 보고서가 [Kjeldsen 1993, p.127] 을 인용한 것이고 1 차 출처는 열지 못했다."
+        }
+      ]
+    },
+    {
+      "match_name": "Display module side sealing material, module-level perimeter side seal (composition class — panel grade not identified)",
+      "source": {
+        "kind": "journal",
+        "title": "Design of cross-linked polyisobutylene matrix for efficient encapsulation of quantum dots — Introduction, barrier property comparison of elastomer host materials",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9418506/fullTextXML",
+        "doi": "10.1039/d0na01012j",
+        "publisher": "Royal Society of Chemistry (Nanoscale Advances 2021, 3, 1443-1454)",
+        "year": 2021,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/display/NanoscaleAdv2021_3_1443_PMC9418506_crosslinked_PIB_QD_encapsulation.xml"
+      },
+      "properties": [
+        {
+          "key": "physical.gas_permeability_o2",
+          "value": 1.815829e-16,
+          "unit": "mol/(m*s*Pa)",
+          "method": "handbook",
+          "tier": 3,
+          "conditions": {
+            "species": "O2",
+            "temperature_c": null,
+            "resin_backbone": "photo-crosslinked star-shaped polyisobutylene sealant (PIB branch)",
+            "printed_as": "4.07 x 10^-18 m2 s^-1 Pa^-1",
+            "grade_scope": "class value — 원 시료는 Banerjee 2015 / Bag 2016 의 **메타크릴레이트 말단 3-arm star-PIB 를 광가교한 자가치유 실런트**(유연 유기태양전지 봉지용)이고, 무충전·게터 없는 순수 PIB 네트워크다. 이 카드의 사이드실링재는 같은 PIB 골격을 아크릴 올리고머로 가교하지만 CaO 약 18 wt% + 흄드실리카 약 3.7 wt% 를 담은 충전계다. 골격이 같고 경화 방식(광가교 PIB+아크릴레이트)까지 같아 **이 카드에서 화학적으로 가장 가까운 값**이지만, 충전·게터가 없으므로 상한으로 써라. 또한 2 차 인용이다 — Nanoscale Adv. 2021 서론이 인용한 값이고 1 차 출처 두 건은 유료라 열지 못했다."
+          },
+          "notes": "원문 verbatim (Nanoscale Adv. 2021, 3, 1443-1454, 서론): 'Banerjee et al. and Bag et al. recently showed that compared to commercial butyl rubber, the cross-linked PIB-based star-shaped polymers exhibit better barrier properties, in particular, **oxygen permeability of only 4.07 x 10-18 m2 s-1 Pa-1** and moisture permeability of 9.86 x 10-17 m2 s-1 Pa-1, which are highly beneficial for encapsulation of flexible organic solar cells.' 단위 m2 s-1 Pa-1 는 부피기준 투과계수 m3(STP)*m/(m2*s*Pa) 다. 환산 경로 A(몰부피): 4.07e-18 / 0.022414 m3(STP)/mol = 1.815829e-16 mol/(m*s*Pa). 환산 경로 B(PNNL-26070 Table 3.1 의 인쇄된 상수): 4.07e-18 m3*m/(m2*s*Pa) x 1e9 = 4.07e-9 cm3*mm/(m2*s*Pa), x 8.7545e9 (Table 3.1 'cm3*mm/(m2*s*Pa) -> cm3*mm/(m2*d*atm)') = 35.6308 cm3*mm/(m2*d*atm), x 5.096245e-18 = 1.815834e-16 mol/(m*s*Pa). 두 경로가 6 자리에서 일치한다. 검산(Barrer 되돌림): 1.815829e-16 / 3.3464e-16 = 0.54262 Barrer. 독립 검산: 4.07e-18 / 7.5006e-18 (1 Barrer 의 SI 부피값) = 0.54262 Barrer. 타당성: 부틸/PIB 통념 대역 약 1 Barrer 보다 조금 낮고, 같은 카드의 PNNL 부틸 밴드 0.120~1.301 Barrer **안에 들어온다.** **같은 문단의 다른 숫자는 등록하지 않았다** — 'butyl rubber ... has the lowest gas permeability (4.29 x 10-17 m2 s-1 Pa-1)' 는 **기체 이름을 적지 않았고**, 같은 문장의 실리콘 5.86e-15(=781 Barrer)·폴리우레탄 8.93e-15(=1191 Barrer) 를 산소로 읽으면 폴리우레탄 쪽이 물리적으로 성립하지 않는다. 산소라고 명시된 4.07e-18 만 취했다."
+        }
+      ]
+    },
+    {
+      "match_name": "Display module side sealing material, module-level perimeter side seal (composition class — panel grade not identified)",
+      "source": {
+        "kind": "patent",
+        "title": "US 10,259,948 B2 — Coating compositions and coating products made therefrom (Kaneka Corporation / The Texas A&M University System), TABLE 2 — oxygen permeability coefficient of UV-cured free-standing acrylate films",
+        "url": "https://www.freepatentsonline.com/10259948.html",
+        "publisher": "United States Patent and Trademark Office",
+        "year": 2019,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/display/pat_US10259948_Kaneka_uvcured_acrylate_OTR.txt"
+      },
+      "properties": [
+        {
+          "key": "physical.gas_permeability_o2",
+          "value": 2.4e-16,
+          "unit": "mol/(m*s*Pa)",
+          "method": "measured",
+          "tier": 3,
+          "conditions": {
+            "species": "O2",
+            "temperature_c": null,
+            "resin_backbone": "urethane acrylate / IBOA photopolymer (acrylate branch)",
+            "test_standard": "JIS K 7126-1 (BT-3 Gas Transmission Rate Tester, Toyoseiki)",
+            "thickness_um": null,
+            "filler_wt_pct": 0,
+            "printed_as": "2.4 x 10^-16 mol*m/m2/s/Pa",
+            "grade_scope": "class value — 원 시료는 Kaneka/Texas A&M 의 **UV 경화 IBOA 60 / TMPTA 10 / 우레탄아크릴레이트 CN986 30 wt% 자립막**(무기 나노판상체 0 wt%)이다. 삼성디스플레이 US10928662B2 의 사이드실 배합(우레탄기 올리고머 45~60 + IBOA 25~40 + THFA 5~20 + 포스핀옥사이드 1~5 중량부)과 **주수지·희석 모노머 계열이 같다** — 우레탄아크릴레이트 올리고머를 IBOA 로 희석해 광경화한 망목이다. 다만 (a) 배합비가 다르고 (b) THFA 가 없고 (c) 실제 사이드실은 카본블랙 0.1~1 중량부를 담고 (d) 두께가 다르다. **아크릴레이트 갈래의 대표값으로만 써라.**"
+          },
+          "notes": "원문 verbatim (US 10,259,948 B2, Comparative Example 2 본문): 'The free-standing film had a total light transmittance of 92.0%, a haze of 1.0% and **oxygen transmission rate of 6.7*10-12 mol*Pa-1*m-2*s-1 and permeability coefficient for oxygen of 2.4*10-16 mol*m*Pa-1*m-2*s-1**.' TABLE 2 의 같은 행 — 'Comparative Example 2 | IBOA 60 | TMPTA 10 | CN986 30 | (ZrP) 0 | 92 | 1.0 | 6.7 x 10-12 | 2.4 x 10-16'. **환산이 필요 없다** — 원문이 mol*m/(m2*s*Pa) = mol/(m*s*Pa) 로 이미 인쇄했다. 검산 1 (Barrer 되돌림): 2.4e-16 / 3.3464e-16 = 0.7172 Barrer. 검산 2 (두께 자기검산): 인쇄된 투과계수 / 인쇄된 투과도(permeance) = 2.4e-16 / 6.7e-12 = 3.58e-5 m = 35.8 um 이고, 원문 제법이 'a uniform thickness of about 30 to 50 micrometers' 라고 적는다 — **범위 안에 들어온다.** 같은 표의 나머지 세 행도 같은 검산을 통과한다(34.6 / 41.8 / 44.4 um). 표의 열 배치가 이로써 확인된다. **시험 온도·습도는 원문이 인쇄하지 않았다** — 측정법만 'Oxygen transmission rate was measured by using BT-3 Gas Transmisstion Rate Tester (Toyoseiki Seisaku-sho, Ltd.), in conformity with JIS K 7126-1.' 로 적는다. (같은 특허 FIG. 5A 의 '23 degC, 50 RH %' 는 스프레이 코팅 epoxy/ZrP 실험의 조건이지 TABLE 2 자립막의 조건이 아니다 — 옮겨 쓰지 않았다.) 실측 원값 자체는 같은 배치의 ce02 카드에 tier 1 로 별도 등록했다."
+        }
+      ]
+    }
+  ]
+}

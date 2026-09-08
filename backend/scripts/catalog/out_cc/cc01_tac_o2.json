@@ -1,0 +1,189 @@
+{
+  "batch": "67차 CC",
+  "materials": [
+    {
+      "new_material": {
+        "name": "Cellulose triacetate (TAC/CTA) optical film, display polarizer protective film class (grade not identified)",
+        "category": "polymer",
+        "description": "산소확산 해석 oxygen_stack_2d 의 ④층(TAC 40 um)에 대응하는 순수 트리아세틸셀룰로스 단층 필름 카드다. 재료 88 `Polarizer (TAC/PVA)` 와 일부러 분리했다 — 88 은 TAC / PVA 편광자 / TAC 의 적층(스택) 카드이고, 스택 전체의 산소투과는 PVA 층이 지배해 TAC 단층의 투과와 다르다. 해석의 ④층은 그 적층의 TAC 한 장이므로 이 카드가 해석이 직접 읽을 자리다. 등급 미확정 — Fujifilm FUJITAC · Konica Minolta KC 계열 등 실제 디스플레이용 TAC 제품의 공개 데이터시트를 열어 봤으나 어느 것도 기체투과 행을 싣지 않았다(보고서 out_cc/cc00_report.md 참조). 경고 — 이 카드에 지금 붙은 산소투과 3행은 전부 셀룰로스 **아세테이트(CA)** 의 값이고 트리아세테이트(CTA)의 값이 아니다. 아세틸 치환도가 오르면 산소투과가 오른다는 것이 문헌 합의이므로(Puleo, Paul & Kelley, J. Membr. Sci. 47:301, 1989 — 여러 리뷰가 이 결론을 인용한다) 이 값들은 TAC 에 대해 **하한 쪽**으로 읽어야 한다. 각 행의 grade_scope 에 그 이유를 적었다.",
+        "attributes": {
+          "material_class": "cellulose triacetate (CTA)",
+          "subsystem": "display",
+          "process": "solvent-cast film",
+          "aliases": [
+            "TAC",
+            "트리아세틸셀룰로스",
+            "TAC 필름",
+            "triacetyl cellulose",
+            "cellulose triacetate",
+            "CTA",
+            "편광판 보호필름",
+            "polarizer protective film"
+          ],
+          "role": "product",
+          "role_reason": "해석 적층 ④층(TAC 40 um) 그 자체다.",
+          "role_confidence": "high"
+        }
+      },
+      "source": {
+        "kind": "journal",
+        "title": "Cellulose Membranes: Synthesis and Applications for Water and Gas Separation and Purification — Table 3, Gas permeability and selectivity of cellulosic membranes at 25 C and relevant humidity (RH), 원표는 Pauly S., Permeability and Diffusion Data, The Wiley Database of Polymer Properties (2003) 543-568",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11279174/fullTextXML",
+        "doi": "10.3390/membranes14070148",
+        "publisher": "MDPI (Membranes 2024, 14, 148)",
+        "year": 2024,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/display/cc_Membranes2024_14_148_cellulose_membranes_PMC11279174.xml"
+      },
+      "properties": [
+        {
+          "key": "physical.gas_permeability_o2",
+          "value": 2.6102e-16,
+          "unit": "mol/(m*s*Pa)",
+          "method": "measured",
+          "tier": 3,
+          "conditions": {
+            "species": "O2",
+            "temperature_c": 25,
+            "relative_humidity": "not stated in source — 표 캡션은 '25 C and relevant humidity (RH)' 라고만 하고 RH 분해 행(0/43/76/100%)은 재생셀룰로스 행에만 붙어 있다. 셀룰로스 아세테이트 행에는 RH 표기가 없다",
+            "sample_state": "plasticized cellulose acetate (원표 각주 '** plasticized')",
+            "grade_scope": "class value — 이 값은 **가소제가 든 셀룰로스 아세테이트(CA)** 의 값이지 이 카드가 나타내는 트리아세틸셀룰로스(CTA/TAC) 광학필름의 값이 아니다. 세 겹으로 등급이 어긋난다. (1) 화학 — CA 와 CTA 는 아세틸 치환도(DS)가 다르고 원문은 DS·아세틸 함량을 한 줄도 안 적었다. (2) 배합 — 원표가 '가소제 첨가' 라고 명시했는데 디스플레이용 TAC 필름의 가소제 종류·함량은 이 문서로 알 수 없다. (3) 제품 — 벤더 등급이 아니라 핸드북의 재료 계열 대표값이다. 방향 — DS 가 오르면 산소투과가 오른다는 것이 문헌 합의이므로 TAC 실제값은 이 값보다 클 가능성이 높다"
+          },
+          "notes": "① 원문 verbatim — Membranes 2024 Table 3 캡션 'Gas permeability and selectivity of cellulosic membranes at 25 °C and relevant humidity (RH) [72].' 열 머리글 'Cellulosic Material | Permeability (Barrer): H2O CO2 H2 O2 N2 | Selectivity Coefficient: H2O/N2 CO2/N2 H2/N2 O2/N2'. 해당 행 'Cellulose acetate ** | 7333 | 23.07 | 3.506 | 0.780 | 0.280 | 26,191 | 82.4 | 12.5 | 2.8' 이고 표 아래 각주가 '* [71]; ** plasticized' 다. 즉 O2 = 0.780 Barrer. ② 환산 산술 — 0.780 Barrer x 3.3464e-16 = 2.6102e-16 mol/(m*s*Pa). ③ 검산 (1) 열 배치 확인 — 인쇄된 O2/N2 선택도 2.8 을 같은 행의 O2/N2 투과도로 되짚으면 0.780 / 0.280 = 2.786 으로 일치한다. 따라서 0.780 이 O2 열이 맞다(H2 열 3.506 이나 CO2 열 23.07 을 잘못 읽은 것이 아니다). 검산 (2) 독립 문헌 대조 — Paunonen 2013(BioResources 8(2):3098) 이 인용하는 Nakai 2005 의 캐스팅 CA 치밀막 값 0.493 Barrer 와 같은 오더이고, 가소제가 들어간 쪽이 더 높다는 방향도 물리적으로 맞다. **출처 계보 — 이 표의 참고문헌 [72] 는 'Pauly S., Permeability and Diffusion Data, The Wiley Database of Polymer Properties, Wiley, 2003, 543-568' 이다. 이것이 곧 이 카탈로그의 출처 853 `Polymer Handbook (Brandrup, Immergut, Grulke), 4th ed.` 의 VI 장 기체투과 표다**(Wiley Database of Polymer Properties 는 Polymer Handbook 의 온라인판이고 543-568 은 4판 VI/543-VI/568 과 일치한다). 즉 브리프가 물은 '853 에 셀룰로스 아세테이트 행이 있는가' 의 답은 **있다** — 다만 원권을 직접 열지 못해 오픈액세스 리뷰가 재현한 행으로 확인했고, 그래서 출처를 853 이 아니라 실제로 연 리뷰로 단다. tier 3 사유 — (i) 2차 재현이고 (ii) CA 이지 CTA 가 아니며 (iii) 가소제가 들었고 (iv) 그 행의 RH 가 안 적혀 있다. 함정 — 같은 표의 'Dry * / Wet *' 두 행은 각주 '* [71]' 이 가리키는 Wu & Yuan 2002 의 신규 셀룰로스막이지 셀룰로스 아세테이트가 아니다. 섞어 읽으면 안 된다."
+        }
+      ]
+    },
+    {
+      "new_material": {
+        "name": "Cellulose triacetate (TAC/CTA) optical film, display polarizer protective film class (grade not identified)",
+        "category": "polymer",
+        "description": "위와 같은 카드다(ingest 는 이름으로 합친다).",
+        "attributes": {
+          "material_class": "cellulose triacetate (CTA)",
+          "subsystem": "display",
+          "role": "product",
+          "role_reason": "해석 적층 ④층(TAC 40 um) 그 자체다.",
+          "role_confidence": "high"
+        }
+      },
+      "source": {
+        "kind": "journal",
+        "title": "Strength and Barrier Enhancements of Cellophane and Cellulose Derivative Films: A Review (Paunonen S.) — CELLULOSE ACETATE 절, 캐스팅 CA 치밀막의 산소투과. 원측정은 Nakai Y., Yoshimizu H., Tsujita Y., 'Enhanced gas permeability of cellulose acetate membranes under microwave irradiation', J. Membr. Sci. 256 (2005) 72-77",
+        "url": "https://bioresources.cnr.ncsu.edu/wp-content/uploads/2016/06/BioRes_08_2_Review_b_3098_Paunonen_Cellulose_Derivatives_Food_Packaging_Review_3308-1.pdf",
+        "publisher": "BioResources 8(2), 3098-3121 (North Carolina State University)",
+        "year": 2013,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/display/cc_Paunonen2013_BioResources_cellulose_derivative_films_review.pdf",
+        "doi": "10.15376/biores.8.2.3098-3121"
+      },
+      "properties": [
+        {
+          "key": "physical.gas_permeability_o2",
+          "value": 1.6508e-16,
+          "unit": "mol/(m*s*Pa)",
+          "method": "measured",
+          "tier": 3,
+          "conditions": {
+            "species": "O2",
+            "temperature_c": 20,
+            "humidity_rh": 0,
+            "sample_state": "solvent-cast dense (nonporous) cellulose acetate membrane",
+            "grade_scope": "class value — 셀룰로스 **아세테이트(CA)** 의 캐스팅 치밀막 값이고 트리아세틸셀룰로스(CTA/TAC) 광학필름의 값이 아니다. (1) DS 미상 — 리뷰도 원논문도 이 값에 아세틸 치환도를 붙이지 않았다. (2) 제막 공정이 다르다 — 막분리용 캐스팅 치밀막이지 광학용 연신·캐스팅 TAC 필름이 아니다. (3) 두께 미상. 방향 — DS 가 오르면 산소투과가 오르므로 TAC 실제값은 이 값보다 클 가능성이 높다"
+          },
+          "notes": "① 원문 verbatim — Paunonen 2013, CELLULOSE ACETATE 절: 'Casted CA dense membranes have an OP of 3.7·10-12 cm3·m/m2·s Pa (20 °C, 0% RH) (Nakai et al. 2005).' ② 환산 산술 — 원단위 cm3(STP)·m/(m2·s·Pa) 를 mol 로 바꾸는 것만 필요하다. 3.7e-12 / 22414 cm3(STP)/mol = 1.6508e-16 mol/(m*s*Pa). ③ 검산 (1) Barrer 되돌리기 — 1.6508e-16 / 3.3464e-16 = 0.4933 Barrer. 검산 (2) 다른 경로로 같은 답이 나오는지 — 1 Barrer = 1e-10 cm3(STP)·cm/(cm2·s·cmHg) 를 cm3·m/(m2·s·Pa) 로 바꾸면 1e-10 x 0.01 / (1e-4 x 1333.2237) = 7.5006e-12 이고, 3.7e-12 / 7.5006e-12 = 0.4933 Barrer 로 일치한다. 검산 (3) 문헌 대조 — Polymer Handbook 계보의 가소화 CA 값 0.780 Barrer 와 같은 오더이고, 가소제 없는 치밀막이 더 낮다는 방향이 맞다. tier 3 사유 — 리뷰가 인용한 2차 값이고(원측정 Nakai 2005 는 Elsevier 유료라 열지 못했다) 무엇보다 CA 이지 CTA 가 아니다. 참고 — 같은 절의 수증기투과 1.1e-12~1.7e-12 g·m/(m2·s·Pa) 는 다른 출처(The iDES Inc. 2012)의 비닐코팅 CA 필름 값이므로 산소와 짝지어 읽으면 안 된다."
+        }
+      ]
+    },
+    {
+      "new_material": {
+        "name": "Cellulose triacetate (TAC/CTA) optical film, display polarizer protective film class (grade not identified)",
+        "category": "polymer",
+        "description": "위와 같은 카드다(ingest 는 이름으로 합친다).",
+        "attributes": {
+          "material_class": "cellulose triacetate (CTA)",
+          "subsystem": "display",
+          "role": "product",
+          "role_reason": "해석 적층 ④층(TAC 40 um) 그 자체다.",
+          "role_confidence": "high"
+        }
+      },
+      "source": {
+        "kind": "journal",
+        "title": "Lignocellulosic Films: Preparation, Properties, and Applications — Table 3, Oxygen and Water Vapor Permeability of Different Types of LCFs, CA films 행. 원측정은 Zhou H. et al., 'High-performance cellulose acetate-based gas barrier films via tailoring reduced graphene oxide nanosheets', Int. J. Biol. Macromol. 209 (2022) 1450-1456",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12746420/fullTextXML",
+        "doi": "10.1021/acs.chemrev.5c00267",
+        "publisher": "American Chemical Society (Chemical Reviews 2025, 125, 24)",
+        "year": 2025,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/display/cc_ChemRev2025_lignocellulosic_films_PMC12746420.xml"
+      },
+      "properties": [
+        {
+          "key": "physical.gas_permeability_o2",
+          "value": 4.0755e-17,
+          "unit": "mol/(m*s*Pa)",
+          "method": "measured",
+          "tier": 3,
+          "conditions": {
+            "species": "O2",
+            "temperature_c": 23,
+            "humidity_rh": 50,
+            "sample_state": "cellulose acetate (CA) barrier film, cast",
+            "grade_scope": "class value — 셀룰로스 **아세테이트(CA)** 필름의 값이고 트리아세틸셀룰로스(CTA/TAC)의 값이 아니다. DS·아세틸 함량 미상이고 두께도 리뷰 표에는 없다(투과도로 규격화된 값이라 두께는 나눠져 있다). 원측정 시료는 환원산화그래핀 배리어 필름 논문의 무첨가 CA 대조군이라 광학용 TAC 제품 등급이 아니다. 방향 — DS 가 오르면 산소투과가 오르므로 TAC 실제값은 이 값보다 클 가능성이 높다"
+          },
+          "notes": "① 원문 verbatim — Chem. Rev. 2025 Table 3 'Oxygen and Water Vapor Permeability of Different Types of LCFs', 열 머리글 'types of LCFs | water vapor permeability (g·um/(m2·day·kPa)) | test conditions | oxygen permeability (cm3·um/(m2·day·atm)) | test conditions | ref', 해당 행 'CA films | 1,585 | 38 °C, 90/0% | 7,997 | 23 °C, 50% | [ref417]'. 본문도 같은 값을 다시 적는다 — 'their oxygen barrier performance is relatively modest, with an OP of ~7,997 cm3·um/(m2·day·atm).' ② 환산 산술 — 7997 cm3(STP)·um/(m2·day·atm) 를 SI 로. 7997 x 1e-6 m(um->m) / 86400 s(day->s) / 101325 Pa(atm->Pa) / 22414 cm3(STP)/mol = 4.0755e-17 mol/(m*s*Pa). ③ 검산 (1) 카탈로그가 이미 쓰는 상수로 되풀이 — 1 cm3·mm/(m2·day·atm) = 5.096245e-18 mol/(m*s*Pa)(재료 75 PMMA 행이 쓰는 상수)이고 7997 um = 7.997 mm 이므로 7.997 x 5.096245e-18 = 4.0755e-17 로 자릿수까지 같다. 검산 (2) Barrer 되돌리기 — 4.0755e-17 / 3.3464e-16 = 0.1218 Barrer 로 CA 문헌 범위(0.12~0.78 Barrer) 안쪽 하단이다. tier 3 사유 — (i) 리뷰가 인용한 2차 값이고 원측정 Zhou 2022 는 Elsevier 유료라 열지 못했다, (ii) CA 이지 CTA 가 아니다. 주의 — 같은 행의 수증기투과 1,585 는 조건이 38 C, 90/0% RH 로 산소(23 C, 50%)와 다르다. 짝지어 쓰지 마라."
+        }
+      ]
+    },
+    {
+      "new_material": {
+        "name": "Cellulose triacetate (TAC/CTA) optical film, display polarizer protective film class (grade not identified)",
+        "category": "polymer",
+        "description": "산소확산 해석 oxygen_stack_2d 의 ④층(TAC 40 um)에 대응하는 순수 트리아세틸셀룰로스 단층 필름 카드다. 재료 88 `Polarizer (TAC/PVA)` 와 일부러 분리했다 — 88 은 TAC / PVA 편광자 / TAC 의 적층(스택) 카드이고, 스택 전체의 산소투과는 PVA 층이 지배해 TAC 단층의 투과와 다르다. 해석의 ④층은 그 적층의 TAC 한 장이므로 이 카드가 해석이 직접 읽을 자리다. 등급 미확정 — Fujifilm FUJITAC · Konica Minolta KC 계열 등 실제 디스플레이용 TAC 제품의 공개 데이터시트를 열어 봤으나 어느 것도 기체투과 행을 싣지 않았다(보고서 out_cc/cc00_report.md 참조). 경고 — 이 카드에 지금 붙은 산소투과 3행은 전부 셀룰로스 **아세테이트(CA)** 의 값이고 트리아세테이트(CTA)의 값이 아니다. 아세틸 치환도가 오르면 산소투과가 오른다는 것이 문헌 합의이므로(Puleo, Paul & Kelley, J. Membr. Sci. 47:301, 1989 — 여러 리뷰가 이 결론을 인용한다) 이 값들은 TAC 에 대해 **하한 쪽**으로 읽어야 한다. 각 행의 grade_scope 에 그 이유를 적었다.",
+        "attributes": {
+          "material_class": "cellulose triacetate (CTA)",
+          "subsystem": "display",
+          "process": "solvent-cast film",
+          "aliases": [
+            "TAC",
+            "트리아세틸셀룰로스",
+            "TAC 필름",
+            "triacetyl cellulose",
+            "cellulose triacetate",
+            "CTA",
+            "편광판 보호필름",
+            "polarizer protective film"
+          ],
+          "role": "product",
+          "role_reason": "해석 적층 ④층(TAC 40 um) 그 자체다.",
+          "role_confidence": "high"
+        }
+      },
+      "source": {
+        "kind": "patent",
+        "title": "US 12,386,226 B2 — Liquid crystal display devices (명세서 본문: TAC 필름·편광필터·수분배리어필름 3종의 OTR 실측)",
+        "url": "https://www.freepatentsonline.com/12386226.html",
+        "doi": null,
+        "publisher": "USPTO — Assignee: Flexenable Technology Limited",
+        "year": 2025,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/display/pat_US12386226_Flexenable_TAC_OTR.txt"
+      },
+      "properties": [
+        {
+          "key": "physical.gas_transmission_rate_o2",
+          "value": 2.6389e-07,
+          "unit": "m^3/(m^2*s)",
+          "method": "measured",
+          "tier": 3,
+          "conditions": {
+            "species": "O2",
+            "temperature_c": null,
+            "humidity_rh": null,
+            "thickness_um": null,
+            "test_standard": "ASTM D3985 / ASTM F1307 / ASTM F1927 — 원문이 세 규격을 함께 적고 어느 값에 어느 규격을 썼는지 가르지 않는다",
+            "pressure_basis": "원문이 분압 정규화를 적지 않았다. cc/(m^2*day) 표기 그대로이므로 압력이 안 들어간 OTR 키에 넣는다",
+            "grade_scope": "class value — 원문이 'TAC films' 라고만 적고 제조사·등급·두께를 밝히지 않는다. 디스플레이 제조사(Flexenable)가 상용 TAC 을 잰 값이지 TAC 벤더의 인쇄값이 아니다"
+          },
+          "notes": "[원문 verbatim] 'For example, TAC films are measured to have a OTR of about 22,800 cc/m2 per day; and the polarisation filter components are measured to have an OTR of about 0.04 cc/m2 per day. The moisture barrier films 44, 68 are measured to have an OTR of about 0.003 cc/m2 per day. These three OTR measurements were made according to ASTM D3985, ASTM F1307 and ASTMF1927.' [환산] 22,800 cc/(m^2*day) = 22800e-6 m^3 / (m^2 * 86400 s) = 2.6389e-07 m^3/(m^2*s). [왜 투과계수로 환산하지 않았는가] 원문이 **두께를 적지 않았다.** OTR 은 permeance 라 두께를 곱해야 투과계수가 되는데, 두께를 가정해 곱하는 것은 역산이다(§43·§25). 같은 특허가 다른 문단에서 '40-micron TAC films' 를 언급하지만 그것은 자립필름 12·14 의 예시 두께이지 이 OTR 시편의 두께라고 적혀 있지 않다. 압력 정규화도 없어 압력이 안 들어간 gas_transmission_rate_o2 키가 맞다. [같은 카드의 투과계수 3행과 충돌한다 — 일부러 둘 다 남긴다] 이 카드의 gas_permeability_o2 3행(0.122~0.780 Barrer)은 전부 셀룰로스 아세테이트 **치밀막**(분리막 문헌)의 값이다. 이 OTR 은 유일하게 **실제 디스플레이용 TAC 필름**을 잰 값이다. 두께 40 um 와 1 atm 을 **둘 다 가정**해 거칠게 맞춰 보면 약 13.9 Barrer 로 치밀막 값보다 18~110 배 높다. 가정 두 개가 붙은 대조라 어느 쪽이 옳다고 판정하지 않는다 — 다만 갈래가 다르다는 것 자체가 정보다. 디스플레이용 TAC 은 가소제를 10~20 wt% 함유하고 편광자의 습기 경로를 위해 **일부러 투과가 높게** 만든다는 것이 벤더 문헌의 일관된 서술이다(코니카미놀타 자사 논문이 TAC 투습을 680·800 g/(m^2*day)@40um 로 찍는다 — 같은 표의 아크릴 58, 시클로올레핀 3 대비 한두 자릿수 높다). 분리막 CA 값을 TAC 에 그대로 쓰면 이 차이를 놓친다. **밴드로 쓰고 평균 내지 마라.** [tier3 사유] 인쇄된 실측값이지만 등급이 특정되지 않았고 온도·습도·두께가 하나도 없다. [출처] 67차 CC 의 보조배치가 찾았으나 CC 본배치가 사유 없이 누락했다 — 통합 단계에서 원문을 직접 받아 대조하고 되살렸다."
+        }
+      ]
+    }
+  ]
+}
