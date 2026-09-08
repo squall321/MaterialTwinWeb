@@ -53,7 +53,7 @@ CHECKS = [
     # `LIKE '%중앙값%'` 은 "중앙값은 만들지 **않았다**" 같은 부정문까지 잡아, 브리프 451 을
     # 지킨 배치를 오히려 벌준다. 적재기(ingest_agent_json.asserts_midpoint)와 **같은 판정**을 쓴다.
     ("출처 kind 어휘 밖", """select count(*) from source where kind not in
-        ('journal','book','database','datasheet','computed','standard','web','other')"""),
+        ('journal','book','database','datasheet','computed','standard','web','patent','other')"""),
     # **`molecular` 는 48차 JC 가 열었다** — Ashby 구조재 계통수 여섯에는 분자로 특성화되는
     # 기능재(OLED 발광체·호스트·전하수송체, 사이클로메탈화 Ir/Pt/Pd/Cu 착체, 포르피린 색소,
     # 분자결정)의 집이 없었다. 172종이 `polymer`·`composite` 에 잘못 들어 있었다.

@@ -247,12 +247,16 @@ def norm_cat(c: str | None) -> str:
 
 
 # Source.kind는 DB 제약(ck_source_kind)이 있는 고정 어휘 — 에이전트 표기를 매핑한다.
-KIND_OK = {"journal", "book", "database", "datasheet", "computed", "standard", "web", "other"}
+KIND_OK = {"journal", "book", "database", "datasheet", "computed", "standard", "web",
+           "patent", "other"}
 KIND_MAP = {"paper": "journal", "article": "journal", "publication": "journal",
             "handbook": "book", "textbook": "book", "spec": "standard",
             "specification": "standard", "brochure": "datasheet",
             "technical_data": "datasheet", "tds": "datasheet", "catalog": "datasheet",
-            "website": "web", "webpage": "web", "patent": "other", "report": "other"}
+            "website": "web", "webpage": "web", "report": "other",
+            # 67차까지 특허가 "other" 로 떨어졌다 — 오버코트·실링재의 정체를 특허로만
+            # 확정했는데 kind 로 되찾을 수 없었다. 어휘를 늘렸으니 그대로 통과시킨다.
+            "patents": "patent", "patent_application": "patent", "특허": "patent"}
 
 
 def norm_kind(k: str | None) -> str:

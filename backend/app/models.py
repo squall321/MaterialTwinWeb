@@ -258,7 +258,7 @@ class Source(Base):
     __tablename__ = "source"
     __table_args__ = (
         CheckConstraint(
-            "kind IN ('journal','book','database','datasheet','computed','standard','web','other')",
+            "kind IN ('journal','book','database','datasheet','computed','standard','web','patent','other')",
             name="ck_source_kind",
         ),
     )
