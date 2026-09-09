@@ -1,0 +1,119 @@
+{
+ "batch": "68차 DD",
+ "materials": [
+  {
+   "match_name": "Ablebond 965-1L silver-filled epoxy die attach adhesive (Ablestik) - Hsiung 2003",
+   "source": {
+    "kind": "datasheet",
+    "title": "Technical Data Sheet — LOCTITE ABLESTIK 965-1L (formerly ABLEBOND 965-1L), Henkel",
+    "url": "https://datasheets.tdx.henkel.com/LOCTITE-ABLESTIK-965-1L-en_GL.pdf",
+    "publisher": "Henkel",
+    "year": 2026,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Henkel_LOCTITE_ABLESTIK_965-1L_TDS.pdf"
+   },
+   "properties": [
+    {
+     "key": "interface.lap_shear_strength",
+     "value": 10000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 25,
+      "cure": "1 hour @ 150 degC (시트 [CURE SCHEDULE] 가이드라인)",
+      "value_printed": "Lap Shear Strength N/mm^2 10 / (psi) (>=1,400)"
+     },
+     "notes": "TDS [TYPICAL PERFORMANCE OF CURED MATERIAL] verbatim: `Lap Shear Strength  N/mm² 10 / (psi) (≥1,400)`. **환산 필요 없음** — N/mm^2 = MPa 이므로 10 N/mm^2 = 1.0e7 Pa. 검산: 괄호의 1,400 psi x 6894.757 = 9.653e6 Pa 로 metric 값 1.0e7 Pa 와 3.5% 안에서 일치한다(psi 쪽은 `>=` 하한이고 metric 쪽이 typical 이라 정확히 같지 않은 것이 정상이다). 하한 쪽은 별도 행으로 넣지 않았다 — 같은 양의 보증치이지 다른 조건이 아니다. **박리각도 조건이 없는 것이 정상이다** — 랩쉬어는 박리가 아니라 중첩전단이라 각도 개념이 없다."
+    },
+    {
+     "key": "interface.die_shear_strength",
+     "value": 24516625.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 25,
+      "substrate": "2 x 2 mm (80 x 80 mil) Si die on Ag/Cu leadframe",
+      "die_area_mm2": 4.0,
+      "value_printed": "Die Shear Strength, 2 X 2 mm (80 x 80 mil) Si die on Ag/Cu LF, kg-f/die: @ 25ºC = 10"
+     },
+     "notes": "TDS [TYPICAL PERFORMANCE OF CURED MATERIAL] verbatim: `Die Shear Strength: 2 X 2 mm (80 x 80 mil) Si die on Ag/Cu LF, kg-f/die: @ 25ºC  10`. **원문은 힘(kg-f/die)이지 강도가 아니다.** DB 키의 단위는 Pa 이므로 면적으로 나눠야 하는데 **면적이 같은 행 머리에 인쇄돼 있다**(2 x 2 mm) — 우리가 가정한 면적이 아니다. 환산 산술: 10 kgf x 9.80665 = 98.0665 N; 다이 면적 2 mm x 2 mm = 4 mm^2 = 4.0e-6 m^2; 98.0665 / 4.0e-6 = 2.4517e7 Pa = 24.52 MPa. 검산: Ag 충전 에폭시 다이어태치의 상온 다이쉬어는 통상 15~30 MPa 대라 자릿수가 맞는다."
+    },
+    {
+     "key": "interface.die_shear_strength",
+     "value": 1470997.5,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 250,
+      "substrate": "2 x 2 mm (80 x 80 mil) Si die on Ag/Cu leadframe",
+      "die_area_mm2": 4.0,
+      "value_printed": "Die Shear Strength, 2 X 2 mm (80 x 80 mil) Si die on Ag/Cu LF, kg-f/die: @ 250ºC = 0.6"
+     },
+     "notes": "같은 표의 250 degC 행이다. **온도가 다른 별개의 조건이라 평균 내지 않고 두 행으로 세웠다.** 환산 산술: 0.6 kgf x 9.80665 = 5.884 N; / 4.0e-6 m^2 = 1.471e6 Pa = 1.47 MPa. 상온의 1/16.7 로 떨어지는데 Tg 를 한참 넘긴 온도라 물리적으로 맞는 방향이다."
+    }
+   ]
+  },
+  {
+   "match_name": "Rogers RO4003 ceramic-filled hydrocarbon PCB laminate — Ehrler 2002",
+   "source": {
+    "kind": "datasheet",
+    "title": "RO4000 Series High Frequency Circuit Materials Data Sheet (RO4003C / RO4350B)",
+    "url": "https://www.rogerscorp.com/-/media/project/rogerscorp/documents/advanced-electronics-solutions/english/data-sheets/ro4000-laminates-ro4003c-and-ro4350b---data-sheet.pdf",
+    "publisher": "Rogers Corporation",
+    "year": 2026,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Rogers_RO4000_RO4003C_RO4350B_DataSheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "interface.peel_strength",
+     "value": 1050.0,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "peel_angle_deg": 90,
+      "peel_angle_source": "IPC-TM-650 2.4.8 이 규정하는 각도다. **시트에는 각도가 인쇄돼 있지 않다.**",
+      "substrate": "1 oz. EDC (electrodeposited copper) foil",
+      "condition_note": "after solder float",
+      "test_standard": "IPC-TM-650 2.4.8",
+      "value_printed": "Copper Peel Strength 1.05 N/mm (6.0 pli)",
+      "grade_scope": "이 제품의 값이 아니다 — 시트는 **RO4003C** 이고 DB 재료는 Ehrler 2002 가 시험한 **RO4003**(접미 C 이전 세대)이다. RO4000 계열의 C/B 접미는 난연 기술과 수지 배합 개정을 뜻하므로 동판 박리강도가 바뀔 수 있는 변경이다. 같은 계열·같은 수지골격의 현행 등급 값으로 읽어라."
+     },
+     "notes": "시트 물성표 verbatim: `Copper Peel Strength | 1.05 (6.0) | N/mm (pli) | after solder float, 1 oz. EDC Foil | IPC-TM-650 2.4.8`, RO4003C 열. 환산 산술: 1.05 N/mm x 1000 mm/m = 1050 N/m. 검산(pli 쪽 독립 경로): 6.0 lbf/in x 4.44822 N/lbf / 0.0254 m/in = 1050.8 N/m — metric 값과 0.08% 안에서 일치하므로 열 매핑과 단위 해석이 둘 다 맞다. 인접 RO4350B 열(0.88)과 혼동하지 않았음을 같은 표 Density 행(RO4003C 1.79 vs RO4350B 1.86 g/cm3)으로 재확인했다. **주의 — 이 값은 이미 DB 재료 230 'Rogers RO4003C High-Frequency Laminate' 에 tier1 로 들어가 있다.** 1278 은 같은 제품의 Ehrler 2002 별도 엔트리이므로 사실상 중복 재료다(dd03 verdicts 의 duplicate_material 참고)."
+    }
+   ]
+  },
+  {
+   "match_name": "Rogers RO4350 ceramic-filled hydrocarbon PCB laminate — Ehrler 2002",
+   "source": {
+    "kind": "datasheet",
+    "title": "RO4000 Series High Frequency Circuit Materials Data Sheet (RO4003C / RO4350B)",
+    "url": "https://www.rogerscorp.com/-/media/project/rogerscorp/documents/advanced-electronics-solutions/english/data-sheets/ro4000-laminates-ro4003c-and-ro4350b---data-sheet.pdf",
+    "publisher": "Rogers Corporation",
+    "year": 2026,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Rogers_RO4000_RO4003C_RO4350B_DataSheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "interface.peel_strength",
+     "value": 880.0,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "peel_angle_deg": 90,
+      "peel_angle_source": "IPC-TM-650 2.4.8 이 규정하는 각도다. **시트에는 각도가 인쇄돼 있지 않다.**",
+      "substrate": "1 oz. EDC (electrodeposited copper) foil",
+      "condition_note": "after solder float",
+      "test_standard": "IPC-TM-650 2.4.8",
+      "value_printed": "Copper Peel Strength 0.88 N/mm (5.0 pli)",
+      "grade_scope": "이 제품의 값이 아니다 — 시트는 **RO4350B** 이고 DB 재료는 Ehrler 2002 가 시험한 **RO4350**(접미 B 이전 세대)이다. B 접미는 UL94 V-0 을 얻기 위한 난연 기술 도입을 뜻하므로 수지 배합이 실제로 다르다. 같은 계열·같은 수지골격의 현행 등급 값으로 읽어라."
+     },
+     "notes": "시트 물성표 verbatim: `Copper Peel Strength | 0.88 (5.0) | N/mm (pli) | after solder float, 1 oz. EDC Foil | IPC-TM-650 2.4.8`, RO4350B 열. 환산 산술: 0.88 N/mm x 1000 = 880 N/m. 검산(pli 독립 경로): 5.0 x 4.44822 / 0.0254 = 875.6 N/m — metric 값과 0.5% 차이로 일치한다(시트가 pli 를 유효숫자 2자리로 반올림한 몫이다). 같은 표 Density 1.86 g/cm3 로 RO4350B 열임을 재확인했다. **이 값도 DB 재료 231 'Rogers RO4350B High-Frequency Laminate' 에 tier1 로 이미 있다 — 1277 은 중복 재료다.**"
+    }
+   ]
+  }
+ ]
+}

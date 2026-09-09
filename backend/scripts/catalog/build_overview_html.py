@@ -340,11 +340,23 @@ def main():
     A('</div></section>')
 
     # ── 4. 출처
+    # 「출처가 붙어 있다」와 「그 출처를 다시 열 수 있다」는 다르다. 68차에 배치 셋이
+    # 연달아 못 여는 핸드북에 막혔다(853 Polymer Handbook · 971 Rubber Technology ·
+    # 972 Touloukian). 전량 출처 부착을 자랑하면서 이걸 안 적으면 과장이 된다.
+    _dead = q(c, """
+        select count(*), coalesce(sum(n),0) from (
+          select s.id, (select count(*) from property_value where source_id=s.id) n
+          from source s
+          where (s.local_path is null or s.local_path='')
+            and (s.url is null or s.url='') and (s.doi is null or s.doi=''))""")[0]
+    n_dead_src, n_dead_val = _dead[0], _dead[1]
+
     A(sec(6, "출처 관리", "값 1건당 문서 1건"))
     A(lead([
         '스키마가 <b>출처 없는 값의 저장을 거부</b> — 등록 API 가 DOI·URL·제목 중 1건 요구',
         f'값 <b>{n_val:,}건 전량</b>에 출처 부착, 끊어진 참조 <b>0건</b>',
         f'조건(온도·주파수·방향 등) 부착 값 {n_cond:,}건 · {n_cond * 100 / n_val:.1f}%',
+        f'단, <b>다시 열 수 없는 출처 {n_dead_src}건</b>이 값 <b>{n_dead_val:,}건</b>({n_dead_val * 100 / n_val:.1f}%)을 받침 — 재확인 경로 없음',
     ]))
     A('<div class="split">')
     A('<div><h4>출처 유형 ' + f'({n_src:,}건)</h4>' + "".join(
@@ -357,6 +369,11 @@ def main():
         A(f'<tr><td class="n mono">{n}</td><td class="kind">{esc(kd)}</td>'
           f'<td>{esc(clip(t, 88))}</td></tr>')
     A('</tbody></table></div>')
+    A(f'<p class="note warn"><b>출처가 붙어 있다는 것과 그 출처를 열 수 있다는 것은 다르다.</b> '
+      f'DOI·URL·로컬사본이 <b>셋 다 없는 출처 {n_dead_src}건</b>이 값 {n_dead_val:,}건을 받친다 — '
+      '대부분 인쇄 핸드북이다(Polymer Handbook·Touloukian·ASM·CRC). '
+      '이 값들은 <b>틀렸다는 뜻이 아니라 우리 손으로 재확인할 경로가 없다</b>는 뜻이다. '
+      '수집 배치가 이 출처를 표적으로 지목받으면 열 대상이 없어 헛돈다 — 실제로 세 번 났다.</p>')
     A('<p class="note">단일 문서가 800건 이상을 산출하는 사례가 있다 — 패키지 워피지 논문 1편이 '
       '재료 수십 종의 물성표를 일괄 수록하기 때문이다. '
       '<b>상위 문서일수록 검증 비용이 크다</b> — 열이 1개 밀리면 수백 건이 동시에 오염된다.</p>')
@@ -611,46 +628,57 @@ FLOW_SVG = """<figure class="flow">
 </figure>"""
 
 
-# 66차 BC 가 코어 밖 격자 2,081칸을 전수로 두드려 잰 물성별 수확률.
-# 표본이 아니라 전수다 — 표적 재료가 이미 쓰는 출처를 전부 내려받아 낱말 적중까지 셌다.
-# **이 숫자는 DB 질의가 아니라 그날의 측정치다.** 다시 재기 전까지 갱신되지 않는다.
-YIELD_MEASURED = "2026-09-07 (66차 BC)"
+# 66차 BC 가 코어 밖 격자를 전수로 두드려 잰 **낱말 적중률**과, 68차 DD 가 그 위에서
+# 실제로 잰 **칸 마감률**. 둘을 같이 싣는 이유가 있다 — 66차에는 앞 열만 싣고 그것을
+# 「수확률」이라 불렀는데, 68차 DD 가 두 갈래를 끝까지 캐 보니 마감률이 6.0% 였다.
+# **낱말이 있다는 것과 그 등급의 값이 찍혀 있다는 것은 다르다**(통과율 약 30%).
+# 이 숫자는 DB 질의가 아니라 그날의 측정치다 — 다시 재기 전까지 갱신되지 않는다.
+YIELD_MEASURED = "낱말 적중 2026-09-07(66차 BC) · 칸 마감 2026-09-09(68차 DD)"
 YIELD_ROWS = [
-    # 물성, 표적 재료, 쓰는 출처, 로컬 확보, 낱말 적중, 수확률 %
-    ("접착강도",      65,  83,  37, 19, 51.4),
-    ("투습도",       142, 123,  74, 27, 36.5),
-    ("소성 상수",     290, 284, 199, 64, 32.2),
-    ("전기 물성",     232, 195, 139, 20, 14.4),
-    ("율속 민감도",   437, 401, 306, 38, 12.4),
-    ("피로 계수",     312, 290, 209, 26, 12.4),
-    ("젖음·표면에너지", 428, 395, 318, 18,  5.7),
-    ("Prony 계열",    154, 195, 130,  6,  4.6),
+    # 물성, 표적 재료, 쓰는 출처, 로컬 확보, 낱말 적중, 낱말 적중률 %, 칸 마감률 % (None=미측정)
+    ("접착강도",      65,  83,  37, 19, 51.4, 6.0),
+    ("투습도",       142, 123,  74, 27, 36.5, 6.0),
+    ("소성 상수",     290, 284, 199, 64, 32.2, None),
+    ("전기 물성",     232, 195, 139, 20, 14.4, None),
+    ("율속 민감도",   437, 401, 306, 38, 12.4, None),
+    ("피로 계수",     312, 290, 209, 26, 12.4, None),
+    ("젖음·표면에너지", 428, 395, 318, 18,  5.7, None),
+    ("Prony 계열",    154, 195, 130,  6,  4.6, None),
 ]
 
 
 def yield_block():
-    """물성별 수확률 표. 어디를 파야 나오는지를 값이 아니라 확률로 말한다."""
+    """표적별 채굴 난도. 낱말이 걸리는 비율과 칸이 실제로 닫히는 비율을 갈라 싣는다."""
     rows = "".join(
         f'<tr><td class="nm">{esc(nm)}</td><td class="n">{tgt}</td>'
         f'<td class="n mono">{src}</td><td class="n mono">{loc}</td>'
         f'<td class="n mono">{hit}</td>'
         f'<td class="barcell"><span class="btrack sm"><i class="bfill teal" '
-        f'style="width:{y:.1f}%"></i></span><span class="pct">{y:.1f}</span></td></tr>'
-        for nm, tgt, src, loc, hit, y in YIELD_ROWS)
+        f'style="width:{y:.1f}%"></i></span><span class="pct">{y:.1f}</span></td>'
+        + (f'<td class="n"><span class="pill crit">{c:.1f}%</span></td>'
+           if c is not None else '<td class="n mono">·</td>')
+        + '</tr>'
+        for nm, tgt, src, loc, hit, y, c in YIELD_ROWS)
     return (
-        '<h4>보유 문서 재검 시 물성별 수확률</h4>'
+        '<h4>표적별 채굴 난도 — 낱말이 걸리는 비율과 칸이 닫히는 비율</h4>'
         '<div class="tblwrap"><table class="cov">'
         '<thead><tr><th>물성</th><th class="n">표적 재료</th><th class="n">쓰는 출처</th>'
-        '<th class="n">로컬 확보</th><th class="n">낱말 적중</th><th>수확률</th></tr></thead>'
+        '<th class="n">로컬 확보</th><th class="n">낱말 적중</th><th>낱말 적중률</th>'
+        '<th class="n">칸 마감률</th></tr></thead>'
         f'<tbody>{rows}</tbody></table></div>'
-        '<p class="note"><b>같은 노력이 물성마다 열 배 다른 결과를 낸다.</b> '
-        '기준선은 포아송비 7.5% · 전방사율 0.7%다 — 상위 셋은 그 네 배 이상이고, '
-        '하위 둘은 그 아래다. 낮은 쪽의 원인은 셋으로 갈린다. '
+        '<p class="note warn"><b>두 열을 섞어 읽으면 안 된다 — 66차에 그 착오를 냈다.</b> '
+        '「낱말 적중률」은 <b>표적이 이미 쓰는 문서에 그 물성 낱말이 나오는가</b>이고, '
+        '「칸 마감률」은 <b>그 등급의 값이 조건까지 갖춰 실제로 등재됐는가</b>다. '
+        '66차에는 앞 열만 재고 그것을 수확률이라 부르며 포아송비 7.5%(칸 마감률)와 견줬다 — '
+        '<b>단위가 다른 두 수를 비교한 것이다.</b> 68차가 상위 둘을 끝까지 캐니 마감률이 '
+        '둘 다 <b>6.0%</b>로, 포아송비와 같은 자리였다. <b>낱말→값 통과율이 약 30%</b>이므로 '
+        '아직 안 캔 표적은 왼쪽 값에 0.3을 곱해 읽어라.</p>'
+        '<p class="note">낮은 쪽의 원인은 셋으로 갈린다. '
         '<b>젖음</b>은 재료의 물성이 아니라 <b>공정의 결과</b>로 발표돼 벤더 시트에 열이 없다. '
         '<b>Prony</b>는 문서에 있으나 <b>표가 아니라 마스터커브 그림</b>이라 디지타이즈 대상이다. '
         '<b>율속·피로</b>는 적중이 「이 논문이 율속을 언급한다」이지 '
         '「이 등급의 상수를 찍는다」가 아니다 — 적중 수가 성과를 예고한다는 착각을 주는 구간이다.</p>'
-        f'<p class="note"><b>이 표는 측정치다.</b> {esc(YIELD_MEASURED)} 전수 측정 결과이며 '
+        f'<p class="note"><b>이 표는 측정치다.</b> {esc(YIELD_MEASURED)}. '
         '다른 지표와 달리 DB 조회로 갱신되지 않는다.</p>')
 
 

@@ -1,0 +1,528 @@
+{
+  "batch": "68차 DC",
+  "materials": [
+    {
+      "match_name": "Nan Ya NP-175FR Dicy-Free Low-CTE FR-4 Copper Clad Laminate",
+      "source": {
+        "kind": "datasheet",
+        "title": "Data Sheet / Datenblatt NP-175FR, NP-175FTL, NP-175FB — Performance List / Leistungsspektrum 2/2, `Revision Date: July 2022`, SPECIFICATION SHEET #: IPC-4101/126 (2026-09-09 에 받은 현행 판, 파일 6쪽)",
+        "url": "https://www.technolam.de/fileadmin/user_upload/pdf/produkt_datenblaetter/np/NP-175FTL__NP-175FR__NP-175FB.pdf",
+        "publisher": "Technolam GmbH (Troisdorf, Germany)",
+        "year": 2022,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Technolam_NanYa_NP-175FTL-NP-175FR-NP-175FB_Datasheet_2024-08.pdf"
+      },
+      "properties": [
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 23000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "orientation": "warp",
+            "orientation_verbatim": "A. Length direction / Kettrichtung",
+            "direction": "MD",
+            "bound": "lower",
+            "test_mode": "not printed",
+            "test_standard": "not printed",
+            "state": "not printed — 동박 유무를 이 행이 구분하지 않는다",
+            "specimen": "두께열 `Specification ≥ 0,50 mm [0,0197 in]` 의 **Property** 칸. 같은 열의 `Specification` 칸과 `< 0,50 mm` 두 칸은 모두 `-` 다 — 규격 한계가 아니라 전형값이라는 뜻이다",
+            "grade_scope": "이 시트 한 장이 NP-175FTL·NP-175FR·NP-175FB 세 등급을 함께 덮고 이 행은 세 등급을 가르지 않는다. 게다가 같은 발행처의 NPG-170TL/NPG-170R/NPG-170B 시트가 똑같은 23-25 / 22-24 를 찍는다 — 등급별 실측이 아니라 이 벤더의 170 °C-Tg 계열 공통값으로 읽어야 한다. 발행처도 제조사 Nan Ya 가 아니라 유럽 파트너 Technolam 이고, 시험방법 칸이 비어 있다. 그래서 t1 이 아니라 t2 로 넣는다",
+            "temperature_note": "원문이 시험온도를 안 찍는다 — 이 행에는 온도 칸 자체가 없다. Tg 170 °C 훨씬 아래의 상온값으로 읽되 온도를 지정된 값으로 쓰지 마라"
+          },
+          "notes": "원문 verbatim (Performance List 2/2, `LAMINATE REQUIREMENTS / ANFORDERUNGEN AN DAS LAMINAT`, 절 `19. Other / weitere`):\n`  Young's Modulus                                                   E-Modul`\n`    A. Length direction                                         Kettrichtung        -                  -              -           23-25           GPa              -            -`\n`    B. Cross direction                                       Schussrichtung         -                  -              -           22-24`\n환산 — 23 GPa x 1e9 = 2.3e10 Pa. 검산: 2.3e10 / 1e9 = 23 GPa 로 되돌아온다.\n\n**왜 이것이 새 값인가** — Nan Ya 자신의 PERFORMANCE LIST 는 세 판(2008/03/01 발행·2014/04/30 개정, 2025/10/27 개정, SDS)을 다 열어도 강도축이 굽힘강도뿐이고 탄성률 행이 없다(66차까지의 판정 그대로 맞다). 이 값은 **제조사 TDS 가 아니라 유럽 공급 파트너가 IPC-4101 스펙시트 서식으로 다시 낸 별도 문서**에서 나왔다. 그 서식은 IPC-4101 항목 1~18 을 그대로 따르고, 그 **뒤에 `19. Other / weitere` 를 붙여 IPC-4101 이 규정하지 않는 행들을 더 찍는다** — E-Modul·비열(0,91 J/g°C)·밀도(2,10 g/cm3 @ 50 % 수지)·열전도율(0,53 / 0,46 W/mK)·CTI 가 거기 있다.\n\n**함정 통과 셋** — ① 이 행은 `19. Other` 소속이라 시트 하단 면책문 `Performance List 1. to 18. follows IPC-4101 template ... and shows minimum or maximum properties expectable`(즉 1~18 은 규격 하한/상한이라는 경고)의 **바깥**이다. 실제로 두 Specification 칸이 `-` 이고 값은 Property 칸에만 있다 — 규격 하한이 아니라 전형값이다. 그래서 `bound` 는 규격하한 표시가 아니라 **인쇄된 구간 23-25 를 평균 내지 않고 두 행으로 가른 표시**다(브리프 규칙).\n② 원문이 `Young's Modulus / E-Modul` 이라고 못 박는다 — 굽힘탄성률이 아니라 인장 강성축의 이름이다. 다만 시험방법(IPC-TM-650) 칸과 Ref. Para. 칸이 둘 다 `-` 라 **어떤 시험으로 얻었는지 원문이 밝히지 않는다**. 그래서 test_mode 를 'not printed' 로 두었고 굽힘/인장을 내가 단정하지 않았다.\n③ 방향이 갈려 인쇄돼 있어 경사(Kettrichtung)·위사(Schussrichtung) 두 방향을 각각 두 행으로, 모두 네 행으로 넣었다. 경사가 위사보다 뻣뻣한 순서(23-25 > 22-24)가 유리직물 적층판의 이방성과 맞는다.\n\n**검산** — 같은 시트가 찍는 굽힘강도(Length 415~480 N/mm2, Cross 345~415 N/mm2)와 짝지으면 파단변형이 대략 415/23e3 ~ 1.8 %, 480/25e3 ~ 1.9 % 로 유리직물 에폭시 적층판의 통상 범위에 든다. 또 같은 벤더 계열(Panasonic R-1766 등 범용 FR-4)의 굽힘탄성률 21~24 GPa 와도 자릿수·크기가 맞는다.\n**업계 관행 대조 — `Young's Modulus` 라는 이름이 CCL 에서는 굽힘시험을 가리킨다.** 같은 CCL 업계의 Isola 는 데이터시트에 `Young's Modulus` 행을 두면서 시험방법을 **`ASTM D790-15e2`(3점굽힘)** 으로 명시한다 — 그리고 그 바로 위·아래에 `Tensile Strength (ASTM D3039)` 와 `Poisson's Ratio (ASTM D3039)` 를 따로 둔다. 즉 이 업계에서 라미네이트의 `Young's Modulus` 는 관례적으로 D790 굽힘탄성률이다. 값도 겹친다 — Isola 370HR(High-Tg 다관능 에폭시, IPC-4101/126 계열) `Young's Modulus` Length 3744 ksi · Cross 3178 ksi 이고, 환산하면 3744 x 6.894757 = 25,814 MPa = 25.8 GPa, 3178 x 6.894757 = 21,912 MPa = 21.9 GPa 다. (출처: Isola 370HR Laminate & Prepreg Data Sheet Rev C 2021-04-15, /data/paper_patent_corpus/standards_appnotes/pcb/Isola_370HR_Laminate_Prepreg_DataSheet_RevC_2021-04-15.pdf)\n그래서 이 행의 test_mode 를 `not printed` 로 남겨 두되, **원문이 시험방법을 안 밝힌 이 값도 업계 관행상 굽힘시험(D790 계열)일 공산이 크다**는 것을 여기 적어 둔다 — 인장시험 값이라고 단정하지 않았다. 세 벤더의 같은 이름 값이 21.9~25.8 GPa 한 띠에 모이는 것(Isola 370HR 21.9/25.8 · Nan Ya 22-24/23-25 · Panasonic 21-22/23-24)도 이 값이 별종이 아님을 뒷받침한다.\n\n**판 대조 — 세 판이 같은 값을 찍는다.** 현행 판(`Revision Date: July 2022`, 이미지 PDF 라 200 dpi 로 렌더해 눈으로 읽었다)과 2021-01 판(`Rev. Jan. 2021`, 텍스트 추출)과 2018-02 판(`Rev. Feb.18`, 텍스트 추출)이 모두 `23-25` / `22-24` GPa 로 같다 — 여섯 해 동안 안 바뀌었다. 세 판 로컬 경로: /data/paper_patent_corpus/standards_appnotes/pcb/Technolam_NanYa_NP-175FTL-NP-175FR-NP-175FB_Datasheet_2024-08.pdf · Technolam_NanYa_NP-175FTL-NP-175FR-NP-175FB_Datasheet_2021-01.pdf · Technolam_NanYa_NP-175FR-NP-175FTL-NP-175FB_Datasheet_2018-02.pdf\n\n**[같은 배치에서 뒤늦게 얻은 대조 — 이 값의 성격을 좁힌다]** 이 배치는 Panasonic 2013 총합카탈로그에서 **`曲げ弾性係数（JIS C6481）` 와 `ヤング率（引張り）（ASTM D3039）` 를 나란히 인쇄한 표**를 얻었다. 거기서 같은 등급의 두 값이 이렇게 갈린다 — 굽힘 23~24 GPa 대 인장 17.8~20.9 GPa, 인장이 12~23 %% 낮다. 이 잣대를 여기 대면 Technolam 이 `Young's Modulus` 라고 이름 붙인 **23-25 / 22-24 GPa 는 인장대(17~21)가 아니라 굽힘대(23~24)에 놓인다.** 시험방법 칸이 `-` 라 단정할 수는 없지만, **이 값은 인장시험값이라기보다 D790 계열 굽힘값일 공산이 크다**는 뜻이다 — Isola 가 같은 이름을 D790 으로 재는 관행과도 맞는다. 그래서 test_mode 를 `not printed` 로 남겨 두었고, 해석에서 면내 인장강성으로 쓸 때는 이 값이 12~23 %% 높게 잡힐 수 있음을 감안해야 한다. **이 대조 자체가 이 배치의 산출물이다** — 다음 배치가 Nan Ya 의 진짜 인장 영률을 찾으면 이 행과 나란히 두고 test_mode 로 갈라라.\n"
+        },
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 25000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "orientation": "warp",
+            "orientation_verbatim": "A. Length direction / Kettrichtung",
+            "direction": "MD",
+            "bound": "upper",
+            "test_mode": "not printed",
+            "test_standard": "not printed",
+            "state": "not printed — 동박 유무를 이 행이 구분하지 않는다",
+            "specimen": "두께열 `Specification ≥ 0,50 mm [0,0197 in]` 의 **Property** 칸. 같은 열의 `Specification` 칸과 `< 0,50 mm` 두 칸은 모두 `-` 다 — 규격 한계가 아니라 전형값이라는 뜻이다",
+            "grade_scope": "이 시트 한 장이 NP-175FTL·NP-175FR·NP-175FB 세 등급을 함께 덮고 이 행은 세 등급을 가르지 않는다. 같은 발행처의 NPG-170 계열 시트가 똑같은 23-25 / 22-24 를 찍는다 — 등급별 실측이 아니라 벤더의 170 °C-Tg 계열 공통값이다. 발행처도 제조사 Nan Ya 가 아니라 유럽 파트너 Technolam 이고 시험방법 칸이 비어 있다",
+            "temperature_note": "원문이 시험온도를 안 찍는다 — 이 행에는 온도 칸 자체가 없다. Tg 170 °C 훨씬 아래의 상온값으로 읽되 온도를 지정된 값으로 쓰지 마라"
+          },
+          "notes": "같은 행 `23-25 GPa` 의 상한. 환산 — 25 GPa x 1e9 = 2.5e10 Pa. 검산: 2.5e10 / 1e9 = 25 GPa. 인쇄된 구간이므로 평균 24 를 만들지 않고 하한 23 · 상한 25 두 행으로 갈랐다. 근거·함정은 같은 등급 하한 행의 notes 와 같다.\n**업계 관행 대조 — `Young's Modulus` 라는 이름이 CCL 에서는 굽힘시험을 가리킨다.** 같은 CCL 업계의 Isola 는 데이터시트에 `Young's Modulus` 행을 두면서 시험방법을 **`ASTM D790-15e2`(3점굽힘)** 으로 명시한다 — 그리고 그 바로 위·아래에 `Tensile Strength (ASTM D3039)` 와 `Poisson's Ratio (ASTM D3039)` 를 따로 둔다. 즉 이 업계에서 라미네이트의 `Young's Modulus` 는 관례적으로 D790 굽힘탄성률이다. 값도 겹친다 — Isola 370HR(High-Tg 다관능 에폭시, IPC-4101/126 계열) `Young's Modulus` Length 3744 ksi · Cross 3178 ksi 이고, 환산하면 3744 x 6.894757 = 25,814 MPa = 25.8 GPa, 3178 x 6.894757 = 21,912 MPa = 21.9 GPa 다. (출처: Isola 370HR Laminate & Prepreg Data Sheet Rev C 2021-04-15, /data/paper_patent_corpus/standards_appnotes/pcb/Isola_370HR_Laminate_Prepreg_DataSheet_RevC_2021-04-15.pdf)\n그래서 이 행의 test_mode 를 `not printed` 로 남겨 두되, **원문이 시험방법을 안 밝힌 이 값도 업계 관행상 굽힘시험(D790 계열)일 공산이 크다**는 것을 여기 적어 둔다 — 인장시험 값이라고 단정하지 않았다. 세 벤더의 같은 이름 값이 21.9~25.8 GPa 한 띠에 모이는 것(Isola 370HR 21.9/25.8 · Nan Ya 22-24/23-25 · Panasonic 21-22/23-24)도 이 값이 별종이 아님을 뒷받침한다.\n\n**판 대조 — 세 판이 같은 값을 찍는다.** 현행 판(`Revision Date: July 2022`, 이미지 PDF 라 200 dpi 로 렌더해 눈으로 읽었다)과 2021-01 판(`Rev. Jan. 2021`, 텍스트 추출)과 2018-02 판(`Rev. Feb.18`, 텍스트 추출)이 모두 `23-25` / `22-24` GPa 로 같다 — 여섯 해 동안 안 바뀌었다. 세 판 로컬 경로: /data/paper_patent_corpus/standards_appnotes/pcb/Technolam_NanYa_NP-175FTL-NP-175FR-NP-175FB_Datasheet_2024-08.pdf · Technolam_NanYa_NP-175FTL-NP-175FR-NP-175FB_Datasheet_2021-01.pdf · Technolam_NanYa_NP-175FR-NP-175FTL-NP-175FB_Datasheet_2018-02.pdf\n\n**[같은 배치에서 뒤늦게 얻은 대조 — 이 값의 성격을 좁힌다]** 이 배치는 Panasonic 2013 총합카탈로그에서 **`曲げ弾性係数（JIS C6481）` 와 `ヤング率（引張り）（ASTM D3039）` 를 나란히 인쇄한 표**를 얻었다. 거기서 같은 등급의 두 값이 이렇게 갈린다 — 굽힘 23~24 GPa 대 인장 17.8~20.9 GPa, 인장이 12~23 %% 낮다. 이 잣대를 여기 대면 Technolam 이 `Young's Modulus` 라고 이름 붙인 **23-25 / 22-24 GPa 는 인장대(17~21)가 아니라 굽힘대(23~24)에 놓인다.** 시험방법 칸이 `-` 라 단정할 수는 없지만, **이 값은 인장시험값이라기보다 D790 계열 굽힘값일 공산이 크다**는 뜻이다 — Isola 가 같은 이름을 D790 으로 재는 관행과도 맞는다. 그래서 test_mode 를 `not printed` 로 남겨 두었고, 해석에서 면내 인장강성으로 쓸 때는 이 값이 12~23 %% 높게 잡힐 수 있음을 감안해야 한다. **이 대조 자체가 이 배치의 산출물이다** — 다음 배치가 Nan Ya 의 진짜 인장 영률을 찾으면 이 행과 나란히 두고 test_mode 로 갈라라.\n"
+        },
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 22000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "orientation": "fill",
+            "orientation_verbatim": "B. Cross direction / Schussrichtung",
+            "direction": "TD",
+            "bound": "lower",
+            "test_mode": "not printed",
+            "test_standard": "not printed",
+            "state": "not printed — 동박 유무를 이 행이 구분하지 않는다",
+            "specimen": "두께열 `Specification ≥ 0,50 mm [0,0197 in]` 의 **Property** 칸. 같은 열의 `Specification` 칸과 `< 0,50 mm` 두 칸은 모두 `-` 다 — 규격 한계가 아니라 전형값이라는 뜻이다",
+            "grade_scope": "이 시트 한 장이 NP-175FTL·NP-175FR·NP-175FB 세 등급을 함께 덮고 이 행은 세 등급을 가르지 않는다. 같은 발행처의 NPG-170 계열 시트가 똑같은 23-25 / 22-24 를 찍는다. 발행처는 제조사 Nan Ya 가 아니라 유럽 파트너 Technolam 이고 시험방법 칸이 비어 있다",
+            "temperature_note": "원문이 시험온도를 안 찍는다 — 이 행에는 온도 칸 자체가 없다. Tg 170 °C 훨씬 아래의 상온값으로 읽되 온도를 지정된 값으로 쓰지 마라"
+          },
+          "notes": "원문 verbatim `    B. Cross direction                                       Schussrichtung         -                  -              -           22-24`. 단위는 바로 위 경사 행의 `GPa` 칸을 이어받는다(표가 두 방향에 한 단위 칸을 공유한다). 환산 — 22 GPa x 1e9 = 2.2e10 Pa. 검산: 2.2e10 / 1e9 = 22 GPa. 위사가 경사보다 무른 것(22-24 < 23-25)이 유리직물의 이방성과 맞는다.\n**업계 관행 대조 — `Young's Modulus` 라는 이름이 CCL 에서는 굽힘시험을 가리킨다.** 같은 CCL 업계의 Isola 는 데이터시트에 `Young's Modulus` 행을 두면서 시험방법을 **`ASTM D790-15e2`(3점굽힘)** 으로 명시한다 — 그리고 그 바로 위·아래에 `Tensile Strength (ASTM D3039)` 와 `Poisson's Ratio (ASTM D3039)` 를 따로 둔다. 즉 이 업계에서 라미네이트의 `Young's Modulus` 는 관례적으로 D790 굽힘탄성률이다. 값도 겹친다 — Isola 370HR(High-Tg 다관능 에폭시, IPC-4101/126 계열) `Young's Modulus` Length 3744 ksi · Cross 3178 ksi 이고, 환산하면 3744 x 6.894757 = 25,814 MPa = 25.8 GPa, 3178 x 6.894757 = 21,912 MPa = 21.9 GPa 다. (출처: Isola 370HR Laminate & Prepreg Data Sheet Rev C 2021-04-15, /data/paper_patent_corpus/standards_appnotes/pcb/Isola_370HR_Laminate_Prepreg_DataSheet_RevC_2021-04-15.pdf)\n그래서 이 행의 test_mode 를 `not printed` 로 남겨 두되, **원문이 시험방법을 안 밝힌 이 값도 업계 관행상 굽힘시험(D790 계열)일 공산이 크다**는 것을 여기 적어 둔다 — 인장시험 값이라고 단정하지 않았다. 세 벤더의 같은 이름 값이 21.9~25.8 GPa 한 띠에 모이는 것(Isola 370HR 21.9/25.8 · Nan Ya 22-24/23-25 · Panasonic 21-22/23-24)도 이 값이 별종이 아님을 뒷받침한다.\n\n**판 대조 — 세 판이 같은 값을 찍는다.** 현행 판(`Revision Date: July 2022`, 이미지 PDF 라 200 dpi 로 렌더해 눈으로 읽었다)과 2021-01 판(`Rev. Jan. 2021`, 텍스트 추출)과 2018-02 판(`Rev. Feb.18`, 텍스트 추출)이 모두 `23-25` / `22-24` GPa 로 같다 — 여섯 해 동안 안 바뀌었다. 세 판 로컬 경로: /data/paper_patent_corpus/standards_appnotes/pcb/Technolam_NanYa_NP-175FTL-NP-175FR-NP-175FB_Datasheet_2024-08.pdf · Technolam_NanYa_NP-175FTL-NP-175FR-NP-175FB_Datasheet_2021-01.pdf · Technolam_NanYa_NP-175FR-NP-175FTL-NP-175FB_Datasheet_2018-02.pdf\n\n**[같은 배치에서 뒤늦게 얻은 대조 — 이 값의 성격을 좁힌다]** 이 배치는 Panasonic 2013 총합카탈로그에서 **`曲げ弾性係数（JIS C6481）` 와 `ヤング率（引張り）（ASTM D3039）` 를 나란히 인쇄한 표**를 얻었다. 거기서 같은 등급의 두 값이 이렇게 갈린다 — 굽힘 23~24 GPa 대 인장 17.8~20.9 GPa, 인장이 12~23 %% 낮다. 이 잣대를 여기 대면 Technolam 이 `Young's Modulus` 라고 이름 붙인 **23-25 / 22-24 GPa 는 인장대(17~21)가 아니라 굽힘대(23~24)에 놓인다.** 시험방법 칸이 `-` 라 단정할 수는 없지만, **이 값은 인장시험값이라기보다 D790 계열 굽힘값일 공산이 크다**는 뜻이다 — Isola 가 같은 이름을 D790 으로 재는 관행과도 맞는다. 그래서 test_mode 를 `not printed` 로 남겨 두었고, 해석에서 면내 인장강성으로 쓸 때는 이 값이 12~23 %% 높게 잡힐 수 있음을 감안해야 한다. **이 대조 자체가 이 배치의 산출물이다** — 다음 배치가 Nan Ya 의 진짜 인장 영률을 찾으면 이 행과 나란히 두고 test_mode 로 갈라라.\n"
+        },
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 24000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "orientation": "fill",
+            "orientation_verbatim": "B. Cross direction / Schussrichtung",
+            "direction": "TD",
+            "bound": "upper",
+            "test_mode": "not printed",
+            "test_standard": "not printed",
+            "state": "not printed — 동박 유무를 이 행이 구분하지 않는다",
+            "specimen": "두께열 `Specification ≥ 0,50 mm [0,0197 in]` 의 **Property** 칸. 같은 열의 `Specification` 칸과 `< 0,50 mm` 두 칸은 모두 `-` 다 — 규격 한계가 아니라 전형값이라는 뜻이다",
+            "grade_scope": "이 시트 한 장이 NP-175FTL·NP-175FR·NP-175FB 세 등급을 함께 덮고 이 행은 세 등급을 가르지 않는다. 같은 발행처의 NPG-170 계열 시트가 똑같은 23-25 / 22-24 를 찍는다. 발행처는 제조사 Nan Ya 가 아니라 유럽 파트너 Technolam 이고 시험방법 칸이 비어 있다",
+            "temperature_note": "원문이 시험온도를 안 찍는다 — 이 행에는 온도 칸 자체가 없다. Tg 170 °C 훨씬 아래의 상온값으로 읽되 온도를 지정된 값으로 쓰지 마라"
+          },
+          "notes": "같은 행 `22-24` 의 상한. 환산 — 24 GPa x 1e9 = 2.4e10 Pa. 검산: 2.4e10 / 1e9 = 24 GPa. 인쇄된 구간이므로 평균 23 을 만들지 않고 두 행으로 갈랐다.\n**업계 관행 대조 — `Young's Modulus` 라는 이름이 CCL 에서는 굽힘시험을 가리킨다.** 같은 CCL 업계의 Isola 는 데이터시트에 `Young's Modulus` 행을 두면서 시험방법을 **`ASTM D790-15e2`(3점굽힘)** 으로 명시한다 — 그리고 그 바로 위·아래에 `Tensile Strength (ASTM D3039)` 와 `Poisson's Ratio (ASTM D3039)` 를 따로 둔다. 즉 이 업계에서 라미네이트의 `Young's Modulus` 는 관례적으로 D790 굽힘탄성률이다. 값도 겹친다 — Isola 370HR(High-Tg 다관능 에폭시, IPC-4101/126 계열) `Young's Modulus` Length 3744 ksi · Cross 3178 ksi 이고, 환산하면 3744 x 6.894757 = 25,814 MPa = 25.8 GPa, 3178 x 6.894757 = 21,912 MPa = 21.9 GPa 다. (출처: Isola 370HR Laminate & Prepreg Data Sheet Rev C 2021-04-15, /data/paper_patent_corpus/standards_appnotes/pcb/Isola_370HR_Laminate_Prepreg_DataSheet_RevC_2021-04-15.pdf)\n그래서 이 행의 test_mode 를 `not printed` 로 남겨 두되, **원문이 시험방법을 안 밝힌 이 값도 업계 관행상 굽힘시험(D790 계열)일 공산이 크다**는 것을 여기 적어 둔다 — 인장시험 값이라고 단정하지 않았다. 세 벤더의 같은 이름 값이 21.9~25.8 GPa 한 띠에 모이는 것(Isola 370HR 21.9/25.8 · Nan Ya 22-24/23-25 · Panasonic 21-22/23-24)도 이 값이 별종이 아님을 뒷받침한다.\n\n**판 대조 — 세 판이 같은 값을 찍는다.** 현행 판(`Revision Date: July 2022`, 이미지 PDF 라 200 dpi 로 렌더해 눈으로 읽었다)과 2021-01 판(`Rev. Jan. 2021`, 텍스트 추출)과 2018-02 판(`Rev. Feb.18`, 텍스트 추출)이 모두 `23-25` / `22-24` GPa 로 같다 — 여섯 해 동안 안 바뀌었다. 세 판 로컬 경로: /data/paper_patent_corpus/standards_appnotes/pcb/Technolam_NanYa_NP-175FTL-NP-175FR-NP-175FB_Datasheet_2024-08.pdf · Technolam_NanYa_NP-175FTL-NP-175FR-NP-175FB_Datasheet_2021-01.pdf · Technolam_NanYa_NP-175FR-NP-175FTL-NP-175FB_Datasheet_2018-02.pdf\n\n**[같은 배치에서 뒤늦게 얻은 대조 — 이 값의 성격을 좁힌다]** 이 배치는 Panasonic 2013 총합카탈로그에서 **`曲げ弾性係数（JIS C6481）` 와 `ヤング率（引張り）（ASTM D3039）` 를 나란히 인쇄한 표**를 얻었다. 거기서 같은 등급의 두 값이 이렇게 갈린다 — 굽힘 23~24 GPa 대 인장 17.8~20.9 GPa, 인장이 12~23 %% 낮다. 이 잣대를 여기 대면 Technolam 이 `Young's Modulus` 라고 이름 붙인 **23-25 / 22-24 GPa 는 인장대(17~21)가 아니라 굽힘대(23~24)에 놓인다.** 시험방법 칸이 `-` 라 단정할 수는 없지만, **이 값은 인장시험값이라기보다 D790 계열 굽힘값일 공산이 크다**는 뜻이다 — Isola 가 같은 이름을 D790 으로 재는 관행과도 맞는다. 그래서 test_mode 를 `not printed` 로 남겨 두었고, 해석에서 면내 인장강성으로 쓸 때는 이 값이 12~23 %% 높게 잡힐 수 있음을 감안해야 한다. **이 대조 자체가 이 배치의 산출물이다** — 다음 배치가 Nan Ya 의 진짜 인장 영률을 찾으면 이 행과 나란히 두고 test_mode 로 갈라라.\n"
+        }
+      ]
+    },
+    {
+      "match_name": "Nan Ya NP-175FTL Low-Transmission-Loss FR-4 Copper Clad Laminate",
+      "source": {
+        "kind": "datasheet",
+        "title": "Data Sheet / Datenblatt NP-175FR, NP-175FTL, NP-175FB — Performance List / Leistungsspektrum 2/2, `Revision Date: July 2022`, SPECIFICATION SHEET #: IPC-4101/126 (2026-09-09 에 받은 현행 판, 파일 6쪽)",
+        "url": "https://www.technolam.de/fileadmin/user_upload/pdf/produkt_datenblaetter/np/NP-175FTL__NP-175FR__NP-175FB.pdf",
+        "publisher": "Technolam GmbH (Troisdorf, Germany)",
+        "year": 2022,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Technolam_NanYa_NP-175FTL-NP-175FR-NP-175FB_Datasheet_2024-08.pdf"
+      },
+      "properties": [
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 23000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "orientation": "warp",
+            "orientation_verbatim": "A. Length direction / Kettrichtung",
+            "direction": "MD",
+            "bound": "lower",
+            "test_mode": "not printed",
+            "test_standard": "not printed",
+            "state": "not printed — 동박 유무를 이 행이 구분하지 않는다",
+            "specimen": "두께열 `Specification ≥ 0,50 mm [0,0197 in]` 의 **Property** 칸. 같은 열의 `Specification` 칸과 `< 0,50 mm` 두 칸은 모두 `-` 다 — 규격 한계가 아니라 전형값이라는 뜻이다",
+            "grade_scope": "시트 표제가 `NP-175FTL, NP-175FR, NP-175FB` 이고 NP-175FTL 이 표제 첫 등급이지만, 이 행은 세 등급을 가르지 않는다 — 셋에 같은 값을 준다. 같은 발행처의 NPG-170 계열 시트도 똑같은 23-25 / 22-24 를 찍어 벤더의 170 °C-Tg 계열 공통값임을 드러낸다. 발행처는 제조사 Nan Ya 가 아니라 유럽 파트너 Technolam 이고 시험방법 칸이 `-` 다",
+            "temperature_note": "원문이 시험온도를 안 찍는다 — 이 행에는 온도 칸 자체가 없다. Tg 170 °C 훨씬 아래의 상온값으로 읽되 온도를 지정된 값으로 쓰지 마라"
+          },
+          "notes": "원문 verbatim (`19. Other / weitere` 절):\n`  Young's Modulus                                                   E-Modul`\n`    A. Length direction                                         Kettrichtung        -                  -              -           23-25           GPa              -            -`\n환산 — 23 GPa x 1e9 = 2.3e10 Pa. 검산: 2.3e10 / 1e9 = 23 GPa.\n\n**NP-175FTL 이 표제에 있다는 확인** — 이 시트의 표지·머리글·쪽바닥이 모두 `NP-175FTL, NP-175FR, NP-175FB` 세 이름을 함께 인쇄하고, `SPECIFICATION SHEET: NP-175FTL, NP-175FR, NP-175FB` / `SPECIFICATION SHEET #: IPC-4101/126` 로 못 박는다. 2018-02 판(`NP-175FR, NP-175FTL NP-175FB`)도 같은 23-25 / 22-24 를 찍어 세 해 사이 값이 안 바뀌었다.\n\n**왜 이것이 새 값인가** — Nan Ya 자신의 PERFORMANCE LIST 세 판과 SDS 를 다 열어도 탄성률 행이 없다(기존 판정 그대로 맞다). 이 값은 제조사 TDS 가 아니라 **유럽 공급 파트너가 IPC-4101 서식 뒤에 `19. Other` 절을 덧붙여 낸 별도 문서**에서 나왔다.\n\n**함정 통과** — 이 행은 `19. Other` 소속이라 하단 면책문(`1. to 18. ... shows minimum or maximum properties expectable`)의 바깥이고, 두 Specification 칸이 `-` 이며 값은 Property 칸에만 있다 — 규격 하한이 아니라 전형값이다. 원문 이름이 `Young's Modulus / E-Modul` 이라 굽힘탄성률이 아니지만 시험방법 칸이 `-` 라 **어느 시험인지는 원문이 안 밝힌다** — test_mode 를 단정하지 않았다.\n**업계 관행 대조 — `Young's Modulus` 라는 이름이 CCL 에서는 굽힘시험을 가리킨다.** 같은 CCL 업계의 Isola 는 데이터시트에 `Young's Modulus` 행을 두면서 시험방법을 **`ASTM D790-15e2`(3점굽힘)** 으로 명시한다 — 그리고 그 바로 위·아래에 `Tensile Strength (ASTM D3039)` 와 `Poisson's Ratio (ASTM D3039)` 를 따로 둔다. 즉 이 업계에서 라미네이트의 `Young's Modulus` 는 관례적으로 D790 굽힘탄성률이다. 값도 겹친다 — Isola 370HR(High-Tg 다관능 에폭시, IPC-4101/126 계열) `Young's Modulus` Length 3744 ksi · Cross 3178 ksi 이고, 환산하면 3744 x 6.894757 = 25,814 MPa = 25.8 GPa, 3178 x 6.894757 = 21,912 MPa = 21.9 GPa 다. (출처: Isola 370HR Laminate & Prepreg Data Sheet Rev C 2021-04-15, /data/paper_patent_corpus/standards_appnotes/pcb/Isola_370HR_Laminate_Prepreg_DataSheet_RevC_2021-04-15.pdf)\n그래서 이 행의 test_mode 를 `not printed` 로 남겨 두되, **원문이 시험방법을 안 밝힌 이 값도 업계 관행상 굽힘시험(D790 계열)일 공산이 크다**는 것을 여기 적어 둔다 — 인장시험 값이라고 단정하지 않았다. 세 벤더의 같은 이름 값이 21.9~25.8 GPa 한 띠에 모이는 것(Isola 370HR 21.9/25.8 · Nan Ya 22-24/23-25 · Panasonic 21-22/23-24)도 이 값이 별종이 아님을 뒷받침한다.\n\n**판 대조 — 세 판이 같은 값을 찍는다.** 현행 판(`Revision Date: July 2022`, 이미지 PDF 라 200 dpi 로 렌더해 눈으로 읽었다)과 2021-01 판(`Rev. Jan. 2021`, 텍스트 추출)과 2018-02 판(`Rev. Feb.18`, 텍스트 추출)이 모두 `23-25` / `22-24` GPa 로 같다 — 여섯 해 동안 안 바뀌었다. 세 판 로컬 경로: /data/paper_patent_corpus/standards_appnotes/pcb/Technolam_NanYa_NP-175FTL-NP-175FR-NP-175FB_Datasheet_2024-08.pdf · Technolam_NanYa_NP-175FTL-NP-175FR-NP-175FB_Datasheet_2021-01.pdf · Technolam_NanYa_NP-175FR-NP-175FTL-NP-175FB_Datasheet_2018-02.pdf\n\n**[같은 배치에서 뒤늦게 얻은 대조 — 이 값의 성격을 좁힌다]** 이 배치는 Panasonic 2013 총합카탈로그에서 **`曲げ弾性係数（JIS C6481）` 와 `ヤング率（引張り）（ASTM D3039）` 를 나란히 인쇄한 표**를 얻었다. 거기서 같은 등급의 두 값이 이렇게 갈린다 — 굽힘 23~24 GPa 대 인장 17.8~20.9 GPa, 인장이 12~23 %% 낮다. 이 잣대를 여기 대면 Technolam 이 `Young's Modulus` 라고 이름 붙인 **23-25 / 22-24 GPa 는 인장대(17~21)가 아니라 굽힘대(23~24)에 놓인다.** 시험방법 칸이 `-` 라 단정할 수는 없지만, **이 값은 인장시험값이라기보다 D790 계열 굽힘값일 공산이 크다**는 뜻이다 — Isola 가 같은 이름을 D790 으로 재는 관행과도 맞는다. 그래서 test_mode 를 `not printed` 로 남겨 두었고, 해석에서 면내 인장강성으로 쓸 때는 이 값이 12~23 %% 높게 잡힐 수 있음을 감안해야 한다. **이 대조 자체가 이 배치의 산출물이다** — 다음 배치가 Nan Ya 의 진짜 인장 영률을 찾으면 이 행과 나란히 두고 test_mode 로 갈라라.\n"
+        },
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 25000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "orientation": "warp",
+            "orientation_verbatim": "A. Length direction / Kettrichtung",
+            "direction": "MD",
+            "bound": "upper",
+            "test_mode": "not printed",
+            "test_standard": "not printed",
+            "state": "not printed — 동박 유무를 이 행이 구분하지 않는다",
+            "specimen": "두께열 `Specification ≥ 0,50 mm [0,0197 in]` 의 **Property** 칸. 같은 열의 `Specification` 칸과 `< 0,50 mm` 두 칸은 모두 `-` 다 — 규격 한계가 아니라 전형값이라는 뜻이다",
+            "grade_scope": "시트 한 장이 NP-175FTL·NP-175FR·NP-175FB 를 함께 덮고 이 행은 셋을 가르지 않는다. 같은 발행처의 NPG-170 계열이 같은 값을 찍는다. 발행처는 Nan Ya 가 아니라 Technolam 이고 시험방법 칸이 `-` 다",
+            "temperature_note": "원문이 시험온도를 안 찍는다 — 이 행에는 온도 칸 자체가 없다. Tg 170 °C 훨씬 아래의 상온값으로 읽되 온도를 지정된 값으로 쓰지 마라"
+          },
+          "notes": "같은 행 `23-25 GPa` 의 상한. 환산 — 25 GPa x 1e9 = 2.5e10 Pa. 검산: 2.5e10 / 1e9 = 25 GPa. 인쇄된 구간이라 평균 24 를 만들지 않고 두 행으로 갈랐다.\n**업계 관행 대조 — `Young's Modulus` 라는 이름이 CCL 에서는 굽힘시험을 가리킨다.** 같은 CCL 업계의 Isola 는 데이터시트에 `Young's Modulus` 행을 두면서 시험방법을 **`ASTM D790-15e2`(3점굽힘)** 으로 명시한다 — 그리고 그 바로 위·아래에 `Tensile Strength (ASTM D3039)` 와 `Poisson's Ratio (ASTM D3039)` 를 따로 둔다. 즉 이 업계에서 라미네이트의 `Young's Modulus` 는 관례적으로 D790 굽힘탄성률이다. 값도 겹친다 — Isola 370HR(High-Tg 다관능 에폭시, IPC-4101/126 계열) `Young's Modulus` Length 3744 ksi · Cross 3178 ksi 이고, 환산하면 3744 x 6.894757 = 25,814 MPa = 25.8 GPa, 3178 x 6.894757 = 21,912 MPa = 21.9 GPa 다. (출처: Isola 370HR Laminate & Prepreg Data Sheet Rev C 2021-04-15, /data/paper_patent_corpus/standards_appnotes/pcb/Isola_370HR_Laminate_Prepreg_DataSheet_RevC_2021-04-15.pdf)\n그래서 이 행의 test_mode 를 `not printed` 로 남겨 두되, **원문이 시험방법을 안 밝힌 이 값도 업계 관행상 굽힘시험(D790 계열)일 공산이 크다**는 것을 여기 적어 둔다 — 인장시험 값이라고 단정하지 않았다. 세 벤더의 같은 이름 값이 21.9~25.8 GPa 한 띠에 모이는 것(Isola 370HR 21.9/25.8 · Nan Ya 22-24/23-25 · Panasonic 21-22/23-24)도 이 값이 별종이 아님을 뒷받침한다.\n\n**판 대조 — 세 판이 같은 값을 찍는다.** 현행 판(`Revision Date: July 2022`, 이미지 PDF 라 200 dpi 로 렌더해 눈으로 읽었다)과 2021-01 판(`Rev. Jan. 2021`, 텍스트 추출)과 2018-02 판(`Rev. Feb.18`, 텍스트 추출)이 모두 `23-25` / `22-24` GPa 로 같다 — 여섯 해 동안 안 바뀌었다. 세 판 로컬 경로: /data/paper_patent_corpus/standards_appnotes/pcb/Technolam_NanYa_NP-175FTL-NP-175FR-NP-175FB_Datasheet_2024-08.pdf · Technolam_NanYa_NP-175FTL-NP-175FR-NP-175FB_Datasheet_2021-01.pdf · Technolam_NanYa_NP-175FR-NP-175FTL-NP-175FB_Datasheet_2018-02.pdf\n\n**[같은 배치에서 뒤늦게 얻은 대조 — 이 값의 성격을 좁힌다]** 이 배치는 Panasonic 2013 총합카탈로그에서 **`曲げ弾性係数（JIS C6481）` 와 `ヤング率（引張り）（ASTM D3039）` 를 나란히 인쇄한 표**를 얻었다. 거기서 같은 등급의 두 값이 이렇게 갈린다 — 굽힘 23~24 GPa 대 인장 17.8~20.9 GPa, 인장이 12~23 %% 낮다. 이 잣대를 여기 대면 Technolam 이 `Young's Modulus` 라고 이름 붙인 **23-25 / 22-24 GPa 는 인장대(17~21)가 아니라 굽힘대(23~24)에 놓인다.** 시험방법 칸이 `-` 라 단정할 수는 없지만, **이 값은 인장시험값이라기보다 D790 계열 굽힘값일 공산이 크다**는 뜻이다 — Isola 가 같은 이름을 D790 으로 재는 관행과도 맞는다. 그래서 test_mode 를 `not printed` 로 남겨 두었고, 해석에서 면내 인장강성으로 쓸 때는 이 값이 12~23 %% 높게 잡힐 수 있음을 감안해야 한다. **이 대조 자체가 이 배치의 산출물이다** — 다음 배치가 Nan Ya 의 진짜 인장 영률을 찾으면 이 행과 나란히 두고 test_mode 로 갈라라.\n"
+        },
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 22000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "orientation": "fill",
+            "orientation_verbatim": "B. Cross direction / Schussrichtung",
+            "direction": "TD",
+            "bound": "lower",
+            "test_mode": "not printed",
+            "test_standard": "not printed",
+            "state": "not printed — 동박 유무를 이 행이 구분하지 않는다",
+            "specimen": "두께열 `Specification ≥ 0,50 mm [0,0197 in]` 의 **Property** 칸. 같은 열의 `Specification` 칸과 `< 0,50 mm` 두 칸은 모두 `-` 다 — 규격 한계가 아니라 전형값이라는 뜻이다",
+            "grade_scope": "시트 한 장이 NP-175FTL·NP-175FR·NP-175FB 를 함께 덮고 이 행은 셋을 가르지 않는다. 같은 발행처의 NPG-170 계열이 같은 값을 찍는다. 발행처는 Nan Ya 가 아니라 Technolam 이고 시험방법 칸이 `-` 다",
+            "temperature_note": "원문이 시험온도를 안 찍는다 — 이 행에는 온도 칸 자체가 없다. Tg 170 °C 훨씬 아래의 상온값으로 읽되 온도를 지정된 값으로 쓰지 마라"
+          },
+          "notes": "원문 verbatim `    B. Cross direction                                       Schussrichtung         -                  -              -           22-24`. 단위 칸 `GPa` 를 바로 위 경사 행과 공유한다. 환산 — 22 GPa x 1e9 = 2.2e10 Pa. 검산: 2.2e10 / 1e9 = 22 GPa.\n**업계 관행 대조 — `Young's Modulus` 라는 이름이 CCL 에서는 굽힘시험을 가리킨다.** 같은 CCL 업계의 Isola 는 데이터시트에 `Young's Modulus` 행을 두면서 시험방법을 **`ASTM D790-15e2`(3점굽힘)** 으로 명시한다 — 그리고 그 바로 위·아래에 `Tensile Strength (ASTM D3039)` 와 `Poisson's Ratio (ASTM D3039)` 를 따로 둔다. 즉 이 업계에서 라미네이트의 `Young's Modulus` 는 관례적으로 D790 굽힘탄성률이다. 값도 겹친다 — Isola 370HR(High-Tg 다관능 에폭시, IPC-4101/126 계열) `Young's Modulus` Length 3744 ksi · Cross 3178 ksi 이고, 환산하면 3744 x 6.894757 = 25,814 MPa = 25.8 GPa, 3178 x 6.894757 = 21,912 MPa = 21.9 GPa 다. (출처: Isola 370HR Laminate & Prepreg Data Sheet Rev C 2021-04-15, /data/paper_patent_corpus/standards_appnotes/pcb/Isola_370HR_Laminate_Prepreg_DataSheet_RevC_2021-04-15.pdf)\n그래서 이 행의 test_mode 를 `not printed` 로 남겨 두되, **원문이 시험방법을 안 밝힌 이 값도 업계 관행상 굽힘시험(D790 계열)일 공산이 크다**는 것을 여기 적어 둔다 — 인장시험 값이라고 단정하지 않았다. 세 벤더의 같은 이름 값이 21.9~25.8 GPa 한 띠에 모이는 것(Isola 370HR 21.9/25.8 · Nan Ya 22-24/23-25 · Panasonic 21-22/23-24)도 이 값이 별종이 아님을 뒷받침한다.\n\n**판 대조 — 세 판이 같은 값을 찍는다.** 현행 판(`Revision Date: July 2022`, 이미지 PDF 라 200 dpi 로 렌더해 눈으로 읽었다)과 2021-01 판(`Rev. Jan. 2021`, 텍스트 추출)과 2018-02 판(`Rev. Feb.18`, 텍스트 추출)이 모두 `23-25` / `22-24` GPa 로 같다 — 여섯 해 동안 안 바뀌었다. 세 판 로컬 경로: /data/paper_patent_corpus/standards_appnotes/pcb/Technolam_NanYa_NP-175FTL-NP-175FR-NP-175FB_Datasheet_2024-08.pdf · Technolam_NanYa_NP-175FTL-NP-175FR-NP-175FB_Datasheet_2021-01.pdf · Technolam_NanYa_NP-175FR-NP-175FTL-NP-175FB_Datasheet_2018-02.pdf\n\n**[같은 배치에서 뒤늦게 얻은 대조 — 이 값의 성격을 좁힌다]** 이 배치는 Panasonic 2013 총합카탈로그에서 **`曲げ弾性係数（JIS C6481）` 와 `ヤング率（引張り）（ASTM D3039）` 를 나란히 인쇄한 표**를 얻었다. 거기서 같은 등급의 두 값이 이렇게 갈린다 — 굽힘 23~24 GPa 대 인장 17.8~20.9 GPa, 인장이 12~23 %% 낮다. 이 잣대를 여기 대면 Technolam 이 `Young's Modulus` 라고 이름 붙인 **23-25 / 22-24 GPa 는 인장대(17~21)가 아니라 굽힘대(23~24)에 놓인다.** 시험방법 칸이 `-` 라 단정할 수는 없지만, **이 값은 인장시험값이라기보다 D790 계열 굽힘값일 공산이 크다**는 뜻이다 — Isola 가 같은 이름을 D790 으로 재는 관행과도 맞는다. 그래서 test_mode 를 `not printed` 로 남겨 두었고, 해석에서 면내 인장강성으로 쓸 때는 이 값이 12~23 %% 높게 잡힐 수 있음을 감안해야 한다. **이 대조 자체가 이 배치의 산출물이다** — 다음 배치가 Nan Ya 의 진짜 인장 영률을 찾으면 이 행과 나란히 두고 test_mode 로 갈라라.\n"
+        },
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 24000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "orientation": "fill",
+            "orientation_verbatim": "B. Cross direction / Schussrichtung",
+            "direction": "TD",
+            "bound": "upper",
+            "test_mode": "not printed",
+            "test_standard": "not printed",
+            "state": "not printed — 동박 유무를 이 행이 구분하지 않는다",
+            "specimen": "두께열 `Specification ≥ 0,50 mm [0,0197 in]` 의 **Property** 칸. 같은 열의 `Specification` 칸과 `< 0,50 mm` 두 칸은 모두 `-` 다 — 규격 한계가 아니라 전형값이라는 뜻이다",
+            "grade_scope": "시트 한 장이 NP-175FTL·NP-175FR·NP-175FB 를 함께 덮고 이 행은 셋을 가르지 않는다. 같은 발행처의 NPG-170 계열이 같은 값을 찍는다. 발행처는 Nan Ya 가 아니라 Technolam 이고 시험방법 칸이 `-` 다",
+            "temperature_note": "원문이 시험온도를 안 찍는다 — 이 행에는 온도 칸 자체가 없다. Tg 170 °C 훨씬 아래의 상온값으로 읽되 온도를 지정된 값으로 쓰지 마라"
+          },
+          "notes": "같은 행 `22-24` 의 상한. 환산 — 24 GPa x 1e9 = 2.4e10 Pa. 검산: 2.4e10 / 1e9 = 24 GPa.\n**업계 관행 대조 — `Young's Modulus` 라는 이름이 CCL 에서는 굽힘시험을 가리킨다.** 같은 CCL 업계의 Isola 는 데이터시트에 `Young's Modulus` 행을 두면서 시험방법을 **`ASTM D790-15e2`(3점굽힘)** 으로 명시한다 — 그리고 그 바로 위·아래에 `Tensile Strength (ASTM D3039)` 와 `Poisson's Ratio (ASTM D3039)` 를 따로 둔다. 즉 이 업계에서 라미네이트의 `Young's Modulus` 는 관례적으로 D790 굽힘탄성률이다. 값도 겹친다 — Isola 370HR(High-Tg 다관능 에폭시, IPC-4101/126 계열) `Young's Modulus` Length 3744 ksi · Cross 3178 ksi 이고, 환산하면 3744 x 6.894757 = 25,814 MPa = 25.8 GPa, 3178 x 6.894757 = 21,912 MPa = 21.9 GPa 다. (출처: Isola 370HR Laminate & Prepreg Data Sheet Rev C 2021-04-15, /data/paper_patent_corpus/standards_appnotes/pcb/Isola_370HR_Laminate_Prepreg_DataSheet_RevC_2021-04-15.pdf)\n그래서 이 행의 test_mode 를 `not printed` 로 남겨 두되, **원문이 시험방법을 안 밝힌 이 값도 업계 관행상 굽힘시험(D790 계열)일 공산이 크다**는 것을 여기 적어 둔다 — 인장시험 값이라고 단정하지 않았다. 세 벤더의 같은 이름 값이 21.9~25.8 GPa 한 띠에 모이는 것(Isola 370HR 21.9/25.8 · Nan Ya 22-24/23-25 · Panasonic 21-22/23-24)도 이 값이 별종이 아님을 뒷받침한다.\n\n**판 대조 — 세 판이 같은 값을 찍는다.** 현행 판(`Revision Date: July 2022`, 이미지 PDF 라 200 dpi 로 렌더해 눈으로 읽었다)과 2021-01 판(`Rev. Jan. 2021`, 텍스트 추출)과 2018-02 판(`Rev. Feb.18`, 텍스트 추출)이 모두 `23-25` / `22-24` GPa 로 같다 — 여섯 해 동안 안 바뀌었다. 세 판 로컬 경로: /data/paper_patent_corpus/standards_appnotes/pcb/Technolam_NanYa_NP-175FTL-NP-175FR-NP-175FB_Datasheet_2024-08.pdf · Technolam_NanYa_NP-175FTL-NP-175FR-NP-175FB_Datasheet_2021-01.pdf · Technolam_NanYa_NP-175FR-NP-175FTL-NP-175FB_Datasheet_2018-02.pdf\n\n**[같은 배치에서 뒤늦게 얻은 대조 — 이 값의 성격을 좁힌다]** 이 배치는 Panasonic 2013 총합카탈로그에서 **`曲げ弾性係数（JIS C6481）` 와 `ヤング率（引張り）（ASTM D3039）` 를 나란히 인쇄한 표**를 얻었다. 거기서 같은 등급의 두 값이 이렇게 갈린다 — 굽힘 23~24 GPa 대 인장 17.8~20.9 GPa, 인장이 12~23 %% 낮다. 이 잣대를 여기 대면 Technolam 이 `Young's Modulus` 라고 이름 붙인 **23-25 / 22-24 GPa 는 인장대(17~21)가 아니라 굽힘대(23~24)에 놓인다.** 시험방법 칸이 `-` 라 단정할 수는 없지만, **이 값은 인장시험값이라기보다 D790 계열 굽힘값일 공산이 크다**는 뜻이다 — Isola 가 같은 이름을 D790 으로 재는 관행과도 맞는다. 그래서 test_mode 를 `not printed` 로 남겨 두었고, 해석에서 면내 인장강성으로 쓸 때는 이 값이 12~23 %% 높게 잡힐 수 있음을 감안해야 한다. **이 대조 자체가 이 배치의 산출물이다** — 다음 배치가 Nan Ya 의 진짜 인장 영률을 찾으면 이 행과 나란히 두고 test_mode 로 갈라라.\n"
+        }
+      ]
+    },
+    {
+      "match_name": "Panasonic R-1755V / R-1650V High-Tg Low-CTE High-Reliability Glass Epoxy Laminate",
+      "source": {
+        "kind": "datasheet",
+        "title": "Panasonic 「電子回路基板材料」総合カタログ (PDF 내부 제목 `Electronic Materials`, 저자 `Panasonic Corporation`, 160쪽, 2013-03-08 생성) — 인쇄쪽 16~18 의 `特性一覧表《参考値》板厚：1.6mm` 두 쪽짜리 표. 그 오른쪽 절반(인쇄쪽 18)에 `ヤング率（引張り） ASTM D3039` 열이 있다",
+        "url": "https://www.relianceems.com/static/upload/file/20260123/1769167011136894.pdf",
+        "publisher": "Panasonic Corporation",
+        "year": 2013,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_ElectronicMaterials_catalog_2013_JP_YoungsModulus_ASTM-D3039_table.pdf"
+      },
+      "properties": [
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 20300000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "test_mode": "tensile",
+            "test_standard": "ASTM D3039",
+            "orientation": "warp",
+            "orientation_verbatim": "縦方向",
+            "direction": "MD",
+            "specimen": "laminate, 板厚 1.6 mm, 폭 15 mm 단책형, 물림간 거리 125 mm",
+            "strain_rate_note": "인장속도 2 mm/min (물림간 125 mm 기준 공칭 변형률속도 2/125 = 1.6e-2 /min ≈ 2.7e-4 /s)",
+            "temperature_note": "원문이 이 열의 시험온도를 안 찍는다 — 상온 시험으로 읽되 온도를 지정된 값으로 쓰지 마라",
+            "state": "not printed — 표가 동박 유무를 구분하지 않는다"
+          },
+          "notes": "원문 verbatim — 표 머리 `ヤング率（引張り）` / 시험방법 행 `ASTM D3039` / 하위열 `縦方向  横方向` / 단위 `GPa  GPa`. `R-1755V` 행의 그 열 값이 `20.3   18.2` 다(縦 20.3 · 横 18.2).\n환산 — 20.3 GPa x 1e9 = 2.03e+10 Pa. 검산: 2.03e+10 / 1e9 = 20.3 GPa 로 되돌아온다.\n\n**이것이 왜 기존 부재판정을 뒤집는가** — 66차까지의 판정은 `Panasonic 문서 일곱 층 어디에도 인장 영률이 없다` 였고, 그 일곱 층(전제품 1장 시트·등급별 데이터시트·2019-06 및 2015-11 카탈로그·2014-03 JIS 데이터시트·일본어 제품페이지·2016 Product Information Sheet)에 대해서는 **여전히 맞는다**. 이번에 열린 것은 **여덟 번째 층 — 2013년 일본어 「電子回路基板材料」 총합 카탈로그(160쪽)** 다. 이 카탈로그만 등급별 특성일람표에 `曲げ弾性係数（JIS C6481에 준거）` 열 **옆에 따로** `ヤング率（引張り）（ASTM D3039）` 열을 둔다. 두 열이 나란히 인쇄돼 있어 **굽힘탄성계수와 인장 영률을 원문이 스스로 구분한다** — 이 값은 대체값이 아니라 진짜 인장 영률이다.\n**시험조건(원문 인쇄쪽 19 `試験項目の用語解説` verbatim)** — 「●ヤング率（ASTM D3039）下図の様に幅15mmの短冊状サンプルをつかみ間距離125mmで引張・圧縮試験機にセットします。引張り速度2mm/分で引張り強度を測定し、引張り応力と歪みの関係から求めます。」 → 폭 15 mm 단책형 시편, 물림간 거리 125 mm, 인장속도 2 mm/분, 응력-변형 관계에서 구한 값이다. **시험온도는 인쇄돼 있지 않다.** 표 머리가 `板厚：1.6mm` 이므로 시편 두께는 1.6 mm 다.\n**검산 — 인장 영률이 굽힘탄성계수보다 낮다.** 같은 행의 `曲げ弾性係数` 와 견주면 여섯 등급 모두 인장 쪽이 12~23 %% 낮다(R-1755V 20.3 vs 24 · R-1755M 20.5 vs 24 · R-1755D 19.2 vs 23 · R-1755E 20.0 vs 24 · R-1566 20.9 vs 24 · R-1766 17.8 vs 23, 모두 縦方向). 방향 순서도 일관된다 — 縦方向(경사)이 横方向(위사)보다 크다. **이 대소관계가 이 배치의 교훈이다** — 굽힘값을 영률 칸에 그대로 넣었다면 이 등급들의 강성을 12~23 %% 부풀렸을 것이다. (참고로 업계에는 반대 관행도 있다 — Isola 는 `Young's Modulus` 라는 이름의 행을 `ASTM D790`(굽힘)으로 재서 370HR 에 Length 3744 ksi = 25.8 GPa 를 찍는다. 이름만 보고 인장으로 읽으면 안 되고, Panasonic 처럼 두 열을 다 찍는 문서가 그 차이를 눈으로 보여 준다.)\n**출처의 자기 제한** — 표 머리가 `特性一覧表《参考値》` 이고 같은 표의 꼬리말이 「注）上記の数値は参考値であり特性を保証するものではありません。」 다 — 참고값이지 보증값이 아니라는 제조사 자신의 표시이며, 그대로 옮겨 둔다.\n**등급 범위** — DB 재료명이 라미네이트·프리프레그 짝(R-1755V / R-1650V)을 함께 담지만, 이 표는 **라미네이트 행만** 찍는다(프리프레그 쪽 페이지에는 탄성률 열이 없다). 그래서 이 값은 라미네이트 R-1755V 의 값이다.\n"
+        },
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 18200000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "test_mode": "tensile",
+            "test_standard": "ASTM D3039",
+            "orientation": "fill",
+            "orientation_verbatim": "横方向",
+            "direction": "TD",
+            "specimen": "laminate, 板厚 1.6 mm, 폭 15 mm 단책형, 물림간 거리 125 mm",
+            "strain_rate_note": "인장속도 2 mm/min (물림간 125 mm 기준 공칭 변형률속도 2/125 = 1.6e-2 /min ≈ 2.7e-4 /s)",
+            "temperature_note": "원문이 이 열의 시험온도를 안 찍는다 — 상온 시험으로 읽되 온도를 지정된 값으로 쓰지 마라",
+            "state": "not printed — 표가 동박 유무를 구분하지 않는다"
+          },
+          "notes": "원문 verbatim — 표 머리 `ヤング率（引張り）` / 시험방법 행 `ASTM D3039` / 하위열 `縦方向  横方向` / 단위 `GPa  GPa`. `R-1755V` 행의 그 열 값이 `20.3   18.2` 다(縦 20.3 · 横 18.2).\n환산 — 18.2 GPa x 1e9 = 1.82e+10 Pa. 검산: 1.82e+10 / 1e9 = 18.2 GPa 로 되돌아온다.\n\n**이것이 왜 기존 부재판정을 뒤집는가** — 66차까지의 판정은 `Panasonic 문서 일곱 층 어디에도 인장 영률이 없다` 였고, 그 일곱 층(전제품 1장 시트·등급별 데이터시트·2019-06 및 2015-11 카탈로그·2014-03 JIS 데이터시트·일본어 제품페이지·2016 Product Information Sheet)에 대해서는 **여전히 맞는다**. 이번에 열린 것은 **여덟 번째 층 — 2013년 일본어 「電子回路基板材料」 총합 카탈로그(160쪽)** 다. 이 카탈로그만 등급별 특성일람표에 `曲げ弾性係数（JIS C6481에 준거）` 열 **옆에 따로** `ヤング率（引張り）（ASTM D3039）` 열을 둔다. 두 열이 나란히 인쇄돼 있어 **굽힘탄성계수와 인장 영률을 원문이 스스로 구분한다** — 이 값은 대체값이 아니라 진짜 인장 영률이다.\n**시험조건(원문 인쇄쪽 19 `試験項目の用語解説` verbatim)** — 「●ヤング率（ASTM D3039）下図の様に幅15mmの短冊状サンプルをつかみ間距離125mmで引張・圧縮試験機にセットします。引張り速度2mm/分で引張り強度を測定し、引張り応力と歪みの関係から求めます。」 → 폭 15 mm 단책형 시편, 물림간 거리 125 mm, 인장속도 2 mm/분, 응력-변형 관계에서 구한 값이다. **시험온도는 인쇄돼 있지 않다.** 표 머리가 `板厚：1.6mm` 이므로 시편 두께는 1.6 mm 다.\n**검산 — 인장 영률이 굽힘탄성계수보다 낮다.** 같은 행의 `曲げ弾性係数` 와 견주면 여섯 등급 모두 인장 쪽이 12~23 %% 낮다(R-1755V 20.3 vs 24 · R-1755M 20.5 vs 24 · R-1755D 19.2 vs 23 · R-1755E 20.0 vs 24 · R-1566 20.9 vs 24 · R-1766 17.8 vs 23, 모두 縦方向). 방향 순서도 일관된다 — 縦方向(경사)이 横方向(위사)보다 크다. **이 대소관계가 이 배치의 교훈이다** — 굽힘값을 영률 칸에 그대로 넣었다면 이 등급들의 강성을 12~23 %% 부풀렸을 것이다. (참고로 업계에는 반대 관행도 있다 — Isola 는 `Young's Modulus` 라는 이름의 행을 `ASTM D790`(굽힘)으로 재서 370HR 에 Length 3744 ksi = 25.8 GPa 를 찍는다. 이름만 보고 인장으로 읽으면 안 되고, Panasonic 처럼 두 열을 다 찍는 문서가 그 차이를 눈으로 보여 준다.)\n**출처의 자기 제한** — 표 머리가 `特性一覧表《参考値》` 이고 같은 표의 꼬리말이 「注）上記の数値は参考値であり特性を保証するものではありません。」 다 — 참고값이지 보증값이 아니라는 제조사 자신의 표시이며, 그대로 옮겨 둔다.\n**등급 범위** — DB 재료명이 라미네이트·프리프레그 짝(R-1755V / R-1650V)을 함께 담지만, 이 표는 **라미네이트 행만** 찍는다(프리프레그 쪽 페이지에는 탄성률 열이 없다). 그래서 이 값은 라미네이트 R-1755V 의 값이다.\n"
+        }
+      ]
+    },
+    {
+      "match_name": "Panasonic R-1755M / R-1650M Mid-Tg Low-CTE High-Reliability Glass Epoxy Laminate",
+      "source": {
+        "kind": "datasheet",
+        "title": "Panasonic 「電子回路基板材料」総合カタログ (PDF 내부 제목 `Electronic Materials`, 저자 `Panasonic Corporation`, 160쪽, 2013-03-08 생성) — 인쇄쪽 16~18 의 `特性一覧表《参考値》板厚：1.6mm` 두 쪽짜리 표. 그 오른쪽 절반(인쇄쪽 18)에 `ヤング率（引張り） ASTM D3039` 열이 있다",
+        "url": "https://www.relianceems.com/static/upload/file/20260123/1769167011136894.pdf",
+        "publisher": "Panasonic Corporation",
+        "year": 2013,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_ElectronicMaterials_catalog_2013_JP_YoungsModulus_ASTM-D3039_table.pdf"
+      },
+      "properties": [
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 20500000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "test_mode": "tensile",
+            "test_standard": "ASTM D3039",
+            "orientation": "warp",
+            "orientation_verbatim": "縦方向",
+            "direction": "MD",
+            "specimen": "laminate, 板厚 1.6 mm, 폭 15 mm 단책형, 물림간 거리 125 mm",
+            "strain_rate_note": "인장속도 2 mm/min (물림간 125 mm 기준 공칭 변형률속도 2/125 = 1.6e-2 /min ≈ 2.7e-4 /s)",
+            "temperature_note": "원문이 이 열의 시험온도를 안 찍는다 — 상온 시험으로 읽되 온도를 지정된 값으로 쓰지 마라",
+            "state": "not printed — 표가 동박 유무를 구분하지 않는다"
+          },
+          "notes": "원문 verbatim — 표 머리 `ヤング率（引張り）` / 시험방법 행 `ASTM D3039` / 하위열 `縦方向  横方向` / 단위 `GPa  GPa`. `R-1755M` 행의 그 열 값이 `20.5   19.0` 다(縦 20.5 · 横 19.0).\n환산 — 20.5 GPa x 1e9 = 2.05e+10 Pa. 검산: 2.05e+10 / 1e9 = 20.5 GPa 로 되돌아온다.\n\n**이것이 왜 기존 부재판정을 뒤집는가** — 66차까지의 판정은 `Panasonic 문서 일곱 층 어디에도 인장 영률이 없다` 였고, 그 일곱 층(전제품 1장 시트·등급별 데이터시트·2019-06 및 2015-11 카탈로그·2014-03 JIS 데이터시트·일본어 제품페이지·2016 Product Information Sheet)에 대해서는 **여전히 맞는다**. 이번에 열린 것은 **여덟 번째 층 — 2013년 일본어 「電子回路基板材料」 총합 카탈로그(160쪽)** 다. 이 카탈로그만 등급별 특성일람표에 `曲げ弾性係数（JIS C6481에 준거）` 열 **옆에 따로** `ヤング率（引張り）（ASTM D3039）` 열을 둔다. 두 열이 나란히 인쇄돼 있어 **굽힘탄성계수와 인장 영률을 원문이 스스로 구분한다** — 이 값은 대체값이 아니라 진짜 인장 영률이다.\n**시험조건(원문 인쇄쪽 19 `試験項目の用語解説` verbatim)** — 「●ヤング率（ASTM D3039）下図の様に幅15mmの短冊状サンプルをつかみ間距離125mmで引張・圧縮試験機にセットします。引張り速度2mm/分で引張り強度を測定し、引張り応力と歪みの関係から求めます。」 → 폭 15 mm 단책형 시편, 물림간 거리 125 mm, 인장속도 2 mm/분, 응력-변형 관계에서 구한 값이다. **시험온도는 인쇄돼 있지 않다.** 표 머리가 `板厚：1.6mm` 이므로 시편 두께는 1.6 mm 다.\n**검산 — 인장 영률이 굽힘탄성계수보다 낮다.** 같은 행의 `曲げ弾性係数` 와 견주면 여섯 등급 모두 인장 쪽이 12~23 %% 낮다(R-1755V 20.3 vs 24 · R-1755M 20.5 vs 24 · R-1755D 19.2 vs 23 · R-1755E 20.0 vs 24 · R-1566 20.9 vs 24 · R-1766 17.8 vs 23, 모두 縦方向). 방향 순서도 일관된다 — 縦方向(경사)이 横方向(위사)보다 크다. **이 대소관계가 이 배치의 교훈이다** — 굽힘값을 영률 칸에 그대로 넣었다면 이 등급들의 강성을 12~23 %% 부풀렸을 것이다. (참고로 업계에는 반대 관행도 있다 — Isola 는 `Young's Modulus` 라는 이름의 행을 `ASTM D790`(굽힘)으로 재서 370HR 에 Length 3744 ksi = 25.8 GPa 를 찍는다. 이름만 보고 인장으로 읽으면 안 되고, Panasonic 처럼 두 열을 다 찍는 문서가 그 차이를 눈으로 보여 준다.)\n**출처의 자기 제한** — 표 머리가 `特性一覧表《参考値》` 이고 같은 표의 꼬리말이 「注）上記の数値は参考値であり特性を保証するものではありません。」 다 — 참고값이지 보증값이 아니라는 제조사 자신의 표시이며, 그대로 옮겨 둔다.\n**등급 범위** — DB 재료명이 라미네이트·프리프레그 짝(R-1755M / R-1650M)을 함께 담지만, 이 표는 **라미네이트 행만** 찍는다(프리프레그 쪽 페이지에는 탄성률 열이 없다). 그래서 이 값은 라미네이트 R-1755M 의 값이다.\n"
+        },
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 19000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "test_mode": "tensile",
+            "test_standard": "ASTM D3039",
+            "orientation": "fill",
+            "orientation_verbatim": "横方向",
+            "direction": "TD",
+            "specimen": "laminate, 板厚 1.6 mm, 폭 15 mm 단책형, 물림간 거리 125 mm",
+            "strain_rate_note": "인장속도 2 mm/min (물림간 125 mm 기준 공칭 변형률속도 2/125 = 1.6e-2 /min ≈ 2.7e-4 /s)",
+            "temperature_note": "원문이 이 열의 시험온도를 안 찍는다 — 상온 시험으로 읽되 온도를 지정된 값으로 쓰지 마라",
+            "state": "not printed — 표가 동박 유무를 구분하지 않는다"
+          },
+          "notes": "원문 verbatim — 표 머리 `ヤング率（引張り）` / 시험방법 행 `ASTM D3039` / 하위열 `縦方向  横方向` / 단위 `GPa  GPa`. `R-1755M` 행의 그 열 값이 `20.5   19.0` 다(縦 20.5 · 横 19.0).\n환산 — 19.0 GPa x 1e9 = 1.9e+10 Pa. 검산: 1.9e+10 / 1e9 = 19.0 GPa 로 되돌아온다.\n\n**이것이 왜 기존 부재판정을 뒤집는가** — 66차까지의 판정은 `Panasonic 문서 일곱 층 어디에도 인장 영률이 없다` 였고, 그 일곱 층(전제품 1장 시트·등급별 데이터시트·2019-06 및 2015-11 카탈로그·2014-03 JIS 데이터시트·일본어 제품페이지·2016 Product Information Sheet)에 대해서는 **여전히 맞는다**. 이번에 열린 것은 **여덟 번째 층 — 2013년 일본어 「電子回路基板材料」 총합 카탈로그(160쪽)** 다. 이 카탈로그만 등급별 특성일람표에 `曲げ弾性係数（JIS C6481에 준거）` 열 **옆에 따로** `ヤング率（引張り）（ASTM D3039）` 열을 둔다. 두 열이 나란히 인쇄돼 있어 **굽힘탄성계수와 인장 영률을 원문이 스스로 구분한다** — 이 값은 대체값이 아니라 진짜 인장 영률이다.\n**시험조건(원문 인쇄쪽 19 `試験項目の用語解説` verbatim)** — 「●ヤング率（ASTM D3039）下図の様に幅15mmの短冊状サンプルをつかみ間距離125mmで引張・圧縮試験機にセットします。引張り速度2mm/分で引張り強度を測定し、引張り応力と歪みの関係から求めます。」 → 폭 15 mm 단책형 시편, 물림간 거리 125 mm, 인장속도 2 mm/분, 응력-변형 관계에서 구한 값이다. **시험온도는 인쇄돼 있지 않다.** 표 머리가 `板厚：1.6mm` 이므로 시편 두께는 1.6 mm 다.\n**검산 — 인장 영률이 굽힘탄성계수보다 낮다.** 같은 행의 `曲げ弾性係数` 와 견주면 여섯 등급 모두 인장 쪽이 12~23 %% 낮다(R-1755V 20.3 vs 24 · R-1755M 20.5 vs 24 · R-1755D 19.2 vs 23 · R-1755E 20.0 vs 24 · R-1566 20.9 vs 24 · R-1766 17.8 vs 23, 모두 縦方向). 방향 순서도 일관된다 — 縦方向(경사)이 横方向(위사)보다 크다. **이 대소관계가 이 배치의 교훈이다** — 굽힘값을 영률 칸에 그대로 넣었다면 이 등급들의 강성을 12~23 %% 부풀렸을 것이다. (참고로 업계에는 반대 관행도 있다 — Isola 는 `Young's Modulus` 라는 이름의 행을 `ASTM D790`(굽힘)으로 재서 370HR 에 Length 3744 ksi = 25.8 GPa 를 찍는다. 이름만 보고 인장으로 읽으면 안 되고, Panasonic 처럼 두 열을 다 찍는 문서가 그 차이를 눈으로 보여 준다.)\n**출처의 자기 제한** — 표 머리가 `特性一覧表《参考値》` 이고 같은 표의 꼬리말이 「注）上記の数値は参考値であり特性を保証するものではありません。」 다 — 참고값이지 보증값이 아니라는 제조사 자신의 표시이며, 그대로 옮겨 둔다.\n**등급 범위** — DB 재료명이 라미네이트·프리프레그 짝(R-1755M / R-1650M)을 함께 담지만, 이 표는 **라미네이트 행만** 찍는다(프리프레그 쪽 페이지에는 탄성률 열이 없다). 그래서 이 값은 라미네이트 R-1755M 의 값이다.\n"
+        }
+      ]
+    },
+    {
+      "match_name": "Panasonic R-1755D (HIPER D) High-Heat-Resistance Automotive Glass Epoxy Laminate",
+      "source": {
+        "kind": "datasheet",
+        "title": "Panasonic 「電子回路基板材料」総合カタログ (PDF 내부 제목 `Electronic Materials`, 저자 `Panasonic Corporation`, 160쪽, 2013-03-08 생성) — 인쇄쪽 16~18 의 `特性一覧表《参考値》板厚：1.6mm` 두 쪽짜리 표. 그 오른쪽 절반(인쇄쪽 18)에 `ヤング率（引張り） ASTM D3039` 열이 있다",
+        "url": "https://www.relianceems.com/static/upload/file/20260123/1769167011136894.pdf",
+        "publisher": "Panasonic Corporation",
+        "year": 2013,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_ElectronicMaterials_catalog_2013_JP_YoungsModulus_ASTM-D3039_table.pdf"
+      },
+      "properties": [
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 19200000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "test_mode": "tensile",
+            "test_standard": "ASTM D3039",
+            "orientation": "warp",
+            "orientation_verbatim": "縦方向",
+            "direction": "MD",
+            "specimen": "laminate, 板厚 1.6 mm, 폭 15 mm 단책형, 물림간 거리 125 mm",
+            "strain_rate_note": "인장속도 2 mm/min (물림간 125 mm 기준 공칭 변형률속도 2/125 = 1.6e-2 /min ≈ 2.7e-4 /s)",
+            "temperature_note": "원문이 이 열의 시험온도를 안 찍는다 — 상온 시험으로 읽되 온도를 지정된 값으로 쓰지 마라",
+            "state": "not printed — 표가 동박 유무를 구분하지 않는다"
+          },
+          "notes": "원문 verbatim — 표 머리 `ヤング率（引張り）` / 시험방법 행 `ASTM D3039` / 하위열 `縦方向  横方向` / 단위 `GPa  GPa`. `R-1755D` 행의 그 열 값이 `19.2   17.8` 다(縦 19.2 · 横 17.8).\n환산 — 19.2 GPa x 1e9 = 1.92e+10 Pa. 검산: 1.92e+10 / 1e9 = 19.2 GPa 로 되돌아온다.\n\n**이것이 왜 기존 부재판정을 뒤집는가** — 66차까지의 판정은 `Panasonic 문서 일곱 층 어디에도 인장 영률이 없다` 였고, 그 일곱 층(전제품 1장 시트·등급별 데이터시트·2019-06 및 2015-11 카탈로그·2014-03 JIS 데이터시트·일본어 제품페이지·2016 Product Information Sheet)에 대해서는 **여전히 맞는다**. 이번에 열린 것은 **여덟 번째 층 — 2013년 일본어 「電子回路基板材料」 총합 카탈로그(160쪽)** 다. 이 카탈로그만 등급별 특성일람표에 `曲げ弾性係数（JIS C6481에 준거）` 열 **옆에 따로** `ヤング率（引張り）（ASTM D3039）` 열을 둔다. 두 열이 나란히 인쇄돼 있어 **굽힘탄성계수와 인장 영률을 원문이 스스로 구분한다** — 이 값은 대체값이 아니라 진짜 인장 영률이다.\n**시험조건(원문 인쇄쪽 19 `試験項目の用語解説` verbatim)** — 「●ヤング率（ASTM D3039）下図の様に幅15mmの短冊状サンプルをつかみ間距離125mmで引張・圧縮試験機にセットします。引張り速度2mm/分で引張り強度を測定し、引張り応力と歪みの関係から求めます。」 → 폭 15 mm 단책형 시편, 물림간 거리 125 mm, 인장속도 2 mm/분, 응력-변형 관계에서 구한 값이다. **시험온도는 인쇄돼 있지 않다.** 표 머리가 `板厚：1.6mm` 이므로 시편 두께는 1.6 mm 다.\n**검산 — 인장 영률이 굽힘탄성계수보다 낮다.** 같은 행의 `曲げ弾性係数` 와 견주면 여섯 등급 모두 인장 쪽이 12~23 %% 낮다(R-1755V 20.3 vs 24 · R-1755M 20.5 vs 24 · R-1755D 19.2 vs 23 · R-1755E 20.0 vs 24 · R-1566 20.9 vs 24 · R-1766 17.8 vs 23, 모두 縦方向). 방향 순서도 일관된다 — 縦方向(경사)이 横方向(위사)보다 크다. **이 대소관계가 이 배치의 교훈이다** — 굽힘값을 영률 칸에 그대로 넣었다면 이 등급들의 강성을 12~23 %% 부풀렸을 것이다. (참고로 업계에는 반대 관행도 있다 — Isola 는 `Young's Modulus` 라는 이름의 행을 `ASTM D790`(굽힘)으로 재서 370HR 에 Length 3744 ksi = 25.8 GPa 를 찍는다. 이름만 보고 인장으로 읽으면 안 되고, Panasonic 처럼 두 열을 다 찍는 문서가 그 차이를 눈으로 보여 준다.)\n**출처의 자기 제한** — 표 머리가 `特性一覧表《参考値》` 이고 같은 표의 꼬리말이 「注）上記の数値は参考値であり特性を保証するものではありません。」 다 — 참고값이지 보증값이 아니라는 제조사 자신의 표시이며, 그대로 옮겨 둔다.\n"
+        },
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 17800000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "test_mode": "tensile",
+            "test_standard": "ASTM D3039",
+            "orientation": "fill",
+            "orientation_verbatim": "横方向",
+            "direction": "TD",
+            "specimen": "laminate, 板厚 1.6 mm, 폭 15 mm 단책형, 물림간 거리 125 mm",
+            "strain_rate_note": "인장속도 2 mm/min (물림간 125 mm 기준 공칭 변형률속도 2/125 = 1.6e-2 /min ≈ 2.7e-4 /s)",
+            "temperature_note": "원문이 이 열의 시험온도를 안 찍는다 — 상온 시험으로 읽되 온도를 지정된 값으로 쓰지 마라",
+            "state": "not printed — 표가 동박 유무를 구분하지 않는다"
+          },
+          "notes": "원문 verbatim — 표 머리 `ヤング率（引張り）` / 시험방법 행 `ASTM D3039` / 하위열 `縦方向  横方向` / 단위 `GPa  GPa`. `R-1755D` 행의 그 열 값이 `19.2   17.8` 다(縦 19.2 · 横 17.8).\n환산 — 17.8 GPa x 1e9 = 1.78e+10 Pa. 검산: 1.78e+10 / 1e9 = 17.8 GPa 로 되돌아온다.\n\n**이것이 왜 기존 부재판정을 뒤집는가** — 66차까지의 판정은 `Panasonic 문서 일곱 층 어디에도 인장 영률이 없다` 였고, 그 일곱 층(전제품 1장 시트·등급별 데이터시트·2019-06 및 2015-11 카탈로그·2014-03 JIS 데이터시트·일본어 제품페이지·2016 Product Information Sheet)에 대해서는 **여전히 맞는다**. 이번에 열린 것은 **여덟 번째 층 — 2013년 일본어 「電子回路基板材料」 총합 카탈로그(160쪽)** 다. 이 카탈로그만 등급별 특성일람표에 `曲げ弾性係数（JIS C6481에 준거）` 열 **옆에 따로** `ヤング率（引張り）（ASTM D3039）` 열을 둔다. 두 열이 나란히 인쇄돼 있어 **굽힘탄성계수와 인장 영률을 원문이 스스로 구분한다** — 이 값은 대체값이 아니라 진짜 인장 영률이다.\n**시험조건(원문 인쇄쪽 19 `試験項目の用語解説` verbatim)** — 「●ヤング率（ASTM D3039）下図の様に幅15mmの短冊状サンプルをつかみ間距離125mmで引張・圧縮試験機にセットします。引張り速度2mm/分で引張り強度を測定し、引張り応力と歪みの関係から求めます。」 → 폭 15 mm 단책형 시편, 물림간 거리 125 mm, 인장속도 2 mm/분, 응력-변형 관계에서 구한 값이다. **시험온도는 인쇄돼 있지 않다.** 표 머리가 `板厚：1.6mm` 이므로 시편 두께는 1.6 mm 다.\n**검산 — 인장 영률이 굽힘탄성계수보다 낮다.** 같은 행의 `曲げ弾性係数` 와 견주면 여섯 등급 모두 인장 쪽이 12~23 %% 낮다(R-1755V 20.3 vs 24 · R-1755M 20.5 vs 24 · R-1755D 19.2 vs 23 · R-1755E 20.0 vs 24 · R-1566 20.9 vs 24 · R-1766 17.8 vs 23, 모두 縦方向). 방향 순서도 일관된다 — 縦方向(경사)이 横方向(위사)보다 크다. **이 대소관계가 이 배치의 교훈이다** — 굽힘값을 영률 칸에 그대로 넣었다면 이 등급들의 강성을 12~23 %% 부풀렸을 것이다. (참고로 업계에는 반대 관행도 있다 — Isola 는 `Young's Modulus` 라는 이름의 행을 `ASTM D790`(굽힘)으로 재서 370HR 에 Length 3744 ksi = 25.8 GPa 를 찍는다. 이름만 보고 인장으로 읽으면 안 되고, Panasonic 처럼 두 열을 다 찍는 문서가 그 차이를 눈으로 보여 준다.)\n**출처의 자기 제한** — 표 머리가 `特性一覧表《参考値》` 이고 같은 표의 꼬리말이 「注）上記の数値は参考値であり特性を保証するものではありません。」 다 — 참고값이지 보증값이 아니라는 제조사 자신의 표시이며, 그대로 옮겨 둔다.\n"
+        }
+      ]
+    },
+    {
+      "match_name": "Panasonic R-1755E (HIPER E) High-Reliability Automotive Glass Epoxy Laminate",
+      "source": {
+        "kind": "datasheet",
+        "title": "Panasonic 「電子回路基板材料」総合カタログ (PDF 내부 제목 `Electronic Materials`, 저자 `Panasonic Corporation`, 160쪽, 2013-03-08 생성) — 인쇄쪽 16~18 의 `特性一覧表《参考値》板厚：1.6mm` 두 쪽짜리 표. 그 오른쪽 절반(인쇄쪽 18)에 `ヤング率（引張り） ASTM D3039` 열이 있다",
+        "url": "https://www.relianceems.com/static/upload/file/20260123/1769167011136894.pdf",
+        "publisher": "Panasonic Corporation",
+        "year": 2013,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_ElectronicMaterials_catalog_2013_JP_YoungsModulus_ASTM-D3039_table.pdf"
+      },
+      "properties": [
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 20000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "test_mode": "tensile",
+            "test_standard": "ASTM D3039",
+            "orientation": "warp",
+            "orientation_verbatim": "縦方向",
+            "direction": "MD",
+            "specimen": "laminate, 板厚 1.6 mm, 폭 15 mm 단책형, 물림간 거리 125 mm",
+            "strain_rate_note": "인장속도 2 mm/min (물림간 125 mm 기준 공칭 변형률속도 2/125 = 1.6e-2 /min ≈ 2.7e-4 /s)",
+            "temperature_note": "원문이 이 열의 시험온도를 안 찍는다 — 상온 시험으로 읽되 온도를 지정된 값으로 쓰지 마라",
+            "state": "not printed — 표가 동박 유무를 구분하지 않는다"
+          },
+          "notes": "원문 verbatim — 표 머리 `ヤング率（引張り）` / 시험방법 행 `ASTM D3039` / 하위열 `縦方向  横方向` / 단위 `GPa  GPa`. `R-1755E` 행의 그 열 값이 `20.0   18.5` 다(縦 20.0 · 横 18.5).\n환산 — 20.0 GPa x 1e9 = 2e+10 Pa. 검산: 2e+10 / 1e9 = 20.0 GPa 로 되돌아온다.\n\n**이것이 왜 기존 부재판정을 뒤집는가** — 66차까지의 판정은 `Panasonic 문서 일곱 층 어디에도 인장 영률이 없다` 였고, 그 일곱 층(전제품 1장 시트·등급별 데이터시트·2019-06 및 2015-11 카탈로그·2014-03 JIS 데이터시트·일본어 제품페이지·2016 Product Information Sheet)에 대해서는 **여전히 맞는다**. 이번에 열린 것은 **여덟 번째 층 — 2013년 일본어 「電子回路基板材料」 총합 카탈로그(160쪽)** 다. 이 카탈로그만 등급별 특성일람표에 `曲げ弾性係数（JIS C6481에 준거）` 열 **옆에 따로** `ヤング率（引張り）（ASTM D3039）` 열을 둔다. 두 열이 나란히 인쇄돼 있어 **굽힘탄성계수와 인장 영률을 원문이 스스로 구분한다** — 이 값은 대체값이 아니라 진짜 인장 영률이다.\n**시험조건(원문 인쇄쪽 19 `試験項目の用語解説` verbatim)** — 「●ヤング率（ASTM D3039）下図の様に幅15mmの短冊状サンプルをつかみ間距離125mmで引張・圧縮試験機にセットします。引張り速度2mm/分で引張り強度を測定し、引張り応力と歪みの関係から求めます。」 → 폭 15 mm 단책형 시편, 물림간 거리 125 mm, 인장속도 2 mm/분, 응력-변형 관계에서 구한 값이다. **시험온도는 인쇄돼 있지 않다.** 표 머리가 `板厚：1.6mm` 이므로 시편 두께는 1.6 mm 다.\n**검산 — 인장 영률이 굽힘탄성계수보다 낮다.** 같은 행의 `曲げ弾性係数` 와 견주면 여섯 등급 모두 인장 쪽이 12~23 %% 낮다(R-1755V 20.3 vs 24 · R-1755M 20.5 vs 24 · R-1755D 19.2 vs 23 · R-1755E 20.0 vs 24 · R-1566 20.9 vs 24 · R-1766 17.8 vs 23, 모두 縦方向). 방향 순서도 일관된다 — 縦方向(경사)이 横方向(위사)보다 크다. **이 대소관계가 이 배치의 교훈이다** — 굽힘값을 영률 칸에 그대로 넣었다면 이 등급들의 강성을 12~23 %% 부풀렸을 것이다. (참고로 업계에는 반대 관행도 있다 — Isola 는 `Young's Modulus` 라는 이름의 행을 `ASTM D790`(굽힘)으로 재서 370HR 에 Length 3744 ksi = 25.8 GPa 를 찍는다. 이름만 보고 인장으로 읽으면 안 되고, Panasonic 처럼 두 열을 다 찍는 문서가 그 차이를 눈으로 보여 준다.)\n**출처의 자기 제한** — 표 머리가 `特性一覧表《参考値》` 이고 같은 표의 꼬리말이 「注）上記の数値は参考値であり特性を保証するものではありません。」 다 — 참고값이지 보증값이 아니라는 제조사 자신의 표시이며, 그대로 옮겨 둔다.\n"
+        },
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 18500000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "test_mode": "tensile",
+            "test_standard": "ASTM D3039",
+            "orientation": "fill",
+            "orientation_verbatim": "横方向",
+            "direction": "TD",
+            "specimen": "laminate, 板厚 1.6 mm, 폭 15 mm 단책형, 물림간 거리 125 mm",
+            "strain_rate_note": "인장속도 2 mm/min (물림간 125 mm 기준 공칭 변형률속도 2/125 = 1.6e-2 /min ≈ 2.7e-4 /s)",
+            "temperature_note": "원문이 이 열의 시험온도를 안 찍는다 — 상온 시험으로 읽되 온도를 지정된 값으로 쓰지 마라",
+            "state": "not printed — 표가 동박 유무를 구분하지 않는다"
+          },
+          "notes": "원문 verbatim — 표 머리 `ヤング率（引張り）` / 시험방법 행 `ASTM D3039` / 하위열 `縦方向  横方向` / 단위 `GPa  GPa`. `R-1755E` 행의 그 열 값이 `20.0   18.5` 다(縦 20.0 · 横 18.5).\n환산 — 18.5 GPa x 1e9 = 1.85e+10 Pa. 검산: 1.85e+10 / 1e9 = 18.5 GPa 로 되돌아온다.\n\n**이것이 왜 기존 부재판정을 뒤집는가** — 66차까지의 판정은 `Panasonic 문서 일곱 층 어디에도 인장 영률이 없다` 였고, 그 일곱 층(전제품 1장 시트·등급별 데이터시트·2019-06 및 2015-11 카탈로그·2014-03 JIS 데이터시트·일본어 제품페이지·2016 Product Information Sheet)에 대해서는 **여전히 맞는다**. 이번에 열린 것은 **여덟 번째 층 — 2013년 일본어 「電子回路基板材料」 총합 카탈로그(160쪽)** 다. 이 카탈로그만 등급별 특성일람표에 `曲げ弾性係数（JIS C6481에 준거）` 열 **옆에 따로** `ヤング率（引張り）（ASTM D3039）` 열을 둔다. 두 열이 나란히 인쇄돼 있어 **굽힘탄성계수와 인장 영률을 원문이 스스로 구분한다** — 이 값은 대체값이 아니라 진짜 인장 영률이다.\n**시험조건(원문 인쇄쪽 19 `試験項目の用語解説` verbatim)** — 「●ヤング率（ASTM D3039）下図の様に幅15mmの短冊状サンプルをつかみ間距離125mmで引張・圧縮試験機にセットします。引張り速度2mm/分で引張り強度を測定し、引張り応力と歪みの関係から求めます。」 → 폭 15 mm 단책형 시편, 물림간 거리 125 mm, 인장속도 2 mm/분, 응력-변형 관계에서 구한 값이다. **시험온도는 인쇄돼 있지 않다.** 표 머리가 `板厚：1.6mm` 이므로 시편 두께는 1.6 mm 다.\n**검산 — 인장 영률이 굽힘탄성계수보다 낮다.** 같은 행의 `曲げ弾性係数` 와 견주면 여섯 등급 모두 인장 쪽이 12~23 %% 낮다(R-1755V 20.3 vs 24 · R-1755M 20.5 vs 24 · R-1755D 19.2 vs 23 · R-1755E 20.0 vs 24 · R-1566 20.9 vs 24 · R-1766 17.8 vs 23, 모두 縦方向). 방향 순서도 일관된다 — 縦方向(경사)이 横方向(위사)보다 크다. **이 대소관계가 이 배치의 교훈이다** — 굽힘값을 영률 칸에 그대로 넣었다면 이 등급들의 강성을 12~23 %% 부풀렸을 것이다. (참고로 업계에는 반대 관행도 있다 — Isola 는 `Young's Modulus` 라는 이름의 행을 `ASTM D790`(굽힘)으로 재서 370HR 에 Length 3744 ksi = 25.8 GPa 를 찍는다. 이름만 보고 인장으로 읽으면 안 되고, Panasonic 처럼 두 열을 다 찍는 문서가 그 차이를 눈으로 보여 준다.)\n**출처의 자기 제한** — 표 머리가 `特性一覧表《参考値》` 이고 같은 표의 꼬리말이 「注）上記の数値は参考値であり特性を保証するものではありません。」 다 — 참고값이지 보증값이 아니라는 제조사 자신의 표시이며, 그대로 옮겨 둔다.\n"
+        }
+      ]
+    },
+    {
+      "match_name": "Panasonic R-1566 Halogen-Free Automotive Glass Epoxy Laminate",
+      "source": {
+        "kind": "datasheet",
+        "title": "Panasonic 「電子回路基板材料」総合カタログ (PDF 내부 제목 `Electronic Materials`, 저자 `Panasonic Corporation`, 160쪽, 2013-03-08 생성) — 인쇄쪽 16~18 의 `特性一覧表《参考値》板厚：1.6mm` 두 쪽짜리 표. 그 오른쪽 절반(인쇄쪽 18)에 `ヤング率（引張り） ASTM D3039` 열이 있다",
+        "url": "https://www.relianceems.com/static/upload/file/20260123/1769167011136894.pdf",
+        "publisher": "Panasonic Corporation",
+        "year": 2013,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_ElectronicMaterials_catalog_2013_JP_YoungsModulus_ASTM-D3039_table.pdf"
+      },
+      "properties": [
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 20900000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "test_mode": "tensile",
+            "test_standard": "ASTM D3039",
+            "orientation": "warp",
+            "orientation_verbatim": "縦方向",
+            "direction": "MD",
+            "specimen": "laminate, 板厚 1.6 mm, 폭 15 mm 단책형, 물림간 거리 125 mm",
+            "strain_rate_note": "인장속도 2 mm/min (물림간 125 mm 기준 공칭 변형률속도 2/125 = 1.6e-2 /min ≈ 2.7e-4 /s)",
+            "temperature_note": "원문이 이 열의 시험온도를 안 찍는다 — 상온 시험으로 읽되 온도를 지정된 값으로 쓰지 마라",
+            "state": "not printed — 표가 동박 유무를 구분하지 않는다"
+          },
+          "notes": "원문 verbatim — 표 머리 `ヤング率（引張り）` / 시험방법 행 `ASTM D3039` / 하위열 `縦方向  横方向` / 단위 `GPa  GPa`. `R-1566` 행의 그 열 값이 `20.9   19.8` 다(縦 20.9 · 横 19.8).\n환산 — 20.9 GPa x 1e9 = 2.09e+10 Pa. 검산: 2.09e+10 / 1e9 = 20.9 GPa 로 되돌아온다.\n\n**이것이 왜 기존 부재판정을 뒤집는가** — 66차까지의 판정은 `Panasonic 문서 일곱 층 어디에도 인장 영률이 없다` 였고, 그 일곱 층(전제품 1장 시트·등급별 데이터시트·2019-06 및 2015-11 카탈로그·2014-03 JIS 데이터시트·일본어 제품페이지·2016 Product Information Sheet)에 대해서는 **여전히 맞는다**. 이번에 열린 것은 **여덟 번째 층 — 2013년 일본어 「電子回路基板材料」 총합 카탈로그(160쪽)** 다. 이 카탈로그만 등급별 특성일람표에 `曲げ弾性係数（JIS C6481에 준거）` 열 **옆에 따로** `ヤング率（引張り）（ASTM D3039）` 열을 둔다. 두 열이 나란히 인쇄돼 있어 **굽힘탄성계수와 인장 영률을 원문이 스스로 구분한다** — 이 값은 대체값이 아니라 진짜 인장 영률이다.\n**시험조건(원문 인쇄쪽 19 `試験項目の用語解説` verbatim)** — 「●ヤング率（ASTM D3039）下図の様に幅15mmの短冊状サンプルをつかみ間距離125mmで引張・圧縮試験機にセットします。引張り速度2mm/分で引張り強度を測定し、引張り応力と歪みの関係から求めます。」 → 폭 15 mm 단책형 시편, 물림간 거리 125 mm, 인장속도 2 mm/분, 응력-변형 관계에서 구한 값이다. **시험온도는 인쇄돼 있지 않다.** 표 머리가 `板厚：1.6mm` 이므로 시편 두께는 1.6 mm 다.\n**검산 — 인장 영률이 굽힘탄성계수보다 낮다.** 같은 행의 `曲げ弾性係数` 와 견주면 여섯 등급 모두 인장 쪽이 12~23 %% 낮다(R-1755V 20.3 vs 24 · R-1755M 20.5 vs 24 · R-1755D 19.2 vs 23 · R-1755E 20.0 vs 24 · R-1566 20.9 vs 24 · R-1766 17.8 vs 23, 모두 縦方向). 방향 순서도 일관된다 — 縦方向(경사)이 横方向(위사)보다 크다. **이 대소관계가 이 배치의 교훈이다** — 굽힘값을 영률 칸에 그대로 넣었다면 이 등급들의 강성을 12~23 %% 부풀렸을 것이다. (참고로 업계에는 반대 관행도 있다 — Isola 는 `Young's Modulus` 라는 이름의 행을 `ASTM D790`(굽힘)으로 재서 370HR 에 Length 3744 ksi = 25.8 GPa 를 찍는다. 이름만 보고 인장으로 읽으면 안 되고, Panasonic 처럼 두 열을 다 찍는 문서가 그 차이를 눈으로 보여 준다.)\n**출처의 자기 제한** — 표 머리가 `特性一覧表《参考値》` 이고 같은 표의 꼬리말이 「注）上記の数値は参考値であり特性を保証するものではありません。」 다 — 참고값이지 보증값이 아니라는 제조사 자신의 표시이며, 그대로 옮겨 둔다.\n"
+        },
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 19800000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "test_mode": "tensile",
+            "test_standard": "ASTM D3039",
+            "orientation": "fill",
+            "orientation_verbatim": "横方向",
+            "direction": "TD",
+            "specimen": "laminate, 板厚 1.6 mm, 폭 15 mm 단책형, 물림간 거리 125 mm",
+            "strain_rate_note": "인장속도 2 mm/min (물림간 125 mm 기준 공칭 변형률속도 2/125 = 1.6e-2 /min ≈ 2.7e-4 /s)",
+            "temperature_note": "원문이 이 열의 시험온도를 안 찍는다 — 상온 시험으로 읽되 온도를 지정된 값으로 쓰지 마라",
+            "state": "not printed — 표가 동박 유무를 구분하지 않는다"
+          },
+          "notes": "원문 verbatim — 표 머리 `ヤング率（引張り）` / 시험방법 행 `ASTM D3039` / 하위열 `縦方向  横方向` / 단위 `GPa  GPa`. `R-1566` 행의 그 열 값이 `20.9   19.8` 다(縦 20.9 · 横 19.8).\n환산 — 19.8 GPa x 1e9 = 1.98e+10 Pa. 검산: 1.98e+10 / 1e9 = 19.8 GPa 로 되돌아온다.\n\n**이것이 왜 기존 부재판정을 뒤집는가** — 66차까지의 판정은 `Panasonic 문서 일곱 층 어디에도 인장 영률이 없다` 였고, 그 일곱 층(전제품 1장 시트·등급별 데이터시트·2019-06 및 2015-11 카탈로그·2014-03 JIS 데이터시트·일본어 제품페이지·2016 Product Information Sheet)에 대해서는 **여전히 맞는다**. 이번에 열린 것은 **여덟 번째 층 — 2013년 일본어 「電子回路基板材料」 총합 카탈로그(160쪽)** 다. 이 카탈로그만 등급별 특성일람표에 `曲げ弾性係数（JIS C6481에 준거）` 열 **옆에 따로** `ヤング率（引張り）（ASTM D3039）` 열을 둔다. 두 열이 나란히 인쇄돼 있어 **굽힘탄성계수와 인장 영률을 원문이 스스로 구분한다** — 이 값은 대체값이 아니라 진짜 인장 영률이다.\n**시험조건(원문 인쇄쪽 19 `試験項目の用語解説` verbatim)** — 「●ヤング率（ASTM D3039）下図の様に幅15mmの短冊状サンプルをつかみ間距離125mmで引張・圧縮試験機にセットします。引張り速度2mm/分で引張り強度を測定し、引張り応力と歪みの関係から求めます。」 → 폭 15 mm 단책형 시편, 물림간 거리 125 mm, 인장속도 2 mm/분, 응력-변형 관계에서 구한 값이다. **시험온도는 인쇄돼 있지 않다.** 표 머리가 `板厚：1.6mm` 이므로 시편 두께는 1.6 mm 다.\n**검산 — 인장 영률이 굽힘탄성계수보다 낮다.** 같은 행의 `曲げ弾性係数` 와 견주면 여섯 등급 모두 인장 쪽이 12~23 %% 낮다(R-1755V 20.3 vs 24 · R-1755M 20.5 vs 24 · R-1755D 19.2 vs 23 · R-1755E 20.0 vs 24 · R-1566 20.9 vs 24 · R-1766 17.8 vs 23, 모두 縦方向). 방향 순서도 일관된다 — 縦方向(경사)이 横方向(위사)보다 크다. **이 대소관계가 이 배치의 교훈이다** — 굽힘값을 영률 칸에 그대로 넣었다면 이 등급들의 강성을 12~23 %% 부풀렸을 것이다. (참고로 업계에는 반대 관행도 있다 — Isola 는 `Young's Modulus` 라는 이름의 행을 `ASTM D790`(굽힘)으로 재서 370HR 에 Length 3744 ksi = 25.8 GPa 를 찍는다. 이름만 보고 인장으로 읽으면 안 되고, Panasonic 처럼 두 열을 다 찍는 문서가 그 차이를 눈으로 보여 준다.)\n**출처의 자기 제한** — 표 머리가 `特性一覧表《参考値》` 이고 같은 표의 꼬리말이 「注）上記の数値は参考値であり特性を保証するものではありません。」 다 — 참고값이지 보증값이 아니라는 제조사 자신의 표시이며, 그대로 옮겨 둔다.\n"
+        }
+      ]
+    },
+    {
+      "match_name": "Panasonic R-1766 Standard FR-4 Automotive Glass Epoxy Laminate",
+      "source": {
+        "kind": "datasheet",
+        "title": "Panasonic 「電子回路基板材料」総合カタログ (PDF 내부 제목 `Electronic Materials`, 저자 `Panasonic Corporation`, 160쪽, 2013-03-08 생성) — 인쇄쪽 16~18 의 `特性一覧表《参考値》板厚：1.6mm` 두 쪽짜리 표. 그 오른쪽 절반(인쇄쪽 18)에 `ヤング率（引張り） ASTM D3039` 열이 있다",
+        "url": "https://www.relianceems.com/static/upload/file/20260123/1769167011136894.pdf",
+        "publisher": "Panasonic Corporation",
+        "year": 2013,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_ElectronicMaterials_catalog_2013_JP_YoungsModulus_ASTM-D3039_table.pdf"
+      },
+      "properties": [
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 17800000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "test_mode": "tensile",
+            "test_standard": "ASTM D3039",
+            "orientation": "warp",
+            "orientation_verbatim": "縦方向",
+            "direction": "MD",
+            "specimen": "laminate, 板厚 1.6 mm, 폭 15 mm 단책형, 물림간 거리 125 mm",
+            "strain_rate_note": "인장속도 2 mm/min (물림간 125 mm 기준 공칭 변형률속도 2/125 = 1.6e-2 /min ≈ 2.7e-4 /s)",
+            "temperature_note": "원문이 이 열의 시험온도를 안 찍는다 — 상온 시험으로 읽되 온도를 지정된 값으로 쓰지 마라",
+            "state": "not printed — 표가 동박 유무를 구분하지 않는다"
+          },
+          "notes": "원문 verbatim — 표 머리 `ヤング率（引張り）` / 시험방법 행 `ASTM D3039` / 하위열 `縦方向  横方向` / 단위 `GPa  GPa`. `R-1766` 행의 그 열 값이 `17.8   16.5` 다(縦 17.8 · 横 16.5).\n환산 — 17.8 GPa x 1e9 = 1.78e+10 Pa. 검산: 1.78e+10 / 1e9 = 17.8 GPa 로 되돌아온다.\n\n**이것이 왜 기존 부재판정을 뒤집는가** — 66차까지의 판정은 `Panasonic 문서 일곱 층 어디에도 인장 영률이 없다` 였고, 그 일곱 층(전제품 1장 시트·등급별 데이터시트·2019-06 및 2015-11 카탈로그·2014-03 JIS 데이터시트·일본어 제품페이지·2016 Product Information Sheet)에 대해서는 **여전히 맞는다**. 이번에 열린 것은 **여덟 번째 층 — 2013년 일본어 「電子回路基板材料」 총합 카탈로그(160쪽)** 다. 이 카탈로그만 등급별 특성일람표에 `曲げ弾性係数（JIS C6481에 준거）` 열 **옆에 따로** `ヤング率（引張り）（ASTM D3039）` 열을 둔다. 두 열이 나란히 인쇄돼 있어 **굽힘탄성계수와 인장 영률을 원문이 스스로 구분한다** — 이 값은 대체값이 아니라 진짜 인장 영률이다.\n**시험조건(원문 인쇄쪽 19 `試験項目の用語解説` verbatim)** — 「●ヤング率（ASTM D3039）下図の様に幅15mmの短冊状サンプルをつかみ間距離125mmで引張・圧縮試験機にセットします。引張り速度2mm/分で引張り強度を測定し、引張り応力と歪みの関係から求めます。」 → 폭 15 mm 단책형 시편, 물림간 거리 125 mm, 인장속도 2 mm/분, 응력-변형 관계에서 구한 값이다. **시험온도는 인쇄돼 있지 않다.** 표 머리가 `板厚：1.6mm` 이므로 시편 두께는 1.6 mm 다.\n**검산 — 인장 영률이 굽힘탄성계수보다 낮다.** 같은 행의 `曲げ弾性係数` 와 견주면 여섯 등급 모두 인장 쪽이 12~23 %% 낮다(R-1755V 20.3 vs 24 · R-1755M 20.5 vs 24 · R-1755D 19.2 vs 23 · R-1755E 20.0 vs 24 · R-1566 20.9 vs 24 · R-1766 17.8 vs 23, 모두 縦方向). 방향 순서도 일관된다 — 縦方向(경사)이 横方向(위사)보다 크다. **이 대소관계가 이 배치의 교훈이다** — 굽힘값을 영률 칸에 그대로 넣었다면 이 등급들의 강성을 12~23 %% 부풀렸을 것이다. (참고로 업계에는 반대 관행도 있다 — Isola 는 `Young's Modulus` 라는 이름의 행을 `ASTM D790`(굽힘)으로 재서 370HR 에 Length 3744 ksi = 25.8 GPa 를 찍는다. 이름만 보고 인장으로 읽으면 안 되고, Panasonic 처럼 두 열을 다 찍는 문서가 그 차이를 눈으로 보여 준다.)\n**출처의 자기 제한** — 표 머리가 `特性一覧表《参考値》` 이고 같은 표의 꼬리말이 「注）上記の数値は参考値であり特性を保証するものではありません。」 다 — 참고값이지 보증값이 아니라는 제조사 자신의 표시이며, 그대로 옮겨 둔다.\n"
+        },
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 16500000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "test_mode": "tensile",
+            "test_standard": "ASTM D3039",
+            "orientation": "fill",
+            "orientation_verbatim": "横方向",
+            "direction": "TD",
+            "specimen": "laminate, 板厚 1.6 mm, 폭 15 mm 단책형, 물림간 거리 125 mm",
+            "strain_rate_note": "인장속도 2 mm/min (물림간 125 mm 기준 공칭 변형률속도 2/125 = 1.6e-2 /min ≈ 2.7e-4 /s)",
+            "temperature_note": "원문이 이 열의 시험온도를 안 찍는다 — 상온 시험으로 읽되 온도를 지정된 값으로 쓰지 마라",
+            "state": "not printed — 표가 동박 유무를 구분하지 않는다"
+          },
+          "notes": "원문 verbatim — 표 머리 `ヤング率（引張り）` / 시험방법 행 `ASTM D3039` / 하위열 `縦方向  横方向` / 단위 `GPa  GPa`. `R-1766` 행의 그 열 값이 `17.8   16.5` 다(縦 17.8 · 横 16.5).\n환산 — 16.5 GPa x 1e9 = 1.65e+10 Pa. 검산: 1.65e+10 / 1e9 = 16.5 GPa 로 되돌아온다.\n\n**이것이 왜 기존 부재판정을 뒤집는가** — 66차까지의 판정은 `Panasonic 문서 일곱 층 어디에도 인장 영률이 없다` 였고, 그 일곱 층(전제품 1장 시트·등급별 데이터시트·2019-06 및 2015-11 카탈로그·2014-03 JIS 데이터시트·일본어 제품페이지·2016 Product Information Sheet)에 대해서는 **여전히 맞는다**. 이번에 열린 것은 **여덟 번째 층 — 2013년 일본어 「電子回路基板材料」 총합 카탈로그(160쪽)** 다. 이 카탈로그만 등급별 특성일람표에 `曲げ弾性係数（JIS C6481에 준거）` 열 **옆에 따로** `ヤング率（引張り）（ASTM D3039）` 열을 둔다. 두 열이 나란히 인쇄돼 있어 **굽힘탄성계수와 인장 영률을 원문이 스스로 구분한다** — 이 값은 대체값이 아니라 진짜 인장 영률이다.\n**시험조건(원문 인쇄쪽 19 `試験項目の用語解説` verbatim)** — 「●ヤング率（ASTM D3039）下図の様に幅15mmの短冊状サンプルをつかみ間距離125mmで引張・圧縮試験機にセットします。引張り速度2mm/分で引張り強度を測定し、引張り応力と歪みの関係から求めます。」 → 폭 15 mm 단책형 시편, 물림간 거리 125 mm, 인장속도 2 mm/분, 응력-변형 관계에서 구한 값이다. **시험온도는 인쇄돼 있지 않다.** 표 머리가 `板厚：1.6mm` 이므로 시편 두께는 1.6 mm 다.\n**검산 — 인장 영률이 굽힘탄성계수보다 낮다.** 같은 행의 `曲げ弾性係数` 와 견주면 여섯 등급 모두 인장 쪽이 12~23 %% 낮다(R-1755V 20.3 vs 24 · R-1755M 20.5 vs 24 · R-1755D 19.2 vs 23 · R-1755E 20.0 vs 24 · R-1566 20.9 vs 24 · R-1766 17.8 vs 23, 모두 縦方向). 방향 순서도 일관된다 — 縦方向(경사)이 横方向(위사)보다 크다. **이 대소관계가 이 배치의 교훈이다** — 굽힘값을 영률 칸에 그대로 넣었다면 이 등급들의 강성을 12~23 %% 부풀렸을 것이다. (참고로 업계에는 반대 관행도 있다 — Isola 는 `Young's Modulus` 라는 이름의 행을 `ASTM D790`(굽힘)으로 재서 370HR 에 Length 3744 ksi = 25.8 GPa 를 찍는다. 이름만 보고 인장으로 읽으면 안 되고, Panasonic 처럼 두 열을 다 찍는 문서가 그 차이를 눈으로 보여 준다.)\n**출처의 자기 제한** — 표 머리가 `特性一覧表《参考値》` 이고 같은 표의 꼬리말이 「注）上記の数値は参考値であり特性を保証するものではありません。」 다 — 참고값이지 보증값이 아니라는 제조사 자신의 표시이며, 그대로 옮겨 둔다.\n"
+        }
+      ]
+    },
+    {
+      "match_name": "SAC107 Solder Alloy",
+      "source": {
+        "kind": "journal",
+        "title": "佐竹駿吾·川上崇·木下貴博·古林宏之·釘宮哲也·廣畑賢治·向井稔·盛林俊之 「鉛フリーはんだ材の低サイクル疲労強度特性」 (A Study on Low Cycle Fatigue Strength Properties of Lead Free Solder Materials), 論文番号 S031021 — Table 1 `Tensile Test Results`",
+        "url": "https://www.jstage.jst.go.jp/article/jsmemecj/2011/0/2011__S031021-1/_pdf",
+        "publisher": "日本機械学会 (JSME) 2011年度年次大会",
+        "year": 2011,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/JSME2011_S031021_Satake_LowCycleFatigue_LeadFreeSolder_SAC107_Sn-1.0Ag-0.7Cu_YoungsModulus_31GPa.pdf",
+        "doi": "10.1299/jsmemecj.2011._s031021-1"
+      },
+      "properties": [
+        {
+          "key": "mechanical.youngs_modulus",
+          "value": 31000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "test_mode": "tensile",
+            "temperature_note": "원문 verbatim `室温` — 상온. 숫자로는 안 적혀 있다",
+            "strain_rate": 0.0001,
+            "strain_rate_unit": "1/s",
+            "test_control": "stroke control (ストローク制御), 引張速度 0.001 mm/s",
+            "specimen": "벌크 인장시편, 변위는 시편에 단 displacement sensor 로 잰다(Fig. 1 `Test Specimen and Displacement Sensor`)",
+            "replicates": "n=2 (표 오른쪽 아래 `(n=2)`, 본문 「試験はそれぞれ2本ずつおこなった」)"
+          },
+          "notes": "원문 verbatim — `Table 1  Tensile Test Results` 의 행:\n`Sn-3.0Ag-0.5Cu | Young's Modulus (GPa) 30 | Yield Stress (MPa) 27 | Tensile Strength (MPa) 28 | Elongation (%) 70`\n`Sn-1.0Ag-0.7Cu | Young's Modulus (GPa) 31 | Yield Stress (MPa) 17 | Tensile Strength (MPa) 19 | Elongation (%) 92`   `(n=2)`\n환산 — 31 GPa x 1e9 = 3.1e10 Pa. 검산: 3.1e10 / 1e9 = 31 GPa.\n\n**조성 확인이 이 값의 핵심이다.** DB 의 SAC107 은 Sn-1.0Ag-0.7Cu 다. 이 논문의 두 행이 `Sn-3.0Ag-0.5Cu`(=SAC305)와 `Sn-1.0Ag-0.7Cu` 로 **Cu 0.5 와 0.7 을 갈라 인쇄**하므로 흔한 혼동인 SAC105(Sn-1.0Ag-**0.5**Cu)와 섞일 여지가 없다. 초록도 `tensile and low cycle fatigue properties of Sn-3.0Ag-0.5Cu and Sn-1.0Ag-0.7Cu were obtained at strain rate of 10^-4/s order and room temperature` 로 못 박는다. OCR 만 믿지 않고 **2쪽을 220 dpi 로 렌더해 표를 눈으로 읽어 확인했다**.\n\n**시험조건 verbatim** — 3·1 引張試験方法: 「試験はストローク制御，室温，引張速度 0.001mm/s（ひずみ速度 ε̇＝10^-4/s オーダ）でおこなった.」\n\n**왜 기존 부재판정을 뒤집는가** — 58차 TB·60차 VA·66차 BB 가 두드린 스물한 문은 전부 **솔더합금 디렉터리**(Indium·Indalloy·Kester 등)와 DB 출처 둘(Chen 2020·Sun 2017)이었다. 그 판정은 그대로 맞는다 — 나도 Chen 2020 의 `Table III Elastic Material Properties used for FEA modeling` 을 다시 열어 확인했고, 행은 Copper·Board·Mold·Die·Die attach·BGA sub 여섯뿐이라 솔더 행이 없다. 이번에 열린 문은 **디렉터리가 아니라 이 조성을 직접 인장시험한 일본어 학회논문**이다.\n\n**값을 쓸 때의 정직한 경고** — 31 GPa 는 SAC 계열 문헌의 통상대(40~50 GPa)보다 낮다. 같은 표의 SAC305 도 30 GPa 로 같이 낮다 — 즉 이 논문의 측정계 전체가 낮게 나오는 쪽이지 SAC107 만 별종인 것이 아니다. 원인으로는 스트로크 제어 + 시편 부착 변위센서라는 측정 방식과 1e-4 /s 라는 매우 느린 변형률속도(솔더는 상온이 이미 0.6 T_m 이라 이 속도에서 점소성 변형이 탄성구간에 섞여 겉보기 강성을 낮춘다)가 있다. **그래서 conditions 의 변형률속도와 온도를 반드시 함께 읽어야 하는 값이다.** 조성이 확인된 인쇄값이므로 t1 로 넣되, 다른 속도·온도의 값이 나오면 이 행과 나란히 두고 조건으로 갈라라.\n\n**섞지 말 것** — Scientific Reports 2025;15:24340(Akhtar 외) Table 1 이 `SAC107 + BiIn | 40 GPa | 0.35 | 21.3` 을 찍지만 본문이 그것을 Senju M40 = **Sn-1.0Ag-0.7Cu-1.6Bi-0.2In** 으로 밝힌다 — Bi·In 을 넣은 개량합금이라 SAC107 의 값이 아니다. 그 40 GPa 를 이 재료에 병합하지 마라."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+ "batch": "68차 DD",
+ "note": "문서를 실제로 열어 그 열이 없음을 확인한 칸만 적었다. 못 연 문서는 여기 없다.",
+ "verdicts": [
+  {
+   "material_id": 978,
+   "key": "interface.peel_strength",
+   "verdict": "core_absent_from_source",
+   "reason": "Fujishima 2017 (ICEP) Table 1 `Characteristics of GX series after curing` 은 GX13/GX92/GX-T31 세 열에 CTE x-y 2행 · Tg(TMA) · Tg(DMA) · Young's modulus · Tensile strength · Elongation · Dielectric constant · Loss tangent · Water absorption · HAST 만 인쇄하고 **박리강도 행이 없다.** 이 논문에 kgf/cm 로 찍힌 접착값이 둘 있으나 **둘 다 GX 계열 것이 아니다** — 본문의 `The adhesion strength between these ABFs and plated copper is 0.5-0.6 kgf/cm` 는 Table 2 의 GZ-41·GY 를 가리키고, `Peel strength (Cu plating) | kgf/cm | 0.4~0.5` 는 Table 3 의 LE 계열 행이다. GX 열로 옮겨 붙이면 다른 수지계(에폭시-페놀 vs 시아네이트에스테르/페놀에스테르)의 값을 도용하는 것이 된다.",
+   "source_url": "https://doi.org/10.23919/icep.2017.7939390",
+   "local_path": "/data/paper_patent_corpus/structured/materials_papers/pkg_bt_resin/Fujishima - 2017 - Recent Trend of Layer-to-Layer Insulation Resin for High Frequency Package/Fujishima - 2017 - Recent Trend of Layer-to-Layer Insulation Resin for High Frequency Package.md"
+  },
+  {
+   "material_id": 979,
+   "key": "interface.peel_strength",
+   "verdict": "core_absent_from_source",
+   "reason": "재료 978 과 같은 Table 1 의 GX92 열이다. 박리강도 행 자체가 표에 없다.",
+   "source_url": "https://doi.org/10.23919/icep.2017.7939390",
+   "local_path": "/data/paper_patent_corpus/structured/materials_papers/pkg_bt_resin/Fujishima - 2017 - Recent Trend of Layer-to-Layer Insulation Resin for High Frequency Package/Fujishima - 2017 - Recent Trend of Layer-to-Layer Insulation Resin for High Frequency Package.md"
+  },
+  {
+   "material_id": 980,
+   "key": "interface.peel_strength",
+   "verdict": "core_absent_from_source",
+   "reason": "재료 978 과 같은 Table 1 의 GX-T31 열이다. GX-T31 은 Table 2 에도 열이 있으나 그 표에도 박리·접착 행은 없고 본문의 0.5-0.6 kgf/cm 는 GZ-41·GY 를 가리킨다.",
+   "source_url": "https://doi.org/10.23919/icep.2017.7939390",
+   "local_path": "/data/paper_patent_corpus/structured/materials_papers/pkg_bt_resin/Fujishima - 2017 - Recent Trend of Layer-to-Layer Insulation Resin for High Frequency Package/Fujishima - 2017 - Recent Trend of Layer-to-Layer Insulation Resin for High Frequency Package.md"
+  },
+  {
+   "material_id": 1098,
+   "key": "interface.peel_strength",
+   "verdict": "figure_only",
+   "reason": "Chen 2006 (Microelectron. Reliab.) 은 이 ACF 의 **90도 박리강도를 실제로 측정한다** — 방법절에 `Ninety degrees peeling strength tests are conducted to measure the adhesion strengths. All peeling tests are carried out at a rate of 1 mm/min ... at room temperature of 25 °C and humidity of 50% RH` 로 각도·속도·온습도까지 인쇄돼 있다. 그런데 **값이 표가 아니라 Fig. 6 · Fig. 8 · Fig. 10 에만 있다.** 본문은 상대변화(`the average peeling force decreases of 8.3%`, `40.6%`, `41.7%`)만 말하고 절대 박리력의 기준값을 한 번도 숫자로 적지 않아 역산도 불가능하다. **부재가 아니라 미수확이다** — 66차 BC 가 Prony 를 두고 말한 것과 같은 유형이고, 이 칸의 문은 새 문서가 아니라 그림 디지타이즈(브리프 652)다.",
+   "source_url": "https://doi.org/10.1016/j.microrel.2005.07.115",
+   "local_path": "/data/paper_patent_corpus/structured/snowball_papers/from_pkg/Chen - 2006 - Effects of different bonding parameters on the electrical performance and peeling strengths of ACF interconnection/Chen - 2006 - Effects of different bonding parameters on the electrical performance and peeling strengths of ACF interconnection.md"
+  },
+  {
+   "material_id": 2561,
+   "key": "chemical.water_absorption_24h",
+   "verdict": "core_absent_from_vendor_sheet",
+   "reason": "Laird `T-flex 300 Series Thermal Gap Filler` TDS 를 내려받아 전부 열었다. 5개 등급(320/340/360/380/3100) 공통 물성표에 Density · Hardness · Tensile Strength · % Elongation · % Deflection · **Outgassing TML/CVCM (ASTM E595)** · UL Flammability · Temperature Range · Thermal Conductivity · Thermal Resistance · Thermal Expansion · Breakdown Voltage · Volume Resistivity · Dielectric Constant 만 있고 **흡습률·투습률 행이 없다.** ASTM E595 의 TML(0.56%)·CVCM(0.1%)은 진공 중 총질량손실이지 흡습이 아니므로 이 칸에 넣을 수 없다. 같은 규격의 WVR(Water Vapor Regained) 항목도 시트에 인쇄돼 있지 않다(전문 grep 0건).",
+   "source_url": "https://docs.rs-online.com/1ba9/0900766b80b191be.pdf",
+   "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Laird_Tflex300_Series_TDS.pdf"
+  },
+  {
+   "material_id": 2562,
+   "key": "chemical.water_absorption_24h",
+   "verdict": "core_absent_from_vendor_sheet",
+   "reason": "재료 2561 과 같은 Laird T-flex 300 Series TDS 의 T-flex 340 열이다. 흡습·투습 행이 표 전체에 없다.",
+   "source_url": "https://docs.rs-online.com/1ba9/0900766b80b191be.pdf",
+   "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Laird_Tflex300_Series_TDS.pdf"
+  },
+  {
+   "material_id": 2563,
+   "key": "chemical.water_absorption_24h",
+   "verdict": "core_absent_from_vendor_sheet",
+   "reason": "재료 2561 과 같은 TDS 의 T-flex 360 열이다.",
+   "source_url": "https://docs.rs-online.com/1ba9/0900766b80b191be.pdf",
+   "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Laird_Tflex300_Series_TDS.pdf"
+  },
+  {
+   "material_id": 2564,
+   "key": "chemical.water_absorption_24h",
+   "verdict": "core_absent_from_vendor_sheet",
+   "reason": "재료 2561 과 같은 TDS 의 T-flex 380 열이다.",
+   "source_url": "https://docs.rs-online.com/1ba9/0900766b80b191be.pdf",
+   "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Laird_Tflex300_Series_TDS.pdf"
+  },
+  {
+   "material_id": 2565,
+   "key": "chemical.water_absorption_24h",
+   "verdict": "core_absent_from_vendor_sheet",
+   "reason": "재료 2561 과 같은 TDS 의 T-flex 3100 열이다.",
+   "source_url": "https://docs.rs-online.com/1ba9/0900766b80b191be.pdf",
+   "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Laird_Tflex300_Series_TDS.pdf"
+  },
+  {
+   "material_id": 2567,
+   "key": "chemical.water_absorption_24h",
+   "verdict": "core_absent_from_vendor_sheet",
+   "reason": "Henkel `BERGQUIST GAP PAD TGP 2400` TDS(November-2018, 별명 GAP PAD 2500S20)를 내려받아 전부 열었다. Physical Properties 에 Hardness · Heat Capacity · Density · Flammability · Young's Modulus, Electrical Properties 에 Dielectric Breakdown Voltage · Dielectric Constant · Volume Resistivity, Thermal Properties 에 Thermal Conductivity · Thermal Impedance 만 있고 **흡습률·투습률 행이 없다.** 문서 전체 grep 에서 water/moisture/absorption 은 취급주의 문구(`Any moisture that collects on the thawed container`)로만 나온다.",
+   "source_url": "https://datasheets.tdx.henkel.com/BERGQUIST-GAP-PAD-TGP-2400-en_GL.pdf",
+   "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Henkel_BERGQUIST_GAP_PAD_TGP2400_TDS.pdf"
+  },
+  {
+   "material_id": 2571,
+   "key": "chemical.water_absorption_24h",
+   "verdict": "core_absent_from_vendor_sheet",
+   "reason": "Parker Chomerics `THERM-A-GAP Gap Filler Pads` 카탈로그(Typical Properties 표 2매)를 내려받아 전부 열었다. HCS10/569/570/579/580 표와 G974/974/976/PAD30/PAD60 표 둘 다 Physical(Standard Thicknesses · Specific Gravity · Hardness · Percent Deflection · Operating Temperature) · Thermal(Conductivity · Impedance · Heat Capacity · CTE) · Electrical(Dielectric Strength · Volume Resistivity · Dielectric Constant · Dissipation Factor) · Regulatory(Flammability · RoHS · **Outgassing %TML(%CVCM) ASTM E595** · Shelf Life · Storage Conditions) 로 끝나고 **흡습률·투습률 행이 없다.** Storage Conditions 의 `@ 50% Relative Humidity` 는 보관조건이지 물성이 아니다. HCS10 열이 이 재료다.",
+   "source_url": "https://astat-emc.pl/wp-content/uploads/Chomerics-gap-filler-pads.pdf",
+   "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Chomerics_GapFillerPads_Catalog.pdf"
+  },
+  {
+   "material_id": 2572,
+   "key": "chemical.water_absorption_24h",
+   "verdict": "core_absent_from_vendor_sheet",
+   "reason": "재료 2571 과 같은 Chomerics 카탈로그의 569 열이다. 흡습·투습 행이 두 표 모두에 없다.",
+   "source_url": "https://astat-emc.pl/wp-content/uploads/Chomerics-gap-filler-pads.pdf",
+   "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Chomerics_GapFillerPads_Catalog.pdf"
+  },
+  {
+   "material_id": 2573,
+   "key": "chemical.water_absorption_24h",
+   "verdict": "core_absent_from_vendor_sheet",
+   "reason": "재료 2571 과 같은 카탈로그의 570 열이다.",
+   "source_url": "https://astat-emc.pl/wp-content/uploads/Chomerics-gap-filler-pads.pdf",
+   "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Chomerics_GapFillerPads_Catalog.pdf"
+  },
+  {
+   "material_id": 2574,
+   "key": "chemical.water_absorption_24h",
+   "verdict": "core_absent_from_vendor_sheet",
+   "reason": "재료 2571 과 같은 카탈로그의 579 열이다.",
+   "source_url": "https://astat-emc.pl/wp-content/uploads/Chomerics-gap-filler-pads.pdf",
+   "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Chomerics_GapFillerPads_Catalog.pdf"
+  },
+  {
+   "material_id": 2575,
+   "key": "chemical.water_absorption_24h",
+   "verdict": "core_absent_from_vendor_sheet",
+   "reason": "재료 2571 과 같은 카탈로그의 580 열이다.",
+   "source_url": "https://astat-emc.pl/wp-content/uploads/Chomerics-gap-filler-pads.pdf",
+   "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Chomerics_GapFillerPads_Catalog.pdf"
+  },
+  {
+   "material_id": 2576,
+   "key": "chemical.water_absorption_24h",
+   "verdict": "core_absent_from_vendor_sheet",
+   "reason": "재료 2571 과 같은 카탈로그의 G974 열이다.",
+   "source_url": "https://astat-emc.pl/wp-content/uploads/Chomerics-gap-filler-pads.pdf",
+   "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Chomerics_GapFillerPads_Catalog.pdf"
+  },
+  {
+   "material_id": 2577,
+   "key": "chemical.water_absorption_24h",
+   "verdict": "core_absent_from_vendor_sheet",
+   "reason": "재료 2571 과 같은 카탈로그의 974 열이다.",
+   "source_url": "https://astat-emc.pl/wp-content/uploads/Chomerics-gap-filler-pads.pdf",
+   "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Chomerics_GapFillerPads_Catalog.pdf"
+  },
+  {
+   "material_id": 2578,
+   "key": "chemical.water_absorption_24h",
+   "verdict": "core_absent_from_vendor_sheet",
+   "reason": "재료 2571 과 같은 카탈로그의 976 열이다.",
+   "source_url": "https://astat-emc.pl/wp-content/uploads/Chomerics-gap-filler-pads.pdf",
+   "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Chomerics_GapFillerPads_Catalog.pdf"
+  },
+  {
+   "material_id": 2576,
+   "key": "interface.peel_strength",
+   "verdict": "core_absent_from_vendor_sheet",
+   "reason": "같은 Chomerics 카탈로그의 G974 열이다. 이 등급은 DB 재료명대로 **PSA(감압접착) 를 가진 유리섬유 캐리어 제품인데도** Typical Properties 표에 박리강도·택·접착력 행이 하나도 없다. 캐리어 선택지 블록(`G = Woven glass - no pressure sensitive adhesive (PSA)` / `A = Aluminum foil - with acrylic PSA`)이 PSA 유무를 **제품 구성 옵션으로만** 적고 그 접착력을 수치로 발표하지 않는다. 갭필러 시트의 판정축은 열저항·경도·변형률이지 접착력이 아니다.",
+   "source_url": "https://astat-emc.pl/wp-content/uploads/Chomerics-gap-filler-pads.pdf",
+   "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Chomerics_GapFillerPads_Catalog.pdf"
+  },
+  {
+   "material_id": 2577,
+   "key": "interface.peel_strength",
+   "verdict": "core_absent_from_vendor_sheet",
+   "reason": "재료 2576 과 같은 사유의 974 열이다. 박리·택 행이 표에 없다.",
+   "source_url": "https://astat-emc.pl/wp-content/uploads/Chomerics-gap-filler-pads.pdf",
+   "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Chomerics_GapFillerPads_Catalog.pdf"
+  },
+  {
+   "material_id": 2378,
+   "key": "interface.lap_shear_strength",
+   "verdict": "core_absent_from_vendor_sheet",
+   "reason": "Röchling `Glastic UTR` TDS(Version 5.0, 2023-12-15)를 내려받아 전부 열었다. Mechanical properties 에 Flexural Strength(+130 degC) · Compressive Strength · Tensile Strength · Tensile Modulus · IZOD Impact · **Shear Strength ASTM D732 11,600 psi** 가 있는데 **이 전단강도는 접착 물성이 아니다** — ASTM D732 는 펀치 툴로 판재를 뚫는 **소재 자체의 전단**이고, `interface.lap_shear_strength` 는 두 피착재 사이 접착층의 중첩전단이다. 낱말이 같다고 옮기면 범주 오류가 된다. 시트에 박리·중첩전단·다이쉬어 행은 없다. GPO-3 유리매트 폴리에스터 판재는 접착제품이 아니라 절연 구조판재라 접착이 판매 스펙이 아니다.",
+   "source_url": "https://www.roechling.com/fileadmin/assets/Technical%20Data%20Sheet%20Glastic%C2%AE%20UTR%20715322%20EN.pdf",
+   "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Rochling_Glastic_UTR_TDS.pdf"
+  },
+  {
+   "material_id": 2545,
+   "key": "chemical.water_absorption_24h",
+   "verdict": "core_absent_from_vendor_sheet",
+   "reason": "ZEON `Cyclo Olefin Polymer (COP) ZEONEX` 브로슈어(200323391, 2019)를 전부 열었다. 이 브로슈어에는 흡수율이 딱 한 번 나오는데 **`ZEONEX K22R` 단독 물성표의 `Water absorption | ASTM D570 | % | 0.014` 행이다.** 330R 이 등장하는 표는 `ZEONEX properties comparative`(K26R·K22R·E48R·F52R·T62R·330R·480R 7열)인데 그 표의 행은 Refractive index · Tg · MFR · Flexural modulus/strength · Tensile modulus/strength · Tensile elongation · Flammability 뿐이고 **흡수율 행이 없다.** K22R 의 0.014 % 를 330R 열로 옮기는 것은 등급 전이이고, 330R 은 굴절률 1.509 로 7등급 중 유일하게 저굴절 계열이라(나머지는 1.525~1.536) 조성이 다른 등급이므로 더욱 옮길 수 없다. 480R·1600R 은 Yamazaki 2004 Table 2 에 등급명으로 인쇄돼 있어 이번에 닫았지만 **330R 은 그 표에 열이 없다.**",
+   "source_url": "https://www.zeon.co.jp/en/business/enterprise/resin/pdf/200323391.pdf",
+   "local_path": "/data/paper_patent_corpus/standards_appnotes/cam/ZEON_ZEONEX_COP_Brochure_200323391_2019.pdf"
+  }
+ ],
+ "data_quality_flags": [
+  {
+   "kind": "duplicate_material",
+   "material_ids": [1277, 231],
+   "detail": "1277 `Rogers RO4350 ceramic-filled hydrocarbon PCB laminate — Ehrler 2002` 와 231 `Rogers RO4350B High-Frequency Laminate` 는 같은 제품이다. 231 은 이번에 내려받은 것과 같은 Rogers RO4000 시트로 `interface.peel_strength 880 N/m` · `chemical.water_absorption_24h 0.0006` 을 **이미 tier1 로** 갖고 있고, 1277 은 그 두 칸이 비어 격자에 잔여로 잡혀 있었다. 접착·투습 잔여 칸 일부가 실제 자료 부재가 아니라 **재료 중복** 때문임을 뜻한다. merge_duplicate_materials.py 대상으로 올린다."
+  },
+  {
+   "kind": "duplicate_material",
+   "material_ids": [1278, 230],
+   "detail": "1278 `Rogers RO4003 ... Ehrler 2002` 와 230 `Rogers RO4003C High-Frequency Laminate` 도 같은 제품이다. 230 이 `peel_strength 1050 N/m` · `water_absorption_24h 0.0006` 을 tier1 로 이미 갖고 있다."
+  },
+  {
+   "kind": "scope_filter_false_positive",
+   "detail": "접착 격자의 대상 필터 `FILMISH`(coverage_report.py)가 재료명 부분일치라 **접착제품이 아닌 재료를 접착 격자에 넣고 있다.** 잔여 50칸 중 최소 17칸이 그렇다 — `sheet` 가 잡은 Al 6013 sheet alloy(2560, 벌크 알루미늄 압연판), `film` 이 잡은 Ge2Sb2Te5 상변화막 4종(1753-1756, 스퍼터 박막) · M-Film(28) · Nanocrystalline Shielding FeSiB(82) · Piezo MEMS AlN thin-film(130) · Chip Resistor Film RuO2(162), `foil`/`laminate` 가 잡은 리튬이온 전극 6종(2524·2525·2553·2554·2691·2692) · MCMB 흑연(2027) · Corning Willow Glass(2676). 이들은 박리·중첩전단·다이쉬어가 **판매 스펙도 시험 관행도 아닌** 재료다. 21차 T2 가 `ir-` 부분일치로 겪은 것과 같은 유형(짧은 토큰일수록 위험하다)이고, 이 오탐이 접착 잔여 칸의 분모를 부풀려 수확률을 실제보다 낮게 보이게 한다. 필터를 `attributes.role`/카테고리 기반으로 좁힐 것을 제안한다."
+  }
+ ]
+}

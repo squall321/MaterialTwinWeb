@@ -1,0 +1,258 @@
+{
+ "batch": "68차 DD",
+ "materials": [
+  {
+   "match_name": "Celanex 3300 D PBT, 30% glass filled, as received untreated control (Ticona, O'Neill 2008)",
+   "source": {
+    "kind": "datasheet",
+    "title": "CELANEX(R) 3300D Polybutylene Terephthalate — Technical Data (Celanese Corporation)",
+    "url": "https://upmold.com/wp-content/uploads/data-sheet/PBT-GF30-Celanex-3300D.pdf",
+    "publisher": "Celanese Corporation",
+    "year": 2026,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Celanese_Celanex_3300D_TDS.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.moisture_absorption_equilibrium",
+     "value": 0.002,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 23,
+      "humidity_rh": 50,
+      "test_standard": "ISO 62",
+      "value_printed": "Water Absorption (Equilibrium, 23°C, 50% RH)  0.20 %"
+     },
+     "notes": "TDS 물성표 verbatim: `Water Absorption (Equilibrium, 23°C, 50% RH) | 0.20 % | ISO 62`. 환산 산술: 0.20 % / 100 = 0.0020 (무차원 질량분율, DB si_unit `1`). **등급이 정확히 일치한다** — DB 재료명이 Celanex 3300 D 이고 시트도 CELANEX 3300D 다. **24h 침지값이 아니라 23 degC/50 %RH 평형값이라 `moisture_absorption_equilibrium` 키에 넣었다** — 유럽식 ISO 62 시트가 24h 를 안 싣는 계열이라는 coverage_report MOIST 주석 그대로다. 온도·습도가 값 머리에 인쇄돼 있어 조건이 온전하다."
+    }
+   ]
+  },
+  {
+   "match_name": "Ertalyte — 폴리에틸렌 테레프탈레이트 PET (Böhm 1990)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Ertalyte(TM) PET (Polyethylene Terephthalate) — Product Datasheet, Mitsubishi Chemical Advanced Materials",
+    "url": "https://www.mcam.com/mam/49643/GEP-Ertalyte%C2%AE%20PET-P_en_US.pdf",
+    "publisher": "Mitsubishi Chemical Advanced Materials",
+    "year": 2026,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Mitsubishi_Ertalyte_PET-P_TDS.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0007,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 23,
+      "immersion_h": 24,
+      "test_standard": "ISO 62 / ASTM D570 (두 규격이 같은 값을 준다)",
+      "value_printed": "Water absorption after 24h immersion in water of 23 °C (73°F) — ISO 62: 0.07 % / ASTM D570: 0.07 %"
+     },
+     "notes": "TDS 물성표 verbatim: `Water absorption after 24h immersion in water of 23 °C (73°F) | ISO 62 | % | 0.07 | ASTM D570 | % | 0.07`. 환산 산술: 0.07 % / 100 = 0.0007. **ISO 62 열과 ASTM D570 열이 같은 0.07 을 주므로 규격 갈래로 행을 나누지 않았다.** 등급 범위: DB 재료명은 Böhm 1990 이 쓴 `Ertalyte` 이고 시트는 그 상품명의 기본 무충전 등급 `Ertalyte PET-P` 다 — 상품명이 같고 PET-P 가 Ertalyte 의 베이스 등급이라 tier1 로 두되, 문서 개정 시점(2020년대)과 논문 시점(1990)이 30년 벌어져 있다는 것은 적어 둔다."
+    },
+    {
+     "key": "chemical.water_absorption_saturation",
+     "value": 0.005,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 23,
+      "saturation": true,
+      "test_standard": "ISO 62",
+      "value_printed": "Water absorption at saturation in water of 23 °C (73°F) — ISO 62: 0.50 %"
+     },
+     "notes": "같은 표의 포화 행 verbatim: `Water absorption at saturation in water of 23 °C (73°F) | % | 0.50` (ISO 62 열). 0.50 % / 100 = 0.0050. **여기서는 ISO 62 와 ASTM D570 이 다른 값을 준다(0.50 vs 0.9)** — 규격마다 포화 판정 절차가 달라서다. 평균 내지 않고 규격별로 두 행을 세웠다."
+    },
+    {
+     "key": "chemical.water_absorption_saturation",
+     "value": 0.009,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 23,
+      "saturation": true,
+      "test_standard": "ASTM D570",
+      "value_printed": "Water absorption at saturation in water of 23 °C (73°F) — ASTM D570: 0.9 %"
+     },
+     "notes": "같은 표 ASTM D570 열 verbatim: `ASTM D570 (17) | % | 0.9`. 0.9 % / 100 = 0.0090. ISO 62 행(0.0050)과 **같은 물성의 다른 규격값이지 범위의 양끝이 아니다** — `bound` 를 붙이지 않은 이유가 그것이다."
+    }
+   ]
+  },
+  {
+   "match_name": "GPO-3 glass-mat polyester laminate, Rochling Glastic UTR grade (part 1491-1494-1497, NEMA GPO-3-GPO-3P, IEC UP GM 203)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Technical Data Sheet Glastic(R) UTR, GFK-UP (PIM-ID 715322, Version 5.0, Release 15/12/2023)",
+    "url": "https://www.roechling.com/fileadmin/assets/Technical%20Data%20Sheet%20Glastic%C2%AE%20UTR%20715322%20EN.pdf",
+    "publisher": "Röchling Industrial",
+    "year": 2023,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Rochling_Glastic_UTR_TDS.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.004,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D570",
+      "value_printed": "Water Absorption | ASTM D 570 | % by wt. | 0.4",
+      "immersion_h": "미기재 — 시트가 ASTM D570 만 적고 침지시간을 인쇄하지 않는다. D570 의 기본 절차인 24h 침지로 보되 시트가 그렇게 쓰지는 않았다."
+     },
+     "notes": "TDS [Physical properties] 블록 verbatim: `Water Absorption | ASTM D 570 | % by wt. | 0.4`. 환산 산술: 0.4 % / 100 = 0.0040. Part Number 행이 `1491, 1493, 1494, 1495, 1497` 이라 DB 재료명의 part 1491-1494-1497 과 일치하고 NEMA Grade LI 1-1989 = GPO-3 도 일치한다 — **등급이 정확히 맞는 시트다.** 침지시간이 인쇄되지 않은 것은 조건 흠결이라 conditions 에 그대로 적었다."
+    }
+   ]
+  },
+  {
+   "match_name": "ZEONEX 480R cyclo-olefin polymer, optical grade (ZEON, Yamazaki 2004)",
+   "source": {
+    "kind": "journal",
+    "title": "Industrialization and application development of cyclo-olefin polymer",
+    "url": "https://doi.org/10.1016/j.molcata.2003.10.058",
+    "doi": "10.1016/j.molcata.2003.10.058",
+    "publisher": "Journal of Molecular Catalysis A: Chemical (Elsevier)",
+    "year": 2004,
+    "local_path": "/data/paper_patent_corpus/structured/materials_papers/cam_optical_polymer_lens/Yamazaki - 2004 - Industrialization and application development of cyclo-olefin polymer/Yamazaki - 2004 - Industrialization and application development of cyclo-olefin polymer.md"
+   },
+   "properties": [
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0001,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 23,
+      "immersion_h": 24,
+      "bound": "upper",
+      "value_printed": "Water absorption (23 °C, 24 h) (%) = < 0.01",
+      "test_standard": "미기재 — Table 2 가 시험규격을 적지 않는다"
+     },
+     "notes": "Table 2 `Characteristics comparison of cyclo-olefin polymer` (1) ZEONEX 블록 verbatim: `Water absorption (23 ◦C, 24 h) (%) | < 0.01`. **열 머리가 문자 그대로 `ZEONEX® 480R` 이라 등급이 인쇄된 값이다** — 이 재료가 이미 인용하고 있던 출처 안에 있었다. 환산 산술: 0.01 % / 100 = 0.0001. **부등호를 평균이나 대표값으로 바꾸지 않고 `bound: upper` 로 적었다** — 원문이 상한만 준다. 열 매핑 검산: 같은 표 Specific gravity 행의 480R 열이 1.01 인데 이는 COP 의 알려진 비중이고, 이웃 PC 열 1.20 · PMMA 열 1.19 와도 어긋나지 않는다."
+    }
+   ]
+  },
+  {
+   "match_name": "ZEONOR 1600R cyclo-olefin polymer, high-heat grade (ZEON, Yamazaki 2004)",
+   "source": {
+    "kind": "journal",
+    "title": "Industrialization and application development of cyclo-olefin polymer",
+    "url": "https://doi.org/10.1016/j.molcata.2003.10.058",
+    "doi": "10.1016/j.molcata.2003.10.058",
+    "publisher": "Journal of Molecular Catalysis A: Chemical (Elsevier)",
+    "year": 2004,
+    "local_path": "/data/paper_patent_corpus/structured/materials_papers/cam_optical_polymer_lens/Yamazaki - 2004 - Industrialization and application development of cyclo-olefin polymer/Yamazaki - 2004 - Industrialization and application development of cyclo-olefin polymer.md"
+   },
+   "properties": [
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0001,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 23,
+      "immersion_h": 24,
+      "bound": "upper",
+      "value_printed": "Water absorption (23 °C, 24 h) (%) = < 0.01",
+      "test_standard": "미기재 — Table 2 가 시험규격을 적지 않는다"
+     },
+     "notes": "Table 2 (2) ZEONOR 블록의 `Water absorption (23 ◦C, 24 h) (%)` 행이다. 0.01 % / 100 = 0.0001, `bound: upper`. **열 정렬을 검산했다 — 원문 PDF 가 없고 docling 변환본(md·tables/table-2.md)뿐인데 이 표는 헤더가 앞 행의 인장탄성률 값과 섞여 깨져 있다**(`| 2400 ZEONOR® 1020R | 2400 1420R | | 3000 1600R | | PC | PP c | Opaque |`). 그래서 같은 표의 Specific gravity 행으로 열을 고정했다: 셀 인덱스 1=1020R(1.01) · 3=1420R(1.02) · 4=1600R(1.03) · 6=PC(1.2) · 8=PP(0.90-0.91) 이고, PP 0.90-0.91 이 폴리프로필렌의 알려진 밀도라 오른쪽 끝이 앵커가 된다. 같은 인덱스를 흡수율 행에 적용하면 셀4(=1600R)가 `< 0.01` 이다. **그리고 이 결론은 열 모호성에 둔감하다** — 그 행의 ZEONOR 세 열(1020R·1420R·1600R)이 모두 `<0.01` 이라 어느 열로 읽어도 값이 같고, 0.15 는 PC 열이라 COP 열로 잘못 읽힐 여지가 없다."
+    }
+   ]
+  },
+  {
+   "match_name": "Shengyi S1170 high-Tg (170 degC) epoxy glass copper clad laminate",
+   "source": {
+    "kind": "datasheet",
+    "title": "Shengyi CN-TDS-1810-02-S1170G-S1170GB Technical Data Sheet (S1170G / S1170GB)",
+    "url": "https://www.chinapcbone.com/images/pdf/S1170G.pdf",
+    "publisher": "Shengyi Technology Co., Ltd.",
+    "year": 2018,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Shengyi_S1170G_TDS.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0012,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 23,
+      "immersion_h": 24,
+      "test_standard": "IPC-TM-650 2.6.2.1",
+      "conditioning": "D-24/23 (증류수 24시간 침지, 23 degC)",
+      "value_printed": "Water Absorption | IPC-TM-650 2.6.2.1 | D-24/23 | % | 0.12",
+      "grade_scope": "이 제품의 값이 아니다 — 시트는 **S1170G / S1170GB**(할로겐프리 등급, `G` = halogen-free)이고 DB 재료는 접미 없는 **S1170**(표준 브롬계 난연 high-Tg FR-4)이다. 난연 체계가 바뀌면 수지 배합과 극성기 함량이 달라져 흡수율이 영향을 받는 물성이다. Shengyi S1170 계열 대표값으로 읽어라."
+     },
+     "notes": "TDS 물성표 verbatim: `Water Absorption | IPC-TM-650 2.6.2.1 | D-24/23 | % | 0.12`. 환산 산술: 0.12 % / 100 = 0.0012. 조건이 온전하다 — D-24/23 이 23 degC 24시간 침지를 뜻하므로 온도·시간이 모두 인쇄돼 있다. **접미 없는 S1170 의 TDS 는 이번 통과에서 찾지 못했다** — Shengyi 공식 도메인(shengyi-sy.com)이 응답하지 않았고 재배포본은 전부 G 등급이었다. S1170 원본 시트가 열리면 이 행은 tier1 로 올라간다."
+    }
+   ]
+  },
+  {
+   "match_name": "Rogers RO4003 ceramic-filled hydrocarbon PCB laminate — Ehrler 2002",
+   "source": {
+    "kind": "datasheet",
+    "title": "RO4000 Series High Frequency Circuit Materials Data Sheet (RO4003C / RO4350B)",
+    "url": "https://www.rogerscorp.com/-/media/project/rogerscorp/documents/advanced-electronics-solutions/english/data-sheets/ro4000-laminates-ro4003c-and-ro4350b---data-sheet.pdf",
+    "publisher": "Rogers Corporation",
+    "year": 2026,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Rogers_RO4000_RO4003C_RO4350B_DataSheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0006,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 50,
+      "immersion_h": 48,
+      "test_standard": "ASTM D570",
+      "conditioning": "48 hrs immersion, 0.060 in sample, 50 degC",
+      "value_printed": "Moisture Absorption 0.06 %",
+      "grade_scope": "시트는 RO4003C 이고 DB 재료는 Ehrler 2002 의 RO4003(접미 C 이전)이다. dd01 의 박리강도 행과 같은 사유다."
+     },
+     "notes": "시트 물성표 verbatim: `Moisture Absorption | 0.06 | % | 48 hrs immersion, 0.060” sample, Temperature 50°C | ASTM D570`, RO4003C 열. 0.06 % / 100 = 0.0006. **침지시간이 24h 가 아니라 48h 인데 키 이름은 `water_absorption_24h` 다** — 키 이름이 아니라 conditions 가 진실이므로 48h·50 degC 를 그대로 적었다(재료 230 의 기존 행도 같은 방식이다). 온도까지 인쇄돼 있어 조건이 온전하다."
+    }
+   ]
+  },
+  {
+   "match_name": "Rogers RO4350 ceramic-filled hydrocarbon PCB laminate — Ehrler 2002",
+   "source": {
+    "kind": "datasheet",
+    "title": "RO4000 Series High Frequency Circuit Materials Data Sheet (RO4003C / RO4350B)",
+    "url": "https://www.rogerscorp.com/-/media/project/rogerscorp/documents/advanced-electronics-solutions/english/data-sheets/ro4000-laminates-ro4003c-and-ro4350b---data-sheet.pdf",
+    "publisher": "Rogers Corporation",
+    "year": 2026,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/adhesive/Rogers_RO4000_RO4003C_RO4350B_DataSheet.pdf"
+   },
+   "properties": [
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0006,
+     "unit": "1",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 50,
+      "immersion_h": 48,
+      "test_standard": "ASTM D570",
+      "conditioning": "48 hrs immersion, 0.060 in sample, 50 degC",
+      "value_printed": "Moisture Absorption 0.06 %",
+      "grade_scope": "시트는 RO4350B 이고 DB 재료는 Ehrler 2002 의 RO4350(접미 B 이전, 난연 미도입)이다."
+     },
+     "notes": "같은 표 RO4350B 열이다 — 흡습률 행은 두 등급이 같은 0.06 % 를 준다. 0.06 % / 100 = 0.0006. **두 열이 같은 값이라 열 혼동 위험이 없는 행이지만**, 그래도 Density 행(1.79 vs 1.86)으로 열 매핑을 따로 확인했다."
+    }
+   ]
+  }
+ ]
+}

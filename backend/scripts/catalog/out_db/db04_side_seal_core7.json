@@ -1,0 +1,127 @@
+{
+ "batch": "68차 DB",
+ "materials": [
+  {
+   "match_name": "Display module side sealing material, module-level perimeter side seal (composition class — panel grade not identified)",
+   "source": {
+    "kind": "patent",
+    "title": "US 11,099,608 B2 — Display device (LG Display Co., Ltd.), 사이드 실 부재의 탄성률 인쇄 문단",
+    "url": "https://patents.google.com/patent/US11099608B2/en",
+    "publisher": "USPTO / LG Display Co., Ltd.",
+    "year": 2021,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/display/US11099608_fpo.txt"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 140000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 25,
+      "printed_as": "approximately 0.14 GPa",
+      "bound": "lower",
+      "member": "first seal member 160 (inner, flexible)",
+      "grade_scope": "class value — US 11,099,608 B2 의 실시예가 적는 **제1 실 부재(내측, 유연)**의 설계 탄성률이다. 이 카드의 값으로 볼 근거는 이 문서가 재료의 자리와 역할을 우리 카드와 같게 적는다는 것이다 — 'The first seal member 160 and the second seal member 170 may be formed of an elastic non-conductive material to seal the side surface of the display panel 120. ... The first seal member 160 and the second seal member 170 may further contain a moisture absorbent. The moisture absorbent serves to absorb moisture and oxygen from the outside and thus minimize the permeation of moisture and oxygen through the side portion of the display panel 120.' 어긋남 — (a) 이 특허가 지목하는 재질은 'PI-, poly urethane-, epoxy- and acryl-based materials' 이고 67차 CE 가 확정한 PIB 골격(LG화학 US11795314B2)과 다르다. 즉 이 카드의 두 갈래 중 **아크릴/에폭시 갈래**에 가깝다. (b) 롤러블 디스플레이용 2층 사이드실의 값이라 단층 사이드실과 같지 않다. (c) 배합비가 없다. **같은 특허가 제2 실 부재(외측, 강성)를 1.8 GPa 로 따로 인쇄하므로 두 행을 다 넣었다 — 평균 내지 마라.**"
+     },
+     "notes": "US 11,099,608 B2 문단 267 verbatim — 'The second seal member 170 may have a greater modulus of elasticity than the first seal member 160. Further, the second seal member 170 may have greater hardness than the first seal member 160. ... For example, the first seal member 160 may have a modulus of elasticity of approximately 0.14 GPa and the second seal member 170 may have a modulus of elasticity of approximately 1.8 GPa, but are not limited thereto.' 환산 0.14 GPa = 1.4e8 Pa, 1.8 GPa = 1.8e9 Pa. **method 를 measured 로 두지 않았다** — 원문이 'may have ... approximately' 라는 설계 서술이지 시험 결과 보고가 아니다. 이 특허에는 실시예 물성표가 없다. [혼동 주의] 같은 특허 문단 254 의 '200 MPa to 900 MPa' 는 **금속 봉지기판(encapsulation substrate 128)**의 탄성률이고 실링재가 아니다. 문단 255 의 '6.5 MPa' 는 제1 접착층(OCA/PSA)이다. 둘 다 이 카드에 넣지 않았다. [같은 카드의 다른 문서가 이 칸을 못 채웠다] 삼성디스플레이 US 10,928,662 B2 는 사이드실링재의 **연신율 100~300 % · 박리강도 1600~2100 N/m · 전단접착강도 7.5~9 N/mm2** 를 TABLE 1 로 인쇄하지만 **영률·인장강도·밀도 열이 없다**(TABLE 1 의 열은 Elongation / Peel strength right after curing / after 4 hours / Shear adhesion strength 넷뿐이다). 그래서 그 특허에서는 코어7 을 한 칸도 못 가져왔다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 1800000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 25,
+      "printed_as": "approximately 1.8 GPa",
+      "bound": "upper",
+      "member": "second seal member 170 (outer, rigid)",
+      "grade_scope": "class value — US 11,099,608 B2 의 실시예가 적는 **제2 실 부재(외측, 강성)**의 설계 탄성률이다. 이 카드의 값으로 볼 근거는 이 문서가 재료의 자리와 역할을 우리 카드와 같게 적는다는 것이다 — 'The first seal member 160 and the second seal member 170 may be formed of an elastic non-conductive material to seal the side surface of the display panel 120. ... The first seal member 160 and the second seal member 170 may further contain a moisture absorbent. The moisture absorbent serves to absorb moisture and oxygen from the outside and thus minimize the permeation of moisture and oxygen through the side portion of the display panel 120.' 어긋남 — (a) 이 특허가 지목하는 재질은 'PI-, poly urethane-, epoxy- and acryl-based materials' 이고 67차 CE 가 확정한 PIB 골격(LG화학 US11795314B2)과 다르다. 즉 이 카드의 두 갈래 중 **아크릴/에폭시 갈래**에 가깝다. (b) 롤러블 디스플레이용 2층 사이드실의 값이라 단층 사이드실과 같지 않다. (c) 배합비가 없다. **같은 특허가 제2 실 부재(외측, 강성)를 1.8 GPa 로 따로 인쇄하므로 두 행을 다 넣었다 — 평균 내지 마라.**"
+     },
+     "notes": "US 11,099,608 B2 문단 267 verbatim — 'The second seal member 170 may have a greater modulus of elasticity than the first seal member 160. Further, the second seal member 170 may have greater hardness than the first seal member 160. ... For example, the first seal member 160 may have a modulus of elasticity of approximately 0.14 GPa and the second seal member 170 may have a modulus of elasticity of approximately 1.8 GPa, but are not limited thereto.' 환산 0.14 GPa = 1.4e8 Pa, 1.8 GPa = 1.8e9 Pa. **method 를 measured 로 두지 않았다** — 원문이 'may have ... approximately' 라는 설계 서술이지 시험 결과 보고가 아니다. 이 특허에는 실시예 물성표가 없다. [혼동 주의] 같은 특허 문단 254 의 '200 MPa to 900 MPa' 는 **금속 봉지기판(encapsulation substrate 128)**의 탄성률이고 실링재가 아니다. 문단 255 의 '6.5 MPa' 는 제1 접착층(OCA/PSA)이다. 둘 다 이 카드에 넣지 않았다. [같은 카드의 다른 문서가 이 칸을 못 채웠다] 삼성디스플레이 US 10,928,662 B2 는 사이드실링재의 **연신율 100~300 % · 박리강도 1600~2100 N/m · 전단접착강도 7.5~9 N/mm2** 를 TABLE 1 로 인쇄하지만 **영률·인장강도·밀도 열이 없다**(TABLE 1 의 열은 Elongation / Peel strength right after curing / after 4 hours / Shear adhesion strength 넷뿐이다). 그래서 그 특허에서는 코어7 을 한 칸도 못 가져왔다."
+    }
+   ]
+  },
+  {
+   "match_name": "Display module side sealing material, module-level perimeter side seal (composition class — panel grade not identified)",
+   "source": {
+    "kind": "database",
+    "title": "Butyl Rubber (IIR) - Properties — Table of Butyl Rubber Properties (matmake.com)",
+    "url": "https://matmake.com/materials-data/butyl-rubber-properties.html",
+    "publisher": "Matmake",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/display/db_matmake_butyl_rubber.html"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 917.0,
+     "unit": "kg/m^3",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "printed_as": "917 kg/m3",
+      "grade_scope": "class value — matmake 'Butyl Rubber (IIR)' 클래스 행이지 이 카드의 값이 아니다. 어긋남 세 겹 — (a) 화학: 이 카드의 PIB 갈래는 산무수물 변성 폴리이소부틸렌을 아크릴 올리고머로 광가교한 것이고, matmake 행은 이소부틸렌-이소프렌 공중합 가황 부틸고무다. (b) 배합: 이 카드의 실런트는 흄드실리카 약 3.7 wt% + CaO 게터 약 18 wt% 를 담는다(LG화학 US11795314B2 실시예). 무기 충전 20 wt% 대면 밀도가 올라가고 비열이 내려간다 — 그 배분을 문서가 말하지 않아 계산하지 않았다. (c) 제품: 패널 등급 미확정. 또한 이 카드에는 **아크릴레이트 갈래**(우레탄아크릴레이트/IBOA/THFA + 카본블랙, 삼성디스플레이 US10928662B2)가 함께 있는데 이 행들은 그 갈래를 대표하지 않는다."
+     },
+     "notes": "matmake 'Table of Butyl Rubber Properties' verbatim. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C or 68 F) and 1 atm pressure.' 참고문헌은 Cardarelli Materials Handbook(2018) · CRC Handbook 97th · Oxford Engineering Tables(2009) 셋이라 **2차 인용이다**. 이 카드가 이미 쓰는 출처 계열이기도 하다 — 카탈로그 출처 3300 이 같은 사이트의 'Properties of Cellulose Acetate (CA)' 다. **이 페이지의 \"Young's Modulus (E) | 0.3 - 3.4 GPa\" 행은 쓰지 않았다** — 같은 표의 'Ultimate Tensile Strength 17 MPa' · 'Elongation at Break 700 - 950%' 와 자기모순이다(0.3 GPa 면 17 MPa 에서 변형률 5.7 % 다). 같은 사이트의 CA 페이지도 굴곡탄성률 8.3~27.6 GPa 를 영률 1.0~4.0 GPa 보다 크게 인쇄한다 — **이 출처는 행 단위로 검증하고 써야 한다.** 행 verbatim: 'Density | 917 kg/m3' (Imperial 57.25 lb/ft3). Category 행은 'Elastomer' 다. **교차검증이 닫힌다** — 카탈로그 재료 59 'Waterproof Butyl Seal' 이 서로 다른 두 출처에서 920 kg/m^3(MDPI Polymers, 동적가황 부틸/PP TPE)과 1400 kg/m^3(Butyl Technology 테이프 사양)을 갖고 있다. 917 은 앞의 것과 0.3 % 안에서 맞고, 뒤의 1400 은 충전·점착부여 테이프 제품값이다. 무충전 PIB 문헌 통념(0.91~0.92 g/cm3)과도 맞는다."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 17000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "printed_as": "17 MPa",
+      "grade_scope": "class value — matmake 'Butyl Rubber (IIR)' 클래스 행이지 이 카드의 값이 아니다. 어긋남 세 겹 — (a) 화학: 이 카드의 PIB 갈래는 산무수물 변성 폴리이소부틸렌을 아크릴 올리고머로 광가교한 것이고, matmake 행은 이소부틸렌-이소프렌 공중합 가황 부틸고무다. (b) 배합: 이 카드의 실런트는 흄드실리카 약 3.7 wt% + CaO 게터 약 18 wt% 를 담는다(LG화학 US11795314B2 실시예). 무기 충전 20 wt% 대면 밀도가 올라가고 비열이 내려간다 — 그 배분을 문서가 말하지 않아 계산하지 않았다. (c) 제품: 패널 등급 미확정. 또한 이 카드에는 **아크릴레이트 갈래**(우레탄아크릴레이트/IBOA/THFA + 카본블랙, 삼성디스플레이 US10928662B2)가 함께 있는데 이 행들은 그 갈래를 대표하지 않는다."
+     },
+     "notes": "matmake 'Table of Butyl Rubber Properties' verbatim. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C or 68 F) and 1 atm pressure.' 참고문헌은 Cardarelli Materials Handbook(2018) · CRC Handbook 97th · Oxford Engineering Tables(2009) 셋이라 **2차 인용이다**. 이 카드가 이미 쓰는 출처 계열이기도 하다 — 카탈로그 출처 3300 이 같은 사이트의 'Properties of Cellulose Acetate (CA)' 다. **이 페이지의 \"Young's Modulus (E) | 0.3 - 3.4 GPa\" 행은 쓰지 않았다** — 같은 표의 'Ultimate Tensile Strength 17 MPa' · 'Elongation at Break 700 - 950%' 와 자기모순이다(0.3 GPa 면 17 MPa 에서 변형률 5.7 % 다). 같은 사이트의 CA 페이지도 굴곡탄성률 8.3~27.6 GPa 를 영률 1.0~4.0 GPa 보다 크게 인쇄한다 — **이 출처는 행 단위로 검증하고 써야 한다.** 행 verbatim: 'Ultimate Tensile Strength | 17 MPa'. 환산 1.7e7 Pa. **교차검증** — 카탈로그 재료 59 가 H.B. Fuller 'Butyl Sealants and Tapes' 기술개요에서 16 MPa 를 갖고 있어 6 % 안에서 맞는다. 다만 같은 재료가 SFS 부틸 실런트 테이프 데이터시트(t1)에서는 0.113 MPa 를 갖는다 — **가황 부틸고무 컴파운드와 미가황 부틸 실런트 테이프는 두 자릿수 이상 다르다.** 이 카드의 사이드실은 UV 광가교 망이라 테이프 쪽이 아니라 가교 컴파운드 쪽에 가깝다고 보아 17 MPa 를 넣었지만, **그 판단 자체는 문서가 아니라 추론이다** — 다음 배치가 다시 볼 것."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.13,
+     "unit": "W/(m*K)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "printed_as": "0.13 W/m.K",
+      "grade_scope": "class value — matmake 'Butyl Rubber (IIR)' 클래스 행이지 이 카드의 값이 아니다. 어긋남 세 겹 — (a) 화학: 이 카드의 PIB 갈래는 산무수물 변성 폴리이소부틸렌을 아크릴 올리고머로 광가교한 것이고, matmake 행은 이소부틸렌-이소프렌 공중합 가황 부틸고무다. (b) 배합: 이 카드의 실런트는 흄드실리카 약 3.7 wt% + CaO 게터 약 18 wt% 를 담는다(LG화학 US11795314B2 실시예). 무기 충전 20 wt% 대면 밀도가 올라가고 비열이 내려간다 — 그 배분을 문서가 말하지 않아 계산하지 않았다. (c) 제품: 패널 등급 미확정. 또한 이 카드에는 **아크릴레이트 갈래**(우레탄아크릴레이트/IBOA/THFA + 카본블랙, 삼성디스플레이 US10928662B2)가 함께 있는데 이 행들은 그 갈래를 대표하지 않는다.",
+      "bound": "lower"
+     },
+     "notes": "matmake 'Table of Butyl Rubber Properties' verbatim. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C or 68 F) and 1 atm pressure.' 참고문헌은 Cardarelli Materials Handbook(2018) · CRC Handbook 97th · Oxford Engineering Tables(2009) 셋이라 **2차 인용이다**. 이 카드가 이미 쓰는 출처 계열이기도 하다 — 카탈로그 출처 3300 이 같은 사이트의 'Properties of Cellulose Acetate (CA)' 다. **이 페이지의 \"Young's Modulus (E) | 0.3 - 3.4 GPa\" 행은 쓰지 않았다** — 같은 표의 'Ultimate Tensile Strength 17 MPa' · 'Elongation at Break 700 - 950%' 와 자기모순이다(0.3 GPa 면 17 MPa 에서 변형률 5.7 % 다). 같은 사이트의 CA 페이지도 굴곡탄성률 8.3~27.6 GPa 를 영률 1.0~4.0 GPa 보다 크게 인쇄한다 — **이 출처는 행 단위로 검증하고 써야 한다.** 행 verbatim: 'Thermal Conductivity | 0.13 - 0.23 W/m.K'. 구간이라 두 끝을 각각 한 행으로 넣는다. **교차검증** — 카탈로그 재료 59 가 MDPI Polymers 논문에서 0.13, Rubber Technology Handbook(Hofmann)에서 0.2 를 갖고 있어 이 구간 안이다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.23,
+     "unit": "W/(m*K)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "printed_as": "0.23 W/m.K",
+      "grade_scope": "class value — matmake 'Butyl Rubber (IIR)' 클래스 행이지 이 카드의 값이 아니다. 어긋남 세 겹 — (a) 화학: 이 카드의 PIB 갈래는 산무수물 변성 폴리이소부틸렌을 아크릴 올리고머로 광가교한 것이고, matmake 행은 이소부틸렌-이소프렌 공중합 가황 부틸고무다. (b) 배합: 이 카드의 실런트는 흄드실리카 약 3.7 wt% + CaO 게터 약 18 wt% 를 담는다(LG화학 US11795314B2 실시예). 무기 충전 20 wt% 대면 밀도가 올라가고 비열이 내려간다 — 그 배분을 문서가 말하지 않아 계산하지 않았다. (c) 제품: 패널 등급 미확정. 또한 이 카드에는 **아크릴레이트 갈래**(우레탄아크릴레이트/IBOA/THFA + 카본블랙, 삼성디스플레이 US10928662B2)가 함께 있는데 이 행들은 그 갈래를 대표하지 않는다.",
+      "bound": "upper"
+     },
+     "notes": "matmake 'Table of Butyl Rubber Properties' verbatim. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C or 68 F) and 1 atm pressure.' 참고문헌은 Cardarelli Materials Handbook(2018) · CRC Handbook 97th · Oxford Engineering Tables(2009) 셋이라 **2차 인용이다**. 이 카드가 이미 쓰는 출처 계열이기도 하다 — 카탈로그 출처 3300 이 같은 사이트의 'Properties of Cellulose Acetate (CA)' 다. **이 페이지의 \"Young's Modulus (E) | 0.3 - 3.4 GPa\" 행은 쓰지 않았다** — 같은 표의 'Ultimate Tensile Strength 17 MPa' · 'Elongation at Break 700 - 950%' 와 자기모순이다(0.3 GPa 면 17 MPa 에서 변형률 5.7 % 다). 같은 사이트의 CA 페이지도 굴곡탄성률 8.3~27.6 GPa 를 영률 1.0~4.0 GPa 보다 크게 인쇄한다 — **이 출처는 행 단위로 검증하고 써야 한다.** 행 verbatim: 'Thermal Conductivity | 0.13 - 0.23 W/m.K'. 위와 같은 구간의 상한."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1950.0,
+     "unit": "J/(kg*K)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "printed_as": "1950 J/kg.K",
+      "grade_scope": "class value — matmake 'Butyl Rubber (IIR)' 클래스 행이지 이 카드의 값이 아니다. 어긋남 세 겹 — (a) 화학: 이 카드의 PIB 갈래는 산무수물 변성 폴리이소부틸렌을 아크릴 올리고머로 광가교한 것이고, matmake 행은 이소부틸렌-이소프렌 공중합 가황 부틸고무다. (b) 배합: 이 카드의 실런트는 흄드실리카 약 3.7 wt% + CaO 게터 약 18 wt% 를 담는다(LG화학 US11795314B2 실시예). 무기 충전 20 wt% 대면 밀도가 올라가고 비열이 내려간다 — 그 배분을 문서가 말하지 않아 계산하지 않았다. (c) 제품: 패널 등급 미확정. 또한 이 카드에는 **아크릴레이트 갈래**(우레탄아크릴레이트/IBOA/THFA + 카본블랙, 삼성디스플레이 US10928662B2)가 함께 있는데 이 행들은 그 갈래를 대표하지 않는다."
+     },
+     "notes": "matmake 'Table of Butyl Rubber Properties' verbatim. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C or 68 F) and 1 atm pressure.' 참고문헌은 Cardarelli Materials Handbook(2018) · CRC Handbook 97th · Oxford Engineering Tables(2009) 셋이라 **2차 인용이다**. 이 카드가 이미 쓰는 출처 계열이기도 하다 — 카탈로그 출처 3300 이 같은 사이트의 'Properties of Cellulose Acetate (CA)' 다. **이 페이지의 \"Young's Modulus (E) | 0.3 - 3.4 GPa\" 행은 쓰지 않았다** — 같은 표의 'Ultimate Tensile Strength 17 MPa' · 'Elongation at Break 700 - 950%' 와 자기모순이다(0.3 GPa 면 17 MPa 에서 변형률 5.7 % 다). 같은 사이트의 CA 페이지도 굴곡탄성률 8.3~27.6 GPa 를 영률 1.0~4.0 GPa 보다 크게 인쇄한다 — **이 출처는 행 단위로 검증하고 써야 한다.** 행 verbatim: 'Specific Heat Capacity (Cp) | 1950 J/kg.K'. **교차검증** — 카탈로그 재료 59 가 Rubber Technology Handbook(Hofmann)에서 1900 J/(kg.K) 를 갖고 있어 2.6 % 안에서 맞는다. 같은 재료의 다른 출처(MDPI, 부틸/PP TPE)는 1250 인데 그것은 PP 를 섞은 블렌드다. **CaO 게터 약 18 wt% 를 담은 실제 실링재는 이보다 낮을 것이다**(CaO 의 비열은 약 750 J/(kg.K)) — 다만 그 혼합칙 계산은 하지 않았다. 역산 금지."
+    }
+   ]
+  }
+ ]
+}

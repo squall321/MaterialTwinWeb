@@ -1,0 +1,34 @@
+{
+ "batch": "68차 DB",
+ "verdicts": [
+  {
+   "material_id": 2701,
+   "name": "Display panel edge/frame sealant, epoxy-acrylate backbone perimeter seal (composition class — panel grade not identified)",
+   "core_doors_tried": {
+    "_68DB": "68차 DB — 코어7 을 찾아 실제로 연 문 (열었는데 그 열이 없었던 것). ① Sekisui Photolec S 벤더 물성표(재료 2702·2703 의 Tg 출처): 점도·Ti·WVTR·전단접착력·Tg 만 있고 밀도·영률·포아송비·CTE·열전도율·비열이 **한 칸도 없다**. ② 67차 CA 가 연 프레임 실 특허 9건(Sharp US10739647·US11168254, Hitachi US7746428, Mitsui US7495035·US7903230, Nippon Kayaku US7824746·US7678433, BOE US10138399, ITRI US8193258): 조성·점도·Tg·투습·접착력·비저항만 인쇄하고 **경화물의 코어7 을 한 건도 인쇄하지 않는다**(디스크 전수 grep: modulus/thermal expansion/specific heat/thermal conductivity/poisson/tensile strength/g·cm3 패턴 히트 0). ③ Kaneka/Texas A&M US10259948B2: TABLE 1 은 부식(Icorr·Ecorr·CR), TABLE 2 는 ZrP 함량·전광선투과율·헤이즈·산소투과도/투과계수뿐 — 역학·열 열이 없다. → 그래서 이 카드의 코어7 은 전부 클래스값(Granta 범용 에폭시)과 계열 올리고머 벤더시트(allnex EBECRYL 3700, Sartomer CN120A75)로 채웠다. **이 카드 자신을 잰 문서는 여전히 0 건이다.**"
+   }
+  },
+  {
+   "material_id": 2704,
+   "name": "Low-temperature organic planarization film / color-filter overcoat (acrylic-epoxy thermoset, OLED CoE 적층 ②)",
+   "core_doors_tried": {
+    "_68DB": "68차 DB — 코어7 을 찾아 실제로 연 문. ① BOE US11332634B2: TABLE 2 의 'Existing Overcoat Layer Material' 열에서 **밀도 1.2~1.3 g/cm3 를 얻었다**(등록). 그러나 같은 특허 TABLE 3 의 'Thermal Expansion Coefficient (/K) 6.84*10-5' 는 **가교 폴리스티렌**의 값이고 PMMA 열은 원문에서 대시로 비어 있다(스캔 PDF 를 400 dpi 로 재렌더해 tesseract 로 두 번 확인). 두 표 어디에도 영률·포아송비·열전도율·비열·인장강도 행이 없다. ② 삼성SDI US10822449B2 TABLE 1: 연필경도(4H~6H)·투과율(99.3~99.8 %)·CVD 후 헤이즈·유전율·내약품성(막두께 감소율)·아웃가스만 있고 **코어7 이 한 칸도 없다**. 게다가 그 특허의 해법은 에폭시-실록산이라 이 카드(아크릴 분기)와 갈래가 다르다. ③ Kaneka US10259948B2: 위 2701 항목과 같다 — 코어7 열 없음. ④ 삼성디스플레이 US9978816B2(적층 위치 확정 출처): 오버코트 530 의 재질 나열만 있고 물성값이 없다. → 밀도 외 여섯 칸은 Granta 'PMMA General Purpose' 클래스값으로 채웠다(근거: 같은 BOE 특허 배경부가 'the most commonly used acrylic resin is polymethyl methacrylate' 라고 이 층의 주골격을 지목한다)."
+   }
+  },
+  {
+   "material_id": 2705,
+   "name": "Cellulose triacetate (TAC/CTA) optical film, display polarizer protective film class (grade not identified)",
+   "core_doors_tried": {
+    "_68DB": "68차 DB — 코어7 을 찾아 실제로 연 문. ① ACS Omega 10.1021/acsomega.8b01616(이 카드가 이미 쓰는 출처 계열): Table 1 의 'neat CTA' 행에서 **영률 1.03 GPa · 인장강도 40.8 MPa 를 얻었다**(등록). Table 2 에서 DMA E'(23 C) 2.94 GPa · Tg 180.3 C 도 인쇄된다. 그러나 **CTE 는 Figure 6 그래프에만 있고 표가 없다** — 그림에서 읽은 값은 실측이 아니므로 넣지 않았다. 밀도는 'the density of the nanocomposite ... approximately 1.15' 로 **복합막**의 값이라 넣지 않았다(SI Table S2, 디스크 부재). ② 67차 CC 가 훑은 TAC 벤더 시트(Fujifilm FUJITAC, Konica Minolta KC4UY/KC8UX, Eastman, Daicel, SK microworks): 광학(헤이즈·Re/Rth·투과율)·치수·투습 위주이고 이번 표적인 역학·열 물성도 공개 시트에 정리돼 있지 않다. 코니카미놀타 기술보고 PDF 는 **디스크에 없다**(코퍼스 전역 검색 0 건) — 브리프가 있다고 한 파일들이 실재하지 않았다. ③ Heat Flow in ... Cellulose Derivatives(PMC12805645): 셀룰로스 아세테이트 50 um 필름의 열전도율 0.15~0.21 W/m/K 를 **본문 문장으로** 적지만 수치는 Figure 7(b) 축에만 있어 등록하지 않았다 — Granta 구간(0.167~0.335)의 교차검증으로만 썼다. → 나머지 다섯 칸은 Granta 'Cellulose Acetate' 클래스값으로 채웠다. **그 표의 Tg 가 52~66 C 라 가소화 CA 성형 그레이드이고, 이 카드의 CTA 는 Tg 180 C 다** — 특히 CTE 180~270 ppm/K 는 상한으로만 읽어라."
+   }
+  },
+  {
+   "material_id": 2708,
+   "name": "Display module side sealing material, module-level perimeter side seal (composition class — panel grade not identified)",
+   "core_absent_from_vendor_sheet": {
+    "mechanical.poisson_ratio": "68차 DB — **포아송비 행을 가진 문서를 하나도 열지 못했다. 연 문서들에는 그 행이 없다.** ① matmake 'Butyl Rubber (IIR) - Properties' 전량 열람: Physical(밀도·카테고리) · Mechanical(인장강도·영률·파단연신·Shore A) · Thermal(열전도율·비열·Tg) · Optical(굴절률) 뿐이고 **포아송비 행 자체가 없다**(같은 사이트의 Cellulose Acetate 페이지도 마찬가지다 — 이 사이트 서식에 포아송비 칸이 없다). ② LG디스플레이 US11099608B2 전문: 제1/제2 실 부재의 탄성률(0.14 / 1.8 GPa)은 인쇄하지만 포아송비는 없다. ③ 삼성디스플레이 US10928662B2 TABLE 1: 연신율·박리강도·전단접착강도 세 열뿐. ④ 67차 CE 가 사이드실 특허 25건을 기계적으로 전수 훑었을 때도 역학 물성표를 가진 것은 ②뿐이었다. ⑤ AZoM/Granta 계열(이 배치가 다른 세 카드에 쓴 출처)에 부틸고무/폴리이소부틸렌 항목을 **찾지 못했다** — 실리콘고무(920)·E-SBR(1844)는 있다. properties.aspx 를 ID 12개로 직접 두드리고 사이트 검색도 했으나 부틸 레코드가 잡히지 않았다. **전수 열거는 아니므로 '없다'가 아니라 '못 찾았다'다.** **닫는 법** — (a) Granta/CES 의 Butyl Rubber 레코드에 접근하거나, (b) 카탈로그 출처 971 'Rubber Technology Handbook (Hofmann)' 의 실물을 확보하면 재료 59 가 이미 그것으로 0.49 를 갖고 있으므로 같은 쪽을 이 카드에도 옮길 수 있다(지금은 local_path·url 이 비어 있어 열 수 없다), (c) 이 카드의 아크릴레이트 갈래라면 우레탄아크릴레이트 경화막의 포아송비를 재는 문헌. **추정으로 0.49 를 적지 않았다** — 이 카드는 유리상(1.8 GPa)과 고무상 사이 어디에 놓이는지가 미확정이라 엘라스토머 관례값 하나를 붙이는 것이 오히려 틀린 값이 된다.",
+    "thermal.expansion_linear": "68차 DB — **선팽창계수 행을 가진 문서를 하나도 열지 못했다.** ① matmake 'Butyl Rubber (IIR)' Thermal Properties 구획: 열전도율·비열·Tg 셋뿐이고 **CTE 행이 없다** (같은 사이트의 Cellulose Acetate 페이지에는 CTE 행이 있으므로 서식의 문제가 아니라 이 재료 페이지가 비운 것이다). ② LG디스플레이 US 2025/0221249 A1 은 사이드실(sealing member ECR)의 CTE 를 **비로만** 인쇄한다 — 청구항 verbatim 'the thermal expansion coefficient of the stress relief member TSR may correspond to 1/10 to 1/1000 of the thermal expansion coefficient of the sealing member ECR.' **절대값이 문서 어디에도 없다.** 비만 있는 값은 물성이 아니다. ③ LG디스플레이 US 2024/0224729 A1 도 '기판과 CTE 가 다르다/비슷하다' 는 서술뿐이고 숫자가 없다. ④ US 2025/0212658 A1 의 CTE 언급은 **Invar 봉지기판**에 대한 것이지 실링재가 아니다. ⑤ 67차 CE 의 사이드실 특허 25건 전수 스캔에서도 절대 CTE 를 찍은 건이 0 건이다. **닫는 법** — (a) Granta/CES Butyl Rubber 레코드, (b) 충전·게터 배합 실링재의 TMA 실측 1회 (67차 CE 가 이미 1순위로 요청한 자립막 OTR 시험과 같은 시편에서 함께 얻을 수 있다), (c) 아크릴레이트 갈래라면 우레탄아크릴레이트 경화막 TMA. **부틸고무 CTE 통념(190 ppm/K 대)을 적지 않았다** — 실제 실링재는 무기 충전 20 wt% 대라 그 값에서 크게 내려가고, 내려가는 배수를 문서가 말하지 않는다. 역산 금지."
+   }
+  }
+ ]
+}

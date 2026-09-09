@@ -1,0 +1,226 @@
+{
+ "batch": "68차 DB",
+ "materials": [
+  {
+   "match_name": "Low-temperature organic planarization film / color-filter overcoat (acrylic-epoxy thermoset, OLED CoE 적층 ②)",
+   "source": {
+    "kind": "patent",
+    "title": "US 11,332,634 B2 — Composition for overcoat layer, overcoat layer and preparation method therefor, and display panel (BOE Technology Group / Hefei Xinsheng Optoelectronics), TABLE 2 — 'Parameters of Physical Properties' 의 'Existing Overcoat Layer Material' 열",
+    "url": "https://patents.google.com/patent/US11332634B2/en",
+    "publisher": "USPTO / BOE Technology Group Co., Ltd.",
+    "year": 2022,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/display/US11332634B2_BOE_overcoat_layer_composition.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1200.0,
+     "unit": "kg/m^3",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 25,
+      "bound": "lower",
+      "printed_as": "1.2 to 1.3 g/cm3",
+      "grade_scope": "class value — 이 열은 BOE 가 자기 발명(가교 폴리스티렌+에폭시, Example 6)과 비교하려고 인쇄한 'Existing Overcoat Layer Material' 이다. **그 '기존 오버코트 재료'가 곧 이 카드다** — 같은 특허의 배경부가 'At present, the OC material mainly consists of acrylic resin-epoxy resin as a basic skeleton component, and an OC raw material available for a coating process may be obtained by adding a crosslinking agent, a surface modifier, a solvent, and the like. ... At present, the most commonly used acrylic resin is polymethyl methacrylate.' 라고 못박는다. 다만 (a) 특정 벤더 제품 등급이 아니라 업계 통칭이고, (b) BOE 가 이 열을 어떻게 얻었는지(자사 측정인지 인용인지) 밝히지 않으며, (c) 우리 적층은 OLED CoE 저온 경화(100 C 이하)인데 이 특허의 종래 OC 는 LCD CF 용 150~250 C 열경화다. 그래서 t3 다."
+     },
+     "notes": "US 11,332,634 B2 TABLE 2 verbatim — 열 머리글 'Parameters of Physical Properties | Overcoat Layer Material Prepared in Example 6 | Existing Overcoat Layer Material', 행 verbatim 'Density (g/cm3) | 1.00 to 1.05 | 1.2 to 1.3'. **오른쪽 열(기존 오버코트 재료)만 이 카드에 넣었다** — 왼쪽 열 1.00~1.05 는 BOE 가 새로 제안한 가교 폴리스티렌계이지 이 카드의 아크릴-에폭시가 아니다. 환산 1.2 g/cm3 = 1200 kg/m^3, 1.3 g/cm3 = 1300 kg/m^3. 표가 구간으로 인쇄하므로 두 끝을 각각 한 행으로 넣는다. 원문 PDF 는 스캔이라 텍스트층이 없다 — 400 dpi 로 다시 렌더해 tesseract 로 두 번 읽어 같은 값을 얻었다. 본문도 같은 방향을 적는다 — 'the composition for the overcoat layer of the present disclosure has ... lower density, lower water absorption'. [교차검증] 같은 특허 TABLE 3 은 가교 폴리스티렌과 PMMA 를 비교하며 'Density | around 1.05 | 1.15 to 1.19' 를 인쇄한다. PMMA 단독이 1.15~1.19 이고 실제 오버코트 재료가 1.2~1.3 인 것은 에폭시·가교제·계면활성제가 들어간 배합이라는 뜻이고, 두 열이 1.19~1.20 에서 이어진다 — 오식이 아니다."
+    },
+    {
+     "key": "physical.density",
+     "value": 1300.0,
+     "unit": "kg/m^3",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 25,
+      "bound": "upper",
+      "printed_as": "1.2 to 1.3 g/cm3",
+      "grade_scope": "class value — 이 열은 BOE 가 자기 발명(가교 폴리스티렌+에폭시, Example 6)과 비교하려고 인쇄한 'Existing Overcoat Layer Material' 이다. **그 '기존 오버코트 재료'가 곧 이 카드다** — 같은 특허의 배경부가 'At present, the OC material mainly consists of acrylic resin-epoxy resin as a basic skeleton component, and an OC raw material available for a coating process may be obtained by adding a crosslinking agent, a surface modifier, a solvent, and the like. ... At present, the most commonly used acrylic resin is polymethyl methacrylate.' 라고 못박는다. 다만 (a) 특정 벤더 제품 등급이 아니라 업계 통칭이고, (b) BOE 가 이 열을 어떻게 얻었는지(자사 측정인지 인용인지) 밝히지 않으며, (c) 우리 적층은 OLED CoE 저온 경화(100 C 이하)인데 이 특허의 종래 OC 는 LCD CF 용 150~250 C 열경화다. 그래서 t3 다."
+     },
+     "notes": "US 11,332,634 B2 TABLE 2 verbatim — 열 머리글 'Parameters of Physical Properties | Overcoat Layer Material Prepared in Example 6 | Existing Overcoat Layer Material', 행 verbatim 'Density (g/cm3) | 1.00 to 1.05 | 1.2 to 1.3'. **오른쪽 열(기존 오버코트 재료)만 이 카드에 넣었다** — 왼쪽 열 1.00~1.05 는 BOE 가 새로 제안한 가교 폴리스티렌계이지 이 카드의 아크릴-에폭시가 아니다. 환산 1.2 g/cm3 = 1200 kg/m^3, 1.3 g/cm3 = 1300 kg/m^3. 표가 구간으로 인쇄하므로 두 끝을 각각 한 행으로 넣는다. 원문 PDF 는 스캔이라 텍스트층이 없다 — 400 dpi 로 다시 렌더해 tesseract 로 두 번 읽어 같은 값을 얻었다. 본문도 같은 방향을 적는다 — 'the composition for the overcoat layer of the present disclosure has ... lower density, lower water absorption'. [교차검증] 같은 특허 TABLE 3 은 가교 폴리스티렌과 PMMA 를 비교하며 'Density | around 1.05 | 1.15 to 1.19' 를 인쇄한다. PMMA 단독이 1.15~1.19 이고 실제 오버코트 재료가 1.2~1.3 인 것은 에폭시·가교제·계면활성제가 들어간 배합이라는 뜻이고, 두 열이 1.19~1.20 에서 이어진다 — 오식이 아니다."
+    }
+   ]
+  },
+  {
+   "match_name": "Low-temperature organic planarization film / color-filter overcoat (acrylic-epoxy thermoset, OLED CoE 적층 ②)",
+   "source": {
+    "kind": "database",
+    "title": "Properties: Polymethylmethacrylate - Acrylic - PMMA General Purpose — AZoM materials property table (data from Granta Design Limited)",
+    "url": "https://www.azom.com/properties.aspx?ArticleID=788",
+    "publisher": "AZoM.com / Granta Design Limited",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/display/db_azom_788.html"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 2700000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "lower",
+      "printed_as": "2.7 GPa",
+      "grade_scope": "class value — Granta 'PMMA General Purpose' 클래스 행이다. 이 카드의 층은 **메타크릴산·스티렌·글리시딜메타크릴레이트 공중합체를 에폭시 개환으로 가교한 열경화막**(에폭시 10~30 wt%)이고 PMMA 는 가교되지 않은 선형 열가소성이다. 이 클래스값을 붙이는 근거는 BOE US11332634B2 배경부가 'the most commonly used acrylic resin is polymethyl methacrylate' 라고 이 층의 주골격을 PMMA 로 지목하는 것뿐이다. 가교는 보통 영률·인장강도를 올리고 CTE 를 내리므로 **이 밴드는 아크릴 골격 쪽의 하한 성격**이다. 에폭시 공성분 쪽 밴드는 같은 Granta 계열의 'Epoxy Resin - General Purpose'(ArticleID=630) 가 Young's 2.5~4.4 GPa · Poisson 0.40~0.45 · Tensile 40~60 MPa · Specific Heat 1200~1280 J/kg.K · Thermal Conductivity 0.15~0.6 W/m.K · Thermal Expansion 80~150 ppm/K 로 인쇄한다 — 이 카드에는 넣지 않았고 다음 배치가 판단할 몫으로 남긴다."
+     },
+     "notes": "AZoM/Granta 'Properties: Polymethylmethacrylate - Acrylic - PMMA General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C).' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. 행 verbatim: \"Young's Modulus | 2.7 | 3.2 | GPa\". 같은 표의 Shear Modulus 0.9~1.0 GPa 와 Poisson 0.40~0.43 으로 E=2G(1+v) 를 되돌리면 2.52~2.86 GPa 로 인쇄된 2.7~3.2 GPa 와 7~11 % 안에서 맞는다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 3200000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "upper",
+      "printed_as": "3.2 GPa",
+      "grade_scope": "class value — Granta 'PMMA General Purpose' 클래스 행이다. 이 카드의 층은 **메타크릴산·스티렌·글리시딜메타크릴레이트 공중합체를 에폭시 개환으로 가교한 열경화막**(에폭시 10~30 wt%)이고 PMMA 는 가교되지 않은 선형 열가소성이다. 이 클래스값을 붙이는 근거는 BOE US11332634B2 배경부가 'the most commonly used acrylic resin is polymethyl methacrylate' 라고 이 층의 주골격을 PMMA 로 지목하는 것뿐이다. 가교는 보통 영률·인장강도를 올리고 CTE 를 내리므로 **이 밴드는 아크릴 골격 쪽의 하한 성격**이다. 에폭시 공성분 쪽 밴드는 같은 Granta 계열의 'Epoxy Resin - General Purpose'(ArticleID=630) 가 Young's 2.5~4.4 GPa · Poisson 0.40~0.45 · Tensile 40~60 MPa · Specific Heat 1200~1280 J/kg.K · Thermal Conductivity 0.15~0.6 W/m.K · Thermal Expansion 80~150 ppm/K 로 인쇄한다 — 이 카드에는 넣지 않았고 다음 배치가 판단할 몫으로 남긴다."
+     },
+     "notes": "AZoM/Granta 'Properties: Polymethylmethacrylate - Acrylic - PMMA General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C).' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. 행 verbatim: \"Young's Modulus | 2.7 | 3.2 | GPa\". 교차검증 — 카탈로그 재료 75 'PMMA Optical (Acrylic)' 이 Evonik PLEXIGLAS 7N 데이터시트(t1)로 3.2 GPa 를 갖고 있어 이 구간의 상한과 일치한다."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.4,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "lower",
+      "printed_as": "0.4",
+      "grade_scope": "class value — Granta 'PMMA General Purpose' 클래스 행이다. 이 카드의 층은 **메타크릴산·스티렌·글리시딜메타크릴레이트 공중합체를 에폭시 개환으로 가교한 열경화막**(에폭시 10~30 wt%)이고 PMMA 는 가교되지 않은 선형 열가소성이다. 이 클래스값을 붙이는 근거는 BOE US11332634B2 배경부가 'the most commonly used acrylic resin is polymethyl methacrylate' 라고 이 층의 주골격을 PMMA 로 지목하는 것뿐이다. 가교는 보통 영률·인장강도를 올리고 CTE 를 내리므로 **이 밴드는 아크릴 골격 쪽의 하한 성격**이다. 에폭시 공성분 쪽 밴드는 같은 Granta 계열의 'Epoxy Resin - General Purpose'(ArticleID=630) 가 Young's 2.5~4.4 GPa · Poisson 0.40~0.45 · Tensile 40~60 MPa · Specific Heat 1200~1280 J/kg.K · Thermal Conductivity 0.15~0.6 W/m.K · Thermal Expansion 80~150 ppm/K 로 인쇄한다 — 이 카드에는 넣지 않았고 다음 배치가 판단할 몫으로 남긴다."
+     },
+     "notes": "AZoM/Granta 'Properties: Polymethylmethacrylate - Acrylic - PMMA General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C).' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. "
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.43,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "upper",
+      "printed_as": "0.43",
+      "grade_scope": "class value — Granta 'PMMA General Purpose' 클래스 행이다. 이 카드의 층은 **메타크릴산·스티렌·글리시딜메타크릴레이트 공중합체를 에폭시 개환으로 가교한 열경화막**(에폭시 10~30 wt%)이고 PMMA 는 가교되지 않은 선형 열가소성이다. 이 클래스값을 붙이는 근거는 BOE US11332634B2 배경부가 'the most commonly used acrylic resin is polymethyl methacrylate' 라고 이 층의 주골격을 PMMA 로 지목하는 것뿐이다. 가교는 보통 영률·인장강도를 올리고 CTE 를 내리므로 **이 밴드는 아크릴 골격 쪽의 하한 성격**이다. 에폭시 공성분 쪽 밴드는 같은 Granta 계열의 'Epoxy Resin - General Purpose'(ArticleID=630) 가 Young's 2.5~4.4 GPa · Poisson 0.40~0.45 · Tensile 40~60 MPa · Specific Heat 1200~1280 J/kg.K · Thermal Conductivity 0.15~0.6 W/m.K · Thermal Expansion 80~150 ppm/K 로 인쇄한다 — 이 카드에는 넣지 않았고 다음 배치가 판단할 몫으로 남긴다."
+     },
+     "notes": "AZoM/Granta 'Properties: Polymethylmethacrylate - Acrylic - PMMA General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C).' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. 행 verbatim: \"Poisson's Ratio | 0.4 | 0.43\" (무차원). 교차검증 — 카탈로그 재료 75 는 Polymer Handbook 4판에서 0.35 를 갖고 있다(t2). **Granta 0.40~0.43 과 Polymer Handbook 0.35 가 어긋난다** — 두 편찬표의 차이이고 이 배치는 가르지 못했다. 밴드로 써라."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 50000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "lower",
+      "printed_as": "50 MPa",
+      "grade_scope": "class value — Granta 'PMMA General Purpose' 클래스 행이다. 이 카드의 층은 **메타크릴산·스티렌·글리시딜메타크릴레이트 공중합체를 에폭시 개환으로 가교한 열경화막**(에폭시 10~30 wt%)이고 PMMA 는 가교되지 않은 선형 열가소성이다. 이 클래스값을 붙이는 근거는 BOE US11332634B2 배경부가 'the most commonly used acrylic resin is polymethyl methacrylate' 라고 이 층의 주골격을 PMMA 로 지목하는 것뿐이다. 가교는 보통 영률·인장강도를 올리고 CTE 를 내리므로 **이 밴드는 아크릴 골격 쪽의 하한 성격**이다. 에폭시 공성분 쪽 밴드는 같은 Granta 계열의 'Epoxy Resin - General Purpose'(ArticleID=630) 가 Young's 2.5~4.4 GPa · Poisson 0.40~0.45 · Tensile 40~60 MPa · Specific Heat 1200~1280 J/kg.K · Thermal Conductivity 0.15~0.6 W/m.K · Thermal Expansion 80~150 ppm/K 로 인쇄한다 — 이 카드에는 넣지 않았고 다음 배치가 판단할 몫으로 남긴다."
+     },
+     "notes": "AZoM/Granta 'Properties: Polymethylmethacrylate - Acrylic - PMMA General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C).' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. "
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 75000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "upper",
+      "printed_as": "75 MPa",
+      "grade_scope": "class value — Granta 'PMMA General Purpose' 클래스 행이다. 이 카드의 층은 **메타크릴산·스티렌·글리시딜메타크릴레이트 공중합체를 에폭시 개환으로 가교한 열경화막**(에폭시 10~30 wt%)이고 PMMA 는 가교되지 않은 선형 열가소성이다. 이 클래스값을 붙이는 근거는 BOE US11332634B2 배경부가 'the most commonly used acrylic resin is polymethyl methacrylate' 라고 이 층의 주골격을 PMMA 로 지목하는 것뿐이다. 가교는 보통 영률·인장강도를 올리고 CTE 를 내리므로 **이 밴드는 아크릴 골격 쪽의 하한 성격**이다. 에폭시 공성분 쪽 밴드는 같은 Granta 계열의 'Epoxy Resin - General Purpose'(ArticleID=630) 가 Young's 2.5~4.4 GPa · Poisson 0.40~0.45 · Tensile 40~60 MPa · Specific Heat 1200~1280 J/kg.K · Thermal Conductivity 0.15~0.6 W/m.K · Thermal Expansion 80~150 ppm/K 로 인쇄한다 — 이 카드에는 넣지 않았고 다음 배치가 판단할 몫으로 남긴다."
+     },
+     "notes": "AZoM/Granta 'Properties: Polymethylmethacrylate - Acrylic - PMMA General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C).' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. 행 verbatim: 'Tensile Strength | 50 | 75 | MPa'. 교차검증 — 재료 75 가 PLEXIGLAS 7N 시트에서 73 MPa(t1)를 갖고 있어 이 구간 안이다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.2,
+     "unit": "W/(m*K)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "lower",
+      "printed_as": "0.2 W/m.K",
+      "grade_scope": "class value — Granta 'PMMA General Purpose' 클래스 행이다. 이 카드의 층은 **메타크릴산·스티렌·글리시딜메타크릴레이트 공중합체를 에폭시 개환으로 가교한 열경화막**(에폭시 10~30 wt%)이고 PMMA 는 가교되지 않은 선형 열가소성이다. 이 클래스값을 붙이는 근거는 BOE US11332634B2 배경부가 'the most commonly used acrylic resin is polymethyl methacrylate' 라고 이 층의 주골격을 PMMA 로 지목하는 것뿐이다. 가교는 보통 영률·인장강도를 올리고 CTE 를 내리므로 **이 밴드는 아크릴 골격 쪽의 하한 성격**이다. 에폭시 공성분 쪽 밴드는 같은 Granta 계열의 'Epoxy Resin - General Purpose'(ArticleID=630) 가 Young's 2.5~4.4 GPa · Poisson 0.40~0.45 · Tensile 40~60 MPa · Specific Heat 1200~1280 J/kg.K · Thermal Conductivity 0.15~0.6 W/m.K · Thermal Expansion 80~150 ppm/K 로 인쇄한다 — 이 카드에는 넣지 않았고 다음 배치가 판단할 몫으로 남긴다."
+     },
+     "notes": "AZoM/Granta 'Properties: Polymethylmethacrylate - Acrylic - PMMA General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C).' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. "
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.21,
+     "unit": "W/(m*K)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "upper",
+      "printed_as": "0.21 W/m.K",
+      "grade_scope": "class value — Granta 'PMMA General Purpose' 클래스 행이다. 이 카드의 층은 **메타크릴산·스티렌·글리시딜메타크릴레이트 공중합체를 에폭시 개환으로 가교한 열경화막**(에폭시 10~30 wt%)이고 PMMA 는 가교되지 않은 선형 열가소성이다. 이 클래스값을 붙이는 근거는 BOE US11332634B2 배경부가 'the most commonly used acrylic resin is polymethyl methacrylate' 라고 이 층의 주골격을 PMMA 로 지목하는 것뿐이다. 가교는 보통 영률·인장강도를 올리고 CTE 를 내리므로 **이 밴드는 아크릴 골격 쪽의 하한 성격**이다. 에폭시 공성분 쪽 밴드는 같은 Granta 계열의 'Epoxy Resin - General Purpose'(ArticleID=630) 가 Young's 2.5~4.4 GPa · Poisson 0.40~0.45 · Tensile 40~60 MPa · Specific Heat 1200~1280 J/kg.K · Thermal Conductivity 0.15~0.6 W/m.K · Thermal Expansion 80~150 ppm/K 로 인쇄한다 — 이 카드에는 넣지 않았고 다음 배치가 판단할 몫으로 남긴다."
+     },
+     "notes": "AZoM/Granta 'Properties: Polymethylmethacrylate - Acrylic - PMMA General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C).' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. 행 verbatim: 'Thermal Conductivity | 0.2 | 0.21 | W/m.K'."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1400.0,
+     "unit": "J/(kg*K)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "lower",
+      "printed_as": "1400 J/kg.K",
+      "grade_scope": "class value — Granta 'PMMA General Purpose' 클래스 행이다. 이 카드의 층은 **메타크릴산·스티렌·글리시딜메타크릴레이트 공중합체를 에폭시 개환으로 가교한 열경화막**(에폭시 10~30 wt%)이고 PMMA 는 가교되지 않은 선형 열가소성이다. 이 클래스값을 붙이는 근거는 BOE US11332634B2 배경부가 'the most commonly used acrylic resin is polymethyl methacrylate' 라고 이 층의 주골격을 PMMA 로 지목하는 것뿐이다. 가교는 보통 영률·인장강도를 올리고 CTE 를 내리므로 **이 밴드는 아크릴 골격 쪽의 하한 성격**이다. 에폭시 공성분 쪽 밴드는 같은 Granta 계열의 'Epoxy Resin - General Purpose'(ArticleID=630) 가 Young's 2.5~4.4 GPa · Poisson 0.40~0.45 · Tensile 40~60 MPa · Specific Heat 1200~1280 J/kg.K · Thermal Conductivity 0.15~0.6 W/m.K · Thermal Expansion 80~150 ppm/K 로 인쇄한다 — 이 카드에는 넣지 않았고 다음 배치가 판단할 몫으로 남긴다."
+     },
+     "notes": "AZoM/Granta 'Properties: Polymethylmethacrylate - Acrylic - PMMA General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C).' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. "
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1450.0,
+     "unit": "J/(kg*K)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "upper",
+      "printed_as": "1450 J/kg.K",
+      "grade_scope": "class value — Granta 'PMMA General Purpose' 클래스 행이다. 이 카드의 층은 **메타크릴산·스티렌·글리시딜메타크릴레이트 공중합체를 에폭시 개환으로 가교한 열경화막**(에폭시 10~30 wt%)이고 PMMA 는 가교되지 않은 선형 열가소성이다. 이 클래스값을 붙이는 근거는 BOE US11332634B2 배경부가 'the most commonly used acrylic resin is polymethyl methacrylate' 라고 이 층의 주골격을 PMMA 로 지목하는 것뿐이다. 가교는 보통 영률·인장강도를 올리고 CTE 를 내리므로 **이 밴드는 아크릴 골격 쪽의 하한 성격**이다. 에폭시 공성분 쪽 밴드는 같은 Granta 계열의 'Epoxy Resin - General Purpose'(ArticleID=630) 가 Young's 2.5~4.4 GPa · Poisson 0.40~0.45 · Tensile 40~60 MPa · Specific Heat 1200~1280 J/kg.K · Thermal Conductivity 0.15~0.6 W/m.K · Thermal Expansion 80~150 ppm/K 로 인쇄한다 — 이 카드에는 넣지 않았고 다음 배치가 판단할 몫으로 남긴다."
+     },
+     "notes": "AZoM/Granta 'Properties: Polymethylmethacrylate - Acrylic - PMMA General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C).' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. 행 verbatim: 'Specific Heat | 1400 | 1450 | J/kg.K'. 교차검증 — 재료 75 가 Polymer Handbook 4판에서 1470 J/(kg.K) 를 갖고 있어 이 구간 바로 위다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 6.8e-05,
+     "unit": "1/K",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "lower",
+      "printed_as": "68 x 10-6 /K",
+      "grade_scope": "class value — Granta 'PMMA General Purpose' 클래스 행이다. 이 카드의 층은 **메타크릴산·스티렌·글리시딜메타크릴레이트 공중합체를 에폭시 개환으로 가교한 열경화막**(에폭시 10~30 wt%)이고 PMMA 는 가교되지 않은 선형 열가소성이다. 이 클래스값을 붙이는 근거는 BOE US11332634B2 배경부가 'the most commonly used acrylic resin is polymethyl methacrylate' 라고 이 층의 주골격을 PMMA 로 지목하는 것뿐이다. 가교는 보통 영률·인장강도를 올리고 CTE 를 내리므로 **이 밴드는 아크릴 골격 쪽의 하한 성격**이다. 에폭시 공성분 쪽 밴드는 같은 Granta 계열의 'Epoxy Resin - General Purpose'(ArticleID=630) 가 Young's 2.5~4.4 GPa · Poisson 0.40~0.45 · Tensile 40~60 MPa · Specific Heat 1200~1280 J/kg.K · Thermal Conductivity 0.15~0.6 W/m.K · Thermal Expansion 80~150 ppm/K 로 인쇄한다 — 이 카드에는 넣지 않았고 다음 배치가 판단할 몫으로 남긴다."
+     },
+     "notes": "AZoM/Granta 'Properties: Polymethylmethacrylate - Acrylic - PMMA General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C).' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. "
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 7.2e-05,
+     "unit": "1/K",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "upper",
+      "printed_as": "72 x 10-6 /K",
+      "grade_scope": "class value — Granta 'PMMA General Purpose' 클래스 행이다. 이 카드의 층은 **메타크릴산·스티렌·글리시딜메타크릴레이트 공중합체를 에폭시 개환으로 가교한 열경화막**(에폭시 10~30 wt%)이고 PMMA 는 가교되지 않은 선형 열가소성이다. 이 클래스값을 붙이는 근거는 BOE US11332634B2 배경부가 'the most commonly used acrylic resin is polymethyl methacrylate' 라고 이 층의 주골격을 PMMA 로 지목하는 것뿐이다. 가교는 보통 영률·인장강도를 올리고 CTE 를 내리므로 **이 밴드는 아크릴 골격 쪽의 하한 성격**이다. 에폭시 공성분 쪽 밴드는 같은 Granta 계열의 'Epoxy Resin - General Purpose'(ArticleID=630) 가 Young's 2.5~4.4 GPa · Poisson 0.40~0.45 · Tensile 40~60 MPa · Specific Heat 1200~1280 J/kg.K · Thermal Conductivity 0.15~0.6 W/m.K · Thermal Expansion 80~150 ppm/K 로 인쇄한다 — 이 카드에는 넣지 않았고 다음 배치가 판단할 몫으로 남긴다."
+     },
+     "notes": "AZoM/Granta 'Properties: Polymethylmethacrylate - Acrylic - PMMA General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C).' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. 행 verbatim: 'Thermal Expansion | 68 | 72 | 10-6/K'. 환산 68e-6 · 72e-6 1/K. 교차검증 — 재료 75 가 PLEXIGLAS 7N 시트에서 8e-5 1/K(t1)를 갖고 있어 이 구간 바로 위다. **가교 열경화막은 선형 PMMA 보다 CTE 가 낮게 나오는 것이 보통이므로 이 68~72 ppm/K 는 상한 쪽이다.** 이 층 자체의 CTE 를 인쇄한 문서는 이 배치가 찾지 못했다 — 같은 특허 TABLE 3 의 'Thermal Expansion Coefficient (/K) | 6.84*10-5 | (PMMA 열 공란)' 은 **가교 폴리스티렌**의 값이고 PMMA 칸은 원문에서 대시로 비어 있다(400 dpi 재OCR 로 확인)."
+    }
+   ]
+  }
+ ]
+}

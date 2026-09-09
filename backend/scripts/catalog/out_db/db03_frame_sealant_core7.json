@@ -1,0 +1,279 @@
+{
+ "batch": "68차 DB",
+ "materials": [
+  {
+   "match_name": "Display panel edge/frame sealant, epoxy-acrylate backbone perimeter seal (composition class — panel grade not identified)",
+   "source": {
+    "kind": "database",
+    "title": "Properties: Epoxy Resin - General Purpose — AZoM materials property table (data from Granta Design Limited)",
+    "url": "https://www.azom.com/properties.aspx?ArticleID=630",
+    "publisher": "AZoM.com / Granta Design Limited",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/display/db_azom_630.html"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1140.0,
+     "unit": "kg/m^3",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "lower",
+      "printed_as": "1.14 Mg/m3",
+      "grade_scope": "class value — Granta 'Epoxy Resin - General Purpose' 클래스 행이지 이 카드(부분 (메타)아크릴화 비스페놀A/F 에폭시 = 에폭시 아크릴레이트 50~80 wt% + 미변성 에폭시 15~20 wt% + 잠재 열경화제 + 실리카/알루미나 충전재 10~25 wt%, UV 라디칼 + 열 병용 경화)의 값이 아니다. 어긋남 세 겹 — (a) 화학: Granta 행은 아민/무수물 경화 범용 에폭시이고 이 카드의 주쇄는 아크릴 이중결합으로 광가교된 에폭시 아크릴레이트다. (b) 배합: 이 카드는 무기 충전재를 10~25 wt% 담는데 Granta 행이 충전 여부를 밝히지 않는다 (밀도 상한 1.46 Mg/m3 는 충전계를 포함한 폭으로 보이나 원문이 말하지 않는다). (c) 제품: 패널 등급이 미확정이다. 67차 CA 가 프레임 실 특허 9건과 Sekisui Photolec S 벤더 시트를 전량 열었으나 **경화물의 밀도·영률·포아송비·CTE·열전도율·비열을 인쇄한 것이 한 건도 없었다** — 그들이 찍는 것은 조성·점도·Tg·투습·접착력·비저항이다."
+     },
+     "notes": "AZoM/Granta 'Properties: Epoxy Resin - General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C) and 1 atm.' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. 행 verbatim: 'Density | 1.14 | 1.46 | Mg/m3'. 환산 x1000."
+    },
+    {
+     "key": "physical.density",
+     "value": 1460.0,
+     "unit": "kg/m^3",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "upper",
+      "printed_as": "1.46 Mg/m3",
+      "grade_scope": "class value — Granta 'Epoxy Resin - General Purpose' 클래스 행이지 이 카드(부분 (메타)아크릴화 비스페놀A/F 에폭시 = 에폭시 아크릴레이트 50~80 wt% + 미변성 에폭시 15~20 wt% + 잠재 열경화제 + 실리카/알루미나 충전재 10~25 wt%, UV 라디칼 + 열 병용 경화)의 값이 아니다. 어긋남 세 겹 — (a) 화학: Granta 행은 아민/무수물 경화 범용 에폭시이고 이 카드의 주쇄는 아크릴 이중결합으로 광가교된 에폭시 아크릴레이트다. (b) 배합: 이 카드는 무기 충전재를 10~25 wt% 담는데 Granta 행이 충전 여부를 밝히지 않는다 (밀도 상한 1.46 Mg/m3 는 충전계를 포함한 폭으로 보이나 원문이 말하지 않는다). (c) 제품: 패널 등급이 미확정이다. 67차 CA 가 프레임 실 특허 9건과 Sekisui Photolec S 벤더 시트를 전량 열었으나 **경화물의 밀도·영률·포아송비·CTE·열전도율·비열을 인쇄한 것이 한 건도 없었다** — 그들이 찍는 것은 조성·점도·Tg·투습·접착력·비저항이다."
+     },
+     "notes": "AZoM/Granta 'Properties: Epoxy Resin - General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C) and 1 atm.' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. 행 verbatim: 'Density | 1.14 | 1.46 | Mg/m3'. 환산 x1000. 상한 1.46 은 무충전 에폭시 수지(약 1.16~1.20)보다 높아 충전계를 포함한 폭으로 보이나 **원문이 충전 여부를 밝히지 않는다**. 참고 — 같은 배치가 등록하는 EBECRYL 3700(비스페놀A 에폭시 디아크릴레이트)의 allnex 인쇄 밀도는 1.18 g/ml 인데 그것은 **경화 전 액상 올리고머**의 값이라 이 키에 넣지 않았다(경화수축으로 고형물 밀도는 더 높다)."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 2500000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "lower",
+      "printed_as": "2.5 GPa",
+      "grade_scope": "class value — Granta 'Epoxy Resin - General Purpose' 클래스 행이지 이 카드(부분 (메타)아크릴화 비스페놀A/F 에폭시 = 에폭시 아크릴레이트 50~80 wt% + 미변성 에폭시 15~20 wt% + 잠재 열경화제 + 실리카/알루미나 충전재 10~25 wt%, UV 라디칼 + 열 병용 경화)의 값이 아니다. 어긋남 세 겹 — (a) 화학: Granta 행은 아민/무수물 경화 범용 에폭시이고 이 카드의 주쇄는 아크릴 이중결합으로 광가교된 에폭시 아크릴레이트다. (b) 배합: 이 카드는 무기 충전재를 10~25 wt% 담는데 Granta 행이 충전 여부를 밝히지 않는다 (밀도 상한 1.46 Mg/m3 는 충전계를 포함한 폭으로 보이나 원문이 말하지 않는다). (c) 제품: 패널 등급이 미확정이다. 67차 CA 가 프레임 실 특허 9건과 Sekisui Photolec S 벤더 시트를 전량 열었으나 **경화물의 밀도·영률·포아송비·CTE·열전도율·비열을 인쇄한 것이 한 건도 없었다** — 그들이 찍는 것은 조성·점도·Tg·투습·접착력·비저항이다."
+     },
+     "notes": "AZoM/Granta 'Properties: Epoxy Resin - General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C) and 1 atm.' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. 행 verbatim: \"Young's Modulus | 2.5 | 4.4 | GPa\"."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 4400000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "upper",
+      "printed_as": "4.4 GPa",
+      "grade_scope": "class value — Granta 'Epoxy Resin - General Purpose' 클래스 행이지 이 카드(부분 (메타)아크릴화 비스페놀A/F 에폭시 = 에폭시 아크릴레이트 50~80 wt% + 미변성 에폭시 15~20 wt% + 잠재 열경화제 + 실리카/알루미나 충전재 10~25 wt%, UV 라디칼 + 열 병용 경화)의 값이 아니다. 어긋남 세 겹 — (a) 화학: Granta 행은 아민/무수물 경화 범용 에폭시이고 이 카드의 주쇄는 아크릴 이중결합으로 광가교된 에폭시 아크릴레이트다. (b) 배합: 이 카드는 무기 충전재를 10~25 wt% 담는데 Granta 행이 충전 여부를 밝히지 않는다 (밀도 상한 1.46 Mg/m3 는 충전계를 포함한 폭으로 보이나 원문이 말하지 않는다). (c) 제품: 패널 등급이 미확정이다. 67차 CA 가 프레임 실 특허 9건과 Sekisui Photolec S 벤더 시트를 전량 열었으나 **경화물의 밀도·영률·포아송비·CTE·열전도율·비열을 인쇄한 것이 한 건도 없었다** — 그들이 찍는 것은 조성·점도·Tg·투습·접착력·비저항이다."
+     },
+     "notes": "AZoM/Granta 'Properties: Epoxy Resin - General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C) and 1 atm.' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. 행 verbatim: \"Young's Modulus | 2.5 | 4.4 | GPa\". 같은 표의 Shear Modulus 0.9~1.6 GPa 와 Poisson 0.40~0.45 로 E=2G(1+v) 를 되돌리면 2.52~4.64 GPa 로 인쇄값과 1~5 % 안에서 맞는다 — 열 배치가 확인된다. **같은 배치가 이 카드에 등록하는 Sartomer CN120A75 경화물 영률 331 MPa 와 7.6~13.3 배 어긋난다.** 밴드로 써라. 아민 경화 에폭시망과 UV 라디칼 경화 에폭시 아크릴레이트망은 같은 '에폭시'가 아니다."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.4,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "lower",
+      "printed_as": "0.4",
+      "grade_scope": "class value — Granta 'Epoxy Resin - General Purpose' 클래스 행이지 이 카드(부분 (메타)아크릴화 비스페놀A/F 에폭시 = 에폭시 아크릴레이트 50~80 wt% + 미변성 에폭시 15~20 wt% + 잠재 열경화제 + 실리카/알루미나 충전재 10~25 wt%, UV 라디칼 + 열 병용 경화)의 값이 아니다. 어긋남 세 겹 — (a) 화학: Granta 행은 아민/무수물 경화 범용 에폭시이고 이 카드의 주쇄는 아크릴 이중결합으로 광가교된 에폭시 아크릴레이트다. (b) 배합: 이 카드는 무기 충전재를 10~25 wt% 담는데 Granta 행이 충전 여부를 밝히지 않는다 (밀도 상한 1.46 Mg/m3 는 충전계를 포함한 폭으로 보이나 원문이 말하지 않는다). (c) 제품: 패널 등급이 미확정이다. 67차 CA 가 프레임 실 특허 9건과 Sekisui Photolec S 벤더 시트를 전량 열었으나 **경화물의 밀도·영률·포아송비·CTE·열전도율·비열을 인쇄한 것이 한 건도 없었다** — 그들이 찍는 것은 조성·점도·Tg·투습·접착력·비저항이다."
+     },
+     "notes": "AZoM/Granta 'Properties: Epoxy Resin - General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C) and 1 atm.' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. 행 verbatim: \"Poisson's Ratio | 0.4 | 0.45\" (무차원)."
+    },
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.45,
+     "unit": "1",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "upper",
+      "printed_as": "0.45",
+      "grade_scope": "class value — Granta 'Epoxy Resin - General Purpose' 클래스 행이지 이 카드(부분 (메타)아크릴화 비스페놀A/F 에폭시 = 에폭시 아크릴레이트 50~80 wt% + 미변성 에폭시 15~20 wt% + 잠재 열경화제 + 실리카/알루미나 충전재 10~25 wt%, UV 라디칼 + 열 병용 경화)의 값이 아니다. 어긋남 세 겹 — (a) 화학: Granta 행은 아민/무수물 경화 범용 에폭시이고 이 카드의 주쇄는 아크릴 이중결합으로 광가교된 에폭시 아크릴레이트다. (b) 배합: 이 카드는 무기 충전재를 10~25 wt% 담는데 Granta 행이 충전 여부를 밝히지 않는다 (밀도 상한 1.46 Mg/m3 는 충전계를 포함한 폭으로 보이나 원문이 말하지 않는다). (c) 제품: 패널 등급이 미확정이다. 67차 CA 가 프레임 실 특허 9건과 Sekisui Photolec S 벤더 시트를 전량 열었으나 **경화물의 밀도·영률·포아송비·CTE·열전도율·비열을 인쇄한 것이 한 건도 없었다** — 그들이 찍는 것은 조성·점도·Tg·투습·접착력·비저항이다."
+     },
+     "notes": "AZoM/Granta 'Properties: Epoxy Resin - General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C) and 1 atm.' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. 행 verbatim: \"Poisson's Ratio | 0.4 | 0.45\" (무차원). **0.40~0.45 는 유리상 가교 에폭시 통념(0.35~0.38)보다 높다** — Granta 가 어느 온도·어느 조질을 담았는지 밝히지 않는다. 카탈로그의 이웃값과 대조하면 재료 92 EMC 계열·재료 675 Neat DGEBA 쪽이 더 낮게 잡혀 있다. 밴드로 쓰고 상한을 그대로 해석 입력으로 쓰지 마라."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 40000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "lower",
+      "printed_as": "40 MPa",
+      "grade_scope": "class value — Granta 'Epoxy Resin - General Purpose' 클래스 행이지 이 카드(부분 (메타)아크릴화 비스페놀A/F 에폭시 = 에폭시 아크릴레이트 50~80 wt% + 미변성 에폭시 15~20 wt% + 잠재 열경화제 + 실리카/알루미나 충전재 10~25 wt%, UV 라디칼 + 열 병용 경화)의 값이 아니다. 어긋남 세 겹 — (a) 화학: Granta 행은 아민/무수물 경화 범용 에폭시이고 이 카드의 주쇄는 아크릴 이중결합으로 광가교된 에폭시 아크릴레이트다. (b) 배합: 이 카드는 무기 충전재를 10~25 wt% 담는데 Granta 행이 충전 여부를 밝히지 않는다 (밀도 상한 1.46 Mg/m3 는 충전계를 포함한 폭으로 보이나 원문이 말하지 않는다). (c) 제품: 패널 등급이 미확정이다. 67차 CA 가 프레임 실 특허 9건과 Sekisui Photolec S 벤더 시트를 전량 열었으나 **경화물의 밀도·영률·포아송비·CTE·열전도율·비열을 인쇄한 것이 한 건도 없었다** — 그들이 찍는 것은 조성·점도·Tg·투습·접착력·비저항이다."
+     },
+     "notes": "AZoM/Granta 'Properties: Epoxy Resin - General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C) and 1 atm.' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. 행 verbatim: 'Tensile Strength | 40 | 60 | MPa'."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 60000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "upper",
+      "printed_as": "60 MPa",
+      "grade_scope": "class value — Granta 'Epoxy Resin - General Purpose' 클래스 행이지 이 카드(부분 (메타)아크릴화 비스페놀A/F 에폭시 = 에폭시 아크릴레이트 50~80 wt% + 미변성 에폭시 15~20 wt% + 잠재 열경화제 + 실리카/알루미나 충전재 10~25 wt%, UV 라디칼 + 열 병용 경화)의 값이 아니다. 어긋남 세 겹 — (a) 화학: Granta 행은 아민/무수물 경화 범용 에폭시이고 이 카드의 주쇄는 아크릴 이중결합으로 광가교된 에폭시 아크릴레이트다. (b) 배합: 이 카드는 무기 충전재를 10~25 wt% 담는데 Granta 행이 충전 여부를 밝히지 않는다 (밀도 상한 1.46 Mg/m3 는 충전계를 포함한 폭으로 보이나 원문이 말하지 않는다). (c) 제품: 패널 등급이 미확정이다. 67차 CA 가 프레임 실 특허 9건과 Sekisui Photolec S 벤더 시트를 전량 열었으나 **경화물의 밀도·영률·포아송비·CTE·열전도율·비열을 인쇄한 것이 한 건도 없었다** — 그들이 찍는 것은 조성·점도·Tg·투습·접착력·비저항이다."
+     },
+     "notes": "AZoM/Granta 'Properties: Epoxy Resin - General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C) and 1 atm.' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. 행 verbatim: 'Tensile Strength | 40 | 60 | MPa'. 같은 표의 Elastic Limit 도 40~60 MPa 로 같다 — 취성 파단이다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.15,
+     "unit": "W/(m*K)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "lower",
+      "printed_as": "0.15 W/m.K",
+      "grade_scope": "class value — Granta 'Epoxy Resin - General Purpose' 클래스 행이지 이 카드(부분 (메타)아크릴화 비스페놀A/F 에폭시 = 에폭시 아크릴레이트 50~80 wt% + 미변성 에폭시 15~20 wt% + 잠재 열경화제 + 실리카/알루미나 충전재 10~25 wt%, UV 라디칼 + 열 병용 경화)의 값이 아니다. 어긋남 세 겹 — (a) 화학: Granta 행은 아민/무수물 경화 범용 에폭시이고 이 카드의 주쇄는 아크릴 이중결합으로 광가교된 에폭시 아크릴레이트다. (b) 배합: 이 카드는 무기 충전재를 10~25 wt% 담는데 Granta 행이 충전 여부를 밝히지 않는다 (밀도 상한 1.46 Mg/m3 는 충전계를 포함한 폭으로 보이나 원문이 말하지 않는다). (c) 제품: 패널 등급이 미확정이다. 67차 CA 가 프레임 실 특허 9건과 Sekisui Photolec S 벤더 시트를 전량 열었으나 **경화물의 밀도·영률·포아송비·CTE·열전도율·비열을 인쇄한 것이 한 건도 없었다** — 그들이 찍는 것은 조성·점도·Tg·투습·접착력·비저항이다."
+     },
+     "notes": "AZoM/Granta 'Properties: Epoxy Resin - General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C) and 1 atm.' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. 행 verbatim: 'Thermal Conductivity | 0.15 | 0.6 | W/m.K'."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.6,
+     "unit": "W/(m*K)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "upper",
+      "printed_as": "0.6 W/m.K",
+      "grade_scope": "class value — Granta 'Epoxy Resin - General Purpose' 클래스 행이지 이 카드(부분 (메타)아크릴화 비스페놀A/F 에폭시 = 에폭시 아크릴레이트 50~80 wt% + 미변성 에폭시 15~20 wt% + 잠재 열경화제 + 실리카/알루미나 충전재 10~25 wt%, UV 라디칼 + 열 병용 경화)의 값이 아니다. 어긋남 세 겹 — (a) 화학: Granta 행은 아민/무수물 경화 범용 에폭시이고 이 카드의 주쇄는 아크릴 이중결합으로 광가교된 에폭시 아크릴레이트다. (b) 배합: 이 카드는 무기 충전재를 10~25 wt% 담는데 Granta 행이 충전 여부를 밝히지 않는다 (밀도 상한 1.46 Mg/m3 는 충전계를 포함한 폭으로 보이나 원문이 말하지 않는다). (c) 제품: 패널 등급이 미확정이다. 67차 CA 가 프레임 실 특허 9건과 Sekisui Photolec S 벤더 시트를 전량 열었으나 **경화물의 밀도·영률·포아송비·CTE·열전도율·비열을 인쇄한 것이 한 건도 없었다** — 그들이 찍는 것은 조성·점도·Tg·투습·접착력·비저항이다."
+     },
+     "notes": "AZoM/Granta 'Properties: Epoxy Resin - General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C) and 1 atm.' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. 행 verbatim: 'Thermal Conductivity | 0.15 | 0.6 | W/m.K'. 상한 0.6 은 무충전 에폭시(약 0.2)의 3 배라 충전계를 포함한 폭으로 보인다 — 원문이 밝히지 않는다. 이 카드의 실은 실리카/알루미나를 10~25 wt% 담으므로 구간의 위쪽이 더 가깝겠지만 **그 배분을 문서가 말하지 않아 계산하지 않았다.**"
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1200.0,
+     "unit": "J/(kg*K)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "lower",
+      "printed_as": "1200 J/kg.K",
+      "grade_scope": "class value — Granta 'Epoxy Resin - General Purpose' 클래스 행이지 이 카드(부분 (메타)아크릴화 비스페놀A/F 에폭시 = 에폭시 아크릴레이트 50~80 wt% + 미변성 에폭시 15~20 wt% + 잠재 열경화제 + 실리카/알루미나 충전재 10~25 wt%, UV 라디칼 + 열 병용 경화)의 값이 아니다. 어긋남 세 겹 — (a) 화학: Granta 행은 아민/무수물 경화 범용 에폭시이고 이 카드의 주쇄는 아크릴 이중결합으로 광가교된 에폭시 아크릴레이트다. (b) 배합: 이 카드는 무기 충전재를 10~25 wt% 담는데 Granta 행이 충전 여부를 밝히지 않는다 (밀도 상한 1.46 Mg/m3 는 충전계를 포함한 폭으로 보이나 원문이 말하지 않는다). (c) 제품: 패널 등급이 미확정이다. 67차 CA 가 프레임 실 특허 9건과 Sekisui Photolec S 벤더 시트를 전량 열었으나 **경화물의 밀도·영률·포아송비·CTE·열전도율·비열을 인쇄한 것이 한 건도 없었다** — 그들이 찍는 것은 조성·점도·Tg·투습·접착력·비저항이다."
+     },
+     "notes": "AZoM/Granta 'Properties: Epoxy Resin - General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C) and 1 atm.' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. 행 verbatim: 'Specific Heat | 1200 | 1280 | J/kg.K'."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 1280.0,
+     "unit": "J/(kg*K)",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "upper",
+      "printed_as": "1280 J/kg.K",
+      "grade_scope": "class value — Granta 'Epoxy Resin - General Purpose' 클래스 행이지 이 카드(부분 (메타)아크릴화 비스페놀A/F 에폭시 = 에폭시 아크릴레이트 50~80 wt% + 미변성 에폭시 15~20 wt% + 잠재 열경화제 + 실리카/알루미나 충전재 10~25 wt%, UV 라디칼 + 열 병용 경화)의 값이 아니다. 어긋남 세 겹 — (a) 화학: Granta 행은 아민/무수물 경화 범용 에폭시이고 이 카드의 주쇄는 아크릴 이중결합으로 광가교된 에폭시 아크릴레이트다. (b) 배합: 이 카드는 무기 충전재를 10~25 wt% 담는데 Granta 행이 충전 여부를 밝히지 않는다 (밀도 상한 1.46 Mg/m3 는 충전계를 포함한 폭으로 보이나 원문이 말하지 않는다). (c) 제품: 패널 등급이 미확정이다. 67차 CA 가 프레임 실 특허 9건과 Sekisui Photolec S 벤더 시트를 전량 열었으나 **경화물의 밀도·영률·포아송비·CTE·열전도율·비열을 인쇄한 것이 한 건도 없었다** — 그들이 찍는 것은 조성·점도·Tg·투습·접착력·비저항이다."
+     },
+     "notes": "AZoM/Granta 'Properties: Epoxy Resin - General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C) and 1 atm.' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. 행 verbatim: 'Specific Heat | 1200 | 1280 | J/kg.K'."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 8e-05,
+     "unit": "1/K",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "lower",
+      "printed_as": "80 x 10-6 /K",
+      "grade_scope": "class value — Granta 'Epoxy Resin - General Purpose' 클래스 행이지 이 카드(부분 (메타)아크릴화 비스페놀A/F 에폭시 = 에폭시 아크릴레이트 50~80 wt% + 미변성 에폭시 15~20 wt% + 잠재 열경화제 + 실리카/알루미나 충전재 10~25 wt%, UV 라디칼 + 열 병용 경화)의 값이 아니다. 어긋남 세 겹 — (a) 화학: Granta 행은 아민/무수물 경화 범용 에폭시이고 이 카드의 주쇄는 아크릴 이중결합으로 광가교된 에폭시 아크릴레이트다. (b) 배합: 이 카드는 무기 충전재를 10~25 wt% 담는데 Granta 행이 충전 여부를 밝히지 않는다 (밀도 상한 1.46 Mg/m3 는 충전계를 포함한 폭으로 보이나 원문이 말하지 않는다). (c) 제품: 패널 등급이 미확정이다. 67차 CA 가 프레임 실 특허 9건과 Sekisui Photolec S 벤더 시트를 전량 열었으나 **경화물의 밀도·영률·포아송비·CTE·열전도율·비열을 인쇄한 것이 한 건도 없었다** — 그들이 찍는 것은 조성·점도·Tg·투습·접착력·비저항이다."
+     },
+     "notes": "AZoM/Granta 'Properties: Epoxy Resin - General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C) and 1 atm.' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. 행 verbatim: 'Thermal Expansion | 80 | 150 | 10-6/K'. 환산 80e-6 1/K."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 0.00015,
+     "unit": "1/K",
+     "method": "handbook",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 20,
+      "bound": "upper",
+      "printed_as": "150 x 10-6 /K",
+      "grade_scope": "class value — Granta 'Epoxy Resin - General Purpose' 클래스 행이지 이 카드(부분 (메타)아크릴화 비스페놀A/F 에폭시 = 에폭시 아크릴레이트 50~80 wt% + 미변성 에폭시 15~20 wt% + 잠재 열경화제 + 실리카/알루미나 충전재 10~25 wt%, UV 라디칼 + 열 병용 경화)의 값이 아니다. 어긋남 세 겹 — (a) 화학: Granta 행은 아민/무수물 경화 범용 에폭시이고 이 카드의 주쇄는 아크릴 이중결합으로 광가교된 에폭시 아크릴레이트다. (b) 배합: 이 카드는 무기 충전재를 10~25 wt% 담는데 Granta 행이 충전 여부를 밝히지 않는다 (밀도 상한 1.46 Mg/m3 는 충전계를 포함한 폭으로 보이나 원문이 말하지 않는다). (c) 제품: 패널 등급이 미확정이다. 67차 CA 가 프레임 실 특허 9건과 Sekisui Photolec S 벤더 시트를 전량 열었으나 **경화물의 밀도·영률·포아송비·CTE·열전도율·비열을 인쇄한 것이 한 건도 없었다** — 그들이 찍는 것은 조성·점도·Tg·투습·접착력·비저항이다."
+     },
+     "notes": "AZoM/Granta 'Properties: Epoxy Resin - General Purpose' 물성표 verbatim — 열 머리글 'Property | Minimum Value (S.I.) | Maximum Value (S.I.) | Units (S.I.)'. 페이지가 밝히는 조건 — 'Unless stated otherwise, all values are taken at room temperature (approximately 20 C) and 1 atm.' 표가 구간으로 인쇄하므로 중앙값을 만들지 않고 두 끝을 각각 한 행으로 넣는다. 행 verbatim: 'Thermal Expansion | 80 | 150 | 10-6/K'. 환산 150e-6 1/K. 같은 표의 Glass Temperature 350~410 K (77~137 C) 아래 대역의 값이다. **충전재는 CTE 를 크게 내린다** — 이 카드의 실은 무기 충전 10~25 wt% 이므로 실제 경화물은 이 구간의 아래쪽 또는 그 아래일 수 있다. 배분을 문서가 말하지 않아 계산하지 않았다."
+    }
+   ]
+  },
+  {
+   "match_name": "Display panel edge/frame sealant, epoxy-acrylate backbone perimeter seal (composition class — panel grade not identified)",
+   "source": {
+    "kind": "datasheet",
+    "title": "allnex RADCURE Energy Curable Resins Product Guide — Coatings and Inks Americas, 'Epoxy Acrylates / Typical Properties' 표, EBECRYL 3700 행",
+    "url": "https://allnex.com/getmedia/fea15b2a-84d1-4536-be5f-02bd71fa2cbd/730AL_248-Radcure-Americas-US-letter_low.pdf.aspx",
+    "publisher": "allnex",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/display/db_allnex_RADCURE_product_guide_coatings_inks_americas.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 82737000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 23,
+      "printed_as": "12000 psi",
+      "grade_scope": "class value — 비스페놀A 에폭시 디아크릴레이트 올리고머(EBECRYL 3700)의 자립 경화막 값이다. 이 카드의 실은 그 올리고머를 50~80 wt% 담지만 **미변성 에폭시 15~20 wt% · 잠재 열경화제 · 실란커플링제 · 무기 충전재 10~25 wt% 가 함께 들어가고 UV 후 120 C 열경화까지 받는다** — 배합도 경화 이력도 다르다. 다만 이 올리고머는 **이 용도에 이름이 찍혀 있다** — Sharp US 10,739,647 B2 가 실 배합을 'an acrylic resin (epoxy-modified) (EBECRYL3700 available from Daicel-Allnex Ltd., about 50 wt %)' 로 인쇄한다. 그래서 계열 대표로 쓰되 t1 이 아니라 t3 다.",
+      "test_method": "경화막 인장; allnex 는 시험규격·경화선량·시편두께를 이 표에 인쇄하지 않는다"
+     },
+     "notes": "allnex RADCURE Energy Curable Resins Product Guide (Coatings and Inks Americas) 의 'Epoxy Acrylates — Typical Properties' 표 verbatim. 열 머리글 'Product | Description | Functionality | Viscosity cP | Color, Gardner | Acid Value mg KOH/g | Tensile Strength psi | Tensile Elongation % | Tg C | Density g/ml at 25 C'. EBECRYL 3700 행 verbatim: 'Bisphenol-A Epoxy Diacrylate | 2 | 800000 (25C) / 2317 (65.5C) | 2.5 | 0.2 | 12000 | 5 | 65 | 1.18'. 환산 12000 psi x 6894.757 Pa/psi = 8.2737e7 Pa = 82.74 MPa. **표는 각주로 'Not a specification' 이라고 스스로 적는다** — 대표값이지 보증값이 아니다. 같은 표의 형제 행이 자기검산이 된다: EBECRYL 3700-25R(= EBECRYL 3700 + 25 % TRPGDA) 15900 psi / 연신 4 % / Tg 71 C, 3700-20H 17700 psi / 3 % / 72 C, 3700-20T 14900 psi / 4 % / 75 C — 희석제를 넣어 가교밀도가 오르면 강도와 Tg 가 같이 오르는 방향이 일관된다. **밀도 1.18 g/ml 는 이 키에 넣지 않았다** — 표 머리글이 'Density g/ml at 25 C' 로 **액상 올리고머**의 값이고 경화막의 밀도가 아니다(경화수축분만큼 고형물이 더 무겁다). **Tg 65 C 도 넣지 않았다** — 이 배치의 표적은 코어7 이다. [이 카드의 인장강도 세 출처가 갈린다] Granta 범용 에폭시 40~60 MPa · EBECRYL 3700 82.7 MPa · Sartomer CN120A75 16 MPa. 밴드 16~82.7 MPa 는 5.2 배다. 평균 내지 마라."
+    }
+   ]
+  },
+  {
+   "match_name": "Display panel edge/frame sealant, epoxy-acrylate backbone perimeter seal (composition class — panel grade not identified)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Sartomer (Arkema) TECHNICAL DATA SHEET CN120A75 — Epoxy Acrylate blended with TPGDA (SR306), CURED PROPERTIES",
+    "url": "https://americas.sartomer.arkema.com/assets/arkema/TDS_CN120A75_MDM-11157-00-AM_en_WW.pdf",
+    "publisher": "Arkema / Sartomer",
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/display/db_sartomer_CN120A75_tds.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 331000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 23,
+      "printed_as": "331 MPa",
+      "grade_scope": "class value — Sartomer CN120A75 는 '비스페놀A 에폭시 아크릴레이트 CN120 + 25 % TPGDA(SR306)' 블렌드의 자립 경화막이다. 이 카드의 실이 아니고 무충전이며 열경화 후처리도 없다. **다만 CN120 계열은 이 용도의 이웃 문서에 이름이 찍혀 있다** — 67차가 산소투과를 뽑은 Kaneka/Texas A&M US 10,259,948 B2 의 Comparative Example 1 이 '에폭시 아크릴레이트 CN120(비스페놀A 에폭시 디아크릴레이트, Sartomer)' 을 28.5 wt% 담고, LG화학 US11795314B2 의 사이드실 실시예도 Sartomer CN110(에폭시 아크릴레이트)을 쓴다. 그래서 계열 대표로 쓴다.",
+      "test_method": "경화막 인장; Sartomer 는 시험규격·경화선량·시편두께를 TDS 에 인쇄하지 않는다"
+     },
+     "notes": "Sartomer TECHNICAL DATA SHEET CN120A75 'CURED PROPERTIES' 구획 verbatim — 'Tg (C), by DSC 84 / Young Modulus (MPa) 331 / Elongation at break (%) 4 / Tensile Strength (MPa) 16'. 설명문 verbatim — 'CN120A75 is a difunctional bisphenol A based epoxy acrylate blended with 25% SR306, tripropylene glycol diacrylate. ... The base oligomer, CN120, offers the lowest viscosity of Sartomer's bisphenol A based epoxy acrylates.' 환산 331 MPa = 3.31e8 Pa. 자기검산 — 인장강도 16 MPa 를 파단연신 4 % 로 나누면 할선탄성률 400 MPa 로 인쇄된 331 MPa 와 같은 자릿수다(정합). **Granta 범용 에폭시 2.5~4.4 GPa 와 7.6~13.3 배 어긋난다** — 같이 등록했으니 밴드로 써라. **같은 블렌드(에폭시 디아크릴레이트 + 25 % TPGDA)를 allnex 는 EBECRYL 3700-25R 로 15900 psi(109.6 MPa)로 인쇄하는데 Sartomer 는 16 MPa 다 — 6.9 배다.** 두 벤더가 같은 화학을 두 자릿수 가까이 다르게 찍는다는 것이 이 카드에서 이번 배치의 가장 큰 미해결 갈림이다. 시험규격·경화선량·시편두께를 둘 다 인쇄하지 않아 가르지 못했다. **액상 밀도 1.03 g/mL 는 넣지 않았다** — TDS 가 그것을 'LIQUID PROPERTIES' 로 분류한다."
+    },
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 16000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "temperature_c": 23,
+      "printed_as": "16 MPa",
+      "grade_scope": "class value — Sartomer CN120A75 는 '비스페놀A 에폭시 아크릴레이트 CN120 + 25 % TPGDA(SR306)' 블렌드의 자립 경화막이다. 이 카드의 실이 아니고 무충전이며 열경화 후처리도 없다. **다만 CN120 계열은 이 용도의 이웃 문서에 이름이 찍혀 있다** — 67차가 산소투과를 뽑은 Kaneka/Texas A&M US 10,259,948 B2 의 Comparative Example 1 이 '에폭시 아크릴레이트 CN120(비스페놀A 에폭시 디아크릴레이트, Sartomer)' 을 28.5 wt% 담고, LG화학 US11795314B2 의 사이드실 실시예도 Sartomer CN110(에폭시 아크릴레이트)을 쓴다. 그래서 계열 대표로 쓴다.",
+      "test_method": "경화막 인장; 규격 미인쇄"
+     },
+     "notes": "위와 같은 TDS 의 'CURED PROPERTIES' 구획 'Tensile Strength (MPa) 16'. 환산 1.6e7 Pa. **이 값이 이 카드 인장강도 밴드의 하한이다**(밴드 16~82.7 MPa). 같은 화학의 allnex EBECRYL 3700-25R 이 15900 psi = 109.6 MPa 를 찍는 것과 6.9 배 갈린다 — 두 벤더 시트가 시험 조건을 인쇄하지 않아 이 배치는 가르지 못했다. 평균 내지 마라."
+    }
+   ]
+  }
+ ]
+}
