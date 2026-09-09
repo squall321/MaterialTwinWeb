@@ -1,0 +1,47 @@
+{
+ "vendor": "Teijin Limited - Resin & Plastic Processing Business Unit (Panlite PC)",
+ "harvested_utc_date": "2026-09-09",
+ "conclusion": "Teijin runs a real SDS download portal, but it is gated behind a personal-data registration form (name / e-mail / company / country). No SDS were downloaded from it - the gate was not filled in with fabricated identity data. The teijin-resin.com sitemap exposes only the portal entry points, no SDS files.",
+ "endpoints": [
+  {
+   "url": "https://www.teijin-resin.com/sitemap.xml",
+   "how": "curl -A '<browser UA>' -L",
+   "urls": 52,
+   "sds_pages": [
+    "https://www.teijin-resin.com/database/sds",
+    "https://www.teijin-resin.com/database/yellowcard"
+   ]
+  },
+  {
+   "url": "https://resin.teijin.co.jp/catalog/cgi-bin/Msds.cgi?CMDT100=1",
+   "how": "curl -A '<browser UA>' -L; charset shift_jis; title 'TEIJIN LTD. | Search SDS and Download, Coloring Substances Information'",
+   "result": "landing page; single image submit button name=CMDT110"
+  },
+  {
+   "url": "https://resin.teijin.co.jp/catalog/cgi-bin/Msds.cgi?CMDT110=1",
+   "how": "curl -A '<browser UA>' -L -c/-b cookie jar",
+   "result": "REGISTRATION FORM. POST ./Msds.cgi with fields msdsTuser_fg=1, msdsTc_name_kj (name), msdsTc_mail1_tx (e-mail), msdsTc_kaisha_kj (company), msdsTc_org_kj (department), msdsTc_add1_kj (country select). Search/download is only reachable after this POST. NOT submitted."
+  },
+  {
+   "url": "https://www.teijin.com/products/film/",
+   "how": "curl",
+   "result": "corporate overview only, no SDS"
+  },
+  {
+   "url": "teijinfilmsolutions.jp / teijinfilm.com / teijinfilmsolutions.co.jp / tfs-films.com",
+   "how": "curl",
+   "result": "all fail to resolve (curl exit 000)"
+  }
+ ],
+ "sds_obtained_from_third_party": [
+  {
+   "product": "Panlite AM-8030 (PC moulding resin, SDS number AM8030-JpE, version 04)",
+   "host": "hongrunplastics.com",
+   "url": "http://hongrunplastics.com/public/uploads/images/20250820/TEIJIN%20PC%20Panlite%20AM-8030%20MSDS.pdf",
+   "issue_date": "2013-04-01",
+   "revision_date": "2017-04-01",
+   "downloaded": true,
+   "section9": "Physical state: Solid. / Form: Pellets. / Melting point/Freezing point: Not available. / Flash point: Not available. / Specific gravity: 1.24"
+  }
+ ]
+}

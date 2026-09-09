@@ -1,0 +1,432 @@
+{
+ "vendor": "3M",
+ "harvested_utc": "2026-09-09T09:46:03.350438+00:00",
+ "batch": "69cha ED - structural adhesives",
+ "reachability": {
+  "www.3m.com": "UNREACHABLE from this host (curl returns 000 over both IPv4 and IPv6; Akamai edge drops the connection). WebFetch also timed out.",
+  "multimedia.3m.com": "REACHABLE. Both /mws/media/<id>O/<slug>.pdf and /mws/mediawebserver?mwsId=<id> return the PDF (HTTP 200, application/pdf). Pass curl -g so brackets/braces in ids are not glob-expanded.",
+  "searchapi.3m.com": "REACHABLE. Public JSON product-search backend, see endpoints below.",
+  "3m.com.au / 3m.co.uk / 3mcanada.ca / 3m.co.kr / 3m.co.jp / 3m.com.hk / solutions.3m.com": "UNREACHABLE (000). 3m.com.cn returns 403."
+ },
+ "endpoints": {
+  "product_search": {
+   "url": "https://searchapi.3m.com/search/3mcom/v1/search",
+   "method": "POST",
+   "headers": {
+    "Content-Type": "application/json"
+   },
+   "body_example": {
+    "query": "AF 130-2",
+    "locale": "en_US",
+    "page": 0,
+    "size": 50
+   },
+   "notes": "Returns {total, items:[{name,url:\"/d/<productId>/\",stockNumber,partNumber,...}]}. \"locale\" is mandatory or you get 400 \"Please specify a valid locale\". This is a PRODUCT index, not an SDS index - it gives you the b-number, and the SDS mwsId then comes off the product page."
+  },
+  "typeahead": {
+   "url": "https://searchapi.3m.com/search/3mcom/v1/typeahead",
+   "method": "POST",
+   "body_example": {
+    "query": "AF 130-2",
+    "locale": "en_US"
+   }
+  },
+  "sds_endpoints_probed_and_blocked": [
+   "/search/sds/v1/search (403)",
+   "/search/sdssearch/v1/search (403)",
+   "/search/msds/v1/search (403)",
+   "/search/regulatory/v1/search (403)",
+   "/search/3mcom/v1/sds (404)"
+  ],
+  "product_page_via_wayback": {
+   "recipe": [
+    "1. GET https://archive.org/wayback/available?url=www.3m.com/3M/en_US/p/d/<productId>/  -> closest.timestamp",
+    "2. GET http://web.archive.org/web/<timestamp>id_/https://www.3m.com/3M/en_US/p/d/<productId>/",
+    "3. grep -oE \"mwsId=[A-Za-z0-9_-]+\"  -> the SDS document id",
+    "4. GET https://multimedia.3m.com/mws/mediawebserver?mwsId=<id>  (curl -g -L) -> the SDS PDF, live from 3M"
+   ],
+   "caveat": "Many Wayback snapshots are pre-render skeletons with no mwsId; try several timestamps from the CDX list (cdx/search/cdx?url=3m.com/3M/en_US/p/d/<id>/&matchType=exact&fl=timestamp). Wayback rate-limits hard, so retry loops are needed."
+  },
+  "category_seed": "http://web.archive.org/web/<ts>id_/https://www.3m.com/3M/en_US/p/c/adhesives/structural/films/  -> 48 product ids (/3M/en_US/p/d/<id>/)"
+ },
+ "findings": {
+  "AF 130-2": "SDS mwsId SSSSSuUn_zu8l00x4xtG4x29nv70k17zHvu9lxtD7SSSSSS-- , stable across every snapshot 2021-06 .. 2026-02, always serves the 01/14/19 revision (Document Group 10-9125-5, Version 16.01, supersedes 02/03/15). No pre-2019 revision found anywhere.",
+  "density_in_3M_film_SDS": "The 2015-era template DOES print it (AF 131-2 03/24/15 from a distributor copy: Density .96 g/cm3 [@ 20 C], Specific Gravity 0.96). Recent revisions often blank it: AF 130-2 (2019), AF 30 (2018), AF 126-2 (2025) all say \"No Data Available\". AF 191 (09/20/24) still prints Density 1.26 g/cm3. So it is per-product, not purely template age."
+ },
+ "product_count": 37,
+ "entries": [
+  {
+   "product_id": "b10167365",
+   "title": "3M™ Thermal Bonding Film 588",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/169554O/3m-thermal-bonding-film-588.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b10216109",
+   "title": "3M™ Thermal Bonding Film 583",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/169553O/3m-double-coated-tape-pbt539-preliminary-tds.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b10454895",
+   "title": "3M™ Thermal Bonding Film AF111",
+   "sds_mwsid": [],
+   "media_pdfs": [],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b40063157",
+   "title": "3M™ Structural Adhesive Tape SAT1010",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/1261773O/3m-structural-adhesive-tape-sat1010m.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b40066386",
+   "title": "3M™ Scotch-Weld™ Structural Adhesive Film AF 3109-2",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/241225O/3m-tm-scotch-weld-tm-structural-adhesive-film-af3109-2.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b40066388",
+   "title": "3M™ Scotch-Weld™ Structural Adhesive Film AF 126",
+   "sds_mwsid": [
+    "SSSSSuUn_zu8l00x4xtvN8mZNv70k17zHvu9lxtD7SSSSSS--"
+   ],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/241277O/3m-tm-scotch-weld-tm-af126-and-af-126fr.pdf"
+   ],
+   "sds_urls": [
+    "https://multimedia.3m.com/mws/mediawebserver?mwsId=SSSSSuUn_zu8l00x4xtvN8mZNv70k17zHvu9lxtD7SSSSSS--"
+   ]
+  },
+  {
+   "product_id": "b40066390",
+   "title": "3M™ Scotch-Weld™ Structural Adhesive Film AF 191",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/241227O/3m-tm-scotch-weld-tm-structural-adhesive-film-af191.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b40066391",
+   "title": "3M™ Scotch-Weld™ Structural Adhesive Film AF 10",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/241230O/3m-tm-scotch-weld-tm-structural-adhesive-films-af6-af10-af13.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b40066392",
+   "title": "3M™ Scotch-Weld™ Composite Surfacing Film AF 191XS, 0.045 wt, 36 in x 50 yd, 1 Roll/Case",
+   "sds_mwsid": [
+    "SSSSSuUn_zu8l00x4Y_x48mBnv70k17zHvu9lxtD7SSSSSS--"
+   ],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/241227O/3m-tm-scotch-weld-tm-structural-adhesive-film-af191.pdf",
+    "https://multimedia.3m.com/mws/media/765817O/3m-scotch-weld-structrual-adhesive-film-af-191-sell-sheet.pdf",
+    "https://multimedia.3m.com/mws/media/241227O/3mtm-scotch-weldtm-structural-adhesive-film-af191.pdf"
+   ],
+   "sds_urls": [
+    "https://multimedia.3m.com/mws/mediawebserver?mwsId=SSSSSuUn_zu8l00x4Y_x48mBnv70k17zHvu9lxtD7SSSSSS--"
+   ]
+  },
+  {
+   "product_id": "b40066394",
+   "title": "3M™ Scotch-Weld™ Structural Adhesive Film AF 31",
+   "sds_mwsid": [
+    "SSSSSuUn_zu8l00x4xteM82xnv70k17zHvu9lxtD7SSSSSS--"
+   ],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/241232O/3m-tm-scotch-weld-tm-structural-adhesive-film-af30.pdf"
+   ],
+   "sds_urls": [
+    "https://multimedia.3m.com/mws/mediawebserver?mwsId=SSSSSuUn_zu8l00x4xteM82xnv70k17zHvu9lxtD7SSSSSS--"
+   ]
+  },
+  {
+   "product_id": "b40066395",
+   "title": "3M™ Scotch-Weld™ Structural Adhesive Film AF 555",
+   "sds_mwsid": [
+    "SSSSSuUn_zu8l00x4Y_U582Z5v70k17zHvu9lxtD7SSSSSS--"
+   ],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/340795O/3m-tm-scotch-weld-tm-structural-adhesive-film-af-555-datasheet.pdf",
+    "https://multimedia.3m.com/mws/media/340795O/3mtm-scotch-weldtm-structural-adhesive-film-af-555-datasheet.pdf"
+   ],
+   "sds_urls": [
+    "https://multimedia.3m.com/mws/mediawebserver?mwsId=SSSSSuUn_zu8l00x4Y_U582Z5v70k17zHvu9lxtD7SSSSSS--"
+   ]
+  },
+  {
+   "product_id": "b40066396",
+   "title": "3M™ Scotch-Weld™ Composite Surfacing Film AF 163-2",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/282041O/3m-scotch-weld-structural-adhesive-film-af-163-2-af-163-3.pdf",
+    "https://multimedia.3m.com/mws/media/718479O/3mtm-scotch-weldtm-strctral-adh-film-af-163-2-sell-sheet.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b40066397",
+   "title": "3M™ Scotch-Weld™ Structural Core Splice Film AF 3002",
+   "sds_mwsid": [
+    "SSSSSuUn_zu8l00x4xte4x2vmv70k17zHvu9lxtD7SSSSSS--"
+   ],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/241237O/3m-tm-scotch-weld-tm-core-splice-adhesive-film-af3002.pdf"
+   ],
+   "sds_urls": [
+    "https://multimedia.3m.com/mws/mediawebserver?mwsId=SSSSSuUn_zu8l00x4xte4x2vmv70k17zHvu9lxtD7SSSSSS--"
+   ]
+  },
+  {
+   "product_id": "b40066398",
+   "title": "3M™ Scotch-Weld™ Structural Core Splice Film AF 3024",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/1380972O/3m-aerospace-interior-adhesive-solutions-brochure.pdf",
+    "https://multimedia.3m.com/mws/media/241234O/3m-tm-scotch-weld-tm-structural-core-splice-adhesive-af3024.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b40066399",
+   "title": "3M™ Scotch-Weld™ Structural Adhesive Film AF 30",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/241232O/3m-tm-scotch-weld-tm-structural-adhesive-film-af30.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b40066400",
+   "title": "3M™ Scotch-Weld™ Structural Adhesive Film AF 6",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/241230O/3m-tm-scotch-weld-tm-structural-adhesive-films-af6-af10-af13.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b40066401",
+   "title": "3M™ Scotch-Weld™ Structural Core Splice Film AF 3028",
+   "sds_mwsid": [
+    "SSSSSuUn_zu8l00x4xte4x2Unv70k17zHvu9lxtD7SSSSSS--"
+   ],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/241410O/3m-tm-scotch-weld-tm-af3028-and-af3028fr.pdf",
+    "https://multimedia.3m.com/mws/media/241410O/3mtm-scotch-weldtm-af3028-and-af3028fr.pdf"
+   ],
+   "sds_urls": [
+    "https://multimedia.3m.com/mws/mediawebserver?mwsId=SSSSSuUn_zu8l00x4xte4x2Unv70k17zHvu9lxtD7SSSSSS--"
+   ]
+  },
+  {
+   "product_id": "b40066403",
+   "title": "3M™ Scotch-Weld™ Structural Core Splice Film AF 3028FR, 50 mil, 1-1/4 in x 325 in, 8 Roll/Case",
+   "sds_mwsid": [
+    "SSSSSuUn_zu8l00x4x_vox2e4v70k17zHvu9lxtD7SSSSSS--"
+   ],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/241410O/3m-tm-scotch-weld-tm-af3028-and-af3028fr.pdf",
+    "https://multimedia.3m.com/mws/media/241410O/3mtm-scotch-weldtm-af3028-and-af3028fr.pdf"
+   ],
+   "sds_urls": [
+    "https://multimedia.3m.com/mws/mediawebserver?mwsId=SSSSSuUn_zu8l00x4x_vox2e4v70k17zHvu9lxtD7SSSSSS--"
+   ]
+  },
+  {
+   "product_id": "b40066404",
+   "title": "3M™ Scotch-Weld™ Structural Adhesive Film AF 3185, 8 mil, 36 in x 50 yd, 1 Roll/Case",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/241413O/3m-tm-scotch-weld-tm-structural-adhesive-film-af3185.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b40066405",
+   "title": "3M™ Scotch-Weld™ Composite Surfacing Film AF 325 M, Blue",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/278624O/3m-tm-scotch-weld-tm-low-density-composite-surface-film-af325.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b40066410",
+   "title": "3M™ Scotch-Weld™ Composite Surfacing Film AF 325LS, Blue,, .064 wt, 35 in x 50 yd, 1 Roll/Case",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/278624O/3m-tm-scotch-weld-tm-low-density-composite-surface-film-af325.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b40066411",
+   "title": "3M™ Scotch-Weld™ Structural Adhesive Film AF 131-2, .075 wt, 40 in x 36 yds, 1 Roll/Case",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/241275O/3m-tm-scotch-weld-tm-bonding-film-af-131-2.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b40066414",
+   "title": "3M™ Scotch-Weld™ Composite Surfacing Film AF 325LS, White, .059 wt, 35 in x 50 yd, 1 Roll/Case",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/278624O/3m-tm-scotch-weld-tm-low-density-composite-surface-film-af325.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b40066415",
+   "title": "3M™ Scotch-Weld™ Composite Surfacing Film AF 325M, White, .030wt, 36 in x 50 yd, 1 Roll/Case",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/278624O/3m-tm-scotch-weld-tm-low-density-composite-surface-film-af325.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b40066417",
+   "title": "3M™ Scotch-Weld™ Structural Adhesive Film AF 143-2, .100 wt, 40 in x 50 yd, 1 Roll/Case",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/241220O/3m-tm-scotch-weld-tm-structural-adhesive-film-af143-2.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b40066421",
+   "title": "3M™ Scotch-Weld™ Structural Adhesive Film AF 147, .110 wt, 36 in x 36 yd, 1 Roll/Case",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/241221O/3m-tm-scotch-weld-tm-structural-adhesive-film-af147.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b40066423",
+   "title": "3M™ Scotch-Weld™ Structural Adhesive Film AF 15",
+   "sds_mwsid": [
+    "SSSSSuUn_zu8l00x4x_Um8mSmv70k17zHvu9lxtD7SSSSSS--"
+   ],
+   "media_pdfs": [],
+   "sds_urls": [
+    "https://multimedia.3m.com/mws/mediawebserver?mwsId=SSSSSuUn_zu8l00x4x_Um8mSmv70k17zHvu9lxtD7SSSSSS--"
+   ]
+  },
+  {
+   "product_id": "b40066425",
+   "title": "3M™ Scotch-Weld™ Structural Adhesive Film AF 130-2, .090 wt, 40 in x 50 yd, 1 Roll/Case",
+   "sds_mwsid": [
+    "SSSSSuUn_zu8l00x4xtG4x29nv70k17zHvu9lxtD7SSSSSS--"
+   ],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/241218O/3m-tm-scotch-weld-tm-structural-adhesive-film-af130-2.pdf"
+   ],
+   "sds_urls": [
+    "https://multimedia.3m.com/mws/mediawebserver?mwsId=SSSSSuUn_zu8l00x4xtG4x29nv70k17zHvu9lxtD7SSSSSS--"
+   ]
+  },
+  {
+   "product_id": "b40071753",
+   "title": "3M™ Scotch-Weld™ Structural Adhesive Film AF 163-2",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/282041O/3m-scotch-weld-structural-adhesive-film-af-163-2-af-163-3.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b5005035349",
+   "title": "3M™ Scotch-Weld™ Core Splice Adhesive Film AF 3074 FST",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/1552424O/3m-scotch-weld-af-3074-fst-sell-sheet.pdf",
+    "https://multimedia.3m.com/mws/media/2597753O/af-3074-tech-data-sheet.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b5005076018",
+   "title": "3M™ Anisotropic Conductive Film Adhesive 7303",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/66294O/3m-tm-anisotropic-conductive-film-7303.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b5005164001",
+   "title": "3M™ Scotch-Weld™ Composite Surfacing and Lightning Protection Film AF 536",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/1647173O/3m-scotch-weld-composite-surfacing-and-lightning-protection-film-af-536.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b5005286057",
+   "title": "3M™ Structural Isolation Tape SIT2010",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/2126001O/3m-structural-isolation-tape-sit2010-technical-data-sheet.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b5005408000",
+   "title": "3M™ Structural Adhesive Tape SAT1100S",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/2134911O/3m-structural-adhesive-tape-sat1100-technical-datasheet.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b5005529009",
+   "title": "3M™ UV Activated Film 81010",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/2549977O/3m-uv-activated-film-81010.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b5005529010",
+   "title": "3M™ UV Activated Film 81025",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/2549976O/3m-uv-activated-film-81025.pdf"
+   ],
+   "sds_urls": []
+  },
+  {
+   "product_id": "b5005529011",
+   "title": "3M™ UV Activated Film 81050",
+   "sds_mwsid": [],
+   "media_pdfs": [
+    "https://multimedia.3m.com/mws/media/2549975O/3m-uv-activated-film-81050.pdf"
+   ],
+   "sds_urls": []
+  }
+ ]
+}

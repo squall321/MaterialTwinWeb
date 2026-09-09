@@ -1,0 +1,119 @@
+{
+ "vendor": "KOKI Company Limited (Higashimatsuyama plant, Saitama, Japan)",
+ "harvested_utc_date": "2026-09-09",
+ "conclusion": "KOKI's live sites (ko-ki.co.jp, koki.org) publish product catalogues and tech-info sheets but no SDS. The SDS live in the Wayback Machine under koki.org/pdf/BL/ (Czech-language REACH safety data sheets posted by KOKI's Czech/EU arm) and via the legacy ko-ki.co.jp MSDS request CGI.",
+ "endpoints": [
+  {
+   "url": "https://www.ko-ki.co.jp/sitemap.xml",
+   "how": "curl -A '<browser UA>' -L",
+   "urls": 529,
+   "sds_documents": 0
+  },
+  {
+   "url": "https://web.archive.org/cdx/search/cdx?url=ko-ki.co.jp&matchType=domain&output=json&limit=60000&collapse=urlkey",
+   "how": "Wayback CDX",
+   "rows": 2946,
+   "sds_documents": 0,
+   "note": "legacy MSDS request pages only: http://www.ko-ki.co.jp/cgi-bin/msds.cgi?uri=main/msds.htm , /main/msds.asp , /main/msds_sum.asp"
+  },
+  {
+   "url": "https://web.archive.org/cdx/search/cdx?url=koki.org&matchType=domain&output=json&limit=60000&collapse=urlkey",
+   "how": "Wayback CDX",
+   "rows": 410,
+   "sds_documents": 11,
+   "path": "koki.org/pdf/BL/sd_-_*.pdf"
+  }
+ ],
+ "sds_documents": [
+  {
+   "file": "sd_-_lead_free_solder_paste-2_(cz).pdf",
+   "url": "http://koki.org/pdf/BL/sd_-_lead_free_solder_paste-2_(cz).pdf",
+   "wayback_ts": "20160802090420",
+   "downloaded": false,
+   "note": "Wayback returned an HTML error body, not the PDF"
+  },
+  {
+   "file": "sd_-_lead_free_solder_paste-3_(cz).pdf",
+   "url": "http://koki.org/pdf/BL/sd_-_lead_free_solder_paste-3_(cz).pdf",
+   "wayback_ts": "20160802100735",
+   "downloaded": true,
+   "covers": "S3X48-M650-3, S3X58-M650-3/-4/-5/-6/-7, S3X58-M650H-3, S3X58-M650D-3, S3XNI58-M650-3, S3X58-M406, S3X48-M406, S3X58-M406-3, S3X58-M406L-3, S3X58-M406D, S3X58-M406H, S3X70-M407-3, S3X70-M407-4, S3X70-M407D, S5A48-M271",
+   "issue_date": "2015-07-10",
+   "density": "Hustota při 20 °C: 4-5 g/cm3"
+  },
+  {
+   "file": "sd_-_lead_free_solder_paste-4_(cz).pdf",
+   "url": "http://koki.org/pdf/BL/sd_-_lead_free_solder_paste-4_(cz).pdf",
+   "wayback_ts": "20160802152021",
+   "downloaded": true,
+   "covers": "S3X48-M500, S3X58-M500, S3X70-M500, S3X48-M500C, S3X58-M500C, S5A48-M500C, S3X70-M500C, S3X48-M500C-2, S3X48-M420, S3X58-M420, SX48-M420, S3X48-M500-2, S3X58-M500-2, S3X58-M500H, S3X58-M500K, S3X58-M500P, S3X48-M500T, S3X58-M500T, S3X58-M500L, S3X48-M500-3, S3X58-M500-3, S3X48-M500C-3A, S3X58-M500C-4, S3X58-M500C-5, S3X48-M500C-4, S3X48-M500C-5, S3X5.48-M500-4, S3X58-M500-4, S3X58-M555, S3X811-M10D-2, S3X811-M10D, S3X48-A310D-3",
+   "issue_date": "2015-07-10",
+   "density": "Hustota při 20 °C: 4-5 g/cm3",
+   "THIS_IS_THE_TARGET_SDS": true
+  },
+  {
+   "file": "sd_-_lead_free_solder_paste-5_(cz).pdf",
+   "url": "http://koki.org/pdf/BL/sd_-_lead_free_solder_paste-5_(cz).pdf",
+   "wayback_ts": "20160802085659",
+   "downloaded": true,
+   "covers": "S01XBIG58-M500-4, S1XBIG48-M500-4, S1XBIG58-M500-4, S01X7C48-M500-2, S01X7C58-M500-2, S1X48-M500-2, S1X48-M500C, S01X7C48-M500, S01X7C58-M500, S1XBIG58-M500B",
+   "issue_date": "2015-07-10",
+   "density": "Hustota při 20 °C: 4-5 g/cm3"
+  },
+  {
+   "file": "sd_-_s3x-70m_(cz).pdf",
+   "url": "http://koki.org/pdf/BL/sd_-_s3x-70m_(cz).pdf",
+   "wayback_ts": "20160803202321",
+   "downloaded": true,
+   "covers": "S3X-70M",
+   "issue_date": "2015-09-18",
+   "density": "Hustota při 20 °C: 6-8 g/cm3"
+  },
+  {
+   "file": "sd_-_leaded_solder_paste_3_(cz).pdf",
+   "url": "http://koki.org/pdf/BL/sd_-_leaded_solder_paste_3_(cz).pdf",
+   "wayback_ts": "20160802161111",
+   "downloaded": false
+  },
+  {
+   "file": "sd_-_js-e-11ni_(cz).pdf",
+   "url": "http://koki.org/pdf/BL/sd_-_js-e-11ni_(cz).pdf",
+   "wayback_ts": "20160802165135",
+   "downloaded": false
+  },
+  {
+   "file": "sd_-_js-en-02_(cz).pdf",
+   "url": "http://koki.org/pdf/BL/sd_-_js-en-02_(cz).pdf",
+   "wayback_ts": "20160802161220",
+   "downloaded": false
+  },
+  {
+   "file": "sd_-_js-eu-01_(cz).pdf",
+   "url": "http://koki.org/pdf/BL/sd_-_js-eu-01_(cz).pdf",
+   "wayback_ts": "20160802220052",
+   "downloaded": false
+  },
+  {
+   "file": "sd_-_js-eu-02_(cz).pdf",
+   "url": "http://koki.org/pdf/BL/sd_-_js-eu-02_(cz).pdf",
+   "wayback_ts": "20160802161213",
+   "downloaded": false
+  },
+  {
+   "file": "sd_-_s03x7ca-72m_(cz).pdf",
+   "url": "http://koki.org/pdf/BL/sd_-_s03x7ca-72m_(cz).pdf",
+   "wayback_ts": "20160803181645",
+   "downloaded": false
+  }
+ ],
+ "third_party_koki_msds": [
+  {
+   "product": "S3X58-M406-3",
+   "host": "adtool.ca",
+   "url": "http://adtool.ca/MSDS/S3X58-M406-3%20msds.pdf",
+   "first_issue": "2006-07-02",
+   "specific_gravity": "4~5",
+   "downloaded": true
+  }
+ ]
+}

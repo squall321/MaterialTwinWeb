@@ -1,0 +1,1578 @@
+{
+ "vendor": "DuPont Teijin Films / Mylar Specialty Films (dupontteijinfilms.com now redirects to mylar.com)",
+ "harvested_utc_date": "2026-09-09",
+ "conclusion": "The LIVE successor site mylar.com publishes 293 PDFs, all product data sheets or ISO/BRC certificates - ZERO SDS. The SDS live only in the Wayback Machine on the pre-2010 usa./www.dupontteijinfilms.com and teijindupontfilms.jp sites.",
+ "endpoints": [
+  {
+   "url": "https://mylar.com/wp-json/wp/v2/media?per_page=100&page=N&_fields=id,date,title,source_url,mime_type",
+   "how": "WordPress REST (www.dupontteijinfilms.com 301->mylar.com), pages 1..6",
+   "result": "521 unique media, 293 PDFs, zero SDS/MSDS"
+  },
+  {
+   "url": "https://mylar.com/sitemap_index.xml",
+   "how": "from robots.txt",
+   "result": "post/page/category/author sitemaps, no SDS section"
+  },
+  {
+   "url": "https://web.archive.org/cdx/search/cdx?url=dupontteijinfilms.com&matchType=domain&output=json&limit=100000&collapse=urlkey",
+   "how": "Wayback CDX (9441 rows)",
+   "result": "41 SDS-ish URLs; the MSDS index page and PDFs listed below"
+  },
+  {
+   "url": "https://web.archive.org/cdx/search/cdx?url=teijindupontfilms.jp&matchType=domain&output=json&limit=100000&collapse=urlkey",
+   "how": "Wayback CDX (1151 rows)",
+   "result": "20 SDS-ish URLs (JP-language MSDS html pages + /pdf/msdsmylar.pdf, the latter not archived as a body)"
+  }
+ ],
+ "wayback_msds_index_pages": [
+  {
+   "url": "http://usa.dupontteijinfilms.com/informationcenter/safetydatasheets.aspx",
+   "wayback_ts": "20080118145328",
+   "entries_listed": [
+    "Melinex Film MSDS -> downloads/Melinex_Film_MSDS.pdf",
+    "Mylar with PVdC MSDS -> downloads/Mylar_with_PVdC_MSDS.pdf",
+    "Mylar without PVdC MSDS -> downloads/Mylar_without_PVdC_MSDS.pdf",
+    "Teijin Teonex PEN MSDS -> downloads/Teijin_Teonex_PEN_MSDS.pdf",
+    "DTF Clear Chip MSDS -> downloads/DTF_clear_Chip_MSDS.pdf"
+   ],
+   "note": "Only 5 entries. Melinex_Film_MSDS.pdf, Mylar_with_PVdC_MSDS.pdf, Mylar_without_PVdC_MSDS.pdf and Teijin_Teonex_PEN_MSDS.pdf under that exact path were NEVER captured by the Wayback Machine (CDX returns nothing). Older sibling filenames MylarwithoutPVdc.pdf / MylarwithPVdC.pdf WERE captured and were downloaded."
+  },
+  {
+   "url": "http://www.dupontteijinfilms.com/datasheets/msds/ (index msdscle.html / msdspene.html / msdsu2e.html / msdsu4e.html)",
+   "wayback_ts": "2003",
+   "note": "English HTML MSDS for Tetoron Clear, Teonex, Tetoron U2, Tetoron U4"
+  }
+ ],
+ "wayback_msds_documents": [
+  {
+   "product": "Teijin Tetoron Film Clear type (BOPET)",
+   "url": "http://www.dupontteijinfilms.com/datasheets/msds/MSDS%20TT%20PET%20clear.pdf",
+   "wayback_ts": "20061019230636",
+   "format": "scanned image PDF, 4 pp",
+   "downloaded": true
+  },
+  {
+   "product": "Teijin Teonex Film (BOPEN)",
+   "url": "http://www.dupontteijinfilms.com/datasheets/msds/MSDS%20Teonex.pdf",
+   "wayback_ts": "20061019225658",
+   "format": "scanned image PDF, 4 pp",
+   "downloaded": true
+  },
+  {
+   "product": "Teijin Tetoron Film U2 / PWU7",
+   "url": "http://www.dupontteijinfilms.com/datasheets/msds/MSDS%20TT%20U2%20PWU7.pdf",
+   "wayback_ts": "20061019230633",
+   "downloaded": true
+  },
+  {
+   "product": "Teijin Tetoron Film U4",
+   "url": "http://www.dupontteijinfilms.com/datasheets/msds/MSDS%20TT%20U4.pdf",
+   "wayback_ts": "20061019230629",
+   "downloaded": true
+  },
+  {
+   "product": "MYLAR polyester film, not incl. PVdC coated (MYL045)",
+   "url": "http://usa.dupontteijinfilms.com/informationcenter/downloads/MylarwithoutPVdc.pdf",
+   "wayback_ts": "20110124163419",
+   "downloaded": true
+  },
+  {
+   "product": "MYLAR polyester film, PVdC coated (MYL044)",
+   "url": "http://usa.dupontteijinfilms.com/informationcenter/downloads/MylarwithPVdC.pdf",
+   "wayback_ts": "20091007192853",
+   "downloaded": true
+  },
+  {
+   "product": "DuPont Teijin CLEAR HOMOPOLYMER CHIP (00005534)",
+   "url": "http://usa.dupontteijinfilms.com/informationcenter/downloads/DTF_clear_Chip_MSDS.pdf",
+   "wayback_ts": "20091008020910",
+   "downloaded": true
+  },
+  {
+   "product": "Teijin Tetoron Film Clear type - HTML MSDS",
+   "url": "http://dupontteijinfilms.com/datasheets/msds/msdscle.html",
+   "wayback_ts": "20030122220158",
+   "downloaded": true
+  },
+  {
+   "product": "Teonex - HTML MSDS",
+   "url": "http://dupontteijinfilms.com/datasheets/msds/msdspene.html",
+   "wayback_ts": "20030116040519",
+   "downloaded": true
+  },
+  {
+   "product": "Tetoron U2 - HTML MSDS",
+   "url": "http://www.dupontteijinfilms.com/datasheets/msds/msdsu2e.html",
+   "wayback_ts": "20031110141707",
+   "downloaded": true
+  }
+ ],
+ "live_media_pdf_count": 293,
+ "live_media_pdfs": [
+  {
+   "date": "2026-08-03T10:51:58",
+   "title": "Mylar Specialty Films &#8211; Packaging Brochure web",
+   "url": "https://mylar.com/wp-content/uploads/2026/08/Mylar-Specialty-Films-Packaging-Brochure-web.pdf"
+  },
+  {
+   "date": "2026-08-03T10:30:51",
+   "title": "Mylar Specialty Films &#8211; Flexible Electronics Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2026/08/Mylar-Specialty-Films-Flexible-Electronics-Brochure.pdf"
+  },
+  {
+   "date": "2026-07-30T15:19:21",
+   "title": "Mylar Specialty Films &#8211; FIM Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Mylar-Specialty-Films-FIM-Brochure.pdf"
+  },
+  {
+   "date": "2026-07-30T15:06:22",
+   "title": "Mylar Specialty Films &#8211; Electrical Insulation Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Mylar-Specialty-Films-Electrical-Insulation-Brochure.pdf"
+  },
+  {
+   "date": "2026-07-30T14:16:44",
+   "title": "Mylar Specialty Films &#8211; Labels Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Mylar-Specialty-Films-Labels-Brochure.pdf"
+  },
+  {
+   "date": "2026-07-30T13:52:25",
+   "title": "Mylar Specialty Films &#8211; Durable Cards",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Mylar-Specialty-Films-Durable-Cards.pdf"
+  },
+  {
+   "date": "2026-07-30T13:29:08",
+   "title": "Mylar Specialty Films &#8211; Imaging Media Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Mylar-Specialty-Films-Imaging-Media-Brochure.pdf"
+  },
+  {
+   "date": "2026-07-29T11:04:48",
+   "title": "Mylar Specialty Films &#8211; Kaladex PEN",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Mylar-Specialty-Films-Kaladex-PEN.pdf"
+  },
+  {
+   "date": "2026-07-24T13:47:28",
+   "title": "Mylar® RL33LS",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/Mylar®-RL33LS.pdf"
+  },
+  {
+   "date": "2026-07-24T13:47:27",
+   "title": "Mylar® OL13",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/Mylar®-OL13.pdf"
+  },
+  {
+   "date": "2026-07-24T13:47:26",
+   "title": "Mylar® OL12",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/Mylar®-OL12.pdf"
+  },
+  {
+   "date": "2026-07-24T13:47:25",
+   "title": "Mylar® OL11",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/Mylar®-OL11.pdf"
+  },
+  {
+   "date": "2026-07-24T13:47:24",
+   "title": "Mylar® OL3",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/Mylar®-OL3.pdf"
+  },
+  {
+   "date": "2026-07-24T13:47:23",
+   "title": "Mylar® OL2",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/Mylar®-OL2.pdf"
+  },
+  {
+   "date": "2026-07-24T13:47:22",
+   "title": "Mylar® OL1AP",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/Mylar®-OL1AP.pdf"
+  },
+  {
+   "date": "2026-07-24T13:47:21",
+   "title": "Mylar® OL1AG",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/Mylar®-OL1AG.pdf"
+  },
+  {
+   "date": "2026-07-24T13:47:20",
+   "title": "Mylar® OL1AF",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/Mylar®-OL1AF.pdf"
+  },
+  {
+   "date": "2026-07-24T13:47:18",
+   "title": "Mylar® OL",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/Mylar®-OL.pdf"
+  },
+  {
+   "date": "2026-07-24T13:45:44",
+   "title": "Mylar® A 190-350 Micron Made in UK",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/Mylar®-A-190-350-Micron-Made-in-UK.pdf"
+  },
+  {
+   "date": "2026-07-23T08:12:55",
+   "title": "Mylar® 899",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Mylar®-899.pdf"
+  },
+  {
+   "date": "2026-07-23T08:12:54",
+   "title": "Mylar® 853",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Mylar®-853.pdf"
+  },
+  {
+   "date": "2026-07-23T08:12:53",
+   "title": "Mylar® 850AF",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Mylar®-850AF.pdf"
+  },
+  {
+   "date": "2026-07-23T08:12:52",
+   "title": "Mylar® 850",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Mylar®-850.pdf"
+  },
+  {
+   "date": "2026-07-23T08:12:51",
+   "title": "Mylar® 816",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Mylar®-816.pdf"
+  },
+  {
+   "date": "2026-07-23T08:12:50",
+   "title": "Mylar® 813LH",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Mylar®-813LH.pdf"
+  },
+  {
+   "date": "2026-07-23T08:12:48",
+   "title": "Mylar® 800MC",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Mylar®-800MC.pdf"
+  },
+  {
+   "date": "2026-07-23T08:12:47",
+   "title": "Mylar® 800LH",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Mylar®-800LH.pdf"
+  },
+  {
+   "date": "2026-07-23T08:12:06",
+   "title": "Melinex® D784",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-D784.pdf"
+  },
+  {
+   "date": "2026-07-22T14:17:03",
+   "title": "Mylar® 250",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Mylar®-250.pdf"
+  },
+  {
+   "date": "2026-07-22T14:17:02",
+   "title": "Mylar® 208",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Mylar®-208.pdf"
+  },
+  {
+   "date": "2026-07-22T14:17:00",
+   "title": "Mylar® 204 CLRPV",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Mylar®-204-CLRPV.pdf"
+  },
+  {
+   "date": "2026-07-22T14:06:50",
+   "title": "Melinex® ST535",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-ST535.pdf"
+  },
+  {
+   "date": "2026-07-22T14:06:49",
+   "title": "Melinex® ST506",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-ST506.pdf"
+  },
+  {
+   "date": "2026-07-22T14:06:48",
+   "title": "Melinex® ST504",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-ST504.pdf"
+  },
+  {
+   "date": "2026-07-22T14:06:47",
+   "title": "Melinex® SRO",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-SRO.pdf"
+  },
+  {
+   "date": "2026-07-22T14:06:46",
+   "title": "Melinex® S 12-36 µm",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-S-12-36-µm-.pdf"
+  },
+  {
+   "date": "2026-07-22T14:06:45",
+   "title": "Melinex® OD",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-OD.pdf"
+  },
+  {
+   "date": "2026-07-22T14:06:44",
+   "title": "Melinex® FS1",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-FS1.pdf"
+  },
+  {
+   "date": "2026-07-22T14:06:43",
+   "title": "Melinex® D384",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-D384.pdf"
+  },
+  {
+   "date": "2026-07-22T14:06:42",
+   "title": "Melinex® CORE2",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-CORE2.pdf"
+  },
+  {
+   "date": "2026-07-22T14:06:41",
+   "title": "Melinex® CORE1",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-CORE1.pdf"
+  },
+  {
+   "date": "2026-07-22T14:06:40",
+   "title": "Melinex® 733 UV Stable",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-733-UV-Stable.pdf"
+  },
+  {
+   "date": "2026-07-21T11:58:05",
+   "title": "Melinex® 569",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-569.pdf"
+  },
+  {
+   "date": "2026-07-21T11:58:04",
+   "title": "Melinex® 542",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-542.pdf"
+  },
+  {
+   "date": "2026-07-21T11:58:02",
+   "title": "Melinex® 454",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-454.pdf"
+  },
+  {
+   "date": "2026-07-21T11:58:01",
+   "title": "Melinex® 453",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-453.pdf"
+  },
+  {
+   "date": "2026-07-21T11:57:59",
+   "title": "Melinex® 427D",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-427D.pdf"
+  },
+  {
+   "date": "2026-07-21T11:57:58",
+   "title": "Melinex® 405",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-405.pdf"
+  },
+  {
+   "date": "2026-07-21T11:57:57",
+   "title": "Melinex® 389",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-389.pdf"
+  },
+  {
+   "date": "2026-07-21T11:57:56",
+   "title": "Melinex® 378",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-378.pdf"
+  },
+  {
+   "date": "2026-07-21T11:57:55",
+   "title": "Melinex® 377",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-377.pdf"
+  },
+  {
+   "date": "2026-07-21T11:37:14",
+   "title": "Melinex® 373",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-373.pdf"
+  },
+  {
+   "date": "2026-07-21T11:24:10",
+   "title": "Melinex® 339LS",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-339LS.pdf"
+  },
+  {
+   "date": "2026-07-21T10:54:30",
+   "title": "Melinex® 329LS",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-329LS.pdf"
+  },
+  {
+   "date": "2026-07-21T10:54:29",
+   "title": "Melinex® 329",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-329.pdf"
+  },
+  {
+   "date": "2026-07-21T10:54:28",
+   "title": "Melinex® 316",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-316.pdf"
+  },
+  {
+   "date": "2026-07-21T10:54:27",
+   "title": "Melinex® 313O",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-313O.pdf"
+  },
+  {
+   "date": "2026-07-21T10:54:25",
+   "title": "Melinex® 313LH",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-313LH.pdf"
+  },
+  {
+   "date": "2026-07-21T10:54:24",
+   "title": "Melinex® 301 Bondable Film",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-301-Bondable-Film.pdf"
+  },
+  {
+   "date": "2026-07-21T10:46:01",
+   "title": "Melinex® 238 300-350 ·m",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-238-300-350-·m.pdf"
+  },
+  {
+   "date": "2026-07-21T10:39:06",
+   "title": "Melinex® 238 75-250·m",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Melinex®-238-75-250·m.pdf"
+  },
+  {
+   "date": "2026-07-20T11:09:22",
+   "title": "Mylar® RL52",
+   "url": "https://mylar.com/wp-content/uploads/2026/07/Mylar®-RL52.pdf"
+  },
+  {
+   "date": "2026-04-15T14:15:25",
+   "title": "Mylar Specialty Films &#8211; Kaladex PEN Brochure 2026",
+   "url": "https://mylar.com/wp-content/uploads/2026/04/Mylar-Specialty-Films-Kaladex-PEN-Brochure-2026.pdf"
+  },
+  {
+   "date": "2026-02-15T10:46:13",
+   "title": "mylar_wc.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_wc.pdf"
+  },
+  {
+   "date": "2026-02-15T10:46:12",
+   "title": "melinex_tch22uv.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_tch22uv.pdf"
+  },
+  {
+   "date": "2026-02-15T10:46:11",
+   "title": "melinex_tch22.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_tch22.pdf"
+  },
+  {
+   "date": "2026-02-15T10:46:10",
+   "title": "melinex_tch21.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_tch21.pdf"
+  },
+  {
+   "date": "2026-02-15T10:46:09",
+   "title": "melinex_stch24uv.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_stch24uv.pdf"
+  },
+  {
+   "date": "2026-02-15T10:46:09",
+   "title": "melinex_stch22uv.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_stch22uv.pdf"
+  },
+  {
+   "date": "2026-02-15T10:46:08",
+   "title": "melinex_stch22.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_stch22.pdf"
+  },
+  {
+   "date": "2026-02-15T10:46:07",
+   "title": "melinex_stch21.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_stch21.pdf"
+  },
+  {
+   "date": "2026-02-15T10:46:06",
+   "title": "melinex_st725.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_st725.pdf"
+  },
+  {
+   "date": "2026-02-15T10:46:05",
+   "title": "melinex_st535.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_st535.pdf"
+  },
+  {
+   "date": "2026-02-15T10:46:04",
+   "title": "melinex_st529.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_st529.pdf"
+  },
+  {
+   "date": "2026-02-15T10:46:03",
+   "title": "melinex_st506.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_st506.pdf"
+  },
+  {
+   "date": "2026-02-15T10:46:02",
+   "title": "melinex_st339.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_st339.pdf"
+  },
+  {
+   "date": "2026-02-15T10:46:02",
+   "title": "melinex_st329.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_st329.pdf"
+  },
+  {
+   "date": "2026-02-15T10:46:01",
+   "title": "mylar_s1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_s1.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:59",
+   "title": "melinex_s.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_s.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:58",
+   "title": "mylar_rsxr951.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_rsxr951.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:57",
+   "title": "mylar_rsx951.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_rsx951.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:56",
+   "title": "mylar_rsx.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_rsx.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:56",
+   "title": "mylar_rl71af.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_rl71af.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:54",
+   "title": "mylar_rl44.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_rl44.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:54",
+   "title": "mylar_rl43-rl43af-rl43at.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_rl43-rl43af-rl43at.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:53",
+   "title": "mylar_rl42-rl42af-rl42at.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_rl42-rl42af-rl42at.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:52",
+   "title": "mylar_rl33.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_rl33.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:51",
+   "title": "mylar_rl32.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_rl32.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:50",
+   "title": "mylar_rl31.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_rl31.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:49",
+   "title": "mylar_rel1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_rel1.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:48",
+   "title": "mylar_rb52-rb52af-rb52at.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_rb52-rb52af-rb52at.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:47",
+   "title": "melinex_pplam1r.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_pplam1r.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:47",
+   "title": "melinex_pplam1m.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_pplam1m.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:46",
+   "title": "melinex_pplam1_family.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_pplam1_family.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:45",
+   "title": "mylar_p25.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_p25.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:43",
+   "title": "mylar_owf2.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_owf2.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:43",
+   "title": "mylar_owf.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_owf.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:42",
+   "title": "mylar_olath.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_olath.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:41",
+   "title": "mylar_olap.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_olap.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:40",
+   "title": "mylar_ol3.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_ol3.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:39",
+   "title": "mylar_ol2.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_ol2.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:38",
+   "title": "mylar_ol1as.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_ol1as.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:37",
+   "title": "mylar_ol13.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_ol13.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:36",
+   "title": "mylar_ol12af.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_ol12af.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:35",
+   "title": "mylar_ol12.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_ol12.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:34",
+   "title": "mylar_ol11.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_ol11.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:34",
+   "title": "mylar_ol.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_ol.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:33",
+   "title": "mylar_mo21.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_mo21.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:32",
+   "title": "mylar_mo.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_mo.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:31",
+   "title": "mylar_mlbt.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_mlbt.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:30",
+   "title": "mylar_mlb.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_mlb.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:29",
+   "title": "mylar_m813.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_m813.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:28",
+   "title": "mylar_m461.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_m461.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:27",
+   "title": "mylar_m34.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_m34.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:25",
+   "title": "mylar_m30.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_m30.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:22",
+   "title": "melinex_lss.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_lss.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:20",
+   "title": "mylar_lbtw.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_lbtw.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:18",
+   "title": "mylar_lbt.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_lbt.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:16",
+   "title": "mylar_lb.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_lb.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:15",
+   "title": "mylar_hf43ap.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_hf43ap.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:13",
+   "title": "mylar_hf02at.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_hf02at.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:11",
+   "title": "mylar_hf02apsr.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_hf02apsr.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:09",
+   "title": "mylar_hf02ap.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_hf02ap.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:08",
+   "title": "mylar_hf01ap.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_hf01ap.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:05",
+   "title": "melinex_frps.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_frps.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:04",
+   "title": "mylar_el21.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_el21.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:02",
+   "title": "mylar_el.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_el.pdf"
+  },
+  {
+   "date": "2026-02-15T10:45:01",
+   "title": "mylar_eb31.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_eb31.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:59",
+   "title": "mylar_eb11.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_eb11.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:57",
+   "title": "melinex_dcs1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_dcs1.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:56",
+   "title": "melinex_d316.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_d316.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:54",
+   "title": "mylar_cspw.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_cspw.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:53",
+   "title": "melinex_core2.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_core2.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:52",
+   "title": "melinex_core1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_core1.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:52",
+   "title": "mylar_clpe.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_clpe.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:50",
+   "title": "mylar_cl.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_cl.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:49",
+   "title": "mylar_ckp5.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_ckp5.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:48",
+   "title": "mylar_ckfp_400-600.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_ckfp_400-600.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:47",
+   "title": "mylar_ckf.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_ckf.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:46",
+   "title": "melinex_ars.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_ars.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:46",
+   "title": "melinex_ag3.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_ag3.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:45",
+   "title": "melinex_af2.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_af2.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:44",
+   "title": "mylar_a951.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_a951.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:43",
+   "title": "melinex_a903.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_a903.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:42",
+   "title": "mylar_a601.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_a601.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:41",
+   "title": "mylar_851h.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_851h.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:41",
+   "title": "mylar_850h.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_850h.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:40",
+   "title": "mylar_800c.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_800c.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:39",
+   "title": "melinex_516r.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_516r.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:38",
+   "title": "melinex_516d.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_516d.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:37",
+   "title": "melinex_514p.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_514p.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:36",
+   "title": "melinex_377p.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_377p.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:36",
+   "title": "melinex_377fc.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_377fc.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:35",
+   "title": "melinex_331w.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_331w.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:34",
+   "title": "melinex_301h.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_301h.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:32",
+   "title": "mylar_7132.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_7132.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:31",
+   "title": "melinex_6554.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_6554.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:31",
+   "title": "melinex_6482.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_6482.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:29",
+   "title": "melinex_3381.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_3381.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:29",
+   "title": "melinex_3380.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_3380.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:28",
+   "title": "melinex_3367.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_3367.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:27",
+   "title": "melinex_1311.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_1311.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:26",
+   "title": "melinex_966.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_966.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:25",
+   "title": "mylar_822.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_822.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:24",
+   "title": "mylar_813.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_813.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:24",
+   "title": "mylar_808.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_808.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:23",
+   "title": "melinex_725.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_725.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:22",
+   "title": "melinex_628.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_628.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:21",
+   "title": "melinex_627.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_627.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:20",
+   "title": "melinex_626.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_626.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:19",
+   "title": "melinex_625.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_625.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:18",
+   "title": "melinex_568.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_568.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:17",
+   "title": "melinex_561.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_561.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:17",
+   "title": "melinex_516.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_516.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:16",
+   "title": "melinex_515.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_515.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:14",
+   "title": "melinex_478.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_478.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:13",
+   "title": "melinex_475.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_475.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:12",
+   "title": "melinex_473.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_473.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:11",
+   "title": "melinex_462.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_462.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:10",
+   "title": "melinex_461.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_461.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:09",
+   "title": "melinex_456.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_456.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:08",
+   "title": "melinex_455.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_455.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:07",
+   "title": "melinex_454.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_454.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:06",
+   "title": "melinex_453.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_453.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:05",
+   "title": "melinex_378.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_378.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:05",
+   "title": "melinex_342.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_342.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:04",
+   "title": "melinex_331.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_331.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:03",
+   "title": "melinex_313.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_313.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:02",
+   "title": "mylar_a-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_a-1.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:01",
+   "title": "mylar_80068-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/mylar_80068-1.pdf"
+  },
+  {
+   "date": "2026-02-15T10:44:00",
+   "title": "melinex_st504-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_st504-1.pdf"
+  },
+  {
+   "date": "2026-02-15T10:43:59",
+   "title": "melinex_37753-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_37753-1.pdf"
+  },
+  {
+   "date": "2026-02-15T10:43:58",
+   "title": "melinex_32951-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_32951-1.pdf"
+  },
+  {
+   "date": "2026-02-15T10:43:57",
+   "title": "melinex_238-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2026/02/melinex_238-1.pdf"
+  },
+  {
+   "date": "2025-11-18T11:54:52",
+   "title": "Mylar Specialty Films &#8211; Packaging Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2025/11/Mylar-Specialty-Films-Packaging-Brochure.pdf"
+  },
+  {
+   "date": "2025-11-18T11:52:41",
+   "title": "Mylar Specialty Films &#8211; Kaladex PEN Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2025/11/Mylar-Specialty-Films-Kaladex-PEN-Brochure.pdf"
+  },
+  {
+   "date": "2025-11-06T11:53:56",
+   "title": "4720928109-mylar_specialty_films_iso_14001_amtivo_certificate_jan_2025",
+   "url": "https://mylar.com/wp-content/uploads/2025/11/4720928109-mylar_specialty_films_iso_14001_amtivo_certificate_jan_2025.pdf"
+  },
+  {
+   "date": "2025-11-06T11:48:49",
+   "title": "UK-BRC-081-Cert-Iss-1",
+   "url": "https://mylar.com/wp-content/uploads/2025/11/UK-BRC-081-Cert-Iss-1.pdf"
+  },
+  {
+   "date": "2025-10-20T09:16:16",
+   "title": "US-BRC-001-Cert-Iss 1 &#8211; Expires 10 17 2026 Spru",
+   "url": "https://mylar.com/wp-content/uploads/2025/10/US-BRC-001-Cert-Iss-1-Expires-10-17-2026-Spru.pdf"
+  },
+  {
+   "date": "2025-10-20T09:16:14",
+   "title": "US-BRC-005 &#8211; Expires 10-13-2026 Hop",
+   "url": "https://mylar.com/wp-content/uploads/2025/10/US-BRC-005-Expires-10-13-2026-Hop.pdf"
+  },
+  {
+   "date": "2025-08-15T13:49:36",
+   "title": "mylar_rl33ls-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_rl33ls-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:49:35",
+   "title": "mylar_olaf-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_olaf-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:49:34",
+   "title": "mylar_ol3-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_ol3-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:49:33",
+   "title": "mylar_ol2-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_ol2-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:49:32",
+   "title": "mylar_ol1ap-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_ol1ap-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:49:31",
+   "title": "mylar_ol1ag-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_ol1ag-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:49:30",
+   "title": "mylar_ol1af-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_ol1af-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:49:28",
+   "title": "mylar_ol13-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_ol13-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:49:27",
+   "title": "mylar_ol12-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_ol12-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:49:26",
+   "title": "mylar_ol11-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_ol11-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:49:25",
+   "title": "mylar_ol-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_ol-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:49:24",
+   "title": "mylar_mc2-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_mc2-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:49:22",
+   "title": "mylar_fa_23-75_made_in_uk-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_fa_23-75_made_in_uk-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:49:21",
+   "title": "mylar_cl_clt-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_cl_clt-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:49:20",
+   "title": "mylar_ads_luxembourg-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_ads_luxembourg-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:49:19",
+   "title": "mylar_a-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_a-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:49:18",
+   "title": "mylar_a_500_micron_made_in_uk-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_a_500_micron_made_in_uk-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:49:16",
+   "title": "mylar_a_23-125_micron_made_in_uk-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_a_23-125_micron_made_in_uk-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:49:15",
+   "title": "mylar_a_190-350_micron_made_in_uk-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_a_190-350_micron_made_in_uk-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:49:14",
+   "title": "mylar_a_12-75_micron_made_in_usa-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_a_12-75_micron_made_in_usa-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:49:12",
+   "title": "mylar_a_100-350_micron_made_in_usa-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_a_100-350_micron_made_in_usa-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:49:10",
+   "title": "mylar_870af-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_870af-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:49:06",
+   "title": "mylar_852-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_852-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:49:00",
+   "title": "mylar_813o-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_813o-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:48:55",
+   "title": "mylar_80068-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_80068-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:48:54",
+   "title": "mylar_800-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_800-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:48:53",
+   "title": "mylar_3850-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/mylar_3850-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:48:44",
+   "title": "melinex_st504-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/melinex_st504-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:48:41",
+   "title": "melinex_s_12-36_micron-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/melinex_s_12-36_micron-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:48:25",
+   "title": "melinex_715-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/melinex_715-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:48:21",
+   "title": "melinex_506_75_250_micron-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/melinex_506_75_250_micron-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:48:17",
+   "title": "melinex_406-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/melinex_406-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:48:14",
+   "title": "melinex_401_made_in_dumfries-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/melinex_401_made_in_dumfries-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:48:09",
+   "title": "melinex_37753-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/melinex_37753-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:48:03",
+   "title": "melinex_339f-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/melinex_339f-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:48:01",
+   "title": "melinex_339-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/melinex_339-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:47:57",
+   "title": "melinex_32951-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/melinex_32951-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:47:47",
+   "title": "melinex_238-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/melinex_238-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:47:42",
+   "title": "melinex_226-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/melinex_226-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:47:40",
+   "title": "kaladex_2000l-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/kaladex_2000l-1.pdf"
+  },
+  {
+   "date": "2025-08-15T13:47:38",
+   "title": "kaladex_2000-1.pdf",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/kaladex_2000-1.pdf"
+  },
+  {
+   "date": "2025-08-11T07:25:47",
+   "title": "ISO_50001-ENG-10000477429-MSC-RvA-GBR-3-20250730",
+   "url": "https://mylar.com/wp-content/uploads/2025/08/ISO_50001-ENG-10000477429-MSC-RvA-GBR-3-20250730.pdf"
+  },
+  {
+   "date": "2025-07-07T12:51:17",
+   "title": "Mylar Specialty Films &#8211; Kaladex PEN Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2025/07/Mylar-Specialty-Films-Kaladex-PEN-Brochure.pdf"
+  },
+  {
+   "date": "2025-07-01T08:37:14",
+   "title": "ISO_14001-ENG-264558-2018-AE-GBR-UKAS-5-20250624",
+   "url": "https://mylar.com/wp-content/uploads/2025/07/ISO_14001-ENG-264558-2018-AE-GBR-UKAS-5-20250624.pdf"
+  },
+  {
+   "date": "2025-03-25T10:24:22",
+   "title": "2024dec12 Cert EMS-110 2018-023-14Mylar Specialty Films",
+   "url": "https://mylar.com/wp-content/uploads/2025/03/2024dec12-Cert-EMS-110-2018-023-14Mylar-Specialty-Films.pdf"
+  },
+  {
+   "date": "2025-03-07T11:52:40",
+   "title": "Mylar Specialty Films &#8211; Durable Cards Brochure 2025 Web",
+   "url": "https://mylar.com/wp-content/uploads/2025/03/Mylar-Specialty-Films-Durable-Cards-Brochure-2025-Web.pdf"
+  },
+  {
+   "date": "2024-11-12T12:31:32",
+   "title": "UK-BRC-081 (002)",
+   "url": "https://mylar.com/wp-content/uploads/2024/11/UK-BRC-081-002.pdf"
+  },
+  {
+   "date": "2024-10-28T10:54:15",
+   "title": "ISO Certification &#8211; 9001 &#8211; Expires 10 2027",
+   "url": "https://mylar.com/wp-content/uploads/2024/10/ISO-Certification-FM69802-Expires-10-2027.pdf"
+  },
+  {
+   "date": "2024-09-13T14:12:23",
+   "title": "ISO_9001-ENG-165509-2014-AQ-GBR-UKAS-7-20240911",
+   "url": "https://mylar.com/wp-content/uploads/2024/09/ISO_9001-ENG-165509-2014-AQ-GBR-UKAS-7-20240911.pdf"
+  },
+  {
+   "date": "2024-09-09T09:18:22",
+   "title": "US-BRC-005 &#8211; Hopewell Expires 8-13-2025",
+   "url": "https://mylar.com/wp-content/uploads/2024/09/US-BRC-005-Hopewell-Expires-8-13-2025.pdf"
+  },
+  {
+   "date": "2024-09-04T12:44:07",
+   "title": "BRCGS Certificate &#8211; Spurance Expires 10 17 2025",
+   "url": "https://mylar.com/wp-content/uploads/2024/09/US-BRC-001-Spurance-Expires-10-17-2025.pdf"
+  },
+  {
+   "date": "2024-06-06T09:37:49",
+   "title": "Mylar Specialty Films &#8211; Packaging Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2024/06/Mylar-Specialty-Films-Packaging-Brochure.pdf"
+  },
+  {
+   "date": "2024-06-06T09:37:47",
+   "title": "Mylar Specialty Films &#8211; Labels Brochure pdf",
+   "url": "https://mylar.com/wp-content/uploads/2024/06/Mylar-Specialty-Films-Labels-Brochure-pdf.pdf"
+  },
+  {
+   "date": "2024-06-06T09:37:43",
+   "title": "Mylar Specialty Films &#8211; Kaladex PEN HV",
+   "url": "https://mylar.com/wp-content/uploads/2024/06/Mylar-Specialty-Films-Kaladex-PEN-HV.pdf"
+  },
+  {
+   "date": "2024-06-06T09:37:40",
+   "title": "Mylar Specialty Films &#8211; Imaging Media Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2024/06/Mylar-Specialty-Films-Imaging-Media-Brochure.pdf"
+  },
+  {
+   "date": "2024-06-06T09:37:37",
+   "title": "Mylar Specialty Films &#8211; Flexible Electronics Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2024/06/Mylar-Specialty-Films-Flexible-Electronics-Brochure.pdf"
+  },
+  {
+   "date": "2024-06-06T09:37:34",
+   "title": "Mylar Specialty Films &#8211; FIM Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2024/06/Mylar-Specialty-Films-FIM-Brochure.pdf"
+  },
+  {
+   "date": "2024-06-06T09:37:31",
+   "title": "Mylar Specialty Films &#8211; Electrical Insulation Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2024/06/Mylar-Specialty-Films-Electrical-Insulation-Brochure.pdf"
+  },
+  {
+   "date": "2024-06-06T09:37:28",
+   "title": "Mylar Specialty Films &#8211; Durable Cards Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2024/06/Mylar-Specialty-Films-Durable-Cards-Brochure.pdf"
+  },
+  {
+   "date": "2024-06-06T09:37:24",
+   "title": "Mylar Specialty Films &#8211; Capacitors Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2024/06/Mylar-Specialty-Films-Capacitors-Brochure.pdf"
+  },
+  {
+   "date": "2024-06-05T15:00:45",
+   "title": "Mylar Specialty Films &#8211; Photovoltaics (PV) Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2024/06/Mylar-Specialty-Films-Photovoltaics-PV-Brochure.pdf"
+  },
+  {
+   "date": "2024-05-16T13:00:16",
+   "title": "MSC Certificate",
+   "url": "https://mylar.com/wp-content/uploads/2024/05/MSC-Certificate.pdf"
+  },
+  {
+   "date": "2024-04-18T12:50:35",
+   "title": "ISO9001certificate_MSF_Luxembourg_Exp010627",
+   "url": "https://mylar.com/wp-content/uploads/2024/04/ISO9001certificate_MSF_Luxembourg_Exp010627.pdf"
+  },
+  {
+   "date": "2024-04-18T07:49:00",
+   "title": "ISO-50001-10000477429-MSC-RvA-GBR-1-en-US-20240213-20240213100743 (2)",
+   "url": "https://mylar.com/wp-content/uploads/2024/04/ISO-50001-10000477429-MSC-RvA-GBR-1-en-US-20240213-20240213100743-2.pdf"
+  },
+  {
+   "date": "2024-03-01T09:36:39",
+   "title": "ISO-9001-53451-2009-AQ-GBR-UKAS-6-en-US-20240209-20240209170013",
+   "url": "https://mylar.com/wp-content/uploads/2024/03/ISO-9001-53451-2009-AQ-GBR-UKAS-6-en-US-20240209-20240209170013.pdf"
+  },
+  {
+   "date": "2024-02-28T12:33:35",
+   "title": "Mylar Specialty Films &#8211; Imaging Media Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2024/02/Mylar-Specialty-Films-Imaging-Media-Brochure.pdf"
+  },
+  {
+   "date": "2024-02-28T12:33:31",
+   "title": "Mylar Specialty Films &#8211; Durable Cards Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2024/02/Mylar-Specialty-Films-Durable-Cards-Brochure-1.pdf"
+  },
+  {
+   "date": "2024-02-28T12:33:23",
+   "title": "Mylar Specialty Films &#8211; Labels Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2024/02/Mylar-Specialty-Films-Labels-Brochure-1.pdf"
+  },
+  {
+   "date": "2024-02-28T12:33:16",
+   "title": "Mylar Specialty Films &#8211; Packaging Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2024/02/Mylar-Specialty-Films-Packaging-Brochure-1.pdf"
+  },
+  {
+   "date": "2024-02-26T08:10:23",
+   "title": "ISO-14001-264558-2018-AE-GBR-UKAS-2-en-US-20240209-20240209170533",
+   "url": "https://mylar.com/wp-content/uploads/2024/02/ISO-14001-264558-2018-AE-GBR-UKAS-2-en-US-20240209-20240209170533.pdf"
+  },
+  {
+   "date": "2024-02-11T08:13:53",
+   "title": "Mylar Specialty Films &#8211; Product Capacitors Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2024/02/Mylar-Specialty-Films-Product-Capacitors-Brochure.pdf"
+  },
+  {
+   "date": "2024-02-10T15:50:02",
+   "title": "Mylar Specialty Films &#8211; Electrical Insulation Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2024/02/Mylar-Specialty-Films-Electrical-Insulation-Brochure.pdf"
+  },
+  {
+   "date": "2024-02-10T15:49:55",
+   "title": "Mylar Specialty Films &#8211; Photovoltaics (PV) Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2024/02/Mylar-Specialty-Films-Photovoltaics-PV-Brochure.pdf"
+  },
+  {
+   "date": "2024-02-07T20:46:13",
+   "title": "BRCGS Certificate Hopewell Expires 11-18-2024 v2",
+   "url": "https://mylar.com/wp-content/uploads/2024/02/BRCGS-Certificate-Hopewell-Expires-11-18-2024-v2.pdf"
+  },
+  {
+   "date": "2024-02-07T20:30:25",
+   "title": "UK-BRC-081",
+   "url": "https://mylar.com/wp-content/uploads/2024/02/UK-BRC-081.pdf"
+  },
+  {
+   "date": "2024-02-07T08:32:33",
+   "title": "2022july1 Cert EMS-110 2018-023-14 DuPont Teijin Films",
+   "url": "https://mylar.com/wp-content/uploads/2024/02/2022july1-Cert-EMS-110-2018-023-14-DuPont-Teijin-Films.pdf"
+  },
+  {
+   "date": "2024-02-07T08:32:30",
+   "title": "Regional US ISO Certificate Hopewell and Spruance FM 69802 &#8211; 1",
+   "url": "https://mylar.com/wp-content/uploads/2024/02/Regional-US-ISO-Certificate-Hopewell-and-Spruance-FM-69802-1.pdf"
+  },
+  {
+   "date": "2024-02-07T08:32:27",
+   "title": "BRC Certification Spruance &#8211; October 2023",
+   "url": "https://mylar.com/wp-content/uploads/2024/02/BRC-Certification-Spruance-October-2023.pdf"
+  },
+  {
+   "date": "2024-02-07T08:32:25",
+   "title": "BRCGS Certificate Hopewell Expires 11-18-2024",
+   "url": "https://mylar.com/wp-content/uploads/2024/02/BRCGS-Certificate-Hopewell-Expires-11-18-2024.pdf"
+  },
+  {
+   "date": "2024-02-06T18:42:22",
+   "title": "Mylar Specialty Films &#8211; FIM Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2024/02/Mylar-Specialty-Films-FIM-Brochure.pdf"
+  },
+  {
+   "date": "2024-01-31T15:45:25",
+   "title": "Mylar Specialty Films &#8211; Flexible Electronics Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2024/01/Mylar-Specialty-Films-Flexible-Electronics-Brochure.pdf"
+  },
+  {
+   "date": "2024-01-31T15:45:22",
+   "title": "Mylar Specialty Films &#8211; Imaging Media Brochure",
+   "url": "https://mylar.com/wp-content/uploads/2024/01/Mylar-Specialty-Films-Imaging-Media-Brochure.pdf"
+  },
+  {
+   "date": "2024-01-31T15:45:19",
+   "title": "Mylar Specialty Films &#8211; Kaladex PEN HV",
+   "url": "https://mylar.com/wp-content/uploads/2024/01/Mylar-Specialty-Films-Kaladex-PEN-HV.pdf"
+  },
+  {
+   "date": "2024-01-10T17:58:11",
+   "title": "luxcr-presentation",
+   "url": "https://mylar.com/wp-content/uploads/2024/01/luxcr-presentation.pdf"
+  },
+  {
+   "date": "2024-01-10T17:46:42",
+   "title": "iso-14001",
+   "url": "https://mylar.com/wp-content/uploads/2024/01/iso-14001.pdf"
+  },
+  {
+   "date": "2024-01-10T17:46:22",
+   "title": "dupont-teijin-films-luxembourg-sa-iso-9001-20210419",
+   "url": "https://mylar.com/wp-content/uploads/2024/01/dupont-teijin-films-luxembourg-sa-iso-9001-20210419.pdf"
+  },
+  {
+   "date": "2024-01-10T17:46:00",
+   "title": "22-09-dupont-teijin-films-luxembourg-brcgs-packaging-certificate",
+   "url": "https://mylar.com/wp-content/uploads/2024/01/22-09-dupont-teijin-films-luxembourg-brcgs-packaging-certificate.pdf"
+  },
+  {
+   "date": "2024-01-10T17:45:19",
+   "title": "iso-14001-264558-2018-ae-gbr-ukas-1-en-us-20220610-20220610103802",
+   "url": "https://mylar.com/wp-content/uploads/2024/01/iso-14001-264558-2018-ae-gbr-ukas-1-en-us-20220610-20220610103802.pdf"
+  },
+  {
+   "date": "2024-01-10T17:44:59",
+   "title": "dupont-teijin-films-uk-ltd-iso-9001-27042021",
+   "url": "https://mylar.com/wp-content/uploads/2024/01/dupont-teijin-films-uk-ltd-iso-9001-27042021.pdf"
+  },
+  {
+   "date": "2024-01-10T17:44:25",
+   "title": "2023-brcgs-certificate",
+   "url": "https://mylar.com/wp-content/uploads/2024/01/2023-brcgs-certificate.pdf"
+  },
+  {
+   "date": "2024-01-10T09:56:29",
+   "title": "gender-gap-report-march-2018-dtf-figures-2",
+   "url": "https://mylar.com/wp-content/uploads/2024/01/gender-gap-report-march-2018-dtf-figures-2.pdf"
+  },
+  {
+   "date": "2023-12-21T12:38:37",
+   "title": "dtf-durable-cards-brochure",
+   "url": "https://mylar.com/wp-content/uploads/2023/12/dtf-durable-cards-brochure.pdf"
+  },
+  {
+   "date": "2023-12-21T12:38:19",
+   "title": "dtf-capacitors-brochure",
+   "url": "https://mylar.com/wp-content/uploads/2023/12/dtf-capacitors-brochure.pdf"
+  }
+ ]
+}

@@ -1,0 +1,112 @@
+{
+  "vendor": "Isola Group",
+  "harvested_utc": "2026-09-09",
+  "batch": "69cha ED (PCB laminates and build-up films)",
+  "how_retrieved": [
+    "curl https://www.isola-group.com/sitemap.xml -> redirects to /sitemap_index.xml (Yoast SEO, WordPress)",
+    "curl https://www.isola-group.com/documentation-sitemap.xml  (custom post type 'documentation')",
+    "curl https://www.isola-group.com/attachment-sitemap.xml     (media attachments; reveals superseded SDS revisions)",
+    "SDS PDF URL is scraped from the documentation page HTML: grep -oE '(href|src)=\"[^\"]*\\.pdf\"'",
+    "NOTE: the 'documentation' post type is NOT exposed on /wp-json/wp/v2/types, so there is no REST route; the sitemaps are the index."
+  ],
+  "endpoints": {
+    "sitemap_index": "https://www.isola-group.com/sitemap_index.xml",
+    "documentation_sitemap": "https://www.isola-group.com/documentation-sitemap.xml",
+    "attachment_sitemap": "https://www.isola-group.com/attachment-sitemap.xml",
+    "wp_rest_types": "https://www.isola-group.com/wp-json/wp/v2/types"
+  },
+  "counts": {
+    "documentation_entries": 206,
+    "safety_data_sheet_entries": 51,
+    "attachment_entries": 868
+  },
+  "safety_data_sheet_pages": [
+    "https://www.isola-group.com/documentation/185hr-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/185hr-prepreg-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/370hr-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/a11-prepreg-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/astra-mt77-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/astra-mt77-prepreg-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/de104-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/de104-prepreg-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/ed130uv-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/fr402-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/fr402-prepreg-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/fr406-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/fr406-prepreg-safety-data-sheet-2/",
+    "https://www.isola-group.com/documentation/fr406-prepreg-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/fr406n-prepreg-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/fr408-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/fr408-prepreg-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/fr408hr-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/fr408hr-prepreg-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/g200-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/g200-prepreg-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/i-tera-mt40-prepreg-safety-datasheet/",
+    "https://www.isola-group.com/documentation/is400-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/is410-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/is410-prepreg-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/is415-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/is415-prepreg-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/is420-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/is420-prepreg-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/is550h-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/is550h-prepreg-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/is580g-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/is580g-prepreg-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/is680-laminate-safety-data-sheet-2/",
+    "https://www.isola-group.com/documentation/is680-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/is680ag-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/p95-prepreg-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/p96-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/p96-prepreg-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/pcl-frp-370hr-prepreg-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/speed-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/speed-prepreg-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/tachyon-100g-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/tachyon-100g-prepreg-safety-data-sheet-copy/",
+    "https://www.isola-group.com/documentation/tachyon-100g-prepreg-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/tachyon-200jv-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/tachyon-200jv-prepreg-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/tera-mt40-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/terragreen-400g-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/terragreen-laminate-safety-data-sheet/",
+    "https://www.isola-group.com/documentation/terragreen-prepreg-safety-data-sheet/"
+  ],
+  "resolved_pdfs_this_batch": {
+    "https://www.isola-group.com/documentation/fr408-laminate-safety-data-sheet/": "https://www.isola-group.com/wp-content/uploads/FR408-Laminate-SDS-2020.07.19.pdf",
+    "https://www.isola-group.com/documentation/fr408-prepreg-safety-data-sheet/": "https://www.isola-group.com/wp-content/uploads/FR408-Prepreg-SDS-2024.02.26.pdf"
+  },
+  "getek_examination": {
+    "result": "GETEK is absent from every live Isola index (0 hits for 'getek' in documentation-sitemap.xml and attachment-sitemap.xml). GETEK exists only in the Wayback Machine.",
+    "archive_cdx_call": "curl 'https://web.archive.org/cdx/search/cdx?url=isola-group.com*&output=json&limit=200000&collapse=urlkey&filter=urlkey:.*(msds|sds).*&filter=original:.*\\.pdf.*'",
+    "archive_cdx_total_isola_sds_pdfs": 759,
+    "getek_sds_pdfs_in_archive": [
+      {
+        "url": "http://www.isola-group.com/wp-content/uploads/2011/08/GetekFR4LaminateMSDSDecember2006Final.pdf",
+        "timestamp": "20150905220604",
+        "status": "DOWNLOADED"
+      },
+      {
+        "url": "http://www.isola-group.com/wp-content/uploads/2011/08/GetekFR4PrepregMSDSFinal20100702.pdf",
+        "timestamp": "20150905221157",
+        "status": "DOWNLOADED"
+      },
+      {
+        "url": "http://www.isola-group.com:80/laminates/pdf/msds_getek-laminate.pdf",
+        "timestamp": "20061211165227",
+        "status": "ARCHIVE CAPTURED A 404 - CONTENT NEVER PRESERVED"
+      },
+      {
+        "url": "http://www.isola-group.com:80/laminates/pdf/msds_getek-prepreg.pdf",
+        "timestamp": "20061211165006",
+        "status": "ARCHIVE CAPTURED A 404 - CONTENT NEVER PRESERVED"
+      },
+      {
+        "url": "http://www.isola-group.com:80/laminates/pdf/msds_getek-hr-prepreg.pdf",
+        "timestamp": "20061211165404",
+        "status": "ARCHIVE CAPTURED A 404 - CONTENT NEVER PRESERVED"
+      }
+    ]
+  }
+}

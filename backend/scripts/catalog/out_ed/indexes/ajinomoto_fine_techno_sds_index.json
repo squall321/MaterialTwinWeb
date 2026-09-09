@@ -1,0 +1,69 @@
+{
+  "vendor": "Ajinomoto Fine-Techno Co., Inc.",
+  "harvested_utc": "2026-09-09",
+  "batch": "69cha ED (PCB laminates and build-up films)",
+  "how_retrieved": [
+    "robots.txt at https://www.aft-website.com/robots.txt discloses the WordPress install at /cms/ and the sitemap.",
+    "curl https://www.aft-website.com/sitemap.xml -> 4 child sitemaps (page, news, news-en, newslist_en).",
+    "curl https://www.aft-website.com/page-sitemap.xml -> 75 page URLs = the ENTIRE public site.",
+    "WordPress REST API is live: https://www.aft-website.com/cms/wp-json/wp/v2/media?per_page=100&page=N enumerates the whole media library.",
+    "Wayback CDX for the full history: curl 'https://web.archive.org/cdx/search/cdx?url=aft-website.com*&output=json&limit=100000&collapse=urlkey'"
+  ],
+  "endpoints": {
+    "robots": "https://www.aft-website.com/robots.txt",
+    "sitemap_index": "https://www.aft-website.com/sitemap.xml",
+    "page_sitemap": "https://www.aft-website.com/page-sitemap.xml",
+    "wp_rest_media": "https://www.aft-website.com/cms/wp-json/wp/v2/media?per_page=100&page={n}",
+    "wp_rest_search": "https://www.aft-website.com/cms/wp-json/wp/v2/search?search={term}",
+    "abf_product_page_en": "https://www.aft-website.com/en/products/insulating_film-abf/",
+    "cdx_api": "https://web.archive.org/cdx/search/cdx?url=aft-website.com*&output=json&limit=100000&collapse=urlkey"
+  },
+  "counts": {
+    "public_pages_in_sitemap": 75,
+    "pages_matching_sds_msds_safety_datasheet": 0,
+    "pdfs_in_wp_media_library": 1,
+    "wayback_urls_total": 2211,
+    "wayback_pdf_urls": 21
+  },
+  "finding": {
+    "no_sds_area": "Ajinomoto Fine-Techno publishes NO SDS, NO MSDS and NO technical datasheet PDFs anywhere on aft-website.com. The entire public site is 75 pages. The WordPress media library contains exactly ONE PDF (an unrelated 2025 attachment) and the Wayback history contains only corporate/CSR PDFs (karadakokoro20NN.pdf). Every product page ends in a contact form (/contact/product-contact/?post_id=NNNN) instead of a download.",
+    "confirms_previous_batch": "This reproduces and extends the earlier batch finding that ABF product pages carry no SDS links - it is true of the WHOLE site, not just one product page.",
+    "agl_1020_examination": "'AGL-1020' does not exist anywhere in Ajinomoto Fine-Techno's published material. 0 hits in the 75-page sitemap, 0 hits in 2211 archived URLs, 0 hits in the WP REST search. The ABF grade nomenclature is GX / GZ / GL, never AGL: the live EN+JP ABF page lists exactly GX-92, GX-T31, GZ-41, GL-102, and the 2013 archived page lists ABF-GX13, ABF-GX13GC, ABF-GX92, ABF-GZ41, ABF-LE, GX-T31."
+  },
+  "abf_grades_live_2026": [
+    "GX-92",
+    "GX-T31",
+    "GZ-41",
+    "GL-102"
+  ],
+  "abf_grades_archived_2013": [
+    "ABF-GX13",
+    "ABF-GX13GC",
+    "ABF-GX92",
+    "ABF-GZ41",
+    "ABF-LE",
+    "GX-T31"
+  ],
+  "wayback_pdf_urls_sample": [
+    "http://www.aft-website.com/wp-content/themes/aft/common/pdf/BAPP_ja.pdf",
+    "http://www.aft-website.com/wp-content/themes/aft/common/pdf/EMPARA_ja.pdf",
+    "http://www.aft-website.com/wp-content/themes/aft/common/pdf/HYD-110_ja.pdf",
+    "http://www.aft-website.com/wp-content/themes/aft/common/pdf/REOFOS_ja.pdf",
+    "http://www.aft-website.com/wp-content/themes/aft/common/pdf/T-003.pdf",
+    "http://www.aft-website.com/wp-content/themes/aft/common/pdf/TCP_ja.pdf",
+    "http://www.aft-website.com/wp-content/themes/aft/common/pdf/TXP_ja.pdf",
+    "http://www.aft-website.com/wp-content/uploads/2016/01/CorporateProfile20160108.pdf",
+    "https://www.aft-website.com/cms/wp-content/uploads/2024/10/karadakokoro2024.pdf",
+    "https://www.aft-website.com/cms/wp-content/uploads/2025/10/ViewAttachmentPdf.action.pdf",
+    "https://www.aft-website.com/images/company/karadakokoro2023.pdf",
+    "https://www.aft-website.com/info/entry/20110425.pdf",
+    "https://www.aft-website.com/info/entry/20110524.pdf",
+    "https://www.aft-website.com/wp-content/themes/aft/common/pdf/HC-103S_01_ja.pdf",
+    "https://www.aft-website.com/wp-content/themes/aft/common/pdf/HC-103S_02_ja.pdf",
+    "https://www.aft-website.com/wp-content/themes/aft/common/pdf/HC-103S_03_ja.pdf",
+    "https://www.aft-website.com/wp-content/themes/aft/common/pdf/Insulation_reliability.pdf",
+    "https://www.aft-website.com/wp-content/themes/aft/common/pdf/Laser_processability.pdf",
+    "https://www.aft-website.com/wp-content/themes/aft/common/pdf/Melting_viscosity.pdf",
+    "https://www.aft-website.com/wp-content/themes/aft/common/pdf/Surface_morphology_after_desmear.pdf"
+  ]
+}

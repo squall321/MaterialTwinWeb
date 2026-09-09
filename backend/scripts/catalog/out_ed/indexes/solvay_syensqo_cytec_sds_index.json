@@ -1,0 +1,89 @@
+{
+ "vendor": "Cytec Engineered Materials -> Solvay Composite Materials -> Syensqo",
+ "harvested_utc_date": "2026-09-09",
+ "conclusion": "NO public SDS index exists for the composites (Engineered Materials) line. solvay.com returns 403 to plain curl; syensqo.com returns 406 to curl AND to WebFetch (only its robots.txt and sitemap are reachable). Solvay's own published policy PDF says SDS are pushed to customers by an automated e-mail system, not published on the website. Cytec's legacy MSDS web system (cytec.com/msds/<BU>/TPSDWEB/pdf/...) covered only the chemicals BUs (PA, PHC, CR, BB) - 1368 archived PDFs, numeric IDs, no Engineered Materials products.",
+ "endpoints": [
+  {
+   "url": "https://www.syensqo.com/sitemap.xml?page=1..3",
+   "how": "curl -A '<browser UA>' -L (robots.txt allows /sitemap.xml?page=*)",
+   "urls": 4025,
+   "product_pages": 2012,
+   "pdf_urls_in_sitemap": 0,
+   "sds_pages": [
+    "https://www.syensqo.com/en/product/geropon-sds  <- a product literally named 'Geropon SDS', not a safety data sheet"
+   ]
+  },
+  {
+   "url": "https://www.syensqo.com/en/product/<slug>",
+   "how": "curl / WebFetch",
+   "result": "HTTP 406 for every product page; body of 632 bytes"
+  },
+  {
+   "url": "https://web.archive.org/cdx/search/cdx?url=cytec.com&matchType=domain&output=json&limit=30000&collapse=urlkey&filter=mimetype:application/pdf",
+   "how": "Wayback CDX",
+   "rows": 3209,
+   "msds_pdfs": 1368,
+   "engineered_materials_msds": 0
+  },
+  {
+   "url": "https://web.archive.org/cdx/search/cdx?url=cytec.com&...&filter=urlkey:.*(engineered|msds|sds).*",
+   "how": "Wayback CDX",
+   "engineered_materials_rows": 2421,
+   "of_which_sds": 0
+  },
+  {
+   "url": "https://www.solvay.com/sites/g/files/srpend616/files/2026-03/Process and Statement for Solvay website_ Safety data sheets (SDS)_2026.pdf",
+   "how": "Wayback ts 20260422213911",
+   "quote": "'Solvay uses an automatic system to send SDS by email. In 2025, this automated shipping function was activated for 99.98 % of Solvay sales.'"
+  }
+ ],
+ "product_slugs_present_in_syensqo_sitemap": {
+  "FM_family": [
+   "fm-123-5",
+   "fm-16771-0",
+   "fm-202",
+   "fm-209-1",
+   "fm-2525-cyanate-ester-supported-adhesive-film",
+   "fm-300",
+   "fm-300-2",
+   "fm309-1",
+   "fm-3500-ezp",
+   "fm-350na",
+   "fm-355",
+   "fm-377",
+   "fm-400na",
+   "fm-404na",
+   "fm-410-1",
+   "fm450-1",
+   "fm-490a",
+   "fm-490b",
+   "fm50-polyimide-foam",
+   "fm-5504",
+   "fm-57",
+   "fm-6604-1",
+   "fm-680",
+   "fm-73",
+   "fm-8130",
+   "fm-87-1",
+   "fm-94",
+   "fm99"
+  ],
+  "note_FM_300K": "There is NO /product/fm-300k slug. FM 300K (knit-carrier variant) is folded into the /product/fm-300 page.",
+  "cycom_5250_family": [
+   "cycom-5250-4",
+   "cycom-5250-4ht",
+   "cycom-5250-4-rtm",
+   "corfil-5250-4"
+  ]
+ },
+ "sds_obtained_from_distributor": [
+  {
+   "product": "FM 300-2 ADHESIVE FILM (Cytec Engineered Materials Ltd, Wrexham; Solvay doc PRCO90078246, Version 3.00 GB(EN))",
+   "host": "conro.com",
+   "url": "https://www.conro.com/downloads/Manuals/Syensqo-FM300-2M-0-06-PSF-50-1-sqft-Roll-SDS.PDF",
+   "revision_date": "2023-08-25",
+   "downloaded": true,
+   "section9": "Physical state: solid / Form: film / Colour: red / Density: No data available / Relative density: No data available / Viscosity: No data available / Melting point/freezing point: No data available"
+  }
+ ]
+}

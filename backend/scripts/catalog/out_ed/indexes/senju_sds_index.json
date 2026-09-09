@@ -1,0 +1,50 @@
+{
+ "vendor": "Senju Metal Industry Co., Ltd. (千住金属工業)",
+ "harvested_utc_date": "2026-09-09",
+ "conclusion": "senju.com publishes NO SDS. Its two sitemaps (982 ja + 694 en URLs) contain zero SDS/MSDS documents; the only 'sds' hits are the unrelated 'SDS series' solder-recovery machine product pages. Senju's own news page /ja/news/information/sds.php (2025-03-25, 'SDS改訂のお知らせ') states revised SDS are DISTRIBUTED from 1 Apr 2025 via the sales representative or the web contact form - i.e. request-only. Senju SDS therefore only reach the web via customers/distributors (Canon Europe, Conro).",
+ "endpoints": [
+  {
+   "url": "https://www.senju.com/sitemap.xml",
+   "how": "curl -A '<browser UA>' -L",
+   "urls": 982,
+   "sds_documents": 0
+  },
+  {
+   "url": "https://www.senju.com/en/sitemap.xml",
+   "how": "curl -A '<browser UA>' -L",
+   "urls": 694,
+   "sds_documents": 0,
+   "note": "points at legacy host jp.senju.com"
+  },
+  {
+   "url": "https://web.archive.org/cdx/search/cdx?url=senju.com&matchType=domain&output=json&limit=20000&collapse=urlkey&filter=urlkey:.*(sds|msds|safety).*",
+   "how": "Wayback CDX",
+   "rows": 18,
+   "sds_documents": 0,
+   "note": "only hit of substance: https://www.senju.com/ja/news/information/sds.php - an SDS-revision announcement, not an SDS"
+  },
+  {
+   "url": "https://www.senju-sm.com/",
+   "how": "curl",
+   "result": "host does not resolve (curl exit 000)"
+  }
+ ],
+ "senju_sds_found_via_third_parties": [
+  {
+   "product": "ECO SOLDER RMA98 SUPER P3 M705 (Senju product code CLPFC-0001)",
+   "host": "files.canon-europe.com",
+   "url": "https://files.canon-europe.com/files/webcontent/safety-data-sheets/EU_Service-Materials/cy9-4045_eco_solder_rma98_super_p3_m705_pdf.pdf",
+   "revision": "2015-10-29",
+   "downloaded": true
+  },
+  {
+   "product": "ECO SOLDER PASTE M705-LFAC19",
+   "host": "www.conro.com",
+   "url": "https://www.conro.com/downloads/Manuals/Senju-Lead-Free-Solder-Paste-30cc-SDS.pdf",
+   "creation": "2023-11-06",
+   "version": "4.1",
+   "downloaded": true
+  }
+ ],
+ "important_finding": "The batch target grades S3X48-M500 / S3X58-M500 / S3X70-M500 are NOT Senju products. They are KOKI Company Limited products (see koki_sds_index.json). Both firms sit in the Senju district of Adachi-ku, Tokyo, which is the likely source of the mis-attribution."
+}

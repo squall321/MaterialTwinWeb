@@ -1,0 +1,1053 @@
+{
+ "batch": "69차 EA",
+ "materials": [
+  {
+   "match_name": "Panasonic MEGTRON 6 R-5775 Laminate",
+   "source": {
+    "kind": "datasheet",
+    "title": "Panasonic 「電子回路基板材料」総合カタログ (PDF 내부 제목 `Electronic Materials`, 저자 `Panasonic Corporation`, 160쪽, 2013-03-08 생성) — 인쇄쪽 16~18 의 `特性一覧表《参考値》板厚：1.6mm` 두 쪽짜리 표. 그 오른쪽 절반(인쇄쪽 18)에 `ヤング率（引張り） ASTM D3039` 열이 있다",
+    "url": "https://www.relianceems.com/static/upload/file/20260123/1769167011136894.pdf",
+    "publisher": "Panasonic Corporation",
+    "year": 2013,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_ElectronicMaterials_catalog_2013_JP_YoungsModulus_ASTM-D3039_table.pdf"
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1820.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "JIS K6911",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `比重 / 試験方法 JISK6911 / 単位 − / R-5775 … 1.82`. **비중은 무차원이다** — 4 ℃ 물의 밀도 1000 kg/m^3 을 곱해 SI 밀도로 옮겼다: 1.82 × 1000 = 1820.0 kg/m^3. 검산 1820.0/1000 = 1.82 ✓. 원문이 처리조건을 `−` 로 두어 온도를 적지 않았다(23 ℃ 로 가정하지 않았다). 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 880.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "DSC",
+      "temperature_c": 25,
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `比熱 / 試験方法 DSC法 / 処理条件 25℃ / 単位 J/kg℃ / R-5775 … 880`. J/kg℃ 는 온도 '차'당 값이라 J/(kg·K) 와 수치가 같다(1 ℃ 간격 = 1 K 간격) — 곱한 수 없다. 검산 880 J/kg℃ = 880 J/(kg·K) ✓. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 20000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_mode": "flexural",
+      "test_standard": "JIS C6481",
+      "orientation": "warp",
+      "orientation_verbatim": "縦方向",
+      "direction": "MD",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `曲げ弾性係数 / JIS C6481に準拠 / 縦方向 / GPa / R-5775 … 20`. **굽힘이다** — 같은 표가 오른쪽에 `ヤング率（引張り） ASTM D3039` 열을 따로 두므로 이 열을 영률 칸에 넣지 않았다. 20 GPa × 1e9 = 2e+10 Pa. 주의 — 재료 232 의 `mechanical.youngs_modulus` 행 10440·10441 이 제품페이지의 19/18 GPa 를 `test: flexural modulus` 로 달고 **영률 칸에** 들어 있다. 그 19/18 은 이 표에서 **R-5775(N)** 의 굽힘값이고 플레인 R-5775 의 굽힘은 20/19 다 — 제품페이지 값이 (N) 등급일 가능성이 높다. 여기 넣는 20/19 는 플레인 R-5775 행이다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 19000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_mode": "flexural",
+      "test_standard": "JIS C6481",
+      "orientation": "fill",
+      "orientation_verbatim": "横方向",
+      "direction": "TD",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `曲げ弾性係数 / JIS C6481に準拠 / 横方向 / GPa / R-5775 … 19`. **굽힘이다** — 같은 표가 오른쪽에 `ヤング率（引張り） ASTM D3039` 열을 따로 두므로 이 열을 영률 칸에 넣지 않았다. 19 GPa × 1e9 = 1.9e+10 Pa. 주의 — 재료 232 의 `mechanical.youngs_modulus` 행 10440·10441 이 제품페이지의 19/18 GPa 를 `test: flexural modulus` 로 달고 **영률 칸에** 들어 있다. 그 19/18 은 이 표에서 **R-5775(N)** 의 굽힘값이고 플레인 R-5775 의 굽힘은 20/19 다 — 제품페이지 값이 (N) 등급일 가능성이 높다. 여기 넣는 20/19 는 플레인 R-5775 행이다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 16300000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_mode": "tensile",
+      "test_standard": "ASTM D3039",
+      "orientation": "warp",
+      "orientation_verbatim": "縦方向",
+      "direction": "MD",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `ヤング率（引張り） / ASTM D3039 / 縦方向 / GPa / R-5775 … 16.3`. 인쇄쪽 19 `試験項目の用語解説` verbatim: 「●ヤング率（ASTM D3039）幅15mmの短冊状サンプルをつかみ間距離125mmで引張・圧縮試験機にセットします。引張り速度2mm/分で引張り強度を測定し、引張り応力と歪みの関係から求めます。」 16.3 GPa × 1e9 = 1.63e+10 Pa. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 14300000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_mode": "tensile",
+      "test_standard": "ASTM D3039",
+      "orientation": "fill",
+      "orientation_verbatim": "横方向",
+      "direction": "TD",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `ヤング率（引張り） / ASTM D3039 / 横方向 / GPa / R-5775 … 14.3`. 인쇄쪽 19 `試験項目の用語解説` verbatim: 「●ヤング率（ASTM D3039）幅15mmの短冊状サンプルをつかみ間距離125mmで引張・圧縮試験機にセットします。引張り速度2mm/分で引張り強度を測定し、引張り応力と歪みの関係から求めます。」 14.3 GPa × 1e9 = 1.43e+10 Pa. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 3.8,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "JIS C6481",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `比誘電率 / 1MHz：JIS C6481, 1GHZ：IPC TM650 2.5.5.9 / 1MHz / R-5775 … 3.8`. 무차원. 환산 없다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.002,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "JIS C6481",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `誘電正接 / 1MHz：JIS C6481, 1GHZ：IPC TM650 2.5.5.9 / 1MHz / R-5775 … 0.002`. 무차원(tanδ). 환산 없다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "electrical.dielectric_strength",
+     "value": 69000000.0,
+     "unit": "V/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D149",
+      "specimen": "laminate, 板厚 0.2 mm",
+      "orientation": "through-thickness",
+      "orientation_verbatim": "貫層"
+     },
+     "notes": "원문 verbatim — `貫層耐電圧 / ASTM D149に準拠 / kV/mm / R-5775 … 69`. 1 kV/mm = 1000 V / 0.001 m = 1e6 V/m 이므로 69 × 1e6 = 6.9e+07 V/m. 검산 6.9e+07/1e6 = 69 kV/mm ✓. **이 열만 시편이 0.2 mm 다**(머리글 `貫層耐電圧：0.2mm`). 같은 표의 `沿層耐電圧`(kV)은 전계강도가 아니라 절연파괴 전압이라 이 키에 넣지 않았다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1755V / R-1650V High-Tg Low-CTE High-Reliability Glass Epoxy Laminate",
+   "source": {
+    "kind": "datasheet",
+    "title": "Panasonic 「電子回路基板材料」総合カタログ (PDF 내부 제목 `Electronic Materials`, 저자 `Panasonic Corporation`, 160쪽, 2013-03-08 생성) — 인쇄쪽 16~18 의 `特性一覧表《参考値》板厚：1.6mm` 두 쪽짜리 표. 그 오른쪽 절반(인쇄쪽 18)에 `ヤング率（引張り） ASTM D3039` 열이 있다",
+    "url": "https://www.relianceems.com/static/upload/file/20260123/1769167011136894.pdf",
+    "publisher": "Panasonic Corporation",
+    "year": 2013,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_ElectronicMaterials_catalog_2013_JP_YoungsModulus_ASTM-D3039_table.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.2,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "JIS K7113",
+      "temperature_c": 23,
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `ポアソン比 / 試験方法 JISK7113 / 処理条件 23±3℃ / 単位 − / R-1755V … 0.2`. 무차원이라 환산 없다(단위 정의 `1`). 시험조건 23±3℃ 를 temperature_c 23 으로 옮겼다. 굽힘·인장 열과 나란히 인쇄된 독립 열이고 그 등급 행에 찍혀 있다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "physical.density",
+     "value": 1960.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "JIS K6911",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `比重 / 試験方法 JISK6911 / 単位 − / R-1755V … 1.96`. **비중은 무차원이다** — 4 ℃ 물의 밀도 1000 kg/m^3 을 곱해 SI 밀도로 옮겼다: 1.96 × 1000 = 1960.0 kg/m^3. 검산 1960.0/1000 = 1.96 ✓. 원문이 처리조건을 `−` 로 두어 온도를 적지 않았다(23 ℃ 로 가정하지 않았다). 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 910.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "DSC",
+      "temperature_c": 25,
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `比熱 / 試験方法 DSC法 / 処理条件 25℃ / 単位 J/kg℃ / R-1755V … 910`. J/kg℃ 는 온도 '차'당 값이라 J/(kg·K) 와 수치가 같다(1 ℃ 간격 = 1 K 간격) — 곱한 수 없다. 검산 910 J/kg℃ = 910 J/(kg·K) ✓. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.53,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "laser flash",
+      "test_method_verbatim": "レーザーフラッシュ法",
+      "temperature_c": 25,
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `熱伝導率 / 試験方法 レーザーフラッシュ法 / 処理条件 25℃ / 単位 W/m・K / R-1755V … 0.53`. W/m・K = W/(m*K) 로 표기만 바꿨다 — 곱한 수 없다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "electrical.dielectric_strength",
+     "value": 70000000.0,
+     "unit": "V/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D149",
+      "specimen": "laminate, 板厚 0.2 mm",
+      "orientation": "through-thickness",
+      "orientation_verbatim": "貫層"
+     },
+     "notes": "원문 verbatim — `貫層耐電圧 / ASTM D149に準拠 / kV/mm / R-1755V … 70`. 1 kV/mm = 1000 V / 0.001 m = 1e6 V/m 이므로 70 × 1e6 = 7e+07 V/m. 검산 7e+07/1e6 = 70 kV/mm ✓. **이 열만 시편이 0.2 mm 다**(머리글 `貫層耐電圧：0.2mm`). 같은 표의 `沿層耐電圧`(kV)은 전계강도가 아니라 절연파괴 전압이라 이 키에 넣지 않았다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1755M / R-1650M Mid-Tg Low-CTE High-Reliability Glass Epoxy Laminate",
+   "source": {
+    "kind": "datasheet",
+    "title": "Panasonic 「電子回路基板材料」総合カタログ (PDF 내부 제목 `Electronic Materials`, 저자 `Panasonic Corporation`, 160쪽, 2013-03-08 생성) — 인쇄쪽 16~18 의 `特性一覧表《参考値》板厚：1.6mm` 두 쪽짜리 표. 그 오른쪽 절반(인쇄쪽 18)에 `ヤング率（引張り） ASTM D3039` 열이 있다",
+    "url": "https://www.relianceems.com/static/upload/file/20260123/1769167011136894.pdf",
+    "publisher": "Panasonic Corporation",
+    "year": 2013,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_ElectronicMaterials_catalog_2013_JP_YoungsModulus_ASTM-D3039_table.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.2,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "JIS K7113",
+      "temperature_c": 23,
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `ポアソン比 / 試験方法 JISK7113 / 処理条件 23±3℃ / 単位 − / R-1755M … 0.2`. 무차원이라 환산 없다(단위 정의 `1`). 시험조건 23±3℃ 를 temperature_c 23 으로 옮겼다. 굽힘·인장 열과 나란히 인쇄된 독립 열이고 그 등급 행에 찍혀 있다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "physical.density",
+     "value": 2000.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "JIS K6911",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `比重 / 試験方法 JISK6911 / 単位 − / R-1755M … 2.0`. **비중은 무차원이다** — 4 ℃ 물의 밀도 1000 kg/m^3 을 곱해 SI 밀도로 옮겼다: 2.0 × 1000 = 2000.0 kg/m^3. 검산 2000.0/1000 = 2.0 ✓. 원문이 처리조건을 `−` 로 두어 온도를 적지 않았다(23 ℃ 로 가정하지 않았다). 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 930.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "DSC",
+      "temperature_c": 25,
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `比熱 / 試験方法 DSC法 / 処理条件 25℃ / 単位 J/kg℃ / R-1755M … 930`. J/kg℃ 는 온도 '차'당 값이라 J/(kg·K) 와 수치가 같다(1 ℃ 간격 = 1 K 간격) — 곱한 수 없다. 검산 930 J/kg℃ = 930 J/(kg·K) ✓. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.57,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "laser flash",
+      "test_method_verbatim": "レーザーフラッシュ法",
+      "temperature_c": 25,
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `熱伝導率 / 試験方法 レーザーフラッシュ法 / 処理条件 25℃ / 単位 W/m・K / R-1755M … 0.57`. W/m・K = W/(m*K) 로 표기만 바꿨다 — 곱한 수 없다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "electrical.dielectric_strength",
+     "value": 70000000.0,
+     "unit": "V/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D149",
+      "specimen": "laminate, 板厚 0.2 mm",
+      "orientation": "through-thickness",
+      "orientation_verbatim": "貫層"
+     },
+     "notes": "원문 verbatim — `貫層耐電圧 / ASTM D149に準拠 / kV/mm / R-1755M … 70`. 1 kV/mm = 1000 V / 0.001 m = 1e6 V/m 이므로 70 × 1e6 = 7e+07 V/m. 검산 7e+07/1e6 = 70 kV/mm ✓. **이 열만 시편이 0.2 mm 다**(머리글 `貫層耐電圧：0.2mm`). 같은 표의 `沿層耐電圧`(kV)은 전계강도가 아니라 절연파괴 전압이라 이 키에 넣지 않았다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1755D (HIPER D) High-Heat-Resistance Automotive Glass Epoxy Laminate",
+   "source": {
+    "kind": "datasheet",
+    "title": "Panasonic 「電子回路基板材料」総合カタログ (PDF 내부 제목 `Electronic Materials`, 저자 `Panasonic Corporation`, 160쪽, 2013-03-08 생성) — 인쇄쪽 16~18 의 `特性一覧表《参考値》板厚：1.6mm` 두 쪽짜리 표. 그 오른쪽 절반(인쇄쪽 18)에 `ヤング率（引張り） ASTM D3039` 열이 있다",
+    "url": "https://www.relianceems.com/static/upload/file/20260123/1769167011136894.pdf",
+    "publisher": "Panasonic Corporation",
+    "year": 2013,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_ElectronicMaterials_catalog_2013_JP_YoungsModulus_ASTM-D3039_table.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.2,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "JIS K7113",
+      "temperature_c": 23,
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `ポアソン比 / 試験方法 JISK7113 / 処理条件 23±3℃ / 単位 − / R-1755D … 0.2`. 무차원이라 환산 없다(단위 정의 `1`). 시험조건 23±3℃ 를 temperature_c 23 으로 옮겼다. 굽힘·인장 열과 나란히 인쇄된 독립 열이고 그 등급 행에 찍혀 있다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "physical.density",
+     "value": 1980.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "JIS K6911",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `比重 / 試験方法 JISK6911 / 単位 − / R-1755D … 1.98`. **비중은 무차원이다** — 4 ℃ 물의 밀도 1000 kg/m^3 을 곱해 SI 밀도로 옮겼다: 1.98 × 1000 = 1980.0 kg/m^3. 검산 1980.0/1000 = 1.98 ✓. 원문이 처리조건을 `−` 로 두어 온도를 적지 않았다(23 ℃ 로 가정하지 않았다). 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 900.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "DSC",
+      "temperature_c": 25,
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `比熱 / 試験方法 DSC法 / 処理条件 25℃ / 単位 J/kg℃ / R-1755D … 900`. J/kg℃ 는 온도 '차'당 값이라 J/(kg·K) 와 수치가 같다(1 ℃ 간격 = 1 K 간격) — 곱한 수 없다. 검산 900 J/kg℃ = 900 J/(kg·K) ✓. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.63,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "laser flash",
+      "test_method_verbatim": "レーザーフラッシュ法",
+      "temperature_c": 25,
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `熱伝導率 / 試験方法 レーザーフラッシュ法 / 処理条件 25℃ / 単位 W/m・K / R-1755D … 0.63`. W/m・K = W/(m*K) 로 표기만 바꿨다 — 곱한 수 없다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 427.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "method_detail": "TMA",
+      "heating_rate": "10℃/min",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `ガラス転移温度(Tg) / 試験方法 TMA法 / 処理条件 昇温：10℃/分 / 単位 ℃ / R-1755D … 154`. 154 ℃ + 273.15 = 427.15 K. 검산 427.15 − 273.15 = 154 ✓. 같은 행의 DSC 값은 DB 에 이미 t1 로 들어 있고 이 표와 일치한다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 458.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "method_detail": "DMA",
+      "heating_rate": "5℃/min",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `ガラス転移温度(Tg) / 試験方法 DMA法 / 処理条件 昇温：5℃/分 / 単位 ℃ / R-1755D … 185`. 185 ℃ + 273.15 = 458.15 K. 검산 458.15 − 273.15 = 185 ✓. 같은 행의 DSC 값은 DB 에 이미 t1 로 들어 있고 이 표와 일치한다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.9,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "JIS C6481",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `比誘電率 / 1MHz：JIS C6481, 1GHZ：IPC TM650 2.5.5.9 / 1MHz / R-1755D … 4.9`. 무차원. 환산 없다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.016,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "JIS C6481",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `誘電正接 / 1MHz：JIS C6481, 1GHZ：IPC TM650 2.5.5.9 / 1MHz / R-1755D … 0.016`. 무차원(tanδ). 환산 없다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "electrical.dielectric_strength",
+     "value": 70000000.0,
+     "unit": "V/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D149",
+      "specimen": "laminate, 板厚 0.2 mm",
+      "orientation": "through-thickness",
+      "orientation_verbatim": "貫層"
+     },
+     "notes": "원문 verbatim — `貫層耐電圧 / ASTM D149に準拠 / kV/mm / R-1755D … 70`. 1 kV/mm = 1000 V / 0.001 m = 1e6 V/m 이므로 70 × 1e6 = 7e+07 V/m. 검산 7e+07/1e6 = 70 kV/mm ✓. **이 열만 시편이 0.2 mm 다**(머리글 `貫層耐電圧：0.2mm`). 같은 표의 `沿層耐電圧`(kV)은 전계강도가 아니라 절연파괴 전압이라 이 키에 넣지 않았다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1755E (HIPER E) High-Reliability Automotive Glass Epoxy Laminate",
+   "source": {
+    "kind": "datasheet",
+    "title": "Panasonic 「電子回路基板材料」総合カタログ (PDF 내부 제목 `Electronic Materials`, 저자 `Panasonic Corporation`, 160쪽, 2013-03-08 생성) — 인쇄쪽 16~18 의 `特性一覧表《参考値》板厚：1.6mm` 두 쪽짜리 표. 그 오른쪽 절반(인쇄쪽 18)에 `ヤング率（引張り） ASTM D3039` 열이 있다",
+    "url": "https://www.relianceems.com/static/upload/file/20260123/1769167011136894.pdf",
+    "publisher": "Panasonic Corporation",
+    "year": 2013,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_ElectronicMaterials_catalog_2013_JP_YoungsModulus_ASTM-D3039_table.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.2,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "JIS K7113",
+      "temperature_c": 23,
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `ポアソン比 / 試験方法 JISK7113 / 処理条件 23±3℃ / 単位 − / R-1755E … 0.2`. 무차원이라 환산 없다(단위 정의 `1`). 시험조건 23±3℃ 를 temperature_c 23 으로 옮겼다. 굽힘·인장 열과 나란히 인쇄된 독립 열이고 그 등급 행에 찍혀 있다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "physical.density",
+     "value": 1980.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "JIS K6911",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `比重 / 試験方法 JISK6911 / 単位 − / R-1755E … 1.98`. **비중은 무차원이다** — 4 ℃ 물의 밀도 1000 kg/m^3 을 곱해 SI 밀도로 옮겼다: 1.98 × 1000 = 1980.0 kg/m^3. 검산 1980.0/1000 = 1.98 ✓. 원문이 처리조건을 `−` 로 두어 온도를 적지 않았다(23 ℃ 로 가정하지 않았다). 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 930.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "DSC",
+      "temperature_c": 25,
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `比熱 / 試験方法 DSC法 / 処理条件 25℃ / 単位 J/kg℃ / R-1755E … 930`. J/kg℃ 는 온도 '차'당 값이라 J/(kg·K) 와 수치가 같다(1 ℃ 간격 = 1 K 간격) — 곱한 수 없다. 검산 930 J/kg℃ = 930 J/(kg·K) ✓. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.55,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "laser flash",
+      "test_method_verbatim": "レーザーフラッシュ法",
+      "temperature_c": 25,
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `熱伝導率 / 試験方法 レーザーフラッシュ法 / 処理条件 25℃ / 単位 W/m・K / R-1755E … 0.55`. W/m・K = W/(m*K) 로 표기만 바꿨다 — 곱한 수 없다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 406.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "method_detail": "TMA",
+      "heating_rate": "10℃/min",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `ガラス転移温度(Tg) / 試験方法 TMA法 / 処理条件 昇温：10℃/分 / 単位 ℃ / R-1755E … 133`. 133 ℃ + 273.15 = 406.15 K. 검산 406.15 − 273.15 = 133 ✓. 같은 행의 DSC 값은 DB 에 이미 t1 로 들어 있고 이 표와 일치한다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 426.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "method_detail": "DMA",
+      "heating_rate": "5℃/min",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `ガラス転移温度(Tg) / 試験方法 DMA法 / 処理条件 昇温：5℃/分 / 単位 ℃ / R-1755E … 153`. 153 ℃ + 273.15 = 426.15 K. 검산 426.15 − 273.15 = 153 ✓. 같은 행의 DSC 값은 DB 에 이미 t1 로 들어 있고 이 표와 일치한다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.1,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "JIS C6481",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `比誘電率 / 1MHz：JIS C6481, 1GHZ：IPC TM650 2.5.5.9 / 1MHz / R-1755E … 5.1`. 무차원. 환산 없다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.015,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "JIS C6481",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `誘電正接 / 1MHz：JIS C6481, 1GHZ：IPC TM650 2.5.5.9 / 1MHz / R-1755E … 0.015`. 무차원(tanδ). 환산 없다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "electrical.dielectric_strength",
+     "value": 70000000.0,
+     "unit": "V/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D149",
+      "specimen": "laminate, 板厚 0.2 mm",
+      "orientation": "through-thickness",
+      "orientation_verbatim": "貫層"
+     },
+     "notes": "원문 verbatim — `貫層耐電圧 / ASTM D149に準拠 / kV/mm / R-1755E … 70`. 1 kV/mm = 1000 V / 0.001 m = 1e6 V/m 이므로 70 × 1e6 = 7e+07 V/m. 검산 7e+07/1e6 = 70 kV/mm ✓. **이 열만 시편이 0.2 mm 다**(머리글 `貫層耐電圧：0.2mm`). 같은 표의 `沿層耐電圧`(kV)은 전계강도가 아니라 절연파괴 전압이라 이 키에 넣지 않았다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1566 Halogen-Free Automotive Glass Epoxy Laminate",
+   "source": {
+    "kind": "datasheet",
+    "title": "Panasonic 「電子回路基板材料」総合カタログ (PDF 내부 제목 `Electronic Materials`, 저자 `Panasonic Corporation`, 160쪽, 2013-03-08 생성) — 인쇄쪽 16~18 의 `特性一覧表《参考値》板厚：1.6mm` 두 쪽짜리 표. 그 오른쪽 절반(인쇄쪽 18)에 `ヤング率（引張り） ASTM D3039` 열이 있다",
+    "url": "https://www.relianceems.com/static/upload/file/20260123/1769167011136894.pdf",
+    "publisher": "Panasonic Corporation",
+    "year": 2013,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_ElectronicMaterials_catalog_2013_JP_YoungsModulus_ASTM-D3039_table.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.2,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "JIS K7113",
+      "temperature_c": 23,
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `ポアソン比 / 試験方法 JISK7113 / 処理条件 23±3℃ / 単位 − / R-1566 … 0.2`. 무차원이라 환산 없다(단위 정의 `1`). 시험조건 23±3℃ 를 temperature_c 23 으로 옮겼다. 굽힘·인장 열과 나란히 인쇄된 독립 열이고 그 등급 행에 찍혀 있다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "physical.density",
+     "value": 2000.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "JIS K6911",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `比重 / 試験方法 JISK6911 / 単位 − / R-1566 … 2.0`. **비중은 무차원이다** — 4 ℃ 물의 밀도 1000 kg/m^3 을 곱해 SI 밀도로 옮겼다: 2.0 × 1000 = 2000.0 kg/m^3. 검산 2000.0/1000 = 2.0 ✓. 원문이 처리조건을 `−` 로 두어 온도를 적지 않았다(23 ℃ 로 가정하지 않았다). 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 950.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "DSC",
+      "temperature_c": 25,
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `比熱 / 試験方法 DSC法 / 処理条件 25℃ / 単位 J/kg℃ / R-1566 … 950`. J/kg℃ 는 온도 '차'당 값이라 J/(kg·K) 와 수치가 같다(1 ℃ 간격 = 1 K 간격) — 곱한 수 없다. 검산 950 J/kg℃ = 950 J/(kg·K) ✓. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.62,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "laser flash",
+      "test_method_verbatim": "レーザーフラッシュ法",
+      "temperature_c": 25,
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `熱伝導率 / 試験方法 レーザーフラッシュ法 / 処理条件 25℃ / 単位 W/m・K / R-1566 … 0.62`. W/m・K = W/(m*K) 로 표기만 바꿨다 — 곱한 수 없다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 418.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "method_detail": "TMA",
+      "heating_rate": "10℃/min",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `ガラス転移温度(Tg) / 試験方法 TMA法 / 処理条件 昇温：10℃/分 / 単位 ℃ / R-1566 … 145`. 145 ℃ + 273.15 = 418.15 K. 검산 418.15 − 273.15 = 145 ✓. 같은 행의 DSC 값은 DB 에 이미 t1 로 들어 있고 이 표와 일치한다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 443.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "method_detail": "DMA",
+      "heating_rate": "5℃/min",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `ガラス転移温度(Tg) / 試験方法 DMA法 / 処理条件 昇温：5℃/分 / 単位 ℃ / R-1566 … 170`. 170 ℃ + 273.15 = 443.15 K. 검산 443.15 − 273.15 = 170 ✓. 같은 행의 DSC 값은 DB 에 이미 t1 로 들어 있고 이 표와 일치한다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.2,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "JIS C6481",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `比誘電率 / 1MHz：JIS C6481, 1GHZ：IPC TM650 2.5.5.9 / 1MHz / R-1566 … 5.2`. 무차원. 환산 없다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.01,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "JIS C6481",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `誘電正接 / 1MHz：JIS C6481, 1GHZ：IPC TM650 2.5.5.9 / 1MHz / R-1566 … 0.01`. 무차원(tanδ). 환산 없다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "electrical.dielectric_strength",
+     "value": 70000000.0,
+     "unit": "V/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D149",
+      "specimen": "laminate, 板厚 0.2 mm",
+      "orientation": "through-thickness",
+      "orientation_verbatim": "貫層"
+     },
+     "notes": "원문 verbatim — `貫層耐電圧 / ASTM D149に準拠 / kV/mm / R-1566 … 70`. 1 kV/mm = 1000 V / 0.001 m = 1e6 V/m 이므로 70 × 1e6 = 7e+07 V/m. 검산 7e+07/1e6 = 70 kV/mm ✓. **이 열만 시편이 0.2 mm 다**(머리글 `貫層耐電圧：0.2mm`). 같은 표의 `沿層耐電圧`(kV)은 전계강도가 아니라 절연파괴 전압이라 이 키에 넣지 않았다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1766 Standard FR-4 Automotive Glass Epoxy Laminate",
+   "source": {
+    "kind": "datasheet",
+    "title": "Panasonic 「電子回路基板材料」総合カタログ (PDF 내부 제목 `Electronic Materials`, 저자 `Panasonic Corporation`, 160쪽, 2013-03-08 생성) — 인쇄쪽 16~18 의 `特性一覧表《参考値》板厚：1.6mm` 두 쪽짜리 표. 그 오른쪽 절반(인쇄쪽 18)에 `ヤング率（引張り） ASTM D3039` 열이 있다",
+    "url": "https://www.relianceems.com/static/upload/file/20260123/1769167011136894.pdf",
+    "publisher": "Panasonic Corporation",
+    "year": 2013,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_ElectronicMaterials_catalog_2013_JP_YoungsModulus_ASTM-D3039_table.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.2,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "JIS K7113",
+      "temperature_c": 23,
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `ポアソン比 / 試験方法 JISK7113 / 処理条件 23±3℃ / 単位 − / R-1766 … 0.2`. 무차원이라 환산 없다(단위 정의 `1`). 시험조건 23±3℃ 를 temperature_c 23 으로 옮겼다. 굽힘·인장 열과 나란히 인쇄된 독립 열이고 그 등급 행에 찍혀 있다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "physical.density",
+     "value": 1910.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "JIS K6911",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `比重 / 試験方法 JISK6911 / 単位 − / R-1766 … 1.91`. **비중은 무차원이다** — 4 ℃ 물의 밀도 1000 kg/m^3 을 곱해 SI 밀도로 옮겼다: 1.91 × 1000 = 1910.0 kg/m^3. 검산 1910.0/1000 = 1.91 ✓. 원문이 처리조건을 `−` 로 두어 온도를 적지 않았다(23 ℃ 로 가정하지 않았다). 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 920.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "DSC",
+      "temperature_c": 25,
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `比熱 / 試験方法 DSC法 / 処理条件 25℃ / 単位 J/kg℃ / R-1766 … 920`. J/kg℃ 는 온도 '차'당 값이라 J/(kg·K) 와 수치가 같다(1 ℃ 간격 = 1 K 간격) — 곱한 수 없다. 검산 920 J/kg℃ = 920 J/(kg·K) ✓. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.38,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "laser flash",
+      "test_method_verbatim": "レーザーフラッシュ法",
+      "temperature_c": 25,
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `熱伝導率 / 試験方法 レーザーフラッシュ法 / 処理条件 25℃ / 単位 W/m・K / R-1766 … 0.38`. W/m・K = W/(m*K) 로 표기만 바꿨다 — 곱한 수 없다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 413.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "method_detail": "TMA",
+      "heating_rate": "10℃/min",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `ガラス転移温度(Tg) / 試験方法 TMA法 / 処理条件 昇温：10℃/分 / 単位 ℃ / R-1766 … 140`. 140 ℃ + 273.15 = 413.15 K. 검산 413.15 − 273.15 = 140 ✓. 같은 행의 DSC 값은 DB 에 이미 t1 로 들어 있고 이 표와 일치한다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 423.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "method_detail": "DMA",
+      "heating_rate": "5℃/min",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `ガラス転移温度(Tg) / 試験方法 DMA法 / 処理条件 昇温：5℃/分 / 単位 ℃ / R-1766 … 150`. 150 ℃ + 273.15 = 423.15 K. 검산 423.15 − 273.15 = 150 ✓. 같은 행의 DSC 값은 DB 에 이미 t1 로 들어 있고 이 표와 일치한다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.7,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "JIS C6481",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `比誘電率 / 1MHz：JIS C6481, 1GHZ：IPC TM650 2.5.5.9 / 1MHz / R-1766 … 4.7`. 무차원. 환산 없다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.015,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "JIS C6481",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `誘電正接 / 1MHz：JIS C6481, 1GHZ：IPC TM650 2.5.5.9 / 1MHz / R-1766 … 0.015`. 무차원(tanδ). 환산 없다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    },
+    {
+     "key": "electrical.dielectric_strength",
+     "value": 64000000.0,
+     "unit": "V/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D149",
+      "specimen": "laminate, 板厚 0.2 mm",
+      "orientation": "through-thickness",
+      "orientation_verbatim": "貫層"
+     },
+     "notes": "원문 verbatim — `貫層耐電圧 / ASTM D149に準拠 / kV/mm / R-1766 … 64`. 1 kV/mm = 1000 V / 0.001 m = 1e6 V/m 이므로 64 × 1e6 = 6.4e+07 V/m. 검산 6.4e+07/1e6 = 64 kV/mm ✓. **이 열만 시편이 0.2 mm 다**(머리글 `貫層耐電圧：0.2mm`). 같은 표의 `沿層耐電圧`(kV)은 전계강도가 아니라 절연파괴 전압이라 이 키에 넣지 않았다. 출처: 2013 총합카탈로그 인쇄쪽 17~18 `特性一覧表《参考値》`. 머리글 verbatim `板厚：1.6mm（R-1515B, R-1515Sは0.8mm）、貫層耐電圧：0.2mm`, 각주 verbatim `注）上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 pdftotext -layout 추출과 칸 단위로 대조했고, 같은 행의 Td·CTE·Tg(DSC)·曲げ弾性係数 가 DB 에 이미 든 다른 Panasonic 문서 값과 전부 일치한다."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic R-1566S Halogen-Free Automotive Glass Epoxy Laminate",
+   "source": {
+    "kind": "datasheet",
+    "title": "Panasonic 「電子回路基板材料」 特性一覧表《参考値》 2쪽 (인쇄쪽 9~10, PDF 2021-03-08 생성) — `曲げ弾性係数 JIS C 6481` · `ヤング率(引張りモード) ASTM D3039` · `ポアソン比 JIS K 7161-1 23±3℃` 열을 나란히 인쇄한다. 머리글 단서: 板厚 1.6mm、ポアソン比 0.8mm、ヤング率(引張りモード) 0.1mm、貫層耐電圧 0.2mm",
+    "publisher": "Panasonic Corporation",
+    "year": 2021,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_CircuitBoardMaterials_PropertyList_FlexModulus_YoungsModulus_Poisson_2021-03.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.2,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "JIS K 7161-1",
+      "temperature_c": 23,
+      "specimen": "laminate, 板厚 0.8 mm"
+     },
+     "notes": "원문 verbatim — `ポアソン比 / JIS K 7161-1 / 23±3℃ / − / R-1566S … 0.2`. 무차원이라 환산 없다. **2021 판은 포아송비 시편만 0.8 mm 다**(머리글 `ポアソン比: 0.8mm`) — 2013 판의 JIS K7113·1.6 mm 와 시험법·시편이 다르다. 출처: 2021-03 특성일람표 인쇄쪽 9~10. 머리글 verbatim `板厚: 1.6mm、ポアソン比: 0.8mm、ヤング率(引張りモード): 0.1mm、貫層耐電圧: 0.2mm`, 각주 verbatim `注) 上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 추출과 대조했고, 2013 판과 겹치는 5등급이 칸마다 같은 값을 준다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.62,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "laser flash",
+      "test_method_verbatim": "レーザーフラッシュ法",
+      "temperature_c": 25,
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `熱伝導率 / レーザーフラッシュ法 / 25℃ / W/m・K / R-1566S … 0.62`. 표기만 바꿨다 — 곱한 수 없다. 출처: 2021-03 특성일람표 인쇄쪽 9~10. 머리글 verbatim `板厚: 1.6mm、ポアソン比: 0.8mm、ヤング率(引張りモード): 0.1mm、貫層耐電圧: 0.2mm`, 각주 verbatim `注) 上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 추출과 대조했고, 2013 판과 겹치는 5등급이 칸마다 같은 값을 준다."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 468.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "method_detail": "DMA",
+      "test_standard": "JIS C 6481",
+      "heating_rate": "5℃/min",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `ガラス転移温度(Tg) / DMA(JIS C 6481) / 昇温速度：5℃/分 / ℃ / R-1566S … 195`. 195 ℃ + 273.15 = 468.15 K. 검산 468.15 − 273.15 = 195 ✓. 출처: 2021-03 특성일람표 인쇄쪽 9~10. 머리글 verbatim `板厚: 1.6mm、ポアソン比: 0.8mm、ヤング率(引張りモード): 0.1mm、貫層耐電圧: 0.2mm`, 각주 verbatim `注) 上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 추출과 대조했고, 2013 판과 겹치는 5등급이 칸마다 같은 값을 준다."
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 24000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_mode": "flexural",
+      "test_standard": "JIS C 6481",
+      "orientation": "warp",
+      "orientation_verbatim": "タテ",
+      "direction": "MD",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `曲げ弾性係数 / JIS C 6481 / タテ / GPa / R-1566S … 24`. **굽힘이다** — 같은 표가 오른쪽에 `ヤング率(引張りモード) ASTM D3039` 열을 따로 둔다. 24 GPa × 1e9 = 2.4e+10 Pa. 출처: 2021-03 특성일람표 인쇄쪽 9~10. 머리글 verbatim `板厚: 1.6mm、ポアソン比: 0.8mm、ヤング率(引張りモード): 0.1mm、貫層耐電圧: 0.2mm`, 각주 verbatim `注) 上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 추출과 대조했고, 2013 판과 겹치는 5등급이 칸마다 같은 값을 준다."
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 22000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_mode": "flexural",
+      "test_standard": "JIS C 6481",
+      "orientation": "fill",
+      "orientation_verbatim": "ヨコ",
+      "direction": "TD",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `曲げ弾性係数 / JIS C 6481 / ヨコ / GPa / R-1566S … 22`. **굽힘이다** — 같은 표가 오른쪽에 `ヤング率(引張りモード) ASTM D3039` 열을 따로 둔다. 22 GPa × 1e9 = 2.2e+10 Pa. 출처: 2021-03 특성일람표 인쇄쪽 9~10. 머리글 verbatim `板厚: 1.6mm、ポアソン比: 0.8mm、ヤング率(引張りモード): 0.1mm、貫層耐電圧: 0.2mm`, 각주 verbatim `注) 上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 추출과 대조했고, 2013 판과 겹치는 5등급이 칸마다 같은 값을 준다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 20700000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_mode": "tensile",
+      "test_standard": "ASTM D3039",
+      "orientation": "warp",
+      "orientation_verbatim": "タテ",
+      "direction": "MD",
+      "specimen": "laminate, 板厚 0.1 mm"
+     },
+     "notes": "원문 verbatim — `ヤング率(引張りモード) / ASTM D3039 / タテ / GPa / R-1566S … 20.7`. 20.7 GPa × 1e9 = 2.07e+10 Pa. **2021 판은 인장 영률 시편만 0.1 mm 다**(머리글 `ヤング率(引張りモード): 0.1mm`). 출처: 2021-03 특성일람표 인쇄쪽 9~10. 머리글 verbatim `板厚: 1.6mm、ポアソン比: 0.8mm、ヤング率(引張りモード): 0.1mm、貫層耐電圧: 0.2mm`, 각주 verbatim `注) 上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 추출과 대조했고, 2013 판과 겹치는 5등급이 칸마다 같은 값을 준다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 19700000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_mode": "tensile",
+      "test_standard": "ASTM D3039",
+      "orientation": "fill",
+      "orientation_verbatim": "ヨコ",
+      "direction": "TD",
+      "specimen": "laminate, 板厚 0.1 mm"
+     },
+     "notes": "원문 verbatim — `ヤング率(引張りモード) / ASTM D3039 / ヨコ / GPa / R-1566S … 19.7`. 19.7 GPa × 1e9 = 1.97e+10 Pa. **2021 판은 인장 영률 시편만 0.1 mm 다**(머리글 `ヤング率(引張りモード): 0.1mm`). 출처: 2021-03 특성일람표 인쇄쪽 9~10. 머리글 verbatim `板厚: 1.6mm、ポアソン比: 0.8mm、ヤング率(引張りモード): 0.1mm、貫層耐電圧: 0.2mm`, 각주 verbatim `注) 上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 추출과 대조했고, 2013 판과 겹치는 5등급이 칸마다 같은 값을 준다."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.011,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "JIS C 6481",
+      "specimen": "laminate, 板厚 1.6 mm"
+     },
+     "notes": "원문 verbatim — `誘電正接 / 1MHz：JIS C 6481, 1GHz：IPC-TM-650 2.5.5.9 / 1MHz / R-1566S … 0.011`. 무차원(tanδ). 출처: 2021-03 특성일람표 인쇄쪽 9~10. 머리글 verbatim `板厚: 1.6mm、ポアソン比: 0.8mm、ヤング率(引張りモード): 0.1mm、貫層耐電圧: 0.2mm`, 각주 verbatim `注) 上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 추출과 대조했고, 2013 판과 겹치는 5등급이 칸마다 같은 값을 준다."
+    },
+    {
+     "key": "electrical.dielectric_strength",
+     "value": 70000000.0,
+     "unit": "V/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650",
+      "specimen": "laminate, 板厚 0.2 mm",
+      "orientation": "through-thickness",
+      "orientation_verbatim": "貫層"
+     },
+     "notes": "원문 verbatim — `貫層耐電圧 / IPC-TM-650 / kV/mm / R-1566S … 70`. 70 kV/mm × 1e6 = 7e+07 V/m. 검산 7e+07/1e6 = 70 ✓. **이 열만 시편이 0.2 mm 다.** 출처: 2021-03 특성일람표 인쇄쪽 9~10. 머리글 verbatim `板厚: 1.6mm、ポアソン比: 0.8mm、ヤング率(引張りモード): 0.1mm、貫層耐電圧: 0.2mm`, 각주 verbatim `注) 上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 추출과 대조했고, 2013 판과 겹치는 5등급이 칸마다 같은 값을 준다."
+    }
+   ]
+  },
+  {
+   "match_name": "Panasonic MEGTRON 7 R-5785 Laminate",
+   "source": {
+    "kind": "datasheet",
+    "title": "Panasonic 「電子回路基板材料」 特性一覧表《参考値》 2쪽 (인쇄쪽 9~10, PDF 2021-03-08 생성) — `曲げ弾性係数 JIS C 6481` · `ヤング率(引張りモード) ASTM D3039` · `ポアソン比 JIS K 7161-1 23±3℃` 열을 나란히 인쇄한다. 머리글 단서: 板厚 1.6mm、ポアソン比 0.8mm、ヤング率(引張りモード) 0.1mm、貫層耐電圧 0.2mm",
+    "publisher": "Panasonic Corporation",
+    "year": 2021,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Panasonic_CircuitBoardMaterials_PropertyList_FlexModulus_YoungsModulus_Poisson_2021-03.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 19000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_mode": "flexural",
+      "test_standard": "JIS C 6481",
+      "orientation": "warp",
+      "orientation_verbatim": "タテ",
+      "direction": "MD",
+      "specimen": "laminate, 板厚 1.6 mm",
+      "sub_grade": "R-5785(N)"
+     },
+     "notes": "원문 verbatim — `曲げ弾性係数 / JIS C 6481 / タテ / GPa / R-5785(N) … 19`. **굽힘이다** — 같은 표가 오른쪽에 `ヤング率(引張りモード) ASTM D3039` 열을 따로 둔다. 19 GPa × 1e9 = 1.9e+10 Pa. 주의 — 재료 233 의 `mechanical.youngs_modulus` 행 10448·10449 가 같은 19/18 GPa 를 `test: flexural modulus, grade: R-5785(N)` 로 달고 **영률 칸에** 들어 있다. 숫자가 겹치는 것은 같은 굽힘값이 두 키에 있기 때문이다 — 이 행이 제 자리이고 저 두 행은 키 이동이 필요하다(적재기에 이동 경로가 없다). 출처: 2021-03 특성일람표 인쇄쪽 9~10. 머리글 verbatim `板厚: 1.6mm、ポアソン比: 0.8mm、ヤング率(引張りモード): 0.1mm、貫層耐電圧: 0.2mm`, 각주 verbatim `注) 上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 추출과 대조했고, 2013 판과 겹치는 5등급이 칸마다 같은 값을 준다."
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 18000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_mode": "flexural",
+      "test_standard": "JIS C 6481",
+      "orientation": "fill",
+      "orientation_verbatim": "ヨコ",
+      "direction": "TD",
+      "specimen": "laminate, 板厚 1.6 mm",
+      "sub_grade": "R-5785(N)"
+     },
+     "notes": "원문 verbatim — `曲げ弾性係数 / JIS C 6481 / ヨコ / GPa / R-5785(N) … 18`. **굽힘이다** — 같은 표가 오른쪽에 `ヤング率(引張りモード) ASTM D3039` 열을 따로 둔다. 18 GPa × 1e9 = 1.8e+10 Pa. 주의 — 재료 233 의 `mechanical.youngs_modulus` 행 10448·10449 가 같은 19/18 GPa 를 `test: flexural modulus, grade: R-5785(N)` 로 달고 **영률 칸에** 들어 있다. 숫자가 겹치는 것은 같은 굽힘값이 두 키에 있기 때문이다 — 이 행이 제 자리이고 저 두 행은 키 이동이 필요하다(적재기에 이동 경로가 없다). 출처: 2021-03 특성일람표 인쇄쪽 9~10. 머리글 verbatim `板厚: 1.6mm、ポアソン比: 0.8mm、ヤング率(引張りモード): 0.1mm、貫層耐電圧: 0.2mm`, 각주 verbatim `注) 上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 추출과 대조했고, 2013 판과 겹치는 5등급이 칸마다 같은 값을 준다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 13500000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_mode": "tensile",
+      "test_standard": "ASTM D3039",
+      "orientation": "warp",
+      "orientation_verbatim": "タテ",
+      "direction": "MD",
+      "specimen": "laminate, 板厚 0.1 mm",
+      "sub_grade": "R-5785(N)"
+     },
+     "notes": "원문 verbatim — `ヤング率(引張りモード) / ASTM D3039 / タテ / GPa / R-5785(N) … 13.5`. 13.5 GPa × 1e9 = 1.35e+10 Pa. **2021 판은 인장 영률 시편만 0.1 mm 다**(머리글 `ヤング率(引張りモード): 0.1mm`). 출처: 2021-03 특성일람표 인쇄쪽 9~10. 머리글 verbatim `板厚: 1.6mm、ポアソン比: 0.8mm、ヤング率(引張りモード): 0.1mm、貫層耐電圧: 0.2mm`, 각주 verbatim `注) 上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 추출과 대조했고, 2013 판과 겹치는 5등급이 칸마다 같은 값을 준다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 11600000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_mode": "tensile",
+      "test_standard": "ASTM D3039",
+      "orientation": "fill",
+      "orientation_verbatim": "ヨコ",
+      "direction": "TD",
+      "specimen": "laminate, 板厚 0.1 mm",
+      "sub_grade": "R-5785(N)"
+     },
+     "notes": "원문 verbatim — `ヤング率(引張りモード) / ASTM D3039 / ヨコ / GPa / R-5785(N) … 11.6`. 11.6 GPa × 1e9 = 1.16e+10 Pa. **2021 판은 인장 영률 시편만 0.1 mm 다**(머리글 `ヤング率(引張りモード): 0.1mm`). 출처: 2021-03 특성일람표 인쇄쪽 9~10. 머리글 verbatim `板厚: 1.6mm、ポアソン比: 0.8mm、ヤング率(引張りモード): 0.1mm、貫層耐電圧: 0.2mm`, 각주 verbatim `注) 上記の数値は参考値であり特性を保証するものではありません。`. 열 어긋남 검증: 300 dpi 렌더를 눈으로 읽어 추출과 대조했고, 2013 판과 겹치는 5등급이 칸마다 같은 값을 준다."
+    }
+   ]
+  }
+ ]
+}

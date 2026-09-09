@@ -1,0 +1,126 @@
+{
+  "batch": "69차 EB",
+  "materials": [
+    {
+      "match_name": "Nan Ya NP-175FR Dicy-Free Low-CTE FR-4 Copper Clad Laminate",
+      "source": {
+        "kind": "datasheet",
+        "title": "Data Sheet / Datenblatt NP-175FTL, NP-175FR, NP-175FB — `Performance List / Leistungsspektrum 2/2` (파일 3쪽). 시트머리 verbatim: `Revision Date: Jan. 2021` · `SPECIFICATION SHEET  NP-175FTL, NP-175FR, NP-175FB` · `SPECIFICATION SHEET #: IPC-4101/126` · `REINFORCEMENT 1: Woven E-glass` · `RESIN SYSTEM Primary: Epoxy` · `GLASS TRANSITION (Tg): 170 °C minimum`. 값은 IPC-4101 서식 바깥의 `19. Other / weitere` 절에 있다",
+        "url": "https://www.technolam.de/fileadmin/user_upload/pdf/produkt_datenblaetter/np/NP-175FTL__NP-175FR__NP-175FB.pdf",
+        "publisher": "Technolam GmbH (Troisdorf, Germany) — Nan Ya 의 유럽 파트너",
+        "year": 2021,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Technolam_NanYa_NP-175FTL-NP-175FR-NP-175FB_Datasheet_2021-01.pdf"
+      },
+      "properties": [
+        {
+          "key": "thermal.specific_heat",
+          "value": 910.0,
+          "unit": "J/(kg*K)",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "temperature_c": 25,
+            "test_standard": "not printed",
+            "test_standard_note": "이 행의 `Test Method (IPC-TM-650)` 칸과 `Ref. Para.` 칸이 둘 다 `-` 다 — 원문이 시험법을 안 찍는다",
+            "specimen": "두 두께 구간(`<0,50 mm` · `>=0,50 mm`)의 Property 칸이 둘 다 0,91 로 같다",
+            "grade_scope": "이 시트 한 장이 NP-175FTL·NP-175FR·NP-175FB 세 등급을 함께 덮고 이 행은 세 등급을 가르지 않는다. 발행처도 제조사 Nan Ya 가 아니라 유럽 파트너 Technolam 이다 — 그래서 t1 이 아니라 t2 다(68차 DC 가 같은 시트의 영률에 매긴 등급과 같다). **다만 이 값은 상용구가 아니다** — 같은 발행처의 다른 계열 시트가 서로 다른 값을 찍는다: 비열 NPG-170TL/R/B·NPG-150N `0,946` · NPG-170D `0,95` vs 이 시트 `0,91`; 열전도율 NPG-170TL/R/B `0,43 / 0,39` · NPG-150N `0,42 / 0,37` · NPG-180BH `0,55 / 0,46` vs 이 시트 `0,53 / 0,46`. 계열마다 갈린 값이다."
+          },
+          "notes": "`19. Other / weitere` 절 verbatim:\n`  Specific Heat at 25 °C               Spezifische Wärmekapzität bei 25 °C          -                0,91             -            0,91           J/g°C            -            -`\n환산 — 0,91 J/g°C 는 소수점이 유럽식 쉼표다. 0.91 J/(g·K) x 1000 g/kg = 910 J/(kg*K). 검산: 910 / 1000 = 0.91 로 되돌아온다. (℃ 는 간격 단위라 K 와 수치가 같다.)\n**두 판 교차검증** — 같은 발행처의 `Datasheet_2018-02` 판도 `0,53 / 0,46 / 0,91 / 2,10` 을 그대로 찍는다(3년 간격 동일). 가장 새 `2024-08` 판은 텍스트층이 474자뿐인 이미지 스캔이라 대조하지 못했다.\n**열 밀림 확인** — 이 쪽(파일 3/6)을 300 dpi 로 렌더해 눈으로 대조했다. 표 머리는 `Laminate Requirement | Specification <0,50mm [Specification|Property] | Specification >=0,50mm [Specification|Property] | Units metric [English] | Test Method (IPC-TM-650) | Ref. Para.` 이고, 이 행들의 `Specification` 칸은 둘 다 `-` 이며 `Property` 칸에만 값이 있다 — **규격 한계가 아니라 전형값**이라는 뜻이다. 두 두께 구간의 Property 값이 서로 같다.\n**시트 하단 각주 verbatim** — `Performance List 1. to 18. follows IPC-4101 template for specification sheets and shows minimum or maximum properties expectable. This overview covers all laminate thicknesses and claddings, therefore actual values are typically better.` → 그 min/max 단서는 **1~18 항에 걸리고**, 이 값들은 그 바깥의 `19. Other` 절이다."
+        },
+        {
+          "key": "thermal.conductivity",
+          "value": 0.53,
+          "unit": "W/(m*K)",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "test_standard": "ASTM E1461",
+            "test_standard_verbatim": "ASTM-E-1461",
+            "test_method": "laser flash",
+            "temperature_note": "원문이 시험온도를 안 찍는다 — 온도를 지정된 값으로 쓰지 마라",
+            "direction_note": "원문이 방향을 안 찍는다",
+            "grade_scope": "이 시트 한 장이 NP-175FTL·NP-175FR·NP-175FB 세 등급을 함께 덮고 이 행은 세 등급을 가르지 않는다. 발행처도 제조사 Nan Ya 가 아니라 유럽 파트너 Technolam 이다 — 그래서 t1 이 아니라 t2 다(68차 DC 가 같은 시트의 영률에 매긴 등급과 같다). **다만 이 값은 상용구가 아니다** — 같은 발행처의 다른 계열 시트가 서로 다른 값을 찍는다: 비열 NPG-170TL/R/B·NPG-150N `0,946` · NPG-170D `0,95` vs 이 시트 `0,91`; 열전도율 NPG-170TL/R/B `0,43 / 0,39` · NPG-150N `0,42 / 0,37` · NPG-180BH `0,55 / 0,46` vs 이 시트 `0,53 / 0,46`. 계열마다 갈린 값이다."
+          },
+          "notes": "`19. Other` 절 verbatim(한 물성 이름 아래 두 줄):\n`                                                                                    -               0,53            -                0,53                    ASTM-E-1461`\n`   Thermal Conductivity l                         Thermisch Leitfähigkeit l                                                                      W/mK                        3.9.1.5`\n`                                                                                    -               0,46            -                0,46                    ASTM-D-5470`\n단위 W/mK 그대로 = W/(m*K), 환산 없음. 0,53 → 0.53.\n**두 시험법을 두 행으로 갈랐다** — 같은 물성인데 레이저플래시(ASTM E1461)가 0.53, 정상법 스택(ASTM D5470)이 0.46 이다. 평균 내지 않았다.\n**두 판 교차검증** — 같은 발행처의 `Datasheet_2018-02` 판도 `0,53 / 0,46 / 0,91 / 2,10` 을 그대로 찍는다(3년 간격 동일). 가장 새 `2024-08` 판은 텍스트층이 474자뿐인 이미지 스캔이라 대조하지 못했다.\n**열 밀림 확인** — 이 쪽(파일 3/6)을 300 dpi 로 렌더해 눈으로 대조했다. 표 머리는 `Laminate Requirement | Specification <0,50mm [Specification|Property] | Specification >=0,50mm [Specification|Property] | Units metric [English] | Test Method (IPC-TM-650) | Ref. Para.` 이고, 이 행들의 `Specification` 칸은 둘 다 `-` 이며 `Property` 칸에만 값이 있다 — **규격 한계가 아니라 전형값**이라는 뜻이다. 두 두께 구간의 Property 값이 서로 같다.\n**시트 하단 각주 verbatim** — `Performance List 1. to 18. follows IPC-4101 template for specification sheets and shows minimum or maximum properties expectable. This overview covers all laminate thicknesses and claddings, therefore actual values are typically better.` → 그 min/max 단서는 **1~18 항에 걸리고**, 이 값들은 그 바깥의 `19. Other` 절이다."
+        },
+        {
+          "key": "thermal.conductivity",
+          "value": 0.46,
+          "unit": "W/(m*K)",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "test_standard": "ASTM D5470",
+            "test_standard_verbatim": "ASTM-D-5470",
+            "test_method": "steady-state guarded stack",
+            "temperature_note": "원문이 시험온도를 안 찍는다",
+            "direction_note": "ASTM D5470 은 통상 두께방향(z)이지만 원문이 그 말을 하지 않는다",
+            "grade_scope": "이 시트 한 장이 NP-175FTL·NP-175FR·NP-175FB 세 등급을 함께 덮고 이 행은 세 등급을 가르지 않는다. 발행처도 제조사 Nan Ya 가 아니라 유럽 파트너 Technolam 이다 — 그래서 t1 이 아니라 t2 다(68차 DC 가 같은 시트의 영률에 매긴 등급과 같다). **다만 이 값은 상용구가 아니다** — 같은 발행처의 다른 계열 시트가 서로 다른 값을 찍는다: 비열 NPG-170TL/R/B·NPG-150N `0,946` · NPG-170D `0,95` vs 이 시트 `0,91`; 열전도율 NPG-170TL/R/B `0,43 / 0,39` · NPG-150N `0,42 / 0,37` · NPG-180BH `0,55 / 0,46` vs 이 시트 `0,53 / 0,46`. 계열마다 갈린 값이다."
+          },
+          "notes": "같은 물성의 두 번째 줄 `-  0,46  -  0,46  ASTM-D-5470`. 단위 W/mK 그대로.\nASTM E1461(0.53)과 D5470(0.46)의 차 15 % 는 두 시험법의 차이지 등급 차가 아니다 — 두 행으로 나란히 넣었다.\n**두 판 교차검증** — 같은 발행처의 `Datasheet_2018-02` 판도 `0,53 / 0,46 / 0,91 / 2,10` 을 그대로 찍는다(3년 간격 동일). 가장 새 `2024-08` 판은 텍스트층이 474자뿐인 이미지 스캔이라 대조하지 못했다.\n**열 밀림 확인** — 이 쪽(파일 3/6)을 300 dpi 로 렌더해 눈으로 대조했다. 표 머리는 `Laminate Requirement | Specification <0,50mm [Specification|Property] | Specification >=0,50mm [Specification|Property] | Units metric [English] | Test Method (IPC-TM-650) | Ref. Para.` 이고, 이 행들의 `Specification` 칸은 둘 다 `-` 이며 `Property` 칸에만 값이 있다 — **규격 한계가 아니라 전형값**이라는 뜻이다. 두 두께 구간의 Property 값이 서로 같다.\n**시트 하단 각주 verbatim** — `Performance List 1. to 18. follows IPC-4101 template for specification sheets and shows minimum or maximum properties expectable. This overview covers all laminate thicknesses and claddings, therefore actual values are typically better.` → 그 min/max 단서는 **1~18 항에 걸리고**, 이 값들은 그 바깥의 `19. Other` 절이다."
+        }
+      ]
+    },
+    {
+      "match_name": "Nan Ya NP-175FTL Low-Transmission-Loss FR-4 Copper Clad Laminate",
+      "source": {
+        "kind": "datasheet",
+        "title": "Data Sheet / Datenblatt NP-175FTL, NP-175FR, NP-175FB — `Performance List / Leistungsspektrum 2/2` (파일 3쪽). 시트머리 verbatim: `Revision Date: Jan. 2021` · `SPECIFICATION SHEET  NP-175FTL, NP-175FR, NP-175FB` · `SPECIFICATION SHEET #: IPC-4101/126` · `REINFORCEMENT 1: Woven E-glass` · `RESIN SYSTEM Primary: Epoxy` · `GLASS TRANSITION (Tg): 170 °C minimum`. 값은 IPC-4101 서식 바깥의 `19. Other / weitere` 절에 있다",
+        "url": "https://www.technolam.de/fileadmin/user_upload/pdf/produkt_datenblaetter/np/NP-175FTL__NP-175FR__NP-175FB.pdf",
+        "publisher": "Technolam GmbH (Troisdorf, Germany) — Nan Ya 의 유럽 파트너",
+        "year": 2021,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Technolam_NanYa_NP-175FTL-NP-175FR-NP-175FB_Datasheet_2021-01.pdf"
+      },
+      "properties": [
+        {
+          "key": "thermal.specific_heat",
+          "value": 910.0,
+          "unit": "J/(kg*K)",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "temperature_c": 25,
+            "test_standard": "not printed",
+            "test_standard_note": "이 행의 `Test Method (IPC-TM-650)` 칸과 `Ref. Para.` 칸이 둘 다 `-` 다 — 원문이 시험법을 안 찍는다",
+            "specimen": "두 두께 구간(`<0,50 mm` · `>=0,50 mm`)의 Property 칸이 둘 다 0,91 로 같다",
+            "grade_scope": "이 시트 한 장이 NP-175FTL·NP-175FR·NP-175FB 세 등급을 함께 덮고 이 행은 세 등급을 가르지 않는다. 발행처도 제조사 Nan Ya 가 아니라 유럽 파트너 Technolam 이다 — 그래서 t1 이 아니라 t2 다(68차 DC 가 같은 시트의 영률에 매긴 등급과 같다). **다만 이 값은 상용구가 아니다** — 같은 발행처의 다른 계열 시트가 서로 다른 값을 찍는다: 비열 NPG-170TL/R/B·NPG-150N `0,946` · NPG-170D `0,95` vs 이 시트 `0,91`; 열전도율 NPG-170TL/R/B `0,43 / 0,39` · NPG-150N `0,42 / 0,37` · NPG-180BH `0,55 / 0,46` vs 이 시트 `0,53 / 0,46`. 계열마다 갈린 값이다."
+          },
+          "notes": "`19. Other / weitere` 절 verbatim:\n`  Specific Heat at 25 °C               Spezifische Wärmekapzität bei 25 °C          -                0,91             -            0,91           J/g°C            -            -`\n환산 — 0,91 J/g°C 는 소수점이 유럽식 쉼표다. 0.91 J/(g·K) x 1000 g/kg = 910 J/(kg*K). 검산: 910 / 1000 = 0.91 로 되돌아온다. (℃ 는 간격 단위라 K 와 수치가 같다.)\n**두 판 교차검증** — 같은 발행처의 `Datasheet_2018-02` 판도 `0,53 / 0,46 / 0,91 / 2,10` 을 그대로 찍는다(3년 간격 동일). 가장 새 `2024-08` 판은 텍스트층이 474자뿐인 이미지 스캔이라 대조하지 못했다.\n**열 밀림 확인** — 이 쪽(파일 3/6)을 300 dpi 로 렌더해 눈으로 대조했다. 표 머리는 `Laminate Requirement | Specification <0,50mm [Specification|Property] | Specification >=0,50mm [Specification|Property] | Units metric [English] | Test Method (IPC-TM-650) | Ref. Para.` 이고, 이 행들의 `Specification` 칸은 둘 다 `-` 이며 `Property` 칸에만 값이 있다 — **규격 한계가 아니라 전형값**이라는 뜻이다. 두 두께 구간의 Property 값이 서로 같다.\n**시트 하단 각주 verbatim** — `Performance List 1. to 18. follows IPC-4101 template for specification sheets and shows minimum or maximum properties expectable. This overview covers all laminate thicknesses and claddings, therefore actual values are typically better.` → 그 min/max 단서는 **1~18 항에 걸리고**, 이 값들은 그 바깥의 `19. Other` 절이다."
+        },
+        {
+          "key": "thermal.conductivity",
+          "value": 0.53,
+          "unit": "W/(m*K)",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "test_standard": "ASTM E1461",
+            "test_standard_verbatim": "ASTM-E-1461",
+            "test_method": "laser flash",
+            "temperature_note": "원문이 시험온도를 안 찍는다 — 온도를 지정된 값으로 쓰지 마라",
+            "direction_note": "원문이 방향을 안 찍는다",
+            "grade_scope": "이 시트 한 장이 NP-175FTL·NP-175FR·NP-175FB 세 등급을 함께 덮고 이 행은 세 등급을 가르지 않는다. 발행처도 제조사 Nan Ya 가 아니라 유럽 파트너 Technolam 이다 — 그래서 t1 이 아니라 t2 다(68차 DC 가 같은 시트의 영률에 매긴 등급과 같다). **다만 이 값은 상용구가 아니다** — 같은 발행처의 다른 계열 시트가 서로 다른 값을 찍는다: 비열 NPG-170TL/R/B·NPG-150N `0,946` · NPG-170D `0,95` vs 이 시트 `0,91`; 열전도율 NPG-170TL/R/B `0,43 / 0,39` · NPG-150N `0,42 / 0,37` · NPG-180BH `0,55 / 0,46` vs 이 시트 `0,53 / 0,46`. 계열마다 갈린 값이다."
+          },
+          "notes": "`19. Other` 절 verbatim(한 물성 이름 아래 두 줄):\n`                                                                                    -               0,53            -                0,53                    ASTM-E-1461`\n`   Thermal Conductivity l                         Thermisch Leitfähigkeit l                                                                      W/mK                        3.9.1.5`\n`                                                                                    -               0,46            -                0,46                    ASTM-D-5470`\n단위 W/mK 그대로 = W/(m*K), 환산 없음. 0,53 → 0.53.\n**두 시험법을 두 행으로 갈랐다** — 같은 물성인데 레이저플래시(ASTM E1461)가 0.53, 정상법 스택(ASTM D5470)이 0.46 이다. 평균 내지 않았다.\n**두 판 교차검증** — 같은 발행처의 `Datasheet_2018-02` 판도 `0,53 / 0,46 / 0,91 / 2,10` 을 그대로 찍는다(3년 간격 동일). 가장 새 `2024-08` 판은 텍스트층이 474자뿐인 이미지 스캔이라 대조하지 못했다.\n**열 밀림 확인** — 이 쪽(파일 3/6)을 300 dpi 로 렌더해 눈으로 대조했다. 표 머리는 `Laminate Requirement | Specification <0,50mm [Specification|Property] | Specification >=0,50mm [Specification|Property] | Units metric [English] | Test Method (IPC-TM-650) | Ref. Para.` 이고, 이 행들의 `Specification` 칸은 둘 다 `-` 이며 `Property` 칸에만 값이 있다 — **규격 한계가 아니라 전형값**이라는 뜻이다. 두 두께 구간의 Property 값이 서로 같다.\n**시트 하단 각주 verbatim** — `Performance List 1. to 18. follows IPC-4101 template for specification sheets and shows minimum or maximum properties expectable. This overview covers all laminate thicknesses and claddings, therefore actual values are typically better.` → 그 min/max 단서는 **1~18 항에 걸리고**, 이 값들은 그 바깥의 `19. Other` 절이다."
+        },
+        {
+          "key": "thermal.conductivity",
+          "value": 0.46,
+          "unit": "W/(m*K)",
+          "method": "measured",
+          "tier": 2,
+          "conditions": {
+            "test_standard": "ASTM D5470",
+            "test_standard_verbatim": "ASTM-D-5470",
+            "test_method": "steady-state guarded stack",
+            "temperature_note": "원문이 시험온도를 안 찍는다",
+            "direction_note": "ASTM D5470 은 통상 두께방향(z)이지만 원문이 그 말을 하지 않는다",
+            "grade_scope": "이 시트 한 장이 NP-175FTL·NP-175FR·NP-175FB 세 등급을 함께 덮고 이 행은 세 등급을 가르지 않는다. 발행처도 제조사 Nan Ya 가 아니라 유럽 파트너 Technolam 이다 — 그래서 t1 이 아니라 t2 다(68차 DC 가 같은 시트의 영률에 매긴 등급과 같다). **다만 이 값은 상용구가 아니다** — 같은 발행처의 다른 계열 시트가 서로 다른 값을 찍는다: 비열 NPG-170TL/R/B·NPG-150N `0,946` · NPG-170D `0,95` vs 이 시트 `0,91`; 열전도율 NPG-170TL/R/B `0,43 / 0,39` · NPG-150N `0,42 / 0,37` · NPG-180BH `0,55 / 0,46` vs 이 시트 `0,53 / 0,46`. 계열마다 갈린 값이다."
+          },
+          "notes": "같은 물성의 두 번째 줄 `-  0,46  -  0,46  ASTM-D-5470`. 단위 W/mK 그대로.\nASTM E1461(0.53)과 D5470(0.46)의 차 15 % 는 두 시험법의 차이지 등급 차가 아니다 — 두 행으로 나란히 넣었다.\n**두 판 교차검증** — 같은 발행처의 `Datasheet_2018-02` 판도 `0,53 / 0,46 / 0,91 / 2,10` 을 그대로 찍는다(3년 간격 동일). 가장 새 `2024-08` 판은 텍스트층이 474자뿐인 이미지 스캔이라 대조하지 못했다.\n**열 밀림 확인** — 이 쪽(파일 3/6)을 300 dpi 로 렌더해 눈으로 대조했다. 표 머리는 `Laminate Requirement | Specification <0,50mm [Specification|Property] | Specification >=0,50mm [Specification|Property] | Units metric [English] | Test Method (IPC-TM-650) | Ref. Para.` 이고, 이 행들의 `Specification` 칸은 둘 다 `-` 이며 `Property` 칸에만 값이 있다 — **규격 한계가 아니라 전형값**이라는 뜻이다. 두 두께 구간의 Property 값이 서로 같다.\n**시트 하단 각주 verbatim** — `Performance List 1. to 18. follows IPC-4101 template for specification sheets and shows minimum or maximum properties expectable. This overview covers all laminate thicknesses and claddings, therefore actual values are typically better.` → 그 min/max 단서는 **1~18 항에 걸리고**, 이 값들은 그 바깥의 `19. Other` 절이다."
+        }
+      ]
+    }
+  ],
+  "note_dedupe": "69차 EA 와 같은 Panasonic 표를 따로 읽어 값이 소수점까지 일치한 12행을 여기서 뺐다 — EA 쪽은 23개 열 전수 판독에 열밀림 3중 검증을 붙였으므로 그쪽을 남긴다. 두 배치가 독립으로 같은 값에 닿은 것 자체는 판독이 옳다는 교차검증이다."
+}
