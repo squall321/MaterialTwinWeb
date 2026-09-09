@@ -1,0 +1,1310 @@
+{
+ "batch": "72차 HA",
+ "materials": [
+  {
+   "match_name": "Acrylic PSA emulsion copolymer AA2M91-3 (BA/EHA/MMA/AA 91.00/0.00/7.00/2.00 wt%, Gower 2006)",
+   "source": {
+    "kind": "journal",
+    "title": "Gower & Shanks (2006), Acrylic acid level and adhesive performance and peel master-curves of acrylic pressure-sensitive adhesives, J Polym Sci Part B: Polym Phys 44:1237-1252",
+    "authors": "Martin D. Gower, Robert A. Shanks",
+    "year": 2006,
+    "doi": "10.1002/polb.20779",
+    "url": "https://doi.org/10.1002/polb.20779",
+    "publisher": "Journal of Polymer Science Part B: Polymer Physics 44(9) 1237-1252",
+    "local_path": "/data/paper_patent_corpus/mech_papers/26_psa_chem/Gower - 2006 - Acrylic acid level and adhesive performance and peel master‐curves of acrylic pressure‐sensitive adhesives.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.316228,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 35.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -0.5,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA2M91-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA2M91-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.316228 (무차원), T = 35 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA2M91-3` 행, `35` 열. **원문 인쇄값은 log10(a_T) = -0.5 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-0.5) = 0.316228.** **검산 — log10(0.316228) = -0.5000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.0 > -1.4 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.1,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 50.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -1.0,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA2M91-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA2M91-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.1 (무차원), T = 50 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA2M91-3` 행, `50` 열. **원문 인쇄값은 log10(a_T) = -1.0 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-1.0) = 0.1.** **검산 — log10(0.1) = -1.0000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.0 > -1.4 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.0398107,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 65.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -1.4,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA2M91-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA2M91-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.0398107 (무차원), T = 65 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA2M91-3` 행, `65` 열. **원문 인쇄값은 log10(a_T) = -1.4 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-1.4) = 0.0398107.** **검산 — log10(0.0398107) = -1.4000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.0 > -1.4 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    }
+   ]
+  },
+  {
+   "match_name": "Acrylic PSA emulsion copolymer AA2M61-3 (BA/EHA/MMA/AA 61.34/25.00/11.66/2.00 wt%, Gower 2006)",
+   "source": {
+    "kind": "journal",
+    "title": "Gower & Shanks (2006), Acrylic acid level and adhesive performance and peel master-curves of acrylic pressure-sensitive adhesives, J Polym Sci Part B: Polym Phys 44:1237-1252",
+    "authors": "Martin D. Gower, Robert A. Shanks",
+    "year": 2006,
+    "doi": "10.1002/polb.20779",
+    "url": "https://doi.org/10.1002/polb.20779",
+    "publisher": "Journal of Polymer Science Part B: Polymer Physics 44(9) 1237-1252",
+    "local_path": "/data/paper_patent_corpus/mech_papers/26_psa_chem/Gower - 2006 - Acrylic acid level and adhesive performance and peel master‐curves of acrylic pressure‐sensitive adhesives.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.398107,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 35.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -0.4,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA2M61-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA2M61-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.398107 (무차원), T = 35 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA2M61-3` 행, `35` 열. **원문 인쇄값은 log10(a_T) = -0.4 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-0.4) = 0.398107.** **검산 — log10(0.398107) = -0.4000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.4 > -1.0 > -1.4 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.1,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 50.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -1.0,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA2M61-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA2M61-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.1 (무차원), T = 50 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA2M61-3` 행, `50` 열. **원문 인쇄값은 log10(a_T) = -1.0 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-1.0) = 0.1.** **검산 — log10(0.1) = -1.0000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.4 > -1.0 > -1.4 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.0398107,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 65.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -1.4,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA2M61-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA2M61-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.0398107 (무차원), T = 65 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA2M61-3` 행, `65` 열. **원문 인쇄값은 log10(a_T) = -1.4 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-1.4) = 0.0398107.** **검산 — log10(0.0398107) = -1.4000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.4 > -1.0 > -1.4 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    }
+   ]
+  },
+  {
+   "match_name": "Acrylic PSA emulsion copolymer AA2M50-3 (BA/EHA/MMA/AA 50.00/34.56/13.44/2.00 wt%, Gower 2006)",
+   "source": {
+    "kind": "journal",
+    "title": "Gower & Shanks (2006), Acrylic acid level and adhesive performance and peel master-curves of acrylic pressure-sensitive adhesives, J Polym Sci Part B: Polym Phys 44:1237-1252",
+    "authors": "Martin D. Gower, Robert A. Shanks",
+    "year": 2006,
+    "doi": "10.1002/polb.20779",
+    "url": "https://doi.org/10.1002/polb.20779",
+    "publisher": "Journal of Polymer Science Part B: Polymer Physics 44(9) 1237-1252",
+    "local_path": "/data/paper_patent_corpus/mech_papers/26_psa_chem/Gower - 2006 - Acrylic acid level and adhesive performance and peel master‐curves of acrylic pressure‐sensitive adhesives.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.398107,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 35.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -0.4,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA2M50-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA2M50-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.398107 (무차원), T = 35 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA2M50-3` 행, `35` 열. **원문 인쇄값은 log10(a_T) = -0.4 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-0.4) = 0.398107.** **검산 — log10(0.398107) = -0.4000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.4 > -1.3 > -1.7 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.0501187,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 50.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -1.3,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA2M50-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA2M50-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.0501187 (무차원), T = 50 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA2M50-3` 행, `50` 열. **원문 인쇄값은 log10(a_T) = -1.3 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-1.3) = 0.0501187.** **검산 — log10(0.0501187) = -1.3000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.4 > -1.3 > -1.7 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.0199526,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 65.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -1.7,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA2M50-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA2M50-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.0199526 (무차원), T = 65 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA2M50-3` 행, `65` 열. **원문 인쇄값은 log10(a_T) = -1.7 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-1.7) = 0.0199526.** **검산 — log10(0.0199526) = -1.7000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.4 > -1.3 > -1.7 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    }
+   ]
+  },
+  {
+   "match_name": "Acrylic PSA emulsion copolymer AA2M25-3 (BA/EHA/MMA/AA 25.00/55.61/17.39/2.00 wt%, Gower 2006)",
+   "source": {
+    "kind": "journal",
+    "title": "Gower & Shanks (2006), Acrylic acid level and adhesive performance and peel master-curves of acrylic pressure-sensitive adhesives, J Polym Sci Part B: Polym Phys 44:1237-1252",
+    "authors": "Martin D. Gower, Robert A. Shanks",
+    "year": 2006,
+    "doi": "10.1002/polb.20779",
+    "url": "https://doi.org/10.1002/polb.20779",
+    "publisher": "Journal of Polymer Science Part B: Polymer Physics 44(9) 1237-1252",
+    "local_path": "/data/paper_patent_corpus/mech_papers/26_psa_chem/Gower - 2006 - Acrylic acid level and adhesive performance and peel master‐curves of acrylic pressure‐sensitive adhesives.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.316228,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 35.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -0.5,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA2M25-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA2M25-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.316228 (무차원), T = 35 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA2M25-3` 행, `35` 열. **원문 인쇄값은 log10(a_T) = -0.5 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-0.5) = 0.316228.** **검산 — log10(0.316228) = -0.5000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.1 > -1.7 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.0794328,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 50.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -1.1,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA2M25-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA2M25-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.0794328 (무차원), T = 50 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA2M25-3` 행, `50` 열. **원문 인쇄값은 log10(a_T) = -1.1 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-1.1) = 0.0794328.** **검산 — log10(0.0794328) = -1.1000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.1 > -1.7 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.0199526,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 65.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -1.7,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA2M25-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA2M25-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.0199526 (무차원), T = 65 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA2M25-3` 행, `65` 열. **원문 인쇄값은 log10(a_T) = -1.7 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-1.7) = 0.0199526.** **검산 — log10(0.0199526) = -1.7000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.1 > -1.7 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    }
+   ]
+  },
+  {
+   "match_name": "Acrylic PSA emulsion copolymer AA2M02-3 (BA/EHA/MMA/AA 1.98/75.00/21.02/2.00 wt%, Gower 2006)",
+   "source": {
+    "kind": "journal",
+    "title": "Gower & Shanks (2006), Acrylic acid level and adhesive performance and peel master-curves of acrylic pressure-sensitive adhesives, J Polym Sci Part B: Polym Phys 44:1237-1252",
+    "authors": "Martin D. Gower, Robert A. Shanks",
+    "year": 2006,
+    "doi": "10.1002/polb.20779",
+    "url": "https://doi.org/10.1002/polb.20779",
+    "publisher": "Journal of Polymer Science Part B: Polymer Physics 44(9) 1237-1252",
+    "local_path": "/data/paper_patent_corpus/mech_papers/26_psa_chem/Gower - 2006 - Acrylic acid level and adhesive performance and peel master‐curves of acrylic pressure‐sensitive adhesives.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.316228,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 35.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -0.5,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA2M02-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA2M02-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.316228 (무차원), T = 35 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA2M02-3` 행, `35` 열. **원문 인쇄값은 log10(a_T) = -0.5 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-0.5) = 0.316228.** **검산 — log10(0.316228) = -0.5000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.3 > -2.1 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.0501187,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 50.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -1.3,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA2M02-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA2M02-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.0501187 (무차원), T = 50 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA2M02-3` 행, `50` 열. **원문 인쇄값은 log10(a_T) = -1.3 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-1.3) = 0.0501187.** **검산 — log10(0.0501187) = -1.3000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.3 > -2.1 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.00794328,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 65.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -2.1,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA2M02-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA2M02-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.00794328 (무차원), T = 65 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA2M02-3` 행, `65` 열. **원문 인쇄값은 log10(a_T) = -2.1 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-2.1) = 0.00794328.** **검산 — log10(0.00794328) = -2.1000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.3 > -2.1 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    }
+   ]
+  },
+  {
+   "match_name": "Acrylic PSA emulsion copolymer AA4M91-3 (BA/EHA/MMA/AA 91.00/0.00/5.00/4.00 wt%, Gower 2006)",
+   "source": {
+    "kind": "journal",
+    "title": "Gower & Shanks (2006), Acrylic acid level and adhesive performance and peel master-curves of acrylic pressure-sensitive adhesives, J Polym Sci Part B: Polym Phys 44:1237-1252",
+    "authors": "Martin D. Gower, Robert A. Shanks",
+    "year": 2006,
+    "doi": "10.1002/polb.20779",
+    "url": "https://doi.org/10.1002/polb.20779",
+    "publisher": "Journal of Polymer Science Part B: Polymer Physics 44(9) 1237-1252",
+    "local_path": "/data/paper_patent_corpus/mech_papers/26_psa_chem/Gower - 2006 - Acrylic acid level and adhesive performance and peel master‐curves of acrylic pressure‐sensitive adhesives.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.316228,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 35.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -0.5,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA4M91-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA4M91-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.316228 (무차원), T = 35 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA4M91-3` 행, `35` 열. **원문 인쇄값은 log10(a_T) = -0.5 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-0.5) = 0.316228.** **검산 — log10(0.316228) = -0.5000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.1 > -1.6 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.0794328,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 50.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -1.1,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA4M91-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA4M91-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.0794328 (무차원), T = 50 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA4M91-3` 행, `50` 열. **원문 인쇄값은 log10(a_T) = -1.1 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-1.1) = 0.0794328.** **검산 — log10(0.0794328) = -1.1000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.1 > -1.6 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.0251189,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 65.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -1.6,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA4M91-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA4M91-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.0251189 (무차원), T = 65 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA4M91-3` 행, `65` 열. **원문 인쇄값은 log10(a_T) = -1.6 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-1.6) = 0.0251189.** **검산 — log10(0.0251189) = -1.6000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.1 > -1.6 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    }
+   ]
+  },
+  {
+   "match_name": "Acrylic PSA emulsion copolymer AA4M61-3 (BA/EHA/MMA/AA 61.34/25.00/9.66/4.00 wt%, Gower 2006)",
+   "source": {
+    "kind": "journal",
+    "title": "Gower & Shanks (2006), Acrylic acid level and adhesive performance and peel master-curves of acrylic pressure-sensitive adhesives, J Polym Sci Part B: Polym Phys 44:1237-1252",
+    "authors": "Martin D. Gower, Robert A. Shanks",
+    "year": 2006,
+    "doi": "10.1002/polb.20779",
+    "url": "https://doi.org/10.1002/polb.20779",
+    "publisher": "Journal of Polymer Science Part B: Polymer Physics 44(9) 1237-1252",
+    "local_path": "/data/paper_patent_corpus/mech_papers/26_psa_chem/Gower - 2006 - Acrylic acid level and adhesive performance and peel master‐curves of acrylic pressure‐sensitive adhesives.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.316228,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 35.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -0.5,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA4M61-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA4M61-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.316228 (무차원), T = 35 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA4M61-3` 행, `35` 열. **원문 인쇄값은 log10(a_T) = -0.5 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-0.5) = 0.316228.** **검산 — log10(0.316228) = -0.5000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.1 > -1.6 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.0794328,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 50.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -1.1,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA4M61-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA4M61-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.0794328 (무차원), T = 50 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA4M61-3` 행, `50` 열. **원문 인쇄값은 log10(a_T) = -1.1 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-1.1) = 0.0794328.** **검산 — log10(0.0794328) = -1.1000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.1 > -1.6 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.0251189,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 65.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -1.6,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA4M61-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA4M61-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.0251189 (무차원), T = 65 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA4M61-3` 행, `65` 열. **원문 인쇄값은 log10(a_T) = -1.6 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-1.6) = 0.0251189.** **검산 — log10(0.0251189) = -1.6000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.1 > -1.6 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    }
+   ]
+  },
+  {
+   "match_name": "Acrylic PSA emulsion copolymer AA4M50-3 (BA/EHA/MMA/AA 50.00/34.56/11.44/4.00 wt%, Gower 2006)",
+   "source": {
+    "kind": "journal",
+    "title": "Gower & Shanks (2006), Acrylic acid level and adhesive performance and peel master-curves of acrylic pressure-sensitive adhesives, J Polym Sci Part B: Polym Phys 44:1237-1252",
+    "authors": "Martin D. Gower, Robert A. Shanks",
+    "year": 2006,
+    "doi": "10.1002/polb.20779",
+    "url": "https://doi.org/10.1002/polb.20779",
+    "publisher": "Journal of Polymer Science Part B: Polymer Physics 44(9) 1237-1252",
+    "local_path": "/data/paper_patent_corpus/mech_papers/26_psa_chem/Gower - 2006 - Acrylic acid level and adhesive performance and peel master‐curves of acrylic pressure‐sensitive adhesives.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.281838,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 35.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -0.55,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA4M50-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA4M50-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.281838 (무차원), T = 35 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA4M50-3` 행, `35` 열. **원문 인쇄값은 log10(a_T) = -0.55 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-0.55) = 0.281838.** **검산 — log10(0.281838) = -0.5500** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.55 > -1.15 > -1.65 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.0707946,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 50.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -1.15,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA4M50-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA4M50-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.0707946 (무차원), T = 50 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA4M50-3` 행, `50` 열. **원문 인쇄값은 log10(a_T) = -1.15 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-1.15) = 0.0707946.** **검산 — log10(0.0707946) = -1.1500** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.55 > -1.15 > -1.65 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.0223872,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 65.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -1.65,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA4M50-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA4M50-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.0223872 (무차원), T = 65 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA4M50-3` 행, `65` 열. **원문 인쇄값은 log10(a_T) = -1.65 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-1.65) = 0.0223872.** **검산 — log10(0.0223872) = -1.6500** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.55 > -1.15 > -1.65 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    }
+   ]
+  },
+  {
+   "match_name": "Acrylic PSA emulsion copolymer AA4M25-3 (BA/EHA/MMA/AA 25.00/55.61/15.39/4.00 wt%, Gower 2006)",
+   "source": {
+    "kind": "journal",
+    "title": "Gower & Shanks (2006), Acrylic acid level and adhesive performance and peel master-curves of acrylic pressure-sensitive adhesives, J Polym Sci Part B: Polym Phys 44:1237-1252",
+    "authors": "Martin D. Gower, Robert A. Shanks",
+    "year": 2006,
+    "doi": "10.1002/polb.20779",
+    "url": "https://doi.org/10.1002/polb.20779",
+    "publisher": "Journal of Polymer Science Part B: Polymer Physics 44(9) 1237-1252",
+    "local_path": "/data/paper_patent_corpus/mech_papers/26_psa_chem/Gower - 2006 - Acrylic acid level and adhesive performance and peel master‐curves of acrylic pressure‐sensitive adhesives.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.251189,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 35.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -0.6,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA4M25-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA4M25-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.251189 (무차원), T = 35 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA4M25-3` 행, `35` 열. **원문 인쇄값은 log10(a_T) = -0.6 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-0.6) = 0.251189.** **검산 — log10(0.251189) = -0.6000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.6 > -1.3 > -1.85 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.0501187,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 50.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -1.3,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA4M25-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA4M25-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.0501187 (무차원), T = 50 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA4M25-3` 행, `50` 열. **원문 인쇄값은 log10(a_T) = -1.3 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-1.3) = 0.0501187.** **검산 — log10(0.0501187) = -1.3000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.6 > -1.3 > -1.85 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.0141254,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 65.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -1.85,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA4M25-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA4M25-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.0141254 (무차원), T = 65 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA4M25-3` 행, `65` 열. **원문 인쇄값은 log10(a_T) = -1.85 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-1.85) = 0.0141254.** **검산 — log10(0.0141254) = -1.8500** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.6 > -1.3 > -1.85 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    }
+   ]
+  },
+  {
+   "match_name": "Acrylic PSA emulsion copolymer AA4M02-3 (BA/EHA/MMA/AA 1.98/75.00/19.02/4.00 wt%, Gower 2006)",
+   "source": {
+    "kind": "journal",
+    "title": "Gower & Shanks (2006), Acrylic acid level and adhesive performance and peel master-curves of acrylic pressure-sensitive adhesives, J Polym Sci Part B: Polym Phys 44:1237-1252",
+    "authors": "Martin D. Gower, Robert A. Shanks",
+    "year": 2006,
+    "doi": "10.1002/polb.20779",
+    "url": "https://doi.org/10.1002/polb.20779",
+    "publisher": "Journal of Polymer Science Part B: Polymer Physics 44(9) 1237-1252",
+    "local_path": "/data/paper_patent_corpus/mech_papers/26_psa_chem/Gower - 2006 - Acrylic acid level and adhesive performance and peel master‐curves of acrylic pressure‐sensitive adhesives.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.199526,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 35.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -0.7,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA4M02-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA4M02-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.199526 (무차원), T = 35 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA4M02-3` 행, `35` 열. **원문 인쇄값은 log10(a_T) = -0.7 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-0.7) = 0.199526.** **검산 — log10(0.199526) = -0.7000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.7 > -1.5 > -2.0 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.0316228,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 50.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -1.5,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA4M02-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA4M02-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.0316228 (무차원), T = 50 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA4M02-3` 행, `50` 열. **원문 인쇄값은 log10(a_T) = -1.5 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-1.5) = 0.0316228.** **검산 — log10(0.0316228) = -1.5000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.7 > -1.5 > -2.0 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.01,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 65.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -2.0,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA4M02-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA4M02-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.01 (무차원), T = 65 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA4M02-3` 행, `65` 열. **원문 인쇄값은 log10(a_T) = -2.0 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-2.0) = 0.01.** **검산 — log10(0.01) = -2.0000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.7 > -1.5 > -2.0 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    }
+   ]
+  },
+  {
+   "match_name": "Acrylic PSA emulsion copolymer AA6M91-3 (BA/EHA/MMA/AA 91.00/0.00/3.00/6.00 wt%, Gower 2006)",
+   "source": {
+    "kind": "journal",
+    "title": "Gower & Shanks (2006), Acrylic acid level and adhesive performance and peel master-curves of acrylic pressure-sensitive adhesives, J Polym Sci Part B: Polym Phys 44:1237-1252",
+    "authors": "Martin D. Gower, Robert A. Shanks",
+    "year": 2006,
+    "doi": "10.1002/polb.20779",
+    "url": "https://doi.org/10.1002/polb.20779",
+    "publisher": "Journal of Polymer Science Part B: Polymer Physics 44(9) 1237-1252",
+    "local_path": "/data/paper_patent_corpus/mech_papers/26_psa_chem/Gower - 2006 - Acrylic acid level and adhesive performance and peel master‐curves of acrylic pressure‐sensitive adhesives.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.316228,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 35.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -0.5,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA6M91-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA6M91-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.316228 (무차원), T = 35 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA6M91-3` 행, `35` 열. **원문 인쇄값은 log10(a_T) = -0.5 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-0.5) = 0.316228.** **검산 — log10(0.316228) = -0.5000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.1 > -1.5 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.0794328,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 50.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -1.1,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA6M91-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA6M91-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.0794328 (무차원), T = 50 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA6M91-3` 행, `50` 열. **원문 인쇄값은 log10(a_T) = -1.1 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-1.1) = 0.0794328.** **검산 — log10(0.0794328) = -1.1000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.1 > -1.5 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.0316228,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 65.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -1.5,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA6M91-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA6M91-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.0316228 (무차원), T = 65 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA6M91-3` 행, `65` 열. **원문 인쇄값은 log10(a_T) = -1.5 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-1.5) = 0.0316228.** **검산 — log10(0.0316228) = -1.5000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.1 > -1.5 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    }
+   ]
+  },
+  {
+   "match_name": "Acrylic PSA emulsion copolymer AA6M61-3 (BA/EHA/MMA/AA 61.34/25.00/7.66/6.00 wt%, Gower 2006)",
+   "source": {
+    "kind": "journal",
+    "title": "Gower & Shanks (2006), Acrylic acid level and adhesive performance and peel master-curves of acrylic pressure-sensitive adhesives, J Polym Sci Part B: Polym Phys 44:1237-1252",
+    "authors": "Martin D. Gower, Robert A. Shanks",
+    "year": 2006,
+    "doi": "10.1002/polb.20779",
+    "url": "https://doi.org/10.1002/polb.20779",
+    "publisher": "Journal of Polymer Science Part B: Polymer Physics 44(9) 1237-1252",
+    "local_path": "/data/paper_patent_corpus/mech_papers/26_psa_chem/Gower - 2006 - Acrylic acid level and adhesive performance and peel master‐curves of acrylic pressure‐sensitive adhesives.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.316228,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 35.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -0.5,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA6M61-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA6M61-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.316228 (무차원), T = 35 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA6M61-3` 행, `35` 열. **원문 인쇄값은 log10(a_T) = -0.5 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-0.5) = 0.316228.** **검산 — log10(0.316228) = -0.5000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.1 > -1.8 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.0794328,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 50.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -1.1,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA6M61-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA6M61-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.0794328 (무차원), T = 50 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA6M61-3` 행, `50` 열. **원문 인쇄값은 log10(a_T) = -1.1 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-1.1) = 0.0794328.** **검산 — log10(0.0794328) = -1.1000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.1 > -1.8 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.0158489,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 65.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -1.8,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA6M61-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA6M61-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.0158489 (무차원), T = 65 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA6M61-3` 행, `65` 열. **원문 인쇄값은 log10(a_T) = -1.8 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-1.8) = 0.0158489.** **검산 — log10(0.0158489) = -1.8000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.1 > -1.8 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    }
+   ]
+  },
+  {
+   "match_name": "Acrylic PSA emulsion copolymer AA6M50-3 (BA/EHA/MMA/AA 50.00/34.56/9.44/6.00 wt%, Gower 2006)",
+   "source": {
+    "kind": "journal",
+    "title": "Gower & Shanks (2006), Acrylic acid level and adhesive performance and peel master-curves of acrylic pressure-sensitive adhesives, J Polym Sci Part B: Polym Phys 44:1237-1252",
+    "authors": "Martin D. Gower, Robert A. Shanks",
+    "year": 2006,
+    "doi": "10.1002/polb.20779",
+    "url": "https://doi.org/10.1002/polb.20779",
+    "publisher": "Journal of Polymer Science Part B: Polymer Physics 44(9) 1237-1252",
+    "local_path": "/data/paper_patent_corpus/mech_papers/26_psa_chem/Gower - 2006 - Acrylic acid level and adhesive performance and peel master‐curves of acrylic pressure‐sensitive adhesives.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.316228,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 35.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -0.5,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA6M50-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA6M50-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.316228 (무차원), T = 35 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA6M50-3` 행, `35` 열. **원문 인쇄값은 log10(a_T) = -0.5 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-0.5) = 0.316228.** **검산 — log10(0.316228) = -0.5000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.4 > -2.4 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.0398107,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 50.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -1.4,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA6M50-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA6M50-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.0398107 (무차원), T = 50 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA6M50-3` 행, `50` 열. **원문 인쇄값은 log10(a_T) = -1.4 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-1.4) = 0.0398107.** **검산 — log10(0.0398107) = -1.4000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.4 > -2.4 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.00398107,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 65.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -2.4,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA6M50-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA6M50-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.00398107 (무차원), T = 65 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA6M50-3` 행, `65` 열. **원문 인쇄값은 log10(a_T) = -2.4 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-2.4) = 0.00398107.** **검산 — log10(0.00398107) = -2.4000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.4 > -2.4 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    }
+   ]
+  },
+  {
+   "match_name": "Acrylic PSA emulsion copolymer AA6M25-3 (BA/EHA/MMA/AA 25.00/55.61/13.39/6.00 wt%, Gower 2006)",
+   "source": {
+    "kind": "journal",
+    "title": "Gower & Shanks (2006), Acrylic acid level and adhesive performance and peel master-curves of acrylic pressure-sensitive adhesives, J Polym Sci Part B: Polym Phys 44:1237-1252",
+    "authors": "Martin D. Gower, Robert A. Shanks",
+    "year": 2006,
+    "doi": "10.1002/polb.20779",
+    "url": "https://doi.org/10.1002/polb.20779",
+    "publisher": "Journal of Polymer Science Part B: Polymer Physics 44(9) 1237-1252",
+    "local_path": "/data/paper_patent_corpus/mech_papers/26_psa_chem/Gower - 2006 - Acrylic acid level and adhesive performance and peel master‐curves of acrylic pressure‐sensitive adhesives.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.316228,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 35.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -0.5,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA6M25-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA6M25-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.316228 (무차원), T = 35 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA6M25-3` 행, `35` 열. **원문 인쇄값은 log10(a_T) = -0.5 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-0.5) = 0.316228.** **검산 — log10(0.316228) = -0.5000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.7 > -2.5 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.0199526,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 50.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -1.7,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA6M25-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA6M25-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.0199526 (무차원), T = 50 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA6M25-3` 행, `50` 열. **원문 인쇄값은 log10(a_T) = -1.7 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-1.7) = 0.0199526.** **검산 — log10(0.0199526) = -1.7000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.7 > -2.5 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.00316228,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 65.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -2.5,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA6M25-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA6M25-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.00316228 (무차원), T = 65 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA6M25-3` 행, `65` 열. **원문 인쇄값은 log10(a_T) = -2.5 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-2.5) = 0.00316228.** **검산 — log10(0.00316228) = -2.5000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -1.7 > -2.5 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    }
+   ]
+  },
+  {
+   "match_name": "Acrylic PSA emulsion copolymer AA6M02-3 (BA/EHA/MMA/AA 1.98/75.00/17.02/6.00 wt%, Gower 2006)",
+   "source": {
+    "kind": "journal",
+    "title": "Gower & Shanks (2006), Acrylic acid level and adhesive performance and peel master-curves of acrylic pressure-sensitive adhesives, J Polym Sci Part B: Polym Phys 44:1237-1252",
+    "authors": "Martin D. Gower, Robert A. Shanks",
+    "year": 2006,
+    "doi": "10.1002/polb.20779",
+    "url": "https://doi.org/10.1002/polb.20779",
+    "publisher": "Journal of Polymer Science Part B: Polymer Physics 44(9) 1237-1252",
+    "local_path": "/data/paper_patent_corpus/mech_papers/26_psa_chem/Gower - 2006 - Acrylic acid level and adhesive performance and peel master‐curves of acrylic pressure‐sensitive adhesives.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.316228,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 35.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -0.5,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA6M02-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA6M02-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.316228 (무차원), T = 35 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA6M02-3` 행, `35` 열. **원문 인쇄값은 log10(a_T) = -0.5 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-0.5) = 0.316228.** **검산 — log10(0.316228) = -0.5000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -2.2 > -2.6 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.00630957,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 50.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -2.2,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA6M02-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA6M02-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.00630957 (무차원), T = 50 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA6M02-3` 행, `50` 열. **원문 인쇄값은 log10(a_T) = -2.2 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-2.2) = 0.00630957.** **검산 — log10(0.00630957) = -2.2000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -2.2 > -2.6 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    },
+    {
+     "key": "mechanical.tts_shift_factor",
+     "value": 0.00251189,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 65.0,
+      "reference_temperature_c": 25.0,
+      "reference_temperature_printed": true,
+      "curve_type": "master_curve",
+      "printed_as": "log10_a_T",
+      "value_printed": -2.6,
+      "relaxation_mode": "not applicable — 완화탄성률 곡선이 아니라 **180° 박리력 마스터커브**의 이동인자다. 원문은 이것을 WLF 이동인자라 부르고 Derail 등[8]이 박리 마스터커브에서 얻은 이동인자가 유변학 측정에서 얻은 것과 같음을 보였다고 인용한다",
+      "shift_function": "empirical (obtained by superposing isothermal peel-rate curves; the paper calls them WLF shift factors and defines a_T = tau(T)/tau_r(T_r), eq 3)",
+      "set_id": "gower2006_table4_peel_mastercurve_AA6M02-3",
+      "master_curve": "log(reduced peel stress) vs log(reduced peeling rate) = log(a_T · v), 180° peel, cohesive-failure region, T_ref = 25 °C (298 K)",
+      "log_base": "log10",
+      "sign_convention": "a_T < 1 above T_ref (relaxation faster at higher T) — 표준 시간영역 규약이다",
+      "polymer_code": "AA6M02-3",
+      "failure_mode": "cohesive"
+     },
+     "notes": "이동인자 a_T = 0.00251189 (무차원), T = 65 °C, 기준온도 T0 = 25 °C. 원문 표 verbatim — `Table 4. The Effect of Test Temperature on the Logarithm of the Temperature Shift Factors for the Cohesive Failure Region of the Peel Master-Curves for AA2M-3, AA4M-3, and AA6M-3 Copolymers` 의 `AA6M02-3` 행, `65` 열. **원문 인쇄값은 log10(a_T) = -2.6 다.** **원문은 log10(a_T) 를 인쇄하고 우리는 a_T 를 넣는다**(브리프 규칙). 로그를 그대로 넣으면 밑과 부호가 조건에 숨어 한 칸에 두 양이 섞인다. 원문 표기는 `printed_as = log10_a_T` 와 `value_printed` 에 보존했다. **밑이 10 인 것은 원문이 자기 안에서 증명한다** — 다른 자리에서 \"The curves were superpositioned by shifting the caboxylated polymer curves by a_T* = 7 [log(a_T*) = 0.845]\" 라 쓰는데 log10(7) = 0.8451 이다(자연로그면 1.9459 다). **환산 산술 — a_T = 10^(-2.6) = 0.00251189.** **검산 — log10(0.00251189) = -2.6000** 로 인쇄값과 일치한다(왕복 검산). 정의 verbatim — a_T = tau(T) / tau_r(T_r)   (원문 식 (3), 300 dpi 렌더로 해독). 기준온도 근거(본문 verbatim) — \"The master-curves of log(reduced peel stress) against log(reduced peeling rate) were constructed via the TTS principle by applying shift factors aT to peel adhesion versus peeling rate curves at a range of test temperatures and superpositioning the curves at a reference temperature of 25 °C. ... The values for log(aT) used to prepare the individual polymer peel master-curves at test temperatures above 25 °C are presented in Table 4.\" **부호 함정 — 이 표는 docling 추출로 읽으면 45칸 전부 부호가 뒤집힌다.** `tables/table-4.md` 는 `0.50 / 1.00 / 1.40 …` 로 **양수**를 내놓는데 300 dpi 원본 렌더는 `−0.50 / −1.00 / −1.40 …` 로 **전부 음수**다. 크기는 같고 마이너스만 사라졌다. 부호가 뒤집히면 a_T 가 0.316 이 아니라 3.16 이 되어 **10배가 아니라 100배 틀린 값**이 되고, 게다가 그 값이 '고온에서 완화가 느려진다'는 물리적으로 불가능한 이야기를 하게 된다. **이 45칸은 전부 렌더로 눈으로 읽었다.** **부호 검산 — 세 온도 전부 T > T0 = 25 °C 이고 인쇄된 log 가 전부 음수라 a_T < 1 이다.** 고온일수록 완화가 빠르므로 a_T 가 작아져야 하고, 이 폴리머의 세 칸은 -0.5 > -2.2 > -2.6 로 온도에 대해 단조감소한다 — 물리와 맞는다."
+    }
+   ]
+  }
+ ]
+}

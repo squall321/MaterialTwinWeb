@@ -1,0 +1,722 @@
+{
+ "batch": "72차 HC",
+ "materials": [
+  {
+   "new_material": {
+    "name": "Nan Ya NP-730 Ultra-Low-Loss RF Copper Clad Laminate",
+    "category": "composite",
+    "description": "南亞(Nan Ya) `NP-730` 동박적층판. 안정한 유전율·초저손실(Df 0.0021 @10 GHz)·저PIM 을 내세운 기지국 안테나/5G 인프라용 동박적층판이다. 밀도는 `ASTM D792` 로 재고 열전도율은 `ASTM F 433` 이다 — IPC 슬래시시트가 밀도를 규정하지 않는다는 71차 GD 의 판정과 앞뒤가 맞는다. 밀도(2.1 g/cm3, ASTM D792)·열전도율·CTE(z, x/y)·Td 를 찍지만 **영률·포아송비·비열·인장강도 행은 없다**.",
+    "attributes": {
+     "material_class": "copper clad laminate for RF / microwave circuits",
+     "subsystem": "pcb",
+     "role": "product",
+     "role_reason": "제조사(Nan Ya)+등급명이 이름에 박혀 있고 출처가 해당 등급의 공식 PERFORMANCE LIST 다.",
+     "role_confidence": "high",
+     "manufacturer": "Nan Ya Plastics Corporation",
+     "grades_covered": [
+      "NP-730"
+     ],
+     "aliases": [
+      "NP-730",
+      "NP730",
+      "Nan Ya NP-730"
+     ],
+     "column_layout": "**열 확인** — 이 표의 열 순서는 `Characteristics | Unit | Conditioning | Typical Values | SPEC | Test Method` 다(300 dpi 렌더로 확정). 담은 값은 **Typical Values** 열이고, `SPEC` 열은 합격 한계이지 물성이 아니라 담지 않았다.",
+     "core7_absent_from_vendor_sheet": "이 표에는 **영률·포아송비·비열·인장강도 행이 없다.** 전수 확인 — 기계축은 `Peel strength 1 oz` 하나뿐이고 굽힘강도조차 없다. 밀도·열전도율·CTE 는 있다."
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "NAN YA PLASTICS CORPORATION, Electronic Materials Division, Copper Clad Laminate Department — NP-730 PERFORMANCE LIST (Issued 2017/12/05, New 2024/10/11)",
+    "url": null,
+    "publisher": "Nan Ya Plastics Corporation",
+    "year": 2024,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Nanya_CCL_NP-730_Datasheet_cclqc_zhTWportal_2026-09-09.pdf",
+    "url_note": "대만 유통 포털(cclqc.npc.com.tw)에서 받은 PDF 다. 파일별 URL 에 난수 접미어가 붙어 이 등급의 절대 URL 을 확정하지 못했다 — 지어내지 않았다."
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2100.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D792",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Density (Specific Gravity)  g/cm3  <Conditioning 빈칸>  2.1  2.05~2.15  ASTM D792`. 2.1 g/cm^3 x 1000 = 2100 kg/m^3; 되돌리면 2100/1000 = 2.1. **71차 GD 의 인계가 이 칸을 잘못 읽었다** — GD 는 `2.05~2.15` 를 「인쇄된 구간」으로 넘겼으나 300 dpi 렌더로 확인하니 `2.1` 이 **Typical Values** 열이고 `2.05~2.15` 는 그 오른쪽 **SPEC** 열이다. SPEC 은 합격 한계이지 측정 구간이 아니므로 두 행으로 가르지 않고 notes 에만 남긴다. **열 확인** — 이 표의 열 순서는 `Characteristics | Unit | Conditioning | Typical Values | SPEC | Test Method` 다(300 dpi 렌더로 확정). 담은 값은 **Typical Values** 열이고, `SPEC` 열은 합격 한계이지 물성이 아니라 담지 않았다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.6,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM F433",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Thermal Conductivity  W/mK  <Conditioning 빈칸>  0.6  0.2 (SPEC)  ASTM F 433`. 0.6 W/mK -> 0.6 W/(m*K). 원문 단위 `W/mK` = SI `W/(m*K)`, 환산 없음. **열 확인** — 이 표의 열 순서는 `Characteristics | Unit | Conditioning | Typical Values | SPEC | Test Method` 다(300 dpi 렌더로 확정). 담은 값은 **Typical Values** 열이고, `SPEC` 열은 합격 한계이지 물성이 아니라 담지 않았다."
+    },
+    {
+     "key": "thermal.decomposition_temp",
+     "value": 813.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D3850",
+      "test_method": "TGA, 10 degC/min",
+      "basis": "5% weight loss",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Td (5% weight loss)  degC  TGA, 10 degC/min  540  500 (SPEC)  ASTM D3850`. 540 + 273.15 = 813.15 K; 되돌리면 813.15 - 273.15 = 540."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0004,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.6.2.1",
+      "conditioning": "D-24/23",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Moisture absorption  %  D-24/23  0.04  0.15(down-arrow) (SPEC)  IPC-TM-650 2.6.2.1`. 0.04 % / 100 = 0.0004; 되돌리면 0.0004 x 100 = 0.04."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 3.0,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 10000000000.0,
+      "temperature_c": 23,
+      "test_standard": "IPC-TM-650 2.5.5.5",
+      "test_method": "process",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Permittivity (Process)  -  10GHz/23degC  3.0  -  2.5.5.5`. 3.0 - -> 3 1. 무차원."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.0021,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 10000000000.0,
+      "temperature_c": 23,
+      "test_standard": "IPC-TM-650 2.5.5.5",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Loss Tangent  -  10GHz/23degC  0.0021  -  2.5.5.5`. 0.0021 - -> 0.0021 1. 무차원."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.0022,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 10000000000.0,
+      "temperature_c": 23,
+      "test_method": "SPDR",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Loss Tangent  -  10GHz/23degC  0.0022  -  SPDR`. 0.0022 - -> 0.0022 1. 무차원. 같은 물성의 다른 측정법이므로 2.5.5.5 행과 두 행으로 갈랐다."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 10000000000000.0,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "C-96/35/90",
+      "test_standard": "IPC-TM-650 2.5.17",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Volume resistivity  MOhm-cm  C-96/35/90  10^9  10^6(up-arrow) (SPEC)  IPC-TM-650 2.5.17`. 1e+09 MOhm*cm x 1e4 = 1e+13 Ohm*m (1 MOhm*cm = 1e6 Ohm x 1e-2 m = 1e4 Ohm*m); 되돌리면 1e+13/1e4 = 1e+09. 지수표기는 렌더로 확인했다(10 의 9승)."
+    },
+    {
+     "key": "electrical.surface_resistivity",
+     "value": 100000000000000.0,
+     "unit": "ohm",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "C-96/35/90",
+      "test_standard": "IPC-TM-650 2.5.17",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Surface resistivity  MOhm  C-96/35/90  10^8  10^4(up-arrow) (SPEC)  IPC-TM-650 2.5.17`. 1e+08 MOhm x 1e6 = 1e+14 Ohm; 되돌리면 1e+14/1e6 = 1e+08. 지수표기는 렌더로 확인했다(10 의 8승)."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 7e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "temperature_range_c": "25 - 260",
+      "test_method": "TMA",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `CTE (z) (25 - 260degC)  ppm/degC  TMA  70-90  N/A  IPC-TM-650 2.4.24`. 인쇄된 구간의 lower 끝값 70 ppm/degC 를 환산했다 — 70 ppm/degC x 1e-6 = 7e-05 1/K; 되돌리면 7e-05/1e-6 = 70."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 8.999999999999999e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "temperature_range_c": "25 - 260",
+      "test_method": "TMA",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `CTE (z) (25 - 260degC)  ppm/degC  TMA  70-90  N/A  IPC-TM-650 2.4.24`. 인쇄된 구간의 upper 끝값 90 ppm/degC 를 환산했다 — 90 ppm/degC x 1e-6 = 9e-05 1/K; 되돌리면 9e-05/1e-6 = 90."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.9999999999999998e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "temperature_range_c": "25 - 260",
+      "test_method": "TMA",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `CTE (x,y) (25 - 260degC)  ppm/degC  TMA  20-30  N/A  IPC-TM-650 2.4.24`. 인쇄된 구간의 lower 끝값 20 ppm/degC 를 환산했다 — 20 ppm/degC x 1e-6 = 2e-05 1/K; 되돌리면 2e-05/1e-6 = 20."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 2.9999999999999997e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "temperature_range_c": "25 - 260",
+      "test_method": "TMA",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `CTE (x,y) (25 - 260degC)  ppm/degC  TMA  20-30  N/A  IPC-TM-650 2.4.24`. 인쇄된 구간의 upper 끝값 30 ppm/degC 를 환산했다 — 30 ppm/degC x 1e-6 = 3e-05 1/K; 되돌리면 3e-05/1e-6 = 30."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 1751.2683524647637,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "288 degC x 10 s solder floating",
+      "copper_foil_type": "1 oz",
+      "test_standard": "IPC-TM-650 2.4.8",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Peel strength 1 oz  lb/in  288degCx10\" solder floating  10  6(up-arrow) (SPEC)  IPC-TM-650 2.4.8`. 10 lb/in x 175.126835 = 1751.27 N/m (1 lbf = 4.4482216152605 N, 1 in = 0.0254 m -> 4.4482216152605/0.0254 = 175.126835); 되돌리면 1751.27/175.126835 = 10."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Nan Ya NP-822 Extremely-Low-Loss RF Copper Clad Laminate",
+    "category": "composite",
+    "description": "南亞(Nan Ya) `NP-822` 동박적층판. 극저손실(Df 0.0008 @10 GHz, Dk 2.20)을 내세운 군용 레이더 급전망·위상배열 안테나용 동박적층판이다. z축 CTE 가 357 ppm/degC 로 형제 등급보다 훨씬 크다(저Dk 수지계의 특징) — 원문 단일값이다. 밀도(2.1 g/cm3, ASTM D792)·열전도율·CTE(z, x/y)·Td 를 찍지만 **영률·포아송비·비열·인장강도 행은 없다**.",
+    "attributes": {
+     "material_class": "copper clad laminate for RF / microwave circuits",
+     "subsystem": "pcb",
+     "role": "product",
+     "role_reason": "제조사(Nan Ya)+등급명이 이름에 박혀 있고 출처가 해당 등급의 공식 PERFORMANCE LIST 다.",
+     "role_confidence": "high",
+     "manufacturer": "Nan Ya Plastics Corporation",
+     "grades_covered": [
+      "NP-822"
+     ],
+     "aliases": [
+      "NP-822",
+      "NP822",
+      "Nan Ya NP-822"
+     ],
+     "column_layout": "**열 확인** — 이 표의 열 순서는 `Characteristics | Unit | Conditioning | Typical Values | SPEC | Test Method` 다(300 dpi 렌더로 확정). 담은 값은 **Typical Values** 열이고, `SPEC` 열은 합격 한계이지 물성이 아니라 담지 않았다.",
+     "core7_absent_from_vendor_sheet": "이 표에는 **영률·포아송비·비열·인장강도 행이 없다.** 전수 확인 — 기계축은 `Peel strength 1 oz` 하나뿐이고 굽힘강도조차 없다. 밀도·열전도율·CTE 는 있다."
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "NAN YA PLASTICS CORPORATION, Electronic Materials Division, Copper Clad Laminate Department — NP-822 PERFORMANCE LIST (Issued 2019/09/05, New 2024/10/11)",
+    "url": null,
+    "publisher": "Nan Ya Plastics Corporation",
+    "year": 2024,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Nanya_CCL_NP-822_Datasheet_cclqc_zhTWportal_2026-09-09.pdf",
+    "url_note": "대만 유통 포털(cclqc.npc.com.tw)에서 받은 PDF 다. 파일별 URL 에 난수 접미어가 붙어 이 등급의 절대 URL 을 확정하지 못했다 — 지어내지 않았다."
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2100.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D792",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Density (Specific Gravity)  g/cm3  <Conditioning 빈칸>  2.1  2.05~2.15  ASTM D792`. 2.1 g/cm^3 x 1000 = 2100 kg/m^3; 되돌리면 2100/1000 = 2.1. **71차 GD 의 인계가 이 칸을 잘못 읽었다** — GD 는 `2.05~2.15` 를 「인쇄된 구간」으로 넘겼으나 300 dpi 렌더로 확인하니 `2.1` 이 **Typical Values** 열이고 `2.05~2.15` 는 그 오른쪽 **SPEC** 열이다. SPEC 은 합격 한계이지 측정 구간이 아니므로 두 행으로 가르지 않고 notes 에만 남긴다. **열 확인** — 이 표의 열 순서는 `Characteristics | Unit | Conditioning | Typical Values | SPEC | Test Method` 다(300 dpi 렌더로 확정). 담은 값은 **Typical Values** 열이고, `SPEC` 열은 합격 한계이지 물성이 아니라 담지 않았다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.25,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM F433",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Thermal Conductivity  W/mK  <Conditioning 빈칸>  0.25  0.2 (SPEC)  ASTM F 433`. 0.25 W/mK -> 0.25 W/(m*K). 원문 단위 `W/mK` = SI `W/(m*K)`, 환산 없음. **열 확인** — 이 표의 열 순서는 `Characteristics | Unit | Conditioning | Typical Values | SPEC | Test Method` 다(300 dpi 렌더로 확정). 담은 값은 **Typical Values** 열이고, `SPEC` 열은 합격 한계이지 물성이 아니라 담지 않았다."
+    },
+    {
+     "key": "thermal.decomposition_temp",
+     "value": 813.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D3850",
+      "test_method": "TGA, 10 degC/min",
+      "basis": "5% weight loss",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Td (5% weight loss)  degC  TGA, 10 degC/min  540  500 (SPEC)  ASTM D3850`. 540 + 273.15 = 813.15 K; 되돌리면 813.15 - 273.15 = 540."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0002,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.6.2.1",
+      "conditioning": "D-24/23",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Moisture absorption  %  D-24/23  0.02  0.15(down-arrow) (SPEC)  IPC-TM-650 2.6.2.1`. 0.02 % / 100 = 0.0002; 되돌리면 0.0002 x 100 = 0.02."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 2.2,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 10000000000.0,
+      "temperature_c": 23,
+      "test_standard": "IPC-TM-650 2.5.5.5",
+      "test_method": "process",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Permittivity (Process)  -  10GHz/23degC  2.2  -  2.5.5.5`. 2.2 - -> 2.2 1. 무차원."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.0008,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 10000000000.0,
+      "temperature_c": 23,
+      "test_standard": "IPC-TM-650 2.5.5.5",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Loss Tangent  -  10GHz/23degC  0.0008  -  2.5.5.5`. 0.0008 - -> 0.0008 1. 무차원."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.0009,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 10000000000.0,
+      "temperature_c": 23,
+      "test_method": "SPDR",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Loss Tangent  -  10GHz/23degC  0.0009  -  SPDR`. 0.0009 - -> 0.0009 1. 무차원. 같은 물성의 다른 측정법이므로 2.5.5.5 행과 두 행으로 갈랐다."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 10000000000000.0,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "C-96/35/90",
+      "test_standard": "IPC-TM-650 2.5.17",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Volume resistivity  MOhm-cm  C-96/35/90  10^9  10^6(up-arrow) (SPEC)  IPC-TM-650 2.5.17`. 1e+09 MOhm*cm x 1e4 = 1e+13 Ohm*m (1 MOhm*cm = 1e6 Ohm x 1e-2 m = 1e4 Ohm*m); 되돌리면 1e+13/1e4 = 1e+09. 지수표기는 렌더로 확인했다(10 의 9승)."
+    },
+    {
+     "key": "electrical.surface_resistivity",
+     "value": 100000000000000.0,
+     "unit": "ohm",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "C-96/35/90",
+      "test_standard": "IPC-TM-650 2.5.17",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Surface resistivity  MOhm  C-96/35/90  10^8  10^4(up-arrow) (SPEC)  IPC-TM-650 2.5.17`. 1e+08 MOhm x 1e6 = 1e+14 Ohm; 되돌리면 1e+14/1e6 = 1e+08. 지수표기는 렌더로 확인했다(10 의 8승)."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 0.000357,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "temperature_range_c": "50 - 260",
+      "test_method": "TMA",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `CTE (z) (50 - 260degC)  ppm/degC  TMA  357  N/A  IPC-TM-650 2.4.24`. 357 ppm/degC x 1e-6 = 0.000357 1/K; 되돌리면 0.000357/1e-6 = 357."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.9999999999999998e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "temperature_range_c": "50 - 260",
+      "test_method": "TMA",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `CTE (x,y) (50 - 260degC)  ppm/degC  TMA  20-30  N/A  IPC-TM-650 2.4.24`. 인쇄된 구간의 lower 끝값 20 ppm/degC 를 환산했다 — 20 ppm/degC x 1e-6 = 2e-05 1/K; 되돌리면 2e-05/1e-6 = 20."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 2.9999999999999997e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "temperature_range_c": "50 - 260",
+      "test_method": "TMA",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `CTE (x,y) (50 - 260degC)  ppm/degC  TMA  20-30  N/A  IPC-TM-650 2.4.24`. 인쇄된 구간의 upper 끝값 30 ppm/degC 를 환산했다 — 30 ppm/degC x 1e-6 = 3e-05 1/K; 되돌리면 3e-05/1e-6 = 30."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 1751.2683524647637,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "288 degC x 10 s solder floating",
+      "copper_foil_type": "1 oz",
+      "test_standard": "IPC-TM-650 2.4.8",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Peel strength 1 oz  lb/in  288degCx10\" solder floating  10-12  6(up-arrow) (SPEC)  IPC-TM-650 2.4.8`. 인쇄된 구간의 lower 끝값 10 lb/in 를 환산했다 — 10 lb/in x 175.126835 = 1751.27 N/m (1 lbf = 4.4482216152605 N, 1 in = 0.0254 m -> 4.4482216152605/0.0254 = 175.126835); 되돌리면 1751.27/175.126835 = 10."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 2101.522022957716,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "288 degC x 10 s solder floating",
+      "copper_foil_type": "1 oz",
+      "test_standard": "IPC-TM-650 2.4.8",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Peel strength 1 oz  lb/in  288degCx10\" solder floating  10-12  6(up-arrow) (SPEC)  IPC-TM-650 2.4.8`. 인쇄된 구간의 upper 끝값 12 lb/in 를 환산했다 — 12 lb/in x 175.126835 = 2101.52 N/m (1 lbf = 4.4482216152605 N, 1 in = 0.0254 m -> 4.4482216152605/0.0254 = 175.126835); 되돌리면 2101.52/175.126835 = 12."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Nan Ya NP-826 Low-Loss RF Copper Clad Laminate",
+    "category": "composite",
+    "description": "南亞(Nan Ya) `NP-826` 동박적층판. Dk 2.60 · Df 0.0019 @10 GHz 의 LNB·전력증폭기·안테나용 동박적층판이다. 밀도(2.1 g/cm3, ASTM D792)·열전도율·CTE(z, x/y)·Td 를 찍지만 **영률·포아송비·비열·인장강도 행은 없다**.",
+    "attributes": {
+     "material_class": "copper clad laminate for RF / microwave circuits",
+     "subsystem": "pcb",
+     "role": "product",
+     "role_reason": "제조사(Nan Ya)+등급명이 이름에 박혀 있고 출처가 해당 등급의 공식 PERFORMANCE LIST 다.",
+     "role_confidence": "high",
+     "manufacturer": "Nan Ya Plastics Corporation",
+     "grades_covered": [
+      "NP-826"
+     ],
+     "aliases": [
+      "NP-826",
+      "NP826",
+      "Nan Ya NP-826"
+     ],
+     "column_layout": "**열 확인** — 이 표의 열 순서는 `Characteristics | Unit | Conditioning | Typical Values | SPEC | Test Method` 다(300 dpi 렌더로 확정). 담은 값은 **Typical Values** 열이고, `SPEC` 열은 합격 한계이지 물성이 아니라 담지 않았다.",
+     "core7_absent_from_vendor_sheet": "이 표에는 **영률·포아송비·비열·인장강도 행이 없다.** 전수 확인 — 기계축은 `Peel strength 1 oz` 하나뿐이고 굽힘강도조차 없다. 밀도·열전도율·CTE 는 있다."
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "NAN YA PLASTICS CORPORATION, Electronic Materials Division, Copper Clad Laminate Department — NP-826 PERFORMANCE LIST (Issued 2018 (문서에 발행일 표기 확인), New 2024/10/11)",
+    "url": null,
+    "publisher": "Nan Ya Plastics Corporation",
+    "year": 2024,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Nanya_CCL_NP-826_Datasheet_cclqc_zhTWportal_2026-09-09.pdf",
+    "url_note": "대만 유통 포털(cclqc.npc.com.tw)에서 받은 PDF 다. 파일별 URL 에 난수 접미어가 붙어 이 등급의 절대 URL 을 확정하지 못했다 — 지어내지 않았다."
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2100.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D792",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Density (Specific Gravity)  g/cm3  <Conditioning 빈칸>  2.1  2.05~2.15  ASTM D792`. 2.1 g/cm^3 x 1000 = 2100 kg/m^3; 되돌리면 2100/1000 = 2.1. **71차 GD 의 인계가 이 칸을 잘못 읽었다** — GD 는 `2.05~2.15` 를 「인쇄된 구간」으로 넘겼으나 300 dpi 렌더로 확인하니 `2.1` 이 **Typical Values** 열이고 `2.05~2.15` 는 그 오른쪽 **SPEC** 열이다. SPEC 은 합격 한계이지 측정 구간이 아니므로 두 행으로 가르지 않고 notes 에만 남긴다. **열 확인** — 이 표의 열 순서는 `Characteristics | Unit | Conditioning | Typical Values | SPEC | Test Method` 다(300 dpi 렌더로 확정). 담은 값은 **Typical Values** 열이고, `SPEC` 열은 합격 한계이지 물성이 아니라 담지 않았다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.37,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM F433",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Thermal Conductivity  W/mK  <Conditioning 빈칸>  0.37  0.2 (SPEC)  ASTM F 433`. 0.37 W/mK -> 0.37 W/(m*K). 원문 단위 `W/mK` = SI `W/(m*K)`, 환산 없음. **열 확인** — 이 표의 열 순서는 `Characteristics | Unit | Conditioning | Typical Values | SPEC | Test Method` 다(300 dpi 렌더로 확정). 담은 값은 **Typical Values** 열이고, `SPEC` 열은 합격 한계이지 물성이 아니라 담지 않았다."
+    },
+    {
+     "key": "thermal.decomposition_temp",
+     "value": 813.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D3850",
+      "test_method": "TGA, 10 degC/min",
+      "basis": "5% weight loss",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Td (5% weight loss)  degC  TGA, 10 degC/min  540  500 (SPEC)  ASTM D3850`. 540 + 273.15 = 813.15 K; 되돌리면 813.15 - 273.15 = 540."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0003,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.6.2.1",
+      "conditioning": "D-24/23",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Moisture absorption  %  D-24/23  0.03  0.15(down-arrow) (SPEC)  IPC-TM-650 2.6.2.1`. 0.03 % / 100 = 0.0003; 되돌리면 0.0003 x 100 = 0.03."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 2.6,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 10000000000.0,
+      "temperature_c": 23,
+      "test_standard": "IPC-TM-650 2.5.5.5",
+      "test_method": "process",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Permittivity (Process)  -  10GHz/23degC  2.6  -  2.5.5.5`. 2.6 - -> 2.6 1. 무차원."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.0019,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 10000000000.0,
+      "temperature_c": 23,
+      "test_standard": "IPC-TM-650 2.5.5.5",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Loss Tangent  -  10GHz/23degC  0.0019  -  2.5.5.5`. 0.0019 - -> 0.0019 1. 무차원."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.0018,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 10000000000.0,
+      "temperature_c": 23,
+      "test_method": "SPDR",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Loss Tangent  -  10GHz/23degC  0.0018  -  SPDR`. 0.0018 - -> 0.0018 1. 무차원. 같은 물성의 다른 측정법이므로 2.5.5.5 행과 두 행으로 갈랐다."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 10000000000000.0,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "C-96/35/90",
+      "test_standard": "IPC-TM-650 2.5.17",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Volume resistivity  MOhm-cm  C-96/35/90  10^9  10^6(up-arrow) (SPEC)  IPC-TM-650 2.5.17`. 1e+09 MOhm*cm x 1e4 = 1e+13 Ohm*m (1 MOhm*cm = 1e6 Ohm x 1e-2 m = 1e4 Ohm*m); 되돌리면 1e+13/1e4 = 1e+09. 지수표기는 렌더로 확인했다(10 의 9승)."
+    },
+    {
+     "key": "electrical.surface_resistivity",
+     "value": 100000000000000.0,
+     "unit": "ohm",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "C-96/35/90",
+      "test_standard": "IPC-TM-650 2.5.17",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)"
+     },
+     "notes": "원문 verbatim: `Surface resistivity  MOhm  C-96/35/90  10^8  10^4(up-arrow) (SPEC)  IPC-TM-650 2.5.17`. 1e+08 MOhm x 1e6 = 1e+14 Ohm; 되돌리면 1e+14/1e6 = 1e+08. 지수표기는 렌더로 확인했다(10 의 8승)."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 0.000185,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "temperature_range_c": "50 - 260",
+      "test_method": "TMA",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `CTE (z) (50 - 260degC)  ppm/degC  TMA  185-215  N/A  IPC-TM-650 2.4.24`. 인쇄된 구간의 lower 끝값 185 ppm/degC 를 환산했다 — 185 ppm/degC x 1e-6 = 0.000185 1/K; 되돌리면 0.000185/1e-6 = 185."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 0.000215,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "temperature_range_c": "50 - 260",
+      "test_method": "TMA",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `CTE (z) (50 - 260degC)  ppm/degC  TMA  185-215  N/A  IPC-TM-650 2.4.24`. 인쇄된 구간의 upper 끝값 215 ppm/degC 를 환산했다 — 215 ppm/degC x 1e-6 = 0.000215 1/K; 되돌리면 0.000215/1e-6 = 215."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.9999999999999998e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "temperature_range_c": "50 - 260",
+      "test_method": "TMA",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `CTE (x,y) (50 - 260degC)  ppm/degC  TMA  20-50  N/A  IPC-TM-650 2.4.24`. 인쇄된 구간의 lower 끝값 20 ppm/degC 를 환산했다 — 20 ppm/degC x 1e-6 = 2e-05 1/K; 되돌리면 2e-05/1e-6 = 20."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 4.9999999999999996e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "temperature_range_c": "50 - 260",
+      "test_method": "TMA",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `CTE (x,y) (50 - 260degC)  ppm/degC  TMA  20-50  N/A  IPC-TM-650 2.4.24`. 인쇄된 구간의 upper 끝값 50 ppm/degC 를 환산했다 — 50 ppm/degC x 1e-6 = 5e-05 1/K; 되돌리면 5e-05/1e-6 = 50."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 1926.39518771124,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "288 degC x 10 s solder floating",
+      "copper_foil_type": "1 oz",
+      "test_standard": "IPC-TM-650 2.4.8",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Peel strength 1 oz  lb/in  288degCx10\" solder floating  11-13  6(up-arrow) (SPEC)  IPC-TM-650 2.4.8`. 인쇄된 구간의 lower 끝값 11 lb/in 를 환산했다 — 11 lb/in x 175.126835 = 1926.4 N/m (1 lbf = 4.4482216152605 N, 1 in = 0.0254 m -> 4.4482216152605/0.0254 = 175.126835); 되돌리면 1926.4/175.126835 = 11."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 2276.6488582041925,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "288 degC x 10 s solder floating",
+      "copper_foil_type": "1 oz",
+      "test_standard": "IPC-TM-650 2.4.8",
+      "specimen": "0.030 in (0.76 mm) 1/1 (원문 NOTE: The average value in the table refers to samples of 0.030\" 1/1)",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Peel strength 1 oz  lb/in  288degCx10\" solder floating  11-13  6(up-arrow) (SPEC)  IPC-TM-650 2.4.8`. 인쇄된 구간의 upper 끝값 13 lb/in 를 환산했다 — 13 lb/in x 175.126835 = 2276.65 N/m (1 lbf = 4.4482216152605 N, 1 in = 0.0254 m -> 4.4482216152605/0.0254 = 175.126835); 되돌리면 2276.65/175.126835 = 13."
+    }
+   ]
+  }
+ ]
+}

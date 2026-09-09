@@ -1,0 +1,519 @@
+{
+ "batch": "72차 HD",
+ "note": "값이 아니라 **판정**이다. 문을 연 뒤 닫힌 것, 그리고 문을 열었더니 원문끼리 어긋난 것을 기록한다 — 다음 배치가 같은 문을 다시 두드리지 않게, 그리고 어긋난 자리를 우리가 임의로 고르지 않게.",
+ "verdicts": [
+  {
+   "id": "hd72-v1",
+   "question": "Resonac 이 **밀도·포아송비·비열·인장강도** 를 어디에든 인쇄하는가? 71차 GD 가 일문판 총괄표 세 쪽에서 부재를 확인했는데, 나머지 쪽과 제품별 시트에는 있는가?",
+   "why_it_matters": "71차 GD 가 세운 Resonac 20장 + 70차 FA 의 10장, 합쳐 30장의 코어7 빈칸 40칸이 전부 이 네 물성이다. 브리프가 이 배치의 1번 표적으로 지목했다.",
+   "verdict": "NO — **네 판(版) 카탈로그 · 벤더 웹페이지 29장 · 기술보고 9호 · SDS 시스템 전수, 어디에도 없다. 닫힌 문이다.**",
+   "confidence": "high",
+   "evidence": [
+    {
+     "layer": "쪽별 텍스트층 감사 (이미지 전용 쪽이 있으면 토큰 검사가 거짓 음성을 낸다)",
+     "what": "두 문서 전 쪽의 공백 제거 문자수를 셌다. 일문판 66쪽 최소 61자(표지)·본문 최소 715자, 영문판 65쪽 최소 19자(표지)·본문 최소 159자. **이미지 전용 쪽이 0 이다** — 그러므로 전문 토큰 검사가 표를 놓칠 수 없다.",
+     "local_path": [
+      "/data/paper_patent_corpus/standards_appnotes/pcb/Resonac_MCL_CopperCladLaminates_Catalog_ja_2023-2024.pdf",
+      "/data/paper_patent_corpus/standards_appnotes/pcb/Resonac_MCL-E-GEA-Series_CopperCladLaminates_Catalog_2025-05.pdf"
+     ]
+    },
+    {
+     "layer": "전문 토큰 검사 — 일문판 2023-2024 (66쪽)",
+     "what": "`比重` 0 · `ポアソン` 0 · `ポアッソン` 0 · `比熱` 0 · `引張強さ` 0 · `引張強度` 0 · `引っ張り強さ` 0 · `熱容量` 0. `密度` 는 3회 적중하지만 전부 산문이다."
+    },
+    {
+     "layer": "전문 토큰 검사 — 영문판 2025-05 (65쪽)",
+     "what": "`Density` 0 · `Poisson` 0 · `Specific Heat` 0 · `密度` 0 · `比重` 0 · `比熱` 0. `Tensile` 은 15회 적중하는데 **전부 `Tensile modulus` 행 이름과 각주 `*5: Tensile`·`*1) Heating Rate: 10℃/min. (Tensile)` 이다** — 강도가 아니다."
+    },
+    {
+     "layer": "행 이름 전수 목록 (제품별 쪽 포함)",
+     "what": "영문판 표의 행 어휘는 이것이 전부다 — Thickness · Glass Cloth(type/Style) · Dk · Df · Copper Peel Strength · Tensile modulus · Flexural modulus · Tg(TMA/DMA) · CTE x/y/z(Comp./DIC) · Thermal conductivity · Water Absorption · Volume/Surface/Insulation Resistance · Solder Heat Resistance · Flammability · IPC-4101 slash sheet. **Resonac 의 기계축은 모듈러스 두 행뿐이고 강도 행 자체가 없다.**"
+    },
+    {
+     "layer": "카탈로그 뒷단 (일문판 43~66쪽)",
+     "what": "GD 가 안 본 뒷쪽을 열었다 — 取り扱い上の注意 · 加工上の注意 · 完成PWB 使用上の注意 · 등급별 多層化接着 推奨条件(47~62쪽) · UL規格 인증표(63쪽) · BS規格 인증표(64쪽) · 処理条件の読み方(65쪽) · 注意事項(66쪽). **물성표가 하나도 없다.** UL/BS 표는 認定証No·品番·燃焼性区分·最小板厚 네 열뿐이다."
+    },
+    {
+     "layer": "熱伝導率 행 위치 전수",
+     "what": "일문판 66쪽 전체에서 `熱伝導率` 는 **4회**뿐이고 넷 다 총괄표(PDF 5·6·7·8쪽)다. 제품별 쪽에는 없다 — 「제품별 쪽이 총괄표의 `－` 를 메워 줄지 모른다」는 기대는 닫혔다."
+    },
+    {
+     "layer": "카탈로그 네 판 (72차 HD 가 이 배치에서 새로 받은 두 판 포함)",
+     "what": "일문판 2023-2024(66쪽, GD 사용) · **영문판 2025-05(65쪽)** · **영문판 2026-07(51쪽, CreationDate 2026-08-03)** · **일문판 2026-04**. 2026-07 판 토큰 검사: `Density` 0 · `Poisson` 0 · `Specific Heat` 0 · `Specific Gravity` 0. `Tensile` 14회는 전부 `Tensile modulus` 행 이름과 각주 `*5: Tensile` 이다.",
+     "local_path": [
+      "/data/paper_patent_corpus/standards_appnotes/pcb/Resonac_MCL_CopperCladLaminates_Catalog_en_2026-07.pdf",
+      "/data/paper_patent_corpus/standards_appnotes/pcb/Resonac_MCL_CopperCladLaminates_Catalog_ja_2026-04.pdf"
+     ]
+    },
+    {
+     "layer": "벤더 웹페이지 29장 (resonac.com 20 + eu.resonac.com 9)",
+     "what": "네 물성 전부 부재. 웹 사양표는 카탈로그 표와 같은 행 어휘다 — `Tg(TMA/DMA)` · `CTE X/Y/Z` · `Solder Heat Resistance` · `T-260`/`T-288` · `Decomposition Temperature(TGA 5% Weight Loss)` · `Copper Peel Strength` · `Surface Roughness(Ra)` · `Flexural Modulus(Lengthwise)` · `Dielectric Constant` · `Dissipation Factor` · `Volume Resistivity` · `Surface Resistance` · `Insulation Resistance`."
+    },
+    {
+     "layer": "히타치화성 선대 카탈로그 두 판 (영문 2017-03 90쪽 · 일문 2016-08 102쪽)",
+     "what": "**동장적층판(MCL·CEL·EM) 표에는 네 물성이 전부 없다.** 유일한 `specific gravity` 행은 무피복 적층판(KOBELITE KEL 계열)에만 있고, 유일한 `Poisson's Ratio` 는 **눈금만 있는 그래프**(MCL-E-67 / MCL-E-67(WK), t1.6 mm, 30~200 ℃, y축 0.00~0.50)라 인쇄된 숫자가 없다. 두 등급 다 표적 25등급에 없다."
+    }
+   ],
+   "what_this_leaves": "Resonac 30장의 밀도·포아송비·비열·인장강도 빈칸은 **벤더 문서로는 닫히지 않는다.** 네 채널(카탈로그·웹·기술보고·SDS)이 전부 닫혔고, 로컬 논문 코퍼스 20,692문서에도 이 등급들의 물성표가 없다(hd72-v12). 남은 길은 **벤더에 직접 기술문의**뿐이다."
+  },
+  {
+   "id": "hd72-v2",
+   "question": "Resonac 일문판 2023-2024 와 영문판 2025-05 은 같은 값을 주는가?",
+   "why_it_matters": "71차 GD 가 담은 460행이 전부 일문판에서 왔다. 영문판이 다른 값을 주면 GD 의 행 중 일부는 **낡은 판**이다.",
+   "verdict": "아니다 — **여러 칸이 개정됐다. GD 의 일부 행은 낡은 판의 값이다.** 이 배치는 어느 쪽이 맞다고 고르지 않았다 — 두 판은 서로 다른 문서이고 값을 고르는 순간 그건 우리 값이 되기 때문이다.",
+   "confidence": "high",
+   "edition_drift": [
+    {
+     "grade": "MCL-E-679FG (R type) / (S type)",
+     "property": "Dk (1 GHz)",
+     "ja_2023_2024": "4.6 - 4.8",
+     "en_2025_05": "4.9 - 5.2",
+     "note": "두 등급 모두"
+    },
+    {
+     "grade": "MCL-E-679FG (R type) / (S type)",
+     "property": "Df (1 GHz)",
+     "ja_2023_2024": "0.016 - 0.018",
+     "en_2025_05": "0.0130 - 0.0150",
+     "note": "두 등급 모두"
+    },
+    {
+     "grade": "MCL-E-679FG (R type) / (S type)",
+     "property": "Dk / Df (10 GHz)",
+     "ja_2023_2024": "－ (빈칸)",
+     "en_2025_05": "4.8 - 5.1 / 0.0140 - 0.0160",
+     "note": "새로 인쇄됨"
+    },
+    {
+     "grade": "GEA-705G",
+     "property": "CTE z (>Tg)",
+     "ja_2023_2024": "90 - 120",
+     "en_2025_05": "70 - 120",
+     "note": "하한만 다르다"
+    },
+    {
+     "grade": "MCL-E-795G · 795G(LH) · 705G · 705G(L) · 705G(LH) · 700G(R)",
+     "property": "CTE z (<Tg)(DIC)",
+     "ja_2023_2024": "－ (21열 전부 빈칸)",
+     "en_2025_05": "8.5 / 5.5 / 9.6 / 7.0 / 6.9 / 13.1",
+     "note": "**이 배치가 담았다** — 측정법이 갈리므로 기존 (Comp.) 행을 덮지 않는다"
+    },
+    {
+     "grade": "MCL-HD90",
+     "property": "Tensile modulus X",
+     "ja_2023_2024": "14 - 18",
+     "en_2025_05": "18 - 22",
+     "note": "**큰 차이다**"
+    },
+    {
+     "grade": "MCL-HD90 (D type)",
+     "property": "Tensile modulus X",
+     "ja_2023_2024": "14 - 18",
+     "en_2025_05": "17 - 21",
+     "note": "**큰 차이다**"
+    },
+    {
+     "grade": "MCL-HD60",
+     "property": "Tensile modulus X",
+     "ja_2023_2024": "17 - 21",
+     "en_2025_05": "19 - 23",
+     "note": ""
+    },
+    {
+     "grade": "MCL-HD90 (D type)",
+     "property": "Dk (10 GHz)",
+     "ja_2023_2024": "8.6 - 8.8",
+     "en_2025_05": "8.2 - 8.4",
+     "note": "MCL-HD90 은 두 판 다 9.0 - 9.2 로 같다 — 열 대응이 맞다는 닻이다"
+    },
+    {
+     "grade": "MCL-HD60 · HD90 · HD90(D)",
+     "property": "Tg (DMA)",
+     "ja_2023_2024": "230 - 250",
+     "en_2025_05": "230 - 240",
+     "note": "상한만 내려갔다"
+    },
+    {
+     "grade": "MCL-HD60 · HD90 · HD90(D)",
+     "property": "CTE x/y (<Tg)",
+     "ja_2023_2024": "10 - 12 / 11 - 13 / 11 - 13",
+     "en_2025_05": "9 - 11 / 10 - 12 / 10 - 12",
+     "note": "총괄표끼리의 비교다"
+    },
+    {
+     "grade": "MCL-HD90 · HD90(D)",
+     "property": "Thermal conductivity",
+     "ja_2023_2024": "－ (빈칸)",
+     "en_2025_05": "0.60 - 0.80",
+     "note": "**이 배치가 담았다 — 코어7 두 칸이 닫혔다**"
+    },
+    {
+     "grade": "AS-400HS",
+     "property": "(등급 자체)",
+     "ja_2023_2024": "PDF 8쪽에 열이 있다",
+     "en_2025_05": "**등급이 사라졌다**",
+     "note": "영문판 목차·총괄표 어디에도 없다. 카드 2780 은 단종/개칭 가능성이 있다"
+    },
+    {
+     "grade": "GEA-795G · MCL-HD60(Type D) · MCL-HD80",
+     "property": "(등급 자체)",
+     "ja_2023_2024": "총괄표에 열이 없다",
+     "en_2025_05": "**새 열**",
+     "note": "**이 배치가 카드를 세웠다**"
+    }
+   ],
+   "decision": "값을 고르지 않았다. 이 배치가 새로 넣은 행은 **일문판이 `－` 로 비운 칸에 영문판이 값을 인쇄한 자리**뿐이다(열전도율 2등급 · CTE z DIC 6등급). 서로 다른 숫자를 주는 칸(Tensile modulus · Tg · CTE x/y · Dk)은 **한 행도 건드리지 않았다** — 어느 판이 현행인지는 벤더에게 물어야 하고, 우리가 고르면 그건 우리 값이 된다.",
+   "handoff": "다음 배치가 판정할 것 — 「카탈로그 판이 갱신되면 옛 판의 행을 어떻게 하는가」. 이 카탈로그가 그 물음의 첫 실사례다. 후보는 셋이다: ①옛 행 유지 + 새 행 추가(조건에 판 표기) ②옛 행을 superseded 로 표시 ③옛 행 삭제. **삭제는 하지 마라** — 옛 판으로 설계된 제품이 실재한다."
+  },
+  {
+   "id": "hd72-v3",
+   "question": "Resonac `Tensile modulus` 의 시편 두께는 무엇인가? 71차 GD 는 「각주 `*4`(0.8 mmt)가 굽힘 행과 CTE z 행에만 붙고 인장 행에는 없으므로 인장은 표 맨 위 `厚み` 다」라고 판단하고 그것을 21행의 `specimen_thickness_mm` 에 박았다.",
+   "why_it_matters": "GD 가 넣은 Resonac 인장탄성률 행의 조건이 틀렸을 수 있다. 값이 아니라 **조건**의 문제라 조용히 남는다.",
+   "verdict": "**GD 의 판단은 일문판에서는 맞고 영문판에서는 틀린다 — 영문판이 각주를 옮겼다.**",
+   "confidence": "high",
+   "evidence": [
+    {
+     "layer": "일문판 2023-2024 (350 dpi 렌더로 확인)",
+     "what": "`弾性率 (引張モード) X` — 각주 번호 **없음**. `弾性率 (曲げモード) X*4` — `*4` 있음."
+    },
+    {
+     "layer": "영문판 2025-05 (200 dpi 렌더로 확인)",
+     "what": "`Tensile modulus X*4` — **`*4` 있음.** `Flexural modulus X*4` — `*4` 있음. PDF 5·6·7·8쪽 네 총괄표 전부 같다."
+    },
+    {
+     "layer": "값 대조",
+     "what": "같은 등급의 인장탄성률 값이 두 판에서 같은 자리도 있다(GEA-705G 17-19, GEA-770G 18-20). **값은 같은데 각주만 옮겼다** — 벤더가 측정 조건을 바꾼 것이 아니라 **2023-24 판이 각주를 빠뜨린 것**으로 읽힌다."
+    }
+   ],
+   "decision": "이 배치가 새로 넣은 인장탄성률 행(GEA-795G · MCL-HD60(Type D) · MCL-HD80)에는 **`specimen_thickness_mm: 0.8` 을 박았다** — 영문판 각주를 따랐다. GD 가 이미 넣은 21행은 **건드리지 않았다**(라이브 DB 는 읽기 전용이다).",
+   "handoff": "**정정 대상 — Resonac 인장탄성률 21행의 `specimen_thickness_mm`.** GD 는 표 맨 위 `厚み`(열마다 0.025/0.1/0.2/0.4/0.8 mm 로 다르다)를 박았는데 영문판 각주는 전부 0.8 mmt 라고 말한다. 새 문서가 필요 없다 — 근거는 영문판 총괄표 네 쪽에 다 있다."
+  },
+  {
+   "id": "hd72-v4",
+   "question": "일문판의 `MCL-HS200` 과 영문판의 `MCL-HS20N` 은 같은 제품인가, 다른 제품인가?",
+   "why_it_matters": "다른 제품이면 카드 2765·2766 옆에 두 장을 더 세워야 하고, 같은 제품이면 세우는 순간 중복 카드가 된다.",
+   "verdict": "**같은 제품이다. 카드를 세우지 않았다.** 두 판의 같은 열이고 열 다섯 이웃(GEA-705G·GEA-770G·679FG(R)·679FG(S)·HS100)의 순서도 같다.",
+   "confidence": "high",
+   "evidence": [
+    {
+     "layer": "값 전수 대조",
+     "what": "MCL-HS200(ja) vs MCL-HS20N(en) — Dk(1G) 3.8-4.0 · Dk(10G) 3.8-4.0 · Df(1G) 0.0030-0.0040 · Df(10G) 0.0040-0.0050 · 피일12 0.5-0.7 · 피일18 0.6-0.8 · 인장탄성률 17-20 · 굽힘탄성률 21-26 · Tg(TMA) 250-270 · Tg(DMA) 330-350 · CTE x/y 8-10 · CTE z(<Tg) 25-35 · CTE z(>Tg) 140-200 · 열전도율 0.60-0.80 · IPC-4101 44. **15행 전부 같다.** (D タイプ)/(Type D) 열도 15행 전부 같다."
+    },
+    {
+     "layer": "글자 확인",
+     "what": "두 판을 각각 350 dpi · 200 dpi 로 렌더해 눈으로 읽었다. **일문판은 분명히 `MCL-HS200`, 영문판은 분명히 `MCL-HS20N` 이다** — 추출 아티팩트가 아니다. 영문판은 목차에서도 `MCL-HS20N 22` 로 일관된다."
+    }
+   ],
+   "handoff": "카드 2765·2766 의 `aliases` 에 `MCL-HS20N`·`MCL-HS20N (Type D)` 를 넣어야 한다. 라이브 DB 가 읽기 전용이라 이 배치는 못 넣었다. **넣지 않으면 다음 배치가 영문판을 보고 같은 제품을 다시 세운다.**"
+  },
+  {
+   "id": "hd72-v5",
+   "question": "영문판 총괄표(PDF 7쪽)와 제품별 쪽(PDF 28쪽)이 같은 등급에 다른 CTE·Df 를 준다. 어느 쪽이 맞는가?",
+   "why_it_matters": "같은 카탈로그 안의 두 표가 어긋나면 하나를 고르고 싶어진다. 고르는 순간 그건 우리 값이 된다.",
+   "verdict": "**모순이 아니라 조건 차이다. 고르지 않고 두 행으로 갈랐다.**",
+   "confidence": "medium",
+   "evidence": [
+    {
+     "layer": "CTE",
+     "what": "총괄표 행 이름 `CTE x (<Tg) (Comp.)` + 칸 각주 `*5: Tensile` → **`<Tg` 구간이 명시된다.** 제품별 쪽 행 이름 `CTE XY*1` + 각주 `*1) Heating Rate: 10℃/min. (Tensile)` → **구간을 말하지 않는다.** 값: HD60 9-11 vs 8-10, HD80/HD90/HD90(D) 10-12 vs 9-11."
+    },
+    {
+     "layer": "Df",
+     "what": "총괄표 묶음 이름은 `Electrical (SPDR)` 뿐이고 **건조 전처리를 말하지 않는다.** 제품별 쪽 각주는 `*2) SPDR method, Drying:105℃ / 1h` 로 **건조를 박는다.** 값: HD90 10 GHz 0.0040-0.0050 vs 0.0055-0.0065."
+    },
+    {
+     "layer": "일치하는 것",
+     "what": "Tg(DMA) 230-240 · 피일강도 0.5-0.6 · 인장탄성률(총괄) = Elastic Modulus(제품별) 는 두 표가 **똑같다** — 표 하나가 통째로 밀린 것이 아니라는 증거다."
+    }
+   ],
+   "decision": "CTE 와 Df 는 `source_table`(총괄표 / 제품별 쪽)과 `pretreatment`·`regime` 을 조건에 박아 **두 행**으로 넣었다. 인장탄성률은 값이 같아 중복 행을 만들지 않았다."
+  },
+  {
+   "id": "hd72-v6",
+   "question": "Sumitomo Bakelite LαZ **빌드업** 페이지 — 71차 GD 가 「형제 세 장의 네비게이션이 거는데 로컬에 없다. 같은 서식이면 온도별 영률이 또 나온다」고 넘긴 문서를 열었는가?",
+   "why_it_matters": "GD 의 인계 3번이다.",
+   "verdict": "**열었다. GD 의 예측이 맞았다 — 온도별 영률이 또 나왔다. 그리고 이 쪽만 시험모드를 적는다.**",
+   "confidence": "high",
+   "evidence": [
+    {
+     "layer": "라이브 URL",
+     "what": "`https://www.sumibe.co.jp/product/it-materials/package/buildup/` 는 **HTTP 404** 다. 벤더 자기 부모 인덱스가 아직 이 링크를 걸고 있는데 대상이 죽었다 — 깨진 링크다. `index.html`·`build-up`·`/en/`·슬래시 없는 꼴 전부 404."
+    },
+    {
+     "layer": "복구",
+     "what": "Wayback 스냅샷 셋(2019-11-14 · 2020-08-04 · 2021-08-01)이 있고 **특성표가 세 판 모두 바이트 동일**이다. 2021-08-01 판을 로컬에 저장했다."
+    },
+    {
+     "layer": "내용",
+     "what": "등급은 **하나뿐**이다 — `ＬαＺ / BLα-3700GS`. 행 verbatim: `Tg（by DMA） ℃ 200` · `Tg（by TMA） ℃ 180` · `CTE1 ppm／℃ 35` · `CTE2 ppm／℃ 120` · `Tensile Modulus（R.T.） G Pa 5` · `Tensile Modulus（250℃） G Pa 0.2` · `Dielectric constant （1GHz） 3.1` · `Dielectric Dissipation Factor （1GHz） 0.012` · `Moisture Absorption wt％ 1.0 （0.2t）（PCT-2hr／121℃）`. 생산공장 `宇都宮工場`."
+    },
+    {
+     "layer": "코어4",
+     "what": "**이 쪽에도 밀도·포아송비·비열·인장강도 행은 없다.** 토큰 검사 — `比重` 0 · `密度` 0 · `ポアソン` 0 · `比熱` 0 · `引張強さ` 0."
+    }
+   ]
+  },
+  {
+   "id": "hd72-v7",
+   "question": "71차 GD 가 Sumitomo LαZ 13등급의 영률 26행을 **t3**(시험모드 미확정)에 두고 승격 판정을 넘겼다. 빌드업 페이지가 그것을 올려 주는가?",
+   "why_it_matters": "26행의 등급이 걸려 있다.",
+   "verdict": "**올리지 않는다. t3 를 유지한다.** 다만 GD 의 논거는 **강해졌다**.",
+   "confidence": "high",
+   "reasoning": "빌드업 페이지는 같은 LαZ 계열인데 행 이름이 `Tensile Modulus（R.T.）`·`Tensile Modulus（250℃）` 로 **모드를 명시한다.** GD 의 논거는 「이 벤더는 모드를 적을 때는 적는다 — 코어·프리프레그·SR 세 장에서 안 적은 것은 누락이지 인장 확정이 아니다」였다. 형제 네 장 중 **한 장만 적는다**는 사실이 그 논거를 그대로 뒷받침한다. 그러나 **뒷받침이 곧 승격은 아니다** — 같은 계열이라도 코어재와 빌드업재는 다른 시험을 쓸 수 있고, 세 장의 `弾性率` 가 인장이라는 **직접 증거는 여전히 0** 이다. 「형제가 인장이니 얘도 인장이겠지」는 추론이지 인쇄가 아니다.",
+   "decision": "GD 의 26행은 t3 그대로 둔다. 이 배치가 새로 넣은 BLα-3700GS 의 영률 2행은 **t1** 이다 — 행 이름이 `Tensile Modulus` 라 모드가 인쇄돼 있다. **같은 계열 안에서 등급이 갈리는 이유가 정확히 이 표기 차이다.**",
+   "handoff": "승격을 하려면 벤더에게 직접 묻거나 시험규격 번호가 박힌 문서를 찾아야 한다. 세 페이지 전문에 `JIS` 0회 · `ASTM` 0회 · `IPC` 0회다(GD 확인). 빌드업 페이지도 같다."
+  },
+  {
+   "id": "hd72-v8",
+   "question": "Sumitomo Bakelite 가 SDS(안전데이터시트)를 공개하는가? SDS 9절이면 밀도가 나온다.",
+   "why_it_matters": "브리프가 제시한 세 우회로 중 하나다(SDS 9절 — 밀도만).",
+   "verdict": "**공개 SDS 포털이 없다. 이 우회로는 이 벤더에서 닫혔다.**",
+   "confidence": "high",
+   "evidence": [
+    {
+     "layer": "경로 탐색",
+     "what": "`/sds/` · `/msds/` · `/product/sds/` · `/support/sds/` · `/inquiry/sds/` · `/safety/` · `/csr/sds/` 전부 HTTP 404."
+    },
+    {
+     "layer": "사이트맵",
+     "what": "라이브 사이트맵(`https://www.sumibe.co.jp/sitemap/index.html`, 435 링크)에 `SDS` · `安全データシート` · `MSDS` 적중 **0**."
+    }
+   ],
+   "caveat": "`/robots.txt` 와 `/sitemap.xml` 도 404 다 — 이 사이트는 모르는 경로에 전부 404 를 준다. 그러므로 404 하나만으로는 부재의 증거가 약하고, **사이트맵 435 링크 전수 검사**가 이 판정의 무게를 지탱한다."
+  },
+  {
+   "id": "hd72-v9",
+   "question": "Sumitomo Sumilite **ELC** 6등급(카드 2727~2732)의 밀도·포아송비·비열은 어디 있는가?",
+   "why_it_matters": "18칸이다. 브리프가 이 배치의 2번 표적으로 지목했다.",
+   "verdict": "**없다. 벤더가 어느 문서에도 안 찍는다.** 새로 받은 문서 넷을 포함해 여섯 문서를 열고 확인했다.",
+   "confidence": "high",
+   "evidence": [
+    {
+     "layer": "웹 사양 페이지 2장 (이미 갖고 있던 것)",
+     "what": "`SumitomoBakelite_Sumilite_ELC_DoubleSided_CCL_Spec_ja_*.html` · `..._Multilayer_PWB_Spec_ja_*.html` — `比重` 0 · `密度` 0 · `ポアソン` 0 · `比熱` 0."
+    },
+    {
+     "layer": "벤더 카탈로그 PDF 2건 (새로 받음, 아웃라인 벡터 — 렌더로 읽었다)",
+     "what": "`SumitomoBakelite_ELC-DoubleSided_Catalog_ja_*.pdf`(2쪽, ELC-4970·4972R&S·4970GS 一般特性) · `..._ELC-Multilayer_Catalog_ja_*.pdf`(1쪽). 150 dpi 렌더로 표 전체를 눈으로 읽었다 — **행 어휘는 熱膨張係数(CTE X/Y/Z α1,α2) · ガラス転移温度(TMA/DMA/DSC) · はんだ耐熱 · 引き剥がし強さ · 曲げ強さ · 曲げ弾性率 · 引っ張り強さ · 引っ張り弾性率 · 比誘電率 · 誘電正接 · 体積抵抗率 · 表面抵抗 · 吸水率 · 耐燃性 · 熱伝導率 가 전부다.** 比重·ポアソン比·比熱 행이 없다."
+    },
+    {
+     "layer": "SBHPP 영문 TDS (새로 받음, 텍스트 추출 가능)",
+     "what": "`SumitomoBakelite_ELC-4765-4768_TDS_en_*.pdf` — ELC-4765/EI-6765 · ELC-4768/EI-6768. 행 어휘가 일문 웹 표와 같고 **Density · Poisson · Specific heat 행이 없다.** (원문 오타 `Tnsile strength` · `Tesile modulus` 를 그대로 적는다.)"
+    }
+   ],
+   "what_we_did_get": "이 문서들이 코어7 을 닫지는 않았지만 **새 행 후보**를 준다 — ELC-4970GS/4972R&S 의 `熱伝導率 1.00 W/mK`(레이저 플래시), 두께별 `熱抵抗`(ELC-4970GS 0.8 mm 30.6 K/W · 1.0 mm 35.9 · ELC-4972R&S 0.8 mm 34.0 · 1.0 mm 36.0 · ELC-4970 1.0 mm 62.4 · ELC-4762 1.0 mm 81.1), 두께별 인장·굽힘 물성(1.6 mm vs 1.0 mm 열이 따로 있다), 짝 프리프레그 등급 `EI-6765`·`EI-6768`. **이 배치는 코어7 에 집중하느라 담지 않았다 — 다음 배치의 표적이다.**"
+  },
+  {
+   "id": "hd72-v10",
+   "question": "Sumitomo `スミライト PL/EL 積層板` 카탈로그의 `比重 Specific gravity` 를 밀도로 쓸 수 있는가?",
+   "why_it_matters": "브리프가 명시한 함정이다 — 「**수지 비중은 라미네이트 밀도가 아니다**」.",
+   "verdict": "**쓸 수 있다 — 이 행은 라미네이트 자신의 비중이다.** 함정은 다른 것이었다.",
+   "confidence": "high",
+   "reasoning": "함정의 대상은 MGC 시트의 `樹脂比重`(수지만의 값, 1.44/1.42)이다. 이 카탈로그의 `比重` 는 `一般特性 General Properties` 표 안에 있고, 같은 표의 시편 두께 각주(`※試験片は1.0mmtで測定` 등)가 걸린 **적층판 시편**에 대한 값이다. 비중은 정의상 4 ℃ 물(1000 kg/m³) 기준 무차원비이므로 x1000 은 **역산이 아니라 단위 환산**이다.",
+   "cross_check": "`PL-1147`(1.38)과 `EL-3762`(1.92)는 두 표(打抜き加工用 · 機械加工用)에 **모두** 나오고 두 표의 比重 이 서로 같다. 같은 두 등급의 曲げ強度·吸水率 은 시편 두께가 달라(1.0/1.5 mmt vs 15/13 mmt) 값이 다른데 **比重만 같다** — 밀도가 두께에 무관하다는 물리와 앞뒤가 맞고, 열 대응이 맞다는 독립 확인이기도 하다.",
+   "trap": "**`EL-3762` 는 `ELC-4762` 가 아니다.** 앞은 무피복 유리에폭시 적층판(機械加工用), 뒤는 동장적층판이다. 비중 1.92 를 ELC-4762(카드 2727)에 옮기면 **틀린 값**이다. 이 배치는 옮기지 않았다."
+  },
+  {
+   "id": "hd72-v11",
+   "question": "우리가 이미 가진 HTML 에서 `引っ張り強さ` 를 grep 으로 찾았는데 안 나왔다. 정말 없는가?",
+   "why_it_matters": "전사 규율의 문제다. 「없다」를 잘못 선언하면 판정이 통째로 거짓이 된다.",
+   "verdict": "**있었다. `<br>` 이 행 이름을 쪼개서 naive grep 이 놓쳤다.**",
+   "confidence": "high",
+   "evidence": [
+    {
+     "layer": "실제 마크업",
+     "what": "`SumitomoBakelite_Sumilite_ELC_DoubleSided_CCL_Spec_ja_*.html` 의 행 이름이 `引っ張り<br>強さ` 로 쪼개져 있다. 텍스트만 뽑으면 `引っ張り 強さ`(사이에 공백)가 되어 `引っ張り強さ` 로는 안 걸린다. 같은 파일의 `引き剥がし強さ`·`曲げ強さ` 는 쪼개지지 않아 걸린다."
+    },
+    {
+     "layer": "결과",
+     "what": "이 배치의 첫 토큰 검사가 `SumitomoBakelite_Sumilite_ELC_DoubleSided_CCL_Spec` 에서 `引っ張り強さ` 0 을 보고했는데 **거짓 음성이었다.** 다행히 그 값들은 70차 FA 가 이미 담아 두어 실제 손실은 없었다(카드 2727~2732 에 `mechanical.tensile_strength` 가 이미 있다)."
+    }
+   ],
+   "rule": "**HTML 표를 토큰으로 훑지 마라 — `<tr>`/`<td>` 를 파싱해 셀 텍스트를 만든 다음 그 위에서 찾아라.** 71차 GD 가 `colspan`/`rowspan` 때문에 파싱을 택한 것과 같은 이유이고, 여기서는 `<br>` 이 같은 사고를 낸다. PDF 쪽에서 `pdftotext -layout` 을 믿지 말고 렌더하라는 규율의 HTML 판이다."
+  },
+  {
+   "id": "hd72-v12",
+   "question": "학술 문헌이 Resonac 등급의 포아송비를 준다. 쓸 수 있는가?",
+   "why_it_matters": "브리프의 세 번째 우회로다 — 「그 등급을 시편으로 쓴 학술 문헌」.",
+   "verdict": "**이 건은 쓰지 않았다.** 논문이 등급명을 밝히는데 **같은 표의 다른 값이 벤더 카탈로그와 어긋난다** — 그 행은 등급 데이터가 아니라 해석용 일반 가정이다.",
+   "confidence": "high",
+   "evidence": [
+    {
+     "layer": "논문",
+     "what": "Chen 2017, *Open failure mechanisms of FCBGA package under temperature cycling stress*. 본문 verbatim: `Substrate core is made of Hitachi MCL-E-705G`. Table I `THERMO-MECHANICAL PERFORMANCES OF MATERIALS` 의 `Substrate core` 행 — Young's modulus **28 GPa** · CTE **7-9 ppm/℃** · Poisson's ratio **0.2**.",
+     "local_path": "/data/paper_patent_corpus/structured/rel_papers/02_thermal_cycling_rel/Chen - 2017 - Open failure mechanisms of FCBGA package under temperature cycling stress/Chen - 2017 - Open failure mechanisms of FCBGA package under temperature cycling stress.md"
+    },
+    {
+     "layer": "대조",
+     "what": "벤더 카탈로그의 MCL-E-705G 는 **Tensile modulus 20-22 GPa · Flexural modulus 32-34 GPa · CTE x/y 8.5-10.5 ppm/℃** 다. 논문의 28 GPa 는 인장도 굽힘도 아니고 CTE 7-9 도 카탈로그 구간 밖이다."
+    },
+    {
+     "layer": "결론",
+     "what": "논문의 `Substrate core` 행은 **코어층의 해석용 등가 물성**이지 그 등급의 인쇄된 값이 아니다. 포아송비 0.2 만 떼어 t1 로 넣으면 등급을 사칭하는 것이 된다. t3(클래스 대표값)로 낮춰 넣는 선택지도 있었으나, **같은 표의 다른 두 값이 이미 벤더와 어긋난 출처**라 클래스 대표값으로도 신뢰가 서지 않는다."
+    }
+   ],
+   "handoff": "**코퍼스 전수 검색 결과를 남긴다** — FTS(20,692 문서)에서 Resonac 등급 토큰(`MCL-E-679FG`·`MCL-E-705G`·`MCL-HD90`·`MCL-LW-900G`·`MCL-I-671`·`MCL-E-795G`·`MCL-E-770G`·`MCL-E-700G`·`GEA-705G`·`MCL-HS100`·`MCF-200HS`·`TD-002`) 적중 **1건**(이 논문)이다. `LAZ-4785`·`LAZ-6785`·`LAZ-7752`·`ELC-47xx`·`Sumilite`·`スミライト` 적중 **0건**. **로컬 논문 코퍼스에 이 등급들의 물성표는 사실상 없다** — 학술 우회로는 새 논문을 받아야 열린다."
+  },
+  {
+   "id": "hd72-v13",
+   "question": "Resonac 이 SDS(안전데이터시트)를 공개하는가? SDS 9절이면 밀도가 나온다.",
+   "why_it_matters": "브리프가 제시한 세 우회로 중 하나다(SDS 9절 — 밀도만). Sumitomo 쪽은 hd72-v8 에서 닫혔다.",
+   "verdict": "**공개 SDS 는 있는데 적층판 제품이 그 안에 없다. 이 우회로는 이 벤더에서도 닫혔다.**",
+   "confidence": "high",
+   "evidence": [
+    {
+     "layer": "SDS 시스템 전수",
+     "what": "`https://www.inquiry.resonac.com/sdsJa` 의 카테고리를 전부 열거했다 — `industrial_chemicals` · `Industrial-gas` · `organic_industrial_chemicals` · `petrochemistry` · `electronicchemicals_fine`. 전부 HTTP 200 이고 전부 **가스·벌크 화학품**이다(高純度FC-14, 高純度アンモニア 등). **어느 카테고리에도 `MCL` 적중 0.**"
+    },
+    {
+     "layer": "없는 카테고리 확인",
+     "what": "`categoryId=pwb` · `pwb_materials` · `electronics` · `laminate` · `base_materials` · `semiconductor` — HTTP 200 을 주지만 **제품 목록이 비어 있다.** 영문판 `sdsEn` 은 HTTP 404."
+    },
+    {
+     "layer": "대체 문서",
+     "what": "벤더가 적층판에 대해 내는 가장 가까운 문서는 `Precautionary Statement / 取り扱い上の注意`(14쪽, 영·일 두 판)다. 열어 보니 취급·응급조치·보관 온습도·보관기한 표뿐이고 **9절 형태의 물리적 성질 블록이 아예 없다.**",
+     "local_path": [
+      "/data/paper_patent_corpus/standards_appnotes/pcb/Resonac_MCL_PrecautionaryStatement_en_2026-07.pdf",
+      "/data/paper_patent_corpus/standards_appnotes/pcb/Resonac_MCL_PrecautionaryStatement_ja_2026-02.pdf"
+     ]
+    }
+   ],
+   "rule": "**고체 물품(article)인 적층판에는 SDS 의무가 없다.** 두 벤더(Sumitomo · Resonac)에서 같은 결과가 나왔다 — 브리프의 「SDS 9절(밀도만)」 우회로는 **적층판 계열에서는 일반적으로 닫혀 있다고 봐야 한다.** 다음 배치는 접착제·수지·잉크처럼 SDS 의무가 있는 제품군에만 이 카드를 써라."
+  },
+  {
+   "id": "hd72-v14",
+   "question": "Resonac 2026-07 판이 등급 구성을 어떻게 바꿨는가?",
+   "why_it_matters": "카탈로그에서 사라진 등급은 단종일 수 있다. 카드의 현행성 판단에 걸린다.",
+   "verdict": "**총괄표가 넷에서 셋으로 줄었고 등급이 대거 빠졌다.**",
+   "confidence": "high",
+   "dropped_in_2026_07": [
+    "MCL-HD60 · MCL-HD60(Type D) · MCL-HD80 · MCL-HD90 · MCL-HD90(Type D) (`MCL-HD` 토큰 적중 0)",
+    "MCL-HS100 · MCL-HS100(Type D) (적중 0)",
+    "MCL-E-679FG (Type R)·(Type S) (`679FG` 적중 0)",
+    "AS-400HS (적중 0 — 2025-05 에서 이미 빠졌다)",
+    "GH-100 (Type D) (적중 0)",
+    "MCL-LW-900G (적중 0)",
+    "MCL-HS200 (적중 0 — `MCL-HS20N` 으로만 나온다, hd72-v4)"
+   ],
+   "survived": "MCL-E-795G · 795G(LH) · 705G · 705G(L) · 705G(LH) · 700G(R) · 770G(R) · 770G(RLH) · GEA-705G · GEA-770G · GEA-795G · MCL-HS20N · MCL-HS20N(D) · GH-200 · MCF-200HS · MCF-770G · MCL-LW-990 · MCL-LW-910G · MCL-HE-679G · MCL-I-671 · TD-002",
+   "consequence": "**HD 계열은 카탈로그에서 빠지고 단독 데이터시트로 옮겨갔다** — `Resonac_MCL-HD60-HD80-HD90_Datasheet_en_2025-05.pdf`(이 배치가 새로 받았다). 그 단독 시트에는 **열전도율 행이 없다**(행 어휘: Glass cloth · Tg · CTE · Copper Peel Strength · Elastic Modulus · Dielectric Constant 10/20/36/50/60 GHz · Dissipation Factor). 그러므로 **MCL-HD90 의 열전도율 0.60-0.80 을 인쇄한 문서는 2025-05 총괄표 하나뿐이다** — 이 배치가 담은 값의 출처가 유일본이라는 뜻이고, 그래서 출처에 판을 못박았다.",
+   "cross_check_2026_07": "이 배치가 새로 세운 `GEA-795G` 는 2026-07 판에서 **15행 전부 2025-05 판과 같다**(두께 0.020 · S-glass · Dk 3.7-3.9/3.6-3.8 · Df 0.004-0.006/0.005-0.007 · 피일 0.5-0.7 · 인장탄성률 20-22 · Tg 260-290/330-350 · CTE x/y 5-7 · CTE z 14-24/140-170 · 열전도율 0.55-0.75). **두 판이 일치하므로 이 카드는 안전하다.** 반대로 `GEA-705G`·`GEA-770G` 는 또 움직였다 — GEA-705G CTE x/y 8-10 -> 9-11, Df(10G) 0.008-0.010 -> 0.010-0.012, CTE z(>Tg) 70-120 -> 90-120(일문판 값으로 되돌아갔다), 두께 0.025 -> 0.020; GEA-770G 인장탄성률 18-20 -> 17-19, CTE x/y 6-8 -> 8-10, Tg(DMA) 280-300 -> 300-330. **판 셋이 서로 다르다 — hd72-v2 의 드리프트 판정이 더 무거워졌다.**"
+  },
+  {
+   "id": "hd72-v15",
+   "question": "밀도는 어느 층에 있는가? 71차 GD 가 「규격 층이 아니라 벤더 TDS 층」이라고 좁혔는데, 그 층 어디인가?",
+   "why_it_matters": "이 카탈로그의 밀도 빈칸 52칸(GD 집계)이 걸린 물음이고, 다음 배치가 어디를 파야 하는지를 정한다.",
+   "verdict": "**동장적층판(CCL) 표에는 없고 무피복 적층판(laminate sheet) 표에는 있다. 이 배치가 두 벤더에서 독립으로 확인했다.**",
+   "confidence": "high",
+   "evidence": [
+    {
+     "layer": "Sumitomo — 있는 쪽",
+     "what": "`スミライト® 積層板` 카탈로그(무피복 PL/EL). `比重 Specific gravity | A | － |` 행이 두 표에 다 있다 — PL-1131 1.32 · PL-1147 1.38 · PL-1102 1.39 · EL-3762 1.92. **이 배치가 카드 넉 장을 세웠다.**"
+    },
+    {
+     "layer": "Sumitomo — 없는 쪽",
+     "what": "같은 벤더의 동장적층판(ELC 계열) 표 여섯 문서 전부에 그 행이 없다(hd72-v9). LαZ 네 장도 없다."
+    },
+    {
+     "layer": "Hitachi/Resonac — 있는 쪽",
+     "what": "히타치화성 총합 카탈로그 영문 2017-03 인쇄 89쪽 `KOBE LITE LAMINATES ■Characteristics（t1.0mm）`. `specific gravity | A | － |` — KEL-GEF/(R) 1.7〜1.9 · KEL-9383NT 1.5〜1.7 · KEL-571 1.4〜1.5 · KEL-973 1.5〜1.6. **이 배치가 카드 넉 장을 세웠다.**"
+    },
+    {
+     "layer": "Hitachi/Resonac — 없는 쪽",
+     "what": "같은 카탈로그 90쪽 중 동장적층판(MCL·CEL·EM) 표 어디에도 그 행이 없고, 후속 Resonac 카탈로그 네 판에도 없다."
+    }
+   ],
+   "rule": "**동박을 붙이면 밀도 행이 사라진다.** 그럴 만하다 — 적층판 밀도는 동박 두께와 잔동률에 따라 달라져 등급 단일값으로 인쇄할 수 없다. 무피복 시트는 그 변수가 없어 한 값으로 찍힌다. **다음 배치는 `sheet`·`무피복`·`unclad`·`機械加工用`·`研磨キャリア`·`積層板`(CCL 이 아닌) 계열을 표적으로 삼아라.** 반대로 CCL 카드의 밀도 빈칸을 벤더 문서로 닫으려는 시도는 **구조적으로 실패한다** — 71차 GD 의 IPC-4101 판정과 이 판정이 합쳐지면 그 문은 규격 층·벤더 층 양쪽에서 닫힌다.",
+   "caveat": "**무피복 시트의 밀도를 같은 이름의 동장적층판에 옮기면 안 된다.** `EL-3762`(무피복) ≠ `ELC-4762`(동장), `KEL-GEF`(무피복) ≠ `MCL-E-*`(동장). hd72-v10 참조."
+  },
+  {
+   "id": "hd72-v16",
+   "question": "히타치화성 기술보고(日立化成テクニカルレポート)가 표적 등급의 네 물성을 주는가?",
+   "why_it_matters": "브리프의 세 번째 우회로(학술·기술 문헌)의 벤더판이다.",
+   "verdict": "**주지 않는다.** 9호 327쪽 전수 검사에서 `ポアソン` 0 · `比熱` 0 이고, 표적 등급을 다룬 기사 여섯 편의 물성표에도 네 물성이 전부 없다.",
+   "confidence": "high",
+   "articles_opened": [
+    {
+     "issue": "No.54 r8 (2011-09)",
+     "grade": "MCL-E-700G(R)/(RL)",
+     "rows": "ガラス転移温度 TMA(引張)/(圧縮)/DMA · 熱分解温度 TGA(Td5) · 熱膨張係数 α1/α2 · 銅箔ピール強度 · 曲げ弾性率 GPa 32-34 · 耐熱性 T-288"
+    },
+    {
+     "issue": "No.58 tr01 (2015-12)",
+     "grade": "TD-002",
+     "rows": "`Elongation*2 Resin only Tensile 25℃ % 5.1` · `Elastic Modulus*2 Resin only Tensile DVE 25℃ GPa 0.8-1.2` · `Flexural Modulus GPa 5-8` · `Water Absorption % 0.10-0.30`",
+     "caution": "**`Resin only` 다 — 라미네이트 값이 아니다.** 카드 2782(TD-002)에 옮기면 틀린 값이 된다. 그리고 `Elongation` 은 파단연신율이지 인장강도가 아니다."
+    },
+    {
+     "issue": "No.58 tr03 (2015-12)",
+     "grade": "AS-400HS",
+     "rows": "Resin system · Dk/Df · CTE XY/Z · Tg · `Elastic Modulus DMA GPa 3.0` · Heat resistance · Td · Peel strength · `Water absorption D-23/24 % 0.1`"
+    },
+    {
+     "issue": "No.58 tr06 (2015-12)",
+     "grade": "MCL-LW-900G/910G",
+     "rows": "樹脂システム · ガラスタイプ · 難燃源 · Dk/Df · 銅箔引きはがし強さ · Tg · CTE XY/Z(α1)(α2) · はんだ耐熱性 · T-300 · 難燃性"
+    },
+    {
+     "issue": "No.59 tr03 (2016-12)",
+     "grade": "MCL-HS100",
+     "rows": "Glass type · Tg · CTE X/Z · `Flexural Modulus GPa 25` · Dk/Df · T-288"
+    },
+    {
+     "issue": "No.62 tr07 (2019-12)",
+     "grade": "MCL-LW-990G",
+     "rows": "Glass type · Dk · Df · CTE · Tg · Solder heat resistance · Peel strength"
+    }
+   ],
+   "note": "JCIA 제55회 기술상 발표자료(MCL-E-705G/795G)도 열었다 — 네 물성은 없고 비교표가 있다: `熱膨張率 ppm/℃ E-700G 9 / E-705G 3 / E-795G 1`, `弾性率 GPa 31 / 34 / 38`, `ガラス転移温度 ℃ 300 / 300 / 330`. **카탈로그 값과 자릿수가 달라**(카탈로그 CTE x/y 는 E-705G 8.5-10.5) 같은 측정이 아니다 — 옮기지 않았다.",
+   "lead": "**이 문서들은 코어7 을 못 닫지만 새 행 후보가 많다** — AS-400HS 의 `Elastic Modulus DMA 3.0 GPa`(카드 2780 에 영률 없다면 닫는다) · MCL-HS100 의 `Flexural Modulus 25 GPa` · MCL-E-700G(R) 의 TMA 引張/圧縮 두 갈래 Tg · 각 기사의 Dk/Df·CTE. **다음 배치가 담아라.**"
+  }
+ ],
+ "leads_for_next_batch": [
+  {
+   "id": "hd72-L1",
+   "lead": "**새로 받은 Sumitomo 문서 넷이 아직 안 담긴 값을 갖고 있다.**",
+   "detail": "① `SumitomoBakelite_ELC-DoubleSided_Catalog_ja_2026-09-09.pdf`(2쪽) — ELC-4970 · ELC-4972R&S · ELC-4970GS 의 **두께별 열**(1.6 mm / 1.0 mm, 18/18 동박)이 따로 있어 웹 표보다 잘게 갈린다. 熱伝導率 `0.70`(ELC-4970) · `1.00`(4972R&S · 4970GS) W/mK. 두께별 熱抵抗 표(K/W)도 있다. ② `SumitomoBakelite_ELC-4765-4768_TDS_en_*.pdf` — 짝 프리프레그 `EI-6765`·`EI-6768` 이 새 등급이다. ③ `SumitomoBakelite_Sumilite-PL-EL_Catalog_ja_*.pdf` 인쇄 28쪽 — `EL-3700`·`EL-3700M`(연마 캐리어)에 굽힘강도·로크웰 경도·흡수율이 있다(比重 은 없다). ④ `SumitomoBakelite_Sumilite-ELC_SpecList_ja_*.pdf`(10.8 MB, 1쪽 대형) — **아직 안 열었다.** 세 PDF 는 아웃라인 벡터라 `pdftotext` 가 0자를 준다 — **렌더가 필수다.**"
+  },
+  {
+   "id": "hd72-L2",
+   "lead": "**Resonac 영문판 제품별 쪽 33장이 아직 안 담겼다.**",
+   "detail": "이 배치는 PDF 28쪽(HD 계열) 하나만 담았다. PDF 9~42쪽에 등급별 상세표가 더 있고, 총괄표가 안 주는 축을 준다 — 고주파 Dk/Df(20·36·50·60 GHz), `Elastic Modulus（Lengthwise）`·`Flexural Modulus（Lengthwise）` 방향별 값, Water Absorption, Insulation/Surface Resistance, 두께별 규격표. **총괄표와 조건이 다르므로 덮지 말고 `source_table` 로 갈라라**(hd72-v5)."
+  },
+  {
+   "id": "hd72-L3",
+   "lead": "**정정 두 건이 대기 중이다 — 새 문서가 필요 없다.**",
+   "detail": "① Resonac 인장탄성률 21행의 `specimen_thickness_mm` → 0.8(hd72-v3). ② 카드 2765·2766 의 `aliases` 에 `MCL-HS20N`·`MCL-HS20N (Type D)` 추가(hd72-v4). 라이브 DB 가 읽기 전용이라 이 배치는 못 했다."
+  },
+  {
+   "id": "hd72-L4",
+   "lead": "**밀도는 「비중 행이 있는 벤더」를 먼저 골라야 한다 — 이 배치가 그 방법을 실증했다.**",
+   "detail": "71차 GD 가 「밀도는 규격 층이 아니라 벤더 TDS 층의 문제」라고 판정했고, 이 배치가 그 층에서 실제로 넉 장을 캤다(PL-1131 1.32 · PL-1147 1.38 · PL-1102 1.39 · EL-3762 1.92). **동장적층판(CCL) 표에는 比重 행이 없고 무피복 적층판(積層板 sheet) 표에는 있다** — 이것이 이 배치가 찾은 규칙이다. 무피복 적층판 계열(NEMA G-10/FR-4 sheet, Rogers/Isola/Nan Ya 의 sheet 제품)을 표적으로 삼아라. GD 가 남긴 로컬 목록(Technolam/Nan Ya 8등급 · Nanya NP-730/822/826 · Shengyi SCGA-500 · Rogers RO3006)도 아직 그대로 있다."
+  },
+  {
+   "id": "hd72-L5",
+   "lead": "**AS-400HS(카드 2780)의 상태를 확인해야 한다.**",
+   "detail": "일문판 2023-2024 PDF 8쪽에 열이 있는데 영문판 2025-05 에는 목차·총괄표 어디에도 없다. 단종인지 개칭인지 벤더 페이지로 확인하라. 개칭이면 `aliases`, 단종이면 `attributes` 에 남겨야 한다."
+  },
+  {
+   "id": "hd72-L6",
+   "lead": "**전사 규율 두 가지가 이 배치에서 새로 확인됐다.**",
+   "detail": "① **HTML 은 `<br>` 이 행 이름을 쪼갠다** — 토큰 grep 대신 `<tr>`/`<td>` 파싱 위에서 찾아라(hd72-v11). ② **PDF 가 아웃라인 벡터면 `pdftotext` 가 조용히 0자를 준다** — `wc -c` 가 0 이면 「내용이 없다」가 아니라 「렌더해야 한다」는 뜻이다. 쪽별 텍스트 길이 감사를 토큰 검사 **앞에** 돌려라. ③ 벤더 표 머리글에 **오타가 있을 수 있다**(Resonac PDF 28쪽 `HD60HD90(Type D)`) — 렌더로 봐도 이상하면 추출 아티팩트가 아니라 원문 오타일 수 있고, 그때는 같은 표의 다른 행(유리크로스·Dk)으로 등급을 확정하라."
+  },
+  {
+   "id": "hd72-L7",
+   "lead": "**히타치화성 선대 카탈로그 두 판(영문 90쪽 · 일문 102쪽)이 아직 거의 안 담겼다.**",
+   "detail": "이 배치는 인쇄 89쪽(KOBELITE 한 표)만 담았다. 나머지 88쪽에 구(舊) MCL·CEL·EM 계열 표가 있고, **현행 Resonac 카탈로그에서 사라진 등급(MCL-E-679FG · MCL-HS100 · AS-400HS · GH-100 …)의 옛 값**이 거기 있다. 또 **`Poisson's Ratio` 그래프**(MCL-E-67 / MCL-E-67(WK), t1.6 mm, 30~200 ℃, y축 0.00~0.50)가 있다 — 인쇄된 숫자는 없지만 **`digitized` 방법으로 디지타이즈할 수 있는 유일한 포아송비 원문**이다. 다만 두 등급 다 현재 카드 목록에 없으므로 카드부터 세워야 한다."
+  },
+  {
+   "id": "hd72-L8",
+   "lead": "**Resonac 기술보고 6편 + JCIA 발표 1편이 로컬에 들어왔다 — 아직 한 행도 안 담겼다.**",
+   "detail": "hd72-v16 의 표를 보고 담아라. **함정 하나** — TD-002 기사의 탄성률·연신율은 `Resin only` 다(라미네이트가 아니다). 조건에 반드시 박아라."
+  },
+  {
+   "id": "hd72-L9",
+   "lead": "**Resonac 카탈로그 최신 두 판(2026-07 en · 2026-04 ja)이 로컬에 들어왔다 — 아직 한 행도 안 담겼다.**",
+   "detail": "이 배치는 판 드리프트를 판정만 하고 값을 고르지 않았다(hd72-v2 · hd72-v14). **먼저 「판이 갱신되면 옛 행을 어떻게 하는가」를 정하고 나서 담아라.** 정하지 않고 담으면 같은 등급에 근거 없이 두 값이 공존한다."
+  }
+ ]
+}

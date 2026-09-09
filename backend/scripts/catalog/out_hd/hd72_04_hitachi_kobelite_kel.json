@@ -1,0 +1,1347 @@
+{
+ "batch": "72차 HD",
+ "materials": [
+  {
+   "new_material": {
+    "name": "Hitachi Chemical KOBELITE KEL-GEF / KEL-GEF(R) (unclad glass/epoxy laminate)",
+    "category": "composite",
+    "description": "Hitachi Chemical(현 Resonac 전신) `KOBELITE LAMINATE` 계열 무피복 적층판 `KEL-GEF / KEL-GEF(R)` — 기재 Glass fabric, 수지 에폭시, 색 Natural color. **이 카드가 이 배치에 선 이유는 하나다 — 이 표가 `specific gravity` 를 인쇄한다.** 같은 카탈로그 90쪽 중 동장적층판(MCL·CEL·EM 계열) 표 어디에도 그 행이 없는데 **무피복 적층판 표에만 있다.** 같은 규칙을 이 배치가 Sumitomo スミライト PL/EL 에서도 확인했다 — 밀도는 CCL 층이 아니라 적층판 시트 층에 있다. **원문이 `KEL-GEF` 와 `KEL-GEF（R）` 두 등급에 한 열을 준다** — 값이 같다는 뜻이다. 70차 FA 가 `Sumilite ELC-4762 / ELC-4756` 을 한 장으로 세운 선례를 따라 한 장으로 세웠다.",
+    "attributes": {
+     "material_class": "unclad epoxy laminate sheet (KOBELITE KEL series), base: Glass fabric",
+     "subsystem": "pcb",
+     "role": "product",
+     "role_reason": "무피복 적층판 실부품(절연·기구 부품용 시트). 벤더가 등급명으로 인쇄한 제품이다.",
+     "role_confidence": "high",
+     "manufacturer": "Hitachi Chemical Co., Ltd. (현 Resonac Corporation)",
+     "product_series": "KOBELITE LAMINATE (KEL)",
+     "product_form": "unclad laminate sheet",
+     "aliases": [
+      "KEL-GEF / KEL-GEF(R)",
+      "KEL-GEF",
+      "KEL-GEF(R)",
+      "KELGEF / KELGEF(R)"
+     ],
+     "jis_symbol": "EL-GEF",
+     "density_source": "`specific gravity` 행 — **라미네이트 자신의 비중**이다(수지 비중이 아니다). 시편 `t1.0mm`. x1000 은 정의상 단위 환산이다.",
+     "core7_absent_from_vendor_table": "이 표에도 **포아송비·비열·인장강도 행은 없다.** 있는 것은 `Flexural strength`·`Compressive Strength`·`Izod impact strength`·`Cleavage Strength` 다 — **인장강도가 아니다.** 열전도율 행도 없다.",
+     "vendor_lineage_note": "Hitachi Chemical → Showa Denko Materials → Resonac. 이 카탈로그는 71차 GD·72차 HD 가 쓴 Resonac MCL 카탈로그의 **선대 문서**다.",
+     "source_page": "인쇄 89쪽 / PDF 82쪽 `■Characteristics（t1.0mm）`"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "KOBE LITE LAMINATES — Characteristics (t1.0mm) (Hitachi Chemical Copper Clad Laminates 총합 카탈로그 영문판, 인쇄 89쪽 / PDF 82쪽, 90쪽)",
+    "url": null,
+    "publisher": "Hitachi Chemical Co., Ltd. (현 Resonac Corporation 의 전신)",
+    "year": 2017,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/HitachiChemical_CopperCladLaminates_FullCatalog_en_2017-03.pdf",
+    "url_note": "Wayback 로 복구한 구(舊) 히타치화성 총합 카탈로그다(2017-03판). 원 벤더 사이트가 Resonac 으로 이관되며 사라졌다. **URL 을 지어내지 않았다** — 로컬 원문 90쪽이 근거다."
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1700.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "A (as received, 원문 Condition `A`)",
+      "specimen_thickness_mm": 1.0,
+      "basis": "specific gravity of the laminate, dimensionless, x1000 -> kg/m^3",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `specific gravity | A | － | 1.7〜1.9` (KEL-GEF / KEL-GEF(R) 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 1.7 이다. 환산 1.7 -> 1700 kg/m^3; 되돌리면 1700 -> 1.7. **이것은 라미네이트 자신의 비중이다 — 수지 비중이 아니다.** 같은 표의 시편은 `t1.0mm` 적층판이다. 비중은 정의상 4 ℃ 물 밀도(1000 kg/m³) 기준 무차원비이므로 x1000 은 **역산이 아니라 단위 환산**이다. **이 배치가 찾은 규칙을 두 번째 벤더에서 확인한 자리다** — 동장적층판(CCL) 표에는 比重/Specific gravity 행이 없고 **무피복 적층판(laminate sheet) 표에는 있다.** Sumitomo 의 スミライト PL/EL 이 첫 번째였다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "physical.density",
+     "value": 1900.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "A (as received, 원문 Condition `A`)",
+      "specimen_thickness_mm": 1.0,
+      "basis": "specific gravity of the laminate, dimensionless, x1000 -> kg/m^3",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `specific gravity | A | － | 1.7〜1.9` (KEL-GEF / KEL-GEF(R) 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 1.9 이다. 환산 1.9 -> 1900 kg/m^3; 되돌리면 1900 -> 1.9. **이것은 라미네이트 자신의 비중이다 — 수지 비중이 아니다.** 같은 표의 시편은 `t1.0mm` 적층판이다. 비중은 정의상 4 ℃ 물 밀도(1000 kg/m³) 기준 무차원비이므로 x1000 은 **역산이 아니라 단위 환산**이다. **이 배치가 찾은 규칙을 두 번째 벤더에서 확인한 자리다** — 동장적층판(CCL) 표에는 比重/Specific gravity 행이 없고 **무피복 적층판(laminate sheet) 표에는 있다.** Sumitomo 의 スミライト PL/EL 이 첫 번째였다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.2e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "in-plane (X)",
+      "temperature_range_c": "30-80",
+      "heating_rate_c_per_min": 10,
+      "specimen_thickness_mm": 1.0,
+      "conditioning": "A",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `CTE *2 (30〜80℃) | X | A | 1/℃ | 12〜14x10^-6` (KEL-GEF / KEL-GEF(R) 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 12 이다. 환산 12 -> 1.2e-05 1/K; 되돌리면 1.2e-05 -> 12. **원문 단위가 이미 `1/℃` 이고 값에 `x10⁻⁶` 가 붙어 있다** — ppm 표기가 아니다. `x1e-6` 은 원문이 인쇄한 지수를 그대로 편 것이다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.4e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "in-plane (X)",
+      "temperature_range_c": "30-80",
+      "heating_rate_c_per_min": 10,
+      "specimen_thickness_mm": 1.0,
+      "conditioning": "A",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `CTE *2 (30〜80℃) | X | A | 1/℃ | 12〜14x10^-6` (KEL-GEF / KEL-GEF(R) 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 14 이다. 환산 14 -> 1.4e-05 1/K; 되돌리면 1.4e-05 -> 14. **원문 단위가 이미 `1/℃` 이고 값에 `x10⁻⁶` 가 붙어 있다** — ppm 표기가 아니다. `x1e-6` 은 원문이 인쇄한 지수를 그대로 편 것이다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.4e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "in-plane (Y)",
+      "temperature_range_c": "30-80",
+      "heating_rate_c_per_min": 10,
+      "specimen_thickness_mm": 1.0,
+      "conditioning": "A",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `CTE *2 (30〜80℃) | Y | A | 1/℃ | 14〜16x10^-6` (KEL-GEF / KEL-GEF(R) 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 14 이다. 환산 14 -> 1.4e-05 1/K; 되돌리면 1.4e-05 -> 14. **원문 단위가 이미 `1/℃` 이고 값에 `x10⁻⁶` 가 붙어 있다** — ppm 표기가 아니다. `x1e-6` 은 원문이 인쇄한 지수를 그대로 편 것이다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.6e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "in-plane (Y)",
+      "temperature_range_c": "30-80",
+      "heating_rate_c_per_min": 10,
+      "specimen_thickness_mm": 1.0,
+      "conditioning": "A",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `CTE *2 (30〜80℃) | Y | A | 1/℃ | 14〜16x10^-6` (KEL-GEF / KEL-GEF(R) 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 16 이다. 환산 16 -> 1.6e-05 1/K; 되돌리면 1.6e-05 -> 16. **원문 단위가 이미 `1/℃` 이고 값에 `x10⁻⁶` 가 붙어 있다** — ppm 표기가 아니다. `x1e-6` 은 원문이 인쇄한 지수를 그대로 편 것이다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 4.9999999999999996e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "through-thickness (Z)",
+      "temperature_range_c": "30-80",
+      "heating_rate_c_per_min": 10,
+      "specimen_thickness_mm": 1.0,
+      "conditioning": "A",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `CTE *2 (30〜80℃) | Z | A | 1/℃ | 50〜70x10^-6` (KEL-GEF / KEL-GEF(R) 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 50 이다. 환산 50 -> 5e-05 1/K; 되돌리면 5e-05 -> 50. **원문 단위가 이미 `1/℃` 이고 값에 `x10⁻⁶` 가 붙어 있다** — ppm 표기가 아니다. `x1e-6` 은 원문이 인쇄한 지수를 그대로 편 것이다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 7e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "through-thickness (Z)",
+      "temperature_range_c": "30-80",
+      "heating_rate_c_per_min": 10,
+      "specimen_thickness_mm": 1.0,
+      "conditioning": "A",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `CTE *2 (30〜80℃) | Z | A | 1/℃ | 50〜70x10^-6` (KEL-GEF / KEL-GEF(R) 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 70 이다. 환산 70 -> 7e-05 1/K; 되돌리면 7e-05 -> 70. **원문 단위가 이미 `1/℃` 이고 값에 `x10⁻⁶` 가 붙어 있다** — ppm 표기가 아니다. `x1e-6` 은 원문이 인쇄한 지수를 그대로 편 것이다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 600000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "warp (Length)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Flexural strength | Length | A | N/mm² | 600〜650` (KEL-GEF / KEL-GEF(R) 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 600 이다. 환산 600 -> 6e+08 Pa; 되돌리면 6e+08 -> 600. N/mm² = MPa 다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 650000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "warp (Length)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Flexural strength | Length | A | N/mm² | 600〜650` (KEL-GEF / KEL-GEF(R) 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 650 이다. 환산 650 -> 6.5e+08 Pa; 되돌리면 6.5e+08 -> 650. N/mm² = MPa 다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 450000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "fill (Width)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Flexural strength | Width | A | N/mm² | 450〜500` (KEL-GEF / KEL-GEF(R) 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 450 이다. 환산 450 -> 4.5e+08 Pa; 되돌리면 4.5e+08 -> 450. N/mm² = MPa 다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 500000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "fill (Width)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Flexural strength | Width | A | N/mm² | 450〜500` (KEL-GEF / KEL-GEF(R) 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 500 이다. 환산 500 -> 5e+08 Pa; 되돌리면 5e+08 -> 500. N/mm² = MPa 다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 22000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "warp (Length)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Flexural Modulus | Length | A | kN/mm² | 22〜24` (KEL-GEF / KEL-GEF(R) 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 22 이다. 환산 22 -> 2.2e+10 Pa; 되돌리면 2.2e+10 -> 22. **단위가 `kN/mm²` 다 — 1 kN/mm² = 1e3 N / 1e-6 m² = 1e9 Pa = 1 GPa** 이므로 GPa 와 수치가 같다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 24000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "warp (Length)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Flexural Modulus | Length | A | kN/mm² | 22〜24` (KEL-GEF / KEL-GEF(R) 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 24 이다. 환산 24 -> 2.4e+10 Pa; 되돌리면 2.4e+10 -> 24. **단위가 `kN/mm²` 다 — 1 kN/mm² = 1e3 N / 1e-6 m² = 1e9 Pa = 1 GPa** 이므로 GPa 와 수치가 같다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 19000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "fill (Width)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Flexural Modulus | Width | A | kN/mm² | 19〜22` (KEL-GEF / KEL-GEF(R) 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 19 이다. 환산 19 -> 1.9e+10 Pa; 되돌리면 1.9e+10 -> 19. **단위가 `kN/mm²` 다 — 1 kN/mm² = 1e3 N / 1e-6 m² = 1e9 Pa = 1 GPa** 이므로 GPa 와 수치가 같다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 22000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "fill (Width)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Flexural Modulus | Width | A | kN/mm² | 19〜22` (KEL-GEF / KEL-GEF(R) 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 22 이다. 환산 22 -> 2.2e+10 Pa; 되돌리면 2.2e+10 -> 22. **단위가 `kN/mm²` 다 — 1 kN/mm² = 1e3 N / 1e-6 m² = 1e9 Pa = 1 GPa** 이므로 GPa 와 수치가 같다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.5,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency": "1 MHz",
+      "conditioning": "C90/20/65",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Dielectric Constant （1MHz） | C90/20/65 | － | 4.5〜5.0` (KEL-GEF / KEL-GEF(R) 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 4.5 이다. 환산 4.5 -> 4.5 1; 되돌리면 4.5 -> 4.5. **두 전처리 조건이 별개 행이라 두 행으로 두었다.** **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.0,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency": "1 MHz",
+      "conditioning": "C90/20/65",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Dielectric Constant （1MHz） | C90/20/65 | － | 4.5〜5.0` (KEL-GEF / KEL-GEF(R) 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 5.0 이다. 환산 5.0 -> 5 1; 되돌리면 5 -> 5.0. **두 전처리 조건이 별개 행이라 두 행으로 두었다.** **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.6,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency": "1 MHz",
+      "conditioning": "C90/20/65+D-24/23",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Dielectric Constant （1MHz） | C90/20/65+D-24/23 | － | 4.6〜5.1` (KEL-GEF / KEL-GEF(R) 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 4.6 이다. 환산 4.6 -> 4.6 1; 되돌리면 4.6 -> 4.6. **두 전처리 조건이 별개 행이라 두 행으로 두었다.** **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.1,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency": "1 MHz",
+      "conditioning": "C90/20/65+D-24/23",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Dielectric Constant （1MHz） | C90/20/65+D-24/23 | － | 4.6〜5.1` (KEL-GEF / KEL-GEF(R) 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 5.1 이다. 환산 5.1 -> 5.1 1; 되돌리면 5.1 -> 5.1. **두 전처리 조건이 별개 행이라 두 행으로 두었다.** **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.016,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency": "1 MHz",
+      "conditioning": "C90/20/65",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Dissipation Factor （1MHz） | C90/20/65 | － | 0.016〜0.025` (KEL-GEF / KEL-GEF(R) 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 0.016 이다. 환산 0.016 -> 0.016 1; 되돌리면 0.016 -> 0.016. **두 전처리 조건이 별개 행이라 두 행으로 두었다.** **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.025,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency": "1 MHz",
+      "conditioning": "C90/20/65",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Dissipation Factor （1MHz） | C90/20/65 | － | 0.016〜0.025` (KEL-GEF / KEL-GEF(R) 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 0.025 이다. 환산 0.025 -> 0.025 1; 되돌리면 0.025 -> 0.025. **두 전처리 조건이 별개 행이라 두 행으로 두었다.** **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.02,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency": "1 MHz",
+      "conditioning": "C90/20/65+D-24/23",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Dissipation Factor （1MHz） | C90/20/65+D-24/23 | － | 0.02〜0.026` (KEL-GEF / KEL-GEF(R) 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 0.02 이다. 환산 0.02 -> 0.02 1; 되돌리면 0.02 -> 0.02. **두 전처리 조건이 별개 행이라 두 행으로 두었다.** **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.026,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency": "1 MHz",
+      "conditioning": "C90/20/65+D-24/23",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Dissipation Factor （1MHz） | C90/20/65+D-24/23 | － | 0.02〜0.026` (KEL-GEF / KEL-GEF(R) 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 0.026 이다. 환산 0.026 -> 0.026 1; 되돌리면 0.026 -> 0.026. **두 전처리 조건이 별개 행이라 두 행으로 두었다.** **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Hitachi Chemical KOBELITE KEL-9383NT (unclad glass + non-woven glass epoxy laminate)",
+    "category": "composite",
+    "description": "Hitachi Chemical(현 Resonac 전신) `KOBELITE LAMINATE` 계열 무피복 적층판 `KEL-9383NT` — 기재 Glass fabric + Non-woven glass fabric, 수지 에폭시, 색 Natural color. **이 카드가 이 배치에 선 이유는 하나다 — 이 표가 `specific gravity` 를 인쇄한다.** 같은 카탈로그 90쪽 중 동장적층판(MCL·CEL·EM 계열) 표 어디에도 그 행이 없는데 **무피복 적층판 표에만 있다.** 같은 규칙을 이 배치가 Sumitomo スミライト PL/EL 에서도 확인했다 — 밀도는 CCL 층이 아니라 적층판 시트 층에 있다. ",
+    "attributes": {
+     "material_class": "unclad epoxy laminate sheet (KOBELITE KEL series), base: Glass fabric + Non-woven glass fabric",
+     "subsystem": "pcb",
+     "role": "product",
+     "role_reason": "무피복 적층판 실부품(절연·기구 부품용 시트). 벤더가 등급명으로 인쇄한 제품이다.",
+     "role_confidence": "high",
+     "manufacturer": "Hitachi Chemical Co., Ltd. (현 Resonac Corporation)",
+     "product_series": "KOBELITE LAMINATE (KEL)",
+     "product_form": "unclad laminate sheet",
+     "aliases": [
+      "KEL-9383NT",
+      "KEL-9383NT",
+      "KEL9383NT"
+     ],
+     "density_source": "`specific gravity` 행 — **라미네이트 자신의 비중**이다(수지 비중이 아니다). 시편 `t1.0mm`. x1000 은 정의상 단위 환산이다.",
+     "core7_absent_from_vendor_table": "이 표에도 **포아송비·비열·인장강도 행은 없다.** 있는 것은 `Flexural strength`·`Compressive Strength`·`Izod impact strength`·`Cleavage Strength` 다 — **인장강도가 아니다.** 열전도율 행도 없다.",
+     "vendor_lineage_note": "Hitachi Chemical → Showa Denko Materials → Resonac. 이 카탈로그는 71차 GD·72차 HD 가 쓴 Resonac MCL 카탈로그의 **선대 문서**다.",
+     "source_page": "인쇄 89쪽 / PDF 82쪽 `■Characteristics（t1.0mm）`"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "KOBE LITE LAMINATES — Characteristics (t1.0mm) (Hitachi Chemical Copper Clad Laminates 총합 카탈로그 영문판, 인쇄 89쪽 / PDF 82쪽, 90쪽)",
+    "url": null,
+    "publisher": "Hitachi Chemical Co., Ltd. (현 Resonac Corporation 의 전신)",
+    "year": 2017,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/HitachiChemical_CopperCladLaminates_FullCatalog_en_2017-03.pdf",
+    "url_note": "Wayback 로 복구한 구(舊) 히타치화성 총합 카탈로그다(2017-03판). 원 벤더 사이트가 Resonac 으로 이관되며 사라졌다. **URL 을 지어내지 않았다** — 로컬 원문 90쪽이 근거다."
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1500.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "A (as received, 원문 Condition `A`)",
+      "specimen_thickness_mm": 1.0,
+      "basis": "specific gravity of the laminate, dimensionless, x1000 -> kg/m^3",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `specific gravity | A | － | 1.5〜1.7` (KEL-9383NT 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 1.5 이다. 환산 1.5 -> 1500 kg/m^3; 되돌리면 1500 -> 1.5. **이것은 라미네이트 자신의 비중이다 — 수지 비중이 아니다.** 같은 표의 시편은 `t1.0mm` 적층판이다. 비중은 정의상 4 ℃ 물 밀도(1000 kg/m³) 기준 무차원비이므로 x1000 은 **역산이 아니라 단위 환산**이다. **이 배치가 찾은 규칙을 두 번째 벤더에서 확인한 자리다** — 동장적층판(CCL) 표에는 比重/Specific gravity 행이 없고 **무피복 적층판(laminate sheet) 표에는 있다.** Sumitomo 의 スミライト PL/EL 이 첫 번째였다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "physical.density",
+     "value": 1700.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "A (as received, 원문 Condition `A`)",
+      "specimen_thickness_mm": 1.0,
+      "basis": "specific gravity of the laminate, dimensionless, x1000 -> kg/m^3",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `specific gravity | A | － | 1.5〜1.7` (KEL-9383NT 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 1.7 이다. 환산 1.7 -> 1700 kg/m^3; 되돌리면 1700 -> 1.7. **이것은 라미네이트 자신의 비중이다 — 수지 비중이 아니다.** 같은 표의 시편은 `t1.0mm` 적층판이다. 비중은 정의상 4 ℃ 물 밀도(1000 kg/m³) 기준 무차원비이므로 x1000 은 **역산이 아니라 단위 환산**이다. **이 배치가 찾은 규칙을 두 번째 벤더에서 확인한 자리다** — 동장적층판(CCL) 표에는 比重/Specific gravity 행이 없고 **무피복 적층판(laminate sheet) 표에는 있다.** Sumitomo 의 スミライト PL/EL 이 첫 번째였다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.9999999999999998e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "in-plane (X)",
+      "temperature_range_c": "30-80",
+      "heating_rate_c_per_min": 10,
+      "specimen_thickness_mm": 1.0,
+      "conditioning": "A",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `CTE *2 (30〜80℃) | X | A | 1/℃ | 20〜22x10^-6` (KEL-9383NT 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 20 이다. 환산 20 -> 2e-05 1/K; 되돌리면 2e-05 -> 20. **원문 단위가 이미 `1/℃` 이고 값에 `x10⁻⁶` 가 붙어 있다** — ppm 표기가 아니다. `x1e-6` 은 원문이 인쇄한 지수를 그대로 편 것이다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 2.2e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "in-plane (X)",
+      "temperature_range_c": "30-80",
+      "heating_rate_c_per_min": 10,
+      "specimen_thickness_mm": 1.0,
+      "conditioning": "A",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `CTE *2 (30〜80℃) | X | A | 1/℃ | 20〜22x10^-6` (KEL-9383NT 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 22 이다. 환산 22 -> 2.2e-05 1/K; 되돌리면 2.2e-05 -> 22. **원문 단위가 이미 `1/℃` 이고 값에 `x10⁻⁶` 가 붙어 있다** — ppm 표기가 아니다. `x1e-6` 은 원문이 인쇄한 지수를 그대로 편 것이다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 2.2e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "in-plane (Y)",
+      "temperature_range_c": "30-80",
+      "heating_rate_c_per_min": 10,
+      "specimen_thickness_mm": 1.0,
+      "conditioning": "A",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `CTE *2 (30〜80℃) | Y | A | 1/℃ | 22〜25x10^-6` (KEL-9383NT 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 22 이다. 환산 22 -> 2.2e-05 1/K; 되돌리면 2.2e-05 -> 22. **원문 단위가 이미 `1/℃` 이고 값에 `x10⁻⁶` 가 붙어 있다** — ppm 표기가 아니다. `x1e-6` 은 원문이 인쇄한 지수를 그대로 편 것이다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 2.4999999999999998e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "in-plane (Y)",
+      "temperature_range_c": "30-80",
+      "heating_rate_c_per_min": 10,
+      "specimen_thickness_mm": 1.0,
+      "conditioning": "A",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `CTE *2 (30〜80℃) | Y | A | 1/℃ | 22〜25x10^-6` (KEL-9383NT 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 25 이다. 환산 25 -> 2.5e-05 1/K; 되돌리면 2.5e-05 -> 25. **원문 단위가 이미 `1/℃` 이고 값에 `x10⁻⁶` 가 붙어 있다** — ppm 표기가 아니다. `x1e-6` 은 원문이 인쇄한 지수를 그대로 편 것이다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 3.9999999999999996e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "through-thickness (Z)",
+      "temperature_range_c": "30-80",
+      "heating_rate_c_per_min": 10,
+      "specimen_thickness_mm": 1.0,
+      "conditioning": "A",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `CTE *2 (30〜80℃) | Z | A | 1/℃ | 40〜50x10^-6` (KEL-9383NT 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 40 이다. 환산 40 -> 4e-05 1/K; 되돌리면 4e-05 -> 40. **원문 단위가 이미 `1/℃` 이고 값에 `x10⁻⁶` 가 붙어 있다** — ppm 표기가 아니다. `x1e-6` 은 원문이 인쇄한 지수를 그대로 편 것이다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 4.9999999999999996e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "through-thickness (Z)",
+      "temperature_range_c": "30-80",
+      "heating_rate_c_per_min": 10,
+      "specimen_thickness_mm": 1.0,
+      "conditioning": "A",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `CTE *2 (30〜80℃) | Z | A | 1/℃ | 40〜50x10^-6` (KEL-9383NT 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 50 이다. 환산 50 -> 5e-05 1/K; 되돌리면 5e-05 -> 50. **원문 단위가 이미 `1/℃` 이고 값에 `x10⁻⁶` 가 붙어 있다** — ppm 표기가 아니다. `x1e-6` 은 원문이 인쇄한 지수를 그대로 편 것이다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 350000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "warp (Length)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Flexural strength | Length | A | N/mm² | 350〜410` (KEL-9383NT 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 350 이다. 환산 350 -> 3.5e+08 Pa; 되돌리면 3.5e+08 -> 350. N/mm² = MPa 다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 410000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "warp (Length)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Flexural strength | Length | A | N/mm² | 350〜410` (KEL-9383NT 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 410 이다. 환산 410 -> 4.1e+08 Pa; 되돌리면 4.1e+08 -> 410. N/mm² = MPa 다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 290000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "fill (Width)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Flexural strength | Width | A | N/mm² | 290〜350` (KEL-9383NT 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 290 이다. 환산 290 -> 2.9e+08 Pa; 되돌리면 2.9e+08 -> 290. N/mm² = MPa 다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 350000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "fill (Width)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Flexural strength | Width | A | N/mm² | 290〜350` (KEL-9383NT 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 350 이다. 환산 350 -> 3.5e+08 Pa; 되돌리면 3.5e+08 -> 350. N/mm² = MPa 다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.3,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency": "1 MHz",
+      "conditioning": "C90/20/65",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Dielectric Constant （1MHz） | C90/20/65 | － | 4.3〜4.7` (KEL-9383NT 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 4.3 이다. 환산 4.3 -> 4.3 1; 되돌리면 4.3 -> 4.3. **두 전처리 조건이 별개 행이라 두 행으로 두었다.** **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.7,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency": "1 MHz",
+      "conditioning": "C90/20/65",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Dielectric Constant （1MHz） | C90/20/65 | － | 4.3〜4.7` (KEL-9383NT 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 4.7 이다. 환산 4.7 -> 4.7 1; 되돌리면 4.7 -> 4.7. **두 전처리 조건이 별개 행이라 두 행으로 두었다.** **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.4,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency": "1 MHz",
+      "conditioning": "C90/20/65+D-24/23",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Dielectric Constant （1MHz） | C90/20/65+D-24/23 | － | 4.4〜4.8` (KEL-9383NT 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 4.4 이다. 환산 4.4 -> 4.4 1; 되돌리면 4.4 -> 4.4. **두 전처리 조건이 별개 행이라 두 행으로 두었다.** **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.8,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency": "1 MHz",
+      "conditioning": "C90/20/65+D-24/23",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Dielectric Constant （1MHz） | C90/20/65+D-24/23 | － | 4.4〜4.8` (KEL-9383NT 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 4.8 이다. 환산 4.8 -> 4.8 1; 되돌리면 4.8 -> 4.8. **두 전처리 조건이 별개 행이라 두 행으로 두었다.** **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.015,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency": "1 MHz",
+      "conditioning": "C90/20/65",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Dissipation Factor （1MHz） | C90/20/65 | － | 0.015〜0.022` (KEL-9383NT 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 0.015 이다. 환산 0.015 -> 0.015 1; 되돌리면 0.015 -> 0.015. **두 전처리 조건이 별개 행이라 두 행으로 두었다.** **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.022,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency": "1 MHz",
+      "conditioning": "C90/20/65",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Dissipation Factor （1MHz） | C90/20/65 | － | 0.015〜0.022` (KEL-9383NT 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 0.022 이다. 환산 0.022 -> 0.022 1; 되돌리면 0.022 -> 0.022. **두 전처리 조건이 별개 행이라 두 행으로 두었다.** **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.018,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency": "1 MHz",
+      "conditioning": "C90/20/65+D-24/23",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Dissipation Factor （1MHz） | C90/20/65+D-24/23 | － | 0.018〜0.023` (KEL-9383NT 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 0.018 이다. 환산 0.018 -> 0.018 1; 되돌리면 0.018 -> 0.018. **두 전처리 조건이 별개 행이라 두 행으로 두었다.** **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.023,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency": "1 MHz",
+      "conditioning": "C90/20/65+D-24/23",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Dissipation Factor （1MHz） | C90/20/65+D-24/23 | － | 0.018〜0.023` (KEL-9383NT 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 0.023 이다. 환산 0.023 -> 0.023 1; 되돌리면 0.023 -> 0.023. **두 전처리 조건이 별개 행이라 두 행으로 두었다.** **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Hitachi Chemical KOBELITE KEL-571 (unclad non-woven aramid epoxy laminate)",
+    "category": "composite",
+    "description": "Hitachi Chemical(현 Resonac 전신) `KOBELITE LAMINATE` 계열 무피복 적층판 `KEL-571` — 기재 Non-woven aramid fabric, 수지 에폭시, 색 Natural color. **이 카드가 이 배치에 선 이유는 하나다 — 이 표가 `specific gravity` 를 인쇄한다.** 같은 카탈로그 90쪽 중 동장적층판(MCL·CEL·EM 계열) 표 어디에도 그 행이 없는데 **무피복 적층판 표에만 있다.** 같은 규칙을 이 배치가 Sumitomo スミライト PL/EL 에서도 확인했다 — 밀도는 CCL 층이 아니라 적층판 시트 층에 있다. ",
+    "attributes": {
+     "material_class": "unclad epoxy laminate sheet (KOBELITE KEL series), base: Non-woven aramid fabric",
+     "subsystem": "pcb",
+     "role": "product",
+     "role_reason": "무피복 적층판 실부품(절연·기구 부품용 시트). 벤더가 등급명으로 인쇄한 제품이다.",
+     "role_confidence": "high",
+     "manufacturer": "Hitachi Chemical Co., Ltd. (현 Resonac Corporation)",
+     "product_series": "KOBELITE LAMINATE (KEL)",
+     "product_form": "unclad laminate sheet",
+     "aliases": [
+      "KEL-571",
+      "KEL-571",
+      "KEL571"
+     ],
+     "density_source": "`specific gravity` 행 — **라미네이트 자신의 비중**이다(수지 비중이 아니다). 시편 `t1.0mm`. x1000 은 정의상 단위 환산이다.",
+     "core7_absent_from_vendor_table": "이 표에도 **포아송비·비열·인장강도 행은 없다.** 있는 것은 `Flexural strength`·`Compressive Strength`·`Izod impact strength`·`Cleavage Strength` 다 — **인장강도가 아니다.** 열전도율 행도 없다.",
+     "vendor_lineage_note": "Hitachi Chemical → Showa Denko Materials → Resonac. 이 카탈로그는 71차 GD·72차 HD 가 쓴 Resonac MCL 카탈로그의 **선대 문서**다.",
+     "source_page": "인쇄 89쪽 / PDF 82쪽 `■Characteristics（t1.0mm）`"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "KOBE LITE LAMINATES — Characteristics (t1.0mm) (Hitachi Chemical Copper Clad Laminates 총합 카탈로그 영문판, 인쇄 89쪽 / PDF 82쪽, 90쪽)",
+    "url": null,
+    "publisher": "Hitachi Chemical Co., Ltd. (현 Resonac Corporation 의 전신)",
+    "year": 2017,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/HitachiChemical_CopperCladLaminates_FullCatalog_en_2017-03.pdf",
+    "url_note": "Wayback 로 복구한 구(舊) 히타치화성 총합 카탈로그다(2017-03판). 원 벤더 사이트가 Resonac 으로 이관되며 사라졌다. **URL 을 지어내지 않았다** — 로컬 원문 90쪽이 근거다."
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1400.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "A (as received, 원문 Condition `A`)",
+      "specimen_thickness_mm": 1.0,
+      "basis": "specific gravity of the laminate, dimensionless, x1000 -> kg/m^3",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `specific gravity | A | － | 1.4〜1.5` (KEL-571 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 1.4 이다. 환산 1.4 -> 1400 kg/m^3; 되돌리면 1400 -> 1.4. **이것은 라미네이트 자신의 비중이다 — 수지 비중이 아니다.** 같은 표의 시편은 `t1.0mm` 적층판이다. 비중은 정의상 4 ℃ 물 밀도(1000 kg/m³) 기준 무차원비이므로 x1000 은 **역산이 아니라 단위 환산**이다. **이 배치가 찾은 규칙을 두 번째 벤더에서 확인한 자리다** — 동장적층판(CCL) 표에는 比重/Specific gravity 행이 없고 **무피복 적층판(laminate sheet) 표에는 있다.** Sumitomo 의 スミライト PL/EL 이 첫 번째였다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "physical.density",
+     "value": 1500.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "A (as received, 원문 Condition `A`)",
+      "specimen_thickness_mm": 1.0,
+      "basis": "specific gravity of the laminate, dimensionless, x1000 -> kg/m^3",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `specific gravity | A | － | 1.4〜1.5` (KEL-571 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 1.5 이다. 환산 1.5 -> 1500 kg/m^3; 되돌리면 1500 -> 1.5. **이것은 라미네이트 자신의 비중이다 — 수지 비중이 아니다.** 같은 표의 시편은 `t1.0mm` 적층판이다. 비중은 정의상 4 ℃ 물 밀도(1000 kg/m³) 기준 무차원비이므로 x1000 은 **역산이 아니라 단위 환산**이다. **이 배치가 찾은 규칙을 두 번째 벤더에서 확인한 자리다** — 동장적층판(CCL) 표에는 比重/Specific gravity 행이 없고 **무피복 적층판(laminate sheet) 표에는 있다.** Sumitomo 의 スミライト PL/EL 이 첫 번째였다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 6e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "in-plane (X)",
+      "temperature_range_c": "30-80",
+      "heating_rate_c_per_min": 10,
+      "specimen_thickness_mm": 1.0,
+      "conditioning": "A",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `CTE *2 (30〜80℃) | X | A | 1/℃ | 6〜8x10^-6` (KEL-571 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 6 이다. 환산 6 -> 6e-06 1/K; 되돌리면 6e-06 -> 6. **원문 단위가 이미 `1/℃` 이고 값에 `x10⁻⁶` 가 붙어 있다** — ppm 표기가 아니다. `x1e-6` 은 원문이 인쇄한 지수를 그대로 편 것이다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 8e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "in-plane (X)",
+      "temperature_range_c": "30-80",
+      "heating_rate_c_per_min": 10,
+      "specimen_thickness_mm": 1.0,
+      "conditioning": "A",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `CTE *2 (30〜80℃) | X | A | 1/℃ | 6〜8x10^-6` (KEL-571 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 8 이다. 환산 8 -> 8e-06 1/K; 되돌리면 8e-06 -> 8. **원문 단위가 이미 `1/℃` 이고 값에 `x10⁻⁶` 가 붙어 있다** — ppm 표기가 아니다. `x1e-6` 은 원문이 인쇄한 지수를 그대로 편 것이다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 8e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "in-plane (Y)",
+      "temperature_range_c": "30-80",
+      "heating_rate_c_per_min": 10,
+      "specimen_thickness_mm": 1.0,
+      "conditioning": "A",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `CTE *2 (30〜80℃) | Y | A | 1/℃ | 8〜10x10^-6` (KEL-571 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 8 이다. 환산 8 -> 8e-06 1/K; 되돌리면 8e-06 -> 8. **원문 단위가 이미 `1/℃` 이고 값에 `x10⁻⁶` 가 붙어 있다** — ppm 표기가 아니다. `x1e-6` 은 원문이 인쇄한 지수를 그대로 편 것이다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 9.999999999999999e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "in-plane (Y)",
+      "temperature_range_c": "30-80",
+      "heating_rate_c_per_min": 10,
+      "specimen_thickness_mm": 1.0,
+      "conditioning": "A",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `CTE *2 (30〜80℃) | Y | A | 1/℃ | 8〜10x10^-6` (KEL-571 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 10 이다. 환산 10 -> 1e-05 1/K; 되돌리면 1e-05 -> 10. **원문 단위가 이미 `1/℃` 이고 값에 `x10⁻⁶` 가 붙어 있다** — ppm 표기가 아니다. `x1e-6` 은 원문이 인쇄한 지수를 그대로 편 것이다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 0.00010499999999999999,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "through-thickness (Z)",
+      "temperature_range_c": "30-80",
+      "heating_rate_c_per_min": 10,
+      "specimen_thickness_mm": 1.0,
+      "conditioning": "A",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `CTE *2 (30〜80℃) | Z | A | 1/℃ | 105〜120x10^-6` (KEL-571 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 105 이다. 환산 105 -> 0.000105 1/K; 되돌리면 0.000105 -> 105. **원문 단위가 이미 `1/℃` 이고 값에 `x10⁻⁶` 가 붙어 있다** — ppm 표기가 아니다. `x1e-6` 은 원문이 인쇄한 지수를 그대로 편 것이다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 0.00011999999999999999,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "through-thickness (Z)",
+      "temperature_range_c": "30-80",
+      "heating_rate_c_per_min": 10,
+      "specimen_thickness_mm": 1.0,
+      "conditioning": "A",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `CTE *2 (30〜80℃) | Z | A | 1/℃ | 105〜120x10^-6` (KEL-571 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 120 이다. 환산 120 -> 0.00012 1/K; 되돌리면 0.00012 -> 120. **원문 단위가 이미 `1/℃` 이고 값에 `x10⁻⁶` 가 붙어 있다** — ppm 표기가 아니다. `x1e-6` 은 원문이 인쇄한 지수를 그대로 편 것이다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 330000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "warp (Length)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Flexural strength | Length | A | N/mm² | 330〜400` (KEL-571 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 330 이다. 환산 330 -> 3.3e+08 Pa; 되돌리면 3.3e+08 -> 330. N/mm² = MPa 다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 400000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "warp (Length)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Flexural strength | Length | A | N/mm² | 330〜400` (KEL-571 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 400 이다. 환산 400 -> 4e+08 Pa; 되돌리면 4e+08 -> 400. N/mm² = MPa 다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 300000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "fill (Width)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Flexural strength | Width | A | N/mm² | 300〜380` (KEL-571 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 300 이다. 환산 300 -> 3e+08 Pa; 되돌리면 3e+08 -> 300. N/mm² = MPa 다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 380000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "fill (Width)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Flexural strength | Width | A | N/mm² | 300〜380` (KEL-571 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 380 이다. 환산 380 -> 3.8e+08 Pa; 되돌리면 3.8e+08 -> 380. N/mm² = MPa 다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 8400000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "warp (Length)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Flexural Modulus | Length | A | kN/mm² | 8.4〜8.6` (KEL-571 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 8.4 이다. 환산 8.4 -> 8.4e+09 Pa; 되돌리면 8.4e+09 -> 8.4. **단위가 `kN/mm²` 다 — 1 kN/mm² = 1e3 N / 1e-6 m² = 1e9 Pa = 1 GPa** 이므로 GPa 와 수치가 같다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 8600000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "warp (Length)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Flexural Modulus | Length | A | kN/mm² | 8.4〜8.6` (KEL-571 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 8.6 이다. 환산 8.6 -> 8.6e+09 Pa; 되돌리면 8.6e+09 -> 8.6. **단위가 `kN/mm²` 다 — 1 kN/mm² = 1e3 N / 1e-6 m² = 1e9 Pa = 1 GPa** 이므로 GPa 와 수치가 같다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 7800000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "fill (Width)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Flexural Modulus | Width | A | kN/mm² | 7.8〜8.0` (KEL-571 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 7.8 이다. 환산 7.8 -> 7.8e+09 Pa; 되돌리면 7.8e+09 -> 7.8. **단위가 `kN/mm²` 다 — 1 kN/mm² = 1e3 N / 1e-6 m² = 1e9 Pa = 1 GPa** 이므로 GPa 와 수치가 같다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 8000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "fill (Width)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Flexural Modulus | Width | A | kN/mm² | 7.8〜8.0` (KEL-571 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 8.0 이다. 환산 8.0 -> 8e+09 Pa; 되돌리면 8e+09 -> 8.0. **단위가 `kN/mm²` 다 — 1 kN/mm² = 1e3 N / 1e-6 m² = 1e9 Pa = 1 GPa** 이므로 GPa 와 수치가 같다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.0,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency": "1 MHz",
+      "conditioning": "C90/20/65",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Dielectric Constant （1MHz） | C90/20/65 | － | 4.0〜4.2` (KEL-571 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 4.0 이다. 환산 4.0 -> 4 1; 되돌리면 4 -> 4.0. **두 전처리 조건이 별개 행이라 두 행으로 두었다.** **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.2,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency": "1 MHz",
+      "conditioning": "C90/20/65",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Dielectric Constant （1MHz） | C90/20/65 | － | 4.0〜4.2` (KEL-571 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 4.2 이다. 환산 4.2 -> 4.2 1; 되돌리면 4.2 -> 4.2. **두 전처리 조건이 별개 행이라 두 행으로 두었다.** **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.1,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency": "1 MHz",
+      "conditioning": "C90/20/65+D-24/23",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Dielectric Constant （1MHz） | C90/20/65+D-24/23 | － | 4.1〜4.3` (KEL-571 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 4.1 이다. 환산 4.1 -> 4.1 1; 되돌리면 4.1 -> 4.1. **두 전처리 조건이 별개 행이라 두 행으로 두었다.** **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.3,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency": "1 MHz",
+      "conditioning": "C90/20/65+D-24/23",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Dielectric Constant （1MHz） | C90/20/65+D-24/23 | － | 4.1〜4.3` (KEL-571 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 4.3 이다. 환산 4.3 -> 4.3 1; 되돌리면 4.3 -> 4.3. **두 전처리 조건이 별개 행이라 두 행으로 두었다.** **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.02,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency": "1 MHz",
+      "conditioning": "C90/20/65",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Dissipation Factor （1MHz） | C90/20/65 | － | 0.02〜0.022` (KEL-571 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 0.02 이다. 환산 0.02 -> 0.02 1; 되돌리면 0.02 -> 0.02. **두 전처리 조건이 별개 행이라 두 행으로 두었다.** **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.022,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency": "1 MHz",
+      "conditioning": "C90/20/65",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Dissipation Factor （1MHz） | C90/20/65 | － | 0.02〜0.022` (KEL-571 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 0.022 이다. 환산 0.022 -> 0.022 1; 되돌리면 0.022 -> 0.022. **두 전처리 조건이 별개 행이라 두 행으로 두었다.** **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.021,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency": "1 MHz",
+      "conditioning": "C90/20/65+D-24/23",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Dissipation Factor （1MHz） | C90/20/65+D-24/23 | － | 0.021〜0.023` (KEL-571 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 0.021 이다. 환산 0.021 -> 0.021 1; 되돌리면 0.021 -> 0.021. **두 전처리 조건이 별개 행이라 두 행으로 두었다.** **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.023,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency": "1 MHz",
+      "conditioning": "C90/20/65+D-24/23",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Dissipation Factor （1MHz） | C90/20/65+D-24/23 | － | 0.021〜0.023` (KEL-571 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 0.023 이다. 환산 0.023 -> 0.023 1; 되돌리면 0.023 -> 0.023. **두 전처리 조건이 별개 행이라 두 행으로 두었다.** **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Hitachi Chemical KOBELITE KEL-973 (unclad aramid/polyester epoxy laminate)",
+    "category": "composite",
+    "description": "Hitachi Chemical(현 Resonac 전신) `KOBELITE LAMINATE` 계열 무피복 적층판 `KEL-973` — 기재 Non-woven aramid fabric + Polyester fabric, 수지 에폭시, 색 Natural color. **이 카드가 이 배치에 선 이유는 하나다 — 이 표가 `specific gravity` 를 인쇄한다.** 같은 카탈로그 90쪽 중 동장적층판(MCL·CEL·EM 계열) 표 어디에도 그 행이 없는데 **무피복 적층판 표에만 있다.** 같은 규칙을 이 배치가 Sumitomo スミライト PL/EL 에서도 확인했다 — 밀도는 CCL 층이 아니라 적층판 시트 층에 있다. ",
+    "attributes": {
+     "material_class": "unclad epoxy laminate sheet (KOBELITE KEL series), base: Non-woven aramid fabric + Polyester fabric",
+     "subsystem": "pcb",
+     "role": "product",
+     "role_reason": "무피복 적층판 실부품(절연·기구 부품용 시트). 벤더가 등급명으로 인쇄한 제품이다.",
+     "role_confidence": "high",
+     "manufacturer": "Hitachi Chemical Co., Ltd. (현 Resonac Corporation)",
+     "product_series": "KOBELITE LAMINATE (KEL)",
+     "product_form": "unclad laminate sheet",
+     "aliases": [
+      "KEL-973",
+      "KEL-973",
+      "KEL973"
+     ],
+     "density_source": "`specific gravity` 행 — **라미네이트 자신의 비중**이다(수지 비중이 아니다). 시편 `t1.0mm`. x1000 은 정의상 단위 환산이다.",
+     "core7_absent_from_vendor_table": "이 표에도 **포아송비·비열·인장강도 행은 없다.** 있는 것은 `Flexural strength`·`Compressive Strength`·`Izod impact strength`·`Cleavage Strength` 다 — **인장강도가 아니다.** 열전도율 행도 없다.",
+     "vendor_lineage_note": "Hitachi Chemical → Showa Denko Materials → Resonac. 이 카탈로그는 71차 GD·72차 HD 가 쓴 Resonac MCL 카탈로그의 **선대 문서**다.",
+     "source_page": "인쇄 89쪽 / PDF 82쪽 `■Characteristics（t1.0mm）`"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "KOBE LITE LAMINATES — Characteristics (t1.0mm) (Hitachi Chemical Copper Clad Laminates 총합 카탈로그 영문판, 인쇄 89쪽 / PDF 82쪽, 90쪽)",
+    "url": null,
+    "publisher": "Hitachi Chemical Co., Ltd. (현 Resonac Corporation 의 전신)",
+    "year": 2017,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/HitachiChemical_CopperCladLaminates_FullCatalog_en_2017-03.pdf",
+    "url_note": "Wayback 로 복구한 구(舊) 히타치화성 총합 카탈로그다(2017-03판). 원 벤더 사이트가 Resonac 으로 이관되며 사라졌다. **URL 을 지어내지 않았다** — 로컬 원문 90쪽이 근거다."
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1500.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "A (as received, 원문 Condition `A`)",
+      "specimen_thickness_mm": 1.0,
+      "basis": "specific gravity of the laminate, dimensionless, x1000 -> kg/m^3",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `specific gravity | A | － | 1.5〜1.6` (KEL-973 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 1.5 이다. 환산 1.5 -> 1500 kg/m^3; 되돌리면 1500 -> 1.5. **이것은 라미네이트 자신의 비중이다 — 수지 비중이 아니다.** 같은 표의 시편은 `t1.0mm` 적층판이다. 비중은 정의상 4 ℃ 물 밀도(1000 kg/m³) 기준 무차원비이므로 x1000 은 **역산이 아니라 단위 환산**이다. **이 배치가 찾은 규칙을 두 번째 벤더에서 확인한 자리다** — 동장적층판(CCL) 표에는 比重/Specific gravity 행이 없고 **무피복 적층판(laminate sheet) 표에는 있다.** Sumitomo 의 スミライト PL/EL 이 첫 번째였다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "physical.density",
+     "value": 1600.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "A (as received, 원문 Condition `A`)",
+      "specimen_thickness_mm": 1.0,
+      "basis": "specific gravity of the laminate, dimensionless, x1000 -> kg/m^3",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `specific gravity | A | － | 1.5〜1.6` (KEL-973 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 1.6 이다. 환산 1.6 -> 1600 kg/m^3; 되돌리면 1600 -> 1.6. **이것은 라미네이트 자신의 비중이다 — 수지 비중이 아니다.** 같은 표의 시편은 `t1.0mm` 적층판이다. 비중은 정의상 4 ℃ 물 밀도(1000 kg/m³) 기준 무차원비이므로 x1000 은 **역산이 아니라 단위 환산**이다. **이 배치가 찾은 규칙을 두 번째 벤더에서 확인한 자리다** — 동장적층판(CCL) 표에는 比重/Specific gravity 행이 없고 **무피복 적층판(laminate sheet) 표에는 있다.** Sumitomo 의 スミライト PL/EL 이 첫 번째였다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 2.7e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "in-plane (X)",
+      "temperature_range_c": "30-80",
+      "heating_rate_c_per_min": 10,
+      "specimen_thickness_mm": 1.0,
+      "conditioning": "A",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `CTE *2 (30〜80℃) | X | A | 1/℃ | 27〜30x10^-6` (KEL-973 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 27 이다. 환산 27 -> 2.7e-05 1/K; 되돌리면 2.7e-05 -> 27. **원문 단위가 이미 `1/℃` 이고 값에 `x10⁻⁶` 가 붙어 있다** — ppm 표기가 아니다. `x1e-6` 은 원문이 인쇄한 지수를 그대로 편 것이다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 2.9999999999999997e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "in-plane (X)",
+      "temperature_range_c": "30-80",
+      "heating_rate_c_per_min": 10,
+      "specimen_thickness_mm": 1.0,
+      "conditioning": "A",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `CTE *2 (30〜80℃) | X | A | 1/℃ | 27〜30x10^-6` (KEL-973 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 30 이다. 환산 30 -> 3e-05 1/K; 되돌리면 3e-05 -> 30. **원문 단위가 이미 `1/℃` 이고 값에 `x10⁻⁶` 가 붙어 있다** — ppm 표기가 아니다. `x1e-6` 은 원문이 인쇄한 지수를 그대로 편 것이다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 3.7999999999999995e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "in-plane (Y)",
+      "temperature_range_c": "30-80",
+      "heating_rate_c_per_min": 10,
+      "specimen_thickness_mm": 1.0,
+      "conditioning": "A",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `CTE *2 (30〜80℃) | Y | A | 1/℃ | 38〜40x10^-6` (KEL-973 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 38 이다. 환산 38 -> 3.8e-05 1/K; 되돌리면 3.8e-05 -> 38. **원문 단위가 이미 `1/℃` 이고 값에 `x10⁻⁶` 가 붙어 있다** — ppm 표기가 아니다. `x1e-6` 은 원문이 인쇄한 지수를 그대로 편 것이다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 3.9999999999999996e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "in-plane (Y)",
+      "temperature_range_c": "30-80",
+      "heating_rate_c_per_min": 10,
+      "specimen_thickness_mm": 1.0,
+      "conditioning": "A",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `CTE *2 (30〜80℃) | Y | A | 1/℃ | 38〜40x10^-6` (KEL-973 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 40 이다. 환산 40 -> 4e-05 1/K; 되돌리면 4e-05 -> 40. **원문 단위가 이미 `1/℃` 이고 값에 `x10⁻⁶` 가 붙어 있다** — ppm 표기가 아니다. `x1e-6` 은 원문이 인쇄한 지수를 그대로 편 것이다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 200000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "warp (Length)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Flexural strength | Length | A | N/mm² | 200〜220` (KEL-973 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 200 이다. 환산 200 -> 2e+08 Pa; 되돌리면 2e+08 -> 200. N/mm² = MPa 다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 220000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "warp (Length)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Flexural strength | Length | A | N/mm² | 200〜220` (KEL-973 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 220 이다. 환산 220 -> 2.2e+08 Pa; 되돌리면 2.2e+08 -> 220. N/mm² = MPa 다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 170000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "fill (Width)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Flexural strength | Width | A | N/mm² | 170〜190` (KEL-973 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 170 이다. 환산 170 -> 1.7e+08 Pa; 되돌리면 1.7e+08 -> 170. N/mm² = MPa 다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 190000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "fill (Width)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Flexural strength | Width | A | N/mm² | 170〜190` (KEL-973 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 190 이다. 환산 190 -> 1.9e+08 Pa; 되돌리면 1.9e+08 -> 190. N/mm² = MPa 다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 7400000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "warp (Length)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Flexural Modulus | Length | A | kN/mm² | 7.4〜7.6` (KEL-973 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 7.4 이다. 환산 7.4 -> 7.4e+09 Pa; 되돌리면 7.4e+09 -> 7.4. **단위가 `kN/mm²` 다 — 1 kN/mm² = 1e3 N / 1e-6 m² = 1e9 Pa = 1 GPa** 이므로 GPa 와 수치가 같다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 7600000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "warp (Length)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Flexural Modulus | Length | A | kN/mm² | 7.4〜7.6` (KEL-973 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 7.6 이다. 환산 7.6 -> 7.6e+09 Pa; 되돌리면 7.6e+09 -> 7.6. **단위가 `kN/mm²` 다 — 1 kN/mm² = 1e3 N / 1e-6 m² = 1e9 Pa = 1 GPa** 이므로 GPa 와 수치가 같다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 6600000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "fill (Width)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Flexural Modulus | Width | A | kN/mm² | 6.6〜6.8` (KEL-973 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 하한 6.6 이다. 환산 6.6 -> 6.6e+09 Pa; 되돌리면 6.6e+09 -> 6.6. **단위가 `kN/mm²` 다 — 1 kN/mm² = 1e3 N / 1e-6 m² = 1e9 Pa = 1 GPa** 이므로 GPa 와 수치가 같다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 6800000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "orientation": "fill (Width)",
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Flexural Modulus | Width | A | kN/mm² | 6.6〜6.8` (KEL-973 열). **인쇄된 값이 구간이므로 하한·상한 두 행으로 갈랐다 — 평균 내지 않았다.** 이 행은 상한 6.8 이다. 환산 6.8 -> 6.8e+09 Pa; 되돌리면 6.8e+09 -> 6.8. **단위가 `kN/mm²` 다 — 1 kN/mm² = 1e3 N / 1e-6 m² = 1e9 Pa = 1 GPa** 이므로 GPa 와 수치가 같다. **렌더 대조** — 인쇄 89쪽(PDF 82쪽) `■Characteristics（t1.0mm）` 표를 200 dpi 로 렌더해 표 전체를 눈으로 읽었다. 렌더로 확정한 열 순서는 네 열 `KEL-GEF / KEL-GEF(R) | KEL-9383NT | KEL-571 | KEL-973` 다 — **첫 열은 머리글이 `KEL-GEF` 와 `KEL-GEF（R）` 두 줄이고 값은 한 칸이다**(두 등급이 한 열을 공유한다). 표 아래 문구 verbatim: `The contents of this report are based on the results of experiments conducted by HITACHI CHEMICAL and do not represent a guarantee of the values for each property.` 각주 verbatim: `*2）Heating Rate:10℃/min.`"
+    }
+   ]
+  }
+ ]
+}

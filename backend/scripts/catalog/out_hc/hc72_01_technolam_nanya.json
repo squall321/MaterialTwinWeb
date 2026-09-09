@@ -1,0 +1,3256 @@
+{
+ "batch": "72차 HC",
+ "materials": [
+  {
+   "new_material": {
+    "name": "Nan Ya NPG-150N / NPG-150NB Halogen-Free Low-CTE FR-4 Copper Clad Laminate",
+    "category": "composite",
+    "description": "南亞(Nan Ya) 할로겐프리 저CTE FR-4 동박적층판 `NPG-150N` 및 흑색판 `NPG-150NB`. 유럽 파트너 Technolam 이 IPC-4101 슬래시시트 서식(IPC-4101/128)으로 낸 Datenblatt 2019-02 판이 출처다. 이 서식의 특징은 **번호 붙은 1~19번 항목이 IPC-4101 요구**이고 그 아래 `20. Other / weitere` 가 **벤더가 덤으로 붙인 값**이라는 것 — 밀도·영률·비열이 바로 거기 있고 `Ref. Para.` 칸이 `-` 다. 표는 등급이 아니라 두께(<0,50 mm · >=0,50 mm)로 열이 갈린다.",
+    "attributes": {
+     "material_class": "flame-retardant woven E-glass / epoxy copper clad laminate",
+     "subsystem": "pcb",
+     "role": "product",
+     "role_reason": "제조사(Nan Ya)+등급명이 이름에 박혀 있고 출처가 해당 등급의 공식 Datenblatt 이다. 실제 PCB 적층재 제품.",
+     "role_confidence": "high",
+     "manufacturer": "Nan Ya Plastics Corporation",
+     "distributor": "Technolam GmbH",
+     "grades_covered": [
+      "NPG-150N",
+      "NPG-150NB"
+     ],
+     "ipc_spec_sheet": "IPC-4101/128",
+     "ul_ansi_id": "UL/ANSI FR-4.1/128",
+     "glass_transition_header": "150 degC minimum",
+     "aliases": [
+      "NPG-150N",
+      "NPG-150NB",
+      "NPG150N",
+      "NPG150NB",
+      "NPG-150 N",
+      "Nan Ya NPG-150N"
+     ],
+     "value_column": "원문은 등급별 열이 아니라 **두께별 열**(<0,50 mm · >=0,50 mm)로 갈린다. 한 장의 시트가 위 grades_covered 전부에 같은 값 집합을 인쇄하므로 등급을 쪼개 같은 값을 복제하지 않고 한 장으로 세웠다 — 각 등급명은 aliases 에 있다."
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Data Sheet / Datenblatt NPG-150N, NPG-150NB (Rev. Feb.19) — Performance List 1/2, 2/2",
+    "url": null,
+    "publisher": "Technolam GmbH (Nan Ya Plastics 유럽 파트너)",
+    "year": 2019,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Technolam_NanYa_NPG-150N-NPG-150NB_Datasheet_2019-02.pdf",
+    "url_note": "절대 URL 을 확정하지 못했다 — PDF 안에 canonical/og:url 이 없고 지어내지 않았다. 로컬 원문 경로가 값의 출처다."
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2000.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "resin_content": "50%",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Density (50 % resin content) / Dichte 50 % Harzgehalt  -  2,00  -  2,00  g/cm3  -  -`. 2.0 g/cm^3 x 1000 = 2000 kg/m^3; 되돌리면 2000/1000 = 2. 시험법 칸과 Ref. Para. 칸이 둘 다 `-` 다 — IPC 요구가 아니라 벤더가 덤으로 붙인 값이다. 이 값은 원문 `Property` 열(벤더 대표값)에서 왔다. 같은 행의 `Specification` 열은 IPC-4101 슬래시시트 요구(최소/최대)이지 물성이 아니므로 담지 않았다."
+    },
+    {
+     "key": "physical.density",
+     "value": 2000.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "resin_content": "50%",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Density (50 % resin content) / Dichte 50 % Harzgehalt  -  2,00  -  2,00  g/cm3  -  -`. 2.0 g/cm^3 x 1000 = 2000 kg/m^3; 되돌리면 2000/1000 = 2. 이 값은 원문 `Property` 열(벤더 대표값)에서 왔다. 같은 행의 `Specification` 열은 IPC-4101 슬래시시트 요구(최소/최대)이지 물성이 아니므로 담지 않았다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 23000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "direction": "warp",
+      "direction_verbatim": "A. Length direction / Kettrichtung",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "test_mode": "unconfirmed",
+      "grade_scope": "값 자체는 이 등급의 이 열에 인쇄된 것이고 등급 범위 문제는 없다. t3 로 내린 이유는 **시험모드 미확정**이다 — 원문 `Young's Modulus / E-Modul` 행의 `Test Method (IPC-TM-650)` 칸과 `Ref. Para.` 칸이 둘 다 `-` 다(300 dpi 렌더로 확인). 같은 표의 8번 `Flexural Strength / Biegefestigkeit` 행은 `2.4.4` 를 명시하므로 이 벤더는 적을 때는 적는다 — 여기서 안 적은 것은 누락이지 인장 확정이 아니다. 70차 FA(MGC BT `ヤング率`) · 71차 GD(Sumitomo LαZ `弾性率`) 의 선례를 따랐다.",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Young's Modulus / E-Modul  A. Length direction / Kettrichtung  -  -  -  23-25  GPa  -  -`. 인쇄된 구간의 lower 끝값 23 GPa 를 환산했다 — 23 GPa x 1e9 = 2.3e+10 Pa; 되돌리면 2.3e+10/1e9 = 23. 원문 시험법 칸 verbatim = `-` · Ref. Para. 칸 verbatim = `-` (인장/굽힘 표기 없음). 이 값은 원문 `Property` 열(벤더 대표값)에서 왔다. 같은 행의 `Specification` 열은 IPC-4101 슬래시시트 요구(최소/최대)이지 물성이 아니므로 담지 않았다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 25000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "direction": "warp",
+      "direction_verbatim": "A. Length direction / Kettrichtung",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "test_mode": "unconfirmed",
+      "grade_scope": "값 자체는 이 등급의 이 열에 인쇄된 것이고 등급 범위 문제는 없다. t3 로 내린 이유는 **시험모드 미확정**이다 — 원문 `Young's Modulus / E-Modul` 행의 `Test Method (IPC-TM-650)` 칸과 `Ref. Para.` 칸이 둘 다 `-` 다(300 dpi 렌더로 확인). 같은 표의 8번 `Flexural Strength / Biegefestigkeit` 행은 `2.4.4` 를 명시하므로 이 벤더는 적을 때는 적는다 — 여기서 안 적은 것은 누락이지 인장 확정이 아니다. 70차 FA(MGC BT `ヤング率`) · 71차 GD(Sumitomo LαZ `弾性率`) 의 선례를 따랐다.",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Young's Modulus / E-Modul  A. Length direction / Kettrichtung  -  -  -  23-25  GPa  -  -`. 인쇄된 구간의 upper 끝값 25 GPa 를 환산했다 — 25 GPa x 1e9 = 2.5e+10 Pa; 되돌리면 2.5e+10/1e9 = 25. 원문 시험법 칸 verbatim = `-` · Ref. Para. 칸 verbatim = `-` (인장/굽힘 표기 없음). 이 값은 원문 `Property` 열(벤더 대표값)에서 왔다. 같은 행의 `Specification` 열은 IPC-4101 슬래시시트 요구(최소/최대)이지 물성이 아니므로 담지 않았다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 22000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "direction": "fill",
+      "direction_verbatim": "B. Cross direction / Schussrichtung",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "test_mode": "unconfirmed",
+      "grade_scope": "값 자체는 이 등급의 이 열에 인쇄된 것이고 등급 범위 문제는 없다. t3 로 내린 이유는 **시험모드 미확정**이다 — 원문 `Young's Modulus / E-Modul` 행의 `Test Method (IPC-TM-650)` 칸과 `Ref. Para.` 칸이 둘 다 `-` 다(300 dpi 렌더로 확인). 같은 표의 8번 `Flexural Strength / Biegefestigkeit` 행은 `2.4.4` 를 명시하므로 이 벤더는 적을 때는 적는다 — 여기서 안 적은 것은 누락이지 인장 확정이 아니다. 70차 FA(MGC BT `ヤング率`) · 71차 GD(Sumitomo LαZ `弾性率`) 의 선례를 따랐다.",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Young's Modulus / E-Modul  B. Cross direction / Schussrichtung  -  -  -  22-24  GPa  -  -`. 인쇄된 구간의 lower 끝값 22 GPa 를 환산했다 — 22 GPa x 1e9 = 2.2e+10 Pa; 되돌리면 2.2e+10/1e9 = 22. 원문 시험법 칸 verbatim = `-` · Ref. Para. 칸 verbatim = `-` (인장/굽힘 표기 없음). 이 값은 원문 `Property` 열(벤더 대표값)에서 왔다. 같은 행의 `Specification` 열은 IPC-4101 슬래시시트 요구(최소/최대)이지 물성이 아니므로 담지 않았다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 24000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "direction": "fill",
+      "direction_verbatim": "B. Cross direction / Schussrichtung",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "test_mode": "unconfirmed",
+      "grade_scope": "값 자체는 이 등급의 이 열에 인쇄된 것이고 등급 범위 문제는 없다. t3 로 내린 이유는 **시험모드 미확정**이다 — 원문 `Young's Modulus / E-Modul` 행의 `Test Method (IPC-TM-650)` 칸과 `Ref. Para.` 칸이 둘 다 `-` 다(300 dpi 렌더로 확인). 같은 표의 8번 `Flexural Strength / Biegefestigkeit` 행은 `2.4.4` 를 명시하므로 이 벤더는 적을 때는 적는다 — 여기서 안 적은 것은 누락이지 인장 확정이 아니다. 70차 FA(MGC BT `ヤング率`) · 71차 GD(Sumitomo LαZ `弾性率`) 의 선례를 따랐다.",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Young's Modulus / E-Modul  B. Cross direction / Schussrichtung  -  -  -  22-24  GPa  -  -`. 인쇄된 구간의 upper 끝값 24 GPa 를 환산했다 — 24 GPa x 1e9 = 2.4e+10 Pa; 되돌리면 2.4e+10/1e9 = 24. 원문 시험법 칸 verbatim = `-` · Ref. Para. 칸 verbatim = `-` (인장/굽힘 표기 없음). 이 값은 원문 `Property` 열(벤더 대표값)에서 왔다. 같은 행의 `Specification` 열은 IPC-4101 슬래시시트 요구(최소/최대)이지 물성이 아니므로 담지 않았다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.42,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM E1461",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Thermal Conductivity l / Thermische Leitfaehigkeit lambda  -  0,42  -  0,42  W/mK  ASTM-E-1461`. 0.42 W/mK -> 0.42 W/(m*K). 원문 단위 `W/mK` 는 SI `W/(m*K)` 와 같다 — 환산 없음. 이 값은 원문 `Property` 열(벤더 대표값)에서 왔다. 같은 행의 `Specification` 열은 IPC-4101 슬래시시트 요구(최소/최대)이지 물성이 아니므로 담지 않았다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.42,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM E1461",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Thermal Conductivity l  -  0,42  -  0,42  W/mK  ASTM-E-1461`. 0.42 W/mK -> 0.42 W/(m*K). 환산 없음."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.37,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D5470",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Thermal Conductivity l  -  0,37  -  0,37  W/mK  ASTM-D-5470`. 0.37 W/mK -> 0.37 W/(m*K). 같은 물성의 다른 측정법이므로 ASTM-E-1461 행과 두 행으로 갈랐다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.37,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D5470",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Thermal Conductivity l  -  0,37  -  0,37  W/mK  ASTM-D-5470`. 0.37 W/mK -> 0.37 W/(m*K). 환산 없음."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 946.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 25,
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Specific Heat at 25 degC / Spezifische Waermekapazitaet bei 25 degC  -  0,946  -  0,946  J/g degC  -  -`. 0.946 J/(g*K) x 1000 = 946 J/(kg*K); 되돌리면 946/1000 = 0.946. 시험법 칸 `-`."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 946.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 25,
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Specific Heat at 25 degC  -  0,946  -  0,946  J/g degC  -  -`. 0.946 J/(g*K) x 1000 = 946 J/(kg*K); 되돌리면 946/1000 = 0.946."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 9e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "regime": "prior Tg",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `X/Y-Axis CTE  prior Tg / vor Tg  -  9-13  -  9-13  ppm/degC  2.4.24  3.9.1.6`. 인쇄된 구간의 lower 끝값 9 ppm/degC 를 환산했다 — 9 ppm/degC x 1e-6 = 9e-06 1/K; 되돌리면 9e-06/1e-6 = 9."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.3e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "regime": "prior Tg",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `X/Y-Axis CTE  prior Tg / vor Tg  -  9-13  -  9-13  ppm/degC  2.4.24  3.9.1.6`. 인쇄된 구간의 upper 끝값 13 ppm/degC 를 환산했다 — 13 ppm/degC x 1e-6 = 1.3e-05 1/K; 되돌리면 1.3e-05/1e-6 = 13."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 9e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "regime": "above Tg",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `X/Y-Axis CTE  above Tg / ueber Tg  -  9-13  -  9-13  ppm/degC  2.4.24  3.9.1.6`. 인쇄된 구간의 lower 끝값 9 ppm/degC 를 환산했다 — 9 ppm/degC x 1e-6 = 9e-06 1/K; 되돌리면 9e-06/1e-6 = 9. 원문이 prior Tg 와 above Tg 에 같은 구간(9-13)을 인쇄한다 — 유리크로스가 면내 팽창을 지배하므로 Tg 를 넘어도 면내 CTE 가 거의 변하지 않는다. 렌더로 두 행이 실제로 같은 값임을 확인했다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.3e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "regime": "above Tg",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `X/Y-Axis CTE  above Tg / ueber Tg  -  9-13  -  9-13  ppm/degC  2.4.24  3.9.1.6`. 인쇄된 구간의 upper 끝값 13 ppm/degC 를 환산했다 — 13 ppm/degC x 1e-6 = 1.3e-05 1/K; 되돌리면 1.3e-05/1e-6 = 13. 원문이 prior Tg 와 above Tg 에 같은 구간(9-13)을 인쇄한다 — 유리크로스가 면내 팽창을 지배하므로 Tg 를 넘어도 면내 CTE 가 거의 변하지 않는다. 렌더로 두 행이 실제로 같은 값임을 확인했다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 4.9999999999999996e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "regime": "alpha1 (prior Tg)",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `16. Z-Axis CTE  A. Alpha 1, maximum  prior Tg / vor Tg  -  50  60  50  ppm/degC  2.4.24  3.9.1.7`. 50 ppm/degC x 1e-6 = 5e-05 1/K; 되돌리면 5e-05/1e-6 = 50."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 0.00022999999999999998,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "regime": "alpha2 (above Tg)",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `16. Z-Axis CTE  B. Alpha 2, maximum  above Tg / ueber Tg  -  230  300  230  ppm/degC  2.4.24  3.9.1.7`. 230 ppm/degC x 1e-6 = 0.00023 1/K; 되돌리면 0.00023/1e-6 = 230."
+    },
+    {
+     "key": "thermal.expansion_total",
+     "value": 0.032,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "temperature_range_c": "50-260",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `16. Z-Axis CTE  C. 50 to 260 degC, maximum (Total Expansion)  -  3,2  3,5  3,2  %`. 3.2 % / 100 = 0.032; 되돌리면 0.032 x 100 = 3.2."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 450000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "warp",
+      "direction_verbatim": "A. Length direction / Kettrichtung",
+      "test_standard": "IPC-TM-650 2.4.4",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `8. Flexural Strength, minimum / Biegefestigkeit  A. Length direction  -  -  415 [60190]  450 [65267]  N/mm2  2.4.4  3.9.1.3`. 450 N/mm^2 x 1e6 = 4.5e+08 Pa; 되돌리면 4.5e+08/1e6 = 450. 원문 단위 N/mm^2 = MPa. **이 행은 굽힘이다** — 시험법 2.4.4 가 IPC-TM-650 의 굽힘강도법이다."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 390000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "fill",
+      "direction_verbatim": "B. Cross direction / Schussrichtung",
+      "test_standard": "IPC-TM-650 2.4.4",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `8. Flexural Strength  B. Cross direction  -  -  345 [50040]  390 [56565]  N/mm2  2.4.4`. 390 N/mm^2 x 1e6 = 3.9e+08 Pa; 되돌리면 3.9e+08/1e6 = 390."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 413.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "TMA",
+      "test_standard": "IPC-TM-650 2.4.24"
+     },
+     "notes": "원문 verbatim: `14. Glass Transition Temperature, minimum  TMA  -  140  150  140  degC  2.4.24  3.10.1.6`. 140 + 273.15 = 413.15 K; 되돌리면 413.15 - 273.15 = 140. Tg 는 측정법마다 다른 값이므로 TMA/DMA/DSC 를 세 행으로 갈랐다."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 433.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "DMA",
+      "test_standard": "IPC-TM-650 2.4.24.4"
+     },
+     "notes": "원문 verbatim: `14. Glass Transition Temperature  DMA  160  160  degC  2.4.24.4`. 160 + 273.15 = 433.15 K; 되돌리면 433.15 - 273.15 = 160."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 423.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "DSC",
+      "test_standard": "IPC-TM-650 2.4.25"
+     },
+     "notes": "원문 verbatim: `14. Glass Transition Temperature  DSC  150  150  degC  2.4.25`. 150 + 273.15 = 423.15 K; 되돌리면 423.15 - 273.15 = 150."
+    },
+    {
+     "key": "thermal.decomposition_temp",
+     "value": 623.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.4.24.6",
+      "basis": "5% weight loss"
+     },
+     "notes": "원문 verbatim: `15. Decomposition Temperature, minimum  325  350  325  350  degC  2.4.24.6 (5% wt loss)  3.10.1.8`. 350 + 273.15 = 623.15 K; 되돌리면 623.15 - 273.15 = 350."
+    },
+    {
+     "key": "thermal.heat_of_combustion",
+     "value": 8989000.0,
+     "unit": "J/kg",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ISO 1716"
+     },
+     "notes": "원문 verbatim: `Caloric Value / Bruttoverbrennungswaerme  -  8,989  -  8,989  MJ/kg  ISO 1716  -`. 8.989 MJ/kg x 1e6 = 8.989e+06 J/kg; 되돌리면 8.989e+06/1e6 = 8.989."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.4,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "IPC-TM-650 2.5.5.2/2.5.5.3/2.5.5.9",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `6. Permittivity at 1 MHz, maximum  5,4  4,4  5,4  4,4  -  2.5.5.2/'2.5.5.3/'2.5.5.9`. 4.4 - -> 4.4 1. 무차원."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.44,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000000.0,
+      "conditioning": "C-24/23/50",
+      "test_standard": "IPC-TM-650 2.5.5.9",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Permittivity at 1 GHz C-24/23/50  -  4,44  -  4,45  -  2.5.5.9  3.11.1.1`. 4.44 - -> 4.44 1. 무차원."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.45,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000000.0,
+      "conditioning": "C-24/23/50",
+      "test_standard": "IPC-TM-650 2.5.5.9",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Permittivity at 1 GHz C-24/23/50  -  4,44  -  4,45  -  2.5.5.9  3.11.1.1`. 4.45 - -> 4.45 1. 무차원."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.011,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "IPC-TM-650 2.5.5.2/2.5.5.3/2.5.5.9",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `7. Loss Tangent at 1 MHz, maximum  0,035  0,011  0,035  0,011  -`. 0.011 - -> 0.011 1. 무차원."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.013,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000000.0,
+      "conditioning": "C-24/23/50",
+      "test_standard": "IPC-TM-650 2.5.5.9",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Loss Tangent at 1 GHz C-24/23/50  -  0,013  -  0,013  -  2.5.5.9`. 0.013 - -> 0.013 1. 무차원."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 780.0,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "as received",
+      "copper_foil_type": "low profile / very low profile, >17 um",
+      "test_standard": "IPC-TM-650 2.4.8",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `1. Peel Strength, minimum  A. Low profile ... >17um  0,70 [4,00]  0,78 [4,50]  0,70 [4,00]  0,88 [5,00]  N/mm [lb/in]`. 0.78 N/mm x 1000 = 780 N/m; 되돌리면 780/1000 = 0.78."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 880.0,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "as received",
+      "copper_foil_type": "low profile / very low profile, >17 um",
+      "test_standard": "IPC-TM-650 2.4.8",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `1. Peel Strength  A.  0,70 [4,00]  0,78 [4,50]  0,70 [4,00]  0,88 [5,00]  N/mm [lb/in]`. 0.88 N/mm x 1000 = 880 N/m; 되돌리면 880/1000 = 0.88."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 1230.0,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "after thermal stress",
+      "copper_foil_type": "standard profile, 35 um",
+      "test_standard": "IPC-TM-650 2.4.8.2/2.4.8.3",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `1. Peel Strength  B.1. After thermal stress (35 um)  0,80 [4,57]  0,88 [5,00]  1,05 [6,00]  1,23 [7,00]  N/mm`. 1.23 N/mm x 1000 = 1230 N/m; 되돌리면 1230/1000 = 1.23."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 880.0,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "at 125 degC",
+      "temperature_c": 125,
+      "copper_foil_type": "standard profile",
+      "test_standard": "IPC-TM-650 2.4.8.2/2.4.8.3",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `1. Peel Strength  B.2. At 125 degC [257 degF]  0,70 [4,00]  0,78 [4,50]  0,70 [4,00]  0,88 [5,00]  N/mm`. 0.88 N/mm x 1000 = 880 N/m; 되돌리면 880/1000 = 0.88."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.003,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.6.2.1",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `4. Moisture Absorption, maximum / Feuchteaufnahme  -  0,30  0,80  0,10  %  2.6.2.1  3.12.1.1`. 0.3 % / 100 = 0.003; 되돌리면 0.003 x 100 = 0.3."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.001,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.6.2.1",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `4. Moisture Absorption, maximum  -  0,30  0,80  0,10  %  2.6.2.1`. 0.1 % / 100 = 0.001; 되돌리면 0.001 x 100 = 0.1."
+    },
+    {
+     "key": "electrical.arc_resistance",
+     "value": 120,
+     "unit": "s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.5.1",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `10. Arc Resistance, minimum / Lichtbogenbestaendigkeit  60  120  60  120  s  2.5.1  3.11.1.5`. 120 s -> 120 s. 환산 없음."
+    },
+    {
+     "key": "electrical.dielectric_strength",
+     "value": 40000000.0,
+     "unit": "V/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.5.6.2",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `12. Electric Strength, minimum / Spannungsfestigkeit  30  40  -  -  kV/mm  2.5.6.2`. 40 kV/mm x 1e6 = 4e+07 V/m; 되돌리면 4e+07/1e6 = 40."
+    },
+    {
+     "key": "electrical.comparative_tracking_index",
+     "value": 250,
+     "unit": "V",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D3638",
+      "bound": "lower",
+      "plc": 2
+     },
+     "notes": "원문 verbatim: `Comparative Tracking Index (CTI) / Kriechstromfestigkeit  -  2 / 250/399  -  2 / 250/399  PLC / V  ASTM-D-3638`. 250 V -> 250 V. 원문 `2 / 250/399` 는 `PLC 2 / 250~399 V` 로 읽힌다(PLC 2 의 정의 구간). 구간이므로 두 행이다."
+    },
+    {
+     "key": "electrical.comparative_tracking_index",
+     "value": 399,
+     "unit": "V",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D3638",
+      "bound": "upper",
+      "plc": 2
+     },
+     "notes": "원문 verbatim: `Comparative Tracking Index (CTI)  -  2 / 250/399  -  2 / 250/399  PLC / V  ASTM-D-3638`. 399 V -> 399 V."
+    },
+    {
+     "key": "thermal.time_to_delamination",
+     "value": 3600.0,
+     "unit": "s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "TMA, copper removed",
+      "temperature_c": 260,
+      "test_standard": "IPC-TM-650 2.4.24.1",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `17. Time to Delamination (TMA) (Copper removed)  A. T260, minimum  -  60  30  60  Minutes  2.4.24.1`. 60 min x 60 = 3600 s; 되돌리면 3600/60 = 60."
+    },
+    {
+     "key": "thermal.time_to_delamination",
+     "value": 1200.0,
+     "unit": "s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "TMA, copper removed",
+      "temperature_c": 288,
+      "test_standard": "IPC-TM-650 2.4.24.1",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `17. Time to Delamination  B. T288, minimum  -  20  5  20  Minutes  2.4.24.1`. 20 min x 60 = 1200 s; 되돌리면 1200/60 = 20."
+    },
+    {
+     "key": "thermal.time_to_delamination",
+     "value": 300.0,
+     "unit": "s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "TMA, copper removed",
+      "temperature_c": 300,
+      "test_standard": "IPC-TM-650 2.4.24.1",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `17. Time to Delamination  C. T300, minimum  -  5  AABUS  5  Minutes  2.4.24.1`. 5 min x 60 = 300 s; 되돌리면 300/60 = 5."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Nan Ya NPG-170TL / NPG-170R / NPG-170B Halogen-Free High-Tg FR-4 Copper Clad Laminate",
+    "category": "composite",
+    "description": "南亞(Nan Ya) 할로겐프리 고Tg(DSC 170 degC) FR-4 동박적층판 3등급 — 저전송손실판 `NPG-170TL`, 표준판 `NPG-170R`, 흑색판 `NPG-170B`. Technolam Datenblatt 2019-02(IPC-4101/128, 적용시트 127·130)이 출처다. 밀도·영률·비열은 IPC 요구가 아닌 `20. Other / weitere` 칸에 있고 `Ref. Para.` 가 `-` 다.",
+    "attributes": {
+     "material_class": "flame-retardant woven E-glass / epoxy copper clad laminate",
+     "subsystem": "pcb",
+     "role": "product",
+     "role_reason": "제조사(Nan Ya)+등급명이 이름에 박혀 있고 출처가 해당 등급의 공식 Datenblatt 이다. 실제 PCB 적층재 제품.",
+     "role_confidence": "high",
+     "manufacturer": "Nan Ya Plastics Corporation",
+     "distributor": "Technolam GmbH",
+     "grades_covered": [
+      "NPG-170TL",
+      "NPG-170R",
+      "NPG-170B"
+     ],
+     "ipc_spec_sheet": "IPC-4101/128",
+     "ul_ansi_id": "UL/ANSI FR-4.1/128",
+     "glass_transition_header": "150 degC minimum",
+     "aliases": [
+      "NPG-170TL",
+      "NPG-170R",
+      "NPG-170B",
+      "NPG170TL",
+      "NPG170R",
+      "NPG170B",
+      "Nan Ya NPG-170R"
+     ],
+     "value_column": "원문은 등급별 열이 아니라 **두께별 열**(<0,50 mm · >=0,50 mm)로 갈린다. 한 장의 시트가 위 grades_covered 전부에 같은 값 집합을 인쇄하므로 등급을 쪼개 같은 값을 복제하지 않고 한 장으로 세웠다 — 각 등급명은 aliases 에 있다."
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Data Sheet / Datenblatt NPG-170R, NPG-170TL, NPG-170B (Rev. Feb.19) — Performance List 1/2, 2/2",
+    "url": null,
+    "publisher": "Technolam GmbH (Nan Ya Plastics 유럽 파트너)",
+    "year": 2019,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Technolam_NanYa_NPG-170TL-NPG-170R-NPG-170B_Datasheet_2019-02.pdf",
+    "url_note": "절대 URL 을 확정하지 못했다 — PDF 안에 canonical/og:url 이 없고 지어내지 않았다. 로컬 원문 경로가 값의 출처다."
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2100.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "resin_content": "50%",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Density (50 % resin content) / Dichte 50 % Harzgehalt  -  2,10  -  2,10  g/cm3  -  -`. 2.1 g/cm^3 x 1000 = 2100 kg/m^3; 되돌리면 2100/1000 = 2.1. 시험법 칸·Ref. Para. 칸 둘 다 `-`. 이 값은 원문 `Property` 열(벤더 대표값)에서 왔다. 같은 행의 `Specification` 열은 IPC-4101 슬래시시트 요구(최소/최대)이지 물성이 아니므로 담지 않았다."
+    },
+    {
+     "key": "physical.density",
+     "value": 2100.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "resin_content": "50%",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Density (50 % resin content)  -  2,10  -  2,10  g/cm3  -  -`. 2.1 g/cm^3 x 1000 = 2100 kg/m^3; 되돌리면 2100/1000 = 2.1."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 23000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "direction": "warp",
+      "direction_verbatim": "A. Length direction / Kettrichtung",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "test_mode": "unconfirmed",
+      "grade_scope": "값 자체는 이 등급의 이 열에 인쇄된 것이고 등급 범위 문제는 없다. t3 로 내린 이유는 **시험모드 미확정**이다 — 원문 `Young's Modulus / E-Modul` 행의 `Test Method (IPC-TM-650)` 칸과 `Ref. Para.` 칸이 둘 다 `-` 다(300 dpi 렌더로 확인). 같은 표의 8번 `Flexural Strength / Biegefestigkeit` 행은 `2.4.4` 를 명시하므로 이 벤더는 적을 때는 적는다 — 여기서 안 적은 것은 누락이지 인장 확정이 아니다. 70차 FA(MGC BT `ヤング率`) · 71차 GD(Sumitomo LαZ `弾性率`) 의 선례를 따랐다.",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Young's Modulus / E-Modul  A. Length direction  -  -  -  23-25  GPa  -  -`. 인쇄된 구간의 lower 끝값 23 GPa 를 환산했다 — 23 GPa x 1e9 = 2.3e+10 Pa; 되돌리면 2.3e+10/1e9 = 23. 원문 시험법 칸 verbatim = `-` · Ref. Para. 칸 verbatim = `-` (인장/굽힘 표기 없음)."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 25000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "direction": "warp",
+      "direction_verbatim": "A. Length direction / Kettrichtung",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "test_mode": "unconfirmed",
+      "grade_scope": "값 자체는 이 등급의 이 열에 인쇄된 것이고 등급 범위 문제는 없다. t3 로 내린 이유는 **시험모드 미확정**이다 — 원문 `Young's Modulus / E-Modul` 행의 `Test Method (IPC-TM-650)` 칸과 `Ref. Para.` 칸이 둘 다 `-` 다(300 dpi 렌더로 확인). 같은 표의 8번 `Flexural Strength / Biegefestigkeit` 행은 `2.4.4` 를 명시하므로 이 벤더는 적을 때는 적는다 — 여기서 안 적은 것은 누락이지 인장 확정이 아니다. 70차 FA(MGC BT `ヤング率`) · 71차 GD(Sumitomo LαZ `弾性率`) 의 선례를 따랐다.",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Young's Modulus / E-Modul  A. Length direction  -  -  -  23-25  GPa  -  -`. 인쇄된 구간의 upper 끝값 25 GPa 를 환산했다 — 25 GPa x 1e9 = 2.5e+10 Pa; 되돌리면 2.5e+10/1e9 = 25. 원문 시험법 칸 verbatim = `-` · Ref. Para. 칸 verbatim = `-` (인장/굽힘 표기 없음)."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 22000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "direction": "fill",
+      "direction_verbatim": "B. Cross direction / Schussrichtung",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "test_mode": "unconfirmed",
+      "grade_scope": "값 자체는 이 등급의 이 열에 인쇄된 것이고 등급 범위 문제는 없다. t3 로 내린 이유는 **시험모드 미확정**이다 — 원문 `Young's Modulus / E-Modul` 행의 `Test Method (IPC-TM-650)` 칸과 `Ref. Para.` 칸이 둘 다 `-` 다(300 dpi 렌더로 확인). 같은 표의 8번 `Flexural Strength / Biegefestigkeit` 행은 `2.4.4` 를 명시하므로 이 벤더는 적을 때는 적는다 — 여기서 안 적은 것은 누락이지 인장 확정이 아니다. 70차 FA(MGC BT `ヤング率`) · 71차 GD(Sumitomo LαZ `弾性率`) 의 선례를 따랐다.",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Young's Modulus / E-Modul  B. Cross direction  -  -  -  22-24  GPa  -  -`. 인쇄된 구간의 lower 끝값 22 GPa 를 환산했다 — 22 GPa x 1e9 = 2.2e+10 Pa; 되돌리면 2.2e+10/1e9 = 22. 원문 시험법 칸 verbatim = `-` · Ref. Para. 칸 verbatim = `-` (인장/굽힘 표기 없음)."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 24000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "direction": "fill",
+      "direction_verbatim": "B. Cross direction / Schussrichtung",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "test_mode": "unconfirmed",
+      "grade_scope": "값 자체는 이 등급의 이 열에 인쇄된 것이고 등급 범위 문제는 없다. t3 로 내린 이유는 **시험모드 미확정**이다 — 원문 `Young's Modulus / E-Modul` 행의 `Test Method (IPC-TM-650)` 칸과 `Ref. Para.` 칸이 둘 다 `-` 다(300 dpi 렌더로 확인). 같은 표의 8번 `Flexural Strength / Biegefestigkeit` 행은 `2.4.4` 를 명시하므로 이 벤더는 적을 때는 적는다 — 여기서 안 적은 것은 누락이지 인장 확정이 아니다. 70차 FA(MGC BT `ヤング率`) · 71차 GD(Sumitomo LαZ `弾性率`) 의 선례를 따랐다.",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Young's Modulus / E-Modul  B. Cross direction  -  -  -  22-24  GPa  -  -`. 인쇄된 구간의 upper 끝값 24 GPa 를 환산했다 — 24 GPa x 1e9 = 2.4e+10 Pa; 되돌리면 2.4e+10/1e9 = 24. 원문 시험법 칸 verbatim = `-` · Ref. Para. 칸 verbatim = `-` (인장/굽힘 표기 없음)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.43,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM E1461",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Thermal Conductivity l  -  0,43  -  0,43  W/mK  ASTM-E-1461  3.9.1.5`. 0.43 W/mK -> 0.43 W/(m*K). 환산 없음."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.43,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM E1461",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Thermal Conductivity l  -  0,43  -  0,43  W/mK  ASTM-E-1461`. 0.43 W/mK -> 0.43 W/(m*K). 환산 없음."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.39,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D5470",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Thermal Conductivity l  -  0,39  -  0,39  W/mK  ASTM-D-5470`. 0.39 W/mK -> 0.39 W/(m*K). 환산 없음."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.39,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D5470",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Thermal Conductivity l  -  0,39  -  0,39  W/mK  ASTM-D-5470`. 0.39 W/mK -> 0.39 W/(m*K). 환산 없음."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 946.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 25,
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Specific Heat at 25 degC  -  0,946  -  0,946  J/g degC  -  -`. 0.946 J/(g*K) x 1000 = 946 J/(kg*K); 되돌리면 946/1000 = 0.946."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 946.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 25,
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Specific Heat at 25 degC  -  0,946  -  0,946  J/g degC  -  -`. 0.946 J/(g*K) x 1000 = 946 J/(kg*K); 되돌리면 946/1000 = 0.946."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 9e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "regime": "prior Tg",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `X/Y-Axis CTE  prior Tg  -  9-13  -  9-13  ppm/degC  2.4.24  3.9.1.6`. 인쇄된 구간의 lower 끝값 9 ppm/degC 를 환산했다 — 9 ppm/degC x 1e-6 = 9e-06 1/K; 되돌리면 9e-06/1e-6 = 9."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.3e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "regime": "prior Tg",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `X/Y-Axis CTE  prior Tg  -  9-13  -  9-13  ppm/degC  2.4.24  3.9.1.6`. 인쇄된 구간의 upper 끝값 13 ppm/degC 를 환산했다 — 13 ppm/degC x 1e-6 = 1.3e-05 1/K; 되돌리면 1.3e-05/1e-6 = 13."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 9e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "regime": "above Tg",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `X/Y-Axis CTE  above Tg  -  9-13  -  9-13  ppm/degC  2.4.24  3.9.1.6`. 인쇄된 구간의 lower 끝값 9 ppm/degC 를 환산했다 — 9 ppm/degC x 1e-6 = 9e-06 1/K; 되돌리면 9e-06/1e-6 = 9."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.3e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "regime": "above Tg",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `X/Y-Axis CTE  above Tg  -  9-13  -  9-13  ppm/degC  2.4.24  3.9.1.6`. 인쇄된 구간의 upper 끝값 13 ppm/degC 를 환산했다 — 13 ppm/degC x 1e-6 = 1.3e-05 1/K; 되돌리면 1.3e-05/1e-6 = 13."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 4.9999999999999996e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "regime": "alpha1 (prior Tg)",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `16. Z-Axis CTE  A. Alpha 1, maximum  -  50  60  50  ppm/degC  2.4.24`. 50 ppm/degC x 1e-6 = 5e-05 1/K; 되돌리면 5e-05/1e-6 = 50."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 0.00022999999999999998,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "regime": "alpha2 (above Tg)",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `16. Z-Axis CTE  B. Alpha 2, maximum  -  230  300  230  ppm/degC  2.4.24`. 230 ppm/degC x 1e-6 = 0.00023 1/K; 되돌리면 0.00023/1e-6 = 230."
+    },
+    {
+     "key": "thermal.expansion_total",
+     "value": 0.027000000000000003,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "temperature_range_c": "50-260",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `16. Z-Axis CTE  C. 50 to 260 degC, maximum (Total Expansion)  -  2,7  3,5  2,7  %`. 2.7 % / 100 = 0.027; 되돌리면 0.027 x 100 = 2.7."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 450000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "warp",
+      "direction_verbatim": "A. Length direction / Kettrichtung",
+      "test_standard": "IPC-TM-650 2.4.4",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `8. Flexural Strength, minimum  A. Length direction  -  -  415 [60190]  450 [65267]  N/mm2  2.4.4`. 450 N/mm^2 x 1e6 = 4.5e+08 Pa; 되돌리면 4.5e+08/1e6 = 450. **굽힘이다** — 2.4.4 는 IPC-TM-650 굽힘강도법."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 390000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "fill",
+      "direction_verbatim": "B. Cross direction / Schussrichtung",
+      "test_standard": "IPC-TM-650 2.4.4",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `8. Flexural Strength  B. Cross direction  -  -  345 [50040]  390 [56565]  N/mm2  2.4.4`. 390 N/mm^2 x 1e6 = 3.9e+08 Pa; 되돌리면 3.9e+08/1e6 = 390."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 433.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "TMA",
+      "test_standard": "IPC-TM-650 2.4.24"
+     },
+     "notes": "원문 verbatim: `14. Glass Transition Temperature, minimum  TMA  160  160  degC  2.4.24`. 160 + 273.15 = 433.15 K; 되돌리면 433.15 - 273.15 = 160."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 453.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "DMA",
+      "test_standard": "IPC-TM-650 2.4.24.4"
+     },
+     "notes": "원문 verbatim: `14. Glass Transition Temperature  DMA  180  180  degC  2.4.24.4`. 180 + 273.15 = 453.15 K; 되돌리면 453.15 - 273.15 = 180."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 443.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "DSC",
+      "test_standard": "IPC-TM-650 2.4.25"
+     },
+     "notes": "원문 verbatim: `14. Glass Transition Temperature  DSC  170  170  degC  2.4.25`. 170 + 273.15 = 443.15 K; 되돌리면 443.15 - 273.15 = 170."
+    },
+    {
+     "key": "thermal.decomposition_temp",
+     "value": 623.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.4.24.6",
+      "basis": "5% weight loss"
+     },
+     "notes": "원문 verbatim: `15. Decomposition Temperature, minimum  325  350  325  350  degC  2.4.24.6 (5% wt loss)`. 350 + 273.15 = 623.15 K; 되돌리면 623.15 - 273.15 = 350."
+    },
+    {
+     "key": "thermal.heat_of_combustion",
+     "value": 8828000.0,
+     "unit": "J/kg",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ISO 1716"
+     },
+     "notes": "원문 verbatim: `Caloric Value / Bruttoverbrennungswaerme  -  8,828  -  8,828  MJ/kg  ISO 1716`. 8.828 MJ/kg x 1e6 = 8.828e+06 J/kg; 되돌리면 8.828e+06/1e6 = 8.828."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.9,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "IPC-TM-650 2.5.5.2/2.5.5.3/2.5.5.9",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `6. Permittivity at 1 MHz, maximum  5,4  4,9  5,4  4,9  -`. 4.9 - -> 4.9 1. 무차원."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.17,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000000.0,
+      "conditioning": "C-24/23/50",
+      "test_standard": "IPC-TM-650 2.5.5.9",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Permittivity at 1 GHz C-24/23/50  -  4,17  -  4,21  -  2.5.5.9`. 4.17 - -> 4.17 1. 무차원."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.21,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000000.0,
+      "conditioning": "C-24/23/50",
+      "test_standard": "IPC-TM-650 2.5.5.9",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Permittivity at 1 GHz C-24/23/50  -  4,17  -  4,21  -  2.5.5.9`. 4.21 - -> 4.21 1. 무차원."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.01,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "IPC-TM-650 2.5.5.2/2.5.5.3/2.5.5.9",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `7. Loss Tangent at 1 MHz, maximum  0,035  0,010  0,035  0,010  -`. 0.01 - -> 0.01 1. 무차원."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.015,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000000.0,
+      "conditioning": "C-24/23/50",
+      "test_standard": "IPC-TM-650 2.5.5.9",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Loss Tangent at 1 GHz C-24/23/50  -  0,015  -  0,015  -  2.5.5.9`. 0.015 - -> 0.015 1. 무차원."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 780.0,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "as received",
+      "copper_foil_type": "low profile / very low profile, >17 um",
+      "test_standard": "IPC-TM-650 2.4.8",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `1. Peel Strength  A.  0,70 [4,00]  0,78 [4,50]  0,70 [4,00]  0,88 [5,00]  N/mm [lb/in]`. 0.78 N/mm x 1000 = 780 N/m; 되돌리면 780/1000 = 0.78."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 880.0,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "as received",
+      "copper_foil_type": "low profile / very low profile, >17 um",
+      "test_standard": "IPC-TM-650 2.4.8",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `1. Peel Strength  A.  0,70 [4,00]  0,78 [4,50]  0,70 [4,00]  0,88 [5,00]  N/mm [lb/in]`. 0.88 N/mm x 1000 = 880 N/m; 되돌리면 880/1000 = 0.88."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 1230.0,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "after thermal stress",
+      "copper_foil_type": "standard profile, 35 um",
+      "test_standard": "IPC-TM-650 2.4.8.2/2.4.8.3",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `1. Peel Strength  B.1. After thermal stress (35 um)  0,80 [4,57]  0,88 [5,00]  1,05 [6,00]  1,23 [7,00]`. 1.23 N/mm x 1000 = 1230 N/m; 되돌리면 1230/1000 = 1.23."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.003,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.6.2.1",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `4. Moisture Absorption, maximum  -  0,30  0,80  0,10  %  2.6.2.1`. 0.3 % / 100 = 0.003; 되돌리면 0.003 x 100 = 0.3."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.001,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.6.2.1",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `4. Moisture Absorption, maximum  -  0,30  0,80  0,10  %  2.6.2.1`. 0.1 % / 100 = 0.001; 되돌리면 0.001 x 100 = 0.1."
+    },
+    {
+     "key": "electrical.arc_resistance",
+     "value": 120,
+     "unit": "s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.5.1",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `10. Arc Resistance, minimum  60  120  60  120  s  2.5.1`. 120 s -> 120 s. 환산 없음."
+    },
+    {
+     "key": "electrical.dielectric_strength",
+     "value": 40000000.0,
+     "unit": "V/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.5.6.2",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `12. Electric Strength, minimum  30  40  -  -  kV/mm  2.5.6.2`. 40 kV/mm x 1e6 = 4e+07 V/m; 되돌리면 4e+07/1e6 = 40."
+    },
+    {
+     "key": "thermal.time_to_delamination",
+     "value": 3600.0,
+     "unit": "s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "TMA, copper removed",
+      "temperature_c": 260,
+      "test_standard": "IPC-TM-650 2.4.24.1",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `17. Time to Delamination  A. T260, minimum  -  60  30  60  Minutes`. 60 min x 60 = 3600 s; 되돌리면 3600/60 = 60."
+    },
+    {
+     "key": "thermal.time_to_delamination",
+     "value": 1200.0,
+     "unit": "s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "TMA, copper removed",
+      "temperature_c": 288,
+      "test_standard": "IPC-TM-650 2.4.24.1",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `17. Time to Delamination  B. T288, minimum  -  20  5  20  Minutes`. 20 min x 60 = 1200 s; 되돌리면 1200/60 = 20."
+    },
+    {
+     "key": "electrical.comparative_tracking_index",
+     "value": 250,
+     "unit": "V",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D3638",
+      "bound": "lower",
+      "plc": 2
+     },
+     "notes": "원문 verbatim: `Comparative Tracking Index (CTI)  -  2 / 250/399  -  2 / 250/399  PLC / V  ASTM-D-3638`. 250 V -> 250 V. `2 / 250/399` = PLC 2 / 250~399 V. 구간이므로 두 행."
+    },
+    {
+     "key": "electrical.comparative_tracking_index",
+     "value": 399,
+     "unit": "V",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D3638",
+      "bound": "upper",
+      "plc": 2
+     },
+     "notes": "원문 verbatim: `Comparative Tracking Index (CTI)  -  2 / 250/399  -  2 / 250/399  PLC / V`. 399 V -> 399 V."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Nan Ya NPG-170DTL / NPG-170DR / NPG-170DB Halogen-Free Low-Dk High-Tg FR-4 Laminate",
+    "category": "composite",
+    "description": "南亞(Nan Ya) 할로겐프리 저유전율(Dk 1 GHz 3,9~4,0) 고Tg FR-4 동박적층판 3등급 — `NPG-170DTL`(저전송손실), `NPG-170DR`, `NPG-170DB`(흑색). Technolam Datenblatt 2019-02(IPC-4101/128, 적용시트 127·128). 이 시트는 형제 시트와 달리 **밀도가 2,15 g/cm3 로 더 높고**(무기 필러가 더 많다) **열전도율 ASTM-E-1461 칸이 `-` 이며 ASTM-D-5470 만 0,53 W/mK 를 찍는다** — 없는 칸을 채우지 않았다.",
+    "attributes": {
+     "material_class": "flame-retardant woven E-glass / epoxy copper clad laminate",
+     "subsystem": "pcb",
+     "role": "product",
+     "role_reason": "제조사(Nan Ya)+등급명이 이름에 박혀 있고 출처가 해당 등급의 공식 Datenblatt 이다. 실제 PCB 적층재 제품.",
+     "role_confidence": "high",
+     "manufacturer": "Nan Ya Plastics Corporation",
+     "distributor": "Technolam GmbH",
+     "grades_covered": [
+      "NPG-170DTL",
+      "NPG-170DR",
+      "NPG-170DB"
+     ],
+     "ipc_spec_sheet": "IPC-4101/128",
+     "ul_ansi_id": "UL/ANSI FR-4.1/128",
+     "glass_transition_header": "150 degC minimum",
+     "aliases": [
+      "NPG-170DTL",
+      "NPG-170DR",
+      "NPG-170DB",
+      "NPG170DTL",
+      "NPG170DR",
+      "NPG170DB"
+     ],
+     "value_column": "원문은 등급별 열이 아니라 **두께별 열**(<0,50 mm · >=0,50 mm)로 갈린다. 한 장의 시트가 위 grades_covered 전부에 같은 값 집합을 인쇄하므로 등급을 쪼개 같은 값을 복제하지 않고 한 장으로 세웠다 — 각 등급명은 aliases 에 있다."
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Data Sheet / Datenblatt NPG-170DTL, NPG-170DR, NPG-170DB (Rev. Feb.19) — Performance List 1/2, 2/2",
+    "url": null,
+    "publisher": "Technolam GmbH (Nan Ya Plastics 유럽 파트너)",
+    "year": 2019,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Technolam_NanYa_NPG-170DTL-NPG-170DR-NPG-170DB_Datasheet_2019-02.pdf",
+    "url_note": "절대 URL 을 확정하지 못했다 — PDF 안에 canonical/og:url 이 없고 지어내지 않았다. 로컬 원문 경로가 값의 출처다."
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2150.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "resin_content": "50%",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Density (50 % resin content) / Dichte 50 % Harzgehalt  -  2,15  -  2,15  g/cm3  -  -`. 2.15 g/cm^3 x 1000 = 2150 kg/m^3; 되돌리면 2150/1000 = 2.15. 시험법 칸·Ref. Para. 칸 둘 다 `-`. 이 값은 원문 `Property` 열(벤더 대표값)에서 왔다. 같은 행의 `Specification` 열은 IPC-4101 슬래시시트 요구(최소/최대)이지 물성이 아니므로 담지 않았다."
+    },
+    {
+     "key": "physical.density",
+     "value": 2150.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "resin_content": "50%",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Density (50 % resin content)  -  2,15  -  2,15  g/cm3  -  -`. 2.15 g/cm^3 x 1000 = 2150 kg/m^3; 되돌리면 2150/1000 = 2.15."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 24000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "direction": "warp",
+      "direction_verbatim": "A. Length direction / Kettrichtung",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "test_mode": "unconfirmed",
+      "grade_scope": "값 자체는 이 등급의 이 열에 인쇄된 것이고 등급 범위 문제는 없다. t3 로 내린 이유는 **시험모드 미확정**이다 — 원문 `Young's Modulus / E-Modul` 행의 `Test Method (IPC-TM-650)` 칸과 `Ref. Para.` 칸이 둘 다 `-` 다(300 dpi 렌더로 확인). 같은 표의 8번 `Flexural Strength / Biegefestigkeit` 행은 `2.4.4` 를 명시하므로 이 벤더는 적을 때는 적는다 — 여기서 안 적은 것은 누락이지 인장 확정이 아니다. 70차 FA(MGC BT `ヤング率`) · 71차 GD(Sumitomo LαZ `弾性率`) 의 선례를 따랐다."
+     },
+     "notes": "원문 verbatim: `Young's Modulus / E-Modul  A. Length direction  -  24  -  24  GPa  -  -`. 24 GPa x 1e9 = 2.4e+10 Pa; 되돌리면 2.4e+10/1e9 = 24. 원문 시험법 칸 verbatim = `-` · Ref. Para. 칸 verbatim = `-` (인장/굽힘 표기 없음). 이 시트는 형제와 달리 구간이 아니라 단일값을 찍는다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 24000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "direction": "warp",
+      "direction_verbatim": "A. Length direction / Kettrichtung",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "test_mode": "unconfirmed",
+      "grade_scope": "값 자체는 이 등급의 이 열에 인쇄된 것이고 등급 범위 문제는 없다. t3 로 내린 이유는 **시험모드 미확정**이다 — 원문 `Young's Modulus / E-Modul` 행의 `Test Method (IPC-TM-650)` 칸과 `Ref. Para.` 칸이 둘 다 `-` 다(300 dpi 렌더로 확인). 같은 표의 8번 `Flexural Strength / Biegefestigkeit` 행은 `2.4.4` 를 명시하므로 이 벤더는 적을 때는 적는다 — 여기서 안 적은 것은 누락이지 인장 확정이 아니다. 70차 FA(MGC BT `ヤング率`) · 71차 GD(Sumitomo LαZ `弾性率`) 의 선례를 따랐다."
+     },
+     "notes": "원문 verbatim: `Young's Modulus / E-Modul  A. Length direction  -  24  -  24  GPa  -  -`. 24 GPa x 1e9 = 2.4e+10 Pa; 되돌리면 2.4e+10/1e9 = 24. 원문 시험법 칸 verbatim = `-` · Ref. Para. 칸 verbatim = `-` (인장/굽힘 표기 없음)."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 22000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "direction": "fill",
+      "direction_verbatim": "B. Cross direction / Schussrichtung",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "test_mode": "unconfirmed",
+      "grade_scope": "값 자체는 이 등급의 이 열에 인쇄된 것이고 등급 범위 문제는 없다. t3 로 내린 이유는 **시험모드 미확정**이다 — 원문 `Young's Modulus / E-Modul` 행의 `Test Method (IPC-TM-650)` 칸과 `Ref. Para.` 칸이 둘 다 `-` 다(300 dpi 렌더로 확인). 같은 표의 8번 `Flexural Strength / Biegefestigkeit` 행은 `2.4.4` 를 명시하므로 이 벤더는 적을 때는 적는다 — 여기서 안 적은 것은 누락이지 인장 확정이 아니다. 70차 FA(MGC BT `ヤング率`) · 71차 GD(Sumitomo LαZ `弾性率`) 의 선례를 따랐다."
+     },
+     "notes": "원문 verbatim: `Young's Modulus / E-Modul  B. Cross direction  -  22  -  22  GPa  -  -`. 22 GPa x 1e9 = 2.2e+10 Pa; 되돌리면 2.2e+10/1e9 = 22. 원문 시험법 칸 verbatim = `-` · Ref. Para. 칸 verbatim = `-` (인장/굽힘 표기 없음)."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 22000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "direction": "fill",
+      "direction_verbatim": "B. Cross direction / Schussrichtung",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "test_mode": "unconfirmed",
+      "grade_scope": "값 자체는 이 등급의 이 열에 인쇄된 것이고 등급 범위 문제는 없다. t3 로 내린 이유는 **시험모드 미확정**이다 — 원문 `Young's Modulus / E-Modul` 행의 `Test Method (IPC-TM-650)` 칸과 `Ref. Para.` 칸이 둘 다 `-` 다(300 dpi 렌더로 확인). 같은 표의 8번 `Flexural Strength / Biegefestigkeit` 행은 `2.4.4` 를 명시하므로 이 벤더는 적을 때는 적는다 — 여기서 안 적은 것은 누락이지 인장 확정이 아니다. 70차 FA(MGC BT `ヤング率`) · 71차 GD(Sumitomo LαZ `弾性率`) 의 선례를 따랐다."
+     },
+     "notes": "원문 verbatim: `Young's Modulus / E-Modul  B. Cross direction  -  22  -  22  GPa  -  -`. 22 GPa x 1e9 = 2.2e+10 Pa; 되돌리면 2.2e+10/1e9 = 22. 원문 시험법 칸 verbatim = `-` · Ref. Para. 칸 verbatim = `-` (인장/굽힘 표기 없음)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.53,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D5470",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Thermal Conductivity l  -  -  -  -  ASTM-E-1461 / -  0,53  -  0,53  W/mK  ASTM-D-5470`. 0.53 W/mK -> 0.53 W/(m*K). 환산 없음. **ASTM-E-1461 행은 네 칸 전부 `-` 라 담지 않았다** — 형제 시트에는 값이 있으나 이 시트에는 없다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.53,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D5470",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Thermal Conductivity l  -  0,53  -  0,53  W/mK  ASTM-D-5470`. 0.53 W/mK -> 0.53 W/(m*K). 환산 없음."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 950.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 25,
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Specific Heat at 25 degC  -  0,95  -  0,95  J/g degC  -  -`. 0.95 J/(g*K) x 1000 = 950 J/(kg*K); 되돌리면 950/1000 = 0.95."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 950.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 25,
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Specific Heat at 25 degC  -  0,95  -  0,95  J/g degC  -  -`. 0.95 J/(g*K) x 1000 = 950 J/(kg*K); 되돌리면 950/1000 = 0.95."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 9e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "regime": "prior Tg",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `X/Y-Axis CTE  prior Tg  -  9-13  -  9-13  ppm/degC  2.4.24`. 인쇄된 구간의 lower 끝값 9 ppm/degC 를 환산했다 — 9 ppm/degC x 1e-6 = 9e-06 1/K; 되돌리면 9e-06/1e-6 = 9."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.3e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "regime": "prior Tg",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `X/Y-Axis CTE  prior Tg  -  9-13  -  9-13  ppm/degC  2.4.24`. 인쇄된 구간의 upper 끝값 13 ppm/degC 를 환산했다 — 13 ppm/degC x 1e-6 = 1.3e-05 1/K; 되돌리면 1.3e-05/1e-6 = 13."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 9e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "regime": "above Tg",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `X/Y-Axis CTE  above Tg  -  9-13  -  9-13  ppm/degC  2.4.24`. 인쇄된 구간의 lower 끝값 9 ppm/degC 를 환산했다 — 9 ppm/degC x 1e-6 = 9e-06 1/K; 되돌리면 9e-06/1e-6 = 9."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.3e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "regime": "above Tg",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `X/Y-Axis CTE  above Tg  -  9-13  -  9-13  ppm/degC  2.4.24`. 인쇄된 구간의 upper 끝값 13 ppm/degC 를 환산했다 — 13 ppm/degC x 1e-6 = 1.3e-05 1/K; 되돌리면 1.3e-05/1e-6 = 13."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 2.9999999999999997e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "regime": "alpha1 (prior Tg)",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `16. Z-Axis CTE  A. Alpha 1, maximum  -  30-40  60  30-40  ppm/degC  2.4.24`. 인쇄된 구간의 lower 끝값 30 ppm/degC 를 환산했다 — 30 ppm/degC x 1e-6 = 3e-05 1/K; 되돌리면 3e-05/1e-6 = 30."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 3.9999999999999996e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "regime": "alpha1 (prior Tg)",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `16. Z-Axis CTE  A. Alpha 1, maximum  -  30-40  60  30-40  ppm/degC  2.4.24`. 인쇄된 구간의 upper 끝값 40 ppm/degC 를 환산했다 — 40 ppm/degC x 1e-6 = 4e-05 1/K; 되돌리면 4e-05/1e-6 = 40."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 0.00019999999999999998,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "regime": "alpha2 (above Tg)",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `16. Z-Axis CTE  B. Alpha 2, maximum  -  200-230  300  200-230  ppm/degC  2.4.24`. 인쇄된 구간의 lower 끝값 200 ppm/degC 를 환산했다 — 200 ppm/degC x 1e-6 = 0.0002 1/K; 되돌리면 0.0002/1e-6 = 200."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 0.00022999999999999998,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "regime": "alpha2 (above Tg)",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `16. Z-Axis CTE  B. Alpha 2, maximum  -  200-230  300  200-230  ppm/degC  2.4.24`. 인쇄된 구간의 upper 끝값 230 ppm/degC 를 환산했다 — 230 ppm/degC x 1e-6 = 0.00023 1/K; 되돌리면 0.00023/1e-6 = 230."
+    },
+    {
+     "key": "thermal.expansion_total",
+     "value": 0.03,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "temperature_range_c": "50-260",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `16. Z-Axis CTE  C. 50 to 260 degC, maximum (Total Expansion)  -  3,0  3,0  3,0  %`. 3.0 % / 100 = 0.03; 되돌리면 0.03 x 100 = 3."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 475000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "warp",
+      "direction_verbatim": "A. Length direction / Kettrichtung",
+      "test_standard": "IPC-TM-650 2.4.4",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `8. Flexural Strength, minimum  A. Length direction  -  <blank>  415 [60190]  475-550  N/mm2  2.4.4`. 인쇄된 구간의 lower 끝값 475 N/mm^2 를 환산했다 — 475 N/mm^2 x 1e6 = 4.75e+08 Pa; 되돌리면 4.75e+08/1e6 = 475. N/mm^2 = MPa. **굽힘이다**(2.4.4)."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 550000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "warp",
+      "direction_verbatim": "A. Length direction / Kettrichtung",
+      "test_standard": "IPC-TM-650 2.4.4",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `8. Flexural Strength, minimum  A. Length direction  -  <blank>  415 [60190]  475-550  N/mm2  2.4.4`. 인쇄된 구간의 upper 끝값 550 N/mm^2 를 환산했다 — 550 N/mm^2 x 1e6 = 5.5e+08 Pa; 되돌리면 5.5e+08/1e6 = 550. N/mm^2 = MPa. **굽힘이다**(2.4.4)."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 360000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "fill",
+      "direction_verbatim": "B. Cross direction / Schussrichtung",
+      "test_standard": "IPC-TM-650 2.4.4",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `8. Flexural Strength  B. Cross direction  -  <blank>  345 [50040]  360-440  N/mm2  2.4.4`. 인쇄된 구간의 lower 끝값 360 N/mm^2 를 환산했다 — 360 N/mm^2 x 1e6 = 3.6e+08 Pa; 되돌리면 3.6e+08/1e6 = 360."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 440000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "fill",
+      "direction_verbatim": "B. Cross direction / Schussrichtung",
+      "test_standard": "IPC-TM-650 2.4.4",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `8. Flexural Strength  B. Cross direction  -  <blank>  345 [50040]  360-440  N/mm2  2.4.4`. 인쇄된 구간의 upper 끝값 440 N/mm^2 를 환산했다 — 440 N/mm^2 x 1e6 = 4.4e+08 Pa; 되돌리면 4.4e+08/1e6 = 440."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 365000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "warp",
+      "regime": "at elevated temperature",
+      "test_standard": "IPC-TM-650 2.4.4.1",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `9. Flexural Strength at Elevated Temperature length direction, minimum  -  365  -  385  N/mm2  2.4.4.1`. 365 N/mm^2 x 1e6 = 3.65e+08 Pa; 되돌리면 3.65e+08/1e6 = 365. 원문이 시험온도를 적지 않는다 — 온도 조건을 지어내지 않고 `regime` 에 원문 표기만 남겼다."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 385000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "warp",
+      "regime": "at elevated temperature",
+      "test_standard": "IPC-TM-650 2.4.4.1",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `9. Flexural Strength at Elevated Temperature length direction, minimum  -  365  -  385  N/mm2  2.4.4.1`. 385 N/mm^2 x 1e6 = 3.85e+08 Pa; 되돌리면 3.85e+08/1e6 = 385. 원문이 시험온도를 적지 않는다."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 433.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "TMA",
+      "test_standard": "IPC-TM-650 2.4.24"
+     },
+     "notes": "원문 verbatim: `14. Glass Transition Temperature, minimum  TMA  160  160  degC  2.4.24`. 160 + 273.15 = 433.15 K; 되돌리면 433.15 - 273.15 = 160."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 453.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "DMA",
+      "test_standard": "IPC-TM-650 2.4.24.4"
+     },
+     "notes": "원문 verbatim: `14. Glass Transition Temperature  DMA  180  180  degC  2.4.24.4`. 180 + 273.15 = 453.15 K; 되돌리면 453.15 - 273.15 = 180."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 443.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "DSC",
+      "test_standard": "IPC-TM-650 2.4.25"
+     },
+     "notes": "원문 verbatim: `14. Glass Transition Temperature  DSC  170  170  degC  2.4.25`. 170 + 273.15 = 443.15 K; 되돌리면 443.15 - 273.15 = 170."
+    },
+    {
+     "key": "thermal.decomposition_temp",
+     "value": 653.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.4.24.6",
+      "basis": "5% weight loss"
+     },
+     "notes": "원문 verbatim: `15. Decomposition Temperature, minimum  340  380  340  380  degC  2.4.24.6 (5% wt loss)`. 380 + 273.15 = 653.15 K; 되돌리면 653.15 - 273.15 = 380."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.03,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "IPC-TM-650 2.5.5.2/2.5.5.3/2.5.5.9",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `6. Permittivity at 1 MHz, maximum  5,4  4,03  5,4  4,04  -`. 4.03 - -> 4.03 1. 무차원."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.04,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "IPC-TM-650 2.5.5.2/2.5.5.3/2.5.5.9",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `6. Permittivity at 1 MHz, maximum  5,4  4,03  5,4  4,04  -`. 4.04 - -> 4.04 1. 무차원."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 3.9,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000000.0,
+      "conditioning": "C-24/23/50",
+      "test_standard": "IPC-TM-650 2.5.5.9",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Permittivity at 1 GHz C-24/23/50  -  3,9-4,0  -  3,9-4,0  -  2.5.5.9`. 인쇄된 구간의 lower 끝값 3.9 - 를 환산했다 — 3.9 - -> 3.9 1. 무차원."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.0,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000000.0,
+      "conditioning": "C-24/23/50",
+      "test_standard": "IPC-TM-650 2.5.5.9",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Permittivity at 1 GHz C-24/23/50  -  3,9-4,0  -  3,9-4,0  -  2.5.5.9`. 인쇄된 구간의 upper 끝값 4.0 - 를 환산했다 — 4.0 - -> 4 1. 무차원."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.005,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "IPC-TM-650 2.5.5.2/2.5.5.3/2.5.5.9",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `7. Loss Tangent at 1 MHz, maximum  0,035  0,005-0,006  0,035  0,005-0,006  -`. 인쇄된 구간의 lower 끝값 0.005 - 를 환산했다 — 0.005 - -> 0.005 1. 무차원."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.006,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "IPC-TM-650 2.5.5.2/2.5.5.3/2.5.5.9",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `7. Loss Tangent at 1 MHz, maximum  0,035  0,005-0,006  0,035  0,005-0,006  -`. 인쇄된 구간의 upper 끝값 0.006 - 를 환산했다 — 0.006 - -> 0.006 1. 무차원."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.005,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000000.0,
+      "conditioning": "C-24/23/50",
+      "test_standard": "IPC-TM-650 2.5.5.9",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Loss Tangent at 1 GHz C-24/23/50  -  0,005-0,006  -  0,005-0,006  -  2.5.5.9`. 인쇄된 구간의 lower 끝값 0.005 - 를 환산했다 — 0.005 - -> 0.005 1. 무차원."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.006,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000000.0,
+      "conditioning": "C-24/23/50",
+      "test_standard": "IPC-TM-650 2.5.5.9",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Loss Tangent at 1 GHz C-24/23/50  -  0,005-0,006  -  0,005-0,006  -  2.5.5.9`. 인쇄된 구간의 upper 끝값 0.006 - 를 환산했다 — 0.006 - -> 0.006 1. 무차원."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 1230.0,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "as received",
+      "copper_foil_type": "low profile / very low profile, >17 um",
+      "test_standard": "IPC-TM-650 2.4.8",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `1. Peel Strength  A.  0,70 [4,00]  1,23-1,40  0,70 [4,00]  1,23-1,40  N/mm [lb/in]`. 인쇄된 구간의 lower 끝값 1.23 N/mm 를 환산했다 — 1.23 N/mm x 1000 = 1230 N/m; 되돌리면 1230/1000 = 1.23."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 1400.0,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "as received",
+      "copper_foil_type": "low profile / very low profile, >17 um",
+      "test_standard": "IPC-TM-650 2.4.8",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `1. Peel Strength  A.  0,70 [4,00]  1,23-1,40  0,70 [4,00]  1,23-1,40  N/mm [lb/in]`. 인쇄된 구간의 upper 끝값 1.4 N/mm 를 환산했다 — 1.4 N/mm x 1000 = 1400 N/m; 되돌리면 1400/1000 = 1.4."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 1210.0,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "after thermal stress",
+      "copper_foil_type": "standard profile, 35 um",
+      "test_standard": "IPC-TM-650 2.4.8.2/2.4.8.3",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `1. Peel Strength  B.1. After thermal stress (35 um)  0,80 [4,57]  1,21  1,05 [6,00]  1,21`. 1.21 N/mm x 1000 = 1210 N/m; 되돌리면 1210/1000 = 1.21."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 1150.0,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "at 125 degC",
+      "temperature_c": 125,
+      "copper_foil_type": "standard profile",
+      "test_standard": "IPC-TM-650 2.4.8.2/2.4.8.3",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `1. Peel Strength  B.2. At 125 degC [257 degF]  0,70 [4,00]  1,15  0,70 [4,00]  1,15`. 1.15 N/mm x 1000 = 1150 N/m; 되돌리면 1150/1000 = 1.15."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.002,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.6.2.1",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `4. Moisture Absorption, maximum  -  0,2-0,3  0,80  0,2-0,3  %  2.6.2.1`. 인쇄된 구간의 lower 끝값 0.2 % 를 환산했다 — 0.2 % / 100 = 0.002; 되돌리면 0.002 x 100 = 0.2."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.003,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.6.2.1",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `4. Moisture Absorption, maximum  -  0,2-0,3  0,80  0,2-0,3  %  2.6.2.1`. 인쇄된 구간의 upper 끝값 0.3 % 를 환산했다 — 0.3 % / 100 = 0.003; 되돌리면 0.003 x 100 = 0.3."
+    },
+    {
+     "key": "electrical.dielectric_strength",
+     "value": 48000000.0,
+     "unit": "V/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.5.6.2",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `12. Electric Strength, minimum  30  48  -  48  kV/mm  2.5.6.2`. 48 kV/mm x 1e6 = 4.8e+07 V/m; 되돌리면 4.8e+07/1e6 = 48."
+    },
+    {
+     "key": "electrical.dielectric_strength",
+     "value": 48000000.0,
+     "unit": "V/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.5.6.2",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `12. Electric Strength, minimum  30  48  -  48  kV/mm  2.5.6.2`. 48 kV/mm x 1e6 = 4.8e+07 V/m; 되돌리면 4.8e+07/1e6 = 48."
+    },
+    {
+     "key": "thermal.time_to_delamination",
+     "value": 3600.0,
+     "unit": "s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "TMA, copper removed",
+      "temperature_c": 260,
+      "test_standard": "IPC-TM-650 2.4.24.1",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `17. Time to Delamination  A. T260, minimum  -  60  30  60  Minutes`. 60 min x 60 = 3600 s; 되돌리면 3600/60 = 60."
+    },
+    {
+     "key": "thermal.time_to_delamination",
+     "value": 3600.0,
+     "unit": "s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "TMA, copper removed",
+      "temperature_c": 288,
+      "test_standard": "IPC-TM-650 2.4.24.1",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `17. Time to Delamination  B. T288, minimum  -  60  15  60  Minutes`. 60 min x 60 = 3600 s; 되돌리면 3600/60 = 60."
+    },
+    {
+     "key": "thermal.time_to_delamination",
+     "value": 2400.0,
+     "unit": "s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "TMA, copper removed",
+      "temperature_c": 300,
+      "test_standard": "IPC-TM-650 2.4.24.1",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `17. Time to Delamination  C. T300, minimum  -  40  2  40  Minutes`. 40 min x 60 = 2400 s; 되돌리면 2400/60 = 40."
+    },
+    {
+     "key": "electrical.comparative_tracking_index",
+     "value": 250,
+     "unit": "V",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D3638",
+      "bound": "lower",
+      "plc": 2
+     },
+     "notes": "원문 verbatim: `Comparative Tracking Index (CTI)  -  2 / 250/399  -  2 / 250/399  PLC / V  ASTM-D-3638`. 250 V -> 250 V. `2 / 250/399` = PLC 2 / 250~399 V."
+    },
+    {
+     "key": "electrical.comparative_tracking_index",
+     "value": 399,
+     "unit": "V",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D3638",
+      "bound": "upper",
+      "plc": 2
+     },
+     "notes": "원문 verbatim: `Comparative Tracking Index (CTI)  -  2 / 250/399  -  2 / 250/399  PLC / V`. 399 V -> 399 V."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Nan Ya NPG-180BH / NPG-180BHB Halogen-Free High-Tg Low-CTE FR-4 Laminate",
+    "category": "composite",
+    "description": "南亞(Nan Ya) 할로겐프리 고Tg(DMA 190 degC) 저CTE FR-4 동박적층판 `NPG-180BH` 와 흑색판 `NPG-180BHB`. Technolam Datenblatt 2019-08(IPC-4101/128, 적용시트 127·128). z축 alpha2 가 135~150 ppm/degC 로 형제 등급의 절반 수준이고 총팽창(50~260 degC)이 1,6 % 다.",
+    "attributes": {
+     "material_class": "flame-retardant woven E-glass / epoxy copper clad laminate",
+     "subsystem": "pcb",
+     "role": "product",
+     "role_reason": "제조사(Nan Ya)+등급명이 이름에 박혀 있고 출처가 해당 등급의 공식 Datenblatt 이다. 실제 PCB 적층재 제품.",
+     "role_confidence": "high",
+     "manufacturer": "Nan Ya Plastics Corporation",
+     "distributor": "Technolam GmbH",
+     "grades_covered": [
+      "NPG-180BH",
+      "NPG-180BHB"
+     ],
+     "ipc_spec_sheet": "IPC-4101/128",
+     "ul_ansi_id": "UL/ANSI FR-4.1/128",
+     "glass_transition_header": "150 degC minimum",
+     "aliases": [
+      "NPG-180BH",
+      "NPG-180BHB",
+      "NPG180BH",
+      "NPG180BHB"
+     ],
+     "value_column": "원문은 등급별 열이 아니라 **두께별 열**(<0,50 mm · >=0,50 mm)로 갈린다. 한 장의 시트가 위 grades_covered 전부에 같은 값 집합을 인쇄하므로 등급을 쪼개 같은 값을 복제하지 않고 한 장으로 세웠다 — 각 등급명은 aliases 에 있다."
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Data Sheet / Datenblatt NPG-180BH, NPG-180BHB (Rev. Aug.19) — Performance List 1/2, 2/2",
+    "url": null,
+    "publisher": "Technolam GmbH (Nan Ya Plastics 유럽 파트너)",
+    "year": 2019,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Technolam_NanYa_NPG-180BH-NPG-180BHB_Datasheet_2019-08.pdf",
+    "url_note": "절대 URL 을 확정하지 못했다 — PDF 안에 canonical/og:url 이 없고 지어내지 않았다. 로컬 원문 경로가 값의 출처다."
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2100.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "resin_content": "50%",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Density (50 % resin content) / Dichte 50 % Harzgehalt  -  2,10  -  2,10  g/cm3  -  -`. 2.1 g/cm^3 x 1000 = 2100 kg/m^3; 되돌리면 2100/1000 = 2.1. 시험법 칸·Ref. Para. 칸 둘 다 `-`. 이 값은 원문 `Property` 열(벤더 대표값)에서 왔다. 같은 행의 `Specification` 열은 IPC-4101 슬래시시트 요구(최소/최대)이지 물성이 아니므로 담지 않았다."
+    },
+    {
+     "key": "physical.density",
+     "value": 2100.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "resin_content": "50%",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Density (50 % resin content)  -  2,10  -  2,10  g/cm3  -  -`. 2.1 g/cm^3 x 1000 = 2100 kg/m^3; 되돌리면 2100/1000 = 2.1."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 24000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "direction": "warp",
+      "direction_verbatim": "A. Length direction / Kettrichtung",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "test_mode": "unconfirmed",
+      "grade_scope": "값 자체는 이 등급의 이 열에 인쇄된 것이고 등급 범위 문제는 없다. t3 로 내린 이유는 **시험모드 미확정**이다 — 원문 `Young's Modulus / E-Modul` 행의 `Test Method (IPC-TM-650)` 칸과 `Ref. Para.` 칸이 둘 다 `-` 다(300 dpi 렌더로 확인). 같은 표의 8번 `Flexural Strength / Biegefestigkeit` 행은 `2.4.4` 를 명시하므로 이 벤더는 적을 때는 적는다 — 여기서 안 적은 것은 누락이지 인장 확정이 아니다. 70차 FA(MGC BT `ヤング率`) · 71차 GD(Sumitomo LαZ `弾性率`) 의 선례를 따랐다."
+     },
+     "notes": "원문 verbatim: `Young's Modulus / E-Modul  A. Length direction  -  -  -  24  GPa  -  -`. 24 GPa x 1e9 = 2.4e+10 Pa; 되돌리면 2.4e+10/1e9 = 24. 원문 시험법 칸 verbatim = `-` · Ref. Para. 칸 verbatim = `-` (인장/굽힘 표기 없음). <0,50 mm 열은 `-` 라 담지 않았다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 22000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "direction": "fill",
+      "direction_verbatim": "B. Cross direction / Schussrichtung",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "test_mode": "unconfirmed",
+      "grade_scope": "값 자체는 이 등급의 이 열에 인쇄된 것이고 등급 범위 문제는 없다. t3 로 내린 이유는 **시험모드 미확정**이다 — 원문 `Young's Modulus / E-Modul` 행의 `Test Method (IPC-TM-650)` 칸과 `Ref. Para.` 칸이 둘 다 `-` 다(300 dpi 렌더로 확인). 같은 표의 8번 `Flexural Strength / Biegefestigkeit` 행은 `2.4.4` 를 명시하므로 이 벤더는 적을 때는 적는다 — 여기서 안 적은 것은 누락이지 인장 확정이 아니다. 70차 FA(MGC BT `ヤング率`) · 71차 GD(Sumitomo LαZ `弾性率`) 의 선례를 따랐다."
+     },
+     "notes": "원문 verbatim: `Young's Modulus / E-Modul  B. Cross direction  -  -  -  22  GPa  -  -`. 22 GPa x 1e9 = 2.2e+10 Pa; 되돌리면 2.2e+10/1e9 = 22. 원문 시험법 칸 verbatim = `-` · Ref. Para. 칸 verbatim = `-` (인장/굽힘 표기 없음)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.55,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM E1461",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Thermal Conductivity l  -  0,55  -  0,55  W/mK  ASTM-E-1461`. 0.55 W/mK -> 0.55 W/(m*K). 환산 없음."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.55,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM E1461",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Thermal Conductivity l  -  0,55  -  0,55  W/mK  ASTM-E-1461`. 0.55 W/mK -> 0.55 W/(m*K). 환산 없음."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.46,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D5470",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Thermal Conductivity l  -  0,46  -  0,46  W/mK  ASTM-D-5470`. 0.46 W/mK -> 0.46 W/(m*K). 환산 없음."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.46,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D5470",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Thermal Conductivity l  -  0,46  -  0,46  W/mK  ASTM-D-5470`. 0.46 W/mK -> 0.46 W/(m*K). 환산 없음."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 940.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 25,
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Specific Heat at 25 degC  -  0,94  -  0,94  J/g degC  -  -`. 0.94 J/(g*K) x 1000 = 940 J/(kg*K); 되돌리면 940/1000 = 0.94."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 940.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 25,
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Specific Heat at 25 degC  -  0,94  -  0,94  J/g degC  -  -`. 0.94 J/(g*K) x 1000 = 940 J/(kg*K); 되돌리면 940/1000 = 0.94."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.1e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "regime": "prior Tg",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `X/Y-Axis CTE  prior Tg  -  11-13  -  11-13  ppm/degC  2.4.24`. 인쇄된 구간의 lower 끝값 11 ppm/degC 를 환산했다 — 11 ppm/degC x 1e-6 = 1.1e-05 1/K; 되돌리면 1.1e-05/1e-6 = 11."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.3e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "regime": "prior Tg",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `X/Y-Axis CTE  prior Tg  -  11-13  -  11-13  ppm/degC  2.4.24`. 인쇄된 구간의 upper 끝값 13 ppm/degC 를 환산했다 — 13 ppm/degC x 1e-6 = 1.3e-05 1/K; 되돌리면 1.3e-05/1e-6 = 13."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.1e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "regime": "above Tg",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `X/Y-Axis CTE  above Tg  -  11-13  -  11-13  ppm/degC  2.4.24`. 인쇄된 구간의 lower 끝값 11 ppm/degC 를 환산했다 — 11 ppm/degC x 1e-6 = 1.1e-05 1/K; 되돌리면 1.1e-05/1e-6 = 11."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.3e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "regime": "above Tg",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `X/Y-Axis CTE  above Tg  -  11-13  -  11-13  ppm/degC  2.4.24`. 인쇄된 구간의 upper 끝값 13 ppm/degC 를 환산했다 — 13 ppm/degC x 1e-6 = 1.3e-05 1/K; 되돌리면 1.3e-05/1e-6 = 13."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 3.2999999999999996e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "regime": "alpha1 (prior Tg)",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `16. Z-Axis CTE  A. Alpha 1, maximum  -  33-43  60  33-43  ppm/degC  2.4.24`. 인쇄된 구간의 lower 끝값 33 ppm/degC 를 환산했다 — 33 ppm/degC x 1e-6 = 3.3e-05 1/K; 되돌리면 3.3e-05/1e-6 = 33."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 4.2999999999999995e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "regime": "alpha1 (prior Tg)",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `16. Z-Axis CTE  A. Alpha 1, maximum  -  33-43  60  33-43  ppm/degC  2.4.24`. 인쇄된 구간의 upper 끝값 43 ppm/degC 를 환산했다 — 43 ppm/degC x 1e-6 = 4.3e-05 1/K; 되돌리면 4.3e-05/1e-6 = 43."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 0.000135,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "regime": "alpha2 (above Tg)",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `16. Z-Axis CTE  B. Alpha 2, maximum  -  135-150  300  135-150  ppm/degC  2.4.24`. 인쇄된 구간의 lower 끝값 135 ppm/degC 를 환산했다 — 135 ppm/degC x 1e-6 = 0.000135 1/K; 되돌리면 0.000135/1e-6 = 135."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 0.00015,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "regime": "alpha2 (above Tg)",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `16. Z-Axis CTE  B. Alpha 2, maximum  -  135-150  300  135-150  ppm/degC  2.4.24`. 인쇄된 구간의 upper 끝값 150 ppm/degC 를 환산했다 — 150 ppm/degC x 1e-6 = 0.00015 1/K; 되돌리면 0.00015/1e-6 = 150."
+    },
+    {
+     "key": "thermal.expansion_total",
+     "value": 0.016,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "temperature_range_c": "50-260",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `16. Z-Axis CTE  C. 50 to 260 degC, maximum (Total Expansion)  -  1,6  3,0  1,6  %`. 1.6 % / 100 = 0.016; 되돌리면 0.016 x 100 = 1.6."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 450000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "warp",
+      "direction_verbatim": "A. Length direction / Kettrichtung",
+      "test_standard": "IPC-TM-650 2.4.4",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `8. Flexural Strength, minimum  A. Length direction  -  -  415 [60190]  450 [65250]  N/mm2  2.4.4`. 450 N/mm^2 x 1e6 = 4.5e+08 Pa; 되돌리면 4.5e+08/1e6 = 450. **굽힘이다**(2.4.4)."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 390000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "fill",
+      "direction_verbatim": "B. Cross direction / Schussrichtung",
+      "test_standard": "IPC-TM-650 2.4.4",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `8. Flexural Strength  B. Cross direction  -  -  345 [50040]  390 [56550]  N/mm2  2.4.4`. 390 N/mm^2 x 1e6 = 3.9e+08 Pa; 되돌리면 3.9e+08/1e6 = 390."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 443.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "TMA",
+      "test_standard": "IPC-TM-650 2.4.24"
+     },
+     "notes": "원문 verbatim: `14. Glass Transition Temperature, minimum  TMA  170  170  degC  2.4.24`. 170 + 273.15 = 443.15 K; 되돌리면 443.15 - 273.15 = 170."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 463.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "DMA",
+      "test_standard": "IPC-TM-650 2.4.24.4"
+     },
+     "notes": "원문 verbatim: `14. Glass Transition Temperature  DMA  -  190  170  190  degC  2.4.24.4`. 190 + 273.15 = 463.15 K; 되돌리면 463.15 - 273.15 = 190."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 448.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "DSC",
+      "test_standard": "IPC-TM-650 2.4.25"
+     },
+     "notes": "원문 verbatim: `14. Glass Transition Temperature  DSC  175  175  degC  2.4.25`. 175 + 273.15 = 448.15 K; 되돌리면 448.15 - 273.15 = 175."
+    },
+    {
+     "key": "thermal.decomposition_temp",
+     "value": 653.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.4.24.6",
+      "basis": "5% weight loss"
+     },
+     "notes": "원문 verbatim: `15. Decomposition Temperature, minimum  -  380  340  380  degC  2.4.24.6 (5% wt loss)`. 380 + 273.15 = 653.15 K; 되돌리면 653.15 - 273.15 = 380."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.5,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "IPC-TM-650 2.5.5.2/2.5.5.3/2.5.5.9",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `6. Permittivity at 1 MHz, maximum  5,4  4,5  5,4  4,6  -`. 4.5 - -> 4.5 1. 무차원."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.6,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "IPC-TM-650 2.5.5.2/2.5.5.3/2.5.5.9",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `6. Permittivity at 1 MHz, maximum  5,4  4,5  5,4  4,6  -`. 4.6 - -> 4.6 1. 무차원."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.3,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000000.0,
+      "conditioning": "C-24/23/50",
+      "test_standard": "IPC-TM-650 2.5.5.9",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Permittivity at 1 GHz C-24/23/50  -  4,3-4,6  -  4,3-4,5  -  2.5.5.9`. 인쇄된 구간의 lower 끝값 4.3 - 를 환산했다 — 4.3 - -> 4.3 1. 무차원."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.6,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000000.0,
+      "conditioning": "C-24/23/50",
+      "test_standard": "IPC-TM-650 2.5.5.9",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Permittivity at 1 GHz C-24/23/50  -  4,3-4,6  -  4,3-4,5  -  2.5.5.9`. 인쇄된 구간의 upper 끝값 4.6 - 를 환산했다 — 4.6 - -> 4.6 1. 무차원."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.3,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000000.0,
+      "conditioning": "C-24/23/50",
+      "test_standard": "IPC-TM-650 2.5.5.9",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Permittivity at 1 GHz C-24/23/50  -  4,3-4,6  -  4,3-4,5  -  2.5.5.9`. 인쇄된 구간의 lower 끝값 4.3 - 를 환산했다 — 4.3 - -> 4.3 1. 무차원."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.5,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000000.0,
+      "conditioning": "C-24/23/50",
+      "test_standard": "IPC-TM-650 2.5.5.9",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Permittivity at 1 GHz C-24/23/50  -  4,3-4,6  -  4,3-4,5  -  2.5.5.9`. 인쇄된 구간의 upper 끝값 4.5 - 를 환산했다 — 4.5 - -> 4.5 1. 무차원."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.016,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "IPC-TM-650 2.5.5.2/2.5.5.3/2.5.5.9",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `7. Loss Tangent at 1 MHz, maximum  0,035  0,016-0,020  0,035  0,016  -`. 인쇄된 구간의 lower 끝값 0.016 - 를 환산했다 — 0.016 - -> 0.016 1. 무차원."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.02,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "IPC-TM-650 2.5.5.2/2.5.5.3/2.5.5.9",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `7. Loss Tangent at 1 MHz, maximum  0,035  0,016-0,020  0,035  0,016  -`. 인쇄된 구간의 upper 끝값 0.02 - 를 환산했다 — 0.02 - -> 0.02 1. 무차원."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.016,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "IPC-TM-650 2.5.5.2/2.5.5.3/2.5.5.9",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `7. Loss Tangent at 1 MHz, maximum  0,035  0,016-0,020  0,035  0,016  -`. 0.016 - -> 0.016 1. 무차원."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.01,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000000.0,
+      "conditioning": "C-24/23/50",
+      "test_standard": "IPC-TM-650 2.5.5.9",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Loss Tangent at 1 GHz C-24/23/50  -  0,01-0,013  -  0,01  -  2.5.5.9`. 0.01 - -> 0.01 1. 무차원."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 780.0,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "as received",
+      "copper_foil_type": "low profile / very low profile, >17 um",
+      "test_standard": "IPC-TM-650 2.4.8",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `1. Peel Strength  A.  0,70 [4,00]  0,78 [4,50]  0,70 [4,00]  0,70 [4,00]  N/mm [lb/in]`. 0.78 N/mm x 1000 = 780 N/m; 되돌리면 780/1000 = 0.78."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 700.0,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "as received",
+      "copper_foil_type": "low profile / very low profile, >17 um",
+      "test_standard": "IPC-TM-650 2.4.8",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `1. Peel Strength  A.  0,70 [4,00]  0,78 [4,50]  0,70 [4,00]  0,70 [4,00]  N/mm [lb/in]`. 0.7 N/mm x 1000 = 700 N/m; 되돌리면 700/1000 = 0.7."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 1050.0,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "after thermal stress",
+      "copper_foil_type": "standard profile, 35 um",
+      "test_standard": "IPC-TM-650 2.4.8.2/2.4.8.3",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `1. Peel Strength  B.1. After thermal stress (35 um)  0,80 [4,57]  0,88 [5,00]  1,05 [6,00]  1,05 [6,00]`. 1.05 N/mm x 1000 = 1050 N/m; 되돌리면 1050/1000 = 1.05."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.002,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.6.2.1",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `4. Moisture Absorption, maximum  -  0,20  0,8  0,12  %  2.6.2.1`. 0.2 % / 100 = 0.002; 되돌리면 0.002 x 100 = 0.2."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0012,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.6.2.1",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `4. Moisture Absorption, maximum  -  0,20  0,8  0,12  %  2.6.2.1`. 0.12 % / 100 = 0.0012; 되돌리면 0.0012 x 100 = 0.12."
+    },
+    {
+     "key": "electrical.dielectric_strength",
+     "value": 30000000.0,
+     "unit": "V/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.5.6.2",
+      "specimen": "laminate thickness < 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `12. Electric Strength, minimum  30  30  -  30  kV/mm  2.5.6.2`. 30 kV/mm x 1e6 = 3e+07 V/m; 되돌리면 3e+07/1e6 = 30."
+    },
+    {
+     "key": "electrical.dielectric_strength",
+     "value": 30000000.0,
+     "unit": "V/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.5.6.2",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `12. Electric Strength, minimum  30  30  -  30  kV/mm  2.5.6.2`. 30 kV/mm x 1e6 = 3e+07 V/m; 되돌리면 3e+07/1e6 = 30."
+    },
+    {
+     "key": "thermal.time_to_delamination",
+     "value": 2400.0,
+     "unit": "s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "TMA, copper removed",
+      "temperature_c": 300,
+      "test_standard": "IPC-TM-650 2.4.24.1",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `17. Time to Delamination  C. T300, minimum  -  40  2  40  Minutes`. 40 min x 60 = 2400 s; 되돌리면 2400/60 = 40. T260·T288 은 원문이 `>60` 이라 한쪽 부등호뿐이므로 담지 않았다."
+    },
+    {
+     "key": "electrical.comparative_tracking_index",
+     "value": 250,
+     "unit": "V",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D3638",
+      "bound": "lower",
+      "plc": 2
+     },
+     "notes": "원문 verbatim: `Comparative Tracking Index (CTI)  -  2 / 250/399  -  2 / 250/399  PLC / V  ASTM-D-3638`. 250 V -> 250 V."
+    },
+    {
+     "key": "electrical.comparative_tracking_index",
+     "value": 399,
+     "unit": "V",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D3638",
+      "bound": "upper",
+      "plc": 2
+     },
+     "notes": "원문 verbatim: `Comparative Tracking Index (CTI)  -  2 / 250/399  -  2 / 250/399  PLC / V`. 399 V -> 399 V."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Nan Ya UV Block FR-4-86 Copper Clad Laminate",
+    "category": "composite",
+    "description": "南亞(Nan Ya) UV 차단 표준 Tg FR-4 동박적층판 `UV Block FR-4-86`. Technolam Datenblatt 2019-02 (IPC-4101/21, UL/ANSI FR-4.0/21, Tg 110 degC minimum). 이 시트는 형제 NPG 시트와 달리 **`<0,50 mm` 열이 전부 `-` 이고 `>=0,50 mm` 열만 값을 찍는다** — 없는 열을 채우지 않았다. 번호 항목이 1~14 번까지이고 `15. Other / weitere` 아래에 밀도(1,92 g/cm3)·영률·비열이 있다.",
+    "attributes": {
+     "material_class": "flame-retardant woven E-glass / epoxy copper clad laminate",
+     "subsystem": "pcb",
+     "role": "product",
+     "role_reason": "제조사(Nan Ya)+등급명이 이름에 박혀 있고 출처가 해당 등급의 공식 Datenblatt 이다. 실제 PCB 적층재 제품.",
+     "role_confidence": "high",
+     "manufacturer": "Nan Ya Plastics Corporation",
+     "distributor": "Technolam GmbH",
+     "grades_covered": [
+      "UV Block FR-4-86"
+     ],
+     "ipc_spec_sheet": "IPC-4101/21",
+     "ul_ansi_id": "UL/ANSI FR-4.0/21",
+     "glass_transition_header": "110 degC minimum",
+     "aliases": [
+      "UV Block FR-4-86",
+      "FR-4-86",
+      "FR4-86",
+      "UV-Block FR-4-86",
+      "UV Block FR4-86"
+     ],
+     "value_column": "원문은 등급별 열이 아니라 **두께별 열**(<0,50 mm · >=0,50 mm)로 갈린다. 한 장의 시트가 위 grades_covered 전부에 같은 값 집합을 인쇄하므로 등급을 쪼개 같은 값을 복제하지 않고 한 장으로 세웠다 — 각 등급명은 aliases 에 있다."
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Data Sheet / Datenblatt UV Block FR-4-86 (Rev. Feb.19) — Performance List 1/2, 2/2",
+    "url": null,
+    "publisher": "Technolam GmbH (Nan Ya Plastics 유럽 파트너)",
+    "year": 2019,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Technolam_NanYa_UV-Block-FR-4-86_Datasheet_2019-02.pdf",
+    "url_note": "절대 URL 을 확정하지 못했다 — PDF 안에 canonical/og:url 이 없고 지어내지 않았다. 로컬 원문 경로가 값의 출처다."
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1920.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "resin_content": "50%",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Density (50 % resin content) / Dichte 50 % Harzgehalt  -  -  -  1,92  g/cm3  -  -`. 1.92 g/cm^3 x 1000 = 1920 kg/m^3; 되돌리면 1920/1000 = 1.92. 시험법 칸·Ref. Para. 칸 둘 다 `-`. 형제 NPG 등급(2,00~2,15)보다 낮다 — 이 등급은 FILLERS `<5%` 로 무기 필러가 거의 없다(시트 머리 verbatim). 이 값은 원문 `Property` 열(벤더 대표값)에서 왔다. 같은 행의 `Specification` 열은 IPC-4101 슬래시시트 요구(최소/최대)이지 물성이 아니므로 담지 않았다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 21000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "direction": "warp",
+      "direction_verbatim": "A. Length direction / Kettrichtung",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "test_mode": "unconfirmed",
+      "grade_scope": "값 자체는 이 등급의 이 열에 인쇄된 것이고 등급 범위 문제는 없다. t3 로 내린 이유는 **시험모드 미확정**이다 — 원문 `Young's Modulus / E-Modul` 행의 `Test Method (IPC-TM-650)` 칸과 `Ref. Para.` 칸이 둘 다 `-` 다(300 dpi 렌더로 확인). 같은 표의 8번 `Flexural Strength / Biegefestigkeit` 행은 `2.4.4` 를 명시하므로 이 벤더는 적을 때는 적는다 — 여기서 안 적은 것은 누락이지 인장 확정이 아니다. 70차 FA(MGC BT `ヤング率`) · 71차 GD(Sumitomo LαZ `弾性率`) 의 선례를 따랐다.",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Young's Modulus / E-Modul  A. Length direction  -  -  -  21-23  GPa  -  -`. 인쇄된 구간의 lower 끝값 21 GPa 를 환산했다 — 21 GPa x 1e9 = 2.1e+10 Pa; 되돌리면 2.1e+10/1e9 = 21. 원문 시험법 칸 verbatim = `-` · Ref. Para. 칸 verbatim = `-` (인장/굽힘 표기 없음)."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 23000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "direction": "warp",
+      "direction_verbatim": "A. Length direction / Kettrichtung",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "test_mode": "unconfirmed",
+      "grade_scope": "값 자체는 이 등급의 이 열에 인쇄된 것이고 등급 범위 문제는 없다. t3 로 내린 이유는 **시험모드 미확정**이다 — 원문 `Young's Modulus / E-Modul` 행의 `Test Method (IPC-TM-650)` 칸과 `Ref. Para.` 칸이 둘 다 `-` 다(300 dpi 렌더로 확인). 같은 표의 8번 `Flexural Strength / Biegefestigkeit` 행은 `2.4.4` 를 명시하므로 이 벤더는 적을 때는 적는다 — 여기서 안 적은 것은 누락이지 인장 확정이 아니다. 70차 FA(MGC BT `ヤング率`) · 71차 GD(Sumitomo LαZ `弾性率`) 의 선례를 따랐다.",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Young's Modulus / E-Modul  A. Length direction  -  -  -  21-23  GPa  -  -`. 인쇄된 구간의 upper 끝값 23 GPa 를 환산했다 — 23 GPa x 1e9 = 2.3e+10 Pa; 되돌리면 2.3e+10/1e9 = 23. 원문 시험법 칸 verbatim = `-` · Ref. Para. 칸 verbatim = `-` (인장/굽힘 표기 없음)."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 20000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "direction": "fill",
+      "direction_verbatim": "B. Cross direction / Schussrichtung",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "test_mode": "unconfirmed",
+      "grade_scope": "값 자체는 이 등급의 이 열에 인쇄된 것이고 등급 범위 문제는 없다. t3 로 내린 이유는 **시험모드 미확정**이다 — 원문 `Young's Modulus / E-Modul` 행의 `Test Method (IPC-TM-650)` 칸과 `Ref. Para.` 칸이 둘 다 `-` 다(300 dpi 렌더로 확인). 같은 표의 8번 `Flexural Strength / Biegefestigkeit` 행은 `2.4.4` 를 명시하므로 이 벤더는 적을 때는 적는다 — 여기서 안 적은 것은 누락이지 인장 확정이 아니다. 70차 FA(MGC BT `ヤング率`) · 71차 GD(Sumitomo LαZ `弾性率`) 의 선례를 따랐다.",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Young's Modulus / E-Modul  B. Cross direction  -  -  -  20-22  GPa  -  -`. 인쇄된 구간의 lower 끝값 20 GPa 를 환산했다 — 20 GPa x 1e9 = 2e+10 Pa; 되돌리면 2e+10/1e9 = 20. 원문 시험법 칸 verbatim = `-` · Ref. Para. 칸 verbatim = `-` (인장/굽힘 표기 없음)."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 22000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 3,
+     "conditions": {
+      "direction": "fill",
+      "direction_verbatim": "B. Cross direction / Schussrichtung",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "test_mode": "unconfirmed",
+      "grade_scope": "값 자체는 이 등급의 이 열에 인쇄된 것이고 등급 범위 문제는 없다. t3 로 내린 이유는 **시험모드 미확정**이다 — 원문 `Young's Modulus / E-Modul` 행의 `Test Method (IPC-TM-650)` 칸과 `Ref. Para.` 칸이 둘 다 `-` 다(300 dpi 렌더로 확인). 같은 표의 8번 `Flexural Strength / Biegefestigkeit` 행은 `2.4.4` 를 명시하므로 이 벤더는 적을 때는 적는다 — 여기서 안 적은 것은 누락이지 인장 확정이 아니다. 70차 FA(MGC BT `ヤング率`) · 71차 GD(Sumitomo LαZ `弾性率`) 의 선례를 따랐다.",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Young's Modulus / E-Modul  B. Cross direction  -  -  -  20-22  GPa  -  -`. 인쇄된 구간의 upper 끝값 22 GPa 를 환산했다 — 22 GPa x 1e9 = 2.2e+10 Pa; 되돌리면 2.2e+10/1e9 = 22. 원문 시험법 칸 verbatim = `-` · Ref. Para. 칸 verbatim = `-` (인장/굽힘 표기 없음)."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.36,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM E1461",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Thermal Conductivity l  -  -  -  0,36  W/mK  ASTM-E-1461  3.9.1.5`. 0.36 W/mK -> 0.36 W/(m*K). 환산 없음."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.32,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D5470",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Thermal Conductivity l  -  -  -  0,32  W/mK  ASTM-D-5470`. 0.32 W/mK -> 0.32 W/(m*K). 환산 없음."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 913.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 25,
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Specific Heat at 25 degC / Spezifische Waermekapzitaet bei 25 degC  -  -  -  0,913  J/g degC  -  -`. 0.913 J/(g*K) x 1000 = 913 J/(kg*K); 되돌리면 913/1000 = 0.913."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.4999999999999999e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "regime": "prior Tg",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `CTE, X/Y-Axis  prior Tg / vor Tg  -  -  -  15-18  ppm/degC  2.4.24  3.9.1.6`. 인쇄된 구간의 lower 끝값 15 ppm/degC 를 환산했다 — 15 ppm/degC x 1e-6 = 1.5e-05 1/K; 되돌리면 1.5e-05/1e-6 = 15."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.8e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "regime": "prior Tg",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `CTE, X/Y-Axis  prior Tg / vor Tg  -  -  -  15-18  ppm/degC  2.4.24  3.9.1.6`. 인쇄된 구간의 upper 끝값 18 ppm/degC 를 환산했다 — 18 ppm/degC x 1e-6 = 1.8e-05 1/K; 되돌리면 1.8e-05/1e-6 = 18."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.4999999999999999e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "regime": "above Tg",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `CTE, X/Y-Axis  above Tg / ueber Tg  -  -  -  15-18  ppm/degC  2.4.24`. 인쇄된 구간의 lower 끝값 15 ppm/degC 를 환산했다 — 15 ppm/degC x 1e-6 = 1.5e-05 1/K; 되돌리면 1.5e-05/1e-6 = 15."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.8e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x/y",
+      "regime": "above Tg",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `CTE, X/Y-Axis  above Tg / ueber Tg  -  -  -  15-18  ppm/degC  2.4.24`. 인쇄된 구간의 upper 끝값 18 ppm/degC 를 환산했다 — 18 ppm/degC x 1e-6 = 1.8e-05 1/K; 되돌리면 1.8e-05/1e-6 = 18."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 4.9999999999999996e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "regime": "alpha1 (prior Tg)",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Z-Axis CTE  A. Alpha 1  prior Tg  -  -  -  50-70  ppm/degC  2.4.24  3.9.1.7`. 인쇄된 구간의 lower 끝값 50 ppm/degC 를 환산했다 — 50 ppm/degC x 1e-6 = 5e-05 1/K; 되돌리면 5e-05/1e-6 = 50."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 7e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "regime": "alpha1 (prior Tg)",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Z-Axis CTE  A. Alpha 1  prior Tg  -  -  -  50-70  ppm/degC  2.4.24  3.9.1.7`. 인쇄된 구간의 upper 끝값 70 ppm/degC 를 환산했다 — 70 ppm/degC x 1e-6 = 7e-05 1/K; 되돌리면 7e-05/1e-6 = 70."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 0.00025,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "regime": "alpha2 (above Tg)",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Z-Axis CTE  B. Alpha 2  above Tg  -  -  -  250-350  ppm/degC  2.4.24`. 인쇄된 구간의 lower 끝값 250 ppm/degC 를 환산했다 — 250 ppm/degC x 1e-6 = 0.00025 1/K; 되돌리면 0.00025/1e-6 = 250."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 0.00035,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "regime": "alpha2 (above Tg)",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Z-Axis CTE  B. Alpha 2  above Tg  -  -  -  250-350  ppm/degC  2.4.24`. 인쇄된 구간의 upper 끝값 350 ppm/degC 를 환산했다 — 350 ppm/degC x 1e-6 = 0.00035 1/K; 되돌리면 0.00035/1e-6 = 350."
+    },
+    {
+     "key": "thermal.expansion_total",
+     "value": 0.042,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "temperature_range_c": "50-260",
+      "test_standard": "IPC-TM-650 2.4.24",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `Z-Axis CTE  C. 50 to 260 degC, (Total Expansion)  -  -  -  4,2  %`. 4.2 % / 100 = 0.042; 되돌리면 0.042 x 100 = 4.2."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 480000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "warp",
+      "direction_verbatim": "A. Length direction / Kettrichtung",
+      "test_standard": "IPC-TM-650 2.4.4",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `8. Flexural Strength, minimum  A. Length direction  -  -  415 [60190]  480 [69618]  N/mm2  2.4.4`. 480 N/mm^2 x 1e6 = 4.8e+08 Pa; 되돌리면 4.8e+08/1e6 = 480. **굽힘이다**(2.4.4)."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 415000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "fill",
+      "direction_verbatim": "B. Cross direction / Schussrichtung",
+      "test_standard": "IPC-TM-650 2.4.4",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `8. Flexural Strength  B. Cross direction  -  -  345 [50040]  415 [60190]  N/mm2  2.4.4`. 415 N/mm^2 x 1e6 = 4.15e+08 Pa; 되돌리면 4.15e+08/1e6 = 415."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 403.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "TMA",
+      "test_standard": "IPC-TM-650 2.4.24"
+     },
+     "notes": "원문 verbatim: `14. Glass Transition Temperature, minimum  TMA  -  -  110  130  degC  2.4.24`. 130 + 273.15 = 403.15 K; 되돌리면 403.15 - 273.15 = 130."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 408.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "DSC",
+      "test_standard": "IPC-TM-650 2.4.25"
+     },
+     "notes": "원문 verbatim: `14. Glass Transition Temperature  DSC  -  135  degC  2.4.25`. 135 + 273.15 = 408.15 K; 되돌리면 408.15 - 273.15 = 135. 이 시트에는 DMA 행이 없다(형제 NPG 시트에는 있다)."
+    },
+    {
+     "key": "thermal.decomposition_temp",
+     "value": 583.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.4.24.6",
+      "basis": "5% weight loss"
+     },
+     "notes": "원문 verbatim: `Decomposition Temperature / Zersetzungstemperatur  -  -  -  310  degC  2.4.24.6 (5% wt loss)`. 310 + 273.15 = 583.15 K; 되돌리면 583.15 - 273.15 = 310."
+    },
+    {
+     "key": "thermal.heat_of_combustion",
+     "value": 10081000.0,
+     "unit": "J/kg",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ISO 1716"
+     },
+     "notes": "원문 verbatim: `Caloric Value / Bruttoverbrennungswaerme  -  -  -  10,081  MJ/kg  ISO 1716`. 10.081 MJ/kg x 1e6 = 1.0081e+07 J/kg; 되돌리면 1.0081e+07/1e6 = 10.081."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.7,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "IPC-TM-650 2.5.5.2/2.5.5.3/2.5.5.9",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `6. Permittivity at 1 MHz, maximum  5,4  -  5,4  4,7  -`. 4.7 - -> 4.7 1. 무차원."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.0,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000000.0,
+      "conditioning": "C-24/23/50",
+      "test_standard": "IPC-TM-650 2.5.5.9",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Permittivity at 1 GHz C-24/23/50  -  -  -  4,0-4,2  -  2.5.5.9`. 인쇄된 구간의 lower 끝값 4.0 - 를 환산했다 — 4.0 - -> 4 1. 무차원."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.2,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000000.0,
+      "conditioning": "C-24/23/50",
+      "test_standard": "IPC-TM-650 2.5.5.9",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Permittivity at 1 GHz C-24/23/50  -  -  -  4,0-4,2  -  2.5.5.9`. 인쇄된 구간의 upper 끝값 4.2 - 를 환산했다 — 4.2 - -> 4.2 1. 무차원."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.02,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000.0,
+      "test_standard": "IPC-TM-650 2.5.5.2/2.5.5.3/2.5.5.9",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `7. Loss Tangent at 1 MHz, maximum  0,035  -  0,035  0,020  -`. 0.02 - -> 0.02 1. 무차원."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.012,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000000.0,
+      "conditioning": "C-24/23/50",
+      "test_standard": "IPC-TM-650 2.5.5.9",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Loss Tangent at 1 GHz C-24/23/50  -  -  -  0,012-0,014  -  2.5.5.9`. 인쇄된 구간의 lower 끝값 0.012 - 를 환산했다 — 0.012 - -> 0.012 1. 무차원."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.014,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 1000000000.0,
+      "conditioning": "C-24/23/50",
+      "test_standard": "IPC-TM-650 2.5.5.9",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Loss Tangent at 1 GHz C-24/23/50  -  -  -  0,012-0,014  -  2.5.5.9`. 인쇄된 구간의 upper 끝값 0.014 - 를 환산했다 — 0.014 - -> 0.014 1. 무차원."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 960.0,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "as received",
+      "copper_foil_type": "low profile / very low profile, >17 um",
+      "test_standard": "IPC-TM-650 2.4.8",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `1. Peel Strength  A.  0,70 [4,00]  <blank>  0,70 [4,00]  0,96 [5,50]  N/mm [lb/in]`. 0.96 N/mm x 1000 = 960 N/m; 되돌리면 960/1000 = 0.96."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 1750.0,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "after thermal stress",
+      "copper_foil_type": "standard profile, 35 um",
+      "test_standard": "IPC-TM-650 2.4.8.2/2.4.8.3",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `1. Peel Strength  B.1. After thermal stress (35 um)  0,80 [4,57]  <blank>  1,05 [6,00]  1,75 [10,00]`. 1.75 N/mm x 1000 = 1750 N/m; 되돌리면 1750/1000 = 1.75."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 1220.0,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "at 125 degC",
+      "temperature_c": 125,
+      "copper_foil_type": "standard profile",
+      "test_standard": "IPC-TM-650 2.4.8.2/2.4.8.3",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `1. Peel Strength  B.2. At 125 degC [257 degF]  0,70 [4,00]  <blank>  0,70 [4,00]  1,22 [7,00]`. 1.22 N/mm x 1000 = 1220 N/m; 되돌리면 1220/1000 = 1.22."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 1130.0,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "after process solutions",
+      "copper_foil_type": "standard profile",
+      "test_standard": "IPC-TM-650 2.4.8.2/2.4.8.3",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `1. Peel Strength  B.3. After process solutions  0,55 [3,14]  <blank>  0,80 [4,57]  1,13 [6,50]`. 1.13 N/mm x 1000 = 1130 N/m; 되돌리면 1130/1000 = 1.13."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.001,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.6.2.1",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `4. Moisture Absorption, maximum  -  -  0,80  0,10  %  2.6.2.1`. 0.1 % / 100 = 0.001; 되돌리면 0.001 x 100 = 0.1."
+    },
+    {
+     "key": "electrical.arc_resistance",
+     "value": 120,
+     "unit": "s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.5.1",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `10. Arc Resistance, minimum  60  -  60  120  s  2.5.1`. 120 s -> 120 s. 환산 없음."
+    },
+    {
+     "key": "electrical.dielectric_strength",
+     "value": 40000000.0,
+     "unit": "V/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.5.6.2",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]"
+     },
+     "notes": "원문 verbatim: `12. Electric Strength, minimum  30  -  -  40  kV/mm  2.5.6.2`. 40 kV/mm x 1e6 = 4e+07 V/m; 되돌리면 4e+07/1e6 = 40."
+    },
+    {
+     "key": "thermal.time_to_delamination",
+     "value": 1200.0,
+     "unit": "s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "TMA, copper removed",
+      "temperature_c": 260,
+      "test_standard": "IPC-TM-650 2.4.24.1",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Time to Delamination (TMA) (Copper removed)  A. T260  -  -  -  20-30  Minutes  2.4.24.1`. 인쇄된 구간의 lower 끝값 20 min 를 환산했다 — 20 min x 60 = 1200 s; 되돌리면 1200/60 = 20."
+    },
+    {
+     "key": "thermal.time_to_delamination",
+     "value": 1800.0,
+     "unit": "s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "TMA, copper removed",
+      "temperature_c": 260,
+      "test_standard": "IPC-TM-650 2.4.24.1",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Time to Delamination (TMA) (Copper removed)  A. T260  -  -  -  20-30  Minutes  2.4.24.1`. 인쇄된 구간의 upper 끝값 30 min 를 환산했다 — 30 min x 60 = 1800 s; 되돌리면 1800/60 = 30."
+    },
+    {
+     "key": "thermal.time_to_delamination",
+     "value": 120.0,
+     "unit": "s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "TMA, copper removed",
+      "temperature_c": 288,
+      "test_standard": "IPC-TM-650 2.4.24.1",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "lower"
+     },
+     "notes": "원문 verbatim: `Time to Delamination  B. T288  -  -  -  2-5  Minutes  2.4.24.1`. 인쇄된 구간의 lower 끝값 2 min 를 환산했다 — 2 min x 60 = 120 s; 되돌리면 120/60 = 2. T300 칸은 `-` 라 담지 않았다."
+    },
+    {
+     "key": "thermal.time_to_delamination",
+     "value": 300.0,
+     "unit": "s",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "TMA, copper removed",
+      "temperature_c": 288,
+      "test_standard": "IPC-TM-650 2.4.24.1",
+      "specimen": "laminate thickness >= 0,50 mm [0,0197 in]",
+      "bound": "upper"
+     },
+     "notes": "원문 verbatim: `Time to Delamination  B. T288  -  -  -  2-5  Minutes  2.4.24.1`. 인쇄된 구간의 upper 끝값 5 min 를 환산했다 — 5 min x 60 = 300 s; 되돌리면 300/60 = 5. T300 칸은 `-` 라 담지 않았다."
+    },
+    {
+     "key": "electrical.comparative_tracking_index",
+     "value": 175,
+     "unit": "V",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D3638",
+      "bound": "lower",
+      "plc": 3
+     },
+     "notes": "원문 verbatim: `Comparative Tracking Index (CTI)  -  -  -  3 / 175-249  PLC / V  ASTM-D-3638`. 175 V -> 175 V. 원문 `3 / 175-249` = PLC 3 / 175~249 V. 구간이므로 두 행."
+    },
+    {
+     "key": "electrical.comparative_tracking_index",
+     "value": 249,
+     "unit": "V",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D3638",
+      "bound": "upper",
+      "plc": 3
+     },
+     "notes": "원문 verbatim: `Comparative Tracking Index (CTI)  -  -  -  3 / 175-249  PLC / V  ASTM-D-3638`. 249 V -> 249 V."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1054 @@
+{
+ "batch": "72차 HB",
+ "note": "`mechanical.youngs_modulus` 에 앉아 있는 굽힘탄성률 43행의 **표기**를 바로잡는다. 값·단위·등급·method·출처는 한 칸도 바꾸지 않는다. 삭제는 없다 — 중복 후보 7행은 conditions.duplicate_of 로 표시만 하고 보고서에 적었다.",
+ "corrections": [
+  {
+   "target": {
+    "property_value_id": 5761
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(I-Isola). Isola 벤더 시트가 `Young's Modulus` 라는 이름을 붙인 행의 시험규격이 `ASTM D790-15e2`(3점 굽힘)다. 같은 시트가 `Tensile Strength`는 `ASTM D3039`로 따로 인쇄하지만 **인장탄성률 행은 없다**(370HR·IS400·I-Tera MT40·FR408 네 장 전수 확인 — `modulus` 적중은 `Young's Modulus` 한 행뿐). 그러므로 값을 인장으로 갈아치울 원문 근거가 없다 — 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "detail": "Isola 370HR, LENGTH direction (in-plane, warp), ASTM D790-15e2",
+     "direction": "in-plane",
+     "direction_verbatim": "in-plane",
+     "direction_verbatim_before_correction": null,
+     "test_standard": "ASTM D790-15e2",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 I-Isola."
+    },
+    "notes": "3744 ksi as printed; converted x6.894757e6\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 5762
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(I-Isola). Isola 벤더 시트가 `Young's Modulus` 라는 이름을 붙인 행의 시험규격이 `ASTM D790-15e2`(3점 굽힘)다. 같은 시트가 `Tensile Strength`는 `ASTM D3039`로 따로 인쇄하지만 **인장탄성률 행은 없다**(370HR·IS400·I-Tera MT40·FR408 네 장 전수 확인 — `modulus` 적중은 `Young's Modulus` 한 행뿐). 그러므로 값을 인장으로 갈아치울 원문 근거가 없다 — 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "detail": "Isola 370HR, CROSS direction (in-plane, fill), ASTM D790-15e2",
+     "direction": "in-plane",
+     "direction_verbatim": "in-plane",
+     "direction_verbatim_before_correction": null,
+     "test_standard": "ASTM D790-15e2",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 I-Isola."
+    },
+    "notes": "3178 ksi as printed\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 3356
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(I-Isola). Isola 벤더 시트가 `Young's Modulus` 라는 이름을 붙인 행의 시험규격이 `ASTM D790-15e2`(3점 굽힘)다. 같은 시트가 `Tensile Strength`는 `ASTM D3039`로 따로 인쇄하지만 **인장탄성률 행은 없다**(370HR·IS400·I-Tera MT40·FR408 네 장 전수 확인 — `modulus` 적중은 `Young's Modulus` 한 행뿐). 그러므로 값을 인장으로 갈아치울 원문 근거가 없다 — 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "direction": "MD",
+     "verdict_tie_axis": "54차 PB — 다른조건 — 방향·시험법",
+     "verdict_tie_note": "[54차 PB 동률 재판정] 축이 다르므로 **둘 다 대표다** — 어느 쪽을 쓸지는 해석자가 정한다. 이 행이 대표로 뽑혀 있다. 이 행 = 2.5814e+10 Pa [direction=\"MD\" · direction_verbatim=\"length (LW)\" · test_standard=\"ASTM D790-15e2\"]. 동률 경쟁행 = 2.19115e+10 Pa [direction=\"TD\" · direction_verbatim=\"cross (CW)\" · test_standard=\"ASTM D790-15e2\"] · 2.58137e+10 Pa [direction=\"MD\" · direction_verbatim=\"length (warp)\" · test=\"ASTM D790-15e2\"] · 2.19123e+10 Pa [direction=\"TD\" · direction_verbatim=\"cross (fill)\" · test=\"ASTM D790-15e2\"]. 갈린 조건키 = direction, direction_verbatim, test, test_standard.",
+     "verdict_tie_axis_before_correction": "51차 MA — 조건미기재 — 방향·시험법",
+     "verdict_tie_note_before_correction": "[51차 MA 동률 판정] 이 축이 한쪽에만 적혀 있다 — 축이 닫히지 않았다. **원문에 없는 조건을 채우지 않았다**(브리프 537). 이 행이 대표로 뽑혀 있다. 이 행 = 2.5814e+10 Pa [direction=\"length (LW)\" · standard=\"ASTM D790-15e2\"]. 동률 경쟁행 = 2.19115e+10 Pa [direction=\"cross (CW)\" · standard=\"ASTM D790-15e2\"] · 2.58137e+10 Pa [direction=\"length (warp)\" · test=\"ASTM D790-15e2\"] · 2.19123e+10 Pa [direction=\"cross (fill)\" · test=\"ASTM D790-15e2\"]. 갈린 조건키 = direction, standard, test.",
+     "test_standard": "ASTM D790-15e2",
+     "direction_verbatim": "length (LW)",
+     "standard_before_correction": "ASTM D790-15e2",
+     "test_standard_before_correction": null,
+     "direction_verbatim_before_correction": null,
+     "direction_before_correction": "length (LW)",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 I-Isola."
+    },
+    "notes": "원문: 3744 ksi\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 3357
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(I-Isola). Isola 벤더 시트가 `Young's Modulus` 라는 이름을 붙인 행의 시험규격이 `ASTM D790-15e2`(3점 굽힘)다. 같은 시트가 `Tensile Strength`는 `ASTM D3039`로 따로 인쇄하지만 **인장탄성률 행은 없다**(370HR·IS400·I-Tera MT40·FR408 네 장 전수 확인 — `modulus` 적중은 `Young's Modulus` 한 행뿐). 그러므로 값을 인장으로 갈아치울 원문 근거가 없다 — 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "direction": "TD",
+     "verdict_tie_axis": "54차 PB — 다른조건 — 방향·시험법",
+     "verdict_tie_note": "[54차 PB 동률 재판정] 축이 다르므로 **둘 다 대표다** — 어느 쪽을 쓸지는 해석자가 정한다. 이 행은 대표와 순위가 같다(적재 순서로 밀렸다). 이 행 = 2.19115e+10 Pa [direction=\"TD\" · direction_verbatim=\"cross (CW)\" · test_standard=\"ASTM D790-15e2\"]. 동률 경쟁행 = 2.5814e+10 Pa [direction=\"MD\" · direction_verbatim=\"length (LW)\" · test_standard=\"ASTM D790-15e2\"] · 2.58137e+10 Pa [direction=\"MD\" · direction_verbatim=\"length (warp)\" · test=\"ASTM D790-15e2\"] · 2.19123e+10 Pa [direction=\"TD\" · direction_verbatim=\"cross (fill)\" · test=\"ASTM D790-15e2\"]. 갈린 조건키 = direction, direction_verbatim, test, test_standard.",
+     "verdict_tie_axis_before_correction": "51차 MA — 조건미기재 — 방향·시험법",
+     "verdict_tie_note_before_correction": "[51차 MA 동률 판정] 이 축이 한쪽에만 적혀 있다 — 축이 닫히지 않았다. **원문에 없는 조건을 채우지 않았다**(브리프 537). 이 행은 대표와 순위가 같다(적재 순서로 밀렸다). 이 행 = 2.19115e+10 Pa [direction=\"cross (CW)\" · standard=\"ASTM D790-15e2\"]. 동률 경쟁행 = 2.5814e+10 Pa [direction=\"length (LW)\" · standard=\"ASTM D790-15e2\"] · 2.58137e+10 Pa [direction=\"length (warp)\" · test=\"ASTM D790-15e2\"] · 2.19123e+10 Pa [direction=\"cross (fill)\" · test=\"ASTM D790-15e2\"]. 갈린 조건키 = direction, standard, test.",
+     "test_standard": "ASTM D790-15e2",
+     "direction_verbatim": "cross (CW)",
+     "standard_before_correction": "ASTM D790-15e2",
+     "test_standard_before_correction": null,
+     "direction_verbatim_before_correction": null,
+     "direction_before_correction": "cross (CW)",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 I-Isola."
+    },
+    "notes": "원문: 3178 ksi\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 6081
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(I-Isola). Isola 벤더 시트가 `Young's Modulus` 라는 이름을 붙인 행의 시험규격이 `ASTM D790-15e2`(3점 굽힘)다. 같은 시트가 `Tensile Strength`는 `ASTM D3039`로 따로 인쇄하지만 **인장탄성률 행은 없다**(370HR·IS400·I-Tera MT40·FR408 네 장 전수 확인 — `modulus` 적중은 `Young's Modulus` 한 행뿐). 그러므로 값을 인장으로 갈아치울 원문 근거가 없다 — 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "direction": "MD",
+     "verdict_tie_axis": "54차 PB — 다른조건 — 방향·시험법",
+     "verdict_tie_note": "[54차 PB 동률 재판정] 축이 다르므로 **둘 다 대표다** — 어느 쪽을 쓸지는 해석자가 정한다. 이 행은 대표와 순위가 같다(적재 순서로 밀렸다). 이 행 = 2.58137e+10 Pa [direction=\"MD\" · direction_verbatim=\"length (warp)\" · test=\"ASTM D790-15e2\"]. 동률 경쟁행 = 2.5814e+10 Pa [direction=\"MD\" · direction_verbatim=\"length (LW)\" · test_standard=\"ASTM D790-15e2\"] · 2.19115e+10 Pa [direction=\"TD\" · direction_verbatim=\"cross (CW)\" · test_standard=\"ASTM D790-15e2\"] · 2.19123e+10 Pa [direction=\"TD\" · direction_verbatim=\"cross (fill)\" · test=\"ASTM D790-15e2\"]. 갈린 조건키 = direction, direction_verbatim, test, test_standard.",
+     "verdict_tie_axis_before_correction": "51차 MA — 조건미기재 — 방향·시험법",
+     "verdict_tie_note_before_correction": "[51차 MA 동률 판정] 이 축이 한쪽에만 적혀 있다 — 축이 닫히지 않았다. **원문에 없는 조건을 채우지 않았다**(브리프 537). 이 행은 대표와 순위가 같다(적재 순서로 밀렸다). 이 행 = 2.58137e+10 Pa [direction=\"length (warp)\" · test=\"ASTM D790-15e2\"]. 동률 경쟁행 = 2.5814e+10 Pa [direction=\"length (LW)\" · standard=\"ASTM D790-15e2\"] · 2.19115e+10 Pa [direction=\"cross (CW)\" · standard=\"ASTM D790-15e2\"] · 2.19123e+10 Pa [direction=\"cross (fill)\" · test=\"ASTM D790-15e2\"]. 갈린 조건키 = direction, standard, test.",
+     "direction_verbatim": "length (warp)",
+     "direction_verbatim_before_correction": null,
+     "direction_before_correction": "length (warp)",
+     "test_standard": "ASTM D790-15e2",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 I-Isola."
+    },
+    "notes": "verbatim: Young's Modulus A. Length direction 3744 ksi ASTM D790-15e2\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 6082
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(I-Isola). Isola 벤더 시트가 `Young's Modulus` 라는 이름을 붙인 행의 시험규격이 `ASTM D790-15e2`(3점 굽힘)다. 같은 시트가 `Tensile Strength`는 `ASTM D3039`로 따로 인쇄하지만 **인장탄성률 행은 없다**(370HR·IS400·I-Tera MT40·FR408 네 장 전수 확인 — `modulus` 적중은 `Young's Modulus` 한 행뿐). 그러므로 값을 인장으로 갈아치울 원문 근거가 없다 — 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "direction": "TD",
+     "verdict_tie_axis": "54차 PB — 다른조건 — 방향·시험법",
+     "verdict_tie_note": "[54차 PB 동률 재판정] 축이 다르므로 **둘 다 대표다** — 어느 쪽을 쓸지는 해석자가 정한다. 이 행은 대표와 순위가 같다(적재 순서로 밀렸다). 이 행 = 2.19123e+10 Pa [direction=\"TD\" · direction_verbatim=\"cross (fill)\" · test=\"ASTM D790-15e2\"]. 동률 경쟁행 = 2.5814e+10 Pa [direction=\"MD\" · direction_verbatim=\"length (LW)\" · test_standard=\"ASTM D790-15e2\"] · 2.19115e+10 Pa [direction=\"TD\" · direction_verbatim=\"cross (CW)\" · test_standard=\"ASTM D790-15e2\"] · 2.58137e+10 Pa [direction=\"MD\" · direction_verbatim=\"length (warp)\" · test=\"ASTM D790-15e2\"]. 갈린 조건키 = direction, direction_verbatim, test, test_standard.",
+     "verdict_tie_axis_before_correction": "51차 MA — 조건미기재 — 방향·시험법",
+     "verdict_tie_note_before_correction": "[51차 MA 동률 판정] 이 축이 한쪽에만 적혀 있다 — 축이 닫히지 않았다. **원문에 없는 조건을 채우지 않았다**(브리프 537). 이 행은 대표와 순위가 같다(적재 순서로 밀렸다). 이 행 = 2.19123e+10 Pa [direction=\"cross (fill)\" · test=\"ASTM D790-15e2\"]. 동률 경쟁행 = 2.5814e+10 Pa [direction=\"length (LW)\" · standard=\"ASTM D790-15e2\"] · 2.19115e+10 Pa [direction=\"cross (CW)\" · standard=\"ASTM D790-15e2\"] · 2.58137e+10 Pa [direction=\"length (warp)\" · test=\"ASTM D790-15e2\"]. 갈린 조건키 = direction, standard, test.",
+     "direction_verbatim": "cross (fill)",
+     "direction_verbatim_before_correction": null,
+     "direction_before_correction": "cross (fill)",
+     "test_standard": "ASTM D790-15e2",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 I-Isola."
+    },
+    "notes": "verbatim: Young's Modulus B. Cross direction 3178 ksi ASTM D790-15e2\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 3382
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(I-Isola). Isola 벤더 시트가 `Young's Modulus` 라는 이름을 붙인 행의 시험규격이 `ASTM D790-15e2`(3점 굽힘)다. 같은 시트가 `Tensile Strength`는 `ASTM D3039`로 따로 인쇄하지만 **인장탄성률 행은 없다**(370HR·IS400·I-Tera MT40·FR408 네 장 전수 확인 — `modulus` 적중은 `Young's Modulus` 한 행뿐). 그러므로 값을 인장으로 갈아치울 원문 근거가 없다 — 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "direction": "MD",
+     "test_standard": "ASTM D790-15e2",
+     "direction_verbatim": "length (LW)",
+     "test_standard_before_correction": null,
+     "standard_before_correction": "ASTM D790-15e2",
+     "direction_verbatim_before_correction": null,
+     "direction_before_correction": "length (LW)",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 I-Isola."
+    },
+    "notes": "원문: 3663 ksi\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 3383
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(I-Isola). Isola 벤더 시트가 `Young's Modulus` 라는 이름을 붙인 행의 시험규격이 `ASTM D790-15e2`(3점 굽힘)다. 같은 시트가 `Tensile Strength`는 `ASTM D3039`로 따로 인쇄하지만 **인장탄성률 행은 없다**(370HR·IS400·I-Tera MT40·FR408 네 장 전수 확인 — `modulus` 적중은 `Young's Modulus` 한 행뿐). 그러므로 값을 인장으로 갈아치울 원문 근거가 없다 — 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "direction": "TD",
+     "test_standard": "ASTM D790-15e2",
+     "direction_verbatim": "cross (CW)",
+     "test_standard_before_correction": null,
+     "standard_before_correction": "ASTM D790-15e2",
+     "direction_verbatim_before_correction": null,
+     "direction_before_correction": "cross (CW)",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 I-Isola."
+    },
+    "notes": "원문: 3328 ksi\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 6096
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(I-Isola). Isola 벤더 시트가 `Young's Modulus` 라는 이름을 붙인 행의 시험규격이 `ASTM D790-15e2`(3점 굽힘)다. 같은 시트가 `Tensile Strength`는 `ASTM D3039`로 따로 인쇄하지만 **인장탄성률 행은 없다**(370HR·IS400·I-Tera MT40·FR408 네 장 전수 확인 — `modulus` 적중은 `Young's Modulus` 한 행뿐). 그러므로 값을 인장으로 갈아치울 원문 근거가 없다 — 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "direction": "MD",
+     "direction_verbatim": "length (warp)",
+     "direction_verbatim_before_correction": null,
+     "direction_before_correction": "length (warp)",
+     "test_standard": "ASTM D790-15e2",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 I-Isola."
+    },
+    "notes": "verbatim: Young's Modulus A. Length direction 3663 ksi ASTM D790-15e2\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 6097
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(I-Isola). Isola 벤더 시트가 `Young's Modulus` 라는 이름을 붙인 행의 시험규격이 `ASTM D790-15e2`(3점 굽힘)다. 같은 시트가 `Tensile Strength`는 `ASTM D3039`로 따로 인쇄하지만 **인장탄성률 행은 없다**(370HR·IS400·I-Tera MT40·FR408 네 장 전수 확인 — `modulus` 적중은 `Young's Modulus` 한 행뿐). 그러므로 값을 인장으로 갈아치울 원문 근거가 없다 — 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "direction": "TD",
+     "direction_verbatim": "cross (fill)",
+     "direction_verbatim_before_correction": null,
+     "direction_before_correction": "cross (fill)",
+     "test_standard": "ASTM D790-15e2",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 I-Isola."
+    },
+    "notes": "verbatim: Young's Modulus B. Cross direction 3328 ksi ASTM D790-15e2\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 3408
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(I-Isola). Isola 벤더 시트가 `Young's Modulus` 라는 이름을 붙인 행의 시험규격이 `ASTM D790-15e2`(3점 굽힘)다. 같은 시트가 `Tensile Strength`는 `ASTM D3039`로 따로 인쇄하지만 **인장탄성률 행은 없다**(370HR·IS400·I-Tera MT40·FR408 네 장 전수 확인 — `modulus` 적중은 `Young's Modulus` 한 행뿐). 그러므로 값을 인장으로 갈아치울 원문 근거가 없다 — 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "direction": "MD",
+     "test_standard": "ASTM D790-15e2",
+     "direction_verbatim": "length (LW)",
+     "test_standard_before_correction": null,
+     "standard_before_correction": "ASTM D790-15e2",
+     "direction_verbatim_before_correction": null,
+     "direction_before_correction": "length (LW)",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 I-Isola.",
+     "duplicate_of": "mechanical.flexural_modulus pv11135 (같은 수·같은 출처). 지우지 않았다 — 삭제는 사람이 정한다."
+    },
+    "notes": "원문: 3060 ksi\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다. **중복 후보** — 같은 재료의 `mechanical.flexural_modulus` 에 같은 수가 이미 t1 로 들어 있다(재료 135 → pv4452 · 재료 222 → pv11135·pv11136). 이 행을 지워도 숫자는 DB 에 남는다. **72차 HB 는 지우지 않았다 — 삭제는 사람이 정한다.**"
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 3409
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(I-Isola). Isola 벤더 시트가 `Young's Modulus` 라는 이름을 붙인 행의 시험규격이 `ASTM D790-15e2`(3점 굽힘)다. 같은 시트가 `Tensile Strength`는 `ASTM D3039`로 따로 인쇄하지만 **인장탄성률 행은 없다**(370HR·IS400·I-Tera MT40·FR408 네 장 전수 확인 — `modulus` 적중은 `Young's Modulus` 한 행뿐). 그러므로 값을 인장으로 갈아치울 원문 근거가 없다 — 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "direction": "TD",
+     "test_standard": "ASTM D790-15e2",
+     "direction_verbatim": "cross (CW)",
+     "test_standard_before_correction": null,
+     "standard_before_correction": "ASTM D790-15e2",
+     "direction_verbatim_before_correction": null,
+     "direction_before_correction": "cross (CW)",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 I-Isola.",
+     "duplicate_of": "mechanical.flexural_modulus pv11136 (같은 수·같은 출처). 지우지 않았다 — 삭제는 사람이 정한다."
+    },
+    "notes": "원문: 2784 ksi\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다. **중복 후보** — 같은 재료의 `mechanical.flexural_modulus` 에 같은 수가 이미 t1 로 들어 있다(재료 135 → pv4452 · 재료 222 → pv11135·pv11136). 이 행을 지워도 숫자는 DB 에 남는다. **72차 HB 는 지우지 않았다 — 삭제는 사람이 정한다.**"
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 6111
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(I-Isola). Isola 벤더 시트가 `Young's Modulus` 라는 이름을 붙인 행의 시험규격이 `ASTM D790-15e2`(3점 굽힘)다. 같은 시트가 `Tensile Strength`는 `ASTM D3039`로 따로 인쇄하지만 **인장탄성률 행은 없다**(370HR·IS400·I-Tera MT40·FR408 네 장 전수 확인 — `modulus` 적중은 `Young's Modulus` 한 행뿐). 그러므로 값을 인장으로 갈아치울 원문 근거가 없다 — 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "direction": "MD",
+     "direction_verbatim": "length (warp)",
+     "direction_verbatim_before_correction": null,
+     "direction_before_correction": "length (warp)",
+     "test_standard": "ASTM D790-15e2",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 I-Isola.",
+     "duplicate_of": "mechanical.flexural_modulus pv11135 (같은 수·같은 출처). 지우지 않았다 — 삭제는 사람이 정한다."
+    },
+    "notes": "verbatim: Young's Modulus A. Length direction 3060 ksi ASTM D790-15e2\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다. **중복 후보** — 같은 재료의 `mechanical.flexural_modulus` 에 같은 수가 이미 t1 로 들어 있다(재료 135 → pv4452 · 재료 222 → pv11135·pv11136). 이 행을 지워도 숫자는 DB 에 남는다. **72차 HB 는 지우지 않았다 — 삭제는 사람이 정한다.**"
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 6112
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(I-Isola). Isola 벤더 시트가 `Young's Modulus` 라는 이름을 붙인 행의 시험규격이 `ASTM D790-15e2`(3점 굽힘)다. 같은 시트가 `Tensile Strength`는 `ASTM D3039`로 따로 인쇄하지만 **인장탄성률 행은 없다**(370HR·IS400·I-Tera MT40·FR408 네 장 전수 확인 — `modulus` 적중은 `Young's Modulus` 한 행뿐). 그러므로 값을 인장으로 갈아치울 원문 근거가 없다 — 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "direction": "TD",
+     "direction_verbatim": "cross (fill)",
+     "direction_verbatim_before_correction": null,
+     "direction_before_correction": "cross (fill)",
+     "test_standard": "ASTM D790-15e2",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 I-Isola.",
+     "duplicate_of": "mechanical.flexural_modulus pv11136 (같은 수·같은 출처). 지우지 않았다 — 삭제는 사람이 정한다."
+    },
+    "notes": "verbatim: Young's Modulus B. Cross direction 2784 ksi ASTM D790-15e2\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다. **중복 후보** — 같은 재료의 `mechanical.flexural_modulus` 에 같은 수가 이미 t1 로 들어 있다(재료 135 → pv4452 · 재료 222 → pv11135·pv11136). 이 행을 지워도 숫자는 DB 에 남는다. **72차 HB 는 지우지 않았다 — 삭제는 사람이 정한다.**"
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 10426
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(I-Isola). Isola 벤더 시트가 `Young's Modulus` 라는 이름을 붙인 행의 시험규격이 `ASTM D790-15e2`(3점 굽힘)다. 같은 시트가 `Tensile Strength`는 `ASTM D3039`로 따로 인쇄하지만 **인장탄성률 행은 없다**(370HR·IS400·I-Tera MT40·FR408 네 장 전수 확인 — `modulus` 적중은 `Young's Modulus` 한 행뿐). 그러므로 값을 인장으로 갈아치울 원문 근거가 없다 — 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "direction": "MD",
+     "direction_verbatim": "length",
+     "direction_before_correction": "length",
+     "direction_verbatim_before_correction": null,
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 I-Isola.",
+     "duplicate_of": "mechanical.flexural_modulus pv11135 (같은 수·같은 출처). 지우지 않았다 — 삭제는 사람이 정한다."
+    },
+    "notes": "TDS \"Young's Modulus A. Length direction 3060 ksi (ASTM D790-15e2)\" -> 3.060e6 psi x 6894.76 = 2.1098e10 Pa\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다. **중복 후보** — 같은 재료의 `mechanical.flexural_modulus` 에 같은 수가 이미 t1 로 들어 있다(재료 135 → pv4452 · 재료 222 → pv11135·pv11136). 이 행을 지워도 숫자는 DB 에 남는다. **72차 HB 는 지우지 않았다 — 삭제는 사람이 정한다.**"
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 10427
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(I-Isola). Isola 벤더 시트가 `Young's Modulus` 라는 이름을 붙인 행의 시험규격이 `ASTM D790-15e2`(3점 굽힘)다. 같은 시트가 `Tensile Strength`는 `ASTM D3039`로 따로 인쇄하지만 **인장탄성률 행은 없다**(370HR·IS400·I-Tera MT40·FR408 네 장 전수 확인 — `modulus` 적중은 `Young's Modulus` 한 행뿐). 그러므로 값을 인장으로 갈아치울 원문 근거가 없다 — 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "direction": "TD",
+     "direction_verbatim": "cross",
+     "direction_before_correction": "cross",
+     "direction_verbatim_before_correction": null,
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 I-Isola.",
+     "duplicate_of": "mechanical.flexural_modulus pv11136 (같은 수·같은 출처). 지우지 않았다 — 삭제는 사람이 정한다."
+    },
+    "notes": "TDS \"Young's Modulus B. Cross direction 2784 ksi (ASTM D790-15e2)\" -> 2.784e6 psi x 6894.76 = 1.9195e10 Pa\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다. **중복 후보** — 같은 재료의 `mechanical.flexural_modulus` 에 같은 수가 이미 t1 로 들어 있다(재료 135 → pv4452 · 재료 222 → pv11135·pv11136). 이 행을 지워도 숫자는 DB 에 남는다. **72차 HB 는 지우지 않았다 — 삭제는 사람이 정한다.**"
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 43576
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(I-Isola). Isola 벤더 시트가 `Young's Modulus` 라는 이름을 붙인 행의 시험규격이 `ASTM D790-15e2`(3점 굽힘)다. 같은 시트가 `Tensile Strength`는 `ASTM D3039`로 따로 인쇄하지만 **인장탄성률 행은 없다**(370HR·IS400·I-Tera MT40·FR408 네 장 전수 확인 — `modulus` 적중은 `Young's Modulus` 한 행뿐). 그러므로 값을 인장으로 갈아치울 원문 근거가 없다 — 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "direction": "MD",
+     "direction_verbatim": "A. Length direction",
+     "test_standard": "ASTM D790-15e2",
+     "modulus_basis": "flexural (ASTM D790 3점 굽힘) — 시트 행 이름은 \"Young's Modulus\"",
+     "printed_as": "3685 / 3044 ksi",
+     "temperature": "not reported",
+     "temperature_before_correction": "not printed",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 I-Isola."
+    },
+    "notes": "시트가 행 이름을 \"Young's Modulus\" 로 인쇄하지만 시험규격은 ASTM D790(3점 굽힘)이라 실체는 굽힘탄성률이다 — 행 이름과 규격을 둘 다 조건에 박아 둔다(브리프 21·605). 카탈로그의 Isola 220/221/222 도 같은 D790 행을 mechanical.youngs_modulus 로 담고 있어 규약이 같다. Rev C 시트 `Young's Modulus A. Length direction 3685 / B. Cross direction 3044 ksi | ASTM D790-15e2`. 1 ksi = 6.894757e6 Pa. 400 dpi 렌더로 확인했다. 형제 등급 FR408HR(Rev E)의 3695/3315 ksi 와 같은 대역이다.  §604 혼합물 경계 검산 — 이 시트가 같이 인쇄하는 밀도/구성으로 유리 부피분율을 0.5 로 잡으면 직조포 warp 방향 하한 = 0.25 x 72 GPa = 18.0 GPa, Voigt 상한 = 0.5 x 72 + 0.5 x 3.3 = 37.7 GPa 다. 이 값이 그 사이에 든다. §586 동정 검산 — Ehrler 2002 Table II 'FR408 Isola' 대 이 시트. 동시대판(Isola Laminate Systems Data Sheet #5035/5/02)과 이 Rev C 가 Tg(DSC) 180 degC · CTE x/y 13 ppm/degC 를 19년 사이에 같게 인쇄한다 - 벤더의 FR408 은 세대가 갈리지 않았다. Ehrler 의 DSC 192-196 degC 는 공칭 180 보다 높은데, 같은 논문이 공칭 180 급인 Nelco4000-6('FR4-180')도 DSC 184-188 로 높게 읽어 계통 편향이다. Dk 는 Ehrler 4.06(1MHz, 3x7628 추정) 대 시트 3.69(100MHz, 표준 구성)로 주파수·구성이 달라 판별축이 못 된다.\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 43577
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(I-Isola). Isola 벤더 시트가 `Young's Modulus` 라는 이름을 붙인 행의 시험규격이 `ASTM D790-15e2`(3점 굽힘)다. 같은 시트가 `Tensile Strength`는 `ASTM D3039`로 따로 인쇄하지만 **인장탄성률 행은 없다**(370HR·IS400·I-Tera MT40·FR408 네 장 전수 확인 — `modulus` 적중은 `Young's Modulus` 한 행뿐). 그러므로 값을 인장으로 갈아치울 원문 근거가 없다 — 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "direction": "TD",
+     "direction_verbatim": "B. Cross direction",
+     "test_standard": "ASTM D790-15e2",
+     "modulus_basis": "flexural (ASTM D790 3점 굽힘) — 시트 행 이름은 \"Young's Modulus\"",
+     "printed_as": "3685 / 3044 ksi",
+     "temperature": "not reported",
+     "temperature_before_correction": "not printed",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 I-Isola."
+    },
+    "notes": "시트가 행 이름을 \"Young's Modulus\" 로 인쇄하지만 시험규격은 ASTM D790(3점 굽힘)이라 실체는 굽힘탄성률이다 — 행 이름과 규격을 둘 다 조건에 박아 둔다(브리프 21·605). 카탈로그의 Isola 220/221/222 도 같은 D790 행을 mechanical.youngs_modulus 로 담고 있어 규약이 같다. Rev C 시트 `Young's Modulus A. Length direction 3685 / B. Cross direction 3044 ksi | ASTM D790-15e2`. 1 ksi = 6.894757e6 Pa. 400 dpi 렌더로 확인했다. 형제 등급 FR408HR(Rev E)의 3695/3315 ksi 와 같은 대역이다.  §604 혼합물 경계 검산 — 이 시트가 같이 인쇄하는 밀도/구성으로 유리 부피분율을 0.5 로 잡으면 직조포 warp 방향 하한 = 0.25 x 72 GPa = 18.0 GPa, Voigt 상한 = 0.5 x 72 + 0.5 x 3.3 = 37.7 GPa 다. 이 값이 그 사이에 든다. §586 동정 검산 — Ehrler 2002 Table II 'FR408 Isola' 대 이 시트. 동시대판(Isola Laminate Systems Data Sheet #5035/5/02)과 이 Rev C 가 Tg(DSC) 180 degC · CTE x/y 13 ppm/degC 를 19년 사이에 같게 인쇄한다 - 벤더의 FR408 은 세대가 갈리지 않았다. Ehrler 의 DSC 192-196 degC 는 공칭 180 보다 높은데, 같은 논문이 공칭 180 급인 Nelco4000-6('FR4-180')도 DSC 184-188 로 높게 읽어 계통 편향이다. Dk 는 Ehrler 4.06(1MHz, 3x7628 추정) 대 시트 3.69(100MHz, 표준 구성)로 주파수·구성이 달라 판별축이 못 된다.\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 16961
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(II-Isola-차용). 이 행은 자기 등급의 값이 아니라 동급 Isola 시트(370HR·IS400)의 `Young's Modulus` 행을 클래스 대체값으로 빌려 온 것이고, 그 원본이 `ASTM D790-15e2`(3점 굽힘)다. 굽힘값을 빌렸다는 사실이 등급 대체와 겹쳐 두 겹으로 가려져 있었다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "direction": "MD",
+     "grade_scope": "class value — 동급 Mid-Tg FR-4 라미네이트(Isola IS400)의 값이다. NP-155FR 자체 데이터시트(rs.jlcpcb.com nan-ya-np-155f)에는 탄성률 항목이 없다",
+     "test_method": "ASTM D790-15e2",
+     "direction_verbatim": "warp (length)",
+     "direction_verbatim_before_correction": null,
+     "direction_before_correction": "warp (length)",
+     "test_standard": "ASTM D790-15e2",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 II-Isola-차용."
+    },
+    "notes": "IS400 TDS 'Young's Modulus' A. Length direction 3663 ksi = 25.25 GPa. 단 시험규격이 ASTM D790-15e2 — 인장이 아니라 굴곡시험이므로 실제로는 굽힘탄성률이다. NP-155FR의 tier1 flexural_strength 415-550 MPa가 IS400의 459-565 MPa와 같은 대역이라 계열 대체값으로 채택\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 16962
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(II-Isola-차용). 이 행은 자기 등급의 값이 아니라 동급 Isola 시트(370HR·IS400)의 `Young's Modulus` 행을 클래스 대체값으로 빌려 온 것이고, 그 원본이 `ASTM D790-15e2`(3점 굽힘)다. 굽힘값을 빌렸다는 사실이 등급 대체와 겹쳐 두 겹으로 가려져 있었다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "direction": "TD",
+     "grade_scope": "class value — Isola IS400 Mid-Tg FR-4",
+     "test_method": "ASTM D790-15e2",
+     "direction_verbatim": "fill (cross)",
+     "direction_verbatim_before_correction": null,
+     "direction_before_correction": "fill (cross)",
+     "test_standard": "ASTM D790-15e2",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 II-Isola-차용."
+    },
+    "notes": "IS400 TDS 'Young's Modulus' B. Cross direction 3328 ksi = 22.94 GPa. ASTM D790이므로 굽힘탄성률\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 16963
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(II-Isola-차용). 이 행은 자기 등급의 값이 아니라 동급 Isola 시트(370HR·IS400)의 `Young's Modulus` 행을 클래스 대체값으로 빌려 온 것이고, 그 원본이 `ASTM D790-15e2`(3점 굽힘)다. 굽힘값을 빌렸다는 사실이 등급 대체와 겹쳐 두 겹으로 가려져 있었다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "direction": "MD",
+     "grade_scope": "class value — 동급 High-Tg FR-4 라미네이트(Isola 370HR). Shengyi S1000-2 TDS 2종(shengyi-usa, epectec)에는 탄성률 항목이 없다",
+     "test_method": "ASTM D790-15e2",
+     "verdict_tie_axis": "51차 MA — 다른조건 — 등급·상태·방향",
+     "verdict_tie_note": "[51차 MA 동률 판정] 축이 다르므로 **둘 다 대표다** — 어느 쪽을 쓸지는 해석자가 정한다. 이 행이 대표로 뽑혀 있다. 이 행 = 2.581e+10 Pa [direction=\"warp (length)\" · grade_scope=\"class value — 동급 High-Tg FR-4 라미네이트(Isola 370HR). Shengyi S1000-2 TDS]. 동률 경쟁행 = 2.191e+10 Pa [direction=\"fill (cross)\" · grade_scope=\"class value — Isola 370HR High-Tg FR-4\"]. 갈린 조건키 = direction, grade_scope.",
+     "verdict_tie_axis_before_correction": null,
+     "verdict_tie_note_before_correction": null,
+     "direction_verbatim": "warp (length)",
+     "direction_verbatim_before_correction": null,
+     "direction_before_correction": "warp (length)",
+     "test_standard": "ASTM D790-15e2",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 II-Isola-차용."
+    },
+    "notes": "370HR TDS 'Young's Modulus' A. Length direction 3744 ksi = 25.81 GPa. 시험규격 ASTM D790-15e2 = 굴곡시험이므로 실제로는 굽힘탄성률. S1000-2의 tier1 flexural_strength 518-562 MPa가 370HR급과 같은 대역\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 16964
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(II-Isola-차용). 이 행은 자기 등급의 값이 아니라 동급 Isola 시트(370HR·IS400)의 `Young's Modulus` 행을 클래스 대체값으로 빌려 온 것이고, 그 원본이 `ASTM D790-15e2`(3점 굽힘)다. 굽힘값을 빌렸다는 사실이 등급 대체와 겹쳐 두 겹으로 가려져 있었다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "direction": "TD",
+     "grade_scope": "class value — Isola 370HR High-Tg FR-4",
+     "test_method": "ASTM D790-15e2",
+     "verdict_tie_axis": "51차 MA — 다른조건 — 등급·상태·방향",
+     "verdict_tie_note": "[51차 MA 동률 판정] 축이 다르므로 **둘 다 대표다** — 어느 쪽을 쓸지는 해석자가 정한다. 이 행은 대표와 순위가 같다(적재 순서로 밀렸다). 이 행 = 2.191e+10 Pa [direction=\"fill (cross)\" · grade_scope=\"class value — Isola 370HR High-Tg FR-4\"]. 동률 경쟁행 = 2.581e+10 Pa [direction=\"warp (length)\" · grade_scope=\"class value — 동급 High-Tg FR-4 라미네이트(Isola 370HR). Shengyi S1000-2 TDS]. 갈린 조건키 = direction, grade_scope.",
+     "verdict_tie_axis_before_correction": null,
+     "verdict_tie_note_before_correction": null,
+     "direction_verbatim": "fill (cross)",
+     "direction_verbatim_before_correction": null,
+     "direction_before_correction": "fill (cross)",
+     "test_standard": "ASTM D790-15e2",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 II-Isola-차용."
+    },
+    "notes": "370HR TDS 'Young's Modulus' B. Cross direction 3178 ksi = 21.91 GPa. ASTM D790이므로 굽힘탄성률\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 27245
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(III-Dudek2001). Dudek 2001 Table 3 의 열 머리글은 `Young's-Modulus (GPa)` 이지만, 같은 논문 본문이 verbatim 으로 *'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178'* 라고 밝힌다. 논문 전문에 인장 탄성률 측정은 없다(방법절이 여는 시험은 3점굽힘과 SENB 파괴인성뿐). 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 296.15,
+     "moisture_state": "dried 125 C / 24 h",
+     "test_method": "three point bending, EN ISO 178",
+     "verdict_tie_axis": "51차 MA — 다른조건 — 환경·조습",
+     "verdict_tie_note": "[51차 MA 동률 판정] 축이 다르므로 **둘 다 대표다** — 어느 쪽을 쓸지는 해석자가 정한다. 이 행이 대표로 뽑혀 있다. 이 행 = 1.1e+10 Pa [moisture_state=\"dried 125 C / 24 h\"]. 동률 경쟁행 = 8.9e+09 Pa [moisture_state=\"moisture soaked, J-STD-020A level 1 (85 C/85%RH, 168 h)\"]. 갈린 조건키 = moisture_state.",
+     "verdict_tie_axis_before_correction": null,
+     "verdict_tie_note_before_correction": null,
+     "temperature_c": 23,
+     "temperature_C_before_correction": 23,
+     "temperature_c_before_correction": null,
+     "test_standard": "EN ISO 178",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 III-Dudek2001."
+    },
+    "notes": "Table 3 'Young's-Modulus (GPa)' 23 C 행 · 'EMC-A1' 의 'Dry' 열 = 11.0 GPa. Table 3 은 재료마다 'Dry'/'Wet' 두 열이다. 'Wet' 은 같은 논문의 J-STD-020A level 1(85 C/85%RH, 168 h) 흡습 시편이고 'Dry' 는 125 C/24 h 건조 시편이다. 본문 verbatim: 'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178.' 파괴시험은 'a three point bending test of pre-cracked prismatic beams ... in accordance with ASTM D5045 ... notched with a V-notch (single edge notched, SEN). The initial crack length a was 2 mm ... executed on an Zwick 1446 universal testing machine at a crosshead speed of 2 mm/min.' 표 검산(같은 논문 안에서 닫힌다): 필러 함량 78 / 82 / 83 / 84.5 wt% 순서대로 23 C 건조 E 가 11 / 16.3 / 18 / 23.3 GPa 로 **단조 증가**하고 Tg 아래 CTE 가 16.3 / 12.8 / 11.9 / 10.3 ppm/K 로 **단조 감소**한다. 필러가 많을수록 강하고 덜 팽창한다는 물리와 네 재료가 모두 맞아 Table 1 과 Table 3 의 열 배정이 동시에 확정된다. 400 dpi 렌더로 표를 눈으로 읽었다 — 스캔 IEEE 라 pdftotext 가 표 본문을 잃는다(브리프 24·33번 절).\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 27246
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(III-Dudek2001). Dudek 2001 Table 3 의 열 머리글은 `Young's-Modulus (GPa)` 이지만, 같은 논문 본문이 verbatim 으로 *'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178'* 라고 밝힌다. 논문 전문에 인장 탄성률 측정은 없다(방법절이 여는 시험은 3점굽힘과 SENB 파괴인성뿐). 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 296.15,
+     "moisture_state": "moisture soaked, J-STD-020A level 1 (85 C/85%RH, 168 h)",
+     "test_method": "three point bending, EN ISO 178",
+     "verdict_tie_axis": "51차 MA — 다른조건 — 환경·조습",
+     "verdict_tie_note": "[51차 MA 동률 판정] 축이 다르므로 **둘 다 대표다** — 어느 쪽을 쓸지는 해석자가 정한다. 이 행은 대표와 순위가 같다(적재 순서로 밀렸다). 이 행 = 8.9e+09 Pa [moisture_state=\"moisture soaked, J-STD-020A level 1 (85 C/85%RH, 168 h)\"]. 동률 경쟁행 = 1.1e+10 Pa [moisture_state=\"dried 125 C / 24 h\"]. 갈린 조건키 = moisture_state.",
+     "verdict_tie_axis_before_correction": null,
+     "verdict_tie_note_before_correction": null,
+     "temperature_c": 23,
+     "temperature_C_before_correction": 23,
+     "temperature_c_before_correction": null,
+     "test_standard": "EN ISO 178",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 III-Dudek2001."
+    },
+    "notes": "Table 3 'Young's-Modulus (GPa)' 23 C 행 · 'EMC-A1' 의 'Wet' 열 = 8.9 GPa. Table 3 은 재료마다 'Dry'/'Wet' 두 열이다. 'Wet' 은 같은 논문의 J-STD-020A level 1(85 C/85%RH, 168 h) 흡습 시편이고 'Dry' 는 125 C/24 h 건조 시편이다. 본문 verbatim: 'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178.' 파괴시험은 'a three point bending test of pre-cracked prismatic beams ... in accordance with ASTM D5045 ... notched with a V-notch (single edge notched, SEN). The initial crack length a was 2 mm ... executed on an Zwick 1446 universal testing machine at a crosshead speed of 2 mm/min.' 표 검산(같은 논문 안에서 닫힌다): 필러 함량 78 / 82 / 83 / 84.5 wt% 순서대로 23 C 건조 E 가 11 / 16.3 / 18 / 23.3 GPa 로 **단조 증가**하고 Tg 아래 CTE 가 16.3 / 12.8 / 11.9 / 10.3 ppm/K 로 **단조 감소**한다. 필러가 많을수록 강하고 덜 팽창한다는 물리와 네 재료가 모두 맞아 Table 1 과 Table 3 의 열 배정이 동시에 확정된다. 400 dpi 렌더로 표를 눈으로 읽었다 — 스캔 IEEE 라 pdftotext 가 표 본문을 잃는다(브리프 24·33번 절).\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 27247
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(III-Dudek2001). Dudek 2001 Table 3 의 열 머리글은 `Young's-Modulus (GPa)` 이지만, 같은 논문 본문이 verbatim 으로 *'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178'* 라고 밝힌다. 논문 전문에 인장 탄성률 측정은 없다(방법절이 여는 시험은 3점굽힘과 SENB 파괴인성뿐). 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 488.15,
+     "moisture_state": "dried 125 C / 24 h",
+     "test_method": "three point bending, EN ISO 178",
+     "verdict_tie_axis": "51차 MA — 다른조건 — 환경·조습",
+     "verdict_tie_note": "[51차 MA 동률 판정] 축이 다르므로 **둘 다 대표다** — 어느 쪽을 쓸지는 해석자가 정한다. 이 행은 순위에서 뒤에 있다(동률이 아니다). 이 행 = 7.5e+08 Pa [moisture_state=\"dried 125 C / 24 h\"]. 동률 경쟁행 = 1.1e+10 Pa [moisture_state=\"dried 125 C / 24 h\"] · 8.9e+09 Pa [moisture_state=\"moisture soaked, J-STD-020A level 1 (85 C/85%RH, 168 h)\"]. 갈린 조건키 = moisture_state.",
+     "verdict_tie_axis_before_correction": null,
+     "verdict_tie_note_before_correction": null,
+     "temperature_c": 215,
+     "temperature_C_before_correction": 215,
+     "temperature_c_before_correction": null,
+     "test_standard": "EN ISO 178",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 III-Dudek2001."
+    },
+    "notes": "Table 3 'Young's-Modulus (GPa)' 215 C 행 · 'EMC-A1' 의 'Dry' 열 = 0.75 GPa. Table 3 은 재료마다 'Dry'/'Wet' 두 열이다. 'Wet' 은 같은 논문의 J-STD-020A level 1(85 C/85%RH, 168 h) 흡습 시편이고 'Dry' 는 125 C/24 h 건조 시편이다. 본문 verbatim: 'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178.' 파괴시험은 'a three point bending test of pre-cracked prismatic beams ... in accordance with ASTM D5045 ... notched with a V-notch (single edge notched, SEN). The initial crack length a was 2 mm ... executed on an Zwick 1446 universal testing machine at a crosshead speed of 2 mm/min.' 표 검산(같은 논문 안에서 닫힌다): 필러 함량 78 / 82 / 83 / 84.5 wt% 순서대로 23 C 건조 E 가 11 / 16.3 / 18 / 23.3 GPa 로 **단조 증가**하고 Tg 아래 CTE 가 16.3 / 12.8 / 11.9 / 10.3 ppm/K 로 **단조 감소**한다. 필러가 많을수록 강하고 덜 팽창한다는 물리와 네 재료가 모두 맞아 Table 1 과 Table 3 의 열 배정이 동시에 확정된다. 400 dpi 렌더로 표를 눈으로 읽었다 — 스캔 IEEE 라 pdftotext 가 표 본문을 잃는다(브리프 24·33번 절).\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 27248
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(III-Dudek2001). Dudek 2001 Table 3 의 열 머리글은 `Young's-Modulus (GPa)` 이지만, 같은 논문 본문이 verbatim 으로 *'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178'* 라고 밝힌다. 논문 전문에 인장 탄성률 측정은 없다(방법절이 여는 시험은 3점굽힘과 SENB 파괴인성뿐). 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 488.15,
+     "moisture_state": "moisture soaked, J-STD-020A level 1 (85 C/85%RH, 168 h)",
+     "test_method": "three point bending, EN ISO 178",
+     "verdict_tie_axis": "51차 MA — 다른조건 — 환경·조습",
+     "verdict_tie_note": "[51차 MA 동률 판정] 축이 다르므로 **둘 다 대표다** — 어느 쪽을 쓸지는 해석자가 정한다. 이 행은 순위에서 뒤에 있다(동률이 아니다). 이 행 = 5.9e+08 Pa [moisture_state=\"moisture soaked, J-STD-020A level 1 (85 C/85%RH, 168 h)\"]. 동률 경쟁행 = 1.1e+10 Pa [moisture_state=\"dried 125 C / 24 h\"] · 8.9e+09 Pa [moisture_state=\"moisture soaked, J-STD-020A level 1 (85 C/85%RH, 168 h)\"]. 갈린 조건키 = moisture_state.",
+     "verdict_tie_axis_before_correction": null,
+     "verdict_tie_note_before_correction": null,
+     "temperature_c": 215,
+     "temperature_C_before_correction": 215,
+     "temperature_c_before_correction": null,
+     "test_standard": "EN ISO 178",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 III-Dudek2001."
+    },
+    "notes": "Table 3 'Young's-Modulus (GPa)' 215 C 행 · 'EMC-A1' 의 'Wet' 열 = 0.59 GPa. Table 3 은 재료마다 'Dry'/'Wet' 두 열이다. 'Wet' 은 같은 논문의 J-STD-020A level 1(85 C/85%RH, 168 h) 흡습 시편이고 'Dry' 는 125 C/24 h 건조 시편이다. 본문 verbatim: 'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178.' 파괴시험은 'a three point bending test of pre-cracked prismatic beams ... in accordance with ASTM D5045 ... notched with a V-notch (single edge notched, SEN). The initial crack length a was 2 mm ... executed on an Zwick 1446 universal testing machine at a crosshead speed of 2 mm/min.' 표 검산(같은 논문 안에서 닫힌다): 필러 함량 78 / 82 / 83 / 84.5 wt% 순서대로 23 C 건조 E 가 11 / 16.3 / 18 / 23.3 GPa 로 **단조 증가**하고 Tg 아래 CTE 가 16.3 / 12.8 / 11.9 / 10.3 ppm/K 로 **단조 감소**한다. 필러가 많을수록 강하고 덜 팽창한다는 물리와 네 재료가 모두 맞아 Table 1 과 Table 3 의 열 배정이 동시에 확정된다. 400 dpi 렌더로 표를 눈으로 읽었다 — 스캔 IEEE 라 pdftotext 가 표 본문을 잃는다(브리프 24·33번 절).\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 27257
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(III-Dudek2001). Dudek 2001 Table 3 의 열 머리글은 `Young's-Modulus (GPa)` 이지만, 같은 논문 본문이 verbatim 으로 *'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178'* 라고 밝힌다. 논문 전문에 인장 탄성률 측정은 없다(방법절이 여는 시험은 3점굽힘과 SENB 파괴인성뿐). 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 296.15,
+     "moisture_state": "dried 125 C / 24 h",
+     "test_method": "three point bending, EN ISO 178",
+     "verdict_tie_axis": "51차 MA — 다른조건 — 환경·조습",
+     "verdict_tie_note": "[51차 MA 동률 판정] 축이 다르므로 **둘 다 대표다** — 어느 쪽을 쓸지는 해석자가 정한다. 이 행이 대표로 뽑혀 있다. 이 행 = 2.33e+10 Pa [moisture_state=\"dried 125 C / 24 h\"]. 동률 경쟁행 = 1.95e+10 Pa [moisture_state=\"moisture soaked, J-STD-020A level 1 (85 C/85%RH, 168 h)\"]. 갈린 조건키 = moisture_state.",
+     "verdict_tie_axis_before_correction": null,
+     "verdict_tie_note_before_correction": null,
+     "temperature_c": 23,
+     "temperature_C_before_correction": 23,
+     "temperature_c_before_correction": null,
+     "test_standard": "EN ISO 178",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 III-Dudek2001."
+    },
+    "notes": "Table 3 'Young's-Modulus (GPa)' 23 C 행 · 'EMC-A2' 의 'Dry' 열 = 23.3 GPa. Table 3 은 재료마다 'Dry'/'Wet' 두 열이다. 'Wet' 은 같은 논문의 J-STD-020A level 1(85 C/85%RH, 168 h) 흡습 시편이고 'Dry' 는 125 C/24 h 건조 시편이다. 본문 verbatim: 'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178.' 파괴시험은 'a three point bending test of pre-cracked prismatic beams ... in accordance with ASTM D5045 ... notched with a V-notch (single edge notched, SEN). The initial crack length a was 2 mm ... executed on an Zwick 1446 universal testing machine at a crosshead speed of 2 mm/min.' 표 검산(같은 논문 안에서 닫힌다): 필러 함량 78 / 82 / 83 / 84.5 wt% 순서대로 23 C 건조 E 가 11 / 16.3 / 18 / 23.3 GPa 로 **단조 증가**하고 Tg 아래 CTE 가 16.3 / 12.8 / 11.9 / 10.3 ppm/K 로 **단조 감소**한다. 필러가 많을수록 강하고 덜 팽창한다는 물리와 네 재료가 모두 맞아 Table 1 과 Table 3 의 열 배정이 동시에 확정된다. 400 dpi 렌더로 표를 눈으로 읽었다 — 스캔 IEEE 라 pdftotext 가 표 본문을 잃는다(브리프 24·33번 절).\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 27258
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(III-Dudek2001). Dudek 2001 Table 3 의 열 머리글은 `Young's-Modulus (GPa)` 이지만, 같은 논문 본문이 verbatim 으로 *'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178'* 라고 밝힌다. 논문 전문에 인장 탄성률 측정은 없다(방법절이 여는 시험은 3점굽힘과 SENB 파괴인성뿐). 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 296.15,
+     "moisture_state": "moisture soaked, J-STD-020A level 1 (85 C/85%RH, 168 h)",
+     "test_method": "three point bending, EN ISO 178",
+     "verdict_tie_axis": "51차 MA — 다른조건 — 환경·조습",
+     "verdict_tie_note": "[51차 MA 동률 판정] 축이 다르므로 **둘 다 대표다** — 어느 쪽을 쓸지는 해석자가 정한다. 이 행은 대표와 순위가 같다(적재 순서로 밀렸다). 이 행 = 1.95e+10 Pa [moisture_state=\"moisture soaked, J-STD-020A level 1 (85 C/85%RH, 168 h)\"]. 동률 경쟁행 = 2.33e+10 Pa [moisture_state=\"dried 125 C / 24 h\"]. 갈린 조건키 = moisture_state.",
+     "verdict_tie_axis_before_correction": null,
+     "verdict_tie_note_before_correction": null,
+     "temperature_c": 23,
+     "temperature_C_before_correction": 23,
+     "temperature_c_before_correction": null,
+     "test_standard": "EN ISO 178",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 III-Dudek2001."
+    },
+    "notes": "Table 3 'Young's-Modulus (GPa)' 23 C 행 · 'EMC-A2' 의 'Wet' 열 = 19.5 GPa. Table 3 은 재료마다 'Dry'/'Wet' 두 열이다. 'Wet' 은 같은 논문의 J-STD-020A level 1(85 C/85%RH, 168 h) 흡습 시편이고 'Dry' 는 125 C/24 h 건조 시편이다. 본문 verbatim: 'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178.' 파괴시험은 'a three point bending test of pre-cracked prismatic beams ... in accordance with ASTM D5045 ... notched with a V-notch (single edge notched, SEN). The initial crack length a was 2 mm ... executed on an Zwick 1446 universal testing machine at a crosshead speed of 2 mm/min.' 표 검산(같은 논문 안에서 닫힌다): 필러 함량 78 / 82 / 83 / 84.5 wt% 순서대로 23 C 건조 E 가 11 / 16.3 / 18 / 23.3 GPa 로 **단조 증가**하고 Tg 아래 CTE 가 16.3 / 12.8 / 11.9 / 10.3 ppm/K 로 **단조 감소**한다. 필러가 많을수록 강하고 덜 팽창한다는 물리와 네 재료가 모두 맞아 Table 1 과 Table 3 의 열 배정이 동시에 확정된다. 400 dpi 렌더로 표를 눈으로 읽었다 — 스캔 IEEE 라 pdftotext 가 표 본문을 잃는다(브리프 24·33번 절).\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 27259
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(III-Dudek2001). Dudek 2001 Table 3 의 열 머리글은 `Young's-Modulus (GPa)` 이지만, 같은 논문 본문이 verbatim 으로 *'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178'* 라고 밝힌다. 논문 전문에 인장 탄성률 측정은 없다(방법절이 여는 시험은 3점굽힘과 SENB 파괴인성뿐). 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 488.15,
+     "moisture_state": "dried 125 C / 24 h",
+     "test_method": "three point bending, EN ISO 178",
+     "verdict_tie_axis": "51차 MA — 다른조건 — 환경·조습",
+     "verdict_tie_note": "[51차 MA 동률 판정] 축이 다르므로 **둘 다 대표다** — 어느 쪽을 쓸지는 해석자가 정한다. 이 행은 순위에서 뒤에 있다(동률이 아니다). 이 행 = 9e+08 Pa [moisture_state=\"dried 125 C / 24 h\"]. 동률 경쟁행 = 2.33e+10 Pa [moisture_state=\"dried 125 C / 24 h\"] · 1.95e+10 Pa [moisture_state=\"moisture soaked, J-STD-020A level 1 (85 C/85%RH, 168 h)\"]. 갈린 조건키 = moisture_state.",
+     "verdict_tie_axis_before_correction": null,
+     "verdict_tie_note_before_correction": null,
+     "temperature_c": 215,
+     "temperature_C_before_correction": 215,
+     "temperature_c_before_correction": null,
+     "test_standard": "EN ISO 178",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 III-Dudek2001."
+    },
+    "notes": "Table 3 'Young's-Modulus (GPa)' 215 C 행 · 'EMC-A2' 의 'Dry' 열 = 0.9 GPa. Table 3 은 재료마다 'Dry'/'Wet' 두 열이다. 'Wet' 은 같은 논문의 J-STD-020A level 1(85 C/85%RH, 168 h) 흡습 시편이고 'Dry' 는 125 C/24 h 건조 시편이다. 본문 verbatim: 'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178.' 파괴시험은 'a three point bending test of pre-cracked prismatic beams ... in accordance with ASTM D5045 ... notched with a V-notch (single edge notched, SEN). The initial crack length a was 2 mm ... executed on an Zwick 1446 universal testing machine at a crosshead speed of 2 mm/min.' 표 검산(같은 논문 안에서 닫힌다): 필러 함량 78 / 82 / 83 / 84.5 wt% 순서대로 23 C 건조 E 가 11 / 16.3 / 18 / 23.3 GPa 로 **단조 증가**하고 Tg 아래 CTE 가 16.3 / 12.8 / 11.9 / 10.3 ppm/K 로 **단조 감소**한다. 필러가 많을수록 강하고 덜 팽창한다는 물리와 네 재료가 모두 맞아 Table 1 과 Table 3 의 열 배정이 동시에 확정된다. 400 dpi 렌더로 표를 눈으로 읽었다 — 스캔 IEEE 라 pdftotext 가 표 본문을 잃는다(브리프 24·33번 절).\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 27260
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(III-Dudek2001). Dudek 2001 Table 3 의 열 머리글은 `Young's-Modulus (GPa)` 이지만, 같은 논문 본문이 verbatim 으로 *'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178'* 라고 밝힌다. 논문 전문에 인장 탄성률 측정은 없다(방법절이 여는 시험은 3점굽힘과 SENB 파괴인성뿐). 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 488.15,
+     "moisture_state": "moisture soaked, J-STD-020A level 1 (85 C/85%RH, 168 h)",
+     "test_method": "three point bending, EN ISO 178",
+     "verdict_tie_axis": "51차 MA — 다른조건 — 환경·조습",
+     "verdict_tie_note": "[51차 MA 동률 판정] 축이 다르므로 **둘 다 대표다** — 어느 쪽을 쓸지는 해석자가 정한다. 이 행은 순위에서 뒤에 있다(동률이 아니다). 이 행 = 5.8e+08 Pa [moisture_state=\"moisture soaked, J-STD-020A level 1 (85 C/85%RH, 168 h)\"]. 동률 경쟁행 = 2.33e+10 Pa [moisture_state=\"dried 125 C / 24 h\"] · 1.95e+10 Pa [moisture_state=\"moisture soaked, J-STD-020A level 1 (85 C/85%RH, 168 h)\"]. 갈린 조건키 = moisture_state.",
+     "verdict_tie_axis_before_correction": null,
+     "verdict_tie_note_before_correction": null,
+     "temperature_c": 215,
+     "temperature_C_before_correction": 215,
+     "temperature_c_before_correction": null,
+     "test_standard": "EN ISO 178",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 III-Dudek2001."
+    },
+    "notes": "Table 3 'Young's-Modulus (GPa)' 215 C 행 · 'EMC-A2' 의 'Wet' 열 = 0.58 GPa. Table 3 은 재료마다 'Dry'/'Wet' 두 열이다. 'Wet' 은 같은 논문의 J-STD-020A level 1(85 C/85%RH, 168 h) 흡습 시편이고 'Dry' 는 125 C/24 h 건조 시편이다. 본문 verbatim: 'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178.' 파괴시험은 'a three point bending test of pre-cracked prismatic beams ... in accordance with ASTM D5045 ... notched with a V-notch (single edge notched, SEN). The initial crack length a was 2 mm ... executed on an Zwick 1446 universal testing machine at a crosshead speed of 2 mm/min.' 표 검산(같은 논문 안에서 닫힌다): 필러 함량 78 / 82 / 83 / 84.5 wt% 순서대로 23 C 건조 E 가 11 / 16.3 / 18 / 23.3 GPa 로 **단조 증가**하고 Tg 아래 CTE 가 16.3 / 12.8 / 11.9 / 10.3 ppm/K 로 **단조 감소**한다. 필러가 많을수록 강하고 덜 팽창한다는 물리와 네 재료가 모두 맞아 Table 1 과 Table 3 의 열 배정이 동시에 확정된다. 400 dpi 렌더로 표를 눈으로 읽었다 — 스캔 IEEE 라 pdftotext 가 표 본문을 잃는다(브리프 24·33번 절).\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 27269
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(III-Dudek2001). Dudek 2001 Table 3 의 열 머리글은 `Young's-Modulus (GPa)` 이지만, 같은 논문 본문이 verbatim 으로 *'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178'* 라고 밝힌다. 논문 전문에 인장 탄성률 측정은 없다(방법절이 여는 시험은 3점굽힘과 SENB 파괴인성뿐). 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 296.15,
+     "moisture_state": "dried 125 C / 24 h",
+     "test_method": "three point bending, EN ISO 178",
+     "verdict_tie_axis": "51차 MA — 다른조건 — 환경·조습",
+     "verdict_tie_note": "[51차 MA 동률 판정] 축이 다르므로 **둘 다 대표다** — 어느 쪽을 쓸지는 해석자가 정한다. 이 행이 대표로 뽑혀 있다. 이 행 = 1.8e+10 Pa [moisture_state=\"dried 125 C / 24 h\"]. 동률 경쟁행 = 1.52e+10 Pa [moisture_state=\"moisture soaked, J-STD-020A level 1 (85 C/85%RH, 168 h)\"]. 갈린 조건키 = moisture_state.",
+     "verdict_tie_axis_before_correction": null,
+     "verdict_tie_note_before_correction": null,
+     "temperature_c": 23,
+     "temperature_C_before_correction": 23,
+     "temperature_c_before_correction": null,
+     "test_standard": "EN ISO 178",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 III-Dudek2001."
+    },
+    "notes": "Table 3 'Young's-Modulus (GPa)' 23 C 행 · 'EMC-E1' 의 'Dry' 열 = 18.0 GPa. Table 3 은 재료마다 'Dry'/'Wet' 두 열이다. 'Wet' 은 같은 논문의 J-STD-020A level 1(85 C/85%RH, 168 h) 흡습 시편이고 'Dry' 는 125 C/24 h 건조 시편이다. 본문 verbatim: 'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178.' 파괴시험은 'a three point bending test of pre-cracked prismatic beams ... in accordance with ASTM D5045 ... notched with a V-notch (single edge notched, SEN). The initial crack length a was 2 mm ... executed on an Zwick 1446 universal testing machine at a crosshead speed of 2 mm/min.' 표 검산(같은 논문 안에서 닫힌다): 필러 함량 78 / 82 / 83 / 84.5 wt% 순서대로 23 C 건조 E 가 11 / 16.3 / 18 / 23.3 GPa 로 **단조 증가**하고 Tg 아래 CTE 가 16.3 / 12.8 / 11.9 / 10.3 ppm/K 로 **단조 감소**한다. 필러가 많을수록 강하고 덜 팽창한다는 물리와 네 재료가 모두 맞아 Table 1 과 Table 3 의 열 배정이 동시에 확정된다. 400 dpi 렌더로 표를 눈으로 읽었다 — 스캔 IEEE 라 pdftotext 가 표 본문을 잃는다(브리프 24·33번 절).\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 27270
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(III-Dudek2001). Dudek 2001 Table 3 의 열 머리글은 `Young's-Modulus (GPa)` 이지만, 같은 논문 본문이 verbatim 으로 *'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178'* 라고 밝힌다. 논문 전문에 인장 탄성률 측정은 없다(방법절이 여는 시험은 3점굽힘과 SENB 파괴인성뿐). 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 296.15,
+     "moisture_state": "moisture soaked, J-STD-020A level 1 (85 C/85%RH, 168 h)",
+     "test_method": "three point bending, EN ISO 178",
+     "verdict_tie_axis": "51차 MA — 다른조건 — 환경·조습",
+     "verdict_tie_note": "[51차 MA 동률 판정] 축이 다르므로 **둘 다 대표다** — 어느 쪽을 쓸지는 해석자가 정한다. 이 행은 대표와 순위가 같다(적재 순서로 밀렸다). 이 행 = 1.52e+10 Pa [moisture_state=\"moisture soaked, J-STD-020A level 1 (85 C/85%RH, 168 h)\"]. 동률 경쟁행 = 1.8e+10 Pa [moisture_state=\"dried 125 C / 24 h\"]. 갈린 조건키 = moisture_state.",
+     "verdict_tie_axis_before_correction": null,
+     "verdict_tie_note_before_correction": null,
+     "temperature_c": 23,
+     "temperature_C_before_correction": 23,
+     "temperature_c_before_correction": null,
+     "test_standard": "EN ISO 178",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 III-Dudek2001."
+    },
+    "notes": "Table 3 'Young's-Modulus (GPa)' 23 C 행 · 'EMC-E1' 의 'Wet' 열 = 15.2 GPa. Table 3 은 재료마다 'Dry'/'Wet' 두 열이다. 'Wet' 은 같은 논문의 J-STD-020A level 1(85 C/85%RH, 168 h) 흡습 시편이고 'Dry' 는 125 C/24 h 건조 시편이다. 본문 verbatim: 'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178.' 파괴시험은 'a three point bending test of pre-cracked prismatic beams ... in accordance with ASTM D5045 ... notched with a V-notch (single edge notched, SEN). The initial crack length a was 2 mm ... executed on an Zwick 1446 universal testing machine at a crosshead speed of 2 mm/min.' 표 검산(같은 논문 안에서 닫힌다): 필러 함량 78 / 82 / 83 / 84.5 wt% 순서대로 23 C 건조 E 가 11 / 16.3 / 18 / 23.3 GPa 로 **단조 증가**하고 Tg 아래 CTE 가 16.3 / 12.8 / 11.9 / 10.3 ppm/K 로 **단조 감소**한다. 필러가 많을수록 강하고 덜 팽창한다는 물리와 네 재료가 모두 맞아 Table 1 과 Table 3 의 열 배정이 동시에 확정된다. 400 dpi 렌더로 표를 눈으로 읽었다 — 스캔 IEEE 라 pdftotext 가 표 본문을 잃는다(브리프 24·33번 절).\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 27271
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(III-Dudek2001). Dudek 2001 Table 3 의 열 머리글은 `Young's-Modulus (GPa)` 이지만, 같은 논문 본문이 verbatim 으로 *'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178'* 라고 밝힌다. 논문 전문에 인장 탄성률 측정은 없다(방법절이 여는 시험은 3점굽힘과 SENB 파괴인성뿐). 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 488.15,
+     "moisture_state": "dried 125 C / 24 h",
+     "test_method": "three point bending, EN ISO 178",
+     "verdict_tie_axis": "51차 MA — 다른조건 — 환경·조습",
+     "verdict_tie_note": "[51차 MA 동률 판정] 축이 다르므로 **둘 다 대표다** — 어느 쪽을 쓸지는 해석자가 정한다. 이 행은 순위에서 뒤에 있다(동률이 아니다). 이 행 = 5.1e+08 Pa [moisture_state=\"dried 125 C / 24 h\"]. 동률 경쟁행 = 1.8e+10 Pa [moisture_state=\"dried 125 C / 24 h\"] · 1.52e+10 Pa [moisture_state=\"moisture soaked, J-STD-020A level 1 (85 C/85%RH, 168 h)\"]. 갈린 조건키 = moisture_state.",
+     "verdict_tie_axis_before_correction": null,
+     "verdict_tie_note_before_correction": null,
+     "temperature_c": 215,
+     "temperature_C_before_correction": 215,
+     "temperature_c_before_correction": null,
+     "test_standard": "EN ISO 178",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 III-Dudek2001."
+    },
+    "notes": "Table 3 'Young's-Modulus (GPa)' 215 C 행 · 'EMC-E1' 의 'Dry' 열 = 0.51 GPa. Table 3 은 재료마다 'Dry'/'Wet' 두 열이다. 'Wet' 은 같은 논문의 J-STD-020A level 1(85 C/85%RH, 168 h) 흡습 시편이고 'Dry' 는 125 C/24 h 건조 시편이다. 본문 verbatim: 'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178.' 파괴시험은 'a three point bending test of pre-cracked prismatic beams ... in accordance with ASTM D5045 ... notched with a V-notch (single edge notched, SEN). The initial crack length a was 2 mm ... executed on an Zwick 1446 universal testing machine at a crosshead speed of 2 mm/min.' 표 검산(같은 논문 안에서 닫힌다): 필러 함량 78 / 82 / 83 / 84.5 wt% 순서대로 23 C 건조 E 가 11 / 16.3 / 18 / 23.3 GPa 로 **단조 증가**하고 Tg 아래 CTE 가 16.3 / 12.8 / 11.9 / 10.3 ppm/K 로 **단조 감소**한다. 필러가 많을수록 강하고 덜 팽창한다는 물리와 네 재료가 모두 맞아 Table 1 과 Table 3 의 열 배정이 동시에 확정된다. 400 dpi 렌더로 표를 눈으로 읽었다 — 스캔 IEEE 라 pdftotext 가 표 본문을 잃는다(브리프 24·33번 절).\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 27272
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(III-Dudek2001). Dudek 2001 Table 3 의 열 머리글은 `Young's-Modulus (GPa)` 이지만, 같은 논문 본문이 verbatim 으로 *'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178'* 라고 밝힌다. 논문 전문에 인장 탄성률 측정은 없다(방법절이 여는 시험은 3점굽힘과 SENB 파괴인성뿐). 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 488.15,
+     "moisture_state": "moisture soaked, J-STD-020A level 1 (85 C/85%RH, 168 h)",
+     "test_method": "three point bending, EN ISO 178",
+     "verdict_tie_axis": "51차 MA — 다른조건 — 환경·조습",
+     "verdict_tie_note": "[51차 MA 동률 판정] 축이 다르므로 **둘 다 대표다** — 어느 쪽을 쓸지는 해석자가 정한다. 이 행은 순위에서 뒤에 있다(동률이 아니다). 이 행 = 3.5e+08 Pa [moisture_state=\"moisture soaked, J-STD-020A level 1 (85 C/85%RH, 168 h)\"]. 동률 경쟁행 = 1.8e+10 Pa [moisture_state=\"dried 125 C / 24 h\"] · 1.52e+10 Pa [moisture_state=\"moisture soaked, J-STD-020A level 1 (85 C/85%RH, 168 h)\"]. 갈린 조건키 = moisture_state.",
+     "verdict_tie_axis_before_correction": null,
+     "verdict_tie_note_before_correction": null,
+     "temperature_c": 215,
+     "temperature_C_before_correction": 215,
+     "temperature_c_before_correction": null,
+     "test_standard": "EN ISO 178",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 III-Dudek2001."
+    },
+    "notes": "Table 3 'Young's-Modulus (GPa)' 215 C 행 · 'EMC-E1' 의 'Wet' 열 = 0.35 GPa. Table 3 은 재료마다 'Dry'/'Wet' 두 열이다. 'Wet' 은 같은 논문의 J-STD-020A level 1(85 C/85%RH, 168 h) 흡습 시편이고 'Dry' 는 125 C/24 h 건조 시편이다. 본문 verbatim: 'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178.' 파괴시험은 'a three point bending test of pre-cracked prismatic beams ... in accordance with ASTM D5045 ... notched with a V-notch (single edge notched, SEN). The initial crack length a was 2 mm ... executed on an Zwick 1446 universal testing machine at a crosshead speed of 2 mm/min.' 표 검산(같은 논문 안에서 닫힌다): 필러 함량 78 / 82 / 83 / 84.5 wt% 순서대로 23 C 건조 E 가 11 / 16.3 / 18 / 23.3 GPa 로 **단조 증가**하고 Tg 아래 CTE 가 16.3 / 12.8 / 11.9 / 10.3 ppm/K 로 **단조 감소**한다. 필러가 많을수록 강하고 덜 팽창한다는 물리와 네 재료가 모두 맞아 Table 1 과 Table 3 의 열 배정이 동시에 확정된다. 400 dpi 렌더로 표를 눈으로 읽었다 — 스캔 IEEE 라 pdftotext 가 표 본문을 잃는다(브리프 24·33번 절).\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 27281
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(III-Dudek2001). Dudek 2001 Table 3 의 열 머리글은 `Young's-Modulus (GPa)` 이지만, 같은 논문 본문이 verbatim 으로 *'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178'* 라고 밝힌다. 논문 전문에 인장 탄성률 측정은 없다(방법절이 여는 시험은 3점굽힘과 SENB 파괴인성뿐). 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 296.15,
+     "moisture_state": "dried 125 C / 24 h",
+     "test_method": "three point bending, EN ISO 178",
+     "temperature_c": 23,
+     "temperature_C_before_correction": 23,
+     "temperature_c_before_correction": null,
+     "test_standard": "EN ISO 178",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 III-Dudek2001."
+    },
+    "notes": "Table 3 'Young's-Modulus (GPa)' 23 C 행 · 'EMC-M1' 의 'Dry' 열 = 16.3 GPa. Table 3 은 재료마다 'Dry'/'Wet' 두 열이다. 'Wet' 은 같은 논문의 J-STD-020A level 1(85 C/85%RH, 168 h) 흡습 시편이고 'Dry' 는 125 C/24 h 건조 시편이다. 본문 verbatim: 'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178.' 파괴시험은 'a three point bending test of pre-cracked prismatic beams ... in accordance with ASTM D5045 ... notched with a V-notch (single edge notched, SEN). The initial crack length a was 2 mm ... executed on an Zwick 1446 universal testing machine at a crosshead speed of 2 mm/min.' 표 검산(같은 논문 안에서 닫힌다): 필러 함량 78 / 82 / 83 / 84.5 wt% 순서대로 23 C 건조 E 가 11 / 16.3 / 18 / 23.3 GPa 로 **단조 증가**하고 Tg 아래 CTE 가 16.3 / 12.8 / 11.9 / 10.3 ppm/K 로 **단조 감소**한다. 필러가 많을수록 강하고 덜 팽창한다는 물리와 네 재료가 모두 맞아 Table 1 과 Table 3 의 열 배정이 동시에 확정된다. 400 dpi 렌더로 표를 눈으로 읽었다 — 스캔 IEEE 라 pdftotext 가 표 본문을 잃는다(브리프 24·33번 절).\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 27282
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(III-Dudek2001). Dudek 2001 Table 3 의 열 머리글은 `Young's-Modulus (GPa)` 이지만, 같은 논문 본문이 verbatim 으로 *'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178'* 라고 밝힌다. 논문 전문에 인장 탄성률 측정은 없다(방법절이 여는 시험은 3점굽힘과 SENB 파괴인성뿐). 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 296.15,
+     "moisture_state": "moisture soaked, J-STD-020A level 1 (85 C/85%RH, 168 h)",
+     "test_method": "three point bending, EN ISO 178",
+     "temperature_c": 23,
+     "temperature_C_before_correction": 23,
+     "temperature_c_before_correction": null,
+     "test_standard": "EN ISO 178",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 III-Dudek2001."
+    },
+    "notes": "Table 3 'Young's-Modulus (GPa)' 23 C 행 · 'EMC-M1' 의 'Wet' 열 = 15.4 GPa. Table 3 은 재료마다 'Dry'/'Wet' 두 열이다. 'Wet' 은 같은 논문의 J-STD-020A level 1(85 C/85%RH, 168 h) 흡습 시편이고 'Dry' 는 125 C/24 h 건조 시편이다. 본문 verbatim: 'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178.' 파괴시험은 'a three point bending test of pre-cracked prismatic beams ... in accordance with ASTM D5045 ... notched with a V-notch (single edge notched, SEN). The initial crack length a was 2 mm ... executed on an Zwick 1446 universal testing machine at a crosshead speed of 2 mm/min.' 표 검산(같은 논문 안에서 닫힌다): 필러 함량 78 / 82 / 83 / 84.5 wt% 순서대로 23 C 건조 E 가 11 / 16.3 / 18 / 23.3 GPa 로 **단조 증가**하고 Tg 아래 CTE 가 16.3 / 12.8 / 11.9 / 10.3 ppm/K 로 **단조 감소**한다. 필러가 많을수록 강하고 덜 팽창한다는 물리와 네 재료가 모두 맞아 Table 1 과 Table 3 의 열 배정이 동시에 확정된다. 400 dpi 렌더로 표를 눈으로 읽었다 — 스캔 IEEE 라 pdftotext 가 표 본문을 잃는다(브리프 24·33번 절).\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 27283
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(III-Dudek2001). Dudek 2001 Table 3 의 열 머리글은 `Young's-Modulus (GPa)` 이지만, 같은 논문 본문이 verbatim 으로 *'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178'* 라고 밝힌다. 논문 전문에 인장 탄성률 측정은 없다(방법절이 여는 시험은 3점굽힘과 SENB 파괴인성뿐). 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 488.15,
+     "moisture_state": "dried 125 C / 24 h",
+     "test_method": "three point bending, EN ISO 178",
+     "temperature_c": 215,
+     "temperature_C_before_correction": 215,
+     "temperature_c_before_correction": null,
+     "test_standard": "EN ISO 178",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 III-Dudek2001."
+    },
+    "notes": "Table 3 'Young's-Modulus (GPa)' 215 C 행 · 'EMC-M1' 의 'Dry' 열 = 0.93 GPa. Table 3 은 재료마다 'Dry'/'Wet' 두 열이다. 'Wet' 은 같은 논문의 J-STD-020A level 1(85 C/85%RH, 168 h) 흡습 시편이고 'Dry' 는 125 C/24 h 건조 시편이다. 본문 verbatim: 'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178.' 파괴시험은 'a three point bending test of pre-cracked prismatic beams ... in accordance with ASTM D5045 ... notched with a V-notch (single edge notched, SEN). The initial crack length a was 2 mm ... executed on an Zwick 1446 universal testing machine at a crosshead speed of 2 mm/min.' 표 검산(같은 논문 안에서 닫힌다): 필러 함량 78 / 82 / 83 / 84.5 wt% 순서대로 23 C 건조 E 가 11 / 16.3 / 18 / 23.3 GPa 로 **단조 증가**하고 Tg 아래 CTE 가 16.3 / 12.8 / 11.9 / 10.3 ppm/K 로 **단조 감소**한다. 필러가 많을수록 강하고 덜 팽창한다는 물리와 네 재료가 모두 맞아 Table 1 과 Table 3 의 열 배정이 동시에 확정된다. 400 dpi 렌더로 표를 눈으로 읽었다 — 스캔 IEEE 라 pdftotext 가 표 본문을 잃는다(브리프 24·33번 절).\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 27284
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(III-Dudek2001). Dudek 2001 Table 3 의 열 머리글은 `Young's-Modulus (GPa)` 이지만, 같은 논문 본문이 verbatim 으로 *'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178'* 라고 밝힌다. 논문 전문에 인장 탄성률 측정은 없다(방법절이 여는 시험은 3점굽힘과 SENB 파괴인성뿐). 값은 두고 표기만 바로잡는다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 488.15,
+     "moisture_state": "moisture soaked, J-STD-020A level 1 (85 C/85%RH, 168 h)",
+     "test_method": "three point bending, EN ISO 178",
+     "temperature_c": 215,
+     "temperature_C_before_correction": 215,
+     "temperature_c_before_correction": null,
+     "test_standard": "EN ISO 178",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 III-Dudek2001."
+    },
+    "notes": "Table 3 'Young's-Modulus (GPa)' 215 C 행 · 'EMC-M1' 의 'Wet' 열 = 0.8 GPa. Table 3 은 재료마다 'Dry'/'Wet' 두 열이다. 'Wet' 은 같은 논문의 J-STD-020A level 1(85 C/85%RH, 168 h) 흡습 시편이고 'Dry' 는 125 C/24 h 건조 시편이다. 본문 verbatim: 'The elastic moduli and breaking elongation were measured by three point bending tests according to standard EN ISO 178.' 파괴시험은 'a three point bending test of pre-cracked prismatic beams ... in accordance with ASTM D5045 ... notched with a V-notch (single edge notched, SEN). The initial crack length a was 2 mm ... executed on an Zwick 1446 universal testing machine at a crosshead speed of 2 mm/min.' 표 검산(같은 논문 안에서 닫힌다): 필러 함량 78 / 82 / 83 / 84.5 wt% 순서대로 23 C 건조 E 가 11 / 16.3 / 18 / 23.3 GPa 로 **단조 증가**하고 Tg 아래 CTE 가 16.3 / 12.8 / 11.9 / 10.3 ppm/K 로 **단조 감소**한다. 필러가 많을수록 강하고 덜 팽창한다는 물리와 네 재료가 모두 맞아 Table 1 과 Table 3 의 열 배정이 동시에 확정된다. 400 dpi 렌더로 표를 눈으로 읽었다 — 스캔 IEEE 라 pdftotext 가 표 본문을 잃는다(브리프 24·33번 절).\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 1177
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(IV-벤더프록시). 벤더 데이터시트가 인쇄한 것이 굽힘탄성률이고 그 시트에 인장탄성률 행이 없다. 적재 당시 notes 에는 그 사실을 정직하게 적었으나 **conditions 의 시험모드 칸이 비어 있어** 조건만 읽는 소비자·집계기에는 인장으로 보인다. 표기를 조건까지 내린다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "assumption": true,
+     "modulus_type": "굽힘탄성률(flexural modulus)을 영률 칸에 담은 값이다 — 인장 영률이 아니다. SABIC Valox 325 데이터시트에 인장탄성률 행이 없어 굽힘탄성률 2.34 GPa 를 프록시로 썼다.",
+     "test_method": "flexural (3-point bend) modulus, 벤더 데이터시트 인쇄값",
+     "printed_label": "Flexural Modulus",
+     "modulus_type_before_correction": null,
+     "test_method_before_correction": null,
+     "printed_label_before_correction": null,
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 IV-벤더프록시.",
+     "duplicate_of": "mechanical.flexural_modulus pv4452 (같은 수·같은 출처). 지우지 않았다 — 삭제는 사람이 정한다."
+    },
+    "notes": "Tensile modulus not listed; datasheet flexural modulus 2.34 GPa used as proxy.\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다. **중복 후보** — 같은 재료의 `mechanical.flexural_modulus` 에 같은 수가 이미 t1 로 들어 있다(재료 135 → pv4452 · 재료 222 → pv11135·pv11136). 이 행을 지워도 숫자는 DB 에 남는다. **72차 HB 는 지우지 않았다 — 삭제는 사람이 정한다.**"
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 6763
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(IV-벤더프록시). 벤더 데이터시트가 인쇄한 것이 굽힘탄성률이고 그 시트에 인장탄성률 행이 없다. 적재 당시 notes 에는 그 사실을 정직하게 적었으나 **conditions 의 시험모드 칸이 비어 있어** 조건만 읽는 소비자·집계기에는 인장으로 보인다. 표기를 조건까지 내린다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "grade": "Teflon AF 1600",
+     "test_method": "ASTM D790 flexural modulus",
+     "temperature_k": 296,
+     "temperature_k_before_correction": null,
+     "temperature_K_before_correction": 296,
+     "test_standard": "ASTM D790",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 IV-벤더프록시."
+    },
+    "notes": "Datasheet reports flexural modulus 1.8 +/- 0.1 GPa at 23 degC -> 1.8e9 Pa, used here as the elastic modulus; no separate tensile modulus is published. At 220 degC it is 1.0 GPa.\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 32785
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(V-Bansal1997). Bansal 1997 Table 1 의 `Elastic modulus, E (GPa)` 는 3점 굽힘 시험에서 얻었다 — 본문 verbatim *'Mechanical properties of the composites were determined from stress-strain curves recorded in three-point flexure'* · *'The elastic modulus was determined from the linear portion of the load vs. strain curve'*. 인장 시험은 이 논문에 없다. 다만 이 값은 **인장면에 붙인 스트레인 게이지의 실측 변형률**로 얻은 것이라 처짐-컴플라이언스로 역산한 D790 굽힘탄성률보다 인장에 가깝다 — 그 사실을 조건에 같이 남긴다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "test_method": "three-point flexure, Instron, crosshead speed 0.127 cm/min (0.05 in/min), span 3.75 cm, L/d >= 25 (delamination 회피 조건, Fig. 3 로 결정), strain gauge on tensile surface",
+     "temperature_c": 25,
+     "temperature_note": "Table 1 캡션이 'Room temperature properties' 라고 명시",
+     "fiber_volume_fraction": 0.31,
+     "uncertainty_gpa": 5,
+     "analysis": "load-strain 곡선의 선형구간(첫 매트릭스 균열하중까지) 기울기에서 산출",
+     "condition_note": "**3점 굽힘에서 구한 굽힘탄성률이다** — 표의 각주 b 가 'From [three] point bend test' 다. 순수 인장 영률과 동일하지 않을 수 있다",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 V-Bansal1997.",
+     "flexural_modulus_basis": "인장면 스트레인 게이지의 실측 변형률로 얻은 굽힘탄성률 — 처짐 컴플라이언스 역산이 아니다. D790 식 굽힘탄성률보다 인장값에 가깝다."
+    },
+    "notes": "Table 1 'Elastic modulus b, E (GPa)'. **역산 금지 — 혼합법칙으로 값을 만들지 않고 인쇄된 측정치만 옮겼다.** 다만 검산을 걸어 두면: 저자 자신이 쓴 상수(E_matrix = 70 GPa, E_fiber = 400 GPa)로 Ec = VmEm + VfEf 를 계산하면 Vf 0.31 에서 172 GPa, Vf 0.24 에서 149 GPa 가 나와 **인쇄된 측정치 122 / 102 GPa 보다 30% 이상 높다**. 저자는 Fig. 5 를 근거로 'The measured Ec values are in agreement with those expected from the simple rule-of-mixtures' 라고 적었지만 **Table 1 의 두 행만으로는 그 일치가 재현되지 않는다** — Fig. 5 의 Vf 범위·시료가 Table 1 행과 같은지 인쇄되지 않았다. 이 불일치를 값에 반영하지 않고 기록만 남긴다.\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 32788
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(V-Bansal1997). Bansal 1997 Table 1 의 `Elastic modulus, E (GPa)` 는 3점 굽힘 시험에서 얻었다 — 본문 verbatim *'Mechanical properties of the composites were determined from stress-strain curves recorded in three-point flexure'* · *'The elastic modulus was determined from the linear portion of the load vs. strain curve'*. 인장 시험은 이 논문에 없다. 다만 이 값은 **인장면에 붙인 스트레인 게이지의 실측 변형률**로 얻은 것이라 처짐-컴플라이언스로 역산한 D790 굽힘탄성률보다 인장에 가깝다 — 그 사실을 조건에 같이 남긴다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "test_method": "three-point flexure, Instron, crosshead speed 0.127 cm/min (0.05 in/min), span 3.75 cm, L/d >= 25 (delamination 회피 조건, Fig. 3 로 결정), strain gauge on tensile surface",
+     "temperature_c": 25,
+     "temperature_note": "Table 1 캡션이 'Room temperature properties' 라고 명시",
+     "fiber_volume_fraction": 0.24,
+     "uncertainty_gpa": 10,
+     "analysis": "load-strain 곡선의 선형구간(첫 매트릭스 균열하중까지) 기울기에서 산출",
+     "condition_note": "**3점 굽힘에서 구한 굽힘탄성률이다** — 표의 각주 b 가 'From [three] point bend test' 다. 순수 인장 영률과 동일하지 않을 수 있다",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 V-Bansal1997.",
+     "flexural_modulus_basis": "인장면 스트레인 게이지의 실측 변형률로 얻은 굽힘탄성률 — 처짐 컴플라이언스 역산이 아니다. D790 식 굽힘탄성률보다 인장값에 가깝다."
+    },
+    "notes": "Table 1 'Elastic modulus b, E (GPa)'. **역산 금지 — 혼합법칙으로 값을 만들지 않고 인쇄된 측정치만 옮겼다.** 다만 검산을 걸어 두면: 저자 자신이 쓴 상수(E_matrix = 70 GPa, E_fiber = 400 GPa)로 Ec = VmEm + VfEf 를 계산하면 Vf 0.31 에서 172 GPa, Vf 0.24 에서 149 GPa 가 나와 **인쇄된 측정치 122 / 102 GPa 보다 30% 이상 높다**. 저자는 Fig. 5 를 근거로 'The measured Ec values are in agreement with those expected from the simple rule-of-mixtures' 라고 적었지만 **Table 1 의 두 행만으로는 그 일치가 재현되지 않는다** — Fig. 5 의 Vf 범위·시료가 Table 1 행과 같은지 인쇄되지 않았다. 이 불일치를 값에 반영하지 않고 기록만 남긴다.\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 26783
+   },
+   "by": "72차 HB",
+   "reason": "영률 칸에 앉은 굽힘탄성률의 표기를 바로잡는다(VI-DMA굽힘). 이 값은 DMA 3점굽힘 마스터커브의 유리상 순간탄성률 E0 다(Chiu 2011 TABLE IV). 같은 재료의 단축 인장 실측(32 GPa, Chiu 2009, pv23623)이 이미 카탈로그에 있고 그쪽이 대표로 뽑혀 있으므로 값을 옮길 필요는 없다. 다만 이 행이 굽힘 하중 모드라는 것이 조건에 안 적혀 있었다. 값·단위·등급·method 는 그대로 두고 conditions.test_mode 와 notes 만 고친다.",
+   "set": {
+    "conditions": {
+     "set_id": "chiu2011_table4_emc_fullycured",
+     "term": "E0 (Prony 급수의 유리상 탄성률)",
+     "regime": "glassy",
+     "degree_of_cure": 1.0,
+     "reference_temperature_k": 417.0,
+     "reference_temperature_c": 144.0,
+     "model": "generalized_maxwell",
+     "test_method": "DMA 3점굽힘 (TA 2980) 마스터커브",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 VI-DMA굽힘."
+    },
+    "notes": "Chiu 2011 TABLE IV 'E0 (GPa) = 24'. Fig.7 의 유리상 평탄역(약 24~25 GPa)과 Fig.11 마스터커브 상단(약 24 GPa)이 둘 다 일치한다. 주의 - 카탈로그의 기존 32 GPa 행(chiu2009_table3_emc_ET)과 어긋나 보이지만 모순이 아니다: 32 GPa 는 Chiu 2009 의 '단축 인장시험(Instron 5565)' 값이고 24 GPa 는 DMA 마스터커브의 E0 다. 측정법이 다르며, w_i 가 상대값이라 이 급수를 쓰려면 반드시 이 E0 와 짝지어야 한다. 재료 동정: Chiu 2011 TABLE I(Cure-Kinetic Model Parameters)이 이미 카탈로그에 든 Chiu 2009 Table 1 과 12/12 글자 그대로 같다 — ln(k1) 23.85|23.68, ln(k2) 19.49|19.61, Q1/R 11012|11106 K, Q2/R 8335|8333 K, m 0.621|0.447, n 1.168|1.443. Tg0 293 K / Tg1 417 K 도 양쪽이 같다. 같은 몰딩컴파운드다. (표는 이미지라 pdftotext 가 캡션만 준다 - 브리프 33/70절. 400 dpi 렌더로 읽고 tau 열은 600 dpi 재확대로 재확인했다.)\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다."
+   }
+  }
+ ]
+}

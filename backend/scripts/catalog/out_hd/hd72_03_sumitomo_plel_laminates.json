@@ -1,0 +1,395 @@
+{
+ "batch": "72차 HD",
+ "materials": [
+  {
+   "new_material": {
+    "name": "Sumitomo Bakelite Sumilite PL-1131 (paper phenolic laminate, punching grade)",
+    "category": "composite",
+    "description": "住友ベークライト(Sumitomo Bakelite) スミライト® 적층판 `PL-1131` — paper phenolic laminate (紙フェノール積層板). 벤더 표기 특징: 打抜き性に優れ、寸法変化が少ないボリュームスイッチ用途 / Good punching performance and few dimensional changes for volume switches. JIS 적층판 기호 PL-PEM相当 (PL-PEM equivalent). 打抜き加工用 표(인쇄 26쪽)에만 나온다. **이 카드가 이 배치에 선 이유는 하나다 — 이 표가 `比重 Specific gravity` 를 인쇄한다.** 71차 GD 가 「밀도는 규격(IPC-4101) 층이 아니라 벤더 TDS 층의 문제다」라고 넘긴 자리를 같은 벤더의 다른 제품군에서 메운다. 동장적층판(ELC·LαZ) 표에는 이 행이 없다.",
+    "attributes": {
+     "material_class": "paper phenolic laminate (紙フェノール積層板)",
+     "subsystem": "pcb",
+     "role": "product",
+     "role_reason": "전자부품·기계가공용 실부품 적층판. 벤더가 등급명으로 인쇄한 제품이다.",
+     "role_confidence": "high",
+     "manufacturer": "Sumitomo Bakelite Co., Ltd.",
+     "product_series": "スミライト® (Sumilite) PL / EL laminate sheets",
+     "product_form": "unclad laminate sheet",
+     "aliases": [
+      "PL-1131",
+      "Sumilite PL-1131",
+      "スミライト PL-1131",
+      "PL1131"
+     ],
+     "jis_symbol": "PL-PEM相当 (PL-PEM equivalent)",
+     "density_source": "`比重 Specific gravity` 행 — **라미네이트 자신의 비중**이다(수지 비중이 아니다). x1000 은 정의상 단위 환산이다.",
+     "core7_absent_from_vendor_table": "이 표에도 포아송비·비열·인장강도 행은 없다. 있는 것은 `曲げ強度`(굽힘강도)·`アイゾット衝撃強さ`·`へき開強さ` 다 — **인장강도가 아니다.** 열전도율 행도 없다.",
+     "not_to_be_confused_with": "`EL-3762`(무피복 유리에폭시 적층판)는 `ELC-4762`(동장적층판)와 **다른 제품이다.** 비중 1.92 를 ELC-4762 에 옮기면 안 된다.",
+     "source_page": "인쇄 26쪽(電子部品用積層板 打抜き加工用) · 인쇄 27쪽(機械・電気機器用積層板 機械加工用)"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "ガラスエポキシ積層板 / 紙フェノール積層板 一般特性 (住友ベークライト スミライト® 積層板カタログ, 인쇄 25~32쪽)",
+    "url": "https://www.sumibe.co.jp/ww-attaches/805.pdf",
+    "publisher": "Sumitomo Bakelite Co., Ltd. (住友ベークライト株式会社)",
+    "year": 2026,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_Sumilite-PL-EL_Catalog_ja_2026-09-09.pdf",
+    "url_note": "살아 있는 벤더 직접 URL 이다(2026-09-09 취득). **이 PDF 는 Illustrator 아웃라인 벡터 텍스트라 `pdftotext` 가 0자를 준다** — 값은 전부 150 dpi 렌더를 눈으로 읽어 옮겼다. 다운스트림에서 재추출하려면 OCR 이나 렌더가 필요하다."
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1320.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "A (as received, 원문 処理条件 `A`)",
+      "basis": "specific gravity (比重) of the laminate, dimensionless, x1000 -> kg/m^3"
+     },
+     "notes": "원문 verbatim: `比重 Specific gravity | A | － | 1.32` (PL-1131 열). 원문이 **구간이 아니라 단일 값**으로 인쇄한 칸이다. 환산 1.32 -> 1320 kg/m^3; 되돌리면 1320 -> 1.32. **이것은 라미네이트 자신의 비중이다 — 수지 비중이 아니다.** 브리프가 경계한 함정(`수지 비중은 라미네이트 밀도가 아니다`)은 MGC 시트의 `樹脂比重`(수지만의 무차원 값)에 대한 것이고, 이 행은 `一般特性 General Properties` 표 안에서 **적층판 시편**(같은 표의 시편 두께 각주가 걸린 그 시편)에 대해 인쇄된 `比重 Specific gravity` 다. 비중은 정의상 4 ℃ 물 밀도(1000 kg/m³) 기준 무차원비이므로 x1000 은 **역산이 아니라 단위 환산**이다. **이 PDF 는 아웃라인 벡터 텍스트라 `pdftotext` 가 0자를 준다** — A3 쪽을 150 dpi 로 렌더해 표를 눈으로 읽었다. 열 밀림 위험은 렌더로만 막을 수 있고 실제로 렌더로만 읽었다. **교차검증**: `PL-1147`(1.38)과 `EL-3762`(1.92)는 두 표(打抜き加工用 · 機械加工用)에 **모두** 나오고 두 표의 比重 이 서로 같다 — 열 대응이 맞다는 독립 확인이다. 같은 두 등급의 曲げ強度·吸水率 은 시편 두께가 달라(1.0/1.5 mmt vs 15/13 mmt) 값이 다른데, **比重만 같다** — 밀도가 두께에 무관하다는 물리와 앞뒤가 맞는다."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 150000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "source_table": "打抜き加工用 표 (시편 1.0 mmt)"
+     },
+     "notes": "원문 verbatim: `曲げ強度 Flexural strength | A | MPa | 150` (PL-1131 열, 打抜き加工用 표 (시편 1.0 mmt)). 원문이 **구간이 아니라 단일 값**으로 인쇄한 칸이다. 환산 150 -> 1.5e+08 Pa; 되돌리면 1.5e+08 -> 150. **이 PDF 는 아웃라인 벡터 텍스트라 `pdftotext` 가 0자를 준다** — A3 쪽을 150 dpi 로 렌더해 표를 눈으로 읽었다. 열 밀림 위험은 렌더로만 막을 수 있고 실제로 렌더로만 읽었다. **교차검증**: `PL-1147`(1.38)과 `EL-3762`(1.92)는 두 표(打抜き加工用 · 機械加工用)에 **모두** 나오고 두 표의 比重 이 서로 같다 — 열 대응이 맞다는 독립 확인이다. 같은 두 등급의 曲げ強度·吸水率 은 시편 두께가 달라(1.0/1.5 mmt vs 15/13 mmt) 값이 다른데, **比重만 같다** — 밀도가 두께에 무관하다는 물리와 앞뒤가 맞는다."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.019,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_condition": "E-24/50 + D-24/23 (24 h 50 C oven, then 24 h water immersion at 23 C)",
+      "specimen_thickness_mm": 1.0,
+      "source_table": "打抜き加工用 표 (시편 1.0 mmt)"
+     },
+     "notes": "원문 verbatim: `吸水率 Water absorption | E-24/50+D-24/23 | % | 1.9` (PL-1131 열, 打抜き加工用 표 (시편 1.0 mmt)). 원문이 **구간이 아니라 단일 값**으로 인쇄한 칸이다. 환산 1.9 -> 0.019 1; 되돌리면 0.019 -> 1.9. 1.9 % / 100 = 0.019 (무차원). **이 PDF 는 아웃라인 벡터 텍스트라 `pdftotext` 가 0자를 준다** — A3 쪽을 150 dpi 로 렌더해 표를 눈으로 읽었다. 열 밀림 위험은 렌더로만 막을 수 있고 실제로 렌더로만 읽었다. **교차검증**: `PL-1147`(1.38)과 `EL-3762`(1.92)는 두 표(打抜き加工用 · 機械加工用)에 **모두** 나오고 두 표의 比重 이 서로 같다 — 열 대응이 맞다는 독립 확인이다. 같은 두 등급의 曲げ強度·吸水率 은 시편 두께가 달라(1.0/1.5 mmt vs 15/13 mmt) 값이 다른데, **比重만 같다** — 밀도가 두께에 무관하다는 물리와 앞뒤가 맞는다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Sumitomo Bakelite Sumilite PL-1147 (flame-retardant paper phenolic laminate)",
+    "category": "composite",
+    "description": "住友ベークライト(Sumitomo Bakelite) スミライト® 적층판 `PL-1147` — paper phenolic laminate (紙フェノール積層板), UL94V-0. 벤더 표기 특징: 難燃性が求められる分野での電子部品用途 / The electronic-components required for flame retardancy. JIS 적층판 기호 PL-PEM-PF相当 (PL-PEM-PF equivalent). 打抜き加工用(인쇄 26쪽)·機械加工用(인쇄 27쪽) **두 표에 모두** 나온다. **이 카드가 이 배치에 선 이유는 하나다 — 이 표가 `比重 Specific gravity` 를 인쇄한다.** 71차 GD 가 「밀도는 규격(IPC-4101) 층이 아니라 벤더 TDS 층의 문제다」라고 넘긴 자리를 같은 벤더의 다른 제품군에서 메운다. 동장적층판(ELC·LαZ) 표에는 이 행이 없다.",
+    "attributes": {
+     "material_class": "paper phenolic laminate (紙フェノール積層板), UL94V-0",
+     "subsystem": "pcb",
+     "role": "product",
+     "role_reason": "전자부품·기계가공용 실부품 적층판. 벤더가 등급명으로 인쇄한 제품이다.",
+     "role_confidence": "high",
+     "manufacturer": "Sumitomo Bakelite Co., Ltd.",
+     "product_series": "スミライト® (Sumilite) PL / EL laminate sheets",
+     "product_form": "unclad laminate sheet",
+     "aliases": [
+      "PL-1147",
+      "Sumilite PL-1147",
+      "スミライト PL-1147",
+      "PL1147"
+     ],
+     "jis_symbol": "PL-PEM-PF相当 (PL-PEM-PF equivalent)",
+     "density_source": "`比重 Specific gravity` 행 — **라미네이트 자신의 비중**이다(수지 비중이 아니다). x1000 은 정의상 단위 환산이다.",
+     "core7_absent_from_vendor_table": "이 표에도 포아송비·비열·인장강도 행은 없다. 있는 것은 `曲げ強度`(굽힘강도)·`アイゾット衝撃強さ`·`へき開強さ` 다 — **인장강도가 아니다.** 열전도율 행도 없다.",
+     "not_to_be_confused_with": "`EL-3762`(무피복 유리에폭시 적층판)는 `ELC-4762`(동장적층판)와 **다른 제품이다.** 비중 1.92 를 ELC-4762 에 옮기면 안 된다.",
+     "source_page": "인쇄 26쪽(電子部品用積層板 打抜き加工用) · 인쇄 27쪽(機械・電気機器用積層板 機械加工用)"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "ガラスエポキシ積層板 / 紙フェノール積層板 一般特性 (住友ベークライト スミライト® 積層板カタログ, 인쇄 25~32쪽)",
+    "url": "https://www.sumibe.co.jp/ww-attaches/805.pdf",
+    "publisher": "Sumitomo Bakelite Co., Ltd. (住友ベークライト株式会社)",
+    "year": 2026,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_Sumilite-PL-EL_Catalog_ja_2026-09-09.pdf",
+    "url_note": "살아 있는 벤더 직접 URL 이다(2026-09-09 취득). **이 PDF 는 Illustrator 아웃라인 벡터 텍스트라 `pdftotext` 가 0자를 준다** — 값은 전부 150 dpi 렌더를 눈으로 읽어 옮겼다. 다운스트림에서 재추출하려면 OCR 이나 렌더가 필요하다."
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1380.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "A (as received, 원문 処理条件 `A`)",
+      "basis": "specific gravity (比重) of the laminate, dimensionless, x1000 -> kg/m^3"
+     },
+     "notes": "원문 verbatim: `比重 Specific gravity | A | － | 1.38` (PL-1147 열). 원문이 **구간이 아니라 단일 값**으로 인쇄한 칸이다. 환산 1.38 -> 1380 kg/m^3; 되돌리면 1380 -> 1.38. **이것은 라미네이트 자신의 비중이다 — 수지 비중이 아니다.** 브리프가 경계한 함정(`수지 비중은 라미네이트 밀도가 아니다`)은 MGC 시트의 `樹脂比重`(수지만의 무차원 값)에 대한 것이고, 이 행은 `一般特性 General Properties` 표 안에서 **적층판 시편**(같은 표의 시편 두께 각주가 걸린 그 시편)에 대해 인쇄된 `比重 Specific gravity` 다. 비중은 정의상 4 ℃ 물 밀도(1000 kg/m³) 기준 무차원비이므로 x1000 은 **역산이 아니라 단위 환산**이다. **이 PDF 는 아웃라인 벡터 텍스트라 `pdftotext` 가 0자를 준다** — A3 쪽을 150 dpi 로 렌더해 표를 눈으로 읽었다. 열 밀림 위험은 렌더로만 막을 수 있고 실제로 렌더로만 읽었다. **교차검증**: `PL-1147`(1.38)과 `EL-3762`(1.92)는 두 표(打抜き加工用 · 機械加工用)에 **모두** 나오고 두 표의 比重 이 서로 같다 — 열 대응이 맞다는 독립 확인이다. 같은 두 등급의 曲げ強度·吸水率 은 시편 두께가 달라(1.0/1.5 mmt vs 15/13 mmt) 값이 다른데, **比重만 같다** — 밀도가 두께에 무관하다는 물리와 앞뒤가 맞는다."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 150000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.0,
+      "source_table": "打抜き加工用 표 (시편 1.0 mmt)"
+     },
+     "notes": "원문 verbatim: `曲げ強度 Flexural strength | A | MPa | 150` (PL-1147 열, 打抜き加工用 표 (시편 1.0 mmt)). 원문이 **구간이 아니라 단일 값**으로 인쇄한 칸이다. 환산 150 -> 1.5e+08 Pa; 되돌리면 1.5e+08 -> 150. **같은 등급이 두 표에 나오면 시편 두께가 달라 값도 다르다 — 평균 내지 않고 `specimen_thickness_mm` 으로 갈라 두 행으로 두었다.** **이 PDF 는 아웃라인 벡터 텍스트라 `pdftotext` 가 0자를 준다** — A3 쪽을 150 dpi 로 렌더해 표를 눈으로 읽었다. 열 밀림 위험은 렌더로만 막을 수 있고 실제로 렌더로만 읽었다. **교차검증**: `PL-1147`(1.38)과 `EL-3762`(1.92)는 두 표(打抜き加工用 · 機械加工用)에 **모두** 나오고 두 표의 比重 이 서로 같다 — 열 대응이 맞다는 독립 확인이다. 같은 두 등급의 曲げ強度·吸水率 은 시편 두께가 달라(1.0/1.5 mmt vs 15/13 mmt) 값이 다른데, **比重만 같다** — 밀도가 두께에 무관하다는 물리와 앞뒤가 맞는다."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 130000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "A",
+      "specimen_thickness_mm": 15.0,
+      "source_table": "機械加工用 표 (시편 15 mmt)"
+     },
+     "notes": "원문 verbatim: `曲げ強度 Flexural strength | A | MPa | 130` (PL-1147 열, 機械加工用 표 (시편 15 mmt)). 원문이 **구간이 아니라 단일 값**으로 인쇄한 칸이다. 환산 130 -> 1.3e+08 Pa; 되돌리면 1.3e+08 -> 130. **같은 등급이 두 표에 나오면 시편 두께가 달라 값도 다르다 — 평균 내지 않고 `specimen_thickness_mm` 으로 갈라 두 행으로 두었다.** **이 PDF 는 아웃라인 벡터 텍스트라 `pdftotext` 가 0자를 준다** — A3 쪽을 150 dpi 로 렌더해 표를 눈으로 읽었다. 열 밀림 위험은 렌더로만 막을 수 있고 실제로 렌더로만 읽었다. **교차검증**: `PL-1147`(1.38)과 `EL-3762`(1.92)는 두 표(打抜き加工用 · 機械加工用)에 **모두** 나오고 두 표의 比重 이 서로 같다 — 열 대응이 맞다는 독립 확인이다. 같은 두 등급의 曲げ強度·吸水率 은 시편 두께가 달라(1.0/1.5 mmt vs 15/13 mmt) 값이 다른데, **比重만 같다** — 밀도가 두께에 무관하다는 물리와 앞뒤가 맞는다."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.013000000000000001,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_condition": "E-24/50 + D-24/23 (24 h 50 C oven, then 24 h water immersion at 23 C)",
+      "specimen_thickness_mm": 1.0,
+      "source_table": "打抜き加工用 표 (시편 1.0 mmt)"
+     },
+     "notes": "원문 verbatim: `吸水率 Water absorption | E-24/50+D-24/23 | % | 1.3` (PL-1147 열, 打抜き加工用 표 (시편 1.0 mmt)). 원문이 **구간이 아니라 단일 값**으로 인쇄한 칸이다. 환산 1.3 -> 0.013 1; 되돌리면 0.013 -> 1.3. 1.3 % / 100 = 0.013 (무차원). **이 PDF 는 아웃라인 벡터 텍스트라 `pdftotext` 가 0자를 준다** — A3 쪽을 150 dpi 로 렌더해 표를 눈으로 읽었다. 열 밀림 위험은 렌더로만 막을 수 있고 실제로 렌더로만 읽었다. **교차검증**: `PL-1147`(1.38)과 `EL-3762`(1.92)는 두 표(打抜き加工用 · 機械加工用)에 **모두** 나오고 두 표의 比重 이 서로 같다 — 열 대응이 맞다는 독립 확인이다. 같은 두 등급의 曲げ強度·吸水率 은 시편 두께가 달라(1.0/1.5 mmt vs 15/13 mmt) 값이 다른데, **比重만 같다** — 밀도가 두께에 무관하다는 물리와 앞뒤가 맞는다."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0019,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_condition": "E-24/50 + D-24/23 (24 h 50 C oven, then 24 h water immersion at 23 C)",
+      "specimen_thickness_mm": 15.0,
+      "source_table": "機械加工用 표 (시편 15 mmt)"
+     },
+     "notes": "원문 verbatim: `吸水率 Water absorption | E-24/50+D-24/23 | % | 0.19` (PL-1147 열, 機械加工用 표 (시편 15 mmt)). 원문이 **구간이 아니라 단일 값**으로 인쇄한 칸이다. 환산 0.19 -> 0.0019 1; 되돌리면 0.0019 -> 0.19. 0.19 % / 100 = 0.0019 (무차원). **이 PDF 는 아웃라인 벡터 텍스트라 `pdftotext` 가 0자를 준다** — A3 쪽을 150 dpi 로 렌더해 표를 눈으로 읽었다. 열 밀림 위험은 렌더로만 막을 수 있고 실제로 렌더로만 읽었다. **교차검증**: `PL-1147`(1.38)과 `EL-3762`(1.92)는 두 표(打抜き加工用 · 機械加工用)에 **모두** 나오고 두 표의 比重 이 서로 같다 — 열 대응이 맞다는 독립 확인이다. 같은 두 등급의 曲げ強度·吸水率 은 시편 두께가 달라(1.0/1.5 mmt vs 15/13 mmt) 값이 다른데, **比重만 같다** — 밀도가 두께에 무관하다는 물리와 앞뒤가 맞는다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Sumitomo Bakelite Sumilite PL-1102 (paper phenolic laminate, machining grade)",
+    "category": "composite",
+    "description": "住友ベークライト(Sumitomo Bakelite) スミライト® 적층판 `PL-1102` — paper phenolic laminate (紙フェノール積層板). 벤더 표기 특징: コストパフォーマンスに優れた標準材 / Standard grade which is excellent in cost performance. JIS 적층판 기호 PL-PEM相当 (PL-PEM equivalent). 機械加工用 표(인쇄 27쪽)에만 나온다. **이 카드가 이 배치에 선 이유는 하나다 — 이 표가 `比重 Specific gravity` 를 인쇄한다.** 71차 GD 가 「밀도는 규격(IPC-4101) 층이 아니라 벤더 TDS 층의 문제다」라고 넘긴 자리를 같은 벤더의 다른 제품군에서 메운다. 동장적층판(ELC·LαZ) 표에는 이 행이 없다.",
+    "attributes": {
+     "material_class": "paper phenolic laminate (紙フェノール積層板)",
+     "subsystem": "pcb",
+     "role": "product",
+     "role_reason": "전자부품·기계가공용 실부품 적층판. 벤더가 등급명으로 인쇄한 제품이다.",
+     "role_confidence": "high",
+     "manufacturer": "Sumitomo Bakelite Co., Ltd.",
+     "product_series": "スミライト® (Sumilite) PL / EL laminate sheets",
+     "product_form": "unclad laminate sheet",
+     "aliases": [
+      "PL-1102",
+      "Sumilite PL-1102",
+      "スミライト PL-1102",
+      "PL1102"
+     ],
+     "jis_symbol": "PL-PEM相当 (PL-PEM equivalent)",
+     "density_source": "`比重 Specific gravity` 행 — **라미네이트 자신의 비중**이다(수지 비중이 아니다). x1000 은 정의상 단위 환산이다.",
+     "core7_absent_from_vendor_table": "이 표에도 포아송비·비열·인장강도 행은 없다. 있는 것은 `曲げ強度`(굽힘강도)·`アイゾット衝撃強さ`·`へき開強さ` 다 — **인장강도가 아니다.** 열전도율 행도 없다.",
+     "not_to_be_confused_with": "`EL-3762`(무피복 유리에폭시 적층판)는 `ELC-4762`(동장적층판)와 **다른 제품이다.** 비중 1.92 를 ELC-4762 에 옮기면 안 된다.",
+     "source_page": "인쇄 26쪽(電子部品用積層板 打抜き加工用) · 인쇄 27쪽(機械・電気機器用積層板 機械加工用)"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "ガラスエポキシ積層板 / 紙フェノール積層板 一般特性 (住友ベークライト スミライト® 積層板カタログ, 인쇄 25~32쪽)",
+    "url": "https://www.sumibe.co.jp/ww-attaches/805.pdf",
+    "publisher": "Sumitomo Bakelite Co., Ltd. (住友ベークライト株式会社)",
+    "year": 2026,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_Sumilite-PL-EL_Catalog_ja_2026-09-09.pdf",
+    "url_note": "살아 있는 벤더 직접 URL 이다(2026-09-09 취득). **이 PDF 는 Illustrator 아웃라인 벡터 텍스트라 `pdftotext` 가 0자를 준다** — 값은 전부 150 dpi 렌더를 눈으로 읽어 옮겼다. 다운스트림에서 재추출하려면 OCR 이나 렌더가 필요하다."
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1390.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "A (as received, 원문 処理条件 `A`)",
+      "basis": "specific gravity (比重) of the laminate, dimensionless, x1000 -> kg/m^3"
+     },
+     "notes": "원문 verbatim: `比重 Specific gravity | A | － | 1.39` (PL-1102 열). 원문이 **구간이 아니라 단일 값**으로 인쇄한 칸이다. 환산 1.39 -> 1390 kg/m^3; 되돌리면 1390 -> 1.39. **이것은 라미네이트 자신의 비중이다 — 수지 비중이 아니다.** 브리프가 경계한 함정(`수지 비중은 라미네이트 밀도가 아니다`)은 MGC 시트의 `樹脂比重`(수지만의 무차원 값)에 대한 것이고, 이 행은 `一般特性 General Properties` 표 안에서 **적층판 시편**(같은 표의 시편 두께 각주가 걸린 그 시편)에 대해 인쇄된 `比重 Specific gravity` 다. 비중은 정의상 4 ℃ 물 밀도(1000 kg/m³) 기준 무차원비이므로 x1000 은 **역산이 아니라 단위 환산**이다. **이 PDF 는 아웃라인 벡터 텍스트라 `pdftotext` 가 0자를 준다** — A3 쪽을 150 dpi 로 렌더해 표를 눈으로 읽었다. 열 밀림 위험은 렌더로만 막을 수 있고 실제로 렌더로만 읽었다. **교차검증**: `PL-1147`(1.38)과 `EL-3762`(1.92)는 두 표(打抜き加工用 · 機械加工用)에 **모두** 나오고 두 표의 比重 이 서로 같다 — 열 대응이 맞다는 독립 확인이다. 같은 두 등급의 曲げ強度·吸水率 은 시편 두께가 달라(1.0/1.5 mmt vs 15/13 mmt) 값이 다른데, **比重만 같다** — 밀도가 두께에 무관하다는 물리와 앞뒤가 맞는다."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 200000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "A",
+      "specimen_thickness_mm": 15.0,
+      "source_table": "機械加工用 표 (시편 15 mmt)"
+     },
+     "notes": "원문 verbatim: `曲げ強度 Flexural strength | A | MPa | 200` (PL-1102 열, 機械加工用 표 (시편 15 mmt)). 원문이 **구간이 아니라 단일 값**으로 인쇄한 칸이다. 환산 200 -> 2e+08 Pa; 되돌리면 2e+08 -> 200. **이 PDF 는 아웃라인 벡터 텍스트라 `pdftotext` 가 0자를 준다** — A3 쪽을 150 dpi 로 렌더해 표를 눈으로 읽었다. 열 밀림 위험은 렌더로만 막을 수 있고 실제로 렌더로만 읽었다. **교차검증**: `PL-1147`(1.38)과 `EL-3762`(1.92)는 두 표(打抜き加工用 · 機械加工用)에 **모두** 나오고 두 표의 比重 이 서로 같다 — 열 대응이 맞다는 독립 확인이다. 같은 두 등급의 曲げ強度·吸水率 은 시편 두께가 달라(1.0/1.5 mmt vs 15/13 mmt) 값이 다른데, **比重만 같다** — 밀도가 두께에 무관하다는 물리와 앞뒤가 맞는다."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0034000000000000002,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_condition": "E-24/50 + D-24/23 (24 h 50 C oven, then 24 h water immersion at 23 C)",
+      "specimen_thickness_mm": 15.0,
+      "source_table": "機械加工用 표 (시편 15 mmt)"
+     },
+     "notes": "원문 verbatim: `吸水率 Water absorption | E-24/50+D-24/23 | % | 0.34` (PL-1102 열, 機械加工用 표 (시편 15 mmt)). 원문이 **구간이 아니라 단일 값**으로 인쇄한 칸이다. 환산 0.34 -> 0.0034 1; 되돌리면 0.0034 -> 0.34. 0.34 % / 100 = 0.0034 (무차원). **이 PDF 는 아웃라인 벡터 텍스트라 `pdftotext` 가 0자를 준다** — A3 쪽을 150 dpi 로 렌더해 표를 눈으로 읽었다. 열 밀림 위험은 렌더로만 막을 수 있고 실제로 렌더로만 읽었다. **교차검증**: `PL-1147`(1.38)과 `EL-3762`(1.92)는 두 표(打抜き加工用 · 機械加工用)에 **모두** 나오고 두 표의 比重 이 서로 같다 — 열 대응이 맞다는 독립 확인이다. 같은 두 등급의 曲げ強度·吸水率 은 시편 두께가 달라(1.0/1.5 mmt vs 15/13 mmt) 값이 다른데, **比重만 같다** — 밀도가 두께에 무관하다는 물리와 앞뒤가 맞는다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Sumitomo Bakelite Sumilite EL-3762 (FR-4 grade glass epoxy laminate, unclad)",
+    "category": "composite",
+    "description": "住友ベークライト(Sumitomo Bakelite) スミライト® 적층판 `EL-3762` — glass/epoxy laminate (ガラスエポキシ積層板), unclad, FR-4 grade. 벤더 표기 특징: G10グレードを上回る難燃性を付与したFR-4グレード / FR-4 grade which gave the flame retardancy which exceeds G10 grade. JIS 적층판 기호 EL-GEF相当 (EL-GEF equivalent). 打抜き加工用(인쇄 26쪽)·機械加工用(인쇄 27쪽) **두 표에 모두** 나온다. **이 카드가 이 배치에 선 이유는 하나다 — 이 표가 `比重 Specific gravity` 를 인쇄한다.** 71차 GD 가 「밀도는 규격(IPC-4101) 층이 아니라 벤더 TDS 층의 문제다」라고 넘긴 자리를 같은 벤더의 다른 제품군에서 메운다. 동장적층판(ELC·LαZ) 표에는 이 행이 없다.",
+    "attributes": {
+     "material_class": "glass/epoxy laminate (ガラスエポキシ積層板), unclad, FR-4 grade",
+     "subsystem": "pcb",
+     "role": "product",
+     "role_reason": "전자부품·기계가공용 실부품 적층판. 벤더가 등급명으로 인쇄한 제품이다.",
+     "role_confidence": "high",
+     "manufacturer": "Sumitomo Bakelite Co., Ltd.",
+     "product_series": "スミライト® (Sumilite) PL / EL laminate sheets",
+     "product_form": "unclad laminate sheet",
+     "aliases": [
+      "EL-3762",
+      "Sumilite EL-3762",
+      "スミライト EL-3762",
+      "EL3762"
+     ],
+     "jis_symbol": "EL-GEF相当 (EL-GEF equivalent)",
+     "density_source": "`比重 Specific gravity` 행 — **라미네이트 자신의 비중**이다(수지 비중이 아니다). x1000 은 정의상 단위 환산이다.",
+     "core7_absent_from_vendor_table": "이 표에도 포아송비·비열·인장강도 행은 없다. 있는 것은 `曲げ強度`(굽힘강도)·`アイゾット衝撃強さ`·`へき開強さ` 다 — **인장강도가 아니다.** 열전도율 행도 없다.",
+     "not_to_be_confused_with": "`EL-3762`(무피복 유리에폭시 적층판)는 `ELC-4762`(동장적층판)와 **다른 제품이다.** 비중 1.92 를 ELC-4762 에 옮기면 안 된다.",
+     "source_page": "인쇄 26쪽(電子部品用積層板 打抜き加工用) · 인쇄 27쪽(機械・電気機器用積層板 機械加工用)"
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "ガラスエポキシ積層板 / 紙フェノール積層板 一般特性 (住友ベークライト スミライト® 積層板カタログ, 인쇄 25~32쪽)",
+    "url": "https://www.sumibe.co.jp/ww-attaches/805.pdf",
+    "publisher": "Sumitomo Bakelite Co., Ltd. (住友ベークライト株式会社)",
+    "year": 2026,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_Sumilite-PL-EL_Catalog_ja_2026-09-09.pdf",
+    "url_note": "살아 있는 벤더 직접 URL 이다(2026-09-09 취득). **이 PDF 는 Illustrator 아웃라인 벡터 텍스트라 `pdftotext` 가 0자를 준다** — 값은 전부 150 dpi 렌더를 눈으로 읽어 옮겼다. 다운스트림에서 재추출하려면 OCR 이나 렌더가 필요하다."
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 1920.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "A (as received, 원문 処理条件 `A`)",
+      "basis": "specific gravity (比重) of the laminate, dimensionless, x1000 -> kg/m^3"
+     },
+     "notes": "원문 verbatim: `比重 Specific gravity | A | － | 1.92` (EL-3762 열). 원문이 **구간이 아니라 단일 값**으로 인쇄한 칸이다. 환산 1.92 -> 1920 kg/m^3; 되돌리면 1920 -> 1.92. **이것은 라미네이트 자신의 비중이다 — 수지 비중이 아니다.** 브리프가 경계한 함정(`수지 비중은 라미네이트 밀도가 아니다`)은 MGC 시트의 `樹脂比重`(수지만의 무차원 값)에 대한 것이고, 이 행은 `一般特性 General Properties` 표 안에서 **적층판 시편**(같은 표의 시편 두께 각주가 걸린 그 시편)에 대해 인쇄된 `比重 Specific gravity` 다. 비중은 정의상 4 ℃ 물 밀도(1000 kg/m³) 기준 무차원비이므로 x1000 은 **역산이 아니라 단위 환산**이다. **이 PDF 는 아웃라인 벡터 텍스트라 `pdftotext` 가 0자를 준다** — A3 쪽을 150 dpi 로 렌더해 표를 눈으로 읽었다. 열 밀림 위험은 렌더로만 막을 수 있고 실제로 렌더로만 읽었다. **교차검증**: `PL-1147`(1.38)과 `EL-3762`(1.92)는 두 표(打抜き加工用 · 機械加工用)에 **모두** 나오고 두 표의 比重 이 서로 같다 — 열 대응이 맞다는 독립 확인이다. 같은 두 등급의 曲げ強度·吸水率 은 시편 두께가 달라(1.0/1.5 mmt vs 15/13 mmt) 값이 다른데, **比重만 같다** — 밀도가 두께에 무관하다는 물리와 앞뒤가 맞는다."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 540000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.5,
+      "source_table": "打抜き加工用 표 (시편 1.5 mmt)",
+      "orientation": "warp (たて / Lengthwise)"
+     },
+     "notes": "원문 verbatim: `曲げ強度 Flexural strength | A | MPa | 540 (warp)` (EL-3762 열, 打抜き加工用 표 (시편 1.5 mmt)). 원문이 **구간이 아니라 단일 값**으로 인쇄한 칸이다. 환산 540 -> 5.4e+08 Pa; 되돌리면 5.4e+08 -> 540. **같은 등급이 두 표에 나오면 시편 두께가 달라 값도 다르다 — 평균 내지 않고 `specimen_thickness_mm` 으로 갈라 두 행으로 두었다.** **이 PDF 는 아웃라인 벡터 텍스트라 `pdftotext` 가 0자를 준다** — A3 쪽을 150 dpi 로 렌더해 표를 눈으로 읽었다. 열 밀림 위험은 렌더로만 막을 수 있고 실제로 렌더로만 읽었다. **교차검증**: `PL-1147`(1.38)과 `EL-3762`(1.92)는 두 표(打抜き加工用 · 機械加工用)에 **모두** 나오고 두 표의 比重 이 서로 같다 — 열 대응이 맞다는 독립 확인이다. 같은 두 등급의 曲げ強度·吸水率 은 시편 두께가 달라(1.0/1.5 mmt vs 15/13 mmt) 값이 다른데, **比重만 같다** — 밀도가 두께에 무관하다는 물리와 앞뒤가 맞는다."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 470000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "A",
+      "specimen_thickness_mm": 1.5,
+      "source_table": "打抜き加工用 표 (시편 1.5 mmt)",
+      "orientation": "fill (よこ / Widthwise)"
+     },
+     "notes": "원문 verbatim: `曲げ強度 Flexural strength | A | MPa | 470 (fill)` (EL-3762 열, 打抜き加工用 표 (시편 1.5 mmt)). 원문이 **구간이 아니라 단일 값**으로 인쇄한 칸이다. 환산 470 -> 4.7e+08 Pa; 되돌리면 4.7e+08 -> 470. **같은 등급이 두 표에 나오면 시편 두께가 달라 값도 다르다 — 평균 내지 않고 `specimen_thickness_mm` 으로 갈라 두 행으로 두었다.** **이 PDF 는 아웃라인 벡터 텍스트라 `pdftotext` 가 0자를 준다** — A3 쪽을 150 dpi 로 렌더해 표를 눈으로 읽었다. 열 밀림 위험은 렌더로만 막을 수 있고 실제로 렌더로만 읽었다. **교차검증**: `PL-1147`(1.38)과 `EL-3762`(1.92)는 두 표(打抜き加工用 · 機械加工用)에 **모두** 나오고 두 표의 比重 이 서로 같다 — 열 대응이 맞다는 독립 확인이다. 같은 두 등급의 曲げ強度·吸水率 은 시편 두께가 달라(1.0/1.5 mmt vs 15/13 mmt) 값이 다른데, **比重만 같다** — 밀도가 두께에 무관하다는 물리와 앞뒤가 맞는다."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 390000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "A",
+      "specimen_thickness_mm": 13.0,
+      "source_table": "機械加工用 표 (시편 13 mmt)",
+      "orientation": "warp (たて / Lengthwise)"
+     },
+     "notes": "원문 verbatim: `曲げ強度 Flexural strength | A | MPa | 390 (warp)` (EL-3762 열, 機械加工用 표 (시편 13 mmt)). 원문이 **구간이 아니라 단일 값**으로 인쇄한 칸이다. 환산 390 -> 3.9e+08 Pa; 되돌리면 3.9e+08 -> 390. **같은 등급이 두 표에 나오면 시편 두께가 달라 값도 다르다 — 평균 내지 않고 `specimen_thickness_mm` 으로 갈라 두 행으로 두었다.** **이 PDF 는 아웃라인 벡터 텍스트라 `pdftotext` 가 0자를 준다** — A3 쪽을 150 dpi 로 렌더해 표를 눈으로 읽었다. 열 밀림 위험은 렌더로만 막을 수 있고 실제로 렌더로만 읽었다. **교차검증**: `PL-1147`(1.38)과 `EL-3762`(1.92)는 두 표(打抜き加工用 · 機械加工用)에 **모두** 나오고 두 표의 比重 이 서로 같다 — 열 대응이 맞다는 독립 확인이다. 같은 두 등급의 曲げ強度·吸水率 은 시편 두께가 달라(1.0/1.5 mmt vs 15/13 mmt) 값이 다른데, **比重만 같다** — 밀도가 두께에 무관하다는 물리와 앞뒤가 맞는다."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 370000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "A",
+      "specimen_thickness_mm": 13.0,
+      "source_table": "機械加工用 표 (시편 13 mmt)",
+      "orientation": "fill (よこ / Widthwise)"
+     },
+     "notes": "원문 verbatim: `曲げ強度 Flexural strength | A | MPa | 370 (fill)` (EL-3762 열, 機械加工用 표 (시편 13 mmt)). 원문이 **구간이 아니라 단일 값**으로 인쇄한 칸이다. 환산 370 -> 3.7e+08 Pa; 되돌리면 3.7e+08 -> 370. **같은 등급이 두 표에 나오면 시편 두께가 달라 값도 다르다 — 평균 내지 않고 `specimen_thickness_mm` 으로 갈라 두 행으로 두었다.** **이 PDF 는 아웃라인 벡터 텍스트라 `pdftotext` 가 0자를 준다** — A3 쪽을 150 dpi 로 렌더해 표를 눈으로 읽었다. 열 밀림 위험은 렌더로만 막을 수 있고 실제로 렌더로만 읽었다. **교차검증**: `PL-1147`(1.38)과 `EL-3762`(1.92)는 두 표(打抜き加工用 · 機械加工用)에 **모두** 나오고 두 표의 比重 이 서로 같다 — 열 대응이 맞다는 독립 확인이다. 같은 두 등급의 曲げ強度·吸水率 은 시편 두께가 달라(1.0/1.5 mmt vs 15/13 mmt) 값이 다른데, **比重만 같다** — 밀도가 두께에 무관하다는 물리와 앞뒤가 맞는다."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0007000000000000001,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_condition": "E-24/50 + D-24/23 (24 h 50 C oven, then 24 h water immersion at 23 C)",
+      "specimen_thickness_mm": 1.5,
+      "source_table": "打抜き加工用 표 (시편 1.5 mmt)"
+     },
+     "notes": "원문 verbatim: `吸水率 Water absorption | E-24/50+D-24/23 | % | 0.07` (EL-3762 열, 打抜き加工用 표 (시편 1.5 mmt)). 원문이 **구간이 아니라 단일 값**으로 인쇄한 칸이다. 환산 0.07 -> 0.0007 1; 되돌리면 0.0007 -> 0.07. 0.07 % / 100 = 0.0007 (무차원). **이 PDF 는 아웃라인 벡터 텍스트라 `pdftotext` 가 0자를 준다** — A3 쪽을 150 dpi 로 렌더해 표를 눈으로 읽었다. 열 밀림 위험은 렌더로만 막을 수 있고 실제로 렌더로만 읽었다. **교차검증**: `PL-1147`(1.38)과 `EL-3762`(1.92)는 두 표(打抜き加工用 · 機械加工用)에 **모두** 나오고 두 표의 比重 이 서로 같다 — 열 대응이 맞다는 독립 확인이다. 같은 두 등급의 曲げ強度·吸水率 은 시편 두께가 달라(1.0/1.5 mmt vs 15/13 mmt) 값이 다른데, **比重만 같다** — 밀도가 두께에 무관하다는 물리와 앞뒤가 맞는다."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0001,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_condition": "E-24/50 + D-24/23 (24 h 50 C oven, then 24 h water immersion at 23 C)",
+      "specimen_thickness_mm": 13.0,
+      "source_table": "機械加工用 표 (시편 13 mmt)"
+     },
+     "notes": "원문 verbatim: `吸水率 Water absorption | E-24/50+D-24/23 | % | 0.01` (EL-3762 열, 機械加工用 표 (시편 13 mmt)). 원문이 **구간이 아니라 단일 값**으로 인쇄한 칸이다. 환산 0.01 -> 0.0001 1; 되돌리면 0.0001 -> 0.01. 0.01 % / 100 = 0.0001 (무차원). **이 PDF 는 아웃라인 벡터 텍스트라 `pdftotext` 가 0자를 준다** — A3 쪽을 150 dpi 로 렌더해 표를 눈으로 읽었다. 열 밀림 위험은 렌더로만 막을 수 있고 실제로 렌더로만 읽었다. **교차검증**: `PL-1147`(1.38)과 `EL-3762`(1.92)는 두 표(打抜き加工用 · 機械加工用)에 **모두** 나오고 두 표의 比重 이 서로 같다 — 열 대응이 맞다는 독립 확인이다. 같은 두 등급의 曲げ強度·吸水率 은 시편 두께가 달라(1.0/1.5 mmt vs 15/13 mmt) 값이 다른데, **比重만 같다** — 밀도가 두께에 무관하다는 물리와 앞뒤가 맞는다."
+    }
+   ]
+  }
+ ]
+}

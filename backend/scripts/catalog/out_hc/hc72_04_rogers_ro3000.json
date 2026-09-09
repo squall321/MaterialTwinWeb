@@ -1,0 +1,732 @@
+{
+ "batch": "72차 HC",
+ "materials": [
+  {
+   "new_material": {
+    "name": "Rogers RO3035 Ceramic-Filled PTFE Laminate",
+    "category": "composite",
+    "description": "Rogers RO3000 시리즈 `RO3035` — 세라믹 충전 PTFE 고주파 적층판. Dk 3.50 ± 0.05 급 세라믹 충전 PTFE 고주파 적층판. 비열 칸이 이 등급만 **비어 있다**(형제 셋은 값이 있다). 이 시트가 이번 배치에서 특별한 이유는 **`Young's Modulus` 행의 시험법이 `ASTM D638`(인장)로 명시돼 있다**는 것 — 같은 배치의 Technolam(시험법 `-`)·Shengyi(이름은 인장, 시험법은 굽힘법) 와 달리 여기서는 인장이 확정되므로 영률이 t1 이다. 밀도(ASTM D792)·비열·CTE(x/y/z)·열전도율까지 코어7 중 다섯을 찍고 포아송비만 없다.",
+    "attributes": {
+     "material_class": "ceramic-filled PTFE laminate",
+     "subsystem": "rf",
+     "role": "product",
+     "role_reason": "제조사(Rogers)+등급명이 이름에 박혀 있고 출처가 해당 시리즈의 공식 데이터시트다.",
+     "role_confidence": "high",
+     "manufacturer": "Rogers Corporation",
+     "product_series": "RO3000",
+     "grades_covered": [
+      "RO3035"
+     ],
+     "aliases": [
+      "RO3035",
+      "RO 3035",
+      "Rogers RO3035",
+      "RO3035TM"
+     ],
+     "column_layout": "**열 확인** — 이 표의 등급 열 순서는 인쇄면 기준 `RO3003 | RO3035 | RO3006 | RO3010` 이고 **파일 이름의 순서(RO3003_RO3006_RO3010_RO3035)와 다르다**. 300 dpi 렌더로 확정했다. 형제 등급 RO3003 은 이 카탈로그에 이미 재료 241 로 있으므로 이 배치는 담지 않았다.",
+     "core7_absent_from_vendor_sheet": {
+      "mechanical.poisson_ratio": "RO3000 시리즈 표준물성표에 포아송비 행이 없다(`Poisson` 전수 적중 0). 57차 SB 가 Rogers 네 시트에서 같은 부재를 확인한 바 있다.",
+      "mechanical.tensile_strength": "이 표는 `Young's Modulus` 는 찍지만 인장강도 행이 없다. 형제 시트(RO4003C/RO4350B · RT/duroid)에는 `Tensile Strength` 가 있으나 그 값은 이 등급의 값이 아니므로 가져오지 않았다."
+     }
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "RO3000 Series Circuit Materials Data Sheet — RO3003, RO3006, RO3010 and RO3035 High Frequency Laminates (Standard Properties Table)",
+    "url": "https://www.rogerscorp.com/-/media/project/rogerscorp/documents/advanced-electronics-solutions/english/data-sheets/ro3000-laminate-data-sheet-ro3003----ro3006----ro3010----ro3035.pdf",
+    "publisher": "Rogers Corporation",
+    "year": 2024,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Rogers_RO3000_Laminate_DataSheet_RO3003_RO3006_RO3010_RO3035_2024-01.pdf",
+    "url_note": "URL 은 이 카탈로그의 기존 출처(source 3019)에 이미 등록된 것을 그대로 썼다 — 새로 지어내지 않았다."
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2100.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D792",
+      "temperature_c": 23
+     },
+     "notes": "원문 verbatim: `Density  2.1  g/cm3  23degC  ASTM D792`. 2.1 g/cm^3 x 1000 = 2100 kg/m^3; 되돌리면 2100/1000 = 2.1. **열 확인** — 이 표의 등급 열 순서는 인쇄면 기준 `RO3003 | RO3035 | RO3006 | RO3010` 이고 **파일 이름의 순서(RO3003_RO3006_RO3010_RO3035)와 다르다**. 300 dpi 렌더로 확정했다. 형제 등급 RO3003 은 이 카탈로그에 이미 재료 241 로 있으므로 이 배치는 담지 않았다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 1025000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "x",
+      "direction_verbatim": "(행에 방향 표기 없음 — 2단 중 위 칸)",
+      "temperature_c": 23,
+      "test_standard": "ASTM D638"
+     },
+     "notes": "원문 verbatim: `Young's Modulus  1025 / 1006  MPa  23degC  ASTM D638`. 1025 MPa x 1e6 = 1.025e+09 Pa; 되돌리면 1.025e+09/1e6 = 1025. 원문 `Young's Modulus` 행은 등급 열마다 값 두 개를 위/아래로 쌓고 **그 행에는 방향 표기가 없다**. 같은 표의 `Dimensional Stability (MD, CMD)` 행이 똑같은 2단 배치를 쓰면서 순서를 `(MD, CMD)` 로 밝히고, 바로 위 CTE 행들은 `- x`, `- y`, `- z` 순으로 인쇄된다. 같은 제조사의 형제 시트 (RO4003C/RO4350B · RT/duroid 5870-5880)는 `Tensile Modulus` 를 `X`(위) / `Y`(아래) 로 명시한다. 그래서 위=x(MD)·아래=y(CMD) 로 읽었고 그 근거를 여기에 남긴다 — **값 자체는 두 개 다 담았으므로 방향 배정이 뒤집혀도 잃는 값은 없다.** 시험법이 `ASTM D638`(인장)이라 이 행은 굽힘이 아니라 인장이다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 1006000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "y",
+      "direction_verbatim": "(행에 방향 표기 없음 — 2단 중 아래 칸)",
+      "temperature_c": 23,
+      "test_standard": "ASTM D638"
+     },
+     "notes": "원문 verbatim: `Young's Modulus  1025 / 1006  MPa  23degC  ASTM D638`. 1006 MPa x 1e6 = 1.006e+09 Pa; 되돌리면 1.006e+09/1e6 = 1006. 원문 `Young's Modulus` 행은 등급 열마다 값 두 개를 위/아래로 쌓고 **그 행에는 방향 표기가 없다**. 같은 표의 `Dimensional Stability (MD, CMD)` 행이 똑같은 2단 배치를 쓰면서 순서를 `(MD, CMD)` 로 밝히고, 바로 위 CTE 행들은 `- x`, `- y`, `- z` 순으로 인쇄된다. 같은 제조사의 형제 시트 (RO4003C/RO4350B · RT/duroid 5870-5880)는 `Tensile Modulus` 를 `X`(위) / `Y`(아래) 로 명시한다. 그래서 위=x(MD)·아래=y(CMD) 로 읽었고 그 근거를 여기에 남긴다 — **값 자체는 두 개 다 담았으므로 방향 배정이 뒤집혀도 잃는 값은 없다.** 시험법이 `ASTM D638`(인장)이라 이 행은 굽힘이 아니라 인장이다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.5,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D5470",
+      "temperature_c": 50
+     },
+     "notes": "원문 verbatim: `Thermal Conductivity  0.5  W/(m.K)  50degC  ASTM D5470`. 0.5 W/(m*K) -> 0.5 W/(m*K). 환산 없음."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.7e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x",
+      "temperature_range_c": "-55 to 288",
+      "conditioning": "23degC / 50% RH",
+      "test_standard": "IPC-TM-650 2.4.41"
+     },
+     "notes": "원문 verbatim: `Coefficient of Thermal Expansion - x  17  ppm/degC  -55 to 288degC, 23degC/50% RH  IPC TM-650 2.4.41`. 17 ppm/degC x 1e-6 = 1.7e-05 1/K; 되돌리면 1.7e-05/1e-6 = 17."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.7e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "y",
+      "temperature_range_c": "-55 to 288",
+      "conditioning": "23degC / 50% RH",
+      "test_standard": "IPC-TM-650 2.4.41"
+     },
+     "notes": "원문 verbatim: `Coefficient of Thermal Expansion - y  17  ppm/degC  IPC TM-650 2.4.41`. 17 ppm/degC x 1e-6 = 1.7e-05 1/K; 되돌리면 1.7e-05/1e-6 = 17."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 2.4e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "temperature_range_c": "-55 to 288",
+      "conditioning": "23degC / 50% RH",
+      "test_standard": "IPC-TM-650 2.4.41"
+     },
+     "notes": "원문 verbatim: `Coefficient of Thermal Expansion - z  24  ppm/degC  IPC TM-650 2.4.41`. 24 ppm/degC x 1e-6 = 2.4e-05 1/K; 되돌리면 2.4e-05/1e-6 = 24."
+    },
+    {
+     "key": "thermal.decomposition_temp",
+     "value": 773.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D3850",
+      "test_method": "TGA"
+     },
+     "notes": "원문 verbatim: `Decomposition Temperature (Td)  500  degC TGA  ASTM D3850`. 500 + 273.15 = 773.15 K; 되돌리면 773.15 - 273.15 = 500."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 3.5,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 10000000000.0,
+      "temperature_c": 23,
+      "test_standard": "IPC-TM-650 2.5.5.5",
+      "test_method": "process"
+     },
+     "notes": "원문 verbatim: `Dielectric Constant (process)  3.5  -  23degC, 10 GHz  IPC TM-650 2.5.5.5`. 3.5 - -> 3.5 1. 무차원."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 3.6,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_range_hz": "8e9-40e9",
+      "test_method": "differential phase length (design Dk)"
+     },
+     "notes": "원문 verbatim: `Dielectric Constant (design)  3.6  -  8 GHz - 40 GHz  Differential Phase Length`. 3.6 - -> 3.6 1. 무차원. 제조사 각주 verbatim: `The design Dk is an average number from several different tested lots of material and on the most common thickness/s.`"
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.0015,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 10000000000.0,
+      "temperature_c": 23,
+      "test_standard": "IPC-TM-650 2.5.5.5"
+     },
+     "notes": "원문 verbatim: `Dissapation Factor  0.0015  -  23degC, 10 GHz  IPC TM-650 2.5.5.5`. 0.0015 - -> 0.0015 1. 무차원(원문 철자 그대로)."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 100000000000.0,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "Condition A",
+      "test_standard": "IPC-TM-650 2.5.17.1"
+     },
+     "notes": "원문 verbatim: `Volume Resistivity  10^7  MOhm-cm  Condition A  IPC TM-650 2.5.17.1`. 1e+07 MOhm*cm x 1e4 = 1e+11 Ohm*m (1 MOhm*cm = 1e6 Ohm x 1e-2 m = 1e4 Ohm*m); 되돌리면 1e+11/1e4 = 1e+07."
+    },
+    {
+     "key": "electrical.surface_resistivity",
+     "value": 10000000000000.0,
+     "unit": "ohm",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "Condition A",
+      "test_standard": "IPC-TM-650 2.5.17.1"
+     },
+     "notes": "원문 verbatim: `Surface Resistivity  10^7  MOhm  Condition A  IPC TM-650 2.5.17.1`. 1e+07 MOhm x 1e6 = 1e+13 Ohm; 되돌리면 1e+13/1e6 = 1e+07."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 1786.2937195140587,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "after solder float",
+      "copper_foil_type": "1 oz. EDC",
+      "test_standard": "IPC-TM-650 2.4.8"
+     },
+     "notes": "원문 verbatim: `Copper Peel Strength  10.2  lbs/in  1 oz. EDC After Solder Float  IPC TM-650 2.4.8`. 10.2 lb/in x 175.126835 = 1786.29 N/m (1 lbf = 4.4482216152605 N, 1 in = 0.0254 m -> 4.4482216152605/0.0254 = 175.126835); 되돌리면 1786.29/175.126835 = 10.2."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0004,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "D48/50",
+      "test_standard": "IPC-TM-650 2.6.2.1"
+     },
+     "notes": "원문 verbatim: `Moisture Absorption  0.04  %  D48/50  IPC TM-650 2.6.2.1`. 0.04 % / 100 = 0.0004; 되돌리면 0.0004 x 100 = 0.04."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Rogers RO3006 Ceramic-Filled PTFE Laminate",
+    "category": "composite",
+    "description": "Rogers RO3000 시리즈 `RO3006` — 세라믹 충전 PTFE 고주파 적층판. Dk 6.15 ± 0.15 급 세라믹 충전 PTFE 고주파 적층판. 이 시트가 이번 배치에서 특별한 이유는 **`Young's Modulus` 행의 시험법이 `ASTM D638`(인장)로 명시돼 있다**는 것 — 같은 배치의 Technolam(시험법 `-`)·Shengyi(이름은 인장, 시험법은 굽힘법) 와 달리 여기서는 인장이 확정되므로 영률이 t1 이다. 밀도(ASTM D792)·비열·CTE(x/y/z)·열전도율까지 코어7 중 다섯을 찍고 포아송비만 없다.",
+    "attributes": {
+     "material_class": "ceramic-filled PTFE laminate",
+     "subsystem": "rf",
+     "role": "product",
+     "role_reason": "제조사(Rogers)+등급명이 이름에 박혀 있고 출처가 해당 시리즈의 공식 데이터시트다.",
+     "role_confidence": "high",
+     "manufacturer": "Rogers Corporation",
+     "product_series": "RO3000",
+     "grades_covered": [
+      "RO3006"
+     ],
+     "aliases": [
+      "RO3006",
+      "RO 3006",
+      "Rogers RO3006",
+      "RO3006TM"
+     ],
+     "column_layout": "**열 확인** — 이 표의 등급 열 순서는 인쇄면 기준 `RO3003 | RO3035 | RO3006 | RO3010` 이고 **파일 이름의 순서(RO3003_RO3006_RO3010_RO3035)와 다르다**. 300 dpi 렌더로 확정했다. 형제 등급 RO3003 은 이 카탈로그에 이미 재료 241 로 있으므로 이 배치는 담지 않았다.",
+     "core7_absent_from_vendor_sheet": {
+      "mechanical.poisson_ratio": "RO3000 시리즈 표준물성표에 포아송비 행이 없다(`Poisson` 전수 적중 0). 57차 SB 가 Rogers 네 시트에서 같은 부재를 확인한 바 있다.",
+      "mechanical.tensile_strength": "이 표는 `Young's Modulus` 는 찍지만 인장강도 행이 없다. 형제 시트(RO4003C/RO4350B · RT/duroid)에는 `Tensile Strength` 가 있으나 그 값은 이 등급의 값이 아니므로 가져오지 않았다."
+     }
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "RO3000 Series Circuit Materials Data Sheet — RO3003, RO3006, RO3010 and RO3035 High Frequency Laminates (Standard Properties Table)",
+    "url": "https://www.rogerscorp.com/-/media/project/rogerscorp/documents/advanced-electronics-solutions/english/data-sheets/ro3000-laminate-data-sheet-ro3003----ro3006----ro3010----ro3035.pdf",
+    "publisher": "Rogers Corporation",
+    "year": 2024,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Rogers_RO3000_Laminate_DataSheet_RO3003_RO3006_RO3010_RO3035_2024-01.pdf",
+    "url_note": "URL 은 이 카탈로그의 기존 출처(source 3019)에 이미 등록된 것을 그대로 썼다 — 새로 지어내지 않았다."
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2600.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D792",
+      "temperature_c": 23
+     },
+     "notes": "원문 verbatim: `Density  2.6  g/cm3  23degC  ASTM D792`. 2.6 g/cm^3 x 1000 = 2600 kg/m^3; 되돌리면 2600/1000 = 2.6. **열 확인** — 이 표의 등급 열 순서는 인쇄면 기준 `RO3003 | RO3035 | RO3006 | RO3010` 이고 **파일 이름의 순서(RO3003_RO3006_RO3010_RO3035)와 다르다**. 300 dpi 렌더로 확정했다. 형제 등급 RO3003 은 이 카탈로그에 이미 재료 241 로 있으므로 이 배치는 담지 않았다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 1498000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "x",
+      "direction_verbatim": "(행에 방향 표기 없음 — 2단 중 위 칸)",
+      "temperature_c": 23,
+      "test_standard": "ASTM D638"
+     },
+     "notes": "원문 verbatim: `Young's Modulus  1498 / 1293  MPa  23degC  ASTM D638`. 1498 MPa x 1e6 = 1.498e+09 Pa; 되돌리면 1.498e+09/1e6 = 1498. 원문 `Young's Modulus` 행은 등급 열마다 값 두 개를 위/아래로 쌓고 **그 행에는 방향 표기가 없다**. 같은 표의 `Dimensional Stability (MD, CMD)` 행이 똑같은 2단 배치를 쓰면서 순서를 `(MD, CMD)` 로 밝히고, 바로 위 CTE 행들은 `- x`, `- y`, `- z` 순으로 인쇄된다. 같은 제조사의 형제 시트 (RO4003C/RO4350B · RT/duroid 5870-5880)는 `Tensile Modulus` 를 `X`(위) / `Y`(아래) 로 명시한다. 그래서 위=x(MD)·아래=y(CMD) 로 읽었고 그 근거를 여기에 남긴다 — **값 자체는 두 개 다 담았으므로 방향 배정이 뒤집혀도 잃는 값은 없다.** 시험법이 `ASTM D638`(인장)이라 이 행은 굽힘이 아니라 인장이다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 1293000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "y",
+      "direction_verbatim": "(행에 방향 표기 없음 — 2단 중 아래 칸)",
+      "temperature_c": 23,
+      "test_standard": "ASTM D638"
+     },
+     "notes": "원문 verbatim: `Young's Modulus  1498 / 1293  MPa  23degC  ASTM D638`. 1293 MPa x 1e6 = 1.293e+09 Pa; 되돌리면 1.293e+09/1e6 = 1293. 원문 `Young's Modulus` 행은 등급 열마다 값 두 개를 위/아래로 쌓고 **그 행에는 방향 표기가 없다**. 같은 표의 `Dimensional Stability (MD, CMD)` 행이 똑같은 2단 배치를 쓰면서 순서를 `(MD, CMD)` 로 밝히고, 바로 위 CTE 행들은 `- x`, `- y`, `- z` 순으로 인쇄된다. 같은 제조사의 형제 시트 (RO4003C/RO4350B · RT/duroid 5870-5880)는 `Tensile Modulus` 를 `X`(위) / `Y`(아래) 로 명시한다. 그래서 위=x(MD)·아래=y(CMD) 로 읽었고 그 근거를 여기에 남긴다 — **값 자체는 두 개 다 담았으므로 방향 배정이 뒤집혀도 잃는 값은 없다.** 시험법이 `ASTM D638`(인장)이라 이 행은 굽힘이 아니라 인장이다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.79,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D5470",
+      "temperature_c": 50
+     },
+     "notes": "원문 verbatim: `Thermal Conductivity  0.79  W/(m.K)  50degC  ASTM D5470`. 0.79 W/(m*K) -> 0.79 W/(m*K). 환산 없음."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.7e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x",
+      "temperature_range_c": "-55 to 288",
+      "conditioning": "23degC / 50% RH",
+      "test_standard": "IPC-TM-650 2.4.41"
+     },
+     "notes": "원문 verbatim: `Coefficient of Thermal Expansion - x  17  ppm/degC  -55 to 288degC, 23degC/50% RH  IPC TM-650 2.4.41`. 17 ppm/degC x 1e-6 = 1.7e-05 1/K; 되돌리면 1.7e-05/1e-6 = 17."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.7e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "y",
+      "temperature_range_c": "-55 to 288",
+      "conditioning": "23degC / 50% RH",
+      "test_standard": "IPC-TM-650 2.4.41"
+     },
+     "notes": "원문 verbatim: `Coefficient of Thermal Expansion - y  17  ppm/degC  IPC TM-650 2.4.41`. 17 ppm/degC x 1e-6 = 1.7e-05 1/K; 되돌리면 1.7e-05/1e-6 = 17."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 2.4e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "temperature_range_c": "-55 to 288",
+      "conditioning": "23degC / 50% RH",
+      "test_standard": "IPC-TM-650 2.4.41"
+     },
+     "notes": "원문 verbatim: `Coefficient of Thermal Expansion - z  24  ppm/degC  IPC TM-650 2.4.41`. 24 ppm/degC x 1e-6 = 2.4e-05 1/K; 되돌리면 2.4e-05/1e-6 = 24."
+    },
+    {
+     "key": "thermal.decomposition_temp",
+     "value": 773.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D3850",
+      "test_method": "TGA"
+     },
+     "notes": "원문 verbatim: `Decomposition Temperature (Td)  500  degC TGA  ASTM D3850`. 500 + 273.15 = 773.15 K; 되돌리면 773.15 - 273.15 = 500."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 6.15,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 10000000000.0,
+      "temperature_c": 23,
+      "test_standard": "IPC-TM-650 2.5.5.5",
+      "test_method": "process"
+     },
+     "notes": "원문 verbatim: `Dielectric Constant (process)  6.15  -  23degC, 10 GHz  IPC TM-650 2.5.5.5`. 6.15 - -> 6.15 1. 무차원."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 6.5,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_range_hz": "8e9-40e9",
+      "test_method": "differential phase length (design Dk)"
+     },
+     "notes": "원문 verbatim: `Dielectric Constant (design)  6.5  -  8 GHz - 40 GHz  Differential Phase Length`. 6.5 - -> 6.5 1. 무차원. 제조사 각주 verbatim: `The design Dk is an average number from several different tested lots of material and on the most common thickness/s.`"
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.002,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 10000000000.0,
+      "temperature_c": 23,
+      "test_standard": "IPC-TM-650 2.5.5.5"
+     },
+     "notes": "원문 verbatim: `Dissapation Factor  0.002  -  23degC, 10 GHz  IPC TM-650 2.5.5.5`. 0.002 - -> 0.002 1. 무차원(원문 철자 그대로)."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 1000000000.0,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "Condition A",
+      "test_standard": "IPC-TM-650 2.5.17.1"
+     },
+     "notes": "원문 verbatim: `Volume Resistivity  10^5  MOhm-cm  Condition A  IPC TM-650 2.5.17.1`. 100000 MOhm*cm x 1e4 = 1e+09 Ohm*m (1 MOhm*cm = 1e6 Ohm x 1e-2 m = 1e4 Ohm*m); 되돌리면 1e+09/1e4 = 100000."
+    },
+    {
+     "key": "electrical.surface_resistivity",
+     "value": 100000000000.0,
+     "unit": "ohm",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "Condition A",
+      "test_standard": "IPC-TM-650 2.5.17.1"
+     },
+     "notes": "원문 verbatim: `Surface Resistivity  10^5  MOhm  Condition A  IPC TM-650 2.5.17.1`. 100000 MOhm x 1e6 = 1e+11 Ohm; 되돌리면 1e+11/1e6 = 100000."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 1243.400530249982,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "after solder float",
+      "copper_foil_type": "1 oz. EDC",
+      "test_standard": "IPC-TM-650 2.4.8"
+     },
+     "notes": "원문 verbatim: `Copper Peel Strength  7.1  lbs/in  1 oz. EDC After Solder Float  IPC TM-650 2.4.8`. 7.1 lb/in x 175.126835 = 1243.4 N/m (1 lbf = 4.4482216152605 N, 1 in = 0.0254 m -> 4.4482216152605/0.0254 = 175.126835); 되돌리면 1243.4/175.126835 = 7.1."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0002,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "D48/50",
+      "test_standard": "IPC-TM-650 2.6.2.1"
+     },
+     "notes": "원문 verbatim: `Moisture Absorption  0.02  %  D48/50  IPC TM-650 2.6.2.1`. 0.02 % / 100 = 0.0002; 되돌리면 0.0002 x 100 = 0.02."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 860.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "vendor-calculated (Test Method 칸 verbatim = `Calculated`)"
+     },
+     "notes": "원문 verbatim: `Specifc Heat Capacity  0.86  J/g/K  -  Calculated`. 0.86 J/(g*K) x 1000 = 860 J/(kg*K); 되돌리면 860/1000 = 0.86. 원문 시험법 칸이 `Calculated` 다 — 벤더가 계산해 인쇄한 값이고 이 배치가 계산한 것이 아니다. **RO3035 칸은 비어 있다**(300 dpi 렌더로 확인) — 텍스트 추출만 보면 0.86/0.8 이 한 칸씩 왼쪽으로 밀려 RO3035/RO3006 에 붙을 수 있는 자리다. 그래서 RO3035 카드에는 비열 행이 없다."
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Rogers RO3010 Ceramic-Filled PTFE Laminate",
+    "category": "composite",
+    "description": "Rogers RO3000 시리즈 `RO3010` — 세라믹 충전 PTFE 고주파 적층판. Dk 10.2 ± 0.30 급 세라믹 충전 PTFE 고주파 적층판. 이 등급만 영률의 아래 값(1934 MPa)이 위 값(1902 MPa)보다 크다. 이 시트가 이번 배치에서 특별한 이유는 **`Young's Modulus` 행의 시험법이 `ASTM D638`(인장)로 명시돼 있다**는 것 — 같은 배치의 Technolam(시험법 `-`)·Shengyi(이름은 인장, 시험법은 굽힘법) 와 달리 여기서는 인장이 확정되므로 영률이 t1 이다. 밀도(ASTM D792)·비열·CTE(x/y/z)·열전도율까지 코어7 중 다섯을 찍고 포아송비만 없다.",
+    "attributes": {
+     "material_class": "ceramic-filled PTFE laminate",
+     "subsystem": "rf",
+     "role": "product",
+     "role_reason": "제조사(Rogers)+등급명이 이름에 박혀 있고 출처가 해당 시리즈의 공식 데이터시트다.",
+     "role_confidence": "high",
+     "manufacturer": "Rogers Corporation",
+     "product_series": "RO3000",
+     "grades_covered": [
+      "RO3010"
+     ],
+     "aliases": [
+      "RO3010",
+      "RO 3010",
+      "Rogers RO3010",
+      "RO3010TM"
+     ],
+     "column_layout": "**열 확인** — 이 표의 등급 열 순서는 인쇄면 기준 `RO3003 | RO3035 | RO3006 | RO3010` 이고 **파일 이름의 순서(RO3003_RO3006_RO3010_RO3035)와 다르다**. 300 dpi 렌더로 확정했다. 형제 등급 RO3003 은 이 카탈로그에 이미 재료 241 로 있으므로 이 배치는 담지 않았다.",
+     "core7_absent_from_vendor_sheet": {
+      "mechanical.poisson_ratio": "RO3000 시리즈 표준물성표에 포아송비 행이 없다(`Poisson` 전수 적중 0). 57차 SB 가 Rogers 네 시트에서 같은 부재를 확인한 바 있다.",
+      "mechanical.tensile_strength": "이 표는 `Young's Modulus` 는 찍지만 인장강도 행이 없다. 형제 시트(RO4003C/RO4350B · RT/duroid)에는 `Tensile Strength` 가 있으나 그 값은 이 등급의 값이 아니므로 가져오지 않았다."
+     }
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "RO3000 Series Circuit Materials Data Sheet — RO3003, RO3006, RO3010 and RO3035 High Frequency Laminates (Standard Properties Table)",
+    "url": "https://www.rogerscorp.com/-/media/project/rogerscorp/documents/advanced-electronics-solutions/english/data-sheets/ro3000-laminate-data-sheet-ro3003----ro3006----ro3010----ro3035.pdf",
+    "publisher": "Rogers Corporation",
+    "year": 2024,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Rogers_RO3000_Laminate_DataSheet_RO3003_RO3006_RO3010_RO3035_2024-01.pdf",
+    "url_note": "URL 은 이 카탈로그의 기존 출처(source 3019)에 이미 등록된 것을 그대로 썼다 — 새로 지어내지 않았다."
+   },
+   "properties": [
+    {
+     "key": "physical.density",
+     "value": 2800.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D792",
+      "temperature_c": 23
+     },
+     "notes": "원문 verbatim: `Density  2.8  g/cm3  23degC  ASTM D792`. 2.8 g/cm^3 x 1000 = 2800 kg/m^3; 되돌리면 2800/1000 = 2.8. **열 확인** — 이 표의 등급 열 순서는 인쇄면 기준 `RO3003 | RO3035 | RO3006 | RO3010` 이고 **파일 이름의 순서(RO3003_RO3006_RO3010_RO3035)와 다르다**. 300 dpi 렌더로 확정했다. 형제 등급 RO3003 은 이 카탈로그에 이미 재료 241 로 있으므로 이 배치는 담지 않았다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 1902000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "x",
+      "direction_verbatim": "(행에 방향 표기 없음 — 2단 중 위 칸)",
+      "temperature_c": 23,
+      "test_standard": "ASTM D638"
+     },
+     "notes": "원문 verbatim: `Young's Modulus  1902 / 1934  MPa  23degC  ASTM D638`. 1902 MPa x 1e6 = 1.902e+09 Pa; 되돌리면 1.902e+09/1e6 = 1902. 원문 `Young's Modulus` 행은 등급 열마다 값 두 개를 위/아래로 쌓고 **그 행에는 방향 표기가 없다**. 같은 표의 `Dimensional Stability (MD, CMD)` 행이 똑같은 2단 배치를 쓰면서 순서를 `(MD, CMD)` 로 밝히고, 바로 위 CTE 행들은 `- x`, `- y`, `- z` 순으로 인쇄된다. 같은 제조사의 형제 시트 (RO4003C/RO4350B · RT/duroid 5870-5880)는 `Tensile Modulus` 를 `X`(위) / `Y`(아래) 로 명시한다. 그래서 위=x(MD)·아래=y(CMD) 로 읽었고 그 근거를 여기에 남긴다 — **값 자체는 두 개 다 담았으므로 방향 배정이 뒤집혀도 잃는 값은 없다.** 시험법이 `ASTM D638`(인장)이라 이 행은 굽힘이 아니라 인장이다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 1934000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "direction": "y",
+      "direction_verbatim": "(행에 방향 표기 없음 — 2단 중 아래 칸)",
+      "temperature_c": 23,
+      "test_standard": "ASTM D638"
+     },
+     "notes": "원문 verbatim: `Young's Modulus  1902 / 1934  MPa  23degC  ASTM D638`. 1934 MPa x 1e6 = 1.934e+09 Pa; 되돌리면 1.934e+09/1e6 = 1934. 원문 `Young's Modulus` 행은 등급 열마다 값 두 개를 위/아래로 쌓고 **그 행에는 방향 표기가 없다**. 같은 표의 `Dimensional Stability (MD, CMD)` 행이 똑같은 2단 배치를 쓰면서 순서를 `(MD, CMD)` 로 밝히고, 바로 위 CTE 행들은 `- x`, `- y`, `- z` 순으로 인쇄된다. 같은 제조사의 형제 시트 (RO4003C/RO4350B · RT/duroid 5870-5880)는 `Tensile Modulus` 를 `X`(위) / `Y`(아래) 로 명시한다. 그래서 위=x(MD)·아래=y(CMD) 로 읽었고 그 근거를 여기에 남긴다 — **값 자체는 두 개 다 담았으므로 방향 배정이 뒤집혀도 잃는 값은 없다.** 시험법이 `ASTM D638`(인장)이라 이 행은 굽힘이 아니라 인장이다."
+    },
+    {
+     "key": "thermal.conductivity",
+     "value": 0.95,
+     "unit": "W/(m*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D5470",
+      "temperature_c": 50
+     },
+     "notes": "원문 verbatim: `Thermal Conductivity  0.95  W/(m.K)  50degC  ASTM D5470`. 0.95 W/(m*K) -> 0.95 W/(m*K). 환산 없음."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.3e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "x",
+      "temperature_range_c": "-55 to 288",
+      "conditioning": "23degC / 50% RH",
+      "test_standard": "IPC-TM-650 2.4.41"
+     },
+     "notes": "원문 verbatim: `Coefficient of Thermal Expansion - x  13  ppm/degC  -55 to 288degC, 23degC/50% RH  IPC TM-650 2.4.41`. 13 ppm/degC x 1e-6 = 1.3e-05 1/K; 되돌리면 1.3e-05/1e-6 = 13."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.1e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "y",
+      "temperature_range_c": "-55 to 288",
+      "conditioning": "23degC / 50% RH",
+      "test_standard": "IPC-TM-650 2.4.41"
+     },
+     "notes": "원문 verbatim: `Coefficient of Thermal Expansion - y  11  ppm/degC  IPC TM-650 2.4.41`. 11 ppm/degC x 1e-6 = 1.1e-05 1/K; 되돌리면 1.1e-05/1e-6 = 11."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.6e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "z",
+      "temperature_range_c": "-55 to 288",
+      "conditioning": "23degC / 50% RH",
+      "test_standard": "IPC-TM-650 2.4.41"
+     },
+     "notes": "원문 verbatim: `Coefficient of Thermal Expansion - z  16  ppm/degC  IPC TM-650 2.4.41`. 16 ppm/degC x 1e-6 = 1.6e-05 1/K; 되돌리면 1.6e-05/1e-6 = 16."
+    },
+    {
+     "key": "thermal.decomposition_temp",
+     "value": 773.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D3850",
+      "test_method": "TGA"
+     },
+     "notes": "원문 verbatim: `Decomposition Temperature (Td)  500  degC TGA  ASTM D3850`. 500 + 273.15 = 773.15 K; 되돌리면 773.15 - 273.15 = 500."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 10.2,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 10000000000.0,
+      "temperature_c": 23,
+      "test_standard": "IPC-TM-650 2.5.5.5",
+      "test_method": "process"
+     },
+     "notes": "원문 verbatim: `Dielectric Constant (process)  10.2  -  23degC, 10 GHz  IPC TM-650 2.5.5.5`. 10.2 - -> 10.2 1. 무차원."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 11.2,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_range_hz": "8e9-40e9",
+      "test_method": "differential phase length (design Dk)"
+     },
+     "notes": "원문 verbatim: `Dielectric Constant (design)  11.2  -  8 GHz - 40 GHz  Differential Phase Length`. 11.2 - -> 11.2 1. 무차원. 제조사 각주 verbatim: `The design Dk is an average number from several different tested lots of material and on the most common thickness/s.`"
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.0022,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 10000000000.0,
+      "temperature_c": 23,
+      "test_standard": "IPC-TM-650 2.5.5.5"
+     },
+     "notes": "원문 verbatim: `Dissapation Factor  0.0022  -  23degC, 10 GHz  IPC TM-650 2.5.5.5`. 0.0022 - -> 0.0022 1. 무차원(원문 철자 그대로)."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 1000000000.0,
+     "unit": "ohm*m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "Condition A",
+      "test_standard": "IPC-TM-650 2.5.17.1"
+     },
+     "notes": "원문 verbatim: `Volume Resistivity  10^5  MOhm-cm  Condition A  IPC TM-650 2.5.17.1`. 100000 MOhm*cm x 1e4 = 1e+09 Ohm*m (1 MOhm*cm = 1e6 Ohm x 1e-2 m = 1e4 Ohm*m); 되돌리면 1e+09/1e4 = 100000."
+    },
+    {
+     "key": "electrical.surface_resistivity",
+     "value": 100000000000.0,
+     "unit": "ohm",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "Condition A",
+      "test_standard": "IPC-TM-650 2.5.17.1"
+     },
+     "notes": "원문 verbatim: `Surface Resistivity  10^5  MOhm  Condition A  IPC TM-650 2.5.17.1`. 100000 MOhm x 1e6 = 1e+11 Ohm; 되돌리면 1e+11/1e6 = 100000."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 1646.192251316878,
+     "unit": "N/m",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "after solder float",
+      "copper_foil_type": "1 oz. EDC",
+      "test_standard": "IPC-TM-650 2.4.8"
+     },
+     "notes": "원문 verbatim: `Copper Peel Strength  9.4  lbs/in  1 oz. EDC After Solder Float  IPC TM-650 2.4.8`. 9.4 lb/in x 175.126835 = 1646.19 N/m (1 lbf = 4.4482216152605 N, 1 in = 0.0254 m -> 4.4482216152605/0.0254 = 175.126835); 되돌리면 1646.19/175.126835 = 9.4."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0005,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "conditioning": "D48/50",
+      "test_standard": "IPC-TM-650 2.6.2.1"
+     },
+     "notes": "원문 verbatim: `Moisture Absorption  0.05  %  D48/50  IPC TM-650 2.6.2.1`. 0.05 % / 100 = 0.0005; 되돌리면 0.0005 x 100 = 0.05."
+    },
+    {
+     "key": "thermal.specific_heat",
+     "value": 800.0,
+     "unit": "J/(kg*K)",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "vendor-calculated (Test Method 칸 verbatim = `Calculated`)"
+     },
+     "notes": "원문 verbatim: `Specifc Heat Capacity  0.8  J/g/K  -  Calculated`. 0.8 J/(g*K) x 1000 = 800 J/(kg*K); 되돌리면 800/1000 = 0.8. 원문 시험법 칸이 `Calculated` 다 — 벤더가 계산해 인쇄한 값이고 이 배치가 계산한 것이 아니다. **RO3035 칸은 비어 있다**(300 dpi 렌더로 확인) — 텍스트 추출만 보면 0.86/0.8 이 한 칸씩 왼쪽으로 밀려 RO3035/RO3006 에 붙을 수 있는 자리다. 그래서 RO3035 카드에는 비열 행이 없다."
+    }
+   ]
+  }
+ ]
+}
