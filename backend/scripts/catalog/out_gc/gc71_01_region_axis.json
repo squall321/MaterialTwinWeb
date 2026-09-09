@@ -1,0 +1,420 @@
+{
+ "batch": "71차 GC",
+ "question": "70차 FB 가 세운 일곱째 축 가설 — '같은 벤더·같은 제품군인데 미국 OSHA 서식은 9절 밀도를 채우고 EU/UK CLP 서식은 비운다' — 을 같은 제품의 두 지역판을 둘 다 열어 검증한다.",
+ "rule": "쌍으로 세는 조건 = 같은 제품(또는 같은 문서계열)에 대해 서로 다른 시장·규제권 판을 둘 다 실제로 열었을 것. 한쪽만 열었으면 쌍이 아니다.",
+ "curated_pairs": [
+  {
+   "pair": "3M Scotch-Weld DP100 Clear (표적 2389) — 다섯 지역판",
+   "editions": [
+    {
+     "region": "US",
+     "regs": "US OSHA HCS 29 CFR 1910.1200 + NFPA",
+     "doc": "Part A 11-3180-4 v14.03 (2022-10-10) · Part B (2025-06-13)",
+     "verbatim": "Density 1.15 g/ml · Specific Gravity 1.15 [Ref Std:WATER=1] / Density 1.17 g/ml",
+     "prints": true
+    },
+    {
+     "region": "CA",
+     "regs": "WHMIS + NFPA (영/불 합본)",
+     "doc": "11-3180-4 v16.05 (2022-06-07)",
+     "verbatim": "Density 1.15 g/ml · Relative density 1.15 / Density 1.17 g/ml",
+     "prints": true
+    },
+    {
+     "region": "FR",
+     "regs": "REACH 1907/2006 (3M France, Cergy-Pontoise)",
+     "doc": "FDS 11-3180-4 v3.00 (2019-06-05)",
+     "verbatim": "Densité 1,15 g/ml · Densité relative 1,15 [Réf. Standard :Eau = 1] / Densité 1,17 g/ml · Densité relative 1,17",
+     "prints": true
+    },
+    {
+     "region": "DE",
+     "regs": "Verordnung (EU) 1907/2006 REACH (3M Deutschland GmbH, Neuss)",
+     "doc": "DP100 Plus Clear Kit, Dokument 05-6638-0 v2.05 (2022-10-12)",
+     "verbatim": "Dichte 1,15 g/ml · Relative Dichte 1,15 [Referenzstandard:Wasser = 1] / Dichte 1,17 g/ml",
+     "prints": true
+    },
+    {
+     "region": "GB",
+     "regs": "REACH 1907/2006 + CLP 1272/2008 (3M United Kingdom PLC, Bracknell)",
+     "doc": "DP100 Plus Clear Part A 05-6630-7 v13.01 (2021-05-04) · Part B 05-6631-5 v13.01 (2021-05-03)",
+     "verbatim": "Density 1.15 g/ml · Relative density 1.15 / Density 1.17 g/ml",
+     "prints": true
+    }
+   ],
+   "verdict": "★ 다섯 지역판이 한 칸도 다르지 않다. 영국·독일·프랑스판은 HMIS·NFPA·OSHA 가 0건인 진짜 CLP/REACH 판이다 — 그런데도 채운다"
+  },
+  {
+   "pair": "3M Scotch-Weld DP100 NS Translucent (표적 2418) — 다섯 지역판, 전부 같은 문서군 11-2403-1",
+   "editions": [
+    {
+     "region": "US",
+     "regs": "US OSHA HCS + NFPA",
+     "doc": "Part A (2024-07-29) · Part B (2024-11-11)",
+     "verbatim": "Density 1.15 g/ml / Density 1.18 g/ml",
+     "prints": true
+    },
+    {
+     "region": "CA",
+     "regs": "WHMIS + NFPA",
+     "doc": "11-2403-1 v14.00 (2018-06-27)",
+     "verbatim": "Density 1.15 g/ml / Density 1.18 g/ml",
+     "prints": true
+    },
+    {
+     "region": "GB",
+     "regs": "REACH 1907/2006 (3M United Kingdom PLC)",
+     "doc": "11-2403-1 v15.00 (2020-02-18)",
+     "verbatim": "Density 1.15 g/ml · Relative density 1.15 [Ref Std:WATER=1] / Density 1.18 g/ml · Relative density 1.18",
+     "prints": true
+    },
+    {
+     "region": "DE",
+     "regs": "Verordnung (EU) 1907/2006 (3M Deutschland GmbH)",
+     "doc": "11-2403-1 v12.00 (2020-02-18)",
+     "verbatim": "Dichte 1,15 g/ml · Relative Dichte 1,15 / Dichte 1,18 g/ml",
+     "prints": true
+    },
+    {
+     "region": "FR",
+     "regs": "REACH 1907/2006 (3M France)",
+     "doc": "FDS 11-2403-1 v2.01 (2022-07-28)",
+     "verbatim": "Densité 1,15 g/ml / Densité 1,18 g/ml",
+     "prints": true
+    }
+   ],
+   "verdict": "★ 같은 문서군 번호의 다섯 지역판이 전부 같은 수를 찍는다. 지역축 가설이 여기서 가장 확실하게 깨진다"
+  },
+  {
+   "pair": "Rogers RO4000 Series 라미네이트 (표적 1277·1278 의 계열 문서)",
+   "editions": [
+    {
+     "region": "US",
+     "regs": "OSHA 29 CFR 1910.1200 + HMIS",
+     "doc": "MSDS 2009-05-12 (en)",
+     "verbatim": "SPECIFIC GRAVITY:  NA (Water = 1) · DENSITY:  NA",
+     "prints": false
+    },
+    {
+     "region": "US/EU 합본",
+     "regs": "OSHA + HMIS + REACH 1907/2006",
+     "doc": "PSIS 2022-07-05 (en)",
+     "verbatim": "SPECIFIC GRAVITY: NA (Water = 1) · RELATIVE DENSITY: NA",
+     "prints": false
+    },
+    {
+     "region": "CN",
+     "regs": "OSHA + HMIS + REACH (중문)",
+     "doc": "PSIS 2022-07-05 (cn)",
+     "verbatim": "比重： NA（水= 1）",
+     "prints": false
+    },
+    {
+     "region": "FR",
+     "regs": "HMIS + REACH (불문)",
+     "doc": "SDS 2014-03-13 · 2018-02-19 (fr)",
+     "verbatim": "DENSITÉ RELATIVE:  S.O.",
+     "prints": false
+    },
+    {
+     "region": "DE",
+     "regs": "HMIS + REACH (독문)",
+     "doc": "SDS 2018-02-19 (de)",
+     "verbatim": "DICHTE:  Nicht zutreffend",
+     "prints": false
+    },
+    {
+     "region": "ES",
+     "regs": "HMIS + REACH (서문)",
+     "doc": "SDS 2014-03-13 (sp)",
+     "verbatim": "(밀도 행 없음 — 9절이 S.O. 로만 채워짐)",
+     "prints": false
+    }
+   ],
+   "verdict": "한 벌의 미국 원본을 다섯 언어로 번역했을 뿐이다. HMIS 등급과 REACH 문구가 한 문서에 같이 있다. 여섯 판 전부 안 찍는다 — 지역 차 없음"
+  },
+  {
+   "pair": "Isola FR408 라미네이트 (표적 1273)",
+   "editions": [
+    {
+     "region": "US(구판)",
+     "regs": "NFPA + WHMIS",
+     "doc": "MSDS 2010-02-12",
+     "verbatim": "Specific Gravity:  Not Determined",
+     "prints": false
+    },
+    {
+     "region": "글로벌 합본",
+     "regs": "OSHA + REACH + CLP + WHMIS 한 문서",
+     "doc": "SDS 2016-10-03 · 2020-07-19 · Prepreg 2024-02-26",
+     "verbatim": "SPECIFIC GRAVITY (@25 oC):  Not Available for product",
+     "prints": false
+    }
+   ],
+   "verdict": "지역판이 나뉘지 않는다 — 한 문서가 네 규제권을 동시에 인용한다. 전부 안 찍는다"
+  },
+  {
+   "pair": "DuPont Teijin Films Mylar 폴리에스터 필름 (표적 2254 의 형제 상표)",
+   "editions": [
+    {
+     "region": "US",
+     "regs": "OSHA + HMIS + NFPA",
+     "doc": "MSDS MYL045 (2009-10-26)",
+     "verbatim": "Specific Gravity: 1.2-1.4",
+     "prints": true
+    },
+    {
+     "region": "EU",
+     "regs": "REACH (DuPont Teijin Films Luxembourg SA)",
+     "doc": "Article Information Sheet v2.8 (2016-04-26)",
+     "verbatim": "Density: 1.23 - 1.41 g/cm3",
+     "prints": true
+    }
+   ],
+   "verdict": "둘 다 찍는다 — EU 판이 오히려 더 정밀하다. 가설의 반례"
+  },
+  {
+   "pair": "Cytec/Solvay FM 300-2 (FB 가 가설을 세운 바로 그 벤더)",
+   "editions": [
+    {
+     "region": "US",
+     "regs": "Cytec Industries Inc., Princeton NJ · OSHA PEL 인용",
+     "doc": "FM(R) 300-2 Adhesive Red SDS 0059418 (2017-11-21) — 이미지 PDF 를 300 dpi OCR 로 읽었다",
+     "verbatim": "Specific Gravity/Density:  Not available",
+     "prints": false
+    },
+    {
+     "region": "UK/EU",
+     "regs": "Regulation (EC) 1272/2008 · Cytec Engineered Materials Ltd, Wrexham",
+     "doc": "FM(R) 300-2 ADHESIVE FILM SDS (2023-08-25)",
+     "verbatim": "Density  No data available · Relative density  No data available",
+     "prints": false
+    }
+   ],
+   "verdict": "★ 같은 등급의 미국판도 비어 있다. FB 가 비교한 것은 등급이 다른 두 제품(FM 300 vs FM 300-2)이었고 연도도 6년 차이였다 — 지역이 아니라 제품이 갈랐다"
+  },
+  {
+   "pair": "Doosan CCL/FCCL — 국문판 vs 영문(수출)판, 같은 제품 61쌍",
+   "editions": [
+    {
+     "region": "KR 국문",
+     "regs": "화학물질관리법·산업안전보건법 GHS",
+     "doc": "61건",
+     "verbatim": "구판 3건이 '비중 : 2.0 +/- 0.5 (물=1.0)' 를 찍고 신판 58건이 '하. 비중 자료없음'",
+     "prints": "3/61"
+    },
+    {
+     "region": "수출 영문",
+     "regs": "WHMIS 를 인용하는 구판 · 또는 GHS 신판",
+     "doc": "118건",
+     "verbatim": "구판 18건이 'SPECIFIC GRAVITY : (Water=1.0) 1.9+/-0.2' 를 찍고 신판 101건이 'N. Specific gravity  No data available'",
+     "prints": "19/120"
+    }
+   ],
+   "verdict": "61쌍 중 54쌍은 양쪽 다 안 찍고, 4쌍은 영문만, 2쌍은 국문만 찍는다. 방향이 양쪽으로 갈려 지역 규칙이 아니다. 예측하는 것은 언제나 템플릿이다 — 구판 21/21 찍음 · 신판 1/160"
+  },
+  {
+   "pair": "Doosan DSflex-900 — 같은 제품·같은 개정일(2025-10-14)·두 언어판",
+   "editions": [
+    {
+     "region": "KR 국문",
+     "regs": "WHMIS + 국내법",
+     "doc": "MSDS 2025-10-14",
+     "verbatim": "비중 :  2.50 ±0.50 (물=1.0)",
+     "prints": true
+    },
+    {
+     "region": "수출 영문",
+     "regs": "WHMIS",
+     "doc": "SDS 2025-10-14",
+     "verbatim": "SPECIFIC GRAVITY : (Water=1.0)  1.45/0.92 (film/adhesive)",
+     "prints": true
+    }
+   ],
+   "verdict": "★ 둘 다 찍는데 수가 다르다. 국문은 동박 포함 적층체(3절 Copper foil 70~95 wt%), 영문은 폴리이미드 필름과 접착층 각각. 같은 행 이름으로 다른 물건을 답한다"
+  },
+  {
+   "pair": "MGC CCL-EL190T / CCL-EL230T (표적 2724·2725) — 일문 제품표 vs 영문 제품표",
+   "editions": [
+    {
+     "region": "JP",
+     "regs": "(제품 데이터표. SDS 아님)",
+     "doc": "mgc.co.jp/products/sc/btprint/lineup/fr4.html",
+     "verbatim": "樹脂比重 | A | － | 1.44 | 1.42",
+     "prints": "수지 비중만"
+    },
+    {
+     "region": "EN",
+     "regs": "(제품 데이터표)",
+     "doc": "mgc.co.jp/eng/products/sc/btprint/lineup/fr4.html",
+     "verbatim": "Specific Gravity of Resin | A | － | 1.44 | 1.42",
+     "prints": "수지 비중만"
+    }
+   ],
+   "verdict": "두 판이 행 단위로 같다. 그리고 이 행은 라미네이트가 아니라 '수지의' 비중이다 — 옮기면 안 된다"
+  },
+  {
+   "pair": "MGC CCL-HL820WDI (표적 2726) — 일문 vs 영문",
+   "editions": [
+    {
+     "region": "JP",
+     "regs": "(제품 데이터표)",
+     "doc": "…/lineup/led.html",
+     "verbatim": "(비중 행 자체가 없다)",
+     "prints": false
+    },
+    {
+     "region": "EN",
+     "regs": "(제품 데이터표)",
+     "doc": "…/eng/…/lineup/led.html",
+     "verbatim": "(no gravity row at all)",
+     "prints": false
+    }
+   ],
+   "verdict": "두 판이 같고 둘 다 없다"
+  },
+  {
+   "pair": "Sumitomo Bakelite Sumilite ELC · ELC-PWB (표적 2727~2732) — 일문 사양표 vs 영문 사양표",
+   "editions": [
+    {
+     "region": "JP",
+     "regs": "(사양 일람)",
+     "doc": "sumibe.co.jp/product/hpp/circuitry/sumilite-elc{,-pwb}/spec/index.html",
+     "verbatim": "(비중·密度 행 없음. 熱膨張係数~熱伝導率 까지 33행)",
+     "prints": false
+    },
+    {
+     "region": "EN",
+     "regs": "(사양 일람)",
+     "doc": "/english/… 같은 경로",
+     "verbatim": "(no density row. same 33 rows)",
+     "prints": false
+    }
+   ],
+   "verdict": "두 판이 행 단위로 같고 둘 다 없다. 영문 카탈로그 PDF 2건(catalog001.pdf·material001.pdf)도 0건"
+  },
+  {
+   "pair": "Resonac MCL-E-679FG (표적 2741·2742) — 일본 본사 총괄카탈로그 vs 유럽 법인 제품페이지",
+   "editions": [
+    {
+     "region": "JP/글로벌",
+     "regs": "(총괄 카탈로그)",
+     "doc": "COPPER CLAD LAMINATES 2023-2024 (EN, 6.8 MB)",
+     "verbatim": "(General Properties 표에 밀도 행 없음. 전권에서 density 2건은 'high density electronic equipment')",
+     "prints": false
+    },
+    {
+     "region": "EU",
+     "regs": "(Resonac Europe 제품 페이지)",
+     "doc": "eu.resonac.com/project/e679fg/",
+     "verbatim": "(같은 표 구성, 밀도 행 없음)",
+     "prints": false
+    }
+   ],
+   "verdict": "두 판이 같고 둘 다 없다"
+  },
+  {
+   "pair": "DuPont/Dow CYCLOTENE 4022-35 (표적 1360) — 미국·영국·독일 세 지역판, 같은 Version 11.0",
+   "editions": [
+    {
+     "region": "US",
+     "regs": "GHS classification in accordance with 29 CFR 1910.1200 + HMIS/NFPA (ROHM AND HAAS ELECTRONIC MATERIALS LLC, Marlborough MA)",
+     "doc": "Issue Date 2023-07-31",
+     "verbatim": "Relative Density (water = 1)  0.94 at 25 °C (77 °F) · Liquid Density 0.94 g/cm3",
+     "prints": true
+    },
+    {
+     "region": "GB",
+     "regs": "Regulation (EC) No 1907/2006 - Annex II (SPECIALTY ELECTRONIC MATERIALS UK LIMITED, Stevenage)",
+     "doc": "Revision Date 06.09.2023, Version 11.0",
+     "verbatim": "Density and / or relative density  Density 0.94 g/cm3 · Relative density 0.94 (25 °C)",
+     "prints": true
+    },
+    {
+     "region": "DE",
+     "regs": "Verordnung (EG) Nr. 1907/2006 - Anhang II (Du Pont de Nemours Deutschland GmbH)",
+     "doc": "Version 11.0 (2023-09-06)",
+     "verbatim": "Dichte und / oder relative Dichte  0,94 g/cm3",
+     "prints": true
+    }
+   ],
+   "verdict": "★ 세 판이 같은 수를 찍는다. 68차 DA 가 이 값을 기각한 이유(용매가 든 액상 바니시)는 세 판 모두에서 그대로다 — 같은 9절이 `Physical state Liquid` · `Flash point closed cup 44 °C` · `Kinematic Viscosity 192 mm2/s` 를 찍는다"
+  },
+  {
+   "pair": "OLED 승화정제 소분자 7종 (표적 1651·1746·1760·1761·1762·1763·1764) — 영국 Ossila 판 vs 미국 OSHA 판",
+   "editions": [
+    {
+     "region": "UK/EU",
+     "regs": "EC 1907/2006 (REACH) · 1272/2008 (CLP) · 2015/830 (Ossila Limited, Sheffield)",
+     "doc": "7종 전부 (2022-11-14 ~ 2023-03-24)",
+     "verbatim": "Density  Not known. · Relative density  Not known. (7/7)",
+     "prints": "0/7"
+    },
+    {
+     "region": "US",
+     "regs": "US OSHA HCS 29 CFR 1910.1200 (TCI America · Thermo Fisher Scientific Chemicals · Acros Organics/Fisher · Chem-Impex)",
+     "doc": "7종 전부 (2018-07-06 ~ 2025-12-21)",
+     "verbatim": "BCP 만 `Density / Specific Gravity  1.17 g/cm3`. 나머지 6종은 `Relative density : No data available` 또는 `Density / Specific Gravity  No data available`",
+     "prints": "1/7"
+    }
+   ],
+   "verdict": "7쌍 중 미국판이 EU 판보다 더 채운 것은 BCP 하나(14 %). 그 BCP 조차 같은 미국 시장의 TCI America·Chem-Impex 는 비우고, BCP 를 채운 Thermo 템플릿이 같은 개정 주기의 TCTA 시트에서는 같은 행을 비운다 — 지역도 서식도 아니라 물질이 가른다"
+  },
+  {
+   "pair": "Zeon ZEONEX 330R — EU 판을 찾았으나 존재하지 않는다",
+   "editions": [
+    {
+     "region": "US",
+     "regs": "NFPA + HMIS 등급표 (Zeon Chemicals L.P., Louisville, Kentucky)",
+     "doc": "MSDS Z01391, Issue Date 2015-01-23",
+     "verbatim": "Relative Density (water = 1):  0.95",
+     "prints": true
+    },
+    {
+     "region": "EU",
+     "regs": "—",
+     "doc": "없음",
+     "verbatim": "zeon.eu 는 제품 문서를 두지 않고 미국 zeonsmi.com 으로 넘긴다. zeonsmi.com 다운로드 32건이 전부 `_USENG.pdf` 이고 330R 은 아예 없다. zeonex.com/downloads/MSDS/ 에는 미국판만 있다",
+     "prints": "문서 없음"
+    }
+   ],
+   "verdict": "이 벤더는 지역판을 내지 않고 미국 서식 한 벌을 전 세계에 돌린다 — Rogers 와 같은 모양"
+  }
+ ],
+ "edl_language_pair_experiment": {
+  "what": "Ellsworth Document Library 색인 24,113 항목 중 같은 item_id 에 언어코드가 둘 이상 달린 SDS 는 1,390건이다. 그중 170건을 무작위(seed 71)로 골라 두 판을 모두 받아 9절 밀도 칸을 기계 판독하고 불일치 후보는 전부 손으로 확인했다.",
+  "fetched_documents": 340,
+  "excluded_text_layer_failed": 34,
+  "hand_excluded_after_review": 2,
+  "usable_pairs": 136,
+  "both_print": 123,
+  "only_english_prints": 3,
+  "only_non_english_prints": 0,
+  "neither_prints": 10,
+  "agreement_rate": "133/136 = 97.8 %",
+  "only_english_cases": [
+   "HumiSeal 604 Thinner (item 10274) — 영문 'Density 0.93 g/cm3' vs 불문판은 1999/45/CE 구서식이라 9절이 État·Couleur·Odeur·Point d'éclair 네 줄뿐. 문서 자체가 다르다",
+   "HumiSeal 2A64A (item 10268) — 같은 모양",
+   "Resinlab UR1049 Cream A (item 5903) — 영문 'Density 1.07 g/cm³' vs 서문 'ꞏ Densidad: Indeterminado.'"
+  ],
+  "both_print_but_different_number": {
+   "comparable": 119,
+   "same_within_2pct": 106,
+   "different": 9,
+   "genuine_contradictions": [
+    "Henkel Loctite Stycast 1090 BK (item 7915) — en 'Density/Relative density 0.85' vs es 'Peso específico 2.45'",
+    "Henkel Stycast 1264 Part B (item 7918) — en 'Specific gravity 0.97' vs es 'Peso específico 1.6'",
+    "HumiSeal TS300 Tempseal (item 10296) — en 1.00 g/cm3 vs es 1.15 g/cm3",
+    "ITW MA300 (item 10988) — en 'Density 0.96 g/cm3 estimated' vs it 'Densità relativa 1.03 @ 20 °C' (다른 물리량)"
+   ],
+   "note": "나머지 5건은 구간 vs 중앙값이거나 파서가 값을 놓친 자리다"
+  }
+ },
+ "edl_url_parameter_test": {
+  "claim_tested": "브리프가 EDL 다운로드 URL 의 region 인자를 바꿔 보라고 했다.",
+  "method": "document=34315(3M DP100 Clear 캐나다판)·42304(DP100NS 캐나다판)에 region=0..5 를 넣어 각각 받아 md5 를 비교했다.",
+  "result_region": "region=0,1,2,3,4,5 여섯 값이 전부 같은 파일이다(md5 e107cede51e0 · 4f9a42d7f427). region 인자는 문서 선택에 아무 영향이 없다 — 세션·UI 용이다.",
+  "result_language": "language 인자는 진짜다. document=2009(DAPCO 2100 Pre-mixed)에서 en 638,774 B · es 133,745 B 로 다른 파일이 오고, fr·de·zh·ja 는 208 B 오류 스텁이 온다. 즉 색인의 lang_code 에 있는 언어만 실재한다.",
+  "conclusion": "지역판을 EDL 에서 뽑는 길은 region 이 아니라 language 다. 다음 파동은 region 인자를 만지지 마라."
+ }
+}
