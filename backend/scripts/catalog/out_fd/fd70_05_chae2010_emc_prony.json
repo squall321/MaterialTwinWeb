@@ -1,0 +1,1712 @@
+{
+ "batch": "70차 FD",
+ "materials": [
+  {
+   "new_material": {
+    "name": "Epoxy molding compound, 87 wt% filler, transfer moulded 175 C / 90 s + PMC 175 C / 4 h, Tg 120-140 C (Chae 2010 time-domain relaxation characterisation)",
+    "category": "composite",
+    "attributes": {
+     "role": "evidence",
+     "role_reason": "원문이 'an epoxy-based molding compound with a filler content of 87 wt.%' 라고만 하고 제조사·등급을 밝히지 않는다",
+     "role_confidence": "medium",
+     "material_class": "epoxy molding compound (EMC), high filler content",
+     "subsystem": "packaging",
+     "subsystem_basis": "트랜스퍼 몰딩 봉지재다.",
+     "filler_content_wt_pct": 87,
+     "process": "transfer moulded at 175 C with 90 s in-mould cure, post-mould cured 175 C / 4 h; bar tensile specimens 127 x 12.7 x 3.17 mm"
+    }
+   },
+   "source": {
+    "kind": "journal",
+    "title": "Characterization of the Viscoelasticity of Molding Compounds in the Time Domain",
+    "authors": "S.-H. Chae, J.-H. Zhao, D. R. Edwards, P. S. Ho",
+    "year": 2010,
+    "doi": "10.1007/s11664-010-1078-7",
+    "url": "https://doi.org/10.1007/s11664-010-1078-7",
+    "publisher": "Journal of Electronic Materials, vol. 39, no. 4, pp. 419-425",
+    "local_path": "/data/paper_patent_corpus/snowball_papers/from_cae/Chae - 2010 - Characterization of the Viscoelasticity of Molding Compounds in the Time Domain.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 522000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 1,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E1",
+      "printed_value_mpa": 522
+     },
+     "notes": "E_1 = 522 MPa 를 Pa 로 환산했다(x1e6). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1.6e-08,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 1,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau1"
+     },
+     "notes": "완화시간 tau_1 (열 머리글 'τk (s)'). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 483000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 2,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E2",
+      "printed_value_mpa": 483
+     },
+     "notes": "E_2 = 483 MPa 를 Pa 로 환산했다(x1e6). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 2.8e-07,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 2,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau2"
+     },
+     "notes": "완화시간 tau_2 (열 머리글 'τk (s)'). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 522000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 3,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E3",
+      "printed_value_mpa": 522
+     },
+     "notes": "E_3 = 522 MPa 를 Pa 로 환산했다(x1e6). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 4.4e-06,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 3,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau3"
+     },
+     "notes": "완화시간 tau_3 (열 머리글 'τk (s)'). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 589000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 4,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E4",
+      "printed_value_mpa": 589
+     },
+     "notes": "E_4 = 589 MPa 를 Pa 로 환산했다(x1e6). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 5.4e-05,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 4,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau4"
+     },
+     "notes": "완화시간 tau_4 (열 머리글 'τk (s)'). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 817000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 5,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E5",
+      "printed_value_mpa": 817
+     },
+     "notes": "E_5 = 817 MPa 를 Pa 로 환산했다(x1e6). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 0.00062,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 5,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau5"
+     },
+     "notes": "완화시간 tau_5 (열 머리글 'τk (s)'). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 984000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 6,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E6",
+      "printed_value_mpa": 984
+     },
+     "notes": "E_6 = 984 MPa 를 Pa 로 환산했다(x1e6). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 0.006,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 6,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau6"
+     },
+     "notes": "완화시간 tau_6 (열 머리글 'τk (s)'). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 1143000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 7,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E7",
+      "printed_value_mpa": 1143
+     },
+     "notes": "E_7 = 1143 MPa 를 Pa 로 환산했다(x1e6). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 0.041,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 7,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau7"
+     },
+     "notes": "완화시간 tau_7 (열 머리글 'τk (s)'). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 1938000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 8,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E8",
+      "printed_value_mpa": 1938
+     },
+     "notes": "E_8 = 1938 MPa 를 Pa 로 환산했다(x1e6). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 0.27,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 8,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau8"
+     },
+     "notes": "완화시간 tau_8 (열 머리글 'τk (s)'). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 2082000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 9,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E9",
+      "printed_value_mpa": 2082
+     },
+     "notes": "E_9 = 2082 MPa 를 Pa 로 환산했다(x1e6). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1.7,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 9,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau9"
+     },
+     "notes": "완화시간 tau_9 (열 머리글 'τk (s)'). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 2663000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 10,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E10",
+      "printed_value_mpa": 2663
+     },
+     "notes": "E_10 = 2663 MPa 를 Pa 로 환산했다(x1e6). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 12.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 10,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau10"
+     },
+     "notes": "완화시간 tau_10 (열 머리글 'τk (s)'). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 2265000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 11,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E11",
+      "printed_value_mpa": 2265
+     },
+     "notes": "E_11 = 2265 MPa 를 Pa 로 환산했다(x1e6). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 48.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 11,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau11"
+     },
+     "notes": "완화시간 tau_11 (열 머리글 'τk (s)'). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 2295000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 12,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E12",
+      "printed_value_mpa": 2295
+     },
+     "notes": "E_12 = 2295 MPa 를 Pa 로 환산했다(x1e6). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 250.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 12,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau12"
+     },
+     "notes": "완화시간 tau_12 (열 머리글 'τk (s)'). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 2155000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 13,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E13",
+      "printed_value_mpa": 2155
+     },
+     "notes": "E_13 = 2155 MPa 를 Pa 로 환산했다(x1e6). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 2200.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 13,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau13"
+     },
+     "notes": "완화시간 tau_13 (열 머리글 'τk (s)'). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 720000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 14,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E14",
+      "printed_value_mpa": 720
+     },
+     "notes": "E_14 = 720 MPa 를 Pa 로 환산했다(x1e6). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 15000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 14,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau14"
+     },
+     "notes": "완화시간 tau_14 (열 머리글 'τk (s)'). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 408000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 15,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E15",
+      "printed_value_mpa": 408
+     },
+     "notes": "E_15 = 408 MPa 를 Pa 로 환산했다(x1e6). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 100000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 15,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau15"
+     },
+     "notes": "완화시간 tau_15 (열 머리글 'τk (s)'). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 300000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 16,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E16",
+      "printed_value_mpa": 300
+     },
+     "notes": "E_16 = 300 MPa 를 Pa 로 환산했다(x1e6). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 860000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 16,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau16"
+     },
+     "notes": "완화시간 tau_16 (열 머리글 'τk (s)'). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 145000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 17,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E17",
+      "printed_value_mpa": 145
+     },
+     "notes": "E_17 = 145 MPa 를 Pa 로 환산했다(x1e6). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 11000000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 17,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau17"
+     },
+     "notes": "완화시간 tau_17 (열 머리글 'τk (s)'). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 94000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 18,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E18",
+      "printed_value_mpa": 94
+     },
+     "notes": "E_18 = 94 MPa 를 Pa 로 환산했다(x1e6). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 98000000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 18,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau18"
+     },
+     "notes": "완화시간 tau_18 (열 머리글 'τk (s)'). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 96000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 19,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E19",
+      "printed_value_mpa": 96
+     },
+     "notes": "E_19 = 96 MPa 를 Pa 로 환산했다(x1e6). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1000000000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 19,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau19"
+     },
+     "notes": "완화시간 tau_19 (열 머리글 'τk (s)'). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 34000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 20,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E20",
+      "printed_value_mpa": 34
+     },
+     "notes": "E_20 = 34 MPa 를 Pa 로 환산했다(x1e6). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 10000000000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 20,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau20"
+     },
+     "notes": "완화시간 tau_20 (열 머리글 'τk (s)'). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 71000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 21,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E21",
+      "printed_value_mpa": 71
+     },
+     "notes": "E_21 = 71 MPa 를 Pa 로 환산했다(x1e6). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 100000000000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 21,
+      "prony_terms_total": 21,
+      "set_id": "chae2010_tableI_21term_tref110",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau21"
+     },
+     "notes": "완화시간 tau_21 (열 머리글 'τk (s)'). Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_long_term_modulus",
+     "value": 530000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "set_id": "chae2010_tableI_21term_tref110",
+      "term": "E_inf",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 110.0,
+      "reference_temperature_k": 383.15,
+      "printed_value_mpa": 530,
+      "basis": "급수 밖 평형항이라 항번호가 없는 것이 맞다"
+     },
+     "notes": "표 첫 행 `∞ | – | 530` — 장기(평형) 인장완화계수. Table I `Prony pairs for the master curve shown in Fig. 3 with a reference temperature of 110°C`, T_ref = 110 °C, 21항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach I** — 이동인자로 먼저 마스터커브를 만들고 그 커브에만 ANSYS 가 Prony 를 맞춘 세트다. 이 세트의 이동함수는 WLF 도 Arrhenius 도 아니다 — 원문 Fig. 4 가 셋을 비교하는데 'either the WLF or Arrhenius equation alone did not fit the data very well' 이라 다항식을 썼고 **그 계수는 인쇄되지 않는다.** 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 516000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 1,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E1",
+      "printed_value_mpa": 516
+     },
+     "notes": "E_1 = 516 MPa 를 Pa 로 환산했다(x1e6). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1.6e-12,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 1,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau1"
+     },
+     "notes": "완화시간 tau_1 (열 머리글 'τk (s)'). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 274000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 2,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E2",
+      "printed_value_mpa": 274
+     },
+     "notes": "E_2 = 274 MPa 를 Pa 로 환산했다(x1e6). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 2.2e-11,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 2,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau2"
+     },
+     "notes": "완화시간 tau_2 (열 머리글 'τk (s)'). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 438000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 3,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E3",
+      "printed_value_mpa": 438
+     },
+     "notes": "E_3 = 438 MPa 를 Pa 로 환산했다(x1e6). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 4.6e-10,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 3,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau3"
+     },
+     "notes": "완화시간 tau_3 (열 머리글 'τk (s)'). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 306000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 4,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E4",
+      "printed_value_mpa": 306
+     },
+     "notes": "E_4 = 306 MPa 를 Pa 로 환산했다(x1e6). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 9.2e-09,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 4,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau4"
+     },
+     "notes": "완화시간 tau_4 (열 머리글 'τk (s)'). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 524000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 5,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E5",
+      "printed_value_mpa": 524
+     },
+     "notes": "E_5 = 524 MPa 를 Pa 로 환산했다(x1e6). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 2.2e-07,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 5,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau5"
+     },
+     "notes": "완화시간 tau_5 (열 머리글 'τk (s)'). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 774000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 6,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E6",
+      "printed_value_mpa": 774
+     },
+     "notes": "E_6 = 774 MPa 를 Pa 로 환산했다(x1e6). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 3.5e-06,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 6,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau6"
+     },
+     "notes": "완화시간 tau_6 (열 머리글 'τk (s)'). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 981000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 7,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E7",
+      "printed_value_mpa": 981
+     },
+     "notes": "E_7 = 981 MPa 를 Pa 로 환산했다(x1e6). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 8.3e-05,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 7,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau7"
+     },
+     "notes": "완화시간 tau_7 (열 머리글 'τk (s)'). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 1282000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 8,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E8",
+      "printed_value_mpa": 1282
+     },
+     "notes": "E_8 = 1282 MPa 를 Pa 로 환산했다(x1e6). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 0.002,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 8,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau8"
+     },
+     "notes": "완화시간 tau_8 (열 머리글 'τk (s)'). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 1209000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 9,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E9",
+      "printed_value_mpa": 1209
+     },
+     "notes": "E_9 = 1209 MPa 를 Pa 로 환산했다(x1e6). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 0.02,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 9,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau9"
+     },
+     "notes": "완화시간 tau_9 (열 머리글 'τk (s)'). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 3704000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 10,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E10",
+      "printed_value_mpa": 3704
+     },
+     "notes": "E_10 = 3704 MPa 를 Pa 로 환산했다(x1e6). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 0.22,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 10,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau10"
+     },
+     "notes": "완화시간 tau_10 (열 머리글 'τk (s)'). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 6188000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 11,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E11",
+      "printed_value_mpa": 6188
+     },
+     "notes": "E_11 = 6188 MPa 를 Pa 로 환산했다(x1e6). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 3.8,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 11,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau11"
+     },
+     "notes": "완화시간 tau_11 (열 머리글 'τk (s)'). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 1757000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 12,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E12",
+      "printed_value_mpa": 1757
+     },
+     "notes": "E_12 = 1757 MPa 를 Pa 로 환산했다(x1e6). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 10.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 12,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau12"
+     },
+     "notes": "완화시간 tau_12 (열 머리글 'τk (s)'). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 1758000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 13,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E13",
+      "printed_value_mpa": 1758
+     },
+     "notes": "E_13 = 1758 MPa 를 Pa 로 환산했다(x1e6). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 99.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 13,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau13"
+     },
+     "notes": "완화시간 tau_13 (열 머리글 'τk (s)'). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 335000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 14,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E14",
+      "printed_value_mpa": 335
+     },
+     "notes": "E_14 = 335 MPa 를 Pa 로 환산했다(x1e6). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 14,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau14"
+     },
+     "notes": "완화시간 tau_14 (열 머리글 'τk (s)'). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 169000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 15,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E15",
+      "printed_value_mpa": 169
+     },
+     "notes": "E_15 = 169 MPa 를 Pa 로 환산했다(x1e6). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 10000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 15,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau15"
+     },
+     "notes": "완화시간 tau_15 (열 머리글 'τk (s)'). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 108000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 16,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E16",
+      "printed_value_mpa": 108
+     },
+     "notes": "E_16 = 108 MPa 를 Pa 로 환산했다(x1e6). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 100000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 16,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau16"
+     },
+     "notes": "완화시간 tau_16 (열 머리글 'τk (s)'). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 40000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 17,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E17",
+      "printed_value_mpa": 40
+     },
+     "notes": "E_17 = 40 MPa 를 Pa 로 환산했다(x1e6). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1000000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 17,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau17"
+     },
+     "notes": "완화시간 tau_17 (열 머리글 'τk (s)'). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_tensile_modulus",
+     "value": 72000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 18,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "E18",
+      "printed_value_mpa": 72
+     },
+     "notes": "E_18 = 72 MPa 를 Pa 로 환산했다(x1e6). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 10000000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 18,
+      "prony_terms_total": 18,
+      "set_id": "chae2010_tableII_18term_tref120",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation, strain control, 20-150 C; ANSYS Prony curve fit",
+      "term": "tau18"
+     },
+     "notes": "완화시간 tau_18 (열 머리글 'τk (s)'). Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.prony_long_term_modulus",
+     "value": 504000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "set_id": "chae2010_tableII_18term_tref120",
+      "term": "E_inf",
+      "model": "generalized_maxwell",
+      "series": "tensile",
+      "relaxation_mode": "tensile (uniaxial)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "printed_value_mpa": 504,
+      "basis": "급수 밖 평형항이라 항번호가 없는 것이 맞다"
+     },
+     "notes": "표 첫 행 `∞ | – | 504` — 장기(평형) 인장완화계수. Table II `Prony pairs for the master curve in Fig. 6a which was determined together with WLF constants by ANSYS with a reference temperature of 120°C`, T_ref = 120 °C, 18항. 원문 식은 E(t) = E_inf + sum_k E_k exp(-t/tau_k) 다. **Approach II** — 온도별 원자료를 그대로 ANSYS 에 넣어 Prony 와 WLF 를 **동시에** 맞춘 세트다. 짝이 되는 WLF 상수는 같은 출처로 따로 등록했다(set_id=chae2010_wlf_approachII). 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.wlf_c1",
+     "value": 201000000000.0,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "set_id": "chae2010_wlf_approachII",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "log_base": "log10",
+      "applies_to_sets": [
+       "chae2010_tableII_18term_tref120"
+      ],
+      "fitted_by": "ANSYS viscoelastic curve-fitting routine, simultaneously with the Prony pairs",
+      "usable_for_shifting": false,
+      "authors_own_verdict": "the WLF equation alone could not describe this material's temperature-dependent behavior properly (원문 본문)",
+      "c1_over_c2": 0.13311258278145696
+     },
+     "notes": "본문 verbatim: 'The WLF constants were determined to be C1 = 2.01 × 10^11 and C2 = 1.51 × 10^12 with a reference temperature of T0 = 120°C. **These large numbers resulted in an almost linear result, as shown in Fig. 6b. This is attributed to the fact that the WLF equation alone could not describe this material's temperature-dependent behavior properly.**' — **저자 스스로 이 WLF 가 이 재료를 설명하지 못한다고 적었다.** C2 = 1.51e12 K 는 물리적 온도가 아니라 적합이 퇴화하며 나온 큰 수이고, C1/C2 비(0.1331)만 살아남아 log aT 가 (T-T0) 에 거의 선형이 된다. 표 인쇄값이라 tier1 로 남기되 **이 상수로 마스터커브를 옮기지 마라** — Approach II 의 Prony 세트를 쓸 때는 원문 Fig. 6b 의 이동인자를 보라. 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    },
+    {
+     "key": "mechanical.wlf_c2",
+     "value": 1510000000000.0,
+     "unit": "K",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "set_id": "chae2010_wlf_approachII",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "log_base": "log10",
+      "applies_to_sets": [
+       "chae2010_tableII_18term_tref120"
+      ],
+      "fitted_by": "ANSYS viscoelastic curve-fitting routine, simultaneously with the Prony pairs",
+      "usable_for_shifting": false,
+      "authors_own_verdict": "the WLF equation alone could not describe this material's temperature-dependent behavior properly (원문 본문)",
+      "c1_over_c2": 0.13311258278145696
+     },
+     "notes": "본문 verbatim: 'The WLF constants were determined to be C1 = 2.01 × 10^11 and C2 = 1.51 × 10^12 with a reference temperature of T0 = 120°C. **These large numbers resulted in an almost linear result, as shown in Fig. 6b. This is attributed to the fact that the WLF equation alone could not describe this material's temperature-dependent behavior properly.**' — **저자 스스로 이 WLF 가 이 재료를 설명하지 못한다고 적었다.** C2 = 1.51e12 K 는 물리적 온도가 아니라 적합이 퇴화하며 나온 큰 수이고, C1/C2 비(0.1331)만 살아남아 log aT 가 (T-T0) 에 거의 선형이 된다. 표 인쇄값이라 tier1 로 남기되 **이 상수로 마스터커브를 옮기지 마라** — Approach II 의 Prony 세트를 쓸 때는 원문 Fig. 6b 의 이동인자를 보라. 재료는 논문이 등급명을 밝히지 않은 87 wt% 충전 에폭시 몰딩컴파운드다(175 °C 트랜스퍼 몰딩 90 s + 175 °C 4 h 후경화, DMA·TMA 기준 Tg 120~140 °C). 응력완화 시험은 변형률 제어 전기기계식 시험기로 20~150 °C 에서 했고, Prony 적합은 ANSYS 곡선적합 루틴이 했다 -> method=computed, 표 인쇄값이므로 tier1. **교차검산 — 두 접근의 순간계수가 맞는다.** Approach I: E(0) = 530 + 20326 = 20856 MPa, Approach II: E(0) = 504 + 20435 = 20939 MPa — 차이 83 MPa (0.40 %). 87 wt% 충전 EMC 의 유리상 탄성률 대역과 맞는다. docling 과 pdftotext 는 이 논문의 곱셈기호(x)를 숫자 9 로, 지수 부호를 공백으로 뭉갠다 — **70차 FD 가 PDF 5·6쪽을 250 dpi 로 그려 눈으로 확인했다**(크롭은 out_fd/chae_t1*.png · chae_t2*.png)."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1598 @@
+{
+ "batch": "70차 FD",
+ "materials": [
+  {
+   "match_name": "Underfill encapsulant, silica-filled epoxy (commercial capillary underfill, Auburn CAVE3 viscoelastic characterisation, Chowdhury 2019)",
+   "source": {
+    "kind": "journal",
+    "title": "Characterization of Viscoelastic Response of Underfill Materials",
+    "doi": "10.1109/itherm.2019.8756500",
+    "url": "https://doi.org/10.1109/itherm.2019.8756500",
+    "authors": "Promod R. Chowdhury, Jeffrey C. Suhling, Pradeep Lall",
+    "year": 2019,
+    "publisher": "IEEE (18th ITherm)",
+    "local_path": "/data/paper_patent_corpus/structured/cae_papers/10_underfill_stress/Chowdhury - 2019 - Characterization of Viscoelastic Response of Underfill Materials/Chowdhury - 2019 - Characterization of Viscoelastic Response of Underfill Materials.md"
+   },
+   "properties": [
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.285,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 1,
+      "prony_terms_total": 7,
+      "set_id": "chowdhury2019_table2_7pair_dma",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "DMA frequency sweep (TA Instruments RSA3, tensile mode, 0.1-10 Hz, 60-160 C), storage-modulus master curve shifted to T_ref = 120 C",
+      "term": "alpha1",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 2 (`Table 2 - Calculated Prony constants for Shear and Bulk Response`), **DMA** 마스터커브에서 얻은 7쌍, T_ref=120.0 C. 7개 alpha 합 = 0.9144 <= 1 (검산). 이 세트는 응력완화가 아니라 **DMA(TA RSA3, 0.1-10 Hz, 60-160 C, 인장 모드)** 데이터에서 나왔고 Fig.34 에서 검증된다. **주의 — 항이 tau 오름차순이 아니다**(tau1=1.67e-1 > tau2=2.77e-3) 이고 tau4=tau5=2.22e-14 s 로 두 항이 완전히 겹친다(적합 아티팩트). 인쇄값 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 0.167,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 1,
+      "prony_terms_total": 7,
+      "set_id": "chowdhury2019_table2_7pair_dma",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "DMA frequency sweep (TA Instruments RSA3, tensile mode, 0.1-10 Hz, 60-160 C), storage-modulus master curve shifted to T_ref = 120 C",
+      "term": "tau1",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 2 전단 완화시간 tau_1 (열 머리글 'Ĳ 1 = ... ', 초). Table 2 (`Table 2 - Calculated Prony constants for Shear and Bulk Response`), **DMA** 마스터커브에서 얻은 7쌍, T_ref=120.0 C. 7개 alpha 합 = 0.9144 <= 1 (검산). 이 세트는 응력완화가 아니라 **DMA(TA RSA3, 0.1-10 Hz, 60-160 C, 인장 모드)** 데이터에서 나왔고 Fig.34 에서 검증된다. **주의 — 항이 tau 오름차순이 아니다**(tau1=1.67e-1 > tau2=2.77e-3) 이고 tau4=tau5=2.22e-14 s 로 두 항이 완전히 겹친다(적합 아티팩트). 인쇄값 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.285,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 1,
+      "prony_terms_total": 7,
+      "set_id": "chowdhury2019_table2_7pair_dma",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "DMA frequency sweep (TA Instruments RSA3, tensile mode, 0.1-10 Hz, 60-160 C), storage-modulus master curve shifted to T_ref = 120 C",
+      "term": "alpha1",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "tau_shared_with": "series=shear — 원문 체적 열의 tau 가 전단 열과 글자 그대로 같다"
+     },
+     "notes": "Table 2 (`Table 2 - Calculated Prony constants for Shear and Bulk Response`), **DMA** 마스터커브에서 얻은 7쌍, T_ref=120.0 C. 7개 alpha 합 = 0.9144 <= 1 (검산). 이 세트는 응력완화가 아니라 **DMA(TA RSA3, 0.1-10 Hz, 60-160 C, 인장 모드)** 데이터에서 나왔고 Fig.34 에서 검증된다. **주의 — 항이 tau 오름차순이 아니다**(tau1=1.67e-1 > tau2=2.77e-3) 이고 tau4=tau5=2.22e-14 s 로 두 항이 완전히 겹친다(적합 아티팩트). 인쇄값 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.182,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 2,
+      "prony_terms_total": 7,
+      "set_id": "chowdhury2019_table2_7pair_dma",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "DMA frequency sweep (TA Instruments RSA3, tensile mode, 0.1-10 Hz, 60-160 C), storage-modulus master curve shifted to T_ref = 120 C",
+      "term": "alpha2",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 2 (`Table 2 - Calculated Prony constants for Shear and Bulk Response`), **DMA** 마스터커브에서 얻은 7쌍, T_ref=120.0 C. 7개 alpha 합 = 0.9144 <= 1 (검산). 이 세트는 응력완화가 아니라 **DMA(TA RSA3, 0.1-10 Hz, 60-160 C, 인장 모드)** 데이터에서 나왔고 Fig.34 에서 검증된다. **주의 — 항이 tau 오름차순이 아니다**(tau1=1.67e-1 > tau2=2.77e-3) 이고 tau4=tau5=2.22e-14 s 로 두 항이 완전히 겹친다(적합 아티팩트). 인쇄값 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 0.00277,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 2,
+      "prony_terms_total": 7,
+      "set_id": "chowdhury2019_table2_7pair_dma",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "DMA frequency sweep (TA Instruments RSA3, tensile mode, 0.1-10 Hz, 60-160 C), storage-modulus master curve shifted to T_ref = 120 C",
+      "term": "tau2",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 2 전단 완화시간 tau_2 (열 머리글 'Ĳ 2 = ... ', 초). Table 2 (`Table 2 - Calculated Prony constants for Shear and Bulk Response`), **DMA** 마스터커브에서 얻은 7쌍, T_ref=120.0 C. 7개 alpha 합 = 0.9144 <= 1 (검산). 이 세트는 응력완화가 아니라 **DMA(TA RSA3, 0.1-10 Hz, 60-160 C, 인장 모드)** 데이터에서 나왔고 Fig.34 에서 검증된다. **주의 — 항이 tau 오름차순이 아니다**(tau1=1.67e-1 > tau2=2.77e-3) 이고 tau4=tau5=2.22e-14 s 로 두 항이 완전히 겹친다(적합 아티팩트). 인쇄값 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.182,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 2,
+      "prony_terms_total": 7,
+      "set_id": "chowdhury2019_table2_7pair_dma",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "DMA frequency sweep (TA Instruments RSA3, tensile mode, 0.1-10 Hz, 60-160 C), storage-modulus master curve shifted to T_ref = 120 C",
+      "term": "alpha2",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "tau_shared_with": "series=shear — 원문 체적 열의 tau 가 전단 열과 글자 그대로 같다"
+     },
+     "notes": "Table 2 (`Table 2 - Calculated Prony constants for Shear and Bulk Response`), **DMA** 마스터커브에서 얻은 7쌍, T_ref=120.0 C. 7개 alpha 합 = 0.9144 <= 1 (검산). 이 세트는 응력완화가 아니라 **DMA(TA RSA3, 0.1-10 Hz, 60-160 C, 인장 모드)** 데이터에서 나왔고 Fig.34 에서 검증된다. **주의 — 항이 tau 오름차순이 아니다**(tau1=1.67e-1 > tau2=2.77e-3) 이고 tau4=tau5=2.22e-14 s 로 두 항이 완전히 겹친다(적합 아티팩트). 인쇄값 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.118,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 3,
+      "prony_terms_total": 7,
+      "set_id": "chowdhury2019_table2_7pair_dma",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "DMA frequency sweep (TA Instruments RSA3, tensile mode, 0.1-10 Hz, 60-160 C), storage-modulus master curve shifted to T_ref = 120 C",
+      "term": "alpha3",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 2 (`Table 2 - Calculated Prony constants for Shear and Bulk Response`), **DMA** 마스터커브에서 얻은 7쌍, T_ref=120.0 C. 7개 alpha 합 = 0.9144 <= 1 (검산). 이 세트는 응력완화가 아니라 **DMA(TA RSA3, 0.1-10 Hz, 60-160 C, 인장 모드)** 데이터에서 나왔고 Fig.34 에서 검증된다. **주의 — 항이 tau 오름차순이 아니다**(tau1=1.67e-1 > tau2=2.77e-3) 이고 tau4=tau5=2.22e-14 s 로 두 항이 완전히 겹친다(적합 아티팩트). 인쇄값 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 0.00264,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 3,
+      "prony_terms_total": 7,
+      "set_id": "chowdhury2019_table2_7pair_dma",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "DMA frequency sweep (TA Instruments RSA3, tensile mode, 0.1-10 Hz, 60-160 C), storage-modulus master curve shifted to T_ref = 120 C",
+      "term": "tau3",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 2 전단 완화시간 tau_3 (열 머리글 'Ĳ 3 = ... ', 초). Table 2 (`Table 2 - Calculated Prony constants for Shear and Bulk Response`), **DMA** 마스터커브에서 얻은 7쌍, T_ref=120.0 C. 7개 alpha 합 = 0.9144 <= 1 (검산). 이 세트는 응력완화가 아니라 **DMA(TA RSA3, 0.1-10 Hz, 60-160 C, 인장 모드)** 데이터에서 나왔고 Fig.34 에서 검증된다. **주의 — 항이 tau 오름차순이 아니다**(tau1=1.67e-1 > tau2=2.77e-3) 이고 tau4=tau5=2.22e-14 s 로 두 항이 완전히 겹친다(적합 아티팩트). 인쇄값 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.118,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 3,
+      "prony_terms_total": 7,
+      "set_id": "chowdhury2019_table2_7pair_dma",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "DMA frequency sweep (TA Instruments RSA3, tensile mode, 0.1-10 Hz, 60-160 C), storage-modulus master curve shifted to T_ref = 120 C",
+      "term": "alpha3",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "tau_shared_with": "series=shear — 원문 체적 열의 tau 가 전단 열과 글자 그대로 같다"
+     },
+     "notes": "Table 2 (`Table 2 - Calculated Prony constants for Shear and Bulk Response`), **DMA** 마스터커브에서 얻은 7쌍, T_ref=120.0 C. 7개 alpha 합 = 0.9144 <= 1 (검산). 이 세트는 응력완화가 아니라 **DMA(TA RSA3, 0.1-10 Hz, 60-160 C, 인장 모드)** 데이터에서 나왔고 Fig.34 에서 검증된다. **주의 — 항이 tau 오름차순이 아니다**(tau1=1.67e-1 > tau2=2.77e-3) 이고 tau4=tau5=2.22e-14 s 로 두 항이 완전히 겹친다(적합 아티팩트). 인쇄값 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.096,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 4,
+      "prony_terms_total": 7,
+      "set_id": "chowdhury2019_table2_7pair_dma",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "DMA frequency sweep (TA Instruments RSA3, tensile mode, 0.1-10 Hz, 60-160 C), storage-modulus master curve shifted to T_ref = 120 C",
+      "term": "alpha4",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 2 (`Table 2 - Calculated Prony constants for Shear and Bulk Response`), **DMA** 마스터커브에서 얻은 7쌍, T_ref=120.0 C. 7개 alpha 합 = 0.9144 <= 1 (검산). 이 세트는 응력완화가 아니라 **DMA(TA RSA3, 0.1-10 Hz, 60-160 C, 인장 모드)** 데이터에서 나왔고 Fig.34 에서 검증된다. **주의 — 항이 tau 오름차순이 아니다**(tau1=1.67e-1 > tau2=2.77e-3) 이고 tau4=tau5=2.22e-14 s 로 두 항이 완전히 겹친다(적합 아티팩트). 인쇄값 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 2.22e-14,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 4,
+      "prony_terms_total": 7,
+      "set_id": "chowdhury2019_table2_7pair_dma",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "DMA frequency sweep (TA Instruments RSA3, tensile mode, 0.1-10 Hz, 60-160 C), storage-modulus master curve shifted to T_ref = 120 C",
+      "term": "tau4",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 2 전단 완화시간 tau_4 (열 머리글 'Ĳ 4 = ... ', 초). Table 2 (`Table 2 - Calculated Prony constants for Shear and Bulk Response`), **DMA** 마스터커브에서 얻은 7쌍, T_ref=120.0 C. 7개 alpha 합 = 0.9144 <= 1 (검산). 이 세트는 응력완화가 아니라 **DMA(TA RSA3, 0.1-10 Hz, 60-160 C, 인장 모드)** 데이터에서 나왔고 Fig.34 에서 검증된다. **주의 — 항이 tau 오름차순이 아니다**(tau1=1.67e-1 > tau2=2.77e-3) 이고 tau4=tau5=2.22e-14 s 로 두 항이 완전히 겹친다(적합 아티팩트). 인쇄값 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.096,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 4,
+      "prony_terms_total": 7,
+      "set_id": "chowdhury2019_table2_7pair_dma",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "DMA frequency sweep (TA Instruments RSA3, tensile mode, 0.1-10 Hz, 60-160 C), storage-modulus master curve shifted to T_ref = 120 C",
+      "term": "alpha4",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "tau_shared_with": "series=shear — 원문 체적 열의 tau 가 전단 열과 글자 그대로 같다"
+     },
+     "notes": "Table 2 (`Table 2 - Calculated Prony constants for Shear and Bulk Response`), **DMA** 마스터커브에서 얻은 7쌍, T_ref=120.0 C. 7개 alpha 합 = 0.9144 <= 1 (검산). 이 세트는 응력완화가 아니라 **DMA(TA RSA3, 0.1-10 Hz, 60-160 C, 인장 모드)** 데이터에서 나왔고 Fig.34 에서 검증된다. **주의 — 항이 tau 오름차순이 아니다**(tau1=1.67e-1 > tau2=2.77e-3) 이고 tau4=tau5=2.22e-14 s 로 두 항이 완전히 겹친다(적합 아티팩트). 인쇄값 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.0919,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 5,
+      "prony_terms_total": 7,
+      "set_id": "chowdhury2019_table2_7pair_dma",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "DMA frequency sweep (TA Instruments RSA3, tensile mode, 0.1-10 Hz, 60-160 C), storage-modulus master curve shifted to T_ref = 120 C",
+      "term": "alpha5",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 2 (`Table 2 - Calculated Prony constants for Shear and Bulk Response`), **DMA** 마스터커브에서 얻은 7쌍, T_ref=120.0 C. 7개 alpha 합 = 0.9144 <= 1 (검산). 이 세트는 응력완화가 아니라 **DMA(TA RSA3, 0.1-10 Hz, 60-160 C, 인장 모드)** 데이터에서 나왔고 Fig.34 에서 검증된다. **주의 — 항이 tau 오름차순이 아니다**(tau1=1.67e-1 > tau2=2.77e-3) 이고 tau4=tau5=2.22e-14 s 로 두 항이 완전히 겹친다(적합 아티팩트). 인쇄값 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 2.22e-14,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 5,
+      "prony_terms_total": 7,
+      "set_id": "chowdhury2019_table2_7pair_dma",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "DMA frequency sweep (TA Instruments RSA3, tensile mode, 0.1-10 Hz, 60-160 C), storage-modulus master curve shifted to T_ref = 120 C",
+      "term": "tau5",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 2 전단 완화시간 tau_5 (열 머리글 'Ĳ 5 = ... ', 초). Table 2 (`Table 2 - Calculated Prony constants for Shear and Bulk Response`), **DMA** 마스터커브에서 얻은 7쌍, T_ref=120.0 C. 7개 alpha 합 = 0.9144 <= 1 (검산). 이 세트는 응력완화가 아니라 **DMA(TA RSA3, 0.1-10 Hz, 60-160 C, 인장 모드)** 데이터에서 나왔고 Fig.34 에서 검증된다. **주의 — 항이 tau 오름차순이 아니다**(tau1=1.67e-1 > tau2=2.77e-3) 이고 tau4=tau5=2.22e-14 s 로 두 항이 완전히 겹친다(적합 아티팩트). 인쇄값 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.0919,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 5,
+      "prony_terms_total": 7,
+      "set_id": "chowdhury2019_table2_7pair_dma",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "DMA frequency sweep (TA Instruments RSA3, tensile mode, 0.1-10 Hz, 60-160 C), storage-modulus master curve shifted to T_ref = 120 C",
+      "term": "alpha5",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "tau_shared_with": "series=shear — 원문 체적 열의 tau 가 전단 열과 글자 그대로 같다"
+     },
+     "notes": "Table 2 (`Table 2 - Calculated Prony constants for Shear and Bulk Response`), **DMA** 마스터커브에서 얻은 7쌍, T_ref=120.0 C. 7개 alpha 합 = 0.9144 <= 1 (검산). 이 세트는 응력완화가 아니라 **DMA(TA RSA3, 0.1-10 Hz, 60-160 C, 인장 모드)** 데이터에서 나왔고 Fig.34 에서 검증된다. **주의 — 항이 tau 오름차순이 아니다**(tau1=1.67e-1 > tau2=2.77e-3) 이고 tau4=tau5=2.22e-14 s 로 두 항이 완전히 겹친다(적합 아티팩트). 인쇄값 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.105,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 6,
+      "prony_terms_total": 7,
+      "set_id": "chowdhury2019_table2_7pair_dma",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "DMA frequency sweep (TA Instruments RSA3, tensile mode, 0.1-10 Hz, 60-160 C), storage-modulus master curve shifted to T_ref = 120 C",
+      "term": "alpha6",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 2 (`Table 2 - Calculated Prony constants for Shear and Bulk Response`), **DMA** 마스터커브에서 얻은 7쌍, T_ref=120.0 C. 7개 alpha 합 = 0.9144 <= 1 (검산). 이 세트는 응력완화가 아니라 **DMA(TA RSA3, 0.1-10 Hz, 60-160 C, 인장 모드)** 데이터에서 나왔고 Fig.34 에서 검증된다. **주의 — 항이 tau 오름차순이 아니다**(tau1=1.67e-1 > tau2=2.77e-3) 이고 tau4=tau5=2.22e-14 s 로 두 항이 완전히 겹친다(적합 아티팩트). 인쇄값 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 2.07,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 6,
+      "prony_terms_total": 7,
+      "set_id": "chowdhury2019_table2_7pair_dma",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "DMA frequency sweep (TA Instruments RSA3, tensile mode, 0.1-10 Hz, 60-160 C), storage-modulus master curve shifted to T_ref = 120 C",
+      "term": "tau6",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 2 전단 완화시간 tau_6 (열 머리글 'Ĳ 6 = ... ', 초). Table 2 (`Table 2 - Calculated Prony constants for Shear and Bulk Response`), **DMA** 마스터커브에서 얻은 7쌍, T_ref=120.0 C. 7개 alpha 합 = 0.9144 <= 1 (검산). 이 세트는 응력완화가 아니라 **DMA(TA RSA3, 0.1-10 Hz, 60-160 C, 인장 모드)** 데이터에서 나왔고 Fig.34 에서 검증된다. **주의 — 항이 tau 오름차순이 아니다**(tau1=1.67e-1 > tau2=2.77e-3) 이고 tau4=tau5=2.22e-14 s 로 두 항이 완전히 겹친다(적합 아티팩트). 인쇄값 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.105,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 6,
+      "prony_terms_total": 7,
+      "set_id": "chowdhury2019_table2_7pair_dma",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "DMA frequency sweep (TA Instruments RSA3, tensile mode, 0.1-10 Hz, 60-160 C), storage-modulus master curve shifted to T_ref = 120 C",
+      "term": "alpha6",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "tau_shared_with": "series=shear — 원문 체적 열의 tau 가 전단 열과 글자 그대로 같다"
+     },
+     "notes": "Table 2 (`Table 2 - Calculated Prony constants for Shear and Bulk Response`), **DMA** 마스터커브에서 얻은 7쌍, T_ref=120.0 C. 7개 alpha 합 = 0.9144 <= 1 (검산). 이 세트는 응력완화가 아니라 **DMA(TA RSA3, 0.1-10 Hz, 60-160 C, 인장 모드)** 데이터에서 나왔고 Fig.34 에서 검증된다. **주의 — 항이 tau 오름차순이 아니다**(tau1=1.67e-1 > tau2=2.77e-3) 이고 tau4=tau5=2.22e-14 s 로 두 항이 완전히 겹친다(적합 아티팩트). 인쇄값 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.0365,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 7,
+      "prony_terms_total": 7,
+      "set_id": "chowdhury2019_table2_7pair_dma",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "DMA frequency sweep (TA Instruments RSA3, tensile mode, 0.1-10 Hz, 60-160 C), storage-modulus master curve shifted to T_ref = 120 C",
+      "term": "alpha7",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 2 (`Table 2 - Calculated Prony constants for Shear and Bulk Response`), **DMA** 마스터커브에서 얻은 7쌍, T_ref=120.0 C. 7개 alpha 합 = 0.9144 <= 1 (검산). 이 세트는 응력완화가 아니라 **DMA(TA RSA3, 0.1-10 Hz, 60-160 C, 인장 모드)** 데이터에서 나왔고 Fig.34 에서 검증된다. **주의 — 항이 tau 오름차순이 아니다**(tau1=1.67e-1 > tau2=2.77e-3) 이고 tau4=tau5=2.22e-14 s 로 두 항이 완전히 겹친다(적합 아티팩트). 인쇄값 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 59.2,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 7,
+      "prony_terms_total": 7,
+      "set_id": "chowdhury2019_table2_7pair_dma",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "DMA frequency sweep (TA Instruments RSA3, tensile mode, 0.1-10 Hz, 60-160 C), storage-modulus master curve shifted to T_ref = 120 C",
+      "term": "tau7",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 2 전단 완화시간 tau_7 (열 머리글 'Ĳ 7 = ... ', 초). Table 2 (`Table 2 - Calculated Prony constants for Shear and Bulk Response`), **DMA** 마스터커브에서 얻은 7쌍, T_ref=120.0 C. 7개 alpha 합 = 0.9144 <= 1 (검산). 이 세트는 응력완화가 아니라 **DMA(TA RSA3, 0.1-10 Hz, 60-160 C, 인장 모드)** 데이터에서 나왔고 Fig.34 에서 검증된다. **주의 — 항이 tau 오름차순이 아니다**(tau1=1.67e-1 > tau2=2.77e-3) 이고 tau4=tau5=2.22e-14 s 로 두 항이 완전히 겹친다(적합 아티팩트). 인쇄값 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.0365,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 7,
+      "prony_terms_total": 7,
+      "set_id": "chowdhury2019_table2_7pair_dma",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "DMA frequency sweep (TA Instruments RSA3, tensile mode, 0.1-10 Hz, 60-160 C), storage-modulus master curve shifted to T_ref = 120 C",
+      "term": "alpha7",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "tau_shared_with": "series=shear — 원문 체적 열의 tau 가 전단 열과 글자 그대로 같다"
+     },
+     "notes": "Table 2 (`Table 2 - Calculated Prony constants for Shear and Bulk Response`), **DMA** 마스터커브에서 얻은 7쌍, T_ref=120.0 C. 7개 alpha 합 = 0.9144 <= 1 (검산). 이 세트는 응력완화가 아니라 **DMA(TA RSA3, 0.1-10 Hz, 60-160 C, 인장 모드)** 데이터에서 나왔고 Fig.34 에서 검증된다. **주의 — 항이 tau 오름차순이 아니다**(tau1=1.67e-1 > tau2=2.77e-3) 이고 tau4=tau5=2.22e-14 s 로 두 항이 완전히 겹친다(적합 아티팩트). 인쇄값 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.0204,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 1,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha1",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 2.71e-05,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 1,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "tau1",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6 전단 완화시간 tau_1 (열 머리글 'Ĳi (sec)'). Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.0204,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 1,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha1",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "tau_shared_with": "series=shear — Table 7 의 tau 열이 Table 6 과 글자 그대로 같다"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.508,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 2,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha2",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 0.000441,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 2,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "tau2",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6 전단 완화시간 tau_2 (열 머리글 'Ĳi (sec)'). Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.508,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 2,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha2",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "tau_shared_with": "series=shear — Table 7 의 tau 열이 Table 6 과 글자 그대로 같다"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.0382,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 3,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha3",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 0.0022,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 3,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "tau3",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6 전단 완화시간 tau_3 (열 머리글 'Ĳi (sec)'). Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.0382,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 3,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha3",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "tau_shared_with": "series=shear — Table 7 의 tau 열이 Table 6 과 글자 그대로 같다"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.0235,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 4,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha4",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 0.01,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 4,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "tau4",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6 전단 완화시간 tau_4 (열 머리글 'Ĳi (sec)'). Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.0235,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 4,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha4",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "tau_shared_with": "series=shear — Table 7 의 tau 열이 Table 6 과 글자 그대로 같다"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.0182,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 5,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha5",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 0.066,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 5,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "tau5",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6 전단 완화시간 tau_5 (열 머리글 'Ĳi (sec)'). Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.0182,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 5,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha5",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "tau_shared_with": "series=shear — Table 7 의 tau 열이 Table 6 과 글자 그대로 같다"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.00393,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 6,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha6",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 0.959,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 6,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "tau6",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6 전단 완화시간 tau_6 (열 머리글 'Ĳi (sec)'). Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.00393,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 6,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha6",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "tau_shared_with": "series=shear — Table 7 의 tau 열이 Table 6 과 글자 그대로 같다"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.0044,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 7,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha7",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 16.3,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 7,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "tau7",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6 전단 완화시간 tau_7 (열 머리글 'Ĳi (sec)'). Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.0044,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 7,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha7",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "tau_shared_with": "series=shear — Table 7 의 tau 열이 Table 6 과 글자 그대로 같다"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.00114,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 8,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha8",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 93.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 8,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "tau8",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6 전단 완화시간 tau_8 (열 머리글 'Ĳi (sec)'). Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.00114,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 8,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha8",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "tau_shared_with": "series=shear — Table 7 의 tau 열이 Table 6 과 글자 그대로 같다"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.00183,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 9,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha9",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 100000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 9,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "tau9",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6 전단 완화시간 tau_9 (열 머리글 'Ĳi (sec)'). Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.00183,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 9,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha9",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "tau_shared_with": "series=shear — Table 7 의 tau 열이 Table 6 과 글자 그대로 같다"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.000392,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 10,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha10",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1000000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 10,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "tau10",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6 전단 완화시간 tau_10 (열 머리글 'Ĳi (sec)'). Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.000392,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 10,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha10",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "tau_shared_with": "series=shear — Table 7 의 tau 열이 Table 6 과 글자 그대로 같다"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 5.62e-54,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 11,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha11",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1000000000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 11,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "tau11",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6 전단 완화시간 tau_11 (열 머리글 'Ĳi (sec)'). Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 5.62e-54,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 11,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha11",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "tau_shared_with": "series=shear — Table 7 의 tau 열이 Table 6 과 글자 그대로 같다"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 8.49e-10,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 12,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha12",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 10000000000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 12,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "tau12",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6 전단 완화시간 tau_12 (열 머리글 'Ĳi (sec)'). Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 8.49e-10,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 12,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha12",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "tau_shared_with": "series=shear — Table 7 의 tau 열이 Table 6 과 글자 그대로 같다"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.000558,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 13,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha13",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1000000000000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 13,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "tau13",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6 전단 완화시간 tau_13 (열 머리글 'Ĳi (sec)'). Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.000558,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 13,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha13",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "tau_shared_with": "series=shear — Table 7 의 tau 열이 Table 6 과 글자 그대로 같다"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.00288,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 14,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha14",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 100000000000000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 14,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "tau14",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6 전단 완화시간 tau_14 (열 머리글 'Ĳi (sec)'). Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.00288,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 14,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha14",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "tau_shared_with": "series=shear — Table 7 의 tau 열이 Table 6 과 글자 그대로 같다"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.000182,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 15,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha15",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1000000000000000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 15,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "tau15",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6 전단 완화시간 tau_15 (열 머리글 'Ĳi (sec)'). Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.000182,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 15,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha15",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "tau_shared_with": "series=shear — Table 7 의 tau 열이 Table 6 과 글자 그대로 같다"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.000335,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 16,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha16",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1e+16,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 16,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "tau16",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6 전단 완화시간 tau_16 (열 머리글 'Ĳi (sec)'). Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.000335,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 16,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha16",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "tau_shared_with": "series=shear — Table 7 의 tau 열이 Table 6 과 글자 그대로 같다"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.000358,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 17,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha17",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1e+17,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 17,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "tau17",
+      "series": "shear",
+      "relaxation_mode": "shear"
+     },
+     "notes": "Table 6 전단 완화시간 tau_17 (열 머리글 'Ĳi (sec)'). Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.000358,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 17,
+      "prony_terms_total": 17,
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "model": "generalized_maxwell",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "uniaxial stress relaxation at 100/110/120/130/140 C, strain 1% (micro tension-torsion tester), master curve shifted to T_ref = 120 C",
+      "term": "alpha17",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "tau_shared_with": "series=shear — Table 7 의 tau 열이 Table 6 과 글자 그대로 같다"
+     },
+     "notes": "Table 6(`Calculated 17 prony pairs from Stress relaxation tests`, 전단)과 Table 7(같은 제목, 체적) — **응력완화** 시험에서 얻은 17쌍, T_ref=120 C. 17개 alpha 합 = 0.6243 <= 1 (검산). 두 표의 숫자는 완전히 동일하다(PDF 대조 완료). 저자가 '17 prony pairs predicted the behavior fairly well' 이라며 Fig.36-40 에서 -55/25/85/100 C 크리프까지 이 세트로 재현한다 — 논문이 권장하는 세트다. alpha11=5.62e-54, alpha12=8.49e-10 은 사실상 0 인 인쇄값이며 그대로 옮긴다. Chowdhury 2019 는 측정한 1축 완화계수 E(t) 에 **상수 포아송비 nu=0.2989~0.30**(80x8x2 mm 시편, 축·횡 스트레인게이지)을 곱해 G=E/2(1+nu), K=E/3(1-2nu) 로 전단·체적을 만들었다. nu 가 상수이므로 정규화 급수는 수학적으로 동일해져 alpha_i^K == alpha_i^G, tau_i^K == tau_i^G 가 된다 — 인쇄된 전단 열과 체적 열이 같은 것은 표 중복 아티팩트가 아니라 이 구성의 결과다(PDF 원문 대조 완료). 재료는 논문이 이름을 밝히지 않은 상용 실리카 충전 에폭시 capillary underfill 이다. Prony 적합은 ANSYS 가 했다 -> method=computed, 인쇄값이므로 tier1."
+    },
+    {
+     "key": "mechanical.wlf_c1",
+     "value": -13.66,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "set_id": "chowdhury2019_table4_7pair_relaxation",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "log_base": "log10",
+      "equation_verbatim": "NOT PRINTED - 논문은 WLF 식을 쓰지 않는다. 표 머리글만 'Constants for Shift Function (Williams-Landel-Ferry (WLF) Equation)' 이다",
+      "equation_assumed": "log10(a_T) = -C1*(T-Tref)/(C2+(T-Tref))  (52차 NA 가 같은 논문 Table 1·2 로 확정한 규약)",
+      "checksum_vs_printed_shift_factors": "FAILED - 원문 Table 3 을 재현하지 못한다",
+      "usable_for_shifting": false,
+      "shift_factor_table_available_in_source": "Table 3 (100/110/120/130/140 C)"
+     },
+     "notes": "Table 4 (응력완화 7쌍) 의 시프트 함수 상수(표 머리글 'Constants for Shift Function (Williams-Landel-Ferry (WLF) Equation)', T_ref = 120 C). **논문은 WLF 식을 인쇄하지 않는다.** 52차 NA 가 같은 논문 Table 2 의 양수 상수(C1=+14.76, C2=+91.52)를 원문 Table 1 이동인자로 되맞춰 log10 a_T = -C1(T-Tref)/(C2+T-Tref) 규약을 확정했다. **그 규약으로 이 음수 상수는 원문 Table 3 의 이동인자를 재현하지 못한다** — 100/110/130/140 C 에서 인쇄값 log10 a = 2.7 / 1.7 / -1.0 / -1.5 인데 이 상수로는 +3.67 / +2.12 / -3.07 / -7.93 가 나온다. 부호를 뒤집어도(log10 a = +C1·dT/(C2+dT)) 맞지 않는다. 표에 인쇄된 값이므로 tier1 로 그대로 남기되 **이 상수만으로 마스터커브를 다른 온도로 옮기면 안 된다** — 옮길 때는 원문 Table 3 의 이동인자표를 직접 써라(우리 DB 에는 이동인자 키가 없다). 표 옆의 안내문 'It is Recommended That Glass Transition Temperature Should be Used as Reference Temperature (Tref=Tg) / Calculated Using Stress Relaxation Test Data From Ansys' 가 이 상수가 ANSYS 곡선적합 출력임을 밝힌다."
+    },
+    {
+     "key": "mechanical.wlf_c2",
+     "value": -54.47,
+     "unit": "K",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "set_id": "chowdhury2019_table4_7pair_relaxation",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "log_base": "log10",
+      "equation_verbatim": "NOT PRINTED - 논문은 WLF 식을 쓰지 않는다. 표 머리글만 'Constants for Shift Function (Williams-Landel-Ferry (WLF) Equation)' 이다",
+      "equation_assumed": "log10(a_T) = -C1*(T-Tref)/(C2+(T-Tref))  (52차 NA 가 같은 논문 Table 1·2 로 확정한 규약)",
+      "checksum_vs_printed_shift_factors": "FAILED - 원문 Table 3 을 재현하지 못한다",
+      "usable_for_shifting": false,
+      "shift_factor_table_available_in_source": "Table 3 (100/110/120/130/140 C)"
+     },
+     "notes": "Table 4 (응력완화 7쌍) 의 시프트 함수 상수(표 머리글 'Constants for Shift Function (Williams-Landel-Ferry (WLF) Equation)', T_ref = 120 C). **논문은 WLF 식을 인쇄하지 않는다.** 52차 NA 가 같은 논문 Table 2 의 양수 상수(C1=+14.76, C2=+91.52)를 원문 Table 1 이동인자로 되맞춰 log10 a_T = -C1(T-Tref)/(C2+T-Tref) 규약을 확정했다. **그 규약으로 이 음수 상수는 원문 Table 3 의 이동인자를 재현하지 못한다** — 100/110/130/140 C 에서 인쇄값 log10 a = 2.7 / 1.7 / -1.0 / -1.5 인데 이 상수로는 +3.67 / +2.12 / -3.07 / -7.93 가 나온다. 부호를 뒤집어도(log10 a = +C1·dT/(C2+dT)) 맞지 않는다. 표에 인쇄된 값이므로 tier1 로 그대로 남기되 **이 상수만으로 마스터커브를 다른 온도로 옮기면 안 된다** — 옮길 때는 원문 Table 3 의 이동인자표를 직접 써라(우리 DB 에는 이동인자 키가 없다). 표 옆의 안내문 'It is Recommended That Glass Transition Temperature Should be Used as Reference Temperature (Tref=Tg) / Calculated Using Stress Relaxation Test Data From Ansys' 가 이 상수가 ANSYS 곡선적합 출력임을 밝힌다."
+    },
+    {
+     "key": "mechanical.wlf_c1",
+     "value": -12.28,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "set_id": "chowdhury2019_table5_13pair_relaxation",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "log_base": "log10",
+      "equation_verbatim": "NOT PRINTED - 논문은 WLF 식을 쓰지 않는다. 표 머리글만 'Constants for Shift Function (Williams-Landel-Ferry (WLF) Equation)' 이다",
+      "equation_assumed": "log10(a_T) = -C1*(T-Tref)/(C2+(T-Tref))  (52차 NA 가 같은 논문 Table 1·2 로 확정한 규약)",
+      "checksum_vs_printed_shift_factors": "FAILED - 원문 Table 3 을 재현하지 못한다",
+      "usable_for_shifting": false,
+      "shift_factor_table_available_in_source": "Table 3 (100/110/120/130/140 C)"
+     },
+     "notes": "Table 5 (응력완화 13쌍) 의 시프트 함수 상수(표 머리글 'Constants for Shift Function (Williams-Landel-Ferry (WLF) Equation)', T_ref = 120 C). **논문은 WLF 식을 인쇄하지 않는다.** 52차 NA 가 같은 논문 Table 2 의 양수 상수(C1=+14.76, C2=+91.52)를 원문 Table 1 이동인자로 되맞춰 log10 a_T = -C1(T-Tref)/(C2+T-Tref) 규약을 확정했다. **그 규약으로 이 음수 상수는 원문 Table 3 의 이동인자를 재현하지 못한다** — 100/110/130/140 C 에서 인쇄값 log10 a = 2.7 / 1.7 / -1.0 / -1.5 인데 이 상수로는 +3.78 / +2.24 / -3.52 / -9.85 가 나온다. 부호를 뒤집어도(log10 a = +C1·dT/(C2+dT)) 맞지 않는다. 표에 인쇄된 값이므로 tier1 로 그대로 남기되 **이 상수만으로 마스터커브를 다른 온도로 옮기면 안 된다** — 옮길 때는 원문 Table 3 의 이동인자표를 직접 써라(우리 DB 에는 이동인자 키가 없다). 표 옆의 안내문 'It is Recommended That Glass Transition Temperature Should be Used as Reference Temperature (Tref=Tg) / Calculated Using Stress Relaxation Test Data From Ansys' 가 이 상수가 ANSYS 곡선적합 출력임을 밝힌다."
+    },
+    {
+     "key": "mechanical.wlf_c2",
+     "value": -44.93,
+     "unit": "K",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "set_id": "chowdhury2019_table5_13pair_relaxation",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "log_base": "log10",
+      "equation_verbatim": "NOT PRINTED - 논문은 WLF 식을 쓰지 않는다. 표 머리글만 'Constants for Shift Function (Williams-Landel-Ferry (WLF) Equation)' 이다",
+      "equation_assumed": "log10(a_T) = -C1*(T-Tref)/(C2+(T-Tref))  (52차 NA 가 같은 논문 Table 1·2 로 확정한 규약)",
+      "checksum_vs_printed_shift_factors": "FAILED - 원문 Table 3 을 재현하지 못한다",
+      "usable_for_shifting": false,
+      "shift_factor_table_available_in_source": "Table 3 (100/110/120/130/140 C)"
+     },
+     "notes": "Table 5 (응력완화 13쌍) 의 시프트 함수 상수(표 머리글 'Constants for Shift Function (Williams-Landel-Ferry (WLF) Equation)', T_ref = 120 C). **논문은 WLF 식을 인쇄하지 않는다.** 52차 NA 가 같은 논문 Table 2 의 양수 상수(C1=+14.76, C2=+91.52)를 원문 Table 1 이동인자로 되맞춰 log10 a_T = -C1(T-Tref)/(C2+T-Tref) 규약을 확정했다. **그 규약으로 이 음수 상수는 원문 Table 3 의 이동인자를 재현하지 못한다** — 100/110/130/140 C 에서 인쇄값 log10 a = 2.7 / 1.7 / -1.0 / -1.5 인데 이 상수로는 +3.78 / +2.24 / -3.52 / -9.85 가 나온다. 부호를 뒤집어도(log10 a = +C1·dT/(C2+dT)) 맞지 않는다. 표에 인쇄된 값이므로 tier1 로 그대로 남기되 **이 상수만으로 마스터커브를 다른 온도로 옮기면 안 된다** — 옮길 때는 원문 Table 3 의 이동인자표를 직접 써라(우리 DB 에는 이동인자 키가 없다). 표 옆의 안내문 'It is Recommended That Glass Transition Temperature Should be Used as Reference Temperature (Tref=Tg) / Calculated Using Stress Relaxation Test Data From Ansys' 가 이 상수가 ANSYS 곡선적합 출력임을 밝힌다."
+    },
+    {
+     "key": "mechanical.wlf_c1",
+     "value": -12.2,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "log_base": "log10",
+      "equation_verbatim": "NOT PRINTED - 논문은 WLF 식을 쓰지 않는다. 표 머리글만 'Constants for Shift Function (Williams-Landel-Ferry (WLF) Equation)' 이다",
+      "equation_assumed": "log10(a_T) = -C1*(T-Tref)/(C2+(T-Tref))  (52차 NA 가 같은 논문 Table 1·2 로 확정한 규약)",
+      "checksum_vs_printed_shift_factors": "FAILED - 원문 Table 3 을 재현하지 못한다",
+      "usable_for_shifting": false,
+      "shift_factor_table_available_in_source": "Table 3 (100/110/120/130/140 C)"
+     },
+     "notes": "Table 6/7 (응력완화 17쌍) 의 시프트 함수 상수(표 머리글 'Constants for Shift Function (Williams-Landel-Ferry (WLF) Equation)', T_ref = 120 C). **논문은 WLF 식을 인쇄하지 않는다.** 52차 NA 가 같은 논문 Table 2 의 양수 상수(C1=+14.76, C2=+91.52)를 원문 Table 1 이동인자로 되맞춰 log10 a_T = -C1(T-Tref)/(C2+T-Tref) 규약을 확정했다. **그 규약으로 이 음수 상수는 원문 Table 3 의 이동인자를 재현하지 못한다** — 100/110/130/140 C 에서 인쇄값 log10 a = 2.7 / 1.7 / -1.0 / -1.5 인데 이 상수로는 +3.79 / +2.24 / -3.54 / -9.99 가 나온다. 부호를 뒤집어도(log10 a = +C1·dT/(C2+dT)) 맞지 않는다. 표에 인쇄된 값이므로 tier1 로 그대로 남기되 **이 상수만으로 마스터커브를 다른 온도로 옮기면 안 된다** — 옮길 때는 원문 Table 3 의 이동인자표를 직접 써라(우리 DB 에는 이동인자 키가 없다). 표 옆의 안내문 'It is Recommended That Glass Transition Temperature Should be Used as Reference Temperature (Tref=Tg) / Calculated Using Stress Relaxation Test Data From Ansys' 가 이 상수가 ANSYS 곡선적합 출력임을 밝힌다."
+    },
+    {
+     "key": "mechanical.wlf_c2",
+     "value": -44.42,
+     "unit": "K",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "set_id": "chowdhury2019_table6_7_17pair_relaxation",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "log_base": "log10",
+      "equation_verbatim": "NOT PRINTED - 논문은 WLF 식을 쓰지 않는다. 표 머리글만 'Constants for Shift Function (Williams-Landel-Ferry (WLF) Equation)' 이다",
+      "equation_assumed": "log10(a_T) = -C1*(T-Tref)/(C2+(T-Tref))  (52차 NA 가 같은 논문 Table 1·2 로 확정한 규약)",
+      "checksum_vs_printed_shift_factors": "FAILED - 원문 Table 3 을 재현하지 못한다",
+      "usable_for_shifting": false,
+      "shift_factor_table_available_in_source": "Table 3 (100/110/120/130/140 C)"
+     },
+     "notes": "Table 6/7 (응력완화 17쌍) 의 시프트 함수 상수(표 머리글 'Constants for Shift Function (Williams-Landel-Ferry (WLF) Equation)', T_ref = 120 C). **논문은 WLF 식을 인쇄하지 않는다.** 52차 NA 가 같은 논문 Table 2 의 양수 상수(C1=+14.76, C2=+91.52)를 원문 Table 1 이동인자로 되맞춰 log10 a_T = -C1(T-Tref)/(C2+T-Tref) 규약을 확정했다. **그 규약으로 이 음수 상수는 원문 Table 3 의 이동인자를 재현하지 못한다** — 100/110/130/140 C 에서 인쇄값 log10 a = 2.7 / 1.7 / -1.0 / -1.5 인데 이 상수로는 +3.79 / +2.24 / -3.54 / -9.99 가 나온다. 부호를 뒤집어도(log10 a = +C1·dT/(C2+dT)) 맞지 않는다. 표에 인쇄된 값이므로 tier1 로 그대로 남기되 **이 상수만으로 마스터커브를 다른 온도로 옮기면 안 된다** — 옮길 때는 원문 Table 3 의 이동인자표를 직접 써라(우리 DB 에는 이동인자 키가 없다). 표 옆의 안내문 'It is Recommended That Glass Transition Temperature Should be Used as Reference Temperature (Tref=Tg) / Calculated Using Stress Relaxation Test Data From Ansys' 가 이 상수가 ANSYS 곡선적합 출력임을 밝힌다."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1663 @@
+{
+ "batch": "70차 FD",
+ "materials": [
+  {
+   "new_material": {
+    "name": "Epoxy molding compound, commercial low-filler 70 wt% fused silica, Tg 120 C (ASE/NCKU multiaxial viscoelastic characterisation, Chiu 2015)",
+    "category": "composite",
+    "attributes": {
+     "role": "product",
+     "role_reason": "원문이 'The EMC considered in this study is a commercial compound with 70 wt% silica filler' 라 상용품을 측정했다고 밝힌다. 다만 등급명은 안 밝힌다",
+     "role_confidence": "medium",
+     "material_class": "epoxy molding compound (EMC), fused-silica filled",
+     "subsystem": "packaging",
+     "subsystem_basis": "패키지 워피지 해석용 봉지재다.",
+     "filler_content_wt_pct": 70,
+     "process": "as-cured EMC specimen; tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) + TMA (TA Q400)"
+    }
+   },
+   "source": {
+    "kind": "journal",
+    "title": "Development of a Consistent Multiaxial Viscoelastic Model for Package Warpage Simulation",
+    "authors": "Tz-Cheng Chiu, Dong-Yi Huang, Bo-Sheng Lee, Dao-Long Chen, Ping-Feng Yang, Chin-Li Kao",
+    "year": 2015,
+    "publisher": "IEEE (65th ECTC)",
+    "doi": null,
+    "url": null,
+    "local_path": "/data/paper_patent_corpus/cae_papers/06_warpage_thermomech/Chiu - 2015 - Development of a consistent multiaxial viscoelastic model for package warpage simulation.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.01465,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 1,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_kappa1"
+     },
+     "notes": "Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 100000000000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 1,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_kappa1"
+     },
+     "notes": "Table 1 체적 완화시간 tau^kappa_1 (열 머리글 'τiκ (s)'). Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.01299,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 2,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_kappa2"
+     },
+     "notes": "Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1000000000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 2,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_kappa2"
+     },
+     "notes": "Table 1 체적 완화시간 tau^kappa_2 (열 머리글 'τiκ (s)'). Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.02094,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 3,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_kappa3"
+     },
+     "notes": "Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 10000000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 3,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_kappa3"
+     },
+     "notes": "Table 1 체적 완화시간 tau^kappa_3 (열 머리글 'τiκ (s)'). Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.14107,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 4,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_kappa4"
+     },
+     "notes": "Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 100000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 4,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_kappa4"
+     },
+     "notes": "Table 1 체적 완화시간 tau^kappa_4 (열 머리글 'τiκ (s)'). Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.25298,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 5,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_kappa5"
+     },
+     "notes": "Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 5,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_kappa5"
+     },
+     "notes": "Table 1 체적 완화시간 tau^kappa_5 (열 머리글 'τiκ (s)'). Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.19838,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 6,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_kappa6"
+     },
+     "notes": "Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 10.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 6,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_kappa6"
+     },
+     "notes": "Table 1 체적 완화시간 tau^kappa_6 (열 머리글 'τiκ (s)'). Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.09532,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 7,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_kappa7"
+     },
+     "notes": "Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 0.1,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 7,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_kappa7"
+     },
+     "notes": "Table 1 체적 완화시간 tau^kappa_7 (열 머리글 'τiκ (s)'). Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.02866,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 8,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_kappa8"
+     },
+     "notes": "Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 0.001,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 8,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_kappa8"
+     },
+     "notes": "Table 1 체적 완화시간 tau^kappa_8 (열 머리글 'τiκ (s)'). Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.02617,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 9,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_kappa9"
+     },
+     "notes": "Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1e-05,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 9,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_kappa9"
+     },
+     "notes": "Table 1 체적 완화시간 tau^kappa_9 (열 머리글 'τiκ (s)'). Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.01994,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 10,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_kappa10"
+     },
+     "notes": "Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1e-07,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 10,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_kappa10"
+     },
+     "notes": "Table 1 체적 완화시간 tau^kappa_10 (열 머리글 'τiκ (s)'). Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.01821,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 11,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_kappa11"
+     },
+     "notes": "Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1e-09,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 11,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_kappa11"
+     },
+     "notes": "Table 1 체적 완화시간 tau^kappa_11 (열 머리글 'τiκ (s)'). Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.02287,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 12,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_kappa12"
+     },
+     "notes": "Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1e-11,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 12,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_kappa12"
+     },
+     "notes": "Table 1 체적 완화시간 tau^kappa_12 (열 머리글 'τiκ (s)'). Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.02303,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 13,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_kappa13"
+     },
+     "notes": "Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1e-13,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 13,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_kappa13"
+     },
+     "notes": "Table 1 체적 완화시간 tau^kappa_13 (열 머리글 'τiκ (s)'). Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.01877,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 14,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_kappa14"
+     },
+     "notes": "Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1e-15,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 14,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_kappa14"
+     },
+     "notes": "Table 1 체적 완화시간 tau^kappa_14 (열 머리글 'τiκ (s)'). Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.02122,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 15,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_kappa15"
+     },
+     "notes": "Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1e-17,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 15,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_kappa15"
+     },
+     "notes": "Table 1 체적 완화시간 tau^kappa_15 (열 머리글 'τiκ (s)'). Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.03037,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 16,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_kappa16"
+     },
+     "notes": "Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1e-19,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 16,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_kappa16"
+     },
+     "notes": "Table 1 체적 완화시간 tau^kappa_16 (열 머리글 'τiκ (s)'). Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_bulk_modulus",
+     "value": 0.01677,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 17,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_kappa17"
+     },
+     "notes": "Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1e-21,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 17,
+      "prony_terms_total": 17,
+      "set_id": "chiu2015_bulk_17term",
+      "model": "generalized_maxwell",
+      "series": "volumetric",
+      "relaxation_mode": "volumetric (bulk)",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_kappa17"
+     },
+     "notes": "Table 1 체적 완화시간 tau^kappa_17 (열 머리글 'τiκ (s)'). Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.01195,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 1,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_mu1"
+     },
+     "notes": "Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1e+17,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 1,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_mu1"
+     },
+     "notes": "Table 2 전단 완화시간 tau^mu_1 (열 머리글 'τiμ (s)'). Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.00933,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 2,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_mu2"
+     },
+     "notes": "Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1000000000000000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 2,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_mu2"
+     },
+     "notes": "Table 2 전단 완화시간 tau^mu_2 (열 머리글 'τiμ (s)'). Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.01734,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 3,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_mu3"
+     },
+     "notes": "Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 10000000000000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 3,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_mu3"
+     },
+     "notes": "Table 2 전단 완화시간 tau^mu_3 (열 머리글 'τiμ (s)'). Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.00537,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 4,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_mu4"
+     },
+     "notes": "Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 100000000000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 4,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_mu4"
+     },
+     "notes": "Table 2 전단 완화시간 tau^mu_4 (열 머리글 'τiμ (s)'). Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.00287,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 5,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_mu5"
+     },
+     "notes": "Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1000000000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 5,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_mu5"
+     },
+     "notes": "Table 2 전단 완화시간 tau^mu_5 (열 머리글 'τiμ (s)'). Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.03466,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 6,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_mu6"
+     },
+     "notes": "Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 10000000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 6,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_mu6"
+     },
+     "notes": "Table 2 전단 완화시간 tau^mu_6 (열 머리글 'τiμ (s)'). Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.1945,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 7,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_mu7"
+     },
+     "notes": "Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 100000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 7,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_mu7"
+     },
+     "notes": "Table 2 전단 완화시간 tau^mu_7 (열 머리글 'τiμ (s)'). Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.27206,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 8,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_mu8"
+     },
+     "notes": "Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1000.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 8,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_mu8"
+     },
+     "notes": "Table 2 전단 완화시간 tau^mu_8 (열 머리글 'τiμ (s)'). Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.11137,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 9,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_mu9"
+     },
+     "notes": "Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 10.0,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 9,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_mu9"
+     },
+     "notes": "Table 2 전단 완화시간 tau^mu_9 (열 머리글 'τiμ (s)'). Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.05611,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 10,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_mu10"
+     },
+     "notes": "Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 0.1,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 10,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_mu10"
+     },
+     "notes": "Table 2 전단 완화시간 tau^mu_10 (열 머리글 'τiμ (s)'). Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.03779,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 11,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_mu11"
+     },
+     "notes": "Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 0.001,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 11,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_mu11"
+     },
+     "notes": "Table 2 전단 완화시간 tau^mu_11 (열 머리글 'τiμ (s)'). Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.02332,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 12,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_mu12"
+     },
+     "notes": "Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1e-05,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 12,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_mu12"
+     },
+     "notes": "Table 2 전단 완화시간 tau^mu_12 (열 머리글 'τiμ (s)'). Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.02072,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 13,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_mu13"
+     },
+     "notes": "Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1e-07,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 13,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_mu13"
+     },
+     "notes": "Table 2 전단 완화시간 tau^mu_13 (열 머리글 'τiμ (s)'). Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.01981,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 14,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_mu14"
+     },
+     "notes": "Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1e-09,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 14,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_mu14"
+     },
+     "notes": "Table 2 전단 완화시간 tau^mu_14 (열 머리글 'τiμ (s)'). Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.01986,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 15,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_mu15"
+     },
+     "notes": "Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1e-11,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 15,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_mu15"
+     },
+     "notes": "Table 2 전단 완화시간 tau^mu_15 (열 머리글 'τiμ (s)'). Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.02892,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 16,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_mu16"
+     },
+     "notes": "Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1e-13,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 16,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_mu16"
+     },
+     "notes": "Table 2 전단 완화시간 tau^mu_16 (열 머리글 'τiμ (s)'). Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.02698,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 17,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_mu17"
+     },
+     "notes": "Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1e-15,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 17,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_mu17"
+     },
+     "notes": "Table 2 전단 완화시간 tau^mu_17 (열 머리글 'τiμ (s)'). Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.01614,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 18,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_mu18"
+     },
+     "notes": "Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1e-17,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 18,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_mu18"
+     },
+     "notes": "Table 2 전단 완화시간 tau^mu_18 (열 머리글 'τiμ (s)'). Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.02442,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 19,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_mu19"
+     },
+     "notes": "Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1e-19,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 19,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_mu19"
+     },
+     "notes": "Table 2 전단 완화시간 tau^mu_19 (열 머리글 'τiμ (s)'). Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.01664,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 20,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_mu20"
+     },
+     "notes": "Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1e-21,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 20,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_mu20"
+     },
+     "notes": "Table 2 전단 완화시간 tau^mu_20 (열 머리글 'τiμ (s)'). Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relative_modulus",
+     "value": 0.03148,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 21,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "w_mu21"
+     },
+     "notes": "Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.prony_relaxation_time",
+     "value": 1e-23,
+     "unit": "s",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "term_index": 21,
+      "prony_terms_total": 21,
+      "set_id": "chiu2015_shear_21term",
+      "model": "generalized_maxwell",
+      "series": "shear",
+      "relaxation_mode": "shear",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "source_data": "tensile DMA (TA Q800) + torsional DMA (Anton Paar MCR-302) storage-modulus mastercurves, converted in the Laplace-Carson domain",
+      "term": "tau_mu21"
+     },
+     "notes": "Table 2 전단 완화시간 tau^mu_21 (열 머리글 'τiμ (s)'). Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.bulk_modulus",
+     "value": 14000000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "set_id": "chiu2015_bulk_17term",
+      "quantity": "glassy (instantaneous) bulk modulus kappa_g",
+      "basis": "Prony 급수의 곱셈 상수 — kappa(t) = kappa_g * (w_inf + sum w_i exp(-t/tau_i))",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15
+     },
+     "notes": "Table 1 우하단 인쇄값 `κg = 14 GPa`. Table 1 `Prony series constants for the bulk modulus (2), M = 17`, T_ref = 120 °C. 17개 w 합 = 0.96234 <= 1 (검산) — 남는 0.03766 가 평형 체적항이다. 표 우하단에 유리상 체적탄성률 `κg = 14 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.shear_modulus",
+     "value": 4800000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "set_id": "chiu2015_shear_21term",
+      "quantity": "glassy (instantaneous) shear modulus mu_g",
+      "basis": "Prony 급수의 곱셈 상수 — mu(t) = mu_g * (w_inf + sum w_i exp(-t/tau_i))",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15
+     },
+     "notes": "Table 2 우하단 인쇄값 `μg = 4.8 GPa`. Table 2 `Prony series constants for the shear modulus (3), N = 21`, T_ref = 120 °C. 21개 w 합 = 0.98164 <= 1 (검산) — 남는 0.01836 가 평형 전단항이다. 표 우하단에 유리상 전단탄성률 `μg = 4.8 GPa` 가 함께 인쇄돼 있다(따로 등록). Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.wlf_c1",
+     "value": 41.6,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "set_id": "chiu2015_wlf_above_tg",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "log_base": "log10",
+      "branch": "T > 120 C (rubbery side)",
+      "equation_verbatim": "log(aT) = -C1 (T - T0) / (C2 + (T - T0))",
+      "applies_to_sets": [
+       "chiu2015_bulk_17term",
+       "chiu2015_shear_21term"
+      ]
+     },
+     "notes": "Table 3 `Model parameters for the WLF shift function (15)`. **한 재료에 WLF 가 두 벌이다** — T_ref = 120 °C 를 공유하되 120 °C **위**는 (C1, C2) = (41.6, 148.6), **아래**는 (210, 1625) 다. 하나로 합치면 안 된다. 원문 식은 log(aT) = -C1(T-T0)/(C2+(T-T0)) 형태의 표준 WLF 다. Tg = 120 °C 라 분기점이 곧 유리전이다. Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.wlf_c2",
+     "value": 148.6,
+     "unit": "K",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "set_id": "chiu2015_wlf_above_tg",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "log_base": "log10",
+      "branch": "T > 120 C (rubbery side)",
+      "equation_verbatim": "log(aT) = -C1 (T - T0) / (C2 + (T - T0))",
+      "applies_to_sets": [
+       "chiu2015_bulk_17term",
+       "chiu2015_shear_21term"
+      ]
+     },
+     "notes": "Table 3 `Model parameters for the WLF shift function (15)`. **한 재료에 WLF 가 두 벌이다** — T_ref = 120 °C 를 공유하되 120 °C **위**는 (C1, C2) = (41.6, 148.6), **아래**는 (210, 1625) 다. 하나로 합치면 안 된다. 원문 식은 log(aT) = -C1(T-T0)/(C2+(T-T0)) 형태의 표준 WLF 다. Tg = 120 °C 라 분기점이 곧 유리전이다. Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.wlf_c1",
+     "value": 210.0,
+     "unit": "1",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "set_id": "chiu2015_wlf_below_tg",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "log_base": "log10",
+      "branch": "T < 120 C (glassy side)",
+      "equation_verbatim": "log(aT) = -C1 (T - T0) / (C2 + (T - T0))",
+      "applies_to_sets": [
+       "chiu2015_bulk_17term",
+       "chiu2015_shear_21term"
+      ]
+     },
+     "notes": "Table 3 `Model parameters for the WLF shift function (15)`. **한 재료에 WLF 가 두 벌이다** — T_ref = 120 °C 를 공유하되 120 °C **위**는 (C1, C2) = (41.6, 148.6), **아래**는 (210, 1625) 다. 하나로 합치면 안 된다. 원문 식은 log(aT) = -C1(T-T0)/(C2+(T-T0)) 형태의 표준 WLF 다. Tg = 120 °C 라 분기점이 곧 유리전이다. Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    },
+    {
+     "key": "mechanical.wlf_c2",
+     "value": 1625.0,
+     "unit": "K",
+     "method": "computed",
+     "tier": 1,
+     "conditions": {
+      "set_id": "chiu2015_wlf_below_tg",
+      "reference_temperature_c": 120.0,
+      "reference_temperature_k": 393.15,
+      "log_base": "log10",
+      "branch": "T < 120 C (glassy side)",
+      "equation_verbatim": "log(aT) = -C1 (T - T0) / (C2 + (T - T0))",
+      "applies_to_sets": [
+       "chiu2015_bulk_17term",
+       "chiu2015_shear_21term"
+      ]
+     },
+     "notes": "Table 3 `Model parameters for the WLF shift function (15)`. **한 재료에 WLF 가 두 벌이다** — T_ref = 120 °C 를 공유하되 120 °C **위**는 (C1, C2) = (41.6, 148.6), **아래**는 (210, 1625) 다. 하나로 합치면 안 된다. 원문 식은 log(aT) = -C1(T-T0)/(C2+(T-T0)) 형태의 표준 WLF 다. Tg = 120 °C 라 분기점이 곧 유리전이다. Chiu 2015 는 인장 DMA(Young 저장탄성률)와 비틀림 DMA(전단 저장탄성률)를 각각 재고, Laplace-Carson 영역에서 탄성-점탄성 대응원리로 체적·전단 완화계수를 따로 만들었다 — **체적 항수(17)와 전단 항수(21)가 다른 것은 오기가 아니라 이 절차의 결과다.** 재료는 논문이 등급명을 밝히지 않은 상용 EMC(퓨즈드 실리카 70 wt%), DMA·TMA 로 잰 Tg = 120 °C. Prony 적합값이므로 method=computed, 표에 인쇄된 값이므로 tier1."
+    }
+   ]
+  }
+ ]
+}
