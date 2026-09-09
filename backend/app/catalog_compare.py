@@ -1,6 +1,8 @@
 # 재료 간 물성 비교 코어 — 대표값 정렬 매트릭스(도메인·물성별, 프로비넌스 포함). 웹 /compare·MCP 공용.
 from __future__ import annotations
 
+import re as _re_mode
+
 from collections import defaultdict
 
 from sqlalchemy import select
@@ -135,8 +137,52 @@ def _condition_axis_count(cond) -> int:
                if not (k.endswith("_before_correction") or k in _NOT_A_CONDITION))
 
 
+# 물성 키가 요구하는 시험모드와 그 행이 실제로 잰 모드가 다를 수 있다.
+# `mechanical.youngs_modulus` 는 **인장** 탄성률인데, 벤더 시트가 `Young's Modulus`
+# 라는 이름의 행을 ASTM D790(3점굽힘)으로 재는 일이 흔하다 — 68차 DC·69차 EA·71차 GB·
+# 72차 HB·HC 가 각각 독립으로 만났고, 72차 HB 가 라이브 142행·재료 32종으로 셌다.
+#
+# **왜 순위에 넣는가.** 넣기 전에는 이 축이 아예 없어서, 같은 등급·같은 조건수면
+# `pv.id` 로 갈렸다 — 즉 **먼저 들어온 행이 이겼다**. 실측: 재료 233 은 진짜 인장값
+# (ASTM D3039, t1, 13.50 GPa)이 DB 에 있는데도 굽힘 행(19.00 GPa)이 앞 파동에 먼저
+# 들어왔다는 이유로 DYNA 카드 대표가 됐다 — **40.7% 과대**. 재료 232 도 같다.
+#
+# **순서는 인장 > 미표기 > 굽힘 이다.** 미표기를 가운데 두는 것이 핵심이다 —
+# 굽힘을 맨 아래 두면 「표시할수록 밀린다」가 되어 오염을 숨기는 쪽이 이득이 되고,
+# 인장을 맨 위에 두면 「표시할수록 이긴다」가 되어 정직한 표기가 보상받는다.
+# 72차 HB 의 지적이 그것이다 — *"오염을 표시할수록 대표에서 밀리고 지울수록 대표가 된다."*
+_MODE_KEY_EXPECTS = {"mechanical.youngs_modulus": "tensile",
+                     "mechanical.tensile_strength": "tensile",
+                     "mechanical.flexural_modulus": "flexural",
+                     "mechanical.flexural_strength": "flexural"}
+_FLEX_RX = _re_mode.compile(r"D\s?790|C\s?6481|K\s?7171|ISO\s?178|TM-650\s*2\.4\.4"
+                            r"|flexur|bending|3-?point|three-?point|굽힘|曲げ|彎曲", _re_mode.I)
+_TENS_RX = _re_mode.compile(r"D\s?3039|D\s?638|D\s?882|E\s?111|K\s?7161|K\s?7113|ISO\s?527"
+                            r"|tensil|인장|引張|引っ張|拉伸", _re_mode.I)
+
+
+def _mode_rank(pv) -> int:
+    """0 = 키가 요구하는 모드로 쟀다 · 1 = 원문이 모드를 안 밝혔다 · 2 = 다른 모드로 쟀다."""
+    want = _MODE_KEY_EXPECTS.get(pv.property_key or "")
+    if not want:
+        return 1
+    cond = pv.conditions if isinstance(pv.conditions, dict) else {}
+    # **시험을 식별하는 칸만 본다.** 조건 전 칸을 훑으면 곁말에 걸린다 — 실측: 재료 77 의
+    # 3점굽힘 행이 `"air side always used as the tensile side"` 때문에 인장으로도 잡혀
+    # 판단 보류가 됐다. 그 행은 `strength_property` 가 `modulus of rupture from
+    # three-point bending` 이라 좁힌 창에서는 정확히 굽힘으로 잡힌다.
+    blob = " ".join(str(cond.get(k, "")) for k in
+                    ("test_standard", "test_method", "test", "test_mode", "test_geometry",
+                     "strength_property", "method_detail", "test_condition", "loading_mode"))
+    is_flex, is_tens = bool(_FLEX_RX.search(blob)), bool(_TENS_RX.search(blob))
+    if is_flex == is_tens:            # 둘 다이거나 둘 다 아니면 판단 보류
+        return 1
+    got = "flexural" if is_flex else "tensile"
+    return 0 if got == want else 2
+
+
 def _rep_rank(pv: PropertyValue) -> tuple:
-    """대표값 우선순위: 고체 우선 → 신뢰등급↑ → 수치 보유 → **지배 조건에 가까움** → 조건 적음 → id.
+    """대표값 우선순위: 고체 우선 → 신뢰등급↑ → 수치 보유 → **시험모드 일치** → 지배 조건에 가까움 → 조건 적음 → id.
 
     지배 조건은 물성마다 다르다. 광학은 파장, 그 외는 온도(상온)를 본다.
 
@@ -150,6 +196,7 @@ def _rep_rank(pv: PropertyValue) -> tuple:
                else _temp_distance(pv.conditions))
     return (1 if is_non_solid(pv.conditions) else 0,
             pv.quality_tier or 9, 0 if pv.value_num is not None else 1,
+            _mode_rank(pv),
             primary, _condition_axis_count(pv.conditions), pv.id)
 
 

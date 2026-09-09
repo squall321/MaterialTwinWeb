@@ -23,7 +23,8 @@ def _pv(pid, key="mechanical.youngs_modulus", tier=1, value=1.0,
 def test_rank_order_is_solid_tier_numeric_primary_condcount_id():
     """순위 튜플의 자리와 뜻이 바뀌지 않았는지."""
     r = CC._rep_rank(_pv(7, tier=2, cond={"temperature_C": 23.0}))
-    assert r == (0, 2, 0, 0.0, 1, 7)
+    # 72차 HB 가 3번 자리에 `test_mode` 를 끼웠다 — 모드 개념이 없는 키는 1(중립).
+    assert r == (0, 2, 0, 1, 0.0, 1, 7)
 
 
 def test_non_solid_loses_to_solid():

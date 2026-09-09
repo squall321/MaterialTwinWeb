@@ -21,7 +21,10 @@ from app.models import PropertyValue
 
 # `_rep_rank` 튜플의 자리 이름. 두 후보의 순위가 처음 갈리는 자리가 곧 "왜 졌는가" 다.
 # 3번 자리(지배조건)는 물성에 따라 파장이므로 호출부에서 갈라 적는다.
-_RANK_CODES = ("state", "tier", "numeric", "temperature", "n_conditions", "load_order")
+# 72차 HB — 순위에 `test_mode` 자리가 3번으로 끼었다. 이름표도 같이 밀어야
+# `separated_by` 가 엉뚱한 이유를 댄다(자리 이름은 순위 튜플과 1:1 이어야 한다).
+_RANK_CODES = ("state", "tier", "numeric", "test_mode", "temperature",
+               "n_conditions", "load_order")
 
 # 한 키에 여러 항이 사는 물성(Prony·Anand·Garofalo…)의 항 구분 조건.
 # 이런 키는 **대표값 자체가 뜻이 없다** — "동률로 임의 선택" 이 아니라 "항이 여럿" 이다(§545).
@@ -85,7 +88,7 @@ def separated_by(rep, alt) -> str:
     ra, rb = _rep_rank(rep), _rep_rank(alt)
     for i, (x, y) in enumerate(zip(ra, rb)):
         if x != y:
-            if i == 3 and str(getattr(rep, "property_key", "") or "").startswith("optical."):
+            if i == 4 and str(getattr(rep, "property_key", "") or "").startswith("optical."):
                 return "wavelength"
             return _RANK_CODES[i]
     return "load_order"
