@@ -1,0 +1,144 @@
+{
+ "batch": "71차 GD",
+ "note": "값이 아니라 **판정**이다. 문을 연 뒤 닫힌 것을 기록한다 — 다음 배치가 같은 문을 다시 두드리지 않게.",
+ "verdicts": [
+  {
+   "id": "gd71-v1",
+   "question": "IPC-4101 규격 본문 또는 슬래시시트가 라미네이트 **밀도(density / specific gravity)** 를 규정하는가?",
+   "why_it_matters": "70차 FA 가 CCL 32장을 세우며 밀도 19장을 비웠고, 각 카드 attributes 에 슬래시시트 번호(42 · 44 · 128,130 · N/A(S-glass))와 시트 클래스(FR-4 · CEM-3 · FR-4.0)를 넣어 두면서 「IPC-4101 본문이 시트별 밀도를 규정하면 t2 로 19칸이 한 번에 닫힌다」고 남겼다. 이 배치의 핵심 물음이다.",
+   "verdict": "NO — IPC-4101 은 어느 개정판에서도 밀도를 요구사항으로 규정하지 않는다. **이 문은 닫혔다.**",
+   "confidence": "high",
+   "evidence": [
+    {
+     "layer": "규격 목차 (4개 개정판)",
+     "what": "1997 원판 · C · D · E(2017) 네 판의 목차 전부에서 `density`·`gravity` 적중 0. §3.9.1 Physical Requirements of Laminate Materials 는 C/D/E 에서 여덟 항목으로 고정돼 있다 — 3.9.1.1 Peel Strength · 3.9.1.2 Dimensional Stability · 3.9.1.3 Flexural Strength · 3.9.1.4 Flexural Strength at Elevated Temperature · 3.9.1.5 Thermal Conductivity · 3.9.1.6 CTE · 3.9.1.7 Z-Axis CTE/Total Expansion · 3.9.1.8 Fracture Toughness. §3.8.4 Dimensional 은 Length/Width · Thickness · Bow and Twist 뿐이다. 1997 원판의 Table 1~10 도 cladding type · foil weight · 길이폭 허용차 · 시험빈도 · 두께허용차 · bow and twist · 샘플링뿐이고 밀도 표가 없다.",
+     "local_path": [
+      "/data/paper_patent_corpus/standards_appnotes/pcb/IPC_IPC-4101E_TableOfContents_2017.pdf",
+      "/data/paper_patent_corpus/standards_appnotes/pcb/IPC-4101_1997_BaseMaterials_Rigid_Multilayer_Spec.pdf"
+     ],
+     "url": ["https://www.electronics.org/TOC/TOC-IPC-4101E.pdf", "https://www.ipc.org/TOC/IPC-4101C.pdf", "https://www.electronics.org/TOC/IPC-4101D.pdf", "https://www.professionalplastics.com/professionalplastics/IPC-4101spec1997.pdf"],
+     "note": "68차 DC 가 §3.9.1 여덟 항목에 탄성률이 없음을 확인했으나 **밀도는 확인하지 않았다.** 이 배치가 그 자리를 메웠다."
+    },
+    {
+     "layer": "IPC 자체 인증시험 보고서 (슬래시시트가 요구하는 물성을 전수로 나열한다)",
+     "what": "IPC Validation Services 의 `TEST REPORT (Self-Tested Data)` 두 건 — Arlon 85HP(`SPECIFICATION: IPC-4101/40`, `IPC-4101E/41` 인용, 2021-05-20)와 Ventec Electronics Suzhou(`SPECIFICATION: IPC-4101/41`, `IPC-4101D/41` 인용, 2022-11-17). 두 문서의 `SUMMARIZED TEST RESULTS` 항목이 **완전히 같다**: Peel Strength · Volume Resistivity · Surface Resistivity · Moisture Absorption · Dielectric Breakdown · Permittivity @1MHz · Loss Tangent @1MHz · Flexural Strength · Arc Resistance · Thermal Stress · Electric Strength · Flammability · Glass Transition Temperature · Decomposition Temperature · Z-Axis CTE · Time to Delamination · Dimensional Stability · Solderability · Chemical Resistance · Metal Surface Cleanability · Pressure Cooker Test. **밀도 없음 · 비중 없음** (두 보고서 전문 grep 적중 0).",
+     "url": ["https://www.electronics.org/media/7757/download", "https://www.electronics.org/media/7747/download"]
+    },
+    {
+     "layer": "슬래시시트 요구표를 IPC 참조 문단번호까지 그대로 옮긴 벤더 시트 (결정적)",
+     "what": "Technolam/Nan Ya 세 시트가 `Specification | Property | Test Method (IPC-TM-650) | Ref. Para.` 네 열의 IPC-4101 준수표 형식이다. 번호가 매겨진 IPC 요구 행은 정확히 18개고 각각 실제 Ref. Para.(3.9.1.1 · 3.11.1.3 · 3.9.1.7 …)를 갖는다 — 1.Peel Strength 2.Volume Resistivity 3.Surface Resistivity 4.Moisture Absorption 5.Dielectric Breakdown 6.Permittivity@1MHz 7.Loss Tangent@1MHz 8.Flexural Strength 9.Flexural Strength at Elevated Temp 10.Arc Resistance 11.Thermal Stress 12.Electric Strength 13.Flammability 14.Tg 15.Td 16.Z-Axis CTE 17.Time to Delamination 18.CAF Resistance. **밀도는 구분선 아래 `19. Other` 에만 나오고 규격값도 시험법도 Ref. Para. 도 전부 `-` 다.** verbatim(/126): `Density (50 % resin content)  Dichte 50 % Harzgehalt  -  2,10  -  2,10  g/cm³  -  -`. 즉 밀도는 **벤더가 덤으로 붙인 값**이지 IPC 요구가 아니다. Young's Modulus · Specific Heat 도 같은 `19. Other` 칸에 있다.",
+     "local_path": [
+      "/data/paper_patent_corpus/standards_appnotes/pcb/Technolam_NanYa_NP-175FTL-NP-175FR-NP-175FB_Datasheet_2021-01.pdf",
+      "/data/paper_patent_corpus/standards_appnotes/pcb/Technolam_NanYa_NPG-150N-NPG-150NB_Datasheet_2019-02.pdf",
+      "/data/paper_patent_corpus/standards_appnotes/pcb/Technolam_NanYa_UV-Block-FR-4-86_Datasheet_2019-02.pdf"
+     ],
+     "slash_sheets_covered": ["IPC-4101/126", "IPC-4101/128", "IPC-4101/21"]
+    },
+    {
+     "layer": "IPC-TM-650 2.3.5 는 존재하지만 IPC-4101 이 부르지 않는다",
+     "what": "`2.3.5 — Density, Insulating Material, Rev B, 8/97` 시험법은 실재한다(물치환법). 그런데 그 문서의 §2.0 이 `Applicable Document  None` 이고, 로컬 PCB 코퍼스 212개 PDF 와 네 판 목차 전부에서 `2.3.5` 적중 0 이다. **시험법은 있는데 IPC-4101 이 그것을 요구사항으로 호출하지 않는다.**",
+     "url": ["https://www.electronics.org/sites/default/files/test_methods_docs/2.3.5b.pdf"]
+    }
+   ],
+   "caveat": "IPC 가 유료로 파는 공식 슬래시시트 페이지 자체는 열지 못했다(shop.ipc.org 유료). 판정 근거는 ① IPC 자신의 /40·/41 인증시험 보고서 두 건과 ② 문단번호가 붙은 /21·/126·/128 요구표 재현 세 건이다. 둘은 서로 독립인데 물성 집합이 정확히 일치하고 양쪽 다 밀도를 제외한다.",
+   "consequence": "70차 FA 가 남긴 **밀도 19칸은 IPC-4101 로 닫히지 않는다.** 71차 GD 가 세운 카드 33장의 밀도까지 더하면 이 계열의 밀도 빈칸은 **52칸**이다. 밀도는 규격이 아니라 **벤더 TDS 층**에서 와야 한다 — 실제로 밀도를 찍는 벤더들은 IPC 가 아니라 `ASTM D792` 나 `Internal Method` 를 시험법으로 적는다(Nan Ya NP-730 `Density (Specific Gravity) | g/cm | 2.1 | 2.05~2.15 | ASTM D792`, Shengyi SCGA-500 `Density | ASTM D792 | g/cm3 | 2.25`, Park/Nelco N4000-6·N4000-13 `Density [50% resin content] ... Internal Method`).",
+   "do_not_retry": "IPC-4101 본문·슬래시시트로 밀도를 닫으려는 시도. 네 판 목차 · IPC 인증보고서 2건 · 문단번호 붙은 요구표 3건 · TM-650 2.3.5 까지 네 층을 팠고 전부 같은 답이다."
+  },
+  {
+   "id": "gd71-v2",
+   "question": "MGC 가 `CCL-EL190T` / `CCL-EL230T` 의 **적층판 밀도**를 어디엔가 인쇄하는가?",
+   "why_it_matters": "70차 FA 가 이 두 장을 밀도 하나 때문에 「못 선 카드」로 남겼다. 표에 있는 것은 `樹脂比重 1.44 / 1.42`(무차원 수지 비중)뿐이고 FA 는 x1000 해서 쓰는 것을 역산이라 거부했다 — 맞는 판단이었다.",
+   "verdict": "NO — MGC 는 이 두 등급의 적층판 밀도를 어느 언어판에도 인쇄하지 않고, 별도 데이터시트/PDF 도 존재하지 않는다. **이 문도 닫혔다.**",
+   "confidence": "high",
+   "evidence": [
+    {
+     "what": "영문판 `https://www.mgc.co.jp/eng/products/sc/btprint/lineup/fr4.html` 를 HTTP 200 으로 전문(37,431 byte) 받아 행 단위로 팠다. 물성 행 35개이고 `densit*|g/cm|kg/m3|密度` 적중 **0**. 질량 관련 행은 오직 verbatim `Specific Gravity of Resin |  | A | －  | 1.44 | 1.42` 하나이고 **단위 칸이 `－`(무차원)** 이며 이름에 `of Resin` 이 박혀 있다 — 일본어 `樹脂比重` 과 같은 행이다. **언어판 차이가 아니다.**",
+     "url": "https://www.mgc.co.jp/eng/products/sc/btprint/lineup/fr4.html"
+    },
+    {
+     "what": "영문판 물성 행 전수(부재를 추정이 아니라 기록으로 남긴다): Dielectric Constant(1MHz/1GHz/10GHz) · Dissipation Factor(1MHz/1GHz/10GHz) · Insulation Resistance · Surface Resistance · Volume Resistivity · Flexural Strength(Warp/Fill) · Flexural Modulus(Warp/Fill) · Tensile Strength(Warp/Fill) · Young's Modulus(Warp/Fill) · Poisson's Ratio(Warp/Fill) · Glass Transition Temp.(DMA/TMA/DSC) · CTE(Warp,Fill / Z α1,α2) · Thermal Conductivity · Specific Heat · Decomposition Temp. · Time to Delamination(T-260/T-288/T-300) · Peel Strength(12μ/18μ/18μ-VLP) · **Specific Gravity of Resin** · Flame Resistance(UL94). 적층판 밀도 · 비중 · 평량 · 유리포 밀도 어느 것도 없다."
+    },
+    {
+     "what": "반례 확인 — 같은 MGC 가 형제 페이지에는 적층판 밀도를 찍는다. `https://www.mgc.co.jp/eng/products/sc/btprint/lineup/hfbt.html` 에 verbatim `Density |  |  | g/cm3 | 2.1 | 1.9 | 1.9 | 2.0` 등 세 행이 살아 있다. 즉 FR-4 페이지의 부재는 **MGC 가 제품군별로 공개 항목을 달리 하는 것**이지 언어판 아티팩트가 아니다.",
+     "sanity_check": "BT 적층판이 1.8~2.1 g/cm3 인데 FR-4 **수지만**의 비중이 1.42~1.44 다. 두 수가 다른 양이라는 것을 벤더 자신의 표가 보여 준다 — 1.44 x 1000 을 적층판 밀도로 쓰면 유리포 보강분을 통째로 잃는다."
+    },
+    {
+     "what": "별도 문서 부재 — MGC PWB 재료 사이트 트리 `/products/sc/btprint/` 와 `/eng/products/sc/btprint/` 아래에 lineup 페이지 셋(fr4/hfbt/led)과 index·면책 페이지뿐이고 PDF·카탈로그·技術資料 링크가 하나도 없다. 로컬 코퍼스의 MGC 파일 3개와 정확히 일치한다 — 더 받을 것이 없다. 구 경로 `http://www.mgc.co.jp/seihin/h/btprint/lineup/fr4.html` 는 404, MGC 상하이 `mgc-sh.com` 은 403/ECONNREFUSED. 웹검색 5회(`CCL-EL190T 密度 g/cm3`, `\"CCL-EL190T\" datasheet pdf laminate density`, `\"GEPL-190T\" OR \"GEPL-230T\" 密度 比重`, `\"EL190T\" density g/cm3`, `site:mgc.co.jp EL190T OR EL230T pdf`)에서도 밀도를 담은 MGC 문서가 나오지 않았다. 유통사 미러(hibex.com.sg)도 같은 표를 그대로 옮기고 `Specific Gravity of Resin` 만 있다."
+    }
+   ],
+   "consequence": "재료 2724 `MGC CCL-EL190T` · 2725 `MGC CCL-EL230T` 의 밀도는 비워 둔다. FA 가 넣어 둔 `attributes.density_absent_reason` 이 여전히 유효하고, 이 판정이 「다른 MGC 문서를 열면 닫힌다」는 FA 의 기대까지 닫는다.",
+   "do_not_retry": "MGC 사이트에서 EL190T/EL230T 밀도 찾기. 일본어판·영문판·사이트트리·구경로·상하이법인·유통사미러·웹검색 5회를 다 팠다."
+  },
+  {
+   "id": "gd71-v3",
+   "question": "Sumitomo Bakelite LαZ 계열 세 페이지에 밀도·포아송비·비열·인장강도 행이 있는가?",
+   "verdict": "NO — 세 페이지 전부 네 물성의 **행 자체가 없다.**",
+   "confidence": "high",
+   "evidence": [
+    {
+     "what": "HTML 전문 토큰 검사(파일 3개 각각): `比重` 0회 · `ポアソン` 0회 · `ポアッソン` 0회 · `比熱` 0회 · `引張強さ` 0회 · `引っ張り強` 0회 · `引張強度` 0회. `密度` 는 적중하지만 전부 산문이다 — `高密度パッケージ基板材料“LαZ®”`(제품군 이름)와 `高密度実装化`(본문). **물성값으로서의 밀도 행이 없다.**",
+     "local_path": [
+      "/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_LAZ-4785_PackageCore_Spec_ja_2026-09-09.html",
+      "/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_LAZ-6785_Prepreg_Spec_ja_2026-09-09.html",
+      "/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_LAZ-7752_SolderResistAlt_Spec_ja_2026-09-09.html"
+     ]
+    },
+    {
+     "what": "표를 `<tr>`/`<td>` 로 직접 파싱한 결과 LAZ-4785 표는 18행뿐이다 — 特長 · 最薄/最厚厚み · ガラスクロス番手(Type/#) · 厚み公称 · Tg(DMA) · CTE-1 xy/z · 弾性率(30/260 ℃) · Dk · Df · ピール強度 · 吸水率 · 熱伝導率. 프리프레그 표 14행, SR 표 13행도 같은 구성이다."
+    }
+   ],
+   "consequence": "이 배치가 세운 LAZ 13장은 밀도·포아송비·비열·인장강도가 비어 있다(52칸 중 52칸). 70차 FA 가 같은 벤더의 ELC 6등급에서 얻은 결론(「Sumitomo 의 열축은 熱伝導率 와 Tg 다」)이 LαZ 계열에서도 그대로다.",
+   "do_not_retry": "이 세 페이지에서 밀도·포아송비·비열·인장강도 찾기. 벤더의 다른 층(SDS · 카탈로그 PDF · 영문판)은 아직 안 팠다."
+  },
+  {
+   "id": "gd71-v4",
+   "question": "Resonac MCL 총합 카탈로그의 PDF 6·7·8쪽에 밀도·포아송비·비열·인장강도 행이 있는가?",
+   "verdict": "NO — 세 쪽 다 없다. 70차 FA 가 66쪽 전수 grep 으로 내린 판정을 이 배치가 350 dpi 렌더로 세 쪽에서 재확인했다.",
+   "confidence": "high",
+   "evidence": [
+    {
+     "what": "세 쪽의 행 구성이 완전히 같다 — 厚み · ガラスクロス · Dk(1/10 GHz) · Df(1/10 GHz) · ピール強度(12/18 μm) · 弾性率(引張モード)X · 弾性率(曲げモード)X · Tg(TMA/DMA) · CTE x/y(<Tg) · CTE z(<Tg/>Tg/DIC) · 熱伝導率 · Slash sheet No.(IPC-4101). **Resonac 의 기계축은 `弾性率` 두 행뿐이고 강도 행이 아예 없다.**",
+     "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Resonac_MCL_CopperCladLaminates_Catalog_ja_2023-2024.pdf",
+     "pages": "PDF 6·7·8쪽 (인쇄 7·8·9쪽)"
+    }
+   ],
+   "consequence": "이 배치가 세운 Resonac 20장도 밀도·포아송비·비열·인장강도가 비어 있다(80칸)."
+  },
+  {
+   "id": "gd71-v5",
+   "question": "Sumitomo LαZ 표의 `弾性率` 는 인장인가 굽힘인가?",
+   "verdict": "확정 불가 — **t3 로 담았다.** 승격 판정을 다음 배치에 넘긴다.",
+   "confidence": "medium",
+   "evidence": [
+    {
+     "for_unconfirmed": "① 행 이름이 `弾性率` 뿐이고 인장/굽힘 표기가 전혀 없다. ② 같은 표의 CTE 행은 `TMA(引張モード)` 로 모드를 박아 둔다 — 이 벤더는 적을 때는 적는다. ③ 같은 벤더의 스미라이트 ELC 표(70차 FA 가 담은 6등급)는 `曲げ弾性率` 와 `引っ張り弾性率` 를 **행 이름으로** 가르고 값도 다르다(ELC-4970 굽힘 タテ18/ヨコ16 vs 인장 タテ14/ヨコ12). ④ 세 페이지 전문에 시험규격 번호가 하나도 없다(`JIS` 0회 · `ASTM` 0회 · `IPC` 0회)."
+    },
+    {
+     "for_tensile": "온도별(30/260 ℃) 탄성률을 찍는 표라는 사실 자체가 승온 측정을 뜻하고, 승온 측정은 보통 DMA 또는 오븐 인장이다. 다만 **문서가 그것을 말하지 않으므로 이 배치는 그 추론으로 등급을 올리지 않았다.**"
+    }
+   ],
+   "action_taken": "26행(13등급 x 30/260 ℃)을 `mechanical.youngs_modulus` t3 로, `conditions.test_mode=\"unconfirmed\"` · `grade_scope` 에 사유를 적어 넣었다. `youngs_modulus_at_rate` 는 쓰지 않았다 — 그것은 율속 축이고 이것은 온도 축이다.",
+   "handover": "70차 FA 가 MGC BT 13등급을 같은 사유로 t3 에 둔 것과 같은 자리다. 두 건을 한 번에 판정하면 39칸이 움직인다."
+  },
+  {
+   "id": "gd71-v6",
+   "question": "Resonac 총합표의 CTE 행 이름 `(圧縮)` 과 칸 각주 `*5: 引張` 가 충돌한다 — 어느 쪽을 따랐는가?",
+   "verdict": "**각주를 따랐다.** 각주는 칸 단위로 걸리고 행 이름은 행 전체의 기본값이므로, 각주가 붙은 칸은 각주가 이긴다.",
+   "confidence": "medium",
+   "evidence": [
+    {
+     "what": "PDF 7쪽은 CTE x/y 여덟 칸 **전부**에 `*5` 가 붙는다(6-8*5 · 13-15*5 · …). PDF 6쪽은 GEA-705G · GEA-770G · MCL-HS200 · MCL-HS200(D) · MCL-HS100 다섯 칸에만 붙고 MCL-E-679FG 두 칸에는 없다. PDF 8쪽은 TD-002 한 칸에만 붙는다. **각주가 칸마다 다르게 걸린다는 것 자체가 각주가 칸 단위라는 증거다** — 행 전체가 引張이면 행 이름을 바꿨을 것이다."
+    },
+    {
+     "what": "70차 FA 도 같은 카탈로그 PDF 5쪽에서 `*5` 부재를 근거로 `test_mode: compression (圧縮)` 을 썼다. 이 배치는 그 규칙의 반대 방향(각주 있음 → 引張)을 적용했을 뿐 규칙이 같다."
+    }
+   ],
+   "action_taken": "`*5` 가 붙은 칸은 `conditions.test_mode = \"tensile (引張, 각주 *5)\"`, 안 붙은 칸은 `\"compression (圧縮)\"`. 두 경우 다 원문 표기 충돌 사실을 해당 행 notes 에 verbatim 으로 남겼다."
+  }
+ ],
+ "leads_for_next_batch": {
+  "density_is_a_vendor_tds_problem_not_a_standard_problem": "밀도를 실제로 찍는 로컬 PCB 시트가 20개 있고 전부 IPC 가 아니라 ASTM D792 / Internal Method / 무표기를 쓴다. 그중 **아직 DB 에 카드가 없는 것**을 확인했다(라이브 DB 이름 조회): Nan Ya `NPG-150N/NB`(2,00 g/cm³) · `NPG-170TL/R/B` · `NPG-170DTL/DR/DB` · `NPG-180BH/BHB` · `UV Block FR-4-86`(1,92 g/cm³) · `NP-730`(`Density (Specific Gravity) | g/cm | 2.1 | 2.05~2.15 | ASTM D792`) · `NP-822` · `NP-826` · Shengyi `SCGA-500 GF255`(`Density | ASTM D792 | g/cm3 | 2.25`) · Rogers `RO3006`. 반대로 NP-175FR/FTL · Panasonic R-1755 계열 · Rogers RO4003C/RO4350B/RO3003/RO4835/CLTE 계열은 **이미 DB 에 밀도가 있다**(각 1~3행).",
+  "resonac_individual_product_pages": "총합표 세 쪽(6·7·8)을 다 담았다. 카탈로그의 나머지(PDF 9~41쪽)는 등급별 개별 제품 쪽이고 `弾性率` 행이 있으나 **총합표와 같은 등급을 다시 찍는 쪽**이 대부분이다. 새 등급이 아니라 같은 등급의 상세 조건(시편·처리)이 붙을 수 있다.",
+  "sumitomo_other_layers": "LαZ 세 페이지에 밀도가 없다는 것은 확인했다. 아직 안 판 층 — Sumitomo Bakelite 의 영문 사이트 · 제품 카탈로그 PDF · SDS. 68차 DA 가 Isola 에서 SDS 층을 팠을 때 `Not Available for product` 를 만난 선례가 있으니 기대치는 낮게 잡아라."
+ }
+}
