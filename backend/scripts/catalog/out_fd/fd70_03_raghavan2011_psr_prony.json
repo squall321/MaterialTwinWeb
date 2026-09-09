@@ -1,452 +1,452 @@
 {
- "batch": "70차 FD",
- "materials": [
-  {
-   "new_material": {
-    "name": "Photosensitive solder resist (PSR) dielectric, epoxy-based, UV 40 mW/cm2 5-7 min + 170 C / 30 min full cure, Tg 115 C (Raghavan 2011)",
-    "category": "polymer",
-    "attributes": {
-     "role": "evidence",
-     "role_reason": "원문이 제조사·등급을 밝히지 않고 'epoxy-based dielectric material' 라고만 부른다. 공정(UV 노광 + 170 C/30 min)만 특정된다",
-     "role_confidence": "medium",
-     "material_class": "photoimageable solder resist (PSR) dielectric",
-     "subsystem": "pcb",
-     "subsystem_basis": "FR4 코어 위 30 um 솔더레지스트층이다.",
-     "process": "UV exposure 40 mW/cm^2 for 5-7 min, then oven cure 170 C / 30 min (full cure confirmed by DSC exotherm disappearance and DMA Tg saturation)"
+  "batch": "70차 FD",
+  "materials": [
+    {
+      "new_material": {
+        "name": "Photosensitive solder resist (PSR) dielectric, epoxy-based, UV 40 mW/cm2 5-7 min + 170 C / 30 min full cure, Tg 115 C (Raghavan 2011)",
+        "category": "polymer",
+        "attributes": {
+          "role": "evidence",
+          "role_reason": "원문이 제조사·등급을 밝히지 않고 'epoxy-based dielectric material' 라고만 부른다. 공정(UV 노광 + 170 C/30 min)만 특정된다",
+          "role_confidence": "medium",
+          "material_class": "photoimageable solder resist (PSR) dielectric",
+          "subsystem": "pcb",
+          "subsystem_basis": "FR4 코어 위 30 um 솔더레지스트층이다.",
+          "process": "UV exposure 40 mW/cm^2 for 5-7 min, then oven cure 170 C / 30 min (full cure confirmed by DSC exotherm disappearance and DMA Tg saturation)"
+        }
+      },
+      "source": {
+        "kind": "journal",
+        "title": "Methodology to Predict Substrate Warpage and Different Techniques to Achieve Substrate Warpage Targets",
+        "authors": "Vijay Raghavan et al.",
+        "year": 2011,
+        "publisher": "IEEE Transactions on Components, Packaging and Manufacturing Technology, vol. 1, no. 7, pp. 1064-1071",
+        "doi": "10.1109/tcpmt.2010.2101074",
+        "url": null,
+        "local_path": "/data/paper_patent_corpus/expert_papers/06_pcb/Raghavan - 2011 - Methodology to Predict Substrate Warpage and Different Techniques to Achieve Substrate Warpage Targets.pdf"
+      },
+      "properties": [
+        {
+          "key": "mechanical.prony_relative_modulus",
+          "value": 0.09,
+          "unit": "1",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 1,
+            "prony_terms_total": 10,
+            "set_id": "raghavan2011_psr_shear_10term",
+            "model": "generalized_maxwell",
+            "series": "shear",
+            "relaxation_mode": "shear",
+            "reference_temperature_c": 110.0,
+            "reference_temperature_k": 383.15,
+            "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
+            "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
+            "term": "g1"
+          },
+          "notes": "Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relaxation_time",
+          "value": 1e-10,
+          "unit": "s",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 1,
+            "prony_terms_total": 10,
+            "set_id": "raghavan2011_psr_shear_10term",
+            "model": "generalized_maxwell",
+            "series": "shear",
+            "relaxation_mode": "shear",
+            "reference_temperature_c": 110.0,
+            "reference_temperature_k": 383.15,
+            "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
+            "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
+            "term": "tau1"
+          },
+          "notes": "Table I 완화시간 tau_1 (열 머리글 'Relaxation time, (τi) (s)'). Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relative_modulus",
+          "value": 0.01,
+          "unit": "1",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 2,
+            "prony_terms_total": 10,
+            "set_id": "raghavan2011_psr_shear_10term",
+            "model": "generalized_maxwell",
+            "series": "shear",
+            "relaxation_mode": "shear",
+            "reference_temperature_c": 110.0,
+            "reference_temperature_k": 383.15,
+            "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
+            "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
+            "term": "g2"
+          },
+          "notes": "Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relaxation_time",
+          "value": 2.06e-09,
+          "unit": "s",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 2,
+            "prony_terms_total": 10,
+            "set_id": "raghavan2011_psr_shear_10term",
+            "model": "generalized_maxwell",
+            "series": "shear",
+            "relaxation_mode": "shear",
+            "reference_temperature_c": 110.0,
+            "reference_temperature_k": 383.15,
+            "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
+            "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
+            "term": "tau2"
+          },
+          "notes": "Table I 완화시간 tau_2 (열 머리글 'Relaxation time, (τi) (s)'). Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relative_modulus",
+          "value": 0.08,
+          "unit": "1",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 3,
+            "prony_terms_total": 10,
+            "set_id": "raghavan2011_psr_shear_10term",
+            "model": "generalized_maxwell",
+            "series": "shear",
+            "relaxation_mode": "shear",
+            "reference_temperature_c": 110.0,
+            "reference_temperature_k": 383.15,
+            "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
+            "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
+            "term": "g3"
+          },
+          "notes": "Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relaxation_time",
+          "value": 1.38e-08,
+          "unit": "s",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 3,
+            "prony_terms_total": 10,
+            "set_id": "raghavan2011_psr_shear_10term",
+            "model": "generalized_maxwell",
+            "series": "shear",
+            "relaxation_mode": "shear",
+            "reference_temperature_c": 110.0,
+            "reference_temperature_k": 383.15,
+            "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
+            "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
+            "term": "tau3"
+          },
+          "notes": "Table I 완화시간 tau_3 (열 머리글 'Relaxation time, (τi) (s)'). Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relative_modulus",
+          "value": 0.1,
+          "unit": "1",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 4,
+            "prony_terms_total": 10,
+            "set_id": "raghavan2011_psr_shear_10term",
+            "model": "generalized_maxwell",
+            "series": "shear",
+            "relaxation_mode": "shear",
+            "reference_temperature_c": 110.0,
+            "reference_temperature_k": 383.15,
+            "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
+            "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
+            "term": "g4"
+          },
+          "notes": "Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relaxation_time",
+          "value": 1e-06,
+          "unit": "s",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 4,
+            "prony_terms_total": 10,
+            "set_id": "raghavan2011_psr_shear_10term",
+            "model": "generalized_maxwell",
+            "series": "shear",
+            "relaxation_mode": "shear",
+            "reference_temperature_c": 110.0,
+            "reference_temperature_k": 383.15,
+            "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
+            "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
+            "term": "tau4"
+          },
+          "notes": "Table I 완화시간 tau_4 (열 머리글 'Relaxation time, (τi) (s)'). Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relative_modulus",
+          "value": 0.02,
+          "unit": "1",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 5,
+            "prony_terms_total": 10,
+            "set_id": "raghavan2011_psr_shear_10term",
+            "model": "generalized_maxwell",
+            "series": "shear",
+            "relaxation_mode": "shear",
+            "reference_temperature_c": 110.0,
+            "reference_temperature_k": 383.15,
+            "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
+            "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
+            "term": "g5"
+          },
+          "notes": "Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relaxation_time",
+          "value": 1e-05,
+          "unit": "s",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 5,
+            "prony_terms_total": 10,
+            "set_id": "raghavan2011_psr_shear_10term",
+            "model": "generalized_maxwell",
+            "series": "shear",
+            "relaxation_mode": "shear",
+            "reference_temperature_c": 110.0,
+            "reference_temperature_k": 383.15,
+            "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
+            "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
+            "term": "tau5"
+          },
+          "notes": "Table I 완화시간 tau_5 (열 머리글 'Relaxation time, (τi) (s)'). Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relative_modulus",
+          "value": 0.15,
+          "unit": "1",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 6,
+            "prony_terms_total": 10,
+            "set_id": "raghavan2011_psr_shear_10term",
+            "model": "generalized_maxwell",
+            "series": "shear",
+            "relaxation_mode": "shear",
+            "reference_temperature_c": 110.0,
+            "reference_temperature_k": 383.15,
+            "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
+            "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
+            "term": "g6"
+          },
+          "notes": "Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relaxation_time",
+          "value": 0.0001,
+          "unit": "s",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 6,
+            "prony_terms_total": 10,
+            "set_id": "raghavan2011_psr_shear_10term",
+            "model": "generalized_maxwell",
+            "series": "shear",
+            "relaxation_mode": "shear",
+            "reference_temperature_c": 110.0,
+            "reference_temperature_k": 383.15,
+            "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
+            "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
+            "term": "tau6"
+          },
+          "notes": "Table I 완화시간 tau_6 (열 머리글 'Relaxation time, (τi) (s)'). Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relative_modulus",
+          "value": 0.18,
+          "unit": "1",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 7,
+            "prony_terms_total": 10,
+            "set_id": "raghavan2011_psr_shear_10term",
+            "model": "generalized_maxwell",
+            "series": "shear",
+            "relaxation_mode": "shear",
+            "reference_temperature_c": 110.0,
+            "reference_temperature_k": 383.15,
+            "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
+            "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
+            "term": "g7"
+          },
+          "notes": "Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relaxation_time",
+          "value": 0.00214,
+          "unit": "s",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 7,
+            "prony_terms_total": 10,
+            "set_id": "raghavan2011_psr_shear_10term",
+            "model": "generalized_maxwell",
+            "series": "shear",
+            "relaxation_mode": "shear",
+            "reference_temperature_c": 110.0,
+            "reference_temperature_k": 383.15,
+            "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
+            "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
+            "term": "tau7"
+          },
+          "notes": "Table I 완화시간 tau_7 (열 머리글 'Relaxation time, (τi) (s)'). Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relative_modulus",
+          "value": 0.16,
+          "unit": "1",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 8,
+            "prony_terms_total": 10,
+            "set_id": "raghavan2011_psr_shear_10term",
+            "model": "generalized_maxwell",
+            "series": "shear",
+            "relaxation_mode": "shear",
+            "reference_temperature_c": 110.0,
+            "reference_temperature_k": 383.15,
+            "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
+            "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
+            "term": "g8"
+          },
+          "notes": "Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relaxation_time",
+          "value": 0.0274,
+          "unit": "s",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 8,
+            "prony_terms_total": 10,
+            "set_id": "raghavan2011_psr_shear_10term",
+            "model": "generalized_maxwell",
+            "series": "shear",
+            "relaxation_mode": "shear",
+            "reference_temperature_c": 110.0,
+            "reference_temperature_k": 383.15,
+            "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
+            "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
+            "term": "tau8"
+          },
+          "notes": "Table I 완화시간 tau_8 (열 머리글 'Relaxation time, (τi) (s)'). Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relative_modulus",
+          "value": 0.17,
+          "unit": "1",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 9,
+            "prony_terms_total": 10,
+            "set_id": "raghavan2011_psr_shear_10term",
+            "model": "generalized_maxwell",
+            "series": "shear",
+            "relaxation_mode": "shear",
+            "reference_temperature_c": 110.0,
+            "reference_temperature_k": 383.15,
+            "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
+            "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
+            "term": "g9"
+          },
+          "notes": "Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relaxation_time",
+          "value": 1.28,
+          "unit": "s",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 9,
+            "prony_terms_total": 10,
+            "set_id": "raghavan2011_psr_shear_10term",
+            "model": "generalized_maxwell",
+            "series": "shear",
+            "relaxation_mode": "shear",
+            "reference_temperature_c": 110.0,
+            "reference_temperature_k": 383.15,
+            "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
+            "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
+            "term": "tau9"
+          },
+          "notes": "Table I 완화시간 tau_9 (열 머리글 'Relaxation time, (τi) (s)'). Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relative_modulus",
+          "value": 0.02,
+          "unit": "1",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 10,
+            "prony_terms_total": 10,
+            "set_id": "raghavan2011_psr_shear_10term",
+            "model": "generalized_maxwell",
+            "series": "shear",
+            "relaxation_mode": "shear",
+            "reference_temperature_c": 110.0,
+            "reference_temperature_k": 383.15,
+            "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
+            "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
+            "term": "g10"
+          },
+          "notes": "Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relaxation_time",
+          "value": 513.0,
+          "unit": "s",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 10,
+            "prony_terms_total": 10,
+            "set_id": "raghavan2011_psr_shear_10term",
+            "model": "generalized_maxwell",
+            "series": "shear",
+            "relaxation_mode": "shear",
+            "reference_temperature_c": 110.0,
+            "reference_temperature_k": 383.15,
+            "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
+            "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
+            "term": "tau10"
+          },
+          "notes": "Table I 완화시간 tau_10 (열 머리글 'Relaxation time, (τi) (s)'). Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        }
+      ]
     }
-   },
-   "source": {
-    "kind": "journal",
-    "title": "Methodology to Predict Substrate Warpage and Different Techniques to Achieve Substrate Warpage Targets",
-    "authors": "Vijay Raghavan et al.",
-    "year": 2011,
-    "publisher": "IEEE Transactions on Components, Packaging and Manufacturing Technology, vol. 1, no. 7, pp. 1064-1071",
-    "doi": null,
-    "url": null,
-    "local_path": "/data/paper_patent_corpus/expert_papers/06_pcb/Raghavan - 2011 - Methodology to Predict Substrate Warpage and Different Techniques to Achieve Substrate Warpage Targets.pdf"
-   },
-   "properties": [
-    {
-     "key": "mechanical.prony_relative_modulus",
-     "value": 0.09,
-     "unit": "1",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 1,
-      "prony_terms_total": 10,
-      "set_id": "raghavan2011_psr_shear_10term",
-      "model": "generalized_maxwell",
-      "series": "shear",
-      "relaxation_mode": "shear",
-      "reference_temperature_c": 110.0,
-      "reference_temperature_k": 383.15,
-      "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
-      "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
-      "term": "g1"
-     },
-     "notes": "Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relaxation_time",
-     "value": 1e-10,
-     "unit": "s",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 1,
-      "prony_terms_total": 10,
-      "set_id": "raghavan2011_psr_shear_10term",
-      "model": "generalized_maxwell",
-      "series": "shear",
-      "relaxation_mode": "shear",
-      "reference_temperature_c": 110.0,
-      "reference_temperature_k": 383.15,
-      "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
-      "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
-      "term": "tau1"
-     },
-     "notes": "Table I 완화시간 tau_1 (열 머리글 'Relaxation time, (τi) (s)'). Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relative_modulus",
-     "value": 0.01,
-     "unit": "1",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 2,
-      "prony_terms_total": 10,
-      "set_id": "raghavan2011_psr_shear_10term",
-      "model": "generalized_maxwell",
-      "series": "shear",
-      "relaxation_mode": "shear",
-      "reference_temperature_c": 110.0,
-      "reference_temperature_k": 383.15,
-      "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
-      "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
-      "term": "g2"
-     },
-     "notes": "Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relaxation_time",
-     "value": 2.06e-09,
-     "unit": "s",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 2,
-      "prony_terms_total": 10,
-      "set_id": "raghavan2011_psr_shear_10term",
-      "model": "generalized_maxwell",
-      "series": "shear",
-      "relaxation_mode": "shear",
-      "reference_temperature_c": 110.0,
-      "reference_temperature_k": 383.15,
-      "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
-      "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
-      "term": "tau2"
-     },
-     "notes": "Table I 완화시간 tau_2 (열 머리글 'Relaxation time, (τi) (s)'). Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relative_modulus",
-     "value": 0.08,
-     "unit": "1",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 3,
-      "prony_terms_total": 10,
-      "set_id": "raghavan2011_psr_shear_10term",
-      "model": "generalized_maxwell",
-      "series": "shear",
-      "relaxation_mode": "shear",
-      "reference_temperature_c": 110.0,
-      "reference_temperature_k": 383.15,
-      "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
-      "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
-      "term": "g3"
-     },
-     "notes": "Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relaxation_time",
-     "value": 1.38e-08,
-     "unit": "s",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 3,
-      "prony_terms_total": 10,
-      "set_id": "raghavan2011_psr_shear_10term",
-      "model": "generalized_maxwell",
-      "series": "shear",
-      "relaxation_mode": "shear",
-      "reference_temperature_c": 110.0,
-      "reference_temperature_k": 383.15,
-      "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
-      "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
-      "term": "tau3"
-     },
-     "notes": "Table I 완화시간 tau_3 (열 머리글 'Relaxation time, (τi) (s)'). Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relative_modulus",
-     "value": 0.1,
-     "unit": "1",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 4,
-      "prony_terms_total": 10,
-      "set_id": "raghavan2011_psr_shear_10term",
-      "model": "generalized_maxwell",
-      "series": "shear",
-      "relaxation_mode": "shear",
-      "reference_temperature_c": 110.0,
-      "reference_temperature_k": 383.15,
-      "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
-      "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
-      "term": "g4"
-     },
-     "notes": "Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relaxation_time",
-     "value": 1e-06,
-     "unit": "s",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 4,
-      "prony_terms_total": 10,
-      "set_id": "raghavan2011_psr_shear_10term",
-      "model": "generalized_maxwell",
-      "series": "shear",
-      "relaxation_mode": "shear",
-      "reference_temperature_c": 110.0,
-      "reference_temperature_k": 383.15,
-      "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
-      "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
-      "term": "tau4"
-     },
-     "notes": "Table I 완화시간 tau_4 (열 머리글 'Relaxation time, (τi) (s)'). Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relative_modulus",
-     "value": 0.02,
-     "unit": "1",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 5,
-      "prony_terms_total": 10,
-      "set_id": "raghavan2011_psr_shear_10term",
-      "model": "generalized_maxwell",
-      "series": "shear",
-      "relaxation_mode": "shear",
-      "reference_temperature_c": 110.0,
-      "reference_temperature_k": 383.15,
-      "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
-      "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
-      "term": "g5"
-     },
-     "notes": "Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relaxation_time",
-     "value": 1e-05,
-     "unit": "s",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 5,
-      "prony_terms_total": 10,
-      "set_id": "raghavan2011_psr_shear_10term",
-      "model": "generalized_maxwell",
-      "series": "shear",
-      "relaxation_mode": "shear",
-      "reference_temperature_c": 110.0,
-      "reference_temperature_k": 383.15,
-      "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
-      "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
-      "term": "tau5"
-     },
-     "notes": "Table I 완화시간 tau_5 (열 머리글 'Relaxation time, (τi) (s)'). Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relative_modulus",
-     "value": 0.15,
-     "unit": "1",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 6,
-      "prony_terms_total": 10,
-      "set_id": "raghavan2011_psr_shear_10term",
-      "model": "generalized_maxwell",
-      "series": "shear",
-      "relaxation_mode": "shear",
-      "reference_temperature_c": 110.0,
-      "reference_temperature_k": 383.15,
-      "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
-      "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
-      "term": "g6"
-     },
-     "notes": "Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relaxation_time",
-     "value": 0.0001,
-     "unit": "s",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 6,
-      "prony_terms_total": 10,
-      "set_id": "raghavan2011_psr_shear_10term",
-      "model": "generalized_maxwell",
-      "series": "shear",
-      "relaxation_mode": "shear",
-      "reference_temperature_c": 110.0,
-      "reference_temperature_k": 383.15,
-      "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
-      "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
-      "term": "tau6"
-     },
-     "notes": "Table I 완화시간 tau_6 (열 머리글 'Relaxation time, (τi) (s)'). Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relative_modulus",
-     "value": 0.18,
-     "unit": "1",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 7,
-      "prony_terms_total": 10,
-      "set_id": "raghavan2011_psr_shear_10term",
-      "model": "generalized_maxwell",
-      "series": "shear",
-      "relaxation_mode": "shear",
-      "reference_temperature_c": 110.0,
-      "reference_temperature_k": 383.15,
-      "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
-      "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
-      "term": "g7"
-     },
-     "notes": "Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relaxation_time",
-     "value": 0.00214,
-     "unit": "s",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 7,
-      "prony_terms_total": 10,
-      "set_id": "raghavan2011_psr_shear_10term",
-      "model": "generalized_maxwell",
-      "series": "shear",
-      "relaxation_mode": "shear",
-      "reference_temperature_c": 110.0,
-      "reference_temperature_k": 383.15,
-      "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
-      "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
-      "term": "tau7"
-     },
-     "notes": "Table I 완화시간 tau_7 (열 머리글 'Relaxation time, (τi) (s)'). Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relative_modulus",
-     "value": 0.16,
-     "unit": "1",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 8,
-      "prony_terms_total": 10,
-      "set_id": "raghavan2011_psr_shear_10term",
-      "model": "generalized_maxwell",
-      "series": "shear",
-      "relaxation_mode": "shear",
-      "reference_temperature_c": 110.0,
-      "reference_temperature_k": 383.15,
-      "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
-      "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
-      "term": "g8"
-     },
-     "notes": "Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relaxation_time",
-     "value": 0.0274,
-     "unit": "s",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 8,
-      "prony_terms_total": 10,
-      "set_id": "raghavan2011_psr_shear_10term",
-      "model": "generalized_maxwell",
-      "series": "shear",
-      "relaxation_mode": "shear",
-      "reference_temperature_c": 110.0,
-      "reference_temperature_k": 383.15,
-      "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
-      "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
-      "term": "tau8"
-     },
-     "notes": "Table I 완화시간 tau_8 (열 머리글 'Relaxation time, (τi) (s)'). Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relative_modulus",
-     "value": 0.17,
-     "unit": "1",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 9,
-      "prony_terms_total": 10,
-      "set_id": "raghavan2011_psr_shear_10term",
-      "model": "generalized_maxwell",
-      "series": "shear",
-      "relaxation_mode": "shear",
-      "reference_temperature_c": 110.0,
-      "reference_temperature_k": 383.15,
-      "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
-      "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
-      "term": "g9"
-     },
-     "notes": "Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relaxation_time",
-     "value": 1.28,
-     "unit": "s",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 9,
-      "prony_terms_total": 10,
-      "set_id": "raghavan2011_psr_shear_10term",
-      "model": "generalized_maxwell",
-      "series": "shear",
-      "relaxation_mode": "shear",
-      "reference_temperature_c": 110.0,
-      "reference_temperature_k": 383.15,
-      "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
-      "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
-      "term": "tau9"
-     },
-     "notes": "Table I 완화시간 tau_9 (열 머리글 'Relaxation time, (τi) (s)'). Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relative_modulus",
-     "value": 0.02,
-     "unit": "1",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 10,
-      "prony_terms_total": 10,
-      "set_id": "raghavan2011_psr_shear_10term",
-      "model": "generalized_maxwell",
-      "series": "shear",
-      "relaxation_mode": "shear",
-      "reference_temperature_c": 110.0,
-      "reference_temperature_k": 383.15,
-      "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
-      "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
-      "term": "g10"
-     },
-     "notes": "Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relaxation_time",
-     "value": 513.0,
-     "unit": "s",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 10,
-      "prony_terms_total": 10,
-      "set_id": "raghavan2011_psr_shear_10term",
-      "model": "generalized_maxwell",
-      "series": "shear",
-      "relaxation_mode": "shear",
-      "reference_temperature_c": 110.0,
-      "reference_temperature_k": 383.15,
-      "normalisation": "g_i = G_i / G_0 (glassy shear modulus); G_0 NOT printed in the source",
-      "source_data": "shear stress relaxation + time-temperature superposition, TA Instruments DMA",
-      "term": "tau10"
-     },
-     "notes": "Table I 완화시간 tau_10 (열 머리글 'Relaxation time, (τi) (s)'). Table I `PRONY SERIES COEFFICIENTS FOR PSR MATERIAL`, 10 Maxwell 요소, T_ref = 110 °C. 10개 g 합 = 0.98 <= 1 (검산) — 남는 g_inf = 0.02 가 평형항이다. 원문 식 verbatim: g(t) = g_inf + sum g_i exp(-t/tau_i), g_inf = G_inf/G_0, G(t) = G_0 g(t) — 즉 g_i 는 **유리상 전단탄성률 G_0 로 정규화된 무차원 가중치**다(열 머리글도 'Normalized shear relaxation modulus weight factors (gi)'). **G_0 자체는 논문에 인쇄되지 않는다** — 이 급수를 쓰려면 G_0 를 따로 구해야 한다. 시험은 10 x 6 x 0.045 mm 완전경화 시편의 응력완화 + TTS, 이동인자는 WLF 형태 log(aT) = -C1(T-T0)/(C2+(T-T0)) 를 썼다고 밝히지만 **C1·C2 수치는 인쇄하지 않는다(Fig. 3 그림뿐)**. PSR 의 Tg 는 본문에 115 °C 로 적혀 있다. Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    }
-   ]
-  }
- ]
+  ]
 }

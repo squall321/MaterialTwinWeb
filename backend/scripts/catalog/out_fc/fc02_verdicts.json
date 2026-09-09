@@ -1,0 +1,97 @@
+{
+  "batch": "FC-2 70차 · out_ed 8월 19일 산출물 여섯의 판정",
+  "db_read_only": true,
+  "db_path": "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web/materialtwin.db",
+  "headline": "①②③ 중 어느 것도 아니다 — ④ 이미 적용됐다. 170/170 행이 2026-08-19 에 들어갔고 출처까지 일치한다.",
+
+  "files": [
+    {"file": "ed01_battery_corpus.json", "materials": 4, "rows": 19,
+     "in_live_db": 19, "recover": 0, "fix_and_recover": 0, "discard": 0,
+     "verdict": "이미 적용됨 — 재적재 금지",
+     "sources_verified": ["10.1016/j.jpowsour.2012.05.019", "10.1016/j.jpowsour.2018.05.007", "10.1016/j.surfcoat.2021.126881"],
+     "原文_대조": "19/19 일치"},
+    {"file": "ed02_ndfeb_grades.json", "materials": 7, "rows": 77,
+     "in_live_db": 77, "recover": 0, "fix_and_recover": 0, "discard": 0,
+     "verdict": "이미 적용됨 — 재적재 금지",
+     "sources_verified": ["https://www.eclipsemagnetics.com/site/assets/files/23180/neodymium_grades_data.pdf"],
+     "原文_대조": "77/77 일치 — 등급표 48행을 파싱해 7등급 × Br·Hcb·Hcj·Tmax 와 공통물성 5칸을 기계 대조"},
+    {"file": "ed03_ferrite.json", "materials": 3, "rows": 39,
+     "in_live_db": 39, "recover": 0, "fix_and_recover": 0, "discard": 0,
+     "verdict": "이미 적용됨 — 재적재 금지 · 조건 표기 관측 1건",
+     "sources_verified": ["standards_appnotes/passive/Eclipse_Magnetics_Ferrite_Ceramic_Magnets_Datasheet.pdf"],
+     "原文_대조": "39/39 일치"},
+    {"file": "ed04_liebig.json", "materials": 5, "rows": 12,
+     "in_live_db": 12, "recover": 0, "fix_and_recover": 0, "discard": 0,
+     "verdict": "이미 적용됨 — 재적재 금지 · 결함 2행 발견(아래 defects)",
+     "sources_verified": ["10.3390/batteries5030062"],
+     "原文_대조": "12/12 값 일치 · 그중 2행은 키 배정이 틀렸다"},
+    {"file": "ed05_sep_pouch.json", "materials": 2, "rows": 7,
+     "in_live_db": 7, "recover": 0, "fix_and_recover": 0, "discard": 0,
+     "verdict": "이미 적용됨 — 재적재 금지",
+     "sources_verified": ["https://www.celgard.com/storage/components/2325_com_data_october2021_20014.pdf", "10.1016/j.jpowsour.2014.02.079"],
+     "原文_대조": "7/7 일치"},
+    {"file": "ed06_ccaw.json", "materials": 1, "rows": 16,
+     "in_live_db": 16, "recover": 0, "fix_and_recover": 0, "discard": 0,
+     "verdict": "이미 적용됨 — 재적재 금지",
+     "sources_verified": ["10.3390/met14121386"],
+     "原文_대조": "16/16 일치 — Table 3 `CCA Φ 2.0mm` 열 8소둔조건 × 인장·연신"}
+  ],
+
+  "defects": [
+    {
+      "id": "FC-D1",
+      "severity": "고침 필요 — 인수 2 배",
+      "file": "ed04_liebig.json",
+      "source": "Liebig 2019, 10.3390/batteries5030062",
+      "rows": [
+        {"pv_id": 40339, "material_id": 2553, "material": "Li-ion graphite anode coating layer, detached from Cu foil (40 Ah NMC/graphite pouch cell)", "key": "structure.particle_diameter", "value_m": 9.89e-06, "tier": 1},
+        {"pv_id": 40343, "material_id": 2554, "material": "Li-ion NMC cathode coating layer, detached from Al foil (40 Ah NMC/graphite pouch cell)", "key": "structure.particle_diameter", "value_m": 1.72e-06, "tier": 1}
+      ],
+      "finding": "원문이 같은 기호 r 을 두 곳에서 다르게 부른다 — Table 3 은 `Particle Size r (µm) 9.89 ± 3.31`, Table 6 은 `Particle Radius r (µm) 9.89 | 출처: Table 3`. 우리 키 structure.particle_diameter 는 정의가 '입자 직경'(d_p)이다.",
+      "proof": "Table 6 이 같은 r 로 비표면적을 계산한다(a = 3·eps_s/R). 음극 a=172,730 · eps_s=0.548 → 식이 요구하는 R = 9.518 um(인쇄 r 9.89 의 0.962 배). 양극 a=825,880 · eps_s=0.457 → R = 1.660 um(인쇄 r 1.72 의 0.965 배). r 을 지름으로 보면 두 전극 다 1.93 배로 어긋난다. 두 전극의 어긋남이 0.962·0.965 로 같으므로 이는 eps_s 반올림이고, 저자는 r 을 반지름으로 썼다.",
+      "recommendation": "직경 칸에 반지름이 앉아 있다. 두 행을 지우거나(권장), 남긴다면 값을 19.78e-6 · 3.44e-6 으로 고치고 tier 를 낮추면서 conditions 에 원문의 자기모순(Table 3 'Size' 대 Table 6 'Radius')을 적어라. 어느 쪽이든 지금 상태로 두면 안 된다 — 브리프 471(이름이 아니라 정의식이 키를 정한다)·25(한 문서 안의 모순).",
+      "note": "이 배치는 라이브 DB 읽기 전용이라 고치지 않았다. 정정 배치로 넘긴다."
+    }
+  ],
+
+  "observations": [
+    {
+      "id": "FC-O1",
+      "severity": "관측 — ED 단독 결함이 아니다",
+      "source_id": 2371,
+      "source": "Eclipse Magnetics Ferrite/Ceramic Magnets Datasheet",
+      "finding": "이 시트의 중국·미국·유럽 규격 등급표는 온도를 한 줄도 인쇄하지 않는다(표 머리는 `Typical Values` 뿐이다). 20 °C 는 같은 장의 감자곡선 패널 축 이름(`20°C Normal` · `20°C Intrinsic`)에만 나온다. 그런데 이 출처에서 나온 라이브 339행이 `temperature_c: 20` 을 인쇄값처럼 달고 있다.",
+      "spread": {"2026-08-03": 4, "2026-08-05": 6, "2026-08-19_43차ED": 22, "2026-08-28_인계파동": 207, "2026-09-06": 75, "2026-09-07": 25},
+      "recommendation": "43차 ED 만 고치면 형제 행과 어긋난다. 출처 2371 의 339행을 한 번에 `temperature: 'not stated in the grade tables (같은 시트의 감자곡선은 20 °C 로 그려진다)'` 로 바꾸는 편이 맞다. 브리프 457(온도 미인쇄 값은 조건에 '인쇄되지 않았다'를 명시해라).",
+      "ed02_는_해당없음": "NdFeB 시트는 표 제목이 `at room temperature (20°C)` 라 70행의 temperature_C=20 이 인쇄값이다. 정상."
+    },
+    {
+      "id": "FC-O2",
+      "severity": "관측",
+      "finding": "재료 102 `PE/PP Separator` 한 장에 서로 다른 제품 둘이 얹혀 있다 — ed01 은 Celgard 2400(PP 단층, Huang 2012 실측), ed05 는 Celgard 2325(PP/PE/PP 3층, 벤더 TDS). 값은 conditions.grade 로 갈려 있어 읽으면 구별되지만, 카드 이름만 보고 대표값을 뽑으면 두 제품이 섞인다.",
+      "recommendation": "등급별 카드로 가르는 것이 맞다. ED 가 만든 문제가 아니라 102 카드의 설계 문제다."
+    },
+    {
+      "id": "FC-O3",
+      "severity": "관측 — 정상 동작 확인",
+      "finding": "재료 2533(C8/C8A) 한 장에 magnetic.remanence 가 3행 있다 — 미국규격 typ 385 mT 와 중국규격 Y30H-1 구간 하한 380 · 상한 400 mT. 같은 문서의 두 규격표라 계보가 같다(브리프 456~458). 교차확인으로 세면 안 되지만 각각 인쇄된 별개 숫자이므로 행 자체는 정당하다. conditions.grade 가 규격명을 달고 있어 구별된다."
+    }
+  ],
+
+  "duplicate_check": {
+    "method": "ED 170행이 차지한 (재료,키) 칸에서 값이 겹치는 행을 전수로 찾았다",
+    "cross_wave_duplicates": 0,
+    "intra_ed_same_number_different_meaning": [
+      "C8 HcB typ 235 kA/m 와 Y30H-1 HcJ 하한 235 kA/m — 양(quantity)이 다르다",
+      "Al 파우치 Al 층 40 um 와 PP 층 40 um — 층(layer)이 다르다",
+      "CCAW 124.9 MPa 300 °C 와 320 °C — 열처리 조건이 다르다"
+    ],
+    "conclusion": "8월 이후 파동이 같은 칸을 다시 채운 사례는 없다. 8월 28일 인계 파동(재료 2651~2675, 하드페라이트 25등급)은 ED 가 이미 세운 C8/C8A·Y30·Y35 를 의도적으로 비껴갔고 명명 규칙(`= C7`·`= C9 / C12`)까지 ED 를 따랐다."
+  },
+
+  "loader_dryrun": {
+    "command": "ingest_agent_json.py out_ed/ed0{1..6}.json (라이브 DB 사본에 대고, --apply 없이)",
+    "result": "ok 163 / kept_better 7",
+    "meaning": "여섯 출처 전부에 '이미 채굴된 논문이다' 경고가 뜬다. 지금 재적재하면 163행이 중복으로 들어간다 — 52·63차가 조건 어휘를 정규화해 놓아 로더의 조건 서명 대조가 원본 JSON 과 안 맞기 때문이다. **다시 적재하지 마라.**"
+  }
+}

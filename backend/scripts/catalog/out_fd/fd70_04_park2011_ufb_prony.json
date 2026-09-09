@@ -1,610 +1,610 @@
 {
- "batch": "70차 FD",
- "materials": [
-  {
-   "new_material": {
-    "name": "Underfill UF-B, commercial capillary underfill, Tg 100 C (Park & Feger 2011 thermal-SENT characterisation)",
-    "category": "composite",
-    "attributes": {
-     "role": "evidence",
-     "role_reason": "원문이 'two commercial underfill materials' 라고만 하고 등급명을 밝히지 않는다. 식별자는 Tg 100 °C 와 논문 내 코드 'UF-B' 뿐",
-     "role_confidence": "medium",
-     "material_class": "flip-chip capillary underfill encapsulant",
-     "subsystem": "packaging",
-     "subsystem_basis": "플립칩 언더필 봉지재다.",
-     "process": "as received commercial underfill; DMA relaxation over ~200 C in 10 C steps"
+  "batch": "70차 FD",
+  "materials": [
+    {
+      "new_material": {
+        "name": "Underfill UF-B, commercial capillary underfill, Tg 100 C (Park & Feger 2011 thermal-SENT characterisation)",
+        "category": "composite",
+        "attributes": {
+          "role": "evidence",
+          "role_reason": "원문이 'two commercial underfill materials' 라고만 하고 등급명을 밝히지 않는다. 식별자는 Tg 100 °C 와 논문 내 코드 'UF-B' 뿐",
+          "role_confidence": "medium",
+          "material_class": "flip-chip capillary underfill encapsulant",
+          "subsystem": "packaging",
+          "subsystem_basis": "플립칩 언더필 봉지재다.",
+          "process": "as received commercial underfill; DMA relaxation over ~200 C in 10 C steps"
+        }
+      },
+      "source": {
+        "kind": "journal",
+        "title": "Thermal fracture toughness measurement for underfill during temperature change",
+        "authors": "Seungbae Park, Claudius Feger",
+        "year": 2011,
+        "publisher": "Microelectronics Reliability 51 (2011) 685-691",
+        "doi": "10.1016/j.microrel.2010.10.015",
+        "url": null,
+        "local_path": "/data/paper_patent_corpus/cae_papers/10_underfill_stress/Park - 2011 - Thermal fracture toughness measurement for underfill during temperature change.pdf"
+      },
+      "properties": [
+        {
+          "key": "mechanical.prony_tensile_modulus",
+          "value": 1360000000.0,
+          "unit": "Pa",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 1,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "E1",
+            "printed_value_mpa": 1360
+          },
+          "notes": "E_1 = 1360 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relaxation_time",
+          "value": 1e-13,
+          "unit": "s",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 1,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "rho1",
+            "printed_as": "log rho_m (s)",
+            "printed_value_log10": -13
+          },
+          "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_1 = -13` 이므로 rho_1 = 1e-13 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_tensile_modulus",
+          "value": 925900000.0,
+          "unit": "Pa",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 2,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "E2",
+            "printed_value_mpa": 925.9
+          },
+          "notes": "E_2 = 925.9 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relaxation_time",
+          "value": 1e-10,
+          "unit": "s",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 2,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "rho2",
+            "printed_as": "log rho_m (s)",
+            "printed_value_log10": -10
+          },
+          "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_2 = -10` 이므로 rho_2 = 1e-10 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_tensile_modulus",
+          "value": 1415000000.0,
+          "unit": "Pa",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 3,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "E3",
+            "printed_value_mpa": 1415
+          },
+          "notes": "E_3 = 1415 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relaxation_time",
+          "value": 1e-07,
+          "unit": "s",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 3,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "rho3",
+            "printed_as": "log rho_m (s)",
+            "printed_value_log10": -7
+          },
+          "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_3 = -7` 이므로 rho_3 = 1e-7 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_tensile_modulus",
+          "value": 946000000.0,
+          "unit": "Pa",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 4,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "E4",
+            "printed_value_mpa": 946.0
+          },
+          "notes": "E_4 = 946.0 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relaxation_time",
+          "value": 0.0001,
+          "unit": "s",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 4,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "rho4",
+            "printed_as": "log rho_m (s)",
+            "printed_value_log10": -4
+          },
+          "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_4 = -4` 이므로 rho_4 = 1e-4 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_tensile_modulus",
+          "value": 1919000000.0,
+          "unit": "Pa",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 5,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "E5",
+            "printed_value_mpa": 1919
+          },
+          "notes": "E_5 = 1919 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relaxation_time",
+          "value": 0.01,
+          "unit": "s",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 5,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "rho5",
+            "printed_as": "log rho_m (s)",
+            "printed_value_log10": -2
+          },
+          "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_5 = -2` 이므로 rho_5 = 1e-2 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_tensile_modulus",
+          "value": 1836000000.0,
+          "unit": "Pa",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 6,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "E6",
+            "printed_value_mpa": 1836
+          },
+          "notes": "E_6 = 1836 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relaxation_time",
+          "value": 1.0,
+          "unit": "s",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 6,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "rho6",
+            "printed_as": "log rho_m (s)",
+            "printed_value_log10": 0
+          },
+          "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_6 = 0` 이므로 rho_6 = 1e0 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_tensile_modulus",
+          "value": 2019000000.0,
+          "unit": "Pa",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 7,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "E7",
+            "printed_value_mpa": 2019
+          },
+          "notes": "E_7 = 2019 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relaxation_time",
+          "value": 10.0,
+          "unit": "s",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 7,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "rho7",
+            "printed_as": "log rho_m (s)",
+            "printed_value_log10": 1
+          },
+          "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_7 = 1` 이므로 rho_7 = 1e1 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_tensile_modulus",
+          "value": 1032000000.0,
+          "unit": "Pa",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 8,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "E8",
+            "printed_value_mpa": 1032
+          },
+          "notes": "E_8 = 1032 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relaxation_time",
+          "value": 100.0,
+          "unit": "s",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 8,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "rho8",
+            "printed_as": "log rho_m (s)",
+            "printed_value_log10": 2
+          },
+          "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_8 = 2` 이므로 rho_8 = 1e2 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_tensile_modulus",
+          "value": 41250000.0,
+          "unit": "Pa",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 9,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "E9",
+            "printed_value_mpa": 41.25
+          },
+          "notes": "E_9 = 41.25 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relaxation_time",
+          "value": 1000.0,
+          "unit": "s",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 9,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "rho9",
+            "printed_as": "log rho_m (s)",
+            "printed_value_log10": 3
+          },
+          "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_9 = 3` 이므로 rho_9 = 1e3 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_tensile_modulus",
+          "value": -220000.0,
+          "unit": "Pa",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 10,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "E10",
+            "printed_value_mpa": -0.22
+          },
+          "notes": "E_10 = -0.22 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relaxation_time",
+          "value": 10000.0,
+          "unit": "s",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 10,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "rho10",
+            "printed_as": "log rho_m (s)",
+            "printed_value_log10": 4
+          },
+          "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_10 = 4` 이므로 rho_10 = 1e4 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_tensile_modulus",
+          "value": -290000.0,
+          "unit": "Pa",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 11,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "E11",
+            "printed_value_mpa": -0.29
+          },
+          "notes": "E_11 = -0.29 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relaxation_time",
+          "value": 100000.0,
+          "unit": "s",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 11,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "rho11",
+            "printed_as": "log rho_m (s)",
+            "printed_value_log10": 5
+          },
+          "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_11 = 5` 이므로 rho_11 = 1e5 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_tensile_modulus",
+          "value": 2380000.0,
+          "unit": "Pa",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 12,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "E12",
+            "printed_value_mpa": 2.38
+          },
+          "notes": "E_12 = 2.38 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relaxation_time",
+          "value": 1000000.0,
+          "unit": "s",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 12,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "rho12",
+            "printed_as": "log rho_m (s)",
+            "printed_value_log10": 6
+          },
+          "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_12 = 6` 이므로 rho_12 = 1e6 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_tensile_modulus",
+          "value": -80000.0,
+          "unit": "Pa",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 13,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "E13",
+            "printed_value_mpa": -0.08
+          },
+          "notes": "E_13 = -0.08 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_relaxation_time",
+          "value": 10000000.0,
+          "unit": "s",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "term_index": 13,
+            "prony_terms_total": 13,
+            "set_id": "park2011_ufb_tensile_13term",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
+            "term": "rho13",
+            "printed_as": "log rho_m (s)",
+            "printed_value_log10": 7
+          },
+          "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_13 = 7` 이므로 rho_13 = 1e7 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        },
+        {
+          "key": "mechanical.prony_long_term_modulus",
+          "value": 91600000.0,
+          "unit": "Pa",
+          "method": "computed",
+          "tier": 1,
+          "conditions": {
+            "set_id": "park2011_ufb_tensile_13term",
+            "term": "E_inf",
+            "model": "generalized_maxwell",
+            "series": "tensile",
+            "relaxation_mode": "tensile (uniaxial)",
+            "reference_temperature_c": 100.0,
+            "reference_temperature_k": 373.15,
+            "printed_value_mpa": 91.6,
+            "basis": "급수 밖 평형항이라 항번호가 없는 것이 맞다"
+          },
+          "notes": "Table 1 마지막 행 `∞ | 91.6` — 장기(평형) 인장완화계수 E_inf = 91.6 MPa. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
+        }
+      ]
     }
-   },
-   "source": {
-    "kind": "journal",
-    "title": "Thermal fracture toughness measurement for underfill during temperature change",
-    "authors": "Seungbae Park, Claudius Feger",
-    "year": 2011,
-    "publisher": "Microelectronics Reliability 51 (2011) 685-691",
-    "doi": null,
-    "url": null,
-    "local_path": "/data/paper_patent_corpus/cae_papers/10_underfill_stress/Park - 2011 - Thermal fracture toughness measurement for underfill during temperature change.pdf"
-   },
-   "properties": [
-    {
-     "key": "mechanical.prony_tensile_modulus",
-     "value": 1360000000.0,
-     "unit": "Pa",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 1,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "E1",
-      "printed_value_mpa": 1360
-     },
-     "notes": "E_1 = 1360 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relaxation_time",
-     "value": 1e-13,
-     "unit": "s",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 1,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "rho1",
-      "printed_as": "log rho_m (s)",
-      "printed_value_log10": -13
-     },
-     "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_1 = -13` 이므로 rho_1 = 1e-13 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_tensile_modulus",
-     "value": 925900000.0,
-     "unit": "Pa",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 2,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "E2",
-      "printed_value_mpa": 925.9
-     },
-     "notes": "E_2 = 925.9 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relaxation_time",
-     "value": 1e-10,
-     "unit": "s",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 2,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "rho2",
-      "printed_as": "log rho_m (s)",
-      "printed_value_log10": -10
-     },
-     "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_2 = -10` 이므로 rho_2 = 1e-10 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_tensile_modulus",
-     "value": 1415000000.0,
-     "unit": "Pa",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 3,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "E3",
-      "printed_value_mpa": 1415
-     },
-     "notes": "E_3 = 1415 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relaxation_time",
-     "value": 1e-07,
-     "unit": "s",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 3,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "rho3",
-      "printed_as": "log rho_m (s)",
-      "printed_value_log10": -7
-     },
-     "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_3 = -7` 이므로 rho_3 = 1e-7 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_tensile_modulus",
-     "value": 946000000.0,
-     "unit": "Pa",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 4,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "E4",
-      "printed_value_mpa": 946.0
-     },
-     "notes": "E_4 = 946.0 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relaxation_time",
-     "value": 0.0001,
-     "unit": "s",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 4,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "rho4",
-      "printed_as": "log rho_m (s)",
-      "printed_value_log10": -4
-     },
-     "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_4 = -4` 이므로 rho_4 = 1e-4 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_tensile_modulus",
-     "value": 1919000000.0,
-     "unit": "Pa",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 5,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "E5",
-      "printed_value_mpa": 1919
-     },
-     "notes": "E_5 = 1919 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relaxation_time",
-     "value": 0.01,
-     "unit": "s",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 5,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "rho5",
-      "printed_as": "log rho_m (s)",
-      "printed_value_log10": -2
-     },
-     "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_5 = -2` 이므로 rho_5 = 1e-2 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_tensile_modulus",
-     "value": 1836000000.0,
-     "unit": "Pa",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 6,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "E6",
-      "printed_value_mpa": 1836
-     },
-     "notes": "E_6 = 1836 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relaxation_time",
-     "value": 1.0,
-     "unit": "s",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 6,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "rho6",
-      "printed_as": "log rho_m (s)",
-      "printed_value_log10": 0
-     },
-     "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_6 = 0` 이므로 rho_6 = 1e0 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_tensile_modulus",
-     "value": 2019000000.0,
-     "unit": "Pa",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 7,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "E7",
-      "printed_value_mpa": 2019
-     },
-     "notes": "E_7 = 2019 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relaxation_time",
-     "value": 10.0,
-     "unit": "s",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 7,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "rho7",
-      "printed_as": "log rho_m (s)",
-      "printed_value_log10": 1
-     },
-     "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_7 = 1` 이므로 rho_7 = 1e1 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_tensile_modulus",
-     "value": 1032000000.0,
-     "unit": "Pa",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 8,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "E8",
-      "printed_value_mpa": 1032
-     },
-     "notes": "E_8 = 1032 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relaxation_time",
-     "value": 100.0,
-     "unit": "s",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 8,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "rho8",
-      "printed_as": "log rho_m (s)",
-      "printed_value_log10": 2
-     },
-     "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_8 = 2` 이므로 rho_8 = 1e2 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_tensile_modulus",
-     "value": 41250000.0,
-     "unit": "Pa",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 9,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "E9",
-      "printed_value_mpa": 41.25
-     },
-     "notes": "E_9 = 41.25 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relaxation_time",
-     "value": 1000.0,
-     "unit": "s",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 9,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "rho9",
-      "printed_as": "log rho_m (s)",
-      "printed_value_log10": 3
-     },
-     "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_9 = 3` 이므로 rho_9 = 1e3 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_tensile_modulus",
-     "value": -220000.0,
-     "unit": "Pa",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 10,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "E10",
-      "printed_value_mpa": -0.22
-     },
-     "notes": "E_10 = -0.22 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relaxation_time",
-     "value": 10000.0,
-     "unit": "s",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 10,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "rho10",
-      "printed_as": "log rho_m (s)",
-      "printed_value_log10": 4
-     },
-     "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_10 = 4` 이므로 rho_10 = 1e4 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_tensile_modulus",
-     "value": -290000.0,
-     "unit": "Pa",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 11,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "E11",
-      "printed_value_mpa": -0.29
-     },
-     "notes": "E_11 = -0.29 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relaxation_time",
-     "value": 100000.0,
-     "unit": "s",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 11,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "rho11",
-      "printed_as": "log rho_m (s)",
-      "printed_value_log10": 5
-     },
-     "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_11 = 5` 이므로 rho_11 = 1e5 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_tensile_modulus",
-     "value": 2380000.0,
-     "unit": "Pa",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 12,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "E12",
-      "printed_value_mpa": 2.38
-     },
-     "notes": "E_12 = 2.38 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relaxation_time",
-     "value": 1000000.0,
-     "unit": "s",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 12,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "rho12",
-      "printed_as": "log rho_m (s)",
-      "printed_value_log10": 6
-     },
-     "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_12 = 6` 이므로 rho_12 = 1e6 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_tensile_modulus",
-     "value": -80000.0,
-     "unit": "Pa",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 13,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "E13",
-      "printed_value_mpa": -0.08
-     },
-     "notes": "E_13 = -0.08 MPa 를 Pa 로 환산했다(x1e6). Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_relaxation_time",
-     "value": 10000000.0,
-     "unit": "s",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "term_index": 13,
-      "prony_terms_total": 13,
-      "set_id": "park2011_ufb_tensile_13term",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "source_data": "DMA relaxation moduli over ~200 C in 10 C steps, TTS master curve (Fig. 4)",
-      "term": "rho13",
-      "printed_as": "log rho_m (s)",
-      "printed_value_log10": 7
-     },
-     "notes": "원문은 완화시간을 상용로그로 인쇄한다 — `log rho_13 = 7` 이므로 rho_13 = 1e7 s 다. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    },
-    {
-     "key": "mechanical.prony_long_term_modulus",
-     "value": 91600000.0,
-     "unit": "Pa",
-     "method": "computed",
-     "tier": 1,
-     "conditions": {
-      "set_id": "park2011_ufb_tensile_13term",
-      "term": "E_inf",
-      "model": "generalized_maxwell",
-      "series": "tensile",
-      "relaxation_mode": "tensile (uniaxial)",
-      "reference_temperature_c": 100.0,
-      "reference_temperature_k": 373.15,
-      "printed_value_mpa": 91.6,
-      "basis": "급수 밖 평형항이라 항번호가 없는 것이 맞다"
-     },
-     "notes": "Table 1 마지막 행 `∞ | 91.6` — 장기(평형) 인장완화계수 E_inf = 91.6 MPa. Table 1 `Prony series coefficients of relaxation modulus of UF-B`, 원문 식 verbatim E(t) = E_inf + sum_(m=1..13) E_m exp(-t/rho_m). 기준온도는 UF-B 의 Tg 인 **100 °C** 다(본문: 'For the reference temperatures for both underfills their Tg's were chosen'). 검산 — E(0) = E_inf + sum E_m = 91.6 + 11495.94 = 11587.5 MPa ≈ 11.6 GPa 로 실리카 충전 언더필의 유리상 탄성률 대역과 맞는다. **E_10 · E_11 · E_13 이 음수다(-0.22 / -0.29 / -0.08 MPa) — 제약 없는 적합의 산물이며 원문에 그렇게 인쇄돼 있다.** docling 과 pdftotext 는 이 표의 마이너스 부호를 (log rho 1~5 까지 포함해) 전부 잃으므로 **70차 FD 가 PDF 4쪽을 300 dpi 로 그려 눈으로 확인했다** — 크롭은 out_fd/park2011_t1-4.png 다. 이동인자는 WLF 도 Arrhenius 도 아니다 — 마스터커브가 유리전이 위아래를 모두 담아 선형성이 깨져서 저자가 s = 1/T - 1/T_M 에 대한 **5차 다항식** log aT = A5 s^5 + ... + A1 s 를 썼다(A1~A5 = 1.54e4, 1.81e6, 1.92e10, 1.45e13, 3.22e15 — 다만 PDF 텍스트에서 곱셈기호·부호가 뭉개져 부호를 확정하지 못했고, **우리 DB 에 다항 이동함수 키가 없어 등록하지 않았다**). Prony 적합값이므로 method=computed, 표 인쇄값이므로 tier1."
-    }
-   ]
-  }
- ]
+  ]
 }

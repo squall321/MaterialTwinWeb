@@ -1,0 +1,144 @@
+# 70차 FB — Ellsworth EDL 색인에서 받은 제조사 자사 SDS 의 9절 값을 적재 JSON 으로 만든다.
+import json, pathlib
+
+SDS = "/data/paper_patent_corpus/standards_appnotes/sds"
+EDL = "https://webaps.ellsworth.com/edl/Actions/?document={}&language=en&region=1"
+
+ZYMET_SCOPE = (
+    "Zymet X6-82-5LV — SDS 1절 제품명이 `X6-82-5LV` 이고 출처 논문(Chhanda 2012)이 적은 등급은 "
+    "`Zymet X6-82-5LV50` 이다. 꼬리 `50` 이 무엇을 뜻하는지 **두 문서 어디에도 인쇄되지 않았다**(충전율·점도 코드 추정은 하지 않는다). "
+    "제조사·계열·형태가 같고 앞자리가 완전히 일치하므로 계열값으로 t3 에 두었다. 등급이 완전히 일치하는 문서가 나오면 t1 로 올릴 수 있다."
+)
+FM300_SCOPE = (
+    "Solvay/Cytec `FM(R) 300 Adhesive Film` SDS 는 **등급별이 아니라 계열 한 장**이다 — 3절이 "
+    "`May be supplied on one of the following carrier(s):` 로 캐리어 변종(PAN Carbon Fibre / Nylon)을 한 문서로 덮는다. "
+    "다만 9절 `Color: green` 이 범위를 좁힌다 — 같은 벤더 TDS Table 1 에서 green 은 FM 300K(wide open knit) · FM 300M(random mat) · "
+    "FM 300U(unsupported) 이고 FM 300(tight knit)만 blue 다. 즉 이 값은 FM300K 를 포함하는 green 3종의 계열값이지 FM300K 만의 값이 아니다."
+)
+FM73_SCOPE = (
+    "Solvay/Cytec `FM(R) 73 M Adhesive Film` SDS 는 **M 캐리어(폴리에스터 매트) 변종**의 문서다. 우리 재료는 Thiedmann 1987 이 "
+    "`FM-73` 으로만 적은 것이고 벤더 TDS 는 무지정 FM 73 을 knit 캐리어로 규정한다(`All products without designated carrier featured on knit carrier`). "
+    "카탈로그가 이 재료의 전단강도 4행에서 이미 쓰고 있는 형제등급 규칙과 같은 자리다(grade_measured=FM 73M · grade_target=FM 73)."
+)
+
+mats = [
+ {"match_name": "Zymet X6-82-5LV50 capillary BGA/CSP underfill encapsulant (silica-filled epoxy)",
+  "source": {"kind": "datasheet",
+             "title": "Zymet X6-82-5LV Safety Data Sheet (Version 005, Revision Date 04/29/2020, 영문)",
+             "url": EDL.format(54928),
+             "publisher": "Zymet, Inc.", "year": 2020,
+             "local_path": f"{SDS}/Zymet_X6-82-5LV_SDS_2020-04-29.pdf"},
+  "properties": [
+    {"key": "physical.density", "value": 1650.0, "unit": "kg/m^3", "method": "measured", "tier": 3,
+     "conditions": {"physical_form": "liquid, as supplied (uncured) — 9절 `Physical state  Liquid` · `Color  Cream`",
+                    "grade_scope": ZYMET_SCOPE,
+                    "cure_state": "uncured",
+                    "temperature_status": "not printed — 9절이 비중·밀도에 기준온도를 적지 않는다(같은 절의 `Relative vapor density at 20°C` 만 20 °C 를 명시한다)"},
+     "notes": (
+       "SDS 9절 verbatim — `Physical state  Liquid` · `Color  Cream` · `Melting point  Not applicable` · `Boiling point  None` · "
+       "`Flash point  >240°C` · **`Specific Gravity  1.65 g/cc`** · `Water solubility  slight` · `Viscosity  20,000 cps`. "
+       "**환산** — 항목명이 `Specific Gravity` 지만 값에 `g/cc` 단위가 함께 인쇄되어 있으므로 무차원 비중이 아니라 이미 밀도다(물밀도를 곱하지 않았다). "
+       "1.65 g/cm^3 x 1000 = 1650 kg/m^3. "
+       "**검산(혼합칙)** — 3절 조성 verbatim `Silica  60676-86-0  45-75` · `Epichlorohydrin formaldehyde-phenol polymer; epoxy resin  9003-36-5  5-45` · "
+       "`Bisphenol A-epichlorohydrin polymer  25068-38-6  5-45` · `CBI Curing Agents  CBI  0.1-5`. 실리카 2.2 g/cc 를 60 wt%, 에폭시 1.16 g/cc 를 40 wt% 로 "
+       "놓으면 1/rho = 0.6/2.2 + 0.4/1.16 = 0.6175 -> 1.62 g/cc 다. 인쇄값 1.65 와 2 % 안에서 닫힌다. "
+       "**형태 함정 판정** — 같은 9절에 인화점(>240 °C)과 점도(20,000 cps)가 함께 있으므로 이 값은 **미경화 액상**의 밀도다. 그래도 넣은 이유는 "
+       "68차 DA·69차 ED 가 Ablebond 965-1L 에서 쓴 근거와 같다 — **3절에 휘발성 용제가 한 줄도 없다**(실리카+에폭시 수지 2종+경화제, 나머지 <1 %). "
+       "즉 이 액은 용액이 아니라 100 % 고형분 모재이고, 경화하면서 부피가 몇 % 수축할 뿐 조성이 날아가지 않는다. "
+       "그러나 출처 논문(Chhanda 2012)이 잰 것은 **경화된 자립 시편**이므로 형태가 같지는 않다 — `physical_form: liquid, as supplied (uncured)` 로 못박았다. "
+       "**두 판 대조를 못 했다** — 16절 verbatim `Version  005` · `Revision Date  04/29/2020` · `Reason for Revision  Section 9 update. Specific Gravity correction.` · "
+       "`Supersedes SDS Dated  05/18/2015`. **벤더가 스스로 '비중 정정' 이라 적었으므로 2015 판은 다른 수를 찍고 있었다**는 뜻인데 그 판의 사본은 없다. "
+       "이 행은 정정 뒤의 값이다. "
+       "**경로** — Ellsworth Document Library 색인(`out_ed/indexes/ellsworth_edl_sds_index.json`) 의 `item_id 54928` · `SDS0000054928`, 발행처 `Zymet, Inc.`.")},
+    {"key": "rheological.viscosity", "value": 20.0, "unit": "Pa*s", "method": "measured", "tier": 3,
+     "conditions": {"physical_form": "liquid, as supplied (uncured)",
+                    "grade_scope": ZYMET_SCOPE,
+                    "cure_state": "uncured",
+                    "temperature_status": "not printed — 9절이 점도에 기준온도도 회전자·회전수도 적지 않는다"},
+     "notes": (
+       "같은 9절 verbatim — `Viscosity  20,000 cps`. 환산 20,000 cP = 20,000 x 1e-3 Pa*s = 20.0 Pa*s. "
+       "**기준온도가 인쇄되지 않았다** — 3M DP100 SDS 가 `[@73.4 ºF]` 를 병기하는 것과 달리 이 문서는 아무 조건도 적지 않아 conditions 에 그 사실만 남겼다. "
+       "점도는 미경화 상태에만 정의되는 물성이라 밀도와 달리 형태 불일치 문제가 없다(69차 ED 가 DP100 에서 쓴 것과 같은 논지).")},
+  ]},
+
+ {"match_name": "FM300K epoxy film adhesive (Cytec Engineered Materials, aerospace structural bonding film)",
+  "source": {"kind": "datasheet",
+             "title": "FM(R) 300 Adhesive Film Safety Data Sheet (SDS: 0001535, Date Prepared 02/05/2017, 영문)",
+             "url": EDL.format(40941),
+             "publisher": "Cytec Industries Inc. (Solvay)", "year": 2017,
+             "local_path": f"{SDS}/Solvay-Cytec_FM-300-Adhesive-Film_SDS_2017-02-05.pdf"},
+  "properties": [
+    {"key": "physical.density", "value": 1300.0, "unit": "kg/m^3", "method": "measured", "tier": 3,
+     "conditions": {"physical_form": "uncured adhesive film on structural carrier (9절 `Appearance: film` · `Color: green`)",
+                    "grade_scope": FM300_SCOPE, "cure_state": "uncured (as supplied)", "bound": "lower",
+                    "temperature_status": "not printed — 9절이 비중에 기준온도를 적지 않는다"},
+     "notes": (
+       "SDS 9절 verbatim — `Color:  green` · `Appearance:  film` · `Odor:  odorless` · `Boiling Point:  Not applicable` · "
+       "`Melting Point:  Not applicable` · `Vapor Pressure:  @ 20 °C  Negligible` · **`Specific Gravity/Density:  1.3 -  1.4-`** · "
+       "`Percent Volatile (% by wt.):  <1` · `Volatile Organic Content:  10 - 20 gm/L` · `Flash Point:  Not applicable`. "
+       "(끝의 낱개 `-` 는 스캔 문서의 인쇄 잔흔이다. 값은 1.3-1.4 구간이다.) "
+       "**환산** — 항목명이 `Specific Gravity/Density` 이고 단위가 인쇄되지 않았다. 무차원 비중으로 읽고 물밀도를 곱했다. "
+       "기준온도가 인쇄되지 않아 물밀도 1000 kg/m^3 을 썼다(브리프 규칙). 1.3 x 1000 = 1300 kg/m^3. **이 행이 하한이다.** "
+       "**형태** — 3절 verbatim `Substance, Mixture or Article?  Article`, `PAN Carbon Fibre  308063-67-4` · `Nylon  32131-17-2` 아래에 "
+       "`May be supplied on one of the following carrier(s):` 가 붙는다. 즉 **캐리어가 든 미경화 필름**의 값이지 경화 접착층의 값이 아니다. "
+       "`Percent Volatile <1` 이라 휘발분 손실은 1 % 미만이다. "
+       "**액상 함정이 아니다** — `Appearance: film` · `Flash Point: Not applicable` 이고, 같은 벤더의 형제 문서 "
+       "`FM(R) 300-2 Adhesive Red`(SDS 0059418, 2017-11-21)가 `Appearance: liquid` · `Percent Volatile ~16 (methyl ethyl ketone)` · "
+       "`Intended/Recommended Use: Intermediate` 로 **바니시 중간체**임을 스스로 밝히는 것과 대조된다(그 문서는 `Specific Gravity/Density: Not available` 라 가져올 값도 없었다). "
+       "**§131 정정** — 이 카탈로그의 기존 판정은 *'구조용 필름접착제 TDS 는 밀도를 인쇄하지 않는다'* 였고 그것은 **TDS 에 대해서는 지금도 맞는다**. "
+       "그러나 **같은 벤더의 SDS 는 찍는다.** 69차 ED 가 3M 에서 이미 반쪽을 정정했고(AF 131-2 · AF 191), 이 배치가 Solvay/Cytec 에서 나머지 반쪽을 정정한다. "
+       "**TDS 의 면적중량/두께를 밀도로 나눠 쓰지 않았다** — 같은 벤더 TDS(AEAD-00002 Rev 01, 2011-08-12, 사본 "
+       "`/data/paper_patent_corpus/standards_appnotes/adhesive/Cytec_FM300_AdhesiveFilm_TDS_2011-08-12.pdf`) Table 1 verbatim 은 "
+       "`FM 300K film adhesive | 0.05 (244) / 0.08 (390) | 0.008 (0.20) / 0.013 (0.32) | Green | Wide open knit` 인데, "
+       "이것을 나누면 244 gsm / 0.2032 mm = 1201 kg/m^3, 390 gsm / 0.3302 mm = 1181 kg/m^3 로 **SDS 인쇄값 1300~1400 보다 10~15 % 가볍다**. "
+       "같은 표의 FM 300 두 행조차 서로 안 맞는다(390 gsm / 0.013 in = 1181 vs 490 gsm / 0.015 in = 1286, 9 % 차) — nominal thickness 가 0.001 in 단위로 반올림된 공칭값이고 "
+       "면적중량 공차가 ±25 gsm 이기 때문이다. **면적중량/두께는 '필름의 겉보기 면적밀도'이지 재료 밀도가 아니다** — 두 숫자는 다른 물건이라 계산값을 넣지 않았다.")},
+    {"key": "physical.density", "value": 1400.0, "unit": "kg/m^3", "method": "measured", "tier": 3,
+     "conditions": {"physical_form": "uncured adhesive film on structural carrier (9절 `Appearance: film` · `Color: green`)",
+                    "grade_scope": FM300_SCOPE, "cure_state": "uncured (as supplied)", "bound": "upper",
+                    "temperature_status": "not printed — 9절이 비중에 기준온도를 적지 않는다"},
+     "notes": (
+       "같은 9절 verbatim `Specific Gravity/Density:  1.3 -  1.4-` 의 **상한**이다. 1.4 x 1000 = 1400 kg/m^3. "
+       "원문이 구간으로 인쇄했으므로 평균 내지 않고 두 행으로 넣었다(하한 행의 notes 에 근거를 모두 적었다). "
+       "**자릿수 검산** — 3절이 `Modified polymer (halogenated aromatic glycidyl ether)  50 - 75 %` 라 적는다. 할로겐화(브롬화) 에폭시가 절반 이상이므로 "
+       "무충전 에폭시(1.16~1.20)보다 뚜렷이 무거운 1.3~1.4 는 조성과 모순되지 않는다. 같은 벤더의 FM 73M(브롬 없는 고무변성 에폭시)이 1.16 인 것과 대조된다.")},
+  ]},
+
+ {"match_name": "FM-73 structural film adhesive (American Cyanamid, rubber-modified epoxy, 121 C/60 min cure, Thiedmanu 1987)",
+  "source": {"kind": "datasheet",
+             "title": "FM(R) 73 M Adhesive Film Safety Data Sheet (SDS: 0001202, Date Prepared 02/05/2017, 영문)",
+             "url": EDL.format(2165),
+             "publisher": "Cytec Industries Inc. (Solvay)", "year": 2017,
+             "local_path": f"{SDS}/Solvay-Cytec_FM-73M-Adhesive-Film_SDS_2017-02-05.pdf"},
+  "properties": [
+    {"key": "physical.density", "value": 1160.0, "unit": "kg/m^3", "method": "measured", "tier": 3,
+     "conditions": {"physical_form": "uncured adhesive film on polyester mat carrier (9절 `Appearance: film` · `Color: yellow`)",
+                    "grade_scope": FM73_SCOPE,
+                    "grade_measured": "FM 73 M (polyester mat carrier)",
+                    "grade_target": "FM 73 (polyester knit carrier)",
+                    "cure_state": "uncured (as supplied)",
+                    "temperature_status": "not printed — 9절이 비중에 기준온도를 적지 않는다"},
+     "notes": (
+       "SDS 9절 verbatim — `Color:  yellow` · `Appearance:  film` · `Odor:  odorless` · `Boiling Point:  Not available` · "
+       "`Melting Point:  Not available` · **`Specific Gravity/Density:  1.16`** · `Percent Volatile (% by wt.):  1.2 - 1.5(methyl ethyl ketone)` · "
+       "`Volatile Organic Content:  8 - 45 gm/L` · `Flash Point:  Not applicable` · `Viscosity (Kinematic):  Not available`. "
+       "**환산** — 단위가 인쇄되지 않은 `Specific Gravity/Density` 라 무차원 비중으로 읽고 물밀도를 곱했다. 기준온도가 없어 1000 kg/m^3 을 썼다. "
+       "1.16 x 1000 = 1160 kg/m^3. **인쇄값이 단일값이라 구간 두 행이 아니다.** "
+       "**형태** — 1절 verbatim `Product Description:  Mixture of epoxy resins and curing agents on a structural carrier`, 3절 `Substance, Mixture or Article?  Article`. "
+       "**미경화 필름**의 값이다. 잔류 MEK 가 1.2~1.5 wt% 있으므로 경화막은 이보다 조금 무거워질 수 있다 — 그 사실을 conditions 에 남겼다. "
+       "**액상 함정이 아니다** — `Appearance: film` · `Flash Point: Not applicable` 이다. MEK 는 필름 제조 잔류 용제이고 제품 형태가 액체가 아니다. "
+       "**자릿수 검산** — 3절 verbatim `Modified poly(aromatic glycidyl ether) - Elastomer modified phenolic epoxy resin  40 - 70` · "
+       "`Poly(aromatic glycidyl ether) #2  15 -40` · `2-Butanone (Methyl ethyl ketone)  78-93-3  1-5`. **무기 충전재도 할로겐도 없는 고무변성 에폭시**라 "
+       "1.16 은 무충전 에폭시 대역(1.15~1.20)에 정확히 든다. 같은 벤더의 FM 300(브롬화 에폭시 50-75 %)이 1.3-1.4 인 것과 대비되어 서로를 검증한다. "
+       "**등급 3 인 이유** — 문서는 M 캐리어 변종의 것이고 출처 논문은 캐리어를 지정하지 않은 `FM-73` 이다. 이 재료의 전단강도 4행이 이미 같은 근거로 "
+       "t3 + `grade_measured`/`grade_target`/`grade_scope` 를 달고 있어 그 관례를 그대로 따랐다. "
+       "**기존 판정 정정** — 46차 HD 가 TDS 를 열고 *'밀도는 이 갈래의 구조적 부재'* 라 적었고 69차 ED 는 *'Solvay 는 SDS 를 웹에 두지 않는다'* 로 닫았다. "
+       "**둘 다 SDS 에 대해서는 틀렸다** — Ellsworth Document Library 가 Cytec 자사 SDS 를 무인증으로 서빙한다(`item_id 2165` · `MSDS12601`).")},
+  ]},
+]
+
+out = {"batch": "70차 FB", "materials": mats}
+p = pathlib.Path(__file__).with_name("fb04_materials.json")
+p.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+rows = sum(len(m["properties"]) for m in mats)
+print(f"{p} — 재료 {len(mats)}종 · {rows}행")
