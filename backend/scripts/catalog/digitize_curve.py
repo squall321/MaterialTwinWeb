@@ -74,7 +74,14 @@ def digitize(img: np.ndarray, color: tuple[int, int, int], tol: float,
     # 균일 격자로 재샘플(중복 x 제거 후).
     uq, idx = np.unique(np.round(X, 10), return_index=True)
     X, Y = uq, Y[idx]
-    grid = np.linspace(X.min(), X.max(), n_out)
+    # 재샘플 격자도 축을 따라야 한다. `lin()` 은 로그축 매핑을 하는데 여기만 늘
+    # 등간격이라, 1~1e6 마스터커브에서 20점 중 19점이 마지막 한 자릿수에 몰렸다
+    # (69차 EC 가 Baek 2008 로 실증 — 두 번째 점이 벌써 767 s).
+    # geomspace 는 양수만 받으므로 로그축이라도 X 가 0 이하를 품으면 등간격으로 돌아간다.
+    if logx and X.min() > 0:
+        grid = np.geomspace(X.min(), X.max(), n_out)
+    else:
+        grid = np.linspace(X.min(), X.max(), n_out)
     return grid, np.interp(grid, X, Y)
 
 
