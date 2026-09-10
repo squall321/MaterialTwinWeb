@@ -1,0 +1,1060 @@
+{
+ "batch": "73차 IC",
+ "materials": [
+  {
+   "match_name": "Epoxy molding compound MP7100 (silica-filled epoxy, Tg 110 C, Nitto-Denko, Kenner 1995 OSU)",
+   "new_material": {
+    "name": "Epoxy molding compound MP7100 (silica-filled epoxy, Tg 110 C, Nitto-Denko, Kenner 1995 OSU)",
+    "category": "composite",
+    "attributes": {
+     "role": "evidence",
+     "manufacturer_printed_verbatim": "Nitto-Dinko",
+     "manufacturer_note": "원문은 `manufactured by Nitto-Dinko` 라 인쇄한다 — Nitto-Denko(닛토덴코)의 오식으로 보고 재료명에는 Nitto-Denko 를 쓰되 인쇄 철자를 여기 그대로 남긴다. 우리가 값을 고친 것이 아니라 제조사 표기를 기록한 것이다.",
+     "grade": "MP7100",
+     "composition_printed": "epoxy-based, highly filled with silica particles (further details not available)",
+     "post_mold_cure": "175 C, 5 h",
+     "specimen": "ASTM D638-91 type IV dog bone, 6.35 x 3.18 mm gage section, supplied by Intel",
+     "notes": "Kenner 1995(MRS Proc. 390, 97-102) 의 비선형 점탄성 특성화 대상. 응력완화 3벌(0.25/0.5/1.0 % 변형률, 24~150 C)과 정속변형률 인장(1e-4/1e-5/1e-6 /s). 완화계수가 변형률에 의존한다 — 즉 비선형 점탄성이다."
+    }
+   },
+   "source": {
+    "kind": "journal",
+    "title": "Viscoelastic Characterization of an Epoxy-Based Molding Compound (MRS Proceedings 390, 97-102, 1995)",
+    "doi": "10.1557/proc-390-97",
+    "url": "https://doi.org/10.1557/proc-390-97",
+    "year": 1995,
+    "authors": "V. H. Kenner, M. R. Julian, C. H. Popelar, M. K. Chengalva",
+    "publisher": "Materials Research Society",
+    "local_path": "/data/paper_patent_corpus/pkg_papers/10_emc_filler_lowstress/Kenner - 1995 - Viscoelastic Characterization of an Epoxy-Based Molding Compound.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 21115433406.58844,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 1e-09,
+      "strain_pct": 0.25,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": -9
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.25%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 4.3246 → E = 21115.4 MPa = 2.112e+10 Pa, 환산시간 log t = -9 → t = 1e-09 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 21400 MPa (log10 = 4.3304); 곡선 좌측 끝(log t = -9.28)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 21130024470.24133,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 1e-08,
+      "strain_pct": 0.25,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": -8
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.25%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 4.3249 → E = 21130.0 MPa = 2.113e+10 Pa, 환산시간 log t = -8 → t = 1e-08 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 21400 MPa (log10 = 4.3304); 곡선 좌측 끝(log t = -9.28)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 21144625616.525894,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 1e-07,
+      "strain_pct": 0.25,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": -7
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.25%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 4.3252 → E = 21144.6 MPa = 2.114e+10 Pa, 환산시간 log t = -7 → t = 1e-07 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 21400 MPa (log10 = 4.3304); 곡선 좌측 끝(log t = -9.28)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 20710949036.60337,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 1e-06,
+      "strain_pct": 0.25,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": -6
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.25%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 4.3162 → E = 20710.9 MPa = 2.071e+10 Pa, 환산시간 log t = -6 → t = 1e-06 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 21400 MPa (log10 = 4.3304); 곡선 좌측 끝(log t = -9.28)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 20286167169.662926,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 1e-05,
+      "strain_pct": 0.25,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": -5
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.25%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 4.3072 → E = 20286.2 MPa = 2.029e+10 Pa, 환산시간 log t = -5 → t = 1e-05 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 21400 MPa (log10 = 4.3304); 곡선 좌측 끝(log t = -9.28)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 19444644164.481304,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 0.0001,
+      "strain_pct": 0.25,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": -4
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.25%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 4.2888 → E = 19444.6 MPa = 1.944e+10 Pa, 환산시간 log t = -4 → t = 0.0001 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 21400 MPa (log10 = 4.3304); 곡선 좌측 끝(log t = -9.28)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 18862532453.51065,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 0.001,
+      "strain_pct": 0.25,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": -3
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.25%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 4.2756 → E = 18862.5 MPa = 1.886e+10 Pa, 환산시간 log t = -3 → t = 0.001 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 21400 MPa (log10 = 4.3304); 곡선 좌측 끝(log t = -9.28)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 18084229089.365112,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 0.01,
+      "strain_pct": 0.25,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": -2
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.25%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 4.2573 → E = 18084.2 MPa = 1.808e+10 Pa, 환산시간 log t = -2 → t = 0.01 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 21400 MPa (log10 = 4.3304); 곡선 좌측 끝(log t = -9.28)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 16645620920.792376,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 0.1,
+      "strain_pct": 0.25,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": -1
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.25%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 4.2213 → E = 16645.6 MPa = 1.665e+10 Pa, 환산시간 log t = -1 → t = 0.1 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 21400 MPa (log10 = 4.3304); 곡선 좌측 끝(log t = -9.28)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 14746875033.173489,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 1.0,
+      "strain_pct": 0.25,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 0
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.25%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 4.1687 → E = 14746.9 MPa = 1.475e+10 Pa, 환산시간 log t = +0 → t = 1 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 21400 MPa (log10 = 4.3304); 곡선 좌측 끝(log t = -9.28)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 12603756378.944258,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 10.0,
+      "strain_pct": 0.25,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 1
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.25%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 4.1005 → E = 12603.8 MPa = 1.26e+10 Pa, 환산시간 log t = +1 → t = 10 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 21400 MPa (log10 = 4.3304); 곡선 좌측 끝(log t = -9.28)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 9817479430.199844,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 100.0,
+      "strain_pct": 0.25,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 2
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.25%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 3.9920 → E = 9817.5 MPa = 9.817e+09 Pa, 환산시간 log t = +2 → t = 100 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 21400 MPa (log10 = 4.3304); 곡선 좌측 끝(log t = -9.28)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 7133456216.702232,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 1000.0,
+      "strain_pct": 0.25,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 3
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.25%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 3.8533 → E = 7133.5 MPa = 7.133e+09 Pa, 환산시간 log t = +3 → t = 1000 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 21400 MPa (log10 = 4.3304); 곡선 좌측 끝(log t = -9.28)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 4813932540.001449,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 10000.0,
+      "strain_pct": 0.25,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 4
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.25%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 3.6825 → E = 4813.9 MPa = 4.814e+09 Pa, 환산시간 log t = +4 → t = 10000 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 21400 MPa (log10 = 4.3304); 곡선 좌측 끝(log t = -9.28)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 3149923452.784473,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 100000.0,
+      "strain_pct": 0.25,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 5
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.25%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 3.4983 → E = 3149.9 MPa = 3.15e+09 Pa, 환산시간 log t = +5 → t = 100000 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 21400 MPa (log10 = 4.3304); 곡선 좌측 끝(log t = -9.28)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 2283494658.2255406,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 1000000.0,
+      "strain_pct": 0.25,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 6
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.25%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 3.3586 → E = 2283.5 MPa = 2.283e+09 Pa, 환산시간 log t = +6 → t = 1e+06 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 21400 MPa (log10 = 4.3304); 곡선 좌측 끝(log t = -9.28)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 1711985176.7028587,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 10000000.0,
+      "strain_pct": 0.25,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 7
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.25%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 3.2335 → E = 1712.0 MPa = 1.712e+09 Pa, 환산시간 log t = +7 → t = 1e+07 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 21400 MPa (log10 = 4.3304); 곡선 좌측 끝(log t = -9.28)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 1378795952.9688573,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 100000000.0,
+      "strain_pct": 0.25,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 8
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.25%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 3.1395 → E = 1378.8 MPa = 1.379e+09 Pa, 환산시간 log t = +8 → t = 1e+08 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 21400 MPa (log10 = 4.3304); 곡선 좌측 끝(log t = -9.28)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 1195914137.6940758,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 1000000000.0,
+      "strain_pct": 0.25,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 9
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.25%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 3.0777 → E = 1195.9 MPa = 1.196e+09 Pa, 환산시간 log t = +9 → t = 1e+09 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 21400 MPa (log10 = 4.3304); 곡선 좌측 끝(log t = -9.28)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 17029425618.775497,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 1e-09,
+      "strain_pct": 0.5,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": -9
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.5%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 4.2312 → E = 17029.4 MPa = 1.703e+10 Pa, 환산시간 log t = -9 → t = 1e-09 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 17300 MPa (log10 = 4.2380); 곡선 좌측 끝(log t = -9.31)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 16877184574.248034,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 1e-08,
+      "strain_pct": 0.5,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": -8
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.5%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 4.2273 → E = 16877.2 MPa = 1.688e+10 Pa, 환산시간 log t = -8 → t = 1e-08 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 17300 MPa (log10 = 4.2380); 곡선 좌측 끝(log t = -9.31)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 16691678072.110582,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 1e-07,
+      "strain_pct": 0.5,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": -7
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.5%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 4.2225 → E = 16691.7 MPa = 1.669e+10 Pa, 환산시간 log t = -7 → t = 1e-07 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 17300 MPa (log10 = 4.2380); 곡선 좌측 끝(log t = -9.31)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 16036145940.882233,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 1e-06,
+      "strain_pct": 0.5,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": -6
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.5%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 4.2051 → E = 16036.1 MPa = 1.604e+10 Pa, 환산시간 log t = -6 → t = 1e-06 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 17300 MPa (log10 = 4.2380); 곡선 좌측 끝(log t = -9.31)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 15156537556.969778,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 1e-05,
+      "strain_pct": 0.5,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": -5
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.5%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 4.1806 → E = 15156.5 MPa = 1.516e+10 Pa, 환산시간 log t = -5 → t = 1e-05 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 17300 MPa (log10 = 4.2380); 곡선 좌측 끝(log t = -9.31)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 14083156323.665281,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 0.0001,
+      "strain_pct": 0.5,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": -4
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.5%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 4.1487 → E = 14083.2 MPa = 1.408e+10 Pa, 환산시간 log t = -4 → t = 0.0001 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 17300 MPa (log10 = 4.2380); 곡선 좌측 끝(log t = -9.31)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 12779092095.662865,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 0.001,
+      "strain_pct": 0.5,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": -3
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.5%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 4.1065 → E = 12779.1 MPa = 1.278e+10 Pa, 환산시간 log t = -3 → t = 0.001 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 17300 MPa (log10 = 4.2380); 곡선 좌측 끝(log t = -9.31)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 11678847834.896381,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 0.01,
+      "strain_pct": 0.5,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": -2
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.5%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 4.0674 → E = 11678.8 MPa = 1.168e+10 Pa, 환산시간 log t = -2 → t = 0.01 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 17300 MPa (log10 = 4.2380); 곡선 좌측 끝(log t = -9.31)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 10322859110.52998,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 0.1,
+      "strain_pct": 0.5,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": -1
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.5%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 4.0138 → E = 10322.9 MPa = 1.032e+10 Pa, 환산시간 log t = -1 → t = 0.1 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 17300 MPa (log10 = 4.2380); 곡선 좌측 끝(log t = -9.31)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 8697611401.030066,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 1.0,
+      "strain_pct": 0.5,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 0
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.5%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 3.9394 → E = 8697.6 MPa = 8.698e+09 Pa, 환산시간 log t = +0 → t = 1 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 17300 MPa (log10 = 4.2380); 곡선 좌측 끝(log t = -9.31)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 7259387846.07024,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 10.0,
+      "strain_pct": 0.5,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 1
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.5%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 3.8609 → E = 7259.4 MPa = 7.259e+09 Pa, 환산시간 log t = +1 → t = 10 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 17300 MPa (log10 = 4.2380); 곡선 좌측 끝(log t = -9.31)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 5735879248.42134,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 100.0,
+      "strain_pct": 0.5,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 2
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.5%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 3.7586 → E = 5735.9 MPa = 5.736e+09 Pa, 환산시간 log t = +2 → t = 100 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 17300 MPa (log10 = 4.2380); 곡선 좌측 끝(log t = -9.31)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 4424864743.55665,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 1000.0,
+      "strain_pct": 0.5,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 3
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.5%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 3.6459 → E = 4424.9 MPa = 4.425e+09 Pa, 환산시간 log t = +3 → t = 1000 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 17300 MPa (log10 = 4.2380); 곡선 좌측 끝(log t = -9.31)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 3184930794.7187243,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 10000.0,
+      "strain_pct": 0.5,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 4
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.5%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 3.5031 → E = 3184.9 MPa = 3.185e+09 Pa, 환산시간 log t = +4 → t = 10000 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 17300 MPa (log10 = 4.2380); 곡선 좌측 끝(log t = -9.31)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 2118848962.0866463,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 100000.0,
+      "strain_pct": 0.5,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 5
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.5%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 3.3261 → E = 2118.8 MPa = 2.119e+09 Pa, 환산시간 log t = +5 → t = 100000 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 17300 MPa (log10 = 4.2380); 곡선 좌측 끝(log t = -9.31)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 1603983882.5084186,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 1000000.0,
+      "strain_pct": 0.5,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 6
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.5%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 3.2052 → E = 1604.0 MPa = 1.604e+09 Pa, 환산시간 log t = +6 → t = 1e+06 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 17300 MPa (log10 = 4.2380); 곡선 좌측 끝(log t = -9.31)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 1285582642.2088668,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 10000000.0,
+      "strain_pct": 0.5,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 7
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.5%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 3.1091 → E = 1285.6 MPa = 1.286e+09 Pa, 환산시간 log t = +7 → t = 1e+07 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 17300 MPa (log10 = 4.2380); 곡선 좌측 끝(log t = -9.31)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 1106878622.8588042,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 100000000.0,
+      "strain_pct": 0.5,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 8
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.5%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 3.0441 → E = 1106.9 MPa = 1.107e+09 Pa, 환산시간 log t = +8 → t = 1e+08 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 17300 MPa (log10 = 4.2380); 곡선 좌측 끝(log t = -9.31)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 973867785.3286338,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 1000000000.0,
+      "strain_pct": 0.5,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 9
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 0.5%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 2.9885 → E = 973.9 MPa = 9.739e+08 Pa, 환산시간 log t = +9 → t = 1e+09 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 17300 MPa (log10 = 4.2380); 곡선 좌측 끝(log t = -9.31)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 2968930286.2263727,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 1.0,
+      "strain_pct": 1.0,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 0
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 1.0%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 3.4726 → E = 2968.9 MPa = 2.969e+09 Pa, 환산시간 log t = +0 → t = 1 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 3000 MPa (log10 = 3.4771); 곡선 좌측 끝(log t = -0.26)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 2971666031.738025,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 10.0,
+      "strain_pct": 1.0,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 1
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 1.0%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 3.4730 → E = 2971.7 MPa = 2.972e+09 Pa, 환산시간 log t = +1 → t = 10 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 3000 MPa (log10 = 3.4771); 곡선 좌측 끝(log t = -0.26)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 2945777902.3394585,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 100.0,
+      "strain_pct": 1.0,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 2
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 1.0%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 3.4692 → E = 2945.8 MPa = 2.946e+09 Pa, 환산시간 log t = +2 → t = 100 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 3000 MPa (log10 = 3.4771); 곡선 좌측 끝(log t = -0.26)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 2692154624.0752883,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 1000.0,
+      "strain_pct": 1.0,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 3
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 1.0%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 3.4301 → E = 2692.2 MPa = 2.692e+09 Pa, 환산시간 log t = +3 → t = 1000 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 3000 MPa (log10 = 3.4771); 곡선 좌측 끝(log t = -0.26)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 2023019178.6782718,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 10000.0,
+      "strain_pct": 1.0,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 4
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 1.0%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 3.3060 → E = 2023.0 MPa = 2.023e+09 Pa, 환산시간 log t = +4 → t = 10000 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 3000 MPa (log10 = 3.4771); 곡선 좌측 끝(log t = -0.26)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 1505913407.7254438,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 100000.0,
+      "strain_pct": 1.0,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 5
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 1.0%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 3.1778 → E = 1505.9 MPa = 1.506e+09 Pa, 환산시간 log t = +5 → t = 100000 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 3000 MPa (log10 = 3.4771); 곡선 좌측 끝(log t = -0.26)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 1153453257.8210917,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 1000000.0,
+      "strain_pct": 1.0,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 6
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 1.0%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 3.0620 → E = 1153.5 MPa = 1.153e+09 Pa, 환산시간 log t = +6 → t = 1e+06 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 3000 MPa (log10 = 3.4771); 곡선 좌측 끝(log t = -0.26)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 972299360.2579224,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 10000000.0,
+      "strain_pct": 1.0,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 7
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 1.0%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 2.9878 → E = 972.3 MPa = 9.723e+08 Pa, 환산시간 log t = +7 → t = 1e+07 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 3000 MPa (log10 = 3.4771); 곡선 좌측 끝(log t = -0.26)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 859409202.9532832,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 100000000.0,
+      "strain_pct": 1.0,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 8
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 1.0%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 2.9342 → E = 859.4 MPa = 8.594e+08 Pa, 환산시간 log t = +8 → t = 1e+08 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 3000 MPa (log10 = 3.4771); 곡선 좌측 끝(log t = -0.26)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 774461797.8025184,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 1000000000.0,
+      "strain_pct": 1.0,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 9
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 1.0%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 2.8890 → E = 774.5 MPa = 7.745e+08 Pa, 환산시간 log t = +9 → t = 1e+09 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 3000 MPa (log10 = 3.4771); 곡선 좌측 끝(log t = -0.26)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 687859912.3088075,
+     "unit": "Pa",
+     "method": "digitized",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 10000000000.0,
+      "strain_pct": 1.0,
+      "reduced_time": true,
+      "log10_time_s_printed_axis": 10
+     },
+     "notes": "Kenner 1995 Fig.2 `Master Stress Relaxation Curves for MP7100 Molding Compound at 100 C` 의 세 마스터커브 중 원문이 `e_o = 1.0%` 로 표기한 곡선을 디지타이즈. 판독값 log10(E/MPa) = 2.8375 → E = 687.9 MPa = 6.879e+08 Pa, 환산시간 log t = +10 → t = 1e+10 s. Fig.2 축 좌표계 — 가로 `Log t (sec)` 환산시간 -10~15(주눈금 6개 검출, 직선회귀 잔차 최대 0.21 px), 세로 `Log E (MPa)` 2.5~5.0(주눈금 6개, 잔차 최대 2.6 px = 0.005 decade). 900 dpi 렌더에서 곡선 밴드(실선 + Prony 적합 원형 마커)의 상·하 끝 중점을 곡선값으로 잡았다 — 마커가 곡선 위에 중심을 두므로 밴드 중심이 곡선이다. 판독틀은 상·하 프레임선을 x 마다 재어 기울어짐(1400 px 에 4 px)을 보정했다. 검산① 원문 본문이 인쇄한 이 곡선의 영시간계수 = 3000 MPa (log10 = 3.4771); 곡선 좌측 끝(log t = -0.26)에서 우리 판독값과의 차이는 세 곡선 각각 -1.3 / -1.6 / -1.0 % 다(원문이 밝힌 완화계수 정확도는 +-4 %). 검산② 이 문서 Fig.1(0.5 % 변형률 등온 완화곡선)의 100 C 곡선을 따로 디지타이즈해 0.5 % 마스터커브와 대조했다 — 기준온도가 100 C 이므로 a_T = 1 이라 둘이 같아야 한다. log t = 1/1.5/2/2.5/3/3.5 에서 차이 0.014/0.012/0.022/0.030/0.040/0.031 decade 로 일치한다. 이 곡선은 시간-온도 중첩으로 조립한 마스터커브다(원문: `all shifting was arbitrarily effected relative to the 100 C relaxation curve`) — 기준온도 100 C 가 그림 표제에 인쇄돼 있다. E(0) 절대값은 별도 행(time_s = 0)으로 넣었다."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 21400000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 2,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 0.0,
+      "strain_pct": 0.25,
+      "reduced_time": true,
+      "value_kind": "zero_time_modulus_of_prony_fit"
+     },
+     "notes": "원문 본문 verbatim — `the zero-time modulus associated with the Prony fit of the 0.25% relaxation curve, 21.4 x 10^3 MPa, compares to an initial modulus of 21.8 x 10^3 MPa observed in a constant strain rate tensile test ... The zero-time relaxation moduli values for the Prony fits to the 0.5% and 1.0% relaxation curves are 17.3 x 10^3 MPa and 3.0 x 10^3 MPa, respectively.` 이 행은 e_o = 0.25% 곡선의 값 21400 MPa = 2.14e+10 Pa 다. **인쇄된 절대값이지만 Prony 적합의 t->0 극한이라 measured 가 아니라 computed 로 적는다.** 원문 자신이 이 값을 `데이터의 단시간 절단(short-time truncation)` 때문에 실제 순간계수보다 낮다고 밝힌다 — 특히 1.0 % 곡선은 환산시간 log t = -0.26 에서야 시작한다. 이 세 값이 Fig.2 좌측 끝 판독의 검산 앵커다(차이 -1.3 / -1.6 / -1.0 %)."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 17300000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 2,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 0.0,
+      "strain_pct": 0.5,
+      "reduced_time": true,
+      "value_kind": "zero_time_modulus_of_prony_fit"
+     },
+     "notes": "원문 본문 verbatim — `the zero-time modulus associated with the Prony fit of the 0.25% relaxation curve, 21.4 x 10^3 MPa, compares to an initial modulus of 21.8 x 10^3 MPa observed in a constant strain rate tensile test ... The zero-time relaxation moduli values for the Prony fits to the 0.5% and 1.0% relaxation curves are 17.3 x 10^3 MPa and 3.0 x 10^3 MPa, respectively.` 이 행은 e_o = 0.5% 곡선의 값 17300 MPa = 1.73e+10 Pa 다. **인쇄된 절대값이지만 Prony 적합의 t->0 극한이라 measured 가 아니라 computed 로 적는다.** 원문 자신이 이 값을 `데이터의 단시간 절단(short-time truncation)` 때문에 실제 순간계수보다 낮다고 밝힌다 — 특히 1.0 % 곡선은 환산시간 log t = -0.26 에서야 시작한다. 이 세 값이 Fig.2 좌측 끝 판독의 검산 앵커다(차이 -1.3 / -1.6 / -1.0 %)."
+    },
+    {
+     "key": "mechanical.relaxation_modulus",
+     "value": 3000000000.0,
+     "unit": "Pa",
+     "method": "computed",
+     "tier": 2,
+     "conditions": {
+      "temperature_c": 100,
+      "reference_temperature_c": 100,
+      "relaxation_mode": "tensile",
+      "curve_type": "master_curve",
+      "reference_temperature_printed": true,
+      "time_s": 0.0,
+      "strain_pct": 1.0,
+      "reduced_time": true,
+      "value_kind": "zero_time_modulus_of_prony_fit"
+     },
+     "notes": "원문 본문 verbatim — `the zero-time modulus associated with the Prony fit of the 0.25% relaxation curve, 21.4 x 10^3 MPa, compares to an initial modulus of 21.8 x 10^3 MPa observed in a constant strain rate tensile test ... The zero-time relaxation moduli values for the Prony fits to the 0.5% and 1.0% relaxation curves are 17.3 x 10^3 MPa and 3.0 x 10^3 MPa, respectively.` 이 행은 e_o = 1.0% 곡선의 값 3000 MPa = 3e+09 Pa 다. **인쇄된 절대값이지만 Prony 적합의 t->0 극한이라 measured 가 아니라 computed 로 적는다.** 원문 자신이 이 값을 `데이터의 단시간 절단(short-time truncation)` 때문에 실제 순간계수보다 낮다고 밝힌다 — 특히 1.0 % 곡선은 환산시간 log t = -0.26 에서야 시작한다. 이 세 값이 Fig.2 좌측 끝 판독의 검산 앵커다(차이 -1.3 / -1.6 / -1.0 %)."
+    },
+    {
+     "key": "mechanical.youngs_modulus_at_rate",
+     "value": 21800000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 24,
+      "strain_rate_s": 0.0001,
+      "test_standard": "ASTM D638-91 type IV"
+     },
+     "notes": "원문 본문 verbatim — `the initial slope of the stress-strain curve for 24 C and a strain rate of 10-4 s-1 is 21.8x10 3 MPa; at a temperature of 150 C and the same strain rate, the initial slope of the stress-strain curve is l.4x103 MPa.`(Fig.4). 이 행은 24 C · 1e-4 /s 의 21800 MPa = 2.18e+10 Pa 다. 시편은 ASTM D638-91 type IV 도그본, 시험부 6.35 x 3.18 mm, 175 C 5 h 후경화. **Fig.4 를 디지타이즈한 것이 아니라 본문 인쇄값이다.**"
+    },
+    {
+     "key": "mechanical.youngs_modulus_at_rate",
+     "value": 1400000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "temperature_c": 150,
+      "strain_rate_s": 0.0001,
+      "test_standard": "ASTM D638-91 type IV"
+     },
+     "notes": "원문 본문 verbatim — `the initial slope of the stress-strain curve for 24 C and a strain rate of 10-4 s-1 is 21.8x10 3 MPa; at a temperature of 150 C and the same strain rate, the initial slope of the stress-strain curve is l.4x103 MPa.`(Fig.4). 이 행은 150 C · 1e-4 /s 의 1400 MPa = 1.4e+09 Pa 다. 시편은 ASTM D638-91 type IV 도그본, 시험부 6.35 x 3.18 mm, 175 C 5 h 후경화. **Fig.4 를 디지타이즈한 것이 아니라 본문 인쇄값이다.**"
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 383.15,
+     "unit": "K",
+     "method": "estimated",
+     "tier": 2,
+     "conditions": {
+      "determined_from": "relaxation_modulus_vs_temperature_at_100_s",
+      "value_printed_c": 110
+     },
+     "notes": "원문 verbatim — `It is observed from Figure 1 by examining the relaxation modulus as a function of temperature at a given time (e.g., at 100 s) that the greatest rate of change with respect to temperature occurs at approximately 110 C. This was taken to give an estimate of the glass transition temperature for the molding compound.` Fig.3 이 `T = Tg = 110 C` 로 축 위에 다시 인쇄한다. 110 C = 383.15 K. **DSC/TMA 가 아니라 완화곡선의 온도의존성에서 읽은 값이라 원문이 스스로 `estimate` 라 부른다 — 그래서 tier 2 다.**"
+    }
+   ]
+  }
+ ]
+}
