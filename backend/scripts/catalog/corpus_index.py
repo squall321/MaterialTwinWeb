@@ -13,6 +13,8 @@
 #   build                        색인 생성(약 3분)
 #   search "<FTS 질의>" [-n 20] [-d materials_papers] [-r "정규식"]
 #   near "<FTS 질의>" -r "정규식"   질의로 좁힌 뒤 정규식이 걸린 줄만 문맥과 함께 출력
+#
+#   ⚠ search·near 는 **본문만** 본다. 표에 있는 값은 `tables` 로 찾아라(59%가 표에 있다).
 from __future__ import annotations
 
 import argparse
@@ -23,6 +25,10 @@ import sqlite3
 import sys
 from collections import Counter
 
+# **`search`·`near` 는 본문 md 만 본다.** 코퍼스 29,846편 중 17,852편(59%)이 표를
+# `tables/*.md` 로 빼 두고 있고 그 88,637장은 FTS 밖이다(73차 IB 실측).
+# 즉 「전수 검색 0건」의 「전수」는 본문 41% 짜리다 — 표에만 있는 값은
+# `tables` 하위명령으로 따로 두드려야 한다.
 ROOT = "/data/paper_patent_corpus/structured"
 DB = "/data/paper_patent_corpus/_index/corpus_fts.db"
 # snowball은 다른 분야에서 재수집한 사본이라 원본 디렉터리를 우선한다.
@@ -431,6 +437,11 @@ def main() -> None:
     a = ap.parse_args()
     if a.cmd == "build":
         build()
+        # `build()` 는 DB 파일을 통째로 지운다 — `ptab`(물성표 색인)이 같이 날아가
+        # `tables` 하위명령이 조용히 죽는다. 73차 IB 가 그 상태를 발견해 손으로
+        # 복구했다. 손으로 기억할 일이 아니라 이어 붙인다.
+        print("\n─ 물성표 색인(ptab) 을 이어 굽는다")
+        scan_build()
     elif a.cmd == "scan":
         scan_build()
     elif a.cmd == "tables":
