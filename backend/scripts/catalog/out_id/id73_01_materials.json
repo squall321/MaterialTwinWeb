@@ -1,0 +1,77 @@
+{
+ "batch": "73차 ID",
+ "note": "V5 를 판정으로 닫는 배치인데, 그 과정에서 **V3(자유키 판정) 12칸 중 값으로 닫히는 칸이 셋 있었다** — 65차 AC 가 벤더 시트를 읽고 인쇄행을 자유키 `core_fill_sheet` 에 적어 두고 「바로 넣을 수 있다」고 인계했는데 아무도 안 넣은 자리다. 73차 ID 가 **그 두 시트를 직접 다시 열어** 행 이름까지 대조하고 옮긴다.",
+ "materials": [
+  {
+   "new_material": {
+    "name": "Thermylene talc-filled polypropylene PP-T, 40 wt% talc, injection moulded (Eftekhari 2016)"
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "Thermylene(R) P-40TC-8100 (PP-T40) — CAMPUS/ISO datasheet (Material Data Center)",
+    "url": "https://www.materialdatacenter.com/ms/en/Thermylene/Asahi+Kasei+Corporation/Thermylene%C2%AE+P-40TC-8100/5aa7eb80/214",
+    "publisher": "Asahi Kasei Corporation (CAMPUS data via Material Data Center, M-Base Engineering + Software)",
+    "url_note": "73차 ID 가 이 URL 을 직접 다시 열어 표를 파싱했다(서버가 HTTP 500 을 반환하면서도 본문 19,149 바이트를 보내 준다 — 상태코드만 보고 포기하면 안 되는 자리다). 이미 이 카드에 들어가 있는 밀도 1260 kg/m³(ISO 1183)가 이 페이지의 `Other properties` 표와 글자 그대로 일치해 **출처-카드 연결이 값으로 교차검증된다.**"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 29000000.0,
+     "unit": "Pa",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ISO 527",
+      "temperature_c": 23.0,
+      "data_set": "CAMPUS/ISO 10350 single-point (ISO Data)"
+     },
+     "notes": "원문 verbatim — `Mechanical properties / ISO Data` 표의 행 `Tensile Strength | 29 | MPa | ISO 527`. **이 시트의 기계 물성 표는 네 행이 전부다** — `Tensile Strength 29 MPa(ISO 527)` · `Flexural modulus, 23°C 4300 MPa(ISO 178)` · `Flexural strength 52 MPa(ISO 178)` · `Charpy notched impact strength, +23°C 2.6 kJ/m²(ISO 179/1eA)`. 인장과 굽힘이 따로 인쇄돼 있으므로 이름이 아니라 시험규격으로 갈랐고(ISO 527 = 인장), 굽힘강도 52 MPa 를 인장강도로 옮기지 않았다. 65차 AC 가 자유키에 적어 두고 「바로 넣을 수 있다」고 인계한 값인데, **73차 ID 가 원 URL 을 다시 열어 행 이름·값·단위·시험규격 넷을 모두 대조한 뒤에 옮겼다.**"
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Noryl short-glass-fiber modified PPE/PS blend, 20 wt% GF, injection moulded (Eftekhari 2016)"
+   },
+   "source": {
+    "kind": "datasheet",
+    "title": "NORYL(TM) Resin SE1GFN2 — SABIC Material Finder 제품 데이터시트(Americas/Asia/Europe 3개 지역 블록)",
+    "url": "https://materialfinder.sabic-specialties.com/material/noryl-resin-se1gfn2",
+    "publisher": "SABIC (Specialties)",
+    "url_note": "73차 ID 가 이 URL 을 직접 다시 열어 **Americas 블록의 행 이름을 축약 없이** 받아 왔다. 이미 이 카드에 들어가 있는 밀도 1230 kg/m³ 가 Americas 블록 `Specific Gravity 1.23`(ASTM D792)과 일치한다 — **이 카드는 Americas 블록에 묶여 있다**는 뜻이고, 아래 두 값도 같은 블록에서만 골랐다."
+   },
+   "properties": [
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 106000000.0,
+     "unit": "Pa",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D638",
+      "specimen_type": "Type I",
+      "test_speed_mm_min": 5.0,
+      "stress_at": "break",
+      "region_block": "Americas"
+     },
+     "notes": "원문 verbatim — Americas 블록의 행 이름은 축약 없이 `Tensile Stress, brk, Type I, 5 mm/min` 이고 값이 `106 MPa`(ASTM D638) 다. **행 이름이 `Tensile Stress` 이지만 시험규격이 ASTM D638(인장)이고 `brk`(파단 시) 라 인장강도가 맞다** — 같은 시트의 굽힘축은 `Flexural Modulus`(ASTM D790) 로 따로 있다.\n\n**지역 블록을 섞지 않았다(브리프 638).** 이 시트는 같은 등급을 세 블록으로 인쇄하고 **같은 물성인데 값이 다르다** — 73차 ID 가 세 블록을 다 받아 확인했다: Tensile Stress Americas `106 MPa`(ASTM D638, brk) / Asia `120 MPa`(ASTM D638, brk)·`100 MPa`(ISO 527) / Europe `80 MPa`(ISO 527, brk); CTE Americas `3.6E-05`(−40~95 ℃) / Asia `2.5E-05`·`3.E-05`(−40~40 ℃) / Europe `5.E-05`(−40~40 ℃); Specific Gravity Americas·Asia `1.23` / Europe `1.25`. 이 카드의 기존 밀도가 1230 kg/m³ 이므로 Americas 블록만 썼다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 3.6e-05,
+     "unit": "1/K",
+     "method": "datasheet",
+     "tier": 1,
+     "conditions": {
+      "test_standard": "ASTM E831",
+      "temperature_min_c": -40.0,
+      "temperature_max_c": 95.0,
+      "direction": "flow",
+      "region_block": "Americas"
+     },
+     "notes": "원문 verbatim — Americas 블록 `Thermal Properties` 절의 행 `CTE, -40°C to 95°C, flow` = `3.6E-05 1/°C`(ASTM E831). 단위 `1/°C` → `1/K` 는 **환산이 아니라 같은 양이다**(선팽창계수는 온도 차의 역수라 섭씨 눈금과 켈빈 눈금의 크기가 같다). 배향은 `flow`(유동 방향)이고 이 시트에는 `xflow` 행이 없다.\n\n**지역 블록을 섞지 않았다(브리프 638).** 이 시트는 같은 등급을 세 블록으로 인쇄하고 **같은 물성인데 값이 다르다** — 73차 ID 가 세 블록을 다 받아 확인했다: Tensile Stress Americas `106 MPa`(ASTM D638, brk) / Asia `120 MPa`(ASTM D638, brk)·`100 MPa`(ISO 527) / Europe `80 MPa`(ISO 527, brk); CTE Americas `3.6E-05`(−40~95 ℃) / Asia `2.5E-05`·`3.E-05`(−40~40 ℃) / Europe `5.E-05`(−40~40 ℃); Specific Gravity Americas·Asia `1.23` / Europe `1.25`. 이 카드의 기존 밀도가 1230 kg/m³ 이므로 Americas 블록만 썼다."
+    }
+   ]
+  }
+ ]
+}
