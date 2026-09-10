@@ -171,9 +171,15 @@ def _mode_rank(pv) -> int:
     # 3점굽힘 행이 `"air side always used as the tensile side"` 때문에 인장으로도 잡혀
     # 판단 보류가 됐다. 그 행은 `strength_property` 가 `modulus of rupture from
     # three-point bending` 이라 좁힌 창에서는 정확히 굽힘으로 잡힌다.
+    # **통일 전후 이름을 둘 다 읽는다.** `normalize_condition_keys.py` 가
+    # `test_mode → mode`, `test_condition → condition` 으로 바꾸는데 바뀐 이름이 창 밖이면
+    # 표기가 조용히 무효가 된다 — 73차 IA 가 실측했다(재료 1258~1270 의 120행이 이미
+    # 그렇게 나갔고 전부 `test_mode_before_correction` 흔적을 달고 있다).
+    # 창을 넓히는 쪽을 골랐다. 통일기를 고치면 이미 바뀐 120행이 안 살아난다.
     blob = " ".join(str(cond.get(k, "")) for k in
-                    ("test_standard", "test_method", "test", "test_mode", "test_geometry",
-                     "strength_property", "method_detail", "test_condition", "loading_mode"))
+                    ("test_standard", "test_method", "test", "test_mode", "mode",
+                     "test_geometry", "strength_property", "method_detail",
+                     "test_condition", "condition", "loading_mode"))
     is_flex, is_tens = bool(_FLEX_RX.search(blob)), bool(_TENS_RX.search(blob))
     if is_flex == is_tens:            # 둘 다이거나 둘 다 아니면 판단 보류
         return 1

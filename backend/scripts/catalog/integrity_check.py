@@ -305,6 +305,42 @@ CHECKS = [
             cast(replace(substr(conditions, instr(conditions,'wavelength_nm')+15), '}}', '') as real) <= 0)"""),
 ]
 
+# 집계가 읽는 부재판정 키는 넷뿐이다. 배치가 비슷하지만 다른 이름을 쓰거나 자료형을
+# 문자열로 쓰면 **판정이 있는데 집계는 못 읽어** 그 칸이 V5「진짜 남은 것」으로 떨어진다.
+# 실측(73차 ID) — 70~72차가 `core7_absent_from_vendor_table`(45종)·
+# `core7_absent_from_vendor_sheet`(7종)을 산문 문자열로 써서 **V5 가 0 → 294 로 튀었다.**
+# 이름이 맞아도 `{물성키: 사유}` dict 가 아니면 못 읽는다 — 둘 다 본다.
+_VERDICT_OK = ("core_not_applicable", "core_absent_from_vendor_sheet",
+               "core_rejected_printed_value", "core_no_public_document")
+
+
+def unreadable_verdict_attrs() -> list:
+    """판정처럼 보이는데 집계가 못 읽는 재료 속성 — (재료, 키, 사유)."""
+    import json as _json
+    import re as _re
+    # `verdict` 를 넣으면 `verdict_subsystem`·`verdict_tie_*` 같은 **다른 용도**까지 잡는다
+    # (실측 311건 중 대부분). 코어7 부재판정만 겨눈다 — 이름에 부재·기각의 뜻이 있는 것.
+    like = _re.compile(r"absent|not_?applicable|rejected_printed|no_public", _re.I)
+    con = sqlite3.connect(DB)
+    out = []
+    for mid, name, attrs in con.execute("select id, name, attributes from material"):
+        try:
+            d = _json.loads(attrs or "{}")
+        except Exception:
+            continue
+        if not isinstance(d, dict):
+            continue
+        for k, v in d.items():
+            if k.endswith("_before_correction") or not like.search(k):
+                continue
+            if k not in _VERDICT_OK:
+                out.append((mid, name, k, "집계가 모르는 이름"))
+            elif not isinstance(v, dict):
+                out.append((mid, name, k, f"dict 가 아니라 {type(v).__name__}"))
+    con.close()
+    return out
+
+
 def bad_midpoint_method() -> int:
     """중앙값이라고 **주장**하는데 실측·핸드북으로 표기된 값의 수(브리프 451).
 
@@ -506,6 +542,13 @@ for label, sql in CHECKS:
 _v = bad_lcsr_curves()
 bad += 1 if _v else 0
 print(f"  {'LCSR 가로축 비단조':28s} {_v}{'  ←' if _v else ''}")
+_uv = unreadable_verdict_attrs()
+bad += 1 if _uv else 0
+print(f"  {'집계가 못 읽는 판정 속성':28s} {len(_uv)}{'  ←' if _uv else ''}")
+for _mid, _nm, _k, _why in _uv[:5]:
+    print(f"      재료{_mid} {str(_nm)[:40]:42s} {_k} — {_why}")
+if len(_uv) > 5:
+    print(f"      … 외 {len(_uv) - 5}건")
 _mp = bad_midpoint_method()
 bad += 1 if _mp else 0
 print(f"  {'중앙값인데 실측·핸드북 표기':28s} {_mp}{'  ←' if _mp else ''}")
