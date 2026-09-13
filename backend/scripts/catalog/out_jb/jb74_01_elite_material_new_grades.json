@@ -1,0 +1,2005 @@
+{
+  "batch": "74차 JB",
+  "materials": [
+    {
+      "new_material": {
+        "name": "Elite Material EM-390 / EM-39B High Tg Low Dk Halogen-Free Laminate",
+        "category": "composite",
+        "description": "台光電子材料(Elite Material Co., Ltd.) 동장적층판 `EM-390 / EM-39B` — High Tg / Low Dk / Halogen Free. 벤더 표기 특징: Low Dk for impedance control. Low CTE and high modulus. Good peel strength and suitable for mSAP process. 적용 IPC 슬래시시트: IPC-4101 /127, /128, /130; IPC-4103 /240, /540. **이 카드가 74차 JB 에 선 이유** — 68차 DC 가 이 벤더 다섯 등급(EM-370Z·EM-370(5)·EM-890·EM-888·EM-891)에 영률 부재판정을 달면서 나머지 등급을 카드로 세우지 않았다. 이 등급은 벤더 시트가 **열전도율과 CTE 를 인쇄**하므로 코어7 두 칸을 갖고 태어난다.",
+        "attributes": {
+          "material_class": "copper-clad laminate (glass fabric / halogen-free epoxy)",
+          "subsystem": "pcb",
+          "role": "product",
+          "role_reason": "PCB 실부품 동장적층판. 벤더가 등급명으로 인쇄한 제품이다.",
+          "role_confidence": "high",
+          "manufacturer": "Elite Material Co., Ltd. (EMC, 台光電子材料)",
+          "product_series": "EM series copper-clad laminate",
+          "product_form": "copper-clad laminate / prepreg",
+          "aliases": [
+            "EM-390",
+            "EM-39B",
+            "EMC EM-390",
+            "Elite Material EM-390",
+            "EM390",
+            "EM39B"
+          ],
+          "grade_pair_note": "`EM-390` 는 동장적층판(laminate), `EM-39B` 는 같은 수지계의 프리프레그(B-stage)다. 벤더가 한 시트에 두 품번을 묶어 인쇄하고 **특성값은 한 벌뿐**이라 카드도 하나다.",
+          "ipc_slash_sheets": "IPC-4101 /127, /128, /130; IPC-4103 /240, /540",
+          "ul_file": "E150504",
+          "datasheet_revision": "Rev: 2024 July",
+          "locale_note": "**세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다.",
+          "core_absent_from_vendor_sheet": {
+            "physical.density": "**[74차 JB]** 이 등급의 벤더 데이터시트를 열었고 `Density`·`Specific Gravity` 행이 **없다.**\n\n**연 문서** — `/data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-390_Datasheet_20240716.pdf` (Elite Material Co., Ltd. `EM-390 / EM-39B` Datasheet, Rev 2024 July, 1쪽). 이 시트의 `Basic Laminate Property` 표는 **한 장에 전부 인쇄되고** 행 구성이 이렇다 — Tg(DSC/TMA/DMA) · CTE X/Y · CTE Z(<Tg, >Tg) · Z-axis Expansion · Td · T288 · Thermal Conductivity · Dk · Df · Volume Resistivity · Surface Resistivity · Water Absorption · Peel Strength · Flexural Strength · Flame Resistance. **밀도·영률·포아송비·비열·인장강도 행은 이 표에 자리 자체가 없다.**\n\n**벤더 전수** — 74차 JB 가 `emctw.com` 제품목록이 서빙하는 **데이터시트 43장을 전부 받아** 전문 토큰 검사를 돌렸다(단어 단위). `density` 0 · `specific gravity` 0 · `specific heat` 0 · `Young` 0 · `tensile` 0 · `Poisson` 0 — **43장 중 한 장도 없다.** 이 벤더의 기계축은 `Flexural Strength`(구형 등급)와 `Flexural Modulus`(저손실 신형 등급) 둘뿐이고, 둘 다 **IPC-TM-650 2.4.4 = 굽힘**이라 인장 칸에 옮길 수 없다.\n\n**주의 — 구(句) 검색은 이 시트에서 거짓 음성을 낸다.** `pdftotext` 가 두 낱말 행이름을 두 줄로 쪼개 (`Flexural` / `Modulus`) 뽑는다. `\"flexural modulus\"` 로 찾으면 43장 전부 0건이 나오는데 **실제로는 10장에 있다.** 72차 HD 가 ELC HTML 의 `引っ張り<br>強さ` 에서 밟은 것과 같은 함정이다 — **낱말 단위로 세라.**\n\n**로케일** — **세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다.",
+            "mechanical.youngs_modulus": "**[74차 JB]** 이 등급의 벤더 데이터시트를 열었고 `Young's Modulus`·`Tensile Modulus` 행이 **없다.**\n\n**연 문서** — `/data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-390_Datasheet_20240716.pdf` (Elite Material Co., Ltd. `EM-390 / EM-39B` Datasheet, Rev 2024 July, 1쪽). 이 시트의 `Basic Laminate Property` 표는 **한 장에 전부 인쇄되고** 행 구성이 이렇다 — Tg(DSC/TMA/DMA) · CTE X/Y · CTE Z(<Tg, >Tg) · Z-axis Expansion · Td · T288 · Thermal Conductivity · Dk · Df · Volume Resistivity · Surface Resistivity · Water Absorption · Peel Strength · Flexural Strength · Flame Resistance. **밀도·영률·포아송비·비열·인장강도 행은 이 표에 자리 자체가 없다.**\n\n**벤더 전수** — 74차 JB 가 `emctw.com` 제품목록이 서빙하는 **데이터시트 43장을 전부 받아** 전문 토큰 검사를 돌렸다(단어 단위). `density` 0 · `specific gravity` 0 · `specific heat` 0 · `Young` 0 · `tensile` 0 · `Poisson` 0 — **43장 중 한 장도 없다.** 이 벤더의 기계축은 `Flexural Strength`(구형 등급)와 `Flexural Modulus`(저손실 신형 등급) 둘뿐이고, 둘 다 **IPC-TM-650 2.4.4 = 굽힘**이라 인장 칸에 옮길 수 없다.\n\n**주의 — 구(句) 검색은 이 시트에서 거짓 음성을 낸다.** `pdftotext` 가 두 낱말 행이름을 두 줄로 쪼개 (`Flexural` / `Modulus`) 뽑는다. `\"flexural modulus\"` 로 찾으면 43장 전부 0건이 나오는데 **실제로는 10장에 있다.** 72차 HD 가 ELC HTML 의 `引っ張り<br>強さ` 에서 밟은 것과 같은 함정이다 — **낱말 단위로 세라.**\n\n**로케일** — **세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다.",
+            "mechanical.poisson_ratio": "**[74차 JB]** 이 등급의 벤더 데이터시트를 열었고 `Poisson` 행이 **없다.**\n\n**연 문서** — `/data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-390_Datasheet_20240716.pdf` (Elite Material Co., Ltd. `EM-390 / EM-39B` Datasheet, Rev 2024 July, 1쪽). 이 시트의 `Basic Laminate Property` 표는 **한 장에 전부 인쇄되고** 행 구성이 이렇다 — Tg(DSC/TMA/DMA) · CTE X/Y · CTE Z(<Tg, >Tg) · Z-axis Expansion · Td · T288 · Thermal Conductivity · Dk · Df · Volume Resistivity · Surface Resistivity · Water Absorption · Peel Strength · Flexural Strength · Flame Resistance. **밀도·영률·포아송비·비열·인장강도 행은 이 표에 자리 자체가 없다.**\n\n**벤더 전수** — 74차 JB 가 `emctw.com` 제품목록이 서빙하는 **데이터시트 43장을 전부 받아** 전문 토큰 검사를 돌렸다(단어 단위). `density` 0 · `specific gravity` 0 · `specific heat` 0 · `Young` 0 · `tensile` 0 · `Poisson` 0 — **43장 중 한 장도 없다.** 이 벤더의 기계축은 `Flexural Strength`(구형 등급)와 `Flexural Modulus`(저손실 신형 등급) 둘뿐이고, 둘 다 **IPC-TM-650 2.4.4 = 굽힘**이라 인장 칸에 옮길 수 없다.\n\n**주의 — 구(句) 검색은 이 시트에서 거짓 음성을 낸다.** `pdftotext` 가 두 낱말 행이름을 두 줄로 쪼개 (`Flexural` / `Modulus`) 뽑는다. `\"flexural modulus\"` 로 찾으면 43장 전부 0건이 나오는데 **실제로는 10장에 있다.** 72차 HD 가 ELC HTML 의 `引っ張り<br>強さ` 에서 밟은 것과 같은 함정이다 — **낱말 단위로 세라.**\n\n**로케일** — **세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다.",
+            "thermal.specific_heat": "**[74차 JB]** 이 등급의 벤더 데이터시트를 열었고 `Specific Heat` 행이 **없다.**\n\n**연 문서** — `/data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-390_Datasheet_20240716.pdf` (Elite Material Co., Ltd. `EM-390 / EM-39B` Datasheet, Rev 2024 July, 1쪽). 이 시트의 `Basic Laminate Property` 표는 **한 장에 전부 인쇄되고** 행 구성이 이렇다 — Tg(DSC/TMA/DMA) · CTE X/Y · CTE Z(<Tg, >Tg) · Z-axis Expansion · Td · T288 · Thermal Conductivity · Dk · Df · Volume Resistivity · Surface Resistivity · Water Absorption · Peel Strength · Flexural Strength · Flame Resistance. **밀도·영률·포아송비·비열·인장강도 행은 이 표에 자리 자체가 없다.**\n\n**벤더 전수** — 74차 JB 가 `emctw.com` 제품목록이 서빙하는 **데이터시트 43장을 전부 받아** 전문 토큰 검사를 돌렸다(단어 단위). `density` 0 · `specific gravity` 0 · `specific heat` 0 · `Young` 0 · `tensile` 0 · `Poisson` 0 — **43장 중 한 장도 없다.** 이 벤더의 기계축은 `Flexural Strength`(구형 등급)와 `Flexural Modulus`(저손실 신형 등급) 둘뿐이고, 둘 다 **IPC-TM-650 2.4.4 = 굽힘**이라 인장 칸에 옮길 수 없다.\n\n**주의 — 구(句) 검색은 이 시트에서 거짓 음성을 낸다.** `pdftotext` 가 두 낱말 행이름을 두 줄로 쪼개 (`Flexural` / `Modulus`) 뽑는다. `\"flexural modulus\"` 로 찾으면 43장 전부 0건이 나오는데 **실제로는 10장에 있다.** 72차 HD 가 ELC HTML 의 `引っ張り<br>強さ` 에서 밟은 것과 같은 함정이다 — **낱말 단위로 세라.**\n\n**로케일** — **세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다.",
+            "mechanical.tensile_strength": "**[74차 JB]** 이 등급의 벤더 데이터시트를 열었고 `Tensile Strength` 행이 **없다.**\n\n**연 문서** — `/data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-390_Datasheet_20240716.pdf` (Elite Material Co., Ltd. `EM-390 / EM-39B` Datasheet, Rev 2024 July, 1쪽). 이 시트의 `Basic Laminate Property` 표는 **한 장에 전부 인쇄되고** 행 구성이 이렇다 — Tg(DSC/TMA/DMA) · CTE X/Y · CTE Z(<Tg, >Tg) · Z-axis Expansion · Td · T288 · Thermal Conductivity · Dk · Df · Volume Resistivity · Surface Resistivity · Water Absorption · Peel Strength · Flexural Strength · Flame Resistance. **밀도·영률·포아송비·비열·인장강도 행은 이 표에 자리 자체가 없다.**\n\n**벤더 전수** — 74차 JB 가 `emctw.com` 제품목록이 서빙하는 **데이터시트 43장을 전부 받아** 전문 토큰 검사를 돌렸다(단어 단위). `density` 0 · `specific gravity` 0 · `specific heat` 0 · `Young` 0 · `tensile` 0 · `Poisson` 0 — **43장 중 한 장도 없다.** 이 벤더의 기계축은 `Flexural Strength`(구형 등급)와 `Flexural Modulus`(저손실 신형 등급) 둘뿐이고, 둘 다 **IPC-TM-650 2.4.4 = 굽힘**이라 인장 칸에 옮길 수 없다.\n\n**주의 — 구(句) 검색은 이 시트에서 거짓 음성을 낸다.** `pdftotext` 가 두 낱말 행이름을 두 줄로 쪼개 (`Flexural` / `Modulus`) 뽑는다. `\"flexural modulus\"` 로 찾으면 43장 전부 0건이 나오는데 **실제로는 10장에 있다.** 72차 HD 가 ELC HTML 의 `引っ張り<br>強さ` 에서 밟은 것과 같은 함정이다 — **낱말 단위로 세라.**\n\n**로케일** — **세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다."
+          }
+        }
+      },
+      "source": {
+        "kind": "datasheet",
+        "title": "Elite Material Co., Ltd. — EM-390 / EM-39B Datasheet (High Tg / Low Dk / Halogen Free), Rev 2024 July",
+        "url": "https://www.emctw.com/upload/website/item/EM-390%20Datasheet-20240716_24081911789.pdf",
+        "publisher": "Elite Material Co., Ltd. (台光電子材料股份有限公司)",
+        "year": 2024,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-390_Datasheet_20240716.pdf",
+        "url_note": "2026-09-13 에 벤더 제품목록(`/en-global/product_name/index`)에서 직접 받았고 로컬 사본과 md5 가 같다. **세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다."
+      },
+      "properties": [
+        {
+          "key": "thermal.glass_transition",
+          "value": 438.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24"
+          },
+          "notes": "원문 verbatim: `Tg | 165 | oC | TMA`. 환산 165 ℃ + 273.15 = 438.15 K. **같은 표의 DSC 칸은 `N/A` 로 인쇄돼 있어 행을 만들지 않았다.** TMA 와 DMA 는 서로 다른 시험이라 두 행으로 갈랐고 평균 내지 않았다."
+        },
+        {
+          "key": "thermal.glass_transition",
+          "value": 463.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "method_detail": "DMA",
+            "test_standard": "IPC-TM-650 2.4.24.4"
+          },
+          "notes": "원문 verbatim: `Tg | 190 | oC | DMA`. 환산 190 ℃ + 273.15 = 463.15 K. **같은 표의 DSC 칸은 `N/A` 로 인쇄돼 있어 행을 만들지 않았다.** TMA 와 DMA 는 서로 다른 시험이라 두 행으로 갈랐고 평균 내지 않았다."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 1.2e-05,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "in-plane (X)",
+            "regime": "below Tg (alpha1)",
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24.5"
+          },
+          "notes": "원문 verbatim: `CTE, X/Y-axis | 12/13 | ppm/ oC | < Tg, TMA`. 원문이 `X/Y` 를 슬래시로 갈라 인쇄하므로 두 축을 두 행으로 나눴다. 환산 12 ppm/℃ x 1e-6 = 1.2e-05 1/K."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 1.3e-05,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "in-plane (Y)",
+            "regime": "below Tg (alpha1)",
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24.5"
+          },
+          "notes": "원문 verbatim: `CTE, X/Y-axis | 12/13 | ppm/ oC | < Tg, TMA`. 원문이 `X/Y` 를 슬래시로 갈라 인쇄하므로 두 축을 두 행으로 나눴다. 환산 13 ppm/℃ x 1e-6 = 1.3e-05 1/K."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 3.5e-05,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "through-thickness (Z)",
+            "regime": "below Tg (alpha1)",
+            "bound": "lower",
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24"
+          },
+          "notes": "원문 verbatim: `CTE, Z-axis | 35~40 | ppm/ oC | < Tg, TMA`. **인쇄 구간이라 평균 내지 않고 두 행(`bound`)으로 갈랐다.** 환산 35 ppm/℃ x 1e-6 = 3.5e-05 1/K."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 3.9999999999999996e-05,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "through-thickness (Z)",
+            "regime": "below Tg (alpha1)",
+            "bound": "upper",
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24"
+          },
+          "notes": "원문 verbatim: `CTE, Z-axis | 35~40 | ppm/ oC | < Tg, TMA`. **인쇄 구간이라 평균 내지 않고 두 행(`bound`)으로 갈랐다.** 환산 40 ppm/℃ x 1e-6 = 3.9999999999999996e-05 1/K."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 0.00015999999999999999,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "through-thickness (Z)",
+            "regime": "above Tg (alpha2)",
+            "bound": "lower",
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24"
+          },
+          "notes": "원문 verbatim: `CTE, Z-axis | 160~180 | ppm/ oC | > Tg, TMA`. **인쇄 구간이라 평균 내지 않고 두 행(`bound`)으로 갈랐다.** 환산 160 ppm/℃ x 1e-6 = 0.00015999999999999999 1/K."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 0.00017999999999999998,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "through-thickness (Z)",
+            "regime": "above Tg (alpha2)",
+            "bound": "upper",
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24"
+          },
+          "notes": "원문 verbatim: `CTE, Z-axis | 160~180 | ppm/ oC | > Tg, TMA`. **인쇄 구간이라 평균 내지 않고 두 행(`bound`)으로 갈랐다.** 환산 180 ppm/℃ x 1e-6 = 0.00017999999999999998 1/K."
+        },
+        {
+          "key": "thermal.expansion_total",
+          "value": 0.022000000000000002,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "through-thickness (Z)",
+            "temperature_range_c": "50-260",
+            "test_standard": "IPC-TM-650 2.4.24"
+          },
+          "notes": "원문 verbatim: `Z-axis Expansion | 2.2 | % | 50~260 oC`. 환산 2.2 % / 100 = 0.022000000000000002 (무차원)."
+        },
+        {
+          "key": "thermal.decomposition_temp",
+          "value": 658.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "method_detail": "TGA, 5% weight loss",
+            "test_standard": "IPC-TM-650 2.4.24.6"
+          },
+          "notes": "원문 verbatim: `Td | 385 | oC | TGA (5% W.L)`. 환산 385 ℃ + 273.15 = 658.15 K."
+        },
+        {
+          "key": "thermal.time_to_delamination",
+          "value": 3600.0,
+          "unit": "s",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "temperature_c": 288,
+            "specimen_state": "Clad",
+            "bound": "lower",
+            "test_standard": "IPC-TM-650 2.4.24.1"
+          },
+          "notes": "원문 verbatim: `T288 | >60 | min. | Clad`. **원문이 부등호(`>60`)로 인쇄한 하한이다** — `bound: lower` 로 넣었고 상한 행은 만들지 않았다. 환산 60 min x 60 = 3600 s."
+        },
+        {
+          "key": "thermal.time_to_delamination",
+          "value": 3600.0,
+          "unit": "s",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "temperature_c": 288,
+            "specimen_state": "Etched",
+            "bound": "lower",
+            "test_standard": "IPC-TM-650 2.4.24.1"
+          },
+          "notes": "원문 verbatim: `T288 | >60 | min. | Etched`. **원문이 부등호(`>60`)로 인쇄한 하한이다** — `bound: lower` 로 넣었고 상한 행은 만들지 않았다. 환산 60 min x 60 = 3600 s."
+        },
+        {
+          "key": "thermal.conductivity",
+          "value": 0.49,
+          "unit": "W/(m*K)",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "test_standard": "ASTM D5470",
+            "test_geometry": "through-thickness (laminate stack)"
+          },
+          "notes": "원문 verbatim: `Thermal Conductivity | 0.49 | W/m.K`. 단위가 이미 W/(m·K) 라 환산이 없다. 시험법 칸 원문: `ASTM D5470`."
+        },
+        {
+          "key": "electrical.dielectric_constant",
+          "value": 4.0,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "1GHz",
+            "resin_content": "50%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Dk (R/C: 50/70%) | 1GHz | 4.0/3.5`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dielectric_constant",
+          "value": 3.5,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "1GHz",
+            "resin_content": "70%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Dk (R/C: 50/70%) | 1GHz | 4.0/3.5`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dielectric_constant",
+          "value": 3.8,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "50%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Dk (R/C: 50/70%) | 10GHz | 3.8/3.3`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dielectric_constant",
+          "value": 3.3,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "70%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Dk (R/C: 50/70%) | 10GHz | 3.8/3.3`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dissipation_factor",
+          "value": 0.007,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "1GHz",
+            "resin_content": "50%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Df (R/C: 50/70%) | 1GHz | 0.007/0.008`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dissipation_factor",
+          "value": 0.008,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "1GHz",
+            "resin_content": "70%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Df (R/C: 50/70%) | 1GHz | 0.007/0.008`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dissipation_factor",
+          "value": 0.011,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "50%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Df (R/C: 50/70%) | 10GHz | 0.011/0.012`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dissipation_factor",
+          "value": 0.012,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "70%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Df (R/C: 50/70%) | 10GHz | 0.011/0.012`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "chemical.water_absorption_24h",
+          "value": 0.0008,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "conditioning": "E-1/105+D-24/23",
+            "test_standard": "IPC-TM-650 2.6.2.1"
+          },
+          "notes": "원문 verbatim: `Water Absorption | 0.08 | % | E-1/105+D-24/23`. 환산 0.08 % / 100 = 0.0008."
+        },
+        {
+          "key": "interface.peel_strength",
+          "value": 1050.76,
+          "unit": "N/m",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "foil": "0.5 oz HTE",
+            "conditioning": "As Received",
+            "test_standard": "IPC-TM-650 2.4.8"
+          },
+          "notes": "원문 verbatim: `Peel Strength | 0.5 oz HTE | 6.0 | lb/in | As Received`. 환산 6.0 lb/in x 175.126835 = 1050.76 N/m; 되돌리면 1050.76 / 175.126835 = 6.0."
+        },
+        {
+          "key": "interface.peel_strength",
+          "value": 1050.76,
+          "unit": "N/m",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "foil": "0.5 oz HTE",
+            "conditioning": "After Thermal Stress",
+            "test_standard": "IPC-TM-650 2.4.8"
+          },
+          "notes": "원문 verbatim: `Peel Strength | 0.5 oz HTE | 6.0 | lb/in | After Thermal Stress`. 환산 6.0 lb/in x 175.126835 = 1050.76 N/m; 되돌리면 1050.76 / 175.126835 = 6.0."
+        },
+        {
+          "key": "mechanical.flexural_strength",
+          "value": 510000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "direction": "warp",
+            "conditioning": "As Received",
+            "bound": "lower",
+            "test_standard": "IPC-TM-650 2.4.4",
+            "test_mode": "flexural (3-point bend)"
+          },
+          "notes": "원문 verbatim: `Flexural Strength | Warp | 510~570 | MPa | As Received`. **인쇄 구간이라 두 행(`bound`)으로 갈랐다.** 환산 510 MPa x 1e6 = 510000000.0 Pa. **이 행은 굽힘이다 — `mechanical.tensile_strength` 로 옮기지 마라**(IPC-TM-650 2.4.4)."
+        },
+        {
+          "key": "mechanical.flexural_strength",
+          "value": 570000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "direction": "warp",
+            "conditioning": "As Received",
+            "bound": "upper",
+            "test_standard": "IPC-TM-650 2.4.4",
+            "test_mode": "flexural (3-point bend)"
+          },
+          "notes": "원문 verbatim: `Flexural Strength | Warp | 510~570 | MPa | As Received`. **인쇄 구간이라 두 행(`bound`)으로 갈랐다.** 환산 570 MPa x 1e6 = 570000000.0 Pa. **이 행은 굽힘이다 — `mechanical.tensile_strength` 로 옮기지 마라**(IPC-TM-650 2.4.4)."
+        },
+        {
+          "key": "mechanical.flexural_strength",
+          "value": 450000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "direction": "fill",
+            "conditioning": "As Received",
+            "bound": "lower",
+            "test_standard": "IPC-TM-650 2.4.4",
+            "test_mode": "flexural (3-point bend)"
+          },
+          "notes": "원문 verbatim: `Flexural Strength | Fill | 450~500 | MPa | As Received`. **인쇄 구간이라 두 행(`bound`)으로 갈랐다.** 환산 450 MPa x 1e6 = 450000000.0 Pa. **이 행은 굽힘이다 — `mechanical.tensile_strength` 로 옮기지 마라**(IPC-TM-650 2.4.4)."
+        },
+        {
+          "key": "mechanical.flexural_strength",
+          "value": 500000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "direction": "fill",
+            "conditioning": "As Received",
+            "bound": "upper",
+            "test_standard": "IPC-TM-650 2.4.4",
+            "test_mode": "flexural (3-point bend)"
+          },
+          "notes": "원문 verbatim: `Flexural Strength | Fill | 450~500 | MPa | As Received`. **인쇄 구간이라 두 행(`bound`)으로 갈랐다.** 환산 500 MPa x 1e6 = 500000000.0 Pa. **이 행은 굽힘이다 — `mechanical.tensile_strength` 로 옮기지 마라**(IPC-TM-650 2.4.4)."
+        },
+        {
+          "key": "thermal.flammability_ul94",
+          "value": "V-0",
+          "unit": null,
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "conditioning": "C-48/23/50",
+            "test_standard": "UL-94"
+          },
+          "notes": "원문 verbatim: `Flame Resistance | V-0 | C-48/23/50 | UL-94`."
+        }
+      ]
+    },
+    {
+      "new_material": {
+        "name": "Elite Material EM-526 / EM-526B Low Loss Low CTE Halogen-Free Laminate",
+        "category": "composite",
+        "description": "台光電子材料(Elite Material Co., Ltd.) 동장적층판 `EM-526 / EM-526B` — Low Loss / Low CTE / Halogen Free. 벤더 표기 특징: Low Df for excellent electrical performance. Low CTE for X/Y/Z-axis direction. For high reliability applications. 적용 IPC 슬래시시트: IPC-4103 /240, /540. **이 카드가 74차 JB 에 선 이유** — 68차 DC 가 이 벤더 다섯 등급(EM-370Z·EM-370(5)·EM-890·EM-888·EM-891)에 영률 부재판정을 달면서 나머지 등급을 카드로 세우지 않았다. 이 등급은 벤더 시트가 **열전도율과 CTE 를 인쇄**하므로 코어7 두 칸을 갖고 태어난다.  그리고 **DC 가 「이 벤더의 강도축은 Flexural Strength 하나다」라고 한 것이 이 신형 저손실 등급에서는 성립하지 않는다 — `Flexural Modulus` 를 GPa 로 인쇄한다.** 다만 시험법이 IPC-TM-650 2.4.4(굽힘)이라 영률 칸은 여전히 못 채운다.",
+        "attributes": {
+          "material_class": "copper-clad laminate (glass fabric / halogen-free epoxy)",
+          "subsystem": "pcb",
+          "role": "product",
+          "role_reason": "PCB 실부품 동장적층판. 벤더가 등급명으로 인쇄한 제품이다.",
+          "role_confidence": "high",
+          "manufacturer": "Elite Material Co., Ltd. (EMC, 台光電子材料)",
+          "product_series": "EM series copper-clad laminate",
+          "product_form": "copper-clad laminate / prepreg",
+          "aliases": [
+            "EM-526",
+            "EM-526B",
+            "EMC EM-526",
+            "Elite Material EM-526",
+            "EM526",
+            "EM526B"
+          ],
+          "grade_pair_note": "`EM-526` 는 동장적층판(laminate), `EM-526B` 는 같은 수지계의 프리프레그(B-stage)다. 벤더가 한 시트에 두 품번을 묶어 인쇄하고 **특성값은 한 벌뿐**이라 카드도 하나다.",
+          "ipc_slash_sheets": "IPC-4103 /240, /540",
+          "ul_file": "E150504",
+          "datasheet_revision": "Rev: 2024 July",
+          "locale_note": "**세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다.",
+          "core_absent_from_vendor_sheet": {
+            "physical.density": "**[74차 JB]** 이 등급의 벤더 데이터시트를 열었고 `Density`·`Specific Gravity` 행이 **없다.**\n\n**연 문서** — `/data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-526_Datasheet_20240716.pdf` (Elite Material Co., Ltd. `EM-526 / EM-526B` Datasheet, Rev 2024 July, 1쪽). 이 시트의 `Basic Laminate Property` 표는 **한 장에 전부 인쇄되고** 행 구성이 이렇다 — Tg(DSC/TMA/DMA) · CTE X/Y · CTE Z(<Tg, >Tg) · Z-axis Expansion · Td · T288 · Thermal Conductivity · Dk · Df · Volume Resistivity · Surface Resistivity · Water Absorption · Peel Strength · Flexural Modulus · Flame Resistance. **밀도·영률·포아송비·비열·인장강도 행은 이 표에 자리 자체가 없다.**\n\n**벤더 전수** — 74차 JB 가 `emctw.com` 제품목록이 서빙하는 **데이터시트 43장을 전부 받아** 전문 토큰 검사를 돌렸다(단어 단위). `density` 0 · `specific gravity` 0 · `specific heat` 0 · `Young` 0 · `tensile` 0 · `Poisson` 0 — **43장 중 한 장도 없다.** 이 벤더의 기계축은 `Flexural Strength`(구형 등급)와 `Flexural Modulus`(저손실 신형 등급) 둘뿐이고, 둘 다 **IPC-TM-650 2.4.4 = 굽힘**이라 인장 칸에 옮길 수 없다.\n\n**주의 — 구(句) 검색은 이 시트에서 거짓 음성을 낸다.** `pdftotext` 가 두 낱말 행이름을 두 줄로 쪼개 (`Flexural` / `Modulus`) 뽑는다. `\"flexural modulus\"` 로 찾으면 43장 전부 0건이 나오는데 **실제로는 10장에 있다.** 72차 HD 가 ELC HTML 의 `引っ張り<br>強さ` 에서 밟은 것과 같은 함정이다 — **낱말 단위로 세라.**\n\n**로케일** — **세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다.",
+            "mechanical.youngs_modulus": "**[74차 JB]** 이 등급의 벤더 데이터시트를 열었고 `Young's Modulus`·`Tensile Modulus` 행이 **없다.**\n\n**연 문서** — `/data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-526_Datasheet_20240716.pdf` (Elite Material Co., Ltd. `EM-526 / EM-526B` Datasheet, Rev 2024 July, 1쪽). 이 시트의 `Basic Laminate Property` 표는 **한 장에 전부 인쇄되고** 행 구성이 이렇다 — Tg(DSC/TMA/DMA) · CTE X/Y · CTE Z(<Tg, >Tg) · Z-axis Expansion · Td · T288 · Thermal Conductivity · Dk · Df · Volume Resistivity · Surface Resistivity · Water Absorption · Peel Strength · Flexural Modulus · Flame Resistance. **밀도·영률·포아송비·비열·인장강도 행은 이 표에 자리 자체가 없다.**\n\n**벤더 전수** — 74차 JB 가 `emctw.com` 제품목록이 서빙하는 **데이터시트 43장을 전부 받아** 전문 토큰 검사를 돌렸다(단어 단위). `density` 0 · `specific gravity` 0 · `specific heat` 0 · `Young` 0 · `tensile` 0 · `Poisson` 0 — **43장 중 한 장도 없다.** 이 벤더의 기계축은 `Flexural Strength`(구형 등급)와 `Flexural Modulus`(저손실 신형 등급) 둘뿐이고, 둘 다 **IPC-TM-650 2.4.4 = 굽힘**이라 인장 칸에 옮길 수 없다.\n\n**주의 — 구(句) 검색은 이 시트에서 거짓 음성을 낸다.** `pdftotext` 가 두 낱말 행이름을 두 줄로 쪼개 (`Flexural` / `Modulus`) 뽑는다. `\"flexural modulus\"` 로 찾으면 43장 전부 0건이 나오는데 **실제로는 10장에 있다.** 72차 HD 가 ELC HTML 의 `引っ張り<br>強さ` 에서 밟은 것과 같은 함정이다 — **낱말 단위로 세라.**\n\n**로케일** — **세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다.",
+            "mechanical.poisson_ratio": "**[74차 JB]** 이 등급의 벤더 데이터시트를 열었고 `Poisson` 행이 **없다.**\n\n**연 문서** — `/data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-526_Datasheet_20240716.pdf` (Elite Material Co., Ltd. `EM-526 / EM-526B` Datasheet, Rev 2024 July, 1쪽). 이 시트의 `Basic Laminate Property` 표는 **한 장에 전부 인쇄되고** 행 구성이 이렇다 — Tg(DSC/TMA/DMA) · CTE X/Y · CTE Z(<Tg, >Tg) · Z-axis Expansion · Td · T288 · Thermal Conductivity · Dk · Df · Volume Resistivity · Surface Resistivity · Water Absorption · Peel Strength · Flexural Modulus · Flame Resistance. **밀도·영률·포아송비·비열·인장강도 행은 이 표에 자리 자체가 없다.**\n\n**벤더 전수** — 74차 JB 가 `emctw.com` 제품목록이 서빙하는 **데이터시트 43장을 전부 받아** 전문 토큰 검사를 돌렸다(단어 단위). `density` 0 · `specific gravity` 0 · `specific heat` 0 · `Young` 0 · `tensile` 0 · `Poisson` 0 — **43장 중 한 장도 없다.** 이 벤더의 기계축은 `Flexural Strength`(구형 등급)와 `Flexural Modulus`(저손실 신형 등급) 둘뿐이고, 둘 다 **IPC-TM-650 2.4.4 = 굽힘**이라 인장 칸에 옮길 수 없다.\n\n**주의 — 구(句) 검색은 이 시트에서 거짓 음성을 낸다.** `pdftotext` 가 두 낱말 행이름을 두 줄로 쪼개 (`Flexural` / `Modulus`) 뽑는다. `\"flexural modulus\"` 로 찾으면 43장 전부 0건이 나오는데 **실제로는 10장에 있다.** 72차 HD 가 ELC HTML 의 `引っ張り<br>強さ` 에서 밟은 것과 같은 함정이다 — **낱말 단위로 세라.**\n\n**로케일** — **세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다.",
+            "thermal.specific_heat": "**[74차 JB]** 이 등급의 벤더 데이터시트를 열었고 `Specific Heat` 행이 **없다.**\n\n**연 문서** — `/data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-526_Datasheet_20240716.pdf` (Elite Material Co., Ltd. `EM-526 / EM-526B` Datasheet, Rev 2024 July, 1쪽). 이 시트의 `Basic Laminate Property` 표는 **한 장에 전부 인쇄되고** 행 구성이 이렇다 — Tg(DSC/TMA/DMA) · CTE X/Y · CTE Z(<Tg, >Tg) · Z-axis Expansion · Td · T288 · Thermal Conductivity · Dk · Df · Volume Resistivity · Surface Resistivity · Water Absorption · Peel Strength · Flexural Modulus · Flame Resistance. **밀도·영률·포아송비·비열·인장강도 행은 이 표에 자리 자체가 없다.**\n\n**벤더 전수** — 74차 JB 가 `emctw.com` 제품목록이 서빙하는 **데이터시트 43장을 전부 받아** 전문 토큰 검사를 돌렸다(단어 단위). `density` 0 · `specific gravity` 0 · `specific heat` 0 · `Young` 0 · `tensile` 0 · `Poisson` 0 — **43장 중 한 장도 없다.** 이 벤더의 기계축은 `Flexural Strength`(구형 등급)와 `Flexural Modulus`(저손실 신형 등급) 둘뿐이고, 둘 다 **IPC-TM-650 2.4.4 = 굽힘**이라 인장 칸에 옮길 수 없다.\n\n**주의 — 구(句) 검색은 이 시트에서 거짓 음성을 낸다.** `pdftotext` 가 두 낱말 행이름을 두 줄로 쪼개 (`Flexural` / `Modulus`) 뽑는다. `\"flexural modulus\"` 로 찾으면 43장 전부 0건이 나오는데 **실제로는 10장에 있다.** 72차 HD 가 ELC HTML 의 `引っ張り<br>強さ` 에서 밟은 것과 같은 함정이다 — **낱말 단위로 세라.**\n\n**로케일** — **세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다.",
+            "mechanical.tensile_strength": "**[74차 JB]** 이 등급의 벤더 데이터시트를 열었고 `Tensile Strength` 행이 **없다.**\n\n**연 문서** — `/data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-526_Datasheet_20240716.pdf` (Elite Material Co., Ltd. `EM-526 / EM-526B` Datasheet, Rev 2024 July, 1쪽). 이 시트의 `Basic Laminate Property` 표는 **한 장에 전부 인쇄되고** 행 구성이 이렇다 — Tg(DSC/TMA/DMA) · CTE X/Y · CTE Z(<Tg, >Tg) · Z-axis Expansion · Td · T288 · Thermal Conductivity · Dk · Df · Volume Resistivity · Surface Resistivity · Water Absorption · Peel Strength · Flexural Modulus · Flame Resistance. **밀도·영률·포아송비·비열·인장강도 행은 이 표에 자리 자체가 없다.**\n\n**벤더 전수** — 74차 JB 가 `emctw.com` 제품목록이 서빙하는 **데이터시트 43장을 전부 받아** 전문 토큰 검사를 돌렸다(단어 단위). `density` 0 · `specific gravity` 0 · `specific heat` 0 · `Young` 0 · `tensile` 0 · `Poisson` 0 — **43장 중 한 장도 없다.** 이 벤더의 기계축은 `Flexural Strength`(구형 등급)와 `Flexural Modulus`(저손실 신형 등급) 둘뿐이고, 둘 다 **IPC-TM-650 2.4.4 = 굽힘**이라 인장 칸에 옮길 수 없다.\n\n**주의 — 구(句) 검색은 이 시트에서 거짓 음성을 낸다.** `pdftotext` 가 두 낱말 행이름을 두 줄로 쪼개 (`Flexural` / `Modulus`) 뽑는다. `\"flexural modulus\"` 로 찾으면 43장 전부 0건이 나오는데 **실제로는 10장에 있다.** 72차 HD 가 ELC HTML 의 `引っ張り<br>強さ` 에서 밟은 것과 같은 함정이다 — **낱말 단위로 세라.**\n\n**로케일** — **세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다."
+          }
+        }
+      },
+      "source": {
+        "kind": "datasheet",
+        "title": "Elite Material Co., Ltd. — EM-526 / EM-526B Datasheet (Low Loss / Low CTE / Halogen Free), Rev 2024 July",
+        "url": "https://www.emctw.com/upload/website/item/EM-526%20Datasheet%2020240716_24081910532.pdf",
+        "publisher": "Elite Material Co., Ltd. (台光電子材料股份有限公司)",
+        "year": 2024,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-526_Datasheet_20240716.pdf",
+        "url_note": "2026-09-13 에 벤더 제품목록(`/en-global/product_name/index`)에서 직접 받았고 로컬 사본과 md5 가 같다. **세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다."
+      },
+      "properties": [
+        {
+          "key": "thermal.glass_transition",
+          "value": 503.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24"
+          },
+          "notes": "원문 verbatim: `Tg | 230 | oC | TMA`. 환산 230 ℃ + 273.15 = 503.15 K. **같은 표의 DSC 칸은 `N/A` 로 인쇄돼 있어 행을 만들지 않았다.** TMA 와 DMA 는 서로 다른 시험이라 두 행으로 갈랐고 평균 내지 않았다."
+        },
+        {
+          "key": "thermal.glass_transition",
+          "value": 533.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "method_detail": "DMA",
+            "test_standard": "IPC-TM-650 2.4.24.4"
+          },
+          "notes": "원문 verbatim: `Tg | 260 | oC | DMA`. 환산 260 ℃ + 273.15 = 533.15 K. **같은 표의 DSC 칸은 `N/A` 로 인쇄돼 있어 행을 만들지 않았다.** TMA 와 DMA 는 서로 다른 시험이라 두 행으로 갈랐고 평균 내지 않았다."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 9e-06,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "in-plane (X)",
+            "regime": "below Tg (alpha1)",
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24.5"
+          },
+          "notes": "원문 verbatim: `CTE, X/Y-axis | 9/10 | ppm/ oC | < Tg, TMA`. 원문이 `X/Y` 를 슬래시로 갈라 인쇄하므로 두 축을 두 행으로 나눴다. 환산 9 ppm/℃ x 1e-6 = 9e-06 1/K."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 9.999999999999999e-06,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "in-plane (Y)",
+            "regime": "below Tg (alpha1)",
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24.5"
+          },
+          "notes": "원문 verbatim: `CTE, X/Y-axis | 9/10 | ppm/ oC | < Tg, TMA`. 원문이 `X/Y` 를 슬래시로 갈라 인쇄하므로 두 축을 두 행으로 나눴다. 환산 10 ppm/℃ x 1e-6 = 9.999999999999999e-06 1/K."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 2.4999999999999998e-05,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "through-thickness (Z)",
+            "regime": "below Tg (alpha1)",
+            "bound": "lower",
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24"
+          },
+          "notes": "원문 verbatim: `CTE, Z-axis | 25~30 | ppm/ oC | < Tg, TMA`. **인쇄 구간이라 평균 내지 않고 두 행(`bound`)으로 갈랐다.** 환산 25 ppm/℃ x 1e-6 = 2.4999999999999998e-05 1/K."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 2.9999999999999997e-05,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "through-thickness (Z)",
+            "regime": "below Tg (alpha1)",
+            "bound": "upper",
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24"
+          },
+          "notes": "원문 verbatim: `CTE, Z-axis | 25~30 | ppm/ oC | < Tg, TMA`. **인쇄 구간이라 평균 내지 않고 두 행(`bound`)으로 갈랐다.** 환산 30 ppm/℃ x 1e-6 = 2.9999999999999997e-05 1/K."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 0.00011999999999999999,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "through-thickness (Z)",
+            "regime": "above Tg (alpha2)",
+            "bound": "lower",
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24"
+          },
+          "notes": "원문 verbatim: `CTE, Z-axis | 120~140 | ppm/ oC | > Tg, TMA`. **인쇄 구간이라 평균 내지 않고 두 행(`bound`)으로 갈랐다.** 환산 120 ppm/℃ x 1e-6 = 0.00011999999999999999 1/K."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 0.00014,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "through-thickness (Z)",
+            "regime": "above Tg (alpha2)",
+            "bound": "upper",
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24"
+          },
+          "notes": "원문 verbatim: `CTE, Z-axis | 120~140 | ppm/ oC | > Tg, TMA`. **인쇄 구간이라 평균 내지 않고 두 행(`bound`)으로 갈랐다.** 환산 140 ppm/℃ x 1e-6 = 0.00014 1/K."
+        },
+        {
+          "key": "thermal.expansion_total",
+          "value": 0.013000000000000001,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "through-thickness (Z)",
+            "temperature_range_c": "50-260",
+            "test_standard": "IPC-TM-650 2.4.24"
+          },
+          "notes": "원문 verbatim: `Z-axis Expansion | 1.3 | % | 50~260 oC`. 환산 1.3 % / 100 = 0.013000000000000001 (무차원)."
+        },
+        {
+          "key": "thermal.decomposition_temp",
+          "value": 703.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "method_detail": "TGA, 5% weight loss",
+            "test_standard": "IPC-TM-650 2.4.24.6"
+          },
+          "notes": "원문 verbatim: `Td | 430 | oC | TGA (5% W.L)`. 환산 430 ℃ + 273.15 = 703.15 K."
+        },
+        {
+          "key": "thermal.time_to_delamination",
+          "value": 3600.0,
+          "unit": "s",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "temperature_c": 288,
+            "specimen_state": "Clad",
+            "bound": "lower",
+            "test_standard": "IPC-TM-650 2.4.24.1"
+          },
+          "notes": "원문 verbatim: `T288 | >60 | min. | Clad`. **원문이 부등호(`>60`)로 인쇄한 하한이다** — `bound: lower` 로 넣었고 상한 행은 만들지 않았다. 환산 60 min x 60 = 3600 s."
+        },
+        {
+          "key": "thermal.time_to_delamination",
+          "value": 3600.0,
+          "unit": "s",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "temperature_c": 288,
+            "specimen_state": "Etched",
+            "bound": "lower",
+            "test_standard": "IPC-TM-650 2.4.24.1"
+          },
+          "notes": "원문 verbatim: `T288 | >60 | min. | Etched`. **원문이 부등호(`>60`)로 인쇄한 하한이다** — `bound: lower` 로 넣었고 상한 행은 만들지 않았다. 환산 60 min x 60 = 3600 s."
+        },
+        {
+          "key": "thermal.conductivity",
+          "value": 0.6,
+          "unit": "W/(m*K)",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "test_standard": "원문 시험법 칸이 비어 있다 — `IPC-TM-650` 열에 값 `0.60` 이 잘못 인쇄돼 있다(벤더 오식)",
+            "test_geometry": "through-thickness (laminate stack)"
+          },
+          "notes": "원문 verbatim: `Thermal Conductivity | 0.6 | W/m.K`. 단위가 이미 W/(m·K) 라 환산이 없다. 시험법 칸 원문: `원문 시험법 칸이 비어 있다 — `IPC-TM-650` 열에 값 `0.60` 이 잘못 인쇄돼 있다(벤더 오식)`."
+        },
+        {
+          "key": "electrical.dielectric_constant",
+          "value": 4.0,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "1GHz",
+            "resin_content": "50%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Dk (R/C: 50/70%) | 1GHz | 4.0/3.5`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dielectric_constant",
+          "value": 3.5,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "1GHz",
+            "resin_content": "70%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Dk (R/C: 50/70%) | 1GHz | 4.0/3.5`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dielectric_constant",
+          "value": 3.9,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "50%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Dk (R/C: 50/70%) | 10GHz | 3.9/3.4`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dielectric_constant",
+          "value": 3.4,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "70%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Dk (R/C: 50/70%) | 10GHz | 3.9/3.4`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dielectric_constant",
+          "value": 3.9,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "50%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "SPC method",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Dk (R/C: 50/70%) | 10GHz(SPC) | 3.9/3.4`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dielectric_constant",
+          "value": 3.4,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "70%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "SPC method",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Dk (R/C: 50/70%) | 10GHz(SPC) | 3.9/3.4`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dissipation_factor",
+          "value": 0.005,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "1GHz",
+            "resin_content": "50%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Df (R/C: 50/70%) | 1GHz | 0.005/0.006`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dissipation_factor",
+          "value": 0.006,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "1GHz",
+            "resin_content": "70%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Df (R/C: 50/70%) | 1GHz | 0.005/0.006`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dissipation_factor",
+          "value": 0.007,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "50%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Df (R/C: 50/70%) | 10GHz | 0.007/0.008`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dissipation_factor",
+          "value": 0.008,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "70%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Df (R/C: 50/70%) | 10GHz | 0.007/0.008`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dissipation_factor",
+          "value": 0.007,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "50%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "SPC method",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Df (R/C: 50/70%) | 10GHz(SPC) | 0.007/0.007`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dissipation_factor",
+          "value": 0.007,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "70%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "SPC method",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Df (R/C: 50/70%) | 10GHz(SPC) | 0.007/0.007`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "chemical.water_absorption_24h",
+          "value": 0.0012,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "conditioning": "E-1/105+D-24/23",
+            "test_standard": "IPC-TM-650 2.6.2.1"
+          },
+          "notes": "원문 verbatim: `Water Absorption | 0.12 | % | E-1/105+D-24/23`. 환산 0.12 % / 100 = 0.0012."
+        },
+        {
+          "key": "interface.peel_strength",
+          "value": 963.2,
+          "unit": "N/m",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "foil": "RTF H oz",
+            "conditioning": "As Received",
+            "test_standard": "IPC-TM-650 2.4.8"
+          },
+          "notes": "원문 verbatim: `Peel Strength | RTF H oz | 5.5 | lb/in | As Received`. 환산 5.5 lb/in x 175.126835 = 963.2 N/m; 되돌리면 963.2 / 175.126835 = 5.5."
+        },
+        {
+          "key": "interface.peel_strength",
+          "value": 770.56,
+          "unit": "N/m",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "foil": "HVLP H oz",
+            "conditioning": "As Received",
+            "test_standard": "IPC-TM-650 2.4.8"
+          },
+          "notes": "원문 verbatim: `Peel Strength | HVLP H oz | 4.4 | lb/in | As Received`. 환산 4.4 lb/in x 175.126835 = 770.56 N/m; 되돌리면 770.56 / 175.126835 = 4.4."
+        },
+        {
+          "key": "mechanical.flexural_modulus",
+          "value": 24000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "direction": "warp",
+            "conditioning": "As Received",
+            "bound": "lower",
+            "test_standard": "IPC-TM-650 2.4.4",
+            "test_mode": "flexural (3-point bend)"
+          },
+          "notes": "원문 verbatim: `Flexural Modulus | Warp | 24~26 | GPa | As Received`. **인쇄 구간이라 두 행(`bound`)으로 갈랐다.** 환산 24 GPa x 1e9 = 24000000000.0 Pa. **굽힘탄성률이다 — `mechanical.youngs_modulus` 칸에 옮기지 않았다.** 68차 DC 가 Panasonic 여섯 등급에서 굽힘값을 영률 칸에 넣었다가 진짜 인장값과 12~23 % 어긋나는 것을 보고 전부 되돌린 자리다."
+        },
+        {
+          "key": "mechanical.flexural_modulus",
+          "value": 26000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "direction": "warp",
+            "conditioning": "As Received",
+            "bound": "upper",
+            "test_standard": "IPC-TM-650 2.4.4",
+            "test_mode": "flexural (3-point bend)"
+          },
+          "notes": "원문 verbatim: `Flexural Modulus | Warp | 24~26 | GPa | As Received`. **인쇄 구간이라 두 행(`bound`)으로 갈랐다.** 환산 26 GPa x 1e9 = 26000000000.0 Pa. **굽힘탄성률이다 — `mechanical.youngs_modulus` 칸에 옮기지 않았다.** 68차 DC 가 Panasonic 여섯 등급에서 굽힘값을 영률 칸에 넣었다가 진짜 인장값과 12~23 % 어긋나는 것을 보고 전부 되돌린 자리다."
+        },
+        {
+          "key": "mechanical.flexural_modulus",
+          "value": 23000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "direction": "fill",
+            "conditioning": "As Received",
+            "bound": "lower",
+            "test_standard": "IPC-TM-650 2.4.4",
+            "test_mode": "flexural (3-point bend)"
+          },
+          "notes": "원문 verbatim: `Flexural Modulus | Fill | 23~25 | GPa | As Received`. **인쇄 구간이라 두 행(`bound`)으로 갈랐다.** 환산 23 GPa x 1e9 = 23000000000.0 Pa. **굽힘탄성률이다 — `mechanical.youngs_modulus` 칸에 옮기지 않았다.** 68차 DC 가 Panasonic 여섯 등급에서 굽힘값을 영률 칸에 넣었다가 진짜 인장값과 12~23 % 어긋나는 것을 보고 전부 되돌린 자리다."
+        },
+        {
+          "key": "mechanical.flexural_modulus",
+          "value": 25000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "direction": "fill",
+            "conditioning": "As Received",
+            "bound": "upper",
+            "test_standard": "IPC-TM-650 2.4.4",
+            "test_mode": "flexural (3-point bend)"
+          },
+          "notes": "원문 verbatim: `Flexural Modulus | Fill | 23~25 | GPa | As Received`. **인쇄 구간이라 두 행(`bound`)으로 갈랐다.** 환산 25 GPa x 1e9 = 25000000000.0 Pa. **굽힘탄성률이다 — `mechanical.youngs_modulus` 칸에 옮기지 않았다.** 68차 DC 가 Panasonic 여섯 등급에서 굽힘값을 영률 칸에 넣었다가 진짜 인장값과 12~23 % 어긋나는 것을 보고 전부 되돌린 자리다."
+        },
+        {
+          "key": "thermal.flammability_ul94",
+          "value": "V-0",
+          "unit": null,
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "conditioning": "C-48/23/50",
+            "test_standard": "UL-94"
+          },
+          "notes": "원문 verbatim: `Flame Resistance | V-0 | C-48/23/50 | UL-94`."
+        }
+      ]
+    },
+    {
+      "new_material": {
+        "name": "Elite Material EM-528 / EM-528B High Tg Very Low Loss Halogen-Free Laminate",
+        "category": "composite",
+        "description": "台光電子材料(Elite Material Co., Ltd.) 동장적층판 `EM-528 / EM-528B` — High Tg / Very Low Loss / Halogen Free. 벤더 표기 특징: Low Df for excellent electrical performance. Low CTE for X/Y/Z-axis direction. Multiple lamination and high thermal reliability applications. 적용 IPC 슬래시시트: IPC-4103 /240, /540. **이 카드가 74차 JB 에 선 이유** — 68차 DC 가 이 벤더 다섯 등급(EM-370Z·EM-370(5)·EM-890·EM-888·EM-891)에 영률 부재판정을 달면서 나머지 등급을 카드로 세우지 않았다. 이 등급은 벤더 시트가 **열전도율과 CTE 를 인쇄**하므로 코어7 두 칸을 갖고 태어난다.  그리고 **DC 가 「이 벤더의 강도축은 Flexural Strength 하나다」라고 한 것이 이 신형 저손실 등급에서는 성립하지 않는다 — `Flexural Modulus` 를 GPa 로 인쇄한다.** 다만 시험법이 IPC-TM-650 2.4.4(굽힘)이라 영률 칸은 여전히 못 채운다.",
+        "attributes": {
+          "material_class": "copper-clad laminate (glass fabric / halogen-free epoxy)",
+          "subsystem": "pcb",
+          "role": "product",
+          "role_reason": "PCB 실부품 동장적층판. 벤더가 등급명으로 인쇄한 제품이다.",
+          "role_confidence": "high",
+          "manufacturer": "Elite Material Co., Ltd. (EMC, 台光電子材料)",
+          "product_series": "EM series copper-clad laminate",
+          "product_form": "copper-clad laminate / prepreg",
+          "aliases": [
+            "EM-528",
+            "EM-528B",
+            "EMC EM-528",
+            "Elite Material EM-528",
+            "EM528",
+            "EM528B"
+          ],
+          "grade_pair_note": "`EM-528` 는 동장적층판(laminate), `EM-528B` 는 같은 수지계의 프리프레그(B-stage)다. 벤더가 한 시트에 두 품번을 묶어 인쇄하고 **특성값은 한 벌뿐**이라 카드도 하나다.",
+          "ipc_slash_sheets": "IPC-4103 /240, /540",
+          "ul_file": "E150504",
+          "datasheet_revision": "Rev: 2024 July",
+          "locale_note": "**세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다.",
+          "core_absent_from_vendor_sheet": {
+            "physical.density": "**[74차 JB]** 이 등급의 벤더 데이터시트를 열었고 `Density`·`Specific Gravity` 행이 **없다.**\n\n**연 문서** — `/data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-528_Datasheet_20240716.pdf` (Elite Material Co., Ltd. `EM-528 / EM-528B` Datasheet, Rev 2024 July, 1쪽). 이 시트의 `Basic Laminate Property` 표는 **한 장에 전부 인쇄되고** 행 구성이 이렇다 — Tg(DSC/TMA/DMA) · CTE X/Y · CTE Z(<Tg, >Tg) · Z-axis Expansion · Td · T288 · Thermal Conductivity · Dk · Df · Volume Resistivity · Surface Resistivity · Water Absorption · Peel Strength · Flexural Modulus · Flame Resistance. **밀도·영률·포아송비·비열·인장강도 행은 이 표에 자리 자체가 없다.**\n\n**벤더 전수** — 74차 JB 가 `emctw.com` 제품목록이 서빙하는 **데이터시트 43장을 전부 받아** 전문 토큰 검사를 돌렸다(단어 단위). `density` 0 · `specific gravity` 0 · `specific heat` 0 · `Young` 0 · `tensile` 0 · `Poisson` 0 — **43장 중 한 장도 없다.** 이 벤더의 기계축은 `Flexural Strength`(구형 등급)와 `Flexural Modulus`(저손실 신형 등급) 둘뿐이고, 둘 다 **IPC-TM-650 2.4.4 = 굽힘**이라 인장 칸에 옮길 수 없다.\n\n**주의 — 구(句) 검색은 이 시트에서 거짓 음성을 낸다.** `pdftotext` 가 두 낱말 행이름을 두 줄로 쪼개 (`Flexural` / `Modulus`) 뽑는다. `\"flexural modulus\"` 로 찾으면 43장 전부 0건이 나오는데 **실제로는 10장에 있다.** 72차 HD 가 ELC HTML 의 `引っ張り<br>強さ` 에서 밟은 것과 같은 함정이다 — **낱말 단위로 세라.**\n\n**로케일** — **세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다.",
+            "mechanical.youngs_modulus": "**[74차 JB]** 이 등급의 벤더 데이터시트를 열었고 `Young's Modulus`·`Tensile Modulus` 행이 **없다.**\n\n**연 문서** — `/data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-528_Datasheet_20240716.pdf` (Elite Material Co., Ltd. `EM-528 / EM-528B` Datasheet, Rev 2024 July, 1쪽). 이 시트의 `Basic Laminate Property` 표는 **한 장에 전부 인쇄되고** 행 구성이 이렇다 — Tg(DSC/TMA/DMA) · CTE X/Y · CTE Z(<Tg, >Tg) · Z-axis Expansion · Td · T288 · Thermal Conductivity · Dk · Df · Volume Resistivity · Surface Resistivity · Water Absorption · Peel Strength · Flexural Modulus · Flame Resistance. **밀도·영률·포아송비·비열·인장강도 행은 이 표에 자리 자체가 없다.**\n\n**벤더 전수** — 74차 JB 가 `emctw.com` 제품목록이 서빙하는 **데이터시트 43장을 전부 받아** 전문 토큰 검사를 돌렸다(단어 단위). `density` 0 · `specific gravity` 0 · `specific heat` 0 · `Young` 0 · `tensile` 0 · `Poisson` 0 — **43장 중 한 장도 없다.** 이 벤더의 기계축은 `Flexural Strength`(구형 등급)와 `Flexural Modulus`(저손실 신형 등급) 둘뿐이고, 둘 다 **IPC-TM-650 2.4.4 = 굽힘**이라 인장 칸에 옮길 수 없다.\n\n**주의 — 구(句) 검색은 이 시트에서 거짓 음성을 낸다.** `pdftotext` 가 두 낱말 행이름을 두 줄로 쪼개 (`Flexural` / `Modulus`) 뽑는다. `\"flexural modulus\"` 로 찾으면 43장 전부 0건이 나오는데 **실제로는 10장에 있다.** 72차 HD 가 ELC HTML 의 `引っ張り<br>強さ` 에서 밟은 것과 같은 함정이다 — **낱말 단위로 세라.**\n\n**로케일** — **세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다.",
+            "mechanical.poisson_ratio": "**[74차 JB]** 이 등급의 벤더 데이터시트를 열었고 `Poisson` 행이 **없다.**\n\n**연 문서** — `/data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-528_Datasheet_20240716.pdf` (Elite Material Co., Ltd. `EM-528 / EM-528B` Datasheet, Rev 2024 July, 1쪽). 이 시트의 `Basic Laminate Property` 표는 **한 장에 전부 인쇄되고** 행 구성이 이렇다 — Tg(DSC/TMA/DMA) · CTE X/Y · CTE Z(<Tg, >Tg) · Z-axis Expansion · Td · T288 · Thermal Conductivity · Dk · Df · Volume Resistivity · Surface Resistivity · Water Absorption · Peel Strength · Flexural Modulus · Flame Resistance. **밀도·영률·포아송비·비열·인장강도 행은 이 표에 자리 자체가 없다.**\n\n**벤더 전수** — 74차 JB 가 `emctw.com` 제품목록이 서빙하는 **데이터시트 43장을 전부 받아** 전문 토큰 검사를 돌렸다(단어 단위). `density` 0 · `specific gravity` 0 · `specific heat` 0 · `Young` 0 · `tensile` 0 · `Poisson` 0 — **43장 중 한 장도 없다.** 이 벤더의 기계축은 `Flexural Strength`(구형 등급)와 `Flexural Modulus`(저손실 신형 등급) 둘뿐이고, 둘 다 **IPC-TM-650 2.4.4 = 굽힘**이라 인장 칸에 옮길 수 없다.\n\n**주의 — 구(句) 검색은 이 시트에서 거짓 음성을 낸다.** `pdftotext` 가 두 낱말 행이름을 두 줄로 쪼개 (`Flexural` / `Modulus`) 뽑는다. `\"flexural modulus\"` 로 찾으면 43장 전부 0건이 나오는데 **실제로는 10장에 있다.** 72차 HD 가 ELC HTML 의 `引っ張り<br>強さ` 에서 밟은 것과 같은 함정이다 — **낱말 단위로 세라.**\n\n**로케일** — **세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다.",
+            "thermal.specific_heat": "**[74차 JB]** 이 등급의 벤더 데이터시트를 열었고 `Specific Heat` 행이 **없다.**\n\n**연 문서** — `/data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-528_Datasheet_20240716.pdf` (Elite Material Co., Ltd. `EM-528 / EM-528B` Datasheet, Rev 2024 July, 1쪽). 이 시트의 `Basic Laminate Property` 표는 **한 장에 전부 인쇄되고** 행 구성이 이렇다 — Tg(DSC/TMA/DMA) · CTE X/Y · CTE Z(<Tg, >Tg) · Z-axis Expansion · Td · T288 · Thermal Conductivity · Dk · Df · Volume Resistivity · Surface Resistivity · Water Absorption · Peel Strength · Flexural Modulus · Flame Resistance. **밀도·영률·포아송비·비열·인장강도 행은 이 표에 자리 자체가 없다.**\n\n**벤더 전수** — 74차 JB 가 `emctw.com` 제품목록이 서빙하는 **데이터시트 43장을 전부 받아** 전문 토큰 검사를 돌렸다(단어 단위). `density` 0 · `specific gravity` 0 · `specific heat` 0 · `Young` 0 · `tensile` 0 · `Poisson` 0 — **43장 중 한 장도 없다.** 이 벤더의 기계축은 `Flexural Strength`(구형 등급)와 `Flexural Modulus`(저손실 신형 등급) 둘뿐이고, 둘 다 **IPC-TM-650 2.4.4 = 굽힘**이라 인장 칸에 옮길 수 없다.\n\n**주의 — 구(句) 검색은 이 시트에서 거짓 음성을 낸다.** `pdftotext` 가 두 낱말 행이름을 두 줄로 쪼개 (`Flexural` / `Modulus`) 뽑는다. `\"flexural modulus\"` 로 찾으면 43장 전부 0건이 나오는데 **실제로는 10장에 있다.** 72차 HD 가 ELC HTML 의 `引っ張り<br>強さ` 에서 밟은 것과 같은 함정이다 — **낱말 단위로 세라.**\n\n**로케일** — **세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다.",
+            "mechanical.tensile_strength": "**[74차 JB]** 이 등급의 벤더 데이터시트를 열었고 `Tensile Strength` 행이 **없다.**\n\n**연 문서** — `/data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-528_Datasheet_20240716.pdf` (Elite Material Co., Ltd. `EM-528 / EM-528B` Datasheet, Rev 2024 July, 1쪽). 이 시트의 `Basic Laminate Property` 표는 **한 장에 전부 인쇄되고** 행 구성이 이렇다 — Tg(DSC/TMA/DMA) · CTE X/Y · CTE Z(<Tg, >Tg) · Z-axis Expansion · Td · T288 · Thermal Conductivity · Dk · Df · Volume Resistivity · Surface Resistivity · Water Absorption · Peel Strength · Flexural Modulus · Flame Resistance. **밀도·영률·포아송비·비열·인장강도 행은 이 표에 자리 자체가 없다.**\n\n**벤더 전수** — 74차 JB 가 `emctw.com` 제품목록이 서빙하는 **데이터시트 43장을 전부 받아** 전문 토큰 검사를 돌렸다(단어 단위). `density` 0 · `specific gravity` 0 · `specific heat` 0 · `Young` 0 · `tensile` 0 · `Poisson` 0 — **43장 중 한 장도 없다.** 이 벤더의 기계축은 `Flexural Strength`(구형 등급)와 `Flexural Modulus`(저손실 신형 등급) 둘뿐이고, 둘 다 **IPC-TM-650 2.4.4 = 굽힘**이라 인장 칸에 옮길 수 없다.\n\n**주의 — 구(句) 검색은 이 시트에서 거짓 음성을 낸다.** `pdftotext` 가 두 낱말 행이름을 두 줄로 쪼개 (`Flexural` / `Modulus`) 뽑는다. `\"flexural modulus\"` 로 찾으면 43장 전부 0건이 나오는데 **실제로는 10장에 있다.** 72차 HD 가 ELC HTML 의 `引っ張り<br>強さ` 에서 밟은 것과 같은 함정이다 — **낱말 단위로 세라.**\n\n**로케일** — **세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다."
+          }
+        }
+      },
+      "source": {
+        "kind": "datasheet",
+        "title": "Elite Material Co., Ltd. — EM-528 / EM-528B Datasheet (High Tg / Very Low Loss / Halogen Free), Rev 2024 July",
+        "url": "https://www.emctw.com/upload/website/item/EM-528%20Datasheet%2020240716_24081910773.pdf",
+        "publisher": "Elite Material Co., Ltd. (台光電子材料股份有限公司)",
+        "year": 2024,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-528_Datasheet_20240716.pdf",
+        "url_note": "2026-09-13 에 벤더 제품목록(`/en-global/product_name/index`)에서 직접 받았고 로컬 사본과 md5 가 같다. **세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다."
+      },
+      "properties": [
+        {
+          "key": "thermal.glass_transition",
+          "value": 493.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24"
+          },
+          "notes": "원문 verbatim: `Tg | 220 | oC | TMA`. 환산 220 ℃ + 273.15 = 493.15 K. **같은 표의 DSC 칸은 `N/A` 로 인쇄돼 있어 행을 만들지 않았다.** TMA 와 DMA 는 서로 다른 시험이라 두 행으로 갈랐고 평균 내지 않았다."
+        },
+        {
+          "key": "thermal.glass_transition",
+          "value": 523.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "method_detail": "DMA",
+            "test_standard": "IPC-TM-650 2.4.24.4"
+          },
+          "notes": "원문 verbatim: `Tg | 250 | oC | DMA`. 환산 250 ℃ + 273.15 = 523.15 K. **같은 표의 DSC 칸은 `N/A` 로 인쇄돼 있어 행을 만들지 않았다.** TMA 와 DMA 는 서로 다른 시험이라 두 행으로 갈랐고 평균 내지 않았다."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 9e-06,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "in-plane (X)",
+            "regime": "below Tg (alpha1)",
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24.5"
+          },
+          "notes": "원문 verbatim: `CTE, X/Y-axis | 9/10 | ppm/ oC | < Tg, TMA`. 원문이 `X/Y` 를 슬래시로 갈라 인쇄하므로 두 축을 두 행으로 나눴다. 환산 9 ppm/℃ x 1e-6 = 9e-06 1/K."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 9.999999999999999e-06,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "in-plane (Y)",
+            "regime": "below Tg (alpha1)",
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24.5"
+          },
+          "notes": "원문 verbatim: `CTE, X/Y-axis | 9/10 | ppm/ oC | < Tg, TMA`. 원문이 `X/Y` 를 슬래시로 갈라 인쇄하므로 두 축을 두 행으로 나눴다. 환산 10 ppm/℃ x 1e-6 = 9.999999999999999e-06 1/K."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 2.4999999999999998e-05,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "through-thickness (Z)",
+            "regime": "below Tg (alpha1)",
+            "bound": "lower",
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24"
+          },
+          "notes": "원문 verbatim: `CTE, Z-axis | 25~30 | ppm/ oC | < Tg, TMA`. **인쇄 구간이라 평균 내지 않고 두 행(`bound`)으로 갈랐다.** 환산 25 ppm/℃ x 1e-6 = 2.4999999999999998e-05 1/K."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 2.9999999999999997e-05,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "through-thickness (Z)",
+            "regime": "below Tg (alpha1)",
+            "bound": "upper",
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24"
+          },
+          "notes": "원문 verbatim: `CTE, Z-axis | 25~30 | ppm/ oC | < Tg, TMA`. **인쇄 구간이라 평균 내지 않고 두 행(`bound`)으로 갈랐다.** 환산 30 ppm/℃ x 1e-6 = 2.9999999999999997e-05 1/K."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 0.00013,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "through-thickness (Z)",
+            "regime": "above Tg (alpha2)",
+            "bound": "lower",
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24"
+          },
+          "notes": "원문 verbatim: `CTE, Z-axis | 130~150 | ppm/ oC | > Tg, TMA`. **인쇄 구간이라 평균 내지 않고 두 행(`bound`)으로 갈랐다.** 환산 130 ppm/℃ x 1e-6 = 0.00013 1/K."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 0.00015,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "through-thickness (Z)",
+            "regime": "above Tg (alpha2)",
+            "bound": "upper",
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24"
+          },
+          "notes": "원문 verbatim: `CTE, Z-axis | 130~150 | ppm/ oC | > Tg, TMA`. **인쇄 구간이라 평균 내지 않고 두 행(`bound`)으로 갈랐다.** 환산 150 ppm/℃ x 1e-6 = 0.00015 1/K."
+        },
+        {
+          "key": "thermal.expansion_total",
+          "value": 0.013999999999999999,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "through-thickness (Z)",
+            "temperature_range_c": "50-260",
+            "test_standard": "IPC-TM-650 2.4.24"
+          },
+          "notes": "원문 verbatim: `Z-axis Expansion | 1.4 | % | 50~260 oC`. 환산 1.4 % / 100 = 0.013999999999999999 (무차원)."
+        },
+        {
+          "key": "thermal.decomposition_temp",
+          "value": 693.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "method_detail": "TGA, 5% weight loss",
+            "test_standard": "IPC-TM-650 2.4.24.6"
+          },
+          "notes": "원문 verbatim: `Td | 420 | oC | TGA (5% W.L)`. 환산 420 ℃ + 273.15 = 693.15 K."
+        },
+        {
+          "key": "thermal.time_to_delamination",
+          "value": 3600.0,
+          "unit": "s",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "temperature_c": 288,
+            "specimen_state": "Clad",
+            "bound": "lower",
+            "test_standard": "IPC-TM-650 2.4.24.1"
+          },
+          "notes": "원문 verbatim: `T288 | >60 | min. | Clad`. **원문이 부등호(`>60`)로 인쇄한 하한이다** — `bound: lower` 로 넣었고 상한 행은 만들지 않았다. 환산 60 min x 60 = 3600 s."
+        },
+        {
+          "key": "thermal.time_to_delamination",
+          "value": 3600.0,
+          "unit": "s",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "temperature_c": 288,
+            "specimen_state": "Etched",
+            "bound": "lower",
+            "test_standard": "IPC-TM-650 2.4.24.1"
+          },
+          "notes": "원문 verbatim: `T288 | >60 | min. | Etched`. **원문이 부등호(`>60`)로 인쇄한 하한이다** — `bound: lower` 로 넣었고 상한 행은 만들지 않았다. 환산 60 min x 60 = 3600 s."
+        },
+        {
+          "key": "thermal.conductivity",
+          "value": 0.6,
+          "unit": "W/(m*K)",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "test_standard": "ASTM D5470",
+            "test_geometry": "through-thickness (laminate stack)"
+          },
+          "notes": "원문 verbatim: `Thermal Conductivity | 0.6 | W/m.K`. 단위가 이미 W/(m·K) 라 환산이 없다. 시험법 칸 원문: `ASTM D5470`."
+        },
+        {
+          "key": "electrical.dielectric_constant",
+          "value": 4.0,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "1GHz",
+            "resin_content": "50%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Dk (R/C: 50/70%) | 1GHz | 4.0/3.6`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dielectric_constant",
+          "value": 3.6,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "1GHz",
+            "resin_content": "70%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Dk (R/C: 50/70%) | 1GHz | 4.0/3.6`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dielectric_constant",
+          "value": 3.9,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "50%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Dk (R/C: 50/70%) | 10GHz | 3.9/3.5`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dielectric_constant",
+          "value": 3.5,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "70%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Dk (R/C: 50/70%) | 10GHz | 3.9/3.5`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dielectric_constant",
+          "value": 3.9,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "50%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "SPC method",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Dk (R/C: 50/70%) | 10GHz(SPC) | 3.9/3.5`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dielectric_constant",
+          "value": 3.5,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "70%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "SPC method",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Dk (R/C: 50/70%) | 10GHz(SPC) | 3.9/3.5`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dissipation_factor",
+          "value": 0.0047,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "1GHz",
+            "resin_content": "50%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Df (R/C: 50/70%) | 1GHz | 0.0047/0.0044`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dissipation_factor",
+          "value": 0.0044,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "1GHz",
+            "resin_content": "70%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Df (R/C: 50/70%) | 1GHz | 0.0047/0.0044`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dissipation_factor",
+          "value": 0.0061,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "50%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Df (R/C: 50/70%) | 10GHz | 0.0061/0.0058`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dissipation_factor",
+          "value": 0.0058,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "70%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Df (R/C: 50/70%) | 10GHz | 0.0061/0.0058`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dissipation_factor",
+          "value": 0.005,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "50%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "SPC method",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Df (R/C: 50/70%) | 10GHz(SPC) | 0.005/0.0046`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dissipation_factor",
+          "value": 0.0046,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "70%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "SPC method",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Df (R/C: 50/70%) | 10GHz(SPC) | 0.005/0.0046`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "chemical.water_absorption_24h",
+          "value": 0.0011,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "conditioning": "E-1/105+D-24/23",
+            "test_standard": "IPC-TM-650 2.6.2.1"
+          },
+          "notes": "원문 verbatim: `Water Absorption | 0.11 | % | E-1/105+D-24/23`. 환산 0.11 % / 100 = 0.0011."
+        },
+        {
+          "key": "interface.peel_strength",
+          "value": 875.63,
+          "unit": "N/m",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "foil": "RTF H oz",
+            "conditioning": "As Received",
+            "test_standard": "IPC-TM-650 2.4.8"
+          },
+          "notes": "원문 verbatim: `Peel Strength | RTF H oz | 5.0 | lb/in | As Received`. 환산 5.0 lb/in x 175.126835 = 875.63 N/m; 되돌리면 875.63 / 175.126835 = 5.0."
+        },
+        {
+          "key": "interface.peel_strength",
+          "value": 700.51,
+          "unit": "N/m",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "foil": "HVLP H oz",
+            "conditioning": "As Received",
+            "test_standard": "IPC-TM-650 2.4.8"
+          },
+          "notes": "원문 verbatim: `Peel Strength | HVLP H oz | 4.0 | lb/in | As Received`. 환산 4.0 lb/in x 175.126835 = 700.51 N/m; 되돌리면 700.51 / 175.126835 = 4.0."
+        },
+        {
+          "key": "mechanical.flexural_modulus",
+          "value": 24000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "direction": "warp",
+            "conditioning": "As Received",
+            "bound": "lower",
+            "test_standard": "IPC-TM-650 2.4.4",
+            "test_mode": "flexural (3-point bend)"
+          },
+          "notes": "원문 verbatim: `Flexural Modulus | Warp | 24~26 | GPa | As Received`. **인쇄 구간이라 두 행(`bound`)으로 갈랐다.** 환산 24 GPa x 1e9 = 24000000000.0 Pa. **굽힘탄성률이다 — `mechanical.youngs_modulus` 칸에 옮기지 않았다.** 68차 DC 가 Panasonic 여섯 등급에서 굽힘값을 영률 칸에 넣었다가 진짜 인장값과 12~23 % 어긋나는 것을 보고 전부 되돌린 자리다."
+        },
+        {
+          "key": "mechanical.flexural_modulus",
+          "value": 26000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "direction": "warp",
+            "conditioning": "As Received",
+            "bound": "upper",
+            "test_standard": "IPC-TM-650 2.4.4",
+            "test_mode": "flexural (3-point bend)"
+          },
+          "notes": "원문 verbatim: `Flexural Modulus | Warp | 24~26 | GPa | As Received`. **인쇄 구간이라 두 행(`bound`)으로 갈랐다.** 환산 26 GPa x 1e9 = 26000000000.0 Pa. **굽힘탄성률이다 — `mechanical.youngs_modulus` 칸에 옮기지 않았다.** 68차 DC 가 Panasonic 여섯 등급에서 굽힘값을 영률 칸에 넣었다가 진짜 인장값과 12~23 % 어긋나는 것을 보고 전부 되돌린 자리다."
+        },
+        {
+          "key": "mechanical.flexural_modulus",
+          "value": 23000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "direction": "fill",
+            "conditioning": "As Received",
+            "bound": "lower",
+            "test_standard": "IPC-TM-650 2.4.4",
+            "test_mode": "flexural (3-point bend)"
+          },
+          "notes": "원문 verbatim: `Flexural Modulus | Fill | 23~25 | GPa | As Received`. **인쇄 구간이라 두 행(`bound`)으로 갈랐다.** 환산 23 GPa x 1e9 = 23000000000.0 Pa. **굽힘탄성률이다 — `mechanical.youngs_modulus` 칸에 옮기지 않았다.** 68차 DC 가 Panasonic 여섯 등급에서 굽힘값을 영률 칸에 넣었다가 진짜 인장값과 12~23 % 어긋나는 것을 보고 전부 되돌린 자리다."
+        },
+        {
+          "key": "mechanical.flexural_modulus",
+          "value": 25000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "direction": "fill",
+            "conditioning": "As Received",
+            "bound": "upper",
+            "test_standard": "IPC-TM-650 2.4.4",
+            "test_mode": "flexural (3-point bend)"
+          },
+          "notes": "원문 verbatim: `Flexural Modulus | Fill | 23~25 | GPa | As Received`. **인쇄 구간이라 두 행(`bound`)으로 갈랐다.** 환산 25 GPa x 1e9 = 25000000000.0 Pa. **굽힘탄성률이다 — `mechanical.youngs_modulus` 칸에 옮기지 않았다.** 68차 DC 가 Panasonic 여섯 등급에서 굽힘값을 영률 칸에 넣었다가 진짜 인장값과 12~23 % 어긋나는 것을 보고 전부 되돌린 자리다."
+        },
+        {
+          "key": "thermal.flammability_ul94",
+          "value": "V-0",
+          "unit": null,
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "conditioning": "C-48/23/50",
+            "test_standard": "UL-94"
+          },
+          "notes": "원문 verbatim: `Flame Resistance | V-0 | C-48/23/50 | UL-94`."
+        }
+      ]
+    },
+    {
+      "new_material": {
+        "name": "Elite Material EM-528K / EM-528BK High Tg Ultra Low Loss Halogen-Free Laminate",
+        "category": "composite",
+        "description": "台光電子材料(Elite Material Co., Ltd.) 동장적층판 `EM-528K / EM-528BK` — High Tg / Ultra Low Loss / Halogen Free. 벤더 표기 특징: Very low Df for excellent electrical performance. Low CTE for X/Y/Z-axis direction. Multiple lamination and high thermal reliability applications. 적용 IPC 슬래시시트: IPC-4103 /240, /540. **이 카드가 74차 JB 에 선 이유** — 68차 DC 가 이 벤더 다섯 등급(EM-370Z·EM-370(5)·EM-890·EM-888·EM-891)에 영률 부재판정을 달면서 나머지 등급을 카드로 세우지 않았다. 이 등급은 벤더 시트가 **열전도율과 CTE 를 인쇄**하므로 코어7 두 칸을 갖고 태어난다.  그리고 **DC 가 「이 벤더의 강도축은 Flexural Strength 하나다」라고 한 것이 이 신형 저손실 등급에서는 성립하지 않는다 — `Flexural Modulus` 를 GPa 로 인쇄한다.** 다만 시험법이 IPC-TM-650 2.4.4(굽힘)이라 영률 칸은 여전히 못 채운다.",
+        "attributes": {
+          "material_class": "copper-clad laminate (glass fabric / halogen-free epoxy)",
+          "subsystem": "pcb",
+          "role": "product",
+          "role_reason": "PCB 실부품 동장적층판. 벤더가 등급명으로 인쇄한 제품이다.",
+          "role_confidence": "high",
+          "manufacturer": "Elite Material Co., Ltd. (EMC, 台光電子材料)",
+          "product_series": "EM series copper-clad laminate",
+          "product_form": "copper-clad laminate / prepreg",
+          "aliases": [
+            "EM-528K",
+            "EM-528BK",
+            "EMC EM-528K",
+            "Elite Material EM-528K",
+            "EM528K",
+            "EM528BK"
+          ],
+          "grade_pair_note": "`EM-528K` 는 동장적층판(laminate), `EM-528BK` 는 같은 수지계의 프리프레그(B-stage)다. 벤더가 한 시트에 두 품번을 묶어 인쇄하고 **특성값은 한 벌뿐**이라 카드도 하나다.",
+          "ipc_slash_sheets": "IPC-4103 /240, /540",
+          "ul_file": "E150504",
+          "datasheet_revision": "Rev: 2024 July",
+          "locale_note": "**세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다.",
+          "core_absent_from_vendor_sheet": {
+            "physical.density": "**[74차 JB]** 이 등급의 벤더 데이터시트를 열었고 `Density`·`Specific Gravity` 행이 **없다.**\n\n**연 문서** — `/data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-528K_Datasheet_20240716.pdf` (Elite Material Co., Ltd. `EM-528K / EM-528BK` Datasheet, Rev 2024 July, 1쪽). 이 시트의 `Basic Laminate Property` 표는 **한 장에 전부 인쇄되고** 행 구성이 이렇다 — Tg(DSC/TMA/DMA) · CTE X/Y · CTE Z(<Tg, >Tg) · Z-axis Expansion · Td · T288 · Thermal Conductivity · Dk · Df · Volume Resistivity · Surface Resistivity · Water Absorption · Peel Strength · Flexural Modulus · Flame Resistance. **밀도·영률·포아송비·비열·인장강도 행은 이 표에 자리 자체가 없다.**\n\n**벤더 전수** — 74차 JB 가 `emctw.com` 제품목록이 서빙하는 **데이터시트 43장을 전부 받아** 전문 토큰 검사를 돌렸다(단어 단위). `density` 0 · `specific gravity` 0 · `specific heat` 0 · `Young` 0 · `tensile` 0 · `Poisson` 0 — **43장 중 한 장도 없다.** 이 벤더의 기계축은 `Flexural Strength`(구형 등급)와 `Flexural Modulus`(저손실 신형 등급) 둘뿐이고, 둘 다 **IPC-TM-650 2.4.4 = 굽힘**이라 인장 칸에 옮길 수 없다.\n\n**주의 — 구(句) 검색은 이 시트에서 거짓 음성을 낸다.** `pdftotext` 가 두 낱말 행이름을 두 줄로 쪼개 (`Flexural` / `Modulus`) 뽑는다. `\"flexural modulus\"` 로 찾으면 43장 전부 0건이 나오는데 **실제로는 10장에 있다.** 72차 HD 가 ELC HTML 의 `引っ張り<br>強さ` 에서 밟은 것과 같은 함정이다 — **낱말 단위로 세라.**\n\n**로케일** — **세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다.",
+            "mechanical.youngs_modulus": "**[74차 JB]** 이 등급의 벤더 데이터시트를 열었고 `Young's Modulus`·`Tensile Modulus` 행이 **없다.**\n\n**연 문서** — `/data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-528K_Datasheet_20240716.pdf` (Elite Material Co., Ltd. `EM-528K / EM-528BK` Datasheet, Rev 2024 July, 1쪽). 이 시트의 `Basic Laminate Property` 표는 **한 장에 전부 인쇄되고** 행 구성이 이렇다 — Tg(DSC/TMA/DMA) · CTE X/Y · CTE Z(<Tg, >Tg) · Z-axis Expansion · Td · T288 · Thermal Conductivity · Dk · Df · Volume Resistivity · Surface Resistivity · Water Absorption · Peel Strength · Flexural Modulus · Flame Resistance. **밀도·영률·포아송비·비열·인장강도 행은 이 표에 자리 자체가 없다.**\n\n**벤더 전수** — 74차 JB 가 `emctw.com` 제품목록이 서빙하는 **데이터시트 43장을 전부 받아** 전문 토큰 검사를 돌렸다(단어 단위). `density` 0 · `specific gravity` 0 · `specific heat` 0 · `Young` 0 · `tensile` 0 · `Poisson` 0 — **43장 중 한 장도 없다.** 이 벤더의 기계축은 `Flexural Strength`(구형 등급)와 `Flexural Modulus`(저손실 신형 등급) 둘뿐이고, 둘 다 **IPC-TM-650 2.4.4 = 굽힘**이라 인장 칸에 옮길 수 없다.\n\n**주의 — 구(句) 검색은 이 시트에서 거짓 음성을 낸다.** `pdftotext` 가 두 낱말 행이름을 두 줄로 쪼개 (`Flexural` / `Modulus`) 뽑는다. `\"flexural modulus\"` 로 찾으면 43장 전부 0건이 나오는데 **실제로는 10장에 있다.** 72차 HD 가 ELC HTML 의 `引っ張り<br>強さ` 에서 밟은 것과 같은 함정이다 — **낱말 단위로 세라.**\n\n**로케일** — **세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다.",
+            "mechanical.poisson_ratio": "**[74차 JB]** 이 등급의 벤더 데이터시트를 열었고 `Poisson` 행이 **없다.**\n\n**연 문서** — `/data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-528K_Datasheet_20240716.pdf` (Elite Material Co., Ltd. `EM-528K / EM-528BK` Datasheet, Rev 2024 July, 1쪽). 이 시트의 `Basic Laminate Property` 표는 **한 장에 전부 인쇄되고** 행 구성이 이렇다 — Tg(DSC/TMA/DMA) · CTE X/Y · CTE Z(<Tg, >Tg) · Z-axis Expansion · Td · T288 · Thermal Conductivity · Dk · Df · Volume Resistivity · Surface Resistivity · Water Absorption · Peel Strength · Flexural Modulus · Flame Resistance. **밀도·영률·포아송비·비열·인장강도 행은 이 표에 자리 자체가 없다.**\n\n**벤더 전수** — 74차 JB 가 `emctw.com` 제품목록이 서빙하는 **데이터시트 43장을 전부 받아** 전문 토큰 검사를 돌렸다(단어 단위). `density` 0 · `specific gravity` 0 · `specific heat` 0 · `Young` 0 · `tensile` 0 · `Poisson` 0 — **43장 중 한 장도 없다.** 이 벤더의 기계축은 `Flexural Strength`(구형 등급)와 `Flexural Modulus`(저손실 신형 등급) 둘뿐이고, 둘 다 **IPC-TM-650 2.4.4 = 굽힘**이라 인장 칸에 옮길 수 없다.\n\n**주의 — 구(句) 검색은 이 시트에서 거짓 음성을 낸다.** `pdftotext` 가 두 낱말 행이름을 두 줄로 쪼개 (`Flexural` / `Modulus`) 뽑는다. `\"flexural modulus\"` 로 찾으면 43장 전부 0건이 나오는데 **실제로는 10장에 있다.** 72차 HD 가 ELC HTML 의 `引っ張り<br>強さ` 에서 밟은 것과 같은 함정이다 — **낱말 단위로 세라.**\n\n**로케일** — **세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다.",
+            "thermal.specific_heat": "**[74차 JB]** 이 등급의 벤더 데이터시트를 열었고 `Specific Heat` 행이 **없다.**\n\n**연 문서** — `/data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-528K_Datasheet_20240716.pdf` (Elite Material Co., Ltd. `EM-528K / EM-528BK` Datasheet, Rev 2024 July, 1쪽). 이 시트의 `Basic Laminate Property` 표는 **한 장에 전부 인쇄되고** 행 구성이 이렇다 — Tg(DSC/TMA/DMA) · CTE X/Y · CTE Z(<Tg, >Tg) · Z-axis Expansion · Td · T288 · Thermal Conductivity · Dk · Df · Volume Resistivity · Surface Resistivity · Water Absorption · Peel Strength · Flexural Modulus · Flame Resistance. **밀도·영률·포아송비·비열·인장강도 행은 이 표에 자리 자체가 없다.**\n\n**벤더 전수** — 74차 JB 가 `emctw.com` 제품목록이 서빙하는 **데이터시트 43장을 전부 받아** 전문 토큰 검사를 돌렸다(단어 단위). `density` 0 · `specific gravity` 0 · `specific heat` 0 · `Young` 0 · `tensile` 0 · `Poisson` 0 — **43장 중 한 장도 없다.** 이 벤더의 기계축은 `Flexural Strength`(구형 등급)와 `Flexural Modulus`(저손실 신형 등급) 둘뿐이고, 둘 다 **IPC-TM-650 2.4.4 = 굽힘**이라 인장 칸에 옮길 수 없다.\n\n**주의 — 구(句) 검색은 이 시트에서 거짓 음성을 낸다.** `pdftotext` 가 두 낱말 행이름을 두 줄로 쪼개 (`Flexural` / `Modulus`) 뽑는다. `\"flexural modulus\"` 로 찾으면 43장 전부 0건이 나오는데 **실제로는 10장에 있다.** 72차 HD 가 ELC HTML 의 `引っ張り<br>強さ` 에서 밟은 것과 같은 함정이다 — **낱말 단위로 세라.**\n\n**로케일** — **세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다.",
+            "mechanical.tensile_strength": "**[74차 JB]** 이 등급의 벤더 데이터시트를 열었고 `Tensile Strength` 행이 **없다.**\n\n**연 문서** — `/data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-528K_Datasheet_20240716.pdf` (Elite Material Co., Ltd. `EM-528K / EM-528BK` Datasheet, Rev 2024 July, 1쪽). 이 시트의 `Basic Laminate Property` 표는 **한 장에 전부 인쇄되고** 행 구성이 이렇다 — Tg(DSC/TMA/DMA) · CTE X/Y · CTE Z(<Tg, >Tg) · Z-axis Expansion · Td · T288 · Thermal Conductivity · Dk · Df · Volume Resistivity · Surface Resistivity · Water Absorption · Peel Strength · Flexural Modulus · Flame Resistance. **밀도·영률·포아송비·비열·인장강도 행은 이 표에 자리 자체가 없다.**\n\n**벤더 전수** — 74차 JB 가 `emctw.com` 제품목록이 서빙하는 **데이터시트 43장을 전부 받아** 전문 토큰 검사를 돌렸다(단어 단위). `density` 0 · `specific gravity` 0 · `specific heat` 0 · `Young` 0 · `tensile` 0 · `Poisson` 0 — **43장 중 한 장도 없다.** 이 벤더의 기계축은 `Flexural Strength`(구형 등급)와 `Flexural Modulus`(저손실 신형 등급) 둘뿐이고, 둘 다 **IPC-TM-650 2.4.4 = 굽힘**이라 인장 칸에 옮길 수 없다.\n\n**주의 — 구(句) 검색은 이 시트에서 거짓 음성을 낸다.** `pdftotext` 가 두 낱말 행이름을 두 줄로 쪼개 (`Flexural` / `Modulus`) 뽑는다. `\"flexural modulus\"` 로 찾으면 43장 전부 0건이 나오는데 **실제로는 10장에 있다.** 72차 HD 가 ELC HTML 의 `引っ張り<br>強さ` 에서 밟은 것과 같은 함정이다 — **낱말 단위로 세라.**\n\n**로케일** — **세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다."
+          }
+        }
+      },
+      "source": {
+        "kind": "datasheet",
+        "title": "Elite Material Co., Ltd. — EM-528K / EM-528BK Datasheet (High Tg / Ultra Low Loss / Halogen Free), Rev 2024 July",
+        "url": "https://www.emctw.com/upload/website/item/EM-528K%20Datasheet%2020240716_24081910250.pdf",
+        "publisher": "Elite Material Co., Ltd. (台光電子材料股份有限公司)",
+        "year": 2024,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-528K_Datasheet_20240716.pdf",
+        "url_note": "2026-09-13 에 벤더 제품목록(`/en-global/product_name/index`)에서 직접 받았고 로컬 사본과 md5 가 같다. **세 로케일(`zh-TW`·`zh-CN`·`en-global`) 제품목록이 서빙하는 PDF URL 목록 43개가 완전히 같다**(74차 JB 가 셋을 각각 받아 정렬 비교 — diff 0). 68차 DC 의 「세 로케일이 같은 PDF 를 서빙한다」는 결론이 2026-09-13 에도 유지된다. 로컬 사본과 벤더 현행본의 md5 도 같다."
+      },
+      "properties": [
+        {
+          "key": "thermal.glass_transition",
+          "value": 493.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24"
+          },
+          "notes": "원문 verbatim: `Tg | 220 | oC | TMA`. 환산 220 ℃ + 273.15 = 493.15 K. **같은 표의 DSC 칸은 `N/A` 로 인쇄돼 있어 행을 만들지 않았다.** TMA 와 DMA 는 서로 다른 시험이라 두 행으로 갈랐고 평균 내지 않았다."
+        },
+        {
+          "key": "thermal.glass_transition",
+          "value": 523.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "method_detail": "DMA",
+            "test_standard": "IPC-TM-650 2.4.24.4"
+          },
+          "notes": "원문 verbatim: `Tg | 250 | oC | DMA`. 환산 250 ℃ + 273.15 = 523.15 K. **같은 표의 DSC 칸은 `N/A` 로 인쇄돼 있어 행을 만들지 않았다.** TMA 와 DMA 는 서로 다른 시험이라 두 행으로 갈랐고 평균 내지 않았다."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 9e-06,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "in-plane (X)",
+            "regime": "below Tg (alpha1)",
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24.5"
+          },
+          "notes": "원문 verbatim: `CTE, X/Y-axis | 9/10 | ppm/ oC | < Tg, TMA`. 원문이 `X/Y` 를 슬래시로 갈라 인쇄하므로 두 축을 두 행으로 나눴다. 환산 9 ppm/℃ x 1e-6 = 9e-06 1/K."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 9.999999999999999e-06,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "in-plane (Y)",
+            "regime": "below Tg (alpha1)",
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24.5"
+          },
+          "notes": "원문 verbatim: `CTE, X/Y-axis | 9/10 | ppm/ oC | < Tg, TMA`. 원문이 `X/Y` 를 슬래시로 갈라 인쇄하므로 두 축을 두 행으로 나눴다. 환산 10 ppm/℃ x 1e-6 = 9.999999999999999e-06 1/K."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 2.4999999999999998e-05,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "through-thickness (Z)",
+            "regime": "below Tg (alpha1)",
+            "bound": "lower",
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24"
+          },
+          "notes": "원문 verbatim: `CTE, Z-axis | 25~30 | ppm/ oC | < Tg, TMA`. **인쇄 구간이라 평균 내지 않고 두 행(`bound`)으로 갈랐다.** 환산 25 ppm/℃ x 1e-6 = 2.4999999999999998e-05 1/K."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 2.9999999999999997e-05,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "through-thickness (Z)",
+            "regime": "below Tg (alpha1)",
+            "bound": "upper",
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24"
+          },
+          "notes": "원문 verbatim: `CTE, Z-axis | 25~30 | ppm/ oC | < Tg, TMA`. **인쇄 구간이라 평균 내지 않고 두 행(`bound`)으로 갈랐다.** 환산 30 ppm/℃ x 1e-6 = 2.9999999999999997e-05 1/K."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 0.00013,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "through-thickness (Z)",
+            "regime": "above Tg (alpha2)",
+            "bound": "lower",
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24"
+          },
+          "notes": "원문 verbatim: `CTE, Z-axis | 130~150 | ppm/ oC | > Tg, TMA`. **인쇄 구간이라 평균 내지 않고 두 행(`bound`)으로 갈랐다.** 환산 130 ppm/℃ x 1e-6 = 0.00013 1/K."
+        },
+        {
+          "key": "thermal.expansion_linear",
+          "value": 0.00015,
+          "unit": "1/K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "through-thickness (Z)",
+            "regime": "above Tg (alpha2)",
+            "bound": "upper",
+            "method_detail": "TMA",
+            "test_standard": "IPC-TM-650 2.4.24"
+          },
+          "notes": "원문 verbatim: `CTE, Z-axis | 130~150 | ppm/ oC | > Tg, TMA`. **인쇄 구간이라 평균 내지 않고 두 행(`bound`)으로 갈랐다.** 환산 150 ppm/℃ x 1e-6 = 0.00015 1/K."
+        },
+        {
+          "key": "thermal.expansion_total",
+          "value": 0.013999999999999999,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "axis": "through-thickness (Z)",
+            "temperature_range_c": "50-260",
+            "test_standard": "IPC-TM-650 2.4.24"
+          },
+          "notes": "원문 verbatim: `Z-axis Expansion | 1.4 | % | 50~260 oC`. 환산 1.4 % / 100 = 0.013999999999999999 (무차원)."
+        },
+        {
+          "key": "thermal.decomposition_temp",
+          "value": 693.15,
+          "unit": "K",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "method_detail": "TGA, 5% weight loss",
+            "test_standard": "IPC-TM-650 2.4.24.6"
+          },
+          "notes": "원문 verbatim: `Td | 420 | oC | TGA (5% W.L)`. 환산 420 ℃ + 273.15 = 693.15 K."
+        },
+        {
+          "key": "thermal.time_to_delamination",
+          "value": 3600.0,
+          "unit": "s",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "temperature_c": 288,
+            "specimen_state": "Clad",
+            "bound": "lower",
+            "test_standard": "IPC-TM-650 2.4.24.1"
+          },
+          "notes": "원문 verbatim: `T288 | >60 | min. | Clad`. **원문이 부등호(`>60`)로 인쇄한 하한이다** — `bound: lower` 로 넣었고 상한 행은 만들지 않았다. 환산 60 min x 60 = 3600 s."
+        },
+        {
+          "key": "thermal.time_to_delamination",
+          "value": 3600.0,
+          "unit": "s",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "temperature_c": 288,
+            "specimen_state": "Etched",
+            "bound": "lower",
+            "test_standard": "IPC-TM-650 2.4.24.1"
+          },
+          "notes": "원문 verbatim: `T288 | >60 | min. | Etched`. **원문이 부등호(`>60`)로 인쇄한 하한이다** — `bound: lower` 로 넣었고 상한 행은 만들지 않았다. 환산 60 min x 60 = 3600 s."
+        },
+        {
+          "key": "thermal.conductivity",
+          "value": 0.58,
+          "unit": "W/(m*K)",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "test_standard": "ASTM D5470",
+            "test_geometry": "through-thickness (laminate stack)"
+          },
+          "notes": "원문 verbatim: `Thermal Conductivity | 0.58 | W/m.K`. 단위가 이미 W/(m·K) 라 환산이 없다. 시험법 칸 원문: `ASTM D5470`."
+        },
+        {
+          "key": "electrical.dielectric_constant",
+          "value": 3.5,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "1GHz",
+            "resin_content": "50%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Dk (R/C: 50/70%) | 1GHz | 3.5/3.3`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dielectric_constant",
+          "value": 3.3,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "1GHz",
+            "resin_content": "70%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Dk (R/C: 50/70%) | 1GHz | 3.5/3.3`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dielectric_constant",
+          "value": 3.4,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "50%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Dk (R/C: 50/70%) | 10GHz | 3.4/3.2`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dielectric_constant",
+          "value": 3.2,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "70%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Dk (R/C: 50/70%) | 10GHz | 3.4/3.2`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dielectric_constant",
+          "value": 3.4,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "50%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "SPC method",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Dk (R/C: 50/70%) | 10GHz(SPC) | 3.4/3.2`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dielectric_constant",
+          "value": 3.2,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "70%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "SPC method",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Dk (R/C: 50/70%) | 10GHz(SPC) | 3.4/3.2`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dissipation_factor",
+          "value": 0.0031,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "1GHz",
+            "resin_content": "50%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Df (R/C: 50/70%) | 1GHz | 0.0031/0.0032`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dissipation_factor",
+          "value": 0.0032,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "1GHz",
+            "resin_content": "70%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Df (R/C: 50/70%) | 1GHz | 0.0031/0.0032`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dissipation_factor",
+          "value": 0.0041,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "50%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Df (R/C: 50/70%) | 10GHz | 0.0041/0.0042`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dissipation_factor",
+          "value": 0.0042,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "70%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "Cavity Resonator",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Df (R/C: 50/70%) | 10GHz | 0.0041/0.0042`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dissipation_factor",
+          "value": 0.0031,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "50%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "SPC method",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Df (R/C: 50/70%) | 10GHz(SPC) | 0.0031/0.0032`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "electrical.dissipation_factor",
+          "value": 0.0032,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "frequency": "10GHz",
+            "resin_content": "70%",
+            "conditioning": "C-24/23/50",
+            "method_detail": "SPC method",
+            "test_standard": "IPC-TM-650 2.5.5.9"
+          },
+          "notes": "원문 verbatim: `Df (R/C: 50/70%) | 10GHz(SPC) | 0.0031/0.0032`. **원문이 수지함량 50%/70% 두 값을 슬래시로 갈라 인쇄한다** — 두 행으로 나누고 `resin_content` 에 박았다. 평균 0건."
+        },
+        {
+          "key": "chemical.water_absorption_24h",
+          "value": 0.0011,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "conditioning": "E-1/105+D-24/23",
+            "test_standard": "IPC-TM-650 2.6.2.1"
+          },
+          "notes": "원문 verbatim: `Water Absorption | 0.11 | % | E-1/105+D-24/23`. 환산 0.11 % / 100 = 0.0011."
+        },
+        {
+          "key": "interface.peel_strength",
+          "value": 875.63,
+          "unit": "N/m",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "foil": "RTF H oz",
+            "conditioning": "As Received",
+            "test_standard": "IPC-TM-650 2.4.8"
+          },
+          "notes": "원문 verbatim: `Peel Strength | RTF H oz | 5.0 | lb/in | As Received`. 환산 5.0 lb/in x 175.126835 = 875.63 N/m; 되돌리면 875.63 / 175.126835 = 5.0."
+        },
+        {
+          "key": "interface.peel_strength",
+          "value": 700.51,
+          "unit": "N/m",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "foil": "HVLP H oz",
+            "conditioning": "As Received",
+            "test_standard": "IPC-TM-650 2.4.8"
+          },
+          "notes": "원문 verbatim: `Peel Strength | HVLP H oz | 4.0 | lb/in | As Received`. 환산 4.0 lb/in x 175.126835 = 700.51 N/m; 되돌리면 700.51 / 175.126835 = 4.0."
+        },
+        {
+          "key": "mechanical.flexural_modulus",
+          "value": 24000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "direction": "warp",
+            "conditioning": "As Received",
+            "bound": "lower",
+            "test_standard": "IPC-TM-650 2.4.4",
+            "test_mode": "flexural (3-point bend)"
+          },
+          "notes": "원문 verbatim: `Flexural Modulus | Warp | 24~26 | GPa | As Received`. **인쇄 구간이라 두 행(`bound`)으로 갈랐다.** 환산 24 GPa x 1e9 = 24000000000.0 Pa. **굽힘탄성률이다 — `mechanical.youngs_modulus` 칸에 옮기지 않았다.** 68차 DC 가 Panasonic 여섯 등급에서 굽힘값을 영률 칸에 넣었다가 진짜 인장값과 12~23 % 어긋나는 것을 보고 전부 되돌린 자리다."
+        },
+        {
+          "key": "mechanical.flexural_modulus",
+          "value": 26000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "direction": "warp",
+            "conditioning": "As Received",
+            "bound": "upper",
+            "test_standard": "IPC-TM-650 2.4.4",
+            "test_mode": "flexural (3-point bend)"
+          },
+          "notes": "원문 verbatim: `Flexural Modulus | Warp | 24~26 | GPa | As Received`. **인쇄 구간이라 두 행(`bound`)으로 갈랐다.** 환산 26 GPa x 1e9 = 26000000000.0 Pa. **굽힘탄성률이다 — `mechanical.youngs_modulus` 칸에 옮기지 않았다.** 68차 DC 가 Panasonic 여섯 등급에서 굽힘값을 영률 칸에 넣었다가 진짜 인장값과 12~23 % 어긋나는 것을 보고 전부 되돌린 자리다."
+        },
+        {
+          "key": "mechanical.flexural_modulus",
+          "value": 23000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "direction": "fill",
+            "conditioning": "As Received",
+            "bound": "lower",
+            "test_standard": "IPC-TM-650 2.4.4",
+            "test_mode": "flexural (3-point bend)"
+          },
+          "notes": "원문 verbatim: `Flexural Modulus | Fill | 23~25 | GPa | As Received`. **인쇄 구간이라 두 행(`bound`)으로 갈랐다.** 환산 23 GPa x 1e9 = 23000000000.0 Pa. **굽힘탄성률이다 — `mechanical.youngs_modulus` 칸에 옮기지 않았다.** 68차 DC 가 Panasonic 여섯 등급에서 굽힘값을 영률 칸에 넣었다가 진짜 인장값과 12~23 % 어긋나는 것을 보고 전부 되돌린 자리다."
+        },
+        {
+          "key": "mechanical.flexural_modulus",
+          "value": 25000000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "direction": "fill",
+            "conditioning": "As Received",
+            "bound": "upper",
+            "test_standard": "IPC-TM-650 2.4.4",
+            "test_mode": "flexural (3-point bend)"
+          },
+          "notes": "원문 verbatim: `Flexural Modulus | Fill | 23~25 | GPa | As Received`. **인쇄 구간이라 두 행(`bound`)으로 갈랐다.** 환산 25 GPa x 1e9 = 25000000000.0 Pa. **굽힘탄성률이다 — `mechanical.youngs_modulus` 칸에 옮기지 않았다.** 68차 DC 가 Panasonic 여섯 등급에서 굽힘값을 영률 칸에 넣었다가 진짜 인장값과 12~23 % 어긋나는 것을 보고 전부 되돌린 자리다."
+        },
+        {
+          "key": "thermal.flammability_ul94",
+          "value": "V-0",
+          "unit": null,
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "conditioning": "C-48/23/50",
+            "test_standard": "UL-94"
+          },
+          "notes": "원문 verbatim: `Flame Resistance | V-0 | C-48/23/50 | UL-94`."
+        }
+      ]
+    }
+  ]
+}

@@ -13,6 +13,7 @@
 from __future__ import annotations
 
 import json
+import os
 import sqlite3
 import sys
 from pathlib import Path
@@ -22,6 +23,8 @@ from coverage_report import (VERDICT_ATTR_NA, VERDICT_ATTR_REJECT,  # noqa: E402
                              VERDICT_ATTR_VENDOR)
 from mined_index import DB as MT_DB  # noqa: E402
 from scan_targets import CORPUS, VERDICTS, norm_full  # noqa: E402
+
+_CORPUS_ROOT = "/data/paper_patent_corpus/"
 
 # 코어 빈칸 판정이 적히는 자리 셋 — `coverage_report.subsystem_core` 가 읽는 칸과 **같은 목록**이다.
 # 여기에 이름을 다시 적지 않는다: 갈래를 늘렸는데 점검기가 옛 목록을 보면 새 갈래가 안 점검된다.
@@ -135,6 +138,12 @@ def main() -> int:
         # ② 코퍼스의 어떤 논문과도 안 걸리나
         p = r.get("path")
         if p and p in paths:
+            continue
+        # **색인은 본문 md 경로만 안다**(73차 IB — 코퍼스의 59%가 표를 `tables/*.md` 로
+        # 빼 두고 그 층은 FTS 밖이다). 그래서 표 사이드카를 가리키는 `path` 는 올바르게
+        # 박혀 있어도 `paths` 에 영영 없다 — 20행(Liu 2011 table-91.md)이 그 경우였다.
+        # 디스크에 실재하고 코퍼스 안이면 통과시킨다.
+        if p and p.startswith(_CORPUS_ROOT) and os.path.exists(p):
             continue
         if k in corp:
             nopath.append(i)

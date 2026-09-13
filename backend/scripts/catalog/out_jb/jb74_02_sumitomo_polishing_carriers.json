@@ -1,0 +1,229 @@
+{
+  "batch": "74차 JB",
+  "materials": [
+    {
+      "new_material": {
+        "name": "Sumitomo Bakelite Sumilite EL-3700 (unclad glass epoxy polishing & lapping carrier laminate)",
+        "category": "composite",
+        "description": "住友ベークライト(Sumitomo Bakelite) スミライト® 적층판 `EL-3700` — 研磨キャリア用積層板 / polishing & lapping carrier (무피복 유리에폭시 적층판). 벤더 표기: シリコンウェハー、HDD研磨用途に長年の実績があるスタンダード材 / The standard material which is used for silicon wafer and HDD polishing carrier. **72차 HD 가 세운 PL/EL 넉 장과 같은 카탈로그(인쇄 25~32쪽)의 마지막 제품군인데 HD 가 카드로 세우지 않고 남긴 두 등급이다.** 실리콘 웨이퍼·HDD 연마 공정의 캐리어 판으로, PCB 재료가 아니라 **공정 치구재**다. 74차 JB 가 카탈로그 네 쪽을 전부 렌더해 훑다가 찾았고, 같은 등급의 **영문 Technical Data Sheet** 가 로컬에 이미 있어 두 문서로 교차검증했다.",
+        "attributes": {
+          "material_class": "unclad glass epoxy laminate (無銅張ガラスエポキシ積層板), polishing carrier grade",
+          "subsystem": "pcb",
+          "role": "product",
+          "role_reason": "벤더가 등급명으로 인쇄해 파는 실제품 적층판이다. 다만 **PCB 기판재가 아니라 반도체·HDD 연마공정의 캐리어 치구재**이므로 PCB 격자에서 동장적층판과 섞어 읽으면 안 된다.",
+          "role_confidence": "high",
+          "manufacturer": "Sumitomo Bakelite Co., Ltd. (住友ベークライト株式会社)",
+          "product_series": "スミライト® (Sumilite) EL laminate sheets",
+          "product_form": "unclad laminate sheet (0.4 - 2.0 mm thick)",
+          "aliases": [
+            "EL-3700",
+            "Sumilite EL-3700",
+            "スミライト EL-3700",
+            "EL3700"
+          ],
+          "not_to_be_confused_with": "`EL-3700`(연마캐리어용 무피복재)는 `EL-3762`(FR-4 그레이드 무피복 적층판)·`ELC-47xx`(동장적층판)와 **다른 제품이다.** EL-3762 의 比重 1.92 를 이 카드에 옮기면 틀린 값이다 — 이 등급의 比重 은 **어느 문서에도 인쇄돼 있지 않다.**",
+          "insulation_resistance_printed": "이 표는 `絶縁抵抗 Insulation resistance` 를 A 조건 2E+11 Ω · D-2/100 조건 9E+10 Ω 로 인쇄한다. **우리 분류에 이 측정에 맞는 키가 없어 행을 만들지 않았다** — `electrical.surface_resistivity`(Ω)나 `electrical.resistivity_volume`(Ω·m)은 다른 측정이다. 값을 버리지 않도록 여기 적어 둔다.",
+          "core_absent_from_vendor_sheet": {
+            "physical.density": "**[74차 JB]** 이 등급의 벤더 문서 **두 종**을 전부 열었고 `比重 Specific gravity`·`密度` 행이 **없다.**\n\n**연 문서 ①** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_Sumilite-PL-EL_Catalog_ja_2026-09-09.pdf` 인쇄 28쪽 `研磨キャリア用積層板 Polishing & lapping carrier EL-3700 / EL-3700M` 의 `一般特性 General Properties` 표. **이 PDF 는 Illustrator 아웃라인 벡터라 `pdftotext` 가 4쪽 전체에 0자를 준다** — 74차 JB 가 A3 네 쪽을 150 dpi 로 렌더해 눈으로 읽었다. 표의 행은 여덟뿐이다: 色 Color · 厚み Thickness · 絶縁抵抗 Insulation resistance(2행) · 曲げ強さ Flexural strength(たて/よこ) · 硬度 Hardness(Rockwell) · 吸水率 Water absorption · 耐燃性 Flame retardancy · 納入サイズ Size.\n\n**연 문서 ②** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_ELC-4765-4768_TDS_en_2026-09-09.pdf` 2쪽 `Umclad glass epoxy lamnetes for polishing & lapping carrier`(원문 오식 그대로). 영문 TDS 인데 **행 구성이 ①과 완전히 같다**(Color · Thickness · Insulation resistance · Flexural strength · Hardness · Water absorption · Flame retardancy · Size). 이 쪽은 텍스트층이 살아 있어 토큰 검사를 돌렸다 — `density`·`gravity`·`modulus`·`Poisson`·`expansion`·`conductivity`·`specific heat`·`tensile` **전부 0건.**\n\n**같은 카탈로그의 형제 표와 대비된다** — 인쇄 26·27쪽의 PL/EL 적층판 표는 `比重 Specific gravity` 행을 갖는데(72차 HD 가 그 행으로 카드 넉 장을 세웠다) **연마캐리어 표에는 그 행이 없다.** 같은 벤더 같은 카탈로그 안에서 제품군별로 행 구성이 다르다 — 누락이 아니라 이 표의 설계다.\n\n**SDS 경로는 이 제품군에서 닫혀 있다** — 72차 HD 가 확인했다: Sumitomo 는 SDS 포털 자체가 없고(사이트맵 435링크에 `SDS` 적중 0), 고체 물품(article)인 적층판에는 SDS 의무가 없다. 74차 JB 는 이 경로에 시간을 쓰지 않았다.",
+            "mechanical.youngs_modulus": "**[74차 JB]** 이 등급의 벤더 문서 **두 종**을 전부 열었고 `曲げ弾性率`·`引っ張り弾性率`·`Young's Modulus`(어떤 탄성률도) 행이 **없다.**\n\n**연 문서 ①** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_Sumilite-PL-EL_Catalog_ja_2026-09-09.pdf` 인쇄 28쪽 `研磨キャリア用積層板 Polishing & lapping carrier EL-3700 / EL-3700M` 의 `一般特性 General Properties` 표. **이 PDF 는 Illustrator 아웃라인 벡터라 `pdftotext` 가 4쪽 전체에 0자를 준다** — 74차 JB 가 A3 네 쪽을 150 dpi 로 렌더해 눈으로 읽었다. 표의 행은 여덟뿐이다: 色 Color · 厚み Thickness · 絶縁抵抗 Insulation resistance(2행) · 曲げ強さ Flexural strength(たて/よこ) · 硬度 Hardness(Rockwell) · 吸水率 Water absorption · 耐燃性 Flame retardancy · 納入サイズ Size.\n\n**연 문서 ②** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_ELC-4765-4768_TDS_en_2026-09-09.pdf` 2쪽 `Umclad glass epoxy lamnetes for polishing & lapping carrier`(원문 오식 그대로). 영문 TDS 인데 **행 구성이 ①과 완전히 같다**(Color · Thickness · Insulation resistance · Flexural strength · Hardness · Water absorption · Flame retardancy · Size). 이 쪽은 텍스트층이 살아 있어 토큰 검사를 돌렸다 — `density`·`gravity`·`modulus`·`Poisson`·`expansion`·`conductivity`·`specific heat`·`tensile` **전부 0건.**\n\n**같은 카탈로그의 형제 표와 대비된다** — 인쇄 26·27쪽의 PL/EL 적층판 표는 `比重 Specific gravity` 행을 갖는데(72차 HD 가 그 행으로 카드 넉 장을 세웠다) **연마캐리어 표에는 그 행이 없다.** 같은 벤더 같은 카탈로그 안에서 제품군별로 행 구성이 다르다 — 누락이 아니라 이 표의 설계다.\n\n**SDS 경로는 이 제품군에서 닫혀 있다** — 72차 HD 가 확인했다: Sumitomo 는 SDS 포털 자체가 없고(사이트맵 435링크에 `SDS` 적중 0), 고체 물품(article)인 적층판에는 SDS 의무가 없다. 74차 JB 는 이 경로에 시간을 쓰지 않았다.",
+            "mechanical.poisson_ratio": "**[74차 JB]** 이 등급의 벤더 문서 **두 종**을 전부 열었고 `ポアソン比` 행이 **없다.**\n\n**연 문서 ①** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_Sumilite-PL-EL_Catalog_ja_2026-09-09.pdf` 인쇄 28쪽 `研磨キャリア用積層板 Polishing & lapping carrier EL-3700 / EL-3700M` 의 `一般特性 General Properties` 표. **이 PDF 는 Illustrator 아웃라인 벡터라 `pdftotext` 가 4쪽 전체에 0자를 준다** — 74차 JB 가 A3 네 쪽을 150 dpi 로 렌더해 눈으로 읽었다. 표의 행은 여덟뿐이다: 色 Color · 厚み Thickness · 絶縁抵抗 Insulation resistance(2행) · 曲げ強さ Flexural strength(たて/よこ) · 硬度 Hardness(Rockwell) · 吸水率 Water absorption · 耐燃性 Flame retardancy · 納入サイズ Size.\n\n**연 문서 ②** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_ELC-4765-4768_TDS_en_2026-09-09.pdf` 2쪽 `Umclad glass epoxy lamnetes for polishing & lapping carrier`(원문 오식 그대로). 영문 TDS 인데 **행 구성이 ①과 완전히 같다**(Color · Thickness · Insulation resistance · Flexural strength · Hardness · Water absorption · Flame retardancy · Size). 이 쪽은 텍스트층이 살아 있어 토큰 검사를 돌렸다 — `density`·`gravity`·`modulus`·`Poisson`·`expansion`·`conductivity`·`specific heat`·`tensile` **전부 0건.**\n\n**같은 카탈로그의 형제 표와 대비된다** — 인쇄 26·27쪽의 PL/EL 적층판 표는 `比重 Specific gravity` 행을 갖는데(72차 HD 가 그 행으로 카드 넉 장을 세웠다) **연마캐리어 표에는 그 행이 없다.** 같은 벤더 같은 카탈로그 안에서 제품군별로 행 구성이 다르다 — 누락이 아니라 이 표의 설계다.\n\n**SDS 경로는 이 제품군에서 닫혀 있다** — 72차 HD 가 확인했다: Sumitomo 는 SDS 포털 자체가 없고(사이트맵 435링크에 `SDS` 적중 0), 고체 물품(article)인 적층판에는 SDS 의무가 없다. 74차 JB 는 이 경로에 시간을 쓰지 않았다.",
+            "thermal.expansion_linear": "**[74차 JB]** 이 등급의 벤더 문서 **두 종**을 전부 열었고 `熱膨張係数`·`CTE` 행이 **없다.**\n\n**연 문서 ①** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_Sumilite-PL-EL_Catalog_ja_2026-09-09.pdf` 인쇄 28쪽 `研磨キャリア用積層板 Polishing & lapping carrier EL-3700 / EL-3700M` 의 `一般特性 General Properties` 표. **이 PDF 는 Illustrator 아웃라인 벡터라 `pdftotext` 가 4쪽 전체에 0자를 준다** — 74차 JB 가 A3 네 쪽을 150 dpi 로 렌더해 눈으로 읽었다. 표의 행은 여덟뿐이다: 色 Color · 厚み Thickness · 絶縁抵抗 Insulation resistance(2행) · 曲げ強さ Flexural strength(たて/よこ) · 硬度 Hardness(Rockwell) · 吸水率 Water absorption · 耐燃性 Flame retardancy · 納入サイズ Size.\n\n**연 문서 ②** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_ELC-4765-4768_TDS_en_2026-09-09.pdf` 2쪽 `Umclad glass epoxy lamnetes for polishing & lapping carrier`(원문 오식 그대로). 영문 TDS 인데 **행 구성이 ①과 완전히 같다**(Color · Thickness · Insulation resistance · Flexural strength · Hardness · Water absorption · Flame retardancy · Size). 이 쪽은 텍스트층이 살아 있어 토큰 검사를 돌렸다 — `density`·`gravity`·`modulus`·`Poisson`·`expansion`·`conductivity`·`specific heat`·`tensile` **전부 0건.**\n\n**같은 카탈로그의 형제 표와 대비된다** — 인쇄 26·27쪽의 PL/EL 적층판 표는 `比重 Specific gravity` 행을 갖는데(72차 HD 가 그 행으로 카드 넉 장을 세웠다) **연마캐리어 표에는 그 행이 없다.** 같은 벤더 같은 카탈로그 안에서 제품군별로 행 구성이 다르다 — 누락이 아니라 이 표의 설계다.\n\n**SDS 경로는 이 제품군에서 닫혀 있다** — 72차 HD 가 확인했다: Sumitomo 는 SDS 포털 자체가 없고(사이트맵 435링크에 `SDS` 적중 0), 고체 물품(article)인 적층판에는 SDS 의무가 없다. 74차 JB 는 이 경로에 시간을 쓰지 않았다.",
+            "thermal.conductivity": "**[74차 JB]** 이 등급의 벤더 문서 **두 종**을 전부 열었고 `熱伝導率 Thermal conductivity` 행이 **없다.**\n\n**연 문서 ①** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_Sumilite-PL-EL_Catalog_ja_2026-09-09.pdf` 인쇄 28쪽 `研磨キャリア用積層板 Polishing & lapping carrier EL-3700 / EL-3700M` 의 `一般特性 General Properties` 표. **이 PDF 는 Illustrator 아웃라인 벡터라 `pdftotext` 가 4쪽 전체에 0자를 준다** — 74차 JB 가 A3 네 쪽을 150 dpi 로 렌더해 눈으로 읽었다. 표의 행은 여덟뿐이다: 色 Color · 厚み Thickness · 絶縁抵抗 Insulation resistance(2행) · 曲げ強さ Flexural strength(たて/よこ) · 硬度 Hardness(Rockwell) · 吸水率 Water absorption · 耐燃性 Flame retardancy · 納入サイズ Size.\n\n**연 문서 ②** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_ELC-4765-4768_TDS_en_2026-09-09.pdf` 2쪽 `Umclad glass epoxy lamnetes for polishing & lapping carrier`(원문 오식 그대로). 영문 TDS 인데 **행 구성이 ①과 완전히 같다**(Color · Thickness · Insulation resistance · Flexural strength · Hardness · Water absorption · Flame retardancy · Size). 이 쪽은 텍스트층이 살아 있어 토큰 검사를 돌렸다 — `density`·`gravity`·`modulus`·`Poisson`·`expansion`·`conductivity`·`specific heat`·`tensile` **전부 0건.**\n\n**같은 카탈로그의 형제 표와 대비된다** — 인쇄 26·27쪽의 PL/EL 적층판 표는 `比重 Specific gravity` 행을 갖는데(72차 HD 가 그 행으로 카드 넉 장을 세웠다) **연마캐리어 표에는 그 행이 없다.** 같은 벤더 같은 카탈로그 안에서 제품군별로 행 구성이 다르다 — 누락이 아니라 이 표의 설계다.\n\n**SDS 경로는 이 제품군에서 닫혀 있다** — 72차 HD 가 확인했다: Sumitomo 는 SDS 포털 자체가 없고(사이트맵 435링크에 `SDS` 적중 0), 고체 물품(article)인 적층판에는 SDS 의무가 없다. 74차 JB 는 이 경로에 시간을 쓰지 않았다.",
+            "thermal.specific_heat": "**[74차 JB]** 이 등급의 벤더 문서 **두 종**을 전부 열었고 `比熱` 행이 **없다.**\n\n**연 문서 ①** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_Sumilite-PL-EL_Catalog_ja_2026-09-09.pdf` 인쇄 28쪽 `研磨キャリア用積層板 Polishing & lapping carrier EL-3700 / EL-3700M` 의 `一般特性 General Properties` 표. **이 PDF 는 Illustrator 아웃라인 벡터라 `pdftotext` 가 4쪽 전체에 0자를 준다** — 74차 JB 가 A3 네 쪽을 150 dpi 로 렌더해 눈으로 읽었다. 표의 행은 여덟뿐이다: 色 Color · 厚み Thickness · 絶縁抵抗 Insulation resistance(2행) · 曲げ強さ Flexural strength(たて/よこ) · 硬度 Hardness(Rockwell) · 吸水率 Water absorption · 耐燃性 Flame retardancy · 納入サイズ Size.\n\n**연 문서 ②** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_ELC-4765-4768_TDS_en_2026-09-09.pdf` 2쪽 `Umclad glass epoxy lamnetes for polishing & lapping carrier`(원문 오식 그대로). 영문 TDS 인데 **행 구성이 ①과 완전히 같다**(Color · Thickness · Insulation resistance · Flexural strength · Hardness · Water absorption · Flame retardancy · Size). 이 쪽은 텍스트층이 살아 있어 토큰 검사를 돌렸다 — `density`·`gravity`·`modulus`·`Poisson`·`expansion`·`conductivity`·`specific heat`·`tensile` **전부 0건.**\n\n**같은 카탈로그의 형제 표와 대비된다** — 인쇄 26·27쪽의 PL/EL 적층판 표는 `比重 Specific gravity` 행을 갖는데(72차 HD 가 그 행으로 카드 넉 장을 세웠다) **연마캐리어 표에는 그 행이 없다.** 같은 벤더 같은 카탈로그 안에서 제품군별로 행 구성이 다르다 — 누락이 아니라 이 표의 설계다.\n\n**SDS 경로는 이 제품군에서 닫혀 있다** — 72차 HD 가 확인했다: Sumitomo 는 SDS 포털 자체가 없고(사이트맵 435링크에 `SDS` 적중 0), 고체 물품(article)인 적층판에는 SDS 의무가 없다. 74차 JB 는 이 경로에 시간을 쓰지 않았다.",
+            "mechanical.tensile_strength": "**[74차 JB]** 이 등급의 벤더 문서 **두 종**을 전부 열었고 `引っ張り強さ Tensile strength` 행이 **없다.**\n\n**연 문서 ①** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_Sumilite-PL-EL_Catalog_ja_2026-09-09.pdf` 인쇄 28쪽 `研磨キャリア用積層板 Polishing & lapping carrier EL-3700 / EL-3700M` 의 `一般特性 General Properties` 표. **이 PDF 는 Illustrator 아웃라인 벡터라 `pdftotext` 가 4쪽 전체에 0자를 준다** — 74차 JB 가 A3 네 쪽을 150 dpi 로 렌더해 눈으로 읽었다. 표의 행은 여덟뿐이다: 色 Color · 厚み Thickness · 絶縁抵抗 Insulation resistance(2행) · 曲げ強さ Flexural strength(たて/よこ) · 硬度 Hardness(Rockwell) · 吸水率 Water absorption · 耐燃性 Flame retardancy · 納入サイズ Size.\n\n**연 문서 ②** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_ELC-4765-4768_TDS_en_2026-09-09.pdf` 2쪽 `Umclad glass epoxy lamnetes for polishing & lapping carrier`(원문 오식 그대로). 영문 TDS 인데 **행 구성이 ①과 완전히 같다**(Color · Thickness · Insulation resistance · Flexural strength · Hardness · Water absorption · Flame retardancy · Size). 이 쪽은 텍스트층이 살아 있어 토큰 검사를 돌렸다 — `density`·`gravity`·`modulus`·`Poisson`·`expansion`·`conductivity`·`specific heat`·`tensile` **전부 0건.**\n\n**같은 카탈로그의 형제 표와 대비된다** — 인쇄 26·27쪽의 PL/EL 적층판 표는 `比重 Specific gravity` 행을 갖는데(72차 HD 가 그 행으로 카드 넉 장을 세웠다) **연마캐리어 표에는 그 행이 없다.** 같은 벤더 같은 카탈로그 안에서 제품군별로 행 구성이 다르다 — 누락이 아니라 이 표의 설계다.\n\n**SDS 경로는 이 제품군에서 닫혀 있다** — 72차 HD 가 확인했다: Sumitomo 는 SDS 포털 자체가 없고(사이트맵 435링크에 `SDS` 적중 0), 고체 물품(article)인 적층판에는 SDS 의무가 없다. 74차 JB 는 이 경로에 시간을 쓰지 않았다."
+          }
+        }
+      },
+      "source": {
+        "kind": "datasheet",
+        "title": "住友ベークライト スミライト® 積層板カタログ 인쇄 28쪽 『研磨キャリア用積層板 EL-3700 / EL-3700M』 (+ 영문 Technical Data Sheet 2쪽, 같은 등급)",
+        "url": "https://www.sumibe.co.jp/ww-attaches/805.pdf",
+        "publisher": "Sumitomo Bakelite Co., Ltd. (住友ベークライト株式会社)",
+        "year": 2026,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_Sumilite-PL-EL_Catalog_ja_2026-09-09.pdf",
+        "url_note": "**이 PDF 는 아웃라인 벡터라 `pdftotext` 가 0자를 준다** — 값은 A3 쪽을 150 dpi 로 렌더해 눈으로 읽었다. 같은 값이 `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_ELC-4765-4768_TDS_en_2026-09-09.pdf` 2쪽(텍스트층 살아 있음)에 **독립으로 다시 인쇄돼 있어 두 문서로 교차검증했다** — 여덟 칸 전부 일치한다."
+      },
+      "properties": [
+        {
+          "key": "mechanical.flexural_strength",
+          "value": 650000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "direction": "lengthwise (たて)",
+            "conditioning": "A (as received)",
+            "specimen_thickness_mm": 1.0,
+            "test_mode": "flexural",
+            "test_condition": "試験片は1.0mmtで測定 / Test piece thickness: 1.0 mmt"
+          },
+          "notes": "원문 verbatim: `曲げ強さ Flexural strength | たて Lengthwise | MPa | 650` (EL-3700 열). 원문이 **구간이 아니라 단일 값**으로 인쇄한 칸이다. 환산 650 MPa x 1e6 = 650000000.0 Pa. **굽힘강도다 — 인장강도 칸에 옮기지 않았다.** 같은 값이 영문 TDS 2쪽에 `Flexural strength | Lengthwise/Widthwise | MPa` 로 똑같이 인쇄돼 있어 두 문서로 대조했다."
+        },
+        {
+          "key": "mechanical.flexural_strength",
+          "value": 540000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "direction": "widthwise (よこ)",
+            "conditioning": "A (as received)",
+            "specimen_thickness_mm": 1.0,
+            "test_mode": "flexural",
+            "test_condition": "試験片は1.0mmtで測定 / Test piece thickness: 1.0 mmt"
+          },
+          "notes": "원문 verbatim: `曲げ強さ Flexural strength | よこ Widthwise | MPa | 540` (EL-3700 열). 원문이 **구간이 아니라 단일 값**으로 인쇄한 칸이다. 환산 540 MPa x 1e6 = 540000000.0 Pa. **굽힘강도다 — 인장강도 칸에 옮기지 않았다.** 같은 값이 영문 TDS 2쪽에 `Flexural strength | Lengthwise/Widthwise | MPa` 로 똑같이 인쇄돼 있어 두 문서로 대조했다."
+        },
+        {
+          "key": "mechanical.hardness_rockwell",
+          "value": 110.0,
+          "unit": "HR",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "scale": "M",
+            "test_method": "Rockwell (ロックウェル)",
+            "specimen_thickness_mm": 1.0
+          },
+          "notes": "원문 verbatim: `硬度 Hardness | ロックウェル Rockwell | HRM | 110`. 스케일 M 이다(`HRM`). 무차원 경도 눈금이라 환산이 없다. 영문 TDS 2쪽도 `Hardness | Rockwell | HRM | 110` 로 같다. **두 등급이 같은 110 이다** — 벤더가 실제로 같은 값을 인쇄했다."
+        },
+        {
+          "key": "chemical.water_absorption_24h",
+          "value": 0.0008,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "conditioning": "E-24/50+D-24/23",
+            "specimen_thickness_mm": 1.0
+          },
+          "notes": "원문 verbatim: `吸水率 Water absorption | E-24/50+D-24/23 | % | 0.08`. 환산 0.08 % / 100 = 0.0008. 영문 TDS 2쪽도 같다. **두 등급이 같은 0.08 이다.**"
+        },
+        {
+          "key": "thermal.flammability_ul94",
+          "value": "V-0 equivalent (V-0相当)",
+          "unit": null,
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "conditioning": "A / E-168/70",
+            "test_standard": "UL method (UL法)"
+          },
+          "notes": "원문 verbatim: `耐燃性（UL法）Flame retardancy (UL method) | A · E-168/70 | V-0相当 V-0 equivalent`. **원문이 `相当 / equivalent` 라고 적는다 — UL 인증 등급이 아니라 동등 수준 표기다.** 그 표기를 값 문자열에 그대로 남겼다."
+        }
+      ]
+    },
+    {
+      "new_material": {
+        "name": "Sumitomo Bakelite Sumilite EL-3700M (unclad glass epoxy polishing & lapping carrier laminate)",
+        "category": "composite",
+        "description": "住友ベークライト(Sumitomo Bakelite) スミライト® 적층판 `EL-3700M` — 研磨キャリア用積層板 / polishing & lapping carrier (무피복 유리에폭시 적층판). 벤더 표기: 更なる板厚精度、表面平滑性が求められるキャリアへの対応材料 / Good accuracy for board thickness and surface smoothness for high performance polishing carrier. **72차 HD 가 세운 PL/EL 넉 장과 같은 카탈로그(인쇄 25~32쪽)의 마지막 제품군인데 HD 가 카드로 세우지 않고 남긴 두 등급이다.** 실리콘 웨이퍼·HDD 연마 공정의 캐리어 판으로, PCB 재료가 아니라 **공정 치구재**다. 74차 JB 가 카탈로그 네 쪽을 전부 렌더해 훑다가 찾았고, 같은 등급의 **영문 Technical Data Sheet** 가 로컬에 이미 있어 두 문서로 교차검증했다.",
+        "attributes": {
+          "material_class": "unclad glass epoxy laminate (無銅張ガラスエポキシ積層板), polishing carrier grade",
+          "subsystem": "pcb",
+          "role": "product",
+          "role_reason": "벤더가 등급명으로 인쇄해 파는 실제품 적층판이다. 다만 **PCB 기판재가 아니라 반도체·HDD 연마공정의 캐리어 치구재**이므로 PCB 격자에서 동장적층판과 섞어 읽으면 안 된다.",
+          "role_confidence": "high",
+          "manufacturer": "Sumitomo Bakelite Co., Ltd. (住友ベークライト株式会社)",
+          "product_series": "スミライト® (Sumilite) EL laminate sheets",
+          "product_form": "unclad laminate sheet (0.2 - 1.0 mm thick)",
+          "aliases": [
+            "EL-3700M",
+            "Sumilite EL-3700M",
+            "スミライト EL-3700M",
+            "EL3700M"
+          ],
+          "not_to_be_confused_with": "`EL-3700M`(연마캐리어용 무피복재)는 `EL-3762`(FR-4 그레이드 무피복 적층판)·`ELC-47xx`(동장적층판)와 **다른 제품이다.** EL-3762 의 比重 1.92 를 이 카드에 옮기면 틀린 값이다 — 이 등급의 比重 은 **어느 문서에도 인쇄돼 있지 않다.**",
+          "insulation_resistance_printed": "이 표는 `絶縁抵抗 Insulation resistance` 를 A 조건 4E+10 Ω · D-2/100 조건 3E+10 Ω 로 인쇄한다. **우리 분류에 이 측정에 맞는 키가 없어 행을 만들지 않았다** — `electrical.surface_resistivity`(Ω)나 `electrical.resistivity_volume`(Ω·m)은 다른 측정이다. 값을 버리지 않도록 여기 적어 둔다.",
+          "core_absent_from_vendor_sheet": {
+            "physical.density": "**[74차 JB]** 이 등급의 벤더 문서 **두 종**을 전부 열었고 `比重 Specific gravity`·`密度` 행이 **없다.**\n\n**연 문서 ①** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_Sumilite-PL-EL_Catalog_ja_2026-09-09.pdf` 인쇄 28쪽 `研磨キャリア用積層板 Polishing & lapping carrier EL-3700 / EL-3700M` 의 `一般特性 General Properties` 표. **이 PDF 는 Illustrator 아웃라인 벡터라 `pdftotext` 가 4쪽 전체에 0자를 준다** — 74차 JB 가 A3 네 쪽을 150 dpi 로 렌더해 눈으로 읽었다. 표의 행은 여덟뿐이다: 色 Color · 厚み Thickness · 絶縁抵抗 Insulation resistance(2행) · 曲げ強さ Flexural strength(たて/よこ) · 硬度 Hardness(Rockwell) · 吸水率 Water absorption · 耐燃性 Flame retardancy · 納入サイズ Size.\n\n**연 문서 ②** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_ELC-4765-4768_TDS_en_2026-09-09.pdf` 2쪽 `Umclad glass epoxy lamnetes for polishing & lapping carrier`(원문 오식 그대로). 영문 TDS 인데 **행 구성이 ①과 완전히 같다**(Color · Thickness · Insulation resistance · Flexural strength · Hardness · Water absorption · Flame retardancy · Size). 이 쪽은 텍스트층이 살아 있어 토큰 검사를 돌렸다 — `density`·`gravity`·`modulus`·`Poisson`·`expansion`·`conductivity`·`specific heat`·`tensile` **전부 0건.**\n\n**같은 카탈로그의 형제 표와 대비된다** — 인쇄 26·27쪽의 PL/EL 적층판 표는 `比重 Specific gravity` 행을 갖는데(72차 HD 가 그 행으로 카드 넉 장을 세웠다) **연마캐리어 표에는 그 행이 없다.** 같은 벤더 같은 카탈로그 안에서 제품군별로 행 구성이 다르다 — 누락이 아니라 이 표의 설계다.\n\n**SDS 경로는 이 제품군에서 닫혀 있다** — 72차 HD 가 확인했다: Sumitomo 는 SDS 포털 자체가 없고(사이트맵 435링크에 `SDS` 적중 0), 고체 물품(article)인 적층판에는 SDS 의무가 없다. 74차 JB 는 이 경로에 시간을 쓰지 않았다.",
+            "mechanical.youngs_modulus": "**[74차 JB]** 이 등급의 벤더 문서 **두 종**을 전부 열었고 `曲げ弾性率`·`引っ張り弾性率`·`Young's Modulus`(어떤 탄성률도) 행이 **없다.**\n\n**연 문서 ①** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_Sumilite-PL-EL_Catalog_ja_2026-09-09.pdf` 인쇄 28쪽 `研磨キャリア用積層板 Polishing & lapping carrier EL-3700 / EL-3700M` 의 `一般特性 General Properties` 표. **이 PDF 는 Illustrator 아웃라인 벡터라 `pdftotext` 가 4쪽 전체에 0자를 준다** — 74차 JB 가 A3 네 쪽을 150 dpi 로 렌더해 눈으로 읽었다. 표의 행은 여덟뿐이다: 色 Color · 厚み Thickness · 絶縁抵抗 Insulation resistance(2행) · 曲げ強さ Flexural strength(たて/よこ) · 硬度 Hardness(Rockwell) · 吸水率 Water absorption · 耐燃性 Flame retardancy · 納入サイズ Size.\n\n**연 문서 ②** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_ELC-4765-4768_TDS_en_2026-09-09.pdf` 2쪽 `Umclad glass epoxy lamnetes for polishing & lapping carrier`(원문 오식 그대로). 영문 TDS 인데 **행 구성이 ①과 완전히 같다**(Color · Thickness · Insulation resistance · Flexural strength · Hardness · Water absorption · Flame retardancy · Size). 이 쪽은 텍스트층이 살아 있어 토큰 검사를 돌렸다 — `density`·`gravity`·`modulus`·`Poisson`·`expansion`·`conductivity`·`specific heat`·`tensile` **전부 0건.**\n\n**같은 카탈로그의 형제 표와 대비된다** — 인쇄 26·27쪽의 PL/EL 적층판 표는 `比重 Specific gravity` 행을 갖는데(72차 HD 가 그 행으로 카드 넉 장을 세웠다) **연마캐리어 표에는 그 행이 없다.** 같은 벤더 같은 카탈로그 안에서 제품군별로 행 구성이 다르다 — 누락이 아니라 이 표의 설계다.\n\n**SDS 경로는 이 제품군에서 닫혀 있다** — 72차 HD 가 확인했다: Sumitomo 는 SDS 포털 자체가 없고(사이트맵 435링크에 `SDS` 적중 0), 고체 물품(article)인 적층판에는 SDS 의무가 없다. 74차 JB 는 이 경로에 시간을 쓰지 않았다.",
+            "mechanical.poisson_ratio": "**[74차 JB]** 이 등급의 벤더 문서 **두 종**을 전부 열었고 `ポアソン比` 행이 **없다.**\n\n**연 문서 ①** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_Sumilite-PL-EL_Catalog_ja_2026-09-09.pdf` 인쇄 28쪽 `研磨キャリア用積層板 Polishing & lapping carrier EL-3700 / EL-3700M` 의 `一般特性 General Properties` 표. **이 PDF 는 Illustrator 아웃라인 벡터라 `pdftotext` 가 4쪽 전체에 0자를 준다** — 74차 JB 가 A3 네 쪽을 150 dpi 로 렌더해 눈으로 읽었다. 표의 행은 여덟뿐이다: 色 Color · 厚み Thickness · 絶縁抵抗 Insulation resistance(2행) · 曲げ強さ Flexural strength(たて/よこ) · 硬度 Hardness(Rockwell) · 吸水率 Water absorption · 耐燃性 Flame retardancy · 納入サイズ Size.\n\n**연 문서 ②** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_ELC-4765-4768_TDS_en_2026-09-09.pdf` 2쪽 `Umclad glass epoxy lamnetes for polishing & lapping carrier`(원문 오식 그대로). 영문 TDS 인데 **행 구성이 ①과 완전히 같다**(Color · Thickness · Insulation resistance · Flexural strength · Hardness · Water absorption · Flame retardancy · Size). 이 쪽은 텍스트층이 살아 있어 토큰 검사를 돌렸다 — `density`·`gravity`·`modulus`·`Poisson`·`expansion`·`conductivity`·`specific heat`·`tensile` **전부 0건.**\n\n**같은 카탈로그의 형제 표와 대비된다** — 인쇄 26·27쪽의 PL/EL 적층판 표는 `比重 Specific gravity` 행을 갖는데(72차 HD 가 그 행으로 카드 넉 장을 세웠다) **연마캐리어 표에는 그 행이 없다.** 같은 벤더 같은 카탈로그 안에서 제품군별로 행 구성이 다르다 — 누락이 아니라 이 표의 설계다.\n\n**SDS 경로는 이 제품군에서 닫혀 있다** — 72차 HD 가 확인했다: Sumitomo 는 SDS 포털 자체가 없고(사이트맵 435링크에 `SDS` 적중 0), 고체 물품(article)인 적층판에는 SDS 의무가 없다. 74차 JB 는 이 경로에 시간을 쓰지 않았다.",
+            "thermal.expansion_linear": "**[74차 JB]** 이 등급의 벤더 문서 **두 종**을 전부 열었고 `熱膨張係数`·`CTE` 행이 **없다.**\n\n**연 문서 ①** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_Sumilite-PL-EL_Catalog_ja_2026-09-09.pdf` 인쇄 28쪽 `研磨キャリア用積層板 Polishing & lapping carrier EL-3700 / EL-3700M` 의 `一般特性 General Properties` 표. **이 PDF 는 Illustrator 아웃라인 벡터라 `pdftotext` 가 4쪽 전체에 0자를 준다** — 74차 JB 가 A3 네 쪽을 150 dpi 로 렌더해 눈으로 읽었다. 표의 행은 여덟뿐이다: 色 Color · 厚み Thickness · 絶縁抵抗 Insulation resistance(2행) · 曲げ強さ Flexural strength(たて/よこ) · 硬度 Hardness(Rockwell) · 吸水率 Water absorption · 耐燃性 Flame retardancy · 納入サイズ Size.\n\n**연 문서 ②** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_ELC-4765-4768_TDS_en_2026-09-09.pdf` 2쪽 `Umclad glass epoxy lamnetes for polishing & lapping carrier`(원문 오식 그대로). 영문 TDS 인데 **행 구성이 ①과 완전히 같다**(Color · Thickness · Insulation resistance · Flexural strength · Hardness · Water absorption · Flame retardancy · Size). 이 쪽은 텍스트층이 살아 있어 토큰 검사를 돌렸다 — `density`·`gravity`·`modulus`·`Poisson`·`expansion`·`conductivity`·`specific heat`·`tensile` **전부 0건.**\n\n**같은 카탈로그의 형제 표와 대비된다** — 인쇄 26·27쪽의 PL/EL 적층판 표는 `比重 Specific gravity` 행을 갖는데(72차 HD 가 그 행으로 카드 넉 장을 세웠다) **연마캐리어 표에는 그 행이 없다.** 같은 벤더 같은 카탈로그 안에서 제품군별로 행 구성이 다르다 — 누락이 아니라 이 표의 설계다.\n\n**SDS 경로는 이 제품군에서 닫혀 있다** — 72차 HD 가 확인했다: Sumitomo 는 SDS 포털 자체가 없고(사이트맵 435링크에 `SDS` 적중 0), 고체 물품(article)인 적층판에는 SDS 의무가 없다. 74차 JB 는 이 경로에 시간을 쓰지 않았다.",
+            "thermal.conductivity": "**[74차 JB]** 이 등급의 벤더 문서 **두 종**을 전부 열었고 `熱伝導率 Thermal conductivity` 행이 **없다.**\n\n**연 문서 ①** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_Sumilite-PL-EL_Catalog_ja_2026-09-09.pdf` 인쇄 28쪽 `研磨キャリア用積層板 Polishing & lapping carrier EL-3700 / EL-3700M` 의 `一般特性 General Properties` 표. **이 PDF 는 Illustrator 아웃라인 벡터라 `pdftotext` 가 4쪽 전체에 0자를 준다** — 74차 JB 가 A3 네 쪽을 150 dpi 로 렌더해 눈으로 읽었다. 표의 행은 여덟뿐이다: 色 Color · 厚み Thickness · 絶縁抵抗 Insulation resistance(2행) · 曲げ強さ Flexural strength(たて/よこ) · 硬度 Hardness(Rockwell) · 吸水率 Water absorption · 耐燃性 Flame retardancy · 納入サイズ Size.\n\n**연 문서 ②** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_ELC-4765-4768_TDS_en_2026-09-09.pdf` 2쪽 `Umclad glass epoxy lamnetes for polishing & lapping carrier`(원문 오식 그대로). 영문 TDS 인데 **행 구성이 ①과 완전히 같다**(Color · Thickness · Insulation resistance · Flexural strength · Hardness · Water absorption · Flame retardancy · Size). 이 쪽은 텍스트층이 살아 있어 토큰 검사를 돌렸다 — `density`·`gravity`·`modulus`·`Poisson`·`expansion`·`conductivity`·`specific heat`·`tensile` **전부 0건.**\n\n**같은 카탈로그의 형제 표와 대비된다** — 인쇄 26·27쪽의 PL/EL 적층판 표는 `比重 Specific gravity` 행을 갖는데(72차 HD 가 그 행으로 카드 넉 장을 세웠다) **연마캐리어 표에는 그 행이 없다.** 같은 벤더 같은 카탈로그 안에서 제품군별로 행 구성이 다르다 — 누락이 아니라 이 표의 설계다.\n\n**SDS 경로는 이 제품군에서 닫혀 있다** — 72차 HD 가 확인했다: Sumitomo 는 SDS 포털 자체가 없고(사이트맵 435링크에 `SDS` 적중 0), 고체 물품(article)인 적층판에는 SDS 의무가 없다. 74차 JB 는 이 경로에 시간을 쓰지 않았다.",
+            "thermal.specific_heat": "**[74차 JB]** 이 등급의 벤더 문서 **두 종**을 전부 열었고 `比熱` 행이 **없다.**\n\n**연 문서 ①** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_Sumilite-PL-EL_Catalog_ja_2026-09-09.pdf` 인쇄 28쪽 `研磨キャリア用積層板 Polishing & lapping carrier EL-3700 / EL-3700M` 의 `一般特性 General Properties` 표. **이 PDF 는 Illustrator 아웃라인 벡터라 `pdftotext` 가 4쪽 전체에 0자를 준다** — 74차 JB 가 A3 네 쪽을 150 dpi 로 렌더해 눈으로 읽었다. 표의 행은 여덟뿐이다: 色 Color · 厚み Thickness · 絶縁抵抗 Insulation resistance(2행) · 曲げ強さ Flexural strength(たて/よこ) · 硬度 Hardness(Rockwell) · 吸水率 Water absorption · 耐燃性 Flame retardancy · 納入サイズ Size.\n\n**연 문서 ②** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_ELC-4765-4768_TDS_en_2026-09-09.pdf` 2쪽 `Umclad glass epoxy lamnetes for polishing & lapping carrier`(원문 오식 그대로). 영문 TDS 인데 **행 구성이 ①과 완전히 같다**(Color · Thickness · Insulation resistance · Flexural strength · Hardness · Water absorption · Flame retardancy · Size). 이 쪽은 텍스트층이 살아 있어 토큰 검사를 돌렸다 — `density`·`gravity`·`modulus`·`Poisson`·`expansion`·`conductivity`·`specific heat`·`tensile` **전부 0건.**\n\n**같은 카탈로그의 형제 표와 대비된다** — 인쇄 26·27쪽의 PL/EL 적층판 표는 `比重 Specific gravity` 행을 갖는데(72차 HD 가 그 행으로 카드 넉 장을 세웠다) **연마캐리어 표에는 그 행이 없다.** 같은 벤더 같은 카탈로그 안에서 제품군별로 행 구성이 다르다 — 누락이 아니라 이 표의 설계다.\n\n**SDS 경로는 이 제품군에서 닫혀 있다** — 72차 HD 가 확인했다: Sumitomo 는 SDS 포털 자체가 없고(사이트맵 435링크에 `SDS` 적중 0), 고체 물품(article)인 적층판에는 SDS 의무가 없다. 74차 JB 는 이 경로에 시간을 쓰지 않았다.",
+            "mechanical.tensile_strength": "**[74차 JB]** 이 등급의 벤더 문서 **두 종**을 전부 열었고 `引っ張り強さ Tensile strength` 행이 **없다.**\n\n**연 문서 ①** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_Sumilite-PL-EL_Catalog_ja_2026-09-09.pdf` 인쇄 28쪽 `研磨キャリア用積層板 Polishing & lapping carrier EL-3700 / EL-3700M` 의 `一般特性 General Properties` 표. **이 PDF 는 Illustrator 아웃라인 벡터라 `pdftotext` 가 4쪽 전체에 0자를 준다** — 74차 JB 가 A3 네 쪽을 150 dpi 로 렌더해 눈으로 읽었다. 표의 행은 여덟뿐이다: 色 Color · 厚み Thickness · 絶縁抵抗 Insulation resistance(2행) · 曲げ強さ Flexural strength(たて/よこ) · 硬度 Hardness(Rockwell) · 吸水率 Water absorption · 耐燃性 Flame retardancy · 納入サイズ Size.\n\n**연 문서 ②** — `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_ELC-4765-4768_TDS_en_2026-09-09.pdf` 2쪽 `Umclad glass epoxy lamnetes for polishing & lapping carrier`(원문 오식 그대로). 영문 TDS 인데 **행 구성이 ①과 완전히 같다**(Color · Thickness · Insulation resistance · Flexural strength · Hardness · Water absorption · Flame retardancy · Size). 이 쪽은 텍스트층이 살아 있어 토큰 검사를 돌렸다 — `density`·`gravity`·`modulus`·`Poisson`·`expansion`·`conductivity`·`specific heat`·`tensile` **전부 0건.**\n\n**같은 카탈로그의 형제 표와 대비된다** — 인쇄 26·27쪽의 PL/EL 적층판 표는 `比重 Specific gravity` 행을 갖는데(72차 HD 가 그 행으로 카드 넉 장을 세웠다) **연마캐리어 표에는 그 행이 없다.** 같은 벤더 같은 카탈로그 안에서 제품군별로 행 구성이 다르다 — 누락이 아니라 이 표의 설계다.\n\n**SDS 경로는 이 제품군에서 닫혀 있다** — 72차 HD 가 확인했다: Sumitomo 는 SDS 포털 자체가 없고(사이트맵 435링크에 `SDS` 적중 0), 고체 물품(article)인 적층판에는 SDS 의무가 없다. 74차 JB 는 이 경로에 시간을 쓰지 않았다."
+          }
+        }
+      },
+      "source": {
+        "kind": "datasheet",
+        "title": "住友ベークライト スミライト® 積層板カタログ 인쇄 28쪽 『研磨キャリア用積層板 EL-3700 / EL-3700M』 (+ 영문 Technical Data Sheet 2쪽, 같은 등급)",
+        "url": "https://www.sumibe.co.jp/ww-attaches/805.pdf",
+        "publisher": "Sumitomo Bakelite Co., Ltd. (住友ベークライト株式会社)",
+        "year": 2026,
+        "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_Sumilite-PL-EL_Catalog_ja_2026-09-09.pdf",
+        "url_note": "**이 PDF 는 아웃라인 벡터라 `pdftotext` 가 0자를 준다** — 값은 A3 쪽을 150 dpi 로 렌더해 눈으로 읽었다. 같은 값이 `/data/paper_patent_corpus/standards_appnotes/pcb/SumitomoBakelite_ELC-4765-4768_TDS_en_2026-09-09.pdf` 2쪽(텍스트층 살아 있음)에 **독립으로 다시 인쇄돼 있어 두 문서로 교차검증했다** — 여덟 칸 전부 일치한다."
+      },
+      "properties": [
+        {
+          "key": "mechanical.flexural_strength",
+          "value": 740000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "direction": "lengthwise (たて)",
+            "conditioning": "A (as received)",
+            "specimen_thickness_mm": 1.0,
+            "test_mode": "flexural",
+            "test_condition": "試験片は1.0mmtで測定 / Test piece thickness: 1.0 mmt"
+          },
+          "notes": "원문 verbatim: `曲げ強さ Flexural strength | たて Lengthwise | MPa | 740` (EL-3700M 열). 원문이 **구간이 아니라 단일 값**으로 인쇄한 칸이다. 환산 740 MPa x 1e6 = 740000000.0 Pa. **굽힘강도다 — 인장강도 칸에 옮기지 않았다.** 같은 값이 영문 TDS 2쪽에 `Flexural strength | Lengthwise/Widthwise | MPa` 로 똑같이 인쇄돼 있어 두 문서로 대조했다."
+        },
+        {
+          "key": "mechanical.flexural_strength",
+          "value": 580000000.0,
+          "unit": "Pa",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "direction": "widthwise (よこ)",
+            "conditioning": "A (as received)",
+            "specimen_thickness_mm": 1.0,
+            "test_mode": "flexural",
+            "test_condition": "試験片は1.0mmtで測定 / Test piece thickness: 1.0 mmt"
+          },
+          "notes": "원문 verbatim: `曲げ強さ Flexural strength | よこ Widthwise | MPa | 580` (EL-3700M 열). 원문이 **구간이 아니라 단일 값**으로 인쇄한 칸이다. 환산 580 MPa x 1e6 = 580000000.0 Pa. **굽힘강도다 — 인장강도 칸에 옮기지 않았다.** 같은 값이 영문 TDS 2쪽에 `Flexural strength | Lengthwise/Widthwise | MPa` 로 똑같이 인쇄돼 있어 두 문서로 대조했다."
+        },
+        {
+          "key": "mechanical.hardness_rockwell",
+          "value": 110.0,
+          "unit": "HR",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "scale": "M",
+            "test_method": "Rockwell (ロックウェル)",
+            "specimen_thickness_mm": 1.0
+          },
+          "notes": "원문 verbatim: `硬度 Hardness | ロックウェル Rockwell | HRM | 110`. 스케일 M 이다(`HRM`). 무차원 경도 눈금이라 환산이 없다. 영문 TDS 2쪽도 `Hardness | Rockwell | HRM | 110` 로 같다. **두 등급이 같은 110 이다** — 벤더가 실제로 같은 값을 인쇄했다."
+        },
+        {
+          "key": "chemical.water_absorption_24h",
+          "value": 0.0008,
+          "unit": "1",
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "conditioning": "E-24/50+D-24/23",
+            "specimen_thickness_mm": 1.0
+          },
+          "notes": "원문 verbatim: `吸水率 Water absorption | E-24/50+D-24/23 | % | 0.08`. 환산 0.08 % / 100 = 0.0008. 영문 TDS 2쪽도 같다. **두 등급이 같은 0.08 이다.**"
+        },
+        {
+          "key": "thermal.flammability_ul94",
+          "value": "V-0 equivalent (V-0相当)",
+          "unit": null,
+          "method": "measured",
+          "tier": 1,
+          "conditions": {
+            "conditioning": "A / E-168/70",
+            "test_standard": "UL method (UL法)"
+          },
+          "notes": "원문 verbatim: `耐燃性（UL法）Flame retardancy (UL method) | A · E-168/70 | V-0相当 V-0 equivalent`. **원문이 `相当 / equivalent` 라고 적는다 — UL 인증 등급이 아니라 동등 수준 표기다.** 그 표기를 값 문자열에 그대로 남겼다."
+        }
+      ]
+    }
+  ]
+}
