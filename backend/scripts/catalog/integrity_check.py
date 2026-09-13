@@ -321,6 +321,12 @@ def unreadable_verdict_attrs() -> list:
     # `verdict` 를 넣으면 `verdict_subsystem`·`verdict_tie_*` 같은 **다른 용도**까지 잡는다
     # (실측 311건 중 대부분). 코어7 부재판정만 겨눈다 — 이름에 부재·기각의 뜻이 있는 것.
     like = _re.compile(r"absent|not_?applicable|rejected_printed|no_public", _re.I)
+    # `apply_core_verdicts.py` 는 `material_id`·`name` 을 뺀 **모든 키를 속성 이름으로 쓴다.**
+    # 판정 JSON 을 `{"material_id":…,"key":…,"verdict":…,"reason":…}` 로 내면 `key`·
+    # `verdict`·`reason` 이라는 속성이 생기고 집계는 그것을 판정으로 못 읽는다.
+    # 74차 JC 가 106종·212칸이 그렇게 샌 것을 찾았다 — 브리프가 준 예시가 틀렸던 탓이다.
+    # 위 `like` 는 이 갈래를 못 잡는다(`key` 에 `absent` 가 없다). 이름으로 따로 잡는다.
+    flat = {"key", "verdict", "reason", "source_url", "property_key", "confidence"}
     con = sqlite3.connect(DB)
     out = []
     for mid, name, attrs in con.execute("select id, name, attributes from material"):
@@ -331,9 +337,13 @@ def unreadable_verdict_attrs() -> list:
         if not isinstance(d, dict):
             continue
         for k, v in d.items():
-            if k.endswith("_before_correction") or not like.search(k):
+            if k.endswith("_before_correction"):
                 continue
-            if k not in _VERDICT_OK:
+            if not like.search(k) and k not in flat:
+                continue
+            if k in flat:
+                out.append((mid, name, k, "판정 JSON 이 평면으로 새어 속성이 됐다"))
+            elif k not in _VERDICT_OK:
                 out.append((mid, name, k, "집계가 모르는 이름"))
             elif not isinstance(v, dict):
                 out.append((mid, name, k, f"dict 가 아니라 {type(v).__name__}"))
