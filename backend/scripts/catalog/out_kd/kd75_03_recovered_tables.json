@@ -1,0 +1,321 @@
+{
+ "batch": "75차 KD",
+ "note": "캡션만 남은 표를 원본 PDF 렌더로 복구한 전사(轉寫)다. **이 파일은 적재용이 아니다** — 값으로 담은 행은 0이다(사유는 kd75_00_report.md ③). 다음 배치가 같은 PDF 를 다시 렌더하지 않도록 남긴다. 숫자는 렌더에서 눈으로 읽었으므로 담을 때의 method 는 `measured` 다.",
+ "recovered": [
+  {
+   "document": "Palaniappan 1999, IEEE Trans. Electron. Packag. Manuf. 22(1) 53-62",
+   "pdf": "/data/paper_patent_corpus/snowball_papers/from_cae/Palaniappan - 1999 - Correlation of flip chip underfill process parameters and material properties with in-process stress generation.pdf",
+   "structured": "structured/snowball_papers/from_cae/Palaniappan - 1999 - .../tables/",
+   "tables": [
+    {
+     "file": "table-1.md",
+     "lost_bytes": 84,
+     "pdf_page": 4,
+     "render_dpi": 400,
+     "caption": "TABLE I  CRITICAL PROPERTIES OF SELECTED UNDERFILL CURED AT DIFFERENT CURE PARAMETERS",
+     "columns": [
+      "Cure Temp./Time (degC/min)",
+      "Tg (degC)",
+      "CTE (ppm/degC)",
+      "Storage Modulus G' (GPa)"
+     ],
+     "rows": [
+      [
+       "135/80",
+       138.37,
+       22.6,
+       5.74
+      ],
+      [
+       "145/40",
+       137.39,
+       21.7,
+       5.841
+      ],
+      [
+       "165/60",
+       139.83,
+       20.5,
+       6.868
+      ],
+      [
+       "180/15",
+       135.35,
+       18.9,
+       4.937
+      ]
+     ],
+     "cross_check": "네 행 x 세 열 12칸이 DB 기존값(60차 VD, material 2309-2312)과 전부 일치 — 열 밀림 0",
+     "already_in_db": true
+    },
+    {
+     "file": "table-2.md",
+     "lost_bytes": 71,
+     "pdf_page": 5,
+     "render_dpi": 400,
+     "caption": "TABLE II  STORAGE MODULUS OF THE FR-4 TEST VEHICLE PRINTED CIRCUIT BOARD",
+     "columns": [
+      "Direction",
+      "Storage Modulus G' (GPa)"
+     ],
+     "rows": [
+      [
+       "X",
+       1.172
+      ],
+      [
+       "Y",
+       0.974
+      ]
+     ],
+     "cross_check": "같은 저자 후속 논문 Palaniappan & Baldwin 2000 Table 2 — 코퍼스에 표가 온전히 남은 사본 — 이 같은 두 값을 인쇄한다",
+     "already_in_db": false,
+     "not_ingested_because": "원문이 이 시험기판의 등급을 인쇄하지 않는다. 카드가 없고, 만들면 코어7 0/7 인 미식별 카드가 하나 더 는다 → 인계 3번"
+    }
+   ]
+  },
+  {
+   "document": "Aggarwal 2008, IEEE Trans. Electron. Packag. Manuf. 31(4) 342-351",
+   "pdf": "/data/paper_patent_corpus/cae_papers/10_underfill_stress/Aggarwal - 2008 - Thermomechanical Reliability of Nickel Pillar Interconnections Replacing Flip-Chip Solder Without Underfill.pdf",
+   "structured": "structured/cae_papers/10_underfill_stress/Aggarwal - 2008 - .../tables/",
+   "note": "74차 JA 가 인계 1번으로 남긴 표다. docling json 의 table_cells 가 네 표 모두 0 이라 md 도 json 도 비어 있었다.",
+   "tables": [
+    {
+     "file": "table-1.md",
+     "lost_bytes": 62,
+     "pdf_page": 4,
+     "render_dpi": 400,
+     "caption": "TABLE I  MATERIAL PROPERTIES FOR NANO-NICKEL USED IN THIS STUDY",
+     "columns": [
+      "property",
+      "temperature",
+      "Nano-Ni"
+     ],
+     "rows": [
+      [
+       "Elastic modulus (GPa)",
+       "-25 degC",
+       207
+      ],
+      [
+       "Elastic modulus (GPa)",
+       "125 degC",
+       199
+      ],
+      [
+       "CTE (ppm/degC)",
+       "-25 degC",
+       12.5
+      ],
+      [
+       "CTE (ppm/degC)",
+       "125 degC",
+       13.8
+      ],
+      [
+       "Poisson's ratio",
+       "-25 degC",
+       0.287
+      ],
+      [
+       "Poisson's ratio",
+       "125 degC",
+       0.284
+      ]
+     ]
+    },
+    {
+     "file": "table-2.md",
+     "lost_bytes": 64,
+     "pdf_page": 4,
+     "render_dpi": 400,
+     "caption": "TABLE II  MATERIAL PROPERTIES OF SUBSTRATES MODELED IN THIS STUDY",
+     "columns": [
+      "property",
+      "C-SiC (Starfire)",
+      "AlN AN 215 (Kyocera)",
+      "Al2O3 AD S 995 (Coors)",
+      "MCL-E-679 LD (Hitachi)",
+      "Rogers 4003 (Rogers Corp.)",
+      "FR-4"
+     ],
+     "rows": [
+      [
+       "Elastic modulus (GPa)",
+       350,
+       320,
+       54,
+       28,
+       27,
+       "27.9-0.037T (x & y); 12.2-0.0162T (z)"
+      ],
+      [
+       "CTE (ppm/degC)",
+       2.5,
+       4.5,
+       7.5,
+       9.5,
+       12.5,
+       "16 (x & y); 84 (z), -25~125 degC"
+      ],
+      [
+       "Poisson's ratio",
+       0.33,
+       0.33,
+       0.33,
+       0.33,
+       0.33,
+       "0.39 (xz & yz); 0.11 (xy)"
+      ]
+     ],
+     "cross_check": "본문 D절이 'MCL-E-679F laminates from Hitachi Chemical' 로 등급 귀속을 독립으로 확인하고 'Medium CTE substrates (8-11 ppm/degC)' 라 적어 표의 9.5 ppm/degC 와 만난다"
+    },
+    {
+     "file": "table-3.md",
+     "lost_bytes": 69,
+     "pdf_page": 4,
+     "render_dpi": 400,
+     "caption": "TABLE III  MATERIAL PROPERTIES OF BONDING MATERIALS USED IN THIS STUDY",
+     "columns": [
+      "property",
+      "95.5Sn-3.8Ag-0.7Cu",
+      "Au-Sn",
+      "ACF"
+     ],
+     "rows": [
+      [
+       "Elastic modulus (GPa)",
+       "56.9 (-25 degC); 18.8 (125 degC)",
+       "59 (-25~125 degC)",
+       "3.496 (<120 degC); 0.015 (>120 degC)"
+      ],
+      [
+       "CTE (ppm/degC)",
+       "16.5 (-25~125 degC)",
+       "16.6 (-25~125 degC)",
+       "95 (<120 degC); 186.5 (>120 degC)"
+      ],
+      [
+       "sigma-epsilon curve or yield strength",
+       "sigma=60.96*eps^0.047 (-25 degC); sigma=26.23*eps^0.022 (125 degC)",
+       "275 (-25~125 degC)",
+       "-"
+      ],
+      [
+       "Poisson's ratio",
+       "0.4 (-25~125 degC)",
+       "0.3 (-25~125 degC)",
+       "0.33 (-25~125 degC)"
+      ]
+     ]
+    },
+    {
+     "file": "table-4.md",
+     "lost_bytes": 78,
+     "caption": "TABLE IV  THERMAL SHOCK TESTING RESULTS OF NANO-STRUCTURED NICKEL INTERCONNECTS",
+     "recovered": false,
+     "reason": "물성표가 아니라 신뢰성 시험 결과표라 이 배치가 렌더하지 않았다"
+    }
+   ]
+  },
+  {
+   "document": "Dauksher 2009, IEEE Trans. Device Mater. Reliab. 9(2) 231-236",
+   "pdf": "/data/paper_patent_corpus/pkg_papers/01_solder_ball_bga/Dauksher - 2009 - A Finite-Element-Based Solder-Joint Fatigue-Life Prediction Methodology for Sn-Ag-Cu Ball-Grid-Array Packages.pdf",
+   "tables": [
+    {
+     "file": "table-1.md",
+     "pdf_page": 2,
+     "render_dpi": 400,
+     "caption": "TABLE I  ELASTIC-MATERIAL PROPERTIES",
+     "columns": [
+      "Material",
+      "Young's modulus (GPa)",
+      "Poisson's ratio",
+      "CTE (ppm/degK)"
+     ],
+     "rows": [
+      [
+       "PC board",
+       27,
+       0.39,
+       18
+      ],
+      [
+       "Copper pad",
+       76,
+       0.35,
+       17
+      ],
+      [
+       "Sn-(3.5-3.9)Ag-(0.5-0.8)Cu",
+       "74.84-0.08T (T is in degK)",
+       0.35,
+       22.15
+      ],
+      [
+       "Laminate substrate",
+       "Same as PC board",
+       "Same as PC board",
+       "Same as PC board"
+      ],
+      [
+       "HITCE substrate",
+       72,
+       0.17,
+       10.5
+      ],
+      [
+       "Al2O3 substrate",
+       270,
+       0.3,
+       5.5
+      ],
+      [
+       "Flip-chip underfill (typ)",
+       6,
+       0.3,
+       25
+      ],
+      [
+       "PBGA die attach (typ)",
+       2,
+       0.3,
+       25
+      ],
+      [
+       "Si",
+       167,
+       0.28,
+       2.54
+      ],
+      [
+       "AlSiC lid",
+       190,
+       0.24,
+       8
+      ],
+      [
+       "Cu lid",
+       117,
+       0.34,
+       17
+      ],
+      [
+       "PBGA overmold",
+       13,
+       0.3,
+       15
+      ]
+     ],
+     "cross_check": "Si 167 GPa / 0.28 / 2.54 ppm/K 와 Cu lid 117 GPa / 0.34 / 17 ppm/K 이 통용값과 만난다 — 열 밀림 0"
+    },
+    {
+     "file": "table-2.md",
+     "caption": "TABLE II  PACKAGE GEOMETRIC PARAMETERS",
+     "recovered": false,
+     "reason": "치수표라 물성이 없다"
+    }
+   ]
+  }
+ ]
+}
