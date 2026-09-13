@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import os
 import sqlite3
 from collections import defaultdict
 from pathlib import Path
@@ -14,7 +15,14 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml.ns import qn
 from docx.shared import Pt, RGBColor
 
-DB = "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web/materialtwin.db"
+# **DB 경로는 환경변수를 따른다.** 이 줄이 상수였을 때 사본 리허설이 조용히 라이브를
+# 쳤다 — 65차 AD(apply_core_verdicts)·66차 BB(mined_index)에 이어 75차 KC 가
+# `analysis_readiness` 에서 세 번째로 잡았다. KC 의 말이 정확하다: 읽기 도구는
+# **"차이 없음" 이라는 거짓 확신**을 주고, 쓰기 도구는 사본인 줄 알고 라이브를 고친다.
+DB = os.environ.get("MATERIALTWIN_DB") or os.path.join(
+    os.environ.get("MATERIALTWIN_DATA_DIR",
+                   "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web"),
+    "materialtwin.db")
 OUT = Path("/home/koopark/claude/MaterialTwinWeb/적색발광_액자형수축_시뮬레이션물성_출처정리.docx")
 BARRER = 3.3464e-16  # mol*m/(m^2*s*Pa)
 

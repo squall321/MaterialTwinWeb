@@ -9,13 +9,21 @@
 from __future__ import annotations
 
 import argparse
+import os
 import sqlite3
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-DB = "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web/materialtwin.db"
+# **DB 경로는 환경변수를 따른다.** 이 줄이 상수였을 때 사본 리허설이 조용히 라이브를
+# 쳤다 — 65차 AD(apply_core_verdicts)·66차 BB(mined_index)에 이어 75차 KC 가
+# `analysis_readiness` 에서 세 번째로 잡았다. KC 의 말이 정확하다: 읽기 도구는
+# **"차이 없음" 이라는 거짓 확신**을 주고, 쓰기 도구는 사본인 줄 알고 라이브를 고친다.
+DB = os.environ.get("MATERIALTWIN_DB") or os.path.join(
+    os.environ.get("MATERIALTWIN_DATA_DIR",
+                   "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web"),
+    "materialtwin.db")
 K_E, K_G, K_NU = ("mechanical.youngs_modulus", "mechanical.shear_modulus",
                   "mechanical.poisson_ratio")
 # 등방 고체는 nu 0~0.5 → E/G = 2(1+nu) = 2~3. 여유를 둬 이 밖만 손댄다.

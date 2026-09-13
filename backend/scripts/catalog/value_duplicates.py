@@ -15,9 +15,13 @@ import sqlite3
 import sys
 from collections import Counter, defaultdict
 
-DB = os.environ.get(
-    "MATERIALTWIN_DB",
-    "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web/materialtwin.db")
+# `MATERIALTWIN_DB` 만 보면 형제 도구와 어긋난다 — 배치가 `MATERIALTWIN_DATA_DIR=<사본>`
+# 으로 리허설할 때 이 도구만 라이브를 읽는다(66차 BB 가 mined_index 에서 잡은 병).
+# 직접 지목하는 기존 호출을 깨지 않으려 `MATERIALTWIN_DB` 는 그대로 받고, 없으면 형제를 따른다.
+DB = os.environ.get("MATERIALTWIN_DB") or os.path.join(
+    os.environ.get("MATERIALTWIN_DATA_DIR",
+                   "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web"),
+    "materialtwin.db")
 
 # ── 우리가 붙인 주석 — 측정 조건이 아니다 ────────────────────────────────────
 # 이것들이 있고 없고로 두 행이 갈리면 그건 **적재 이력**이지 다른 측정이 아니다.

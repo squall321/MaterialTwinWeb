@@ -2,13 +2,21 @@
 import difflib
 import json
 import re
+import os
 import sqlite3
 import sys
 import time
 import urllib.parse
 import urllib.request
 
-DB = '/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web/materialtwin.db'
+# **DB 경로는 환경변수를 따른다.** 이 줄이 상수였을 때 사본 리허설이 조용히 라이브를
+# 쳤다 — 65차 AD(apply_core_verdicts)·66차 BB(mined_index)에 이어 75차 KC 가
+# `analysis_readiness` 에서 세 번째로 잡았다. KC 의 말이 정확하다: 읽기 도구는
+# **"차이 없음" 이라는 거짓 확신**을 주고, 쓰기 도구는 사본인 줄 알고 라이브를 고친다.
+DB = os.environ.get("MATERIALTWIN_DB") or os.path.join(
+    os.environ.get("MATERIALTWIN_DATA_DIR",
+                   "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web"),
+    "materialtwin.db")
 APPLY = "--apply" in sys.argv
 UA = "MaterialTwinWeb/1.0 (https://github.com/squall321/MaterialTwinWeb; mailto:squall321@gmail.com)"
 SIM_MIN = 0.92

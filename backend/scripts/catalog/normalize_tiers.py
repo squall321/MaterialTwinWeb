@@ -19,12 +19,19 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import os
 import sqlite3
 from collections import Counter
 import sys
 
-DB = "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web/materialtwin.db"
-
+# **DB 경로는 환경변수를 따른다.** 이 줄이 상수였을 때 사본 리허설이 조용히 라이브를
+# 쳤다 — 65차 AD(apply_core_verdicts)·66차 BB(mined_index)에 이어 75차 KC 가
+# `analysis_readiness` 에서 세 번째로 잡았다. KC 의 말이 정확하다: 읽기 도구는
+# **"차이 없음" 이라는 거짓 확신**을 주고, 쓰기 도구는 사본인 줄 알고 라이브를 고친다.
+DB = os.environ.get("MATERIALTWIN_DB") or os.path.join(
+    os.environ.get("MATERIALTWIN_DATA_DIR",
+                   "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web"),
+    "materialtwin.db")
 # 특정 재료의 실측치가 아님을 시사하는 표지. 하나라도 걸리면 승격하지 않는다.
 NOT_A_DIRECT_MEASUREMENT = re.compile(
     r"계열|클래스|등가근사|대표값|추정|유사|proxy|representative|inferred|"

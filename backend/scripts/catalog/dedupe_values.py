@@ -1,10 +1,18 @@
 # 완전 중복 물성값 병합 — 값·출처 동일, 조건 키 표기만 다른 쌍을 정보량 많은 쪽으로 통합.
 import json
 import re
+import os
 import sqlite3
 import sys
 
-DB = '/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web/materialtwin.db'
+# **DB 경로는 환경변수를 따른다.** 이 줄이 상수였을 때 사본 리허설이 조용히 라이브를
+# 쳤다 — 65차 AD(apply_core_verdicts)·66차 BB(mined_index)에 이어 75차 KC 가
+# `analysis_readiness` 에서 세 번째로 잡았다. KC 의 말이 정확하다: 읽기 도구는
+# **"차이 없음" 이라는 거짓 확신**을 주고, 쓰기 도구는 사본인 줄 알고 라이브를 고친다.
+DB = os.environ.get("MATERIALTWIN_DB") or os.path.join(
+    os.environ.get("MATERIALTWIN_DATA_DIR",
+                   "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web"),
+    "materialtwin.db")
 DRY = "--apply" not in sys.argv
 
 # 조건 키 정규화(표기 흔들림 흡수) — 어느 쪽이 더 정보량 많은지 비교하기 위함.

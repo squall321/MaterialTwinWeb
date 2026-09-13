@@ -1,11 +1,18 @@
 # 해석 종류별 재료 준비도 점검 — 어떤 해석이 되고 무엇이 막는지 재료 단위로 센다.
 # 사용: .venv/bin/python scripts/catalog/analysis_readiness.py [해석이름]
+import os
 import sqlite3
 import sys
 from collections import defaultdict, Counter
 
-DB = '/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web/materialtwin.db'
-
+# **DB 경로는 환경변수를 따른다.** 이 줄이 상수였을 때 사본 리허설이 조용히 라이브를
+# 쳤다 — 65차 AD(apply_core_verdicts)·66차 BB(mined_index)에 이어 75차 KC 가
+# `analysis_readiness` 에서 세 번째로 잡았다. KC 의 말이 정확하다: 읽기 도구는
+# **"차이 없음" 이라는 거짓 확신**을 주고, 쓰기 도구는 사본인 줄 알고 라이브를 고친다.
+DB = os.environ.get("MATERIALTWIN_DB") or os.path.join(
+    os.environ.get("MATERIALTWIN_DATA_DIR",
+                   "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web"),
+    "materialtwin.db")
 E, NU, G, K = ('mechanical.youngs_modulus', 'mechanical.poisson_ratio',
                'mechanical.shear_modulus', 'mechanical.bulk_modulus')
 RHO = 'physical.density'

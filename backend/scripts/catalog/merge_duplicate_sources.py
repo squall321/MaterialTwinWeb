@@ -1,11 +1,19 @@
 # 중복 출처행 병합 — (정규화 제목 + publisher)가 같은 행을 하나로 통합, property_value를 재지정.
 # publisher를 키에 포함해 업체 귀속(어느 업체 데이터시트인지)을 보존한다.
 import re
+import os
 import sqlite3
 import sys
 from collections import defaultdict
 
-DB = '/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web/materialtwin.db'
+# **DB 경로는 환경변수를 따른다.** 이 줄이 상수였을 때 사본 리허설이 조용히 라이브를
+# 쳤다 — 65차 AD(apply_core_verdicts)·66차 BB(mined_index)에 이어 75차 KC 가
+# `analysis_readiness` 에서 세 번째로 잡았다. KC 의 말이 정확하다: 읽기 도구는
+# **"차이 없음" 이라는 거짓 확신**을 주고, 쓰기 도구는 사본인 줄 알고 라이브를 고친다.
+DB = os.environ.get("MATERIALTWIN_DB") or os.path.join(
+    os.environ.get("MATERIALTWIN_DATA_DIR",
+                   "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web"),
+    "materialtwin.db")
 APPLY = "--apply" in sys.argv
 
 

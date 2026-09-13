@@ -15,11 +15,19 @@
 #   4. 고무·점착층에 ν=0.5를 쓰지 않는다 — 체적잠김으로 해석이 터진다.
 import argparse
 import json
+import os
 import sqlite3
 import statistics as st
 from collections import defaultdict
 
-DB = '/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web/materialtwin.db'
+# **DB 경로는 환경변수를 따른다.** 이 줄이 상수였을 때 사본 리허설이 조용히 라이브를
+# 쳤다 — 65차 AD(apply_core_verdicts)·66차 BB(mined_index)에 이어 75차 KC 가
+# `analysis_readiness` 에서 세 번째로 잡았다. KC 의 말이 정확하다: 읽기 도구는
+# **"차이 없음" 이라는 거짓 확신**을 주고, 쓰기 도구는 사본인 줄 알고 라이브를 고친다.
+DB = os.environ.get("MATERIALTWIN_DB") or os.path.join(
+    os.environ.get("MATERIALTWIN_DATA_DIR",
+                   "/home/koopark/claude/HEAXHub/var/app_data/materialtwin_web"),
+    "materialtwin.db")
 NU = 'mechanical.poisson_ratio'
 MIN_N = 4          # 클래스 실측 최소 건수
 MAX_IQR = 0.07     # 클래스 산포 상한
