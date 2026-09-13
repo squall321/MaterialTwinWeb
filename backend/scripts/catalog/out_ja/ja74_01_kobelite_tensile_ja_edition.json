@@ -1,0 +1,89 @@
+{
+ "batch": "74차 JA",
+ "materials": [
+  {
+   "match_name": "Hitachi Chemical KOBELITE KEL-571 (unclad non-woven aramid epoxy laminate)",
+   "source": {
+    "kind": "datasheet",
+    "title": "日立化成 銅張積層板 総合カタログ (Copper Clad Laminates Full Catalog, 日本語版)",
+    "publisher": "Hitachi Chemical (現 Resonac)",
+    "year": 2016,
+    "url": null,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/HitachiChemical_CopperCladLaminates_FullCatalog_ja_2016-08.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 250000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "vendor catalog 積層板特性 (試験法 표기 없음)",
+      "specimen_thickness_mm": 1.0,
+      "grade": "KEL-571",
+      "source_table": "■積層板特性 (ja 2016-08, PDF p.98)",
+      "guaranteed_value": false
+     },
+     "notes": "原文 verbatim: 「■積層板特性」表(日本語版カタログ PDF p.98 / 印刷 p.112), 品番 KEL-571 の行「引っ張り強さ（N/mm2）」= 250. 표 각주 verbatim: 「上記数値は、1.0mm厚さにおける測定値で、保証値ではありません。」 환산: 250 N/mm^2 = 250 MPa = 250e6 Pa = 2.5e+08 Pa; 되돌리면 2.5e+08/1e6 = 250 N/mm^2. 열 대응 독립 검증 — 같은 표의 曲げ弾性率 8.5 kN/mm^2 와 曲げ強さ 330 N/mm^2 가 영문판 2017-03 p.82 의 같은 등급 구간 (8.4, 8.6) kN/mm^2 · (330.0, 400.0) N/mm^2 안에 정확히 들어간다(그 구간값은 72차 HD 가 이미 t1 으로 넣어 두었다). pdftotext -layout 은 이 행에서 인접 그래프(耐摩耗性評価結果)의 y축 눈금 `60` 을 네 번째 숫자로 끌어와 열을 밀었다 — 350 dpi 렌더로 표가 3열임을 눈으로 확인하고 옮겼다. 이 행은 **영문판 2017-03 에는 없다**(영문판 KOBELITE 표의 기계축은 Flexural strength/modulus · Compressive · Izod · Cleavage 뿐이다)."
+    }
+   ]
+  },
+  {
+   "match_name": "Hitachi Chemical KOBELITE KEL-973 (unclad aramid/polyester epoxy laminate)",
+   "source": {
+    "kind": "datasheet",
+    "title": "日立化成 銅張積層板 総合カタログ (Copper Clad Laminates Full Catalog, 日本語版)",
+    "publisher": "Hitachi Chemical (現 Resonac)",
+    "year": 2016,
+    "url": null,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/HitachiChemical_CopperCladLaminates_FullCatalog_ja_2016-08.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 120000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "vendor catalog 積層板特性 (試験法 표기 없음)",
+      "specimen_thickness_mm": 1.0,
+      "grade": "KEL-973",
+      "source_table": "■積層板特性 (ja 2016-08, PDF p.98)",
+      "guaranteed_value": false
+     },
+     "notes": "原文 verbatim: 「■積層板特性」表(日本語版カタログ PDF p.98 / 印刷 p.112), 品番 KEL-973 の行「引っ張り強さ（N/mm2）」= 120. 표 각주 verbatim: 「上記数値は、1.0mm厚さにおける測定値で、保証値ではありません。」 환산: 120 N/mm^2 = 120 MPa = 120e6 Pa = 1.2e+08 Pa; 되돌리면 1.2e+08/1e6 = 120 N/mm^2. 열 대응 독립 검증 — 같은 표의 曲げ弾性率 7.5 kN/mm^2 와 曲げ強さ 220 N/mm^2 가 영문판 2017-03 p.82 의 같은 등급 구간 (7.4, 7.6) kN/mm^2 · (200.0, 220.0) N/mm^2 안에 정확히 들어간다(그 구간값은 72차 HD 가 이미 t1 으로 넣어 두었다). pdftotext -layout 은 이 행에서 인접 그래프(耐摩耗性評価結果)의 y축 눈금 `60` 을 네 번째 숫자로 끌어와 열을 밀었다 — 350 dpi 렌더로 표가 3열임을 눈으로 확인하고 옮겼다. 이 행은 **영문판 2017-03 에는 없다**(영문판 KOBELITE 표의 기계축은 Flexural strength/modulus · Compressive · Izod · Cleavage 뿐이다)."
+    }
+   ]
+  },
+  {
+   "match_name": "Hitachi Chemical KOBELITE KEL-GEF / KEL-GEF(R) (unclad glass/epoxy laminate)",
+   "source": {
+    "kind": "datasheet",
+    "title": "日立化成 銅張積層板 総合カタログ (Copper Clad Laminates Full Catalog, 日本語版)",
+    "publisher": "Hitachi Chemical (現 Resonac)",
+    "year": 2016,
+    "url": null,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/HitachiChemical_CopperCladLaminates_FullCatalog_ja_2016-08.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.tensile_strength",
+     "value": 320000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_method": "vendor catalog 積層板特性 (試験法 표기 없음)",
+      "specimen_thickness_mm": 1.0,
+      "grade": "KEL-GEF(R)",
+      "source_table": "■積層板特性 (ja 2016-08, PDF p.98)",
+      "guaranteed_value": false
+     },
+     "notes": "原文 verbatim: 「■積層板特性」表(日本語版カタログ PDF p.98 / 印刷 p.112), 品番 KEL-GEF(R) の行「引っ張り強さ（N/mm2）」= 320. 표 각주 verbatim: 「上記数値は、1.0mm厚さにおける測定値で、保証値ではありません。」 환산: 320 N/mm^2 = 320 MPa = 320e6 Pa = 3.2e+08 Pa; 되돌리면 3.2e+08/1e6 = 320 N/mm^2. 열 대응 독립 검증 — 같은 표의 曲げ弾性率 22 kN/mm^2 와 曲げ強さ 600 N/mm^2 가 영문판 2017-03 p.82 의 같은 등급 구간 (22.0, 24.0) kN/mm^2 · (600.0, 650.0) N/mm^2 안에 정확히 들어간다(그 구간값은 72차 HD 가 이미 t1 으로 넣어 두었다). pdftotext -layout 은 이 행에서 인접 그래프(耐摩耗性評価結果)의 y축 눈금 `60` 을 네 번째 숫자로 끌어와 열을 밀었다 — 350 dpi 렌더로 표가 3열임을 눈으로 확인하고 옮겼다. 이 행은 **영문판 2017-03 에는 없다**(영문판 KOBELITE 표의 기계축은 Flexural strength/modulus · Compressive · Izod · Cleavage 뿐이다)."
+    }
+   ]
+  }
+ ]
+}
