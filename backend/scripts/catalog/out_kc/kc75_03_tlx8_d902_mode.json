@@ -1,0 +1,132 @@
+{
+ "batch": "75차 KC",
+ "note": "Taconic TLX-8 의 `ASTM D 902` 다섯 행에 **시험모드를 박는다**. 규격 본문의 수록 시험을 전수 대조해 **인장으로 확정**했다 — 키 이동은 없다(이미 제 키에 있다). D 3039 행은 원래 모호하지 않아 손대지 않았고, 기존 조건칸은 한 칸도 지우지 않았다.",
+ "corrections": [
+  {
+   "target": {
+    "property_value_id": 5414
+   },
+   "by": "75차 KC",
+   "reason": "74차 JD 가 넘긴 표적 — `ASTM D 902` 가 무엇을 재는 규격인지 확정했다. D902 = `Standard Test Methods for Flexible Resin-Coated Glass Fabrics and Glass Fabric Tapes Used for Electrical Insulation`(2020-03-09 철회)이고, 규격이 열거하는 시험은 Breaking Strength · Conditioning · Dielectric Breakdown · Dissipation Factor and Relative Permittivity · Effect of Elevated Temperature · Resistance to Oil · Sampling · Thermal Endurance · Thickness · Thread Count · Weight · Weight Loss 다 — **굽힘 시험이 하나도 없다.** 기계시험은 `Breaking Strength` 하나뿐이고 그 절차는 **ASTM D828(정속신장 인장시험)** 을 참조한다. 대상이 `Thread Count` 를 세는 **유연한 코팅 유리직물·테이프**라 3점 굽힘 자체가 성립하지 않는다. 방증 — **Taconic 이 같은 `ASTM D 902` 로 `Tensile Strength` 행을 찍는다**(pv6274 MD 35,600 psi · pv6275 CD 27,500 psi). 따라서 이 행은 **인장이 맞고 키를 옮기지 않는다** — Isola 의 D790 무늬와 **다른 자리다**. 값·단위·등급·method·출처는 한 칸도 바꾸지 않고, 기존 조건칸도 하나도 지우지 않고 시험모드 칸만 덧붙인다.",
+   "set": {
+    "conditions": {
+     "direction": "MD",
+     "test_standard": "ASTM D 902",
+     "direction_verbatim": "MD",
+     "test_standard_before_correction": null,
+     "direction_verbatim_before_correction": null,
+     "standard_before_correction": "ASTM D 902",
+     "correction_reason": "조건 어휘 통일 잔여(브리프 547·551·581) — 값·단위·등급·method·출처는 그대로다. standard→test_standard · direction 정규화 → MD. / 75차 KC 가 `ASTM D 902` 의 시험모드(test_mode·loading_mode·test_method)를 판정 창에 덧붙였다 — 기존 칸은 하나도 지우지 않았다.",
+     "corrected_by": "54차 PA → 75차 KC",
+     "test_mode": "tensile",
+     "loading_mode": "tension",
+     "test_method": "strip tensile / breaking strength (ASTM D902, 절차는 ASTM D828 정속신장 인장)",
+     "test_standard_scope": "ASTM D902 — Flexible Resin-Coated Glass Fabrics and Glass Fabric Tapes Used for Electrical Insulation (withdrawn 2020-03-09). 굽힘 시험 미수록.",
+     "mode_confirmed_by": "75차 KC — 규격 수록 시험 전수 대조 + 같은 벤더가 D902 로 인장강도를 찍는 것"
+    }
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 6353
+   },
+   "by": "75차 KC",
+   "reason": "74차 JD 가 넘긴 표적 — `ASTM D 902` 가 무엇을 재는 규격인지 확정했다. D902 = `Standard Test Methods for Flexible Resin-Coated Glass Fabrics and Glass Fabric Tapes Used for Electrical Insulation`(2020-03-09 철회)이고, 규격이 열거하는 시험은 Breaking Strength · Conditioning · Dielectric Breakdown · Dissipation Factor and Relative Permittivity · Effect of Elevated Temperature · Resistance to Oil · Sampling · Thermal Endurance · Thickness · Thread Count · Weight · Weight Loss 다 — **굽힘 시험이 하나도 없다.** 기계시험은 `Breaking Strength` 하나뿐이고 그 절차는 **ASTM D828(정속신장 인장시험)** 을 참조한다. 대상이 `Thread Count` 를 세는 **유연한 코팅 유리직물·테이프**라 3점 굽힘 자체가 성립하지 않는다. 방증 — **Taconic 이 같은 `ASTM D 902` 로 `Tensile Strength` 행을 찍는다**(pv6274 MD 35,600 psi · pv6275 CD 27,500 psi). 따라서 이 행은 **인장이 맞고 키를 옮기지 않는다** — Isola 의 D790 무늬와 **다른 자리다**. 값·단위·등급·method·출처는 한 칸도 바꾸지 않고, 기존 조건칸도 하나도 지우지 않고 시험모드 칸만 덧붙인다.",
+   "set": {
+    "conditions": {
+     "direction": "MD",
+     "test": "ASTM D 902",
+     "verdict_duplicate_of": "direction=\"MD\" | standard=\"ASTM D 902\"",
+     "verdict_duplicate_note": "52차 NB — 같은 출처의 같은 측정을 두 번 적재했다(조건 키 표기만 달랐다). 값은 지우지 않고 표시만 한다",
+     "direction_verbatim": "MD (machine direction)",
+     "direction_before_correction": "MD (machine direction)",
+     "direction_verbatim_before_correction": null,
+     "correction_reason": "조건 어휘 통일 잔여(브리프 547·551·581) — 값·단위·등급·method·출처는 그대로다. direction 정규화 → MD. / 75차 KC 가 `ASTM D 902` 의 시험모드(test_mode·loading_mode·test_method)를 판정 창에 덧붙였다 — 기존 칸은 하나도 지우지 않았다.",
+     "corrected_by": "54차 PA → 75차 KC",
+     "test_mode": "tensile",
+     "loading_mode": "tension",
+     "test_method": "strip tensile / breaking strength (ASTM D902, 절차는 ASTM D828 정속신장 인장)",
+     "test_standard_scope": "ASTM D902 — Flexible Resin-Coated Glass Fabrics and Glass Fabric Tapes Used for Electrical Insulation (withdrawn 2020-03-09). 굽힘 시험 미수록.",
+     "mode_confirmed_by": "75차 KC — 규격 수록 시험 전수 대조 + 같은 벤더가 D902 로 인장강도를 찍는 것"
+    }
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 6354
+   },
+   "by": "75차 KC",
+   "reason": "74차 JD 가 넘긴 표적 — `ASTM D 902` 가 무엇을 재는 규격인지 확정했다. D902 = `Standard Test Methods for Flexible Resin-Coated Glass Fabrics and Glass Fabric Tapes Used for Electrical Insulation`(2020-03-09 철회)이고, 규격이 열거하는 시험은 Breaking Strength · Conditioning · Dielectric Breakdown · Dissipation Factor and Relative Permittivity · Effect of Elevated Temperature · Resistance to Oil · Sampling · Thermal Endurance · Thickness · Thread Count · Weight · Weight Loss 다 — **굽힘 시험이 하나도 없다.** 기계시험은 `Breaking Strength` 하나뿐이고 그 절차는 **ASTM D828(정속신장 인장시험)** 을 참조한다. 대상이 `Thread Count` 를 세는 **유연한 코팅 유리직물·테이프**라 3점 굽힘 자체가 성립하지 않는다. 방증 — **Taconic 이 같은 `ASTM D 902` 로 `Tensile Strength` 행을 찍는다**(pv6274 MD 35,600 psi · pv6275 CD 27,500 psi). 따라서 이 행은 **인장이 맞고 키를 옮기지 않는다** — Isola 의 D790 무늬와 **다른 자리다**. 값·단위·등급·method·출처는 한 칸도 바꾸지 않고, 기존 조건칸도 하나도 지우지 않고 시험모드 칸만 덧붙인다.",
+   "set": {
+    "conditions": {
+     "direction": "TD",
+     "test": "ASTM D 902",
+     "direction_verbatim": "CD (cross direction)",
+     "direction_before_correction": "CD (cross direction)",
+     "direction_verbatim_before_correction": null,
+     "correction_reason": "조건 어휘 통일 잔여(브리프 547·551·581) — 값·단위·등급·method·출처는 그대로다. direction 정규화 → TD. / 75차 KC 가 `ASTM D 902` 의 시험모드(test_mode·loading_mode·test_method)를 판정 창에 덧붙였다 — 기존 칸은 하나도 지우지 않았다.",
+     "corrected_by": "54차 PA → 75차 KC",
+     "test_mode": "tensile",
+     "loading_mode": "tension",
+     "test_method": "strip tensile / breaking strength (ASTM D902, 절차는 ASTM D828 정속신장 인장)",
+     "test_standard_scope": "ASTM D902 — Flexible Resin-Coated Glass Fabrics and Glass Fabric Tapes Used for Electrical Insulation (withdrawn 2020-03-09). 굽힘 시험 미수록.",
+     "mode_confirmed_by": "75차 KC — 규격 수록 시험 전수 대조 + 같은 벤더가 D902 로 인장강도를 찍는 것"
+    }
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 6274
+   },
+   "by": "75차 KC",
+   "reason": "74차 JD 가 넘긴 표적 — `ASTM D 902` 가 무엇을 재는 규격인지 확정했다. D902 = `Standard Test Methods for Flexible Resin-Coated Glass Fabrics and Glass Fabric Tapes Used for Electrical Insulation`(2020-03-09 철회)이고, 규격이 열거하는 시험은 Breaking Strength · Conditioning · Dielectric Breakdown · Dissipation Factor and Relative Permittivity · Effect of Elevated Temperature · Resistance to Oil · Sampling · Thermal Endurance · Thickness · Thread Count · Weight · Weight Loss 다 — **굽힘 시험이 하나도 없다.** 기계시험은 `Breaking Strength` 하나뿐이고 그 절차는 **ASTM D828(정속신장 인장시험)** 을 참조한다. 대상이 `Thread Count` 를 세는 **유연한 코팅 유리직물·테이프**라 3점 굽힘 자체가 성립하지 않는다. 방증 — **Taconic 이 같은 `ASTM D 902` 로 `Tensile Strength` 행을 찍는다**(pv6274 MD 35,600 psi · pv6275 CD 27,500 psi). 따라서 이 행은 **인장이 맞고 키를 옮기지 않는다** — Isola 의 D790 무늬와 **다른 자리다**. 값·단위·등급·method·출처는 한 칸도 바꾸지 않고, 기존 조건칸도 하나도 지우지 않고 시험모드 칸만 덧붙인다.",
+   "set": {
+    "conditions": {
+     "direction": "MD",
+     "test": "ASTM D 902",
+     "verdict_tie_axis": "51차 MA — 다른조건 — 방향",
+     "verdict_tie_note": "[51차 MA 동률 판정] 축이 다르므로 **둘 다 대표다** — 어느 쪽을 쓸지는 해석자가 정한다. 이 행이 대표로 뽑혀 있다. 이 행 = 2.4545e+08 Pa [direction=\"MD (machine direction)\"]. 동률 경쟁행 = 1.8961e+08 Pa [direction=\"CD (cross direction)\"]. 갈린 조건키 = direction.",
+     "verdict_tie_axis_before_correction": null,
+     "verdict_tie_note_before_correction": null,
+     "correction_reason": "조건 어휘 통일(브리프 547·551) — 값·단위·등급·method·출처는 그대로다. direction 정규화 → MD | 앞 정정 사유(51차 MA): 대표값 동률 판정 — 값·등급·method·출처를 하나도 바꾸지 않고 **왜 갈렸는지**만 조건에 적는다(브리프 545). 부류 다른조건 — 방향. / 75차 KC 가 `ASTM D 902` 의 시험모드(test_mode·loading_mode·test_method)를 판정 창에 덧붙였다 — 기존 칸은 하나도 지우지 않았다.",
+     "corrected_by": "52차 NA → 75차 KC",
+     "direction_verbatim": "MD (machine direction)",
+     "direction_verbatim_before_correction": null,
+     "direction_before_correction": "MD (machine direction)",
+     "test_mode": "tensile",
+     "loading_mode": "tension",
+     "test_method": "strip tensile / breaking strength (ASTM D902, 절차는 ASTM D828 정속신장 인장)",
+     "test_standard_scope": "ASTM D902 — Flexible Resin-Coated Glass Fabrics and Glass Fabric Tapes Used for Electrical Insulation (withdrawn 2020-03-09). 굽힘 시험 미수록.",
+     "mode_confirmed_by": "75차 KC — 규격 수록 시험 전수 대조 + 같은 벤더가 D902 로 인장강도를 찍는 것"
+    }
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 6275
+   },
+   "by": "75차 KC",
+   "reason": "74차 JD 가 넘긴 표적 — `ASTM D 902` 가 무엇을 재는 규격인지 확정했다. D902 = `Standard Test Methods for Flexible Resin-Coated Glass Fabrics and Glass Fabric Tapes Used for Electrical Insulation`(2020-03-09 철회)이고, 규격이 열거하는 시험은 Breaking Strength · Conditioning · Dielectric Breakdown · Dissipation Factor and Relative Permittivity · Effect of Elevated Temperature · Resistance to Oil · Sampling · Thermal Endurance · Thickness · Thread Count · Weight · Weight Loss 다 — **굽힘 시험이 하나도 없다.** 기계시험은 `Breaking Strength` 하나뿐이고 그 절차는 **ASTM D828(정속신장 인장시험)** 을 참조한다. 대상이 `Thread Count` 를 세는 **유연한 코팅 유리직물·테이프**라 3점 굽힘 자체가 성립하지 않는다. 방증 — **Taconic 이 같은 `ASTM D 902` 로 `Tensile Strength` 행을 찍는다**(pv6274 MD 35,600 psi · pv6275 CD 27,500 psi). 따라서 이 행은 **인장이 맞고 키를 옮기지 않는다** — Isola 의 D790 무늬와 **다른 자리다**. 값·단위·등급·method·출처는 한 칸도 바꾸지 않고, 기존 조건칸도 하나도 지우지 않고 시험모드 칸만 덧붙인다.",
+   "set": {
+    "conditions": {
+     "direction": "TD",
+     "test": "ASTM D 902",
+     "verdict_tie_axis": "51차 MA — 다른조건 — 방향",
+     "verdict_tie_note": "[51차 MA 동률 판정] 축이 다르므로 **둘 다 대표다** — 어느 쪽을 쓸지는 해석자가 정한다. 이 행은 대표와 순위가 같다(적재 순서로 밀렸다). 이 행 = 1.8961e+08 Pa [direction=\"CD (cross direction)\"]. 동률 경쟁행 = 2.4545e+08 Pa [direction=\"MD (machine direction)\"]. 갈린 조건키 = direction.",
+     "verdict_tie_axis_before_correction": null,
+     "verdict_tie_note_before_correction": null,
+     "correction_reason": "조건 어휘 통일(브리프 547·551) — 값·단위·등급·method·출처는 그대로다. direction 정규화 → TD | 앞 정정 사유(51차 MA): 대표값 동률 판정 — 값·등급·method·출처를 하나도 바꾸지 않고 **왜 갈렸는지**만 조건에 적는다(브리프 545). 부류 다른조건 — 방향. / 75차 KC 가 `ASTM D 902` 의 시험모드(test_mode·loading_mode·test_method)를 판정 창에 덧붙였다 — 기존 칸은 하나도 지우지 않았다.",
+     "corrected_by": "52차 NA → 75차 KC",
+     "direction_verbatim": "CD (cross direction)",
+     "direction_verbatim_before_correction": null,
+     "direction_before_correction": "CD (cross direction)",
+     "test_mode": "tensile",
+     "loading_mode": "tension",
+     "test_method": "strip tensile / breaking strength (ASTM D902, 절차는 ASTM D828 정속신장 인장)",
+     "test_standard_scope": "ASTM D902 — Flexible Resin-Coated Glass Fabrics and Glass Fabric Tapes Used for Electrical Insulation (withdrawn 2020-03-09). 굽힘 시험 미수록.",
+     "mode_confirmed_by": "75차 KC — 규격 수록 시험 전수 대조 + 같은 벤더가 D902 로 인장강도를 찍는 것"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,974 @@
+{
+ "batch": "75차 KC",
+ "note": "74차 JD 가 넘긴 1순위 표적 — Chukoh 카탈로그의 **미채굴 4등급**(CGP-500A · CGA-500 · CGH-500 · CGK-500)을 새 카드로 세우고 製品性能 표를 전부 옮긴다. 표는 형제 등급 251 CGN-500 · 252 CGS-500A 와 **같은 표**라 조건 어휘를 그쪽에 맞췄다. 350 dpi 렌더로 열 순서·지수 위첨자·CTE 부호를 눈 대조했다. `絶縁抵抗`(Ω)는 **물성키가 없어 넣지 않았다** — 보고서에 표로 남긴다.",
+ "materials": [
+  {
+   "new_material": {
+    "name": "Chukoh CHUKOH FLO CGP-500A PTFE Copper-Clad Laminate",
+    "category": "composite",
+    "attributes": {
+     "manufacturer": "Chukoh Chemical Industries",
+     "grade": "CGP-500A",
+     "subsystem": "rf",
+     "material_class": "fluoropolymer (PTFE) impregnated glass cloth copper-clad laminate",
+     "role": "product",
+     "role_reason": "이름에 제조사+그레이드가 박혀 있고 출처가 해당 제품 카탈로그 — 이름·출처 둘 다 제품 신호",
+     "role_confidence": "high",
+     "product_series_note_ja": "ふっ素樹脂含浸ガラスクロスを積層した銅張積層板で当社のスタンダード製品です。引きはがし強さ、吸水率、スルーホール加工性等に優れ、高い寸法安定性、機械的強度を有しています。",
+     "product_series_note_ko": "불소수지 함침 유리크로스를 적층한 동박적층판 — Chukoh 의 표준 제품. 박리강도·흡수율·스루홀 가공성이 좋고 치수안정성과 기계적 강도가 높다.",
+     "core_absent_from_vendor_sheet": {
+      "mechanical.youngs_modulus": "中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01)를 전권 열어 확인했다. 2면 `製品性能` 표의 행은 열둘이다 — 比誘電率 · 誘電正接 · 体積抵抗率 · 表面抵抗率 · 絶縁抵抗 · **曲げ強さ** · 吸水率 · 線膨張係数(X/Y/Z) · 比重 · 引き剥がし強さ · 燃焼性 · 耐薬品性. **탄성률 행이 아예 없다 — 강도축이 굽힘 하나다**(曲げ強さ MPa). 인장탄성률도 굽힘탄성률도 인쇄하지 않는다. 형제 등급 251 CGN-500 · 252 CGS-500A 가 같은 표를 쓰고 그쪽 영률은 Rogers RT/duroid 에서 빌린 t3 다. 75차 KC 가 원본 렌더로 재확인했다.",
+      "mechanical.poisson_ratio": "같은 카탈로그 같은 표다. 포아송비 행이 없다 — 57차 SB 가 251·252 에서 확인한 것과 같은 표이고 75차 KC 가 350 dpi 렌더로 열두 행 전수를 다시 셌다. 이 벤더는 등방·이방 탄성상수를 인쇄하지 않는다.",
+      "thermal.specific_heat": "같은 카탈로그다. 전권 텍스트에 `比熱` 0건 · `熱伝導` 0건 · `specific heat` 0건이다. 이 표는 열물성으로 線膨張係数(x/y/z) 하나만 인쇄한다."
+     }
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.chukoh.co.jp/wp-content/uploads/catalog05_lami_ja-1.pdf",
+    "title": "CHUKOH FLO 銅張積層板 製品カタログ (catalog05_lami_ja, 2023.12.01)",
+    "publisher": "Chukoh Chemical Industries, Ltd.",
+    "year": 2023,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Chukoh_CopperCladLaminate_Catalog05_JA.pdf"
+   },
+   "properties": [
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 2.6,
+     "unit": "1",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "frequency_hz": 12000000000.0,
+      "sample_thickness_mm": 1.6,
+      "test_standard": "BCDR (balanced-type circular disk resonator)",
+      "grade": "CGP-500A"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 比誘電率 2.60 (BCDR法). 등급별 시험조건은 표 각주 `※サンプルの厚さ・測定周波数` 에서 왔다 — CGP:1.6mm/12GHz."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.0018,
+     "unit": "1",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "frequency_hz": 12000000000.0,
+      "sample_thickness_mm": 1.6,
+      "test_standard": "BCDR (balanced-type circular disk resonator)",
+      "grade": "CGP-500A"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 誘電正接 0.0018 (BCDR法). 등급별 시험조건은 표 각주 `※サンプルの厚さ・測定周波数` 에서 왔다 — CGP:1.6mm/12GHz."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 10000000000000.0,
+     "unit": "ohm*m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "A",
+      "test_condition": "A (受入れ状態 / as received)",
+      "grade": "CGP-500A"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 体積抵抗率(A) 1e+15 Ω·cm. 위첨자가 텍스트 추출에서 뭉개져 렌더로 지수를 확인했다. Ω·cm → ohm*m 는 ×0.01."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 1000000000000.0,
+     "unit": "ohm*m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "C-96/40/90",
+      "test_condition": "C-96/40/90 (습열 처리 후)",
+      "grade": "CGP-500A"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 体積抵抗率(C-96/40/90) 1e+14 Ω·cm. Ω·cm → ohm*m 는 ×0.01."
+    },
+    {
+     "key": "electrical.surface_resistivity",
+     "value": 100000000000000.0,
+     "unit": "ohm",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "A",
+      "test_condition": "A (受入れ状態 / as received)",
+      "grade": "CGP-500A"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 表面抵抗率(A) 1e+14 Ω. 시트저항이라 환산 없음."
+    },
+    {
+     "key": "electrical.surface_resistivity",
+     "value": 100000000000000.0,
+     "unit": "ohm",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "C-96/40/90",
+      "test_condition": "C-96/40/90 (습열 처리 후)",
+      "grade": "CGP-500A"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 表面抵抗率(C-96/40/90) 1e+14 Ω."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 120000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "A",
+      "test_condition": "A (受入れ状態 / as received)",
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "source_row_name": "曲げ強さ",
+      "grade": "CGP-500A"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 曲げ強さ 120 MPa. **이 표의 유일한 강도축이다** — 인장강도 행이 없다. MPa → Pa 는 ×1e6."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0001,
+     "unit": "1",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "E-24/50 + D-24/23",
+      "grade": "CGP-500A"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 吸水率 0.01 % (試験方法 E-24/50+D-24/23). % → 무차원은 ÷100."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.6e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "direction": "in-plane",
+      "direction_verbatim": "X",
+      "temperature_range_c": "-65 to 150",
+      "grade": "CGP-500A"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 線膨張係数 X軸 16 ppm/℃ (측정구간 -65〜150℃). **부호는 350 dpi 렌더로 확인했다 — 양수다.** 이 표에서 마이너스가 붙는 곳은 측정구간 `-65〜150℃` 하나뿐이다. ppm/℃ → 1/K 는 ×1e-6."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.9999999999999998e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "direction": "in-plane",
+      "direction_verbatim": "Y",
+      "temperature_range_c": "-65 to 150",
+      "grade": "CGP-500A"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 線膨張係数 Y軸 20 ppm/℃ (측정구간 -65〜150℃). **부호는 350 dpi 렌더로 확인했다 — 양수다.** 이 표에서 마이너스가 붙는 곳은 측정구간 `-65〜150℃` 하나뿐이다. ppm/℃ → 1/K 는 ×1e-6."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 0.000216,
+     "unit": "1/K",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "direction": "through-thickness",
+      "direction_verbatim": "Z",
+      "temperature_range_c": "-65 to 150",
+      "grade": "CGP-500A"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 線膨張係数 Z軸 216 ppm/℃ (측정구간 -65〜150℃). **부호는 350 dpi 렌더로 확인했다 — 양수다.** 이 표에서 마이너스가 붙는 곳은 측정구간 `-65〜150℃` 하나뿐이다. ppm/℃ → 1/K 는 ×1e-6."
+    },
+    {
+     "key": "physical.density",
+     "value": 2200.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "A",
+      "test_condition": "A (受入れ状態 / as received)",
+      "grade": "CGP-500A"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 比重 2.2 g/cc. 벤더가 인쇄한 것은 比重(비중)이고 단위 칸이 g/cc 라 수치를 그대로 밀도로 옮긴다 — 형제 등급 252 CGS-500A(pv4166)가 같은 처리다. g/cc → kg/m^3 는 ×1000."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 3000.0,
+     "unit": "N/m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "A",
+      "test_condition": "A (受入れ状態 / as received)",
+      "temperature_c": 23,
+      "substrate": "1 oz 銅箔 (0.035 mm)",
+      "test_method": "引き剥がし強さ (peel strength, カタログ 製品性能表)",
+      "peel_angle_source": "카탈로그가 각도를 찍지 않는다 — **시트 미인쇄**라 각도를 적지 않는다(68차 DD).",
+      "grade": "CGP-500A"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 引き剥がし強さ(A) 3.0 kN/m. 표 각주 `※引き剥がし強さは、1oz銅箔（0.035㎜）の測定値です`. kN/m → N/m 는 ×1000."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 1500.0,
+     "unit": "N/m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "200℃雰囲気",
+      "test_condition": "200℃雰囲気 (in a 200 °C atmosphere)",
+      "temperature_c": 200,
+      "substrate": "1 oz 銅箔 (0.035 mm)",
+      "test_method": "引き剥がし強さ (peel strength, カタログ 製品性能表)",
+      "peel_angle_source": "카탈로그가 각도를 찍지 않는다 — **시트 미인쇄**라 각도를 적지 않는다(68차 DD).",
+      "grade": "CGP-500A"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 引き剥がし強さ(200℃雰囲気) 1.5 kN/m. kN/m → N/m 는 ×1000."
+    },
+    {
+     "key": "chemical.chemical_resistance",
+     "value": null,
+     "unit": null,
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "카탈로그 試験方法 칸이 `-` 다 — 시험법·시약이 인쇄돼 있지 않다",
+      "grade": "CGP-500A"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 耐薬品性 `優`. **벤더 자기 정성등급이고 시험법 칸은 `-` 다** — 숫자를 만들지 않고 원문 그대로 문자열로 남긴다. 같은 표의 `燃焼性 = 不燃` 은 **넣지 않았다** — `thermal.flammability_ul94` 는 UL 94 등급 칸인데 不燃은 UL 94 등급이 아니다(74차 JD 판단 유지).",
+     "value_text": "耐薬品性 優 (excellent chemical resistance — 벤더 정성등급, 시험법 미인쇄)"
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Chukoh CHUKOH FLO CGA-500 PTFE Copper-Clad Laminate",
+    "category": "composite",
+    "attributes": {
+     "manufacturer": "Chukoh Chemical Industries",
+     "grade": "CGA-500",
+     "subsystem": "rf",
+     "material_class": "fluoropolymer (PTFE) + inorganic-filled glass cloth copper-clad laminate",
+     "role": "product",
+     "role_reason": "이름에 제조사+그레이드가 박혀 있고 출처가 해당 제품 카탈로그 — 이름·출처 둘 다 제품 신호",
+     "role_confidence": "high",
+     "product_series_note_ja": "ふっ素樹脂と特殊な無機物をガラスクロスに含浸し、その基材を積層した銅張積層板です。優れた高周波特性を維持しながら量産用途に対応した製品です。",
+     "product_series_note_ko": "불소수지와 특수 무기물을 유리크로스에 함침한 기재를 적층한 동박적층판 — 고주파 특성을 유지하면서 양산 용도에 대응한 제품.",
+     "core_absent_from_vendor_sheet": {
+      "mechanical.youngs_modulus": "中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01)를 전권 열어 확인했다. 2면 `製品性能` 표의 행은 열둘이다 — 比誘電率 · 誘電正接 · 体積抵抗率 · 表面抵抗率 · 絶縁抵抗 · **曲げ強さ** · 吸水率 · 線膨張係数(X/Y/Z) · 比重 · 引き剥がし強さ · 燃焼性 · 耐薬品性. **탄성률 행이 아예 없다 — 강도축이 굽힘 하나다**(曲げ強さ MPa). 인장탄성률도 굽힘탄성률도 인쇄하지 않는다. 형제 등급 251 CGN-500 · 252 CGS-500A 가 같은 표를 쓰고 그쪽 영률은 Rogers RT/duroid 에서 빌린 t3 다. 75차 KC 가 원본 렌더로 재확인했다.",
+      "mechanical.poisson_ratio": "같은 카탈로그 같은 표다. 포아송비 행이 없다 — 57차 SB 가 251·252 에서 확인한 것과 같은 표이고 75차 KC 가 350 dpi 렌더로 열두 행 전수를 다시 셌다. 이 벤더는 등방·이방 탄성상수를 인쇄하지 않는다.",
+      "thermal.specific_heat": "같은 카탈로그다. 전권 텍스트에 `比熱` 0건 · `熱伝導` 0건 · `specific heat` 0건이다. 이 표는 열물성으로 線膨張係数(x/y/z) 하나만 인쇄한다."
+     }
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.chukoh.co.jp/wp-content/uploads/catalog05_lami_ja-1.pdf",
+    "title": "CHUKOH FLO 銅張積層板 製品カタログ (catalog05_lami_ja, 2023.12.01)",
+    "publisher": "Chukoh Chemical Industries, Ltd.",
+    "year": 2023,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Chukoh_CopperCladLaminate_Catalog05_JA.pdf"
+   },
+   "properties": [
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 3.0,
+     "unit": "1",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "frequency_hz": 12000000000.0,
+      "sample_thickness_mm": 0.54,
+      "test_standard": "BCDR (balanced-type circular disk resonator)",
+      "grade": "CGA-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 比誘電率 3.00 (BCDR法). 등급별 시험조건은 표 각주 `※サンプルの厚さ・測定周波数` 에서 왔다 — CGA:0.54mm/12GHz."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.003,
+     "unit": "1",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "frequency_hz": 12000000000.0,
+      "sample_thickness_mm": 0.54,
+      "test_standard": "BCDR (balanced-type circular disk resonator)",
+      "grade": "CGA-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 誘電正接 0.0030 (BCDR法). 등급별 시험조건은 표 각주 `※サンプルの厚さ・測定周波数` 에서 왔다 — CGA:0.54mm/12GHz."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 10000000000000.0,
+     "unit": "ohm*m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "A",
+      "test_condition": "A (受入れ状態 / as received)",
+      "grade": "CGA-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 体積抵抗率(A) 1e+15 Ω·cm. 위첨자가 텍스트 추출에서 뭉개져 렌더로 지수를 확인했다. Ω·cm → ohm*m 는 ×0.01."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 1000000000000.0,
+     "unit": "ohm*m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "C-96/40/90",
+      "test_condition": "C-96/40/90 (습열 처리 후)",
+      "grade": "CGA-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 体積抵抗率(C-96/40/90) 1e+14 Ω·cm. Ω·cm → ohm*m 는 ×0.01."
+    },
+    {
+     "key": "electrical.surface_resistivity",
+     "value": 100000000000000.0,
+     "unit": "ohm",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "A",
+      "test_condition": "A (受入れ状態 / as received)",
+      "grade": "CGA-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 表面抵抗率(A) 1e+14 Ω. 시트저항이라 환산 없음."
+    },
+    {
+     "key": "electrical.surface_resistivity",
+     "value": 100000000000000.0,
+     "unit": "ohm",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "C-96/40/90",
+      "test_condition": "C-96/40/90 (습열 처리 후)",
+      "grade": "CGA-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 表面抵抗率(C-96/40/90) 1e+14 Ω."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 60000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "A",
+      "test_condition": "A (受入れ状態 / as received)",
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "source_row_name": "曲げ強さ",
+      "grade": "CGA-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 曲げ強さ 60 MPa. **이 표의 유일한 강도축이다** — 인장강도 행이 없다. MPa → Pa 는 ×1e6."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0002,
+     "unit": "1",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "E-24/50 + D-24/23",
+      "grade": "CGA-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 吸水率 0.02 % (試験方法 E-24/50+D-24/23). % → 무차원은 ÷100."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.6e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "direction": "in-plane",
+      "direction_verbatim": "X",
+      "temperature_range_c": "-65 to 150",
+      "grade": "CGA-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 線膨張係数 X軸 16 ppm/℃ (측정구간 -65〜150℃). **부호는 350 dpi 렌더로 확인했다 — 양수다.** 이 표에서 마이너스가 붙는 곳은 측정구간 `-65〜150℃` 하나뿐이다. ppm/℃ → 1/K 는 ×1e-6."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.9999999999999998e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "direction": "in-plane",
+      "direction_verbatim": "Y",
+      "temperature_range_c": "-65 to 150",
+      "grade": "CGA-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 線膨張係数 Y軸 20 ppm/℃ (측정구간 -65〜150℃). **부호는 350 dpi 렌더로 확인했다 — 양수다.** 이 표에서 마이너스가 붙는 곳은 측정구간 `-65〜150℃` 하나뿐이다. ppm/℃ → 1/K 는 ×1e-6."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 0.000216,
+     "unit": "1/K",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "direction": "through-thickness",
+      "direction_verbatim": "Z",
+      "temperature_range_c": "-65 to 150",
+      "grade": "CGA-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 線膨張係数 Z軸 216 ppm/℃ (측정구간 -65〜150℃). **부호는 350 dpi 렌더로 확인했다 — 양수다.** 이 표에서 마이너스가 붙는 곳은 측정구간 `-65〜150℃` 하나뿐이다. ppm/℃ → 1/K 는 ×1e-6."
+    },
+    {
+     "key": "physical.density",
+     "value": 2300.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "A",
+      "test_condition": "A (受入れ状態 / as received)",
+      "grade": "CGA-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 比重 2.3 g/cc. 벤더가 인쇄한 것은 比重(비중)이고 단위 칸이 g/cc 라 수치를 그대로 밀도로 옮긴다 — 형제 등급 252 CGS-500A(pv4166)가 같은 처리다. g/cc → kg/m^3 는 ×1000."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 1500.0,
+     "unit": "N/m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "A",
+      "test_condition": "A (受入れ状態 / as received)",
+      "temperature_c": 23,
+      "substrate": "1 oz 銅箔 (0.035 mm)",
+      "test_method": "引き剥がし強さ (peel strength, カタログ 製品性能表)",
+      "peel_angle_source": "카탈로그가 각도를 찍지 않는다 — **시트 미인쇄**라 각도를 적지 않는다(68차 DD).",
+      "grade": "CGA-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 引き剥がし強さ(A) 1.5 kN/m. 표 각주 `※引き剥がし強さは、1oz銅箔（0.035㎜）の測定値です`. kN/m → N/m 는 ×1000."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 1000.0,
+     "unit": "N/m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "200℃雰囲気",
+      "test_condition": "200℃雰囲気 (in a 200 °C atmosphere)",
+      "temperature_c": 200,
+      "substrate": "1 oz 銅箔 (0.035 mm)",
+      "test_method": "引き剥がし強さ (peel strength, カタログ 製品性能表)",
+      "peel_angle_source": "카탈로그가 각도를 찍지 않는다 — **시트 미인쇄**라 각도를 적지 않는다(68차 DD).",
+      "grade": "CGA-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 引き剥がし強さ(200℃雰囲気) 1.0 kN/m. kN/m → N/m 는 ×1000."
+    },
+    {
+     "key": "chemical.chemical_resistance",
+     "value": null,
+     "unit": null,
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "카탈로그 試験方法 칸이 `-` 다 — 시험법·시약이 인쇄돼 있지 않다",
+      "grade": "CGA-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 耐薬品性 `優`. **벤더 자기 정성등급이고 시험법 칸은 `-` 다** — 숫자를 만들지 않고 원문 그대로 문자열로 남긴다. 같은 표의 `燃焼性 = 不燃` 은 **넣지 않았다** — `thermal.flammability_ul94` 는 UL 94 등급 칸인데 不燃은 UL 94 등급이 아니다(74차 JD 판단 유지).",
+     "value_text": "耐薬品性 優 (excellent chemical resistance — 벤더 정성등급, 시험법 미인쇄)"
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Chukoh CHUKOH FLO CGH-500 PTFE Copper-Clad Laminate",
+    "category": "composite",
+    "attributes": {
+     "manufacturer": "Chukoh Chemical Industries",
+     "grade": "CGH-500",
+     "subsystem": "rf",
+     "material_class": "fluoropolymer (PTFE) + inorganic-filled glass cloth copper-clad laminate",
+     "role": "product",
+     "role_reason": "이름에 제조사+그레이드가 박혀 있고 출처가 해당 제품 카탈로그 — 이름·출처 둘 다 제품 신호",
+     "role_confidence": "high",
+     "product_series_note_ja": "ふっ素樹脂と特殊な無機物をガラスクロスに含浸し、その基材を積層した銅張積層板です。汎用基板と誘電率が同等で誘電正接が低いため、同一の設計でより低損失の回路が得られます。",
+     "product_series_note_ko": "불소수지와 특수 무기물을 유리크로스에 함침한 기재를 적층한 동박적층판 — 범용 기판과 유전율이 같으면서 유전정접이 낮아 같은 설계로 더 낮은 손실의 회로를 얻는다.",
+     "core_absent_from_vendor_sheet": {
+      "mechanical.youngs_modulus": "中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01)를 전권 열어 확인했다. 2면 `製品性能` 표의 행은 열둘이다 — 比誘電率 · 誘電正接 · 体積抵抗率 · 表面抵抗率 · 絶縁抵抗 · **曲げ強さ** · 吸水率 · 線膨張係数(X/Y/Z) · 比重 · 引き剥がし強さ · 燃焼性 · 耐薬品性. **탄성률 행이 아예 없다 — 강도축이 굽힘 하나다**(曲げ強さ MPa). 인장탄성률도 굽힘탄성률도 인쇄하지 않는다. 형제 등급 251 CGN-500 · 252 CGS-500A 가 같은 표를 쓰고 그쪽 영률은 Rogers RT/duroid 에서 빌린 t3 다. 75차 KC 가 원본 렌더로 재확인했다.",
+      "mechanical.poisson_ratio": "같은 카탈로그 같은 표다. 포아송비 행이 없다 — 57차 SB 가 251·252 에서 확인한 것과 같은 표이고 75차 KC 가 350 dpi 렌더로 열두 행 전수를 다시 셌다. 이 벤더는 등방·이방 탄성상수를 인쇄하지 않는다.",
+      "thermal.specific_heat": "같은 카탈로그다. 전권 텍스트에 `比熱` 0건 · `熱伝導` 0건 · `specific heat` 0건이다. 이 표는 열물성으로 線膨張係数(x/y/z) 하나만 인쇄한다."
+     }
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.chukoh.co.jp/wp-content/uploads/catalog05_lami_ja-1.pdf",
+    "title": "CHUKOH FLO 銅張積層板 製品カタログ (catalog05_lami_ja, 2023.12.01)",
+    "publisher": "Chukoh Chemical Industries, Ltd.",
+    "year": 2023,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Chukoh_CopperCladLaminate_Catalog05_JA.pdf"
+   },
+   "properties": [
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 3.45,
+     "unit": "1",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "frequency_hz": 9000000000.0,
+      "sample_thickness_mm": 1.6,
+      "test_standard": "BCDR (balanced-type circular disk resonator)",
+      "grade": "CGH-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 比誘電率 3.45 (BCDR法). 등급별 시험조건은 표 각주 `※サンプルの厚さ・測定周波数` 에서 왔다 — CGH:1.6mm/9GHz."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.0027,
+     "unit": "1",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "frequency_hz": 9000000000.0,
+      "sample_thickness_mm": 1.6,
+      "test_standard": "BCDR (balanced-type circular disk resonator)",
+      "grade": "CGH-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 誘電正接 0.0027 (BCDR法). 등급별 시험조건은 표 각주 `※サンプルの厚さ・測定周波数` 에서 왔다 — CGH:1.6mm/9GHz."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 10000000000000.0,
+     "unit": "ohm*m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "A",
+      "test_condition": "A (受入れ状態 / as received)",
+      "grade": "CGH-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 体積抵抗率(A) 1e+15 Ω·cm. 위첨자가 텍스트 추출에서 뭉개져 렌더로 지수를 확인했다. Ω·cm → ohm*m 는 ×0.01."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 1000000000000.0,
+     "unit": "ohm*m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "C-96/40/90",
+      "test_condition": "C-96/40/90 (습열 처리 후)",
+      "grade": "CGH-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 体積抵抗率(C-96/40/90) 1e+14 Ω·cm. Ω·cm → ohm*m 는 ×0.01."
+    },
+    {
+     "key": "electrical.surface_resistivity",
+     "value": 100000000000000.0,
+     "unit": "ohm",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "A",
+      "test_condition": "A (受入れ状態 / as received)",
+      "grade": "CGH-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 表面抵抗率(A) 1e+14 Ω. 시트저항이라 환산 없음."
+    },
+    {
+     "key": "electrical.surface_resistivity",
+     "value": 100000000000000.0,
+     "unit": "ohm",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "C-96/40/90",
+      "test_condition": "C-96/40/90 (습열 처리 후)",
+      "grade": "CGH-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 表面抵抗率(C-96/40/90) 1e+14 Ω."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 120000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "A",
+      "test_condition": "A (受入れ状態 / as received)",
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "source_row_name": "曲げ強さ",
+      "grade": "CGH-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 曲げ強さ 120 MPa. **이 표의 유일한 강도축이다** — 인장강도 행이 없다. MPa → Pa 는 ×1e6."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0002,
+     "unit": "1",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "E-24/50 + D-24/23",
+      "grade": "CGH-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 吸水率 0.02 % (試験方法 E-24/50+D-24/23). % → 무차원은 ÷100."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.3e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "direction": "in-plane",
+      "direction_verbatim": "X",
+      "temperature_range_c": "-65 to 150",
+      "grade": "CGH-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 線膨張係数 X軸 13 ppm/℃ (측정구간 -65〜150℃). **부호는 350 dpi 렌더로 확인했다 — 양수다.** 이 표에서 마이너스가 붙는 곳은 측정구간 `-65〜150℃` 하나뿐이다. ppm/℃ → 1/K 는 ×1e-6."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.4e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "direction": "in-plane",
+      "direction_verbatim": "Y",
+      "temperature_range_c": "-65 to 150",
+      "grade": "CGH-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 線膨張係数 Y軸 14 ppm/℃ (측정구간 -65〜150℃). **부호는 350 dpi 렌더로 확인했다 — 양수다.** 이 표에서 마이너스가 붙는 곳은 측정구간 `-65〜150℃` 하나뿐이다. ppm/℃ → 1/K 는 ×1e-6."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 0.000174,
+     "unit": "1/K",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "direction": "through-thickness",
+      "direction_verbatim": "Z",
+      "temperature_range_c": "-65 to 150",
+      "grade": "CGH-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 線膨張係数 Z軸 174 ppm/℃ (측정구간 -65〜150℃). **부호는 350 dpi 렌더로 확인했다 — 양수다.** 이 표에서 마이너스가 붙는 곳은 측정구간 `-65〜150℃` 하나뿐이다. ppm/℃ → 1/K 는 ×1e-6."
+    },
+    {
+     "key": "physical.density",
+     "value": 2300.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "A",
+      "test_condition": "A (受入れ状態 / as received)",
+      "grade": "CGH-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 比重 2.3 g/cc. 벤더가 인쇄한 것은 比重(비중)이고 단위 칸이 g/cc 라 수치를 그대로 밀도로 옮긴다 — 형제 등급 252 CGS-500A(pv4166)가 같은 처리다. g/cc → kg/m^3 는 ×1000."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 1500.0,
+     "unit": "N/m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "A",
+      "test_condition": "A (受入れ状態 / as received)",
+      "temperature_c": 23,
+      "substrate": "1 oz 銅箔 (0.035 mm)",
+      "test_method": "引き剥がし強さ (peel strength, カタログ 製品性能表)",
+      "peel_angle_source": "카탈로그가 각도를 찍지 않는다 — **시트 미인쇄**라 각도를 적지 않는다(68차 DD).",
+      "grade": "CGH-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 引き剥がし強さ(A) 1.5 kN/m. 표 각주 `※引き剥がし強さは、1oz銅箔（0.035㎜）の測定値です`. kN/m → N/m 는 ×1000."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 1000.0,
+     "unit": "N/m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "200℃雰囲気",
+      "test_condition": "200℃雰囲気 (in a 200 °C atmosphere)",
+      "temperature_c": 200,
+      "substrate": "1 oz 銅箔 (0.035 mm)",
+      "test_method": "引き剥がし強さ (peel strength, カタログ 製品性能表)",
+      "peel_angle_source": "카탈로그가 각도를 찍지 않는다 — **시트 미인쇄**라 각도를 적지 않는다(68차 DD).",
+      "grade": "CGH-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 引き剥がし強さ(200℃雰囲気) 1.0 kN/m. kN/m → N/m 는 ×1000."
+    },
+    {
+     "key": "chemical.chemical_resistance",
+     "value": null,
+     "unit": null,
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "카탈로그 試験方法 칸이 `-` 다 — 시험법·시약이 인쇄돼 있지 않다",
+      "grade": "CGH-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 耐薬品性 `優`. **벤더 자기 정성등급이고 시험법 칸은 `-` 다** — 숫자를 만들지 않고 원문 그대로 문자열로 남긴다. 같은 표의 `燃焼性 = 不燃` 은 **넣지 않았다** — `thermal.flammability_ul94` 는 UL 94 등급 칸인데 不燃은 UL 94 등급이 아니다(74차 JD 판단 유지).",
+     "value_text": "耐薬品性 優 (excellent chemical resistance — 벤더 정성등급, 시험법 미인쇄)"
+    }
+   ]
+  },
+  {
+   "new_material": {
+    "name": "Chukoh CHUKOH FLO CGK-500 PTFE Copper-Clad Laminate",
+    "category": "composite",
+    "attributes": {
+     "manufacturer": "Chukoh Chemical Industries",
+     "grade": "CGK-500",
+     "subsystem": "rf",
+     "material_class": "fluoropolymer (PTFE) + high-permittivity inorganic-filled glass cloth copper-clad laminate",
+     "role": "product",
+     "role_reason": "이름에 제조사+그레이드가 박혀 있고 출처가 해당 제품 카탈로그 — 이름·출처 둘 다 제품 신호",
+     "role_confidence": "high",
+     "product_series_note_ja": "ふっ素樹脂と特殊な無機物をガラスクロスに含浸し、その基材を積層した銅張積層板です。高誘電率により小型で軽量、低損失の高機能回路が得られます。",
+     "product_series_note_ko": "불소수지와 특수 무기물을 유리크로스에 함침한 기재를 적층한 동박적층판 — 높은 유전율로 소형·경량·저손실의 고기능 회로를 얻는다.",
+     "core_absent_from_vendor_sheet": {
+      "mechanical.youngs_modulus": "中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01)를 전권 열어 확인했다. 2면 `製品性能` 표의 행은 열둘이다 — 比誘電率 · 誘電正接 · 体積抵抗率 · 表面抵抗率 · 絶縁抵抗 · **曲げ強さ** · 吸水率 · 線膨張係数(X/Y/Z) · 比重 · 引き剥がし強さ · 燃焼性 · 耐薬品性. **탄성률 행이 아예 없다 — 강도축이 굽힘 하나다**(曲げ強さ MPa). 인장탄성률도 굽힘탄성률도 인쇄하지 않는다. 형제 등급 251 CGN-500 · 252 CGS-500A 가 같은 표를 쓰고 그쪽 영률은 Rogers RT/duroid 에서 빌린 t3 다. 75차 KC 가 원본 렌더로 재확인했다.",
+      "mechanical.poisson_ratio": "같은 카탈로그 같은 표다. 포아송비 행이 없다 — 57차 SB 가 251·252 에서 확인한 것과 같은 표이고 75차 KC 가 350 dpi 렌더로 열두 행 전수를 다시 셌다. 이 벤더는 등방·이방 탄성상수를 인쇄하지 않는다.",
+      "thermal.specific_heat": "같은 카탈로그다. 전권 텍스트에 `比熱` 0건 · `熱伝導` 0건 · `specific heat` 0건이다. 이 표는 열물성으로 線膨張係数(x/y/z) 하나만 인쇄한다."
+     }
+    }
+   },
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.chukoh.co.jp/wp-content/uploads/catalog05_lami_ja-1.pdf",
+    "title": "CHUKOH FLO 銅張積層板 製品カタログ (catalog05_lami_ja, 2023.12.01)",
+    "publisher": "Chukoh Chemical Industries, Ltd.",
+    "year": 2023,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Chukoh_CopperCladLaminate_Catalog05_JA.pdf"
+   },
+   "properties": [
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 5.0,
+     "unit": "1",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "frequency_hz": 8000000000.0,
+      "sample_thickness_mm": 1.6,
+      "test_standard": "BCDR (balanced-type circular disk resonator)",
+      "grade": "CGK-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 比誘電率 5.00 (BCDR法). 등급별 시험조건은 표 각주 `※サンプルの厚さ・測定周波数` 에서 왔다 — CGK:1.6mm/8GHz."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.004,
+     "unit": "1",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "frequency_hz": 8000000000.0,
+      "sample_thickness_mm": 1.6,
+      "test_standard": "BCDR (balanced-type circular disk resonator)",
+      "grade": "CGK-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 誘電正接 0.0040 (BCDR法). 등급별 시험조건은 표 각주 `※サンプルの厚さ・測定周波数` 에서 왔다 — CGK:1.6mm/8GHz."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 100000000000.0,
+     "unit": "ohm*m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "A",
+      "test_condition": "A (受入れ状態 / as received)",
+      "grade": "CGK-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 体積抵抗率(A) 1e+13 Ω·cm. 위첨자가 텍스트 추출에서 뭉개져 렌더로 지수를 확인했다. Ω·cm → ohm*m 는 ×0.01."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 100000000000.0,
+     "unit": "ohm*m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "C-96/40/90",
+      "test_condition": "C-96/40/90 (습열 처리 후)",
+      "grade": "CGK-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 体積抵抗率(C-96/40/90) 1e+13 Ω·cm. Ω·cm → ohm*m 는 ×0.01."
+    },
+    {
+     "key": "electrical.surface_resistivity",
+     "value": 1000000000000.0,
+     "unit": "ohm",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "A",
+      "test_condition": "A (受入れ状態 / as received)",
+      "grade": "CGK-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 表面抵抗率(A) 1e+12 Ω. 시트저항이라 환산 없음."
+    },
+    {
+     "key": "electrical.surface_resistivity",
+     "value": 1000000000000.0,
+     "unit": "ohm",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "C-96/40/90",
+      "test_condition": "C-96/40/90 (습열 처리 후)",
+      "grade": "CGK-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 表面抵抗率(C-96/40/90) 1e+12 Ω."
+    },
+    {
+     "key": "mechanical.flexural_strength",
+     "value": 240000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "A",
+      "test_condition": "A (受入れ状態 / as received)",
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "source_row_name": "曲げ強さ",
+      "grade": "CGK-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 曲げ強さ 240 MPa. **이 표의 유일한 강도축이다** — 인장강도 행이 없다. MPa → Pa 는 ×1e6."
+    },
+    {
+     "key": "chemical.water_absorption_24h",
+     "value": 0.0004,
+     "unit": "1",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "E-24/50 + D-24/23",
+      "grade": "CGK-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 吸水率 0.04 % (試験方法 E-24/50+D-24/23). % → 무차원은 ÷100."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.2e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "direction": "in-plane",
+      "direction_verbatim": "X",
+      "temperature_range_c": "-65 to 150",
+      "grade": "CGK-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 線膨張係数 X軸 12 ppm/℃ (측정구간 -65〜150℃). **부호는 350 dpi 렌더로 확인했다 — 양수다.** 이 표에서 마이너스가 붙는 곳은 측정구간 `-65〜150℃` 하나뿐이다. ppm/℃ → 1/K 는 ×1e-6."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.3e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "direction": "in-plane",
+      "direction_verbatim": "Y",
+      "temperature_range_c": "-65 to 150",
+      "grade": "CGK-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 線膨張係数 Y軸 13 ppm/℃ (측정구간 -65〜150℃). **부호는 350 dpi 렌더로 확인했다 — 양수다.** 이 표에서 마이너스가 붙는 곳은 측정구간 `-65〜150℃` 하나뿐이다. ppm/℃ → 1/K 는 ×1e-6."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 0.00011999999999999999,
+     "unit": "1/K",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "direction": "through-thickness",
+      "direction_verbatim": "Z",
+      "temperature_range_c": "-65 to 150",
+      "grade": "CGK-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 線膨張係数 Z軸 120 ppm/℃ (측정구간 -65〜150℃). **부호는 350 dpi 렌더로 확인했다 — 양수다.** 이 표에서 마이너스가 붙는 곳은 측정구간 `-65〜150℃` 하나뿐이다. ppm/℃ → 1/K 는 ×1e-6."
+    },
+    {
+     "key": "physical.density",
+     "value": 2400.0,
+     "unit": "kg/m^3",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "A",
+      "test_condition": "A (受入れ状態 / as received)",
+      "grade": "CGK-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 比重 2.4 g/cc. 벤더가 인쇄한 것은 比重(비중)이고 단위 칸이 g/cc 라 수치를 그대로 밀도로 옮긴다 — 형제 등급 252 CGS-500A(pv4166)가 같은 처리다. g/cc → kg/m^3 는 ×1000."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 1500.0,
+     "unit": "N/m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "A",
+      "test_condition": "A (受入れ状態 / as received)",
+      "temperature_c": 23,
+      "substrate": "1 oz 銅箔 (0.035 mm)",
+      "test_method": "引き剥がし強さ (peel strength, カタログ 製品性能表)",
+      "peel_angle_source": "카탈로그가 각도를 찍지 않는다 — **시트 미인쇄**라 각도를 적지 않는다(68차 DD).",
+      "grade": "CGK-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 引き剥がし強さ(A) 1.5 kN/m. 표 각주 `※引き剥がし強さは、1oz銅箔（0.035㎜）の測定値です`. kN/m → N/m 는 ×1000."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 1200.0,
+     "unit": "N/m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "200℃雰囲気",
+      "test_condition": "200℃雰囲気 (in a 200 °C atmosphere)",
+      "temperature_c": 200,
+      "substrate": "1 oz 銅箔 (0.035 mm)",
+      "test_method": "引き剥がし強さ (peel strength, カタログ 製品性能表)",
+      "peel_angle_source": "카탈로그가 각도를 찍지 않는다 — **시트 미인쇄**라 각도를 적지 않는다(68차 DD).",
+      "grade": "CGK-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 引き剥がし強さ(200℃雰囲気) 1.2 kN/m. kN/m → N/m 는 ×1000."
+    },
+    {
+     "key": "chemical.chemical_resistance",
+     "value": null,
+     "unit": null,
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "카탈로그 試験方法 칸이 `-` 다 — 시험법·시약이 인쇄돼 있지 않다",
+      "grade": "CGK-500"
+     },
+     "notes": "[75차 KC] 中興化成 `CHUKOH FLO 銅張積層板 製品カタログ`(catalog05_lami_ja, 2023.12.01) 2면 `製品性能` 표에서 그대로 옮겼다. 350 dpi 렌더로 열 순서·지수·부호를 눈 대조했다 — 인쇄면 열 순서는 CGS-500A | CGN-500 | CGP-500A | CGA-500 | CGH-500 | CGK-500 다. 인쇄값 耐薬品性 `優`. **벤더 자기 정성등급이고 시험법 칸은 `-` 다** — 숫자를 만들지 않고 원문 그대로 문자열로 남긴다. 같은 표의 `燃焼性 = 不燃` 은 **넣지 않았다** — `thermal.flammability_ul94` 는 UL 94 등급 칸인데 不燃은 UL 94 등급이 아니다(74차 JD 판단 유지).",
+     "value_text": "耐薬品性 優 (excellent chemical resistance — 벤더 정성등급, 시험법 미인쇄)"
+    }
+   ]
+  }
+ ]
+}

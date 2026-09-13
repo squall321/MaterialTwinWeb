@@ -1,0 +1,58 @@
+{
+ "batch": "75차 KC",
+ "note": "Astra MT77 개정판 기준을 Rev D(2021-04-20)로 정하면서, Rev D 가 **인쇄하지 않는** 굽힘탄성률 두 행을 03/17 시트에서 채운다. Rev D 와 값이 어긋나는 행은 하나도 넣지 않았다.",
+ "materials": [
+  {
+   "match_name": "Isola Astra MT77 Very Low Loss RF/MW Laminate",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.pragoboard.cz/download/astra_mt77.pdf",
+    "title": "Astra® MT77 Very Low-loss Laminate Material — Isola Group typical values (doc code 03/17 DSAstraMT77Q)",
+    "publisher": "Isola Group",
+    "year": 2017
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 18622738657.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "direction": "MD",
+      "direction_verbatim": "A. Lengthwise direction",
+      "test_standard": "ASTM D790-10",
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend (ASTM D790-10)",
+      "source_row_name": "Flexural Modulus/Taylor's Modulus",
+      "datasheet_revision": "03/17 DSAstraMT77Q (Isola, pre-Rev A)",
+      "temperature_c": 23,
+      "grade": "Astra MT77"
+     },
+     "notes": "[75차 KC] Isola Astra MT77 03/17 시트(DSAstraMT77Q)를 원본으로 열어 확인했다. 이 시트는 `Tensile Modulus/Young's Modulus … ASTM D3039-095a` 와 `Flexural Modulus/Taylor's Modulus … ASTM D790-10` 을 **제 이름으로 따로 인쇄한다** — Isola 가 굽힘값을 `Young's Modulus` 한 칸에 몰아 넣는 무늬(370HR·IS400·I-Tera)와 **반대 자리다**. 인장 쪽 2,784/2,526 ksi 는 라이브 pv12968·12969·13435·13436 로 이미 서 있었고 **굽힘 쪽 짝이 비어 있어** 채운다(재료 254 의 `mechanical.flexural_modulus` 는 0행이었다). 현행 Rev D(2021-04-20)에는 **모듈러스 행 자체가 없다** — 값이 바뀐 것이 아니라 행이 사라졌으므로 Rev D 와 충돌하지 않는다. ksi → Pa 는 ×6.894757e6. 인쇄값 2,701 ksi."
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 17436840453.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "direction": "TD",
+      "direction_verbatim": "B. Crosswise direction",
+      "test_standard": "ASTM D790-10",
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend (ASTM D790-10)",
+      "source_row_name": "Flexural Modulus/Taylor's Modulus",
+      "datasheet_revision": "03/17 DSAstraMT77Q (Isola, pre-Rev A)",
+      "temperature_c": 23,
+      "grade": "Astra MT77"
+     },
+     "notes": "[75차 KC] Isola Astra MT77 03/17 시트(DSAstraMT77Q)를 원본으로 열어 확인했다. 이 시트는 `Tensile Modulus/Young's Modulus … ASTM D3039-095a` 와 `Flexural Modulus/Taylor's Modulus … ASTM D790-10` 을 **제 이름으로 따로 인쇄한다** — Isola 가 굽힘값을 `Young's Modulus` 한 칸에 몰아 넣는 무늬(370HR·IS400·I-Tera)와 **반대 자리다**. 인장 쪽 2,784/2,526 ksi 는 라이브 pv12968·12969·13435·13436 로 이미 서 있었고 **굽힘 쪽 짝이 비어 있어** 채운다(재료 254 의 `mechanical.flexural_modulus` 는 0행이었다). 현행 Rev D(2021-04-20)에는 **모듈러스 행 자체가 없다** — 값이 바뀐 것이 아니라 행이 사라졌으므로 Rev D 와 충돌하지 않는다. ksi → Pa 는 ×6.894757e6. 인쇄값 2,529 ksi. 인장 TD 2,526 ksi 와 **세 자리에서 갈리는 다른 수다** — 같은 수를 두 키에 옮긴 것이 아니다."
+    }
+   ]
+  }
+ ]
+}
