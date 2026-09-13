@@ -1,0 +1,354 @@
+{
+ "batch": "74차 JC — 두산 밖 낱칸 판정문 회수(제안)",
+ "note": "**브리프 §4 의 예시를 고쳐야 한다** — `{\"batch\":…, \"verdicts\":[{\"material_id\":2483, \"name\":…, \"core_absent_from_vendor_sheet\":{\"thermal.specific_heat\":\"<사유>\"}}]}` 가 맞는 모양이다.",
+ "verdicts": [
+  {
+   "material_id": 253,
+   "name": "Arisawa C33 Low-Dk Coverlay (polyimide + adhesive)",
+   "core_absent_from_vendor_sheet": {
+    "mechanical.tensile_strength": "有沢製作所 低誘電カバーレイ `C33 시리즈` 카탈로그 양판(영문 CATALOG_C33_EN '25.07.01 (A) · 일문 CATALOG_C33_JP)을 실제로 열어 확인했다. 한 장짜리 제품시트이고 인쇄되는 것은 폴리이미드 두께 12.5 µm · 접착층 두께 25 µm · Dk/Df(10 GHz, 커버레이와 접착층 각각) · 90° 박리강도 8.5 N/cm · 내납열 300 · 전송손실 그래프뿐이다. **인장강도 행이 없다.** 57차 SB 확인.\n\n**[74차 JC — 69차 EB 의 판정문을 제자리로 옮겨 붙였다]** 아래는 이 재료의 `attributes` 최상위에 `key`/`verdict`/`reason` **세 낱칸으로 흩어져 있던** 판정문이다. 브리프 §4 의 예시 서식 `{\"material_id\":…, \"key\":…, \"verdict\":…, \"reason\":…}` 을 그대로 제출하면 `apply_core_verdicts.py` 가 `key`·`verdict`·`reason`·`source_url` 을 **각각 재료 속성 이름으로** 쓴다 (그 도구가 기대하는 것은 `{\"<판정키>\": {\"<물성키>\": \"<사유>\"}}` 다). 이 사고로 106개 재료가 그 낱칸을 달고 있었고 그중 69개가 두산이다(인장강도 46 · 비열 23). 두산 69건은 다행히 제대로 된 자리에도 판정이 따로 있어 집계는 멀쩡했지만, **그 자리에만 있던 20칸은 집계가 못 봤다**(§593). 아래 본문을 잃지 않도록 여기 합친다.\n\n**[69차 EB — 일본어 카탈로그 전수를 열었고, 이 벤더는 커버레이에 기계물성을 안 찍는다]**\n① 벤더의 일본어 카탈로그 디렉터리 `https://www.arisawa.co.jp/jp/products/data/CATALOG_*_JP.pdf` 를 찾아(`jp/products/fpc01~04.html` 에서 링크) **일본어 시트 19장 전수** + 영문 C33 을 받았다.\n② C33 시트(`低誘電カバーレイ「C33シリーズ」`, `'25.07.01 (A)`, 1쪽, 텍스트 PDF)의 **행 전부** verbatim:\n`  項目                                 単位          C33`\n`  ポリイミド厚さ                             µm         12.5`\n`  接着剤厚さ                               µm          25`\n`  誘電率                カバーレイ             -         2.95`\n`  (10GHz）             接着層              -         2.60`\n`  誘電正接               カバーレイ             -       0.0053`\n`  (10GHz)             接着層              -       0.0026`\n`  引きはがし強さ`\n`                                    N/cm         8.5`\n`  (1oz Cu引き,90°方向)`\n`  はんだ耐熱性                              ℃          300`\n→ **여섯 항목이 전부다.** `引張強さ`·`ヤング率`·`引張弾性率`·`曲げ弾性率`·`比熱`·`熱伝導率`·`比重`·`密度`·`ポアソン比` **전부 없다.**\n③ **영문판은 내용상 쌍둥이다** — `grep -icE 'tensile|elongation|modulus|density'` **0**. 자국어 전환의 이득이 0 인 사례다.\n④ 다른 계열도 같다 — C/CG/C90/C91/C92 커버레이는 `接着剤 弾性率 GPa`(접착층만) 하나뿐. 기계물성이 있는 건 **RT 계열 감광성 커버레이**(`弾性率 GPa 0.8/1.1`, `破断強度 MPa 19/23` — 용어가 `引張強さ`가 아니라 `破断強度`)와 **2층 CCL**(`引張り弾性率 GPa 5.5~6.5`)인데 **둘 다 C33 이 아니다.**\n⑤ **總合カタログ(총합 카탈로그)가 존재하지 않는다.** Arisawa 는 계열별 1쪽 시트만 낸다 — 이 배치가 표적으로 삼은 형식 자체가 이 벤더에는 없다.\n→ **이 칸은 유추로 채우면 안 된다.** 형제 계열(RT `破断強度 19~23 MPa`, 2층 CCL `引張り弾性率 5.5 GPa`)은 수지계와 구조가 달라 C33 의 값이 될 수 없다."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null
+  },
+  {
+   "material_id": 601,
+   "name": "Shengyi S1170 high-Tg (170 degC) epoxy glass copper clad laminate",
+   "core_absent_from_vendor_sheet": {
+    "mechanical.tensile_strength": "Shengyi 문서를 다 열었다 — 데이터시트(S1000-2M: CN-TDS-2308-04 · S1170G: CN-TDS-1810-02 및 2017-08 웹표 xlsx · S7439: S-USA-S7439rv1)와 MSDS(9항). 데이터시트의 GENERAL PROPERTIES 는 Tg·Td·T288/T260·Thermal Stress·CTE(Z, α1/α2, 50-260 %)·Dk/Df·체적/표면저항·Arc·Dielectric Breakdown·박리강도·굽힘강도·흡수율·난연·할로겐뿐이고, MSDS 9항은 외관·상태·냄새·비중·수용성 다섯 줄뿐이다. **영률·포아송비·비열·인장강도는 어느 문서에도 없다.**\n\n**[74차 JC — 69차 EB 의 판정문을 제자리로 옮겨 붙였다]** 아래는 이 재료의 `attributes` 최상위에 `key`/`verdict`/`reason` **세 낱칸으로 흩어져 있던** 판정문이다. 브리프 §4 의 예시 서식 `{\"material_id\":…, \"key\":…, \"verdict\":…, \"reason\":…}` 을 그대로 제출하면 `apply_core_verdicts.py` 가 `key`·`verdict`·`reason`·`source_url` 을 **각각 재료 속성 이름으로** 쓴다 (그 도구가 기대하는 것은 `{\"<판정키>\": {\"<물성키>\": \"<사유>\"}}` 다). 이 사고로 106개 재료가 그 낱칸을 달고 있었고 그중 69개가 두산이다(인장강도 46 · 비열 23). 두산 69건은 다행히 제대로 된 자리에도 판정이 따로 있어 집계는 멀쩡했지만, **그 자리에만 있던 20칸은 집계가 못 봤다**(§593). 아래 본문을 잃지 않도록 여기 합친다.\n\n**[69차 EB — 중국어 사이트를 열었고, 중국어 총합 카탈로그는 존재하지 않는다]**\n브리프의 가설은 「生益科技가 자국 설계자용 覆铜板综合样本을 낸다」였다. 실제로 열어 **틀렸음을 확정했다.**\n① **도메인부터 함정이다.** `www.shengyi.com`·`www.sytech.com.cn`·`www.shengyi.com.cn` 은 셋 다 HTTP 200 이지만 **도메인 매매·광고 파킹 페이지**다(`精品域名：sytech.com.cn可出售！` / `is For Sale`). 진짜 벤더 사이트는 **`www.syst.com.cn`**(`<title>生益科技`).\n② 그 사이트의 10개 제품 카테고리를 페이지네이션까지 돌아 **109 제품 전수** 열거하고 제품별 다운로드 목록을 받았다.\n③ **중국 사이트가 내주는 'TDS' 는 영문 문서다.** `Shengyi_S1000-2M_TDS_zh.pdf` 는 코퍼스에 이미 있던 `CN-TDS-2308-04` 와 **md5 동일**(ed89ff95…).\n④ `综合样本`·`产品手册`·`技术资料集` 에 해당하는 문서 구역이 없다. `Line up` 시트는 두께·ply-up·Dk/Df 뿐이고 `加工指南`(processing guide)은 보관·드릴·적층 파라미터뿐이다.\nverbatim (S1170G, 로컬 /data/paper_patent_corpus/standards_appnotes/pcb/Shengyi_S1170G_TDS_zh.pdf):\n`      Flexural Strength (LW/CW)                IPC-TM-650 2.4.4                      A                    Mpa            550/450`\nS1000-2M: `Flexural Strength (LW/CW) … Mpa 567/442`. **S7439·S7439G 는 기계물성 행이 하나도 없다.** S7439GS(2025)에 하나 있으나 `Storage Modulus IPC-TM-650 2.4.24.4 DMA GPa 24` 로 **DMA 저장탄성률이지 영률이 아니다.**\n`比热容`·`泊松比`·`密度` — 109 제품 전수에서 **0 hit**.\n**벤더가 이 물성을 안 재는 것은 아니다** — `SCGA-500/GF255`(`Tensile Modulus(LW/CW) IPC-TM-650 2.4.4 A GPa 1.2/7.8`, `Tensile Strength 64/214 MPa`, `Density ASTM D792 g/cm3 2.25`), `S7136H`(`Tensile Modulus ASTM D638 A GPa 16.1/18.5`, `Tensile Strength 175/245 MPa`), `LNB33`(`15.6/19.7 GPa`, `112/143 MPa`), `SI10US`(`Young's modulus 50℃ 26 GPa / 200℃ 23 GPa`)는 인장 물성을 찍는다. **이 등급 시트에 안 싣는 것이다.**\n**주의** — 이 사이트에 `S1170`(G 없는 것)은 **존재하지 않는다**(`S1170G` 11회, 맨 `S1170` 0회)."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 1370,
+   "name": "Victrex PES 200P/300P, unreinforced polyethersulphone (ICI, Thompson 1983)",
+   "core_absent_from_vendor_sheet": {
+    "mechanical.youngs_modulus": "[V5 → V2 · 브리프 127·613·615] 세 등급의 유일한 출처는 Thompson 1983 `Polyethersulphone — A Thermoplastic PCB Substrate`(10.1108/eb043698) 한 편이고, 58차 TD 가 전문(31.8 KB)에 낱말 검색을 걸었다 — **`Poisson` 0건 · `specific heat` 0건**, `thermal conduct` 1건은 본문의 '증가시킬 수 있다' 라는 서술이지 값이 아니다. 논문이 인쇄하는 표는 다섯이다 — Table 1 일반물성(비중·굴절률·성형수축·유리함량) · Table 2 기계물성 · Table 3 열물성 · Table 4 난연 · Table 5 전기물성. **Table 2 의 강성축은 굴곡탄성률(ASTM D790)뿐이고 인장탄성률 행이 없다** — 브리프 613 의 '강성축이 시트마다 다른 양으로 인쇄된다' 가 그대로 재현된다. Table 3 은 HDT·Vicat·CTE·UL746 온도지수만 담고 열전도율·비열 행이 없다. **벤더 문서 층도 닫혀 있다** — `Victrex 200P/300P/420P/430P` 는 ICI 의 PES 등급명인데 Victrex 사는 현재 PEEK 전업이고 PES 사업은 다른 회사로 넘어가 등급 코드가 바뀌었다. 이름이 비슷한 후속 등급의 값을 옮기는 것은 브리프 586·22 위반이라 하지 않았다. 브리프 609 의 '열 시트가 존재하지 않는다' 에 가까운 자리인데 집계가 읽는 칸이 아직 없어 V2 에 적고 사유에 그 차이를 못박는다(57차 SA 와 같은 처리). — 58차 TD\n\n**[74차 JC — 69차 EB 의 판정문을 제자리로 옮겨 붙였다]** 아래는 이 재료의 `attributes` 최상위에 `key`/`verdict`/`reason` **세 낱칸으로 흩어져 있던** 판정문이다. 브리프 §4 의 예시 서식 `{\"material_id\":…, \"key\":…, \"verdict\":…, \"reason\":…}` 을 그대로 제출하면 `apply_core_verdicts.py` 가 `key`·`verdict`·`reason`·`source_url` 을 **각각 재료 속성 이름으로** 쓴다 (그 도구가 기대하는 것은 `{\"<판정키>\": {\"<물성키>\": \"<사유>\"}}` 다). 이 사고로 106개 재료가 그 낱칸을 달고 있었고 그중 69개가 두산이다(인장강도 46 · 비열 23). 두산 69건은 다행히 제대로 된 자리에도 판정이 따로 있어 집계는 멀쩡했지만, **그 자리에만 있던 20칸은 집계가 못 봤다**(§593). 아래 본문을 잃지 않도록 여기 합친다.\n\n**[68차 DC — 원출처를 내 손으로 다시 폈다. 기존 판정이 맞는다]**\nThompson 1983 의 표 다섯 장을 구조화 추출본에서 전부 폈다(로컬 /data/paper_patent_corpus/structured/elec_papers/pcb_03_embedded_component/Thompson - 1983 - Polyethersulphone—A Thermoplastic PCB Substrate/tables/). `Table 2 Mechanical Properties` 의 행은 **Tensile strength at 20/150/180 °C · Elongation at break · Flexural strength · Flexural modulus at 20/150/180 °C · Izod · Rockwell · Taber** 여덟이다 — **강성축이 `Flexural modulus (ASTM D790)` 하나뿐이고 인장탄성률 행이 없다.** 인장 갈래는 강도와 연신만 찍는다. 기존 판정 그대로다.\n\n**[68차 DC — ICI/Victrex 원자료 쪽으로 문 일곱을 새로 열었다. 모두 이 등급코드가 없다]**\n① Victrex, `Comparison of PEEK, PPS, and PES Polymers Injection Moulded Grades`(victrex.com 공식) — `Tensile Modulus (ISO 527) ~2.65 GPa` 를 찍지만 **`PES (unfilled)` 라는 계열 이름뿐이고 등급코드가 한 번도 안 나온다.**\n② Victrex `Materials Properties Guide` — PES 는 비교차트에만 나오고 PES 데이터시트 절 자체가 없다.\n③ Sumitomo Chemical `SUMIKAEXCEL PES Technical Notes`(35쪽) — 등급코드가 **3600P/4100P/4800P/5200P** 계열이고 200P/300P/420P/430P 행도, ICI 코드 대응표도 없다.\n④ NASA CR `Development of fire resistant, nontoxic aircraft interior materials`(NTRS 19770007262) — `Polyethersulfone 200P (PES 200P), Batch No. 7172/60, ICI` 로 **이 등급을 이름으로 부르지만** TGA·성형개시 데이터만 찍고 탄성률이 없다.\n⑤ 高分子論文集 49(1) 7 (1992) — `ICI社製, Victrex PES 300P` 를 쓰지만 연신 블렌드의 인장강도·파단연신만 낸다.\n⑥ 高分子論文集 50(8) 605 (1993) · 51(2) 99 (1994) — 인장탄성률(~2.9 GPa)을 내지만 쓴 재료가 **Victrex PES 4800P** 로 표적 등급이 아니다.\n⑦ MatWeb·Victrex 웹 목록 — PES 계열값뿐이고 Victrex 등급 항목이 없다.\n\n**열지 못한 곳(다음 배치의 표적)** — (가) Searle & Pfeiffer, `Victrex poly(ethersulfone) (PES) and Victrex poly(etheretherketone) (PEEK)`, Polym. Eng. Sci. 25(8):474-476 (1985), **ICI Americas 저자** — 유료장벽. **ICI 자신이 쓴 등급표가 실릴 가장 유력한 후보다.** doi 10.1002/pen.760250808. (나) 원 브로슈어 `Victrex, Polyethersulphone, the High Temperature Resistant Technical Thermoplast`, Imperial Chemical Industries Ltd., 1979 — 특허 인용문에는 나오는데 온라인에 없다. (다) matmatch.com 의 `Poly(ether sulfone), 30% Glass Fiber Reinforced (PES-GF30)` 페이지가 **`Victrex 430P` 를 상품명으로 열거**한다 — 다만 그 페이지 값은 PES-GF30 계열값이라 열어도 t3 다. 이 환경에서는 DNS 가 막혀 못 열었다.\n\n**[68차 DC — 굽힘값으로 메우지 않은 이유]** 이 논문이 주는 굽힘탄성률(200P/300P 2.6 GPa · 420P 5.9 · 430P 8.2~8.4 @20~150 °C)을 영률 칸에 옮기지 않았다. 유리충전 사출 열가소성은 스킨-코어 섬유배향 때문에 굽힘탄성률이 인장탄성률을 웃도는 것이 보통이고(420P·430P), 그 차이가 등급마다 달라 예측이 안 된다. 무충전 200P/300P 는 굽힘 2.6 GPa 가 Victrex 공식 계열값 `Tensile Modulus (ISO 527) ~2.65 GPa` 와 우연히 가깝지만, **그 2.65 는 등급이 아니라 계열값이라 t3 이고 이 등급의 인쇄값이 아니다.** 빈칸을 지켰다.\n"
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 1371,
+   "name": "Victrex PES 420P, 20% glass-reinforced polyethersulphone (ICI, Thompson 1983)",
+   "core_absent_from_vendor_sheet": {
+    "mechanical.youngs_modulus": "[V5 → V2 · 브리프 127·613·615] 세 등급의 유일한 출처는 Thompson 1983 `Polyethersulphone — A Thermoplastic PCB Substrate`(10.1108/eb043698) 한 편이고, 58차 TD 가 전문(31.8 KB)에 낱말 검색을 걸었다 — **`Poisson` 0건 · `specific heat` 0건**, `thermal conduct` 1건은 본문의 '증가시킬 수 있다' 라는 서술이지 값이 아니다. 논문이 인쇄하는 표는 다섯이다 — Table 1 일반물성(비중·굴절률·성형수축·유리함량) · Table 2 기계물성 · Table 3 열물성 · Table 4 난연 · Table 5 전기물성. **Table 2 의 강성축은 굴곡탄성률(ASTM D790)뿐이고 인장탄성률 행이 없다** — 브리프 613 의 '강성축이 시트마다 다른 양으로 인쇄된다' 가 그대로 재현된다. Table 3 은 HDT·Vicat·CTE·UL746 온도지수만 담고 열전도율·비열 행이 없다. **벤더 문서 층도 닫혀 있다** — `Victrex 200P/300P/420P/430P` 는 ICI 의 PES 등급명인데 Victrex 사는 현재 PEEK 전업이고 PES 사업은 다른 회사로 넘어가 등급 코드가 바뀌었다. 이름이 비슷한 후속 등급의 값을 옮기는 것은 브리프 586·22 위반이라 하지 않았다. 브리프 609 의 '열 시트가 존재하지 않는다' 에 가까운 자리인데 집계가 읽는 칸이 아직 없어 V2 에 적고 사유에 그 차이를 못박는다(57차 SA 와 같은 처리). — 58차 TD\n\n**[74차 JC — 69차 EB 의 판정문을 제자리로 옮겨 붙였다]** 아래는 이 재료의 `attributes` 최상위에 `key`/`verdict`/`reason` **세 낱칸으로 흩어져 있던** 판정문이다. 브리프 §4 의 예시 서식 `{\"material_id\":…, \"key\":…, \"verdict\":…, \"reason\":…}` 을 그대로 제출하면 `apply_core_verdicts.py` 가 `key`·`verdict`·`reason`·`source_url` 을 **각각 재료 속성 이름으로** 쓴다 (그 도구가 기대하는 것은 `{\"<판정키>\": {\"<물성키>\": \"<사유>\"}}` 다). 이 사고로 106개 재료가 그 낱칸을 달고 있었고 그중 69개가 두산이다(인장강도 46 · 비열 23). 두산 69건은 다행히 제대로 된 자리에도 판정이 따로 있어 집계는 멀쩡했지만, **그 자리에만 있던 20칸은 집계가 못 봤다**(§593). 아래 본문을 잃지 않도록 여기 합친다.\n\n**[68차 DC — 원출처를 내 손으로 다시 폈다. 기존 판정이 맞는다]**\nThompson 1983 의 표 다섯 장을 구조화 추출본에서 전부 폈다(로컬 /data/paper_patent_corpus/structured/elec_papers/pcb_03_embedded_component/Thompson - 1983 - Polyethersulphone—A Thermoplastic PCB Substrate/tables/). `Table 2 Mechanical Properties` 의 행은 **Tensile strength at 20/150/180 °C · Elongation at break · Flexural strength · Flexural modulus at 20/150/180 °C · Izod · Rockwell · Taber** 여덟이다 — **강성축이 `Flexural modulus (ASTM D790)` 하나뿐이고 인장탄성률 행이 없다.** 인장 갈래는 강도와 연신만 찍는다. 기존 판정 그대로다.\n\n**[68차 DC — ICI/Victrex 원자료 쪽으로 문 일곱을 새로 열었다. 모두 이 등급코드가 없다]**\n① Victrex, `Comparison of PEEK, PPS, and PES Polymers Injection Moulded Grades`(victrex.com 공식) — `Tensile Modulus (ISO 527) ~2.65 GPa` 를 찍지만 **`PES (unfilled)` 라는 계열 이름뿐이고 등급코드가 한 번도 안 나온다.**\n② Victrex `Materials Properties Guide` — PES 는 비교차트에만 나오고 PES 데이터시트 절 자체가 없다.\n③ Sumitomo Chemical `SUMIKAEXCEL PES Technical Notes`(35쪽) — 등급코드가 **3600P/4100P/4800P/5200P** 계열이고 200P/300P/420P/430P 행도, ICI 코드 대응표도 없다.\n④ NASA CR `Development of fire resistant, nontoxic aircraft interior materials`(NTRS 19770007262) — `Polyethersulfone 200P (PES 200P), Batch No. 7172/60, ICI` 로 **이 등급을 이름으로 부르지만** TGA·성형개시 데이터만 찍고 탄성률이 없다.\n⑤ 高分子論文集 49(1) 7 (1992) — `ICI社製, Victrex PES 300P` 를 쓰지만 연신 블렌드의 인장강도·파단연신만 낸다.\n⑥ 高分子論文集 50(8) 605 (1993) · 51(2) 99 (1994) — 인장탄성률(~2.9 GPa)을 내지만 쓴 재료가 **Victrex PES 4800P** 로 표적 등급이 아니다.\n⑦ MatWeb·Victrex 웹 목록 — PES 계열값뿐이고 Victrex 등급 항목이 없다.\n\n**열지 못한 곳(다음 배치의 표적)** — (가) Searle & Pfeiffer, `Victrex poly(ethersulfone) (PES) and Victrex poly(etheretherketone) (PEEK)`, Polym. Eng. Sci. 25(8):474-476 (1985), **ICI Americas 저자** — 유료장벽. **ICI 자신이 쓴 등급표가 실릴 가장 유력한 후보다.** doi 10.1002/pen.760250808. (나) 원 브로슈어 `Victrex, Polyethersulphone, the High Temperature Resistant Technical Thermoplast`, Imperial Chemical Industries Ltd., 1979 — 특허 인용문에는 나오는데 온라인에 없다. (다) matmatch.com 의 `Poly(ether sulfone), 30% Glass Fiber Reinforced (PES-GF30)` 페이지가 **`Victrex 430P` 를 상품명으로 열거**한다 — 다만 그 페이지 값은 PES-GF30 계열값이라 열어도 t3 다. 이 환경에서는 DNS 가 막혀 못 열었다.\n\n**[68차 DC — 굽힘값으로 메우지 않은 이유]** 이 논문이 주는 굽힘탄성률(200P/300P 2.6 GPa · 420P 5.9 · 430P 8.2~8.4 @20~150 °C)을 영률 칸에 옮기지 않았다. 유리충전 사출 열가소성은 스킨-코어 섬유배향 때문에 굽힘탄성률이 인장탄성률을 웃도는 것이 보통이고(420P·430P), 그 차이가 등급마다 달라 예측이 안 된다. 무충전 200P/300P 는 굽힘 2.6 GPa 가 Victrex 공식 계열값 `Tensile Modulus (ISO 527) ~2.65 GPa` 와 우연히 가깝지만, **그 2.65 는 등급이 아니라 계열값이라 t3 이고 이 등급의 인쇄값이 아니다.** 빈칸을 지켰다.\n"
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 1372,
+   "name": "Victrex PES 430P, 30% glass-reinforced polyethersulphone (ICI, Thompson 1983)",
+   "core_absent_from_vendor_sheet": {
+    "mechanical.youngs_modulus": "[V5 → V2 · 브리프 127·613·615] 세 등급의 유일한 출처는 Thompson 1983 `Polyethersulphone — A Thermoplastic PCB Substrate`(10.1108/eb043698) 한 편이고, 58차 TD 가 전문(31.8 KB)에 낱말 검색을 걸었다 — **`Poisson` 0건 · `specific heat` 0건**, `thermal conduct` 1건은 본문의 '증가시킬 수 있다' 라는 서술이지 값이 아니다. 논문이 인쇄하는 표는 다섯이다 — Table 1 일반물성(비중·굴절률·성형수축·유리함량) · Table 2 기계물성 · Table 3 열물성 · Table 4 난연 · Table 5 전기물성. **Table 2 의 강성축은 굴곡탄성률(ASTM D790)뿐이고 인장탄성률 행이 없다** — 브리프 613 의 '강성축이 시트마다 다른 양으로 인쇄된다' 가 그대로 재현된다. Table 3 은 HDT·Vicat·CTE·UL746 온도지수만 담고 열전도율·비열 행이 없다. **벤더 문서 층도 닫혀 있다** — `Victrex 200P/300P/420P/430P` 는 ICI 의 PES 등급명인데 Victrex 사는 현재 PEEK 전업이고 PES 사업은 다른 회사로 넘어가 등급 코드가 바뀌었다. 이름이 비슷한 후속 등급의 값을 옮기는 것은 브리프 586·22 위반이라 하지 않았다. 브리프 609 의 '열 시트가 존재하지 않는다' 에 가까운 자리인데 집계가 읽는 칸이 아직 없어 V2 에 적고 사유에 그 차이를 못박는다(57차 SA 와 같은 처리). — 58차 TD\n\n**[74차 JC — 69차 EB 의 판정문을 제자리로 옮겨 붙였다]** 아래는 이 재료의 `attributes` 최상위에 `key`/`verdict`/`reason` **세 낱칸으로 흩어져 있던** 판정문이다. 브리프 §4 의 예시 서식 `{\"material_id\":…, \"key\":…, \"verdict\":…, \"reason\":…}` 을 그대로 제출하면 `apply_core_verdicts.py` 가 `key`·`verdict`·`reason`·`source_url` 을 **각각 재료 속성 이름으로** 쓴다 (그 도구가 기대하는 것은 `{\"<판정키>\": {\"<물성키>\": \"<사유>\"}}` 다). 이 사고로 106개 재료가 그 낱칸을 달고 있었고 그중 69개가 두산이다(인장강도 46 · 비열 23). 두산 69건은 다행히 제대로 된 자리에도 판정이 따로 있어 집계는 멀쩡했지만, **그 자리에만 있던 20칸은 집계가 못 봤다**(§593). 아래 본문을 잃지 않도록 여기 합친다.\n\n**[68차 DC — 원출처를 내 손으로 다시 폈다. 기존 판정이 맞는다]**\nThompson 1983 의 표 다섯 장을 구조화 추출본에서 전부 폈다(로컬 /data/paper_patent_corpus/structured/elec_papers/pcb_03_embedded_component/Thompson - 1983 - Polyethersulphone—A Thermoplastic PCB Substrate/tables/). `Table 2 Mechanical Properties` 의 행은 **Tensile strength at 20/150/180 °C · Elongation at break · Flexural strength · Flexural modulus at 20/150/180 °C · Izod · Rockwell · Taber** 여덟이다 — **강성축이 `Flexural modulus (ASTM D790)` 하나뿐이고 인장탄성률 행이 없다.** 인장 갈래는 강도와 연신만 찍는다. 기존 판정 그대로다.\n\n**[68차 DC — ICI/Victrex 원자료 쪽으로 문 일곱을 새로 열었다. 모두 이 등급코드가 없다]**\n① Victrex, `Comparison of PEEK, PPS, and PES Polymers Injection Moulded Grades`(victrex.com 공식) — `Tensile Modulus (ISO 527) ~2.65 GPa` 를 찍지만 **`PES (unfilled)` 라는 계열 이름뿐이고 등급코드가 한 번도 안 나온다.**\n② Victrex `Materials Properties Guide` — PES 는 비교차트에만 나오고 PES 데이터시트 절 자체가 없다.\n③ Sumitomo Chemical `SUMIKAEXCEL PES Technical Notes`(35쪽) — 등급코드가 **3600P/4100P/4800P/5200P** 계열이고 200P/300P/420P/430P 행도, ICI 코드 대응표도 없다.\n④ NASA CR `Development of fire resistant, nontoxic aircraft interior materials`(NTRS 19770007262) — `Polyethersulfone 200P (PES 200P), Batch No. 7172/60, ICI` 로 **이 등급을 이름으로 부르지만** TGA·성형개시 데이터만 찍고 탄성률이 없다.\n⑤ 高分子論文集 49(1) 7 (1992) — `ICI社製, Victrex PES 300P` 를 쓰지만 연신 블렌드의 인장강도·파단연신만 낸다.\n⑥ 高分子論文集 50(8) 605 (1993) · 51(2) 99 (1994) — 인장탄성률(~2.9 GPa)을 내지만 쓴 재료가 **Victrex PES 4800P** 로 표적 등급이 아니다.\n⑦ MatWeb·Victrex 웹 목록 — PES 계열값뿐이고 Victrex 등급 항목이 없다.\n\n**열지 못한 곳(다음 배치의 표적)** — (가) Searle & Pfeiffer, `Victrex poly(ethersulfone) (PES) and Victrex poly(etheretherketone) (PEEK)`, Polym. Eng. Sci. 25(8):474-476 (1985), **ICI Americas 저자** — 유료장벽. **ICI 자신이 쓴 등급표가 실릴 가장 유력한 후보다.** doi 10.1002/pen.760250808. (나) 원 브로슈어 `Victrex, Polyethersulphone, the High Temperature Resistant Technical Thermoplast`, Imperial Chemical Industries Ltd., 1979 — 특허 인용문에는 나오는데 온라인에 없다. (다) matmatch.com 의 `Poly(ether sulfone), 30% Glass Fiber Reinforced (PES-GF30)` 페이지가 **`Victrex 430P` 를 상품명으로 열거**한다 — 다만 그 페이지 값은 PES-GF30 계열값이라 열어도 t3 다. 이 환경에서는 DNS 가 막혀 못 열었다.\n\n**[68차 DC — 굽힘값으로 메우지 않은 이유]** 이 논문이 주는 굽힘탄성률(200P/300P 2.6 GPa · 420P 5.9 · 430P 8.2~8.4 @20~150 °C)을 영률 칸에 옮기지 않았다. 유리충전 사출 열가소성은 스킨-코어 섬유배향 때문에 굽힘탄성률이 인장탄성률을 웃도는 것이 보통이고(420P·430P), 그 차이가 등급마다 달라 예측이 안 된다. 무충전 200P/300P 는 굽힘 2.6 GPa 가 Victrex 공식 계열값 `Tensile Modulus (ISO 527) ~2.65 GPa` 와 우연히 가깝지만, **그 2.65 는 등급이 아니라 계열값이라 t3 이고 이 등급의 인쇄값이 아니다.** 빈칸을 지켰다.\n"
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 2378,
+   "name": "GPO-3 glass-mat polyester laminate, Rochling Glastic UTR grade (part 1491-1494-1497, NEMA GPO-3-GPO-3P, IEC UP GM 203)",
+   "core_absent_from_vendor_sheet": {
+    "interface.lap_shear_strength": "Röchling `Glastic UTR` TDS(Version 5.0, 2023-12-15)를 내려받아 전부 열었다. Mechanical properties 에 Flexural Strength(+130 degC) · Compressive Strength · Tensile Strength · Tensile Modulus · IZOD Impact · **Shear Strength ASTM D732 11,600 psi** 가 있는데 **이 전단강도는 접착 물성이 아니다** — ASTM D732 는 펀치 툴로 판재를 뚫는 **소재 자체의 전단**이고, `interface.lap_shear_strength` 는 두 피착재 사이 접착층의 중첩전단이다. 낱말이 같다고 옮기면 범주 오류가 된다. 시트에 박리·중첩전단·다이쉬어 행은 없다. GPO-3 유리매트 폴리에스터 판재는 접착제품이 아니라 절연 구조판재라 접착이 판매 스펙이 아니다."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 2433,
+   "name": "Elite Material EM-370(Z) / EM-37B(Z) High-Tg Halogen-Free Laminate",
+   "core_absent_from_vendor_sheet": {
+    "mechanical.tensile_strength": "Elite Material 데이터시트(Rev. 2024 July) 전문을 열었다 — EM-370(Z)/EM-370(5)/EM-890/EM-888/EM-891 다섯 장이 모두 'Basic Laminate Property' 표 한 장이고 행은 Tg(DSC/TMA/DMA)·CTE(X/Y·Z·총팽창)·Td·T288·열전도율(ASTM D5470)·Dk/Df(1·10 GHz)·체적/표면저항·Electric Strength·Dielectric Breakdown·흡수율·박리강도·굽힘강도(Warp/Fill)·난연뿐이다. 밀도·영률·포아송비·비열·인장강도는 **행 자체가 없다**. emctw.com 은 SDS 구역(/en-global/sds/index)을 갖고 있으나 회원 로그인 뒤에 있어(member/signin 으로 튕긴다) 공개 조달이 안 된다 — 형제 벤더(Nan Ya·Shengyi·ITEQ)는 SDS 9항에 비중을 찍으므로 **Elite 의 밀도는 '벤더가 안 찍는다' 가 아니라 '로그인 뒤에 있다' 다.** 계정이 생기면 다시 열어라.\n\n**[74차 JC — 69차 EB 의 판정문을 제자리로 옮겨 붙였다]** 아래는 이 재료의 `attributes` 최상위에 `key`/`verdict`/`reason` **세 낱칸으로 흩어져 있던** 판정문이다. 브리프 §4 의 예시 서식 `{\"material_id\":…, \"key\":…, \"verdict\":…, \"reason\":…}` 을 그대로 제출하면 `apply_core_verdicts.py` 가 `key`·`verdict`·`reason`·`source_url` 을 **각각 재료 속성 이름으로** 쓴다 (그 도구가 기대하는 것은 `{\"<판정키>\": {\"<물성키>\": \"<사유>\"}}` 다). 이 사고로 106개 재료가 그 낱칸을 달고 있었고 그중 69개가 두산이다(인장강도 46 · 비열 23). 두산 69건은 다행히 제대로 된 자리에도 판정이 따로 있어 집계는 멀쩡했지만, **그 자리에만 있던 20칸은 집계가 못 봤다**(§593). 아래 본문을 잃지 않도록 여기 합친다.\n\n**[69차 EB — 자국어(번체·간체) 로케일을 열었고, 그 문은 존재하지 않는다]**\n브리프의 가설은 「台光電子가 자국 설계자용 產品型錄을 따로 낸다」였다. 실제로 열어 그 가설이 **틀렸음을 확정했다.**\n① `https://www.emctw.com/zh-TW/product_name/index` · `/zh-CN/product_name/index` · `/en-global/product_name/index` 세 로케일의 PDF 링크 목록을 각각 뽑아 diff 했다 — **43장으로 개수가 같고 파일이 완전히 동일하다.** 중국어 페이지가 영문 데이터시트를 그대로 서빙한다.\n② zh-TW 제품 페이지 HTML 에 `彈性模數`·`拉伸模數`·`比熱`·`導熱係數`·`拉伸強度`·`密度`·`泊松比` **0 hit**(`下載` 3회뿐). 물성 표가 아니라 목록 표다.\n③ `for_customers`·`leading_technology`·`mass_lam_service`·`about_production`·`presentation_materials` 전수 — **產品型錄·技術資料 다운로드 구역이 없다.** presentation_materials 는 투자자 설명회 자료뿐.\n④ 데이터시트 **43장 전수** 다운로드 후 grep. 이 등급 시트에서 `modulus|density|specific heat|poisson|tensile` **0 hit**.\nverbatim (EM-370(Z) 시트, Rev 2024 July, 로컬 /data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-370Z_EM-37BZ_Datasheet_20240716.pdf):\n`                  Thermal Conductivity                  0.58        W/m.K              -              ASTM D5470`\n`                     Flexural              Warp       570~630        MPa          As Received`\n`                    Strength                Fill      500~550        MPa          As Received`\n→ **이 벤더가 이 등급에 대해 인쇄하는 기계·열 물성 축은 열전도율(ASTM D5470)과 굽힘강도(IPC-TM-650 2.4.4) 둘뿐이다.**\n**다만 벤더가 이 물성을 아예 안 재는 것은 아니다** — 같은 서식의 `EM-526`·`EM-528`·`EM-528K`·`EM-A50`·`EM-S370(Z)`·`EM-S376`·`EM-S526`·`EM-S530`·`EM-S530K`·`EM-S570` 열한 등급은 `Flexural Modulus Warp/Fill GPa` 행을 찍는다(예 EM-526 `24~26 / 23~25 GPa`). **이 등급들만 안 찍는 것이다.** 그것도 굽힘이지 인장이 아니다."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 2434,
+   "name": "Elite Material EM-370(5) / EM-37B(5) Mid-Tg Halogen-Free Laminate",
+   "core_absent_from_vendor_sheet": {
+    "mechanical.tensile_strength": "Elite Material 데이터시트(Rev. 2024 July) 전문을 열었다 — EM-370(Z)/EM-370(5)/EM-890/EM-888/EM-891 다섯 장이 모두 'Basic Laminate Property' 표 한 장이고 행은 Tg(DSC/TMA/DMA)·CTE(X/Y·Z·총팽창)·Td·T288·열전도율(ASTM D5470)·Dk/Df(1·10 GHz)·체적/표면저항·Electric Strength·Dielectric Breakdown·흡수율·박리강도·굽힘강도(Warp/Fill)·난연뿐이다. 밀도·영률·포아송비·비열·인장강도는 **행 자체가 없다**. emctw.com 은 SDS 구역(/en-global/sds/index)을 갖고 있으나 회원 로그인 뒤에 있어(member/signin 으로 튕긴다) 공개 조달이 안 된다 — 형제 벤더(Nan Ya·Shengyi·ITEQ)는 SDS 9항에 비중을 찍으므로 **Elite 의 밀도는 '벤더가 안 찍는다' 가 아니라 '로그인 뒤에 있다' 다.** 계정이 생기면 다시 열어라.\n\n**[74차 JC — 69차 EB 의 판정문을 제자리로 옮겨 붙였다]** 아래는 이 재료의 `attributes` 최상위에 `key`/`verdict`/`reason` **세 낱칸으로 흩어져 있던** 판정문이다. 브리프 §4 의 예시 서식 `{\"material_id\":…, \"key\":…, \"verdict\":…, \"reason\":…}` 을 그대로 제출하면 `apply_core_verdicts.py` 가 `key`·`verdict`·`reason`·`source_url` 을 **각각 재료 속성 이름으로** 쓴다 (그 도구가 기대하는 것은 `{\"<판정키>\": {\"<물성키>\": \"<사유>\"}}` 다). 이 사고로 106개 재료가 그 낱칸을 달고 있었고 그중 69개가 두산이다(인장강도 46 · 비열 23). 두산 69건은 다행히 제대로 된 자리에도 판정이 따로 있어 집계는 멀쩡했지만, **그 자리에만 있던 20칸은 집계가 못 봤다**(§593). 아래 본문을 잃지 않도록 여기 합친다.\n\n**[69차 EB — 자국어(번체·간체) 로케일을 열었고, 그 문은 존재하지 않는다]**\n브리프의 가설은 「台光電子가 자국 설계자용 產品型錄을 따로 낸다」였다. 실제로 열어 그 가설이 **틀렸음을 확정했다.**\n① `https://www.emctw.com/zh-TW/product_name/index` · `/zh-CN/product_name/index` · `/en-global/product_name/index` 세 로케일의 PDF 링크 목록을 각각 뽑아 diff 했다 — **43장으로 개수가 같고 파일이 완전히 동일하다.** 중국어 페이지가 영문 데이터시트를 그대로 서빙한다.\n② zh-TW 제품 페이지 HTML 에 `彈性模數`·`拉伸模數`·`比熱`·`導熱係數`·`拉伸強度`·`密度`·`泊松比` **0 hit**(`下載` 3회뿐). 물성 표가 아니라 목록 표다.\n③ `for_customers`·`leading_technology`·`mass_lam_service`·`about_production`·`presentation_materials` 전수 — **產品型錄·技術資料 다운로드 구역이 없다.** presentation_materials 는 투자자 설명회 자료뿐.\n④ 데이터시트 **43장 전수** 다운로드 후 grep. 이 등급 시트에서 `modulus|density|specific heat|poisson|tensile` **0 hit**.\nverbatim (EM-370(Z) 시트, Rev 2024 July, 로컬 /data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-370Z_EM-37BZ_Datasheet_20240716.pdf):\n`                  Thermal Conductivity                  0.58        W/m.K              -              ASTM D5470`\n`                     Flexural              Warp       570~630        MPa          As Received`\n`                    Strength                Fill      500~550        MPa          As Received`\n→ **이 벤더가 이 등급에 대해 인쇄하는 기계·열 물성 축은 열전도율(ASTM D5470)과 굽힘강도(IPC-TM-650 2.4.4) 둘뿐이다.**\n**다만 벤더가 이 물성을 아예 안 재는 것은 아니다** — 같은 서식의 `EM-526`·`EM-528`·`EM-528K`·`EM-A50`·`EM-S370(Z)`·`EM-S376`·`EM-S526`·`EM-S530`·`EM-S530K`·`EM-S570` 열한 등급은 `Flexural Modulus Warp/Fill GPa` 행을 찍는다(예 EM-526 `24~26 / 23~25 GPa`). **이 등급들만 안 찍는 것이다.** 그것도 굽힘이지 인장이 아니다."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 2435,
+   "name": "Elite Material EM-890 / EM-89B High-Tg Ultra-Low-Loss Halogen-Free Laminate",
+   "core_absent_from_vendor_sheet": {
+    "mechanical.tensile_strength": "Elite Material 데이터시트(Rev. 2024 July) 전문을 열었다 — EM-370(Z)/EM-370(5)/EM-890/EM-888/EM-891 다섯 장이 모두 'Basic Laminate Property' 표 한 장이고 행은 Tg(DSC/TMA/DMA)·CTE(X/Y·Z·총팽창)·Td·T288·열전도율(ASTM D5470)·Dk/Df(1·10 GHz)·체적/표면저항·Electric Strength·Dielectric Breakdown·흡수율·박리강도·굽힘강도(Warp/Fill)·난연뿐이다. 밀도·영률·포아송비·비열·인장강도는 **행 자체가 없다**. emctw.com 은 SDS 구역(/en-global/sds/index)을 갖고 있으나 회원 로그인 뒤에 있어(member/signin 으로 튕긴다) 공개 조달이 안 된다 — 형제 벤더(Nan Ya·Shengyi·ITEQ)는 SDS 9항에 비중을 찍으므로 **Elite 의 밀도는 '벤더가 안 찍는다' 가 아니라 '로그인 뒤에 있다' 다.** 계정이 생기면 다시 열어라.\n\n**[74차 JC — 69차 EB 의 판정문을 제자리로 옮겨 붙였다]** 아래는 이 재료의 `attributes` 최상위에 `key`/`verdict`/`reason` **세 낱칸으로 흩어져 있던** 판정문이다. 브리프 §4 의 예시 서식 `{\"material_id\":…, \"key\":…, \"verdict\":…, \"reason\":…}` 을 그대로 제출하면 `apply_core_verdicts.py` 가 `key`·`verdict`·`reason`·`source_url` 을 **각각 재료 속성 이름으로** 쓴다 (그 도구가 기대하는 것은 `{\"<판정키>\": {\"<물성키>\": \"<사유>\"}}` 다). 이 사고로 106개 재료가 그 낱칸을 달고 있었고 그중 69개가 두산이다(인장강도 46 · 비열 23). 두산 69건은 다행히 제대로 된 자리에도 판정이 따로 있어 집계는 멀쩡했지만, **그 자리에만 있던 20칸은 집계가 못 봤다**(§593). 아래 본문을 잃지 않도록 여기 합친다.\n\n**[69차 EB — 자국어(번체·간체) 로케일을 열었고, 그 문은 존재하지 않는다]**\n브리프의 가설은 「台光電子가 자국 설계자용 產品型錄을 따로 낸다」였다. 실제로 열어 그 가설이 **틀렸음을 확정했다.**\n① `https://www.emctw.com/zh-TW/product_name/index` · `/zh-CN/product_name/index` · `/en-global/product_name/index` 세 로케일의 PDF 링크 목록을 각각 뽑아 diff 했다 — **43장으로 개수가 같고 파일이 완전히 동일하다.** 중국어 페이지가 영문 데이터시트를 그대로 서빙한다.\n② zh-TW 제품 페이지 HTML 에 `彈性模數`·`拉伸模數`·`比熱`·`導熱係數`·`拉伸強度`·`密度`·`泊松比` **0 hit**(`下載` 3회뿐). 물성 표가 아니라 목록 표다.\n③ `for_customers`·`leading_technology`·`mass_lam_service`·`about_production`·`presentation_materials` 전수 — **產品型錄·技術資料 다운로드 구역이 없다.** presentation_materials 는 투자자 설명회 자료뿐.\n④ 데이터시트 **43장 전수** 다운로드 후 grep. 이 등급 시트에서 `modulus|density|specific heat|poisson|tensile` **0 hit**.\nverbatim (EM-370(Z) 시트, Rev 2024 July, 로컬 /data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-370Z_EM-37BZ_Datasheet_20240716.pdf):\n`                  Thermal Conductivity                  0.58        W/m.K              -              ASTM D5470`\n`                     Flexural              Warp       570~630        MPa          As Received`\n`                    Strength                Fill      500~550        MPa          As Received`\n→ **이 벤더가 이 등급에 대해 인쇄하는 기계·열 물성 축은 열전도율(ASTM D5470)과 굽힘강도(IPC-TM-650 2.4.4) 둘뿐이다.**\n**다만 벤더가 이 물성을 아예 안 재는 것은 아니다** — 같은 서식의 `EM-526`·`EM-528`·`EM-528K`·`EM-A50`·`EM-S370(Z)`·`EM-S376`·`EM-S526`·`EM-S530`·`EM-S530K`·`EM-S570` 열한 등급은 `Flexural Modulus Warp/Fill GPa` 행을 찍는다(예 EM-526 `24~26 / 23~25 GPa`). **이 등급들만 안 찍는 것이다.** 그것도 굽힘이지 인장이 아니다."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 2440,
+   "name": "Nan Ya NP-175FR Dicy-Free Low-CTE FR-4 Copper Clad Laminate",
+   "core_absent_from_vendor_sheet": {
+    "mechanical.tensile_strength": "Nan Ya NP-175F 문서를 세 판 다 열었다 — 데이터시트 2008/03/01 발행·2014/04/30 개정판, 2025/10/27 개정판, 그리고 물질안전자료표(序號 16, 其他名稱 NP-175FTL/NP-175FR). PERFORMANCE LIST 는 체적/표면저항·Dk/Df(1 MHz·1 GHz)·Arc·Dielectric breakdown·흡수율·난연·박리강도·Thermal stress·Pressure cooker·**굽힘강도(LW/CW)**·치수안정성·CTE·Tg·T260/T288·Td 를 찍고, SDS 九항은 밀도만 찍는다. **영률·포아송비·비열·열전도율·인장강도는 세 판 어디에도 행이 없다** — 이 벤더의 강도축은 굽힘강도다(브리프 613).\n\n**[74차 JC — 69차 EB 의 판정문을 제자리로 옮겨 붙였다]** 아래는 이 재료의 `attributes` 최상위에 `key`/`verdict`/`reason` **세 낱칸으로 흩어져 있던** 판정문이다. 브리프 §4 의 예시 서식 `{\"material_id\":…, \"key\":…, \"verdict\":…, \"reason\":…}` 을 그대로 제출하면 `apply_core_verdicts.py` 가 `key`·`verdict`·`reason`·`source_url` 을 **각각 재료 속성 이름으로** 쓴다 (그 도구가 기대하는 것은 `{\"<판정키>\": {\"<물성키>\": \"<사유>\"}}` 다). 이 사고로 106개 재료가 그 낱칸을 달고 있었고 그중 69개가 두산이다(인장강도 46 · 비열 23). 두산 69건은 다행히 제대로 된 자리에도 판정이 따로 있어 집계는 멀쩡했지만, **그 자리에만 있던 20칸은 집계가 못 봤다**(§593). 아래 본문을 잃지 않도록 여기 합친다.\n\n**[69차 EB — 대만 자국어(번체) 유통 포털을 열었고, 거기서도 영문 IPC-4101 서식만 나온다]**\n브리프의 가설은 「南亞塑膠가 자국 설계자용 銅箔基板 產品型錄을 낸다」였다.\n① `www.npc.com.tw/j2npc/zhtw/index` 는 404 다. 대만 번체 유통 포털(cclqc)에서 Nan Ya CCL 시트 30여 장을 받았다 — `NP-140TL`·`NP-155F`·`NP-155FBH`·`NP-175F`·`NP-175FM`·`NP-175FBH`·`NP-530`·`NP-535B`·`NP-536(HC)`·`NP-730`·`NP-822`·`NP-826`·`NPG-150D/N`·`NPG-151`·`NPG-170D/DC/N`·`NPG-171`·`NPG-180BH/BK`·`NPG-182H`·`NPG-188H/U`·`NPG-190BH`·`NPG-199(K/HK)`·`NPG-200WT`·`NPG-210BK`·`NPG-220KBK`·`NPG-630`·`NPGN-150LKHD/PY`.\n② **그 시트들은 번체가 아니라 영문 IPC-4101 서식이다.** grep `彈性|模數|比熱|拉伸|密度|泊松|導熱|Modulus|Tensile|Specific|Density|Poisson|Conductivity` — 나오는 것은 `Specification: IPC-4101E is applicable` 한 줄뿐. **해당 물성 행이 없다.**\n③ 참고 — 이 재료의 현재 영률은 유럽 파트너 Technolam 이 낸 Datenblatt 의 `19. Other / weitere` 절에서 온 **t2**(68차 DC)다. **제조사 자신의 표는 아직 못 봤다.**\n④ **아직 안 연 문 하나** — `Nanya_CCL_ProductCatalog_2001-09_scanned_52p.pdf`(52쪽)를 받았으나 **텍스트층이 52자뿐인 스캔**이다. 이 배치는 렌더해 읽지 못했다. **이건 부재 근거가 아니다.**\n**열전도율·비열은 이 배치가 닫았다 — 부재판정에서 뺀다.** 제조사 시트에는 없지만 유럽 파트너 Technolam 의 `19. Other / weitere` 절이 찍는다(`Thermal Conductivity 0,53 ASTM-E-1461 / 0,46 ASTM-D-5470 W/mK`, `Specific Heat at 25 °C 0,91 J/g°C`). 68차 DC §5-2 가 넘긴 그 문서이고 **이미 코퍼스에 있었다**. t2 로 넣었다.\n**인장강도만 남는다** — Technolam §19 에도 인장강도 행은 없고, 제조사 시트의 기계축은 `Flexural strength LW/CW` 하나뿐이다. 굽힘강도로 대신 채우지 않았다."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null
+  },
+  {
+   "material_id": 2441,
+   "name": "Nan Ya NP-175FTL Low-Transmission-Loss FR-4 Copper Clad Laminate",
+   "core_absent_from_vendor_sheet": {
+    "mechanical.tensile_strength": "Nan Ya NP-175F 문서를 세 판 다 열었다 — 데이터시트 2008/03/01 발행·2014/04/30 개정판, 2025/10/27 개정판, 그리고 물질안전자료표(序號 16, 其他名稱 NP-175FTL/NP-175FR). PERFORMANCE LIST 는 체적/표면저항·Dk/Df(1 MHz·1 GHz)·Arc·Dielectric breakdown·흡수율·난연·박리강도·Thermal stress·Pressure cooker·**굽힘강도(LW/CW)**·치수안정성·CTE·Tg·T260/T288·Td 를 찍고, SDS 九항은 밀도만 찍는다. **영률·포아송비·비열·열전도율·인장강도는 세 판 어디에도 행이 없다** — 이 벤더의 강도축은 굽힘강도다(브리프 613).\n\n**[74차 JC — 69차 EB 의 판정문을 제자리로 옮겨 붙였다]** 아래는 이 재료의 `attributes` 최상위에 `key`/`verdict`/`reason` **세 낱칸으로 흩어져 있던** 판정문이다. 브리프 §4 의 예시 서식 `{\"material_id\":…, \"key\":…, \"verdict\":…, \"reason\":…}` 을 그대로 제출하면 `apply_core_verdicts.py` 가 `key`·`verdict`·`reason`·`source_url` 을 **각각 재료 속성 이름으로** 쓴다 (그 도구가 기대하는 것은 `{\"<판정키>\": {\"<물성키>\": \"<사유>\"}}` 다). 이 사고로 106개 재료가 그 낱칸을 달고 있었고 그중 69개가 두산이다(인장강도 46 · 비열 23). 두산 69건은 다행히 제대로 된 자리에도 판정이 따로 있어 집계는 멀쩡했지만, **그 자리에만 있던 20칸은 집계가 못 봤다**(§593). 아래 본문을 잃지 않도록 여기 합친다.\n\n**[69차 EB — 대만 자국어(번체) 유통 포털을 열었고, 거기서도 영문 IPC-4101 서식만 나온다]**\n브리프의 가설은 「南亞塑膠가 자국 설계자용 銅箔基板 產品型錄을 낸다」였다.\n① `www.npc.com.tw/j2npc/zhtw/index` 는 404 다. 대만 번체 유통 포털(cclqc)에서 Nan Ya CCL 시트 30여 장을 받았다 — `NP-140TL`·`NP-155F`·`NP-155FBH`·`NP-175F`·`NP-175FM`·`NP-175FBH`·`NP-530`·`NP-535B`·`NP-536(HC)`·`NP-730`·`NP-822`·`NP-826`·`NPG-150D/N`·`NPG-151`·`NPG-170D/DC/N`·`NPG-171`·`NPG-180BH/BK`·`NPG-182H`·`NPG-188H/U`·`NPG-190BH`·`NPG-199(K/HK)`·`NPG-200WT`·`NPG-210BK`·`NPG-220KBK`·`NPG-630`·`NPGN-150LKHD/PY`.\n② **그 시트들은 번체가 아니라 영문 IPC-4101 서식이다.** grep `彈性|模數|比熱|拉伸|密度|泊松|導熱|Modulus|Tensile|Specific|Density|Poisson|Conductivity` — 나오는 것은 `Specification: IPC-4101E is applicable` 한 줄뿐. **해당 물성 행이 없다.**\n③ 참고 — 이 재료의 현재 영률은 유럽 파트너 Technolam 이 낸 Datenblatt 의 `19. Other / weitere` 절에서 온 **t2**(68차 DC)다. **제조사 자신의 표는 아직 못 봤다.**\n④ **아직 안 연 문 하나** — `Nanya_CCL_ProductCatalog_2001-09_scanned_52p.pdf`(52쪽)를 받았으나 **텍스트층이 52자뿐인 스캔**이다. 이 배치는 렌더해 읽지 못했다. **이건 부재 근거가 아니다.**\n**열전도율·비열은 이 배치가 닫았다 — 부재판정에서 뺀다.** 제조사 시트에는 없지만 유럽 파트너 Technolam 의 `19. Other / weitere` 절이 찍는다(`Thermal Conductivity 0,53 ASTM-E-1461 / 0,46 ASTM-D-5470 W/mK`, `Specific Heat at 25 °C 0,91 J/g°C`). 68차 DC §5-2 가 넘긴 그 문서이고 **이미 코퍼스에 있었다**. t2 로 넣었다.\n**인장강도만 남는다** — Technolam §19 에도 인장강도 행은 없고, 제조사 시트의 기계축은 `Flexural strength LW/CW` 하나뿐이다. 굽힘강도로 대신 채우지 않았다."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null
+  },
+  {
+   "material_id": 2442,
+   "name": "Shengyi S1000-2M High-Tg Low-CTE Copper Clad Laminate",
+   "core_absent_from_vendor_sheet": {
+    "mechanical.tensile_strength": "Shengyi 문서를 다 열었다 — 데이터시트(S1000-2M: CN-TDS-2308-04 · S1170G: CN-TDS-1810-02 및 2017-08 웹표 xlsx · S7439: S-USA-S7439rv1)와 MSDS(9항). 데이터시트의 GENERAL PROPERTIES 는 Tg·Td·T288/T260·Thermal Stress·CTE(Z, α1/α2, 50-260 %)·Dk/Df·체적/표면저항·Arc·Dielectric Breakdown·박리강도·굽힘강도·흡수율·난연·할로겐뿐이고, MSDS 9항은 외관·상태·냄새·비중·수용성 다섯 줄뿐이다. **영률·포아송비·비열·인장강도는 어느 문서에도 없다.**\n\n**[74차 JC — 69차 EB 의 판정문을 제자리로 옮겨 붙였다]** 아래는 이 재료의 `attributes` 최상위에 `key`/`verdict`/`reason` **세 낱칸으로 흩어져 있던** 판정문이다. 브리프 §4 의 예시 서식 `{\"material_id\":…, \"key\":…, \"verdict\":…, \"reason\":…}` 을 그대로 제출하면 `apply_core_verdicts.py` 가 `key`·`verdict`·`reason`·`source_url` 을 **각각 재료 속성 이름으로** 쓴다 (그 도구가 기대하는 것은 `{\"<판정키>\": {\"<물성키>\": \"<사유>\"}}` 다). 이 사고로 106개 재료가 그 낱칸을 달고 있었고 그중 69개가 두산이다(인장강도 46 · 비열 23). 두산 69건은 다행히 제대로 된 자리에도 판정이 따로 있어 집계는 멀쩡했지만, **그 자리에만 있던 20칸은 집계가 못 봤다**(§593). 아래 본문을 잃지 않도록 여기 합친다.\n\n**[69차 EB — 중국어 사이트를 열었고, 중국어 총합 카탈로그는 존재하지 않는다]**\n브리프의 가설은 「生益科技가 자국 설계자용 覆铜板综合样本을 낸다」였다. 실제로 열어 **틀렸음을 확정했다.**\n① **도메인부터 함정이다.** `www.shengyi.com`·`www.sytech.com.cn`·`www.shengyi.com.cn` 은 셋 다 HTTP 200 이지만 **도메인 매매·광고 파킹 페이지**다(`精品域名：sytech.com.cn可出售！` / `is For Sale`). 진짜 벤더 사이트는 **`www.syst.com.cn`**(`<title>生益科技`).\n② 그 사이트의 10개 제품 카테고리를 페이지네이션까지 돌아 **109 제품 전수** 열거하고 제품별 다운로드 목록을 받았다.\n③ **중국 사이트가 내주는 'TDS' 는 영문 문서다.** `Shengyi_S1000-2M_TDS_zh.pdf` 는 코퍼스에 이미 있던 `CN-TDS-2308-04` 와 **md5 동일**(ed89ff95…).\n④ `综合样本`·`产品手册`·`技术资料集` 에 해당하는 문서 구역이 없다. `Line up` 시트는 두께·ply-up·Dk/Df 뿐이고 `加工指南`(processing guide)은 보관·드릴·적층 파라미터뿐이다.\nverbatim (S1170G, 로컬 /data/paper_patent_corpus/standards_appnotes/pcb/Shengyi_S1170G_TDS_zh.pdf):\n`      Flexural Strength (LW/CW)                IPC-TM-650 2.4.4                      A                    Mpa            550/450`\nS1000-2M: `Flexural Strength (LW/CW) … Mpa 567/442`. **S7439·S7439G 는 기계물성 행이 하나도 없다.** S7439GS(2025)에 하나 있으나 `Storage Modulus IPC-TM-650 2.4.24.4 DMA GPa 24` 로 **DMA 저장탄성률이지 영률이 아니다.**\n`比热容`·`泊松比`·`密度` — 109 제품 전수에서 **0 hit**.\n**벤더가 이 물성을 안 재는 것은 아니다** — `SCGA-500/GF255`(`Tensile Modulus(LW/CW) IPC-TM-650 2.4.4 A GPa 1.2/7.8`, `Tensile Strength 64/214 MPa`, `Density ASTM D792 g/cm3 2.25`), `S7136H`(`Tensile Modulus ASTM D638 A GPa 16.1/18.5`, `Tensile Strength 175/245 MPa`), `LNB33`(`15.6/19.7 GPa`, `112/143 MPa`), `SI10US`(`Young's modulus 50℃ 26 GPa / 200℃ 23 GPa`)는 인장 물성을 찍는다. **이 등급 시트에 안 싣는 것이다.**\n**주의** — 이 사이트에 `S1170`(G 없는 것)은 **존재하지 않는다**(`S1170G` 11회, 맨 `S1170` 0회)."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null
+  },
+  {
+   "material_id": 2443,
+   "name": "Shengyi S7439 High-Speed Low-Loss Laminate",
+   "core_absent_from_vendor_sheet": {
+    "mechanical.tensile_strength": "Shengyi 문서를 다 열었다 — 데이터시트(S1000-2M: CN-TDS-2308-04 · S1170G: CN-TDS-1810-02 및 2017-08 웹표 xlsx · S7439: S-USA-S7439rv1)와 MSDS(9항). 데이터시트의 GENERAL PROPERTIES 는 Tg·Td·T288/T260·Thermal Stress·CTE(Z, α1/α2, 50-260 %)·Dk/Df·체적/표면저항·Arc·Dielectric Breakdown·박리강도·굽힘강도·흡수율·난연·할로겐뿐이고, MSDS 9항은 외관·상태·냄새·비중·수용성 다섯 줄뿐이다. **영률·포아송비·비열·인장강도는 어느 문서에도 없다.**\n\n**[74차 JC — 69차 EB 의 판정문을 제자리로 옮겨 붙였다]** 아래는 이 재료의 `attributes` 최상위에 `key`/`verdict`/`reason` **세 낱칸으로 흩어져 있던** 판정문이다. 브리프 §4 의 예시 서식 `{\"material_id\":…, \"key\":…, \"verdict\":…, \"reason\":…}` 을 그대로 제출하면 `apply_core_verdicts.py` 가 `key`·`verdict`·`reason`·`source_url` 을 **각각 재료 속성 이름으로** 쓴다 (그 도구가 기대하는 것은 `{\"<판정키>\": {\"<물성키>\": \"<사유>\"}}` 다). 이 사고로 106개 재료가 그 낱칸을 달고 있었고 그중 69개가 두산이다(인장강도 46 · 비열 23). 두산 69건은 다행히 제대로 된 자리에도 판정이 따로 있어 집계는 멀쩡했지만, **그 자리에만 있던 20칸은 집계가 못 봤다**(§593). 아래 본문을 잃지 않도록 여기 합친다.\n\n**[69차 EB — 중국어 사이트를 열었고, 중국어 총합 카탈로그는 존재하지 않는다]**\n브리프의 가설은 「生益科技가 자국 설계자용 覆铜板综合样本을 낸다」였다. 실제로 열어 **틀렸음을 확정했다.**\n① **도메인부터 함정이다.** `www.shengyi.com`·`www.sytech.com.cn`·`www.shengyi.com.cn` 은 셋 다 HTTP 200 이지만 **도메인 매매·광고 파킹 페이지**다(`精品域名：sytech.com.cn可出售！` / `is For Sale`). 진짜 벤더 사이트는 **`www.syst.com.cn`**(`<title>生益科技`).\n② 그 사이트의 10개 제품 카테고리를 페이지네이션까지 돌아 **109 제품 전수** 열거하고 제품별 다운로드 목록을 받았다.\n③ **중국 사이트가 내주는 'TDS' 는 영문 문서다.** `Shengyi_S1000-2M_TDS_zh.pdf` 는 코퍼스에 이미 있던 `CN-TDS-2308-04` 와 **md5 동일**(ed89ff95…).\n④ `综合样本`·`产品手册`·`技术资料集` 에 해당하는 문서 구역이 없다. `Line up` 시트는 두께·ply-up·Dk/Df 뿐이고 `加工指南`(processing guide)은 보관·드릴·적층 파라미터뿐이다.\nverbatim (S1170G, 로컬 /data/paper_patent_corpus/standards_appnotes/pcb/Shengyi_S1170G_TDS_zh.pdf):\n`      Flexural Strength (LW/CW)                IPC-TM-650 2.4.4                      A                    Mpa            550/450`\nS1000-2M: `Flexural Strength (LW/CW) … Mpa 567/442`. **S7439·S7439G 는 기계물성 행이 하나도 없다.** S7439GS(2025)에 하나 있으나 `Storage Modulus IPC-TM-650 2.4.24.4 DMA GPa 24` 로 **DMA 저장탄성률이지 영률이 아니다.**\n`比热容`·`泊松比`·`密度` — 109 제품 전수에서 **0 hit**.\n**벤더가 이 물성을 안 재는 것은 아니다** — `SCGA-500/GF255`(`Tensile Modulus(LW/CW) IPC-TM-650 2.4.4 A GPa 1.2/7.8`, `Tensile Strength 64/214 MPa`, `Density ASTM D792 g/cm3 2.25`), `S7136H`(`Tensile Modulus ASTM D638 A GPa 16.1/18.5`, `Tensile Strength 175/245 MPa`), `LNB33`(`15.6/19.7 GPa`, `112/143 MPa`), `SI10US`(`Young's modulus 50℃ 26 GPa / 200℃ 23 GPa`)는 인장 물성을 찍는다. **이 등급 시트에 안 싣는 것이다.**\n**주의** — 이 사이트에 `S1170`(G 없는 것)은 **존재하지 않는다**(`S1170G` 11회, 맨 `S1170` 0회)."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 2516,
+   "name": "Shengyi S1170G Halogen-Free High-Tg Copper Clad Laminate",
+   "core_absent_from_vendor_sheet": {
+    "mechanical.tensile_strength": "Shengyi 문서를 다 열었다 — 데이터시트(S1000-2M: CN-TDS-2308-04 · S1170G: CN-TDS-1810-02 및 2017-08 웹표 xlsx · S7439: S-USA-S7439rv1)와 MSDS(9항). 데이터시트의 GENERAL PROPERTIES 는 Tg·Td·T288/T260·Thermal Stress·CTE(Z, α1/α2, 50-260 %)·Dk/Df·체적/표면저항·Arc·Dielectric Breakdown·박리강도·굽힘강도·흡수율·난연·할로겐뿐이고, MSDS 9항은 외관·상태·냄새·비중·수용성 다섯 줄뿐이다. **영률·포아송비·비열·인장강도는 어느 문서에도 없다.**\n\n**[74차 JC — 69차 EB 의 판정문을 제자리로 옮겨 붙였다]** 아래는 이 재료의 `attributes` 최상위에 `key`/`verdict`/`reason` **세 낱칸으로 흩어져 있던** 판정문이다. 브리프 §4 의 예시 서식 `{\"material_id\":…, \"key\":…, \"verdict\":…, \"reason\":…}` 을 그대로 제출하면 `apply_core_verdicts.py` 가 `key`·`verdict`·`reason`·`source_url` 을 **각각 재료 속성 이름으로** 쓴다 (그 도구가 기대하는 것은 `{\"<판정키>\": {\"<물성키>\": \"<사유>\"}}` 다). 이 사고로 106개 재료가 그 낱칸을 달고 있었고 그중 69개가 두산이다(인장강도 46 · 비열 23). 두산 69건은 다행히 제대로 된 자리에도 판정이 따로 있어 집계는 멀쩡했지만, **그 자리에만 있던 20칸은 집계가 못 봤다**(§593). 아래 본문을 잃지 않도록 여기 합친다.\n\n**[69차 EB — 중국어 사이트를 열었고, 중국어 총합 카탈로그는 존재하지 않는다]**\n브리프의 가설은 「生益科技가 자국 설계자용 覆铜板综合样本을 낸다」였다. 실제로 열어 **틀렸음을 확정했다.**\n① **도메인부터 함정이다.** `www.shengyi.com`·`www.sytech.com.cn`·`www.shengyi.com.cn` 은 셋 다 HTTP 200 이지만 **도메인 매매·광고 파킹 페이지**다(`精品域名：sytech.com.cn可出售！` / `is For Sale`). 진짜 벤더 사이트는 **`www.syst.com.cn`**(`<title>生益科技`).\n② 그 사이트의 10개 제품 카테고리를 페이지네이션까지 돌아 **109 제품 전수** 열거하고 제품별 다운로드 목록을 받았다.\n③ **중국 사이트가 내주는 'TDS' 는 영문 문서다.** `Shengyi_S1000-2M_TDS_zh.pdf` 는 코퍼스에 이미 있던 `CN-TDS-2308-04` 와 **md5 동일**(ed89ff95…).\n④ `综合样本`·`产品手册`·`技术资料集` 에 해당하는 문서 구역이 없다. `Line up` 시트는 두께·ply-up·Dk/Df 뿐이고 `加工指南`(processing guide)은 보관·드릴·적층 파라미터뿐이다.\nverbatim (S1170G, 로컬 /data/paper_patent_corpus/standards_appnotes/pcb/Shengyi_S1170G_TDS_zh.pdf):\n`      Flexural Strength (LW/CW)                IPC-TM-650 2.4.4                      A                    Mpa            550/450`\nS1000-2M: `Flexural Strength (LW/CW) … Mpa 567/442`. **S7439·S7439G 는 기계물성 행이 하나도 없다.** S7439GS(2025)에 하나 있으나 `Storage Modulus IPC-TM-650 2.4.24.4 DMA GPa 24` 로 **DMA 저장탄성률이지 영률이 아니다.**\n`比热容`·`泊松比`·`密度` — 109 제품 전수에서 **0 hit**.\n**벤더가 이 물성을 안 재는 것은 아니다** — `SCGA-500/GF255`(`Tensile Modulus(LW/CW) IPC-TM-650 2.4.4 A GPa 1.2/7.8`, `Tensile Strength 64/214 MPa`, `Density ASTM D792 g/cm3 2.25`), `S7136H`(`Tensile Modulus ASTM D638 A GPa 16.1/18.5`, `Tensile Strength 175/245 MPa`), `LNB33`(`15.6/19.7 GPa`, `112/143 MPa`), `SI10US`(`Young's modulus 50℃ 26 GPa / 200℃ 23 GPa`)는 인장 물성을 찍는다. **이 등급 시트에 안 싣는 것이다.**\n**주의** — 이 사이트에 `S1170`(G 없는 것)은 **존재하지 않는다**(`S1170G` 11회, 맨 `S1170` 0회)."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 2517,
+   "name": "Elite Material EM-888 / EM-888B High-Tg Low-Loss Halogen-Free Laminate",
+   "core_absent_from_vendor_sheet": {
+    "mechanical.tensile_strength": "Elite Material 데이터시트(Rev. 2024 July) 전문을 열었다 — EM-370(Z)/EM-370(5)/EM-890/EM-888/EM-891 다섯 장이 모두 'Basic Laminate Property' 표 한 장이고 행은 Tg(DSC/TMA/DMA)·CTE(X/Y·Z·총팽창)·Td·T288·열전도율(ASTM D5470)·Dk/Df(1·10 GHz)·체적/표면저항·Electric Strength·Dielectric Breakdown·흡수율·박리강도·굽힘강도(Warp/Fill)·난연뿐이다. 밀도·영률·포아송비·비열·인장강도는 **행 자체가 없다**. emctw.com 은 SDS 구역(/en-global/sds/index)을 갖고 있으나 회원 로그인 뒤에 있어(member/signin 으로 튕긴다) 공개 조달이 안 된다 — 형제 벤더(Nan Ya·Shengyi·ITEQ)는 SDS 9항에 비중을 찍으므로 **Elite 의 밀도는 '벤더가 안 찍는다' 가 아니라 '로그인 뒤에 있다' 다.** 계정이 생기면 다시 열어라.\n\n**[74차 JC — 69차 EB 의 판정문을 제자리로 옮겨 붙였다]** 아래는 이 재료의 `attributes` 최상위에 `key`/`verdict`/`reason` **세 낱칸으로 흩어져 있던** 판정문이다. 브리프 §4 의 예시 서식 `{\"material_id\":…, \"key\":…, \"verdict\":…, \"reason\":…}` 을 그대로 제출하면 `apply_core_verdicts.py` 가 `key`·`verdict`·`reason`·`source_url` 을 **각각 재료 속성 이름으로** 쓴다 (그 도구가 기대하는 것은 `{\"<판정키>\": {\"<물성키>\": \"<사유>\"}}` 다). 이 사고로 106개 재료가 그 낱칸을 달고 있었고 그중 69개가 두산이다(인장강도 46 · 비열 23). 두산 69건은 다행히 제대로 된 자리에도 판정이 따로 있어 집계는 멀쩡했지만, **그 자리에만 있던 20칸은 집계가 못 봤다**(§593). 아래 본문을 잃지 않도록 여기 합친다.\n\n**[69차 EB — 자국어(번체·간체) 로케일을 열었고, 그 문은 존재하지 않는다]**\n브리프의 가설은 「台光電子가 자국 설계자용 產品型錄을 따로 낸다」였다. 실제로 열어 그 가설이 **틀렸음을 확정했다.**\n① `https://www.emctw.com/zh-TW/product_name/index` · `/zh-CN/product_name/index` · `/en-global/product_name/index` 세 로케일의 PDF 링크 목록을 각각 뽑아 diff 했다 — **43장으로 개수가 같고 파일이 완전히 동일하다.** 중국어 페이지가 영문 데이터시트를 그대로 서빙한다.\n② zh-TW 제품 페이지 HTML 에 `彈性模數`·`拉伸模數`·`比熱`·`導熱係數`·`拉伸強度`·`密度`·`泊松比` **0 hit**(`下載` 3회뿐). 물성 표가 아니라 목록 표다.\n③ `for_customers`·`leading_technology`·`mass_lam_service`·`about_production`·`presentation_materials` 전수 — **產品型錄·技術資料 다운로드 구역이 없다.** presentation_materials 는 투자자 설명회 자료뿐.\n④ 데이터시트 **43장 전수** 다운로드 후 grep. 이 등급 시트에서 `modulus|density|specific heat|poisson|tensile` **0 hit**.\nverbatim (EM-370(Z) 시트, Rev 2024 July, 로컬 /data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-370Z_EM-37BZ_Datasheet_20240716.pdf):\n`                  Thermal Conductivity                  0.58        W/m.K              -              ASTM D5470`\n`                     Flexural              Warp       570~630        MPa          As Received`\n`                    Strength                Fill      500~550        MPa          As Received`\n→ **이 벤더가 이 등급에 대해 인쇄하는 기계·열 물성 축은 열전도율(ASTM D5470)과 굽힘강도(IPC-TM-650 2.4.4) 둘뿐이다.**\n**다만 벤더가 이 물성을 아예 안 재는 것은 아니다** — 같은 서식의 `EM-526`·`EM-528`·`EM-528K`·`EM-A50`·`EM-S370(Z)`·`EM-S376`·`EM-S526`·`EM-S530`·`EM-S530K`·`EM-S570` 열한 등급은 `Flexural Modulus Warp/Fill GPa` 행을 찍는다(예 EM-526 `24~26 / 23~25 GPa`). **이 등급들만 안 찍는 것이다.** 그것도 굽힘이지 인장이 아니다."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 2518,
+   "name": "Elite Material EM-891 / EM-891B High-Tg Ultra-Low-Loss Laminate",
+   "core_absent_from_vendor_sheet": {
+    "mechanical.tensile_strength": "Elite Material 데이터시트(Rev. 2024 July) 전문을 열었다 — EM-370(Z)/EM-370(5)/EM-890/EM-888/EM-891 다섯 장이 모두 'Basic Laminate Property' 표 한 장이고 행은 Tg(DSC/TMA/DMA)·CTE(X/Y·Z·총팽창)·Td·T288·열전도율(ASTM D5470)·Dk/Df(1·10 GHz)·체적/표면저항·Electric Strength·Dielectric Breakdown·흡수율·박리강도·굽힘강도(Warp/Fill)·난연뿐이다. 밀도·영률·포아송비·비열·인장강도는 **행 자체가 없다**. emctw.com 은 SDS 구역(/en-global/sds/index)을 갖고 있으나 회원 로그인 뒤에 있어(member/signin 으로 튕긴다) 공개 조달이 안 된다 — 형제 벤더(Nan Ya·Shengyi·ITEQ)는 SDS 9항에 비중을 찍으므로 **Elite 의 밀도는 '벤더가 안 찍는다' 가 아니라 '로그인 뒤에 있다' 다.** 계정이 생기면 다시 열어라.\n\n**[74차 JC — 69차 EB 의 판정문을 제자리로 옮겨 붙였다]** 아래는 이 재료의 `attributes` 최상위에 `key`/`verdict`/`reason` **세 낱칸으로 흩어져 있던** 판정문이다. 브리프 §4 의 예시 서식 `{\"material_id\":…, \"key\":…, \"verdict\":…, \"reason\":…}` 을 그대로 제출하면 `apply_core_verdicts.py` 가 `key`·`verdict`·`reason`·`source_url` 을 **각각 재료 속성 이름으로** 쓴다 (그 도구가 기대하는 것은 `{\"<판정키>\": {\"<물성키>\": \"<사유>\"}}` 다). 이 사고로 106개 재료가 그 낱칸을 달고 있었고 그중 69개가 두산이다(인장강도 46 · 비열 23). 두산 69건은 다행히 제대로 된 자리에도 판정이 따로 있어 집계는 멀쩡했지만, **그 자리에만 있던 20칸은 집계가 못 봤다**(§593). 아래 본문을 잃지 않도록 여기 합친다.\n\n**[69차 EB — 자국어(번체·간체) 로케일을 열었고, 그 문은 존재하지 않는다]**\n브리프의 가설은 「台光電子가 자국 설계자용 產品型錄을 따로 낸다」였다. 실제로 열어 그 가설이 **틀렸음을 확정했다.**\n① `https://www.emctw.com/zh-TW/product_name/index` · `/zh-CN/product_name/index` · `/en-global/product_name/index` 세 로케일의 PDF 링크 목록을 각각 뽑아 diff 했다 — **43장으로 개수가 같고 파일이 완전히 동일하다.** 중국어 페이지가 영문 데이터시트를 그대로 서빙한다.\n② zh-TW 제품 페이지 HTML 에 `彈性模數`·`拉伸模數`·`比熱`·`導熱係數`·`拉伸強度`·`密度`·`泊松比` **0 hit**(`下載` 3회뿐). 물성 표가 아니라 목록 표다.\n③ `for_customers`·`leading_technology`·`mass_lam_service`·`about_production`·`presentation_materials` 전수 — **產品型錄·技術資料 다운로드 구역이 없다.** presentation_materials 는 투자자 설명회 자료뿐.\n④ 데이터시트 **43장 전수** 다운로드 후 grep. 이 등급 시트에서 `modulus|density|specific heat|poisson|tensile` **0 hit**.\nverbatim (EM-370(Z) 시트, Rev 2024 July, 로컬 /data/paper_patent_corpus/standards_appnotes/pcb/EMC_EM-370Z_EM-37BZ_Datasheet_20240716.pdf):\n`                  Thermal Conductivity                  0.58        W/m.K              -              ASTM D5470`\n`                     Flexural              Warp       570~630        MPa          As Received`\n`                    Strength                Fill      500~550        MPa          As Received`\n→ **이 벤더가 이 등급에 대해 인쇄하는 기계·열 물성 축은 열전도율(ASTM D5470)과 굽힘강도(IPC-TM-650 2.4.4) 둘뿐이다.**\n**다만 벤더가 이 물성을 아예 안 재는 것은 아니다** — 같은 서식의 `EM-526`·`EM-528`·`EM-528K`·`EM-A50`·`EM-S370(Z)`·`EM-S376`·`EM-S526`·`EM-S530`·`EM-S530K`·`EM-S570` 열한 등급은 `Flexural Modulus Warp/Fill GPa` 행을 찍는다(예 EM-526 `24~26 / 23~25 GPa`). **이 등급들만 안 찍는 것이다.** 그것도 굽힘이지 인장이 아니다."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 2545,
+   "name": "ZEONEX 330R cyclo-olefin polymer, low-index optical grade (ZEON)",
+   "core_absent_from_vendor_sheet": {
+    "chemical.water_absorption_24h": "ZEON `Cyclo Olefin Polymer (COP) ZEONEX` 브로슈어(200323391, 2019)를 전부 열었다. 이 브로슈어에는 흡수율이 딱 한 번 나오는데 **`ZEONEX K22R` 단독 물성표의 `Water absorption | ASTM D570 | % | 0.014` 행이다.** 330R 이 등장하는 표는 `ZEONEX properties comparative`(K26R·K22R·E48R·F52R·T62R·330R·480R 7열)인데 그 표의 행은 Refractive index · Tg · MFR · Flexural modulus/strength · Tensile modulus/strength · Tensile elongation · Flammability 뿐이고 **흡수율 행이 없다.** K22R 의 0.014 % 를 330R 열로 옮기는 것은 등급 전이이고, 330R 은 굴절률 1.509 로 7등급 중 유일하게 저굴절 계열이라(나머지는 1.525~1.536) 조성이 다른 등급이므로 더욱 옮길 수 없다. 480R·1600R 은 Yamazaki 2004 Table 2 에 등급명으로 인쇄돼 있어 이번에 닫았지만 **330R 은 그 표에 열이 없다.**"
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 2561,
+   "name": "Laird T-flex 320 ceramic-filled silicone thermal gap filler pad (0.020 in / 0.51 mm)",
+   "core_absent_from_vendor_sheet": {
+    "chemical.water_absorption_24h": "Laird `T-flex 300 Series Thermal Gap Filler` TDS 를 내려받아 전부 열었다. 5개 등급(320/340/360/380/3100) 공통 물성표에 Density · Hardness · Tensile Strength · % Elongation · % Deflection · **Outgassing TML/CVCM (ASTM E595)** · UL Flammability · Temperature Range · Thermal Conductivity · Thermal Resistance · Thermal Expansion · Breakdown Voltage · Volume Resistivity · Dielectric Constant 만 있고 **흡습률·투습률 행이 없다.** ASTM E595 의 TML(0.56%)·CVCM(0.1%)은 진공 중 총질량손실이지 흡습이 아니므로 이 칸에 넣을 수 없다. 같은 규격의 WVR(Water Vapor Regained) 항목도 시트에 인쇄돼 있지 않다(전문 grep 0건)."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 2562,
+   "name": "Laird T-flex 340 ceramic-filled silicone thermal gap filler pad (0.040 in / 1.02 mm)",
+   "core_absent_from_vendor_sheet": {
+    "chemical.water_absorption_24h": "재료 2561 과 같은 Laird T-flex 300 Series TDS 의 T-flex 340 열이다. 흡습·투습 행이 표 전체에 없다."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 2563,
+   "name": "Laird T-flex 360 ceramic-filled silicone thermal gap filler pad (0.060 in / 1.52 mm)",
+   "core_absent_from_vendor_sheet": {
+    "chemical.water_absorption_24h": "재료 2561 과 같은 TDS 의 T-flex 360 열이다."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 2564,
+   "name": "Laird T-flex 380 ceramic-filled silicone thermal gap filler pad (0.080 in / 2.03 mm)",
+   "core_absent_from_vendor_sheet": {
+    "chemical.water_absorption_24h": "재료 2561 과 같은 TDS 의 T-flex 380 열이다."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 2565,
+   "name": "Laird T-flex 3100 ceramic-filled silicone thermal gap filler pad (0.100 in / 2.54 mm)",
+   "core_absent_from_vendor_sheet": {
+    "chemical.water_absorption_24h": "재료 2561 과 같은 TDS 의 T-flex 3100 열이다."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 2567,
+   "name": "Henkel Bergquist Gap Pad TGP 2400 fiberglass-reinforced silicone thermal gap pad (BERGQUIST GAP PAD 2500S20)",
+   "core_absent_from_vendor_sheet": {
+    "chemical.water_absorption_24h": "Henkel `BERGQUIST GAP PAD TGP 2400` TDS(November-2018, 별명 GAP PAD 2500S20)를 내려받아 전부 열었다. Physical Properties 에 Hardness · Heat Capacity · Density · Flammability · Young's Modulus, Electrical Properties 에 Dielectric Breakdown Voltage · Dielectric Constant · Volume Resistivity, Thermal Properties 에 Thermal Conductivity · Thermal Impedance 만 있고 **흡습률·투습률 행이 없다.** 문서 전체 grep 에서 water/moisture/absorption 은 취급주의 문구(`Any moisture that collects on the thawed container`)로만 나온다."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 2571,
+   "name": "Parker Chomerics THERM-A-GAP HCS10 silicone thermal gap filler pad (1.0 W/m-K)",
+   "core_absent_from_vendor_sheet": {
+    "chemical.water_absorption_24h": "Parker Chomerics `THERM-A-GAP Gap Filler Pads` 카탈로그(Typical Properties 표 2매)를 내려받아 전부 열었다. HCS10/569/570/579/580 표와 G974/974/976/PAD30/PAD60 표 둘 다 Physical(Standard Thicknesses · Specific Gravity · Hardness · Percent Deflection · Operating Temperature) · Thermal(Conductivity · Impedance · Heat Capacity · CTE) · Electrical(Dielectric Strength · Volume Resistivity · Dielectric Constant · Dissipation Factor) · Regulatory(Flammability · RoHS · **Outgassing %TML(%CVCM) ASTM E595** · Shelf Life · Storage Conditions) 로 끝나고 **흡습률·투습률 행이 없다.** Storage Conditions 의 `@ 50% Relative Humidity` 는 보관조건이지 물성이 아니다. HCS10 열이 이 재료다."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 2572,
+   "name": "Parker Chomerics THERM-A-GAP 569 silicone thermal gap filler pad (1.5 W/m-K)",
+   "core_absent_from_vendor_sheet": {
+    "chemical.water_absorption_24h": "재료 2571 과 같은 Chomerics 카탈로그의 569 열이다. 흡습·투습 행이 두 표 모두에 없다."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 2573,
+   "name": "Parker Chomerics THERM-A-GAP 570 silicone thermal gap filler pad (1.5 W/m-K)",
+   "core_absent_from_vendor_sheet": {
+    "chemical.water_absorption_24h": "재료 2571 과 같은 카탈로그의 570 열이다."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 2574,
+   "name": "Parker Chomerics THERM-A-GAP 579 silicone thermal gap filler pad (3.0 W/m-K)",
+   "core_absent_from_vendor_sheet": {
+    "chemical.water_absorption_24h": "재료 2571 과 같은 카탈로그의 579 열이다."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 2575,
+   "name": "Parker Chomerics THERM-A-GAP 580 silicone thermal gap filler pad (3.0 W/m-K)",
+   "core_absent_from_vendor_sheet": {
+    "chemical.water_absorption_24h": "재료 2571 과 같은 카탈로그의 580 열이다."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 2576,
+   "name": "Parker Chomerics THERM-A-GAP G974 silicone thermal gap filler pad, fiberglass carrier with PSA (5.0 W/m-K)",
+   "core_absent_from_vendor_sheet": {
+    "interface.peel_strength": "같은 Chomerics 카탈로그의 G974 열이다. 이 등급은 DB 재료명대로 **PSA(감압접착) 를 가진 유리섬유 캐리어 제품인데도** Typical Properties 표에 박리강도·택·접착력 행이 하나도 없다. 캐리어 선택지 블록(`G = Woven glass - no pressure sensitive adhesive (PSA)` / `A = Aluminum foil - with acrylic PSA`)이 PSA 유무를 **제품 구성 옵션으로만** 적고 그 접착력을 수치로 발표하지 않는다. 갭필러 시트의 판정축은 열저항·경도·변형률이지 접착력이 아니다."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 2577,
+   "name": "Parker Chomerics THERM-A-GAP 974 silicone thermal gap filler pad, PSA carrier (6.0 W/m-K)",
+   "core_absent_from_vendor_sheet": {
+    "interface.peel_strength": "재료 2576 과 같은 사유의 974 열이다. 박리·택 행이 표에 없다."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 2578,
+   "name": "Parker Chomerics THERM-A-GAP 976 silicone thermal gap filler pad, unsupported (6.5 W/m-K)",
+   "core_absent_from_vendor_sheet": {
+    "chemical.water_absorption_24h": "재료 2571 과 같은 카탈로그의 976 열이다."
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  },
+  {
+   "material_id": 2694,
+   "name": "LEXAN 3413R (PC-GF30, SABIC)",
+   "core_absent_from_vendor_sheet": {
+    "mechanical.youngs_modulus": "64차 ZA — Americas TDS(Rev 20220720)·Asia TDS(Rev 20180905)·UL Prospector TDS(2014-08-30) 세 장을 다 열었고 셋 다 ASTM 서식이라 Flexural Modulus 6610 MPa 만 찍고 Tensile Modulus 행이 없다(굴곡탄성률은 영률이 아니다 — §601). 형제 500R·3412R 은 **Europe(ISO) TDS 의 `Tensile Modulus, 1 mm/min` 행**에서 E 를 얻었다(3300·6000 MPa). 성격상 V5 다 — 벤더가 안 찍는 것이 아니라 3413R 의 Europe 층을 아직 못 열었다. 두드린 곳: plastore.it(cgi2018/file818/760~764 전부 404) · petromall.net(403, UA 유무 무관) · terplast.it(404) · pakrokimya.com(Europe 파일명 404, Americas 만 200) · materialfinder.sabic-specialties.com(전등급 2,226종에 3413R 없음 — 이 카탈로그는 LEXAN Copolymer 132·FR Resin 17종만 담는다) · matweb/ulprospector(Cloudflare 차단) · honcere/suntek(Asia 판만). 다음 파동이 열 것: SABIC `LEXAN(TM) FR RESINS 3413R REGION EUROPE` TDS 한 장 — 그 한 장이 코어 마지막 칸을 닫는다.\n\n[65차 AD — **그 한 장은 존재하지 않는다.** V5(아직 못 연 층)를 닫고 구조적 부재로 바꾼다] ZA 가 표적으로 남긴 `LEXAN(TM) FR RESINS 3413R REGION EUROPE` TDS 는 **발행된 적이 없다.** SABIC 자사 등급 카탈로그(sabic.com/en/products/polymers/polycarbonate-pc/lexan-fr-resins, LEXAN FR 57등급, REVISION 21/08/2024)가 등급마다 판매지역을 찍는데 verbatim 으로 `3413R :: ASIAAMERICAS` 다 — **지역 탭이 ASIA·AMERICAS 둘뿐이고 EUROPE 탭이 없다.** 두 탭을 다 펴서 세면 `ISO 527`·`ISO 178`·`Tensile Modulus` 가 **0건**이고 전부 ASTM 서식이다. **같은 페이지·같은 세션에서 형제 둘이 양성 대조로 재현됐다** — `3412R :: EUROPEAMERICAS` 의 EUROPE 탭이 `Tensile Modulus, 1 mm/min 6000 MPa ISO 527`, `500R :: EUROPEAMERICAS` 가 `… 3300 MPa ISO 527` 을 찍는다. 그 6000·3300 이 우리 DB 의 재료 313·302 값과 글자까지 같다 — **탐침이 Europe 층을 검출할 수 있음이 증명됐고 3413R 에는 그 층이 없다.** 곁증거 — plastore.it 의 file818 전량(Wayback CDX 2,741 URL)에 3413R 이 0건인데 3412R·143R·500 계열의 Europe 시트는 있다. **부재의 주어가 갈렸다** — `아직 못 연 층`이 아니라 `이 등급은 유럽에서 팔지 않아 ISO 서식 문서가 발행되지 않았다` 다(§628·676 의 지리 갈래 — 64차 ZD 가 Al 7003 에서 만난 것과 같은 모양이다). **다음 파동은 이 문을 다시 두드리지 마라.** 남은 갈래는 셋뿐이다 — ① 굴곡탄성률 6610 MPa 에서 만들지 않는다(§43) ② PC-GF30 계열 대입(형제 3412R 은 GF20 6000 MPa 라 충전량이 다르다) ③ 실측. 새로 확인한 것 — Asia 판 최신 리비전(honcere 배포 2019-09-20 · SABIC 라이브 2024-08-21)도 값이 같고 여전히 ASTM 이다.\n\n**[74차 JC — 69차 EB 의 판정문을 제자리로 옮겨 붙였다]** 아래는 이 재료의 `attributes` 최상위에 `key`/`verdict`/`reason` **세 낱칸으로 흩어져 있던** 판정문이다. 브리프 §4 의 예시 서식 `{\"material_id\":…, \"key\":…, \"verdict\":…, \"reason\":…}` 을 그대로 제출하면 `apply_core_verdicts.py` 가 `key`·`verdict`·`reason`·`source_url` 을 **각각 재료 속성 이름으로** 쓴다 (그 도구가 기대하는 것은 `{\"<판정키>\": {\"<물성키>\": \"<사유>\"}}` 다). 이 사고로 106개 재료가 그 낱칸을 달고 있었고 그중 69개가 두산이다(인장강도 46 · 비열 23). 두산 69건은 다행히 제대로 된 자리에도 판정이 따로 있어 집계는 멀쩡했지만, **그 자리에만 있던 20칸은 집계가 못 봤다**(§593). 아래 본문을 잃지 않도록 여기 합친다.\n\n기존 판정(64차 ZA)은 `Americas·Asia·UL Prospector 세 장이 다 ASTM 서식이라 Flexural Modulus 6610 MPa 만 찍고 Tensile Modulus 행이 없다. 성격상 V5 — 벤더가 안 찍는 게 아니라 3413R 의 Europe(ISO) 층을 아직 못 열었다` 였다. 68차 DC 가 그 두 갈래를 다 두드렸고, **판정을 V5(못 연 것)에서 '그 층이 이 등급에는 존재하지 않아 보인다'로 좁힌다.**\n\n**[68차 DC — ① 아직 안 열렸던 Asia 개정판을 새로 열었다]**\n64차가 연 Asia 판은 Rev 20180905 였다. 이번에 **Rev 20190920 판**을 새로 받아 열었다(로컬 /data/paper_patent_corpus/standards_appnotes/poly/SABIC_LEXAN_FR_Resins_3413R_Asia_TDS_Rev20190920.pdf, 출처 http://www.honcere.com/upfile/2020020311083058.pdf). 표제가 `LEXAN FR RESINS 3413R / REGION ASIA / TYPICAL PROPERTY VALUES  Revision 20190920` 다. MECHANICAL 절 전체 verbatim — `Tensile Stress, brk, Type I, 5 mm/min 99 MPa ASTM D 638` · `Tensile Strain, brk 2 % ASTM D 638` · `Flexural Stress, yld, 1.3 mm/min, 50 mm span 153 MPa ASTM D 790` · **`Flexural Modulus, 1.3 mm/min, 50 mm span 6610 MPa ASTM D 790`** · `Hardness, Rockwell M 92` · `R 120` · `Taber Abrasion 24`. **한 해 뒤 개정판에도 Tensile Modulus 행이 없다** — 인장 갈래는 강도·연신만 찍고 강성은 굽힘으로만 찍는 것이 SABIC 의 ASTM 서식 규칙이다.\n\n**[68차 DC — ② Europe(ISO) 층을 겨냥해 두드렸고, 이 등급에는 그 층이 안 보인다]**\nSABIC 지역판 TDS 를 호스팅하는 곳들을 이 등급 이름으로 직접 두드렸다 — pakrokimya.com(Americas 판과 **3412ECR Europe 판**을 실제로 호스팅하는 곳) · petromall.net(`lexan-fr-resins_<grade>_europe_technical_data_sheet.pdf` 규칙) · plastore.it(`cgi2018/file818/<n>_pc lexan <grade>.pdf` 규칙, 758~767 훑음) · campusplastics.com · materialfinder.sabic-specialties.com. **3413R 의 Europe 판은 어느 경로에서도 나오지 않았고, 같은 규칙으로 `3412ECR Europe` 은 200 으로 열린다**(petromall.net/wp-content/uploads/2026/03/lexan-fr-resins_3412ecr_europe_technical_data_sheet.pdf). 검색 결과도 3413R 에 대해서는 Americas·Asia 두 지역만 되풀이해 내놓고, SABIC 의 유럽 FR·유리충전 계열은 3412ECR/3413ECR 쪽으로 갈린다. → **즉 `Europe ISO TDS 를 아직 못 열었다`(V5)가 아니라 `이 등급에는 Europe 판이 없어 보인다`(V2 쪽)로 성격이 바뀐다.** 다만 이것은 호스팅 경로 탐침이지 SABIC 의 공식 부재 선언이 아니다 — 그 한계를 여기 밝힌다.\n열지 못한 곳도 적는다 — matweb.com 의 `SABIC Lexan 3413R Polycarbonate (Europe)` 항목(matguid=2ac88f3836144bb293630db0dbfd54bf)은 **HTTP 403** 으로 못 열었고, matmatch.com 은 이 환경에서 DNS·연결이 막힌다. **이 둘은 다음 배치가 다른 경로로 열어 볼 값이 있다** — matweb 이 Europe 항목을 따로 갖고 있다는 것 자체가 Europe 데이터의 존재를 시사한다.\n\n**[68차 DC — 굽힘값으로 메우지 않은 이유]** 이 배치는 CCL 여섯 등급에서 굽힘·인장을 나란히 인쇄한 표를 얻어 **인장이 굽힘보다 12~23 %% 낮다**는 것을 확인했다. 그런데 유리충전 사출 열가소성은 스킨-코어 배향 때문에 그 대소가 **반대로** 나기도 한다 — 실제로 이 등급의 형제 3412R(GF20)은 Europe ISO TDS 의 `Tensile Modulus` 가 6000 MPa 인데 같은 등급의 ASTM 굽힘탄성률은 5511 MPa 로 **인장이 더 높다**. 즉 이 재료계에서는 굽힘 6610 MPa 를 영률로 옮길 때 방향도 크기도 예측할 수 없다. **그래서 굽힘값 대입을 하지 않고 칸을 비워 두었다 — 빈칸이 틀린 값보다 낫다.**"
+   },
+   "key": null,
+   "verdict": null,
+   "reason": null,
+   "source_url": null
+  }
+ ]
+}
