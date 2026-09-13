@@ -1,0 +1,45 @@
+{
+ "batch": "74차 JD",
+ "note": "RO3000 세 등급의 코어 빈칸을 판정한다. **문서를 못 연 것이 아니라 열어서 그 행이 없음을 확인한 것**이다. 형제 등급 RO3003(재료 241)에는 같은 사유의 판정이 이미 들어가 있다 — 이번에 RO3035·RO3006·RO3010 을 맞춘다.",
+ "verdicts": [
+  {
+   "material_id": 2793,
+   "name": "Rogers RO3035 Ceramic-Filled PTFE Laminate",
+   "core_absent_from_vendor_sheet": {
+    "mechanical.poisson_ratio": "Rogers RO3000 Series Circuit Materials Data Sheet(2024-01, Pub #92-130)를 로컬 원본으로 열고 **2면을 350 dpi 로 렌더해 눈으로 대조했다**(`jd74_ro3000_mechphys_350dpi.png`). Standard Properties Table 의 열 순서는 파일 이름과 달리 **RO3003 | RO3035 | RO3006 | RO3010** 이다(72차 HC 실측을 재확인). 기계물성 블록의 행은 셋뿐이다 — `Copper Peel Strength` · `Young's Modulus`(2단, ASTM D638) · `Dimensional Stability (MD, CMD)`. **포아송비 행이 없다**(`Poisson` 적중 0). Rogers 는 RO3000 시리즈에 포아송비를 찍지 않는다.",
+    "mechanical.tensile_strength": "Rogers RO3000 Series Circuit Materials Data Sheet(2024-01, Pub #92-130)를 로컬 원본으로 열고 **2면을 350 dpi 로 렌더해 눈으로 대조했다**(`jd74_ro3000_mechphys_350dpi.png`). Standard Properties Table 의 열 순서는 파일 이름과 달리 **RO3003 | RO3035 | RO3006 | RO3010** 이다(72차 HC 실측을 재확인). 기계물성 블록의 행은 셋뿐이다 — `Copper Peel Strength` · `Young's Modulus`(2단, ASTM D638) · `Dimensional Stability (MD, CMD)`. **인장강도 행이 없다**(`Tensile Strength` 적중 0). 인장 계열로 인쇄되는 것은 `Young's Modulus … ASTM D638` 뿐이고 강도 행은 따라오지 않는다.",
+    "thermal.specific_heat": "Rogers RO3000 Series Circuit Materials Data Sheet(2024-01, Pub #92-130)를 로컬 원본으로 열고 **2면을 350 dpi 로 렌더해 눈으로 대조했다**(`jd74_ro3000_mechphys_350dpi.png`). Standard Properties Table 의 열 순서는 파일 이름과 달리 **RO3003 | RO3035 | RO3006 | RO3010** 이다(72차 HC 실측을 재확인). 기계물성 블록의 행은 셋뿐이다 — `Copper Peel Strength` · `Young's Modulus`(2단, ASTM D638) · `Dimensional Stability (MD, CMD)`. `Specifc Heat Capacity` 행은 있는데 **RO3035 칸이 비어 있다** — 인쇄된 값은 셋뿐이다(RO3003 0.9 · RO3006 0.86 · RO3010 0.8, J/g/K, Test Method 칸 verbatim `Calculated`). 텍스트만 보면 값 3개·열 4개라 한 칸씩 밀리는데, **렌더로 대조해 빈칸이 RO3035 임을 확인했다**. 이웃 등급 값을 끌어다 채우지 않는다."
+   }
+  },
+  {
+   "material_id": 2794,
+   "name": "Rogers RO3006 Ceramic-Filled PTFE Laminate",
+   "core_absent_from_vendor_sheet": {
+    "mechanical.poisson_ratio": "Rogers RO3000 Series Circuit Materials Data Sheet(2024-01, Pub #92-130)를 로컬 원본으로 열고 **2면을 350 dpi 로 렌더해 눈으로 대조했다**(`jd74_ro3000_mechphys_350dpi.png`). Standard Properties Table 의 열 순서는 파일 이름과 달리 **RO3003 | RO3035 | RO3006 | RO3010** 이다(72차 HC 실측을 재확인). 기계물성 블록의 행은 셋뿐이다 — `Copper Peel Strength` · `Young's Modulus`(2단, ASTM D638) · `Dimensional Stability (MD, CMD)`. **포아송비 행이 없다**(`Poisson` 적중 0).",
+    "mechanical.tensile_strength": "Rogers RO3000 Series Circuit Materials Data Sheet(2024-01, Pub #92-130)를 로컬 원본으로 열고 **2면을 350 dpi 로 렌더해 눈으로 대조했다**(`jd74_ro3000_mechphys_350dpi.png`). Standard Properties Table 의 열 순서는 파일 이름과 달리 **RO3003 | RO3035 | RO3006 | RO3010** 이다(72차 HC 실측을 재확인). 기계물성 블록의 행은 셋뿐이다 — `Copper Peel Strength` · `Young's Modulus`(2단, ASTM D638) · `Dimensional Stability (MD, CMD)`. **인장강도 행이 없다**(`Tensile Strength` 적중 0)."
+   }
+  },
+  {
+   "material_id": 2795,
+   "name": "Rogers RO3010 Ceramic-Filled PTFE Laminate",
+   "core_absent_from_vendor_sheet": {
+    "mechanical.poisson_ratio": "Rogers RO3000 Series Circuit Materials Data Sheet(2024-01, Pub #92-130)를 로컬 원본으로 열고 **2면을 350 dpi 로 렌더해 눈으로 대조했다**(`jd74_ro3000_mechphys_350dpi.png`). Standard Properties Table 의 열 순서는 파일 이름과 달리 **RO3003 | RO3035 | RO3006 | RO3010** 이다(72차 HC 실측을 재확인). 기계물성 블록의 행은 셋뿐이다 — `Copper Peel Strength` · `Young's Modulus`(2단, ASTM D638) · `Dimensional Stability (MD, CMD)`. **포아송비 행이 없다**(`Poisson` 적중 0).",
+    "mechanical.tensile_strength": "Rogers RO3000 Series Circuit Materials Data Sheet(2024-01, Pub #92-130)를 로컬 원본으로 열고 **2면을 350 dpi 로 렌더해 눈으로 대조했다**(`jd74_ro3000_mechphys_350dpi.png`). Standard Properties Table 의 열 순서는 파일 이름과 달리 **RO3003 | RO3035 | RO3006 | RO3010** 이다(72차 HC 실측을 재확인). 기계물성 블록의 행은 셋뿐이다 — `Copper Peel Strength` · `Young's Modulus`(2단, ASTM D638) · `Dimensional Stability (MD, CMD)`. **인장강도 행이 없다**(`Tensile Strength` 적중 0)."
+   }
+  },
+  {
+   "material_id": 246,
+   "name": "Rogers CLTE Ceramic-PTFE Woven Glass Laminate",
+   "core_absent_from_vendor_sheet": {
+    "mechanical.poisson_ratio": "Rogers CLTE/CLTE-XT Series Laminates Data Sheet 를 원본으로 열어 확인했다 — **포아송비 행이 없다**(`Poisson` 적중 0). 지금 이 칸에 있는 0.17 은 형제 등급 CLTE-AT 시트(ASTM D-3039)의 값을 t3 로 빌려 온 것이고 0.183 은 클래스 대표값(t4) 이다 — 둘 다 CLTE 열에서 온 수가 아니다. 덧붙임: 같은 시트에는 **인장탄성률 행도 없다**. 영률 칸의 8122·7984 MPa 는 `Flex Modulus (MD, CMD) … ASTM D790` 행이다(74차 JD 가 표기를 판정 창 안으로 옮기고 같은 수를 `mechanical.flexural_modulus` 에도 세웠다). 그 칸은 값이 있으므로 판정으로 덮지 않는다 — 빈칸이 아니라 **이름이 틀린 칸**이다."
+   }
+  },
+  {
+   "material_id": 245,
+   "name": "Rogers CLTE-XT Ceramic-PTFE Woven Glass Laminate",
+   "core_absent_from_vendor_sheet": {
+    "mechanical.poisson_ratio": "Rogers CLTE/CLTE-XT Series Laminates Data Sheet 를 원본으로 열어 확인했다 — **포아송비 행이 없다**(`Poisson` 적중 0). 지금 값은 형제 등급 CLTE-AT 에서 빌린 t3 와 클래스 대표값 t4 다. 덧붙임: 영률 칸의 3247·3261 MPa 도 `Flex Modulus (MD, CMD) … ASTM D790` 행이고 같은 수가 이미 `mechanical.flexural_modulus` pv4017·pv4018 에 있다 — 그 칸은 비어 있지 않으므로 판정 대상이 아니다."
+   }
+  }
+ ]
+}

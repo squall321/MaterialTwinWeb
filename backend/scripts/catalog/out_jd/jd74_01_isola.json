@@ -1,0 +1,182 @@
+{
+ "batch": "74차 JD",
+ "note": "Isola 네 등급(370HR·IS400·I-Tera MT40·Astra MT77)의 데이터시트를 로컬 원본으로 다시 열어 **아크저항 4행**과 **370HR·IS400 의 굽힘탄성률 4행**을 세운다. 굽힘탄성률은 새로 캔 수가 아니라 **영률 칸에 앉은 D790 값을 올바른 키에 한 벌 더 놓는 것**이다. `Comparative Tracking Index` 는 넣지 않았다 — 인쇄된 것은 **등급(Class 3)** 이고 괄호의 175–249 V 는 그 등급의 정의 구간이지 이 재료의 측정값이 아니다.",
+ "materials": [
+  {
+   "match_name": "Isola 370HR High-Tg Laminate",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.isola-group.com/wp-content/uploads/data-sheets/370hr.pdf",
+    "title": "370HR Industry Leading, Standard Loss, Thermally Robust Epoxy Laminate and Prepreg (Rev C, 2021-04-15)",
+    "publisher": "Isola",
+    "year": 2021,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Isola_370HR_Laminate_Prepreg_DataSheet_RevC_2021-04-15.pdf"
+   },
+   "properties": [
+    {
+     "key": "electrical.arc_resistance",
+     "value": 115.0,
+     "unit": "s",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.5.1B",
+      "test_method": "arc resistance (IPC-TM-650 2.5.1B)",
+      "grade": "370HR"
+     },
+     "notes": "[74차 JD] Isola 'Typical Values Table' 의 `Arc Resistance` 행 그대로. 시험법 칸 verbatim = IPC-TM-650 2.5.1B. 초 단위 인쇄값이라 환산 없음. 인쇄값 115 Seconds."
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 25813970208.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "direction": "MD",
+      "direction_verbatim": "A. Length direction",
+      "test_standard": "ASTM D790-15e2",
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend (ASTM D790-15e2)",
+      "source_row_name": "Young's Modulus (벤더 인쇄 행 이름 그대로 — 시험법 칸은 D790)",
+      "grade": "370HR"
+     },
+     "notes": "[74차 JD] Isola 가 `Young's Modulus` 로 인쇄한 행인데 **시험법 칸이 `ASTM D790-15e2`(3점 굽힘)** 이다(71차 GB·72차 HB 가 같은 무늬를 확인했다). 같은 출처·같은 수를 **굽힘 키에도 세운다** — 73차 IA 가 EMC 에서 한 것과 같은 처리다. **영률 칸의 원행은 지우지 않았다**(삭제는 사람이 정한다). ksi → Pa 는 ×6.894757e6. 인쇄값 3744 ksi. 같은 수가 mechanical.youngs_modulus pv3356·pv6081 에도 있다."
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 21911537746.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "direction": "TD",
+      "direction_verbatim": "B. Cross direction",
+      "test_standard": "ASTM D790-15e2",
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend (ASTM D790-15e2)",
+      "source_row_name": "Young's Modulus (벤더 인쇄 행 이름 그대로 — 시험법 칸은 D790)",
+      "grade": "370HR"
+     },
+     "notes": "[74차 JD] Isola 가 `Young's Modulus` 로 인쇄한 행인데 **시험법 칸이 `ASTM D790-15e2`(3점 굽힘)** 이다(71차 GB·72차 HB 가 같은 무늬를 확인했다). 같은 출처·같은 수를 **굽힘 키에도 세운다** — 73차 IA 가 EMC 에서 한 것과 같은 처리다. **영률 칸의 원행은 지우지 않았다**(삭제는 사람이 정한다). ksi → Pa 는 ×6.894757e6. 인쇄값 3178 ksi. 같은 수가 mechanical.youngs_modulus pv3357·pv6082 에도 있다."
+    }
+   ]
+  },
+  {
+   "match_name": "Isola IS400 Mid-Tg Laminate",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.isola-group.com/wp-content/uploads/data-sheets/is400.pdf",
+    "title": "IS400 Lead Free, Mid Tg Epoxy Laminate and Prepreg (Rev C, 2021-04-15)",
+    "publisher": "Isola",
+    "year": 2021,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Isola_IS400_Laminate_Prepreg_DataSheet_RevC_2021-04-15.pdf"
+   },
+   "properties": [
+    {
+     "key": "electrical.arc_resistance",
+     "value": 120.0,
+     "unit": "s",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.5.1B",
+      "test_method": "arc resistance (IPC-TM-650 2.5.1B)",
+      "grade": "IS400"
+     },
+     "notes": "[74차 JD] Isola 'Typical Values Table' 의 `Arc Resistance` 행 그대로. 시험법 칸 verbatim = IPC-TM-650 2.5.1B. 초 단위 인쇄값이라 환산 없음. 인쇄값 120 Seconds."
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 25255494891.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "direction": "MD",
+      "direction_verbatim": "A. Length direction",
+      "test_standard": "ASTM D790-15e2",
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend (ASTM D790-15e2)",
+      "source_row_name": "Young's Modulus (벤더 인쇄 행 이름 그대로 — 시험법 칸은 D790)",
+      "grade": "IS400"
+     },
+     "notes": "[74차 JD] Isola 가 `Young's Modulus` 로 인쇄한 행인데 **시험법 칸이 `ASTM D790-15e2`(3점 굽힘)** 이다(71차 GB·72차 HB 가 같은 무늬를 확인했다). 같은 출처·같은 수를 **굽힘 키에도 세운다** — 73차 IA 가 EMC 에서 한 것과 같은 처리다. **영률 칸의 원행은 지우지 않았다**(삭제는 사람이 정한다). ksi → Pa 는 ×6.894757e6. 인쇄값 3663 ksi. 같은 수가 mechanical.youngs_modulus pv3382·pv6096 에도 있다."
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 22945751296.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "direction": "TD",
+      "direction_verbatim": "B. Cross direction",
+      "test_standard": "ASTM D790-15e2",
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend (ASTM D790-15e2)",
+      "source_row_name": "Young's Modulus (벤더 인쇄 행 이름 그대로 — 시험법 칸은 D790)",
+      "grade": "IS400"
+     },
+     "notes": "[74차 JD] Isola 가 `Young's Modulus` 로 인쇄한 행인데 **시험법 칸이 `ASTM D790-15e2`(3점 굽힘)** 이다(71차 GB·72차 HB 가 같은 무늬를 확인했다). 같은 출처·같은 수를 **굽힘 키에도 세운다** — 73차 IA 가 EMC 에서 한 것과 같은 처리다. **영률 칸의 원행은 지우지 않았다**(삭제는 사람이 정한다). ksi → Pa 는 ×6.894757e6. 인쇄값 3328 ksi. 같은 수가 mechanical.youngs_modulus pv3383·pv6097 에도 있다."
+    }
+   ]
+  },
+  {
+   "match_name": "Isola I-Tera MT40 Low-Loss Laminate",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.isola-group.com/wp-content/uploads/data-sheets/i-tera-mt40.pdf",
+    "title": "I-Tera MT40 Laminate and Prepreg (Rev F, 2025-12-08)",
+    "publisher": "Isola",
+    "year": 2025,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Isola_I-Tera_MT40_Laminate_Prepreg_DataSheet_RevF_2025-12-08.pdf"
+   },
+   "properties": [
+    {
+     "key": "electrical.arc_resistance",
+     "value": 139.0,
+     "unit": "s",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.5.1B",
+      "test_method": "arc resistance (IPC-TM-650 2.5.1B)",
+      "grade": "I-Tera MT40"
+     },
+     "notes": "[74차 JD] Isola 'Typical Values Table' 의 `Arc Resistance` 행 그대로. 시험법 칸 verbatim = IPC-TM-650 2.5.1B. 초 단위 인쇄값이라 환산 없음. 인쇄값 139 Seconds (Rev F, 2025-12-08)."
+    }
+   ]
+  },
+  {
+   "match_name": "Isola Astra MT77 Very Low Loss RF/MW Laminate",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.isola-group.com/wp-content/uploads/data-sheets/astra-mt77.pdf",
+    "title": "Astra MT77 Laminate and Prepreg (Rev D, 2021-04-20)",
+    "publisher": "Isola",
+    "year": 2021,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Isola_Astra_MT77_Laminate_Prepreg_DataSheet_RevD_2021-04-20.pdf"
+   },
+   "properties": [
+    {
+     "key": "electrical.arc_resistance",
+     "value": 139.0,
+     "unit": "s",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "test_standard": "IPC-TM-650 2.5.1B",
+      "test_method": "arc resistance (IPC-TM-650 2.5.1B)",
+      "grade": "Astra MT77"
+     },
+     "notes": "[74차 JD] Isola 'Typical Values Table' 의 `Arc Resistance` 행 그대로. 시험법 칸 verbatim = IPC-TM-650 2.5.1B. 초 단위 인쇄값이라 환산 없음. 인쇄값 139 Seconds (Rev D, 2021-04-20)."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,240 @@
+{
+ "batch": "74차 JD",
+ "note": "AGC(Taconic) TSM-DS3·TLY-5·TLX-8 TDS 와 中興化成 CHUKOH FLO 카탈로그를 원본으로 열어 빠져 있던 행을 채운다. 박리강도는 **동박 종류·시험조건마다 다른 행**이라 조건을 칸에 적어 따로 세운다.",
+ "materials": [
+  {
+   "match_name": "AGC Taconic TSM-DS3 Ceramic-Filled Low-Loss Laminate",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.agc-multimaterial.com/agc-downloads/AGC_TSM-DS3_TDS.pdf",
+    "title": "AGC TSM-DS3 Dimensionally Stable Low Loss Laminate TDS"
+   },
+   "properties": [
+    {
+     "key": "mechanical.poisson_ratio",
+     "value": 0.2,
+     "unit": "1",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "direction": "TD",
+      "direction_verbatim": "CD",
+      "test_standard": "ASTM D 3039 / IPC-650 2.4.19",
+      "test_method": "in-plane tensile test on laminate (ASTM D3039 / IPC-TM-650 2.4.19)",
+      "test_mode": "tensile",
+      "loading_mode": "uniaxial tension"
+     },
+     "notes": "[74차 JD] AGC TSM-DS3 TDS `Poisson's Ratio MD 0.24 / CD 0.20 · ASTM D 3039/IPC-650 2.4.19`. MD 0.24 만 pv4115 로 들어가 있고 **CD 짝이 빠져 있었다** — 직물유리 적층판은 MD·CD 가 다르다."
+    },
+    {
+     "key": "electrical.arc_resistance",
+     "value": 226.0,
+     "unit": "s",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "test_standard": "IPC-650 2.5.1",
+      "test_method": "arc resistance (IPC-TM-650 2.5.1)"
+     },
+     "notes": "[74차 JD] AGC TSM-DS3 TDS `Arc Resistance 226 Seconds · IPC-650 2.5.1`."
+    }
+   ]
+  },
+  {
+   "match_name": "Taconic TLY-5 (PTFE/woven glass RF laminate)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.agc-multimaterial.com/agc-downloads/AGC_TLY-5_TDS.pdf",
+    "title": "TLY-5 Avionics & aerospace grade very low DK base material, Technical Data Sheet (2024-03)",
+    "publisher": "AGC Inc. (Taconic / AGC Multi Material)"
+   },
+   "properties": [
+    {
+     "key": "interface.peel_strength",
+     "value": 2860.0,
+     "unit": "N/m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "substrate": "1 oz. CL1 copper (reverse-treated ED)",
+      "test_standard": "IPC-650 2.4.8",
+      "test_method": "peel strength (IPC-TM-650 2.4.8)",
+      "peel_angle_source": "IPC-TM-650 2.4.8 이 규정하는 90° 박리 — **시트에는 각도가 인쇄되지 않는다**(68차 DD)."
+     },
+     "notes": "[74차 JD] TLY-5 TDS 박리강도 블록 `1 oz. CL1 copper 2.86 (16) N/mm (lbs/in)`. 블록의 네 조건 중 ½oz ED(1.96)·1oz C1(3.04) 만 들어가 있었다."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 2320.0,
+     "unit": "N/m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "substrate": "(동박 종류 미인쇄 — 고온 조건 행)",
+      "test_standard": "IPC-650 2.4.8",
+      "test_condition": "at elevated temperature",
+      "test_method": "peel strength (IPC-TM-650 2.4.8, elevated temp.)",
+      "peel_angle_source": "IPC-TM-650 2.4.8 이 규정하는 90° 박리 — **시트에는 각도가 인쇄되지 않는다**(68차 DD)."
+     },
+     "notes": "[74차 JD] TLY-5 TDS 박리강도 블록 마지막 행 `2.32 (13) N/mm (lbs/in) · IPC-650 2.4.8 (at elevated temp.)`. **이 행에는 동박 종류가 인쇄되어 있지 않다** — 지어내지 않고 미인쇄로 적는다."
+    }
+   ]
+  },
+  {
+   "match_name": "Taconic TLX-8 (PTFE/woven glass RF laminate)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.agc-multimaterial.com/agc-downloads/AGC_TLX-8_TDS.pdf",
+    "title": "TLX-8 Technical Data Sheet (AGC Multi Material)",
+    "publisher": "AGC Multi Material (Taconic)"
+   },
+   "properties": [
+    {
+     "key": "interface.peel_strength",
+     "value": 2980.0,
+     "unit": "N/m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "substrate": "1 oz. RTF copper",
+      "test_standard": "IPC-650 2.4.8 Sec. 5.2.2",
+      "test_condition": "after thermal stress",
+      "test_method": "peel strength (IPC-TM-650 2.4.8 Sec. 5.2.2, thermal stress)",
+      "peel_angle_source": "IPC-TM-650 2.4.8 이 규정하는 90° 박리 — **시트에는 각도가 인쇄되지 않는다**(68차 DD)."
+     },
+     "notes": "[74차 JD] TLX-8 TDS 박리강도 블록 `1 oz. RTF 2.98 (17) N/mm (lb/in)`. 병합 칸이라 350 dpi 렌더로 어느 시험법 칸에 걸리는지 눈으로 대조했다 — 1oz ED·1oz RTF 두 행이 Sec. 5.2.2(Thermal Stress) 다."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 1930.0,
+     "unit": "N/m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "substrate": "1/2 oz. ED copper",
+      "test_standard": "IPC-650 2.4.8 Sec. 5.2.2",
+      "test_condition": "after thermal stress",
+      "test_method": "peel strength (IPC-TM-650 2.4.8 Sec. 5.2.2, thermal stress)",
+      "peel_angle_source": "IPC-TM-650 2.4.8 이 규정하는 90° 박리 — **시트에는 각도가 인쇄되지 않는다**(68차 DD)."
+     },
+     "notes": "[74차 JD] TLX-8 TDS 박리강도 블록 `½ oz. ED 1.93 (11) N/mm (lb/in)` — **같은 ½oz ED 가 두 번 인쇄된다**: 2.45 는 2.4.8.3(Elevated Temp.), 1.93 은 2.4.8 Sec. 5.2.2(Thermal Stress) 다. 렌더로 확인했다."
+    },
+    {
+     "key": "interface.peel_strength",
+     "value": 2280.0,
+     "unit": "N/m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "substrate": "1 oz. rolled copper",
+      "test_standard": "IPC-650 2.4.8 Sec. 5.2.2",
+      "test_condition": "after thermal stress",
+      "test_method": "peel strength (IPC-TM-650 2.4.8 Sec. 5.2.2, thermal stress)",
+      "peel_angle_source": "IPC-TM-650 2.4.8 이 규정하는 90° 박리 — **시트에는 각도가 인쇄되지 않는다**(68차 DD)."
+     },
+     "notes": "[74차 JD] TLX-8 TDS 박리강도 블록 `1 oz. rolled 2.28 (13) N/mm (lb/in)`."
+    }
+   ]
+  },
+  {
+   "match_name": "Chukoh CHUKOH FLO CGN-500 PTFE Copper-Clad Laminate",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.chukoh.co.jp/wp-content/uploads/catalog05_lami_ja-1.pdf",
+    "title": "CHUKOH FLO 銅張積層板 製品カタログ (catalog05_lami_ja)",
+    "publisher": "Chukoh Chemical Industries, Ltd."
+   },
+   "properties": [
+    {
+     "key": "interface.peel_strength",
+     "value": 500.0,
+     "unit": "N/m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "substrate": "1 oz 銅箔 (0.035 mm)",
+      "temperature_c": 200,
+      "test_condition": "200℃雰囲気 (in a 200 °C atmosphere)",
+      "test_method": "引き剥がし強さ (peel strength, カタログ 製品性能表)",
+      "peel_angle_source": "카탈로그가 각도를 찍지 않는다 — JIS C6481 계열 90° 박리로 보이나 **시트 미인쇄**라 각도를 적지 않는다(68차 DD)."
+     },
+     "notes": "[74차 JD] CHUKOH FLO 카탈로그 `引き剥がし強さ … 200℃雰囲気 0.5 kN/m` (CGN-500 열). 상온(A) 조건 1.0 kN/m 만 들어가 있고 **고온 행이 빠져 있었다**."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 1000000000000.0,
+     "unit": "ohm*m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "C-96/40/90",
+      "test_condition": "C-96/40/90 (습열 처리 후)"
+     },
+     "notes": "[74차 JD] CHUKOH FLO 카탈로그 `体積抵抗率 … C-96/40/90 10^14 Ω·cm` (CGN-500 열) → 1e12 Ω·m. 조건 A(10^15 Ω·cm) 행만 들어가 있었다."
+    },
+    {
+     "key": "electrical.surface_resistivity",
+     "value": 10000000000000.0,
+     "unit": "ohm",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "C-96/40/90",
+      "test_condition": "C-96/40/90 (습열 처리 후)"
+     },
+     "notes": "[74차 JD] CHUKOH FLO 카탈로그 `表面抵抗率 … C-96/40/90 10^13 Ω` (CGN-500 열). 조건 A(10^14 Ω) 행만 들어가 있었다."
+    }
+   ]
+  },
+  {
+   "match_name": "Chukoh CHUKOH FLO CGS-500A PTFE Copper-Clad Laminate",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.chukoh.co.jp/wp-content/uploads/catalog05_lami_ja-1.pdf",
+    "title": "CHUKOH FLO 銅張積層板 製品カタログ (catalog05_lami_ja)",
+    "publisher": "Chukoh Chemical Industries, Ltd."
+   },
+   "properties": [
+    {
+     "key": "interface.peel_strength",
+     "value": 500.0,
+     "unit": "N/m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "substrate": "1 oz 銅箔 (0.035 mm)",
+      "temperature_c": 200,
+      "test_condition": "200℃雰囲気 (in a 200 °C atmosphere)",
+      "test_method": "引き剥がし強さ (peel strength, カタログ 製品性能表)",
+      "peel_angle_source": "카탈로그가 각도를 찍지 않는다 — **시트 미인쇄**라 각도를 적지 않는다(68차 DD)."
+     },
+     "notes": "[74차 JD] CHUKOH FLO 카탈로그 `引き剥がし強さ … 200℃雰囲気 0.5 kN/m` (CGS-500A 열)."
+    },
+    {
+     "key": "electrical.resistivity_volume",
+     "value": 1000000000000.0,
+     "unit": "ohm*m",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "C-96/40/90",
+      "test_condition": "C-96/40/90 (습열 처리 후)"
+     },
+     "notes": "[74차 JD] CHUKOH FLO 카탈로그 `体積抵抗率 … C-96/40/90 10^14 Ω·cm` (CGS-500A 열) → 1e12 Ω·m."
+    },
+    {
+     "key": "electrical.surface_resistivity",
+     "value": 10000000000000.0,
+     "unit": "ohm",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "condition": "C-96/40/90",
+      "test_condition": "C-96/40/90 (습열 처리 후)"
+     },
+     "notes": "[74차 JD] CHUKOH FLO 카탈로그 `表面抵抗率 … C-96/40/90 10^13 Ω` (CGS-500A 열)."
+    }
+   ]
+  }
+ ]
+}

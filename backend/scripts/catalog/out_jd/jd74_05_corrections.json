@@ -1,0 +1,126 @@
+{
+ "batch": "74차 JD",
+ "note": "영률 칸에 앉은 **굽힘탄성률**의 시험모드 표기를 대표값 선택기의 판정 창 안에 제 칸으로 세운다. 값·단위·등급·method·출처는 한 칸도 바꾸지 않고, 기존 조건칸도 하나도 지우지 않는다. 삭제 0건.\nIsola 370HR(pv3356·3357·6081·6082)도 같은 무늬라 후보로 열었지만 **고치지 않았다** — 그 네 행은 이미 `test_standard: ASTM D790-15e2` 를 판정 창 안에 갖고 있고, `conditions` 는 통째로 교체되므로 손대면 54차 PB·51차 MA 의 동률 판정 기록이 사라진다. 표기가 이미 유효한 행을 꾸미려고 앞 파동의 판정을 지우지 않는다.",
+ "corrections": [
+  {
+   "target": {
+    "property_value_id": 12978
+   },
+   "by": "74차 JD",
+   "reason": "Rogers CLTE/CLTE-XT 시트를 원본(`Rogers_CLTE_CLTE-XT_Laminates_DataSheet.pdf`)으로 다시 열어 확인했다 — 이 시트의 기계물성 블록에는 **인장탄성률 행이 없다**. 있는 것은 `Flexural Strength … ASTM D790` · `Tensile Strength … ASTM D638` · `Flex Modulus (MD, CMD) … ASTM D790` 셋뿐이고, 영률 칸에 앉은 값은 그 **Flex Modulus** 행이다. 값·단위·등급·method·출처는 한 칸도 바꾸지 않는다. 시험모드는 이미 `method_detail` 한국어 산문에 적혀 있었지만 **`test_standard` 라는 제 칸이 비어 있어** 규격을 토큰으로 읽는 쪽에서는 보이지 않았다 — 기존 칸을 하나도 지우지 않고 `test_standard`·`test_mode`·`loading_mode`·`test_method` 를 **덧붙이기만 한다**(52차 NA 의 되돌리기 표시도 그대로 옮겨 담는다).",
+   "set": {
+    "conditions": {
+     "direction_verbatim_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "temperature_c_before_correction": null,
+     "correction_reason": "조건 어휘 통일(브리프 547·551) — 값·단위·등급·method·출처는 그대로다. temperature_C→temperature_c · direction 정규화 [52차 NA] / 74차 JD 가 시험모드 칸(test_standard·test_mode·loading_mode·test_method)을 덧붙였다.",
+     "corrected_by": "52차 NA → 74차 JD",
+     "test_standard": "ASTM D790",
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "test_method": "3-point bend (ASTM D790)",
+     "method_detail": "굴곡 탄성률 (ASTM D790) — 인장 탄성률은 이 TDS에 미인쇄",
+     "temperature_c": 25,
+     "reported_as_youngs_modulus": true,
+     "source_row_name": "Flex Modulus (MD, CMD)",
+     "tensile_modulus_in_source": "이 TDS 에는 인장탄성률 행이 없다 — 74차 JD 가 원문을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 같은 출처·같은 수가 그 키에도 있다. 원행은 지우지 않았다(삭제는 사람이 정한다).",
+     "direction": "MD",
+     "direction_verbatim": "MD (machine direction)",
+     "direction_before_correction": "MD (machine direction)",
+     "grade": "CLTE"
+    }
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12979
+   },
+   "by": "74차 JD",
+   "reason": "Rogers CLTE/CLTE-XT 시트를 원본(`Rogers_CLTE_CLTE-XT_Laminates_DataSheet.pdf`)으로 다시 열어 확인했다 — 이 시트의 기계물성 블록에는 **인장탄성률 행이 없다**. 있는 것은 `Flexural Strength … ASTM D790` · `Tensile Strength … ASTM D638` · `Flex Modulus (MD, CMD) … ASTM D790` 셋뿐이고, 영률 칸에 앉은 값은 그 **Flex Modulus** 행이다. 값·단위·등급·method·출처는 한 칸도 바꾸지 않는다. 시험모드는 이미 `method_detail` 한국어 산문에 적혀 있었지만 **`test_standard` 라는 제 칸이 비어 있어** 규격을 토큰으로 읽는 쪽에서는 보이지 않았다 — 기존 칸을 하나도 지우지 않고 `test_standard`·`test_mode`·`loading_mode`·`test_method` 를 **덧붙이기만 한다**(52차 NA 의 되돌리기 표시도 그대로 옮겨 담는다).",
+   "set": {
+    "conditions": {
+     "direction_verbatim_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "temperature_c_before_correction": null,
+     "correction_reason": "조건 어휘 통일(브리프 547·551) — 값·단위·등급·method·출처는 그대로다. temperature_C→temperature_c · direction 정규화 [52차 NA] / 74차 JD 가 시험모드 칸(test_standard·test_mode·loading_mode·test_method)을 덧붙였다.",
+     "corrected_by": "52차 NA → 74차 JD",
+     "test_standard": "ASTM D790",
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "test_method": "3-point bend (ASTM D790)",
+     "method_detail": "굴곡 탄성률 (ASTM D790) — 인장 탄성률은 이 TDS에 미인쇄",
+     "temperature_c": 25,
+     "reported_as_youngs_modulus": true,
+     "source_row_name": "Flex Modulus (MD, CMD)",
+     "tensile_modulus_in_source": "이 TDS 에는 인장탄성률 행이 없다 — 74차 JD 가 원문을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 같은 출처·같은 수가 그 키에도 있다. 원행은 지우지 않았다(삭제는 사람이 정한다).",
+     "direction": "TD",
+     "direction_verbatim": "CMD (cross-machine direction)",
+     "direction_before_correction": "CMD (cross-machine direction)",
+     "grade": "CLTE"
+    }
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12981
+   },
+   "by": "74차 JD",
+   "reason": "Rogers CLTE/CLTE-XT 시트를 원본(`Rogers_CLTE_CLTE-XT_Laminates_DataSheet.pdf`)으로 다시 열어 확인했다 — 이 시트의 기계물성 블록에는 **인장탄성률 행이 없다**. 있는 것은 `Flexural Strength … ASTM D790` · `Tensile Strength … ASTM D638` · `Flex Modulus (MD, CMD) … ASTM D790` 셋뿐이고, 영률 칸에 앉은 값은 그 **Flex Modulus** 행이다. 값·단위·등급·method·출처는 한 칸도 바꾸지 않는다. 시험모드는 이미 `method_detail` 한국어 산문에 적혀 있었지만 **`test_standard` 라는 제 칸이 비어 있어** 규격을 토큰으로 읽는 쪽에서는 보이지 않았다 — 기존 칸을 하나도 지우지 않고 `test_standard`·`test_mode`·`loading_mode`·`test_method` 를 **덧붙이기만 한다**(52차 NA 의 되돌리기 표시도 그대로 옮겨 담는다).",
+   "set": {
+    "conditions": {
+     "direction_verbatim_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "temperature_c_before_correction": null,
+     "correction_reason": "조건 어휘 통일(브리프 547·551) — 값·단위·등급·method·출처는 그대로다. temperature_C→temperature_c · direction 정규화 [52차 NA] / 74차 JD 가 시험모드 칸(test_standard·test_mode·loading_mode·test_method)을 덧붙였다.",
+     "corrected_by": "52차 NA → 74차 JD",
+     "test_standard": "ASTM D790",
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "test_method": "3-point bend (ASTM D790)",
+     "method_detail": "굴곡 탄성률 (ASTM D790) — 인장 탄성률은 이 TDS에 미인쇄",
+     "temperature_c": 25,
+     "reported_as_youngs_modulus": true,
+     "source_row_name": "Flex Modulus (MD, CMD)",
+     "tensile_modulus_in_source": "이 TDS 에는 인장탄성률 행이 없다 — 74차 JD 가 원문을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 같은 출처·같은 수가 그 키에도 있다. 원행은 지우지 않았다(삭제는 사람이 정한다).",
+     "direction": "MD",
+     "direction_verbatim": "MD (machine direction)",
+     "direction_before_correction": "MD (machine direction)",
+     "grade": "CLTE-XT"
+    }
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12982
+   },
+   "by": "74차 JD",
+   "reason": "Rogers CLTE/CLTE-XT 시트를 원본(`Rogers_CLTE_CLTE-XT_Laminates_DataSheet.pdf`)으로 다시 열어 확인했다 — 이 시트의 기계물성 블록에는 **인장탄성률 행이 없다**. 있는 것은 `Flexural Strength … ASTM D790` · `Tensile Strength … ASTM D638` · `Flex Modulus (MD, CMD) … ASTM D790` 셋뿐이고, 영률 칸에 앉은 값은 그 **Flex Modulus** 행이다. 값·단위·등급·method·출처는 한 칸도 바꾸지 않는다. 시험모드는 이미 `method_detail` 한국어 산문에 적혀 있었지만 **`test_standard` 라는 제 칸이 비어 있어** 규격을 토큰으로 읽는 쪽에서는 보이지 않았다 — 기존 칸을 하나도 지우지 않고 `test_standard`·`test_mode`·`loading_mode`·`test_method` 를 **덧붙이기만 한다**(52차 NA 의 되돌리기 표시도 그대로 옮겨 담는다).",
+   "set": {
+    "conditions": {
+     "direction_verbatim_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "temperature_c_before_correction": null,
+     "correction_reason": "조건 어휘 통일(브리프 547·551) — 값·단위·등급·method·출처는 그대로다. temperature_C→temperature_c · direction 정규화 [52차 NA] / 74차 JD 가 시험모드 칸(test_standard·test_mode·loading_mode·test_method)을 덧붙였다.",
+     "corrected_by": "52차 NA → 74차 JD",
+     "test_standard": "ASTM D790",
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "test_method": "3-point bend (ASTM D790)",
+     "method_detail": "굴곡 탄성률 (ASTM D790) — 인장 탄성률은 이 TDS에 미인쇄",
+     "temperature_c": 25,
+     "reported_as_youngs_modulus": true,
+     "source_row_name": "Flex Modulus (MD, CMD)",
+     "tensile_modulus_in_source": "이 TDS 에는 인장탄성률 행이 없다 — 74차 JD 가 원문을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 같은 출처·같은 수가 그 키에도 있다. 원행은 지우지 않았다(삭제는 사람이 정한다).",
+     "direction": "TD",
+     "direction_verbatim": "CMD (cross-machine direction)",
+     "direction_before_correction": "CMD (cross-machine direction)",
+     "grade": "CLTE-XT"
+    }
+   }
+  }
+ ]
+}
