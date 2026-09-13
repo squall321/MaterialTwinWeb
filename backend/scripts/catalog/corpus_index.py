@@ -302,8 +302,14 @@ def scan_build() -> None:
     print(f"물성표 보유 논문 {n}편 색인 완료", file=sys.stderr)
 
 
-def tables_query(min_hits: int, limit: int, domain: str | None, want: str | None) -> None:
-    """구워 둔 색인에서 즉시 조회한다."""
+def tables_query(min_hits: int, limit: int, domain: str | None, want: str | None,
+                 grep: str | None = None) -> None:
+    """구워 둔 색인에서 즉시 조회한다.
+
+    `grep` 은 후보 논문의 **표 파일 본문**을 정규식으로 거른다 — 74차 JB 가 표 층을
+    손 grep 으로 8분 돌려야 했다(색인은 물성 키만 알고 등급명·벤더명은 모른다).
+    색인으로 후보를 좁힌 뒤 그 논문의 `tables/*.md` 만 읽으므로 전수 grep 보다 빠르다.
+    """
     c = sqlite3.connect(DB)
     if not c.execute("select name from sqlite_master where name='ptab'").fetchone():
         print("ptab 없음 — 먼저 `scan` 을 돌려라", file=sys.stderr)
@@ -317,17 +323,42 @@ def tables_query(min_hits: int, limit: int, domain: str | None, want: str | None
     if want:
         sql += (" and exists(select 1 from ptab q where q.doc_id=d.id and q.key=?)")
         args.append(want)
+    # **grep 이 있으면 limit 을 뒤로 미룬다.** 앞에 걸면 후보 N 편만 정규식 검사를 받아
+    # "0편 적중" 이 나온다 — 색인이 등급명을 모르므로 후보 풀이 넉넉해야 한다.
     sql += " group by d.id order by n desc limit ?"
-    args.append(limit)
+    args.append(max(limit, 2000) if grep else limit)
     rows = c.execute(sql, args).fetchall()
+    if grep:
+        rx = re.compile(grep, re.I)
+        kept = []
+        for r in rows:
+            d = os.path.join(os.path.dirname(r[5]), "tables")
+            if not os.path.isdir(d):
+                continue
+            for f in sorted(os.listdir(d)):
+                if not f.endswith(".md"):
+                    continue
+                try:
+                    body = open(os.path.join(d, f), encoding="utf-8", errors="ignore").read()
+                except OSError:
+                    continue
+                if rx.search(body):
+                    kept.append(r + (f,))
+                    break
+        print(f"── 표 본문 정규식 `{grep}` — 후보 {len(rows)}편 중 {len(kept)}편 적중\n")
+        rows = kept[:limit]
     tot = c.execute("select count(distinct doc_id) from ptab where n_in_table>=?",
                     (min_hits,)).fetchone()[0]
     print(f"물성표 {min_hits}종 이상 보유 논문 {tot}편 — 상위 {len(rows)}편\n")
-    for did, n, dom, sub, title, path in rows:
+    for row in rows:
+        did, n, dom, sub, title, path = row[:6]
+        hit_file = row[6] if len(row) > 6 else None
         keys = [k for k, in c.execute("select key from ptab where doc_id=? order by key", (did,))]
         print(f"[{n}종] {dom}/{sub}  {title[:84]}")
         print(f"   {' · '.join(keys)}")
         print(f"   {path}")
+        if hit_file:
+            print(f"   ↳ 적중 표: tables/{hit_file}")
     print("\n── 물성별 보유 논문 수(기준 이상)")
     for k, v in c.execute("select key,count(*) from ptab where n_in_table>=? "
                           "group by key order by 2 desc", (min_hits,)):
@@ -427,6 +458,9 @@ def main() -> None:
     p.add_argument("-n", "--limit", type=int, default=40)
     p.add_argument("-d", "--domain")
     p.add_argument("-k", "--want", help="이 물성을 담은 표만")
+    p.add_argument("-g", "--grep", default=None,
+                   help="후보 논문의 표 본문을 이 정규식으로 한 번 더 거른다"
+                        " — 색인은 물성 키만 알고 등급명·벤더명은 모른다")
     for name in ("search", "near"):
         p = sub.add_parser(name)
         p.add_argument("query")
@@ -445,7 +479,7 @@ def main() -> None:
     elif a.cmd == "scan":
         scan_build()
     elif a.cmd == "tables":
-        tables_query(a.min_hits, a.limit, a.domain, a.want)
+        tables_query(a.min_hits, a.limit, a.domain, a.want, getattr(a, "grep", None))
     elif a.cmd == "doi":
         d, where = doi_of(a.title)
         print(f"{d}\t{where}" if d else "(못 찾음)")
