@@ -1,0 +1,445 @@
+{
+ "batch": "75차 KA",
+ "materials": [
+  {
+   "match_name": "Resonac GEA-705G (glass/epoxy prepreg)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Resonac MCL COPPER CLAD LAMINATES (영문판, 본문 기준일 2026-07)",
+    "publisher": "Resonac Corporation",
+    "year": 2026,
+    "url": null,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Resonac_MCL_CopperCladLaminates_Catalog_en_2026-07.pdf"
+   },
+   "properties": [
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.01,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 10000000000.0,
+      "method_detail": "SPDR",
+      "test_method": "SPDR (Split Post Dielectric Resonator)",
+      "catalog_edition": "Resonac MCL Catalog, English edition 2026-07",
+      "edition_conflict": "en-2026-07 only; ja-2023/2024 and ja-2026-04 agree with each other",
+      "specimen_thickness_mm": 0.02,
+      "bound": "lower"
+     },
+     "notes": "【판 대조】같은 카탈로그의 영문판(en 2026-07, 51쪽)과 일문판(ja 2026-04, 59쪽)을 쪽·열 단위로 대 봤다. 두 판은 표 뼈대·각주 번호·IPC-TM-650 참조까지 같은데 일부 칸의 숫자가 다르다. 200 dpi 렌더로 두 판 모두 눈 대조했다(pdftotext 열 밀림 아님). DB 에 이미 있는 값은 일문판 값이므로 이 행은 **영문판 값**을 밴드로 나란히 남긴다 — 평균 내지 않았다. 【시간축 대조 — 어느 쪽이 흔들리는지 잰다】구판 일문판(ja 2023-2024, 66쪽)의 같은 칸을 세 번째 증인으로 세웠다. **ja 2023-2024 와 ja 2026-04 가 서로 완전히 같고, en 2026-07 만 다르다.** 즉 이 어긋남은 해가 바뀌며 갱신된 것이 아니라 **언어판 사이에서 갈린 것**이다(다만 영문판 본문 기준일이 2026-07 이고 일문판이 2026-01 이라, 미래의 일문판이 영문판을 따라갈 가능성은 남는다). **영문판 쪽을 의심할 이유가 하나 더 있다** — 같은 쪽 묶음에서 영문판은 행 이름을 `Flexual Modulus` 로 오식하고, Thickness 열의 GEA-705G·770G 를 0.025 가 아닌 0.020(=795G 값)으로 눌러 인쇄한다. 그래도 지우지 않는다 — 인쇄된 것은 인쇄된 것이다. 두 밴드를 다 남기고 판정은 다음 파동에 넘긴다. 이 행의 자리 — 영문판 PDF p.6 / 인쇄 p.7 「General Characteristics」, GEA-705G 열 / 일문판 PDF p.6 / 인쇄 p.7 「MCL一般特性一覧」, GEA-705G 열. 두 판이 이 등급에 **시편 두께마저 다르게** 인쇄한다 — 영문판 Thickness 0.020 mm, 일문판 厚み 0.025 mm. 그래서 이 영문판 행에는 specimen_thickness_mm 0.02 를 박았다(DB 의 일문판 행은 0.025다). 원문 verbatim: `Df (10 GHz) | 0.010 - 0.012`. 일문판 같은 칸은 `0.008 - 0.010` 이고 그 값이 DB 에 이미 있다. 환산 없음(무차원). 왜 다른지는 벤더가 밝히지 않았다 — 두 판의 인쇄 기준일이 다르다(영문판 본문 「as of July 2026」 · 일문판 「2026年1月現在」)는 것이 유일한 단서다."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.012,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 10000000000.0,
+      "method_detail": "SPDR",
+      "test_method": "SPDR (Split Post Dielectric Resonator)",
+      "catalog_edition": "Resonac MCL Catalog, English edition 2026-07",
+      "edition_conflict": "en-2026-07 only; ja-2023/2024 and ja-2026-04 agree with each other",
+      "specimen_thickness_mm": 0.02,
+      "bound": "upper"
+     },
+     "notes": "【판 대조】같은 카탈로그의 영문판(en 2026-07, 51쪽)과 일문판(ja 2026-04, 59쪽)을 쪽·열 단위로 대 봤다. 두 판은 표 뼈대·각주 번호·IPC-TM-650 참조까지 같은데 일부 칸의 숫자가 다르다. 200 dpi 렌더로 두 판 모두 눈 대조했다(pdftotext 열 밀림 아님). DB 에 이미 있는 값은 일문판 값이므로 이 행은 **영문판 값**을 밴드로 나란히 남긴다 — 평균 내지 않았다. 【시간축 대조 — 어느 쪽이 흔들리는지 잰다】구판 일문판(ja 2023-2024, 66쪽)의 같은 칸을 세 번째 증인으로 세웠다. **ja 2023-2024 와 ja 2026-04 가 서로 완전히 같고, en 2026-07 만 다르다.** 즉 이 어긋남은 해가 바뀌며 갱신된 것이 아니라 **언어판 사이에서 갈린 것**이다(다만 영문판 본문 기준일이 2026-07 이고 일문판이 2026-01 이라, 미래의 일문판이 영문판을 따라갈 가능성은 남는다). **영문판 쪽을 의심할 이유가 하나 더 있다** — 같은 쪽 묶음에서 영문판은 행 이름을 `Flexual Modulus` 로 오식하고, Thickness 열의 GEA-705G·770G 를 0.025 가 아닌 0.020(=795G 값)으로 눌러 인쇄한다. 그래도 지우지 않는다 — 인쇄된 것은 인쇄된 것이다. 두 밴드를 다 남기고 판정은 다음 파동에 넘긴다. 이 행의 자리 — 영문판 PDF p.6 / 인쇄 p.7 「General Characteristics」, GEA-705G 열 / 일문판 PDF p.6 / 인쇄 p.7 「MCL一般特性一覧」, GEA-705G 열. 두 판이 이 등급에 **시편 두께마저 다르게** 인쇄한다 — 영문판 Thickness 0.020 mm, 일문판 厚み 0.025 mm. 그래서 이 영문판 행에는 specimen_thickness_mm 0.02 를 박았다(DB 의 일문판 행은 0.025다). 원문 verbatim: `Df (10 GHz) | 0.010 - 0.012`. 일문판 같은 칸은 `0.008 - 0.010` 이고 그 값이 DB 에 이미 있다. 환산 없음(무차원). 왜 다른지는 벤더가 밝히지 않았다 — 두 판의 인쇄 기준일이 다르다(영문판 본문 「as of July 2026」 · 일문판 「2026年1月現在」)는 것이 유일한 단서다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 9e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "in-plane (X)",
+      "regime": "below Tg",
+      "method_detail": "TMA",
+      "test_mode": "tensile (각주 *5: Tensile)",
+      "catalog_edition": "Resonac MCL Catalog, English edition 2026-07",
+      "edition_conflict": "en-2026-07 only; ja-2023/2024 and ja-2026-04 agree with each other",
+      "specimen_thickness_mm": 0.02,
+      "bound": "lower"
+     },
+     "notes": "【판 대조】같은 카탈로그의 영문판(en 2026-07, 51쪽)과 일문판(ja 2026-04, 59쪽)을 쪽·열 단위로 대 봤다. 두 판은 표 뼈대·각주 번호·IPC-TM-650 참조까지 같은데 일부 칸의 숫자가 다르다. 200 dpi 렌더로 두 판 모두 눈 대조했다(pdftotext 열 밀림 아님). DB 에 이미 있는 값은 일문판 값이므로 이 행은 **영문판 값**을 밴드로 나란히 남긴다 — 평균 내지 않았다. 【시간축 대조 — 어느 쪽이 흔들리는지 잰다】구판 일문판(ja 2023-2024, 66쪽)의 같은 칸을 세 번째 증인으로 세웠다. **ja 2023-2024 와 ja 2026-04 가 서로 완전히 같고, en 2026-07 만 다르다.** 즉 이 어긋남은 해가 바뀌며 갱신된 것이 아니라 **언어판 사이에서 갈린 것**이다(다만 영문판 본문 기준일이 2026-07 이고 일문판이 2026-01 이라, 미래의 일문판이 영문판을 따라갈 가능성은 남는다). **영문판 쪽을 의심할 이유가 하나 더 있다** — 같은 쪽 묶음에서 영문판은 행 이름을 `Flexual Modulus` 로 오식하고, Thickness 열의 GEA-705G·770G 를 0.025 가 아닌 0.020(=795G 값)으로 눌러 인쇄한다. 그래도 지우지 않는다 — 인쇄된 것은 인쇄된 것이다. 두 밴드를 다 남기고 판정은 다음 파동에 넘긴다. 이 행의 자리 — 영문판 PDF p.6 / 인쇄 p.7 「General Characteristics」, GEA-705G 열 / 일문판 PDF p.6 / 인쇄 p.7 「MCL一般特性一覧」, GEA-705G 열. 두 판이 이 등급에 **시편 두께마저 다르게** 인쇄한다 — 영문판 Thickness 0.020 mm, 일문판 厚み 0.025 mm. 그래서 이 영문판 행에는 specimen_thickness_mm 0.02 를 박았다(DB 의 일문판 행은 0.025다). 원문 verbatim: `CTE x (<Tg) (Comp.) | 9 - 11*5`, 각주 `*5: Tensile`. 일문판 같은 칸은 `8 - 10*5` 이고 그 값이 DB 에 이미 있다. 환산: 9 ppm/℃ x 1e-6 = 9e-06 1/K; 되돌리면 9e-06/1e-6 = 9 ppm/℃. 행 이름은 `(Comp.)`(압축)인데 각주 *5 가 `Tensile`(인장)을 지정한다 — 각주가 행 이름을 덮는다. 그래서 test_mode 에 각주를 적었다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.1e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "in-plane (X)",
+      "regime": "below Tg",
+      "method_detail": "TMA",
+      "test_mode": "tensile (각주 *5: Tensile)",
+      "catalog_edition": "Resonac MCL Catalog, English edition 2026-07",
+      "edition_conflict": "en-2026-07 only; ja-2023/2024 and ja-2026-04 agree with each other",
+      "specimen_thickness_mm": 0.02,
+      "bound": "upper"
+     },
+     "notes": "【판 대조】같은 카탈로그의 영문판(en 2026-07, 51쪽)과 일문판(ja 2026-04, 59쪽)을 쪽·열 단위로 대 봤다. 두 판은 표 뼈대·각주 번호·IPC-TM-650 참조까지 같은데 일부 칸의 숫자가 다르다. 200 dpi 렌더로 두 판 모두 눈 대조했다(pdftotext 열 밀림 아님). DB 에 이미 있는 값은 일문판 값이므로 이 행은 **영문판 값**을 밴드로 나란히 남긴다 — 평균 내지 않았다. 【시간축 대조 — 어느 쪽이 흔들리는지 잰다】구판 일문판(ja 2023-2024, 66쪽)의 같은 칸을 세 번째 증인으로 세웠다. **ja 2023-2024 와 ja 2026-04 가 서로 완전히 같고, en 2026-07 만 다르다.** 즉 이 어긋남은 해가 바뀌며 갱신된 것이 아니라 **언어판 사이에서 갈린 것**이다(다만 영문판 본문 기준일이 2026-07 이고 일문판이 2026-01 이라, 미래의 일문판이 영문판을 따라갈 가능성은 남는다). **영문판 쪽을 의심할 이유가 하나 더 있다** — 같은 쪽 묶음에서 영문판은 행 이름을 `Flexual Modulus` 로 오식하고, Thickness 열의 GEA-705G·770G 를 0.025 가 아닌 0.020(=795G 값)으로 눌러 인쇄한다. 그래도 지우지 않는다 — 인쇄된 것은 인쇄된 것이다. 두 밴드를 다 남기고 판정은 다음 파동에 넘긴다. 이 행의 자리 — 영문판 PDF p.6 / 인쇄 p.7 「General Characteristics」, GEA-705G 열 / 일문판 PDF p.6 / 인쇄 p.7 「MCL一般特性一覧」, GEA-705G 열. 두 판이 이 등급에 **시편 두께마저 다르게** 인쇄한다 — 영문판 Thickness 0.020 mm, 일문판 厚み 0.025 mm. 그래서 이 영문판 행에는 specimen_thickness_mm 0.02 를 박았다(DB 의 일문판 행은 0.025다). 원문 verbatim: `CTE x (<Tg) (Comp.) | 9 - 11*5`, 각주 `*5: Tensile`. 일문판 같은 칸은 `8 - 10*5` 이고 그 값이 DB 에 이미 있다. 환산: 9 ppm/℃ x 1e-6 = 9e-06 1/K; 되돌리면 9e-06/1e-6 = 9 ppm/℃. 행 이름은 `(Comp.)`(압축)인데 각주 *5 가 `Tensile`(인장)을 지정한다 — 각주가 행 이름을 덮는다. 그래서 test_mode 에 각주를 적었다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 9e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "in-plane (Y)",
+      "regime": "below Tg",
+      "method_detail": "TMA",
+      "test_mode": "tensile (각주 *5: Tensile)",
+      "catalog_edition": "Resonac MCL Catalog, English edition 2026-07",
+      "edition_conflict": "en-2026-07 only; ja-2023/2024 and ja-2026-04 agree with each other",
+      "specimen_thickness_mm": 0.02,
+      "bound": "lower"
+     },
+     "notes": "【판 대조】같은 카탈로그의 영문판(en 2026-07, 51쪽)과 일문판(ja 2026-04, 59쪽)을 쪽·열 단위로 대 봤다. 두 판은 표 뼈대·각주 번호·IPC-TM-650 참조까지 같은데 일부 칸의 숫자가 다르다. 200 dpi 렌더로 두 판 모두 눈 대조했다(pdftotext 열 밀림 아님). DB 에 이미 있는 값은 일문판 값이므로 이 행은 **영문판 값**을 밴드로 나란히 남긴다 — 평균 내지 않았다. 【시간축 대조 — 어느 쪽이 흔들리는지 잰다】구판 일문판(ja 2023-2024, 66쪽)의 같은 칸을 세 번째 증인으로 세웠다. **ja 2023-2024 와 ja 2026-04 가 서로 완전히 같고, en 2026-07 만 다르다.** 즉 이 어긋남은 해가 바뀌며 갱신된 것이 아니라 **언어판 사이에서 갈린 것**이다(다만 영문판 본문 기준일이 2026-07 이고 일문판이 2026-01 이라, 미래의 일문판이 영문판을 따라갈 가능성은 남는다). **영문판 쪽을 의심할 이유가 하나 더 있다** — 같은 쪽 묶음에서 영문판은 행 이름을 `Flexual Modulus` 로 오식하고, Thickness 열의 GEA-705G·770G 를 0.025 가 아닌 0.020(=795G 값)으로 눌러 인쇄한다. 그래도 지우지 않는다 — 인쇄된 것은 인쇄된 것이다. 두 밴드를 다 남기고 판정은 다음 파동에 넘긴다. 이 행의 자리 — 영문판 PDF p.6 / 인쇄 p.7 「General Characteristics」, GEA-705G 열 / 일문판 PDF p.6 / 인쇄 p.7 「MCL一般特性一覧」, GEA-705G 열. 두 판이 이 등급에 **시편 두께마저 다르게** 인쇄한다 — 영문판 Thickness 0.020 mm, 일문판 厚み 0.025 mm. 그래서 이 영문판 행에는 specimen_thickness_mm 0.02 를 박았다(DB 의 일문판 행은 0.025다). 원문 verbatim: `CTE y (<Tg) (Comp.) | 9 - 11*5`, 각주 `*5: Tensile`. 일문판 같은 칸은 `8 - 10*5` 이고 그 값이 DB 에 이미 있다. 환산: 9 ppm/℃ x 1e-6 = 9e-06 1/K; 되돌리면 9e-06/1e-6 = 9 ppm/℃. 행 이름은 `(Comp.)`(압축)인데 각주 *5 가 `Tensile`(인장)을 지정한다 — 각주가 행 이름을 덮는다. 그래서 test_mode 에 각주를 적었다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1.1e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "in-plane (Y)",
+      "regime": "below Tg",
+      "method_detail": "TMA",
+      "test_mode": "tensile (각주 *5: Tensile)",
+      "catalog_edition": "Resonac MCL Catalog, English edition 2026-07",
+      "edition_conflict": "en-2026-07 only; ja-2023/2024 and ja-2026-04 agree with each other",
+      "specimen_thickness_mm": 0.02,
+      "bound": "upper"
+     },
+     "notes": "【판 대조】같은 카탈로그의 영문판(en 2026-07, 51쪽)과 일문판(ja 2026-04, 59쪽)을 쪽·열 단위로 대 봤다. 두 판은 표 뼈대·각주 번호·IPC-TM-650 참조까지 같은데 일부 칸의 숫자가 다르다. 200 dpi 렌더로 두 판 모두 눈 대조했다(pdftotext 열 밀림 아님). DB 에 이미 있는 값은 일문판 값이므로 이 행은 **영문판 값**을 밴드로 나란히 남긴다 — 평균 내지 않았다. 【시간축 대조 — 어느 쪽이 흔들리는지 잰다】구판 일문판(ja 2023-2024, 66쪽)의 같은 칸을 세 번째 증인으로 세웠다. **ja 2023-2024 와 ja 2026-04 가 서로 완전히 같고, en 2026-07 만 다르다.** 즉 이 어긋남은 해가 바뀌며 갱신된 것이 아니라 **언어판 사이에서 갈린 것**이다(다만 영문판 본문 기준일이 2026-07 이고 일문판이 2026-01 이라, 미래의 일문판이 영문판을 따라갈 가능성은 남는다). **영문판 쪽을 의심할 이유가 하나 더 있다** — 같은 쪽 묶음에서 영문판은 행 이름을 `Flexual Modulus` 로 오식하고, Thickness 열의 GEA-705G·770G 를 0.025 가 아닌 0.020(=795G 값)으로 눌러 인쇄한다. 그래도 지우지 않는다 — 인쇄된 것은 인쇄된 것이다. 두 밴드를 다 남기고 판정은 다음 파동에 넘긴다. 이 행의 자리 — 영문판 PDF p.6 / 인쇄 p.7 「General Characteristics」, GEA-705G 열 / 일문판 PDF p.6 / 인쇄 p.7 「MCL一般特性一覧」, GEA-705G 열. 두 판이 이 등급에 **시편 두께마저 다르게** 인쇄한다 — 영문판 Thickness 0.020 mm, 일문판 厚み 0.025 mm. 그래서 이 영문판 행에는 specimen_thickness_mm 0.02 를 박았다(DB 의 일문판 행은 0.025다). 원문 verbatim: `CTE y (<Tg) (Comp.) | 9 - 11*5`, 각주 `*5: Tensile`. 일문판 같은 칸은 `8 - 10*5` 이고 그 값이 DB 에 이미 있다. 환산: 9 ppm/℃ x 1e-6 = 9e-06 1/K; 되돌리면 9e-06/1e-6 = 9 ppm/℃. 행 이름은 `(Comp.)`(압축)인데 각주 *5 가 `Tensile`(인장)을 지정한다 — 각주가 행 이름을 덮는다. 그래서 test_mode 에 각주를 적었다."
+    }
+   ]
+  },
+  {
+   "match_name": "Resonac GEA-770G (glass/epoxy prepreg)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Resonac MCL COPPER CLAD LAMINATES (영문판, 본문 기준일 2026-07)",
+    "publisher": "Resonac Corporation",
+    "year": 2026,
+    "url": null,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Resonac_MCL_CopperCladLaminates_Catalog_en_2026-07.pdf"
+   },
+   "properties": [
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 3.7,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 10000000000.0,
+      "method_detail": "SPDR",
+      "test_method": "SPDR (Split Post Dielectric Resonator)",
+      "catalog_edition": "Resonac MCL Catalog, English edition 2026-07",
+      "edition_conflict": "en-2026-07 only; ja-2023/2024 and ja-2026-04 agree with each other",
+      "specimen_thickness_mm": 0.02,
+      "bound": "lower"
+     },
+     "notes": "【판 대조】같은 카탈로그의 영문판(en 2026-07, 51쪽)과 일문판(ja 2026-04, 59쪽)을 쪽·열 단위로 대 봤다. 두 판은 표 뼈대·각주 번호·IPC-TM-650 참조까지 같은데 일부 칸의 숫자가 다르다. 200 dpi 렌더로 두 판 모두 눈 대조했다(pdftotext 열 밀림 아님). DB 에 이미 있는 값은 일문판 값이므로 이 행은 **영문판 값**을 밴드로 나란히 남긴다 — 평균 내지 않았다. 【시간축 대조 — 어느 쪽이 흔들리는지 잰다】구판 일문판(ja 2023-2024, 66쪽)의 같은 칸을 세 번째 증인으로 세웠다. **ja 2023-2024 와 ja 2026-04 가 서로 완전히 같고, en 2026-07 만 다르다.** 즉 이 어긋남은 해가 바뀌며 갱신된 것이 아니라 **언어판 사이에서 갈린 것**이다(다만 영문판 본문 기준일이 2026-07 이고 일문판이 2026-01 이라, 미래의 일문판이 영문판을 따라갈 가능성은 남는다). **영문판 쪽을 의심할 이유가 하나 더 있다** — 같은 쪽 묶음에서 영문판은 행 이름을 `Flexual Modulus` 로 오식하고, Thickness 열의 GEA-705G·770G 를 0.025 가 아닌 0.020(=795G 값)으로 눌러 인쇄한다. 그래도 지우지 않는다 — 인쇄된 것은 인쇄된 것이다. 두 밴드를 다 남기고 판정은 다음 파동에 넘긴다. 이 행의 자리 — 영문판 PDF p.6 / 인쇄 p.7 「General Characteristics」, GEA-770G 열 / 일문판 PDF p.6 / 인쇄 p.7 「MCL一般特性一覧」, GEA-770G 열. **이 등급이 두 판의 어긋남이 가장 큰 자리다 — 14칸 중 6칸이 다르다.** 시편 두께도 다르다 — 영문판 0.020 mm, 일문판 0.025 mm. 이 행은 영문판 쪽이므로 0.02 를 박았다. 원문 verbatim: `Dk (10 GHz) | 3.7 - 4.0`. 일문판 `3.6 - 3.9`(DB 기존값)."
+    },
+    {
+     "key": "electrical.dielectric_constant",
+     "value": 4.0,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 10000000000.0,
+      "method_detail": "SPDR",
+      "test_method": "SPDR (Split Post Dielectric Resonator)",
+      "catalog_edition": "Resonac MCL Catalog, English edition 2026-07",
+      "edition_conflict": "en-2026-07 only; ja-2023/2024 and ja-2026-04 agree with each other",
+      "specimen_thickness_mm": 0.02,
+      "bound": "upper"
+     },
+     "notes": "【판 대조】같은 카탈로그의 영문판(en 2026-07, 51쪽)과 일문판(ja 2026-04, 59쪽)을 쪽·열 단위로 대 봤다. 두 판은 표 뼈대·각주 번호·IPC-TM-650 참조까지 같은데 일부 칸의 숫자가 다르다. 200 dpi 렌더로 두 판 모두 눈 대조했다(pdftotext 열 밀림 아님). DB 에 이미 있는 값은 일문판 값이므로 이 행은 **영문판 값**을 밴드로 나란히 남긴다 — 평균 내지 않았다. 【시간축 대조 — 어느 쪽이 흔들리는지 잰다】구판 일문판(ja 2023-2024, 66쪽)의 같은 칸을 세 번째 증인으로 세웠다. **ja 2023-2024 와 ja 2026-04 가 서로 완전히 같고, en 2026-07 만 다르다.** 즉 이 어긋남은 해가 바뀌며 갱신된 것이 아니라 **언어판 사이에서 갈린 것**이다(다만 영문판 본문 기준일이 2026-07 이고 일문판이 2026-01 이라, 미래의 일문판이 영문판을 따라갈 가능성은 남는다). **영문판 쪽을 의심할 이유가 하나 더 있다** — 같은 쪽 묶음에서 영문판은 행 이름을 `Flexual Modulus` 로 오식하고, Thickness 열의 GEA-705G·770G 를 0.025 가 아닌 0.020(=795G 값)으로 눌러 인쇄한다. 그래도 지우지 않는다 — 인쇄된 것은 인쇄된 것이다. 두 밴드를 다 남기고 판정은 다음 파동에 넘긴다. 이 행의 자리 — 영문판 PDF p.6 / 인쇄 p.7 「General Characteristics」, GEA-770G 열 / 일문판 PDF p.6 / 인쇄 p.7 「MCL一般特性一覧」, GEA-770G 열. **이 등급이 두 판의 어긋남이 가장 큰 자리다 — 14칸 중 6칸이 다르다.** 시편 두께도 다르다 — 영문판 0.020 mm, 일문판 0.025 mm. 이 행은 영문판 쪽이므로 0.02 를 박았다. 원문 verbatim: `Dk (10 GHz) | 3.7 - 4.0`. 일문판 `3.6 - 3.9`(DB 기존값)."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.008,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 10000000000.0,
+      "method_detail": "SPDR",
+      "test_method": "SPDR (Split Post Dielectric Resonator)",
+      "catalog_edition": "Resonac MCL Catalog, English edition 2026-07",
+      "edition_conflict": "en-2026-07 only; ja-2023/2024 and ja-2026-04 agree with each other",
+      "specimen_thickness_mm": 0.02,
+      "bound": "lower"
+     },
+     "notes": "【판 대조】같은 카탈로그의 영문판(en 2026-07, 51쪽)과 일문판(ja 2026-04, 59쪽)을 쪽·열 단위로 대 봤다. 두 판은 표 뼈대·각주 번호·IPC-TM-650 참조까지 같은데 일부 칸의 숫자가 다르다. 200 dpi 렌더로 두 판 모두 눈 대조했다(pdftotext 열 밀림 아님). DB 에 이미 있는 값은 일문판 값이므로 이 행은 **영문판 값**을 밴드로 나란히 남긴다 — 평균 내지 않았다. 【시간축 대조 — 어느 쪽이 흔들리는지 잰다】구판 일문판(ja 2023-2024, 66쪽)의 같은 칸을 세 번째 증인으로 세웠다. **ja 2023-2024 와 ja 2026-04 가 서로 완전히 같고, en 2026-07 만 다르다.** 즉 이 어긋남은 해가 바뀌며 갱신된 것이 아니라 **언어판 사이에서 갈린 것**이다(다만 영문판 본문 기준일이 2026-07 이고 일문판이 2026-01 이라, 미래의 일문판이 영문판을 따라갈 가능성은 남는다). **영문판 쪽을 의심할 이유가 하나 더 있다** — 같은 쪽 묶음에서 영문판은 행 이름을 `Flexual Modulus` 로 오식하고, Thickness 열의 GEA-705G·770G 를 0.025 가 아닌 0.020(=795G 값)으로 눌러 인쇄한다. 그래도 지우지 않는다 — 인쇄된 것은 인쇄된 것이다. 두 밴드를 다 남기고 판정은 다음 파동에 넘긴다. 이 행의 자리 — 영문판 PDF p.6 / 인쇄 p.7 「General Characteristics」, GEA-770G 열 / 일문판 PDF p.6 / 인쇄 p.7 「MCL一般特性一覧」, GEA-770G 열. **이 등급이 두 판의 어긋남이 가장 큰 자리다 — 14칸 중 6칸이 다르다.** 시편 두께도 다르다 — 영문판 0.020 mm, 일문판 0.025 mm. 이 행은 영문판 쪽이므로 0.02 를 박았다. 원문 verbatim: `Df (10 GHz) | 0.008 - 0.010`. 일문판 `0.007 - 0.009`(DB 기존값)."
+    },
+    {
+     "key": "electrical.dissipation_factor",
+     "value": 0.01,
+     "unit": "1",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "frequency_hz": 10000000000.0,
+      "method_detail": "SPDR",
+      "test_method": "SPDR (Split Post Dielectric Resonator)",
+      "catalog_edition": "Resonac MCL Catalog, English edition 2026-07",
+      "edition_conflict": "en-2026-07 only; ja-2023/2024 and ja-2026-04 agree with each other",
+      "specimen_thickness_mm": 0.02,
+      "bound": "upper"
+     },
+     "notes": "【판 대조】같은 카탈로그의 영문판(en 2026-07, 51쪽)과 일문판(ja 2026-04, 59쪽)을 쪽·열 단위로 대 봤다. 두 판은 표 뼈대·각주 번호·IPC-TM-650 참조까지 같은데 일부 칸의 숫자가 다르다. 200 dpi 렌더로 두 판 모두 눈 대조했다(pdftotext 열 밀림 아님). DB 에 이미 있는 값은 일문판 값이므로 이 행은 **영문판 값**을 밴드로 나란히 남긴다 — 평균 내지 않았다. 【시간축 대조 — 어느 쪽이 흔들리는지 잰다】구판 일문판(ja 2023-2024, 66쪽)의 같은 칸을 세 번째 증인으로 세웠다. **ja 2023-2024 와 ja 2026-04 가 서로 완전히 같고, en 2026-07 만 다르다.** 즉 이 어긋남은 해가 바뀌며 갱신된 것이 아니라 **언어판 사이에서 갈린 것**이다(다만 영문판 본문 기준일이 2026-07 이고 일문판이 2026-01 이라, 미래의 일문판이 영문판을 따라갈 가능성은 남는다). **영문판 쪽을 의심할 이유가 하나 더 있다** — 같은 쪽 묶음에서 영문판은 행 이름을 `Flexual Modulus` 로 오식하고, Thickness 열의 GEA-705G·770G 를 0.025 가 아닌 0.020(=795G 값)으로 눌러 인쇄한다. 그래도 지우지 않는다 — 인쇄된 것은 인쇄된 것이다. 두 밴드를 다 남기고 판정은 다음 파동에 넘긴다. 이 행의 자리 — 영문판 PDF p.6 / 인쇄 p.7 「General Characteristics」, GEA-770G 열 / 일문판 PDF p.6 / 인쇄 p.7 「MCL一般特性一覧」, GEA-770G 열. **이 등급이 두 판의 어긋남이 가장 큰 자리다 — 14칸 중 6칸이 다르다.** 시편 두께도 다르다 — 영문판 0.020 mm, 일문판 0.025 mm. 이 행은 영문판 쪽이므로 0.02 를 박았다. 원문 verbatim: `Df (10 GHz) | 0.008 - 0.010`. 일문판 `0.007 - 0.009`(DB 기존값)."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 17000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_mode": "tensile",
+      "test_method": "vendor catalog 'Tensile modulus X' / 일문판 '弾性率 (引張モード) X'",
+      "orientation": "X (in-plane)",
+      "catalog_edition": "Resonac MCL Catalog, English edition 2026-07",
+      "edition_conflict": "en-2026-07 only; ja-2023/2024 and ja-2026-04 agree with each other",
+      "specimen_thickness_mm": 0.02,
+      "bound": "lower"
+     },
+     "notes": "【판 대조】같은 카탈로그의 영문판(en 2026-07, 51쪽)과 일문판(ja 2026-04, 59쪽)을 쪽·열 단위로 대 봤다. 두 판은 표 뼈대·각주 번호·IPC-TM-650 참조까지 같은데 일부 칸의 숫자가 다르다. 200 dpi 렌더로 두 판 모두 눈 대조했다(pdftotext 열 밀림 아님). DB 에 이미 있는 값은 일문판 값이므로 이 행은 **영문판 값**을 밴드로 나란히 남긴다 — 평균 내지 않았다. 【시간축 대조 — 어느 쪽이 흔들리는지 잰다】구판 일문판(ja 2023-2024, 66쪽)의 같은 칸을 세 번째 증인으로 세웠다. **ja 2023-2024 와 ja 2026-04 가 서로 완전히 같고, en 2026-07 만 다르다.** 즉 이 어긋남은 해가 바뀌며 갱신된 것이 아니라 **언어판 사이에서 갈린 것**이다(다만 영문판 본문 기준일이 2026-07 이고 일문판이 2026-01 이라, 미래의 일문판이 영문판을 따라갈 가능성은 남는다). **영문판 쪽을 의심할 이유가 하나 더 있다** — 같은 쪽 묶음에서 영문판은 행 이름을 `Flexual Modulus` 로 오식하고, Thickness 열의 GEA-705G·770G 를 0.025 가 아닌 0.020(=795G 값)으로 눌러 인쇄한다. 그래도 지우지 않는다 — 인쇄된 것은 인쇄된 것이다. 두 밴드를 다 남기고 판정은 다음 파동에 넘긴다. 이 행의 자리 — 영문판 PDF p.6 / 인쇄 p.7 「General Characteristics」, GEA-770G 열 / 일문판 PDF p.6 / 인쇄 p.7 「MCL一般特性一覧」, GEA-770G 열. **이 등급이 두 판의 어긋남이 가장 큰 자리다 — 14칸 중 6칸이 다르다.** 시편 두께도 다르다 — 영문판 0.020 mm, 일문판 0.025 mm. 이 행은 영문판 쪽이므로 0.02 를 박았다. 원문 verbatim: `Tensile modulus X*4 | GPa | 17 - 19`. 일문판 같은 칸은 `18 - 20`(DB 기존값). 환산: 17 GPa = 17e9 Pa = 1.7e+10 Pa; 되돌리면 1.7e+10/1e9 = 17 GPa. **모드를 이름이 아니라 표기로 확정했다** — 영문판이 `Tensile`, 일문판이 `引張モード` 라고 같은 자리에서 명시하므로 인장이다. 같은 표의 바로 아래 행이 `Flexural / 曲げモード` 로 따로 있다. 각주 *4(=0.8 mmt)의 붙는 자리가 두 판이 다르다 — 영문판은 인장·굽힘 두 행 모두에 *4 를 붙이고, 일문판은 굽힘 행에만 붙인다. **이 어긋남은 이 배치가 해결하지 않았다**(인계 참조). 여기서는 시편 두께로 총괄표 머리행의 Thickness(영문판 0.020 mm)만 적었다."
+    },
+    {
+     "key": "mechanical.youngs_modulus",
+     "value": 19000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_mode": "tensile",
+      "test_method": "vendor catalog 'Tensile modulus X' / 일문판 '弾性率 (引張モード) X'",
+      "orientation": "X (in-plane)",
+      "catalog_edition": "Resonac MCL Catalog, English edition 2026-07",
+      "edition_conflict": "en-2026-07 only; ja-2023/2024 and ja-2026-04 agree with each other",
+      "specimen_thickness_mm": 0.02,
+      "bound": "upper"
+     },
+     "notes": "【판 대조】같은 카탈로그의 영문판(en 2026-07, 51쪽)과 일문판(ja 2026-04, 59쪽)을 쪽·열 단위로 대 봤다. 두 판은 표 뼈대·각주 번호·IPC-TM-650 참조까지 같은데 일부 칸의 숫자가 다르다. 200 dpi 렌더로 두 판 모두 눈 대조했다(pdftotext 열 밀림 아님). DB 에 이미 있는 값은 일문판 값이므로 이 행은 **영문판 값**을 밴드로 나란히 남긴다 — 평균 내지 않았다. 【시간축 대조 — 어느 쪽이 흔들리는지 잰다】구판 일문판(ja 2023-2024, 66쪽)의 같은 칸을 세 번째 증인으로 세웠다. **ja 2023-2024 와 ja 2026-04 가 서로 완전히 같고, en 2026-07 만 다르다.** 즉 이 어긋남은 해가 바뀌며 갱신된 것이 아니라 **언어판 사이에서 갈린 것**이다(다만 영문판 본문 기준일이 2026-07 이고 일문판이 2026-01 이라, 미래의 일문판이 영문판을 따라갈 가능성은 남는다). **영문판 쪽을 의심할 이유가 하나 더 있다** — 같은 쪽 묶음에서 영문판은 행 이름을 `Flexual Modulus` 로 오식하고, Thickness 열의 GEA-705G·770G 를 0.025 가 아닌 0.020(=795G 값)으로 눌러 인쇄한다. 그래도 지우지 않는다 — 인쇄된 것은 인쇄된 것이다. 두 밴드를 다 남기고 판정은 다음 파동에 넘긴다. 이 행의 자리 — 영문판 PDF p.6 / 인쇄 p.7 「General Characteristics」, GEA-770G 열 / 일문판 PDF p.6 / 인쇄 p.7 「MCL一般特性一覧」, GEA-770G 열. **이 등급이 두 판의 어긋남이 가장 큰 자리다 — 14칸 중 6칸이 다르다.** 시편 두께도 다르다 — 영문판 0.020 mm, 일문판 0.025 mm. 이 행은 영문판 쪽이므로 0.02 를 박았다. 원문 verbatim: `Tensile modulus X*4 | GPa | 17 - 19`. 일문판 같은 칸은 `18 - 20`(DB 기존값). 환산: 17 GPa = 17e9 Pa = 1.7e+10 Pa; 되돌리면 1.7e+10/1e9 = 17 GPa. **모드를 이름이 아니라 표기로 확정했다** — 영문판이 `Tensile`, 일문판이 `引張モード` 라고 같은 자리에서 명시하므로 인장이다. 같은 표의 바로 아래 행이 `Flexural / 曲げモード` 로 따로 있다. 각주 *4(=0.8 mmt)의 붙는 자리가 두 판이 다르다 — 영문판은 인장·굽힘 두 행 모두에 *4 를 붙이고, 일문판은 굽힘 행에만 붙인다. **이 어긋남은 이 배치가 해결하지 않았다**(인계 참조). 여기서는 시편 두께로 총괄표 머리행의 Thickness(영문판 0.020 mm)만 적었다."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 573.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "method_detail": "DMA",
+      "test_method": "DMA",
+      "catalog_edition": "Resonac MCL Catalog, English edition 2026-07",
+      "edition_conflict": "en-2026-07 only; ja-2023/2024 and ja-2026-04 agree with each other",
+      "specimen_thickness_mm": 0.02,
+      "bound": "lower"
+     },
+     "notes": "【판 대조】같은 카탈로그의 영문판(en 2026-07, 51쪽)과 일문판(ja 2026-04, 59쪽)을 쪽·열 단위로 대 봤다. 두 판은 표 뼈대·각주 번호·IPC-TM-650 참조까지 같은데 일부 칸의 숫자가 다르다. 200 dpi 렌더로 두 판 모두 눈 대조했다(pdftotext 열 밀림 아님). DB 에 이미 있는 값은 일문판 값이므로 이 행은 **영문판 값**을 밴드로 나란히 남긴다 — 평균 내지 않았다. 【시간축 대조 — 어느 쪽이 흔들리는지 잰다】구판 일문판(ja 2023-2024, 66쪽)의 같은 칸을 세 번째 증인으로 세웠다. **ja 2023-2024 와 ja 2026-04 가 서로 완전히 같고, en 2026-07 만 다르다.** 즉 이 어긋남은 해가 바뀌며 갱신된 것이 아니라 **언어판 사이에서 갈린 것**이다(다만 영문판 본문 기준일이 2026-07 이고 일문판이 2026-01 이라, 미래의 일문판이 영문판을 따라갈 가능성은 남는다). **영문판 쪽을 의심할 이유가 하나 더 있다** — 같은 쪽 묶음에서 영문판은 행 이름을 `Flexual Modulus` 로 오식하고, Thickness 열의 GEA-705G·770G 를 0.025 가 아닌 0.020(=795G 값)으로 눌러 인쇄한다. 그래도 지우지 않는다 — 인쇄된 것은 인쇄된 것이다. 두 밴드를 다 남기고 판정은 다음 파동에 넘긴다. 이 행의 자리 — 영문판 PDF p.6 / 인쇄 p.7 「General Characteristics」, GEA-770G 열 / 일문판 PDF p.6 / 인쇄 p.7 「MCL一般特性一覧」, GEA-770G 열. **이 등급이 두 판의 어긋남이 가장 큰 자리다 — 14칸 중 6칸이 다르다.** 시편 두께도 다르다 — 영문판 0.020 mm, 일문판 0.025 mm. 이 행은 영문판 쪽이므로 0.02 를 박았다. 원문 verbatim: `Tg (DMA) | ℃ | 300 - 330`. 일문판 같은 칸은 `280 - 300`(DB 기존값). 환산: 300 + 273.15 = 573.15 K; 330 + 273.15 = 603.15 K. 같은 표의 Tg(TMA) 는 두 판이 `260 - 280` 으로 **일치한다** — DMA 행만 어긋난다."
+    },
+    {
+     "key": "thermal.glass_transition",
+     "value": 603.15,
+     "unit": "K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "method_detail": "DMA",
+      "test_method": "DMA",
+      "catalog_edition": "Resonac MCL Catalog, English edition 2026-07",
+      "edition_conflict": "en-2026-07 only; ja-2023/2024 and ja-2026-04 agree with each other",
+      "specimen_thickness_mm": 0.02,
+      "bound": "upper"
+     },
+     "notes": "【판 대조】같은 카탈로그의 영문판(en 2026-07, 51쪽)과 일문판(ja 2026-04, 59쪽)을 쪽·열 단위로 대 봤다. 두 판은 표 뼈대·각주 번호·IPC-TM-650 참조까지 같은데 일부 칸의 숫자가 다르다. 200 dpi 렌더로 두 판 모두 눈 대조했다(pdftotext 열 밀림 아님). DB 에 이미 있는 값은 일문판 값이므로 이 행은 **영문판 값**을 밴드로 나란히 남긴다 — 평균 내지 않았다. 【시간축 대조 — 어느 쪽이 흔들리는지 잰다】구판 일문판(ja 2023-2024, 66쪽)의 같은 칸을 세 번째 증인으로 세웠다. **ja 2023-2024 와 ja 2026-04 가 서로 완전히 같고, en 2026-07 만 다르다.** 즉 이 어긋남은 해가 바뀌며 갱신된 것이 아니라 **언어판 사이에서 갈린 것**이다(다만 영문판 본문 기준일이 2026-07 이고 일문판이 2026-01 이라, 미래의 일문판이 영문판을 따라갈 가능성은 남는다). **영문판 쪽을 의심할 이유가 하나 더 있다** — 같은 쪽 묶음에서 영문판은 행 이름을 `Flexual Modulus` 로 오식하고, Thickness 열의 GEA-705G·770G 를 0.025 가 아닌 0.020(=795G 값)으로 눌러 인쇄한다. 그래도 지우지 않는다 — 인쇄된 것은 인쇄된 것이다. 두 밴드를 다 남기고 판정은 다음 파동에 넘긴다. 이 행의 자리 — 영문판 PDF p.6 / 인쇄 p.7 「General Characteristics」, GEA-770G 열 / 일문판 PDF p.6 / 인쇄 p.7 「MCL一般特性一覧」, GEA-770G 열. **이 등급이 두 판의 어긋남이 가장 큰 자리다 — 14칸 중 6칸이 다르다.** 시편 두께도 다르다 — 영문판 0.020 mm, 일문판 0.025 mm. 이 행은 영문판 쪽이므로 0.02 를 박았다. 원문 verbatim: `Tg (DMA) | ℃ | 300 - 330`. 일문판 같은 칸은 `280 - 300`(DB 기존값). 환산: 300 + 273.15 = 573.15 K; 330 + 273.15 = 603.15 K. 같은 표의 Tg(TMA) 는 두 판이 `260 - 280` 으로 **일치한다** — DMA 행만 어긋난다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 8e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "in-plane (X)",
+      "regime": "below Tg",
+      "method_detail": "TMA",
+      "test_mode": "tensile (각주 *5: Tensile)",
+      "catalog_edition": "Resonac MCL Catalog, English edition 2026-07",
+      "edition_conflict": "en-2026-07 only; ja-2023/2024 and ja-2026-04 agree with each other",
+      "specimen_thickness_mm": 0.02,
+      "bound": "lower"
+     },
+     "notes": "【판 대조】같은 카탈로그의 영문판(en 2026-07, 51쪽)과 일문판(ja 2026-04, 59쪽)을 쪽·열 단위로 대 봤다. 두 판은 표 뼈대·각주 번호·IPC-TM-650 참조까지 같은데 일부 칸의 숫자가 다르다. 200 dpi 렌더로 두 판 모두 눈 대조했다(pdftotext 열 밀림 아님). DB 에 이미 있는 값은 일문판 값이므로 이 행은 **영문판 값**을 밴드로 나란히 남긴다 — 평균 내지 않았다. 【시간축 대조 — 어느 쪽이 흔들리는지 잰다】구판 일문판(ja 2023-2024, 66쪽)의 같은 칸을 세 번째 증인으로 세웠다. **ja 2023-2024 와 ja 2026-04 가 서로 완전히 같고, en 2026-07 만 다르다.** 즉 이 어긋남은 해가 바뀌며 갱신된 것이 아니라 **언어판 사이에서 갈린 것**이다(다만 영문판 본문 기준일이 2026-07 이고 일문판이 2026-01 이라, 미래의 일문판이 영문판을 따라갈 가능성은 남는다). **영문판 쪽을 의심할 이유가 하나 더 있다** — 같은 쪽 묶음에서 영문판은 행 이름을 `Flexual Modulus` 로 오식하고, Thickness 열의 GEA-705G·770G 를 0.025 가 아닌 0.020(=795G 값)으로 눌러 인쇄한다. 그래도 지우지 않는다 — 인쇄된 것은 인쇄된 것이다. 두 밴드를 다 남기고 판정은 다음 파동에 넘긴다. 이 행의 자리 — 영문판 PDF p.6 / 인쇄 p.7 「General Characteristics」, GEA-770G 열 / 일문판 PDF p.6 / 인쇄 p.7 「MCL一般特性一覧」, GEA-770G 열. **이 등급이 두 판의 어긋남이 가장 큰 자리다 — 14칸 중 6칸이 다르다.** 시편 두께도 다르다 — 영문판 0.020 mm, 일문판 0.025 mm. 이 행은 영문판 쪽이므로 0.02 를 박았다. 원문 verbatim: `CTE x (<Tg) (Comp.) | 8 - 10*5`. 일문판 `6 - 8*5`(DB 기존값). 환산: 8 ppm/℃ x 1e-6 = 8e-06 1/K. 각주 *5 가 `Tensile` 을 지정하므로 test_mode 에 적었다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "in-plane (X)",
+      "regime": "below Tg",
+      "method_detail": "TMA",
+      "test_mode": "tensile (각주 *5: Tensile)",
+      "catalog_edition": "Resonac MCL Catalog, English edition 2026-07",
+      "edition_conflict": "en-2026-07 only; ja-2023/2024 and ja-2026-04 agree with each other",
+      "specimen_thickness_mm": 0.02,
+      "bound": "upper"
+     },
+     "notes": "【판 대조】같은 카탈로그의 영문판(en 2026-07, 51쪽)과 일문판(ja 2026-04, 59쪽)을 쪽·열 단위로 대 봤다. 두 판은 표 뼈대·각주 번호·IPC-TM-650 참조까지 같은데 일부 칸의 숫자가 다르다. 200 dpi 렌더로 두 판 모두 눈 대조했다(pdftotext 열 밀림 아님). DB 에 이미 있는 값은 일문판 값이므로 이 행은 **영문판 값**을 밴드로 나란히 남긴다 — 평균 내지 않았다. 【시간축 대조 — 어느 쪽이 흔들리는지 잰다】구판 일문판(ja 2023-2024, 66쪽)의 같은 칸을 세 번째 증인으로 세웠다. **ja 2023-2024 와 ja 2026-04 가 서로 완전히 같고, en 2026-07 만 다르다.** 즉 이 어긋남은 해가 바뀌며 갱신된 것이 아니라 **언어판 사이에서 갈린 것**이다(다만 영문판 본문 기준일이 2026-07 이고 일문판이 2026-01 이라, 미래의 일문판이 영문판을 따라갈 가능성은 남는다). **영문판 쪽을 의심할 이유가 하나 더 있다** — 같은 쪽 묶음에서 영문판은 행 이름을 `Flexual Modulus` 로 오식하고, Thickness 열의 GEA-705G·770G 를 0.025 가 아닌 0.020(=795G 값)으로 눌러 인쇄한다. 그래도 지우지 않는다 — 인쇄된 것은 인쇄된 것이다. 두 밴드를 다 남기고 판정은 다음 파동에 넘긴다. 이 행의 자리 — 영문판 PDF p.6 / 인쇄 p.7 「General Characteristics」, GEA-770G 열 / 일문판 PDF p.6 / 인쇄 p.7 「MCL一般特性一覧」, GEA-770G 열. **이 등급이 두 판의 어긋남이 가장 큰 자리다 — 14칸 중 6칸이 다르다.** 시편 두께도 다르다 — 영문판 0.020 mm, 일문판 0.025 mm. 이 행은 영문판 쪽이므로 0.02 를 박았다. 원문 verbatim: `CTE x (<Tg) (Comp.) | 8 - 10*5`. 일문판 `6 - 8*5`(DB 기존값). 환산: 8 ppm/℃ x 1e-6 = 8e-06 1/K. 각주 *5 가 `Tensile` 을 지정하므로 test_mode 에 적었다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 8e-06,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "in-plane (Y)",
+      "regime": "below Tg",
+      "method_detail": "TMA",
+      "test_mode": "tensile (각주 *5: Tensile)",
+      "catalog_edition": "Resonac MCL Catalog, English edition 2026-07",
+      "edition_conflict": "en-2026-07 only; ja-2023/2024 and ja-2026-04 agree with each other",
+      "specimen_thickness_mm": 0.02,
+      "bound": "lower"
+     },
+     "notes": "【판 대조】같은 카탈로그의 영문판(en 2026-07, 51쪽)과 일문판(ja 2026-04, 59쪽)을 쪽·열 단위로 대 봤다. 두 판은 표 뼈대·각주 번호·IPC-TM-650 참조까지 같은데 일부 칸의 숫자가 다르다. 200 dpi 렌더로 두 판 모두 눈 대조했다(pdftotext 열 밀림 아님). DB 에 이미 있는 값은 일문판 값이므로 이 행은 **영문판 값**을 밴드로 나란히 남긴다 — 평균 내지 않았다. 【시간축 대조 — 어느 쪽이 흔들리는지 잰다】구판 일문판(ja 2023-2024, 66쪽)의 같은 칸을 세 번째 증인으로 세웠다. **ja 2023-2024 와 ja 2026-04 가 서로 완전히 같고, en 2026-07 만 다르다.** 즉 이 어긋남은 해가 바뀌며 갱신된 것이 아니라 **언어판 사이에서 갈린 것**이다(다만 영문판 본문 기준일이 2026-07 이고 일문판이 2026-01 이라, 미래의 일문판이 영문판을 따라갈 가능성은 남는다). **영문판 쪽을 의심할 이유가 하나 더 있다** — 같은 쪽 묶음에서 영문판은 행 이름을 `Flexual Modulus` 로 오식하고, Thickness 열의 GEA-705G·770G 를 0.025 가 아닌 0.020(=795G 값)으로 눌러 인쇄한다. 그래도 지우지 않는다 — 인쇄된 것은 인쇄된 것이다. 두 밴드를 다 남기고 판정은 다음 파동에 넘긴다. 이 행의 자리 — 영문판 PDF p.6 / 인쇄 p.7 「General Characteristics」, GEA-770G 열 / 일문판 PDF p.6 / 인쇄 p.7 「MCL一般特性一覧」, GEA-770G 열. **이 등급이 두 판의 어긋남이 가장 큰 자리다 — 14칸 중 6칸이 다르다.** 시편 두께도 다르다 — 영문판 0.020 mm, 일문판 0.025 mm. 이 행은 영문판 쪽이므로 0.02 를 박았다. 원문 verbatim: `CTE y (<Tg) (Comp.) | 8 - 10*5`. 일문판 `6 - 8*5`(DB 기존값). 환산: 8 ppm/℃ x 1e-6 = 8e-06 1/K. 각주 *5 가 `Tensile` 을 지정하므로 test_mode 에 적었다."
+    },
+    {
+     "key": "thermal.expansion_linear",
+     "value": 1e-05,
+     "unit": "1/K",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "axis": "in-plane (Y)",
+      "regime": "below Tg",
+      "method_detail": "TMA",
+      "test_mode": "tensile (각주 *5: Tensile)",
+      "catalog_edition": "Resonac MCL Catalog, English edition 2026-07",
+      "edition_conflict": "en-2026-07 only; ja-2023/2024 and ja-2026-04 agree with each other",
+      "specimen_thickness_mm": 0.02,
+      "bound": "upper"
+     },
+     "notes": "【판 대조】같은 카탈로그의 영문판(en 2026-07, 51쪽)과 일문판(ja 2026-04, 59쪽)을 쪽·열 단위로 대 봤다. 두 판은 표 뼈대·각주 번호·IPC-TM-650 참조까지 같은데 일부 칸의 숫자가 다르다. 200 dpi 렌더로 두 판 모두 눈 대조했다(pdftotext 열 밀림 아님). DB 에 이미 있는 값은 일문판 값이므로 이 행은 **영문판 값**을 밴드로 나란히 남긴다 — 평균 내지 않았다. 【시간축 대조 — 어느 쪽이 흔들리는지 잰다】구판 일문판(ja 2023-2024, 66쪽)의 같은 칸을 세 번째 증인으로 세웠다. **ja 2023-2024 와 ja 2026-04 가 서로 완전히 같고, en 2026-07 만 다르다.** 즉 이 어긋남은 해가 바뀌며 갱신된 것이 아니라 **언어판 사이에서 갈린 것**이다(다만 영문판 본문 기준일이 2026-07 이고 일문판이 2026-01 이라, 미래의 일문판이 영문판을 따라갈 가능성은 남는다). **영문판 쪽을 의심할 이유가 하나 더 있다** — 같은 쪽 묶음에서 영문판은 행 이름을 `Flexual Modulus` 로 오식하고, Thickness 열의 GEA-705G·770G 를 0.025 가 아닌 0.020(=795G 값)으로 눌러 인쇄한다. 그래도 지우지 않는다 — 인쇄된 것은 인쇄된 것이다. 두 밴드를 다 남기고 판정은 다음 파동에 넘긴다. 이 행의 자리 — 영문판 PDF p.6 / 인쇄 p.7 「General Characteristics」, GEA-770G 열 / 일문판 PDF p.6 / 인쇄 p.7 「MCL一般特性一覧」, GEA-770G 열. **이 등급이 두 판의 어긋남이 가장 큰 자리다 — 14칸 중 6칸이 다르다.** 시편 두께도 다르다 — 영문판 0.020 mm, 일문판 0.025 mm. 이 행은 영문판 쪽이므로 0.02 를 박았다. 원문 verbatim: `CTE y (<Tg) (Comp.) | 8 - 10*5`. 일문판 `6 - 8*5`(DB 기존값). 환산: 8 ppm/℃ x 1e-6 = 8e-06 1/K. 각주 *5 가 `Tensile` 을 지정하므로 test_mode 에 적었다."
+    }
+   ]
+  },
+  {
+   "match_name": "Resonac MCL-HS200 (glass/epoxy CCL)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Resonac MCL COPPER CLAD LAMINATES (영문판, 본문 기준일 2026-07)",
+    "publisher": "Resonac Corporation",
+    "year": 2026,
+    "url": null,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Resonac_MCL_CopperCladLaminates_Catalog_en_2026-07.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 17000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_mode": "flexural",
+      "test_standard": "IPC-TM-650 2.4.4",
+      "test_method": "IPC-TM-650 2.4.4 (flexural)",
+      "orientation": "X (in-plane, lengthwise)",
+      "conditioning": "A",
+      "catalog_edition": "Resonac MCL Catalog, English edition 2026-07",
+      "edition_conflict": "en-2026-07 only; ja-2023/2024 and ja-2026-04 agree with each other",
+      "specimen_thickness_mm": 0.8,
+      "bound": "lower"
+     },
+     "notes": "【판 대조】같은 카탈로그의 영문판(en 2026-07, 51쪽)과 일문판(ja 2026-04, 59쪽)을 쪽·열 단위로 대 봤다. 두 판은 표 뼈대·각주 번호·IPC-TM-650 참조까지 같은데 일부 칸의 숫자가 다르다. 200 dpi 렌더로 두 판 모두 눈 대조했다(pdftotext 열 밀림 아님). DB 에 이미 있는 값은 일문판 값이므로 이 행은 **영문판 값**을 밴드로 나란히 남긴다 — 평균 내지 않았다. 【시간축 대조 — 어느 쪽이 흔들리는지 잰다】구판 일문판(ja 2023-2024, 66쪽)의 같은 칸을 세 번째 증인으로 세웠다. **ja 2023-2024 와 ja 2026-04 가 서로 완전히 같고, en 2026-07 만 다르다.** 즉 이 어긋남은 해가 바뀌며 갱신된 것이 아니라 **언어판 사이에서 갈린 것**이다(다만 영문판 본문 기준일이 2026-07 이고 일문판이 2026-01 이라, 미래의 일문판이 영문판을 따라갈 가능성은 남는다). **영문판 쪽을 의심할 이유가 하나 더 있다** — 같은 쪽 묶음에서 영문판은 행 이름을 `Flexual Modulus` 로 오식하고, Thickness 열의 GEA-705G·770G 를 0.025 가 아닌 0.020(=795G 값)으로 눌러 인쇄한다. 그래도 지우지 않는다 — 인쇄된 것은 인쇄된 것이다. 두 밴드를 다 남기고 판정은 다음 파동에 넘긴다. 이 행의 자리 — 총괄표 두 곳과 제품쪽 두 곳, **네 자리가 전부 같은 방향으로 어긋난다.** ① 영문판 PDF p.6 / 인쇄 p.7 「General Characteristics」 MCL-HS20N 열 `Flexural modulus X*4 | GPa | 17 - 22` / 일문판 PDF p.6 / 인쇄 p.7 「MCL一般特性一覧」 `弾性率 (曲げモード) X*4 | GPa | 21 - 26`. ② 제품쪽 — 영문판 PDF p.19(인쇄 20) `Flexual Modulus（Lengthwise） | A | GPa | 17～22 | 2.4.4` / 일문판 PDF p.22(인쇄 23) `曲げ弾性率 (たて方向) | A | GPa | 21～26 | 2.4.4`. **두 판이 같은 시험규격(IPC-TM-650 2.4.4)·같은 처리조건(A)·같은 단위를 적고도 다른 숫자를 찍는다.** (영문판은 이 행 이름을 `Flexual` 로 오식한다 — 원문 그대로 적어 둔다.) DB 에 이미 있는 21-26 은 일문판 값이다. 이 행은 영문판 값이다 — 평균 내지 않았다. 환산: 17 GPa = 1.7e+10 Pa · 22 GPa = 2.2e+10 Pa; 되돌리면 1.7e+10/1e9 = 17 GPa. 각주 *4 = 0.8 mmt 는 두 판이 같은 자리에 붙였으므로 그대로 박았다. **등급명 주의** — 2026 판 두 권은 이 제품을 `MCL-HS20N` 으로 부르고, DB 카드 이름은 구판(ja 2023-2024)의 `MCL-HS200` 이다. 같은 제품이다(72차 HD 인계 4번)."
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 22000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_mode": "flexural",
+      "test_standard": "IPC-TM-650 2.4.4",
+      "test_method": "IPC-TM-650 2.4.4 (flexural)",
+      "orientation": "X (in-plane, lengthwise)",
+      "conditioning": "A",
+      "catalog_edition": "Resonac MCL Catalog, English edition 2026-07",
+      "edition_conflict": "en-2026-07 only; ja-2023/2024 and ja-2026-04 agree with each other",
+      "specimen_thickness_mm": 0.8,
+      "bound": "upper"
+     },
+     "notes": "【판 대조】같은 카탈로그의 영문판(en 2026-07, 51쪽)과 일문판(ja 2026-04, 59쪽)을 쪽·열 단위로 대 봤다. 두 판은 표 뼈대·각주 번호·IPC-TM-650 참조까지 같은데 일부 칸의 숫자가 다르다. 200 dpi 렌더로 두 판 모두 눈 대조했다(pdftotext 열 밀림 아님). DB 에 이미 있는 값은 일문판 값이므로 이 행은 **영문판 값**을 밴드로 나란히 남긴다 — 평균 내지 않았다. 【시간축 대조 — 어느 쪽이 흔들리는지 잰다】구판 일문판(ja 2023-2024, 66쪽)의 같은 칸을 세 번째 증인으로 세웠다. **ja 2023-2024 와 ja 2026-04 가 서로 완전히 같고, en 2026-07 만 다르다.** 즉 이 어긋남은 해가 바뀌며 갱신된 것이 아니라 **언어판 사이에서 갈린 것**이다(다만 영문판 본문 기준일이 2026-07 이고 일문판이 2026-01 이라, 미래의 일문판이 영문판을 따라갈 가능성은 남는다). **영문판 쪽을 의심할 이유가 하나 더 있다** — 같은 쪽 묶음에서 영문판은 행 이름을 `Flexual Modulus` 로 오식하고, Thickness 열의 GEA-705G·770G 를 0.025 가 아닌 0.020(=795G 값)으로 눌러 인쇄한다. 그래도 지우지 않는다 — 인쇄된 것은 인쇄된 것이다. 두 밴드를 다 남기고 판정은 다음 파동에 넘긴다. 이 행의 자리 — 총괄표 두 곳과 제품쪽 두 곳, **네 자리가 전부 같은 방향으로 어긋난다.** ① 영문판 PDF p.6 / 인쇄 p.7 「General Characteristics」 MCL-HS20N 열 `Flexural modulus X*4 | GPa | 17 - 22` / 일문판 PDF p.6 / 인쇄 p.7 「MCL一般特性一覧」 `弾性率 (曲げモード) X*4 | GPa | 21 - 26`. ② 제품쪽 — 영문판 PDF p.19(인쇄 20) `Flexual Modulus（Lengthwise） | A | GPa | 17～22 | 2.4.4` / 일문판 PDF p.22(인쇄 23) `曲げ弾性率 (たて方向) | A | GPa | 21～26 | 2.4.4`. **두 판이 같은 시험규격(IPC-TM-650 2.4.4)·같은 처리조건(A)·같은 단위를 적고도 다른 숫자를 찍는다.** (영문판은 이 행 이름을 `Flexual` 로 오식한다 — 원문 그대로 적어 둔다.) DB 에 이미 있는 21-26 은 일문판 값이다. 이 행은 영문판 값이다 — 평균 내지 않았다. 환산: 17 GPa = 1.7e+10 Pa · 22 GPa = 2.2e+10 Pa; 되돌리면 1.7e+10/1e9 = 17 GPa. 각주 *4 = 0.8 mmt 는 두 판이 같은 자리에 붙였으므로 그대로 박았다. **등급명 주의** — 2026 판 두 권은 이 제품을 `MCL-HS20N` 으로 부르고, DB 카드 이름은 구판(ja 2023-2024)의 `MCL-HS200` 이다. 같은 제품이다(72차 HD 인계 4번)."
+    }
+   ]
+  },
+  {
+   "match_name": "Resonac MCL-HS200 (D type) (glass/epoxy CCL)",
+   "source": {
+    "kind": "datasheet",
+    "title": "Resonac MCL COPPER CLAD LAMINATES (영문판, 본문 기준일 2026-07)",
+    "publisher": "Resonac Corporation",
+    "year": 2026,
+    "url": null,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Resonac_MCL_CopperCladLaminates_Catalog_en_2026-07.pdf"
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 17000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_mode": "flexural",
+      "test_standard": "IPC-TM-650 2.4.4",
+      "test_method": "IPC-TM-650 2.4.4 (flexural)",
+      "orientation": "X (in-plane, lengthwise)",
+      "conditioning": "A",
+      "catalog_edition": "Resonac MCL Catalog, English edition 2026-07",
+      "edition_conflict": "en-2026-07 only; ja-2023/2024 and ja-2026-04 agree with each other",
+      "specimen_thickness_mm": 0.8,
+      "bound": "lower"
+     },
+     "notes": "【판 대조】같은 카탈로그의 영문판(en 2026-07, 51쪽)과 일문판(ja 2026-04, 59쪽)을 쪽·열 단위로 대 봤다. 두 판은 표 뼈대·각주 번호·IPC-TM-650 참조까지 같은데 일부 칸의 숫자가 다르다. 200 dpi 렌더로 두 판 모두 눈 대조했다(pdftotext 열 밀림 아님). DB 에 이미 있는 값은 일문판 값이므로 이 행은 **영문판 값**을 밴드로 나란히 남긴다 — 평균 내지 않았다. 【시간축 대조 — 어느 쪽이 흔들리는지 잰다】구판 일문판(ja 2023-2024, 66쪽)의 같은 칸을 세 번째 증인으로 세웠다. **ja 2023-2024 와 ja 2026-04 가 서로 완전히 같고, en 2026-07 만 다르다.** 즉 이 어긋남은 해가 바뀌며 갱신된 것이 아니라 **언어판 사이에서 갈린 것**이다(다만 영문판 본문 기준일이 2026-07 이고 일문판이 2026-01 이라, 미래의 일문판이 영문판을 따라갈 가능성은 남는다). **영문판 쪽을 의심할 이유가 하나 더 있다** — 같은 쪽 묶음에서 영문판은 행 이름을 `Flexual Modulus` 로 오식하고, Thickness 열의 GEA-705G·770G 를 0.025 가 아닌 0.020(=795G 값)으로 눌러 인쇄한다. 그래도 지우지 않는다 — 인쇄된 것은 인쇄된 것이다. 두 밴드를 다 남기고 판정은 다음 파동에 넘긴다. 이 행의 자리 — 총괄표 두 곳과 제품쪽 두 곳, **네 자리가 전부 같은 방향으로 어긋난다.** ① 영문판 PDF p.6 / 인쇄 p.7 「General Characteristics」 MCL-HS20N 열 `Flexural modulus X*4 | GPa | 17 - 22` / 일문판 PDF p.6 / 인쇄 p.7 「MCL一般特性一覧」 `弾性率 (曲げモード) X*4 | GPa | 21 - 26`. ② 제품쪽 — 영문판 PDF p.19(인쇄 20) `Flexual Modulus（Lengthwise） | A | GPa | 17～22 | 2.4.4` / 일문판 PDF p.22(인쇄 23) `曲げ弾性率 (たて方向) | A | GPa | 21～26 | 2.4.4`. **두 판이 같은 시험규격(IPC-TM-650 2.4.4)·같은 처리조건(A)·같은 단위를 적고도 다른 숫자를 찍는다.** (영문판은 이 행 이름을 `Flexual` 로 오식한다 — 원문 그대로 적어 둔다.) DB 에 이미 있는 21-26 은 일문판 값이다. 이 행은 영문판 값이다 — 평균 내지 않았다. 환산: 17 GPa = 1.7e+10 Pa · 22 GPa = 2.2e+10 Pa; 되돌리면 1.7e+10/1e9 = 17 GPa. 각주 *4 = 0.8 mmt 는 두 판이 같은 자리에 붙였으므로 그대로 박았다. **등급명 주의** — 2026 판 두 권은 이 제품을 `MCL-HS20N` 으로 부르고, DB 카드 이름은 구판(ja 2023-2024)의 `MCL-HS200` 이다. 같은 제품이다(72차 HD 인계 4번)."
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 22000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "tier": 1,
+     "conditions": {
+      "test_mode": "flexural",
+      "test_standard": "IPC-TM-650 2.4.4",
+      "test_method": "IPC-TM-650 2.4.4 (flexural)",
+      "orientation": "X (in-plane, lengthwise)",
+      "conditioning": "A",
+      "catalog_edition": "Resonac MCL Catalog, English edition 2026-07",
+      "edition_conflict": "en-2026-07 only; ja-2023/2024 and ja-2026-04 agree with each other",
+      "specimen_thickness_mm": 0.8,
+      "bound": "upper"
+     },
+     "notes": "【판 대조】같은 카탈로그의 영문판(en 2026-07, 51쪽)과 일문판(ja 2026-04, 59쪽)을 쪽·열 단위로 대 봤다. 두 판은 표 뼈대·각주 번호·IPC-TM-650 참조까지 같은데 일부 칸의 숫자가 다르다. 200 dpi 렌더로 두 판 모두 눈 대조했다(pdftotext 열 밀림 아님). DB 에 이미 있는 값은 일문판 값이므로 이 행은 **영문판 값**을 밴드로 나란히 남긴다 — 평균 내지 않았다. 【시간축 대조 — 어느 쪽이 흔들리는지 잰다】구판 일문판(ja 2023-2024, 66쪽)의 같은 칸을 세 번째 증인으로 세웠다. **ja 2023-2024 와 ja 2026-04 가 서로 완전히 같고, en 2026-07 만 다르다.** 즉 이 어긋남은 해가 바뀌며 갱신된 것이 아니라 **언어판 사이에서 갈린 것**이다(다만 영문판 본문 기준일이 2026-07 이고 일문판이 2026-01 이라, 미래의 일문판이 영문판을 따라갈 가능성은 남는다). **영문판 쪽을 의심할 이유가 하나 더 있다** — 같은 쪽 묶음에서 영문판은 행 이름을 `Flexual Modulus` 로 오식하고, Thickness 열의 GEA-705G·770G 를 0.025 가 아닌 0.020(=795G 값)으로 눌러 인쇄한다. 그래도 지우지 않는다 — 인쇄된 것은 인쇄된 것이다. 두 밴드를 다 남기고 판정은 다음 파동에 넘긴다. 이 행의 자리 — 총괄표 두 곳과 제품쪽 두 곳, **네 자리가 전부 같은 방향으로 어긋난다.** ① 영문판 PDF p.6 / 인쇄 p.7 「General Characteristics」 MCL-HS20N 열 `Flexural modulus X*4 | GPa | 17 - 22` / 일문판 PDF p.6 / 인쇄 p.7 「MCL一般特性一覧」 `弾性率 (曲げモード) X*4 | GPa | 21 - 26`. ② 제품쪽 — 영문판 PDF p.19(인쇄 20) `Flexual Modulus（Lengthwise） | A | GPa | 17～22 | 2.4.4` / 일문판 PDF p.22(인쇄 23) `曲げ弾性率 (たて方向) | A | GPa | 21～26 | 2.4.4`. **두 판이 같은 시험규격(IPC-TM-650 2.4.4)·같은 처리조건(A)·같은 단위를 적고도 다른 숫자를 찍는다.** (영문판은 이 행 이름을 `Flexual` 로 오식한다 — 원문 그대로 적어 둔다.) DB 에 이미 있는 21-26 은 일문판 값이다. 이 행은 영문판 값이다 — 평균 내지 않았다. 환산: 17 GPa = 1.7e+10 Pa · 22 GPa = 2.2e+10 Pa; 되돌리면 1.7e+10/1e9 = 17 GPa. 각주 *4 = 0.8 mmt 는 두 판이 같은 자리에 붙였으므로 그대로 박았다. **등급명 주의** — 2026 판 두 권은 이 제품을 `MCL-HS20N` 으로 부르고, DB 카드 이름은 구판(ja 2023-2024)의 `MCL-HS200` 이다. 같은 제품이다(72차 HD 인계 4번)."
+    }
+   ]
+  }
+ ]
+}
