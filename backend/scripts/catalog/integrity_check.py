@@ -494,7 +494,11 @@ def k_missing_direction() -> int:
             d = _json.loads(cond)
         except Exception:
             return None
-        x = d.get("direction") or d.get("orientation")
+        # **`axis` 도 방향이다.** 라이브 실측(75차 KB 지적) — `axis` 만 쓰고
+        # `direction`/`orientation` 이 없는 행이 1,204개이고 그중 CTE·열전도율이
+        # 607행이다. 이 검사가 그 재료들의 이방성을 통째로 못 봤다.
+        x = (d.get("direction") or d.get("orientation")
+             or d.get("axis") or d.get("plane"))
         if not x or "not stated" in str(x).lower() or "unspecified" in str(x).lower():
             return None
         return str(x)
