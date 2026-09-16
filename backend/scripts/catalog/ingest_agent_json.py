@@ -96,6 +96,10 @@ RANGE = {
     "physical.surface_energy": (1e-3, 1.0),   # J/m^2. mN/m 원값(15 등)이면 걸린다
     "electrical.shielding_effectiveness": (0.0, 150.0),
     "electrical.temperature_coefficient_resistance": (-1e-2, 1e-2),  # ppm/K 원값이면 걸린다
+    # [76차] TCDk — **음수가 정상이다**(RO3010 −395 ppm/℃ = −3.95e-4). 하한 0 이면 인쇄값을
+    # 막는다(42차 DA). ±1e-3 은 실측 최대 |395 ppm| 의 2.5배라 여유가 있고, ppm 원값 −395 를
+    # 1/K 칸에 그대로 넣는 오입력은 잡는다.
+    "electrical.temperature_coefficient_dielectric_constant": (-1e-3, 1e-3),
     "thermal.thermal_resistance": (1e-6, 1.0),
     # 옛 `thermal.decomposition_time_t260` 의 가드를 그대로 옮겼다(39차 BA의 키 통합).
     "thermal.time_to_delamination": (1.0, 1e5),         # s (시간 단위면 걸린다)

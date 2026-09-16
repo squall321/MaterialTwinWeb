@@ -1070,6 +1070,42 @@ _DEFS: list[tuple] = [
     ("chemical.durability_mass_loss_per_area", "chemical", "화학 내구성 단위면적당 감소량", None,
      "kg/m^2", "numeric",
      ["medium", "duration_h", "temperature_c", "specimen_form", "test_standard"], None),
+    # [2026-09-16 · 76차] **70~73차에 연 키 넷을 분류표에 늦게 넣는다.** 마이그레이션에만 넣고
+    # 여기를 빠뜨렸다 — 라이브는 마이그레이션으로 키를 받았으나, 부팅 시드(`db._seed_reference_data`)
+    # 로 새로 만든 DB 에는 이 넷이 없었다. 앞 파동들(44·45·47·58차)은 둘 다 넣었다.
+    # 각 블록은 해당 마이그레이션의 `_DEFS` 와 **같은 내용**이다.
+    #   70차 — a9b8c7d6e5f4_add_w70_two_property_keys
+    ("electrical.withstand_voltage_surface", "electrical", "연면 내전압", "V_s", "V", "numeric",
+     ["temperature_c", "medium", "creepage_distance_mm", "electrode_geometry", "frequency_hz"],
+     "JIS C2110 / IEC 60243"),
+    ("mechanical.relaxation_modulus_normalized", "mechanical", "정규화 완화탄성률", "g(t)", "1",
+     "numeric",
+     ["time_s", "temperature_c", "reference_temperature_c", "relaxation_mode", "strain_pct"],
+     None),
+    #   71차 — b7c6d5e4f3a2_add_w71_shift_factor_key
+    ("mechanical.tts_shift_factor", "mechanical", "시간-온도 이동인자", "a_T", "1", "numeric",
+     ["temperature_c", "reference_temperature_c", "printed_as", "value_printed",
+      "relaxation_mode", "shift_function"],
+     None),
+    #   73차 — 2431c015a392_add_w73_relaxation_modulus_key
+    ("mechanical.relaxation_modulus", "mechanical", "완화탄성률", "E(t)", "Pa", "numeric",
+     ["time_s", "temperature_c", "reference_temperature_c", "relaxation_mode",
+      "curve_type", "strain_pct"],
+     None),
+    # [2026-09-16 · 76차] **유전율 온도계수(TCDk)** — 75차 KC 가 5벤더·19등급에서 찾았다.
+    # RF 적층판 시트가 Dk 옆에 ppm/℃ 로 찍는다. 형제 `temperature_coefficient_resistance` 와
+    # 같은 모양이다(1/K · 온도 구간이 조건).
+    # ⚠ **음수가 정상이다** — 19칸 중 9칸이 음수이고 최저가 RO3010 의 −395 ppm/℃ 다.
+    #    하한을 0 으로 두면 인쇄값을 가드가 막는 사고가 재현된다(42차 DA 포아송비).
+    # ⚠ **측정 구간이 시트마다 다르다** — −50~150 이 표준이지만 CLTE-AT 는 0~100, Shengyi
+    #    S7136H 는 −55~85 다. 구간이 다르면 수를 나란히 놓을 수 없으니 조건축에 둔다.
+    # ⚠ **시험법이 넷으로 갈린다** — IPC-TM-650 2.5.5.5 / 2.5.5.13 / 2.5.5.15 / IEC 61189-2-721.
+    # ⚠ **부호를 안 찍는 시트가 있다**(CLTE 6 · Nanya NP-730/822/826). `+` 를 지어내지 말고
+    #    `sign_printed` 로 남긴다.
+    ("electrical.temperature_coefficient_dielectric_constant", "electrical",
+     "유전율 온도계수(TCDk)", "TCDk", "1/K", "numeric",
+     ["temperature_range_c", "frequency_hz", "direction", "test_standard", "sign_printed"],
+     "IPC-TM-650 2.5.5.5"),
 ]
 # fmt: on
 
