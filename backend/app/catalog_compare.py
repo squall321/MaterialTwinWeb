@@ -125,8 +125,13 @@ def is_non_solid(cond) -> bool:
 # 그리고 **지금 라이브만 놓고 빼도 변동 0군**이다(NA 가 이미 얹은 5천여 행 포함 전수 대조) —
 # 순위를 흔들지 않고 상쇄를 조건 없는 규칙으로 바꾸는 자리라 넣었다.
 # `direction` 이 미배정이라 `null` 인 행도 키는 남아 있어(§561 ㉡) 양쪽 다 한 칸으로 세어진다.
+# **판(版) 표기도 조건이 아니다**(76차). `catalog_edition`·`edition_conflict` 는 어느 판에서
+# 읽었는지와 그 판이 다른 판과 어긋난다는 **출처 표기**이지 시험 조건이 아니다. 칸 수로 세면
+# 표기를 단 행이 우연히 밀린다 — 75차 KA 가 넣은 Resonac 영문판 22행이 대표에서 밀린 것이
+# 규칙 때문이 아니라 이 두 칸 때문이었다. 판 충돌은 아래 `_edition_rank` 가 명시적으로 본다.
 _NOT_A_CONDITION = ("correction_reason", "corrected_by", "correction_evidence",
-                    "moved_from_material", "moved_from_source", "direction_verbatim")
+                    "moved_from_material", "moved_from_source", "direction_verbatim",
+                    "catalog_edition", "edition_conflict")
 
 
 def _condition_axis_count(cond) -> int:
@@ -187,8 +192,28 @@ def _mode_rank(pv) -> int:
     return 0 if got == want else 2
 
 
+def _edition_rank(pv) -> int:
+    """0 = 판 충돌 표기가 없다 · 1 = **더 약하게 뒷받침되는 판**의 값이다.
+
+    같은 벤더·같은 표·같은 시험규격·같은 처리조건·같은 단위인데 **판마다 다른 숫자**를
+    인쇄하는 일이 있다(75차 KA — Resonac MCL 카탈로그 영문판 2026-07 과 일문판이 23칸에서
+    어긋난다). 어느 판이 옳다고 이 선택기가 판단하지는 않는다. **판단은 자료에 있다** —
+    배치가 근거를 보고 약한 쪽 행에만 `edition_conflict` 를 달고, 근거를 그 칸에 적는다.
+    Resonac 의 경우 근거는 이것이었다: 일문판 두 판(2023-24·2026-04)이 3년을 사이에 두고
+    완전히 같고, 영문판만 다르며, 그 영문판에 오식(`Flexual`)과 눌린 두께 열이 있다.
+
+    **다른 시험법으로 잰 값은 충돌이 아니다** — Shengyi 중국시장판은 `test_standard` 가 달라
+    조건으로 갈리므로 이 표기를 달지 않았다. 충돌은 조건이 전부 같을 때만이다.
+
+    등급 **아래**에 둔다. 판 충돌로 밀린 t1 은 여전히 그 등급에 인쇄된 값이라, 다른 물건의
+    클래스값(t3)보다는 낫다.
+    """
+    c = pv.conditions if isinstance(pv.conditions, dict) else {}
+    return 1 if c.get("edition_conflict") else 0
+
+
 def _rep_rank(pv: PropertyValue) -> tuple:
-    """대표값 우선순위: 고체 우선 → 신뢰등급↑ → 수치 보유 → **시험모드 일치** → 지배 조건에 가까움 → 조건 적음 → id.
+    """대표값 우선순위: 고체 우선 → 신뢰등급↑ → 수치 보유 → **판 충돌 아님** → 시험모드 일치 → 지배 조건에 가까움 → 조건 적음 → id.
 
     지배 조건은 물성마다 다르다. 광학은 파장, 그 외는 온도(상온)를 본다.
 
@@ -202,7 +227,7 @@ def _rep_rank(pv: PropertyValue) -> tuple:
                else _temp_distance(pv.conditions))
     return (1 if is_non_solid(pv.conditions) else 0,
             pv.quality_tier or 9, 0 if pv.value_num is not None else 1,
-            _mode_rank(pv),
+            _edition_rank(pv), _mode_rank(pv),
             primary, _condition_axis_count(pv.conditions), pv.id)
 
 
