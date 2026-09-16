@@ -9,9 +9,11 @@
 #
 # 입력 JSON — {"batch": "...", "verdicts": [{"material_id": 1, "name": "...",
 #              "<attr>": {"<물성키>": "<사유>"} | null | "<문자열>"} ...]}
-#   · dict 이면 기존 dict 와 **키 단위로 병합**한다(같은 키는 새 사유로 덮는다).
+#   · dict 이면 기존 dict 와 **키 단위로 병합**한다. 같은 키는 새 사유로 바꾸되 앞 사유문을
+#     새 사유 뒤에 머리를 달아 남긴다(`merge_reasons`).
 #   · null 이면 그 attribute 를 **내린다**(재료 단위 문자열 판정을 정정할 때).
 #   · 덮거나 내리기 전의 값은 `<attr>_before_correction` 에 남긴다(브리프 594).
+#     이미 기록이 있으면 덮지 않고 쌓는다(`keep_before`).
 from __future__ import annotations
 
 import argparse
@@ -32,6 +34,50 @@ DEFAULT_DB = os.path.join(
 
 SKIP = {"material_id", "name"}
 
+# 같은 키를 새 사유로 바꿀 때, 남겨 두는 앞 사유문 앞에 다는 머리.
+PRESERVED_HEAD = "**[앞 판정문 — {batch} 가 이 칸을 새 사유로 바꾸며 지우지 않고 남긴다]**"
+
+
+def merge_reasons(old, new: dict, batch: str) -> dict:
+    """판정 dict 를 키 단위로 병합한다. **같은 키의 앞 사유문을 지우지 않는다.**
+
+    예전엔 같은 키를 새 사유로 그냥 덮었다. 앞 사유는 `<attr>_before_correction` 에
+    **처음 한 번만** 남으므로, 그 칸이 두 번째로 바뀌는 순간부터 앞 사유가 흔적 없이
+    사라졌다. 76차 스냅샷 대조 실측 — 74차 적용에서 10칸(71차 GC 의 근거문),
+    75차 적용에서 22칸(74차 JA 의 근거문 등)이 그렇게 지워졌다.
+    """
+    merged = dict(old) if isinstance(old, dict) else {}
+    for k, n in new.items():
+        o = merged.get(k)
+        if o in (None, "") or o == n:
+            merged[k] = n
+            continue
+        o_s = o if isinstance(o, str) else json.dumps(o, ensure_ascii=False)
+        n_s = n if isinstance(n, str) else json.dumps(n, ensure_ascii=False)
+        if o_s in n_s:                 # 새 사유가 앞 사유를 이미 품고 있다
+            merged[k] = n
+        elif n_s in o_s:               # 같은 파일을 다시 돌렸다 — 이미 들어가 있다
+            continue
+        else:
+            merged[k] = f"{n_s}\n\n{PRESERVED_HEAD.format(batch=batch)}\n{o_s}"
+    return merged
+
+
+def keep_before(attrs: dict, attr: str, old) -> None:
+    """`<attr>_before_correction` 에 old 를 남긴다. **이미 있는 기록은 덮지 않고 쌓는다.**
+
+    판정을 내리는 갈래는 이 칸을 무조건 덮어 앞선 정정 기록을 지웠고, 문자열 판정 갈래는
+    처음 한 번만 남겨 두 번째 정정부터 중간 값을 잃었다.
+    """
+    k = f"{attr}_before_correction"
+    if k not in attrs:
+        attrs[k] = old
+        return
+    prev = attrs[k]
+    hist = prev if isinstance(prev, list) else [prev]
+    if old not in hist:
+        attrs[k] = hist + [old]
+
 
 def main() -> int:
     ap = argparse.ArgumentParser()
@@ -45,14 +91,15 @@ def main() -> int:
     have = {i: (n, at) for i, n, at in c.execute("select id,name,attributes from material")}
     print(f"[DB] {a.db}\n     재료 {len(have)}종")
 
-    rows: list[dict] = []
+    rows: list[tuple[str, dict]] = []
     for p in a.paths:
         doc = json.load(open(p))
-        rows += doc.get("verdicts", [])
+        batch = doc.get("batch") or os.path.basename(p)
+        rows += [(batch, r) for r in doc.get("verdicts", [])]
     print(f"     판정 입력 {len(rows)}종")
 
     st = Counter()
-    for r in rows:
+    for batch, r in rows:
         mid = r.get("material_id")
         if mid not in have:
             st["없는 재료"] += 1
@@ -72,17 +119,16 @@ def main() -> int:
                 if attr not in attrs:
                     continue
                 attrs.pop(attr)
-                attrs[f"{attr}_before_correction"] = old
+                keep_before(attrs, attr, old)
                 changed.append(f"-{attr}")
                 st["내림"] += 1
                 continue
             if isinstance(new, dict):
-                merged = dict(old) if isinstance(old, dict) else {}
-                merged.update(new)
+                merged = merge_reasons(old, new, batch)
                 if merged == old:
                     continue
                 if old is not None and not isinstance(old, dict):
-                    attrs[f"{attr}_before_correction"] = old   # 문자열 판정 → dict 로 승격
+                    keep_before(attrs, attr, old)               # 문자열 판정 → dict 로 승격
                 elif f"{attr}_before_correction" not in attrs:
                     attrs[f"{attr}_before_correction"] = old    # null = 정정 전에 없었다(브리프 558②)
                 attrs[attr] = merged
@@ -91,8 +137,7 @@ def main() -> int:
             else:
                 if old == new:
                     continue
-                if f"{attr}_before_correction" not in attrs:
-                    attrs[f"{attr}_before_correction"] = old
+                keep_before(attrs, attr, old)
                 attrs[attr] = new
                 changed.append(attr)
                 st["설정"] += 1
