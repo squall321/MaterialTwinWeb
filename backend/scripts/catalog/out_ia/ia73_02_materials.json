@@ -1,0 +1,1968 @@
+{
+ "batch": "73차 IA",
+ "note": "영률 칸에 앉아 있던 굽힘탄성률과 **같은 수·같은 출처**를 `mechanical.flexural_modulus` 로도 세운다. 새로 캔 값이 아니다 — 이미 카탈로그에 있는 수를 올바른 키에 한 벌 더 놓는 것이고, 그래야 그 재료가 굽힘 정보를 잃지 않는다. **원행은 지우지 않았다.** 원문이 행 이름을 `Flexural Modulus`(또는 `굴곡 탄성률`)로 인쇄한 것만 옮겼다 — DMA 저장탄성률·인장면 게이지 실측은 옮기지 않았다.",
+ "materials": [
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr15f-mod2c-black-epoxy-mold-compound-gr15f-mod2c.html",
+    "doi": null,
+    "title": "Hysol GR15F-MOD2C epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 18330000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR15F-MOD2C",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv11889)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv11889 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 18330 N/mm2'. N/mm2 = MPa, so 18330 MPa x1e6 = 1.833e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게"
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr2220-black-epoxy-mold-compound-gr2220.html",
+    "doi": null,
+    "title": "Hysol GR2220 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 10983000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR2220",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv11896)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv11896 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 10983 N/mm2'. N/mm2 = MPa, so 10983 MPa x1e6 = 1.0983e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr2310-halogen-free-gold-epoxy-mold-compound-gr2310.html",
+    "doi": null,
+    "title": "Hysol GR2310 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 12410000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR2310",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv11900)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv11900 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 12410 N/mm2'. N/mm2 = MPa, so 12410 MPa x1e6 = 1.241e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게"
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr2310v-gold-long-flow-epoxy-mold-compound-gr2310v.html",
+    "doi": null,
+    "title": "Hysol GR2310V epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 11500000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR2310V",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv11904)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv11904 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 11500 N/mm2'. N/mm2 = MPa, so 11500 MPa x1e6 = 1.15e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr2320-black-epoxy-mold-compound-gr2320-black.html",
+    "doi": null,
+    "title": "Hysol GR2320 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 13500000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR2320",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv11908)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv11908 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 13500 N/mm2'. N/mm2 = MPa, so 13500 MPa x1e6 = 1.35e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr2330-orange-epoxy-mold-compound-gr2330-orange.html",
+    "doi": null,
+    "title": "Hysol GR2330 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 12000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR2330",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv11912)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv11912 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 12000 N/mm2'. N/mm2 = MPa, so 12000 MPa x1e6 = 1.2e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아"
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr2710-gold-epoxy-mold-compound-gr2710.html",
+    "doi": null,
+    "title": "Hysol GR2710 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 17927000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR2710",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv11916)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv11916 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 17927 N/mm2'. N/mm2 = MPa, so 17927 MPa x1e6 = 1.7927e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr2710ff-gold-fine-filler-epoxy-mold-compound-gr2710ff.html",
+    "doi": null,
+    "title": "Hysol GR2710FF epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 17000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR2710FF",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv11920)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv11920 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 17000 N/mm2'. N/mm2 = MPa, so 17000 MPa x1e6 = 1.7e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아"
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr2720-black-epoxy-mold-compound-gr2720.html",
+    "doi": null,
+    "title": "Hysol GR2720 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 16500000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR2720",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv11924)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv11924 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 16500 N/mm2'. N/mm2 = MPa, so 16500 MPa x1e6 = 1.65e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr2812-gold-epoxy-mold-compound-gr2812.html",
+    "doi": null,
+    "title": "Hysol GR2812 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 23900000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR2812",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv11931)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv11931 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 23900 N/mm2'. N/mm2 = MPa, so 23900 MPa x1e6 = 2.39e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr2820-black-epoxy-mold-compound-gr2820-black.html",
+    "doi": null,
+    "title": "Hysol GR2820 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 14000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR2820",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv11938)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv11938 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 14000 N/mm2'. N/mm2 = MPa, so 14000 MPa x1e6 = 1.4e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아"
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr2821-black-epoxy-mold-compound-gr2821.html",
+    "doi": null,
+    "title": "Hysol GR2821 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 19995000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR2821",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv11942)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv11942 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 19995 N/mm2'. N/mm2 = MPa, so 19995 MPa x1e6 = 1.9995e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr30-improved-moldability-black-epoxy-mold-compound-gr30.html",
+    "doi": null,
+    "title": "Hysol GR30 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 15677000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR30",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv11949)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv11949 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 15677 N/mm2'. N/mm2 = MPa, so 15677 MPa x1e6 = 1.5677e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr300-black-epoxy-mold-compound-gr300.html",
+    "doi": null,
+    "title": "Hysol GR300 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 15142000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR300",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv11956)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv11956 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 15142 N/mm2'. N/mm2 = MPa, so 15142 MPa x1e6 = 1.5142e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr350ht-high-thermal-conductivity-epoxy-mold-compound-gr350ht.html",
+    "doi": null,
+    "title": "Hysol GR350HT epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 16500000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR350HT",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv11966)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv11966 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 16500 N/mm2'. N/mm2 = MPa, so 16500 MPa x1e6 = 1.65e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr510-black-epoxy-mold-compound-gr510-black.html",
+    "doi": null,
+    "title": "Hysol GR510 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 21287000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR510",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv11973)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv11973 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 21287 N/mm2'. N/mm2 = MPa, so 21287 MPa x1e6 = 2.1287e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr510-hp-black-epoxy-mold-compound-for-resistors-gr510-hp.html",
+    "doi": null,
+    "title": "Hysol GR510-HP epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 20450000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR510-HP",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv11980)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv11980 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 20450 N/mm2'. N/mm2 = MPa, so 20450 MPa x1e6 = 2.045e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게"
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr60-black-epoxy-mold-compound-gr60.html",
+    "doi": null,
+    "title": "Hysol GR60 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 22580000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR60",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv11987)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv11987 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 22580 N/mm2'. N/mm2 = MPa, so 22580 MPa x1e6 = 2.258e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게"
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr600-black-epoxy-mold-compound-gr600.html",
+    "doi": null,
+    "title": "Hysol GR600 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 22500000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR600",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv11991)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv11991 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 22500 N/mm2'. N/mm2 = MPa, so 22500 MPa x1e6 = 2.25e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr600-sl2-black-epoxy-mold-compound-for-to-devices-gr600-sl2.html",
+    "doi": null,
+    "title": "Hysol GR600-SL2 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 25316000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR600-SL2",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv11998)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv11998 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 25316 N/mm2'. N/mm2 = MPa, so 25316 MPa x1e6 = 2.5316e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr640hv-black-epoxy-mold-compound-gr640hv.html",
+    "doi": null,
+    "title": "Hysol GR640HV epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 13740000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR640HV",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12002)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12002 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 13740 N/mm2'. N/mm2 = MPa, so 13740 MPa x1e6 = 1.374e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게"
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr640hv-l1-black-epoxy-mold-compound-with-improved-electrical-performance-gr640hv-l1.html",
+    "doi": null,
+    "title": "Hysol GR640HV-L1 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 16500000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR640HV-L1",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12006)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12006 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 16500 N/mm2'. N/mm2 = MPa, so 16500 MPa x1e6 = 1.65e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr700-black-epoxy-mold-compound-designed-for-msl1-sop-packages-gr700.html",
+    "doi": null,
+    "title": "Hysol GR700 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 25000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR700",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12010)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12010 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 25000 N/mm2'. N/mm2 = MPa, so 25000 MPa x1e6 = 2.5e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아"
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr700-c3d-black-epoxy-mold-compound-gr700-c3d.html",
+    "doi": null,
+    "title": "Hysol GR700-C3D epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 18871000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR700-C3D",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12017)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12017 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 18871 N/mm2'. N/mm2 = MPa, so 18871 MPa x1e6 = 1.8871e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr700-c4c-high-reliability-black-epoxy-mold-compound-gr700-c4c.html",
+    "doi": null,
+    "title": "Hysol GR700-C4C epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 21370000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR700-C4C",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12021)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12021 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 21370 N/mm2'. N/mm2 = MPa, so 21370 MPa x1e6 = 2.137e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게"
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr700-p2-black-epoxy-mold-compound-gr700-p2.html",
+    "doi": null,
+    "title": "Hysol GR700-P2 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 22183000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR700-P2",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12025)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12025 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 22183 N/mm2'. N/mm2 = MPa, so 22183 MPa x1e6 = 2.2183e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr730ht-black-epoxy-mold-compound-for-power-supply-in-package-psip-gr730ht.html",
+    "doi": null,
+    "title": "Hysol GR730HT epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 23000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR730HT",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12030)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12030 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 23000 N/mm2'. N/mm2 = MPa, so 23000 MPa x1e6 = 2.3e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아"
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr750-black-epoxy-mold-compound-gr750.html",
+    "doi": null,
+    "title": "Hysol GR750 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 16880000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR750",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12034)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12034 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 16880 N/mm2'. N/mm2 = MPa, so 16880 MPa x1e6 = 1.688e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게"
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr750-x1-black-epoxy-mold-compound-gr750x1.html",
+    "doi": null,
+    "title": "Hysol GR750 X1 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 20444000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR750 X1",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12040)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12040 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 20444 N/mm2'. N/mm2 = MPa, so 20444 MPa x1e6 = 2.0444e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr750-x2-black-epoxy-mold-compound-gr750x2.html",
+    "doi": null,
+    "title": "Hysol GR750 X2 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 17549000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR750 X2",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12047)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12047 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 17549 N/mm2'. N/mm2 = MPa, so 17549 MPa x1e6 = 1.7549e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr825-73b-black-epoxy-mold-compound-for-soic-gr825-73b.html",
+    "doi": null,
+    "title": "Hysol GR825-73B epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 22000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR825-73B",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12052)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12052 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 22000 N/mm2'. N/mm2 = MPa, so 22000 MPa x1e6 = 2.2e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아"
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr900-q1g2-black-epoxy-mold-compound-gr900q1g2.html",
+    "doi": null,
+    "title": "Hysol GR900 Q1G2 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 22646000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR900 Q1G2",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12056)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12056 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 22646 N/mm2'. N/mm2 = MPa, so 22646 MPa x1e6 = 2.2646e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr900-q1l4-black-epoxy-mold-compound-gr900q1l4.html",
+    "doi": null,
+    "title": "Hysol GR900 Q1L4 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 22646000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR900 Q1L4",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12060)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12060 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 22646 N/mm2'. N/mm2 = MPa, so 22646 MPa x1e6 = 2.2646e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr900c-q1l4e-black-epoxy-mold-compound-gr900cq1l4e.html",
+    "doi": null,
+    "title": "Hysol GR900C Q1L4E epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 19000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR900C Q1L4E",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12064)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12064 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 19000 N/mm2'. N/mm2 = MPa, so 19000 MPa x1e6 = 1.9e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아"
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr910-c4-black-epoxy-mold-compound-gr910c4.html",
+    "doi": null,
+    "title": "Hysol GR910 C4 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 20000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR910 C4",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12068)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12068 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 20000 N/mm2'. N/mm2 = MPa, so 20000 MPa x1e6 = 2e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라"
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr910-k-black-epoxy-mold-compound-for-bga-lga-packages-gr910k.html",
+    "doi": null,
+    "title": "Hysol GR910 K epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 19847000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR910 K",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12072)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12072 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 19847 N/mm2'. N/mm2 = MPa, so 19847 MPa x1e6 = 1.9847e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-kl-g200s-black-epoxy-mold-compound-kl-g200s-black.html",
+    "doi": null,
+    "title": "Hysol KL-G200S epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 15000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol KL-G200S",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12076)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12076 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 15000 N/mm2'. N/mm2 = MPa, so 15000 MPa x1e6 = 1.5e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아"
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-mg15f-35a-black-epoxy-mold-compound-mg15f-35a.html",
+    "doi": null,
+    "title": "Hysol MG15F-35A epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 15200000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol MG15F-35A",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12088)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12088 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 15200 N/mm2'. N/mm2 = MPa, so 15200 MPa x1e6 = 1.52e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-mg21f-02-black-epoxy-mold-compound-mg21f-02.html",
+    "doi": null,
+    "title": "Hysol MG21F-02 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 14710000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol MG21F-02",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12092)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12092 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 14710 N/mm2'. N/mm2 = MPa, so 14710 MPa x1e6 = 1.471e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게"
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 1268000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol MG21F-02",
+      "temperature_c": 260,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12096)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12096 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 260°C | 1268 N/mm2'. N/mm2 = MPa, so 1268 MPa x1e6 = 1.268e+09 Pa. Grade Tg = 179 degC. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3"
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-mg27f-0521lf-gold-epoxy-mold-compound-mg27f-0521lf.html",
+    "doi": null,
+    "title": "Hysol MG27F-0521LF epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 18800000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol MG27F-0521LF",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12100)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12100 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 18800 N/mm2'. N/mm2 = MPa, so 18800 MPa x1e6 = 1.88e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-mg33f-0659-black-epoxy-mold-compound-mg33f-0659.html",
+    "doi": null,
+    "title": "Hysol MG33F-0659 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 14710000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol MG33F-0659",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12107)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12107 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 14710 N/mm2'. N/mm2 = MPa, so 14710 MPa x1e6 = 1.471e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게"
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/emc-g194-black-epoxy-molding-compound-for-dip-emc-g194.html",
+    "doi": null,
+    "title": "LINQSOL EMC-G194 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 15000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "LINQSOL EMC-G194",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12111)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12111 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 15000 N/mm2'. N/mm2 = MPa, so 15000 MPa x1e6 = 1.5e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아"
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/emc-g208-epoxy-molding-compound-emc-g208.html",
+    "doi": null,
+    "title": "LINQSOL EMC-G208 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 18000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "LINQSOL EMC-G208",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12115)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12115 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Datasheet page verbatim: 'Flexural Modulus @ 25°C | 18000 N/mm2'. N/mm2 = MPa, so 18000 MPa x1e6 = 1.8e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아"
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/linqsol-emc-9012-black-mold-compound-for-qfn-and-bga-packages-emc-9012.html",
+    "doi": null,
+    "title": "LINQSOL EMC-9012 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 24000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "LINQSOL EMC-9012",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12122)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12122 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: PROPERTY table verbatim: 'Glass transition temperature | °C | 133'; 'Coefficient of thermal expansion, α1 | ppm/K | 8'; 'α2 | ppm/K | 35'; 'Flexural modulus | GPa | 24'. Column 'EMC-9012' (first data column); confirmed b"
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 21200000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "LINQSOL EMC-9012H",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12126)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12126 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: PROPERTY table verbatim, column 'EMC-9012H' (second data column): 'Glass transition temperature | °C | 158'; 'α1 | ppm/K | 10'; 'α2 | ppm/K | 40'; 'Flexural modulus | GPa | 21.2'. GPa -> Pa: x1e9 = 2.12e+10 Pa. [등급 조정] 출"
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/linqsol-emc-g833-black-mold-compound-for-qfn-and-qfp-packages-emc-g833.html",
+    "doi": null,
+    "title": "LINQSOL EMC-G833 epoxy mold compound - Technical Specifications (product datasheet page)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 22800000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "LINQSOL EMC-G833",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12130)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12130 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: PROPERTY table verbatim: 'Glass transition temperature | °C | 112'; 'α1 | ppm/K | 11'; 'α2 | ppm/K | 36'; 'Flexural modulus | GPa | 22.8'. Column 'EMC-G833' (first data column); confirmed by the page summary block (Tg 11"
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 24000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "LINQSOL EMC-G833R",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12134)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12134 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: PROPERTY table verbatim, column 'EMC-G833R' (second data column): 'Glass transition temperature | °C | 118'; 'α1 | ppm/K | 10'; 'α2 | ppm/K | 36'; 'Flexural modulus | GPa | 24'. GPa -> Pa: x1e9 = 2.4e+10 Pa. [등급 조정] 출처가 "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr920-epoxy-molded-underfill-for-flip-chip-applications-gr920.html",
+    "doi": null,
+    "title": "Hysol GR920 epoxy molded underfill for flip chip applications - Technical Specifications",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 17800000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR910 L20",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12165)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12165 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Table verbatim, header 'Property / Product | Unit | Commercial | Hysol GR910 L20'; rows 'Glass Transition Temperature, TMA | °C | 142 | 158', 'Glass Transition Temperature, DMA | °C | 150 | 156', 'Coefficient of Thermal "
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr9810-1p-black-epoxy-mold-compound-gr9810-1p.html",
+    "doi": null,
+    "title": "Hysol GR9810-1P epoxy mold compound - Technical Specifications",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 20600000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR9810-1P",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12172)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12172 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Table verbatim, header 'Property / Product | Unit | HysolGR9810-1P | HysolGR9810-1PF'; rows 'Glass Transition Temperature | °C | 170 | 184', 'Coefficient of Thermal Expansion (CTE) Alpha1 Alpha2 | ppm/C ppm/C | 11 50 | 1"
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 2260000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR9810-1P",
+      "temperature_c": 220,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12173)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12173 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Table verbatim, header 'Property / Product | Unit | HysolGR9810-1P | HysolGR9810-1PF'; rows 'Glass Transition Temperature | °C | 170 | 184', 'Coefficient of Thermal Expansion (CTE) Alpha1 Alpha2 | ppm/C ppm/C | 11 50 | 1"
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy Molding Compound (EMC)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr9810-1pf-black-epoxy-mold-compound-gr9810-1pf.html",
+    "doi": null,
+    "title": "Hysol GR9810-1PF epoxy mold compound - Technical Specifications",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 20600000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR9810-1PF",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12177)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12177 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Table verbatim, header 'Property / Product | Unit | HysolGR9810-1P | HysolGR9810-1PF'; rows 'Glass Transition Temperature | °C | 170 | 184', 'Coefficient of Thermal Expansion (CTE) Alpha1 Alpha2 | ppm/C ppm/C | 11 50 | 1"
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 2260000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR9810-1PF",
+      "temperature_c": 220,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12178)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12178 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Table verbatim, header 'Property / Product | Unit | HysolGR9810-1P | HysolGR9810-1PF'; rows 'Glass Transition Temperature | °C | 170 | 184', 'Coefficient of Thermal Expansion (CTE) Alpha1 Alpha2 | ppm/C ppm/C | 11 50 | 1"
+    }
+   ]
+  },
+  {
+   "match_name": "Underfill Epoxy",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://datasheets.tdx.henkel.com/LOCTITE-ECCOBOND-E-1216M-en_GL.pdf",
+    "doi": null,
+    "title": "Technical Data Sheet LOCTITE ECCOBOND E 1216M, January 2026",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": "Henkel"
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 7380000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "LOCTITE ECCOBOND E 1216M",
+      "cure": "heat cure: 3 min @ 165 C (snap/inline), 4 min @ 150 C, or 10 min @ 130 C",
+      "temperature_c": -65,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv8174)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv8174 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: "
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 6010000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "LOCTITE ECCOBOND E 1216M",
+      "cure": "heat cure: 3 min @ 165 C (snap/inline), 4 min @ 150 C, or 10 min @ 130 C",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv8175)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv8175 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: "
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 3830000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "LOCTITE ECCOBOND E 1216M",
+      "cure": "heat cure: 3 min @ 165 C (snap/inline), 4 min @ 150 C, or 10 min @ 130 C",
+      "temperature_c": 100,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv8176)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv8176 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: "
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 192000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "LOCTITE ECCOBOND E 1216M",
+      "cure": "heat cure: 3 min @ 165 C (snap/inline), 4 min @ 150 C, or 10 min @ 130 C",
+      "temperature_c": 150,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv8177)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv8177 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: "
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 126000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "LOCTITE ECCOBOND E 1216M",
+      "cure": "heat cure: 3 min @ 165 C (snap/inline), 4 min @ 150 C, or 10 min @ 130 C",
+      "temperature_c": 200,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv8178)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv8178 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: "
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 106000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "LOCTITE ECCOBOND E 1216M",
+      "cure": "heat cure: 3 min @ 165 C (snap/inline), 4 min @ 150 C, or 10 min @ 130 C",
+      "temperature_c": 250,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv8179)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv8179 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: "
+    }
+   ]
+  },
+  {
+   "match_name": "Underfill Epoxy",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.caplinq.com/hysol-gr920-epoxy-molded-underfill-for-flip-chip-applications-gr920.html",
+    "doi": null,
+    "title": "Hysol GR920 epoxy molded underfill for flip chip applications - Technical Specifications",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 13500000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR920 H",
+      "product_family": "molded underfill (MUF) for flip chip",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12138)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12138 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Table verbatim, header row 'Property / Product | Unit | Hysol GR920 H | Hysol GR920 Q | Hysol GR920 M | Hysol GR920 L | Hysol GR920 A'; rows 'Glass Transition Temperature | °C | 102 | 138 | 120 | 158 | 150', 'Coefficient"
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 15500000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR920 Q",
+      "product_family": "molded underfill (MUF) for flip chip",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12142)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12142 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Table verbatim, header row 'Property / Product | Unit | Hysol GR920 H | Hysol GR920 Q | Hysol GR920 M | Hysol GR920 L | Hysol GR920 A'; rows 'Glass Transition Temperature | °C | 102 | 138 | 120 | 158 | 150', 'Coefficient"
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 19500000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR920 M",
+      "product_family": "molded underfill (MUF) for flip chip",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12146)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12146 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Table verbatim, header row 'Property / Product | Unit | Hysol GR920 H | Hysol GR920 Q | Hysol GR920 M | Hysol GR920 L | Hysol GR920 A'; rows 'Glass Transition Temperature | °C | 102 | 138 | 120 | 158 | 150', 'Coefficient"
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 17800000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR920 L",
+      "product_family": "molded underfill (MUF) for flip chip",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12150)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12150 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Table verbatim, header row 'Property / Product | Unit | Hysol GR920 H | Hysol GR920 Q | Hysol GR920 M | Hysol GR920 L | Hysol GR920 A'; rows 'Glass Transition Temperature | °C | 102 | 138 | 120 | 158 | 150', 'Coefficient"
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 21000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR920 A",
+      "product_family": "molded underfill (MUF) for flip chip",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12154)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12154 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Table verbatim, header row 'Property / Product | Unit | Hysol GR920 H | Hysol GR920 Q | Hysol GR920 M | Hysol GR920 L | Hysol GR920 A'; rows 'Glass Transition Temperature | °C | 102 | 138 | 120 | 158 | 150', 'Coefficient"
+    },
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 21000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "grade": "Hysol GR920 A1",
+      "product_family": "molded underfill (MUF) for flip chip",
+      "temperature_c": 25,
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "test_method": "3-point bend",
+      "source_row_name": "Flexural Modulus (벤더 인쇄 행 이름 그대로)",
+      "added_by_73ia": "73차 IA — 같은 출처·같은 수를 올바른 키로 옮겨 적는다. 영률 칸의 원행(pv12158)은 지우지 않았다 — 삭제는 사람이 정한다."
+     },
+     "notes": "[73차 IA] 벤더가 `Flexural Modulus` 로 인쇄한 값을 굽힘 키에 세운다. 같은 수가 `mechanical.youngs_modulus` pv12158 에도 있다(73차 IA 가 그 행에 `test_mode: flexural` 을 달아 대표값 선택기가 뒤로 보내게 했다). 원행 notes: Table verbatim, header 'Property / Product | Unit | Commercial | Hysol GR920 A1'; rows 'Glass Transition Temperature, TMA | °C | 142 | 150', 'Glass Transition Temperature, DMA | °C | 150 | 151', 'Coefficient of Thermal E"
+    }
+   ]
+  },
+  {
+   "match_name": "Rogers CLTE Ceramic-PTFE Woven Glass Laminate",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://www.rogerscorp.com/-/media/project/rogerscorp/documents/advanced-electronics-solutions/english/data-sheets/clte-and-clte-xt-laminates-data-sheet.pdf",
+    "doi": null,
+    "title": "CLTE and CLTE-XT Series Laminates Data Sheet",
+    "authors": "Rogers Corporation",
+    "year": 2024,
+    "local_path": "/data/paper_patent_corpus/standards_appnotes/pcb/Rogers_CLTE_CLTE-XT_Laminates_DataSheet.pdf",
+    "publisher": "Rogers Corporation"
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 7984000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "test_standard": "ASTM D790",
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "temperature_c": 25,
+      "added_by_73ia": "73차 IA — 이 재료의 `mechanical.flexural_modulus` 에 이 수가 없었다. 영률 칸의 원행 pv12979 은 지우지 않았다.",
+      "direction": "TD",
+      "direction_verbatim": "CMD (cross-machine direction)"
+     },
+     "notes": "[73차 IA] TDS 가 `ASTM D790` 로 인쇄한 굴곡 탄성률을 굽힘 키에 세운다 — 이 재료의 굽힘 키에 이 수가 없었다. 같은 수가 `mechanical.youngs_modulus` pv12979 에도 있다. 원행 notes: CLTE 열, CMD 값 7984 MPa = 7.984e9 Pa (괄호 1158 ksi). 직교이방성 적층판이므로 MD/CMD를 분리 등록했다. Rogers 'CLTE and CLTE-XT Laminates Data Sheet'는 두 제품을 좌(CLTE)·우(CLTE-XT) 2열로 나란히 인쇄한다. 'Mechanical Properties' 블록 verbatim: \"Flex Modulus ("
+    }
+   ]
+  },
+  {
+   "match_name": "PPS-GF40 (Solvay/Syensqo Ryton R-4)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://plastore.it/cgi2018/file818/258_pps%20ryton%20r4.pdf",
+    "doi": null,
+    "title": "Ryton R-4 polyphenylene sulfide Technical Data Sheet (rev. 2020-12-21)",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": "Solvay Specialty Polymers (Syensqo)"
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 14000000000.0,
+     "unit": "Pa",
+     "method": "measured",
+     "quality_tier": 1,
+     "conditions": {
+      "test_standard": "ISO 178",
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "temperature_c": 23,
+      "added_by_73ia": "73차 IA — 이 재료의 `mechanical.flexural_modulus` 에 이 수가 없었다. 영률 칸의 원행 pv12965 은 지우지 않았다.",
+      "grade": "Ryton R-4",
+      "filler": "Glass Fiber, 40% Filler by Weight"
+     },
+     "notes": "[73차 IA] TDS 가 `ISO 178` 로 인쇄한 굴곡 탄성률을 굽힘 키에 세운다 — 이 재료의 굽힘 키에 이 수가 없었다. 같은 수가 `mechanical.youngs_modulus` pv12965 에도 있다. 원행 notes: TDS 'Mechanical' 표 verbatim: \"Flexural Modulus | -- | 14500 MPa | ASTM D790\" / \"-- | 14000 MPa | ISO 178\". ISO 178 값 14000 MPa = 1.40e10 Pa 채택(ASTM D790 값 14500 MPa는 별도). 같은 표에 \"Tensile Strength -- 159 MPa ASTM D638 / 15"
+    }
+   ]
+  },
+  {
+   "match_name": "Epoxy molding compound CEL-9240HF (Hitachi Chemical, 3D-stacked memory package encapsulant)",
+   "source": {
+    "kind": "datasheet",
+    "url": "https://e2e.ti.com/cfs-file/__key/communityserver-discussions-components-files/196/TDS-of-CEL_2D00_9220HF10.pdf",
+    "doi": null,
+    "title": "Technical data sheet of Hitachi Chemical Epoxy molding compound CEL-9220HF10",
+    "authors": null,
+    "year": null,
+    "local_path": null,
+    "publisher": null
+   },
+   "properties": [
+    {
+     "key": "mechanical.flexural_modulus",
+     "value": 27000000000.0,
+     "unit": "Pa",
+     "method": "handbook",
+     "quality_tier": 3,
+     "conditions": {
+      "temperature": "room temperature",
+      "grade_scope": "class value — 같은 Hitachi Chemical CEL-9200 계열의 CEL-9220HF10(Tg 124 C, 구상 실리카 90 wt%) 값이다. CEL-9240HF 자체 TDS는 공개돼 있지 않고 Renesas MSDS만 있다",
+      "test_mode": "flexural",
+      "loading_mode": "bending",
+      "method_detail": "굴곡 탄성률 (굽힘 시험) — 원문 행 이름 `Flexural modulus at RT`",
+      "added_by_73ia": "73차 IA — 이 재료의 굽힘 키가 비어 있었다. 영률 칸의 원행 pv17051 은 지우지 않았다."
+     },
+     "notes": "[73차 IA] 원문이 `Flexural modulus at RT 27 GN/m2` 로 인쇄한 값을 굽힘 키에 세운다. **자기 등급의 값이 아니다** — 같은 CEL-9200 계열 CEL-9220HF10 의 값을 클래스 대체값으로 빌린 것이라 t3 다(conditions.grade_scope). 같은 수가 `mechanical.youngs_modulus` pv17051 에도 있다. 원행 notes: CEL-9220HF10 TDS Table 3: 'Flexural modulus at RT 27 GN/m2'. 인장탄성률이 아니라 굽힘탄성률이므로 tier를 3으로 낮췄다. 교차확인: 같은 제조사 CEL-8240HF10GK TDS의 'Flexural modulus at RT 2650 kgf/mm2' = 25.99 GPa로 같은 대역이다. 두 시트 모두 인접 행 'Flexural strength"
+    }
+   ]
+  }
+ ]
+}

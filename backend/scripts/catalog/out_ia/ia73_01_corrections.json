@@ -1,0 +1,2388 @@
+{
+ "batch": "73차 IA",
+ "note": "`mechanical.youngs_modulus` 에 앉은 굽힘탄성률 등 101행의 **표기**를 바로잡는다. 값·단위·등급·method·출처는 한 칸도 바꾸지 않는다. 삭제 0건 — 중복 후보는 conditions 와 보고서에 적기만 했다. 이 배치의 실질은 **표기를 대표값 선택기의 시험모드 판정 창(아홉 칸) 안으로 옮기고, 부정문·곁말은 창 밖으로 빼는 것**이다.",
+ "corrections": [
+  {
+   "target": {
+    "property_value_id": 11889
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR15F-MOD2C",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 18330 N/mm2'. N/mm2 = MPa, so 18330 MPa x1e6 = 1.833e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 11896
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR2220",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 10983 N/mm2'. N/mm2 = MPa, so 10983 MPa x1e6 = 1.0983e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 11900
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR2310",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 12410 N/mm2'. N/mm2 = MPa, so 12410 MPa x1e6 = 1.241e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 11904
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR2310V",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 11500 N/mm2'. N/mm2 = MPa, so 11500 MPa x1e6 = 1.15e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 11908
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR2320",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 13500 N/mm2'. N/mm2 = MPa, so 13500 MPa x1e6 = 1.35e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 11912
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR2330",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 12000 N/mm2'. N/mm2 = MPa, so 12000 MPa x1e6 = 1.2e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 11916
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR2710",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 17927 N/mm2'. N/mm2 = MPa, so 17927 MPa x1e6 = 1.7927e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 11920
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR2710FF",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 17000 N/mm2'. N/mm2 = MPa, so 17000 MPa x1e6 = 1.7e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 11924
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR2720",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 16500 N/mm2'. N/mm2 = MPa, so 16500 MPa x1e6 = 1.65e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 11931
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR2812",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 23900 N/mm2'. N/mm2 = MPa, so 23900 MPa x1e6 = 2.39e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 11938
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR2820",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 14000 N/mm2'. N/mm2 = MPa, so 14000 MPa x1e6 = 1.4e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 11942
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR2821",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 19995 N/mm2'. N/mm2 = MPa, so 19995 MPa x1e6 = 1.9995e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 11949
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR30",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 15677 N/mm2'. N/mm2 = MPa, so 15677 MPa x1e6 = 1.5677e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 11956
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR300",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 15142 N/mm2'. N/mm2 = MPa, so 15142 MPa x1e6 = 1.5142e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 11966
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR350HT",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 16500 N/mm2'. N/mm2 = MPa, so 16500 MPa x1e6 = 1.65e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 11973
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR510",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 21287 N/mm2'. N/mm2 = MPa, so 21287 MPa x1e6 = 2.1287e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 11980
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR510-HP",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 20450 N/mm2'. N/mm2 = MPa, so 20450 MPa x1e6 = 2.045e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 11987
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR60",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 22580 N/mm2'. N/mm2 = MPa, so 22580 MPa x1e6 = 2.258e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 11991
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR600",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 22500 N/mm2'. N/mm2 = MPa, so 22500 MPa x1e6 = 2.25e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 11998
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR600-SL2",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 25316 N/mm2'. N/mm2 = MPa, so 25316 MPa x1e6 = 2.5316e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12002
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR640HV",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 13740 N/mm2'. N/mm2 = MPa, so 13740 MPa x1e6 = 1.374e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12006
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR640HV-L1",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 16500 N/mm2'. N/mm2 = MPa, so 16500 MPa x1e6 = 1.65e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12010
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR700",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 25000 N/mm2'. N/mm2 = MPa, so 25000 MPa x1e6 = 2.5e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12017
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR700-C3D",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 18871 N/mm2'. N/mm2 = MPa, so 18871 MPa x1e6 = 1.8871e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12021
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR700-C4C",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 21370 N/mm2'. N/mm2 = MPa, so 21370 MPa x1e6 = 2.137e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12025
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR700-P2",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 22183 N/mm2'. N/mm2 = MPa, so 22183 MPa x1e6 = 2.2183e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12030
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR730HT",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 23000 N/mm2'. N/mm2 = MPa, so 23000 MPa x1e6 = 2.3e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12034
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR750",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 16880 N/mm2'. N/mm2 = MPa, so 16880 MPa x1e6 = 1.688e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12040
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR750 X1",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 20444 N/mm2'. N/mm2 = MPa, so 20444 MPa x1e6 = 2.0444e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12047
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR750 X2",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 17549 N/mm2'. N/mm2 = MPa, so 17549 MPa x1e6 = 1.7549e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12052
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR825-73B",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 22000 N/mm2'. N/mm2 = MPa, so 22000 MPa x1e6 = 2.2e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12056
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR900 Q1G2",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 22646 N/mm2'. N/mm2 = MPa, so 22646 MPa x1e6 = 2.2646e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12060
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR900 Q1L4",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 22646 N/mm2'. N/mm2 = MPa, so 22646 MPa x1e6 = 2.2646e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12064
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR900C Q1L4E",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 19000 N/mm2'. N/mm2 = MPa, so 19000 MPa x1e6 = 1.9e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12068
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR910 C4",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 20000 N/mm2'. N/mm2 = MPa, so 20000 MPa x1e6 = 2e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12072
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR910 K",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 19847 N/mm2'. N/mm2 = MPa, so 19847 MPa x1e6 = 1.9847e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12076
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol KL-G200S",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 15000 N/mm2'. N/mm2 = MPa, so 15000 MPa x1e6 = 1.5e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12088
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol MG15F-35A",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 15200 N/mm2'. N/mm2 = MPa, so 15200 MPa x1e6 = 1.52e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12092
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol MG21F-02",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 14710 N/mm2'. N/mm2 = MPa, so 14710 MPa x1e6 = 1.471e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12096
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol MG21F-02",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 260,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 260,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 260°C | 1268 N/mm2'. N/mm2 = MPa, so 1268 MPa x1e6 = 1.268e+09 Pa. Grade Tg = 179 degC. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12100
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol MG27F-0521LF",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 18800 N/mm2'. N/mm2 = MPa, so 18800 MPa x1e6 = 1.88e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12107
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol MG33F-0659",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 14710 N/mm2'. N/mm2 = MPa, so 14710 MPa x1e6 = 1.471e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12111
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "LINQSOL EMC-G194",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 15000 N/mm2'. N/mm2 = MPa, so 15000 MPa x1e6 = 1.5e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12115
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "LINQSOL EMC-G208",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Datasheet page verbatim: 'Flexural Modulus @ 25°C | 18000 N/mm2'. N/mm2 = MPa, so 18000 MPa x1e6 = 1.8e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12122
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "LINQSOL EMC-9012",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "PROPERTY table verbatim: 'Glass transition temperature | °C | 133'; 'Coefficient of thermal expansion, α1 | ppm/K | 8'; 'α2 | ppm/K | 35'; 'Flexural modulus | GPa | 24'. Column 'EMC-9012' (first data column); confirmed by the page summary block which independently states Tg 133 °C, α1 8 ppm/°C, α2 35 ppm/°C. GPa -> Pa: x1e9 = 2.4e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12126
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "LINQSOL EMC-9012H",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "PROPERTY table verbatim, column 'EMC-9012H' (second data column): 'Glass transition temperature | °C | 158'; 'α1 | ppm/K | 10'; 'α2 | ppm/K | 40'; 'Flexural modulus | GPa | 21.2'. GPa -> Pa: x1e9 = 2.12e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12130
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "LINQSOL EMC-G833",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "PROPERTY table verbatim: 'Glass transition temperature | °C | 112'; 'α1 | ppm/K | 11'; 'α2 | ppm/K | 36'; 'Flexural modulus | GPa | 22.8'. Column 'EMC-G833' (first data column); confirmed by the page summary block (Tg 112 °C, α1 11, α2 36). GPa -> Pa: x1e9 = 2.28e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12134
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "LINQSOL EMC-G833R",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "PROPERTY table verbatim, column 'EMC-G833R' (second data column): 'Glass transition temperature | °C | 118'; 'α1 | ppm/K | 10'; 'α2 | ppm/K | 36'; 'Flexural modulus | GPa | 24'. GPa -> Pa: x1e9 = 2.4e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12165
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR910 L20",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Table verbatim, header 'Property / Product | Unit | Commercial | Hysol GR910 L20'; rows 'Glass Transition Temperature, TMA | °C | 142 | 158', 'Glass Transition Temperature, DMA | °C | 150 | 156', 'Coefficient of Thermal Expansion (CTE) α1, TMA | ppm/°C | 9 | 9', 'Coefficient of Thermal Expansion (CTE) α2, TMA | ppm/°C | 37 | 33', 'Flexural Modulus @25°C | MPa | 19500 | 17800', 'Storage Modulus by DMA @25°C | Mpa | 25000 | 25914', 'Storage Modulus by DMA @175°C | Mpa | 3000 | 2119', 'Storage Modulus by DMA @260°C | Mpa | 1200 | 1203'. Second data column ('Hysol GR910 L20') taken; the first column is an unnamed 'Commercial' benchmark and was NOT used. Table appears on the GR920 product page as a comparison table. 17800 MPa x1e6 = 1.78e10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12172
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR9810-1P",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Table verbatim, header 'Property / Product | Unit | HysolGR9810-1P | HysolGR9810-1PF'; rows 'Glass Transition Temperature | °C | 170 | 184', 'Coefficient of Thermal Expansion (CTE) Alpha1 Alpha2 | ppm/C ppm/C | 11 50 | 11 40', 'Flexural Modulus (E), @25°C | GPa | 20.6 | 20.6', 'Flexural Modulus (E), @220°C | GPa | 2.26 | 2.26'. NOTE: the page's summary widget for this product prints 'Flexural Modulus @ 25°C 2100 N/mm2' and '@ 220°C 230 N/mm2', which contradicts the GPa table by a factor of ~10; the explicit GPa table was used and the summary widget values were rejected. 20.6 GPa x1e9 = 2.06e10 Pa. Both listed grades carry the same modulus figures in this table. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12173
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR9810-1P",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 220,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 220,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Table verbatim, header 'Property / Product | Unit | HysolGR9810-1P | HysolGR9810-1PF'; rows 'Glass Transition Temperature | °C | 170 | 184', 'Coefficient of Thermal Expansion (CTE) Alpha1 Alpha2 | ppm/C ppm/C | 11 50 | 11 40', 'Flexural Modulus (E), @25°C | GPa | 20.6 | 20.6', 'Flexural Modulus (E), @220°C | GPa | 2.26 | 2.26'. NOTE: the page's summary widget for this product prints 'Flexural Modulus @ 25°C 2100 N/mm2' and '@ 220°C 230 N/mm2', which contradicts the GPa table by a factor of ~10; the explicit GPa table was used and the summary widget values were rejected. 2.26 GPa x1e9 = 2.26e9 Pa. Grade Tg = 170 degC, so 220 degC is above Tg. Both listed grades carry the same modulus figures in this table. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12177
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR9810-1PF",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Table verbatim, header 'Property / Product | Unit | HysolGR9810-1P | HysolGR9810-1PF'; rows 'Glass Transition Temperature | °C | 170 | 184', 'Coefficient of Thermal Expansion (CTE) Alpha1 Alpha2 | ppm/C ppm/C | 11 50 | 11 40', 'Flexural Modulus (E), @25°C | GPa | 20.6 | 20.6', 'Flexural Modulus (E), @220°C | GPa | 2.26 | 2.26'. NOTE: the page's summary widget for this product prints 'Flexural Modulus @ 25°C 2100 N/mm2' and '@ 220°C 230 N/mm2', which contradicts the GPa table by a factor of ~10; the explicit GPa table was used and the summary widget values were rejected. 20.6 GPa x1e9 = 2.06e10 Pa. Both listed grades carry the same modulus figures in this table. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12178
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR9810-1PF",
+     "method_detail": "flexural modulus (3-point bend)",
+     "temperature_c": 220,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 220,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Table verbatim, header 'Property / Product | Unit | HysolGR9810-1P | HysolGR9810-1PF'; rows 'Glass Transition Temperature | °C | 170 | 184', 'Coefficient of Thermal Expansion (CTE) Alpha1 Alpha2 | ppm/C ppm/C | 11 50 | 11 40', 'Flexural Modulus (E), @25°C | GPa | 20.6 | 20.6', 'Flexural Modulus (E), @220°C | GPa | 2.26 | 2.26'. NOTE: the page's summary widget for this product prints 'Flexural Modulus @ 25°C 2100 N/mm2' and '@ 220°C 230 N/mm2', which contradicts the GPa table by a factor of ~10; the explicit GPa table was used and the summary widget values were rejected. 2.26 GPa x1e9 = 2.26e9 Pa. Grade Tg = 184 degC, so 220 degC is above Tg. Both listed grades carry the same modulus figures in this table. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 8174
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "LOCTITE ECCOBOND E 1216M",
+     "cure": "heat cure: 3 min @ 165 C (snap/inline), 4 min @ 150 C, or 10 min @ 130 C",
+     "method_detail": "flexural modulus, 3-point bend test",
+     "temperature_c": -65,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": -65,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 8175
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "LOCTITE ECCOBOND E 1216M",
+     "cure": "heat cure: 3 min @ 165 C (snap/inline), 4 min @ 150 C, or 10 min @ 130 C",
+     "method_detail": "flexural modulus, 3-point bend test",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 8176
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "LOCTITE ECCOBOND E 1216M",
+     "cure": "heat cure: 3 min @ 165 C (snap/inline), 4 min @ 150 C, or 10 min @ 130 C",
+     "method_detail": "flexural modulus, 3-point bend test",
+     "temperature_c": 100,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 100,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 8177
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "LOCTITE ECCOBOND E 1216M",
+     "cure": "heat cure: 3 min @ 165 C (snap/inline), 4 min @ 150 C, or 10 min @ 130 C",
+     "method_detail": "flexural modulus, 3-point bend test",
+     "temperature_c": 150,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 150,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 8178
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "LOCTITE ECCOBOND E 1216M",
+     "cure": "heat cure: 3 min @ 165 C (snap/inline), 4 min @ 150 C, or 10 min @ 130 C",
+     "method_detail": "flexural modulus, 3-point bend test",
+     "temperature_c": 200,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 200,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 8179
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "LOCTITE ECCOBOND E 1216M",
+     "cure": "heat cure: 3 min @ 165 C (snap/inline), 4 min @ 150 C, or 10 min @ 130 C",
+     "method_detail": "flexural modulus, 3-point bend test",
+     "temperature_c": 250,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 250,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12138
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR920 H",
+     "method_detail": "flexural modulus (3-point bend)",
+     "product_family": "molded underfill (MUF) for flip chip",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Table verbatim, header row 'Property / Product | Unit | Hysol GR920 H | Hysol GR920 Q | Hysol GR920 M | Hysol GR920 L | Hysol GR920 A'; rows 'Glass Transition Temperature | °C | 102 | 138 | 120 | 158 | 150', 'Coefficient of Thermal Expansion (CTE) α1, TMA | ppm/°C | 13 | 12 | 10 | 9 | 9', 'Coefficient of Thermal Expansion (CTE) α2, TMA | ppm/°C | 45 | 45 | 35 | 33 | 34', 'Flexural Modulus @25°C | MPa | 13500 | 15500 | 19500 | 17800 | 21000'. Column 1 of 5 ('Hysol GR920 H'). Flexural modulus @25 degC = 13500 MPa x1e6 = 1.35e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12142
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR920 Q",
+     "method_detail": "flexural modulus (3-point bend)",
+     "product_family": "molded underfill (MUF) for flip chip",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Table verbatim, header row 'Property / Product | Unit | Hysol GR920 H | Hysol GR920 Q | Hysol GR920 M | Hysol GR920 L | Hysol GR920 A'; rows 'Glass Transition Temperature | °C | 102 | 138 | 120 | 158 | 150', 'Coefficient of Thermal Expansion (CTE) α1, TMA | ppm/°C | 13 | 12 | 10 | 9 | 9', 'Coefficient of Thermal Expansion (CTE) α2, TMA | ppm/°C | 45 | 45 | 35 | 33 | 34', 'Flexural Modulus @25°C | MPa | 13500 | 15500 | 19500 | 17800 | 21000'. Column 2 of 5 ('Hysol GR920 Q'). Flexural modulus @25 degC = 15500 MPa x1e6 = 1.55e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12146
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR920 M",
+     "method_detail": "flexural modulus (3-point bend)",
+     "product_family": "molded underfill (MUF) for flip chip",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Table verbatim, header row 'Property / Product | Unit | Hysol GR920 H | Hysol GR920 Q | Hysol GR920 M | Hysol GR920 L | Hysol GR920 A'; rows 'Glass Transition Temperature | °C | 102 | 138 | 120 | 158 | 150', 'Coefficient of Thermal Expansion (CTE) α1, TMA | ppm/°C | 13 | 12 | 10 | 9 | 9', 'Coefficient of Thermal Expansion (CTE) α2, TMA | ppm/°C | 45 | 45 | 35 | 33 | 34', 'Flexural Modulus @25°C | MPa | 13500 | 15500 | 19500 | 17800 | 21000'. Column 3 of 5 ('Hysol GR920 M'). Flexural modulus @25 degC = 19500 MPa x1e6 = 1.95e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12150
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR920 L",
+     "method_detail": "flexural modulus (3-point bend)",
+     "product_family": "molded underfill (MUF) for flip chip",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Table verbatim, header row 'Property / Product | Unit | Hysol GR920 H | Hysol GR920 Q | Hysol GR920 M | Hysol GR920 L | Hysol GR920 A'; rows 'Glass Transition Temperature | °C | 102 | 138 | 120 | 158 | 150', 'Coefficient of Thermal Expansion (CTE) α1, TMA | ppm/°C | 13 | 12 | 10 | 9 | 9', 'Coefficient of Thermal Expansion (CTE) α2, TMA | ppm/°C | 45 | 45 | 35 | 33 | 34', 'Flexural Modulus @25°C | MPa | 13500 | 15500 | 19500 | 17800 | 21000'. Column 4 of 5 ('Hysol GR920 L'). Flexural modulus @25 degC = 17800 MPa x1e6 = 1.78e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12154
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR920 A",
+     "method_detail": "flexural modulus (3-point bend)",
+     "product_family": "molded underfill (MUF) for flip chip",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Table verbatim, header row 'Property / Product | Unit | Hysol GR920 H | Hysol GR920 Q | Hysol GR920 M | Hysol GR920 L | Hysol GR920 A'; rows 'Glass Transition Temperature | °C | 102 | 138 | 120 | 158 | 150', 'Coefficient of Thermal Expansion (CTE) α1, TMA | ppm/°C | 13 | 12 | 10 | 9 | 9', 'Coefficient of Thermal Expansion (CTE) α2, TMA | ppm/°C | 45 | 45 | 35 | 33 | 34', 'Flexural Modulus @25°C | MPa | 13500 | 15500 | 19500 | 17800 | 21000'. Column 5 of 5 ('Hysol GR920 A'). Flexural modulus @25 degC = 21000 MPa x1e6 = 2.1e+10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12158
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json).",
+   "set": {
+    "conditions": {
+     "grade": "Hysol GR920 A1",
+     "method_detail": "flexural modulus (3-point bend)",
+     "product_family": "molded underfill (MUF) for flip chip",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 문서에는 인장 계열 행이 없다 — 73차 IA 가 원문 다섯 장을 다시 열어 확인했다.",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1 벤더 인쇄 굽힘탄성률). 값·단위·등급·method·출처는 그대로다."
+    },
+    "notes": "Table verbatim, header 'Property / Product | Unit | Commercial | Hysol GR920 A1'; rows 'Glass Transition Temperature, TMA | °C | 142 | 150', 'Glass Transition Temperature, DMA | °C | 150 | 151', 'Coefficient of Thermal Expansion (CTE) α1, TMA | ppm/°C | 9 | 9', 'Coefficient of Thermal Expansion (CTE) α2, TMA | ppm/°C | 37 | 34', 'Flexural Modulus @25°C | MPa | 19500 | 21000', 'Storage Modulus by DMA @25°C | Mpa | 25000 | 24000', 'Storage Modulus by DMA @175°C | Mpa | 3000 | 2000', 'Storage Modulus by DMA @260°C | Mpa | 1200 | 1100'. Second data column ('Hysol GR920 A1') taken; the first column is an unnamed 'Commercial' benchmark and was NOT used. 21000 MPa x1e6 = 2.1e10 Pa. [등급 조정] 출처가 제조사 PDF가 아니라 유통사(CAPLINQ) HTML 제품페이지의 전사 표다. MatWeb 같은 2차 DB와 같은 성격이라 tier3으로 둔다 — 값 자체를 의심하는 게 아니라 원문 확인 경로가 한 단계 멀다는 뜻이다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 8144
+   },
+   "by": "73차 IA",
+   "reason": "벤더가 인쇄한 행 이름이 `Flexural Modulus` 인데 값이 영률 칸에 t1 로 앉아 있다. 73차 IA 가 원문을 다시 열어 확인했다 — CAPLINQ 제품페이지의 Hysol/LINQSOL EMC 비교표와 Henkel LOCTITE ECCOBOND TDS 는 `Flexural modulus`·`Flexural strength`·`Storage Modulus by DMA` 만 인쇄하고 **인장 계열 행은 한 줄도 없다**(GR920·GR750·EMC-9012·GR15F-MOD2C·E 1216M 다섯 문서 전수, `Tensile` 적중 0). 그러므로 값을 진짜 인장값으로 갈아치울 원문 근거가 없다 — 값·단위·등급·method·출처는 그대로 두고 conditions 의 시험모드 표기와 notes 만 고친다. 같은 수를 `mechanical.flexural_modulus` 로도 넣어 굽힘 정보가 올바른 키에 서게 한다(ia73_02_materials.json). 이 행은 벤더가 `Storage Modulus E' by DMA, 3-point bending` 으로 인쇄한 값이라 **굽힘 키로 복사하지 않았다** — 원문이 그것을 `flexural modulus` 라고 부르지 않기 때문이다. 하중 모드가 굽힘이라는 표기만 조건에 내린다.",
+   "set": {
+    "conditions": {
+     "grade": "LOCTITE ECCOBOND UF 3812",
+     "cure": ">10 min @ 130 C",
+     "method_detail": "storage modulus E' by DMA, 3-point bending",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "corrected_by_73ia": "73차 IA — 시험모드 표기 정정(G1b DMA 3점굽힘 저장탄성률)."
+    },
+    "notes": "3,004 N/mm2\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12981
+   },
+   "by": "73차 IA",
+   "reason": "이 행은 이미 `method_detail` 에 `굴곡 탄성률 (…) — 인장 탄성률은 이 TDS에 미인쇄` 라고 정직하게 적혀 있었다. 그런데 **그 정직함이 기계에는 반대로 작동했다** — 73차 직전 커밋 d57cd59 가 넣은 대표값 선택기의 시험모드 항은 conditions 의 시험 식별 아홉 칸만 읽고 부정문을 못 읽는다. 한 문자열 안에 굽힘 지문(D790/ISO 178)과 인장 낱말이 같이 있으면 `판단 보류`가 되어, 이 행이 **모드를 안 밝힌 행과 같은 자리**에 선다. 그래서 굽힘 지문은 판정 창 안(`test_standard`·`test_mode`·`loading_mode`)에 두고, **인장 부정문은 창 밖(`tensile_modulus_in_source`)으로 옮긴다.** 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "method_detail": "굴곡 탄성률 — 3점 굽힘 (ASTM D790)",
+     "direction": "MD",
+     "temperature_c": 25,
+     "direction_verbatim": "MD (machine direction)",
+     "direction_verbatim_before_correction": null,
+     "direction_before_correction": "MD (machine direction)",
+     "temperature_C_before_correction": 25,
+     "temperature_c_before_correction": null,
+     "test_standard": "ASTM D790",
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 TDS 는 인장 탄성률 행을 인쇄하지 않는다 — 그래서 이 굽힘값이 영률 칸에 프록시로 들어왔다. (판정 창 밖에 둔다: 창 안에 두면 굽힘 지문과 같이 잡혀 판단 보류가 된다.)",
+     "duplicate_of": "mechanical.flexural_modulus pv4017 (같은 수·같은 출처). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 부정문을 판정 창 밖으로 옮기고 굽힘 표기를 창 안에 세운다."
+    },
+    "notes": "CLTE-XT 열, MD 값 3247 MPa = 3.247e9 Pa (괄호 471 ksi). CLTE(8122)의 40% 수준으로 크게 낮은데, 같은 표의 굴곡강도(40.7 vs 92.4 MPa)·인장강도(29.0 vs 73.8 MPa)도 같은 비율로 낮아 열이 뒤바뀌지 않았음이 3중으로 확인된다. Rogers 'CLTE and CLTE-XT Laminates Data Sheet'는 두 제품을 좌(CLTE)·우(CLTE-XT) 2열로 나란히 인쇄한다. 'Mechanical Properties' 블록 verbatim: \"Flex Modulus (MD, CMD) | 8122, 7984 (1178, 1158) | 3247, 3261 (471, 473) | MPa (ksi) | 25˚C ± 3˚C | ASTM D790\". 열 귀속 교차확인: 같은 표 \"Flexural Strength (MD, CMD) | 92.4, 86.9 | 40.7, 40.0 MPa\", \"Tensile Strength (MD, CMD) | 73.8, 71.0 | 29.0, 25.5 MPa\", \"Dielectric Constant (design) | 2.98 | 2.93\", \"Dissapation Factor | 0.0021 | 0.0010\" — 전 항목에서 좌열이 CLTE, 우열이 CLTE-XT로 일관된다. 이 데이터시트에는 **인장 탄성률이 없다** — 인장'강도'(ASTM D638)만 인쇄되고 탄성률은 굴곡(ASTM D790)뿐이므로 method_detail에 굴곡임을 명시했다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12982
+   },
+   "by": "73차 IA",
+   "reason": "이 행은 이미 `method_detail` 에 `굴곡 탄성률 (…) — 인장 탄성률은 이 TDS에 미인쇄` 라고 정직하게 적혀 있었다. 그런데 **그 정직함이 기계에는 반대로 작동했다** — 73차 직전 커밋 d57cd59 가 넣은 대표값 선택기의 시험모드 항은 conditions 의 시험 식별 아홉 칸만 읽고 부정문을 못 읽는다. 한 문자열 안에 굽힘 지문(D790/ISO 178)과 인장 낱말이 같이 있으면 `판단 보류`가 되어, 이 행이 **모드를 안 밝힌 행과 같은 자리**에 선다. 그래서 굽힘 지문은 판정 창 안(`test_standard`·`test_mode`·`loading_mode`)에 두고, **인장 부정문은 창 밖(`tensile_modulus_in_source`)으로 옮긴다.** 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "method_detail": "굴곡 탄성률 — 3점 굽힘 (ASTM D790)",
+     "direction": "TD",
+     "temperature_c": 25,
+     "direction_verbatim": "CMD (cross-machine direction)",
+     "direction_verbatim_before_correction": null,
+     "direction_before_correction": "CMD (cross-machine direction)",
+     "temperature_C_before_correction": 25,
+     "temperature_c_before_correction": null,
+     "test_standard": "ASTM D790",
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 TDS 는 인장 탄성률 행을 인쇄하지 않는다 — 그래서 이 굽힘값이 영률 칸에 프록시로 들어왔다. (판정 창 밖에 둔다: 창 안에 두면 굽힘 지문과 같이 잡혀 판단 보류가 된다.)",
+     "duplicate_of": "mechanical.flexural_modulus pv4018 (같은 수·같은 출처). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 부정문을 판정 창 밖으로 옮기고 굽힘 표기를 창 안에 세운다."
+    },
+    "notes": "CLTE-XT 열, CMD 값 3261 MPa = 3.261e9 Pa (괄호 473 ksi). CLTE-XT는 MD/CMD 차이가 거의 없다(3247 vs 3261)는 점이 CLTE(8122 vs 7984)와 대비된다. Rogers 'CLTE and CLTE-XT Laminates Data Sheet'는 두 제품을 좌(CLTE)·우(CLTE-XT) 2열로 나란히 인쇄한다. 'Mechanical Properties' 블록 verbatim: \"Flex Modulus (MD, CMD) | 8122, 7984 (1178, 1158) | 3247, 3261 (471, 473) | MPa (ksi) | 25˚C ± 3˚C | ASTM D790\". 열 귀속 교차확인: 같은 표 \"Flexural Strength (MD, CMD) | 92.4, 86.9 | 40.7, 40.0 MPa\", \"Tensile Strength (MD, CMD) | 73.8, 71.0 | 29.0, 25.5 MPa\", \"Dielectric Constant (design) | 2.98 | 2.93\", \"Dissapation Factor | 0.0021 | 0.0010\" — 전 항목에서 좌열이 CLTE, 우열이 CLTE-XT로 일관된다. 이 데이터시트에는 **인장 탄성률이 없다** — 인장'강도'(ASTM D638)만 인쇄되고 탄성률은 굴곡(ASTM D790)뿐이므로 method_detail에 굴곡임을 명시했다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12978
+   },
+   "by": "73차 IA",
+   "reason": "이 행은 이미 `method_detail` 에 `굴곡 탄성률 (…) — 인장 탄성률은 이 TDS에 미인쇄` 라고 정직하게 적혀 있었다. 그런데 **그 정직함이 기계에는 반대로 작동했다** — 73차 직전 커밋 d57cd59 가 넣은 대표값 선택기의 시험모드 항은 conditions 의 시험 식별 아홉 칸만 읽고 부정문을 못 읽는다. 한 문자열 안에 굽힘 지문(D790/ISO 178)과 인장 낱말이 같이 있으면 `판단 보류`가 되어, 이 행이 **모드를 안 밝힌 행과 같은 자리**에 선다. 그래서 굽힘 지문은 판정 창 안(`test_standard`·`test_mode`·`loading_mode`)에 두고, **인장 부정문은 창 밖(`tensile_modulus_in_source`)으로 옮긴다.** 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "method_detail": "굴곡 탄성률 — 3점 굽힘 (ASTM D790)",
+     "direction": "MD",
+     "temperature_c": 25,
+     "direction_verbatim": "MD (machine direction)",
+     "direction_verbatim_before_correction": null,
+     "direction_before_correction": "MD (machine direction)",
+     "temperature_C_before_correction": 25,
+     "temperature_c_before_correction": null,
+     "test_standard": "ASTM D790",
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 TDS 는 인장 탄성률 행을 인쇄하지 않는다 — 그래서 이 굽힘값이 영률 칸에 프록시로 들어왔다. (판정 창 밖에 둔다: 창 안에 두면 굽힘 지문과 같이 잡혀 판단 보류가 된다.)",
+     "duplicate_of": "mechanical.flexural_modulus pv4038 (같은 수·같은 출처). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 부정문을 판정 창 밖으로 옮기고 굽힘 표기를 창 안에 세운다."
+    },
+    "notes": "CLTE 열, MD 값 8122 MPa = 8.122e9 Pa. 괄호 안 영문 단위 1178 ksi도 동일 값이다(1178 ksi × 6.894757 = 8121 MPa로 자체 정합). Rogers 'CLTE and CLTE-XT Laminates Data Sheet'는 두 제품을 좌(CLTE)·우(CLTE-XT) 2열로 나란히 인쇄한다. 'Mechanical Properties' 블록 verbatim: \"Flex Modulus (MD, CMD) | 8122, 7984 (1178, 1158) | 3247, 3261 (471, 473) | MPa (ksi) | 25˚C ± 3˚C | ASTM D790\". 열 귀속 교차확인: 같은 표 \"Flexural Strength (MD, CMD) | 92.4, 86.9 | 40.7, 40.0 MPa\", \"Tensile Strength (MD, CMD) | 73.8, 71.0 | 29.0, 25.5 MPa\", \"Dielectric Constant (design) | 2.98 | 2.93\", \"Dissapation Factor | 0.0021 | 0.0010\" — 전 항목에서 좌열이 CLTE, 우열이 CLTE-XT로 일관된다. 이 데이터시트에는 **인장 탄성률이 없다** — 인장'강도'(ASTM D638)만 인쇄되고 탄성률은 굴곡(ASTM D790)뿐이므로 method_detail에 굴곡임을 명시했다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12979
+   },
+   "by": "73차 IA",
+   "reason": "이 행은 이미 `method_detail` 에 `굴곡 탄성률 (…) — 인장 탄성률은 이 TDS에 미인쇄` 라고 정직하게 적혀 있었다. 그런데 **그 정직함이 기계에는 반대로 작동했다** — 73차 직전 커밋 d57cd59 가 넣은 대표값 선택기의 시험모드 항은 conditions 의 시험 식별 아홉 칸만 읽고 부정문을 못 읽는다. 한 문자열 안에 굽힘 지문(D790/ISO 178)과 인장 낱말이 같이 있으면 `판단 보류`가 되어, 이 행이 **모드를 안 밝힌 행과 같은 자리**에 선다. 그래서 굽힘 지문은 판정 창 안(`test_standard`·`test_mode`·`loading_mode`)에 두고, **인장 부정문은 창 밖(`tensile_modulus_in_source`)으로 옮긴다.** 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "method_detail": "굴곡 탄성률 — 3점 굽힘 (ASTM D790)",
+     "direction": "TD",
+     "temperature_c": 25,
+     "direction_verbatim": "CMD (cross-machine direction)",
+     "direction_verbatim_before_correction": null,
+     "direction_before_correction": "CMD (cross-machine direction)",
+     "temperature_C_before_correction": 25,
+     "temperature_c_before_correction": null,
+     "test_standard": "ASTM D790",
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 TDS 는 인장 탄성률 행을 인쇄하지 않는다 — 그래서 이 굽힘값이 영률 칸에 프록시로 들어왔다. (판정 창 밖에 둔다: 창 안에 두면 굽힘 지문과 같이 잡혀 판단 보류가 된다.)",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 부정문을 판정 창 밖으로 옮기고 굽힘 표기를 창 안에 세운다."
+    },
+    "notes": "CLTE 열, CMD 값 7984 MPa = 7.984e9 Pa (괄호 1158 ksi). 직교이방성 적층판이므로 MD/CMD를 분리 등록했다. Rogers 'CLTE and CLTE-XT Laminates Data Sheet'는 두 제품을 좌(CLTE)·우(CLTE-XT) 2열로 나란히 인쇄한다. 'Mechanical Properties' 블록 verbatim: \"Flex Modulus (MD, CMD) | 8122, 7984 (1178, 1158) | 3247, 3261 (471, 473) | MPa (ksi) | 25˚C ± 3˚C | ASTM D790\". 열 귀속 교차확인: 같은 표 \"Flexural Strength (MD, CMD) | 92.4, 86.9 | 40.7, 40.0 MPa\", \"Tensile Strength (MD, CMD) | 73.8, 71.0 | 29.0, 25.5 MPa\", \"Dielectric Constant (design) | 2.98 | 2.93\", \"Dissapation Factor | 0.0021 | 0.0010\" — 전 항목에서 좌열이 CLTE, 우열이 CLTE-XT로 일관된다. 이 데이터시트에는 **인장 탄성률이 없다** — 인장'강도'(ASTM D638)만 인쇄되고 탄성률은 굴곡(ASTM D790)뿐이므로 method_detail에 굴곡임을 명시했다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12965
+   },
+   "by": "73차 IA",
+   "reason": "이 행은 이미 `method_detail` 에 `굴곡 탄성률 (…) — 인장 탄성률은 이 TDS에 미인쇄` 라고 정직하게 적혀 있었다. 그런데 **그 정직함이 기계에는 반대로 작동했다** — 73차 직전 커밋 d57cd59 가 넣은 대표값 선택기의 시험모드 항은 conditions 의 시험 식별 아홉 칸만 읽고 부정문을 못 읽는다. 한 문자열 안에 굽힘 지문(D790/ISO 178)과 인장 낱말이 같이 있으면 `판단 보류`가 되어, 이 행이 **모드를 안 밝힌 행과 같은 자리**에 선다. 그래서 굽힘 지문은 판정 창 안(`test_standard`·`test_mode`·`loading_mode`)에 두고, **인장 부정문은 창 밖(`tensile_modulus_in_source`)으로 옮긴다.** 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "method_detail": "굴곡 탄성률 — 3점 굽힘 (ISO 178)",
+     "grade": "Ryton R-4",
+     "filler": "Glass Fiber, 40% Filler by Weight",
+     "temperature_c": 23,
+     "temperature_C_before_correction": 23,
+     "temperature_c_before_correction": null,
+     "test_standard": "ISO 178",
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 TDS 는 인장 탄성률 행을 인쇄하지 않는다 — 그래서 이 굽힘값이 영률 칸에 프록시로 들어왔다. (판정 창 밖에 둔다: 창 안에 두면 굽힘 지문과 같이 잡혀 판단 보류가 된다.)",
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 부정문을 판정 창 밖으로 옮기고 굽힘 표기를 창 안에 세운다."
+    },
+    "notes": "TDS 'Mechanical' 표 verbatim: \"Flexural Modulus | -- | 14500 MPa | ASTM D790\" / \"-- | 14000 MPa | ISO 178\". ISO 178 값 14000 MPa = 1.40e10 Pa 채택(ASTM D790 값 14500 MPa는 별도). 같은 표에 \"Tensile Strength -- 159 MPa ASTM D638 / 150 MPa ISO 527-2\", \"Tensile Elongation Break 1.1% / 1.2%\", \"Poisson's Ratio 0.38\"은 있으나 **인장 탄성률(tensile modulus) 항목 자체가 이 TDS에 없다** → 굴곡값으로 대체하고 method_detail에 명시. 'Filler/Reinforcement: Glass Fiber, 40% Filler by Weight'로 PPS-GF40 확인.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 12966
+   },
+   "by": "73차 IA",
+   "reason": "이 행은 이미 `method_detail` 에 `굴곡 탄성률 (…) — 인장 탄성률은 이 TDS에 미인쇄` 라고 정직하게 적혀 있었다. 그런데 **그 정직함이 기계에는 반대로 작동했다** — 73차 직전 커밋 d57cd59 가 넣은 대표값 선택기의 시험모드 항은 conditions 의 시험 식별 아홉 칸만 읽고 부정문을 못 읽는다. 한 문자열 안에 굽힘 지문(D790/ISO 178)과 인장 낱말이 같이 있으면 `판단 보류`가 되어, 이 행이 **모드를 안 밝힌 행과 같은 자리**에 선다. 그래서 굽힘 지문은 판정 창 안(`test_standard`·`test_mode`·`loading_mode`)에 두고, **인장 부정문은 창 밖(`tensile_modulus_in_source`)으로 옮긴다.** 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "method_detail": "굴곡 탄성률 — 3점 굽힘 (ISO 178)",
+     "grade": "Ryton R-4-02XT",
+     "filler": "Glass Fiber, 40% Filler by Weight",
+     "temperature_c": 23,
+     "temperature_C_before_correction": 23,
+     "temperature_c_before_correction": null,
+     "test_standard": "ISO 178",
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "reported_as_youngs_modulus": true,
+     "tensile_modulus_in_source": "이 TDS 는 인장 탄성률 행을 인쇄하지 않는다 — 그래서 이 굽힘값이 영률 칸에 프록시로 들어왔다. (판정 창 밖에 둔다: 창 안에 두면 굽힘 지문과 같이 잡혀 판단 보류가 된다.)",
+     "duplicate_of": "mechanical.flexural_modulus pv7180 (같은 수·같은 출처). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 부정문을 판정 창 밖으로 옮기고 굽힘 표기를 창 안에 세운다."
+    },
+    "notes": "R-4-02XT TDS 'Mechanical' 표 verbatim: \"Flexural Modulus | -- | 14500 MPa | ASTM D790\" / \"-- | 14000 MPa | ISO 178\". ISO 178 값 14000 MPa = 1.40e10 Pa. XT 등급은 R-4 대비 강도가 높지만(인장 179/180 MPa vs R-4 159/150 MPa, 굴곡강도 255/260 vs 221/220) 굴곡 탄성률은 동일하게 14500/14000 MPa로 인쇄되어 있으며, 이는 서로 다른 두 PDF에서 각각 확인했다. 인장 탄성률 항목은 이 TDS에도 없다. Poisson's Ratio 0.39.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 32785
+   },
+   "by": "73차 IA",
+   "reason": "72차 HB 가 `test_mode: flexural` 을 달았는데도 이 행은 여전히 `판단 보류`로 읽힌다. `test_method` 문자열 끝의 `strain gauge on tensile surface` 가 판정 창 안에서 인장으로 잡히기 때문이다 — 굽힘 지문과 인장 낱말이 한 창에 같이 들어가면 선택기는 판단을 보류한다. **HB 의 43행 중 이 둘만 의도대로 반영되지 않았다**(41/43 은 굽힘으로 읽힌다). 스트레인 게이지 부착 위치는 시험모드가 아니라 계측 방식이므로 창 밖 `strain_measurement` 로 옮긴다. 값·단위·등급·method·출처·HB 의 판정은 그대로다.",
+   "set": {
+    "conditions": {
+     "test_method": "three-point flexure, Instron, crosshead speed 0.127 cm/min (0.05 in/min), span 3.75 cm, L/d >= 25 (delamination 회피 조건, Fig. 3 로 결정)",
+     "temperature_c": 25,
+     "temperature_note": "Table 1 캡션이 'Room temperature properties' 라고 명시",
+     "fiber_volume_fraction": 0.31,
+     "uncertainty_gpa": 5,
+     "analysis": "load-strain 곡선의 선형구간(첫 매트릭스 균열하중까지) 기울기에서 산출",
+     "condition_note": "**3점 굽힘에서 구한 굽힘탄성률이다** — 표의 각주 b 가 'From [three] point bend test' 다. 순수 인장 영률과 동일하지 않을 수 있다",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 V-Bansal1997.",
+     "flexural_modulus_basis": "인장면 스트레인 게이지의 실측 변형률로 얻은 굽힘탄성률 — 처짐 컴플라이언스 역산이 아니다. D790 식 굽힘탄성률보다 인장값에 가깝다.",
+     "notes_before_correction": "Table 1 'Elastic modulus b, E (GPa)'. **역산 금지 — 혼합법칙으로 값을 만들지 않고 인쇄된 측정치만 옮겼다.** 다만 검산을 걸어 두면: 저자 자신이 쓴 상수(E_matrix = 70 GPa, E_fiber = 400 GPa)로 Ec = VmEm + VfEf 를 계산하면 Vf 0.31 에서 172 GPa, Vf 0.24 에서 149 GPa 가 나와 **인쇄된 측정치 122 / 102 GPa 보다 30% 이상 높다**. 저자는 Fig. 5 를 근거로 'The measured Ec values are in agreement with those expected from the simple rule-of-mixtures' 라고 적었지만 **Table 1 의 두 행만으로는 그 일치가 재현되지 않는다** — Fig. 5 의 Vf 범위·시료가 Table 1 행과 같은지 인쇄되지 않았다. 이 불일치를 값에 반영하지 않고 기록만 남긴다.",
+     "reported_as_youngs_modulus_before_correction": null,
+     "flexural_modulus_basis_before_correction": null,
+     "corrected_by_72hb_before_correction": null,
+     "loading_mode_before_correction": null,
+     "test_mode_before_correction": null,
+     "strain_measurement": "strain gauge on tensile surface — 처짐 컴플라이언스 역산이 아니라 실측 변형률이다(계측 방식이지 시험모드가 아니다).",
+     "corrected_by_73ia": "73차 IA — 72차 HB 의 굽힘 표기가 선택기에 반영되도록 판정 창을 정리한다."
+    },
+    "notes": "Table 1 'Elastic modulus b, E (GPa)'. **역산 금지 — 혼합법칙으로 값을 만들지 않고 인쇄된 측정치만 옮겼다.** 다만 검산을 걸어 두면: 저자 자신이 쓴 상수(E_matrix = 70 GPa, E_fiber = 400 GPa)로 Ec = VmEm + VfEf 를 계산하면 Vf 0.31 에서 172 GPa, Vf 0.24 에서 149 GPa 가 나와 **인쇄된 측정치 122 / 102 GPa 보다 30% 이상 높다**. 저자는 Fig. 5 를 근거로 'The measured Ec values are in agreement with those expected from the simple rule-of-mixtures' 라고 적었지만 **Table 1 의 두 행만으로는 그 일치가 재현되지 않는다** — Fig. 5 의 Vf 범위·시료가 Table 1 행과 같은지 인쇄되지 않았다. 이 불일치를 값에 반영하지 않고 기록만 남긴다.\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 32788
+   },
+   "by": "73차 IA",
+   "reason": "72차 HB 가 `test_mode: flexural` 을 달았는데도 이 행은 여전히 `판단 보류`로 읽힌다. `test_method` 문자열 끝의 `strain gauge on tensile surface` 가 판정 창 안에서 인장으로 잡히기 때문이다 — 굽힘 지문과 인장 낱말이 한 창에 같이 들어가면 선택기는 판단을 보류한다. **HB 의 43행 중 이 둘만 의도대로 반영되지 않았다**(41/43 은 굽힘으로 읽힌다). 스트레인 게이지 부착 위치는 시험모드가 아니라 계측 방식이므로 창 밖 `strain_measurement` 로 옮긴다. 값·단위·등급·method·출처·HB 의 판정은 그대로다.",
+   "set": {
+    "conditions": {
+     "test_method": "three-point flexure, Instron, crosshead speed 0.127 cm/min (0.05 in/min), span 3.75 cm, L/d >= 25 (delamination 회피 조건, Fig. 3 로 결정)",
+     "temperature_c": 25,
+     "temperature_note": "Table 1 캡션이 'Room temperature properties' 라고 명시",
+     "fiber_volume_fraction": 0.24,
+     "uncertainty_gpa": 10,
+     "analysis": "load-strain 곡선의 선형구간(첫 매트릭스 균열하중까지) 기울기에서 산출",
+     "condition_note": "**3점 굽힘에서 구한 굽힘탄성률이다** — 표의 각주 b 가 'From [three] point bend test' 다. 순수 인장 영률과 동일하지 않을 수 있다",
+     "test_mode": "flexural",
+     "reported_as_youngs_modulus": true,
+     "loading_mode": "bending",
+     "corrected_by_72hb": "72차 HB — 시험모드 표기 정정. 값·단위·등급·method·출처는 그대로다. 갈래 V-Bansal1997.",
+     "flexural_modulus_basis": "인장면 스트레인 게이지의 실측 변형률로 얻은 굽힘탄성률 — 처짐 컴플라이언스 역산이 아니다. D790 식 굽힘탄성률보다 인장값에 가깝다.",
+     "notes_before_correction": "Table 1 'Elastic modulus b, E (GPa)'. **역산 금지 — 혼합법칙으로 값을 만들지 않고 인쇄된 측정치만 옮겼다.** 다만 검산을 걸어 두면: 저자 자신이 쓴 상수(E_matrix = 70 GPa, E_fiber = 400 GPa)로 Ec = VmEm + VfEf 를 계산하면 Vf 0.31 에서 172 GPa, Vf 0.24 에서 149 GPa 가 나와 **인쇄된 측정치 122 / 102 GPa 보다 30% 이상 높다**. 저자는 Fig. 5 를 근거로 'The measured Ec values are in agreement with those expected from the simple rule-of-mixtures' 라고 적었지만 **Table 1 의 두 행만으로는 그 일치가 재현되지 않는다** — Fig. 5 의 Vf 범위·시료가 Table 1 행과 같은지 인쇄되지 않았다. 이 불일치를 값에 반영하지 않고 기록만 남긴다.",
+     "reported_as_youngs_modulus_before_correction": null,
+     "flexural_modulus_basis_before_correction": null,
+     "corrected_by_72hb_before_correction": null,
+     "loading_mode_before_correction": null,
+     "test_mode_before_correction": null,
+     "strain_measurement": "strain gauge on tensile surface — 처짐 컴플라이언스 역산이 아니라 실측 변형률이다(계측 방식이지 시험모드가 아니다).",
+     "corrected_by_73ia": "73차 IA — 72차 HB 의 굽힘 표기가 선택기에 반영되도록 판정 창을 정리한다."
+    },
+    "notes": "Table 1 'Elastic modulus b, E (GPa)'. **역산 금지 — 혼합법칙으로 값을 만들지 않고 인쇄된 측정치만 옮겼다.** 다만 검산을 걸어 두면: 저자 자신이 쓴 상수(E_matrix = 70 GPa, E_fiber = 400 GPa)로 Ec = VmEm + VfEf 를 계산하면 Vf 0.31 에서 172 GPa, Vf 0.24 에서 149 GPa 가 나와 **인쇄된 측정치 122 / 102 GPa 보다 30% 이상 높다**. 저자는 Fig. 5 를 근거로 'The measured Ec values are in agreement with those expected from the simple rule-of-mixtures' 라고 적었지만 **Table 1 의 두 행만으로는 그 일치가 재현되지 않는다** — Fig. 5 의 Vf 범위·시료가 Table 1 행과 같은지 인쇄되지 않았다. 이 불일치를 값에 반영하지 않고 기록만 남긴다.\n\n[72차 HB 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~23% 과대일 수 있다(68차 DC·71차 GB 실측). 72차 HB 가 Panasonic 2021-03 특성일람표에서 같은 등급의 `曲げ弾性係数`/`ヤング率(引張りモード)` 쌍을 다시 재 보니 폭이 더 넓었다 — R-5775 20/19 대 16.3/14.3 GPa(+23 %/+33 %) · R-5785(N) 19/18 대 13.5/11.6 GPa(+41 %/+55 %). 12~23 % 는 하한이지 상한이 아니다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 31959
+   },
+   "by": "73차 IA",
+   "reason": "3점굽힘(DMTA·미소시편)에서 얻은 탄성률이 영률 칸에 있다. 시험모드를 판정 창 안에 명시한다. **다만 12~55 % 과대 경고문은 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같고, 그 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이다(72차 HB §7-3). 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "alloy": "Sn63Pb37 (SnPb eutectic), IDEALS project reference alloy",
+     "temperature_k": 298.15,
+     "test_method": "three-point bending mode of a dynamic materials test analyser (DMTA) on 1 mm thick cast slabs",
+     "specimen": "1 mm thick slab",
+     "temperature_c": 25,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 25,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "modulus_equivalence": "균질 등방 금속에서는 3점굽힘 탄성률과 인장 탄성률이 이론적으로 같다. 이 행에는 굽힘 과대 보정을 적용하지 마라. (판정 창 밖에 둔다 — 창 안에 두면 판단 보류가 된다.)",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기만 명시(G4 균질 금속·소결 페이스트)."
+    },
+    "notes": "[73차 IA 표기 정정] 이 값은 3점굽힘 하중 모드에서 얻었다. **과대 경고는 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같기 때문이다. 12~55 % 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이라 여기 적용되지 않는다. 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 31960
+   },
+   "by": "73차 IA",
+   "reason": "3점굽힘(DMTA·미소시편)에서 얻은 탄성률이 영률 칸에 있다. 시험모드를 판정 창 안에 명시한다. **다만 12~55 % 과대 경고문은 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같고, 그 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이다(72차 HB §7-3). 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "alloy": "Sn63Pb37 (SnPb eutectic), IDEALS project reference alloy",
+     "temperature_k": 323.15,
+     "test_method": "three-point bending mode of a dynamic materials test analyser (DMTA) on 1 mm thick cast slabs",
+     "specimen": "1 mm thick slab",
+     "temperature_c": 50,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 50,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "modulus_equivalence": "균질 등방 금속에서는 3점굽힘 탄성률과 인장 탄성률이 이론적으로 같다. 이 행에는 굽힘 과대 보정을 적용하지 마라. (판정 창 밖에 둔다 — 창 안에 두면 판단 보류가 된다.)",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기만 명시(G4 균질 금속·소결 페이스트)."
+    },
+    "notes": "[73차 IA 표기 정정] 이 값은 3점굽힘 하중 모드에서 얻었다. **과대 경고는 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같기 때문이다. 12~55 % 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이라 여기 적용되지 않는다. 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 31961
+   },
+   "by": "73차 IA",
+   "reason": "3점굽힘(DMTA·미소시편)에서 얻은 탄성률이 영률 칸에 있다. 시험모드를 판정 창 안에 명시한다. **다만 12~55 % 과대 경고문은 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같고, 그 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이다(72차 HB §7-3). 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "alloy": "Sn63Pb37 (SnPb eutectic), IDEALS project reference alloy",
+     "temperature_k": 373.15,
+     "test_method": "three-point bending mode of a dynamic materials test analyser (DMTA) on 1 mm thick cast slabs",
+     "specimen": "1 mm thick slab",
+     "temperature_c": 100,
+     "temperature_c_before_correction": null,
+     "temperature_C_before_correction": 100,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "modulus_equivalence": "균질 등방 금속에서는 3점굽힘 탄성률과 인장 탄성률이 이론적으로 같다. 이 행에는 굽힘 과대 보정을 적용하지 마라. (판정 창 밖에 둔다 — 창 안에 두면 판단 보류가 된다.)",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기만 명시(G4 균질 금속·소결 페이스트)."
+    },
+    "notes": "[73차 IA 표기 정정] 이 값은 3점굽힘 하중 모드에서 얻었다. **과대 경고는 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같기 때문이다. 12~55 % 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이라 여기 적용되지 않는다. 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 31969
+   },
+   "by": "73차 IA",
+   "reason": "3점굽힘(DMTA·미소시편)에서 얻은 탄성률이 영률 칸에 있다. 시험모드를 판정 창 안에 명시한다. **다만 12~55 % 과대 경고문은 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같고, 그 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이다(72차 HB §7-3). 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "alloy": "SnCu0.7Sb0.5",
+     "temperature_k": 298.15,
+     "test_method": "three-point bending mode of a dynamic materials test analyser (DMTA) on 1 mm thick cast slabs",
+     "specimen": "1 mm thick slab",
+     "temperature_c": 25,
+     "temperature_C_before_correction": 25,
+     "temperature_c_before_correction": null,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "modulus_equivalence": "균질 등방 금속에서는 3점굽힘 탄성률과 인장 탄성률이 이론적으로 같다. 이 행에는 굽힘 과대 보정을 적용하지 마라. (판정 창 밖에 둔다 — 창 안에 두면 판단 보류가 된다.)",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기만 명시(G4 균질 금속·소결 페이스트)."
+    },
+    "notes": "[73차 IA 표기 정정] 이 값은 3점굽힘 하중 모드에서 얻었다. **과대 경고는 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같기 때문이다. 12~55 % 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이라 여기 적용되지 않는다. 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 31970
+   },
+   "by": "73차 IA",
+   "reason": "3점굽힘(DMTA·미소시편)에서 얻은 탄성률이 영률 칸에 있다. 시험모드를 판정 창 안에 명시한다. **다만 12~55 % 과대 경고문은 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같고, 그 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이다(72차 HB §7-3). 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "alloy": "SnCu0.7Sb0.5",
+     "temperature_k": 323.15,
+     "test_method": "three-point bending mode of a dynamic materials test analyser (DMTA) on 1 mm thick cast slabs",
+     "specimen": "1 mm thick slab",
+     "temperature_c": 50,
+     "temperature_C_before_correction": 50,
+     "temperature_c_before_correction": null,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "modulus_equivalence": "균질 등방 금속에서는 3점굽힘 탄성률과 인장 탄성률이 이론적으로 같다. 이 행에는 굽힘 과대 보정을 적용하지 마라. (판정 창 밖에 둔다 — 창 안에 두면 판단 보류가 된다.)",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기만 명시(G4 균질 금속·소결 페이스트)."
+    },
+    "notes": "[73차 IA 표기 정정] 이 값은 3점굽힘 하중 모드에서 얻었다. **과대 경고는 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같기 때문이다. 12~55 % 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이라 여기 적용되지 않는다. 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 31971
+   },
+   "by": "73차 IA",
+   "reason": "3점굽힘(DMTA·미소시편)에서 얻은 탄성률이 영률 칸에 있다. 시험모드를 판정 창 안에 명시한다. **다만 12~55 % 과대 경고문은 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같고, 그 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이다(72차 HB §7-3). 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "alloy": "SnCu0.7Sb0.5",
+     "temperature_k": 373.15,
+     "test_method": "three-point bending mode of a dynamic materials test analyser (DMTA) on 1 mm thick cast slabs",
+     "specimen": "1 mm thick slab",
+     "temperature_c": 100,
+     "temperature_C_before_correction": 100,
+     "temperature_c_before_correction": null,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "modulus_equivalence": "균질 등방 금속에서는 3점굽힘 탄성률과 인장 탄성률이 이론적으로 같다. 이 행에는 굽힘 과대 보정을 적용하지 마라. (판정 창 밖에 둔다 — 창 안에 두면 판단 보류가 된다.)",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기만 명시(G4 균질 금속·소결 페이스트)."
+    },
+    "notes": "[73차 IA 표기 정정] 이 값은 3점굽힘 하중 모드에서 얻었다. **과대 경고는 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같기 때문이다. 12~55 % 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이라 여기 적용되지 않는다. 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 31977
+   },
+   "by": "73차 IA",
+   "reason": "3점굽힘(DMTA·미소시편)에서 얻은 탄성률이 영률 칸에 있다. 시험모드를 판정 창 안에 명시한다. **다만 12~55 % 과대 경고문은 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같고, 그 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이다(72차 HB §7-3). 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "alloy": "SnAg3.5Cu0.7",
+     "temperature_k": 298.15,
+     "test_method": "three-point bending mode of a dynamic materials test analyser (DMTA) on 1 mm thick cast slabs",
+     "specimen": "1 mm thick slab",
+     "temperature_c": 25,
+     "temperature_C_before_correction": 25,
+     "temperature_c_before_correction": null,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "modulus_equivalence": "균질 등방 금속에서는 3점굽힘 탄성률과 인장 탄성률이 이론적으로 같다. 이 행에는 굽힘 과대 보정을 적용하지 마라. (판정 창 밖에 둔다 — 창 안에 두면 판단 보류가 된다.)",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기만 명시(G4 균질 금속·소결 페이스트)."
+    },
+    "notes": "[73차 IA 표기 정정] 이 값은 3점굽힘 하중 모드에서 얻었다. **과대 경고는 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같기 때문이다. 12~55 % 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이라 여기 적용되지 않는다. 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 31978
+   },
+   "by": "73차 IA",
+   "reason": "3점굽힘(DMTA·미소시편)에서 얻은 탄성률이 영률 칸에 있다. 시험모드를 판정 창 안에 명시한다. **다만 12~55 % 과대 경고문은 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같고, 그 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이다(72차 HB §7-3). 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "alloy": "SnAg3.5Cu0.7",
+     "temperature_k": 323.15,
+     "test_method": "three-point bending mode of a dynamic materials test analyser (DMTA) on 1 mm thick cast slabs",
+     "specimen": "1 mm thick slab",
+     "temperature_c": 50,
+     "temperature_C_before_correction": 50,
+     "temperature_c_before_correction": null,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "modulus_equivalence": "균질 등방 금속에서는 3점굽힘 탄성률과 인장 탄성률이 이론적으로 같다. 이 행에는 굽힘 과대 보정을 적용하지 마라. (판정 창 밖에 둔다 — 창 안에 두면 판단 보류가 된다.)",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기만 명시(G4 균질 금속·소결 페이스트)."
+    },
+    "notes": "[73차 IA 표기 정정] 이 값은 3점굽힘 하중 모드에서 얻었다. **과대 경고는 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같기 때문이다. 12~55 % 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이라 여기 적용되지 않는다. 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 31979
+   },
+   "by": "73차 IA",
+   "reason": "3점굽힘(DMTA·미소시편)에서 얻은 탄성률이 영률 칸에 있다. 시험모드를 판정 창 안에 명시한다. **다만 12~55 % 과대 경고문은 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같고, 그 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이다(72차 HB §7-3). 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "alloy": "SnAg3.5Cu0.7",
+     "temperature_k": 373.15,
+     "test_method": "three-point bending mode of a dynamic materials test analyser (DMTA) on 1 mm thick cast slabs",
+     "specimen": "1 mm thick slab",
+     "temperature_c": 100,
+     "temperature_C_before_correction": 100,
+     "temperature_c_before_correction": null,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "modulus_equivalence": "균질 등방 금속에서는 3점굽힘 탄성률과 인장 탄성률이 이론적으로 같다. 이 행에는 굽힘 과대 보정을 적용하지 마라. (판정 창 밖에 둔다 — 창 안에 두면 판단 보류가 된다.)",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기만 명시(G4 균질 금속·소결 페이스트)."
+    },
+    "notes": "[73차 IA 표기 정정] 이 값은 3점굽힘 하중 모드에서 얻었다. **과대 경고는 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같기 때문이다. 12~55 % 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이라 여기 적용되지 않는다. 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 31986
+   },
+   "by": "73차 IA",
+   "reason": "3점굽힘(DMTA·미소시편)에서 얻은 탄성률이 영률 칸에 있다. 시험모드를 판정 창 안에 명시한다. **다만 12~55 % 과대 경고문은 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같고, 그 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이다(72차 HB §7-3). 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "alloy": "SnAg3.5Cu0.7Sb0.25",
+     "temperature_k": 298.15,
+     "test_method": "three-point bending mode of a dynamic materials test analyser (DMTA) on 1 mm thick cast slabs",
+     "specimen": "1 mm thick slab",
+     "temperature_c": 25,
+     "temperature_C_before_correction": 25,
+     "temperature_c_before_correction": null,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "modulus_equivalence": "균질 등방 금속에서는 3점굽힘 탄성률과 인장 탄성률이 이론적으로 같다. 이 행에는 굽힘 과대 보정을 적용하지 마라. (판정 창 밖에 둔다 — 창 안에 두면 판단 보류가 된다.)",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기만 명시(G4 균질 금속·소결 페이스트)."
+    },
+    "notes": "[73차 IA 표기 정정] 이 값은 3점굽힘 하중 모드에서 얻었다. **과대 경고는 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같기 때문이다. 12~55 % 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이라 여기 적용되지 않는다. 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 31987
+   },
+   "by": "73차 IA",
+   "reason": "3점굽힘(DMTA·미소시편)에서 얻은 탄성률이 영률 칸에 있다. 시험모드를 판정 창 안에 명시한다. **다만 12~55 % 과대 경고문은 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같고, 그 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이다(72차 HB §7-3). 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "alloy": "SnAg3.5Cu0.7Sb0.25",
+     "temperature_k": 323.15,
+     "test_method": "three-point bending mode of a dynamic materials test analyser (DMTA) on 1 mm thick cast slabs",
+     "specimen": "1 mm thick slab",
+     "temperature_c": 50,
+     "temperature_C_before_correction": 50,
+     "temperature_c_before_correction": null,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "modulus_equivalence": "균질 등방 금속에서는 3점굽힘 탄성률과 인장 탄성률이 이론적으로 같다. 이 행에는 굽힘 과대 보정을 적용하지 마라. (판정 창 밖에 둔다 — 창 안에 두면 판단 보류가 된다.)",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기만 명시(G4 균질 금속·소결 페이스트)."
+    },
+    "notes": "[73차 IA 표기 정정] 이 값은 3점굽힘 하중 모드에서 얻었다. **과대 경고는 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같기 때문이다. 12~55 % 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이라 여기 적용되지 않는다. 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 31988
+   },
+   "by": "73차 IA",
+   "reason": "3점굽힘(DMTA·미소시편)에서 얻은 탄성률이 영률 칸에 있다. 시험모드를 판정 창 안에 명시한다. **다만 12~55 % 과대 경고문은 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같고, 그 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이다(72차 HB §7-3). 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "alloy": "SnAg3.5Cu0.7Sb0.25",
+     "temperature_k": 373.15,
+     "test_method": "three-point bending mode of a dynamic materials test analyser (DMTA) on 1 mm thick cast slabs",
+     "specimen": "1 mm thick slab",
+     "temperature_c": 100,
+     "temperature_C_before_correction": 100,
+     "temperature_c_before_correction": null,
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "modulus_equivalence": "균질 등방 금속에서는 3점굽힘 탄성률과 인장 탄성률이 이론적으로 같다. 이 행에는 굽힘 과대 보정을 적용하지 마라. (판정 창 밖에 둔다 — 창 안에 두면 판단 보류가 된다.)",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기만 명시(G4 균질 금속·소결 페이스트)."
+    },
+    "notes": "[73차 IA 표기 정정] 이 값은 3점굽힘 하중 모드에서 얻었다. **과대 경고는 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같기 때문이다. 12~55 % 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이라 여기 적용되지 않는다. 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 25446
+   },
+   "by": "73차 IA",
+   "reason": "3점굽힘(DMTA·미소시편)에서 얻은 탄성률이 영률 칸에 있다. 시험모드를 판정 창 안에 명시한다. **다만 12~55 % 과대 경고문은 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같고, 그 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이다(72차 HB §7-3). 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "temperature_c": 25,
+     "sintering_temperature_c": 300,
+     "sintering_time_s": 3600,
+     "sintering_pressure_pa": 0,
+     "sintering_atmosphere": "100% H2, 1013 hPa",
+     "relative_density_pct": 78,
+     "test_method": "three-point bending (w=3 mm, t=0.2 mm, span L=3 mm), bending elastic modulus",
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "modulus_equivalence": "균질 등방 금속에서는 3점굽힘 탄성률과 인장 탄성률이 이론적으로 같다. 이 행에는 굽힘 과대 보정을 적용하지 마라. (판정 창 밖에 둔다 — 창 안에 두면 판단 보류가 된다.)",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기만 명시(G4 균질 금속·소결 페이스트)."
+    },
+    "notes": "Table 2 row 'Young's modulus (GPa) | 36', test-method row of the same table reads 'Three-point bending test'. It is a bending elastic modulus, not a tensile modulus - recorded in conditions.test_method.\n\n[73차 IA 표기 정정] 이 값은 3점굽힘 하중 모드에서 얻었다. **과대 경고는 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같기 때문이다. 12~55 % 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이라 여기 적용되지 않는다. 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 25461
+   },
+   "by": "73차 IA",
+   "reason": "3점굽힘(DMTA·미소시편)에서 얻은 탄성률이 영률 칸에 있다. 시험모드를 판정 창 안에 명시한다. **다만 12~55 % 과대 경고문은 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같고, 그 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이다(72차 HB §7-3). 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "temperature_c": 25,
+     "sintering_temperature_c": 250,
+     "sintering_time_s": 3600,
+     "sintering_pressure_pa": 0,
+     "sintering_atmosphere": "air, 1013 hPa",
+     "relative_density_pct": 60,
+     "test_method": "three-point bending (w=3 mm, t=0.2 mm, span L=3 mm), bending elastic modulus",
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "modulus_equivalence": "균질 등방 금속에서는 3점굽힘 탄성률과 인장 탄성률이 이론적으로 같다. 이 행에는 굽힘 과대 보정을 적용하지 마라. (판정 창 밖에 둔다 — 창 안에 두면 판단 보류가 된다.)",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기만 명시(G4 균질 금속·소결 페이스트)."
+    },
+    "notes": "Table 2 'Young's modulus (GPa) | 15'. Matches the catalog's existing tier-4 anchor of 15 GPa for pressureless sintered silver, now with a measured basis and stated porosity.\n\n[73차 IA 표기 정정] 이 값은 3점굽힘 하중 모드에서 얻었다. **과대 경고는 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같기 때문이다. 12~55 % 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이라 여기 적용되지 않는다. 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 25472
+   },
+   "by": "73차 IA",
+   "reason": "3점굽힘(DMTA·미소시편)에서 얻은 탄성률이 영률 칸에 있다. 시험모드를 판정 창 안에 명시한다. **다만 12~55 % 과대 경고문은 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같고, 그 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이다(72차 HB §7-3). 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "temperature_c": 25,
+     "sintering_temperature_c": 300,
+     "sintering_time_s": 600,
+     "sintering_pressure_pa": 10000000.0,
+     "sintering_atmosphere": "air, 1013 hPa",
+     "relative_density_pct": 87,
+     "test_method": "three-point bending (w=3 mm, t=0.2 mm, span L=3 mm), bending elastic modulus",
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "modulus_equivalence": "균질 등방 금속에서는 3점굽힘 탄성률과 인장 탄성률이 이론적으로 같다. 이 행에는 굽힘 과대 보정을 적용하지 마라. (판정 창 밖에 둔다 — 창 안에 두면 판단 보류가 된다.)",
+     "corrected_by_73ia": "73차 IA — 시험모드 표기만 명시(G4 균질 금속·소결 페이스트)."
+    },
+    "notes": "Table 2 'Young's modulus (GPa) | 29'.\n\n[73차 IA 표기 정정] 이 값은 3점굽힘 하중 모드에서 얻었다. **과대 경고는 붙이지 않는다** — 균질 등방 금속에서는 3점굽힘 탄성률이 인장 탄성률과 이론적으로 같기 때문이다. 12~55 % 폭은 충전 고분자·직물 적층판의 두께방향 불균질에서 나오는 것이라 여기 적용되지 않는다. 소결 페이스트는 기공률 구배가 있을 수 있어 중간이다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 27671
+   },
+   "by": "73차 IA",
+   "reason": "이 행은 `loading: uniaxial tension` 으로 인장 실측임을 이미 밝혀 두었는데, `loading` 은 대표값 선택기의 시험모드 판정 창에 없는 칸이라 `미표기`로 읽혔다. 같은 재료의 3점굽힘 DMTA 행 세 개는 창 안에 굽힘 지문이 있어 굽힘으로 읽힌다. **정직한 인장 표기가 창 밖에 있어 상을 못 받고 있었다** — 창 안 칸으로 옮긴다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 298.15,
+     "strain_rate_s": 0.01,
+     "specimen": "machined from solder bar, annealed 24 h at 60 C in vacuum (ASTM E606)",
+     "loading_mode": "uniaxial tension",
+     "test_method": "uniaxial tension (ASTM E606 시편)",
+     "test_mode": "tensile",
+     "corrected_by_73ia": "73차 IA — 인장 표기를 판정 창 안으로 옮긴다(`loading` → `loading_mode`·`test_mode`)."
+    },
+    "notes": "Table 1 의 '63Sn-37Pb' 행 Elastic modulus = 27 GPa (GPa->Pa x1e9). Table 1 (Mechanical properties of Sn-0.7Cu and Sn-37Pb solder alloys). 표 아래 각주 verbatim: \"Note: All data obtained from tensile test at 298 K and at a strain rate of 10^-2 (1/s).\" 시편은 솔더바에서 기계가공 후 60 C 진공 24 h 어닐링(ASTM E606 형상). **중복 회피 기록(브리프 73번 절)** — 이 논문 Table 4 의 Coffin-Manson 상수 (99.3Sn-0.7Cu 298 K/1 Hz m=0.973 C=21.3, 398 K/10^-3 Hz m=0.72 C=1.98)는 같은 저자의 Pang 2004 'Low cycle fatigue models for lead-free solders' (Thin Solid Films 462-463, 408-412) Table 1 의 **같은 실험**(m=0.973 C=21.27 / m=0.719 C=1.98)이라 이 배치에서는 Thin Solid Films 판만 넣고 여기서는 뺐다. Table 4 의 63Sn-37Pb 두 행은 본문이 \"compared to those at 63Sn-37Pb **[4]**\" 로 재인용을 밝히므로 규칙 5 로 폐기했다 — 게다가 같은 저자의 두 논문이 같은 조건의 SnPb 를 m=0.86/C=3.44 와 m=0.90/C=4.6 으로 **서로 다르게** 인용한다.\n\n[73차 IA 표기 정정] 인장 하중 모드임을 조건의 시험모드 판정 칸(`test_mode`·`loading_mode`·`test_method`)에 명시했다. 값은 그대로다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 5692
+   },
+   "by": "73차 IA",
+   "reason": "71차 GB 가 같은 MGC BT 페이지의 등급별 행(재료 2711~2723)에 대해 내린 판정을 이 클래스 카드에 전파한다. 원문은 `ヤング率` 와 `曲げ弾性率` 를 **둘 다 인쇄하는데 13등급 전부 숫자가 같고**, 페이지 어디에도 시험규격 표기가 없다(`JIS`·`ASTM`·`IPC` 적중 0). 그러므로 **굽힘이라고 단정할 수 없다** — 굽힘 표기를 달지 않고 `test_mode: unconfirmed` 로 둔다(선택기에서 `미표기` 자리, 즉 인장 확정 행보다는 뒤·굽힘 확정 행보다는 앞이다). 같은 수가 이미 `mechanical.flexural_modulus` 에도 t1 로 있다(pv5690·pv5701). 값·단위·등급·method·출처는 그대로다 — 과대 경고문도 붙이지 않는다(굽힘 확정이 아니므로).",
+   "set": {
+    "conditions": {
+     "detail": "MGC CCL-HL832NX (Type A) BT laminate, in-plane (X/Y)",
+     "direction": "in-plane",
+     "verdict_tie_axis": "51차 MA — 서술차이 — detail",
+     "verdict_tie_note": "[51차 MA 동률 판정] 조건 축은 같고 **서술만 다르다** — 한 재료에 다른 제품·등급이 섞였을 수 있다(브리프 123). 서술을 읽어야 갈린다. 이 행이 대표로 뽑혀 있다. 이 행 = 2.8e+10 Pa [detail=\"MGC CCL-HL832NX (Type A) BT laminate, in-plane (X/Y)\"]. 동률 경쟁행 = 3.2e+10 Pa [detail=\"MGC CCL-HL832NSF BT laminate, in-plane (X/Y)\"]. 갈린 조건키 = detail.",
+     "verdict_tie_axis_before_correction": null,
+     "verdict_tie_note_before_correction": null,
+     "direction_verbatim": "in-plane",
+     "direction_verbatim_before_correction": null,
+     "test_mode": "unconfirmed",
+     "mode_verdict_71gb": "71차 GB 판정 전파 — MGC 원문이 ヤング率/曲げ弾性率 두 행을 같은 숫자로 인쇄하고 시험규격을 인쇄하지 않는다. 이 문서만으로는 어느 모드인지 갈리지 않는다.",
+     "duplicate_of": "mechanical.flexural_modulus pv5690 (같은 수·같은 출처). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 71차 GB 판정을 클래스 카드로 전파(G5)."
+    },
+    "notes": "28 GPa as printed\n\n[73차 IA 표기 정정] 시험모드가 확정되지 않은 값이다 — MGC 원문이 `ヤング率` 와 `曲げ弾性率` 를 같은 숫자로 인쇄하고 시험규격을 밝히지 않는다(71차 GB 판정). 굽힘이라 단정하지 않았고 과대 경고도 붙이지 않았다. 같은 수의 굽힘 행 pv5690 이 이미 있다 — **중복 후보이지만 지우지 않았다. 삭제는 사람이 정한다.** 참고: 같은 원문에서 나온 등급별 행(재료 2711~2723)은 71차 GB 가 t3 로 내렸는데 이 클래스 카드 두 행은 t1 이다 — 등급 정합은 다음 배치로 넘긴다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 5703
+   },
+   "by": "73차 IA",
+   "reason": "71차 GB 가 같은 MGC BT 페이지의 등급별 행(재료 2711~2723)에 대해 내린 판정을 이 클래스 카드에 전파한다. 원문은 `ヤング率` 와 `曲げ弾性率` 를 **둘 다 인쇄하는데 13등급 전부 숫자가 같고**, 페이지 어디에도 시험규격 표기가 없다(`JIS`·`ASTM`·`IPC` 적중 0). 그러므로 **굽힘이라고 단정할 수 없다** — 굽힘 표기를 달지 않고 `test_mode: unconfirmed` 로 둔다(선택기에서 `미표기` 자리, 즉 인장 확정 행보다는 뒤·굽힘 확정 행보다는 앞이다). 같은 수가 이미 `mechanical.flexural_modulus` 에도 t1 로 있다(pv5690·pv5701). 값·단위·등급·method·출처는 그대로다 — 과대 경고문도 붙이지 않는다(굽힘 확정이 아니므로).",
+   "set": {
+    "conditions": {
+     "detail": "MGC CCL-HL832NSF BT laminate, in-plane (X/Y)",
+     "direction": "in-plane",
+     "verdict_tie_axis": "51차 MA — 서술차이 — detail",
+     "verdict_tie_note": "[51차 MA 동률 판정] 조건 축은 같고 **서술만 다르다** — 한 재료에 다른 제품·등급이 섞였을 수 있다(브리프 123). 서술을 읽어야 갈린다. 이 행은 대표와 순위가 같다(적재 순서로 밀렸다). 이 행 = 3.2e+10 Pa [detail=\"MGC CCL-HL832NSF BT laminate, in-plane (X/Y)\"]. 동률 경쟁행 = 2.8e+10 Pa [detail=\"MGC CCL-HL832NX (Type A) BT laminate, in-plane (X/Y)\"]. 갈린 조건키 = detail.",
+     "verdict_tie_axis_before_correction": null,
+     "verdict_tie_note_before_correction": null,
+     "direction_verbatim": "in-plane",
+     "direction_verbatim_before_correction": null,
+     "test_mode": "unconfirmed",
+     "mode_verdict_71gb": "71차 GB 판정 전파 — MGC 원문이 ヤング率/曲げ弾性率 두 행을 같은 숫자로 인쇄하고 시험규격을 인쇄하지 않는다. 이 문서만으로는 어느 모드인지 갈리지 않는다.",
+     "duplicate_of": "mechanical.flexural_modulus pv5701 (같은 수·같은 출처). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 71차 GB 판정을 클래스 카드로 전파(G5)."
+    },
+    "notes": "32 GPa as printed\n\n[73차 IA 표기 정정] 시험모드가 확정되지 않은 값이다 — MGC 원문이 `ヤング率` 와 `曲げ弾性率` 를 같은 숫자로 인쇄하고 시험규격을 밝히지 않는다(71차 GB 판정). 굽힘이라 단정하지 않았고 과대 경고도 붙이지 않았다. 같은 수의 굽힘 행 pv5701 이 이미 있다 — **중복 후보이지만 지우지 않았다. 삭제는 사람이 정한다.** 참고: 같은 원문에서 나온 등급별 행(재료 2711~2723)은 71차 GB 가 t3 로 내렸는데 이 클래스 카드 두 행은 t1 이다 — 등급 정합은 다음 배치로 넘긴다."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 23624
+   },
+   "by": "73차 IA",
+   "reason": "72차 HB §7-4 가 *'`DMA 3-point bending + uniaxial tensile` 로 두 모드를 한 문자열에 담고 있어 어느 쪽인지 안 갈린다 — 원문을 다시 열어 갈라라'* 라고 넘긴 9행이다. 73차 IA 가 코퍼스 원문(Chiu 2009, `.md` 전문)을 열어 갈랐다. 본문 verbatim — *'However, the three-point bending test configuration used in the DMA test is sensitive to sample flatness. **To overcome this issue, uniaxial tensile tests using Instron 5565 tester are also conducted to measure elastic modulus at various temperatures.**'* Table 3 의 `Young's Modulus (GPa)` 열이 바로 그 **온도별 탄성률**이고, 그 244 K 절점(32 GPa)이 본문의 인장 피팅 결과 E0 = 32 GPa 와 일치한다(카탈로그의 pv23623 이 그 값이다). 즉 **이 9행은 굽힘이 아니라 인장이다** — DMA 3점굽힘은 같은 논문에서 Prony 급수·시간-경화 이동함수를 특성화하는 데 쓰였다. 두 모드를 한 칸에 담아 두면 선택기가 판단을 보류하므로, `test_method` 는 원문이 귀속시킨 시험만 담고 DMA 맥락은 창 밖으로 옮긴다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 244,
+     "regime": "glassy",
+     "degree_of_cure": 0.99,
+     "set_id": "chiu2009_table3_emc_ET",
+     "model": "piecewise-linear temperature-dependent elastic model",
+     "test_method": "uniaxial tension (Instron 5565), 온도별 탄성률",
+     "test_mode": "tensile",
+     "dma_context": "같은 논문의 DMA(TA Instruments DMA 2980, 3점굽힘 지그, 8주파수, -30~300 C)는 Prony 급수와 시간-경화 이동함수를 특성화하는 데 쓰였다. Table 3 의 온도별 탄성률은 그쪽이 아니다 — 본문이 인장시험에 귀속시킨다.",
+     "mode_attribution_caveat": "논문이 인장시험의 온도 범위를 인쇄하지 않았다. 유리상 절점(244~393 K)은 본문의 E0 = 32 GPa 와 정합하지만, 고무상 절점(423~503 K)이 인장 실측인지 DMA 마스터커브 환산인지는 원문이 못박지 않는다. 이 불확실은 값에 반영하지 않고 기록만 남긴다.",
+     "corrected_by_73ia": "73차 IA — 두-모드 문자열을 원문 근거로 갈랐다(G6). 인장이다."
+    },
+    "notes": "원문 Table 3 'Material constants for the chip scale BGA package' 의 Molding compound 행 verbatim: '32(244K), 31.5(323K), 30(373K), 28.6(388K), 27.5(393K), 5.8(423K), 2.8(438K), 1.4(473K), 1.2(503K)'. 여기서 32.0 GPa @ 244 K. 원값 x 1e9. **해석 입력표이지만** 이 행은 방법절이 서술한 저자 자신의 DMA(3점굽힘, 8주파수, -30~300 C)와 인장시험(Instron 5565)에서 나온 구간선형 모델의 절점이고, 244 K 값이 본문의 E0 = 32 GPa 와 일치한다. 같은 표의 포아송비 0.35 는 관용 가정값이라 옮기지 않았다(15차 규칙 3). Tg1 = 417 K 를 기준으로 regime 을 갈랐다.\n\n[73차 IA 표기 정정] 72차 HB 가 넘긴 두-모드 물음을 원문으로 갈랐다 — 이 값은 **굽힘이 아니라 단축 인장 실측**이다(Chiu 2009 본문: 'uniaxial tensile tests using Instron 5565 tester are also conducted to measure elastic modulus at various temperatures'). 값은 그대로다. 고무상 절점의 귀속에는 주의가 남는다 — conditions.mode_attribution_caveat 참고."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 23625
+   },
+   "by": "73차 IA",
+   "reason": "72차 HB §7-4 가 *'`DMA 3-point bending + uniaxial tensile` 로 두 모드를 한 문자열에 담고 있어 어느 쪽인지 안 갈린다 — 원문을 다시 열어 갈라라'* 라고 넘긴 9행이다. 73차 IA 가 코퍼스 원문(Chiu 2009, `.md` 전문)을 열어 갈랐다. 본문 verbatim — *'However, the three-point bending test configuration used in the DMA test is sensitive to sample flatness. **To overcome this issue, uniaxial tensile tests using Instron 5565 tester are also conducted to measure elastic modulus at various temperatures.**'* Table 3 의 `Young's Modulus (GPa)` 열이 바로 그 **온도별 탄성률**이고, 그 244 K 절점(32 GPa)이 본문의 인장 피팅 결과 E0 = 32 GPa 와 일치한다(카탈로그의 pv23623 이 그 값이다). 즉 **이 9행은 굽힘이 아니라 인장이다** — DMA 3점굽힘은 같은 논문에서 Prony 급수·시간-경화 이동함수를 특성화하는 데 쓰였다. 두 모드를 한 칸에 담아 두면 선택기가 판단을 보류하므로, `test_method` 는 원문이 귀속시킨 시험만 담고 DMA 맥락은 창 밖으로 옮긴다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 323,
+     "regime": "glassy",
+     "degree_of_cure": 0.99,
+     "set_id": "chiu2009_table3_emc_ET",
+     "model": "piecewise-linear temperature-dependent elastic model",
+     "test_method": "uniaxial tension (Instron 5565), 온도별 탄성률",
+     "test_mode": "tensile",
+     "dma_context": "같은 논문의 DMA(TA Instruments DMA 2980, 3점굽힘 지그, 8주파수, -30~300 C)는 Prony 급수와 시간-경화 이동함수를 특성화하는 데 쓰였다. Table 3 의 온도별 탄성률은 그쪽이 아니다 — 본문이 인장시험에 귀속시킨다.",
+     "mode_attribution_caveat": "논문이 인장시험의 온도 범위를 인쇄하지 않았다. 유리상 절점(244~393 K)은 본문의 E0 = 32 GPa 와 정합하지만, 고무상 절점(423~503 K)이 인장 실측인지 DMA 마스터커브 환산인지는 원문이 못박지 않는다. 이 불확실은 값에 반영하지 않고 기록만 남긴다.",
+     "corrected_by_73ia": "73차 IA — 두-모드 문자열을 원문 근거로 갈랐다(G6). 인장이다."
+    },
+    "notes": "원문 Table 3 'Material constants for the chip scale BGA package' 의 Molding compound 행 verbatim: '32(244K), 31.5(323K), 30(373K), 28.6(388K), 27.5(393K), 5.8(423K), 2.8(438K), 1.4(473K), 1.2(503K)'. 여기서 31.5 GPa @ 323 K. 원값 x 1e9. **해석 입력표이지만** 이 행은 방법절이 서술한 저자 자신의 DMA(3점굽힘, 8주파수, -30~300 C)와 인장시험(Instron 5565)에서 나온 구간선형 모델의 절점이고, 244 K 값이 본문의 E0 = 32 GPa 와 일치한다. 같은 표의 포아송비 0.35 는 관용 가정값이라 옮기지 않았다(15차 규칙 3). Tg1 = 417 K 를 기준으로 regime 을 갈랐다.\n\n[73차 IA 표기 정정] 72차 HB 가 넘긴 두-모드 물음을 원문으로 갈랐다 — 이 값은 **굽힘이 아니라 단축 인장 실측**이다(Chiu 2009 본문: 'uniaxial tensile tests using Instron 5565 tester are also conducted to measure elastic modulus at various temperatures'). 값은 그대로다. 고무상 절점의 귀속에는 주의가 남는다 — conditions.mode_attribution_caveat 참고."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 23626
+   },
+   "by": "73차 IA",
+   "reason": "72차 HB §7-4 가 *'`DMA 3-point bending + uniaxial tensile` 로 두 모드를 한 문자열에 담고 있어 어느 쪽인지 안 갈린다 — 원문을 다시 열어 갈라라'* 라고 넘긴 9행이다. 73차 IA 가 코퍼스 원문(Chiu 2009, `.md` 전문)을 열어 갈랐다. 본문 verbatim — *'However, the three-point bending test configuration used in the DMA test is sensitive to sample flatness. **To overcome this issue, uniaxial tensile tests using Instron 5565 tester are also conducted to measure elastic modulus at various temperatures.**'* Table 3 의 `Young's Modulus (GPa)` 열이 바로 그 **온도별 탄성률**이고, 그 244 K 절점(32 GPa)이 본문의 인장 피팅 결과 E0 = 32 GPa 와 일치한다(카탈로그의 pv23623 이 그 값이다). 즉 **이 9행은 굽힘이 아니라 인장이다** — DMA 3점굽힘은 같은 논문에서 Prony 급수·시간-경화 이동함수를 특성화하는 데 쓰였다. 두 모드를 한 칸에 담아 두면 선택기가 판단을 보류하므로, `test_method` 는 원문이 귀속시킨 시험만 담고 DMA 맥락은 창 밖으로 옮긴다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 373,
+     "regime": "glassy",
+     "degree_of_cure": 0.99,
+     "set_id": "chiu2009_table3_emc_ET",
+     "model": "piecewise-linear temperature-dependent elastic model",
+     "test_method": "uniaxial tension (Instron 5565), 온도별 탄성률",
+     "test_mode": "tensile",
+     "dma_context": "같은 논문의 DMA(TA Instruments DMA 2980, 3점굽힘 지그, 8주파수, -30~300 C)는 Prony 급수와 시간-경화 이동함수를 특성화하는 데 쓰였다. Table 3 의 온도별 탄성률은 그쪽이 아니다 — 본문이 인장시험에 귀속시킨다.",
+     "mode_attribution_caveat": "논문이 인장시험의 온도 범위를 인쇄하지 않았다. 유리상 절점(244~393 K)은 본문의 E0 = 32 GPa 와 정합하지만, 고무상 절점(423~503 K)이 인장 실측인지 DMA 마스터커브 환산인지는 원문이 못박지 않는다. 이 불확실은 값에 반영하지 않고 기록만 남긴다.",
+     "corrected_by_73ia": "73차 IA — 두-모드 문자열을 원문 근거로 갈랐다(G6). 인장이다."
+    },
+    "notes": "원문 Table 3 'Material constants for the chip scale BGA package' 의 Molding compound 행 verbatim: '32(244K), 31.5(323K), 30(373K), 28.6(388K), 27.5(393K), 5.8(423K), 2.8(438K), 1.4(473K), 1.2(503K)'. 여기서 30.0 GPa @ 373 K. 원값 x 1e9. **해석 입력표이지만** 이 행은 방법절이 서술한 저자 자신의 DMA(3점굽힘, 8주파수, -30~300 C)와 인장시험(Instron 5565)에서 나온 구간선형 모델의 절점이고, 244 K 값이 본문의 E0 = 32 GPa 와 일치한다. 같은 표의 포아송비 0.35 는 관용 가정값이라 옮기지 않았다(15차 규칙 3). Tg1 = 417 K 를 기준으로 regime 을 갈랐다.\n\n[73차 IA 표기 정정] 72차 HB 가 넘긴 두-모드 물음을 원문으로 갈랐다 — 이 값은 **굽힘이 아니라 단축 인장 실측**이다(Chiu 2009 본문: 'uniaxial tensile tests using Instron 5565 tester are also conducted to measure elastic modulus at various temperatures'). 값은 그대로다. 고무상 절점의 귀속에는 주의가 남는다 — conditions.mode_attribution_caveat 참고."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 23627
+   },
+   "by": "73차 IA",
+   "reason": "72차 HB §7-4 가 *'`DMA 3-point bending + uniaxial tensile` 로 두 모드를 한 문자열에 담고 있어 어느 쪽인지 안 갈린다 — 원문을 다시 열어 갈라라'* 라고 넘긴 9행이다. 73차 IA 가 코퍼스 원문(Chiu 2009, `.md` 전문)을 열어 갈랐다. 본문 verbatim — *'However, the three-point bending test configuration used in the DMA test is sensitive to sample flatness. **To overcome this issue, uniaxial tensile tests using Instron 5565 tester are also conducted to measure elastic modulus at various temperatures.**'* Table 3 의 `Young's Modulus (GPa)` 열이 바로 그 **온도별 탄성률**이고, 그 244 K 절점(32 GPa)이 본문의 인장 피팅 결과 E0 = 32 GPa 와 일치한다(카탈로그의 pv23623 이 그 값이다). 즉 **이 9행은 굽힘이 아니라 인장이다** — DMA 3점굽힘은 같은 논문에서 Prony 급수·시간-경화 이동함수를 특성화하는 데 쓰였다. 두 모드를 한 칸에 담아 두면 선택기가 판단을 보류하므로, `test_method` 는 원문이 귀속시킨 시험만 담고 DMA 맥락은 창 밖으로 옮긴다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 388,
+     "regime": "glassy",
+     "degree_of_cure": 0.99,
+     "set_id": "chiu2009_table3_emc_ET",
+     "model": "piecewise-linear temperature-dependent elastic model",
+     "test_method": "uniaxial tension (Instron 5565), 온도별 탄성률",
+     "test_mode": "tensile",
+     "dma_context": "같은 논문의 DMA(TA Instruments DMA 2980, 3점굽힘 지그, 8주파수, -30~300 C)는 Prony 급수와 시간-경화 이동함수를 특성화하는 데 쓰였다. Table 3 의 온도별 탄성률은 그쪽이 아니다 — 본문이 인장시험에 귀속시킨다.",
+     "mode_attribution_caveat": "논문이 인장시험의 온도 범위를 인쇄하지 않았다. 유리상 절점(244~393 K)은 본문의 E0 = 32 GPa 와 정합하지만, 고무상 절점(423~503 K)이 인장 실측인지 DMA 마스터커브 환산인지는 원문이 못박지 않는다. 이 불확실은 값에 반영하지 않고 기록만 남긴다.",
+     "corrected_by_73ia": "73차 IA — 두-모드 문자열을 원문 근거로 갈랐다(G6). 인장이다."
+    },
+    "notes": "원문 Table 3 'Material constants for the chip scale BGA package' 의 Molding compound 행 verbatim: '32(244K), 31.5(323K), 30(373K), 28.6(388K), 27.5(393K), 5.8(423K), 2.8(438K), 1.4(473K), 1.2(503K)'. 여기서 28.6 GPa @ 388 K. 원값 x 1e9. **해석 입력표이지만** 이 행은 방법절이 서술한 저자 자신의 DMA(3점굽힘, 8주파수, -30~300 C)와 인장시험(Instron 5565)에서 나온 구간선형 모델의 절점이고, 244 K 값이 본문의 E0 = 32 GPa 와 일치한다. 같은 표의 포아송비 0.35 는 관용 가정값이라 옮기지 않았다(15차 규칙 3). Tg1 = 417 K 를 기준으로 regime 을 갈랐다.\n\n[73차 IA 표기 정정] 72차 HB 가 넘긴 두-모드 물음을 원문으로 갈랐다 — 이 값은 **굽힘이 아니라 단축 인장 실측**이다(Chiu 2009 본문: 'uniaxial tensile tests using Instron 5565 tester are also conducted to measure elastic modulus at various temperatures'). 값은 그대로다. 고무상 절점의 귀속에는 주의가 남는다 — conditions.mode_attribution_caveat 참고."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 23628
+   },
+   "by": "73차 IA",
+   "reason": "72차 HB §7-4 가 *'`DMA 3-point bending + uniaxial tensile` 로 두 모드를 한 문자열에 담고 있어 어느 쪽인지 안 갈린다 — 원문을 다시 열어 갈라라'* 라고 넘긴 9행이다. 73차 IA 가 코퍼스 원문(Chiu 2009, `.md` 전문)을 열어 갈랐다. 본문 verbatim — *'However, the three-point bending test configuration used in the DMA test is sensitive to sample flatness. **To overcome this issue, uniaxial tensile tests using Instron 5565 tester are also conducted to measure elastic modulus at various temperatures.**'* Table 3 의 `Young's Modulus (GPa)` 열이 바로 그 **온도별 탄성률**이고, 그 244 K 절점(32 GPa)이 본문의 인장 피팅 결과 E0 = 32 GPa 와 일치한다(카탈로그의 pv23623 이 그 값이다). 즉 **이 9행은 굽힘이 아니라 인장이다** — DMA 3점굽힘은 같은 논문에서 Prony 급수·시간-경화 이동함수를 특성화하는 데 쓰였다. 두 모드를 한 칸에 담아 두면 선택기가 판단을 보류하므로, `test_method` 는 원문이 귀속시킨 시험만 담고 DMA 맥락은 창 밖으로 옮긴다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 393,
+     "regime": "glassy",
+     "degree_of_cure": 0.99,
+     "set_id": "chiu2009_table3_emc_ET",
+     "model": "piecewise-linear temperature-dependent elastic model",
+     "test_method": "uniaxial tension (Instron 5565), 온도별 탄성률",
+     "test_mode": "tensile",
+     "dma_context": "같은 논문의 DMA(TA Instruments DMA 2980, 3점굽힘 지그, 8주파수, -30~300 C)는 Prony 급수와 시간-경화 이동함수를 특성화하는 데 쓰였다. Table 3 의 온도별 탄성률은 그쪽이 아니다 — 본문이 인장시험에 귀속시킨다.",
+     "mode_attribution_caveat": "논문이 인장시험의 온도 범위를 인쇄하지 않았다. 유리상 절점(244~393 K)은 본문의 E0 = 32 GPa 와 정합하지만, 고무상 절점(423~503 K)이 인장 실측인지 DMA 마스터커브 환산인지는 원문이 못박지 않는다. 이 불확실은 값에 반영하지 않고 기록만 남긴다.",
+     "corrected_by_73ia": "73차 IA — 두-모드 문자열을 원문 근거로 갈랐다(G6). 인장이다."
+    },
+    "notes": "원문 Table 3 'Material constants for the chip scale BGA package' 의 Molding compound 행 verbatim: '32(244K), 31.5(323K), 30(373K), 28.6(388K), 27.5(393K), 5.8(423K), 2.8(438K), 1.4(473K), 1.2(503K)'. 여기서 27.5 GPa @ 393 K. 원값 x 1e9. **해석 입력표이지만** 이 행은 방법절이 서술한 저자 자신의 DMA(3점굽힘, 8주파수, -30~300 C)와 인장시험(Instron 5565)에서 나온 구간선형 모델의 절점이고, 244 K 값이 본문의 E0 = 32 GPa 와 일치한다. 같은 표의 포아송비 0.35 는 관용 가정값이라 옮기지 않았다(15차 규칙 3). Tg1 = 417 K 를 기준으로 regime 을 갈랐다.\n\n[73차 IA 표기 정정] 72차 HB 가 넘긴 두-모드 물음을 원문으로 갈랐다 — 이 값은 **굽힘이 아니라 단축 인장 실측**이다(Chiu 2009 본문: 'uniaxial tensile tests using Instron 5565 tester are also conducted to measure elastic modulus at various temperatures'). 값은 그대로다. 고무상 절점의 귀속에는 주의가 남는다 — conditions.mode_attribution_caveat 참고."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 23629
+   },
+   "by": "73차 IA",
+   "reason": "72차 HB §7-4 가 *'`DMA 3-point bending + uniaxial tensile` 로 두 모드를 한 문자열에 담고 있어 어느 쪽인지 안 갈린다 — 원문을 다시 열어 갈라라'* 라고 넘긴 9행이다. 73차 IA 가 코퍼스 원문(Chiu 2009, `.md` 전문)을 열어 갈랐다. 본문 verbatim — *'However, the three-point bending test configuration used in the DMA test is sensitive to sample flatness. **To overcome this issue, uniaxial tensile tests using Instron 5565 tester are also conducted to measure elastic modulus at various temperatures.**'* Table 3 의 `Young's Modulus (GPa)` 열이 바로 그 **온도별 탄성률**이고, 그 244 K 절점(32 GPa)이 본문의 인장 피팅 결과 E0 = 32 GPa 와 일치한다(카탈로그의 pv23623 이 그 값이다). 즉 **이 9행은 굽힘이 아니라 인장이다** — DMA 3점굽힘은 같은 논문에서 Prony 급수·시간-경화 이동함수를 특성화하는 데 쓰였다. 두 모드를 한 칸에 담아 두면 선택기가 판단을 보류하므로, `test_method` 는 원문이 귀속시킨 시험만 담고 DMA 맥락은 창 밖으로 옮긴다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 423,
+     "regime": "rubbery",
+     "degree_of_cure": 0.99,
+     "set_id": "chiu2009_table3_emc_ET",
+     "model": "piecewise-linear temperature-dependent elastic model",
+     "test_method": "uniaxial tension (Instron 5565), 온도별 탄성률",
+     "test_mode": "tensile",
+     "dma_context": "같은 논문의 DMA(TA Instruments DMA 2980, 3점굽힘 지그, 8주파수, -30~300 C)는 Prony 급수와 시간-경화 이동함수를 특성화하는 데 쓰였다. Table 3 의 온도별 탄성률은 그쪽이 아니다 — 본문이 인장시험에 귀속시킨다.",
+     "mode_attribution_caveat": "논문이 인장시험의 온도 범위를 인쇄하지 않았다. 유리상 절점(244~393 K)은 본문의 E0 = 32 GPa 와 정합하지만, 고무상 절점(423~503 K)이 인장 실측인지 DMA 마스터커브 환산인지는 원문이 못박지 않는다. 이 불확실은 값에 반영하지 않고 기록만 남긴다.",
+     "corrected_by_73ia": "73차 IA — 두-모드 문자열을 원문 근거로 갈랐다(G6). 인장이다."
+    },
+    "notes": "원문 Table 3 'Material constants for the chip scale BGA package' 의 Molding compound 행 verbatim: '32(244K), 31.5(323K), 30(373K), 28.6(388K), 27.5(393K), 5.8(423K), 2.8(438K), 1.4(473K), 1.2(503K)'. 여기서 5.8 GPa @ 423 K. 원값 x 1e9. **해석 입력표이지만** 이 행은 방법절이 서술한 저자 자신의 DMA(3점굽힘, 8주파수, -30~300 C)와 인장시험(Instron 5565)에서 나온 구간선형 모델의 절점이고, 244 K 값이 본문의 E0 = 32 GPa 와 일치한다. 같은 표의 포아송비 0.35 는 관용 가정값이라 옮기지 않았다(15차 규칙 3). Tg1 = 417 K 를 기준으로 regime 을 갈랐다.\n\n[73차 IA 표기 정정] 72차 HB 가 넘긴 두-모드 물음을 원문으로 갈랐다 — 이 값은 **굽힘이 아니라 단축 인장 실측**이다(Chiu 2009 본문: 'uniaxial tensile tests using Instron 5565 tester are also conducted to measure elastic modulus at various temperatures'). 값은 그대로다. 고무상 절점의 귀속에는 주의가 남는다 — conditions.mode_attribution_caveat 참고."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 23630
+   },
+   "by": "73차 IA",
+   "reason": "72차 HB §7-4 가 *'`DMA 3-point bending + uniaxial tensile` 로 두 모드를 한 문자열에 담고 있어 어느 쪽인지 안 갈린다 — 원문을 다시 열어 갈라라'* 라고 넘긴 9행이다. 73차 IA 가 코퍼스 원문(Chiu 2009, `.md` 전문)을 열어 갈랐다. 본문 verbatim — *'However, the three-point bending test configuration used in the DMA test is sensitive to sample flatness. **To overcome this issue, uniaxial tensile tests using Instron 5565 tester are also conducted to measure elastic modulus at various temperatures.**'* Table 3 의 `Young's Modulus (GPa)` 열이 바로 그 **온도별 탄성률**이고, 그 244 K 절점(32 GPa)이 본문의 인장 피팅 결과 E0 = 32 GPa 와 일치한다(카탈로그의 pv23623 이 그 값이다). 즉 **이 9행은 굽힘이 아니라 인장이다** — DMA 3점굽힘은 같은 논문에서 Prony 급수·시간-경화 이동함수를 특성화하는 데 쓰였다. 두 모드를 한 칸에 담아 두면 선택기가 판단을 보류하므로, `test_method` 는 원문이 귀속시킨 시험만 담고 DMA 맥락은 창 밖으로 옮긴다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 438,
+     "regime": "rubbery",
+     "degree_of_cure": 0.99,
+     "set_id": "chiu2009_table3_emc_ET",
+     "model": "piecewise-linear temperature-dependent elastic model",
+     "test_method": "uniaxial tension (Instron 5565), 온도별 탄성률",
+     "test_mode": "tensile",
+     "dma_context": "같은 논문의 DMA(TA Instruments DMA 2980, 3점굽힘 지그, 8주파수, -30~300 C)는 Prony 급수와 시간-경화 이동함수를 특성화하는 데 쓰였다. Table 3 의 온도별 탄성률은 그쪽이 아니다 — 본문이 인장시험에 귀속시킨다.",
+     "mode_attribution_caveat": "논문이 인장시험의 온도 범위를 인쇄하지 않았다. 유리상 절점(244~393 K)은 본문의 E0 = 32 GPa 와 정합하지만, 고무상 절점(423~503 K)이 인장 실측인지 DMA 마스터커브 환산인지는 원문이 못박지 않는다. 이 불확실은 값에 반영하지 않고 기록만 남긴다.",
+     "corrected_by_73ia": "73차 IA — 두-모드 문자열을 원문 근거로 갈랐다(G6). 인장이다."
+    },
+    "notes": "원문 Table 3 'Material constants for the chip scale BGA package' 의 Molding compound 행 verbatim: '32(244K), 31.5(323K), 30(373K), 28.6(388K), 27.5(393K), 5.8(423K), 2.8(438K), 1.4(473K), 1.2(503K)'. 여기서 2.8 GPa @ 438 K. 원값 x 1e9. **해석 입력표이지만** 이 행은 방법절이 서술한 저자 자신의 DMA(3점굽힘, 8주파수, -30~300 C)와 인장시험(Instron 5565)에서 나온 구간선형 모델의 절점이고, 244 K 값이 본문의 E0 = 32 GPa 와 일치한다. 같은 표의 포아송비 0.35 는 관용 가정값이라 옮기지 않았다(15차 규칙 3). Tg1 = 417 K 를 기준으로 regime 을 갈랐다.\n\n[73차 IA 표기 정정] 72차 HB 가 넘긴 두-모드 물음을 원문으로 갈랐다 — 이 값은 **굽힘이 아니라 단축 인장 실측**이다(Chiu 2009 본문: 'uniaxial tensile tests using Instron 5565 tester are also conducted to measure elastic modulus at various temperatures'). 값은 그대로다. 고무상 절점의 귀속에는 주의가 남는다 — conditions.mode_attribution_caveat 참고."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 23631
+   },
+   "by": "73차 IA",
+   "reason": "72차 HB §7-4 가 *'`DMA 3-point bending + uniaxial tensile` 로 두 모드를 한 문자열에 담고 있어 어느 쪽인지 안 갈린다 — 원문을 다시 열어 갈라라'* 라고 넘긴 9행이다. 73차 IA 가 코퍼스 원문(Chiu 2009, `.md` 전문)을 열어 갈랐다. 본문 verbatim — *'However, the three-point bending test configuration used in the DMA test is sensitive to sample flatness. **To overcome this issue, uniaxial tensile tests using Instron 5565 tester are also conducted to measure elastic modulus at various temperatures.**'* Table 3 의 `Young's Modulus (GPa)` 열이 바로 그 **온도별 탄성률**이고, 그 244 K 절점(32 GPa)이 본문의 인장 피팅 결과 E0 = 32 GPa 와 일치한다(카탈로그의 pv23623 이 그 값이다). 즉 **이 9행은 굽힘이 아니라 인장이다** — DMA 3점굽힘은 같은 논문에서 Prony 급수·시간-경화 이동함수를 특성화하는 데 쓰였다. 두 모드를 한 칸에 담아 두면 선택기가 판단을 보류하므로, `test_method` 는 원문이 귀속시킨 시험만 담고 DMA 맥락은 창 밖으로 옮긴다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 473,
+     "regime": "rubbery",
+     "degree_of_cure": 0.99,
+     "set_id": "chiu2009_table3_emc_ET",
+     "model": "piecewise-linear temperature-dependent elastic model",
+     "test_method": "uniaxial tension (Instron 5565), 온도별 탄성률",
+     "test_mode": "tensile",
+     "dma_context": "같은 논문의 DMA(TA Instruments DMA 2980, 3점굽힘 지그, 8주파수, -30~300 C)는 Prony 급수와 시간-경화 이동함수를 특성화하는 데 쓰였다. Table 3 의 온도별 탄성률은 그쪽이 아니다 — 본문이 인장시험에 귀속시킨다.",
+     "mode_attribution_caveat": "논문이 인장시험의 온도 범위를 인쇄하지 않았다. 유리상 절점(244~393 K)은 본문의 E0 = 32 GPa 와 정합하지만, 고무상 절점(423~503 K)이 인장 실측인지 DMA 마스터커브 환산인지는 원문이 못박지 않는다. 이 불확실은 값에 반영하지 않고 기록만 남긴다.",
+     "corrected_by_73ia": "73차 IA — 두-모드 문자열을 원문 근거로 갈랐다(G6). 인장이다."
+    },
+    "notes": "원문 Table 3 'Material constants for the chip scale BGA package' 의 Molding compound 행 verbatim: '32(244K), 31.5(323K), 30(373K), 28.6(388K), 27.5(393K), 5.8(423K), 2.8(438K), 1.4(473K), 1.2(503K)'. 여기서 1.4 GPa @ 473 K. 원값 x 1e9. **해석 입력표이지만** 이 행은 방법절이 서술한 저자 자신의 DMA(3점굽힘, 8주파수, -30~300 C)와 인장시험(Instron 5565)에서 나온 구간선형 모델의 절점이고, 244 K 값이 본문의 E0 = 32 GPa 와 일치한다. 같은 표의 포아송비 0.35 는 관용 가정값이라 옮기지 않았다(15차 규칙 3). Tg1 = 417 K 를 기준으로 regime 을 갈랐다.\n\n[73차 IA 표기 정정] 72차 HB 가 넘긴 두-모드 물음을 원문으로 갈랐다 — 이 값은 **굽힘이 아니라 단축 인장 실측**이다(Chiu 2009 본문: 'uniaxial tensile tests using Instron 5565 tester are also conducted to measure elastic modulus at various temperatures'). 값은 그대로다. 고무상 절점의 귀속에는 주의가 남는다 — conditions.mode_attribution_caveat 참고."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 23632
+   },
+   "by": "73차 IA",
+   "reason": "72차 HB §7-4 가 *'`DMA 3-point bending + uniaxial tensile` 로 두 모드를 한 문자열에 담고 있어 어느 쪽인지 안 갈린다 — 원문을 다시 열어 갈라라'* 라고 넘긴 9행이다. 73차 IA 가 코퍼스 원문(Chiu 2009, `.md` 전문)을 열어 갈랐다. 본문 verbatim — *'However, the three-point bending test configuration used in the DMA test is sensitive to sample flatness. **To overcome this issue, uniaxial tensile tests using Instron 5565 tester are also conducted to measure elastic modulus at various temperatures.**'* Table 3 의 `Young's Modulus (GPa)` 열이 바로 그 **온도별 탄성률**이고, 그 244 K 절점(32 GPa)이 본문의 인장 피팅 결과 E0 = 32 GPa 와 일치한다(카탈로그의 pv23623 이 그 값이다). 즉 **이 9행은 굽힘이 아니라 인장이다** — DMA 3점굽힘은 같은 논문에서 Prony 급수·시간-경화 이동함수를 특성화하는 데 쓰였다. 두 모드를 한 칸에 담아 두면 선택기가 판단을 보류하므로, `test_method` 는 원문이 귀속시킨 시험만 담고 DMA 맥락은 창 밖으로 옮긴다. 값·단위·등급·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "temperature_k": 503,
+     "regime": "rubbery",
+     "degree_of_cure": 0.99,
+     "set_id": "chiu2009_table3_emc_ET",
+     "model": "piecewise-linear temperature-dependent elastic model",
+     "test_method": "uniaxial tension (Instron 5565), 온도별 탄성률",
+     "test_mode": "tensile",
+     "dma_context": "같은 논문의 DMA(TA Instruments DMA 2980, 3점굽힘 지그, 8주파수, -30~300 C)는 Prony 급수와 시간-경화 이동함수를 특성화하는 데 쓰였다. Table 3 의 온도별 탄성률은 그쪽이 아니다 — 본문이 인장시험에 귀속시킨다.",
+     "mode_attribution_caveat": "논문이 인장시험의 온도 범위를 인쇄하지 않았다. 유리상 절점(244~393 K)은 본문의 E0 = 32 GPa 와 정합하지만, 고무상 절점(423~503 K)이 인장 실측인지 DMA 마스터커브 환산인지는 원문이 못박지 않는다. 이 불확실은 값에 반영하지 않고 기록만 남긴다.",
+     "corrected_by_73ia": "73차 IA — 두-모드 문자열을 원문 근거로 갈랐다(G6). 인장이다."
+    },
+    "notes": "원문 Table 3 'Material constants for the chip scale BGA package' 의 Molding compound 행 verbatim: '32(244K), 31.5(323K), 30(373K), 28.6(388K), 27.5(393K), 5.8(423K), 2.8(438K), 1.4(473K), 1.2(503K)'. 여기서 1.2 GPa @ 503 K. 원값 x 1e9. **해석 입력표이지만** 이 행은 방법절이 서술한 저자 자신의 DMA(3점굽힘, 8주파수, -30~300 C)와 인장시험(Instron 5565)에서 나온 구간선형 모델의 절점이고, 244 K 값이 본문의 E0 = 32 GPa 와 일치한다. 같은 표의 포아송비 0.35 는 관용 가정값이라 옮기지 않았다(15차 규칙 3). Tg1 = 417 K 를 기준으로 regime 을 갈랐다.\n\n[73차 IA 표기 정정] 72차 HB 가 넘긴 두-모드 물음을 원문으로 갈랐다 — 이 값은 **굽힘이 아니라 단축 인장 실측**이다(Chiu 2009 본문: 'uniaxial tensile tests using Instron 5565 tester are also conducted to measure elastic modulus at various temperatures'). 값은 그대로다. 고무상 절점의 귀속에는 주의가 남는다 — conditions.mode_attribution_caveat 참고."
+   }
+  },
+  {
+   "target": {
+    "property_value_id": 17051
+   },
+   "by": "73차 IA",
+   "reason": "굽힘이라는 표기가 `definition` 칸에만 있었다. 그 칸은 대표값 선택기의 시험모드 판정 창(아홉 칸)에 없어서 이 행은 `미표기`로 읽혔다 — 적재 당시 배치가 정직하게 적어 둔 문장이 기계에는 없는 것과 같았다. 표기를 창 안으로 옮긴다. 등급은 이미 t3 로 내려 있고(적재 배치가 굽힘값임을 이유로 내렸다), 값·단위·method·출처는 그대로다.",
+   "set": {
+    "conditions": {
+     "temperature": "room temperature",
+     "definition": "flexural modulus (굽힘탄성률)",
+     "grade_scope": "class value — 같은 Hitachi Chemical CEL-9200 계열의 CEL-9220HF10(Tg 124 C, 구상 실리카 90 wt%) 값이다. CEL-9240HF 자체 TDS는 공개돼 있지 않고 Renesas MSDS만 있다",
+     "test_mode": "flexural",
+     "loading_mode": "bending",
+     "method_detail": "굴곡 탄성률 (굽힘 시험) — 원문 행 이름 `Flexural modulus at RT`",
+     "reported_as_youngs_modulus": true,
+     "duplicate_of": "mechanical.flexural_modulus — 73차 IA 가 같은 출처·같은 수를 그 키에 세웠다(ia73_02_materials.json). 지우지 않았다 — 삭제는 사람이 정한다.",
+     "corrected_by_73ia": "73차 IA — 굽힘 표기를 `definition`(창 밖)에서 판정 창 안으로 옮긴다."
+    },
+    "notes": "CEL-9220HF10 TDS Table 3: 'Flexural modulus at RT 27 GN/m2'. 인장탄성률이 아니라 굽힘탄성률이므로 tier를 3으로 낮췄다. 교차확인: 같은 제조사 CEL-8240HF10GK TDS의 'Flexural modulus at RT 2650 kgf/mm2' = 25.99 GPa로 같은 대역이다. 두 시트 모두 인접 행 'Flexural strength'(166 MN/m2 · 17 kgf/mm2)와 구분해 읽었다.\n[2026-08-10 method 정정] estimated → handbook. 값이 출처에 인쇄돼 있고 우리가 만든 수가 아니다 — 이 제품이 아닌 계열·이웃 등급의 값이라 tier3인 것이지 추정이 아니다.\n\n[73차 IA 표기 정정] 이 값은 굽힘탄성률이며 인장탄성률이 아니다. 해석에 쓸 때 12~55% 과대일 수 있다 — 하한 12~23 % 는 68차 DC·71차 GB 실측이고, 상한 55 % 는 Panasonic 2021-03 특성일람표의 R-5785(N) 위사(`曲げ弾性係数` 18 GPa 대 `ヤング率(引張りモード)` 11.6 GPa)에서 나왔다."
+   }
+  }
+ ]
+}
