@@ -10,6 +10,14 @@
 #   허브 sync_svc._fetch_page는 응답에서 next_cursor / cursor / meta.next_offset 중 하나를
 #   찾고, 없으면 한 페이지에서 종료한다. 그래서 매 실행 100건에서 멈춰 있었다.
 #   허브는 여러 소스를 받는 공용 부품이니 우리가 규약에 맞춘다.
+#
+# 본문을 절(sections)로 나눠 보내는 이유(2026-10-15)
+#   예전에는 body 를 6만 자에서 자르고 「본문 절단 — 전체는 content.properties 참조」 표지를 붙였다.
+#   허브는 그 body 를 한 절로만 실어, 긴 재료 카드는 화면에서 뒤를 볼 길이 없었다
+#   (허브 material-twin-analyst 앞 300장 중 52장이 6만 자를 넘었다, 2026-10-14 HWAX 점검).
+#   이제 렌더 전체를 절 하나 크기 한도(MATERIALTWIN_HUB_SECTION_MAX_CHARS, 기본 6만 자) 이하 절
+#   여러 개로 보낸다. 허브 규칙 sections_field: sections 가 이것을 받는다. body 는 sections 를 안 읽는
+#   허브 판을 위해 예전 그대로(잘리고 표지가 붙는다) 둔다.
 from __future__ import annotations
 
 import json
@@ -19,12 +27,14 @@ from fastapi import APIRouter, Depends, Query
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
+from app.config import get_settings
 from app.db import get_db
 from app.models import Material, PropertyDefinition, PropertyValue, Source
 
 router = APIRouter(prefix="/api/export", tags=["hub-export"])
 
 # 허브 문서 하나가 지나치게 커지지 않게 body 렌더는 잘라낸다. 구조 데이터(properties)는 안 자른다.
+# (sections 를 안 읽는 허브 판의 호환 필드다. sections 는 자르지 않는다.)
 _BODY_MAX_CHARS = 60_000
 
 
@@ -46,7 +56,7 @@ def _cond_text(cond: Any) -> str:
     return ", ".join(parts)
 
 
-def _render_body(name: str, category: str | None, props: list[dict]) -> str:
+def _render_text(name: str, category: str | None, props: list[dict]) -> str:
     """허브의 전문검색 대상. 물성명·값·단위·조건·tier·출처를 한 줄씩 편다.
 
     구조(properties)만 보내면 허브가 JSON 내부를 어떻게 인덱싱하는지에 의존하게 된다.
@@ -75,10 +85,40 @@ def _render_body(name: str, category: str | None, props: list[dict]) -> str:
         lines.append(row)
         if p.get("notes"):
             lines.append(f"    비고: {p['notes']}")
-    text = "\n".join(lines)
+    return "\n".join(lines)
+
+
+def _render_body(text: str) -> str:
+    """예전 단일 본문 — sections 를 안 읽는 허브 판의 호환 필드라 예전처럼 자르고 표지를 붙인다."""
     if len(text) > _BODY_MAX_CHARS:
         text = text[:_BODY_MAX_CHARS] + "\n… (본문 절단 — 전체는 content.properties 참조)"
     return text
+
+
+def _split_sections(text: str, max_chars: int) -> list[dict]:
+    """렌더 전체를 max_chars 이하 절로 나눈다 — 이어 붙이면 원문과 글자까지 같다.
+
+    줄 경계에서 나눠 물성 한 줄이 두 절에 걸치지 않게 하고, 한 줄이 한도보다 길 때만 그 줄을 글자로
+    자른다. 절이 하나면 허브가 body 로 만들던 절과 같은 모양(제목 「본문」)이라 본문 해시가 그대로다.
+    """
+    chunks: list[str] = []
+    cur = ""
+    for line in text.splitlines(keepends=True):
+        if cur and len(cur) + len(line) > max_chars:
+            chunks.append(cur)
+            cur = ""
+        while len(line) > max_chars:
+            chunks.append(line[:max_chars])
+            line = line[max_chars:]
+        cur += line
+    if cur or not chunks:
+        chunks.append(cur)
+    n = len(chunks)
+    return [
+        {"section_id": str(i), "level": 1, "title": "본문" if n == 1 else f"본문 ({i}/{n})",
+         "content_text": c}
+        for i, c in enumerate(chunks, 1)
+    ]
 
 
 @router.get("/materials")
@@ -129,6 +169,7 @@ def export_materials(
             ):
                 srcs[s.id] = s
 
+    max_chars = get_settings().hub_section_max_chars
     items = []
     for m in mats:
         props = []
@@ -160,6 +201,7 @@ def export_materials(
                 "notes": pv.notes,
                 "source": sd,
             })
+        text = _render_text(m.name, m.category, props)
         items.append({
             "id": m.id,
             "name": m.name,
@@ -169,7 +211,8 @@ def export_materials(
             "updated_at": m.updated_at.isoformat() if m.updated_at else None,
             "n_properties": len(props),
             "n_sources": len(used_sources),
-            "body": _render_body(m.name, m.category, props),
+            "body": _render_body(text),
+            "sections": _split_sections(text, max_chars),
             "properties": props,
             "sources": list(used_sources.values()),
         })

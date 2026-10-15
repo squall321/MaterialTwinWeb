@@ -28,6 +28,9 @@ class Settings(BaseSettings):
     data_dir: Path | None = Field(default=None)
     database_url: str | None = Field(default=None)
     max_upload_mb: int = Field(default=50)
+    # AIDataHub 로 내보내는 재료 카드 본문의 절 하나 크기 한도(글자) — MATERIALTWIN_HUB_SECTION_MAX_CHARS.
+    # 본문은 자르지 않고 이 한도 이하 절 여러 개로 나눈다. 허브 문서 크기 때문에 둔 한도라 이 앱이 정한다.
+    hub_section_max_chars: int = Field(default=60_000, gt=0)
 
     @model_validator(mode="after")
     def _resolve_paths(self) -> "Settings":

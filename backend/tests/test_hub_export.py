@@ -90,3 +90,82 @@ def test_export_emits_next_cursor_so_sync_does_not_stop_at_page_one(mcp_env):
         seen.update(x["id"] for x in d["items"])
         page = int(d["next_cursor"]) if d["next_cursor"] else None
     assert len(seen) == first["total"], f"{len(seen)} != {first['total']}"
+
+
+# ---------------------------------------------------------------------------
+# 본문을 절로 나눠 내보낸다(HWAX 요청서 10-15 K3-9 가). 예전에는 body 를 6만 자에서 자르고
+# 「본문 절단 — 전체는 content.properties 참조」 표지를 붙였고, 허브는 그 body 를 한 절로만 실어
+# 긴 재료 카드(material-twin-analyst 앞 300장 중 52장)는 뒤를 볼 길이 없었다.
+# 절 하나의 크기 한도는 MATERIALTWIN_HUB_SECTION_MAX_CHARS(기본 60,000자).
+# ---------------------------------------------------------------------------
+def _limit(monkeypatch, n: int) -> None:
+    from app import config as config_mod
+
+    monkeypatch.setenv("MATERIALTWIN_HUB_SECTION_MAX_CHARS", str(n))
+    config_mod.get_settings.cache_clear()
+
+
+def _joined(it: dict) -> str:
+    return "".join(s["content_text"] for s in it.get("sections") or [])
+
+
+def test_export_sections_carry_the_whole_render_without_the_cut_marker(mcp_env, monkeypatch):
+    import app.routers.hub_export as hx
+
+    M = mcp_env
+    mid = M.register_material(name="LongMat", category="polymer")["material_id"]
+    for i in range(30):
+        M.register_property(mid, "thermal.conductivity", value=0.3, unit="W/(m*K)",
+                            quality_tier=2, conditions={"temperature_c": 100 + i},
+                            source_title=f"src{i}", source_kind="datasheet")
+    monkeypatch.setattr(hx, "_BODY_MAX_CHARS", 500)   # 옛 body 는 여기서 잘린다
+    _limit(monkeypatch, 400)
+
+    it = next(x for x in _export()["items"] if x["id"] == mid)
+    full = _joined(it)
+    assert "본문 절단" in it["body"]                   # 옛 판 호환 필드는 그대로
+    assert "본문 절단" not in full and len(full) > 500  # 절은 자르지 않은 전체
+    assert full.startswith(it["body"].split("\n…")[0])
+    for i in range(30):
+        assert f"temperature_c={100 + i}" in full
+    secs = it["sections"]
+    assert len(secs) > 1 and all(len(s["content_text"]) <= 400 for s in secs)
+    assert [s["section_id"] for s in secs] == [str(i) for i in range(1, len(secs) + 1)]
+    assert all(s["level"] == 1 for s in secs)
+    assert [s["title"] for s in secs] == [f"본문 ({i}/{len(secs)})" for i in range(1, len(secs) + 1)]
+    # 줄 경계에서 나눈다 — 물성 한 줄이 두 절에 걸치지 않는다.
+    assert all(s["content_text"].endswith("\n") for s in secs[:-1])
+
+
+def test_export_cuts_a_line_longer_than_the_limit(mcp_env, monkeypatch):
+    M = mcp_env
+    mid = M.register_material(name="NoteMat", category="metal")["material_id"]
+    M.register_property(mid, "thermal.conductivity", value=1.0, unit="W/(m*K)", quality_tier=1,
+                        notes="가" * 1000, source_title="paper", source_kind="journal")
+    _limit(monkeypatch, 300)
+
+    it = next(x for x in _export()["items"] if x["id"] == mid)
+    assert _joined(it) == it["body"]  # 짧은 카드라 옛 body 도 전체다
+    assert all(len(s["content_text"]) <= 300 for s in it["sections"])
+
+
+def test_a_short_body_is_one_section_shaped_like_the_hub_fallback(mcp_env):
+    """한도 안이면 절 하나 — 허브가 body 로 만들던 절과 같은 모양이라 본문 해시가 그대로다
+    (재료 수천 장이 다시 임베딩되지 않는다)."""
+    M = mcp_env
+    mid = M.register_material(name="ShortMat", category="metal")["material_id"]
+    M.register_property(mid, "thermal.conductivity", value=1.0, unit="W/(m*K)", quality_tier=1,
+                        source_title="paper", source_kind="journal")
+
+    it = next(x for x in _export()["items"] if x["id"] == mid)
+    assert it.get("sections") == [{"section_id": "1", "level": 1, "title": "본문",
+                                   "content_text": it["body"]}]
+
+
+def test_hub_section_max_chars_default_and_env(monkeypatch):
+    from app.config import Settings
+
+    monkeypatch.delenv("MATERIALTWIN_HUB_SECTION_MAX_CHARS", raising=False)
+    assert getattr(Settings(), "hub_section_max_chars", None) == 60_000
+    monkeypatch.setenv("MATERIALTWIN_HUB_SECTION_MAX_CHARS", "1000")
+    assert getattr(Settings(), "hub_section_max_chars", None) == 1000
